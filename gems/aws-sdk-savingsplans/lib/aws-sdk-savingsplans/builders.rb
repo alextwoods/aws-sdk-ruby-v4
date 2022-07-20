@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Savingsplans
   module Builders
 
@@ -25,8 +27,8 @@ module AWS::SDK::Savingsplans
         data['upfrontPaymentAmount'] = input[:upfront_payment_amount] unless input[:upfront_payment_amount].nil?
         data['purchaseTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:purchase_time]).to_i unless input[:purchase_time].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,7 +54,7 @@ module AWS::SDK::Savingsplans
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['savingsPlanId'] = input[:savings_plan_id] unless input[:savings_plan_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,10 +69,10 @@ module AWS::SDK::Savingsplans
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['savingsPlanId'] = input[:savings_plan_id] unless input[:savings_plan_id].nil?
-        data['filters'] = Builders::SavingsPlanRateFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = SavingsPlanRateFilterList.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -79,7 +81,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SavingsPlanRateFilter.build(element) unless element.nil?
+          data << SavingsPlanRateFilter.build(element) unless element.nil?
         end
         data
       end
@@ -90,7 +92,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::ListOfStrings.build(input[:values]) unless input[:values].nil?
+        data['values'] = ListOfStrings.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -116,13 +118,13 @@ module AWS::SDK::Savingsplans
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['savingsPlanArns'] = Builders::SavingsPlanArnList.build(input[:savings_plan_arns]) unless input[:savings_plan_arns].nil?
-        data['savingsPlanIds'] = Builders::SavingsPlanIdList.build(input[:savings_plan_ids]) unless input[:savings_plan_ids].nil?
+        data['savingsPlanArns'] = SavingsPlanArnList.build(input[:savings_plan_arns]) unless input[:savings_plan_arns].nil?
+        data['savingsPlanIds'] = SavingsPlanIdList.build(input[:savings_plan_ids]) unless input[:savings_plan_ids].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['states'] = Builders::SavingsPlanStateList.build(input[:states]) unless input[:states].nil?
-        data['filters'] = Builders::SavingsPlanFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['states'] = SavingsPlanStateList.build(input[:states]) unless input[:states].nil?
+        data['filters'] = SavingsPlanFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SavingsPlanFilter.build(element) unless element.nil?
+          data << SavingsPlanFilter.build(element) unless element.nil?
         end
         data
       end
@@ -142,7 +144,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::ListOfStrings.build(input[:values]) unless input[:values].nil?
+        data['values'] = ListOfStrings.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -190,17 +192,17 @@ module AWS::SDK::Savingsplans
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['savingsPlanOfferingIds'] = Builders::UUIDs.build(input[:savings_plan_offering_ids]) unless input[:savings_plan_offering_ids].nil?
-        data['savingsPlanPaymentOptions'] = Builders::SavingsPlanPaymentOptionList.build(input[:savings_plan_payment_options]) unless input[:savings_plan_payment_options].nil?
-        data['savingsPlanTypes'] = Builders::SavingsPlanTypeList.build(input[:savings_plan_types]) unless input[:savings_plan_types].nil?
-        data['products'] = Builders::SavingsPlanProductTypeList.build(input[:products]) unless input[:products].nil?
-        data['serviceCodes'] = Builders::SavingsPlanRateServiceCodeList.build(input[:service_codes]) unless input[:service_codes].nil?
-        data['usageTypes'] = Builders::SavingsPlanRateUsageTypeList.build(input[:usage_types]) unless input[:usage_types].nil?
-        data['operations'] = Builders::SavingsPlanRateOperationList.build(input[:operations]) unless input[:operations].nil?
-        data['filters'] = Builders::SavingsPlanOfferingRateFiltersList.build(input[:filters]) unless input[:filters].nil?
+        data['savingsPlanOfferingIds'] = UUIDs.build(input[:savings_plan_offering_ids]) unless input[:savings_plan_offering_ids].nil?
+        data['savingsPlanPaymentOptions'] = SavingsPlanPaymentOptionList.build(input[:savings_plan_payment_options]) unless input[:savings_plan_payment_options].nil?
+        data['savingsPlanTypes'] = SavingsPlanTypeList.build(input[:savings_plan_types]) unless input[:savings_plan_types].nil?
+        data['products'] = SavingsPlanProductTypeList.build(input[:products]) unless input[:products].nil?
+        data['serviceCodes'] = SavingsPlanRateServiceCodeList.build(input[:service_codes]) unless input[:service_codes].nil?
+        data['usageTypes'] = SavingsPlanRateUsageTypeList.build(input[:usage_types]) unless input[:usage_types].nil?
+        data['operations'] = SavingsPlanRateOperationList.build(input[:operations]) unless input[:operations].nil?
+        data['filters'] = SavingsPlanOfferingRateFiltersList.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -209,7 +211,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SavingsPlanOfferingRateFilterElement.build(element) unless element.nil?
+          data << SavingsPlanOfferingRateFilterElement.build(element) unless element.nil?
         end
         data
       end
@@ -220,7 +222,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValuesList.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValuesList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -323,20 +325,20 @@ module AWS::SDK::Savingsplans
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['offeringIds'] = Builders::UUIDs.build(input[:offering_ids]) unless input[:offering_ids].nil?
-        data['paymentOptions'] = Builders::SavingsPlanPaymentOptionList.build(input[:payment_options]) unless input[:payment_options].nil?
+        data['offeringIds'] = UUIDs.build(input[:offering_ids]) unless input[:offering_ids].nil?
+        data['paymentOptions'] = SavingsPlanPaymentOptionList.build(input[:payment_options]) unless input[:payment_options].nil?
         data['productType'] = input[:product_type] unless input[:product_type].nil?
-        data['planTypes'] = Builders::SavingsPlanTypeList.build(input[:plan_types]) unless input[:plan_types].nil?
-        data['durations'] = Builders::DurationsList.build(input[:durations]) unless input[:durations].nil?
-        data['currencies'] = Builders::CurrencyList.build(input[:currencies]) unless input[:currencies].nil?
-        data['descriptions'] = Builders::SavingsPlanDescriptionsList.build(input[:descriptions]) unless input[:descriptions].nil?
-        data['serviceCodes'] = Builders::SavingsPlanServiceCodeList.build(input[:service_codes]) unless input[:service_codes].nil?
-        data['usageTypes'] = Builders::SavingsPlanUsageTypeList.build(input[:usage_types]) unless input[:usage_types].nil?
-        data['operations'] = Builders::SavingsPlanOperationList.build(input[:operations]) unless input[:operations].nil?
-        data['filters'] = Builders::SavingsPlanOfferingFiltersList.build(input[:filters]) unless input[:filters].nil?
+        data['planTypes'] = SavingsPlanTypeList.build(input[:plan_types]) unless input[:plan_types].nil?
+        data['durations'] = DurationsList.build(input[:durations]) unless input[:durations].nil?
+        data['currencies'] = CurrencyList.build(input[:currencies]) unless input[:currencies].nil?
+        data['descriptions'] = SavingsPlanDescriptionsList.build(input[:descriptions]) unless input[:descriptions].nil?
+        data['serviceCodes'] = SavingsPlanServiceCodeList.build(input[:service_codes]) unless input[:service_codes].nil?
+        data['usageTypes'] = SavingsPlanUsageTypeList.build(input[:usage_types]) unless input[:usage_types].nil?
+        data['operations'] = SavingsPlanOperationList.build(input[:operations]) unless input[:operations].nil?
+        data['filters'] = SavingsPlanOfferingFiltersList.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -345,7 +347,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SavingsPlanOfferingFilterElement.build(element) unless element.nil?
+          data << SavingsPlanOfferingFilterElement.build(element) unless element.nil?
         end
         data
       end
@@ -356,7 +358,7 @@ module AWS::SDK::Savingsplans
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValuesList.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValuesList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -438,7 +440,7 @@ module AWS::SDK::Savingsplans
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -453,8 +455,8 @@ module AWS::SDK::Savingsplans
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -469,8 +471,8 @@ module AWS::SDK::Savingsplans
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

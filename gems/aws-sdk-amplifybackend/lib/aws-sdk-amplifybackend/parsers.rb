@@ -243,7 +243,7 @@ module AWS::SDK::AmplifyBackend
         data.amplify_meta_config = map['amplifyMetaConfig']
         data.app_id = map['appId']
         data.app_name = map['appName']
-        data.backend_environment_list = (Parsers::ListOf__string.parse(map['backendEnvironmentList']) unless map['backendEnvironmentList'].nil?)
+        data.backend_environment_list = (ListOf__string.parse(map['backendEnvironmentList']) unless map['backendEnvironmentList'].nil?)
         data.backend_environment_name = map['backendEnvironmentName']
         data.error = map['error']
         data
@@ -268,7 +268,7 @@ module AWS::SDK::AmplifyBackend
         data.app_id = map['appId']
         data.backend_environment_name = map['backendEnvironmentName']
         data.error = map['error']
-        data.resource_config = (Parsers::BackendAPIResourceConfig.parse(map['resourceConfig']) unless map['resourceConfig'].nil?)
+        data.resource_config = (BackendAPIResourceConfig.parse(map['resourceConfig']) unless map['resourceConfig'].nil?)
         data.resource_name = map['resourceName']
         data
       end
@@ -277,10 +277,10 @@ module AWS::SDK::AmplifyBackend
     class BackendAPIResourceConfig
       def self.parse(map)
         data = Types::BackendAPIResourceConfig.new
-        data.additional_auth_types = (Parsers::ListOfBackendAPIAuthType.parse(map['additionalAuthTypes']) unless map['additionalAuthTypes'].nil?)
+        data.additional_auth_types = (ListOfBackendAPIAuthType.parse(map['additionalAuthTypes']) unless map['additionalAuthTypes'].nil?)
         data.api_name = map['apiName']
-        data.conflict_resolution = (Parsers::BackendAPIConflictResolution.parse(map['conflictResolution']) unless map['conflictResolution'].nil?)
-        data.default_auth_type = (Parsers::BackendAPIAuthType.parse(map['defaultAuthType']) unless map['defaultAuthType'].nil?)
+        data.conflict_resolution = (BackendAPIConflictResolution.parse(map['conflictResolution']) unless map['conflictResolution'].nil?)
+        data.default_auth_type = (BackendAPIAuthType.parse(map['defaultAuthType']) unless map['defaultAuthType'].nil?)
         data.service = map['service']
         data.transform_schema = map['transformSchema']
         return data
@@ -291,7 +291,7 @@ module AWS::SDK::AmplifyBackend
       def self.parse(map)
         data = Types::BackendAPIAuthType.new
         data.mode = map['mode']
-        data.settings = (Parsers::BackendAPIAppSyncAuthSettings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (BackendAPIAppSyncAuthSettings.parse(map['settings']) unless map['settings'].nil?)
         return data
       end
     end
@@ -323,7 +323,7 @@ module AWS::SDK::AmplifyBackend
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackendAPIAuthType.parse(value) unless value.nil?
+          data << BackendAPIAuthType.parse(value) unless value.nil?
         end
         data
       end
@@ -348,7 +348,7 @@ module AWS::SDK::AmplifyBackend
         data.app_id = map['appId']
         data.backend_environment_name = map['backendEnvironmentName']
         data.error = map['error']
-        data.resource_config = (Parsers::CreateBackendAuthResourceConfig.parse(map['resourceConfig']) unless map['resourceConfig'].nil?)
+        data.resource_config = (CreateBackendAuthResourceConfig.parse(map['resourceConfig']) unless map['resourceConfig'].nil?)
         data.resource_name = map['resourceName']
         data
       end
@@ -358,9 +358,9 @@ module AWS::SDK::AmplifyBackend
       def self.parse(map)
         data = Types::CreateBackendAuthResourceConfig.new
         data.auth_resources = map['authResources']
-        data.identity_pool_configs = (Parsers::CreateBackendAuthIdentityPoolConfig.parse(map['identityPoolConfigs']) unless map['identityPoolConfigs'].nil?)
+        data.identity_pool_configs = (CreateBackendAuthIdentityPoolConfig.parse(map['identityPoolConfigs']) unless map['identityPoolConfigs'].nil?)
         data.service = map['service']
-        data.user_pool_configs = (Parsers::CreateBackendAuthUserPoolConfig.parse(map['userPoolConfigs']) unless map['userPoolConfigs'].nil?)
+        data.user_pool_configs = (CreateBackendAuthUserPoolConfig.parse(map['userPoolConfigs']) unless map['userPoolConfigs'].nil?)
         return data
       end
     end
@@ -368,14 +368,14 @@ module AWS::SDK::AmplifyBackend
     class CreateBackendAuthUserPoolConfig
       def self.parse(map)
         data = Types::CreateBackendAuthUserPoolConfig.new
-        data.forgot_password = (Parsers::CreateBackendAuthForgotPasswordConfig.parse(map['forgotPassword']) unless map['forgotPassword'].nil?)
-        data.mfa = (Parsers::CreateBackendAuthMFAConfig.parse(map['mfa']) unless map['mfa'].nil?)
-        data.o_auth = (Parsers::CreateBackendAuthOAuthConfig.parse(map['oAuth']) unless map['oAuth'].nil?)
-        data.password_policy = (Parsers::CreateBackendAuthPasswordPolicyConfig.parse(map['passwordPolicy']) unless map['passwordPolicy'].nil?)
-        data.required_sign_up_attributes = (Parsers::ListOfRequiredSignUpAttributesElement.parse(map['requiredSignUpAttributes']) unless map['requiredSignUpAttributes'].nil?)
+        data.forgot_password = (CreateBackendAuthForgotPasswordConfig.parse(map['forgotPassword']) unless map['forgotPassword'].nil?)
+        data.mfa = (CreateBackendAuthMFAConfig.parse(map['mfa']) unless map['mfa'].nil?)
+        data.o_auth = (CreateBackendAuthOAuthConfig.parse(map['oAuth']) unless map['oAuth'].nil?)
+        data.password_policy = (CreateBackendAuthPasswordPolicyConfig.parse(map['passwordPolicy']) unless map['passwordPolicy'].nil?)
+        data.required_sign_up_attributes = (ListOfRequiredSignUpAttributesElement.parse(map['requiredSignUpAttributes']) unless map['requiredSignUpAttributes'].nil?)
         data.sign_in_method = map['signInMethod']
         data.user_pool_name = map['userPoolName']
-        data.verification_message = (Parsers::CreateBackendAuthVerificationMessageConfig.parse(map['verificationMessage']) unless map['verificationMessage'].nil?)
+        data.verification_message = (CreateBackendAuthVerificationMessageConfig.parse(map['verificationMessage']) unless map['verificationMessage'].nil?)
         return data
       end
     end
@@ -384,8 +384,8 @@ module AWS::SDK::AmplifyBackend
       def self.parse(map)
         data = Types::CreateBackendAuthVerificationMessageConfig.new
         data.delivery_method = map['deliveryMethod']
-        data.email_settings = (Parsers::EmailSettings.parse(map['emailSettings']) unless map['emailSettings'].nil?)
-        data.sms_settings = (Parsers::SmsSettings.parse(map['smsSettings']) unless map['smsSettings'].nil?)
+        data.email_settings = (EmailSettings.parse(map['emailSettings']) unless map['emailSettings'].nil?)
+        data.sms_settings = (SmsSettings.parse(map['smsSettings']) unless map['smsSettings'].nil?)
         return data
       end
     end
@@ -420,7 +420,7 @@ module AWS::SDK::AmplifyBackend
     class CreateBackendAuthPasswordPolicyConfig
       def self.parse(map)
         data = Types::CreateBackendAuthPasswordPolicyConfig.new
-        data.additional_constraints = (Parsers::ListOfAdditionalConstraintsElement.parse(map['additionalConstraints']) unless map['additionalConstraints'].nil?)
+        data.additional_constraints = (ListOfAdditionalConstraintsElement.parse(map['additionalConstraints']) unless map['additionalConstraints'].nil?)
         data.minimum_length = Hearth::NumberHelper.deserialize(map['minimumLength'])
         return data
       end
@@ -441,10 +441,10 @@ module AWS::SDK::AmplifyBackend
         data = Types::CreateBackendAuthOAuthConfig.new
         data.domain_prefix = map['domainPrefix']
         data.o_auth_grant_type = map['oAuthGrantType']
-        data.o_auth_scopes = (Parsers::ListOfOAuthScopesElement.parse(map['oAuthScopes']) unless map['oAuthScopes'].nil?)
-        data.redirect_sign_in_ur_is = (Parsers::ListOf__string.parse(map['redirectSignInURIs']) unless map['redirectSignInURIs'].nil?)
-        data.redirect_sign_out_ur_is = (Parsers::ListOf__string.parse(map['redirectSignOutURIs']) unless map['redirectSignOutURIs'].nil?)
-        data.social_provider_settings = (Parsers::SocialProviderSettings.parse(map['socialProviderSettings']) unless map['socialProviderSettings'].nil?)
+        data.o_auth_scopes = (ListOfOAuthScopesElement.parse(map['oAuthScopes']) unless map['oAuthScopes'].nil?)
+        data.redirect_sign_in_ur_is = (ListOf__string.parse(map['redirectSignInURIs']) unless map['redirectSignInURIs'].nil?)
+        data.redirect_sign_out_ur_is = (ListOf__string.parse(map['redirectSignOutURIs']) unless map['redirectSignOutURIs'].nil?)
+        data.social_provider_settings = (SocialProviderSettings.parse(map['socialProviderSettings']) unless map['socialProviderSettings'].nil?)
         return data
       end
     end
@@ -452,10 +452,10 @@ module AWS::SDK::AmplifyBackend
     class SocialProviderSettings
       def self.parse(map)
         data = Types::SocialProviderSettings.new
-        data.facebook = (Parsers::BackendAuthSocialProviderConfig.parse(map['Facebook']) unless map['Facebook'].nil?)
-        data.google = (Parsers::BackendAuthSocialProviderConfig.parse(map['Google']) unless map['Google'].nil?)
-        data.login_with_amazon = (Parsers::BackendAuthSocialProviderConfig.parse(map['LoginWithAmazon']) unless map['LoginWithAmazon'].nil?)
-        data.sign_in_with_apple = (Parsers::BackendAuthAppleProviderConfig.parse(map['SignInWithApple']) unless map['SignInWithApple'].nil?)
+        data.facebook = (BackendAuthSocialProviderConfig.parse(map['Facebook']) unless map['Facebook'].nil?)
+        data.google = (BackendAuthSocialProviderConfig.parse(map['Google']) unless map['Google'].nil?)
+        data.login_with_amazon = (BackendAuthSocialProviderConfig.parse(map['LoginWithAmazon']) unless map['LoginWithAmazon'].nil?)
+        data.sign_in_with_apple = (BackendAuthAppleProviderConfig.parse(map['SignInWithApple']) unless map['SignInWithApple'].nil?)
         return data
       end
     end
@@ -494,7 +494,7 @@ module AWS::SDK::AmplifyBackend
       def self.parse(map)
         data = Types::CreateBackendAuthMFAConfig.new
         data.mfa_mode = map['MFAMode']
-        data.settings = (Parsers::Settings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (Settings.parse(map['settings']) unless map['settings'].nil?)
         return data
       end
     end
@@ -502,7 +502,7 @@ module AWS::SDK::AmplifyBackend
     class Settings
       def self.parse(map)
         data = Types::Settings.new
-        data.mfa_types = (Parsers::ListOfMfaTypesElement.parse(map['mfaTypes']) unless map['mfaTypes'].nil?)
+        data.mfa_types = (ListOfMfaTypesElement.parse(map['mfaTypes']) unless map['mfaTypes'].nil?)
         data.sms_message = map['smsMessage']
         return data
       end
@@ -522,8 +522,8 @@ module AWS::SDK::AmplifyBackend
       def self.parse(map)
         data = Types::CreateBackendAuthForgotPasswordConfig.new
         data.delivery_method = map['deliveryMethod']
-        data.email_settings = (Parsers::EmailSettings.parse(map['emailSettings']) unless map['emailSettings'].nil?)
-        data.sms_settings = (Parsers::SmsSettings.parse(map['smsSettings']) unless map['smsSettings'].nil?)
+        data.email_settings = (EmailSettings.parse(map['emailSettings']) unless map['emailSettings'].nil?)
+        data.sms_settings = (SmsSettings.parse(map['smsSettings']) unless map['smsSettings'].nil?)
         return data
       end
     end
@@ -561,7 +561,7 @@ module AWS::SDK::AmplifyBackend
         map = Hearth::JSON.load(http_resp.body)
         data.app_id = map['appId']
         data.backend_environment_name = map['backendEnvironmentName']
-        data.resource_config = (Parsers::GetBackendStorageResourceConfig.parse(map['resourceConfig']) unless map['resourceConfig'].nil?)
+        data.resource_config = (GetBackendStorageResourceConfig.parse(map['resourceConfig']) unless map['resourceConfig'].nil?)
         data.resource_name = map['resourceName']
         data
       end
@@ -572,7 +572,7 @@ module AWS::SDK::AmplifyBackend
         data = Types::GetBackendStorageResourceConfig.new
         data.bucket_name = map['bucketName']
         data.imported = map['imported']
-        data.permissions = (Parsers::BackendStoragePermissions.parse(map['permissions']) unless map['permissions'].nil?)
+        data.permissions = (BackendStoragePermissions.parse(map['permissions']) unless map['permissions'].nil?)
         data.service_name = map['serviceName']
         return data
       end
@@ -581,8 +581,8 @@ module AWS::SDK::AmplifyBackend
     class BackendStoragePermissions
       def self.parse(map)
         data = Types::BackendStoragePermissions.new
-        data.authenticated = (Parsers::ListOfAuthenticatedElement.parse(map['authenticated']) unless map['authenticated'].nil?)
-        data.un_authenticated = (Parsers::ListOfUnAuthenticatedElement.parse(map['unAuthenticated']) unless map['unAuthenticated'].nil?)
+        data.authenticated = (ListOfAuthenticatedElement.parse(map['authenticated']) unless map['authenticated'].nil?)
+        data.un_authenticated = (ListOfUnAuthenticatedElement.parse(map['unAuthenticated']) unless map['unAuthenticated'].nil?)
         return data
       end
     end
@@ -653,7 +653,7 @@ module AWS::SDK::AmplifyBackend
       def self.parse(http_resp)
         data = Types::ListBackendJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::ListOfBackendJobRespObj.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (ListOfBackendJobRespObj.parse(map['jobs']) unless map['jobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -663,7 +663,7 @@ module AWS::SDK::AmplifyBackend
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackendJobRespObj.parse(value) unless value.nil?
+          data << BackendJobRespObj.parse(value) unless value.nil?
         end
         data
       end
@@ -689,7 +689,7 @@ module AWS::SDK::AmplifyBackend
       def self.parse(http_resp)
         data = Types::ListS3BucketsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.buckets = (Parsers::ListOfS3BucketInfo.parse(map['buckets']) unless map['buckets'].nil?)
+        data.buckets = (ListOfS3BucketInfo.parse(map['buckets']) unless map['buckets'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -699,7 +699,7 @@ module AWS::SDK::AmplifyBackend
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::S3BucketInfo.parse(value) unless value.nil?
+          data << S3BucketInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -776,7 +776,7 @@ module AWS::SDK::AmplifyBackend
         data.app_id = map['appId']
         data.backend_manager_app_id = map['backendManagerAppId']
         data.error = map['error']
-        data.login_auth_config = (Parsers::LoginAuthConfigReqObj.parse(map['loginAuthConfig']) unless map['loginAuthConfig'].nil?)
+        data.login_auth_config = (LoginAuthConfigReqObj.parse(map['loginAuthConfig']) unless map['loginAuthConfig'].nil?)
         data
       end
     end

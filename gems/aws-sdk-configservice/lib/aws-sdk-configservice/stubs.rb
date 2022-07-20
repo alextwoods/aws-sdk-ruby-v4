@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ConfigService
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BaseConfigurationItems'] = Stubs::BaseConfigurationItems.stub(stub[:base_configuration_items]) unless stub[:base_configuration_items].nil?
-        data['UnprocessedResourceIdentifiers'] = Stubs::UnprocessedResourceIdentifierList.stub(stub[:unprocessed_resource_identifiers]) unless stub[:unprocessed_resource_identifiers].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BaseConfigurationItems'] = BaseConfigurationItems.stub(stub[:base_configuration_items]) unless stub[:base_configuration_items].nil?
+        data['UnprocessedResourceIdentifiers'] = UnprocessedResourceIdentifierList.stub(stub[:unprocessed_resource_identifiers]) unless stub[:unprocessed_resource_identifiers].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateResourceIdentifier.stub(element) unless element.nil?
+          data << AggregateResourceIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -88,7 +90,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BaseConfigurationItem.stub(element) unless element.nil?
+          data << BaseConfigurationItem.stub(element) unless element.nil?
         end
         data
       end
@@ -133,7 +135,7 @@ module AWS::SDK::ConfigService
         data['availabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data['resourceCreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:resource_creation_time]).to_i unless stub[:resource_creation_time].nil?
         data['configuration'] = stub[:configuration] unless stub[:configuration].nil?
-        data['supplementaryConfiguration'] = Stubs::SupplementaryConfiguration.stub(stub[:supplementary_configuration]) unless stub[:supplementary_configuration].nil?
+        data['supplementaryConfiguration'] = SupplementaryConfiguration.stub(stub[:supplementary_configuration]) unless stub[:supplementary_configuration].nil?
         data
       end
     end
@@ -169,9 +171,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['baseConfigurationItems'] = Stubs::BaseConfigurationItems.stub(stub[:base_configuration_items]) unless stub[:base_configuration_items].nil?
-        data['unprocessedResourceKeys'] = Stubs::ResourceKeys.stub(stub[:unprocessed_resource_keys]) unless stub[:unprocessed_resource_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['baseConfigurationItems'] = BaseConfigurationItems.stub(stub[:base_configuration_items]) unless stub[:base_configuration_items].nil?
+        data['unprocessedResourceKeys'] = ResourceKeys.stub(stub[:unprocessed_resource_keys]) unless stub[:unprocessed_resource_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceKey.stub(element) unless element.nil?
+          data << ResourceKey.stub(element) unless element.nil?
         end
         data
       end
@@ -225,7 +227,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -239,7 +241,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -253,7 +255,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -295,7 +297,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -323,7 +325,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -337,7 +339,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -351,7 +353,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -380,8 +382,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedBatches'] = Stubs::FailedDeleteRemediationExceptionsBatches.stub(stub[:failed_batches]) unless stub[:failed_batches].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedBatches'] = FailedDeleteRemediationExceptionsBatches.stub(stub[:failed_batches]) unless stub[:failed_batches].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedDeleteRemediationExceptionsBatch.stub(element) unless element.nil?
+          data << FailedDeleteRemediationExceptionsBatch.stub(element) unless element.nil?
         end
         data
       end
@@ -421,7 +423,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::FailedDeleteRemediationExceptionsBatch.new
         data = {}
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
-        data['FailedItems'] = Stubs::RemediationExceptionResourceKeys.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        data['FailedItems'] = RemediationExceptionResourceKeys.stub(stub[:failed_items]) unless stub[:failed_items].nil?
         data
       end
     end
@@ -440,7 +442,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemediationExceptionResourceKey.stub(element) unless element.nil?
+          data << RemediationExceptionResourceKey.stub(element) unless element.nil?
         end
         data
       end
@@ -475,7 +477,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -489,7 +491,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -503,7 +505,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -519,7 +521,7 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['configSnapshotId'] = stub[:config_snapshot_id] unless stub[:config_snapshot_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -535,9 +537,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AggregateComplianceByConfigRules'] = Stubs::AggregateComplianceByConfigRuleList.stub(stub[:aggregate_compliance_by_config_rules]) unless stub[:aggregate_compliance_by_config_rules].nil?
+        data['AggregateComplianceByConfigRules'] = AggregateComplianceByConfigRuleList.stub(stub[:aggregate_compliance_by_config_rules]) unless stub[:aggregate_compliance_by_config_rules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateComplianceByConfigRule.stub(element) unless element.nil?
+          data << AggregateComplianceByConfigRule.stub(element) unless element.nil?
         end
         data
       end
@@ -579,7 +581,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::AggregateComplianceByConfigRule.new
         data = {}
         data['ConfigRuleName'] = stub[:config_rule_name] unless stub[:config_rule_name].nil?
-        data['Compliance'] = Stubs::Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['Compliance'] = Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['AwsRegion'] = stub[:aws_region] unless stub[:aws_region].nil?
         data
@@ -601,7 +603,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::Compliance.new
         data = {}
         data['ComplianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
-        data['ComplianceContributorCount'] = Stubs::ComplianceContributorCount.stub(stub[:compliance_contributor_count]) unless stub[:compliance_contributor_count].nil?
+        data['ComplianceContributorCount'] = ComplianceContributorCount.stub(stub[:compliance_contributor_count]) unless stub[:compliance_contributor_count].nil?
         data
       end
     end
@@ -637,9 +639,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AggregateComplianceByConformancePacks'] = Stubs::AggregateComplianceByConformancePackList.stub(stub[:aggregate_compliance_by_conformance_packs]) unless stub[:aggregate_compliance_by_conformance_packs].nil?
+        data['AggregateComplianceByConformancePacks'] = AggregateComplianceByConformancePackList.stub(stub[:aggregate_compliance_by_conformance_packs]) unless stub[:aggregate_compliance_by_conformance_packs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -658,7 +660,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateComplianceByConformancePack.stub(element) unless element.nil?
+          data << AggregateComplianceByConformancePack.stub(element) unless element.nil?
         end
         data
       end
@@ -681,7 +683,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::AggregateComplianceByConformancePack.new
         data = {}
         data['ConformancePackName'] = stub[:conformance_pack_name] unless stub[:conformance_pack_name].nil?
-        data['Compliance'] = Stubs::AggregateConformancePackCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['Compliance'] = AggregateConformancePackCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['AwsRegion'] = stub[:aws_region] unless stub[:aws_region].nil?
         data
@@ -723,9 +725,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AggregationAuthorizations'] = Stubs::AggregationAuthorizationList.stub(stub[:aggregation_authorizations]) unless stub[:aggregation_authorizations].nil?
+        data['AggregationAuthorizations'] = AggregationAuthorizationList.stub(stub[:aggregation_authorizations]) unless stub[:aggregation_authorizations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -744,7 +746,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregationAuthorization.stub(element) unless element.nil?
+          data << AggregationAuthorization.stub(element) unless element.nil?
         end
         data
       end
@@ -785,9 +787,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComplianceByConfigRules'] = Stubs::ComplianceByConfigRules.stub(stub[:compliance_by_config_rules]) unless stub[:compliance_by_config_rules].nil?
+        data['ComplianceByConfigRules'] = ComplianceByConfigRules.stub(stub[:compliance_by_config_rules]) unless stub[:compliance_by_config_rules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -806,7 +808,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComplianceByConfigRule.stub(element) unless element.nil?
+          data << ComplianceByConfigRule.stub(element) unless element.nil?
         end
         data
       end
@@ -827,7 +829,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::ComplianceByConfigRule.new
         data = {}
         data['ConfigRuleName'] = stub[:config_rule_name] unless stub[:config_rule_name].nil?
-        data['Compliance'] = Stubs::Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['Compliance'] = Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
         data
       end
     end
@@ -843,9 +845,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComplianceByResources'] = Stubs::ComplianceByResources.stub(stub[:compliance_by_resources]) unless stub[:compliance_by_resources].nil?
+        data['ComplianceByResources'] = ComplianceByResources.stub(stub[:compliance_by_resources]) unless stub[:compliance_by_resources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -864,7 +866,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComplianceByResource.stub(element) unless element.nil?
+          data << ComplianceByResource.stub(element) unless element.nil?
         end
         data
       end
@@ -887,7 +889,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
-        data['Compliance'] = Stubs::Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['Compliance'] = Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
         data
       end
     end
@@ -903,9 +905,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigRulesEvaluationStatus'] = Stubs::ConfigRuleEvaluationStatusList.stub(stub[:config_rules_evaluation_status]) unless stub[:config_rules_evaluation_status].nil?
+        data['ConfigRulesEvaluationStatus'] = ConfigRuleEvaluationStatusList.stub(stub[:config_rules_evaluation_status]) unless stub[:config_rules_evaluation_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -924,7 +926,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigRuleEvaluationStatus.stub(element) unless element.nil?
+          data << ConfigRuleEvaluationStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -987,9 +989,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigRules'] = Stubs::ConfigRules.stub(stub[:config_rules]) unless stub[:config_rules].nil?
+        data['ConfigRules'] = ConfigRules.stub(stub[:config_rules]) unless stub[:config_rules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1008,7 +1010,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigRule.stub(element) unless element.nil?
+          data << ConfigRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1040,8 +1042,8 @@ module AWS::SDK::ConfigService
         data['ConfigRuleArn'] = stub[:config_rule_arn] unless stub[:config_rule_arn].nil?
         data['ConfigRuleId'] = stub[:config_rule_id] unless stub[:config_rule_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Scope'] = Stubs::Scope.stub(stub[:scope]) unless stub[:scope].nil?
-        data['Source'] = Stubs::Source.stub(stub[:source]) unless stub[:source].nil?
+        data['Scope'] = Scope.stub(stub[:scope]) unless stub[:scope].nil?
+        data['Source'] = Source.stub(stub[:source]) unless stub[:source].nil?
         data['InputParameters'] = stub[:input_parameters] unless stub[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = stub[:maximum_execution_frequency] unless stub[:maximum_execution_frequency].nil?
         data['ConfigRuleState'] = stub[:config_rule_state] unless stub[:config_rule_state].nil?
@@ -1068,8 +1070,8 @@ module AWS::SDK::ConfigService
         data = {}
         data['Owner'] = stub[:owner] unless stub[:owner].nil?
         data['SourceIdentifier'] = stub[:source_identifier] unless stub[:source_identifier].nil?
-        data['SourceDetails'] = Stubs::SourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
-        data['CustomPolicyDetails'] = Stubs::CustomPolicyDetails.stub(stub[:custom_policy_details]) unless stub[:custom_policy_details].nil?
+        data['SourceDetails'] = SourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
+        data['CustomPolicyDetails'] = CustomPolicyDetails.stub(stub[:custom_policy_details]) unless stub[:custom_policy_details].nil?
         data
       end
     end
@@ -1110,7 +1112,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceDetail.stub(element) unless element.nil?
+          data << SourceDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1154,7 +1156,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::Scope.new
         data = {}
-        data['ComplianceResourceTypes'] = Stubs::ComplianceResourceTypes.stub(stub[:compliance_resource_types]) unless stub[:compliance_resource_types].nil?
+        data['ComplianceResourceTypes'] = ComplianceResourceTypes.stub(stub[:compliance_resource_types]) unless stub[:compliance_resource_types].nil?
         data['TagKey'] = stub[:tag_key] unless stub[:tag_key].nil?
         data['TagValue'] = stub[:tag_value] unless stub[:tag_value].nil?
         data['ComplianceResourceId'] = stub[:compliance_resource_id] unless stub[:compliance_resource_id].nil?
@@ -1193,9 +1195,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AggregatedSourceStatusList'] = Stubs::AggregatedSourceStatusList.stub(stub[:aggregated_source_status_list]) unless stub[:aggregated_source_status_list].nil?
+        data['AggregatedSourceStatusList'] = AggregatedSourceStatusList.stub(stub[:aggregated_source_status_list]) unless stub[:aggregated_source_status_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1214,7 +1216,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregatedSourceStatus.stub(element) unless element.nil?
+          data << AggregatedSourceStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1261,9 +1263,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigurationAggregators'] = Stubs::ConfigurationAggregatorList.stub(stub[:configuration_aggregators]) unless stub[:configuration_aggregators].nil?
+        data['ConfigurationAggregators'] = ConfigurationAggregatorList.stub(stub[:configuration_aggregators]) unless stub[:configuration_aggregators].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1282,7 +1284,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationAggregator.stub(element) unless element.nil?
+          data << ConfigurationAggregator.stub(element) unless element.nil?
         end
         data
       end
@@ -1309,8 +1311,8 @@ module AWS::SDK::ConfigService
         data = {}
         data['ConfigurationAggregatorName'] = stub[:configuration_aggregator_name] unless stub[:configuration_aggregator_name].nil?
         data['ConfigurationAggregatorArn'] = stub[:configuration_aggregator_arn] unless stub[:configuration_aggregator_arn].nil?
-        data['AccountAggregationSources'] = Stubs::AccountAggregationSourceList.stub(stub[:account_aggregation_sources]) unless stub[:account_aggregation_sources].nil?
-        data['OrganizationAggregationSource'] = Stubs::OrganizationAggregationSource.stub(stub[:organization_aggregation_source]) unless stub[:organization_aggregation_source].nil?
+        data['AccountAggregationSources'] = AccountAggregationSourceList.stub(stub[:account_aggregation_sources]) unless stub[:account_aggregation_sources].nil?
+        data['OrganizationAggregationSource'] = OrganizationAggregationSource.stub(stub[:organization_aggregation_source]) unless stub[:organization_aggregation_source].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
@@ -1334,7 +1336,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::OrganizationAggregationSource.new
         data = {}
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['AwsRegions'] = Stubs::AggregatorRegionList.stub(stub[:aws_regions]) unless stub[:aws_regions].nil?
+        data['AwsRegions'] = AggregatorRegionList.stub(stub[:aws_regions]) unless stub[:aws_regions].nil?
         data['AllAwsRegions'] = stub[:all_aws_regions] unless stub[:all_aws_regions].nil?
         data
       end
@@ -1374,7 +1376,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountAggregationSource.stub(element) unless element.nil?
+          data << AccountAggregationSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1395,9 +1397,9 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::AccountAggregationSource.new
         data = {}
-        data['AccountIds'] = Stubs::AccountAggregationSourceAccountList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
+        data['AccountIds'] = AccountAggregationSourceAccountList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
         data['AllAwsRegions'] = stub[:all_aws_regions] unless stub[:all_aws_regions].nil?
-        data['AwsRegions'] = Stubs::AggregatorRegionList.stub(stub[:aws_regions]) unless stub[:aws_regions].nil?
+        data['AwsRegions'] = AggregatorRegionList.stub(stub[:aws_regions]) unless stub[:aws_regions].nil?
         data
       end
     end
@@ -1432,8 +1434,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigurationRecordersStatus'] = Stubs::ConfigurationRecorderStatusList.stub(stub[:configuration_recorders_status]) unless stub[:configuration_recorders_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigurationRecordersStatus'] = ConfigurationRecorderStatusList.stub(stub[:configuration_recorders_status]) unless stub[:configuration_recorders_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1452,7 +1454,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationRecorderStatus.stub(element) unless element.nil?
+          data << ConfigurationRecorderStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1500,8 +1502,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigurationRecorders'] = Stubs::ConfigurationRecorderList.stub(stub[:configuration_recorders]) unless stub[:configuration_recorders].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigurationRecorders'] = ConfigurationRecorderList.stub(stub[:configuration_recorders]) unless stub[:configuration_recorders].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1520,7 +1522,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationRecorder.stub(element) unless element.nil?
+          data << ConfigurationRecorder.stub(element) unless element.nil?
         end
         data
       end
@@ -1543,7 +1545,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['roleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['recordingGroup'] = Stubs::RecordingGroup.stub(stub[:recording_group]) unless stub[:recording_group].nil?
+        data['recordingGroup'] = RecordingGroup.stub(stub[:recording_group]) unless stub[:recording_group].nil?
         data
       end
     end
@@ -1565,7 +1567,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['allSupported'] = stub[:all_supported] unless stub[:all_supported].nil?
         data['includeGlobalResourceTypes'] = stub[:include_global_resource_types] unless stub[:include_global_resource_types].nil?
-        data['resourceTypes'] = Stubs::ResourceTypeList.stub(stub[:resource_types]) unless stub[:resource_types].nil?
+        data['resourceTypes'] = ResourceTypeList.stub(stub[:resource_types]) unless stub[:resource_types].nil?
         data
       end
     end
@@ -1603,9 +1605,9 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['ConformancePackName'] = stub[:conformance_pack_name] unless stub[:conformance_pack_name].nil?
-        data['ConformancePackRuleComplianceList'] = Stubs::ConformancePackRuleComplianceList.stub(stub[:conformance_pack_rule_compliance_list]) unless stub[:conformance_pack_rule_compliance_list].nil?
+        data['ConformancePackRuleComplianceList'] = ConformancePackRuleComplianceList.stub(stub[:conformance_pack_rule_compliance_list]) unless stub[:conformance_pack_rule_compliance_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1624,7 +1626,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConformancePackRuleCompliance.stub(element) unless element.nil?
+          data << ConformancePackRuleCompliance.stub(element) unless element.nil?
         end
         data
       end
@@ -1647,7 +1649,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['ConfigRuleName'] = stub[:config_rule_name] unless stub[:config_rule_name].nil?
         data['ComplianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
-        data['Controls'] = Stubs::ControlsList.stub(stub[:controls]) unless stub[:controls].nil?
+        data['Controls'] = ControlsList.stub(stub[:controls]) unless stub[:controls].nil?
         data
       end
     end
@@ -1683,9 +1685,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConformancePackStatusDetails'] = Stubs::ConformancePackStatusDetailsList.stub(stub[:conformance_pack_status_details]) unless stub[:conformance_pack_status_details].nil?
+        data['ConformancePackStatusDetails'] = ConformancePackStatusDetailsList.stub(stub[:conformance_pack_status_details]) unless stub[:conformance_pack_status_details].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1704,7 +1706,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConformancePackStatusDetail.stub(element) unless element.nil?
+          data << ConformancePackStatusDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1753,9 +1755,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConformancePackDetails'] = Stubs::ConformancePackDetailList.stub(stub[:conformance_pack_details]) unless stub[:conformance_pack_details].nil?
+        data['ConformancePackDetails'] = ConformancePackDetailList.stub(stub[:conformance_pack_details]) unless stub[:conformance_pack_details].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1774,7 +1776,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConformancePackDetail.stub(element) unless element.nil?
+          data << ConformancePackDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1805,7 +1807,7 @@ module AWS::SDK::ConfigService
         data['ConformancePackId'] = stub[:conformance_pack_id] unless stub[:conformance_pack_id].nil?
         data['DeliveryS3Bucket'] = stub[:delivery_s3_bucket] unless stub[:delivery_s3_bucket].nil?
         data['DeliveryS3KeyPrefix'] = stub[:delivery_s3_key_prefix] unless stub[:delivery_s3_key_prefix].nil?
-        data['ConformancePackInputParameters'] = Stubs::ConformancePackInputParameters.stub(stub[:conformance_pack_input_parameters]) unless stub[:conformance_pack_input_parameters].nil?
+        data['ConformancePackInputParameters'] = ConformancePackInputParameters.stub(stub[:conformance_pack_input_parameters]) unless stub[:conformance_pack_input_parameters].nil?
         data['LastUpdateRequestedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_requested_time]).to_i unless stub[:last_update_requested_time].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
         data
@@ -1826,7 +1828,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConformancePackInputParameter.stub(element) unless element.nil?
+          data << ConformancePackInputParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1862,8 +1864,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeliveryChannelsStatus'] = Stubs::DeliveryChannelStatusList.stub(stub[:delivery_channels_status]) unless stub[:delivery_channels_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryChannelsStatus'] = DeliveryChannelStatusList.stub(stub[:delivery_channels_status]) unless stub[:delivery_channels_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1882,7 +1884,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeliveryChannelStatus.stub(element) unless element.nil?
+          data << DeliveryChannelStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1905,9 +1907,9 @@ module AWS::SDK::ConfigService
         stub ||= Types::DeliveryChannelStatus.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['configSnapshotDeliveryInfo'] = Stubs::ConfigExportDeliveryInfo.stub(stub[:config_snapshot_delivery_info]) unless stub[:config_snapshot_delivery_info].nil?
-        data['configHistoryDeliveryInfo'] = Stubs::ConfigExportDeliveryInfo.stub(stub[:config_history_delivery_info]) unless stub[:config_history_delivery_info].nil?
-        data['configStreamDeliveryInfo'] = Stubs::ConfigStreamDeliveryInfo.stub(stub[:config_stream_delivery_info]) unless stub[:config_stream_delivery_info].nil?
+        data['configSnapshotDeliveryInfo'] = ConfigExportDeliveryInfo.stub(stub[:config_snapshot_delivery_info]) unless stub[:config_snapshot_delivery_info].nil?
+        data['configHistoryDeliveryInfo'] = ConfigExportDeliveryInfo.stub(stub[:config_history_delivery_info]) unless stub[:config_history_delivery_info].nil?
+        data['configStreamDeliveryInfo'] = ConfigStreamDeliveryInfo.stub(stub[:config_stream_delivery_info]) unless stub[:config_stream_delivery_info].nil?
         data
       end
     end
@@ -1974,8 +1976,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeliveryChannels'] = Stubs::DeliveryChannelList.stub(stub[:delivery_channels]) unless stub[:delivery_channels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryChannels'] = DeliveryChannelList.stub(stub[:delivery_channels]) unless stub[:delivery_channels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1994,7 +1996,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeliveryChannel.stub(element) unless element.nil?
+          data << DeliveryChannel.stub(element) unless element.nil?
         end
         data
       end
@@ -2023,7 +2025,7 @@ module AWS::SDK::ConfigService
         data['s3KeyPrefix'] = stub[:s3_key_prefix] unless stub[:s3_key_prefix].nil?
         data['s3KmsKeyArn'] = stub[:s3_kms_key_arn] unless stub[:s3_kms_key_arn].nil?
         data['snsTopicARN'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
-        data['configSnapshotDeliveryProperties'] = Stubs::ConfigSnapshotDeliveryProperties.stub(stub[:config_snapshot_delivery_properties]) unless stub[:config_snapshot_delivery_properties].nil?
+        data['configSnapshotDeliveryProperties'] = ConfigSnapshotDeliveryProperties.stub(stub[:config_snapshot_delivery_properties]) unless stub[:config_snapshot_delivery_properties].nil?
         data
       end
     end
@@ -2057,9 +2059,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationConfigRuleStatuses'] = Stubs::OrganizationConfigRuleStatuses.stub(stub[:organization_config_rule_statuses]) unless stub[:organization_config_rule_statuses].nil?
+        data['OrganizationConfigRuleStatuses'] = OrganizationConfigRuleStatuses.stub(stub[:organization_config_rule_statuses]) unless stub[:organization_config_rule_statuses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2078,7 +2080,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationConfigRuleStatus.stub(element) unless element.nil?
+          data << OrganizationConfigRuleStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -2121,9 +2123,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationConfigRules'] = Stubs::OrganizationConfigRules.stub(stub[:organization_config_rules]) unless stub[:organization_config_rules].nil?
+        data['OrganizationConfigRules'] = OrganizationConfigRules.stub(stub[:organization_config_rules]) unless stub[:organization_config_rules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2142,7 +2144,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationConfigRule.stub(element) unless element.nil?
+          data << OrganizationConfigRule.stub(element) unless element.nil?
         end
         data
       end
@@ -2169,11 +2171,11 @@ module AWS::SDK::ConfigService
         data = {}
         data['OrganizationConfigRuleName'] = stub[:organization_config_rule_name] unless stub[:organization_config_rule_name].nil?
         data['OrganizationConfigRuleArn'] = stub[:organization_config_rule_arn] unless stub[:organization_config_rule_arn].nil?
-        data['OrganizationManagedRuleMetadata'] = Stubs::OrganizationManagedRuleMetadata.stub(stub[:organization_managed_rule_metadata]) unless stub[:organization_managed_rule_metadata].nil?
-        data['OrganizationCustomRuleMetadata'] = Stubs::OrganizationCustomRuleMetadata.stub(stub[:organization_custom_rule_metadata]) unless stub[:organization_custom_rule_metadata].nil?
-        data['ExcludedAccounts'] = Stubs::ExcludedAccounts.stub(stub[:excluded_accounts]) unless stub[:excluded_accounts].nil?
+        data['OrganizationManagedRuleMetadata'] = OrganizationManagedRuleMetadata.stub(stub[:organization_managed_rule_metadata]) unless stub[:organization_managed_rule_metadata].nil?
+        data['OrganizationCustomRuleMetadata'] = OrganizationCustomRuleMetadata.stub(stub[:organization_custom_rule_metadata]) unless stub[:organization_custom_rule_metadata].nil?
+        data['ExcludedAccounts'] = ExcludedAccounts.stub(stub[:excluded_accounts]) unless stub[:excluded_accounts].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
-        data['OrganizationCustomPolicyRuleMetadata'] = Stubs::OrganizationCustomPolicyRuleMetadataNoPolicy.stub(stub[:organization_custom_policy_rule_metadata]) unless stub[:organization_custom_policy_rule_metadata].nil?
+        data['OrganizationCustomPolicyRuleMetadata'] = OrganizationCustomPolicyRuleMetadataNoPolicy.stub(stub[:organization_custom_policy_rule_metadata]) unless stub[:organization_custom_policy_rule_metadata].nil?
         data
       end
     end
@@ -2201,15 +2203,15 @@ module AWS::SDK::ConfigService
         stub ||= Types::OrganizationCustomPolicyRuleMetadataNoPolicy.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['OrganizationConfigRuleTriggerTypes'] = Stubs::OrganizationConfigRuleTriggerTypeNoSNs.stub(stub[:organization_config_rule_trigger_types]) unless stub[:organization_config_rule_trigger_types].nil?
+        data['OrganizationConfigRuleTriggerTypes'] = OrganizationConfigRuleTriggerTypeNoSNs.stub(stub[:organization_config_rule_trigger_types]) unless stub[:organization_config_rule_trigger_types].nil?
         data['InputParameters'] = stub[:input_parameters] unless stub[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = stub[:maximum_execution_frequency] unless stub[:maximum_execution_frequency].nil?
-        data['ResourceTypesScope'] = Stubs::ResourceTypesScope.stub(stub[:resource_types_scope]) unless stub[:resource_types_scope].nil?
+        data['ResourceTypesScope'] = ResourceTypesScope.stub(stub[:resource_types_scope]) unless stub[:resource_types_scope].nil?
         data['ResourceIdScope'] = stub[:resource_id_scope] unless stub[:resource_id_scope].nil?
         data['TagKeyScope'] = stub[:tag_key_scope] unless stub[:tag_key_scope].nil?
         data['TagValueScope'] = stub[:tag_value_scope] unless stub[:tag_value_scope].nil?
         data['PolicyRuntime'] = stub[:policy_runtime] unless stub[:policy_runtime].nil?
-        data['DebugLogDeliveryAccounts'] = Stubs::DebugLogDeliveryAccounts.stub(stub[:debug_log_delivery_accounts]) unless stub[:debug_log_delivery_accounts].nil?
+        data['DebugLogDeliveryAccounts'] = DebugLogDeliveryAccounts.stub(stub[:debug_log_delivery_accounts]) unless stub[:debug_log_delivery_accounts].nil?
         data
       end
     end
@@ -2317,10 +2319,10 @@ module AWS::SDK::ConfigService
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LambdaFunctionArn'] = stub[:lambda_function_arn] unless stub[:lambda_function_arn].nil?
-        data['OrganizationConfigRuleTriggerTypes'] = Stubs::OrganizationConfigRuleTriggerTypes.stub(stub[:organization_config_rule_trigger_types]) unless stub[:organization_config_rule_trigger_types].nil?
+        data['OrganizationConfigRuleTriggerTypes'] = OrganizationConfigRuleTriggerTypes.stub(stub[:organization_config_rule_trigger_types]) unless stub[:organization_config_rule_trigger_types].nil?
         data['InputParameters'] = stub[:input_parameters] unless stub[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = stub[:maximum_execution_frequency] unless stub[:maximum_execution_frequency].nil?
-        data['ResourceTypesScope'] = Stubs::ResourceTypesScope.stub(stub[:resource_types_scope]) unless stub[:resource_types_scope].nil?
+        data['ResourceTypesScope'] = ResourceTypesScope.stub(stub[:resource_types_scope]) unless stub[:resource_types_scope].nil?
         data['ResourceIdScope'] = stub[:resource_id_scope] unless stub[:resource_id_scope].nil?
         data['TagKeyScope'] = stub[:tag_key_scope] unless stub[:tag_key_scope].nil?
         data['TagValueScope'] = stub[:tag_value_scope] unless stub[:tag_value_scope].nil?
@@ -2372,7 +2374,7 @@ module AWS::SDK::ConfigService
         data['RuleIdentifier'] = stub[:rule_identifier] unless stub[:rule_identifier].nil?
         data['InputParameters'] = stub[:input_parameters] unless stub[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = stub[:maximum_execution_frequency] unless stub[:maximum_execution_frequency].nil?
-        data['ResourceTypesScope'] = Stubs::ResourceTypesScope.stub(stub[:resource_types_scope]) unless stub[:resource_types_scope].nil?
+        data['ResourceTypesScope'] = ResourceTypesScope.stub(stub[:resource_types_scope]) unless stub[:resource_types_scope].nil?
         data['ResourceIdScope'] = stub[:resource_id_scope] unless stub[:resource_id_scope].nil?
         data['TagKeyScope'] = stub[:tag_key_scope] unless stub[:tag_key_scope].nil?
         data['TagValueScope'] = stub[:tag_value_scope] unless stub[:tag_value_scope].nil?
@@ -2391,9 +2393,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationConformancePackStatuses'] = Stubs::OrganizationConformancePackStatuses.stub(stub[:organization_conformance_pack_statuses]) unless stub[:organization_conformance_pack_statuses].nil?
+        data['OrganizationConformancePackStatuses'] = OrganizationConformancePackStatuses.stub(stub[:organization_conformance_pack_statuses]) unless stub[:organization_conformance_pack_statuses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2412,7 +2414,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationConformancePackStatus.stub(element) unless element.nil?
+          data << OrganizationConformancePackStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -2455,9 +2457,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationConformancePacks'] = Stubs::OrganizationConformancePacks.stub(stub[:organization_conformance_packs]) unless stub[:organization_conformance_packs].nil?
+        data['OrganizationConformancePacks'] = OrganizationConformancePacks.stub(stub[:organization_conformance_packs]) unless stub[:organization_conformance_packs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2476,7 +2478,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationConformancePack.stub(element) unless element.nil?
+          data << OrganizationConformancePack.stub(element) unless element.nil?
         end
         data
       end
@@ -2505,8 +2507,8 @@ module AWS::SDK::ConfigService
         data['OrganizationConformancePackArn'] = stub[:organization_conformance_pack_arn] unless stub[:organization_conformance_pack_arn].nil?
         data['DeliveryS3Bucket'] = stub[:delivery_s3_bucket] unless stub[:delivery_s3_bucket].nil?
         data['DeliveryS3KeyPrefix'] = stub[:delivery_s3_key_prefix] unless stub[:delivery_s3_key_prefix].nil?
-        data['ConformancePackInputParameters'] = Stubs::ConformancePackInputParameters.stub(stub[:conformance_pack_input_parameters]) unless stub[:conformance_pack_input_parameters].nil?
-        data['ExcludedAccounts'] = Stubs::ExcludedAccounts.stub(stub[:excluded_accounts]) unless stub[:excluded_accounts].nil?
+        data['ConformancePackInputParameters'] = ConformancePackInputParameters.stub(stub[:conformance_pack_input_parameters]) unless stub[:conformance_pack_input_parameters].nil?
+        data['ExcludedAccounts'] = ExcludedAccounts.stub(stub[:excluded_accounts]) unless stub[:excluded_accounts].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
         data
       end
@@ -2523,9 +2525,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PendingAggregationRequests'] = Stubs::PendingAggregationRequestList.stub(stub[:pending_aggregation_requests]) unless stub[:pending_aggregation_requests].nil?
+        data['PendingAggregationRequests'] = PendingAggregationRequestList.stub(stub[:pending_aggregation_requests]) unless stub[:pending_aggregation_requests].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2544,7 +2546,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PendingAggregationRequest.stub(element) unless element.nil?
+          data << PendingAggregationRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2580,8 +2582,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RemediationConfigurations'] = Stubs::RemediationConfigurations.stub(stub[:remediation_configurations]) unless stub[:remediation_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RemediationConfigurations'] = RemediationConfigurations.stub(stub[:remediation_configurations]) unless stub[:remediation_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2600,7 +2602,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemediationConfiguration.stub(element) unless element.nil?
+          data << RemediationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -2634,10 +2636,10 @@ module AWS::SDK::ConfigService
         data['TargetType'] = stub[:target_type] unless stub[:target_type].nil?
         data['TargetId'] = stub[:target_id] unless stub[:target_id].nil?
         data['TargetVersion'] = stub[:target_version] unless stub[:target_version].nil?
-        data['Parameters'] = Stubs::RemediationParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = RemediationParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['Automatic'] = stub[:automatic] unless stub[:automatic].nil?
-        data['ExecutionControls'] = Stubs::ExecutionControls.stub(stub[:execution_controls]) unless stub[:execution_controls].nil?
+        data['ExecutionControls'] = ExecutionControls.stub(stub[:execution_controls]) unless stub[:execution_controls].nil?
         data['MaximumAutomaticAttempts'] = stub[:maximum_automatic_attempts] unless stub[:maximum_automatic_attempts].nil?
         data['RetryAttemptSeconds'] = stub[:retry_attempt_seconds] unless stub[:retry_attempt_seconds].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
@@ -2659,7 +2661,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::ExecutionControls.new
         data = {}
-        data['SsmControls'] = Stubs::SsmControls.stub(stub[:ssm_controls]) unless stub[:ssm_controls].nil?
+        data['SsmControls'] = SsmControls.stub(stub[:ssm_controls]) unless stub[:ssm_controls].nil?
         data
       end
     end
@@ -2698,7 +2700,7 @@ module AWS::SDK::ConfigService
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::RemediationParameterValue.stub(value) unless value.nil?
+          data[key] = RemediationParameterValue.stub(value) unless value.nil?
         end
         data
       end
@@ -2718,8 +2720,8 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::RemediationParameterValue.new
         data = {}
-        data['ResourceValue'] = Stubs::ResourceValue.stub(stub[:resource_value]) unless stub[:resource_value].nil?
-        data['StaticValue'] = Stubs::StaticValue.stub(stub[:static_value]) unless stub[:static_value].nil?
+        data['ResourceValue'] = ResourceValue.stub(stub[:resource_value]) unless stub[:resource_value].nil?
+        data['StaticValue'] = StaticValue.stub(stub[:static_value]) unless stub[:static_value].nil?
         data
       end
     end
@@ -2737,7 +2739,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::StaticValue.new
         data = {}
-        data['Values'] = Stubs::StaticParameterValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = StaticParameterValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -2791,9 +2793,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RemediationExceptions'] = Stubs::RemediationExceptions.stub(stub[:remediation_exceptions]) unless stub[:remediation_exceptions].nil?
+        data['RemediationExceptions'] = RemediationExceptions.stub(stub[:remediation_exceptions]) unless stub[:remediation_exceptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2812,7 +2814,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemediationException.stub(element) unless element.nil?
+          data << RemediationException.stub(element) unless element.nil?
         end
         data
       end
@@ -2855,9 +2857,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RemediationExecutionStatuses'] = Stubs::RemediationExecutionStatuses.stub(stub[:remediation_execution_statuses]) unless stub[:remediation_execution_statuses].nil?
+        data['RemediationExecutionStatuses'] = RemediationExecutionStatuses.stub(stub[:remediation_execution_statuses]) unless stub[:remediation_execution_statuses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2876,7 +2878,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemediationExecutionStatus.stub(element) unless element.nil?
+          data << RemediationExecutionStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -2899,9 +2901,9 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::RemediationExecutionStatus.new
         data = {}
-        data['ResourceKey'] = Stubs::ResourceKey.stub(stub[:resource_key]) unless stub[:resource_key].nil?
+        data['ResourceKey'] = ResourceKey.stub(stub[:resource_key]) unless stub[:resource_key].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StepDetails'] = Stubs::RemediationExecutionSteps.stub(stub[:step_details]) unless stub[:step_details].nil?
+        data['StepDetails'] = RemediationExecutionSteps.stub(stub[:step_details]) unless stub[:step_details].nil?
         data['InvocationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:invocation_time]).to_i unless stub[:invocation_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data
@@ -2922,7 +2924,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemediationExecutionStep.stub(element) unless element.nil?
+          data << RemediationExecutionStep.stub(element) unless element.nil?
         end
         data
       end
@@ -2965,9 +2967,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RetentionConfigurations'] = Stubs::RetentionConfigurationList.stub(stub[:retention_configurations]) unless stub[:retention_configurations].nil?
+        data['RetentionConfigurations'] = RetentionConfigurationList.stub(stub[:retention_configurations]) unless stub[:retention_configurations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2986,7 +2988,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RetentionConfiguration.stub(element) unless element.nil?
+          data << RetentionConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -3023,9 +3025,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AggregateEvaluationResults'] = Stubs::AggregateEvaluationResultList.stub(stub[:aggregate_evaluation_results]) unless stub[:aggregate_evaluation_results].nil?
+        data['AggregateEvaluationResults'] = AggregateEvaluationResultList.stub(stub[:aggregate_evaluation_results]) unless stub[:aggregate_evaluation_results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3044,7 +3046,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateEvaluationResult.stub(element) unless element.nil?
+          data << AggregateEvaluationResult.stub(element) unless element.nil?
         end
         data
       end
@@ -3069,7 +3071,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::AggregateEvaluationResult.new
         data = {}
-        data['EvaluationResultIdentifier'] = Stubs::EvaluationResultIdentifier.stub(stub[:evaluation_result_identifier]) unless stub[:evaluation_result_identifier].nil?
+        data['EvaluationResultIdentifier'] = EvaluationResultIdentifier.stub(stub[:evaluation_result_identifier]) unless stub[:evaluation_result_identifier].nil?
         data['ComplianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
         data['ResultRecordedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:result_recorded_time]).to_i unless stub[:result_recorded_time].nil?
         data['ConfigRuleInvokedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:config_rule_invoked_time]).to_i unless stub[:config_rule_invoked_time].nil?
@@ -3094,7 +3096,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::EvaluationResultIdentifier.new
         data = {}
-        data['EvaluationResultQualifier'] = Stubs::EvaluationResultQualifier.stub(stub[:evaluation_result_qualifier]) unless stub[:evaluation_result_qualifier].nil?
+        data['EvaluationResultQualifier'] = EvaluationResultQualifier.stub(stub[:evaluation_result_qualifier]) unless stub[:evaluation_result_qualifier].nil?
         data['OrderingTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:ordering_timestamp]).to_i unless stub[:ordering_timestamp].nil?
         data
       end
@@ -3135,9 +3137,9 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['GroupByKey'] = stub[:group_by_key] unless stub[:group_by_key].nil?
-        data['AggregateComplianceCounts'] = Stubs::AggregateComplianceCountList.stub(stub[:aggregate_compliance_counts]) unless stub[:aggregate_compliance_counts].nil?
+        data['AggregateComplianceCounts'] = AggregateComplianceCountList.stub(stub[:aggregate_compliance_counts]) unless stub[:aggregate_compliance_counts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3156,7 +3158,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateComplianceCount.stub(element) unless element.nil?
+          data << AggregateComplianceCount.stub(element) unless element.nil?
         end
         data
       end
@@ -3177,7 +3179,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::AggregateComplianceCount.new
         data = {}
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
-        data['ComplianceSummary'] = Stubs::ComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
+        data['ComplianceSummary'] = ComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
         data
       end
     end
@@ -3197,8 +3199,8 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::ComplianceSummary.new
         data = {}
-        data['CompliantResourceCount'] = Stubs::ComplianceContributorCount.stub(stub[:compliant_resource_count]) unless stub[:compliant_resource_count].nil?
-        data['NonCompliantResourceCount'] = Stubs::ComplianceContributorCount.stub(stub[:non_compliant_resource_count]) unless stub[:non_compliant_resource_count].nil?
+        data['CompliantResourceCount'] = ComplianceContributorCount.stub(stub[:compliant_resource_count]) unless stub[:compliant_resource_count].nil?
+        data['NonCompliantResourceCount'] = ComplianceContributorCount.stub(stub[:non_compliant_resource_count]) unless stub[:non_compliant_resource_count].nil?
         data['ComplianceSummaryTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:compliance_summary_timestamp]).to_i unless stub[:compliance_summary_timestamp].nil?
         data
       end
@@ -3216,10 +3218,10 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AggregateConformancePackComplianceSummaries'] = Stubs::AggregateConformancePackComplianceSummaryList.stub(stub[:aggregate_conformance_pack_compliance_summaries]) unless stub[:aggregate_conformance_pack_compliance_summaries].nil?
+        data['AggregateConformancePackComplianceSummaries'] = AggregateConformancePackComplianceSummaryList.stub(stub[:aggregate_conformance_pack_compliance_summaries]) unless stub[:aggregate_conformance_pack_compliance_summaries].nil?
         data['GroupByKey'] = stub[:group_by_key] unless stub[:group_by_key].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3238,7 +3240,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateConformancePackComplianceSummary.stub(element) unless element.nil?
+          data << AggregateConformancePackComplianceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3258,7 +3260,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::AggregateConformancePackComplianceSummary.new
         data = {}
-        data['ComplianceSummary'] = Stubs::AggregateConformancePackComplianceCount.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
+        data['ComplianceSummary'] = AggregateConformancePackComplianceCount.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
         data
       end
@@ -3299,9 +3301,9 @@ module AWS::SDK::ConfigService
         data = {}
         data['TotalDiscoveredResources'] = stub[:total_discovered_resources] unless stub[:total_discovered_resources].nil?
         data['GroupByKey'] = stub[:group_by_key] unless stub[:group_by_key].nil?
-        data['GroupedResourceCounts'] = Stubs::GroupedResourceCountList.stub(stub[:grouped_resource_counts]) unless stub[:grouped_resource_counts].nil?
+        data['GroupedResourceCounts'] = GroupedResourceCountList.stub(stub[:grouped_resource_counts]) unless stub[:grouped_resource_counts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3320,7 +3322,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupedResourceCount.stub(element) unless element.nil?
+          data << GroupedResourceCount.stub(element) unless element.nil?
         end
         data
       end
@@ -3356,8 +3358,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigurationItem'] = Stubs::ConfigurationItem.stub(stub[:configuration_item]) unless stub[:configuration_item].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigurationItem'] = ConfigurationItem.stub(stub[:configuration_item]) unless stub[:configuration_item].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3405,11 +3407,11 @@ module AWS::SDK::ConfigService
         data['awsRegion'] = stub[:aws_region] unless stub[:aws_region].nil?
         data['availabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data['resourceCreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:resource_creation_time]).to_i unless stub[:resource_creation_time].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['relatedEvents'] = Stubs::RelatedEventList.stub(stub[:related_events]) unless stub[:related_events].nil?
-        data['relationships'] = Stubs::RelationshipList.stub(stub[:relationships]) unless stub[:relationships].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['relatedEvents'] = RelatedEventList.stub(stub[:related_events]) unless stub[:related_events].nil?
+        data['relationships'] = RelationshipList.stub(stub[:relationships]) unless stub[:relationships].nil?
         data['configuration'] = stub[:configuration] unless stub[:configuration].nil?
-        data['supplementaryConfiguration'] = Stubs::SupplementaryConfiguration.stub(stub[:supplementary_configuration]) unless stub[:supplementary_configuration].nil?
+        data['supplementaryConfiguration'] = SupplementaryConfiguration.stub(stub[:supplementary_configuration]) unless stub[:supplementary_configuration].nil?
         data
       end
     end
@@ -3428,7 +3430,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Relationship.stub(element) unless element.nil?
+          data << Relationship.stub(element) unless element.nil?
         end
         data
       end
@@ -3509,9 +3511,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EvaluationResults'] = Stubs::EvaluationResults.stub(stub[:evaluation_results]) unless stub[:evaluation_results].nil?
+        data['EvaluationResults'] = EvaluationResults.stub(stub[:evaluation_results]) unless stub[:evaluation_results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3530,7 +3532,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluationResult.stub(element) unless element.nil?
+          data << EvaluationResult.stub(element) unless element.nil?
         end
         data
       end
@@ -3554,7 +3556,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::EvaluationResult.new
         data = {}
-        data['EvaluationResultIdentifier'] = Stubs::EvaluationResultIdentifier.stub(stub[:evaluation_result_identifier]) unless stub[:evaluation_result_identifier].nil?
+        data['EvaluationResultIdentifier'] = EvaluationResultIdentifier.stub(stub[:evaluation_result_identifier]) unless stub[:evaluation_result_identifier].nil?
         data['ComplianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
         data['ResultRecordedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:result_recorded_time]).to_i unless stub[:result_recorded_time].nil?
         data['ConfigRuleInvokedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:config_rule_invoked_time]).to_i unless stub[:config_rule_invoked_time].nil?
@@ -3575,9 +3577,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EvaluationResults'] = Stubs::EvaluationResults.stub(stub[:evaluation_results]) unless stub[:evaluation_results].nil?
+        data['EvaluationResults'] = EvaluationResults.stub(stub[:evaluation_results]) unless stub[:evaluation_results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3592,8 +3594,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComplianceSummary'] = Stubs::ComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComplianceSummary'] = ComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3608,8 +3610,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComplianceSummariesByResourceType'] = Stubs::ComplianceSummariesByResourceType.stub(stub[:compliance_summaries_by_resource_type]) unless stub[:compliance_summaries_by_resource_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComplianceSummariesByResourceType'] = ComplianceSummariesByResourceType.stub(stub[:compliance_summaries_by_resource_type]) unless stub[:compliance_summaries_by_resource_type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3628,7 +3630,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComplianceSummaryByResourceType.stub(element) unless element.nil?
+          data << ComplianceSummaryByResourceType.stub(element) unless element.nil?
         end
         data
       end
@@ -3649,7 +3651,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::ComplianceSummaryByResourceType.new
         data = {}
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['ComplianceSummary'] = Stubs::ComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
+        data['ComplianceSummary'] = ComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
         data
       end
     end
@@ -3667,9 +3669,9 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['ConformancePackName'] = stub[:conformance_pack_name] unless stub[:conformance_pack_name].nil?
-        data['ConformancePackRuleEvaluationResults'] = Stubs::ConformancePackRuleEvaluationResultsList.stub(stub[:conformance_pack_rule_evaluation_results]) unless stub[:conformance_pack_rule_evaluation_results].nil?
+        data['ConformancePackRuleEvaluationResults'] = ConformancePackRuleEvaluationResultsList.stub(stub[:conformance_pack_rule_evaluation_results]) unless stub[:conformance_pack_rule_evaluation_results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3688,7 +3690,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConformancePackEvaluationResult.stub(element) unless element.nil?
+          data << ConformancePackEvaluationResult.stub(element) unless element.nil?
         end
         data
       end
@@ -3712,7 +3714,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::ConformancePackEvaluationResult.new
         data = {}
         data['ComplianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
-        data['EvaluationResultIdentifier'] = Stubs::EvaluationResultIdentifier.stub(stub[:evaluation_result_identifier]) unless stub[:evaluation_result_identifier].nil?
+        data['EvaluationResultIdentifier'] = EvaluationResultIdentifier.stub(stub[:evaluation_result_identifier]) unless stub[:evaluation_result_identifier].nil?
         data['ConfigRuleInvokedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:config_rule_invoked_time]).to_i unless stub[:config_rule_invoked_time].nil?
         data['ResultRecordedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:result_recorded_time]).to_i unless stub[:result_recorded_time].nil?
         data['Annotation'] = stub[:annotation] unless stub[:annotation].nil?
@@ -3731,9 +3733,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConformancePackComplianceSummaryList'] = Stubs::ConformancePackComplianceSummaryList.stub(stub[:conformance_pack_compliance_summary_list]) unless stub[:conformance_pack_compliance_summary_list].nil?
+        data['ConformancePackComplianceSummaryList'] = ConformancePackComplianceSummaryList.stub(stub[:conformance_pack_compliance_summary_list]) unless stub[:conformance_pack_compliance_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3752,7 +3754,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConformancePackComplianceSummary.stub(element) unless element.nil?
+          data << ConformancePackComplianceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3789,7 +3791,7 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['PolicyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3807,9 +3809,9 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['totalDiscoveredResources'] = stub[:total_discovered_resources] unless stub[:total_discovered_resources].nil?
-        data['resourceCounts'] = Stubs::ResourceCounts.stub(stub[:resource_counts]) unless stub[:resource_counts].nil?
+        data['resourceCounts'] = ResourceCounts.stub(stub[:resource_counts]) unless stub[:resource_counts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3828,7 +3830,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceCount.stub(element) unless element.nil?
+          data << ResourceCount.stub(element) unless element.nil?
         end
         data
       end
@@ -3865,9 +3867,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationConfigRuleDetailedStatus'] = Stubs::OrganizationConfigRuleDetailedStatus.stub(stub[:organization_config_rule_detailed_status]) unless stub[:organization_config_rule_detailed_status].nil?
+        data['OrganizationConfigRuleDetailedStatus'] = OrganizationConfigRuleDetailedStatus.stub(stub[:organization_config_rule_detailed_status]) unless stub[:organization_config_rule_detailed_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3886,7 +3888,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MemberAccountStatus.stub(element) unless element.nil?
+          data << MemberAccountStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -3931,9 +3933,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationConformancePackDetailedStatuses'] = Stubs::OrganizationConformancePackDetailedStatuses.stub(stub[:organization_conformance_pack_detailed_statuses]) unless stub[:organization_conformance_pack_detailed_statuses].nil?
+        data['OrganizationConformancePackDetailedStatuses'] = OrganizationConformancePackDetailedStatuses.stub(stub[:organization_conformance_pack_detailed_statuses]) unless stub[:organization_conformance_pack_detailed_statuses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3952,7 +3954,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationConformancePackDetailedStatus.stub(element) unless element.nil?
+          data << OrganizationConformancePackDetailedStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -3997,7 +3999,7 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['PolicyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4013,9 +4015,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['configurationItems'] = Stubs::ConfigurationItemList.stub(stub[:configuration_items]) unless stub[:configuration_items].nil?
+        data['configurationItems'] = ConfigurationItemList.stub(stub[:configuration_items]) unless stub[:configuration_items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4034,7 +4036,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationItem.stub(element) unless element.nil?
+          data << ConfigurationItem.stub(element) unless element.nil?
         end
         data
       end
@@ -4050,8 +4052,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StoredQuery'] = Stubs::StoredQuery.stub(stub[:stored_query]) unless stub[:stored_query].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoredQuery'] = StoredQuery.stub(stub[:stored_query]) unless stub[:stored_query].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4093,9 +4095,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceIdentifiers'] = Stubs::DiscoveredResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
+        data['ResourceIdentifiers'] = DiscoveredResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4114,7 +4116,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateResourceIdentifier.stub(element) unless element.nil?
+          data << AggregateResourceIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -4131,9 +4133,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['resourceIdentifiers'] = Stubs::ResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
+        data['resourceIdentifiers'] = ResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4152,7 +4154,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceIdentifier.stub(element) unless element.nil?
+          data << ResourceIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -4193,9 +4195,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StoredQueryMetadata'] = Stubs::StoredQueryMetadataList.stub(stub[:stored_query_metadata]) unless stub[:stored_query_metadata].nil?
+        data['StoredQueryMetadata'] = StoredQueryMetadataList.stub(stub[:stored_query_metadata]) unless stub[:stored_query_metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4214,7 +4216,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StoredQueryMetadata.stub(element) unless element.nil?
+          data << StoredQueryMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -4255,9 +4257,9 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4276,7 +4278,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -4312,8 +4314,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AggregationAuthorization'] = Stubs::AggregationAuthorization.stub(stub[:aggregation_authorization]) unless stub[:aggregation_authorization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AggregationAuthorization'] = AggregationAuthorization.stub(stub[:aggregation_authorization]) unless stub[:aggregation_authorization].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4327,7 +4329,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4342,8 +4344,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigurationAggregator'] = Stubs::ConfigurationAggregator.stub(stub[:configuration_aggregator]) unless stub[:configuration_aggregator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigurationAggregator'] = ConfigurationAggregator.stub(stub[:configuration_aggregator]) unless stub[:configuration_aggregator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4357,7 +4359,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4373,7 +4375,7 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['ConformancePackArn'] = stub[:conformance_pack_arn] unless stub[:conformance_pack_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4387,7 +4389,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4402,8 +4404,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedEvaluations'] = Stubs::Evaluations.stub(stub[:failed_evaluations]) unless stub[:failed_evaluations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedEvaluations'] = Evaluations.stub(stub[:failed_evaluations]) unless stub[:failed_evaluations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4422,7 +4424,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Evaluation.stub(element) unless element.nil?
+          data << Evaluation.stub(element) unless element.nil?
         end
         data
       end
@@ -4463,7 +4465,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4479,7 +4481,7 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['OrganizationConfigRuleArn'] = stub[:organization_config_rule_arn] unless stub[:organization_config_rule_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4495,7 +4497,7 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['OrganizationConformancePackArn'] = stub[:organization_conformance_pack_arn] unless stub[:organization_conformance_pack_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4510,8 +4512,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedBatches'] = Stubs::FailedRemediationBatches.stub(stub[:failed_batches]) unless stub[:failed_batches].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedBatches'] = FailedRemediationBatches.stub(stub[:failed_batches]) unless stub[:failed_batches].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4530,7 +4532,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedRemediationBatch.stub(element) unless element.nil?
+          data << FailedRemediationBatch.stub(element) unless element.nil?
         end
         data
       end
@@ -4551,7 +4553,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::FailedRemediationBatch.new
         data = {}
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
-        data['FailedItems'] = Stubs::RemediationConfigurations.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        data['FailedItems'] = RemediationConfigurations.stub(stub[:failed_items]) unless stub[:failed_items].nil?
         data
       end
     end
@@ -4566,8 +4568,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedBatches'] = Stubs::FailedRemediationExceptionBatches.stub(stub[:failed_batches]) unless stub[:failed_batches].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedBatches'] = FailedRemediationExceptionBatches.stub(stub[:failed_batches]) unless stub[:failed_batches].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4586,7 +4588,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedRemediationExceptionBatch.stub(element) unless element.nil?
+          data << FailedRemediationExceptionBatch.stub(element) unless element.nil?
         end
         data
       end
@@ -4607,7 +4609,7 @@ module AWS::SDK::ConfigService
         stub ||= Types::FailedRemediationExceptionBatch.new
         data = {}
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
-        data['FailedItems'] = Stubs::RemediationExceptions.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        data['FailedItems'] = RemediationExceptions.stub(stub[:failed_items]) unless stub[:failed_items].nil?
         data
       end
     end
@@ -4621,7 +4623,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4636,8 +4638,8 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RetentionConfiguration'] = Stubs::RetentionConfiguration.stub(stub[:retention_configuration]) unless stub[:retention_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RetentionConfiguration'] = RetentionConfiguration.stub(stub[:retention_configuration]) unless stub[:retention_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4653,7 +4655,7 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['QueryArn'] = stub[:query_arn] unless stub[:query_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4670,10 +4672,10 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::Results.stub(stub[:results]) unless stub[:results].nil?
-        data['QueryInfo'] = Stubs::QueryInfo.stub(stub[:query_info]) unless stub[:query_info].nil?
+        data['Results'] = Results.stub(stub[:results]) unless stub[:results].nil?
+        data['QueryInfo'] = QueryInfo.stub(stub[:query_info]) unless stub[:query_info].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4691,7 +4693,7 @@ module AWS::SDK::ConfigService
       def self.stub(stub)
         stub ||= Types::QueryInfo.new
         data = {}
-        data['SelectFields'] = Stubs::FieldInfoList.stub(stub[:select_fields]) unless stub[:select_fields].nil?
+        data['SelectFields'] = FieldInfoList.stub(stub[:select_fields]) unless stub[:select_fields].nil?
         data
       end
     end
@@ -4710,7 +4712,7 @@ module AWS::SDK::ConfigService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FieldInfo.stub(element) unless element.nil?
+          data << FieldInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -4766,10 +4768,10 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::Results.stub(stub[:results]) unless stub[:results].nil?
-        data['QueryInfo'] = Stubs::QueryInfo.stub(stub[:query_info]) unless stub[:query_info].nil?
+        data['Results'] = Results.stub(stub[:results]) unless stub[:results].nil?
+        data['QueryInfo'] = QueryInfo.stub(stub[:query_info]) unless stub[:query_info].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4783,7 +4785,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4797,7 +4799,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4814,8 +4816,8 @@ module AWS::SDK::ConfigService
       def self.stub(http_resp, stub:)
         data = {}
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
-        data['FailedItems'] = Stubs::ResourceKeys.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedItems'] = ResourceKeys.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4829,7 +4831,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4843,7 +4845,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4857,7 +4859,7 @@ module AWS::SDK::ConfigService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

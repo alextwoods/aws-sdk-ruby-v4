@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Forecast
   module Builders
 
@@ -20,18 +22,18 @@ module AWS::SDK::Forecast
         data = {}
         data['PredictorName'] = input[:predictor_name] unless input[:predictor_name].nil?
         data['ForecastHorizon'] = input[:forecast_horizon] unless input[:forecast_horizon].nil?
-        data['ForecastTypes'] = Builders::ForecastTypes.build(input[:forecast_types]) unless input[:forecast_types].nil?
-        data['ForecastDimensions'] = Builders::ForecastDimensions.build(input[:forecast_dimensions]) unless input[:forecast_dimensions].nil?
+        data['ForecastTypes'] = ForecastTypes.build(input[:forecast_types]) unless input[:forecast_types].nil?
+        data['ForecastDimensions'] = ForecastDimensions.build(input[:forecast_dimensions]) unless input[:forecast_dimensions].nil?
         data['ForecastFrequency'] = input[:forecast_frequency] unless input[:forecast_frequency].nil?
-        data['DataConfig'] = Builders::DataConfig.build(input[:data_config]) unless input[:data_config].nil?
-        data['EncryptionConfig'] = Builders::EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
+        data['DataConfig'] = DataConfig.build(input[:data_config]) unless input[:data_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
         data['ReferencePredictorArn'] = input[:reference_predictor_arn] unless input[:reference_predictor_arn].nil?
         data['OptimizationMetric'] = input[:optimization_metric] unless input[:optimization_metric].nil?
         data['ExplainPredictor'] = input[:explain_predictor] unless input[:explain_predictor].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['MonitorConfig'] = Builders::MonitorConfig.build(input[:monitor_config]) unless input[:monitor_config].nil?
-        data['TimeAlignmentBoundary'] = Builders::TimeAlignmentBoundary.build(input[:time_alignment_boundary]) unless input[:time_alignment_boundary].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['MonitorConfig'] = MonitorConfig.build(input[:monitor_config]) unless input[:monitor_config].nil?
+        data['TimeAlignmentBoundary'] = TimeAlignmentBoundary.build(input[:time_alignment_boundary]) unless input[:time_alignment_boundary].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -92,8 +94,8 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['DatasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        data['AttributeConfigs'] = Builders::AttributeConfigs.build(input[:attribute_configs]) unless input[:attribute_configs].nil?
-        data['AdditionalDatasets'] = Builders::AdditionalDatasets.build(input[:additional_datasets]) unless input[:additional_datasets].nil?
+        data['AttributeConfigs'] = AttributeConfigs.build(input[:attribute_configs]) unless input[:attribute_configs].nil?
+        data['AdditionalDatasets'] = AdditionalDatasets.build(input[:additional_datasets]) unless input[:additional_datasets].nil?
         data
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AdditionalDataset.build(element) unless element.nil?
+          data << AdditionalDataset.build(element) unless element.nil?
         end
         data
       end
@@ -114,7 +116,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Configuration'] = Builders::Configuration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Configuration'] = Configuration.build(input[:configuration]) unless input[:configuration].nil?
         data
       end
     end
@@ -124,7 +126,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Values.build(value) unless value.nil?
+          data[key] = Values.build(value) unless value.nil?
         end
         data
       end
@@ -146,7 +148,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeConfig.build(element) unless element.nil?
+          data << AttributeConfig.build(element) unless element.nil?
         end
         data
       end
@@ -157,7 +159,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
-        data['Transformations'] = Builders::Transformations.build(input[:transformations]) unless input[:transformations].nil?
+        data['Transformations'] = Transformations.build(input[:transformations]) unless input[:transformations].nil?
         data
       end
     end
@@ -207,10 +209,10 @@ module AWS::SDK::Forecast
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['DatasetType'] = input[:dataset_type] unless input[:dataset_type].nil?
         data['DataFrequency'] = input[:data_frequency] unless input[:data_frequency].nil?
-        data['Schema'] = Builders::Schema.build(input[:schema]) unless input[:schema].nil?
-        data['EncryptionConfig'] = Builders::EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Schema'] = Schema.build(input[:schema]) unless input[:schema].nil?
+        data['EncryptionConfig'] = EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,7 +220,7 @@ module AWS::SDK::Forecast
     class Schema
       def self.build(input)
         data = {}
-        data['Attributes'] = Builders::SchemaAttributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = SchemaAttributes.build(input[:attributes]) unless input[:attributes].nil?
         data
       end
     end
@@ -228,7 +230,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SchemaAttribute.build(element) unless element.nil?
+          data << SchemaAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -254,9 +256,9 @@ module AWS::SDK::Forecast
         data = {}
         data['DatasetGroupName'] = input[:dataset_group_name] unless input[:dataset_group_name].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
-        data['DatasetArns'] = Builders::ArnList.build(input[:dataset_arns]) unless input[:dataset_arns].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatasetArns'] = ArnList.build(input[:dataset_arns]) unless input[:dataset_arns].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,14 +283,14 @@ module AWS::SDK::Forecast
         data = {}
         data['DatasetImportJobName'] = input[:dataset_import_job_name] unless input[:dataset_import_job_name].nil?
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        data['DataSource'] = Builders::DataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['DataSource'] = DataSource.build(input[:data_source]) unless input[:data_source].nil?
         data['TimestampFormat'] = input[:timestamp_format] unless input[:timestamp_format].nil?
         data['TimeZone'] = input[:time_zone] unless input[:time_zone].nil?
         data['UseGeolocationForTimeZone'] = input[:use_geolocation_for_time_zone] unless input[:use_geolocation_for_time_zone].nil?
         data['GeolocationFormat'] = input[:geolocation_format] unless input[:geolocation_format].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -296,7 +298,7 @@ module AWS::SDK::Forecast
     class DataSource
       def self.build(input)
         data = {}
-        data['S3Config'] = Builders::S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
+        data['S3Config'] = S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
         data
       end
     end
@@ -322,14 +324,14 @@ module AWS::SDK::Forecast
         data = {}
         data['ExplainabilityName'] = input[:explainability_name] unless input[:explainability_name].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['ExplainabilityConfig'] = Builders::ExplainabilityConfig.build(input[:explainability_config]) unless input[:explainability_config].nil?
-        data['DataSource'] = Builders::DataSource.build(input[:data_source]) unless input[:data_source].nil?
-        data['Schema'] = Builders::Schema.build(input[:schema]) unless input[:schema].nil?
+        data['ExplainabilityConfig'] = ExplainabilityConfig.build(input[:explainability_config]) unless input[:explainability_config].nil?
+        data['DataSource'] = DataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['Schema'] = Schema.build(input[:schema]) unless input[:schema].nil?
         data['EnableVisualization'] = input[:enable_visualization] unless input[:enable_visualization].nil?
         data['StartDateTime'] = input[:start_date_time] unless input[:start_date_time].nil?
         data['EndDateTime'] = input[:end_date_time] unless input[:end_date_time].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,10 +355,10 @@ module AWS::SDK::Forecast
         data = {}
         data['ExplainabilityExportName'] = input[:explainability_export_name] unless input[:explainability_export_name].nil?
         data['ExplainabilityArn'] = input[:explainability_arn] unless input[:explainability_arn].nil?
-        data['Destination'] = Builders::DataDestination.build(input[:destination]) unless input[:destination].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Destination'] = DataDestination.build(input[:destination]) unless input[:destination].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -364,7 +366,7 @@ module AWS::SDK::Forecast
     class DataDestination
       def self.build(input)
         data = {}
-        data['S3Config'] = Builders::S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
+        data['S3Config'] = S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
         data
       end
     end
@@ -379,10 +381,10 @@ module AWS::SDK::Forecast
         data = {}
         data['ForecastName'] = input[:forecast_name] unless input[:forecast_name].nil?
         data['PredictorArn'] = input[:predictor_arn] unless input[:predictor_arn].nil?
-        data['ForecastTypes'] = Builders::ForecastTypes.build(input[:forecast_types]) unless input[:forecast_types].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['TimeSeriesSelector'] = Builders::TimeSeriesSelector.build(input[:time_series_selector]) unless input[:time_series_selector].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ForecastTypes'] = ForecastTypes.build(input[:forecast_types]) unless input[:forecast_types].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['TimeSeriesSelector'] = TimeSeriesSelector.build(input[:time_series_selector]) unless input[:time_series_selector].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -390,7 +392,7 @@ module AWS::SDK::Forecast
     class TimeSeriesSelector
       def self.build(input)
         data = {}
-        data['TimeSeriesIdentifiers'] = Builders::TimeSeriesIdentifiers.build(input[:time_series_identifiers]) unless input[:time_series_identifiers].nil?
+        data['TimeSeriesIdentifiers'] = TimeSeriesIdentifiers.build(input[:time_series_identifiers]) unless input[:time_series_identifiers].nil?
         data
       end
     end
@@ -399,8 +401,8 @@ module AWS::SDK::Forecast
     class TimeSeriesIdentifiers
       def self.build(input)
         data = {}
-        data['DataSource'] = Builders::DataSource.build(input[:data_source]) unless input[:data_source].nil?
-        data['Schema'] = Builders::Schema.build(input[:schema]) unless input[:schema].nil?
+        data['DataSource'] = DataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['Schema'] = Schema.build(input[:schema]) unless input[:schema].nil?
         data['Format'] = input[:format] unless input[:format].nil?
         data
       end
@@ -416,10 +418,10 @@ module AWS::SDK::Forecast
         data = {}
         data['ForecastExportJobName'] = input[:forecast_export_job_name] unless input[:forecast_export_job_name].nil?
         data['ForecastArn'] = input[:forecast_arn] unless input[:forecast_arn].nil?
-        data['Destination'] = Builders::DataDestination.build(input[:destination]) unless input[:destination].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Destination'] = DataDestination.build(input[:destination]) unless input[:destination].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,8 +435,8 @@ module AWS::SDK::Forecast
         data = {}
         data['MonitorName'] = input[:monitor_name] unless input[:monitor_name].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -449,19 +451,19 @@ module AWS::SDK::Forecast
         data['PredictorName'] = input[:predictor_name] unless input[:predictor_name].nil?
         data['AlgorithmArn'] = input[:algorithm_arn] unless input[:algorithm_arn].nil?
         data['ForecastHorizon'] = input[:forecast_horizon] unless input[:forecast_horizon].nil?
-        data['ForecastTypes'] = Builders::ForecastTypes.build(input[:forecast_types]) unless input[:forecast_types].nil?
+        data['ForecastTypes'] = ForecastTypes.build(input[:forecast_types]) unless input[:forecast_types].nil?
         data['PerformAutoML'] = input[:perform_auto_ml] unless input[:perform_auto_ml].nil?
         data['AutoMLOverrideStrategy'] = input[:auto_ml_override_strategy] unless input[:auto_ml_override_strategy].nil?
         data['PerformHPO'] = input[:perform_hpo] unless input[:perform_hpo].nil?
-        data['TrainingParameters'] = Builders::TrainingParameters.build(input[:training_parameters]) unless input[:training_parameters].nil?
-        data['EvaluationParameters'] = Builders::EvaluationParameters.build(input[:evaluation_parameters]) unless input[:evaluation_parameters].nil?
-        data['HPOConfig'] = Builders::HyperParameterTuningJobConfig.build(input[:hpo_config]) unless input[:hpo_config].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['FeaturizationConfig'] = Builders::FeaturizationConfig.build(input[:featurization_config]) unless input[:featurization_config].nil?
-        data['EncryptionConfig'] = Builders::EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['TrainingParameters'] = TrainingParameters.build(input[:training_parameters]) unless input[:training_parameters].nil?
+        data['EvaluationParameters'] = EvaluationParameters.build(input[:evaluation_parameters]) unless input[:evaluation_parameters].nil?
+        data['HPOConfig'] = HyperParameterTuningJobConfig.build(input[:hpo_config]) unless input[:hpo_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['FeaturizationConfig'] = FeaturizationConfig.build(input[:featurization_config]) unless input[:featurization_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['OptimizationMetric'] = input[:optimization_metric] unless input[:optimization_metric].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,8 +472,8 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['ForecastFrequency'] = input[:forecast_frequency] unless input[:forecast_frequency].nil?
-        data['ForecastDimensions'] = Builders::ForecastDimensions.build(input[:forecast_dimensions]) unless input[:forecast_dimensions].nil?
-        data['Featurizations'] = Builders::Featurizations.build(input[:featurizations]) unless input[:featurizations].nil?
+        data['ForecastDimensions'] = ForecastDimensions.build(input[:forecast_dimensions]) unless input[:forecast_dimensions].nil?
+        data['Featurizations'] = Featurizations.build(input[:featurizations]) unless input[:featurizations].nil?
         data
       end
     end
@@ -481,7 +483,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Featurization.build(element) unless element.nil?
+          data << Featurization.build(element) unless element.nil?
         end
         data
       end
@@ -492,7 +494,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
-        data['FeaturizationPipeline'] = Builders::FeaturizationPipeline.build(input[:featurization_pipeline]) unless input[:featurization_pipeline].nil?
+        data['FeaturizationPipeline'] = FeaturizationPipeline.build(input[:featurization_pipeline]) unless input[:featurization_pipeline].nil?
         data
       end
     end
@@ -502,7 +504,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FeaturizationMethod.build(element) unless element.nil?
+          data << FeaturizationMethod.build(element) unless element.nil?
         end
         data
       end
@@ -513,7 +515,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['FeaturizationMethodName'] = input[:featurization_method_name] unless input[:featurization_method_name].nil?
-        data['FeaturizationMethodParameters'] = Builders::FeaturizationMethodParameters.build(input[:featurization_method_parameters]) unless input[:featurization_method_parameters].nil?
+        data['FeaturizationMethodParameters'] = FeaturizationMethodParameters.build(input[:featurization_method_parameters]) unless input[:featurization_method_parameters].nil?
         data
       end
     end
@@ -534,7 +536,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['DatasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        data['SupplementaryFeatures'] = Builders::SupplementaryFeatures.build(input[:supplementary_features]) unless input[:supplementary_features].nil?
+        data['SupplementaryFeatures'] = SupplementaryFeatures.build(input[:supplementary_features]) unless input[:supplementary_features].nil?
         data
       end
     end
@@ -544,7 +546,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SupplementaryFeature.build(element) unless element.nil?
+          data << SupplementaryFeature.build(element) unless element.nil?
         end
         data
       end
@@ -564,7 +566,7 @@ module AWS::SDK::Forecast
     class HyperParameterTuningJobConfig
       def self.build(input)
         data = {}
-        data['ParameterRanges'] = Builders::ParameterRanges.build(input[:parameter_ranges]) unless input[:parameter_ranges].nil?
+        data['ParameterRanges'] = ParameterRanges.build(input[:parameter_ranges]) unless input[:parameter_ranges].nil?
         data
       end
     end
@@ -573,9 +575,9 @@ module AWS::SDK::Forecast
     class ParameterRanges
       def self.build(input)
         data = {}
-        data['CategoricalParameterRanges'] = Builders::CategoricalParameterRanges.build(input[:categorical_parameter_ranges]) unless input[:categorical_parameter_ranges].nil?
-        data['ContinuousParameterRanges'] = Builders::ContinuousParameterRanges.build(input[:continuous_parameter_ranges]) unless input[:continuous_parameter_ranges].nil?
-        data['IntegerParameterRanges'] = Builders::IntegerParameterRanges.build(input[:integer_parameter_ranges]) unless input[:integer_parameter_ranges].nil?
+        data['CategoricalParameterRanges'] = CategoricalParameterRanges.build(input[:categorical_parameter_ranges]) unless input[:categorical_parameter_ranges].nil?
+        data['ContinuousParameterRanges'] = ContinuousParameterRanges.build(input[:continuous_parameter_ranges]) unless input[:continuous_parameter_ranges].nil?
+        data['IntegerParameterRanges'] = IntegerParameterRanges.build(input[:integer_parameter_ranges]) unless input[:integer_parameter_ranges].nil?
         data
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IntegerParameterRange.build(element) unless element.nil?
+          data << IntegerParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -608,7 +610,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContinuousParameterRange.build(element) unless element.nil?
+          data << ContinuousParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -631,7 +633,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CategoricalParameterRange.build(element) unless element.nil?
+          data << CategoricalParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -642,7 +644,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::Values.build(input[:values]) unless input[:values].nil?
+        data['Values'] = Values.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -678,10 +680,10 @@ module AWS::SDK::Forecast
         data = {}
         data['PredictorBacktestExportJobName'] = input[:predictor_backtest_export_job_name] unless input[:predictor_backtest_export_job_name].nil?
         data['PredictorArn'] = input[:predictor_arn] unless input[:predictor_arn].nil?
-        data['Destination'] = Builders::DataDestination.build(input[:destination]) unless input[:destination].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Destination'] = DataDestination.build(input[:destination]) unless input[:destination].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteDataset'
         data = {}
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -707,7 +709,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteDatasetGroup'
         data = {}
         data['DatasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -720,7 +722,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteDatasetImportJob'
         data = {}
         data['DatasetImportJobArn'] = input[:dataset_import_job_arn] unless input[:dataset_import_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -733,7 +735,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteExplainability'
         data = {}
         data['ExplainabilityArn'] = input[:explainability_arn] unless input[:explainability_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -746,7 +748,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteExplainabilityExport'
         data = {}
         data['ExplainabilityExportArn'] = input[:explainability_export_arn] unless input[:explainability_export_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -759,7 +761,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteForecast'
         data = {}
         data['ForecastArn'] = input[:forecast_arn] unless input[:forecast_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -772,7 +774,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteForecastExportJob'
         data = {}
         data['ForecastExportJobArn'] = input[:forecast_export_job_arn] unless input[:forecast_export_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -785,7 +787,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteMonitor'
         data = {}
         data['MonitorArn'] = input[:monitor_arn] unless input[:monitor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -798,7 +800,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeletePredictor'
         data = {}
         data['PredictorArn'] = input[:predictor_arn] unless input[:predictor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -811,7 +813,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeletePredictorBacktestExportJob'
         data = {}
         data['PredictorBacktestExportJobArn'] = input[:predictor_backtest_export_job_arn] unless input[:predictor_backtest_export_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,7 +826,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DeleteResourceTree'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -837,7 +839,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeAutoPredictor'
         data = {}
         data['PredictorArn'] = input[:predictor_arn] unless input[:predictor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -850,7 +852,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeDataset'
         data = {}
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -863,7 +865,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeDatasetGroup'
         data = {}
         data['DatasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -876,7 +878,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeDatasetImportJob'
         data = {}
         data['DatasetImportJobArn'] = input[:dataset_import_job_arn] unless input[:dataset_import_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -889,7 +891,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeExplainability'
         data = {}
         data['ExplainabilityArn'] = input[:explainability_arn] unless input[:explainability_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -902,7 +904,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeExplainabilityExport'
         data = {}
         data['ExplainabilityExportArn'] = input[:explainability_export_arn] unless input[:explainability_export_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -915,7 +917,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeForecast'
         data = {}
         data['ForecastArn'] = input[:forecast_arn] unless input[:forecast_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -928,7 +930,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeForecastExportJob'
         data = {}
         data['ForecastExportJobArn'] = input[:forecast_export_job_arn] unless input[:forecast_export_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -941,7 +943,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribeMonitor'
         data = {}
         data['MonitorArn'] = input[:monitor_arn] unless input[:monitor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,7 +956,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribePredictor'
         data = {}
         data['PredictorArn'] = input[:predictor_arn] unless input[:predictor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -967,7 +969,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.DescribePredictorBacktestExportJob'
         data = {}
         data['PredictorBacktestExportJobArn'] = input[:predictor_backtest_export_job_arn] unless input[:predictor_backtest_export_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -980,7 +982,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.GetAccuracyMetrics'
         data = {}
         data['PredictorArn'] = input[:predictor_arn] unless input[:predictor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1008,8 +1010,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1018,7 +1020,7 @@ module AWS::SDK::Forecast
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -1045,7 +1047,7 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1059,8 +1061,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1074,8 +1076,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1089,8 +1091,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1104,8 +1106,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1120,8 +1122,8 @@ module AWS::SDK::Forecast
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['MonitorArn'] = input[:monitor_arn] unless input[:monitor_arn].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1135,8 +1137,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1150,8 +1152,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1165,8 +1167,8 @@ module AWS::SDK::Forecast
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1179,7 +1181,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1192,7 +1194,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.ResumeResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1205,7 +1207,7 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.StopResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1218,8 +1220,8 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1232,8 +1234,8 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1257,8 +1259,8 @@ module AWS::SDK::Forecast
         http_req.headers['X-Amz-Target'] = 'AmazonForecast.UpdateDatasetGroup'
         data = {}
         data['DatasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        data['DatasetArns'] = Builders::ArnList.build(input[:dataset_arns]) unless input[:dataset_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatasetArns'] = ArnList.build(input[:dataset_arns]) unless input[:dataset_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

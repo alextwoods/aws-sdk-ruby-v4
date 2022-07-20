@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudWatchLogs
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::CloudWatchLogs
       def self.stub(http_resp, stub:)
         data = {}
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,7 +121,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -133,7 +135,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -149,7 +151,7 @@ module AWS::SDK::CloudWatchLogs
       def self.stub(http_resp, stub:)
         data = {}
         data['success'] = stub[:success] unless stub[:success].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -177,7 +179,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -191,7 +193,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -207,9 +209,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['destinations'] = Stubs::Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['destinations'] = Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -228,7 +230,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Destination.stub(element) unless element.nil?
+          data << Destination.stub(element) unless element.nil?
         end
         data
       end
@@ -273,9 +275,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['exportTasks'] = Stubs::ExportTasks.stub(stub[:export_tasks]) unless stub[:export_tasks].nil?
+        data['exportTasks'] = ExportTasks.stub(stub[:export_tasks]) unless stub[:export_tasks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExportTask.stub(element) unless element.nil?
+          data << ExportTask.stub(element) unless element.nil?
         end
         data
       end
@@ -328,8 +330,8 @@ module AWS::SDK::CloudWatchLogs
         data['to'] = stub[:to] unless stub[:to].nil?
         data['destination'] = stub[:destination] unless stub[:destination].nil?
         data['destinationPrefix'] = stub[:destination_prefix] unless stub[:destination_prefix].nil?
-        data['status'] = Stubs::ExportTaskStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['executionInfo'] = Stubs::ExportTaskExecutionInfo.stub(stub[:execution_info]) unless stub[:execution_info].nil?
+        data['status'] = ExportTaskStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['executionInfo'] = ExportTaskExecutionInfo.stub(stub[:execution_info]) unless stub[:execution_info].nil?
         data
       end
     end
@@ -385,9 +387,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['logGroups'] = Stubs::LogGroups.stub(stub[:log_groups]) unless stub[:log_groups].nil?
+        data['logGroups'] = LogGroups.stub(stub[:log_groups]) unless stub[:log_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -406,7 +408,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogGroup.stub(element) unless element.nil?
+          data << LogGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -453,9 +455,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['logStreams'] = Stubs::LogStreams.stub(stub[:log_streams]) unless stub[:log_streams].nil?
+        data['logStreams'] = LogStreams.stub(stub[:log_streams]) unless stub[:log_streams].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogStream.stub(element) unless element.nil?
+          data << LogStream.stub(element) unless element.nil?
         end
         data
       end
@@ -523,9 +525,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['metricFilters'] = Stubs::MetricFilters.stub(stub[:metric_filters]) unless stub[:metric_filters].nil?
+        data['metricFilters'] = MetricFilters.stub(stub[:metric_filters]) unless stub[:metric_filters].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -544,7 +546,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricFilter.stub(element) unless element.nil?
+          data << MetricFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -569,7 +571,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['filterName'] = stub[:filter_name] unless stub[:filter_name].nil?
         data['filterPattern'] = stub[:filter_pattern] unless stub[:filter_pattern].nil?
-        data['metricTransformations'] = Stubs::MetricTransformations.stub(stub[:metric_transformations]) unless stub[:metric_transformations].nil?
+        data['metricTransformations'] = MetricTransformations.stub(stub[:metric_transformations]) unless stub[:metric_transformations].nil?
         data['creationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
         data['logGroupName'] = stub[:log_group_name] unless stub[:log_group_name].nil?
         data
@@ -590,7 +592,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricTransformation.stub(element) unless element.nil?
+          data << MetricTransformation.stub(element) unless element.nil?
         end
         data
       end
@@ -618,7 +620,7 @@ module AWS::SDK::CloudWatchLogs
         data['metricNamespace'] = stub[:metric_namespace] unless stub[:metric_namespace].nil?
         data['metricValue'] = stub[:metric_value] unless stub[:metric_value].nil?
         data['defaultValue'] = Hearth::NumberHelper.serialize(stub[:default_value])
-        data['dimensions'] = Stubs::Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['dimensions'] = Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['unit'] = stub[:unit] unless stub[:unit].nil?
         data
       end
@@ -655,9 +657,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['queries'] = Stubs::QueryInfoList.stub(stub[:queries]) unless stub[:queries].nil?
+        data['queries'] = QueryInfoList.stub(stub[:queries]) unless stub[:queries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -676,7 +678,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueryInfo.stub(element) unless element.nil?
+          data << QueryInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -719,9 +721,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['queryDefinitions'] = Stubs::QueryDefinitionList.stub(stub[:query_definitions]) unless stub[:query_definitions].nil?
+        data['queryDefinitions'] = QueryDefinitionList.stub(stub[:query_definitions]) unless stub[:query_definitions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -740,7 +742,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueryDefinition.stub(element) unless element.nil?
+          data << QueryDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -767,7 +769,7 @@ module AWS::SDK::CloudWatchLogs
         data['name'] = stub[:name] unless stub[:name].nil?
         data['queryString'] = stub[:query_string] unless stub[:query_string].nil?
         data['lastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
-        data['logGroupNames'] = Stubs::LogGroupNames.stub(stub[:log_group_names]) unless stub[:log_group_names].nil?
+        data['logGroupNames'] = LogGroupNames.stub(stub[:log_group_names]) unless stub[:log_group_names].nil?
         data
       end
     end
@@ -803,9 +805,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['resourcePolicies'] = Stubs::ResourcePolicies.stub(stub[:resource_policies]) unless stub[:resource_policies].nil?
+        data['resourcePolicies'] = ResourcePolicies.stub(stub[:resource_policies]) unless stub[:resource_policies].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -824,7 +826,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourcePolicy.stub(element) unless element.nil?
+          data << ResourcePolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -863,9 +865,9 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['subscriptionFilters'] = Stubs::SubscriptionFilters.stub(stub[:subscription_filters]) unless stub[:subscription_filters].nil?
+        data['subscriptionFilters'] = SubscriptionFilters.stub(stub[:subscription_filters]) unless stub[:subscription_filters].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubscriptionFilter.stub(element) unless element.nil?
+          data << SubscriptionFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -929,7 +931,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -946,10 +948,10 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['events'] = Stubs::FilteredLogEvents.stub(stub[:events]) unless stub[:events].nil?
-        data['searchedLogStreams'] = Stubs::SearchedLogStreams.stub(stub[:searched_log_streams]) unless stub[:searched_log_streams].nil?
+        data['events'] = FilteredLogEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['searchedLogStreams'] = SearchedLogStreams.stub(stub[:searched_log_streams]) unless stub[:searched_log_streams].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -968,7 +970,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SearchedLogStream.stub(element) unless element.nil?
+          data << SearchedLogStream.stub(element) unless element.nil?
         end
         data
       end
@@ -1008,7 +1010,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FilteredLogEvent.stub(element) unless element.nil?
+          data << FilteredLogEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -1052,10 +1054,10 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['events'] = Stubs::OutputLogEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = OutputLogEvents.stub(stub[:events]) unless stub[:events].nil?
         data['nextForwardToken'] = stub[:next_forward_token] unless stub[:next_forward_token].nil?
         data['nextBackwardToken'] = stub[:next_backward_token] unless stub[:next_backward_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1074,7 +1076,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputLogEvent.stub(element) unless element.nil?
+          data << OutputLogEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -1112,8 +1114,8 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['logGroupFields'] = Stubs::LogGroupFieldList.stub(stub[:log_group_fields]) unless stub[:log_group_fields].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['logGroupFields'] = LogGroupFieldList.stub(stub[:log_group_fields]) unless stub[:log_group_fields].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1132,7 +1134,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogGroupField.stub(element) unless element.nil?
+          data << LogGroupField.stub(element) unless element.nil?
         end
         data
       end
@@ -1168,8 +1170,8 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['logRecord'] = Stubs::LogRecord.stub(stub[:log_record]) unless stub[:log_record].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['logRecord'] = LogRecord.stub(stub[:log_record]) unless stub[:log_record].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1206,10 +1208,10 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['results'] = Stubs::QueryResults.stub(stub[:results]) unless stub[:results].nil?
-        data['statistics'] = Stubs::QueryStatistics.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['results'] = QueryResults.stub(stub[:results]) unless stub[:results].nil?
+        data['statistics'] = QueryStatistics.stub(stub[:statistics]) unless stub[:statistics].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1250,7 +1252,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResultRows.stub(element) unless element.nil?
+          data << ResultRows.stub(element) unless element.nil?
         end
         data
       end
@@ -1270,7 +1272,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResultField.stub(element) unless element.nil?
+          data << ResultField.stub(element) unless element.nil?
         end
         data
       end
@@ -1306,8 +1308,8 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1342,8 +1344,8 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['destination'] = Stubs::Destination.stub(stub[:destination]) unless stub[:destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destination'] = Destination.stub(stub[:destination]) unless stub[:destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1357,7 +1359,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1374,8 +1376,8 @@ module AWS::SDK::CloudWatchLogs
       def self.stub(http_resp, stub:)
         data = {}
         data['nextSequenceToken'] = stub[:next_sequence_token] unless stub[:next_sequence_token].nil?
-        data['rejectedLogEventsInfo'] = Stubs::RejectedLogEventsInfo.stub(stub[:rejected_log_events_info]) unless stub[:rejected_log_events_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rejectedLogEventsInfo'] = RejectedLogEventsInfo.stub(stub[:rejected_log_events_info]) unless stub[:rejected_log_events_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1411,7 +1413,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1427,7 +1429,7 @@ module AWS::SDK::CloudWatchLogs
       def self.stub(http_resp, stub:)
         data = {}
         data['queryDefinitionId'] = stub[:query_definition_id] unless stub[:query_definition_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1442,8 +1444,8 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['resourcePolicy'] = Stubs::ResourcePolicy.stub(stub[:resource_policy]) unless stub[:resource_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourcePolicy'] = ResourcePolicy.stub(stub[:resource_policy]) unless stub[:resource_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1457,7 +1459,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1471,7 +1473,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1487,7 +1489,7 @@ module AWS::SDK::CloudWatchLogs
       def self.stub(http_resp, stub:)
         data = {}
         data['queryId'] = stub[:query_id] unless stub[:query_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1503,7 +1505,7 @@ module AWS::SDK::CloudWatchLogs
       def self.stub(http_resp, stub:)
         data = {}
         data['success'] = stub[:success] unless stub[:success].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1517,7 +1519,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1532,8 +1534,8 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['matches'] = Stubs::MetricFilterMatches.stub(stub[:matches]) unless stub[:matches].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['matches'] = MetricFilterMatches.stub(stub[:matches]) unless stub[:matches].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1552,7 +1554,7 @@ module AWS::SDK::CloudWatchLogs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricFilterMatchRecord.stub(element) unless element.nil?
+          data << MetricFilterMatchRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -1575,7 +1577,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['eventNumber'] = stub[:event_number] unless stub[:event_number].nil?
         data['eventMessage'] = stub[:event_message] unless stub[:event_message].nil?
-        data['extractedValues'] = Stubs::ExtractedValues.stub(stub[:extracted_values]) unless stub[:extracted_values].nil?
+        data['extractedValues'] = ExtractedValues.stub(stub[:extracted_values]) unless stub[:extracted_values].nil?
         data
       end
     end
@@ -1609,7 +1611,7 @@ module AWS::SDK::CloudWatchLogs
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

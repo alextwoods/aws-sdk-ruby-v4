@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Rekognition
   module Stubs
 
@@ -24,12 +26,12 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SourceImageFace'] = Stubs::ComparedSourceImageFace.stub(stub[:source_image_face]) unless stub[:source_image_face].nil?
-        data['FaceMatches'] = Stubs::CompareFacesMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
-        data['UnmatchedFaces'] = Stubs::CompareFacesUnmatchList.stub(stub[:unmatched_faces]) unless stub[:unmatched_faces].nil?
+        data['SourceImageFace'] = ComparedSourceImageFace.stub(stub[:source_image_face]) unless stub[:source_image_face].nil?
+        data['FaceMatches'] = CompareFacesMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
+        data['UnmatchedFaces'] = CompareFacesUnmatchList.stub(stub[:unmatched_faces]) unless stub[:unmatched_faces].nil?
         data['SourceImageOrientationCorrection'] = stub[:source_image_orientation_correction] unless stub[:source_image_orientation_correction].nil?
         data['TargetImageOrientationCorrection'] = stub[:target_image_orientation_correction] unless stub[:target_image_orientation_correction].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComparedFace.stub(element) unless element.nil?
+          data << ComparedFace.stub(element) unless element.nil?
         end
         data
       end
@@ -73,13 +75,13 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::ComparedFace.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['Landmarks'] = Stubs::Landmarks.stub(stub[:landmarks]) unless stub[:landmarks].nil?
-        data['Pose'] = Stubs::Pose.stub(stub[:pose]) unless stub[:pose].nil?
-        data['Quality'] = Stubs::ImageQuality.stub(stub[:quality]) unless stub[:quality].nil?
-        data['Emotions'] = Stubs::Emotions.stub(stub[:emotions]) unless stub[:emotions].nil?
-        data['Smile'] = Stubs::Smile.stub(stub[:smile]) unless stub[:smile].nil?
+        data['Landmarks'] = Landmarks.stub(stub[:landmarks]) unless stub[:landmarks].nil?
+        data['Pose'] = Pose.stub(stub[:pose]) unless stub[:pose].nil?
+        data['Quality'] = ImageQuality.stub(stub[:quality]) unless stub[:quality].nil?
+        data['Emotions'] = Emotions.stub(stub[:emotions]) unless stub[:emotions].nil?
+        data['Smile'] = Smile.stub(stub[:smile]) unless stub[:smile].nil?
         data
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Emotion.stub(element) unless element.nil?
+          data << Emotion.stub(element) unless element.nil?
         end
         data
       end
@@ -200,7 +202,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Landmark.stub(element) unless element.nil?
+          data << Landmark.stub(element) unless element.nil?
         end
         data
       end
@@ -266,7 +268,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CompareFacesMatch.stub(element) unless element.nil?
+          data << CompareFacesMatch.stub(element) unless element.nil?
         end
         data
       end
@@ -287,7 +289,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::CompareFacesMatch.new
         data = {}
         data['Similarity'] = Hearth::NumberHelper.serialize(stub[:similarity])
-        data['Face'] = Stubs::ComparedFace.stub(stub[:face]) unless stub[:face].nil?
+        data['Face'] = ComparedFace.stub(stub[:face]) unless stub[:face].nil?
         data
       end
     end
@@ -306,7 +308,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::ComparedSourceImageFace.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data
       end
@@ -327,7 +329,7 @@ module AWS::SDK::Rekognition
         data['StatusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['CollectionArn'] = stub[:collection_arn] unless stub[:collection_arn].nil?
         data['FaceModelVersion'] = stub[:face_model_version] unless stub[:face_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -343,7 +345,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['DatasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -359,7 +361,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['ProjectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['ProjectVersionArn'] = stub[:project_version_arn] unless stub[:project_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -391,7 +393,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['StreamProcessorArn'] = stub[:stream_processor_arn] unless stub[:stream_processor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -407,7 +409,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['StatusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -421,7 +423,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -436,8 +438,8 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeletedFaces'] = Stubs::FaceIdList.stub(stub[:deleted_faces]) unless stub[:deleted_faces].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeletedFaces'] = FaceIdList.stub(stub[:deleted_faces]) unless stub[:deleted_faces].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -473,7 +475,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -489,7 +491,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -503,7 +505,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::Rekognition
         data['FaceModelVersion'] = stub[:face_model_version] unless stub[:face_model_version].nil?
         data['CollectionARN'] = stub[:collection_arn] unless stub[:collection_arn].nil?
         data['CreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -540,8 +542,8 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatasetDescription'] = Stubs::DatasetDescription.stub(stub[:dataset_description]) unless stub[:dataset_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatasetDescription'] = DatasetDescription.stub(stub[:dataset_description]) unless stub[:dataset_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -569,7 +571,7 @@ module AWS::SDK::Rekognition
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['StatusMessageCode'] = stub[:status_message_code] unless stub[:status_message_code].nil?
-        data['DatasetStats'] = Stubs::DatasetStats.stub(stub[:dataset_stats]) unless stub[:dataset_stats].nil?
+        data['DatasetStats'] = DatasetStats.stub(stub[:dataset_stats]) unless stub[:dataset_stats].nil?
         data
       end
     end
@@ -609,9 +611,9 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProjectVersionDescriptions'] = Stubs::ProjectVersionDescriptions.stub(stub[:project_version_descriptions]) unless stub[:project_version_descriptions].nil?
+        data['ProjectVersionDescriptions'] = ProjectVersionDescriptions.stub(stub[:project_version_descriptions]) unless stub[:project_version_descriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -630,7 +632,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectVersionDescription.stub(element) unless element.nil?
+          data << ProjectVersionDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -668,11 +670,11 @@ module AWS::SDK::Rekognition
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['BillableTrainingTimeInSeconds'] = stub[:billable_training_time_in_seconds] unless stub[:billable_training_time_in_seconds].nil?
         data['TrainingEndTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_end_timestamp]).to_i unless stub[:training_end_timestamp].nil?
-        data['OutputConfig'] = Stubs::OutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
-        data['TrainingDataResult'] = Stubs::TrainingDataResult.stub(stub[:training_data_result]) unless stub[:training_data_result].nil?
-        data['TestingDataResult'] = Stubs::TestingDataResult.stub(stub[:testing_data_result]) unless stub[:testing_data_result].nil?
-        data['EvaluationResult'] = Stubs::EvaluationResult.stub(stub[:evaluation_result]) unless stub[:evaluation_result].nil?
-        data['ManifestSummary'] = Stubs::GroundTruthManifest.stub(stub[:manifest_summary]) unless stub[:manifest_summary].nil?
+        data['OutputConfig'] = OutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['TrainingDataResult'] = TrainingDataResult.stub(stub[:training_data_result]) unless stub[:training_data_result].nil?
+        data['TestingDataResult'] = TestingDataResult.stub(stub[:testing_data_result]) unless stub[:testing_data_result].nil?
+        data['EvaluationResult'] = EvaluationResult.stub(stub[:evaluation_result]) unless stub[:evaluation_result].nil?
+        data['ManifestSummary'] = GroundTruthManifest.stub(stub[:manifest_summary]) unless stub[:manifest_summary].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data
       end
@@ -691,7 +693,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::GroundTruthManifest.new
         data = {}
-        data['S3Object'] = Stubs::S3Object.stub(stub[:s3_object]) unless stub[:s3_object].nil?
+        data['S3Object'] = S3Object.stub(stub[:s3_object]) unless stub[:s3_object].nil?
         data
       end
     end
@@ -733,7 +735,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::EvaluationResult.new
         data = {}
         data['F1Score'] = Hearth::NumberHelper.serialize(stub[:f1_score])
-        data['Summary'] = Stubs::Summary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['Summary'] = Summary.stub(stub[:summary]) unless stub[:summary].nil?
         data
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::Summary.new
         data = {}
-        data['S3Object'] = Stubs::S3Object.stub(stub[:s3_object]) unless stub[:s3_object].nil?
+        data['S3Object'] = S3Object.stub(stub[:s3_object]) unless stub[:s3_object].nil?
         data
       end
     end
@@ -771,9 +773,9 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::TestingDataResult.new
         data = {}
-        data['Input'] = Stubs::TestingData.stub(stub[:input]) unless stub[:input].nil?
-        data['Output'] = Stubs::TestingData.stub(stub[:output]) unless stub[:output].nil?
-        data['Validation'] = Stubs::ValidationData.stub(stub[:validation]) unless stub[:validation].nil?
+        data['Input'] = TestingData.stub(stub[:input]) unless stub[:input].nil?
+        data['Output'] = TestingData.stub(stub[:output]) unless stub[:output].nil?
+        data['Validation'] = ValidationData.stub(stub[:validation]) unless stub[:validation].nil?
         data
       end
     end
@@ -791,7 +793,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::ValidationData.new
         data = {}
-        data['Assets'] = Stubs::Assets.stub(stub[:assets]) unless stub[:assets].nil?
+        data['Assets'] = Assets.stub(stub[:assets]) unless stub[:assets].nil?
         data
       end
     end
@@ -810,7 +812,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Asset.stub(element) unless element.nil?
+          data << Asset.stub(element) unless element.nil?
         end
         data
       end
@@ -829,7 +831,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::Asset.new
         data = {}
-        data['GroundTruthManifest'] = Stubs::GroundTruthManifest.stub(stub[:ground_truth_manifest]) unless stub[:ground_truth_manifest].nil?
+        data['GroundTruthManifest'] = GroundTruthManifest.stub(stub[:ground_truth_manifest]) unless stub[:ground_truth_manifest].nil?
         data
       end
     end
@@ -848,7 +850,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::TestingData.new
         data = {}
-        data['Assets'] = Stubs::Assets.stub(stub[:assets]) unless stub[:assets].nil?
+        data['Assets'] = Assets.stub(stub[:assets]) unless stub[:assets].nil?
         data['AutoCreate'] = stub[:auto_create] unless stub[:auto_create].nil?
         data
       end
@@ -869,9 +871,9 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::TrainingDataResult.new
         data = {}
-        data['Input'] = Stubs::TrainingData.stub(stub[:input]) unless stub[:input].nil?
-        data['Output'] = Stubs::TrainingData.stub(stub[:output]) unless stub[:output].nil?
-        data['Validation'] = Stubs::ValidationData.stub(stub[:validation]) unless stub[:validation].nil?
+        data['Input'] = TrainingData.stub(stub[:input]) unless stub[:input].nil?
+        data['Output'] = TrainingData.stub(stub[:output]) unless stub[:output].nil?
+        data['Validation'] = ValidationData.stub(stub[:validation]) unless stub[:validation].nil?
         data
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::TrainingData.new
         data = {}
-        data['Assets'] = Stubs::Assets.stub(stub[:assets]) unless stub[:assets].nil?
+        data['Assets'] = Assets.stub(stub[:assets]) unless stub[:assets].nil?
         data
       end
     end
@@ -925,9 +927,9 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProjectDescriptions'] = Stubs::ProjectDescriptions.stub(stub[:project_descriptions]) unless stub[:project_descriptions].nil?
+        data['ProjectDescriptions'] = ProjectDescriptions.stub(stub[:project_descriptions]) unless stub[:project_descriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -946,7 +948,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectDescription.stub(element) unless element.nil?
+          data << ProjectDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -971,7 +973,7 @@ module AWS::SDK::Rekognition
         data['ProjectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
         data['CreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Datasets'] = Stubs::DatasetMetadataList.stub(stub[:datasets]) unless stub[:datasets].nil?
+        data['Datasets'] = DatasetMetadataList.stub(stub[:datasets]) unless stub[:datasets].nil?
         data
       end
     end
@@ -990,7 +992,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetMetadata.stub(element) unless element.nil?
+          data << DatasetMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1053,15 +1055,15 @@ module AWS::SDK::Rekognition
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['CreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
         data['LastUpdateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_timestamp]).to_i unless stub[:last_update_timestamp].nil?
-        data['Input'] = Stubs::StreamProcessorInput.stub(stub[:input]) unless stub[:input].nil?
-        data['Output'] = Stubs::StreamProcessorOutput.stub(stub[:output]) unless stub[:output].nil?
+        data['Input'] = StreamProcessorInput.stub(stub[:input]) unless stub[:input].nil?
+        data['Output'] = StreamProcessorOutput.stub(stub[:output]) unless stub[:output].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['Settings'] = Stubs::StreamProcessorSettings.stub(stub[:settings]) unless stub[:settings].nil?
-        data['NotificationChannel'] = Stubs::StreamProcessorNotificationChannel.stub(stub[:notification_channel]) unless stub[:notification_channel].nil?
+        data['Settings'] = StreamProcessorSettings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['NotificationChannel'] = StreamProcessorNotificationChannel.stub(stub[:notification_channel]) unless stub[:notification_channel].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['RegionsOfInterest'] = Stubs::RegionsOfInterest.stub(stub[:regions_of_interest]) unless stub[:regions_of_interest].nil?
-        data['DataSharingPreference'] = Stubs::StreamProcessorDataSharingPreference.stub(stub[:data_sharing_preference]) unless stub[:data_sharing_preference].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegionsOfInterest'] = RegionsOfInterest.stub(stub[:regions_of_interest]) unless stub[:regions_of_interest].nil?
+        data['DataSharingPreference'] = StreamProcessorDataSharingPreference.stub(stub[:data_sharing_preference]) unless stub[:data_sharing_preference].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1098,7 +1100,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegionOfInterest.stub(element) unless element.nil?
+          data << RegionOfInterest.stub(element) unless element.nil?
         end
         data
       end
@@ -1118,8 +1120,8 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::RegionOfInterest.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
-        data['Polygon'] = Stubs::Polygon.stub(stub[:polygon]) unless stub[:polygon].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['Polygon'] = Polygon.stub(stub[:polygon]) unless stub[:polygon].nil?
         data
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Point.stub(element) unless element.nil?
+          data << Point.stub(element) unless element.nil?
         end
         data
       end
@@ -1196,8 +1198,8 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::StreamProcessorSettings.new
         data = {}
-        data['FaceSearch'] = Stubs::FaceSearchSettings.stub(stub[:face_search]) unless stub[:face_search].nil?
-        data['ConnectedHome'] = Stubs::ConnectedHomeSettings.stub(stub[:connected_home]) unless stub[:connected_home].nil?
+        data['FaceSearch'] = FaceSearchSettings.stub(stub[:face_search]) unless stub[:face_search].nil?
+        data['ConnectedHome'] = ConnectedHomeSettings.stub(stub[:connected_home]) unless stub[:connected_home].nil?
         data
       end
     end
@@ -1216,7 +1218,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::ConnectedHomeSettings.new
         data = {}
-        data['Labels'] = Stubs::ConnectedHomeLabels.stub(stub[:labels]) unless stub[:labels].nil?
+        data['Labels'] = ConnectedHomeLabels.stub(stub[:labels]) unless stub[:labels].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(stub[:min_confidence])
         data
       end
@@ -1276,8 +1278,8 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::StreamProcessorOutput.new
         data = {}
-        data['KinesisDataStream'] = Stubs::KinesisDataStream.stub(stub[:kinesis_data_stream]) unless stub[:kinesis_data_stream].nil?
-        data['S3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['KinesisDataStream'] = KinesisDataStream.stub(stub[:kinesis_data_stream]) unless stub[:kinesis_data_stream].nil?
+        data['S3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data
       end
     end
@@ -1333,7 +1335,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::StreamProcessorInput.new
         data = {}
-        data['KinesisVideoStream'] = Stubs::KinesisVideoStream.stub(stub[:kinesis_video_stream]) unless stub[:kinesis_video_stream].nil?
+        data['KinesisVideoStream'] = KinesisVideoStream.stub(stub[:kinesis_video_stream]) unless stub[:kinesis_video_stream].nil?
         data
       end
     end
@@ -1366,8 +1368,8 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CustomLabels'] = Stubs::CustomLabels.stub(stub[:custom_labels]) unless stub[:custom_labels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomLabels'] = CustomLabels.stub(stub[:custom_labels]) unless stub[:custom_labels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1386,7 +1388,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomLabel.stub(element) unless element.nil?
+          data << CustomLabel.stub(element) unless element.nil?
         end
         data
       end
@@ -1409,7 +1411,7 @@ module AWS::SDK::Rekognition
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['Geometry'] = Stubs::Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Geometry'] = Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
         data
       end
     end
@@ -1428,8 +1430,8 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::Geometry.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
-        data['Polygon'] = Stubs::Polygon.stub(stub[:polygon]) unless stub[:polygon].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['Polygon'] = Polygon.stub(stub[:polygon]) unless stub[:polygon].nil?
         data
       end
     end
@@ -1445,9 +1447,9 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FaceDetails'] = Stubs::FaceDetailList.stub(stub[:face_details]) unless stub[:face_details].nil?
+        data['FaceDetails'] = FaceDetailList.stub(stub[:face_details]) unless stub[:face_details].nil?
         data['OrientationCorrection'] = stub[:orientation_correction] unless stub[:orientation_correction].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1466,7 +1468,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaceDetail.stub(element) unless element.nil?
+          data << FaceDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1499,20 +1501,20 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::FaceDetail.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
-        data['AgeRange'] = Stubs::AgeRange.stub(stub[:age_range]) unless stub[:age_range].nil?
-        data['Smile'] = Stubs::Smile.stub(stub[:smile]) unless stub[:smile].nil?
-        data['Eyeglasses'] = Stubs::Eyeglasses.stub(stub[:eyeglasses]) unless stub[:eyeglasses].nil?
-        data['Sunglasses'] = Stubs::Sunglasses.stub(stub[:sunglasses]) unless stub[:sunglasses].nil?
-        data['Gender'] = Stubs::Gender.stub(stub[:gender]) unless stub[:gender].nil?
-        data['Beard'] = Stubs::Beard.stub(stub[:beard]) unless stub[:beard].nil?
-        data['Mustache'] = Stubs::Mustache.stub(stub[:mustache]) unless stub[:mustache].nil?
-        data['EyesOpen'] = Stubs::EyeOpen.stub(stub[:eyes_open]) unless stub[:eyes_open].nil?
-        data['MouthOpen'] = Stubs::MouthOpen.stub(stub[:mouth_open]) unless stub[:mouth_open].nil?
-        data['Emotions'] = Stubs::Emotions.stub(stub[:emotions]) unless stub[:emotions].nil?
-        data['Landmarks'] = Stubs::Landmarks.stub(stub[:landmarks]) unless stub[:landmarks].nil?
-        data['Pose'] = Stubs::Pose.stub(stub[:pose]) unless stub[:pose].nil?
-        data['Quality'] = Stubs::ImageQuality.stub(stub[:quality]) unless stub[:quality].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['AgeRange'] = AgeRange.stub(stub[:age_range]) unless stub[:age_range].nil?
+        data['Smile'] = Smile.stub(stub[:smile]) unless stub[:smile].nil?
+        data['Eyeglasses'] = Eyeglasses.stub(stub[:eyeglasses]) unless stub[:eyeglasses].nil?
+        data['Sunglasses'] = Sunglasses.stub(stub[:sunglasses]) unless stub[:sunglasses].nil?
+        data['Gender'] = Gender.stub(stub[:gender]) unless stub[:gender].nil?
+        data['Beard'] = Beard.stub(stub[:beard]) unless stub[:beard].nil?
+        data['Mustache'] = Mustache.stub(stub[:mustache]) unless stub[:mustache].nil?
+        data['EyesOpen'] = EyeOpen.stub(stub[:eyes_open]) unless stub[:eyes_open].nil?
+        data['MouthOpen'] = MouthOpen.stub(stub[:mouth_open]) unless stub[:mouth_open].nil?
+        data['Emotions'] = Emotions.stub(stub[:emotions]) unless stub[:emotions].nil?
+        data['Landmarks'] = Landmarks.stub(stub[:landmarks]) unless stub[:landmarks].nil?
+        data['Pose'] = Pose.stub(stub[:pose]) unless stub[:pose].nil?
+        data['Quality'] = ImageQuality.stub(stub[:quality]) unless stub[:quality].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data
       end
@@ -1690,10 +1692,10 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Labels'] = Stubs::Labels.stub(stub[:labels]) unless stub[:labels].nil?
+        data['Labels'] = Labels.stub(stub[:labels]) unless stub[:labels].nil?
         data['OrientationCorrection'] = stub[:orientation_correction] unless stub[:orientation_correction].nil?
         data['LabelModelVersion'] = stub[:label_model_version] unless stub[:label_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1712,7 +1714,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Label.stub(element) unless element.nil?
+          data << Label.stub(element) unless element.nil?
         end
         data
       end
@@ -1736,8 +1738,8 @@ module AWS::SDK::Rekognition
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['Instances'] = Stubs::Instances.stub(stub[:instances]) unless stub[:instances].nil?
-        data['Parents'] = Stubs::Parents.stub(stub[:parents]) unless stub[:parents].nil?
+        data['Instances'] = Instances.stub(stub[:instances]) unless stub[:instances].nil?
+        data['Parents'] = Parents.stub(stub[:parents]) unless stub[:parents].nil?
         data
       end
     end
@@ -1756,7 +1758,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Parent.stub(element) unless element.nil?
+          data << Parent.stub(element) unless element.nil?
         end
         data
       end
@@ -1794,7 +1796,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Instance.stub(element) unless element.nil?
+          data << Instance.stub(element) unless element.nil?
         end
         data
       end
@@ -1814,7 +1816,7 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::Instance.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data
       end
@@ -1832,10 +1834,10 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ModerationLabels'] = Stubs::ModerationLabels.stub(stub[:moderation_labels]) unless stub[:moderation_labels].nil?
+        data['ModerationLabels'] = ModerationLabels.stub(stub[:moderation_labels]) unless stub[:moderation_labels].nil?
         data['ModerationModelVersion'] = stub[:moderation_model_version] unless stub[:moderation_model_version].nil?
-        data['HumanLoopActivationOutput'] = Stubs::HumanLoopActivationOutput.stub(stub[:human_loop_activation_output]) unless stub[:human_loop_activation_output].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HumanLoopActivationOutput'] = HumanLoopActivationOutput.stub(stub[:human_loop_activation_output]) unless stub[:human_loop_activation_output].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1856,7 +1858,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::HumanLoopActivationOutput.new
         data = {}
         data['HumanLoopArn'] = stub[:human_loop_arn] unless stub[:human_loop_arn].nil?
-        data['HumanLoopActivationReasons'] = Stubs::HumanLoopActivationReasons.stub(stub[:human_loop_activation_reasons]) unless stub[:human_loop_activation_reasons].nil?
+        data['HumanLoopActivationReasons'] = HumanLoopActivationReasons.stub(stub[:human_loop_activation_reasons]) unless stub[:human_loop_activation_reasons].nil?
         data['HumanLoopActivationConditionsEvaluationResults'] = stub[:human_loop_activation_conditions_evaluation_results] unless stub[:human_loop_activation_conditions_evaluation_results].nil?
         data
       end
@@ -1896,7 +1898,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModerationLabel.stub(element) unless element.nil?
+          data << ModerationLabel.stub(element) unless element.nil?
         end
         data
       end
@@ -1937,9 +1939,9 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['ProtectiveEquipmentModelVersion'] = stub[:protective_equipment_model_version] unless stub[:protective_equipment_model_version].nil?
-        data['Persons'] = Stubs::ProtectiveEquipmentPersons.stub(stub[:persons]) unless stub[:persons].nil?
-        data['Summary'] = Stubs::ProtectiveEquipmentSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Persons'] = ProtectiveEquipmentPersons.stub(stub[:persons]) unless stub[:persons].nil?
+        data['Summary'] = ProtectiveEquipmentSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1959,9 +1961,9 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::ProtectiveEquipmentSummary.new
         data = {}
-        data['PersonsWithRequiredEquipment'] = Stubs::ProtectiveEquipmentPersonIds.stub(stub[:persons_with_required_equipment]) unless stub[:persons_with_required_equipment].nil?
-        data['PersonsWithoutRequiredEquipment'] = Stubs::ProtectiveEquipmentPersonIds.stub(stub[:persons_without_required_equipment]) unless stub[:persons_without_required_equipment].nil?
-        data['PersonsIndeterminate'] = Stubs::ProtectiveEquipmentPersonIds.stub(stub[:persons_indeterminate]) unless stub[:persons_indeterminate].nil?
+        data['PersonsWithRequiredEquipment'] = ProtectiveEquipmentPersonIds.stub(stub[:persons_with_required_equipment]) unless stub[:persons_with_required_equipment].nil?
+        data['PersonsWithoutRequiredEquipment'] = ProtectiveEquipmentPersonIds.stub(stub[:persons_without_required_equipment]) unless stub[:persons_without_required_equipment].nil?
+        data['PersonsIndeterminate'] = ProtectiveEquipmentPersonIds.stub(stub[:persons_indeterminate]) unless stub[:persons_indeterminate].nil?
         data
       end
     end
@@ -2000,7 +2002,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProtectiveEquipmentPerson.stub(element) unless element.nil?
+          data << ProtectiveEquipmentPerson.stub(element) unless element.nil?
         end
         data
       end
@@ -2022,8 +2024,8 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::ProtectiveEquipmentPerson.new
         data = {}
-        data['BodyParts'] = Stubs::BodyParts.stub(stub[:body_parts]) unless stub[:body_parts].nil?
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['BodyParts'] = BodyParts.stub(stub[:body_parts]) unless stub[:body_parts].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data['Id'] = stub[:id] unless stub[:id].nil?
         data
@@ -2044,7 +2046,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProtectiveEquipmentBodyPart.stub(element) unless element.nil?
+          data << ProtectiveEquipmentBodyPart.stub(element) unless element.nil?
         end
         data
       end
@@ -2067,7 +2069,7 @@ module AWS::SDK::Rekognition
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['EquipmentDetections'] = Stubs::EquipmentDetections.stub(stub[:equipment_detections]) unless stub[:equipment_detections].nil?
+        data['EquipmentDetections'] = EquipmentDetections.stub(stub[:equipment_detections]) unless stub[:equipment_detections].nil?
         data
       end
     end
@@ -2086,7 +2088,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EquipmentDetection.stub(element) unless element.nil?
+          data << EquipmentDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2108,10 +2110,10 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::EquipmentDetection.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['CoversBodyPart'] = Stubs::CoversBodyPart.stub(stub[:covers_body_part]) unless stub[:covers_body_part].nil?
+        data['CoversBodyPart'] = CoversBodyPart.stub(stub[:covers_body_part]) unless stub[:covers_body_part].nil?
         data
       end
     end
@@ -2147,9 +2149,9 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TextDetections'] = Stubs::TextDetectionList.stub(stub[:text_detections]) unless stub[:text_detections].nil?
+        data['TextDetections'] = TextDetectionList.stub(stub[:text_detections]) unless stub[:text_detections].nil?
         data['TextModelVersion'] = stub[:text_model_version] unless stub[:text_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2168,7 +2170,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TextDetection.stub(element) unless element.nil?
+          data << TextDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2197,7 +2199,7 @@ module AWS::SDK::Rekognition
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['ParentId'] = stub[:parent_id] unless stub[:parent_id].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['Geometry'] = Stubs::Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Geometry'] = Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
         data
       end
     end
@@ -2211,7 +2213,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2228,10 +2230,10 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Urls'] = Stubs::Urls.stub(stub[:urls]) unless stub[:urls].nil?
+        data['Urls'] = Urls.stub(stub[:urls]) unless stub[:urls].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['KnownGender'] = Stubs::KnownGender.stub(stub[:known_gender]) unless stub[:known_gender].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KnownGender'] = KnownGender.stub(stub[:known_gender]) unless stub[:known_gender].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2290,10 +2292,10 @@ module AWS::SDK::Rekognition
         data = {}
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['VideoMetadata'] = VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Celebrities'] = Stubs::CelebrityRecognitions.stub(stub[:celebrities]) unless stub[:celebrities].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Celebrities'] = CelebrityRecognitions.stub(stub[:celebrities]) unless stub[:celebrities].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2312,7 +2314,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CelebrityRecognition.stub(element) unless element.nil?
+          data << CelebrityRecognition.stub(element) unless element.nil?
         end
         data
       end
@@ -2333,7 +2335,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::CelebrityRecognition.new
         data = {}
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['Celebrity'] = Stubs::CelebrityDetail.stub(stub[:celebrity]) unless stub[:celebrity].nil?
+        data['Celebrity'] = CelebrityDetail.stub(stub[:celebrity]) unless stub[:celebrity].nil?
         data
       end
     end
@@ -2357,13 +2359,13 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::CelebrityDetail.new
         data = {}
-        data['Urls'] = Stubs::Urls.stub(stub[:urls]) unless stub[:urls].nil?
+        data['Urls'] = Urls.stub(stub[:urls]) unless stub[:urls].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
-        data['Face'] = Stubs::FaceDetail.stub(stub[:face]) unless stub[:face].nil?
-        data['KnownGender'] = Stubs::KnownGender.stub(stub[:known_gender]) unless stub[:known_gender].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['Face'] = FaceDetail.stub(stub[:face]) unless stub[:face].nil?
+        data['KnownGender'] = KnownGender.stub(stub[:known_gender]) unless stub[:known_gender].nil?
         data
       end
     end
@@ -2415,11 +2417,11 @@ module AWS::SDK::Rekognition
         data = {}
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
-        data['ModerationLabels'] = Stubs::ContentModerationDetections.stub(stub[:moderation_labels]) unless stub[:moderation_labels].nil?
+        data['VideoMetadata'] = VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['ModerationLabels'] = ContentModerationDetections.stub(stub[:moderation_labels]) unless stub[:moderation_labels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ModerationModelVersion'] = stub[:moderation_model_version] unless stub[:moderation_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2438,7 +2440,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContentModerationDetection.stub(element) unless element.nil?
+          data << ContentModerationDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2459,7 +2461,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::ContentModerationDetection.new
         data = {}
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['ModerationLabel'] = Stubs::ModerationLabel.stub(stub[:moderation_label]) unless stub[:moderation_label].nil?
+        data['ModerationLabel'] = ModerationLabel.stub(stub[:moderation_label]) unless stub[:moderation_label].nil?
         data
       end
     end
@@ -2480,10 +2482,10 @@ module AWS::SDK::Rekognition
         data = {}
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['VideoMetadata'] = VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Faces'] = Stubs::FaceDetections.stub(stub[:faces]) unless stub[:faces].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Faces'] = FaceDetections.stub(stub[:faces]) unless stub[:faces].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2502,7 +2504,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaceDetection.stub(element) unless element.nil?
+          data << FaceDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2523,7 +2525,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::FaceDetection.new
         data = {}
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['Face'] = Stubs::FaceDetail.stub(stub[:face]) unless stub[:face].nil?
+        data['Face'] = FaceDetail.stub(stub[:face]) unless stub[:face].nil?
         data
       end
     end
@@ -2545,9 +2547,9 @@ module AWS::SDK::Rekognition
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
-        data['Persons'] = Stubs::PersonMatches.stub(stub[:persons]) unless stub[:persons].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VideoMetadata'] = VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['Persons'] = PersonMatches.stub(stub[:persons]) unless stub[:persons].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2566,7 +2568,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PersonMatch.stub(element) unless element.nil?
+          data << PersonMatch.stub(element) unless element.nil?
         end
         data
       end
@@ -2588,8 +2590,8 @@ module AWS::SDK::Rekognition
         stub ||= Types::PersonMatch.new
         data = {}
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['Person'] = Stubs::PersonDetail.stub(stub[:person]) unless stub[:person].nil?
-        data['FaceMatches'] = Stubs::FaceMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
+        data['Person'] = PersonDetail.stub(stub[:person]) unless stub[:person].nil?
+        data['FaceMatches'] = FaceMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
         data
       end
     end
@@ -2608,7 +2610,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaceMatch.stub(element) unless element.nil?
+          data << FaceMatch.stub(element) unless element.nil?
         end
         data
       end
@@ -2629,7 +2631,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::FaceMatch.new
         data = {}
         data['Similarity'] = Hearth::NumberHelper.serialize(stub[:similarity])
-        data['Face'] = Stubs::Face.stub(stub[:face]) unless stub[:face].nil?
+        data['Face'] = Face.stub(stub[:face]) unless stub[:face].nil?
         data
       end
     end
@@ -2653,7 +2655,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::Face.new
         data = {}
         data['FaceId'] = stub[:face_id] unless stub[:face_id].nil?
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
         data['ExternalImageId'] = stub[:external_image_id] unless stub[:external_image_id].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
@@ -2678,8 +2680,8 @@ module AWS::SDK::Rekognition
         stub ||= Types::PersonDetail.new
         data = {}
         data['Index'] = stub[:index] unless stub[:index].nil?
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
-        data['Face'] = Stubs::FaceDetail.stub(stub[:face]) unless stub[:face].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['Face'] = FaceDetail.stub(stub[:face]) unless stub[:face].nil?
         data
       end
     end
@@ -2701,11 +2703,11 @@ module AWS::SDK::Rekognition
         data = {}
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['VideoMetadata'] = VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Labels'] = Stubs::LabelDetections.stub(stub[:labels]) unless stub[:labels].nil?
+        data['Labels'] = LabelDetections.stub(stub[:labels]) unless stub[:labels].nil?
         data['LabelModelVersion'] = stub[:label_model_version] unless stub[:label_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2724,7 +2726,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LabelDetection.stub(element) unless element.nil?
+          data << LabelDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2745,7 +2747,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::LabelDetection.new
         data = {}
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['Label'] = Stubs::Label.stub(stub[:label]) unless stub[:label].nil?
+        data['Label'] = Label.stub(stub[:label]) unless stub[:label].nil?
         data
       end
     end
@@ -2766,10 +2768,10 @@ module AWS::SDK::Rekognition
         data = {}
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['VideoMetadata'] = VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Persons'] = Stubs::PersonDetections.stub(stub[:persons]) unless stub[:persons].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Persons'] = PersonDetections.stub(stub[:persons]) unless stub[:persons].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2788,7 +2790,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PersonDetection.stub(element) unless element.nil?
+          data << PersonDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2809,7 +2811,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::PersonDetection.new
         data = {}
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['Person'] = Stubs::PersonDetail.stub(stub[:person]) unless stub[:person].nil?
+        data['Person'] = PersonDetail.stub(stub[:person]) unless stub[:person].nil?
         data
       end
     end
@@ -2832,12 +2834,12 @@ module AWS::SDK::Rekognition
         data = {}
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadataList.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
-        data['AudioMetadata'] = Stubs::AudioMetadataList.stub(stub[:audio_metadata]) unless stub[:audio_metadata].nil?
+        data['VideoMetadata'] = VideoMetadataList.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['AudioMetadata'] = AudioMetadataList.stub(stub[:audio_metadata]) unless stub[:audio_metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Segments'] = Stubs::SegmentDetections.stub(stub[:segments]) unless stub[:segments].nil?
-        data['SelectedSegmentTypes'] = Stubs::SegmentTypesInfo.stub(stub[:selected_segment_types]) unless stub[:selected_segment_types].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Segments'] = SegmentDetections.stub(stub[:segments]) unless stub[:segments].nil?
+        data['SelectedSegmentTypes'] = SegmentTypesInfo.stub(stub[:selected_segment_types]) unless stub[:selected_segment_types].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2856,7 +2858,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SegmentTypeInfo.stub(element) unless element.nil?
+          data << SegmentTypeInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2896,7 +2898,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SegmentDetection.stub(element) unless element.nil?
+          data << SegmentDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2933,8 +2935,8 @@ module AWS::SDK::Rekognition
         data['StartTimecodeSMPTE'] = stub[:start_timecode_smpte] unless stub[:start_timecode_smpte].nil?
         data['EndTimecodeSMPTE'] = stub[:end_timecode_smpte] unless stub[:end_timecode_smpte].nil?
         data['DurationSMPTE'] = stub[:duration_smpte] unless stub[:duration_smpte].nil?
-        data['TechnicalCueSegment'] = Stubs::TechnicalCueSegment.stub(stub[:technical_cue_segment]) unless stub[:technical_cue_segment].nil?
-        data['ShotSegment'] = Stubs::ShotSegment.stub(stub[:shot_segment]) unless stub[:shot_segment].nil?
+        data['TechnicalCueSegment'] = TechnicalCueSegment.stub(stub[:technical_cue_segment]) unless stub[:technical_cue_segment].nil?
+        data['ShotSegment'] = ShotSegment.stub(stub[:shot_segment]) unless stub[:shot_segment].nil?
         data['StartFrameNumber'] = stub[:start_frame_number] unless stub[:start_frame_number].nil?
         data['EndFrameNumber'] = stub[:end_frame_number] unless stub[:end_frame_number].nil?
         data['DurationFrames'] = stub[:duration_frames] unless stub[:duration_frames].nil?
@@ -2996,7 +2998,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AudioMetadata.stub(element) unless element.nil?
+          data << AudioMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -3040,7 +3042,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VideoMetadata.stub(element) unless element.nil?
+          data << VideoMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -3063,11 +3065,11 @@ module AWS::SDK::Rekognition
         data = {}
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['VideoMetadata'] = Stubs::VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
-        data['TextDetections'] = Stubs::TextDetectionResults.stub(stub[:text_detections]) unless stub[:text_detections].nil?
+        data['VideoMetadata'] = VideoMetadata.stub(stub[:video_metadata]) unless stub[:video_metadata].nil?
+        data['TextDetections'] = TextDetectionResults.stub(stub[:text_detections]) unless stub[:text_detections].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TextModelVersion'] = stub[:text_model_version] unless stub[:text_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3086,7 +3088,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TextDetectionResult.stub(element) unless element.nil?
+          data << TextDetectionResult.stub(element) unless element.nil?
         end
         data
       end
@@ -3107,7 +3109,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::TextDetectionResult.new
         data = {}
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['TextDetection'] = Stubs::TextDetection.stub(stub[:text_detection]) unless stub[:text_detection].nil?
+        data['TextDetection'] = TextDetection.stub(stub[:text_detection]) unless stub[:text_detection].nil?
         data
       end
     end
@@ -3125,11 +3127,11 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FaceRecords'] = Stubs::FaceRecordList.stub(stub[:face_records]) unless stub[:face_records].nil?
+        data['FaceRecords'] = FaceRecordList.stub(stub[:face_records]) unless stub[:face_records].nil?
         data['OrientationCorrection'] = stub[:orientation_correction] unless stub[:orientation_correction].nil?
         data['FaceModelVersion'] = stub[:face_model_version] unless stub[:face_model_version].nil?
-        data['UnindexedFaces'] = Stubs::UnindexedFaces.stub(stub[:unindexed_faces]) unless stub[:unindexed_faces].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnindexedFaces'] = UnindexedFaces.stub(stub[:unindexed_faces]) unless stub[:unindexed_faces].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3148,7 +3150,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnindexedFace.stub(element) unless element.nil?
+          data << UnindexedFace.stub(element) unless element.nil?
         end
         data
       end
@@ -3168,8 +3170,8 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::UnindexedFace.new
         data = {}
-        data['Reasons'] = Stubs::Reasons.stub(stub[:reasons]) unless stub[:reasons].nil?
-        data['FaceDetail'] = Stubs::FaceDetail.stub(stub[:face_detail]) unless stub[:face_detail].nil?
+        data['Reasons'] = Reasons.stub(stub[:reasons]) unless stub[:reasons].nil?
+        data['FaceDetail'] = FaceDetail.stub(stub[:face_detail]) unless stub[:face_detail].nil?
         data
       end
     end
@@ -3208,7 +3210,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaceRecord.stub(element) unless element.nil?
+          data << FaceRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -3228,8 +3230,8 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::FaceRecord.new
         data = {}
-        data['Face'] = Stubs::Face.stub(stub[:face]) unless stub[:face].nil?
-        data['FaceDetail'] = Stubs::FaceDetail.stub(stub[:face_detail]) unless stub[:face_detail].nil?
+        data['Face'] = Face.stub(stub[:face]) unless stub[:face].nil?
+        data['FaceDetail'] = FaceDetail.stub(stub[:face_detail]) unless stub[:face_detail].nil?
         data
       end
     end
@@ -3246,10 +3248,10 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CollectionIds'] = Stubs::CollectionIdList.stub(stub[:collection_ids]) unless stub[:collection_ids].nil?
+        data['CollectionIds'] = CollectionIdList.stub(stub[:collection_ids]) unless stub[:collection_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FaceModelVersions'] = Stubs::FaceModelVersionList.stub(stub[:face_model_versions]) unless stub[:face_model_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FaceModelVersions'] = FaceModelVersionList.stub(stub[:face_model_versions]) unless stub[:face_model_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3305,9 +3307,9 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatasetEntries'] = Stubs::DatasetEntries.stub(stub[:dataset_entries]) unless stub[:dataset_entries].nil?
+        data['DatasetEntries'] = DatasetEntries.stub(stub[:dataset_entries]) unless stub[:dataset_entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3343,9 +3345,9 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatasetLabelDescriptions'] = Stubs::DatasetLabelDescriptions.stub(stub[:dataset_label_descriptions]) unless stub[:dataset_label_descriptions].nil?
+        data['DatasetLabelDescriptions'] = DatasetLabelDescriptions.stub(stub[:dataset_label_descriptions]) unless stub[:dataset_label_descriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3364,7 +3366,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetLabelDescription.stub(element) unless element.nil?
+          data << DatasetLabelDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -3385,7 +3387,7 @@ module AWS::SDK::Rekognition
         stub ||= Types::DatasetLabelDescription.new
         data = {}
         data['LabelName'] = stub[:label_name] unless stub[:label_name].nil?
-        data['LabelStats'] = Stubs::DatasetLabelStats.stub(stub[:label_stats]) unless stub[:label_stats].nil?
+        data['LabelStats'] = DatasetLabelStats.stub(stub[:label_stats]) unless stub[:label_stats].nil?
         data
       end
     end
@@ -3422,10 +3424,10 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Faces'] = Stubs::FaceList.stub(stub[:faces]) unless stub[:faces].nil?
+        data['Faces'] = FaceList.stub(stub[:faces]) unless stub[:faces].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['FaceModelVersion'] = stub[:face_model_version] unless stub[:face_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3444,7 +3446,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Face.stub(element) unless element.nil?
+          data << Face.stub(element) unless element.nil?
         end
         data
       end
@@ -3462,8 +3464,8 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['StreamProcessors'] = Stubs::StreamProcessorList.stub(stub[:stream_processors]) unless stub[:stream_processors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StreamProcessors'] = StreamProcessorList.stub(stub[:stream_processors]) unless stub[:stream_processors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3482,7 +3484,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamProcessor.stub(element) unless element.nil?
+          data << StreamProcessor.stub(element) unless element.nil?
         end
         data
       end
@@ -3518,8 +3520,8 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3556,10 +3558,10 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CelebrityFaces'] = Stubs::CelebrityList.stub(stub[:celebrity_faces]) unless stub[:celebrity_faces].nil?
-        data['UnrecognizedFaces'] = Stubs::ComparedFaceList.stub(stub[:unrecognized_faces]) unless stub[:unrecognized_faces].nil?
+        data['CelebrityFaces'] = CelebrityList.stub(stub[:celebrity_faces]) unless stub[:celebrity_faces].nil?
+        data['UnrecognizedFaces'] = ComparedFaceList.stub(stub[:unrecognized_faces]) unless stub[:unrecognized_faces].nil?
         data['OrientationCorrection'] = stub[:orientation_correction] unless stub[:orientation_correction].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3578,7 +3580,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComparedFace.stub(element) unless element.nil?
+          data << ComparedFace.stub(element) unless element.nil?
         end
         data
       end
@@ -3598,7 +3600,7 @@ module AWS::SDK::Rekognition
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Celebrity.stub(element) unless element.nil?
+          data << Celebrity.stub(element) unless element.nil?
         end
         data
       end
@@ -3622,12 +3624,12 @@ module AWS::SDK::Rekognition
       def self.stub(stub)
         stub ||= Types::Celebrity.new
         data = {}
-        data['Urls'] = Stubs::Urls.stub(stub[:urls]) unless stub[:urls].nil?
+        data['Urls'] = Urls.stub(stub[:urls]) unless stub[:urls].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Face'] = Stubs::ComparedFace.stub(stub[:face]) unless stub[:face].nil?
+        data['Face'] = ComparedFace.stub(stub[:face]) unless stub[:face].nil?
         data['MatchConfidence'] = Hearth::NumberHelper.serialize(stub[:match_confidence])
-        data['KnownGender'] = Stubs::KnownGender.stub(stub[:known_gender]) unless stub[:known_gender].nil?
+        data['KnownGender'] = KnownGender.stub(stub[:known_gender]) unless stub[:known_gender].nil?
         data
       end
     end
@@ -3645,9 +3647,9 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['SearchedFaceId'] = stub[:searched_face_id] unless stub[:searched_face_id].nil?
-        data['FaceMatches'] = Stubs::FaceMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
+        data['FaceMatches'] = FaceMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
         data['FaceModelVersion'] = stub[:face_model_version] unless stub[:face_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3665,11 +3667,11 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SearchedFaceBoundingBox'] = Stubs::BoundingBox.stub(stub[:searched_face_bounding_box]) unless stub[:searched_face_bounding_box].nil?
+        data['SearchedFaceBoundingBox'] = BoundingBox.stub(stub[:searched_face_bounding_box]) unless stub[:searched_face_bounding_box].nil?
         data['SearchedFaceConfidence'] = Hearth::NumberHelper.serialize(stub[:searched_face_confidence])
-        data['FaceMatches'] = Stubs::FaceMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
+        data['FaceMatches'] = FaceMatchList.stub(stub[:face_matches]) unless stub[:face_matches].nil?
         data['FaceModelVersion'] = stub[:face_model_version] unless stub[:face_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3685,7 +3687,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3701,7 +3703,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3717,7 +3719,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3733,7 +3735,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3749,7 +3751,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3765,7 +3767,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3781,7 +3783,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3797,7 +3799,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3813,7 +3815,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['SessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3829,7 +3831,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3845,7 +3847,7 @@ module AWS::SDK::Rekognition
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3859,7 +3861,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3873,7 +3875,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3887,7 +3889,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3901,7 +3903,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3915,7 +3917,7 @@ module AWS::SDK::Rekognition
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

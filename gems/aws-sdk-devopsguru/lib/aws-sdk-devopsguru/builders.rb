@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DevOpsGuru
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Config'] = Builders::NotificationChannelConfig.build(input[:config]) unless input[:config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Config'] = NotificationChannelConfig.build(input[:config]) unless input[:config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::DevOpsGuru
     class NotificationChannelConfig
       def self.build(input)
         data = {}
-        data['Sns'] = Builders::SnsChannelConfig.build(input[:sns]) unless input[:sns].nil?
+        data['Sns'] = SnsChannelConfig.build(input[:sns]) unless input[:sns].nil?
         data
       end
     end
@@ -82,7 +84,7 @@ module AWS::SDK::DevOpsGuru
         data = {}
         data['FromTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:from_time]).to_i unless input[:from_time].nil?
         data['ToTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:to_time]).to_i unless input[:to_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::DevOpsGuru
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['InsightId'] = input[:insight_id] unless input[:insight_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,9 +159,9 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['OrganizationalUnitIds'] = Builders::OrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['OrganizationalUnitIds'] = OrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -197,9 +199,9 @@ module AWS::SDK::DevOpsGuru
         data = {}
         data['FromTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:from_time]).to_i unless input[:from_time].nil?
         data['ToTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:to_time]).to_i unless input[:to_time].nil?
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['OrganizationalUnitIds'] = Builders::OrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['OrganizationalUnitIds'] = OrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -214,11 +216,11 @@ module AWS::SDK::DevOpsGuru
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['OrganizationResourceCollectionType'] = input[:organization_resource_collection_type] unless input[:organization_resource_collection_type].nil?
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['OrganizationalUnitIds'] = Builders::OrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['OrganizationalUnitIds'] = OrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -296,11 +298,11 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StartTimeRange'] = Builders::StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
+        data['StartTimeRange'] = StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -324,11 +326,11 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::ListEventsFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListEventsFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,11 +339,11 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = {}
         data['InsightId'] = input[:insight_id] unless input[:insight_id].nil?
-        data['EventTimeRange'] = Builders::EventTimeRange.build(input[:event_time_range]) unless input[:event_time_range].nil?
+        data['EventTimeRange'] = EventTimeRange.build(input[:event_time_range]) unless input[:event_time_range].nil?
         data['EventClass'] = input[:event_class] unless input[:event_class].nil?
         data['EventSource'] = input[:event_source] unless input[:event_source].nil?
         data['DataSource'] = input[:data_source] unless input[:data_source].nil?
-        data['ResourceCollection'] = Builders::ResourceCollection.build(input[:resource_collection]) unless input[:resource_collection].nil?
+        data['ResourceCollection'] = ResourceCollection.build(input[:resource_collection]) unless input[:resource_collection].nil?
         data
       end
     end
@@ -350,8 +352,8 @@ module AWS::SDK::DevOpsGuru
     class ResourceCollection
       def self.build(input)
         data = {}
-        data['CloudFormation'] = Builders::CloudFormationCollection.build(input[:cloud_formation]) unless input[:cloud_formation].nil?
-        data['Tags'] = Builders::TagCollections.build(input[:tags]) unless input[:tags].nil?
+        data['CloudFormation'] = CloudFormationCollection.build(input[:cloud_formation]) unless input[:cloud_formation].nil?
+        data['Tags'] = TagCollections.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagCollection.build(element) unless element.nil?
+          data << TagCollection.build(element) unless element.nil?
         end
         data
       end
@@ -372,7 +374,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = {}
         data['AppBoundaryKey'] = input[:app_boundary_key] unless input[:app_boundary_key].nil?
-        data['TagValues'] = Builders::TagValues.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['TagValues'] = TagValues.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -392,7 +394,7 @@ module AWS::SDK::DevOpsGuru
     class CloudFormationCollection
       def self.build(input)
         data = {}
-        data['StackNames'] = Builders::StackNames.build(input[:stack_names]) unless input[:stack_names].nil?
+        data['StackNames'] = StackNames.build(input[:stack_names]) unless input[:stack_names].nil?
         data
       end
     end
@@ -428,10 +430,10 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StatusFilter'] = Builders::ListInsightsStatusFilter.build(input[:status_filter]) unless input[:status_filter].nil?
+        data['StatusFilter'] = ListInsightsStatusFilter.build(input[:status_filter]) unless input[:status_filter].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -439,9 +441,9 @@ module AWS::SDK::DevOpsGuru
     class ListInsightsStatusFilter
       def self.build(input)
         data = {}
-        data['Ongoing'] = Builders::ListInsightsOngoingStatusFilter.build(input[:ongoing]) unless input[:ongoing].nil?
-        data['Closed'] = Builders::ListInsightsClosedStatusFilter.build(input[:closed]) unless input[:closed].nil?
-        data['Any'] = Builders::ListInsightsAnyStatusFilter.build(input[:any]) unless input[:any].nil?
+        data['Ongoing'] = ListInsightsOngoingStatusFilter.build(input[:ongoing]) unless input[:ongoing].nil?
+        data['Closed'] = ListInsightsClosedStatusFilter.build(input[:closed]) unless input[:closed].nil?
+        data['Any'] = ListInsightsAnyStatusFilter.build(input[:any]) unless input[:any].nil?
         data
       end
     end
@@ -451,7 +453,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['StartTimeRange'] = Builders::StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
+        data['StartTimeRange'] = StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
         data
       end
     end
@@ -461,7 +463,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['EndTimeRange'] = Builders::EndTimeRange.build(input[:end_time_range]) unless input[:end_time_range].nil?
+        data['EndTimeRange'] = EndTimeRange.build(input[:end_time_range]) unless input[:end_time_range].nil?
         data
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::DevOpsGuru
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,12 +512,12 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StatusFilter'] = Builders::ListInsightsStatusFilter.build(input[:status_filter]) unless input[:status_filter].nil?
+        data['StatusFilter'] = ListInsightsStatusFilter.build(input[:status_filter]) unless input[:status_filter].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['AccountIds'] = Builders::ListInsightsAccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['OrganizationalUnitIds'] = Builders::ListInsightsOrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
+        data['AccountIds'] = ListInsightsAccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['OrganizationalUnitIds'] = ListInsightsOrganizationalUnitIdList.build(input[:organizational_unit_ids]) unless input[:organizational_unit_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -555,7 +557,7 @@ module AWS::SDK::DevOpsGuru
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Locale'] = input[:locale] unless input[:locale].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -569,8 +571,8 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InsightFeedback'] = Builders::InsightFeedback.build(input[:insight_feedback]) unless input[:insight_feedback].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightFeedback'] = InsightFeedback.build(input[:insight_feedback]) unless input[:insight_feedback].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -611,12 +613,12 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StartTimeRange'] = Builders::StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
-        data['Filters'] = Builders::SearchInsightsFilters.build(input[:filters]) unless input[:filters].nil?
+        data['StartTimeRange'] = StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
+        data['Filters'] = SearchInsightsFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -624,10 +626,10 @@ module AWS::SDK::DevOpsGuru
     class SearchInsightsFilters
       def self.build(input)
         data = {}
-        data['Severities'] = Builders::InsightSeverities.build(input[:severities]) unless input[:severities].nil?
-        data['Statuses'] = Builders::InsightStatuses.build(input[:statuses]) unless input[:statuses].nil?
-        data['ResourceCollection'] = Builders::ResourceCollection.build(input[:resource_collection]) unless input[:resource_collection].nil?
-        data['ServiceCollection'] = Builders::ServiceCollection.build(input[:service_collection]) unless input[:service_collection].nil?
+        data['Severities'] = InsightSeverities.build(input[:severities]) unless input[:severities].nil?
+        data['Statuses'] = InsightStatuses.build(input[:statuses]) unless input[:statuses].nil?
+        data['ResourceCollection'] = ResourceCollection.build(input[:resource_collection]) unless input[:resource_collection].nil?
+        data['ServiceCollection'] = ServiceCollection.build(input[:service_collection]) unless input[:service_collection].nil?
         data
       end
     end
@@ -636,7 +638,7 @@ module AWS::SDK::DevOpsGuru
     class ServiceCollection
       def self.build(input)
         data = {}
-        data['ServiceNames'] = Builders::ServiceNames.build(input[:service_names]) unless input[:service_names].nil?
+        data['ServiceNames'] = ServiceNames.build(input[:service_names]) unless input[:service_names].nil?
         data
       end
     end
@@ -684,13 +686,13 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::SearchInsightsAccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['StartTimeRange'] = Builders::StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
-        data['Filters'] = Builders::SearchOrganizationInsightsFilters.build(input[:filters]) unless input[:filters].nil?
+        data['AccountIds'] = SearchInsightsAccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['StartTimeRange'] = StartTimeRange.build(input[:start_time_range]) unless input[:start_time_range].nil?
+        data['Filters'] = SearchOrganizationInsightsFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -698,10 +700,10 @@ module AWS::SDK::DevOpsGuru
     class SearchOrganizationInsightsFilters
       def self.build(input)
         data = {}
-        data['Severities'] = Builders::InsightSeverities.build(input[:severities]) unless input[:severities].nil?
-        data['Statuses'] = Builders::InsightStatuses.build(input[:statuses]) unless input[:statuses].nil?
-        data['ResourceCollection'] = Builders::ResourceCollection.build(input[:resource_collection]) unless input[:resource_collection].nil?
-        data['ServiceCollection'] = Builders::ServiceCollection.build(input[:service_collection]) unless input[:service_collection].nil?
+        data['Severities'] = InsightSeverities.build(input[:severities]) unless input[:severities].nil?
+        data['Statuses'] = InsightStatuses.build(input[:statuses]) unless input[:statuses].nil?
+        data['ResourceCollection'] = ResourceCollection.build(input[:resource_collection]) unless input[:resource_collection].nil?
+        data['ServiceCollection'] = ServiceCollection.build(input[:service_collection]) unless input[:service_collection].nil?
         data
       end
     end
@@ -727,9 +729,9 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ResourceCollection'] = Builders::CostEstimationResourceCollectionFilter.build(input[:resource_collection]) unless input[:resource_collection].nil?
+        data['ResourceCollection'] = CostEstimationResourceCollectionFilter.build(input[:resource_collection]) unless input[:resource_collection].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -737,8 +739,8 @@ module AWS::SDK::DevOpsGuru
     class CostEstimationResourceCollectionFilter
       def self.build(input)
         data = {}
-        data['CloudFormation'] = Builders::CloudFormationCostEstimationResourceCollectionFilter.build(input[:cloud_formation]) unless input[:cloud_formation].nil?
-        data['Tags'] = Builders::TagCostEstimationResourceCollectionFilters.build(input[:tags]) unless input[:tags].nil?
+        data['CloudFormation'] = CloudFormationCostEstimationResourceCollectionFilter.build(input[:cloud_formation]) unless input[:cloud_formation].nil?
+        data['Tags'] = TagCostEstimationResourceCollectionFilters.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -748,7 +750,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagCostEstimationResourceCollectionFilter.build(element) unless element.nil?
+          data << TagCostEstimationResourceCollectionFilter.build(element) unless element.nil?
         end
         data
       end
@@ -759,7 +761,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = {}
         data['AppBoundaryKey'] = input[:app_boundary_key] unless input[:app_boundary_key].nil?
-        data['TagValues'] = Builders::CostEstimationTagValues.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['TagValues'] = CostEstimationTagValues.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -779,7 +781,7 @@ module AWS::SDK::DevOpsGuru
     class CloudFormationCostEstimationResourceCollectionFilter
       def self.build(input)
         data = {}
-        data['StackNames'] = Builders::CostEstimationStackNames.build(input[:stack_names]) unless input[:stack_names].nil?
+        data['StackNames'] = CostEstimationStackNames.build(input[:stack_names]) unless input[:stack_names].nil?
         data
       end
     end
@@ -805,8 +807,8 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['EventSources'] = Builders::EventSourcesConfig.build(input[:event_sources]) unless input[:event_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSources'] = EventSourcesConfig.build(input[:event_sources]) unless input[:event_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -814,7 +816,7 @@ module AWS::SDK::DevOpsGuru
     class EventSourcesConfig
       def self.build(input)
         data = {}
-        data['AmazonCodeGuruProfiler'] = Builders::AmazonCodeGuruProfilerIntegration.build(input[:amazon_code_guru_profiler]) unless input[:amazon_code_guru_profiler].nil?
+        data['AmazonCodeGuruProfiler'] = AmazonCodeGuruProfilerIntegration.build(input[:amazon_code_guru_profiler]) unless input[:amazon_code_guru_profiler].nil?
         data
       end
     end
@@ -839,8 +841,8 @@ module AWS::SDK::DevOpsGuru
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['ResourceCollection'] = Builders::UpdateResourceCollectionFilter.build(input[:resource_collection]) unless input[:resource_collection].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceCollection'] = UpdateResourceCollectionFilter.build(input[:resource_collection]) unless input[:resource_collection].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -848,8 +850,8 @@ module AWS::SDK::DevOpsGuru
     class UpdateResourceCollectionFilter
       def self.build(input)
         data = {}
-        data['CloudFormation'] = Builders::UpdateCloudFormationCollectionFilter.build(input[:cloud_formation]) unless input[:cloud_formation].nil?
-        data['Tags'] = Builders::UpdateTagCollectionFilters.build(input[:tags]) unless input[:tags].nil?
+        data['CloudFormation'] = UpdateCloudFormationCollectionFilter.build(input[:cloud_formation]) unless input[:cloud_formation].nil?
+        data['Tags'] = UpdateTagCollectionFilters.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -859,7 +861,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateTagCollectionFilter.build(element) unless element.nil?
+          data << UpdateTagCollectionFilter.build(element) unless element.nil?
         end
         data
       end
@@ -870,7 +872,7 @@ module AWS::SDK::DevOpsGuru
       def self.build(input)
         data = {}
         data['AppBoundaryKey'] = input[:app_boundary_key] unless input[:app_boundary_key].nil?
-        data['TagValues'] = Builders::UpdateTagValues.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['TagValues'] = UpdateTagValues.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -890,7 +892,7 @@ module AWS::SDK::DevOpsGuru
     class UpdateCloudFormationCollectionFilter
       def self.build(input)
         data = {}
-        data['StackNames'] = Builders::UpdateStackNames.build(input[:stack_names]) unless input[:stack_names].nil?
+        data['StackNames'] = UpdateStackNames.build(input[:stack_names]) unless input[:stack_names].nil?
         data
       end
     end
@@ -916,8 +918,8 @@ module AWS::SDK::DevOpsGuru
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ServiceIntegration'] = Builders::UpdateServiceIntegrationConfig.build(input[:service_integration]) unless input[:service_integration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceIntegration'] = UpdateServiceIntegrationConfig.build(input[:service_integration]) unless input[:service_integration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -925,7 +927,7 @@ module AWS::SDK::DevOpsGuru
     class UpdateServiceIntegrationConfig
       def self.build(input)
         data = {}
-        data['OpsCenter'] = Builders::OpsCenterIntegrationConfig.build(input[:ops_center]) unless input[:ops_center].nil?
+        data['OpsCenter'] = OpsCenterIntegrationConfig.build(input[:ops_center]) unless input[:ops_center].nil?
         data
       end
     end

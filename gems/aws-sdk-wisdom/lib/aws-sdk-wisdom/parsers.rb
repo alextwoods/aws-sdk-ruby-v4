@@ -15,7 +15,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::CreateAssistantOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assistant = (Parsers::AssistantData.parse(map['assistant']) unless map['assistant'].nil?)
+        data.assistant = (AssistantData.parse(map['assistant']) unless map['assistant'].nil?)
         data
       end
     end
@@ -29,8 +29,8 @@ module AWS::SDK::Wisdom
         data.type = map['type']
         data.status = map['status']
         data.description = map['description']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.server_side_encryption_configuration = (Parsers::ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.server_side_encryption_configuration = (ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
         return data
       end
     end
@@ -98,7 +98,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::CreateAssistantAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assistant_association = (Parsers::AssistantAssociationData.parse(map['assistantAssociation']) unless map['assistantAssociation'].nil?)
+        data.assistant_association = (AssistantAssociationData.parse(map['assistantAssociation']) unless map['assistantAssociation'].nil?)
         data
       end
     end
@@ -111,8 +111,8 @@ module AWS::SDK::Wisdom
         data.assistant_id = map['assistantId']
         data.assistant_arn = map['assistantArn']
         data.association_type = map['associationType']
-        data.association_data = (Parsers::AssistantAssociationOutputData.parse(map['associationData']) unless map['associationData'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.association_data = (AssistantAssociationOutputData.parse(map['associationData']) unless map['associationData'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -122,7 +122,7 @@ module AWS::SDK::Wisdom
         key, value = map.flatten
         case key
         when 'knowledgeBaseAssociation'
-          value = (Parsers::KnowledgeBaseAssociationData.parse(value) unless value.nil?)
+          value = (KnowledgeBaseAssociationData.parse(value) unless value.nil?)
           Types::AssistantAssociationOutputData::KnowledgeBaseAssociation.new(value) if value
         else
           Types::AssistantAssociationOutputData::Unknown.new({name: key, value: value})
@@ -155,7 +155,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::CreateContentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content = (Parsers::ContentData.parse(map['content']) unless map['content'].nil?)
+        data.content = (ContentData.parse(map['content']) unless map['content'].nil?)
         data
       end
     end
@@ -172,8 +172,8 @@ module AWS::SDK::Wisdom
         data.title = map['title']
         data.content_type = map['contentType']
         data.status = map['status']
-        data.metadata = (Parsers::ContentMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.metadata = (ContentMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.link_out_uri = map['linkOutUri']
         data.url = map['url']
         data.url_expiry = Time.at(map['urlExpiry'].to_i) if map['urlExpiry']
@@ -196,7 +196,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::CreateKnowledgeBaseOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.knowledge_base = (Parsers::KnowledgeBaseData.parse(map['knowledgeBase']) unless map['knowledgeBase'].nil?)
+        data.knowledge_base = (KnowledgeBaseData.parse(map['knowledgeBase']) unless map['knowledgeBase'].nil?)
         data
       end
     end
@@ -210,11 +210,11 @@ module AWS::SDK::Wisdom
         data.knowledge_base_type = map['knowledgeBaseType']
         data.status = map['status']
         data.last_content_modification_time = Time.at(map['lastContentModificationTime'].to_i) if map['lastContentModificationTime']
-        data.source_configuration = (Parsers::SourceConfiguration.parse(map['sourceConfiguration']) unless map['sourceConfiguration'].nil?)
-        data.rendering_configuration = (Parsers::RenderingConfiguration.parse(map['renderingConfiguration']) unless map['renderingConfiguration'].nil?)
-        data.server_side_encryption_configuration = (Parsers::ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
+        data.source_configuration = (SourceConfiguration.parse(map['sourceConfiguration']) unless map['sourceConfiguration'].nil?)
+        data.rendering_configuration = (RenderingConfiguration.parse(map['renderingConfiguration']) unless map['renderingConfiguration'].nil?)
+        data.server_side_encryption_configuration = (ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
         data.description = map['description']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -232,7 +232,7 @@ module AWS::SDK::Wisdom
         key, value = map.flatten
         case key
         when 'appIntegrations'
-          value = (Parsers::AppIntegrationsConfiguration.parse(value) unless value.nil?)
+          value = (AppIntegrationsConfiguration.parse(value) unless value.nil?)
           Types::SourceConfiguration::AppIntegrations.new(value) if value
         else
           Types::SourceConfiguration::Unknown.new({name: key, value: value})
@@ -244,7 +244,7 @@ module AWS::SDK::Wisdom
       def self.parse(map)
         data = Types::AppIntegrationsConfiguration.new
         data.app_integration_arn = map['appIntegrationArn']
-        data.object_fields = (Parsers::ObjectFieldsList.parse(map['objectFields']) unless map['objectFields'].nil?)
+        data.object_fields = (ObjectFieldsList.parse(map['objectFields']) unless map['objectFields'].nil?)
         return data
       end
     end
@@ -264,7 +264,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::CreateSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session = (Parsers::SessionData.parse(map['session']) unless map['session'].nil?)
+        data.session = (SessionData.parse(map['session']) unless map['session'].nil?)
         data
       end
     end
@@ -276,7 +276,7 @@ module AWS::SDK::Wisdom
         data.session_id = map['sessionId']
         data.name = map['name']
         data.description = map['description']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::GetAssistantOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assistant = (Parsers::AssistantData.parse(map['assistant']) unless map['assistant'].nil?)
+        data.assistant = (AssistantData.parse(map['assistant']) unless map['assistant'].nil?)
         data
       end
     end
@@ -332,7 +332,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::GetAssistantAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assistant_association = (Parsers::AssistantAssociationData.parse(map['assistantAssociation']) unless map['assistantAssociation'].nil?)
+        data.assistant_association = (AssistantAssociationData.parse(map['assistantAssociation']) unless map['assistantAssociation'].nil?)
         data
       end
     end
@@ -342,7 +342,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::GetContentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content = (Parsers::ContentData.parse(map['content']) unless map['content'].nil?)
+        data.content = (ContentData.parse(map['content']) unless map['content'].nil?)
         data
       end
     end
@@ -352,7 +352,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::GetContentSummaryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content_summary = (Parsers::ContentSummary.parse(map['contentSummary']) unless map['contentSummary'].nil?)
+        data.content_summary = (ContentSummary.parse(map['contentSummary']) unless map['contentSummary'].nil?)
         data
       end
     end
@@ -369,8 +369,8 @@ module AWS::SDK::Wisdom
         data.title = map['title']
         data.content_type = map['contentType']
         data.status = map['status']
-        data.metadata = (Parsers::ContentMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.metadata = (ContentMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::GetKnowledgeBaseOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.knowledge_base = (Parsers::KnowledgeBaseData.parse(map['knowledgeBase']) unless map['knowledgeBase'].nil?)
+        data.knowledge_base = (KnowledgeBaseData.parse(map['knowledgeBase']) unless map['knowledgeBase'].nil?)
         data
       end
     end
@@ -390,8 +390,8 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::GetRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recommendations = (Parsers::RecommendationList.parse(map['recommendations']) unless map['recommendations'].nil?)
-        data.triggers = (Parsers::RecommendationTriggerList.parse(map['triggers']) unless map['triggers'].nil?)
+        data.recommendations = (RecommendationList.parse(map['recommendations']) unless map['recommendations'].nil?)
+        data.triggers = (RecommendationTriggerList.parse(map['triggers']) unless map['triggers'].nil?)
         data
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationTrigger.parse(value) unless value.nil?
+          data << RecommendationTrigger.parse(value) unless value.nil?
         end
         data
       end
@@ -412,8 +412,8 @@ module AWS::SDK::Wisdom
         data.id = map['id']
         data.type = map['type']
         data.source = map['source']
-        data.data = (Parsers::RecommendationTriggerData.parse(map['data']) unless map['data'].nil?)
-        data.recommendation_ids = (Parsers::RecommendationIdList.parse(map['recommendationIds']) unless map['recommendationIds'].nil?)
+        data.data = (RecommendationTriggerData.parse(map['data']) unless map['data'].nil?)
+        data.recommendation_ids = (RecommendationIdList.parse(map['recommendationIds']) unless map['recommendationIds'].nil?)
         return data
       end
     end
@@ -433,7 +433,7 @@ module AWS::SDK::Wisdom
         key, value = map.flatten
         case key
         when 'query'
-          value = (Parsers::QueryRecommendationTriggerData.parse(value) unless value.nil?)
+          value = (QueryRecommendationTriggerData.parse(value) unless value.nil?)
           Types::RecommendationTriggerData::Query.new(value) if value
         else
           Types::RecommendationTriggerData::Unknown.new({name: key, value: value})
@@ -453,7 +453,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationData.parse(value) unless value.nil?
+          data << RecommendationData.parse(value) unless value.nil?
         end
         data
       end
@@ -463,7 +463,7 @@ module AWS::SDK::Wisdom
       def self.parse(map)
         data = Types::RecommendationData.new
         data.recommendation_id = map['recommendationId']
-        data.document = (Parsers::Document.parse(map['document']) unless map['document'].nil?)
+        data.document = (Document.parse(map['document']) unless map['document'].nil?)
         data.relevance_score = Hearth::NumberHelper.deserialize(map['relevanceScore'])
         data.relevance_level = map['relevanceLevel']
         data.type = map['type']
@@ -474,9 +474,9 @@ module AWS::SDK::Wisdom
     class Document
       def self.parse(map)
         data = Types::Document.new
-        data.content_reference = (Parsers::ContentReference.parse(map['contentReference']) unless map['contentReference'].nil?)
-        data.title = (Parsers::DocumentText.parse(map['title']) unless map['title'].nil?)
-        data.excerpt = (Parsers::DocumentText.parse(map['excerpt']) unless map['excerpt'].nil?)
+        data.content_reference = (ContentReference.parse(map['contentReference']) unless map['contentReference'].nil?)
+        data.title = (DocumentText.parse(map['title']) unless map['title'].nil?)
+        data.excerpt = (DocumentText.parse(map['excerpt']) unless map['excerpt'].nil?)
         return data
       end
     end
@@ -485,7 +485,7 @@ module AWS::SDK::Wisdom
       def self.parse(map)
         data = Types::DocumentText.new
         data.text = map['text']
-        data.highlights = (Parsers::Highlights.parse(map['highlights']) unless map['highlights'].nil?)
+        data.highlights = (Highlights.parse(map['highlights']) unless map['highlights'].nil?)
         return data
       end
     end
@@ -494,7 +494,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Highlight.parse(value) unless value.nil?
+          data << Highlight.parse(value) unless value.nil?
         end
         data
       end
@@ -525,7 +525,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::GetSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session = (Parsers::SessionData.parse(map['session']) unless map['session'].nil?)
+        data.session = (SessionData.parse(map['session']) unless map['session'].nil?)
         data
       end
     end
@@ -535,7 +535,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::ListAssistantAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assistant_association_summaries = (Parsers::AssistantAssociationSummaryList.parse(map['assistantAssociationSummaries']) unless map['assistantAssociationSummaries'].nil?)
+        data.assistant_association_summaries = (AssistantAssociationSummaryList.parse(map['assistantAssociationSummaries']) unless map['assistantAssociationSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -545,7 +545,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssistantAssociationSummary.parse(value) unless value.nil?
+          data << AssistantAssociationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -559,8 +559,8 @@ module AWS::SDK::Wisdom
         data.assistant_id = map['assistantId']
         data.assistant_arn = map['assistantArn']
         data.association_type = map['associationType']
-        data.association_data = (Parsers::AssistantAssociationOutputData.parse(map['associationData']) unless map['associationData'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.association_data = (AssistantAssociationOutputData.parse(map['associationData']) unless map['associationData'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::ListAssistantsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assistant_summaries = (Parsers::AssistantList.parse(map['assistantSummaries']) unless map['assistantSummaries'].nil?)
+        data.assistant_summaries = (AssistantList.parse(map['assistantSummaries']) unless map['assistantSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -580,7 +580,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssistantSummary.parse(value) unless value.nil?
+          data << AssistantSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -595,8 +595,8 @@ module AWS::SDK::Wisdom
         data.type = map['type']
         data.status = map['status']
         data.description = map['description']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.server_side_encryption_configuration = (Parsers::ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.server_side_encryption_configuration = (ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
         return data
       end
     end
@@ -606,7 +606,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::ListContentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content_summaries = (Parsers::ContentSummaryList.parse(map['contentSummaries']) unless map['contentSummaries'].nil?)
+        data.content_summaries = (ContentSummaryList.parse(map['contentSummaries']) unless map['contentSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -616,7 +616,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ContentSummary.parse(value) unless value.nil?
+          data << ContentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -627,7 +627,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::ListKnowledgeBasesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.knowledge_base_summaries = (Parsers::KnowledgeBaseList.parse(map['knowledgeBaseSummaries']) unless map['knowledgeBaseSummaries'].nil?)
+        data.knowledge_base_summaries = (KnowledgeBaseList.parse(map['knowledgeBaseSummaries']) unless map['knowledgeBaseSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -637,7 +637,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KnowledgeBaseSummary.parse(value) unless value.nil?
+          data << KnowledgeBaseSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -651,11 +651,11 @@ module AWS::SDK::Wisdom
         data.name = map['name']
         data.knowledge_base_type = map['knowledgeBaseType']
         data.status = map['status']
-        data.source_configuration = (Parsers::SourceConfiguration.parse(map['sourceConfiguration']) unless map['sourceConfiguration'].nil?)
-        data.rendering_configuration = (Parsers::RenderingConfiguration.parse(map['renderingConfiguration']) unless map['renderingConfiguration'].nil?)
-        data.server_side_encryption_configuration = (Parsers::ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
+        data.source_configuration = (SourceConfiguration.parse(map['sourceConfiguration']) unless map['sourceConfiguration'].nil?)
+        data.rendering_configuration = (RenderingConfiguration.parse(map['renderingConfiguration']) unless map['renderingConfiguration'].nil?)
+        data.server_side_encryption_configuration = (ServerSideEncryptionConfiguration.parse(map['serverSideEncryptionConfiguration']) unless map['serverSideEncryptionConfiguration'].nil?)
         data.description = map['description']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -675,8 +675,8 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::NotifyRecommendationsReceivedOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recommendation_ids = (Parsers::RecommendationIdList.parse(map['recommendationIds']) unless map['recommendationIds'].nil?)
-        data.errors = (Parsers::NotifyRecommendationsReceivedErrorList.parse(map['errors']) unless map['errors'].nil?)
+        data.recommendation_ids = (RecommendationIdList.parse(map['recommendationIds']) unless map['recommendationIds'].nil?)
+        data.errors = (NotifyRecommendationsReceivedErrorList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -685,7 +685,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NotifyRecommendationsReceivedError.parse(value) unless value.nil?
+          data << NotifyRecommendationsReceivedError.parse(value) unless value.nil?
         end
         data
       end
@@ -705,7 +705,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::QueryAssistantOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.results = (Parsers::QueryResultsList.parse(map['results']) unless map['results'].nil?)
+        data.results = (QueryResultsList.parse(map['results']) unless map['results'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -715,7 +715,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResultData.parse(value) unless value.nil?
+          data << ResultData.parse(value) unless value.nil?
         end
         data
       end
@@ -725,7 +725,7 @@ module AWS::SDK::Wisdom
       def self.parse(map)
         data = Types::ResultData.new
         data.result_id = map['resultId']
-        data.document = (Parsers::Document.parse(map['document']) unless map['document'].nil?)
+        data.document = (Document.parse(map['document']) unless map['document'].nil?)
         data.relevance_score = Hearth::NumberHelper.deserialize(map['relevanceScore'])
         return data
       end
@@ -745,7 +745,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::SearchContentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content_summaries = (Parsers::ContentSummaryList.parse(map['contentSummaries']) unless map['contentSummaries'].nil?)
+        data.content_summaries = (ContentSummaryList.parse(map['contentSummaries']) unless map['contentSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -756,7 +756,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::SearchSessionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session_summaries = (Parsers::SessionSummaries.parse(map['sessionSummaries']) unless map['sessionSummaries'].nil?)
+        data.session_summaries = (SessionSummaries.parse(map['sessionSummaries']) unless map['sessionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -766,7 +766,7 @@ module AWS::SDK::Wisdom
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SessionSummary.parse(value) unless value.nil?
+          data << SessionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -791,7 +791,7 @@ module AWS::SDK::Wisdom
         data.upload_id = map['uploadId']
         data.url = map['url']
         data.url_expiry = Time.at(map['urlExpiry'].to_i) if map['urlExpiry']
-        data.headers_to_include = (Parsers::Headers.parse(map['headersToInclude']) unless map['headersToInclude'].nil?)
+        data.headers_to_include = (Headers.parse(map['headersToInclude']) unless map['headersToInclude'].nil?)
         data
       end
     end
@@ -840,7 +840,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::UpdateContentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.content = (Parsers::ContentData.parse(map['content']) unless map['content'].nil?)
+        data.content = (ContentData.parse(map['content']) unless map['content'].nil?)
         data
       end
     end
@@ -860,7 +860,7 @@ module AWS::SDK::Wisdom
       def self.parse(http_resp)
         data = Types::UpdateKnowledgeBaseTemplateUriOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.knowledge_base = (Parsers::KnowledgeBaseData.parse(map['knowledgeBase']) unless map['knowledgeBase'].nil?)
+        data.knowledge_base = (KnowledgeBaseData.parse(map['knowledgeBase']) unless map['knowledgeBase'].nil?)
         data
       end
     end

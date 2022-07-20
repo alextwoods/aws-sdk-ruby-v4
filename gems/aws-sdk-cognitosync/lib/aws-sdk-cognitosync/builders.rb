@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CognitoSync
   module Builders
 
@@ -253,7 +255,7 @@ module AWS::SDK::CognitoSync
         data = {}
         data['Platform'] = input[:platform] unless input[:platform].nil?
         data['Token'] = input[:token] unless input[:token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -274,8 +276,8 @@ module AWS::SDK::CognitoSync
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Events'] = Builders::Events.build(input[:events]) unless input[:events].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Events'] = Events.build(input[:events]) unless input[:events].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -307,9 +309,9 @@ module AWS::SDK::CognitoSync
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['PushSync'] = Builders::PushSync.build(input[:push_sync]) unless input[:push_sync].nil?
-        data['CognitoStreams'] = Builders::CognitoStreams.build(input[:cognito_streams]) unless input[:cognito_streams].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PushSync'] = PushSync.build(input[:push_sync]) unless input[:push_sync].nil?
+        data['CognitoStreams'] = CognitoStreams.build(input[:cognito_streams]) unless input[:cognito_streams].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::CognitoSync
     class PushSync
       def self.build(input)
         data = {}
-        data['ApplicationArns'] = Builders::ApplicationArnList.build(input[:application_arns]) unless input[:application_arns].nil?
+        data['ApplicationArns'] = ApplicationArnList.build(input[:application_arns]) unless input[:application_arns].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data
       end
@@ -429,9 +431,9 @@ module AWS::SDK::CognitoSync
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
-        data['RecordPatches'] = Builders::RecordPatchList.build(input[:record_patches]) unless input[:record_patches].nil?
+        data['RecordPatches'] = RecordPatchList.build(input[:record_patches]) unless input[:record_patches].nil?
         data['SyncSessionToken'] = input[:sync_session_token] unless input[:sync_session_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-Client-Context'] = input[:client_context] unless input[:client_context].nil? || input[:client_context].empty?
       end
     end
@@ -441,7 +443,7 @@ module AWS::SDK::CognitoSync
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RecordPatch.build(element) unless element.nil?
+          data << RecordPatch.build(element) unless element.nil?
         end
         data
       end

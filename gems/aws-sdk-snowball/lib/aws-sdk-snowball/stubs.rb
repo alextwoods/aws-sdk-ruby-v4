@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Snowball
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['AddressId'] = stub[:address_id] unless stub[:address_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -65,7 +67,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['ClusterId'] = stub[:cluster_id] unless stub[:cluster_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -97,7 +99,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['LongTermPricingId'] = stub[:long_term_pricing_id] unless stub[:long_term_pricing_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -113,7 +115,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -128,8 +130,8 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Address'] = Stubs::Address.stub(stub[:address]) unless stub[:address].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Address'] = Address.stub(stub[:address]) unless stub[:address].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -189,9 +191,9 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Addresses'] = Stubs::AddressList.stub(stub[:addresses]) unless stub[:addresses].nil?
+        data['Addresses'] = AddressList.stub(stub[:addresses]) unless stub[:addresses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -210,7 +212,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Address.stub(element) unless element.nil?
+          data << Address.stub(element) unless element.nil?
         end
         data
       end
@@ -226,8 +228,8 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ClusterMetadata'] = Stubs::ClusterMetadata.stub(stub[:cluster_metadata]) unless stub[:cluster_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClusterMetadata'] = ClusterMetadata.stub(stub[:cluster_metadata]) unless stub[:cluster_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -267,13 +269,13 @@ module AWS::SDK::Snowball
         data['JobType'] = stub[:job_type] unless stub[:job_type].nil?
         data['SnowballType'] = stub[:snowball_type] unless stub[:snowball_type].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        data['Resources'] = Stubs::JobResource.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = JobResource.stub(stub[:resources]) unless stub[:resources].nil?
         data['AddressId'] = stub[:address_id] unless stub[:address_id].nil?
         data['ShippingOption'] = stub[:shipping_option] unless stub[:shipping_option].nil?
-        data['Notification'] = Stubs::Notification.stub(stub[:notification]) unless stub[:notification].nil?
+        data['Notification'] = Notification.stub(stub[:notification]) unless stub[:notification].nil?
         data['ForwardingAddressId'] = stub[:forwarding_address_id] unless stub[:forwarding_address_id].nil?
-        data['TaxDocuments'] = Stubs::TaxDocuments.stub(stub[:tax_documents]) unless stub[:tax_documents].nil?
-        data['OnDeviceServiceConfiguration'] = Stubs::OnDeviceServiceConfiguration.stub(stub[:on_device_service_configuration]) unless stub[:on_device_service_configuration].nil?
+        data['TaxDocuments'] = TaxDocuments.stub(stub[:tax_documents]) unless stub[:tax_documents].nil?
+        data['OnDeviceServiceConfiguration'] = OnDeviceServiceConfiguration.stub(stub[:on_device_service_configuration]) unless stub[:on_device_service_configuration].nil?
         data
       end
     end
@@ -292,8 +294,8 @@ module AWS::SDK::Snowball
       def self.stub(stub)
         stub ||= Types::OnDeviceServiceConfiguration.new
         data = {}
-        data['NFSOnDeviceService'] = Stubs::NFSOnDeviceServiceConfiguration.stub(stub[:nfs_on_device_service]) unless stub[:nfs_on_device_service].nil?
-        data['TGWOnDeviceService'] = Stubs::TGWOnDeviceServiceConfiguration.stub(stub[:tgw_on_device_service]) unless stub[:tgw_on_device_service].nil?
+        data['NFSOnDeviceService'] = NFSOnDeviceServiceConfiguration.stub(stub[:nfs_on_device_service]) unless stub[:nfs_on_device_service].nil?
+        data['TGWOnDeviceService'] = TGWOnDeviceServiceConfiguration.stub(stub[:tgw_on_device_service]) unless stub[:tgw_on_device_service].nil?
         data
       end
     end
@@ -351,7 +353,7 @@ module AWS::SDK::Snowball
       def self.stub(stub)
         stub ||= Types::TaxDocuments.new
         data = {}
-        data['IND'] = Stubs::INDTaxDocuments.stub(stub[:ind]) unless stub[:ind].nil?
+        data['IND'] = INDTaxDocuments.stub(stub[:ind]) unless stub[:ind].nil?
         data
       end
     end
@@ -390,7 +392,7 @@ module AWS::SDK::Snowball
         stub ||= Types::Notification.new
         data = {}
         data['SnsTopicARN'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
-        data['JobStatesToNotify'] = Stubs::JobStateList.stub(stub[:job_states_to_notify]) unless stub[:job_states_to_notify].nil?
+        data['JobStatesToNotify'] = JobStateList.stub(stub[:job_states_to_notify]) unless stub[:job_states_to_notify].nil?
         data['NotifyAll'] = stub[:notify_all] unless stub[:notify_all].nil?
         data
       end
@@ -431,9 +433,9 @@ module AWS::SDK::Snowball
       def self.stub(stub)
         stub ||= Types::JobResource.new
         data = {}
-        data['S3Resources'] = Stubs::S3ResourceList.stub(stub[:s3_resources]) unless stub[:s3_resources].nil?
-        data['LambdaResources'] = Stubs::LambdaResourceList.stub(stub[:lambda_resources]) unless stub[:lambda_resources].nil?
-        data['Ec2AmiResources'] = Stubs::Ec2AmiResourceList.stub(stub[:ec2_ami_resources]) unless stub[:ec2_ami_resources].nil?
+        data['S3Resources'] = S3ResourceList.stub(stub[:s3_resources]) unless stub[:s3_resources].nil?
+        data['LambdaResources'] = LambdaResourceList.stub(stub[:lambda_resources]) unless stub[:lambda_resources].nil?
+        data['Ec2AmiResources'] = Ec2AmiResourceList.stub(stub[:ec2_ami_resources]) unless stub[:ec2_ami_resources].nil?
         data
       end
     end
@@ -452,7 +454,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Ec2AmiResource.stub(element) unless element.nil?
+          data << Ec2AmiResource.stub(element) unless element.nil?
         end
         data
       end
@@ -492,7 +494,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LambdaResource.stub(element) unless element.nil?
+          data << LambdaResource.stub(element) unless element.nil?
         end
         data
       end
@@ -513,7 +515,7 @@ module AWS::SDK::Snowball
         stub ||= Types::LambdaResource.new
         data = {}
         data['LambdaArn'] = stub[:lambda_arn] unless stub[:lambda_arn].nil?
-        data['EventTriggers'] = Stubs::EventTriggerDefinitionList.stub(stub[:event_triggers]) unless stub[:event_triggers].nil?
+        data['EventTriggers'] = EventTriggerDefinitionList.stub(stub[:event_triggers]) unless stub[:event_triggers].nil?
         data
       end
     end
@@ -532,7 +534,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventTriggerDefinition.stub(element) unless element.nil?
+          data << EventTriggerDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -570,7 +572,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3Resource.stub(element) unless element.nil?
+          data << S3Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -592,8 +594,8 @@ module AWS::SDK::Snowball
         stub ||= Types::S3Resource.new
         data = {}
         data['BucketArn'] = stub[:bucket_arn] unless stub[:bucket_arn].nil?
-        data['KeyRange'] = Stubs::KeyRange.stub(stub[:key_range]) unless stub[:key_range].nil?
-        data['TargetOnDeviceServices'] = Stubs::TargetOnDeviceServiceList.stub(stub[:target_on_device_services]) unless stub[:target_on_device_services].nil?
+        data['KeyRange'] = KeyRange.stub(stub[:key_range]) unless stub[:key_range].nil?
+        data['TargetOnDeviceServices'] = TargetOnDeviceServiceList.stub(stub[:target_on_device_services]) unless stub[:target_on_device_services].nil?
         data
       end
     end
@@ -612,7 +614,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetOnDeviceService.stub(element) unless element.nil?
+          data << TargetOnDeviceService.stub(element) unless element.nil?
         end
         data
       end
@@ -669,9 +671,9 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobMetadata'] = Stubs::JobMetadata.stub(stub[:job_metadata]) unless stub[:job_metadata].nil?
-        data['SubJobMetadata'] = Stubs::JobMetadataList.stub(stub[:sub_job_metadata]) unless stub[:sub_job_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobMetadata'] = JobMetadata.stub(stub[:job_metadata]) unless stub[:job_metadata].nil?
+        data['SubJobMetadata'] = JobMetadataList.stub(stub[:sub_job_metadata]) unless stub[:sub_job_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -690,7 +692,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobMetadata.stub(element) unless element.nil?
+          data << JobMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -735,23 +737,23 @@ module AWS::SDK::Snowball
         data['JobType'] = stub[:job_type] unless stub[:job_type].nil?
         data['SnowballType'] = stub[:snowball_type] unless stub[:snowball_type].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        data['Resources'] = Stubs::JobResource.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = JobResource.stub(stub[:resources]) unless stub[:resources].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['KmsKeyARN'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
         data['RoleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['AddressId'] = stub[:address_id] unless stub[:address_id].nil?
-        data['ShippingDetails'] = Stubs::ShippingDetails.stub(stub[:shipping_details]) unless stub[:shipping_details].nil?
+        data['ShippingDetails'] = ShippingDetails.stub(stub[:shipping_details]) unless stub[:shipping_details].nil?
         data['SnowballCapacityPreference'] = stub[:snowball_capacity_preference] unless stub[:snowball_capacity_preference].nil?
-        data['Notification'] = Stubs::Notification.stub(stub[:notification]) unless stub[:notification].nil?
-        data['DataTransferProgress'] = Stubs::DataTransfer.stub(stub[:data_transfer_progress]) unless stub[:data_transfer_progress].nil?
-        data['JobLogInfo'] = Stubs::JobLogs.stub(stub[:job_log_info]) unless stub[:job_log_info].nil?
+        data['Notification'] = Notification.stub(stub[:notification]) unless stub[:notification].nil?
+        data['DataTransferProgress'] = DataTransfer.stub(stub[:data_transfer_progress]) unless stub[:data_transfer_progress].nil?
+        data['JobLogInfo'] = JobLogs.stub(stub[:job_log_info]) unless stub[:job_log_info].nil?
         data['ClusterId'] = stub[:cluster_id] unless stub[:cluster_id].nil?
         data['ForwardingAddressId'] = stub[:forwarding_address_id] unless stub[:forwarding_address_id].nil?
-        data['TaxDocuments'] = Stubs::TaxDocuments.stub(stub[:tax_documents]) unless stub[:tax_documents].nil?
-        data['DeviceConfiguration'] = Stubs::DeviceConfiguration.stub(stub[:device_configuration]) unless stub[:device_configuration].nil?
+        data['TaxDocuments'] = TaxDocuments.stub(stub[:tax_documents]) unless stub[:tax_documents].nil?
+        data['DeviceConfiguration'] = DeviceConfiguration.stub(stub[:device_configuration]) unless stub[:device_configuration].nil?
         data['RemoteManagement'] = stub[:remote_management] unless stub[:remote_management].nil?
         data['LongTermPricingId'] = stub[:long_term_pricing_id] unless stub[:long_term_pricing_id].nil?
-        data['OnDeviceServiceConfiguration'] = Stubs::OnDeviceServiceConfiguration.stub(stub[:on_device_service_configuration]) unless stub[:on_device_service_configuration].nil?
+        data['OnDeviceServiceConfiguration'] = OnDeviceServiceConfiguration.stub(stub[:on_device_service_configuration]) unless stub[:on_device_service_configuration].nil?
         data
       end
     end
@@ -769,7 +771,7 @@ module AWS::SDK::Snowball
       def self.stub(stub)
         stub ||= Types::DeviceConfiguration.new
         data = {}
-        data['SnowconeDeviceConfiguration'] = Stubs::SnowconeDeviceConfiguration.stub(stub[:snowcone_device_configuration]) unless stub[:snowcone_device_configuration].nil?
+        data['SnowconeDeviceConfiguration'] = SnowconeDeviceConfiguration.stub(stub[:snowcone_device_configuration]) unless stub[:snowcone_device_configuration].nil?
         data
       end
     end
@@ -787,7 +789,7 @@ module AWS::SDK::Snowball
       def self.stub(stub)
         stub ||= Types::SnowconeDeviceConfiguration.new
         data = {}
-        data['WirelessConnection'] = Stubs::WirelessConnection.stub(stub[:wireless_connection]) unless stub[:wireless_connection].nil?
+        data['WirelessConnection'] = WirelessConnection.stub(stub[:wireless_connection]) unless stub[:wireless_connection].nil?
         data
       end
     end
@@ -872,8 +874,8 @@ module AWS::SDK::Snowball
         stub ||= Types::ShippingDetails.new
         data = {}
         data['ShippingOption'] = stub[:shipping_option] unless stub[:shipping_option].nil?
-        data['InboundShipment'] = Stubs::Shipment.stub(stub[:inbound_shipment]) unless stub[:inbound_shipment].nil?
-        data['OutboundShipment'] = Stubs::Shipment.stub(stub[:outbound_shipment]) unless stub[:outbound_shipment].nil?
+        data['InboundShipment'] = Shipment.stub(stub[:inbound_shipment]) unless stub[:inbound_shipment].nil?
+        data['OutboundShipment'] = Shipment.stub(stub[:outbound_shipment]) unless stub[:outbound_shipment].nil?
         data
       end
     end
@@ -913,7 +915,7 @@ module AWS::SDK::Snowball
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ExpirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
         data['ReturnShippingLabelURI'] = stub[:return_shipping_label_uri] unless stub[:return_shipping_label_uri].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -929,7 +931,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['ManifestURI'] = stub[:manifest_uri] unless stub[:manifest_uri].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -945,7 +947,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['UnlockCode'] = stub[:unlock_code] unless stub[:unlock_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -963,7 +965,7 @@ module AWS::SDK::Snowball
         data = {}
         data['SnowballLimit'] = stub[:snowball_limit] unless stub[:snowball_limit].nil?
         data['SnowballsInUse'] = stub[:snowballs_in_use] unless stub[:snowballs_in_use].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -979,7 +981,7 @@ module AWS::SDK::Snowball
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdatesURI'] = stub[:updates_uri] unless stub[:updates_uri].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -995,9 +997,9 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobListEntries'] = Stubs::JobListEntryList.stub(stub[:job_list_entries]) unless stub[:job_list_entries].nil?
+        data['JobListEntries'] = JobListEntryList.stub(stub[:job_list_entries]) unless stub[:job_list_entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1016,7 +1018,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobListEntry.stub(element) unless element.nil?
+          data << JobListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1063,9 +1065,9 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ClusterListEntries'] = Stubs::ClusterListEntryList.stub(stub[:cluster_list_entries]) unless stub[:cluster_list_entries].nil?
+        data['ClusterListEntries'] = ClusterListEntryList.stub(stub[:cluster_list_entries]) unless stub[:cluster_list_entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1084,7 +1086,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusterListEntry.stub(element) unless element.nil?
+          data << ClusterListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1125,9 +1127,9 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CompatibleImages'] = Stubs::CompatibleImageList.stub(stub[:compatible_images]) unless stub[:compatible_images].nil?
+        data['CompatibleImages'] = CompatibleImageList.stub(stub[:compatible_images]) unless stub[:compatible_images].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1146,7 +1148,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CompatibleImage.stub(element) unless element.nil?
+          data << CompatibleImage.stub(element) unless element.nil?
         end
         data
       end
@@ -1183,9 +1185,9 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobListEntries'] = Stubs::JobListEntryList.stub(stub[:job_list_entries]) unless stub[:job_list_entries].nil?
+        data['JobListEntries'] = JobListEntryList.stub(stub[:job_list_entries]) unless stub[:job_list_entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1201,9 +1203,9 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LongTermPricingEntries'] = Stubs::LongTermPricingEntryList.stub(stub[:long_term_pricing_entries]) unless stub[:long_term_pricing_entries].nil?
+        data['LongTermPricingEntries'] = LongTermPricingEntryList.stub(stub[:long_term_pricing_entries]) unless stub[:long_term_pricing_entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1222,7 +1224,7 @@ module AWS::SDK::Snowball
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LongTermPricingListEntry.stub(element) unless element.nil?
+          data << LongTermPricingListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1259,7 +1261,7 @@ module AWS::SDK::Snowball
         data['IsLongTermPricingAutoRenew'] = stub[:is_long_term_pricing_auto_renew] unless stub[:is_long_term_pricing_auto_renew].nil?
         data['LongTermPricingStatus'] = stub[:long_term_pricing_status] unless stub[:long_term_pricing_status].nil?
         data['SnowballType'] = stub[:snowball_type] unless stub[:snowball_type].nil?
-        data['JobIds'] = Stubs::LongTermPricingAssociatedJobIdList.stub(stub[:job_ids]) unless stub[:job_ids].nil?
+        data['JobIds'] = LongTermPricingAssociatedJobIdList.stub(stub[:job_ids]) unless stub[:job_ids].nil?
         data
       end
     end
@@ -1293,7 +1295,7 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1307,7 +1309,7 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1321,7 +1323,7 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1335,7 +1337,7 @@ module AWS::SDK::Snowball
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

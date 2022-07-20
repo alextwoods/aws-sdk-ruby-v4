@@ -94,12 +94,12 @@ module AWS::SDK::LexModelsV2
         data.bot_name = map['botName']
         data.description = map['description']
         data.role_arn = map['roleArn']
-        data.data_privacy = (Parsers::DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
+        data.data_privacy = (DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
         data.idle_session_ttl_in_seconds = map['idleSessionTTLInSeconds']
         data.bot_status = map['botStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
-        data.bot_tags = (Parsers::TagMap.parse(map['botTags']) unless map['botTags'].nil?)
-        data.test_bot_alias_tags = (Parsers::TagMap.parse(map['testBotAliasTags']) unless map['testBotAliasTags'].nil?)
+        data.bot_tags = (TagMap.parse(map['botTags']) unless map['botTags'].nil?)
+        data.test_bot_alias_tags = (TagMap.parse(map['testBotAliasTags']) unless map['testBotAliasTags'].nil?)
         data
       end
     end
@@ -131,13 +131,13 @@ module AWS::SDK::LexModelsV2
         data.bot_alias_name = map['botAliasName']
         data.description = map['description']
         data.bot_version = map['botVersion']
-        data.bot_alias_locale_settings = (Parsers::BotAliasLocaleSettingsMap.parse(map['botAliasLocaleSettings']) unless map['botAliasLocaleSettings'].nil?)
-        data.conversation_log_settings = (Parsers::ConversationLogSettings.parse(map['conversationLogSettings']) unless map['conversationLogSettings'].nil?)
-        data.sentiment_analysis_settings = (Parsers::SentimentAnalysisSettings.parse(map['sentimentAnalysisSettings']) unless map['sentimentAnalysisSettings'].nil?)
+        data.bot_alias_locale_settings = (BotAliasLocaleSettingsMap.parse(map['botAliasLocaleSettings']) unless map['botAliasLocaleSettings'].nil?)
+        data.conversation_log_settings = (ConversationLogSettings.parse(map['conversationLogSettings']) unless map['conversationLogSettings'].nil?)
+        data.sentiment_analysis_settings = (SentimentAnalysisSettings.parse(map['sentimentAnalysisSettings']) unless map['sentimentAnalysisSettings'].nil?)
         data.bot_alias_status = map['botAliasStatus']
         data.bot_id = map['botId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -153,8 +153,8 @@ module AWS::SDK::LexModelsV2
     class ConversationLogSettings
       def self.parse(map)
         data = Types::ConversationLogSettings.new
-        data.text_log_settings = (Parsers::TextLogSettingsList.parse(map['textLogSettings']) unless map['textLogSettings'].nil?)
-        data.audio_log_settings = (Parsers::AudioLogSettingsList.parse(map['audioLogSettings']) unless map['audioLogSettings'].nil?)
+        data.text_log_settings = (TextLogSettingsList.parse(map['textLogSettings']) unless map['textLogSettings'].nil?)
+        data.audio_log_settings = (AudioLogSettingsList.parse(map['audioLogSettings']) unless map['audioLogSettings'].nil?)
         return data
       end
     end
@@ -163,7 +163,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AudioLogSetting.parse(value) unless value.nil?
+          data << AudioLogSetting.parse(value) unless value.nil?
         end
         data
       end
@@ -173,7 +173,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::AudioLogSetting.new
         data.enabled = map['enabled']
-        data.destination = (Parsers::AudioLogDestination.parse(map['destination']) unless map['destination'].nil?)
+        data.destination = (AudioLogDestination.parse(map['destination']) unless map['destination'].nil?)
         return data
       end
     end
@@ -181,7 +181,7 @@ module AWS::SDK::LexModelsV2
     class AudioLogDestination
       def self.parse(map)
         data = Types::AudioLogDestination.new
-        data.s3_bucket = (Parsers::S3BucketLogDestination.parse(map['s3Bucket']) unless map['s3Bucket'].nil?)
+        data.s3_bucket = (S3BucketLogDestination.parse(map['s3Bucket']) unless map['s3Bucket'].nil?)
         return data
       end
     end
@@ -200,7 +200,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TextLogSetting.parse(value) unless value.nil?
+          data << TextLogSetting.parse(value) unless value.nil?
         end
         data
       end
@@ -210,7 +210,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::TextLogSetting.new
         data.enabled = map['enabled']
-        data.destination = (Parsers::TextLogDestination.parse(map['destination']) unless map['destination'].nil?)
+        data.destination = (TextLogDestination.parse(map['destination']) unless map['destination'].nil?)
         return data
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::LexModelsV2
     class TextLogDestination
       def self.parse(map)
         data = Types::TextLogDestination.new
-        data.cloud_watch = (Parsers::CloudWatchLogGroupLogDestination.parse(map['cloudWatch']) unless map['cloudWatch'].nil?)
+        data.cloud_watch = (CloudWatchLogGroupLogDestination.parse(map['cloudWatch']) unless map['cloudWatch'].nil?)
         return data
       end
     end
@@ -236,7 +236,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::BotAliasLocaleSettings.parse(value) unless value.nil?
+          data[key] = BotAliasLocaleSettings.parse(value) unless value.nil?
         end
         data
       end
@@ -246,7 +246,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::BotAliasLocaleSettings.new
         data.enabled = map['enabled']
-        data.code_hook_specification = (Parsers::CodeHookSpecification.parse(map['codeHookSpecification']) unless map['codeHookSpecification'].nil?)
+        data.code_hook_specification = (CodeHookSpecification.parse(map['codeHookSpecification']) unless map['codeHookSpecification'].nil?)
         return data
       end
     end
@@ -254,7 +254,7 @@ module AWS::SDK::LexModelsV2
     class CodeHookSpecification
       def self.parse(map)
         data = Types::CodeHookSpecification.new
-        data.lambda_code_hook = (Parsers::LambdaCodeHook.parse(map['lambdaCodeHook']) unless map['lambdaCodeHook'].nil?)
+        data.lambda_code_hook = (LambdaCodeHook.parse(map['lambdaCodeHook']) unless map['lambdaCodeHook'].nil?)
         return data
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::LexModelsV2
         data.locale_id = map['localeId']
         data.description = map['description']
         data.nlu_intent_confidence_threshold = Hearth::NumberHelper.deserialize(map['nluIntentConfidenceThreshold'])
-        data.voice_settings = (Parsers::VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
+        data.voice_settings = (VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
         data.bot_locale_status = map['botLocaleStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data
@@ -303,7 +303,7 @@ module AWS::SDK::LexModelsV2
         data.bot_id = map['botId']
         data.description = map['description']
         data.bot_version = map['botVersion']
-        data.bot_version_locale_specification = (Parsers::BotVersionLocaleSpecification.parse(map['botVersionLocaleSpecification']) unless map['botVersionLocaleSpecification'].nil?)
+        data.bot_version_locale_specification = (BotVersionLocaleSpecification.parse(map['botVersionLocaleSpecification']) unless map['botVersionLocaleSpecification'].nil?)
         data.bot_status = map['botStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data
@@ -314,7 +314,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::BotVersionLocaleDetails.parse(value) unless value.nil?
+          data[key] = BotVersionLocaleDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -334,7 +334,7 @@ module AWS::SDK::LexModelsV2
         data = Types::CreateExportOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.export_id = map['exportId']
-        data.resource_specification = (Parsers::ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         data.file_format = map['fileFormat']
         data.export_status = map['exportStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -345,9 +345,9 @@ module AWS::SDK::LexModelsV2
     class ExportResourceSpecification
       def self.parse(map)
         data = Types::ExportResourceSpecification.new
-        data.bot_export_specification = (Parsers::BotExportSpecification.parse(map['botExportSpecification']) unless map['botExportSpecification'].nil?)
-        data.bot_locale_export_specification = (Parsers::BotLocaleExportSpecification.parse(map['botLocaleExportSpecification']) unless map['botLocaleExportSpecification'].nil?)
-        data.custom_vocabulary_export_specification = (Parsers::CustomVocabularyExportSpecification.parse(map['customVocabularyExportSpecification']) unless map['customVocabularyExportSpecification'].nil?)
+        data.bot_export_specification = (BotExportSpecification.parse(map['botExportSpecification']) unless map['botExportSpecification'].nil?)
+        data.bot_locale_export_specification = (BotLocaleExportSpecification.parse(map['botLocaleExportSpecification']) unless map['botLocaleExportSpecification'].nil?)
+        data.custom_vocabulary_export_specification = (CustomVocabularyExportSpecification.parse(map['customVocabularyExportSpecification']) unless map['customVocabularyExportSpecification'].nil?)
         return data
       end
     end
@@ -400,14 +400,14 @@ module AWS::SDK::LexModelsV2
         data.intent_name = map['intentName']
         data.description = map['description']
         data.parent_intent_signature = map['parentIntentSignature']
-        data.sample_utterances = (Parsers::SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
-        data.dialog_code_hook = (Parsers::DialogCodeHookSettings.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
-        data.fulfillment_code_hook = (Parsers::FulfillmentCodeHookSettings.parse(map['fulfillmentCodeHook']) unless map['fulfillmentCodeHook'].nil?)
-        data.intent_confirmation_setting = (Parsers::IntentConfirmationSetting.parse(map['intentConfirmationSetting']) unless map['intentConfirmationSetting'].nil?)
-        data.intent_closing_setting = (Parsers::IntentClosingSetting.parse(map['intentClosingSetting']) unless map['intentClosingSetting'].nil?)
-        data.input_contexts = (Parsers::InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
-        data.output_contexts = (Parsers::OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
-        data.kendra_configuration = (Parsers::KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
+        data.sample_utterances = (SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.dialog_code_hook = (DialogCodeHookSettings.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
+        data.fulfillment_code_hook = (FulfillmentCodeHookSettings.parse(map['fulfillmentCodeHook']) unless map['fulfillmentCodeHook'].nil?)
+        data.intent_confirmation_setting = (IntentConfirmationSetting.parse(map['intentConfirmationSetting']) unless map['intentConfirmationSetting'].nil?)
+        data.intent_closing_setting = (IntentClosingSetting.parse(map['intentClosingSetting']) unless map['intentClosingSetting'].nil?)
+        data.input_contexts = (InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
+        data.output_contexts = (OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
+        data.kendra_configuration = (KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
@@ -430,7 +430,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutputContext.parse(value) unless value.nil?
+          data << OutputContext.parse(value) unless value.nil?
         end
         data
       end
@@ -450,7 +450,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputContext.parse(value) unless value.nil?
+          data << InputContext.parse(value) unless value.nil?
         end
         data
       end
@@ -467,7 +467,7 @@ module AWS::SDK::LexModelsV2
     class IntentClosingSetting
       def self.parse(map)
         data = Types::IntentClosingSetting.new
-        data.closing_response = (Parsers::ResponseSpecification.parse(map['closingResponse']) unless map['closingResponse'].nil?)
+        data.closing_response = (ResponseSpecification.parse(map['closingResponse']) unless map['closingResponse'].nil?)
         data.active = map['active']
         return data
       end
@@ -476,7 +476,7 @@ module AWS::SDK::LexModelsV2
     class ResponseSpecification
       def self.parse(map)
         data = Types::ResponseSpecification.new
-        data.message_groups = (Parsers::MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
+        data.message_groups = (MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
         data.allow_interrupt = map['allowInterrupt']
         return data
       end
@@ -486,7 +486,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MessageGroup.parse(value) unless value.nil?
+          data << MessageGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -495,8 +495,8 @@ module AWS::SDK::LexModelsV2
     class MessageGroup
       def self.parse(map)
         data = Types::MessageGroup.new
-        data.message = (Parsers::Message.parse(map['message'] || map['Message']) unless map['message'] || map['Message'].nil?)
-        data.variations = (Parsers::MessageVariationsList.parse(map['variations']) unless map['variations'].nil?)
+        data.message = (Message.parse(map['message'] || map['Message']) unless map['message'] || map['Message'].nil?)
+        data.variations = (MessageVariationsList.parse(map['variations']) unless map['variations'].nil?)
         return data
       end
     end
@@ -505,7 +505,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Message.parse(value) unless value.nil?
+          data << Message.parse(value) unless value.nil?
         end
         data
       end
@@ -514,10 +514,10 @@ module AWS::SDK::LexModelsV2
     class Message
       def self.parse(map)
         data = Types::Message.new
-        data.plain_text_message = (Parsers::PlainTextMessage.parse(map['plainTextMessage']) unless map['plainTextMessage'].nil?)
-        data.custom_payload = (Parsers::CustomPayload.parse(map['customPayload']) unless map['customPayload'].nil?)
-        data.ssml_message = (Parsers::SSMLMessage.parse(map['ssmlMessage']) unless map['ssmlMessage'].nil?)
-        data.image_response_card = (Parsers::ImageResponseCard.parse(map['imageResponseCard']) unless map['imageResponseCard'].nil?)
+        data.plain_text_message = (PlainTextMessage.parse(map['plainTextMessage']) unless map['plainTextMessage'].nil?)
+        data.custom_payload = (CustomPayload.parse(map['customPayload']) unless map['customPayload'].nil?)
+        data.ssml_message = (SSMLMessage.parse(map['ssmlMessage']) unless map['ssmlMessage'].nil?)
+        data.image_response_card = (ImageResponseCard.parse(map['imageResponseCard']) unless map['imageResponseCard'].nil?)
         return data
       end
     end
@@ -528,7 +528,7 @@ module AWS::SDK::LexModelsV2
         data.title = map['title']
         data.subtitle = map['subtitle']
         data.image_url = map['imageUrl']
-        data.buttons = (Parsers::ButtonsList.parse(map['buttons']) unless map['buttons'].nil?)
+        data.buttons = (ButtonsList.parse(map['buttons']) unless map['buttons'].nil?)
         return data
       end
     end
@@ -537,7 +537,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Button.parse(value) unless value.nil?
+          data << Button.parse(value) unless value.nil?
         end
         data
       end
@@ -579,8 +579,8 @@ module AWS::SDK::LexModelsV2
     class IntentConfirmationSetting
       def self.parse(map)
         data = Types::IntentConfirmationSetting.new
-        data.prompt_specification = (Parsers::PromptSpecification.parse(map['promptSpecification']) unless map['promptSpecification'].nil?)
-        data.declination_response = (Parsers::ResponseSpecification.parse(map['declinationResponse']) unless map['declinationResponse'].nil?)
+        data.prompt_specification = (PromptSpecification.parse(map['promptSpecification']) unless map['promptSpecification'].nil?)
+        data.declination_response = (ResponseSpecification.parse(map['declinationResponse']) unless map['declinationResponse'].nil?)
         data.active = map['active']
         return data
       end
@@ -589,7 +589,7 @@ module AWS::SDK::LexModelsV2
     class PromptSpecification
       def self.parse(map)
         data = Types::PromptSpecification.new
-        data.message_groups = (Parsers::MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
+        data.message_groups = (MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
         data.max_retries = map['maxRetries']
         data.allow_interrupt = map['allowInterrupt']
         return data
@@ -600,8 +600,8 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::FulfillmentCodeHookSettings.new
         data.enabled = map['enabled']
-        data.post_fulfillment_status_specification = (Parsers::PostFulfillmentStatusSpecification.parse(map['postFulfillmentStatusSpecification']) unless map['postFulfillmentStatusSpecification'].nil?)
-        data.fulfillment_updates_specification = (Parsers::FulfillmentUpdatesSpecification.parse(map['fulfillmentUpdatesSpecification']) unless map['fulfillmentUpdatesSpecification'].nil?)
+        data.post_fulfillment_status_specification = (PostFulfillmentStatusSpecification.parse(map['postFulfillmentStatusSpecification']) unless map['postFulfillmentStatusSpecification'].nil?)
+        data.fulfillment_updates_specification = (FulfillmentUpdatesSpecification.parse(map['fulfillmentUpdatesSpecification']) unless map['fulfillmentUpdatesSpecification'].nil?)
         return data
       end
     end
@@ -610,8 +610,8 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::FulfillmentUpdatesSpecification.new
         data.active = map['active']
-        data.start_response = (Parsers::FulfillmentStartResponseSpecification.parse(map['startResponse']) unless map['startResponse'].nil?)
-        data.update_response = (Parsers::FulfillmentUpdateResponseSpecification.parse(map['updateResponse']) unless map['updateResponse'].nil?)
+        data.start_response = (FulfillmentStartResponseSpecification.parse(map['startResponse']) unless map['startResponse'].nil?)
+        data.update_response = (FulfillmentUpdateResponseSpecification.parse(map['updateResponse']) unless map['updateResponse'].nil?)
         data.timeout_in_seconds = map['timeoutInSeconds']
         return data
       end
@@ -621,7 +621,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::FulfillmentUpdateResponseSpecification.new
         data.frequency_in_seconds = map['frequencyInSeconds']
-        data.message_groups = (Parsers::MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
+        data.message_groups = (MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
         data.allow_interrupt = map['allowInterrupt']
         return data
       end
@@ -631,7 +631,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::FulfillmentStartResponseSpecification.new
         data.delay_in_seconds = map['delayInSeconds']
-        data.message_groups = (Parsers::MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
+        data.message_groups = (MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
         data.allow_interrupt = map['allowInterrupt']
         return data
       end
@@ -640,9 +640,9 @@ module AWS::SDK::LexModelsV2
     class PostFulfillmentStatusSpecification
       def self.parse(map)
         data = Types::PostFulfillmentStatusSpecification.new
-        data.success_response = (Parsers::ResponseSpecification.parse(map['successResponse']) unless map['successResponse'].nil?)
-        data.failure_response = (Parsers::ResponseSpecification.parse(map['failureResponse']) unless map['failureResponse'].nil?)
-        data.timeout_response = (Parsers::ResponseSpecification.parse(map['timeoutResponse']) unless map['timeoutResponse'].nil?)
+        data.success_response = (ResponseSpecification.parse(map['successResponse']) unless map['successResponse'].nil?)
+        data.failure_response = (ResponseSpecification.parse(map['failureResponse']) unless map['failureResponse'].nil?)
+        data.timeout_response = (ResponseSpecification.parse(map['timeoutResponse']) unless map['timeoutResponse'].nil?)
         return data
       end
     end
@@ -659,7 +659,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SampleUtterance.parse(value) unless value.nil?
+          data << SampleUtterance.parse(value) unless value.nil?
         end
         data
       end
@@ -704,14 +704,14 @@ module AWS::SDK::LexModelsV2
         data.slot_name = map['slotName']
         data.description = map['description']
         data.slot_type_id = map['slotTypeId']
-        data.value_elicitation_setting = (Parsers::SlotValueElicitationSetting.parse(map['valueElicitationSetting']) unless map['valueElicitationSetting'].nil?)
-        data.obfuscation_setting = (Parsers::ObfuscationSetting.parse(map['obfuscationSetting']) unless map['obfuscationSetting'].nil?)
+        data.value_elicitation_setting = (SlotValueElicitationSetting.parse(map['valueElicitationSetting']) unless map['valueElicitationSetting'].nil?)
+        data.obfuscation_setting = (ObfuscationSetting.parse(map['obfuscationSetting']) unless map['obfuscationSetting'].nil?)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.intent_id = map['intentId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
-        data.multiple_values_setting = (Parsers::MultipleValuesSetting.parse(map['multipleValuesSetting']) unless map['multipleValuesSetting'].nil?)
+        data.multiple_values_setting = (MultipleValuesSetting.parse(map['multipleValuesSetting']) unless map['multipleValuesSetting'].nil?)
         data
       end
     end
@@ -735,11 +735,11 @@ module AWS::SDK::LexModelsV2
     class SlotValueElicitationSetting
       def self.parse(map)
         data = Types::SlotValueElicitationSetting.new
-        data.default_value_specification = (Parsers::SlotDefaultValueSpecification.parse(map['defaultValueSpecification']) unless map['defaultValueSpecification'].nil?)
+        data.default_value_specification = (SlotDefaultValueSpecification.parse(map['defaultValueSpecification']) unless map['defaultValueSpecification'].nil?)
         data.slot_constraint = map['slotConstraint']
-        data.prompt_specification = (Parsers::PromptSpecification.parse(map['promptSpecification']) unless map['promptSpecification'].nil?)
-        data.sample_utterances = (Parsers::SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
-        data.wait_and_continue_specification = (Parsers::WaitAndContinueSpecification.parse(map['waitAndContinueSpecification']) unless map['waitAndContinueSpecification'].nil?)
+        data.prompt_specification = (PromptSpecification.parse(map['promptSpecification']) unless map['promptSpecification'].nil?)
+        data.sample_utterances = (SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.wait_and_continue_specification = (WaitAndContinueSpecification.parse(map['waitAndContinueSpecification']) unless map['waitAndContinueSpecification'].nil?)
         return data
       end
     end
@@ -747,9 +747,9 @@ module AWS::SDK::LexModelsV2
     class WaitAndContinueSpecification
       def self.parse(map)
         data = Types::WaitAndContinueSpecification.new
-        data.waiting_response = (Parsers::ResponseSpecification.parse(map['waitingResponse']) unless map['waitingResponse'].nil?)
-        data.continue_response = (Parsers::ResponseSpecification.parse(map['continueResponse']) unless map['continueResponse'].nil?)
-        data.still_waiting_response = (Parsers::StillWaitingResponseSpecification.parse(map['stillWaitingResponse']) unless map['stillWaitingResponse'].nil?)
+        data.waiting_response = (ResponseSpecification.parse(map['waitingResponse']) unless map['waitingResponse'].nil?)
+        data.continue_response = (ResponseSpecification.parse(map['continueResponse']) unless map['continueResponse'].nil?)
+        data.still_waiting_response = (StillWaitingResponseSpecification.parse(map['stillWaitingResponse']) unless map['stillWaitingResponse'].nil?)
         data.active = map['active']
         return data
       end
@@ -758,7 +758,7 @@ module AWS::SDK::LexModelsV2
     class StillWaitingResponseSpecification
       def self.parse(map)
         data = Types::StillWaitingResponseSpecification.new
-        data.message_groups = (Parsers::MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
+        data.message_groups = (MessageGroupsList.parse(map['messageGroups']) unless map['messageGroups'].nil?)
         data.frequency_in_seconds = map['frequencyInSeconds']
         data.timeout_in_seconds = map['timeoutInSeconds']
         data.allow_interrupt = map['allowInterrupt']
@@ -769,7 +769,7 @@ module AWS::SDK::LexModelsV2
     class SlotDefaultValueSpecification
       def self.parse(map)
         data = Types::SlotDefaultValueSpecification.new
-        data.default_value_list = (Parsers::SlotDefaultValueList.parse(map['defaultValueList']) unless map['defaultValueList'].nil?)
+        data.default_value_list = (SlotDefaultValueList.parse(map['defaultValueList']) unless map['defaultValueList'].nil?)
         return data
       end
     end
@@ -778,7 +778,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotDefaultValue.parse(value) unless value.nil?
+          data << SlotDefaultValue.parse(value) unless value.nil?
         end
         data
       end
@@ -800,14 +800,14 @@ module AWS::SDK::LexModelsV2
         data.slot_type_id = map['slotTypeId']
         data.slot_type_name = map['slotTypeName']
         data.description = map['description']
-        data.slot_type_values = (Parsers::SlotTypeValues.parse(map['slotTypeValues']) unless map['slotTypeValues'].nil?)
-        data.value_selection_setting = (Parsers::SlotValueSelectionSetting.parse(map['valueSelectionSetting']) unless map['valueSelectionSetting'].nil?)
+        data.slot_type_values = (SlotTypeValues.parse(map['slotTypeValues']) unless map['slotTypeValues'].nil?)
+        data.value_selection_setting = (SlotValueSelectionSetting.parse(map['valueSelectionSetting']) unless map['valueSelectionSetting'].nil?)
         data.parent_slot_type_signature = map['parentSlotTypeSignature']
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
-        data.external_source_setting = (Parsers::ExternalSourceSetting.parse(map['externalSourceSetting']) unless map['externalSourceSetting'].nil?)
+        data.external_source_setting = (ExternalSourceSetting.parse(map['externalSourceSetting']) unless map['externalSourceSetting'].nil?)
         data
       end
     end
@@ -815,7 +815,7 @@ module AWS::SDK::LexModelsV2
     class ExternalSourceSetting
       def self.parse(map)
         data = Types::ExternalSourceSetting.new
-        data.grammar_slot_type_setting = (Parsers::GrammarSlotTypeSetting.parse(map['grammarSlotTypeSetting']) unless map['grammarSlotTypeSetting'].nil?)
+        data.grammar_slot_type_setting = (GrammarSlotTypeSetting.parse(map['grammarSlotTypeSetting']) unless map['grammarSlotTypeSetting'].nil?)
         return data
       end
     end
@@ -823,7 +823,7 @@ module AWS::SDK::LexModelsV2
     class GrammarSlotTypeSetting
       def self.parse(map)
         data = Types::GrammarSlotTypeSetting.new
-        data.source = (Parsers::GrammarSlotTypeSource.parse(map['source']) unless map['source'].nil?)
+        data.source = (GrammarSlotTypeSource.parse(map['source']) unless map['source'].nil?)
         return data
       end
     end
@@ -842,8 +842,8 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::SlotValueSelectionSetting.new
         data.resolution_strategy = map['resolutionStrategy']
-        data.regex_filter = (Parsers::SlotValueRegexFilter.parse(map['regexFilter']) unless map['regexFilter'].nil?)
-        data.advanced_recognition_setting = (Parsers::AdvancedRecognitionSetting.parse(map['advancedRecognitionSetting']) unless map['advancedRecognitionSetting'].nil?)
+        data.regex_filter = (SlotValueRegexFilter.parse(map['regexFilter']) unless map['regexFilter'].nil?)
+        data.advanced_recognition_setting = (AdvancedRecognitionSetting.parse(map['advancedRecognitionSetting']) unless map['advancedRecognitionSetting'].nil?)
         return data
       end
     end
@@ -868,7 +868,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotTypeValue.parse(value) unless value.nil?
+          data << SlotTypeValue.parse(value) unless value.nil?
         end
         data
       end
@@ -877,8 +877,8 @@ module AWS::SDK::LexModelsV2
     class SlotTypeValue
       def self.parse(map)
         data = Types::SlotTypeValue.new
-        data.sample_value = (Parsers::SampleValue.parse(map['sampleValue']) unless map['sampleValue'].nil?)
-        data.synonyms = (Parsers::SynonymList.parse(map['synonyms']) unless map['synonyms'].nil?)
+        data.sample_value = (SampleValue.parse(map['sampleValue']) unless map['sampleValue'].nil?)
+        data.synonyms = (SynonymList.parse(map['synonyms']) unless map['synonyms'].nil?)
         return data
       end
     end
@@ -887,7 +887,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SampleValue.parse(value) unless value.nil?
+          data << SampleValue.parse(value) unless value.nil?
         end
         data
       end
@@ -1062,7 +1062,7 @@ module AWS::SDK::LexModelsV2
         data.bot_name = map['botName']
         data.description = map['description']
         data.role_arn = map['roleArn']
-        data.data_privacy = (Parsers::DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
+        data.data_privacy = (DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
         data.idle_session_ttl_in_seconds = map['idleSessionTTLInSeconds']
         data.bot_status = map['botStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -1080,10 +1080,10 @@ module AWS::SDK::LexModelsV2
         data.bot_alias_name = map['botAliasName']
         data.description = map['description']
         data.bot_version = map['botVersion']
-        data.bot_alias_locale_settings = (Parsers::BotAliasLocaleSettingsMap.parse(map['botAliasLocaleSettings']) unless map['botAliasLocaleSettings'].nil?)
-        data.conversation_log_settings = (Parsers::ConversationLogSettings.parse(map['conversationLogSettings']) unless map['conversationLogSettings'].nil?)
-        data.sentiment_analysis_settings = (Parsers::SentimentAnalysisSettings.parse(map['sentimentAnalysisSettings']) unless map['sentimentAnalysisSettings'].nil?)
-        data.bot_alias_history_events = (Parsers::BotAliasHistoryEventsList.parse(map['botAliasHistoryEvents']) unless map['botAliasHistoryEvents'].nil?)
+        data.bot_alias_locale_settings = (BotAliasLocaleSettingsMap.parse(map['botAliasLocaleSettings']) unless map['botAliasLocaleSettings'].nil?)
+        data.conversation_log_settings = (ConversationLogSettings.parse(map['conversationLogSettings']) unless map['conversationLogSettings'].nil?)
+        data.sentiment_analysis_settings = (SentimentAnalysisSettings.parse(map['sentimentAnalysisSettings']) unless map['sentimentAnalysisSettings'].nil?)
+        data.bot_alias_history_events = (BotAliasHistoryEventsList.parse(map['botAliasHistoryEvents']) unless map['botAliasHistoryEvents'].nil?)
         data.bot_alias_status = map['botAliasStatus']
         data.bot_id = map['botId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -1096,7 +1096,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotAliasHistoryEvent.parse(value) unless value.nil?
+          data << BotAliasHistoryEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -1123,16 +1123,16 @@ module AWS::SDK::LexModelsV2
         data.locale_name = map['localeName']
         data.description = map['description']
         data.nlu_intent_confidence_threshold = Hearth::NumberHelper.deserialize(map['nluIntentConfidenceThreshold'])
-        data.voice_settings = (Parsers::VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
+        data.voice_settings = (VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
         data.intents_count = map['intentsCount']
         data.slot_types_count = map['slotTypesCount']
         data.bot_locale_status = map['botLocaleStatus']
-        data.failure_reasons = (Parsers::FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
+        data.failure_reasons = (FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         data.last_build_submitted_date_time = Time.at(map['lastBuildSubmittedDateTime'].to_i) if map['lastBuildSubmittedDateTime']
-        data.bot_locale_history_events = (Parsers::BotLocaleHistoryEventsList.parse(map['botLocaleHistoryEvents']) unless map['botLocaleHistoryEvents'].nil?)
-        data.recommended_actions = (Parsers::RecommendedActions.parse(map['recommendedActions']) unless map['recommendedActions'].nil?)
+        data.bot_locale_history_events = (BotLocaleHistoryEventsList.parse(map['botLocaleHistoryEvents']) unless map['botLocaleHistoryEvents'].nil?)
+        data.recommended_actions = (RecommendedActions.parse(map['recommendedActions']) unless map['recommendedActions'].nil?)
         data
       end
     end
@@ -1151,7 +1151,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotLocaleHistoryEvent.parse(value) unless value.nil?
+          data << BotLocaleHistoryEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -1186,12 +1186,12 @@ module AWS::SDK::LexModelsV2
         data.locale_id = map['localeId']
         data.bot_recommendation_status = map['botRecommendationStatus']
         data.bot_recommendation_id = map['botRecommendationId']
-        data.failure_reasons = (Parsers::FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
+        data.failure_reasons = (FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.transcript_source_setting = (Parsers::TranscriptSourceSetting.parse(map['transcriptSourceSetting']) unless map['transcriptSourceSetting'].nil?)
-        data.encryption_setting = (Parsers::EncryptionSetting.parse(map['encryptionSetting']) unless map['encryptionSetting'].nil?)
-        data.bot_recommendation_results = (Parsers::BotRecommendationResults.parse(map['botRecommendationResults']) unless map['botRecommendationResults'].nil?)
+        data.transcript_source_setting = (TranscriptSourceSetting.parse(map['transcriptSourceSetting']) unless map['transcriptSourceSetting'].nil?)
+        data.encryption_setting = (EncryptionSetting.parse(map['encryptionSetting']) unless map['encryptionSetting'].nil?)
+        data.bot_recommendation_results = (BotRecommendationResults.parse(map['botRecommendationResults']) unless map['botRecommendationResults'].nil?)
         data
       end
     end
@@ -1201,7 +1201,7 @@ module AWS::SDK::LexModelsV2
         data = Types::BotRecommendationResults.new
         data.bot_locale_export_url = map['botLocaleExportUrl']
         data.associated_transcripts_url = map['associatedTranscriptsUrl']
-        data.statistics = (Parsers::BotRecommendationResultStatistics.parse(map['statistics']) unless map['statistics'].nil?)
+        data.statistics = (BotRecommendationResultStatistics.parse(map['statistics']) unless map['statistics'].nil?)
         return data
       end
     end
@@ -1209,8 +1209,8 @@ module AWS::SDK::LexModelsV2
     class BotRecommendationResultStatistics
       def self.parse(map)
         data = Types::BotRecommendationResultStatistics.new
-        data.intents = (Parsers::IntentStatistics.parse(map['intents']) unless map['intents'].nil?)
-        data.slot_types = (Parsers::SlotTypeStatistics.parse(map['slotTypes']) unless map['slotTypes'].nil?)
+        data.intents = (IntentStatistics.parse(map['intents']) unless map['intents'].nil?)
+        data.slot_types = (SlotTypeStatistics.parse(map['slotTypes']) unless map['slotTypes'].nil?)
         return data
       end
     end
@@ -1244,7 +1244,7 @@ module AWS::SDK::LexModelsV2
     class TranscriptSourceSetting
       def self.parse(map)
         data = Types::TranscriptSourceSetting.new
-        data.s3_bucket_transcript_source = (Parsers::S3BucketTranscriptSource.parse(map['s3BucketTranscriptSource']) unless map['s3BucketTranscriptSource'].nil?)
+        data.s3_bucket_transcript_source = (S3BucketTranscriptSource.parse(map['s3BucketTranscriptSource']) unless map['s3BucketTranscriptSource'].nil?)
         return data
       end
     end
@@ -1253,9 +1253,9 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::S3BucketTranscriptSource.new
         data.s3_bucket_name = map['s3BucketName']
-        data.path_format = (Parsers::PathFormat.parse(map['pathFormat']) unless map['pathFormat'].nil?)
+        data.path_format = (PathFormat.parse(map['pathFormat']) unless map['pathFormat'].nil?)
         data.transcript_format = map['transcriptFormat']
-        data.transcript_filter = (Parsers::TranscriptFilter.parse(map['transcriptFilter']) unless map['transcriptFilter'].nil?)
+        data.transcript_filter = (TranscriptFilter.parse(map['transcriptFilter']) unless map['transcriptFilter'].nil?)
         data.kms_key_arn = map['kmsKeyArn']
         return data
       end
@@ -1264,7 +1264,7 @@ module AWS::SDK::LexModelsV2
     class TranscriptFilter
       def self.parse(map)
         data = Types::TranscriptFilter.new
-        data.lex_transcript_filter = (Parsers::LexTranscriptFilter.parse(map['lexTranscriptFilter']) unless map['lexTranscriptFilter'].nil?)
+        data.lex_transcript_filter = (LexTranscriptFilter.parse(map['lexTranscriptFilter']) unless map['lexTranscriptFilter'].nil?)
         return data
       end
     end
@@ -1272,7 +1272,7 @@ module AWS::SDK::LexModelsV2
     class LexTranscriptFilter
       def self.parse(map)
         data = Types::LexTranscriptFilter.new
-        data.date_range_filter = (Parsers::DateRangeFilter.parse(map['dateRangeFilter']) unless map['dateRangeFilter'].nil?)
+        data.date_range_filter = (DateRangeFilter.parse(map['dateRangeFilter']) unless map['dateRangeFilter'].nil?)
         return data
       end
     end
@@ -1289,7 +1289,7 @@ module AWS::SDK::LexModelsV2
     class PathFormat
       def self.parse(map)
         data = Types::PathFormat.new
-        data.object_prefixes = (Parsers::ObjectPrefixes.parse(map['objectPrefixes']) unless map['objectPrefixes'].nil?)
+        data.object_prefixes = (ObjectPrefixes.parse(map['objectPrefixes']) unless map['objectPrefixes'].nil?)
         return data
       end
     end
@@ -1314,10 +1314,10 @@ module AWS::SDK::LexModelsV2
         data.bot_version = map['botVersion']
         data.description = map['description']
         data.role_arn = map['roleArn']
-        data.data_privacy = (Parsers::DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
+        data.data_privacy = (DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
         data.idle_session_ttl_in_seconds = map['idleSessionTTLInSeconds']
         data.bot_status = map['botStatus']
-        data.failure_reasons = (Parsers::FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
+        data.failure_reasons = (FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data
       end
@@ -1344,10 +1344,10 @@ module AWS::SDK::LexModelsV2
         data = Types::DescribeExportOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.export_id = map['exportId']
-        data.resource_specification = (Parsers::ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         data.file_format = map['fileFormat']
         data.export_status = map['exportStatus']
-        data.failure_reasons = (Parsers::FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
+        data.failure_reasons = (FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
         data.download_url = map['downloadUrl']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
@@ -1361,12 +1361,12 @@ module AWS::SDK::LexModelsV2
         data = Types::DescribeImportOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.import_id = map['importId']
-        data.resource_specification = (Parsers::ImportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ImportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         data.imported_resource_id = map['importedResourceId']
         data.imported_resource_name = map['importedResourceName']
         data.merge_strategy = map['mergeStrategy']
         data.import_status = map['importStatus']
-        data.failure_reasons = (Parsers::FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
+        data.failure_reasons = (FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         data
@@ -1376,9 +1376,9 @@ module AWS::SDK::LexModelsV2
     class ImportResourceSpecification
       def self.parse(map)
         data = Types::ImportResourceSpecification.new
-        data.bot_import_specification = (Parsers::BotImportSpecification.parse(map['botImportSpecification']) unless map['botImportSpecification'].nil?)
-        data.bot_locale_import_specification = (Parsers::BotLocaleImportSpecification.parse(map['botLocaleImportSpecification']) unless map['botLocaleImportSpecification'].nil?)
-        data.custom_vocabulary_import_specification = (Parsers::CustomVocabularyImportSpecification.parse(map['customVocabularyImportSpecification']) unless map['customVocabularyImportSpecification'].nil?)
+        data.bot_import_specification = (BotImportSpecification.parse(map['botImportSpecification']) unless map['botImportSpecification'].nil?)
+        data.bot_locale_import_specification = (BotLocaleImportSpecification.parse(map['botLocaleImportSpecification']) unless map['botLocaleImportSpecification'].nil?)
+        data.custom_vocabulary_import_specification = (CustomVocabularyImportSpecification.parse(map['customVocabularyImportSpecification']) unless map['customVocabularyImportSpecification'].nil?)
         return data
       end
     end
@@ -1400,7 +1400,7 @@ module AWS::SDK::LexModelsV2
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.nlu_intent_confidence_threshold = Hearth::NumberHelper.deserialize(map['nluIntentConfidenceThreshold'])
-        data.voice_settings = (Parsers::VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
+        data.voice_settings = (VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
         return data
       end
     end
@@ -1410,10 +1410,10 @@ module AWS::SDK::LexModelsV2
         data = Types::BotImportSpecification.new
         data.bot_name = map['botName']
         data.role_arn = map['roleArn']
-        data.data_privacy = (Parsers::DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
+        data.data_privacy = (DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
         data.idle_session_ttl_in_seconds = map['idleSessionTTLInSeconds']
-        data.bot_tags = (Parsers::TagMap.parse(map['botTags']) unless map['botTags'].nil?)
-        data.test_bot_alias_tags = (Parsers::TagMap.parse(map['testBotAliasTags']) unless map['testBotAliasTags'].nil?)
+        data.bot_tags = (TagMap.parse(map['botTags']) unless map['botTags'].nil?)
+        data.test_bot_alias_tags = (TagMap.parse(map['testBotAliasTags']) unless map['testBotAliasTags'].nil?)
         return data
       end
     end
@@ -1427,15 +1427,15 @@ module AWS::SDK::LexModelsV2
         data.intent_name = map['intentName']
         data.description = map['description']
         data.parent_intent_signature = map['parentIntentSignature']
-        data.sample_utterances = (Parsers::SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
-        data.dialog_code_hook = (Parsers::DialogCodeHookSettings.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
-        data.fulfillment_code_hook = (Parsers::FulfillmentCodeHookSettings.parse(map['fulfillmentCodeHook']) unless map['fulfillmentCodeHook'].nil?)
-        data.slot_priorities = (Parsers::SlotPrioritiesList.parse(map['slotPriorities']) unless map['slotPriorities'].nil?)
-        data.intent_confirmation_setting = (Parsers::IntentConfirmationSetting.parse(map['intentConfirmationSetting']) unless map['intentConfirmationSetting'].nil?)
-        data.intent_closing_setting = (Parsers::IntentClosingSetting.parse(map['intentClosingSetting']) unless map['intentClosingSetting'].nil?)
-        data.input_contexts = (Parsers::InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
-        data.output_contexts = (Parsers::OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
-        data.kendra_configuration = (Parsers::KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
+        data.sample_utterances = (SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.dialog_code_hook = (DialogCodeHookSettings.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
+        data.fulfillment_code_hook = (FulfillmentCodeHookSettings.parse(map['fulfillmentCodeHook']) unless map['fulfillmentCodeHook'].nil?)
+        data.slot_priorities = (SlotPrioritiesList.parse(map['slotPriorities']) unless map['slotPriorities'].nil?)
+        data.intent_confirmation_setting = (IntentConfirmationSetting.parse(map['intentConfirmationSetting']) unless map['intentConfirmationSetting'].nil?)
+        data.intent_closing_setting = (IntentClosingSetting.parse(map['intentClosingSetting']) unless map['intentClosingSetting'].nil?)
+        data.input_contexts = (InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
+        data.output_contexts = (OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
+        data.kendra_configuration = (KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
@@ -1449,7 +1449,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotPriority.parse(value) unless value.nil?
+          data << SlotPriority.parse(value) unless value.nil?
         end
         data
       end
@@ -1485,15 +1485,15 @@ module AWS::SDK::LexModelsV2
         data.slot_name = map['slotName']
         data.description = map['description']
         data.slot_type_id = map['slotTypeId']
-        data.value_elicitation_setting = (Parsers::SlotValueElicitationSetting.parse(map['valueElicitationSetting']) unless map['valueElicitationSetting'].nil?)
-        data.obfuscation_setting = (Parsers::ObfuscationSetting.parse(map['obfuscationSetting']) unless map['obfuscationSetting'].nil?)
+        data.value_elicitation_setting = (SlotValueElicitationSetting.parse(map['valueElicitationSetting']) unless map['valueElicitationSetting'].nil?)
+        data.obfuscation_setting = (ObfuscationSetting.parse(map['obfuscationSetting']) unless map['obfuscationSetting'].nil?)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.intent_id = map['intentId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.multiple_values_setting = (Parsers::MultipleValuesSetting.parse(map['multipleValuesSetting']) unless map['multipleValuesSetting'].nil?)
+        data.multiple_values_setting = (MultipleValuesSetting.parse(map['multipleValuesSetting']) unless map['multipleValuesSetting'].nil?)
         data
       end
     end
@@ -1506,15 +1506,15 @@ module AWS::SDK::LexModelsV2
         data.slot_type_id = map['slotTypeId']
         data.slot_type_name = map['slotTypeName']
         data.description = map['description']
-        data.slot_type_values = (Parsers::SlotTypeValues.parse(map['slotTypeValues']) unless map['slotTypeValues'].nil?)
-        data.value_selection_setting = (Parsers::SlotValueSelectionSetting.parse(map['valueSelectionSetting']) unless map['valueSelectionSetting'].nil?)
+        data.slot_type_values = (SlotTypeValues.parse(map['slotTypeValues']) unless map['slotTypeValues'].nil?)
+        data.value_selection_setting = (SlotValueSelectionSetting.parse(map['valueSelectionSetting']) unless map['valueSelectionSetting'].nil?)
         data.parent_slot_type_signature = map['parentSlotTypeSignature']
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.external_source_setting = (Parsers::ExternalSourceSetting.parse(map['externalSourceSetting']) unless map['externalSourceSetting'].nil?)
+        data.external_source_setting = (ExternalSourceSetting.parse(map['externalSourceSetting']) unless map['externalSourceSetting'].nil?)
         data
       end
     end
@@ -1528,11 +1528,11 @@ module AWS::SDK::LexModelsV2
         data.bot_alias_id = map['botAliasId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
-        data.aggregation_duration = (Parsers::UtteranceAggregationDuration.parse(map['aggregationDuration']) unless map['aggregationDuration'].nil?)
+        data.aggregation_duration = (UtteranceAggregationDuration.parse(map['aggregationDuration']) unless map['aggregationDuration'].nil?)
         data.aggregation_window_start_time = Time.at(map['aggregationWindowStartTime'].to_i) if map['aggregationWindowStartTime']
         data.aggregation_window_end_time = Time.at(map['aggregationWindowEndTime'].to_i) if map['aggregationWindowEndTime']
         data.aggregation_last_refreshed_date_time = Time.at(map['aggregationLastRefreshedDateTime'].to_i) if map['aggregationLastRefreshedDateTime']
-        data.aggregated_utterances_summaries = (Parsers::AggregatedUtterancesSummaryList.parse(map['aggregatedUtterancesSummaries']) unless map['aggregatedUtterancesSummaries'].nil?)
+        data.aggregated_utterances_summaries = (AggregatedUtterancesSummaryList.parse(map['aggregatedUtterancesSummaries']) unless map['aggregatedUtterancesSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1542,7 +1542,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AggregatedUtterancesSummary.parse(value) unless value.nil?
+          data << AggregatedUtterancesSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1564,7 +1564,7 @@ module AWS::SDK::LexModelsV2
     class UtteranceAggregationDuration
       def self.parse(map)
         data = Types::UtteranceAggregationDuration.new
-        data.relative_aggregation_duration = (Parsers::RelativeAggregationDuration.parse(map['relativeAggregationDuration']) unless map['relativeAggregationDuration'].nil?)
+        data.relative_aggregation_duration = (RelativeAggregationDuration.parse(map['relativeAggregationDuration']) unless map['relativeAggregationDuration'].nil?)
         return data
       end
     end
@@ -1583,7 +1583,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(http_resp)
         data = Types::ListBotAliasesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot_alias_summaries = (Parsers::BotAliasSummaryList.parse(map['botAliasSummaries']) unless map['botAliasSummaries'].nil?)
+        data.bot_alias_summaries = (BotAliasSummaryList.parse(map['botAliasSummaries']) unless map['botAliasSummaries'].nil?)
         data.next_token = map['nextToken']
         data.bot_id = map['botId']
         data
@@ -1594,7 +1594,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotAliasSummary.parse(value) unless value.nil?
+          data << BotAliasSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1622,7 +1622,7 @@ module AWS::SDK::LexModelsV2
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.next_token = map['nextToken']
-        data.bot_locale_summaries = (Parsers::BotLocaleSummaryList.parse(map['botLocaleSummaries']) unless map['botLocaleSummaries'].nil?)
+        data.bot_locale_summaries = (BotLocaleSummaryList.parse(map['botLocaleSummaries']) unless map['botLocaleSummaries'].nil?)
         data
       end
     end
@@ -1631,7 +1631,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotLocaleSummary.parse(value) unless value.nil?
+          data << BotLocaleSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1658,7 +1658,7 @@ module AWS::SDK::LexModelsV2
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
-        data.bot_recommendation_summaries = (Parsers::BotRecommendationSummaryList.parse(map['botRecommendationSummaries']) unless map['botRecommendationSummaries'].nil?)
+        data.bot_recommendation_summaries = (BotRecommendationSummaryList.parse(map['botRecommendationSummaries']) unless map['botRecommendationSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1668,7 +1668,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotRecommendationSummary.parse(value) unless value.nil?
+          data << BotRecommendationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1691,7 +1691,7 @@ module AWS::SDK::LexModelsV2
         data = Types::ListBotVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.bot_id = map['botId']
-        data.bot_version_summaries = (Parsers::BotVersionSummaryList.parse(map['botVersionSummaries']) unless map['botVersionSummaries'].nil?)
+        data.bot_version_summaries = (BotVersionSummaryList.parse(map['botVersionSummaries']) unless map['botVersionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1701,7 +1701,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotVersionSummary.parse(value) unless value.nil?
+          data << BotVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1724,7 +1724,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(http_resp)
         data = Types::ListBotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot_summaries = (Parsers::BotSummaryList.parse(map['botSummaries']) unless map['botSummaries'].nil?)
+        data.bot_summaries = (BotSummaryList.parse(map['botSummaries']) unless map['botSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1734,7 +1734,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotSummary.parse(value) unless value.nil?
+          data << BotSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1758,7 +1758,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(http_resp)
         data = Types::ListBuiltInIntentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.built_in_intent_summaries = (Parsers::BuiltInIntentSummaryList.parse(map['builtInIntentSummaries']) unless map['builtInIntentSummaries'].nil?)
+        data.built_in_intent_summaries = (BuiltInIntentSummaryList.parse(map['builtInIntentSummaries']) unless map['builtInIntentSummaries'].nil?)
         data.next_token = map['nextToken']
         data.locale_id = map['localeId']
         data
@@ -1769,7 +1769,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BuiltInIntentSummary.parse(value) unless value.nil?
+          data << BuiltInIntentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1789,7 +1789,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(http_resp)
         data = Types::ListBuiltInSlotTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.built_in_slot_type_summaries = (Parsers::BuiltInSlotTypeSummaryList.parse(map['builtInSlotTypeSummaries']) unless map['builtInSlotTypeSummaries'].nil?)
+        data.built_in_slot_type_summaries = (BuiltInSlotTypeSummaryList.parse(map['builtInSlotTypeSummaries']) unless map['builtInSlotTypeSummaries'].nil?)
         data.next_token = map['nextToken']
         data.locale_id = map['localeId']
         data
@@ -1800,7 +1800,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BuiltInSlotTypeSummary.parse(value) unless value.nil?
+          data << BuiltInSlotTypeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1822,7 +1822,7 @@ module AWS::SDK::LexModelsV2
         map = Hearth::JSON.load(http_resp.body)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
-        data.export_summaries = (Parsers::ExportSummaryList.parse(map['exportSummaries']) unless map['exportSummaries'].nil?)
+        data.export_summaries = (ExportSummaryList.parse(map['exportSummaries']) unless map['exportSummaries'].nil?)
         data.next_token = map['nextToken']
         data.locale_id = map['localeId']
         data
@@ -1833,7 +1833,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExportSummary.parse(value) unless value.nil?
+          data << ExportSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1843,7 +1843,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(map)
         data = Types::ExportSummary.new
         data.export_id = map['exportId']
-        data.resource_specification = (Parsers::ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         data.file_format = map['fileFormat']
         data.export_status = map['exportStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -1859,7 +1859,7 @@ module AWS::SDK::LexModelsV2
         map = Hearth::JSON.load(http_resp.body)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
-        data.import_summaries = (Parsers::ImportSummaryList.parse(map['importSummaries']) unless map['importSummaries'].nil?)
+        data.import_summaries = (ImportSummaryList.parse(map['importSummaries']) unless map['importSummaries'].nil?)
         data.next_token = map['nextToken']
         data.locale_id = map['localeId']
         data
@@ -1870,7 +1870,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImportSummary.parse(value) unless value.nil?
+          data << ImportSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1899,7 +1899,7 @@ module AWS::SDK::LexModelsV2
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
-        data.intent_summaries = (Parsers::IntentSummaryList.parse(map['intentSummaries']) unless map['intentSummaries'].nil?)
+        data.intent_summaries = (IntentSummaryList.parse(map['intentSummaries']) unless map['intentSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1909,7 +1909,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IntentSummary.parse(value) unless value.nil?
+          data << IntentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1922,8 +1922,8 @@ module AWS::SDK::LexModelsV2
         data.intent_name = map['intentName']
         data.description = map['description']
         data.parent_intent_signature = map['parentIntentSignature']
-        data.input_contexts = (Parsers::InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
-        data.output_contexts = (Parsers::OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
+        data.input_contexts = (InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
+        data.output_contexts = (OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         return data
       end
@@ -1938,7 +1938,7 @@ module AWS::SDK::LexModelsV2
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.bot_recommendation_id = map['botRecommendationId']
-        data.summary_list = (Parsers::RecommendedIntentSummaryList.parse(map['summaryList']) unless map['summaryList'].nil?)
+        data.summary_list = (RecommendedIntentSummaryList.parse(map['summaryList']) unless map['summaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1948,7 +1948,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendedIntentSummary.parse(value) unless value.nil?
+          data << RecommendedIntentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1972,7 +1972,7 @@ module AWS::SDK::LexModelsV2
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
-        data.slot_type_summaries = (Parsers::SlotTypeSummaryList.parse(map['slotTypeSummaries']) unless map['slotTypeSummaries'].nil?)
+        data.slot_type_summaries = (SlotTypeSummaryList.parse(map['slotTypeSummaries']) unless map['slotTypeSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1982,7 +1982,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotTypeSummary.parse(value) unless value.nil?
+          data << SlotTypeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2010,7 +2010,7 @@ module AWS::SDK::LexModelsV2
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.intent_id = map['intentId']
-        data.slot_summaries = (Parsers::SlotSummaryList.parse(map['slotSummaries']) unless map['slotSummaries'].nil?)
+        data.slot_summaries = (SlotSummaryList.parse(map['slotSummaries']) unless map['slotSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2020,7 +2020,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotSummary.parse(value) unless value.nil?
+          data << SlotSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2034,7 +2034,7 @@ module AWS::SDK::LexModelsV2
         data.description = map['description']
         data.slot_constraint = map['slotConstraint']
         data.slot_type_id = map['slotTypeId']
-        data.value_elicitation_prompt_specification = (Parsers::PromptSpecification.parse(map['valueElicitationPromptSpecification']) unless map['valueElicitationPromptSpecification'].nil?)
+        data.value_elicitation_prompt_specification = (PromptSpecification.parse(map['valueElicitationPromptSpecification']) unless map['valueElicitationPromptSpecification'].nil?)
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         return data
       end
@@ -2045,7 +2045,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -2060,7 +2060,7 @@ module AWS::SDK::LexModelsV2
         data.locale_id = map['localeId']
         data.bot_recommendation_id = map['botRecommendationId']
         data.next_index = map['nextIndex']
-        data.associated_transcripts = (Parsers::AssociatedTranscriptList.parse(map['associatedTranscripts']) unless map['associatedTranscripts'].nil?)
+        data.associated_transcripts = (AssociatedTranscriptList.parse(map['associatedTranscripts']) unless map['associatedTranscripts'].nil?)
         data.total_results = map['totalResults']
         data
       end
@@ -2070,7 +2070,7 @@ module AWS::SDK::LexModelsV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssociatedTranscript.parse(value) unless value.nil?
+          data << AssociatedTranscript.parse(value) unless value.nil?
         end
         data
       end
@@ -2095,8 +2095,8 @@ module AWS::SDK::LexModelsV2
         data.bot_recommendation_status = map['botRecommendationStatus']
         data.bot_recommendation_id = map['botRecommendationId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
-        data.transcript_source_setting = (Parsers::TranscriptSourceSetting.parse(map['transcriptSourceSetting']) unless map['transcriptSourceSetting'].nil?)
-        data.encryption_setting = (Parsers::EncryptionSetting.parse(map['encryptionSetting']) unless map['encryptionSetting'].nil?)
+        data.transcript_source_setting = (TranscriptSourceSetting.parse(map['transcriptSourceSetting']) unless map['transcriptSourceSetting'].nil?)
+        data.encryption_setting = (EncryptionSetting.parse(map['encryptionSetting']) unless map['encryptionSetting'].nil?)
         data
       end
     end
@@ -2107,7 +2107,7 @@ module AWS::SDK::LexModelsV2
         data = Types::StartImportOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.import_id = map['importId']
-        data.resource_specification = (Parsers::ImportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ImportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         data.merge_strategy = map['mergeStrategy']
         data.import_status = map['importStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -2142,7 +2142,7 @@ module AWS::SDK::LexModelsV2
         data.bot_name = map['botName']
         data.description = map['description']
         data.role_arn = map['roleArn']
-        data.data_privacy = (Parsers::DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
+        data.data_privacy = (DataPrivacy.parse(map['dataPrivacy']) unless map['dataPrivacy'].nil?)
         data.idle_session_ttl_in_seconds = map['idleSessionTTLInSeconds']
         data.bot_status = map['botStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -2160,9 +2160,9 @@ module AWS::SDK::LexModelsV2
         data.bot_alias_name = map['botAliasName']
         data.description = map['description']
         data.bot_version = map['botVersion']
-        data.bot_alias_locale_settings = (Parsers::BotAliasLocaleSettingsMap.parse(map['botAliasLocaleSettings']) unless map['botAliasLocaleSettings'].nil?)
-        data.conversation_log_settings = (Parsers::ConversationLogSettings.parse(map['conversationLogSettings']) unless map['conversationLogSettings'].nil?)
-        data.sentiment_analysis_settings = (Parsers::SentimentAnalysisSettings.parse(map['sentimentAnalysisSettings']) unless map['sentimentAnalysisSettings'].nil?)
+        data.bot_alias_locale_settings = (BotAliasLocaleSettingsMap.parse(map['botAliasLocaleSettings']) unless map['botAliasLocaleSettings'].nil?)
+        data.conversation_log_settings = (ConversationLogSettings.parse(map['conversationLogSettings']) unless map['conversationLogSettings'].nil?)
+        data.sentiment_analysis_settings = (SentimentAnalysisSettings.parse(map['sentimentAnalysisSettings']) unless map['sentimentAnalysisSettings'].nil?)
         data.bot_alias_status = map['botAliasStatus']
         data.bot_id = map['botId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -2182,12 +2182,12 @@ module AWS::SDK::LexModelsV2
         data.locale_name = map['localeName']
         data.description = map['description']
         data.nlu_intent_confidence_threshold = Hearth::NumberHelper.deserialize(map['nluIntentConfidenceThreshold'])
-        data.voice_settings = (Parsers::VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
+        data.voice_settings = (VoiceSettings.parse(map['voiceSettings']) unless map['voiceSettings'].nil?)
         data.bot_locale_status = map['botLocaleStatus']
-        data.failure_reasons = (Parsers::FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
+        data.failure_reasons = (FailureReasons.parse(map['failureReasons']) unless map['failureReasons'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.recommended_actions = (Parsers::RecommendedActions.parse(map['recommendedActions']) unless map['recommendedActions'].nil?)
+        data.recommended_actions = (RecommendedActions.parse(map['recommendedActions']) unless map['recommendedActions'].nil?)
         data
       end
     end
@@ -2204,8 +2204,8 @@ module AWS::SDK::LexModelsV2
         data.bot_recommendation_id = map['botRecommendationId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.transcript_source_setting = (Parsers::TranscriptSourceSetting.parse(map['transcriptSourceSetting']) unless map['transcriptSourceSetting'].nil?)
-        data.encryption_setting = (Parsers::EncryptionSetting.parse(map['encryptionSetting']) unless map['encryptionSetting'].nil?)
+        data.transcript_source_setting = (TranscriptSourceSetting.parse(map['transcriptSourceSetting']) unless map['transcriptSourceSetting'].nil?)
+        data.encryption_setting = (EncryptionSetting.parse(map['encryptionSetting']) unless map['encryptionSetting'].nil?)
         data
       end
     end
@@ -2216,7 +2216,7 @@ module AWS::SDK::LexModelsV2
         data = Types::UpdateExportOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.export_id = map['exportId']
-        data.resource_specification = (Parsers::ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ExportResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         data.file_format = map['fileFormat']
         data.export_status = map['exportStatus']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -2234,15 +2234,15 @@ module AWS::SDK::LexModelsV2
         data.intent_name = map['intentName']
         data.description = map['description']
         data.parent_intent_signature = map['parentIntentSignature']
-        data.sample_utterances = (Parsers::SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
-        data.dialog_code_hook = (Parsers::DialogCodeHookSettings.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
-        data.fulfillment_code_hook = (Parsers::FulfillmentCodeHookSettings.parse(map['fulfillmentCodeHook']) unless map['fulfillmentCodeHook'].nil?)
-        data.slot_priorities = (Parsers::SlotPrioritiesList.parse(map['slotPriorities']) unless map['slotPriorities'].nil?)
-        data.intent_confirmation_setting = (Parsers::IntentConfirmationSetting.parse(map['intentConfirmationSetting']) unless map['intentConfirmationSetting'].nil?)
-        data.intent_closing_setting = (Parsers::IntentClosingSetting.parse(map['intentClosingSetting']) unless map['intentClosingSetting'].nil?)
-        data.input_contexts = (Parsers::InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
-        data.output_contexts = (Parsers::OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
-        data.kendra_configuration = (Parsers::KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
+        data.sample_utterances = (SampleUtterancesList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.dialog_code_hook = (DialogCodeHookSettings.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
+        data.fulfillment_code_hook = (FulfillmentCodeHookSettings.parse(map['fulfillmentCodeHook']) unless map['fulfillmentCodeHook'].nil?)
+        data.slot_priorities = (SlotPrioritiesList.parse(map['slotPriorities']) unless map['slotPriorities'].nil?)
+        data.intent_confirmation_setting = (IntentConfirmationSetting.parse(map['intentConfirmationSetting']) unless map['intentConfirmationSetting'].nil?)
+        data.intent_closing_setting = (IntentClosingSetting.parse(map['intentClosingSetting']) unless map['intentClosingSetting'].nil?)
+        data.input_contexts = (InputContextsList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
+        data.output_contexts = (OutputContextsList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
+        data.kendra_configuration = (KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
@@ -2272,15 +2272,15 @@ module AWS::SDK::LexModelsV2
         data.slot_name = map['slotName']
         data.description = map['description']
         data.slot_type_id = map['slotTypeId']
-        data.value_elicitation_setting = (Parsers::SlotValueElicitationSetting.parse(map['valueElicitationSetting']) unless map['valueElicitationSetting'].nil?)
-        data.obfuscation_setting = (Parsers::ObfuscationSetting.parse(map['obfuscationSetting']) unless map['obfuscationSetting'].nil?)
+        data.value_elicitation_setting = (SlotValueElicitationSetting.parse(map['valueElicitationSetting']) unless map['valueElicitationSetting'].nil?)
+        data.obfuscation_setting = (ObfuscationSetting.parse(map['obfuscationSetting']) unless map['obfuscationSetting'].nil?)
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.intent_id = map['intentId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.multiple_values_setting = (Parsers::MultipleValuesSetting.parse(map['multipleValuesSetting']) unless map['multipleValuesSetting'].nil?)
+        data.multiple_values_setting = (MultipleValuesSetting.parse(map['multipleValuesSetting']) unless map['multipleValuesSetting'].nil?)
         data
       end
     end
@@ -2293,15 +2293,15 @@ module AWS::SDK::LexModelsV2
         data.slot_type_id = map['slotTypeId']
         data.slot_type_name = map['slotTypeName']
         data.description = map['description']
-        data.slot_type_values = (Parsers::SlotTypeValues.parse(map['slotTypeValues']) unless map['slotTypeValues'].nil?)
-        data.value_selection_setting = (Parsers::SlotValueSelectionSetting.parse(map['valueSelectionSetting']) unless map['valueSelectionSetting'].nil?)
+        data.slot_type_values = (SlotTypeValues.parse(map['slotTypeValues']) unless map['slotTypeValues'].nil?)
+        data.value_selection_setting = (SlotValueSelectionSetting.parse(map['valueSelectionSetting']) unless map['valueSelectionSetting'].nil?)
         data.parent_slot_type_signature = map['parentSlotTypeSignature']
         data.bot_id = map['botId']
         data.bot_version = map['botVersion']
         data.locale_id = map['localeId']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.external_source_setting = (Parsers::ExternalSourceSetting.parse(map['externalSourceSetting']) unless map['externalSourceSetting'].nil?)
+        data.external_source_setting = (ExternalSourceSetting.parse(map['externalSourceSetting']) unless map['externalSourceSetting'].nil?)
         data
       end
     end

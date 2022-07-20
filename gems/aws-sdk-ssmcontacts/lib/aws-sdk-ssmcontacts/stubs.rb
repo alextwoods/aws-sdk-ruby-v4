@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSMContacts
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['ContactArn'] = stub[:contact_arn] unless stub[:contact_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -65,7 +67,7 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['ContactChannelArn'] = stub[:contact_channel_arn] unless stub[:contact_channel_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -79,7 +81,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -107,7 +109,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -141,7 +143,7 @@ module AWS::SDK::SSMContacts
         data['IncidentId'] = stub[:incident_id] unless stub[:incident_id].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['StopTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stop_time]).to_i unless stub[:stop_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::SSMContacts
         data['SentTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:sent_time]).to_i unless stub[:sent_time].nil?
         data['ReadTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:read_time]).to_i unless stub[:read_time].nil?
         data['DeliveryTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:delivery_time]).to_i unless stub[:delivery_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -202,8 +204,8 @@ module AWS::SDK::SSMContacts
         data['Alias'] = stub[:alias] unless stub[:alias].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Plan'] = Stubs::Plan.stub(stub[:plan]) unless stub[:plan].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Plan'] = Plan.stub(stub[:plan]) unless stub[:plan].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::SSMContacts
       def self.stub(stub)
         stub ||= Types::Plan.new
         data = {}
-        data['Stages'] = Stubs::StagesList.stub(stub[:stages]) unless stub[:stages].nil?
+        data['Stages'] = StagesList.stub(stub[:stages]) unless stub[:stages].nil?
         data
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Stage.stub(element) unless element.nil?
+          data << Stage.stub(element) unless element.nil?
         end
         data
       end
@@ -261,7 +263,7 @@ module AWS::SDK::SSMContacts
         stub ||= Types::Stage.new
         data = {}
         data['DurationInMinutes'] = stub[:duration_in_minutes] unless stub[:duration_in_minutes].nil?
-        data['Targets'] = Stubs::TargetsList.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = TargetsList.stub(stub[:targets]) unless stub[:targets].nil?
         data
       end
     end
@@ -280,7 +282,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Target.stub(element) unless element.nil?
+          data << Target.stub(element) unless element.nil?
         end
         data
       end
@@ -300,8 +302,8 @@ module AWS::SDK::SSMContacts
       def self.stub(stub)
         stub ||= Types::Target.new
         data = {}
-        data['ChannelTargetInfo'] = Stubs::ChannelTargetInfo.stub(stub[:channel_target_info]) unless stub[:channel_target_info].nil?
-        data['ContactTargetInfo'] = Stubs::ContactTargetInfo.stub(stub[:contact_target_info]) unless stub[:contact_target_info].nil?
+        data['ChannelTargetInfo'] = ChannelTargetInfo.stub(stub[:channel_target_info]) unless stub[:channel_target_info].nil?
+        data['ContactTargetInfo'] = ContactTargetInfo.stub(stub[:contact_target_info]) unless stub[:contact_target_info].nil?
         data
       end
     end
@@ -365,9 +367,9 @@ module AWS::SDK::SSMContacts
         data['ContactChannelArn'] = stub[:contact_channel_arn] unless stub[:contact_channel_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['DeliveryAddress'] = Stubs::ContactChannelAddress.stub(stub[:delivery_address]) unless stub[:delivery_address].nil?
+        data['DeliveryAddress'] = ContactChannelAddress.stub(stub[:delivery_address]) unless stub[:delivery_address].nil?
         data['ActivationStatus'] = stub[:activation_status] unless stub[:activation_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::SSMContacts
         data = {}
         data['ContactArn'] = stub[:contact_arn] unless stub[:contact_arn].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -420,8 +422,8 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ContactChannels'] = Stubs::ContactChannelList.stub(stub[:contact_channels]) unless stub[:contact_channels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ContactChannels'] = ContactChannelList.stub(stub[:contact_channels]) unless stub[:contact_channels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -440,7 +442,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContactChannel.stub(element) unless element.nil?
+          data << ContactChannel.stub(element) unless element.nil?
         end
         data
       end
@@ -468,7 +470,7 @@ module AWS::SDK::SSMContacts
         data['ContactArn'] = stub[:contact_arn] unless stub[:contact_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['DeliveryAddress'] = Stubs::ContactChannelAddress.stub(stub[:delivery_address]) unless stub[:delivery_address].nil?
+        data['DeliveryAddress'] = ContactChannelAddress.stub(stub[:delivery_address]) unless stub[:delivery_address].nil?
         data['ActivationStatus'] = stub[:activation_status] unless stub[:activation_status].nil?
         data
       end
@@ -486,8 +488,8 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Contacts'] = Stubs::ContactsList.stub(stub[:contacts]) unless stub[:contacts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Contacts'] = ContactsList.stub(stub[:contacts]) unless stub[:contacts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -506,7 +508,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Contact.stub(element) unless element.nil?
+          data << Contact.stub(element) unless element.nil?
         end
         data
       end
@@ -548,8 +550,8 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Engagements'] = Stubs::EngagementsList.stub(stub[:engagements]) unless stub[:engagements].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Engagements'] = EngagementsList.stub(stub[:engagements]) unless stub[:engagements].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -568,7 +570,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Engagement.stub(element) unless element.nil?
+          data << Engagement.stub(element) unless element.nil?
         end
         data
       end
@@ -614,8 +616,8 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Receipts'] = Stubs::ReceiptsList.stub(stub[:receipts]) unless stub[:receipts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Receipts'] = ReceiptsList.stub(stub[:receipts]) unless stub[:receipts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Receipt.stub(element) unless element.nil?
+          data << Receipt.stub(element) unless element.nil?
         end
         data
       end
@@ -676,8 +678,8 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Pages'] = Stubs::PagesList.stub(stub[:pages]) unless stub[:pages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Pages'] = PagesList.stub(stub[:pages]) unless stub[:pages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -696,7 +698,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Page.stub(element) unless element.nil?
+          data << Page.stub(element) unless element.nil?
         end
         data
       end
@@ -746,8 +748,8 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Pages'] = Stubs::PagesList.stub(stub[:pages]) unless stub[:pages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Pages'] = PagesList.stub(stub[:pages]) unless stub[:pages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -762,8 +764,8 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagsList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -782,7 +784,7 @@ module AWS::SDK::SSMContacts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -817,7 +819,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -831,7 +833,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -847,7 +849,7 @@ module AWS::SDK::SSMContacts
       def self.stub(http_resp, stub:)
         data = {}
         data['EngagementArn'] = stub[:engagement_arn] unless stub[:engagement_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -861,7 +863,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -875,7 +877,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -903,7 +905,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -917,7 +919,7 @@ module AWS::SDK::SSMContacts
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

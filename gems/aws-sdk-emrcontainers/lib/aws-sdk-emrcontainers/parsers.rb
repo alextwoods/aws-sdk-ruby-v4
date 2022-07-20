@@ -102,7 +102,7 @@ module AWS::SDK::EMRContainers
       def self.parse(http_resp)
         data = Types::DescribeJobRunOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_run = (Parsers::JobRun.parse(map['jobRun']) unless map['jobRun'].nil?)
+        data.job_run = (JobRun.parse(map['jobRun']) unless map['jobRun'].nil?)
         data
       end
     end
@@ -118,14 +118,14 @@ module AWS::SDK::EMRContainers
         data.client_token = map['clientToken']
         data.execution_role_arn = map['executionRoleArn']
         data.release_label = map['releaseLabel']
-        data.configuration_overrides = (Parsers::ConfigurationOverrides.parse(map['configurationOverrides']) unless map['configurationOverrides'].nil?)
-        data.job_driver = (Parsers::JobDriver.parse(map['jobDriver']) unless map['jobDriver'].nil?)
+        data.configuration_overrides = (ConfigurationOverrides.parse(map['configurationOverrides']) unless map['configurationOverrides'].nil?)
+        data.job_driver = (JobDriver.parse(map['jobDriver']) unless map['jobDriver'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.created_by = map['createdBy']
         data.finished_at = Time.at(map['finishedAt'].to_i) if map['finishedAt']
         data.state_details = map['stateDetails']
         data.failure_reason = map['failureReason']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -143,7 +143,7 @@ module AWS::SDK::EMRContainers
     class JobDriver
       def self.parse(map)
         data = Types::JobDriver.new
-        data.spark_submit_job_driver = (Parsers::SparkSubmitJobDriver.parse(map['sparkSubmitJobDriver']) unless map['sparkSubmitJobDriver'].nil?)
+        data.spark_submit_job_driver = (SparkSubmitJobDriver.parse(map['sparkSubmitJobDriver']) unless map['sparkSubmitJobDriver'].nil?)
         return data
       end
     end
@@ -152,7 +152,7 @@ module AWS::SDK::EMRContainers
       def self.parse(map)
         data = Types::SparkSubmitJobDriver.new
         data.entry_point = map['entryPoint']
-        data.entry_point_arguments = (Parsers::EntryPointArguments.parse(map['entryPointArguments']) unless map['entryPointArguments'].nil?)
+        data.entry_point_arguments = (EntryPointArguments.parse(map['entryPointArguments']) unless map['entryPointArguments'].nil?)
         data.spark_submit_parameters = map['sparkSubmitParameters']
         return data
       end
@@ -171,8 +171,8 @@ module AWS::SDK::EMRContainers
     class ConfigurationOverrides
       def self.parse(map)
         data = Types::ConfigurationOverrides.new
-        data.application_configuration = (Parsers::ConfigurationList.parse(map['applicationConfiguration']) unless map['applicationConfiguration'].nil?)
-        data.monitoring_configuration = (Parsers::MonitoringConfiguration.parse(map['monitoringConfiguration']) unless map['monitoringConfiguration'].nil?)
+        data.application_configuration = (ConfigurationList.parse(map['applicationConfiguration']) unless map['applicationConfiguration'].nil?)
+        data.monitoring_configuration = (MonitoringConfiguration.parse(map['monitoringConfiguration']) unless map['monitoringConfiguration'].nil?)
         return data
       end
     end
@@ -181,8 +181,8 @@ module AWS::SDK::EMRContainers
       def self.parse(map)
         data = Types::MonitoringConfiguration.new
         data.persistent_app_ui = map['persistentAppUI']
-        data.cloud_watch_monitoring_configuration = (Parsers::CloudWatchMonitoringConfiguration.parse(map['cloudWatchMonitoringConfiguration']) unless map['cloudWatchMonitoringConfiguration'].nil?)
-        data.s3_monitoring_configuration = (Parsers::S3MonitoringConfiguration.parse(map['s3MonitoringConfiguration']) unless map['s3MonitoringConfiguration'].nil?)
+        data.cloud_watch_monitoring_configuration = (CloudWatchMonitoringConfiguration.parse(map['cloudWatchMonitoringConfiguration']) unless map['cloudWatchMonitoringConfiguration'].nil?)
+        data.s3_monitoring_configuration = (S3MonitoringConfiguration.parse(map['s3MonitoringConfiguration']) unless map['s3MonitoringConfiguration'].nil?)
         return data
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::EMRContainers
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Configuration.parse(value) unless value.nil?
+          data << Configuration.parse(value) unless value.nil?
         end
         data
       end
@@ -218,8 +218,8 @@ module AWS::SDK::EMRContainers
       def self.parse(map)
         data = Types::Configuration.new
         data.classification = map['classification']
-        data.properties = (Parsers::SensitivePropertiesMap.parse(map['properties']) unless map['properties'].nil?)
-        data.configurations = (Parsers::ConfigurationList.parse(map['configurations']) unless map['configurations'].nil?)
+        data.properties = (SensitivePropertiesMap.parse(map['properties']) unless map['properties'].nil?)
+        data.configurations = (ConfigurationList.parse(map['configurations']) unless map['configurations'].nil?)
         return data
       end
     end
@@ -239,7 +239,7 @@ module AWS::SDK::EMRContainers
       def self.parse(http_resp)
         data = Types::DescribeManagedEndpointOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.endpoint = (Parsers::Endpoint.parse(map['endpoint']) unless map['endpoint'].nil?)
+        data.endpoint = (Endpoint.parse(map['endpoint']) unless map['endpoint'].nil?)
         data
       end
     end
@@ -256,15 +256,15 @@ module AWS::SDK::EMRContainers
         data.release_label = map['releaseLabel']
         data.execution_role_arn = map['executionRoleArn']
         data.certificate_arn = map['certificateArn']
-        data.certificate_authority = (Parsers::Certificate.parse(map['certificateAuthority']) unless map['certificateAuthority'].nil?)
-        data.configuration_overrides = (Parsers::ConfigurationOverrides.parse(map['configurationOverrides']) unless map['configurationOverrides'].nil?)
+        data.certificate_authority = (Certificate.parse(map['certificateAuthority']) unless map['certificateAuthority'].nil?)
+        data.configuration_overrides = (ConfigurationOverrides.parse(map['configurationOverrides']) unless map['configurationOverrides'].nil?)
         data.server_url = map['serverUrl']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.security_group = map['securityGroup']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['subnetIds']) unless map['subnetIds'].nil?)
         data.state_details = map['stateDetails']
         data.failure_reason = map['failureReason']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -293,7 +293,7 @@ module AWS::SDK::EMRContainers
       def self.parse(http_resp)
         data = Types::DescribeVirtualClusterOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.virtual_cluster = (Parsers::VirtualCluster.parse(map['virtualCluster']) unless map['virtualCluster'].nil?)
+        data.virtual_cluster = (VirtualCluster.parse(map['virtualCluster']) unless map['virtualCluster'].nil?)
         data
       end
     end
@@ -305,9 +305,9 @@ module AWS::SDK::EMRContainers
         data.name = map['name']
         data.arn = map['arn']
         data.state = map['state']
-        data.container_provider = (Parsers::ContainerProvider.parse(map['containerProvider']) unless map['containerProvider'].nil?)
+        data.container_provider = (ContainerProvider.parse(map['containerProvider']) unless map['containerProvider'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -317,7 +317,7 @@ module AWS::SDK::EMRContainers
         data = Types::ContainerProvider.new
         data.type = map['type']
         data.id = map['id']
-        data.info = (Parsers::ContainerInfo.parse(map['info']) unless map['info'].nil?)
+        data.info = (ContainerInfo.parse(map['info']) unless map['info'].nil?)
         return data
       end
     end
@@ -327,7 +327,7 @@ module AWS::SDK::EMRContainers
         key, value = map.flatten
         case key
         when 'eksInfo'
-          value = (Parsers::EksInfo.parse(value) unless value.nil?)
+          value = (EksInfo.parse(value) unless value.nil?)
           Types::ContainerInfo::EksInfo.new(value) if value
         else
           Types::ContainerInfo::Unknown.new({name: key, value: value})
@@ -348,7 +348,7 @@ module AWS::SDK::EMRContainers
       def self.parse(http_resp)
         data = Types::ListJobRunsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_runs = (Parsers::JobRuns.parse(map['jobRuns']) unless map['jobRuns'].nil?)
+        data.job_runs = (JobRuns.parse(map['jobRuns']) unless map['jobRuns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -358,7 +358,7 @@ module AWS::SDK::EMRContainers
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobRun.parse(value) unless value.nil?
+          data << JobRun.parse(value) unless value.nil?
         end
         data
       end
@@ -369,7 +369,7 @@ module AWS::SDK::EMRContainers
       def self.parse(http_resp)
         data = Types::ListManagedEndpointsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.endpoints = (Parsers::Endpoints.parse(map['endpoints']) unless map['endpoints'].nil?)
+        data.endpoints = (Endpoints.parse(map['endpoints']) unless map['endpoints'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -379,7 +379,7 @@ module AWS::SDK::EMRContainers
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Endpoint.parse(value) unless value.nil?
+          data << Endpoint.parse(value) unless value.nil?
         end
         data
       end
@@ -390,7 +390,7 @@ module AWS::SDK::EMRContainers
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::EMRContainers
       def self.parse(http_resp)
         data = Types::ListVirtualClustersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.virtual_clusters = (Parsers::VirtualClusters.parse(map['virtualClusters']) unless map['virtualClusters'].nil?)
+        data.virtual_clusters = (VirtualClusters.parse(map['virtualClusters']) unless map['virtualClusters'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -410,7 +410,7 @@ module AWS::SDK::EMRContainers
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VirtualCluster.parse(value) unless value.nil?
+          data << VirtualCluster.parse(value) unless value.nil?
         end
         data
       end

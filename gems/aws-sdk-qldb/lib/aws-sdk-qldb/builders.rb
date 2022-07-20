@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::QLDB
   module Builders
 
@@ -42,11 +44,11 @@ module AWS::SDK::QLDB
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['PermissionsMode'] = input[:permissions_mode] unless input[:permissions_mode].nil?
         data['DeletionProtection'] = input[:deletion_protection] unless input[:deletion_protection].nil?
         data['KmsKey'] = input[:kms_key] unless input[:kms_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,10 +158,10 @@ module AWS::SDK::QLDB
         data = {}
         data['InclusiveStartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:inclusive_start_time]).to_i unless input[:inclusive_start_time].nil?
         data['ExclusiveEndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:exclusive_end_time]).to_i unless input[:exclusive_end_time].nil?
-        data['S3ExportConfiguration'] = Builders::S3ExportConfiguration.build(input[:s3_export_configuration]) unless input[:s3_export_configuration].nil?
+        data['S3ExportConfiguration'] = S3ExportConfiguration.build(input[:s3_export_configuration]) unless input[:s3_export_configuration].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['OutputFormat'] = input[:output_format] unless input[:output_format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::QLDB
         data = {}
         data['Bucket'] = input[:bucket] unless input[:bucket].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['EncryptionConfiguration'] = Builders::S3EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['EncryptionConfiguration'] = S3EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
         data
       end
     end
@@ -201,9 +203,9 @@ module AWS::SDK::QLDB
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['BlockAddress'] = Builders::ValueHolder.build(input[:block_address]) unless input[:block_address].nil?
-        data['DigestTipAddress'] = Builders::ValueHolder.build(input[:digest_tip_address]) unless input[:digest_tip_address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BlockAddress'] = ValueHolder.build(input[:block_address]) unless input[:block_address].nil?
+        data['DigestTipAddress'] = ValueHolder.build(input[:digest_tip_address]) unless input[:digest_tip_address].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,10 +252,10 @@ module AWS::SDK::QLDB
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['BlockAddress'] = Builders::ValueHolder.build(input[:block_address]) unless input[:block_address].nil?
+        data['BlockAddress'] = ValueHolder.build(input[:block_address]) unless input[:block_address].nil?
         data['DocumentId'] = input[:document_id] unless input[:document_id].nil?
-        data['DigestTipAddress'] = Builders::ValueHolder.build(input[:digest_tip_address]) unless input[:digest_tip_address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DigestTipAddress'] = ValueHolder.build(input[:digest_tip_address]) unless input[:digest_tip_address].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -354,12 +356,12 @@ module AWS::SDK::QLDB
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['InclusiveStartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:inclusive_start_time]).to_i unless input[:inclusive_start_time].nil?
         data['ExclusiveEndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:exclusive_end_time]).to_i unless input[:exclusive_end_time].nil?
-        data['KinesisConfiguration'] = Builders::KinesisConfiguration.build(input[:kinesis_configuration]) unless input[:kinesis_configuration].nil?
+        data['KinesisConfiguration'] = KinesisConfiguration.build(input[:kinesis_configuration]) unless input[:kinesis_configuration].nil?
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -390,8 +392,8 @@ module AWS::SDK::QLDB
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -447,7 +449,7 @@ module AWS::SDK::QLDB
         data = {}
         data['DeletionProtection'] = input[:deletion_protection] unless input[:deletion_protection].nil?
         data['KmsKey'] = input[:kms_key] unless input[:kms_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -469,7 +471,7 @@ module AWS::SDK::QLDB
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PermissionsMode'] = input[:permissions_mode] unless input[:permissions_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

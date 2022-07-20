@@ -17,7 +17,7 @@ module AWS::SDK::Forecastquery
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.forecast = (Parsers::Forecast.parse(map['Forecast']) unless map['Forecast'].nil?)
+        data.forecast = (Forecast.parse(map['Forecast']) unless map['Forecast'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::Forecastquery
     class Forecast
       def self.parse(map)
         data = Types::Forecast.new
-        data.predictions = (Parsers::Predictions.parse(map['Predictions']) unless map['Predictions'].nil?)
+        data.predictions = (Predictions.parse(map['Predictions']) unless map['Predictions'].nil?)
         return data
       end
     end
@@ -34,7 +34,7 @@ module AWS::SDK::Forecastquery
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::TimeSeries.parse(value) unless value.nil?
+          data[key] = TimeSeries.parse(value) unless value.nil?
         end
         data
       end
@@ -43,7 +43,7 @@ module AWS::SDK::Forecastquery
     class TimeSeries
       def self.parse(list)
         list.map do |value|
-          Parsers::DataPoint.parse(value) unless value.nil?
+          DataPoint.parse(value) unless value.nil?
         end
       end
     end

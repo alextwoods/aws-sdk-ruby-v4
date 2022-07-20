@@ -17,9 +17,9 @@ module AWS::SDK::Textract
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_metadata = (Parsers::DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
-        data.blocks = (Parsers::BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
-        data.human_loop_activation_output = (Parsers::HumanLoopActivationOutput.parse(map['HumanLoopActivationOutput']) unless map['HumanLoopActivationOutput'].nil?)
+        data.document_metadata = (DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
+        data.blocks = (BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
+        data.human_loop_activation_output = (HumanLoopActivationOutput.parse(map['HumanLoopActivationOutput']) unless map['HumanLoopActivationOutput'].nil?)
         data.analyze_document_model_version = map['AnalyzeDocumentModelVersion']
         data
       end
@@ -29,7 +29,7 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::HumanLoopActivationOutput.new
         data.human_loop_arn = map['HumanLoopArn']
-        data.human_loop_activation_reasons = (Parsers::HumanLoopActivationReasons.parse(map['HumanLoopActivationReasons']) unless map['HumanLoopActivationReasons'].nil?)
+        data.human_loop_activation_reasons = (HumanLoopActivationReasons.parse(map['HumanLoopActivationReasons']) unless map['HumanLoopActivationReasons'].nil?)
         data.human_loop_activation_conditions_evaluation_results = map['HumanLoopActivationConditionsEvaluationResults']
         return data
       end
@@ -46,7 +46,7 @@ module AWS::SDK::Textract
     class BlockList
       def self.parse(list)
         list.map do |value|
-          Parsers::Block.parse(value) unless value.nil?
+          Block.parse(value) unless value.nil?
         end
       end
     end
@@ -62,13 +62,13 @@ module AWS::SDK::Textract
         data.column_index = map['ColumnIndex']
         data.row_span = map['RowSpan']
         data.column_span = map['ColumnSpan']
-        data.geometry = (Parsers::Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.geometry = (Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
         data.id = map['Id']
-        data.relationships = (Parsers::RelationshipList.parse(map['Relationships']) unless map['Relationships'].nil?)
-        data.entity_types = (Parsers::EntityTypes.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
+        data.relationships = (RelationshipList.parse(map['Relationships']) unless map['Relationships'].nil?)
+        data.entity_types = (EntityTypes.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
         data.selection_status = map['SelectionStatus']
         data.page = map['Page']
-        data.query = (Parsers::Query.parse(map['Query']) unless map['Query'].nil?)
+        data.query = (Query.parse(map['Query']) unless map['Query'].nil?)
         return data
       end
     end
@@ -78,7 +78,7 @@ module AWS::SDK::Textract
         data = Types::Query.new
         data.text = map['Text']
         data.alias = map['Alias']
-        data.pages = (Parsers::QueryPages.parse(map['Pages']) unless map['Pages'].nil?)
+        data.pages = (QueryPages.parse(map['Pages']) unless map['Pages'].nil?)
         return data
       end
     end
@@ -102,7 +102,7 @@ module AWS::SDK::Textract
     class RelationshipList
       def self.parse(list)
         list.map do |value|
-          Parsers::Relationship.parse(value) unless value.nil?
+          Relationship.parse(value) unless value.nil?
         end
       end
     end
@@ -111,7 +111,7 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::Relationship.new
         data.type = map['Type']
-        data.ids = (Parsers::IdList.parse(map['Ids']) unless map['Ids'].nil?)
+        data.ids = (IdList.parse(map['Ids']) unless map['Ids'].nil?)
         return data
       end
     end
@@ -127,8 +127,8 @@ module AWS::SDK::Textract
     class Geometry
       def self.parse(map)
         data = Types::Geometry.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
-        data.polygon = (Parsers::Polygon.parse(map['Polygon']) unless map['Polygon'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.polygon = (Polygon.parse(map['Polygon']) unless map['Polygon'].nil?)
         return data
       end
     end
@@ -136,7 +136,7 @@ module AWS::SDK::Textract
     class Polygon
       def self.parse(list)
         list.map do |value|
-          Parsers::Point.parse(value) unless value.nil?
+          Point.parse(value) unless value.nil?
         end
       end
     end
@@ -309,8 +309,8 @@ module AWS::SDK::Textract
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_metadata = (Parsers::DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
-        data.expense_documents = (Parsers::ExpenseDocumentList.parse(map['ExpenseDocuments']) unless map['ExpenseDocuments'].nil?)
+        data.document_metadata = (DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
+        data.expense_documents = (ExpenseDocumentList.parse(map['ExpenseDocuments']) unless map['ExpenseDocuments'].nil?)
         data
       end
     end
@@ -318,7 +318,7 @@ module AWS::SDK::Textract
     class ExpenseDocumentList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExpenseDocument.parse(value) unless value.nil?
+          ExpenseDocument.parse(value) unless value.nil?
         end
       end
     end
@@ -327,8 +327,8 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::ExpenseDocument.new
         data.expense_index = map['ExpenseIndex']
-        data.summary_fields = (Parsers::ExpenseFieldList.parse(map['SummaryFields']) unless map['SummaryFields'].nil?)
-        data.line_item_groups = (Parsers::LineItemGroupList.parse(map['LineItemGroups']) unless map['LineItemGroups'].nil?)
+        data.summary_fields = (ExpenseFieldList.parse(map['SummaryFields']) unless map['SummaryFields'].nil?)
+        data.line_item_groups = (LineItemGroupList.parse(map['LineItemGroups']) unless map['LineItemGroups'].nil?)
         return data
       end
     end
@@ -336,7 +336,7 @@ module AWS::SDK::Textract
     class LineItemGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::LineItemGroup.parse(value) unless value.nil?
+          LineItemGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::LineItemGroup.new
         data.line_item_group_index = map['LineItemGroupIndex']
-        data.line_items = (Parsers::LineItemList.parse(map['LineItems']) unless map['LineItems'].nil?)
+        data.line_items = (LineItemList.parse(map['LineItems']) unless map['LineItems'].nil?)
         return data
       end
     end
@@ -353,7 +353,7 @@ module AWS::SDK::Textract
     class LineItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::LineItemFields.parse(value) unless value.nil?
+          LineItemFields.parse(value) unless value.nil?
         end
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::Textract
     class LineItemFields
       def self.parse(map)
         data = Types::LineItemFields.new
-        data.line_item_expense_fields = (Parsers::ExpenseFieldList.parse(map['LineItemExpenseFields']) unless map['LineItemExpenseFields'].nil?)
+        data.line_item_expense_fields = (ExpenseFieldList.parse(map['LineItemExpenseFields']) unless map['LineItemExpenseFields'].nil?)
         return data
       end
     end
@@ -369,7 +369,7 @@ module AWS::SDK::Textract
     class ExpenseFieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExpenseField.parse(value) unless value.nil?
+          ExpenseField.parse(value) unless value.nil?
         end
       end
     end
@@ -377,9 +377,9 @@ module AWS::SDK::Textract
     class ExpenseField
       def self.parse(map)
         data = Types::ExpenseField.new
-        data.type = (Parsers::ExpenseType.parse(map['Type']) unless map['Type'].nil?)
-        data.label_detection = (Parsers::ExpenseDetection.parse(map['LabelDetection']) unless map['LabelDetection'].nil?)
-        data.value_detection = (Parsers::ExpenseDetection.parse(map['ValueDetection']) unless map['ValueDetection'].nil?)
+        data.type = (ExpenseType.parse(map['Type']) unless map['Type'].nil?)
+        data.label_detection = (ExpenseDetection.parse(map['LabelDetection']) unless map['LabelDetection'].nil?)
+        data.value_detection = (ExpenseDetection.parse(map['ValueDetection']) unless map['ValueDetection'].nil?)
         data.page_number = map['PageNumber']
         return data
       end
@@ -389,7 +389,7 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::ExpenseDetection.new
         data.text = map['Text']
-        data.geometry = (Parsers::Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.geometry = (Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         return data
       end
@@ -411,8 +411,8 @@ module AWS::SDK::Textract
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.identity_documents = (Parsers::IdentityDocumentList.parse(map['IdentityDocuments']) unless map['IdentityDocuments'].nil?)
-        data.document_metadata = (Parsers::DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
+        data.identity_documents = (IdentityDocumentList.parse(map['IdentityDocuments']) unless map['IdentityDocuments'].nil?)
+        data.document_metadata = (DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
         data.analyze_id_model_version = map['AnalyzeIDModelVersion']
         data
       end
@@ -421,7 +421,7 @@ module AWS::SDK::Textract
     class IdentityDocumentList
       def self.parse(list)
         list.map do |value|
-          Parsers::IdentityDocument.parse(value) unless value.nil?
+          IdentityDocument.parse(value) unless value.nil?
         end
       end
     end
@@ -430,7 +430,7 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::IdentityDocument.new
         data.document_index = map['DocumentIndex']
-        data.identity_document_fields = (Parsers::IdentityDocumentFieldList.parse(map['IdentityDocumentFields']) unless map['IdentityDocumentFields'].nil?)
+        data.identity_document_fields = (IdentityDocumentFieldList.parse(map['IdentityDocumentFields']) unless map['IdentityDocumentFields'].nil?)
         return data
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::Textract
     class IdentityDocumentFieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::IdentityDocumentField.parse(value) unless value.nil?
+          IdentityDocumentField.parse(value) unless value.nil?
         end
       end
     end
@@ -446,8 +446,8 @@ module AWS::SDK::Textract
     class IdentityDocumentField
       def self.parse(map)
         data = Types::IdentityDocumentField.new
-        data.type = (Parsers::AnalyzeIDDetections.parse(map['Type']) unless map['Type'].nil?)
-        data.value_detection = (Parsers::AnalyzeIDDetections.parse(map['ValueDetection']) unless map['ValueDetection'].nil?)
+        data.type = (AnalyzeIDDetections.parse(map['Type']) unless map['Type'].nil?)
+        data.value_detection = (AnalyzeIDDetections.parse(map['ValueDetection']) unless map['ValueDetection'].nil?)
         return data
       end
     end
@@ -456,7 +456,7 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::AnalyzeIDDetections.new
         data.text = map['Text']
-        data.normalized_value = (Parsers::NormalizedValue.parse(map['NormalizedValue']) unless map['NormalizedValue'].nil?)
+        data.normalized_value = (NormalizedValue.parse(map['NormalizedValue']) unless map['NormalizedValue'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         return data
       end
@@ -478,8 +478,8 @@ module AWS::SDK::Textract
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_metadata = (Parsers::DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
-        data.blocks = (Parsers::BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
+        data.document_metadata = (DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
+        data.blocks = (BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
         data.detect_document_text_model_version = map['DetectDocumentTextModelVersion']
         data
       end
@@ -492,11 +492,11 @@ module AWS::SDK::Textract
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_metadata = (Parsers::DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
+        data.document_metadata = (DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
         data.job_status = map['JobStatus']
         data.next_token = map['NextToken']
-        data.blocks = (Parsers::BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
-        data.warnings = (Parsers::Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
+        data.blocks = (BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
+        data.warnings = (Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
         data.status_message = map['StatusMessage']
         data.analyze_document_model_version = map['AnalyzeDocumentModelVersion']
         data
@@ -506,7 +506,7 @@ module AWS::SDK::Textract
     class Warnings
       def self.parse(list)
         list.map do |value|
-          Parsers::Warning.parse(value) unless value.nil?
+          Warning.parse(value) unless value.nil?
         end
       end
     end
@@ -515,7 +515,7 @@ module AWS::SDK::Textract
       def self.parse(map)
         data = Types::Warning.new
         data.error_code = map['ErrorCode']
-        data.pages = (Parsers::Pages.parse(map['Pages']) unless map['Pages'].nil?)
+        data.pages = (Pages.parse(map['Pages']) unless map['Pages'].nil?)
         return data
       end
     end
@@ -561,11 +561,11 @@ module AWS::SDK::Textract
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_metadata = (Parsers::DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
+        data.document_metadata = (DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
         data.job_status = map['JobStatus']
         data.next_token = map['NextToken']
-        data.blocks = (Parsers::BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
-        data.warnings = (Parsers::Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
+        data.blocks = (BlockList.parse(map['Blocks']) unless map['Blocks'].nil?)
+        data.warnings = (Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
         data.status_message = map['StatusMessage']
         data.detect_document_text_model_version = map['DetectDocumentTextModelVersion']
         data
@@ -579,11 +579,11 @@ module AWS::SDK::Textract
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_metadata = (Parsers::DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
+        data.document_metadata = (DocumentMetadata.parse(map['DocumentMetadata']) unless map['DocumentMetadata'].nil?)
         data.job_status = map['JobStatus']
         data.next_token = map['NextToken']
-        data.expense_documents = (Parsers::ExpenseDocumentList.parse(map['ExpenseDocuments']) unless map['ExpenseDocuments'].nil?)
-        data.warnings = (Parsers::Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
+        data.expense_documents = (ExpenseDocumentList.parse(map['ExpenseDocuments']) unless map['ExpenseDocuments'].nil?)
+        data.warnings = (Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
         data.status_message = map['StatusMessage']
         data.analyze_expense_model_version = map['AnalyzeExpenseModelVersion']
         data

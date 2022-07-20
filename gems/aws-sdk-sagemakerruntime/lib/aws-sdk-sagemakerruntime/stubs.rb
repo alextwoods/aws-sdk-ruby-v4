@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMakerRuntime
   module Stubs
 
@@ -28,7 +30,7 @@ module AWS::SDK::SageMakerRuntime
         http_resp.headers['x-Amzn-Invoked-Production-Variant'] = stub[:invoked_production_variant] unless stub[:invoked_production_variant].nil? || stub[:invoked_production_variant].empty?
         http_resp.headers['X-Amzn-SageMaker-Custom-Attributes'] = stub[:custom_attributes] unless stub[:custom_attributes].nil? || stub[:custom_attributes].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:body] || '')
+        http_resp.body = ::StringIO.new(stub[:body] || '')
       end
     end
 
@@ -47,7 +49,7 @@ module AWS::SDK::SageMakerRuntime
         http_resp.headers['X-Amzn-SageMaker-OutputLocation'] = stub[:output_location] unless stub[:output_location].nil? || stub[:output_location].empty?
         http_resp.headers['Content-Type'] = 'application/json'
         data['InferenceId'] = stub[:inference_id] unless stub[:inference_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

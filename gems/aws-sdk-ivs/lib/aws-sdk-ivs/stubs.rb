@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Ivs
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channels'] = Stubs::Channels.stub(stub[:channels]) unless stub[:channels].nil?
-        data['errors'] = Stubs::BatchErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channels'] = Channels.stub(stub[:channels]) unless stub[:channels].nil?
+        data['errors'] = BatchErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchError.stub(element) unless element.nil?
+          data << BatchError.stub(element) unless element.nil?
         end
         data
       end
@@ -85,7 +87,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Channel.stub(element) unless element.nil?
+          data << Channel.stub(element) unless element.nil?
         end
         data
       end
@@ -120,7 +122,7 @@ module AWS::SDK::Ivs
         data['ingestEndpoint'] = stub[:ingest_endpoint] unless stub[:ingest_endpoint].nil?
         data['playbackUrl'] = stub[:playback_url] unless stub[:playback_url].nil?
         data['authorized'] = stub[:authorized] unless stub[:authorized].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -158,9 +160,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamKeys'] = Stubs::StreamKeys.stub(stub[:stream_keys]) unless stub[:stream_keys].nil?
-        data['errors'] = Stubs::BatchErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamKeys'] = StreamKeys.stub(stub[:stream_keys]) unless stub[:stream_keys].nil?
+        data['errors'] = BatchErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -178,7 +180,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamKey.stub(element) unless element.nil?
+          data << StreamKey.stub(element) unless element.nil?
         end
         data
       end
@@ -203,7 +205,7 @@ module AWS::SDK::Ivs
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['value'] = stub[:value] unless stub[:value].nil?
         data['channelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -221,9 +223,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        data['streamKey'] = Stubs::StreamKey.stub(stub[:stream_key]) unless stub[:stream_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        data['streamKey'] = StreamKey.stub(stub[:stream_key]) unless stub[:stream_key].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,8 +241,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['recordingConfiguration'] = Stubs::RecordingConfiguration.stub(stub[:recording_configuration]) unless stub[:recording_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recordingConfiguration'] = RecordingConfiguration.stub(stub[:recording_configuration]) unless stub[:recording_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -264,10 +266,10 @@ module AWS::SDK::Ivs
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['destinationConfiguration'] = Stubs::DestinationConfiguration.stub(stub[:destination_configuration]) unless stub[:destination_configuration].nil?
+        data['destinationConfiguration'] = DestinationConfiguration.stub(stub[:destination_configuration]) unless stub[:destination_configuration].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['thumbnailConfiguration'] = Stubs::ThumbnailConfiguration.stub(stub[:thumbnail_configuration]) unless stub[:thumbnail_configuration].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['thumbnailConfiguration'] = ThumbnailConfiguration.stub(stub[:thumbnail_configuration]) unless stub[:thumbnail_configuration].nil?
         data
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::Ivs
       def self.stub(stub)
         stub ||= Types::DestinationConfiguration.new
         data = {}
-        data['s3'] = Stubs::S3DestinationConfiguration.stub(stub[:s3]) unless stub[:s3].nil?
+        data['s3'] = S3DestinationConfiguration.stub(stub[:s3]) unless stub[:s3].nil?
         data
       end
     end
@@ -340,8 +342,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamKey'] = Stubs::StreamKey.stub(stub[:stream_key]) unless stub[:stream_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamKey'] = StreamKey.stub(stub[:stream_key]) unless stub[:stream_key].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -409,8 +411,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -426,8 +428,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['keyPair'] = Stubs::PlaybackKeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['keyPair'] = PlaybackKeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::Ivs
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['fingerprint'] = stub[:fingerprint] unless stub[:fingerprint].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -467,8 +469,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['recordingConfiguration'] = Stubs::RecordingConfiguration.stub(stub[:recording_configuration]) unless stub[:recording_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recordingConfiguration'] = RecordingConfiguration.stub(stub[:recording_configuration]) unless stub[:recording_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -484,8 +486,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['stream'] = Stubs::Stream.stub(stub[:stream]) unless stub[:stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stream'] = Stream.stub(stub[:stream]) unless stub[:stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,8 +533,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamKey'] = Stubs::StreamKey.stub(stub[:stream_key]) unless stub[:stream_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamKey'] = StreamKey.stub(stub[:stream_key]) unless stub[:stream_key].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -548,8 +550,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamSession'] = Stubs::StreamSession.stub(stub[:stream_session]) unless stub[:stream_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamSession'] = StreamSession.stub(stub[:stream_session]) unless stub[:stream_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,10 +577,10 @@ module AWS::SDK::Ivs
         data['streamId'] = stub[:stream_id] unless stub[:stream_id].nil?
         data['startTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
-        data['channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        data['ingestConfiguration'] = Stubs::IngestConfiguration.stub(stub[:ingest_configuration]) unless stub[:ingest_configuration].nil?
-        data['recordingConfiguration'] = Stubs::RecordingConfiguration.stub(stub[:recording_configuration]) unless stub[:recording_configuration].nil?
-        data['truncatedEvents'] = Stubs::StreamEvents.stub(stub[:truncated_events]) unless stub[:truncated_events].nil?
+        data['channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        data['ingestConfiguration'] = IngestConfiguration.stub(stub[:ingest_configuration]) unless stub[:ingest_configuration].nil?
+        data['recordingConfiguration'] = RecordingConfiguration.stub(stub[:recording_configuration]) unless stub[:recording_configuration].nil?
+        data['truncatedEvents'] = StreamEvents.stub(stub[:truncated_events]) unless stub[:truncated_events].nil?
         data
       end
     end
@@ -597,7 +599,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamEvent.stub(element) unless element.nil?
+          data << StreamEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -639,8 +641,8 @@ module AWS::SDK::Ivs
       def self.stub(stub)
         stub ||= Types::IngestConfiguration.new
         data = {}
-        data['video'] = Stubs::VideoConfiguration.stub(stub[:video]) unless stub[:video].nil?
-        data['audio'] = Stubs::AudioConfiguration.stub(stub[:audio]) unless stub[:audio].nil?
+        data['video'] = VideoConfiguration.stub(stub[:video]) unless stub[:video].nil?
+        data['audio'] = AudioConfiguration.stub(stub[:audio]) unless stub[:audio].nil?
         data
       end
     end
@@ -713,8 +715,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['keyPair'] = Stubs::PlaybackKeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['keyPair'] = PlaybackKeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -731,9 +733,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channels'] = Stubs::ChannelList.stub(stub[:channels]) unless stub[:channels].nil?
+        data['channels'] = ChannelList.stub(stub[:channels]) unless stub[:channels].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelSummary.stub(element) unless element.nil?
+          data << ChannelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -780,7 +782,7 @@ module AWS::SDK::Ivs
         data['latencyMode'] = stub[:latency_mode] unless stub[:latency_mode].nil?
         data['authorized'] = stub[:authorized] unless stub[:authorized].nil?
         data['recordingConfigurationArn'] = stub[:recording_configuration_arn] unless stub[:recording_configuration_arn].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -798,9 +800,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['keyPairs'] = Stubs::PlaybackKeyPairList.stub(stub[:key_pairs]) unless stub[:key_pairs].nil?
+        data['keyPairs'] = PlaybackKeyPairList.stub(stub[:key_pairs]) unless stub[:key_pairs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -818,7 +820,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlaybackKeyPairSummary.stub(element) unless element.nil?
+          data << PlaybackKeyPairSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -841,7 +843,7 @@ module AWS::SDK::Ivs
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -859,9 +861,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['recordingConfigurations'] = Stubs::RecordingConfigurationList.stub(stub[:recording_configurations]) unless stub[:recording_configurations].nil?
+        data['recordingConfigurations'] = RecordingConfigurationList.stub(stub[:recording_configurations]) unless stub[:recording_configurations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -879,7 +881,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecordingConfigurationSummary.stub(element) unless element.nil?
+          data << RecordingConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -904,9 +906,9 @@ module AWS::SDK::Ivs
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['destinationConfiguration'] = Stubs::DestinationConfiguration.stub(stub[:destination_configuration]) unless stub[:destination_configuration].nil?
+        data['destinationConfiguration'] = DestinationConfiguration.stub(stub[:destination_configuration]) unless stub[:destination_configuration].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -924,9 +926,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamKeys'] = Stubs::StreamKeyList.stub(stub[:stream_keys]) unless stub[:stream_keys].nil?
+        data['streamKeys'] = StreamKeyList.stub(stub[:stream_keys]) unless stub[:stream_keys].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -944,7 +946,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamKeySummary.stub(element) unless element.nil?
+          data << StreamKeySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -967,7 +969,7 @@ module AWS::SDK::Ivs
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['channelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -985,9 +987,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamSessions'] = Stubs::StreamSessionList.stub(stub[:stream_sessions]) unless stub[:stream_sessions].nil?
+        data['streamSessions'] = StreamSessionList.stub(stub[:stream_sessions]) unless stub[:stream_sessions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1005,7 +1007,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamSessionSummary.stub(element) unless element.nil?
+          data << StreamSessionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1048,9 +1050,9 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streams'] = Stubs::StreamList.stub(stub[:streams]) unless stub[:streams].nil?
+        data['streams'] = StreamList.stub(stub[:streams]) unless stub[:streams].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1068,7 +1070,7 @@ module AWS::SDK::Ivs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamSummary.stub(element) unless element.nil?
+          data << StreamSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1114,8 +1116,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1183,8 +1185,8 @@ module AWS::SDK::Ivs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

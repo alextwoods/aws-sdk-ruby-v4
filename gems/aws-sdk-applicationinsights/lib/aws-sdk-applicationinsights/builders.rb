@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApplicationInsights
   module Builders
 
@@ -22,11 +24,11 @@ module AWS::SDK::ApplicationInsights
         data['OpsCenterEnabled'] = input[:ops_center_enabled] unless input[:ops_center_enabled].nil?
         data['CWEMonitorEnabled'] = input[:cwe_monitor_enabled] unless input[:cwe_monitor_enabled].nil?
         data['OpsItemSNSTopicArn'] = input[:ops_item_sns_topic_arn] unless input[:ops_item_sns_topic_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['AutoConfigEnabled'] = input[:auto_config_enabled] unless input[:auto_config_enabled].nil?
         data['AutoCreate'] = input[:auto_create] unless input[:auto_create].nil?
         data['GroupingType'] = input[:grouping_type] unless input[:grouping_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::ApplicationInsights
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -61,8 +63,8 @@ module AWS::SDK::ApplicationInsights
         data = {}
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
-        data['ResourceList'] = Builders::ResourceList.build(input[:resource_list]) unless input[:resource_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceList'] = ResourceList.build(input[:resource_list]) unless input[:resource_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -90,7 +92,7 @@ module AWS::SDK::ApplicationInsights
         data['PatternName'] = input[:pattern_name] unless input[:pattern_name].nil?
         data['Pattern'] = input[:pattern] unless input[:pattern].nil?
         data['Rank'] = input[:rank] unless input[:rank].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -103,7 +105,7 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.DeleteApplication'
         data = {}
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::ApplicationInsights
         data = {}
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::ApplicationInsights
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['PatternSetName'] = input[:pattern_set_name] unless input[:pattern_set_name].nil?
         data['PatternName'] = input[:pattern_name] unless input[:pattern_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.DescribeApplication'
         data = {}
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -159,7 +161,7 @@ module AWS::SDK::ApplicationInsights
         data = {}
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::ApplicationInsights
         data = {}
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,7 +190,7 @@ module AWS::SDK::ApplicationInsights
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
         data['Tier'] = input[:tier] unless input[:tier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,7 +205,7 @@ module AWS::SDK::ApplicationInsights
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['PatternSetName'] = input[:pattern_set_name] unless input[:pattern_set_name].nil?
         data['PatternName'] = input[:pattern_name] unless input[:pattern_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -216,7 +218,7 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.DescribeObservation'
         data = {}
         data['ObservationId'] = input[:observation_id] unless input[:observation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.DescribeProblem'
         data = {}
         data['ProblemId'] = input[:problem_id] unless input[:problem_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -242,7 +244,7 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.DescribeProblemObservations'
         data = {}
         data['ProblemId'] = input[:problem_id] unless input[:problem_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,7 +258,7 @@ module AWS::SDK::ApplicationInsights
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,7 +273,7 @@ module AWS::SDK::ApplicationInsights
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::ApplicationInsights
         data['EventStatus'] = input[:event_status] unless input[:event_status].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -304,7 +306,7 @@ module AWS::SDK::ApplicationInsights
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::ApplicationInsights
         data['PatternSetName'] = input[:pattern_set_name] unless input[:pattern_set_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -338,7 +340,7 @@ module AWS::SDK::ApplicationInsights
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -364,8 +366,8 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -378,8 +380,8 @@ module AWS::SDK::ApplicationInsights
         http_req.headers['X-Amz-Target'] = 'EC2WindowsBarleyService.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -408,7 +410,7 @@ module AWS::SDK::ApplicationInsights
         data['OpsItemSNSTopicArn'] = input[:ops_item_sns_topic_arn] unless input[:ops_item_sns_topic_arn].nil?
         data['RemoveSNSTopic'] = input[:remove_sns_topic] unless input[:remove_sns_topic].nil?
         data['AutoConfigEnabled'] = input[:auto_config_enabled] unless input[:auto_config_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -423,8 +425,8 @@ module AWS::SDK::ApplicationInsights
         data['ResourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
         data['NewComponentName'] = input[:new_component_name] unless input[:new_component_name].nil?
-        data['ResourceList'] = Builders::ResourceList.build(input[:resource_list]) unless input[:resource_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceList'] = ResourceList.build(input[:resource_list]) unless input[:resource_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -442,7 +444,7 @@ module AWS::SDK::ApplicationInsights
         data['Tier'] = input[:tier] unless input[:tier].nil?
         data['ComponentConfiguration'] = input[:component_configuration] unless input[:component_configuration].nil?
         data['AutoConfigEnabled'] = input[:auto_config_enabled] unless input[:auto_config_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::ApplicationInsights
         data['PatternName'] = input[:pattern_name] unless input[:pattern_name].nil?
         data['Pattern'] = input[:pattern] unless input[:pattern].nil?
         data['Rank'] = input[:rank] unless input[:rank].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

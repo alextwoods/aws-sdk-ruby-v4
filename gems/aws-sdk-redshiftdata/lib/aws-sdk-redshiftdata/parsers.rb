@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::RedshiftData
   module Parsers
 
@@ -136,8 +138,8 @@ module AWS::SDK::RedshiftData
         data.result_rows = map['ResultRows']
         data.result_size = map['ResultSize']
         data.redshift_query_id = map['RedshiftQueryId']
-        data.query_parameters = (Parsers::SqlParametersList.parse(map['QueryParameters']) unless map['QueryParameters'].nil?)
-        data.sub_statements = (Parsers::SubStatementList.parse(map['SubStatements']) unless map['SubStatements'].nil?)
+        data.query_parameters = (SqlParametersList.parse(map['QueryParameters']) unless map['QueryParameters'].nil?)
+        data.sub_statements = (SubStatementList.parse(map['SubStatements']) unless map['SubStatements'].nil?)
         data
       end
     end
@@ -145,7 +147,7 @@ module AWS::SDK::RedshiftData
     class SubStatementList
       def self.parse(list)
         list.map do |value|
-          Parsers::SubStatementData.parse(value) unless value.nil?
+          SubStatementData.parse(value) unless value.nil?
         end
       end
     end
@@ -171,7 +173,7 @@ module AWS::SDK::RedshiftData
     class SqlParametersList
       def self.parse(list)
         list.map do |value|
-          Parsers::SqlParameter.parse(value) unless value.nil?
+          SqlParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::RedshiftData
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.table_name = map['TableName']
-        data.column_list = (Parsers::ColumnList.parse(map['ColumnList']) unless map['ColumnList'].nil?)
+        data.column_list = (ColumnList.parse(map['ColumnList']) unless map['ColumnList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -202,7 +204,7 @@ module AWS::SDK::RedshiftData
     class ColumnList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnMetadata.parse(value) unless value.nil?
+          ColumnMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -264,8 +266,8 @@ module AWS::SDK::RedshiftData
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.records = (Parsers::SqlRecords.parse(map['Records']) unless map['Records'].nil?)
-        data.column_metadata = (Parsers::ColumnMetadataList.parse(map['ColumnMetadata']) unless map['ColumnMetadata'].nil?)
+        data.records = (SqlRecords.parse(map['Records']) unless map['Records'].nil?)
+        data.column_metadata = (ColumnMetadataList.parse(map['ColumnMetadata']) unless map['ColumnMetadata'].nil?)
         data.total_num_rows = map['TotalNumRows']
         data.next_token = map['NextToken']
         data
@@ -275,7 +277,7 @@ module AWS::SDK::RedshiftData
     class ColumnMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnMetadata.parse(value) unless value.nil?
+          ColumnMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -283,7 +285,7 @@ module AWS::SDK::RedshiftData
     class SqlRecords
       def self.parse(list)
         list.map do |value|
-          Parsers::FieldList.parse(value) unless value.nil?
+          FieldList.parse(value) unless value.nil?
         end
       end
     end
@@ -291,7 +293,7 @@ module AWS::SDK::RedshiftData
     class FieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::Field.parse(value) unless value.nil?
+          Field.parse(value) unless value.nil?
         end
       end
     end
@@ -316,7 +318,7 @@ module AWS::SDK::RedshiftData
           value = value
           Types::Field::StringValue.new(value) if value
         when 'blobValue'
-          value = Base64::decode64(value) unless value.nil?
+          value = ::Base64::decode64(value) unless value.nil?
           Types::Field::BlobValue.new(value) if value
         else
           Types::Field::Unknown.new({name: key, value: value})
@@ -331,7 +333,7 @@ module AWS::SDK::RedshiftData
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.databases = (Parsers::DatabaseList.parse(map['Databases']) unless map['Databases'].nil?)
+        data.databases = (DatabaseList.parse(map['Databases']) unless map['Databases'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -352,7 +354,7 @@ module AWS::SDK::RedshiftData
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schemas = (Parsers::SchemaList.parse(map['Schemas']) unless map['Schemas'].nil?)
+        data.schemas = (SchemaList.parse(map['Schemas']) unless map['Schemas'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -373,7 +375,7 @@ module AWS::SDK::RedshiftData
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.statements = (Parsers::StatementList.parse(map['Statements']) unless map['Statements'].nil?)
+        data.statements = (StatementList.parse(map['Statements']) unless map['Statements'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -382,7 +384,7 @@ module AWS::SDK::RedshiftData
     class StatementList
       def self.parse(list)
         list.map do |value|
-          Parsers::StatementData.parse(value) unless value.nil?
+          StatementData.parse(value) unless value.nil?
         end
       end
     end
@@ -392,13 +394,13 @@ module AWS::SDK::RedshiftData
         data = Types::StatementData.new
         data.id = map['Id']
         data.query_string = map['QueryString']
-        data.query_strings = (Parsers::StatementStringList.parse(map['QueryStrings']) unless map['QueryStrings'].nil?)
+        data.query_strings = (StatementStringList.parse(map['QueryStrings']) unless map['QueryStrings'].nil?)
         data.secret_arn = map['SecretArn']
         data.status = map['Status']
         data.statement_name = map['StatementName']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.query_parameters = (Parsers::SqlParametersList.parse(map['QueryParameters']) unless map['QueryParameters'].nil?)
+        data.query_parameters = (SqlParametersList.parse(map['QueryParameters']) unless map['QueryParameters'].nil?)
         data.is_batch_statement = map['IsBatchStatement']
         return data
       end
@@ -419,7 +421,7 @@ module AWS::SDK::RedshiftData
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tables = (Parsers::TableList.parse(map['Tables']) unless map['Tables'].nil?)
+        data.tables = (TableList.parse(map['Tables']) unless map['Tables'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -428,7 +430,7 @@ module AWS::SDK::RedshiftData
     class TableList
       def self.parse(list)
         list.map do |value|
-          Parsers::TableMember.parse(value) unless value.nil?
+          TableMember.parse(value) unless value.nil?
         end
       end
     end

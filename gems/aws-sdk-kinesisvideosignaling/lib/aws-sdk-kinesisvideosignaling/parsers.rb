@@ -15,7 +15,7 @@ module AWS::SDK::KinesisVideoSignaling
       def self.parse(http_resp)
         data = Types::GetIceServerConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.ice_server_list = (Parsers::IceServerList.parse(map['IceServerList']) unless map['IceServerList'].nil?)
+        data.ice_server_list = (IceServerList.parse(map['IceServerList']) unless map['IceServerList'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::KinesisVideoSignaling
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IceServer.parse(value) unless value.nil?
+          data << IceServer.parse(value) unless value.nil?
         end
         data
       end
@@ -33,7 +33,7 @@ module AWS::SDK::KinesisVideoSignaling
     class IceServer
       def self.parse(map)
         data = Types::IceServer.new
-        data.uris = (Parsers::Uris.parse(map['Uris']) unless map['Uris'].nil?)
+        data.uris = (Uris.parse(map['Uris']) unless map['Uris'].nil?)
         data.username = map['Username']
         data.password = map['Password']
         data.ttl = map['Ttl']

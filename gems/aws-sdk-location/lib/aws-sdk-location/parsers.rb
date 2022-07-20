@@ -46,7 +46,7 @@ module AWS::SDK::Location
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -55,7 +55,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -115,7 +115,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::BatchDeleteDevicePositionHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchDeleteDevicePositionHistoryErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (BatchDeleteDevicePositionHistoryErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -124,7 +124,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchDeleteDevicePositionHistoryError.parse(value) unless value.nil?
+          data << BatchDeleteDevicePositionHistoryError.parse(value) unless value.nil?
         end
         data
       end
@@ -134,7 +134,7 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::BatchDeleteDevicePositionHistoryError.new
         data.device_id = map['DeviceId']
-        data.error = (Parsers::BatchItemError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (BatchItemError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -153,7 +153,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::BatchDeleteGeofenceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchDeleteGeofenceErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (BatchDeleteGeofenceErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -162,7 +162,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchDeleteGeofenceError.parse(value) unless value.nil?
+          data << BatchDeleteGeofenceError.parse(value) unless value.nil?
         end
         data
       end
@@ -172,7 +172,7 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::BatchDeleteGeofenceError.new
         data.geofence_id = map['GeofenceId']
-        data.error = (Parsers::BatchItemError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (BatchItemError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::BatchEvaluateGeofencesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchEvaluateGeofencesErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (BatchEvaluateGeofencesErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -191,7 +191,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchEvaluateGeofencesError.parse(value) unless value.nil?
+          data << BatchEvaluateGeofencesError.parse(value) unless value.nil?
         end
         data
       end
@@ -202,7 +202,7 @@ module AWS::SDK::Location
         data = Types::BatchEvaluateGeofencesError.new
         data.device_id = map['DeviceId']
         data.sample_time = Time.parse(map['SampleTime']) if map['SampleTime']
-        data.error = (Parsers::BatchItemError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (BatchItemError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -212,8 +212,8 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::BatchGetDevicePositionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchGetDevicePositionErrorList.parse(map['Errors']) unless map['Errors'].nil?)
-        data.device_positions = (Parsers::DevicePositionList.parse(map['DevicePositions']) unless map['DevicePositions'].nil?)
+        data.errors = (BatchGetDevicePositionErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.device_positions = (DevicePositionList.parse(map['DevicePositions']) unless map['DevicePositions'].nil?)
         data
       end
     end
@@ -222,7 +222,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DevicePosition.parse(value) unless value.nil?
+          data << DevicePosition.parse(value) unless value.nil?
         end
         data
       end
@@ -234,9 +234,9 @@ module AWS::SDK::Location
         data.device_id = map['DeviceId']
         data.sample_time = Time.parse(map['SampleTime']) if map['SampleTime']
         data.received_time = Time.parse(map['ReceivedTime']) if map['ReceivedTime']
-        data.position = (Parsers::Position.parse(map['Position']) unless map['Position'].nil?)
-        data.accuracy = (Parsers::PositionalAccuracy.parse(map['Accuracy']) unless map['Accuracy'].nil?)
-        data.position_properties = (Parsers::PropertyMap.parse(map['PositionProperties']) unless map['PositionProperties'].nil?)
+        data.position = (Position.parse(map['Position']) unless map['Position'].nil?)
+        data.accuracy = (PositionalAccuracy.parse(map['Accuracy']) unless map['Accuracy'].nil?)
+        data.position_properties = (PropertyMap.parse(map['PositionProperties']) unless map['PositionProperties'].nil?)
         return data
       end
     end
@@ -273,7 +273,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetDevicePositionError.parse(value) unless value.nil?
+          data << BatchGetDevicePositionError.parse(value) unless value.nil?
         end
         data
       end
@@ -283,7 +283,7 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::BatchGetDevicePositionError.new
         data.device_id = map['DeviceId']
-        data.error = (Parsers::BatchItemError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (BatchItemError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -293,8 +293,8 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::BatchPutGeofenceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.successes = (Parsers::BatchPutGeofenceSuccessList.parse(map['Successes']) unless map['Successes'].nil?)
-        data.errors = (Parsers::BatchPutGeofenceErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.successes = (BatchPutGeofenceSuccessList.parse(map['Successes']) unless map['Successes'].nil?)
+        data.errors = (BatchPutGeofenceErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -303,7 +303,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutGeofenceError.parse(value) unless value.nil?
+          data << BatchPutGeofenceError.parse(value) unless value.nil?
         end
         data
       end
@@ -313,7 +313,7 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::BatchPutGeofenceError.new
         data.geofence_id = map['GeofenceId']
-        data.error = (Parsers::BatchItemError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (BatchItemError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutGeofenceSuccess.parse(value) unless value.nil?
+          data << BatchPutGeofenceSuccess.parse(value) unless value.nil?
         end
         data
       end
@@ -343,7 +343,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::BatchUpdateDevicePositionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchUpdateDevicePositionErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (BatchUpdateDevicePositionErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -352,7 +352,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchUpdateDevicePositionError.parse(value) unless value.nil?
+          data << BatchUpdateDevicePositionError.parse(value) unless value.nil?
         end
         data
       end
@@ -363,7 +363,7 @@ module AWS::SDK::Location
         data = Types::BatchUpdateDevicePositionError.new
         data.device_id = map['DeviceId']
         data.sample_time = Time.parse(map['SampleTime']) if map['SampleTime']
-        data.error = (Parsers::BatchItemError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (BatchItemError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -373,8 +373,8 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::CalculateRouteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.legs = (Parsers::LegList.parse(map['Legs']) unless map['Legs'].nil?)
-        data.summary = (Parsers::CalculateRouteSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.legs = (LegList.parse(map['Legs']) unless map['Legs'].nil?)
+        data.summary = (CalculateRouteSummary.parse(map['Summary']) unless map['Summary'].nil?)
         data
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::Location
     class CalculateRouteSummary
       def self.parse(map)
         data = Types::CalculateRouteSummary.new
-        data.route_b_box = (Parsers::BoundingBox.parse(map['RouteBBox']) unless map['RouteBBox'].nil?)
+        data.route_b_box = (BoundingBox.parse(map['RouteBBox']) unless map['RouteBBox'].nil?)
         data.data_source = map['DataSource']
         data.distance = Hearth::NumberHelper.deserialize(map['Distance'])
         data.duration_seconds = Hearth::NumberHelper.deserialize(map['DurationSeconds'])
@@ -405,7 +405,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Leg.parse(value) unless value.nil?
+          data << Leg.parse(value) unless value.nil?
         end
         data
       end
@@ -414,12 +414,12 @@ module AWS::SDK::Location
     class Leg
       def self.parse(map)
         data = Types::Leg.new
-        data.start_position = (Parsers::Position.parse(map['StartPosition']) unless map['StartPosition'].nil?)
-        data.end_position = (Parsers::Position.parse(map['EndPosition']) unless map['EndPosition'].nil?)
+        data.start_position = (Position.parse(map['StartPosition']) unless map['StartPosition'].nil?)
+        data.end_position = (Position.parse(map['EndPosition']) unless map['EndPosition'].nil?)
         data.distance = Hearth::NumberHelper.deserialize(map['Distance'])
         data.duration_seconds = Hearth::NumberHelper.deserialize(map['DurationSeconds'])
-        data.geometry = (Parsers::LegGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
-        data.steps = (Parsers::StepList.parse(map['Steps']) unless map['Steps'].nil?)
+        data.geometry = (LegGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.steps = (StepList.parse(map['Steps']) unless map['Steps'].nil?)
         return data
       end
     end
@@ -428,7 +428,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Step.parse(value) unless value.nil?
+          data << Step.parse(value) unless value.nil?
         end
         data
       end
@@ -437,8 +437,8 @@ module AWS::SDK::Location
     class Step
       def self.parse(map)
         data = Types::Step.new
-        data.start_position = (Parsers::Position.parse(map['StartPosition']) unless map['StartPosition'].nil?)
-        data.end_position = (Parsers::Position.parse(map['EndPosition']) unless map['EndPosition'].nil?)
+        data.start_position = (Position.parse(map['StartPosition']) unless map['StartPosition'].nil?)
+        data.end_position = (Position.parse(map['EndPosition']) unless map['EndPosition'].nil?)
         data.distance = Hearth::NumberHelper.deserialize(map['Distance'])
         data.duration_seconds = Hearth::NumberHelper.deserialize(map['DurationSeconds'])
         data.geometry_offset = map['GeometryOffset']
@@ -449,7 +449,7 @@ module AWS::SDK::Location
     class LegGeometry
       def self.parse(map)
         data = Types::LegGeometry.new
-        data.line_string = (Parsers::LineString.parse(map['LineString']) unless map['LineString'].nil?)
+        data.line_string = (LineString.parse(map['LineString']) unless map['LineString'].nil?)
         return data
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Position.parse(value) unless value.nil?
+          data << Position.parse(value) unless value.nil?
         end
         data
       end
@@ -469,10 +469,10 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::CalculateRouteMatrixOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.route_matrix = (Parsers::RouteMatrix.parse(map['RouteMatrix']) unless map['RouteMatrix'].nil?)
-        data.snapped_departure_positions = (Parsers::PositionList.parse(map['SnappedDeparturePositions']) unless map['SnappedDeparturePositions'].nil?)
-        data.snapped_destination_positions = (Parsers::PositionList.parse(map['SnappedDestinationPositions']) unless map['SnappedDestinationPositions'].nil?)
-        data.summary = (Parsers::CalculateRouteMatrixSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.route_matrix = (RouteMatrix.parse(map['RouteMatrix']) unless map['RouteMatrix'].nil?)
+        data.snapped_departure_positions = (PositionList.parse(map['SnappedDeparturePositions']) unless map['SnappedDeparturePositions'].nil?)
+        data.snapped_destination_positions = (PositionList.parse(map['SnappedDestinationPositions']) unless map['SnappedDestinationPositions'].nil?)
+        data.summary = (CalculateRouteMatrixSummary.parse(map['Summary']) unless map['Summary'].nil?)
         data
       end
     end
@@ -492,7 +492,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Position.parse(value) unless value.nil?
+          data << Position.parse(value) unless value.nil?
         end
         data
       end
@@ -502,7 +502,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RouteMatrixRow.parse(value) unless value.nil?
+          data << RouteMatrixRow.parse(value) unless value.nil?
         end
         data
       end
@@ -512,7 +512,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RouteMatrixEntry.parse(value) unless value.nil?
+          data << RouteMatrixEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -523,7 +523,7 @@ module AWS::SDK::Location
         data = Types::RouteMatrixEntry.new
         data.distance = Hearth::NumberHelper.deserialize(map['Distance'])
         data.duration_seconds = Hearth::NumberHelper.deserialize(map['DurationSeconds'])
-        data.error = (Parsers::RouteMatrixEntryError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (RouteMatrixEntryError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -653,7 +653,7 @@ module AWS::SDK::Location
         data.pricing_plan = map['PricingPlan']
         data.pricing_plan_data_source = map['PricingPlanDataSource']
         data.kms_key_id = map['KmsKeyId']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.create_time = Time.parse(map['CreateTime']) if map['CreateTime']
         data.update_time = Time.parse(map['UpdateTime']) if map['UpdateTime']
         data
@@ -679,9 +679,9 @@ module AWS::SDK::Location
         data.map_arn = map['MapArn']
         data.pricing_plan = map['PricingPlan']
         data.data_source = map['DataSource']
-        data.configuration = (Parsers::MapConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (MapConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data.description = map['Description']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.create_time = Time.parse(map['CreateTime']) if map['CreateTime']
         data.update_time = Time.parse(map['UpdateTime']) if map['UpdateTime']
         data
@@ -708,8 +708,8 @@ module AWS::SDK::Location
         data.create_time = Time.parse(map['CreateTime']) if map['CreateTime']
         data.update_time = Time.parse(map['UpdateTime']) if map['UpdateTime']
         data.data_source = map['DataSource']
-        data.data_source_configuration = (Parsers::DataSourceConfiguration.parse(map['DataSourceConfiguration']) unless map['DataSourceConfiguration'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.data_source_configuration = (DataSourceConfiguration.parse(map['DataSourceConfiguration']) unless map['DataSourceConfiguration'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -734,7 +734,7 @@ module AWS::SDK::Location
         data.create_time = Time.parse(map['CreateTime']) if map['CreateTime']
         data.update_time = Time.parse(map['UpdateTime']) if map['UpdateTime']
         data.data_source = map['DataSource']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::Location
         data.description = map['Description']
         data.pricing_plan = map['PricingPlan']
         data.pricing_plan_data_source = map['PricingPlanDataSource']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.create_time = Time.parse(map['CreateTime']) if map['CreateTime']
         data.update_time = Time.parse(map['UpdateTime']) if map['UpdateTime']
         data.kms_key_id = map['KmsKeyId']
@@ -775,9 +775,9 @@ module AWS::SDK::Location
         data.device_id = map['DeviceId']
         data.sample_time = Time.parse(map['SampleTime']) if map['SampleTime']
         data.received_time = Time.parse(map['ReceivedTime']) if map['ReceivedTime']
-        data.position = (Parsers::Position.parse(map['Position']) unless map['Position'].nil?)
-        data.accuracy = (Parsers::PositionalAccuracy.parse(map['Accuracy']) unless map['Accuracy'].nil?)
-        data.position_properties = (Parsers::PropertyMap.parse(map['PositionProperties']) unless map['PositionProperties'].nil?)
+        data.position = (Position.parse(map['Position']) unless map['Position'].nil?)
+        data.accuracy = (PositionalAccuracy.parse(map['Accuracy']) unless map['Accuracy'].nil?)
+        data.position_properties = (PropertyMap.parse(map['PositionProperties']) unless map['PositionProperties'].nil?)
         data
       end
     end
@@ -787,7 +787,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::GetDevicePositionHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device_positions = (Parsers::DevicePositionList.parse(map['DevicePositions']) unless map['DevicePositions'].nil?)
+        data.device_positions = (DevicePositionList.parse(map['DevicePositions']) unless map['DevicePositions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -799,7 +799,7 @@ module AWS::SDK::Location
         data = Types::GetGeofenceOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.geofence_id = map['GeofenceId']
-        data.geometry = (Parsers::GeofenceGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.geometry = (GeofenceGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
         data.status = map['Status']
         data.create_time = Time.parse(map['CreateTime']) if map['CreateTime']
         data.update_time = Time.parse(map['UpdateTime']) if map['UpdateTime']
@@ -810,7 +810,7 @@ module AWS::SDK::Location
     class GeofenceGeometry
       def self.parse(map)
         data = Types::GeofenceGeometry.new
-        data.polygon = (Parsers::LinearRings.parse(map['Polygon']) unless map['Polygon'].nil?)
+        data.polygon = (LinearRings.parse(map['Polygon']) unless map['Polygon'].nil?)
         return data
       end
     end
@@ -819,7 +819,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LinearRing.parse(value) unless value.nil?
+          data << LinearRing.parse(value) unless value.nil?
         end
         data
       end
@@ -829,7 +829,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Position.parse(value) unless value.nil?
+          data << Position.parse(value) unless value.nil?
         end
         data
       end
@@ -884,7 +884,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListDevicePositionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::ListDevicePositionsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (ListDevicePositionsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -894,7 +894,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListDevicePositionsResponseEntry.parse(value) unless value.nil?
+          data << ListDevicePositionsResponseEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -905,9 +905,9 @@ module AWS::SDK::Location
         data = Types::ListDevicePositionsResponseEntry.new
         data.device_id = map['DeviceId']
         data.sample_time = Time.parse(map['SampleTime']) if map['SampleTime']
-        data.position = (Parsers::Position.parse(map['Position']) unless map['Position'].nil?)
-        data.accuracy = (Parsers::PositionalAccuracy.parse(map['Accuracy']) unless map['Accuracy'].nil?)
-        data.position_properties = (Parsers::PropertyMap.parse(map['PositionProperties']) unless map['PositionProperties'].nil?)
+        data.position = (Position.parse(map['Position']) unless map['Position'].nil?)
+        data.accuracy = (PositionalAccuracy.parse(map['Accuracy']) unless map['Accuracy'].nil?)
+        data.position_properties = (PropertyMap.parse(map['PositionProperties']) unless map['PositionProperties'].nil?)
         return data
       end
     end
@@ -917,7 +917,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListGeofenceCollectionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::ListGeofenceCollectionsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (ListGeofenceCollectionsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -927,7 +927,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListGeofenceCollectionsResponseEntry.parse(value) unless value.nil?
+          data << ListGeofenceCollectionsResponseEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -951,7 +951,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListGeofencesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::ListGeofenceResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (ListGeofenceResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -961,7 +961,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListGeofenceResponseEntry.parse(value) unless value.nil?
+          data << ListGeofenceResponseEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -971,7 +971,7 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::ListGeofenceResponseEntry.new
         data.geofence_id = map['GeofenceId']
-        data.geometry = (Parsers::GeofenceGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.geometry = (GeofenceGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
         data.status = map['Status']
         data.create_time = Time.parse(map['CreateTime']) if map['CreateTime']
         data.update_time = Time.parse(map['UpdateTime']) if map['UpdateTime']
@@ -984,7 +984,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListMapsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::ListMapsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (ListMapsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -994,7 +994,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListMapsResponseEntry.parse(value) unless value.nil?
+          data << ListMapsResponseEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -1018,7 +1018,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListPlaceIndexesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::ListPlaceIndexesResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (ListPlaceIndexesResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1028,7 +1028,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListPlaceIndexesResponseEntry.parse(value) unless value.nil?
+          data << ListPlaceIndexesResponseEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -1052,7 +1052,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListRouteCalculatorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::ListRouteCalculatorsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (ListRouteCalculatorsResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1062,7 +1062,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListRouteCalculatorsResponseEntry.parse(value) unless value.nil?
+          data << ListRouteCalculatorsResponseEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -1086,7 +1086,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1096,7 +1096,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListTrackerConsumersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.consumer_arns = (Parsers::ArnList.parse(map['ConsumerArns']) unless map['ConsumerArns'].nil?)
+        data.consumer_arns = (ArnList.parse(map['ConsumerArns']) unless map['ConsumerArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1117,7 +1117,7 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::ListTrackersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::ListTrackersResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (ListTrackersResponseEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1127,7 +1127,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListTrackersResponseEntry.parse(value) unless value.nil?
+          data << ListTrackersResponseEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -1163,8 +1163,8 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::SearchPlaceIndexForPositionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.summary = (Parsers::SearchPlaceIndexForPositionSummary.parse(map['Summary']) unless map['Summary'].nil?)
-        data.results = (Parsers::SearchForPositionResultList.parse(map['Results']) unless map['Results'].nil?)
+        data.summary = (SearchPlaceIndexForPositionSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.results = (SearchForPositionResultList.parse(map['Results']) unless map['Results'].nil?)
         data
       end
     end
@@ -1173,7 +1173,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SearchForPositionResult.parse(value) unless value.nil?
+          data << SearchForPositionResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1182,7 +1182,7 @@ module AWS::SDK::Location
     class SearchForPositionResult
       def self.parse(map)
         data = Types::SearchForPositionResult.new
-        data.place = (Parsers::Place.parse(map['Place']) unless map['Place'].nil?)
+        data.place = (Place.parse(map['Place']) unless map['Place'].nil?)
         data.distance = Hearth::NumberHelper.deserialize(map['Distance'])
         return data
       end
@@ -1192,7 +1192,7 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::Place.new
         data.label = map['Label']
-        data.geometry = (Parsers::PlaceGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.geometry = (PlaceGeometry.parse(map['Geometry']) unless map['Geometry'].nil?)
         data.address_number = map['AddressNumber']
         data.street = map['Street']
         data.neighborhood = map['Neighborhood']
@@ -1202,7 +1202,7 @@ module AWS::SDK::Location
         data.country = map['Country']
         data.postal_code = map['PostalCode']
         data.interpolated = map['Interpolated']
-        data.time_zone = (Parsers::TimeZone.parse(map['TimeZone']) unless map['TimeZone'].nil?)
+        data.time_zone = (TimeZone.parse(map['TimeZone']) unless map['TimeZone'].nil?)
         return data
       end
     end
@@ -1219,7 +1219,7 @@ module AWS::SDK::Location
     class PlaceGeometry
       def self.parse(map)
         data = Types::PlaceGeometry.new
-        data.point = (Parsers::Position.parse(map['Point']) unless map['Point'].nil?)
+        data.point = (Position.parse(map['Point']) unless map['Point'].nil?)
         return data
       end
     end
@@ -1227,7 +1227,7 @@ module AWS::SDK::Location
     class SearchPlaceIndexForPositionSummary
       def self.parse(map)
         data = Types::SearchPlaceIndexForPositionSummary.new
-        data.position = (Parsers::Position.parse(map['Position']) unless map['Position'].nil?)
+        data.position = (Position.parse(map['Position']) unless map['Position'].nil?)
         data.max_results = map['MaxResults']
         data.data_source = map['DataSource']
         data.language = map['Language']
@@ -1240,8 +1240,8 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::SearchPlaceIndexForSuggestionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.summary = (Parsers::SearchPlaceIndexForSuggestionsSummary.parse(map['Summary']) unless map['Summary'].nil?)
-        data.results = (Parsers::SearchForSuggestionsResultList.parse(map['Results']) unless map['Results'].nil?)
+        data.summary = (SearchPlaceIndexForSuggestionsSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.results = (SearchForSuggestionsResultList.parse(map['Results']) unless map['Results'].nil?)
         data
       end
     end
@@ -1250,7 +1250,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SearchForSuggestionsResult.parse(value) unless value.nil?
+          data << SearchForSuggestionsResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1268,9 +1268,9 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::SearchPlaceIndexForSuggestionsSummary.new
         data.text = map['Text']
-        data.bias_position = (Parsers::Position.parse(map['BiasPosition']) unless map['BiasPosition'].nil?)
-        data.filter_b_box = (Parsers::BoundingBox.parse(map['FilterBBox']) unless map['FilterBBox'].nil?)
-        data.filter_countries = (Parsers::CountryCodeList.parse(map['FilterCountries']) unless map['FilterCountries'].nil?)
+        data.bias_position = (Position.parse(map['BiasPosition']) unless map['BiasPosition'].nil?)
+        data.filter_b_box = (BoundingBox.parse(map['FilterBBox']) unless map['FilterBBox'].nil?)
+        data.filter_countries = (CountryCodeList.parse(map['FilterCountries']) unless map['FilterCountries'].nil?)
         data.max_results = map['MaxResults']
         data.data_source = map['DataSource']
         data.language = map['Language']
@@ -1293,8 +1293,8 @@ module AWS::SDK::Location
       def self.parse(http_resp)
         data = Types::SearchPlaceIndexForTextOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.summary = (Parsers::SearchPlaceIndexForTextSummary.parse(map['Summary']) unless map['Summary'].nil?)
-        data.results = (Parsers::SearchForTextResultList.parse(map['Results']) unless map['Results'].nil?)
+        data.summary = (SearchPlaceIndexForTextSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.results = (SearchForTextResultList.parse(map['Results']) unless map['Results'].nil?)
         data
       end
     end
@@ -1303,7 +1303,7 @@ module AWS::SDK::Location
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SearchForTextResult.parse(value) unless value.nil?
+          data << SearchForTextResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1312,7 +1312,7 @@ module AWS::SDK::Location
     class SearchForTextResult
       def self.parse(map)
         data = Types::SearchForTextResult.new
-        data.place = (Parsers::Place.parse(map['Place']) unless map['Place'].nil?)
+        data.place = (Place.parse(map['Place']) unless map['Place'].nil?)
         data.distance = Hearth::NumberHelper.deserialize(map['Distance'])
         data.relevance = Hearth::NumberHelper.deserialize(map['Relevance'])
         return data
@@ -1323,11 +1323,11 @@ module AWS::SDK::Location
       def self.parse(map)
         data = Types::SearchPlaceIndexForTextSummary.new
         data.text = map['Text']
-        data.bias_position = (Parsers::Position.parse(map['BiasPosition']) unless map['BiasPosition'].nil?)
-        data.filter_b_box = (Parsers::BoundingBox.parse(map['FilterBBox']) unless map['FilterBBox'].nil?)
-        data.filter_countries = (Parsers::CountryCodeList.parse(map['FilterCountries']) unless map['FilterCountries'].nil?)
+        data.bias_position = (Position.parse(map['BiasPosition']) unless map['BiasPosition'].nil?)
+        data.filter_b_box = (BoundingBox.parse(map['FilterBBox']) unless map['FilterBBox'].nil?)
+        data.filter_countries = (CountryCodeList.parse(map['FilterCountries']) unless map['FilterCountries'].nil?)
         data.max_results = map['MaxResults']
-        data.result_b_box = (Parsers::BoundingBox.parse(map['ResultBBox']) unless map['ResultBBox'].nil?)
+        data.result_b_box = (BoundingBox.parse(map['ResultBBox']) unless map['ResultBBox'].nil?)
         data.data_source = map['DataSource']
         data.language = map['Language']
         return data

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKMediaPipelines
   module Builders
 
@@ -25,9 +27,9 @@ module AWS::SDK::ChimeSDKMediaPipelines
         data['SinkType'] = input[:sink_type] unless input[:sink_type].nil?
         data['SinkArn'] = input[:sink_arn] unless input[:sink_arn].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['ChimeSdkMeetingConfiguration'] = Builders::ChimeSdkMeetingConfiguration.build(input[:chime_sdk_meeting_configuration]) unless input[:chime_sdk_meeting_configuration].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChimeSdkMeetingConfiguration'] = ChimeSdkMeetingConfiguration.build(input[:chime_sdk_meeting_configuration]) unless input[:chime_sdk_meeting_configuration].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -56,8 +58,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ChimeSdkMeetingConfiguration
       def self.build(input)
         data = {}
-        data['SourceConfiguration'] = Builders::SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
-        data['ArtifactsConfiguration'] = Builders::ArtifactsConfiguration.build(input[:artifacts_configuration]) unless input[:artifacts_configuration].nil?
+        data['SourceConfiguration'] = SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
+        data['ArtifactsConfiguration'] = ArtifactsConfiguration.build(input[:artifacts_configuration]) unless input[:artifacts_configuration].nil?
         data
       end
     end
@@ -66,9 +68,9 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ArtifactsConfiguration
       def self.build(input)
         data = {}
-        data['Audio'] = Builders::AudioArtifactsConfiguration.build(input[:audio]) unless input[:audio].nil?
-        data['Video'] = Builders::VideoArtifactsConfiguration.build(input[:video]) unless input[:video].nil?
-        data['Content'] = Builders::ContentArtifactsConfiguration.build(input[:content]) unless input[:content].nil?
+        data['Audio'] = AudioArtifactsConfiguration.build(input[:audio]) unless input[:audio].nil?
+        data['Video'] = VideoArtifactsConfiguration.build(input[:video]) unless input[:video].nil?
+        data['Content'] = ContentArtifactsConfiguration.build(input[:content]) unless input[:content].nil?
         data
       end
     end
@@ -106,7 +108,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class SourceConfiguration
       def self.build(input)
         data = {}
-        data['SelectedVideoStreams'] = Builders::SelectedVideoStreams.build(input[:selected_video_streams]) unless input[:selected_video_streams].nil?
+        data['SelectedVideoStreams'] = SelectedVideoStreams.build(input[:selected_video_streams]) unless input[:selected_video_streams].nil?
         data
       end
     end
@@ -115,8 +117,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class SelectedVideoStreams
       def self.build(input)
         data = {}
-        data['AttendeeIds'] = Builders::AttendeeIdList.build(input[:attendee_ids]) unless input[:attendee_ids].nil?
-        data['ExternalUserIds'] = Builders::ExternalUserIdList.build(input[:external_user_ids]) unless input[:external_user_ids].nil?
+        data['AttendeeIds'] = AttendeeIdList.build(input[:attendee_ids]) unless input[:attendee_ids].nil?
+        data['ExternalUserIds'] = ExternalUserIdList.build(input[:external_user_ids]) unless input[:external_user_ids].nil?
         data
       end
     end
@@ -214,8 +216,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,8 +235,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

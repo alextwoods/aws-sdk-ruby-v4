@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ResourceGroups
   module Builders
 
@@ -22,10 +24,10 @@ module AWS::SDK::ResourceGroups
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ResourceQuery'] = Builders::ResourceQuery.build(input[:resource_query]) unless input[:resource_query].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['Configuration'] = Builders::GroupConfigurationList.build(input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceQuery'] = ResourceQuery.build(input[:resource_query]) unless input[:resource_query].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Configuration'] = GroupConfigurationList.build(input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,7 +36,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GroupConfigurationItem.build(element) unless element.nil?
+          data << GroupConfigurationItem.build(element) unless element.nil?
         end
         data
       end
@@ -45,7 +47,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Parameters'] = Builders::GroupParameterList.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = GroupParameterList.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -55,7 +57,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GroupConfigurationParameter.build(element) unless element.nil?
+          data << GroupConfigurationParameter.build(element) unless element.nil?
         end
         data
       end
@@ -66,7 +68,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::GroupConfigurationParameterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = GroupConfigurationParameterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::ResourceGroups
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Group'] = input[:group] unless input[:group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::ResourceGroups
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Group'] = input[:group] unless input[:group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -146,7 +148,7 @@ module AWS::SDK::ResourceGroups
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Group'] = input[:group] unless input[:group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,7 +164,7 @@ module AWS::SDK::ResourceGroups
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Group'] = input[:group] unless input[:group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -194,8 +196,8 @@ module AWS::SDK::ResourceGroups
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Group'] = input[:group] unless input[:group].nil?
-        data['ResourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,10 +224,10 @@ module AWS::SDK::ResourceGroups
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Group'] = input[:group] unless input[:group].nil?
-        data['Filters'] = Builders::ResourceFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ResourceFilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceFilter.build(element) unless element.nil?
+          data << ResourceFilter.build(element) unless element.nil?
         end
         data
       end
@@ -245,7 +247,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::ResourceFilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ResourceFilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -273,8 +275,8 @@ module AWS::SDK::ResourceGroups
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::GroupFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = GroupFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -283,7 +285,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GroupFilter.build(element) unless element.nil?
+          data << GroupFilter.build(element) unless element.nil?
         end
         data
       end
@@ -294,7 +296,7 @@ module AWS::SDK::ResourceGroups
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::GroupFilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = GroupFilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -321,8 +323,8 @@ module AWS::SDK::ResourceGroups
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Group'] = input[:group] unless input[:group].nil?
-        data['Configuration'] = Builders::GroupConfigurationList.build(input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Configuration'] = GroupConfigurationList.build(input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,10 +338,10 @@ module AWS::SDK::ResourceGroups
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ResourceQuery'] = Builders::ResourceQuery.build(input[:resource_query]) unless input[:resource_query].nil?
+        data['ResourceQuery'] = ResourceQuery.build(input[:resource_query]) unless input[:resource_query].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,8 +362,8 @@ module AWS::SDK::ResourceGroups
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -376,8 +378,8 @@ module AWS::SDK::ResourceGroups
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Group'] = input[:group] unless input[:group].nil?
-        data['ResourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -398,8 +400,8 @@ module AWS::SDK::ResourceGroups
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Keys'] = Builders::TagKeyList.build(input[:keys]) unless input[:keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Keys'] = TagKeyList.build(input[:keys]) unless input[:keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::ResourceGroups
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Group'] = input[:group] unless input[:group].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -443,8 +445,8 @@ module AWS::SDK::ResourceGroups
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Group'] = input[:group] unless input[:group].nil?
-        data['ResourceQuery'] = Builders::ResourceQuery.build(input[:resource_query]) unless input[:resource_query].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceQuery'] = ResourceQuery.build(input[:resource_query]) unless input[:resource_query].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

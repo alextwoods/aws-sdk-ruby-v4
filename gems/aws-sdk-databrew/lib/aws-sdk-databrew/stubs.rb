@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DataBrew
   module Stubs
 
@@ -24,8 +26,8 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Errors'] = Stubs::RecipeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = RecipeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecipeVersionErrorDetail.stub(element) unless element.nil?
+          data << RecipeVersionErrorDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -84,7 +86,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -101,7 +103,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -152,7 +154,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -186,7 +188,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,7 +205,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,7 +239,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,7 +258,7 @@ module AWS::SDK::DataBrew
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['RecipeVersion'] = stub[:recipe_version] unless stub[:recipe_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -290,7 +292,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,15 +323,15 @@ module AWS::SDK::DataBrew
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        data['FormatOptions'] = Stubs::FormatOptions.stub(stub[:format_options]) unless stub[:format_options].nil?
-        data['Input'] = Stubs::Input.stub(stub[:input]) unless stub[:input].nil?
+        data['FormatOptions'] = FormatOptions.stub(stub[:format_options]) unless stub[:format_options].nil?
+        data['Input'] = Input.stub(stub[:input]) unless stub[:input].nil?
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['LastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
         data['Source'] = stub[:source] unless stub[:source].nil?
-        data['PathOptions'] = Stubs::PathOptions.stub(stub[:path_options]) unless stub[:path_options].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['PathOptions'] = PathOptions.stub(stub[:path_options]) unless stub[:path_options].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -368,9 +370,9 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::PathOptions.new
         data = {}
-        data['LastModifiedDateCondition'] = Stubs::FilterExpression.stub(stub[:last_modified_date_condition]) unless stub[:last_modified_date_condition].nil?
-        data['FilesLimit'] = Stubs::FilesLimit.stub(stub[:files_limit]) unless stub[:files_limit].nil?
-        data['Parameters'] = Stubs::PathParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['LastModifiedDateCondition'] = FilterExpression.stub(stub[:last_modified_date_condition]) unless stub[:last_modified_date_condition].nil?
+        data['FilesLimit'] = FilesLimit.stub(stub[:files_limit]) unless stub[:files_limit].nil?
+        data['Parameters'] = PathParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -389,7 +391,7 @@ module AWS::SDK::DataBrew
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::DatasetParameter.stub(value) unless value.nil?
+          data[key] = DatasetParameter.stub(value) unless value.nil?
         end
         data
       end
@@ -414,9 +416,9 @@ module AWS::SDK::DataBrew
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['DatetimeOptions'] = Stubs::DatetimeOptions.stub(stub[:datetime_options]) unless stub[:datetime_options].nil?
+        data['DatetimeOptions'] = DatetimeOptions.stub(stub[:datetime_options]) unless stub[:datetime_options].nil?
         data['CreateColumn'] = stub[:create_column] unless stub[:create_column].nil?
-        data['Filter'] = Stubs::FilterExpression.stub(stub[:filter]) unless stub[:filter].nil?
+        data['Filter'] = FilterExpression.stub(stub[:filter]) unless stub[:filter].nil?
         data
       end
     end
@@ -436,7 +438,7 @@ module AWS::SDK::DataBrew
         stub ||= Types::FilterExpression.new
         data = {}
         data['Expression'] = stub[:expression] unless stub[:expression].nil?
-        data['ValuesMap'] = Stubs::ValuesMap.stub(stub[:values_map]) unless stub[:values_map].nil?
+        data['ValuesMap'] = ValuesMap.stub(stub[:values_map]) unless stub[:values_map].nil?
         data
       end
     end
@@ -521,10 +523,10 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::Input.new
         data = {}
-        data['S3InputDefinition'] = Stubs::S3Location.stub(stub[:s3_input_definition]) unless stub[:s3_input_definition].nil?
-        data['DataCatalogInputDefinition'] = Stubs::DataCatalogInputDefinition.stub(stub[:data_catalog_input_definition]) unless stub[:data_catalog_input_definition].nil?
-        data['DatabaseInputDefinition'] = Stubs::DatabaseInputDefinition.stub(stub[:database_input_definition]) unless stub[:database_input_definition].nil?
-        data['Metadata'] = Stubs::Metadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['S3InputDefinition'] = S3Location.stub(stub[:s3_input_definition]) unless stub[:s3_input_definition].nil?
+        data['DataCatalogInputDefinition'] = DataCatalogInputDefinition.stub(stub[:data_catalog_input_definition]) unless stub[:data_catalog_input_definition].nil?
+        data['DatabaseInputDefinition'] = DatabaseInputDefinition.stub(stub[:database_input_definition]) unless stub[:database_input_definition].nil?
+        data['Metadata'] = Metadata.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -565,7 +567,7 @@ module AWS::SDK::DataBrew
         data = {}
         data['GlueConnectionName'] = stub[:glue_connection_name] unless stub[:glue_connection_name].nil?
         data['DatabaseTableName'] = stub[:database_table_name] unless stub[:database_table_name].nil?
-        data['TempDirectory'] = Stubs::S3Location.stub(stub[:temp_directory]) unless stub[:temp_directory].nil?
+        data['TempDirectory'] = S3Location.stub(stub[:temp_directory]) unless stub[:temp_directory].nil?
         data['QueryString'] = stub[:query_string] unless stub[:query_string].nil?
         data
       end
@@ -612,7 +614,7 @@ module AWS::SDK::DataBrew
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['TempDirectory'] = Stubs::S3Location.stub(stub[:temp_directory]) unless stub[:temp_directory].nil?
+        data['TempDirectory'] = S3Location.stub(stub[:temp_directory]) unless stub[:temp_directory].nil?
         data
       end
     end
@@ -632,9 +634,9 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::FormatOptions.new
         data = {}
-        data['Json'] = Stubs::JsonOptions.stub(stub[:json]) unless stub[:json].nil?
-        data['Excel'] = Stubs::ExcelOptions.stub(stub[:excel]) unless stub[:excel].nil?
-        data['Csv'] = Stubs::CsvOptions.stub(stub[:csv]) unless stub[:csv].nil?
+        data['Json'] = JsonOptions.stub(stub[:json]) unless stub[:json].nil?
+        data['Excel'] = ExcelOptions.stub(stub[:excel]) unless stub[:excel].nil?
+        data['Csv'] = CsvOptions.stub(stub[:csv]) unless stub[:csv].nil?
         data
       end
     end
@@ -674,8 +676,8 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::ExcelOptions.new
         data = {}
-        data['SheetNames'] = Stubs::SheetNameList.stub(stub[:sheet_names]) unless stub[:sheet_names].nil?
-        data['SheetIndexes'] = Stubs::SheetIndexList.stub(stub[:sheet_indexes]) unless stub[:sheet_indexes].nil?
+        data['SheetNames'] = SheetNameList.stub(stub[:sheet_names]) unless stub[:sheet_names].nil?
+        data['SheetIndexes'] = SheetIndexList.stub(stub[:sheet_indexes]) unless stub[:sheet_indexes].nil?
         data['HeaderRow'] = stub[:header_row] unless stub[:header_row].nil?
         data
       end
@@ -786,19 +788,19 @@ module AWS::SDK::DataBrew
         data['LogSubscription'] = stub[:log_subscription] unless stub[:log_subscription].nil?
         data['MaxCapacity'] = stub[:max_capacity] unless stub[:max_capacity].nil?
         data['MaxRetries'] = stub[:max_retries] unless stub[:max_retries].nil?
-        data['Outputs'] = Stubs::OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        data['DataCatalogOutputs'] = Stubs::DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
-        data['DatabaseOutputs'] = Stubs::DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
+        data['Outputs'] = OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['DataCatalogOutputs'] = DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
+        data['DatabaseOutputs'] = DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
         data['ProjectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['ProfileConfiguration'] = Stubs::ProfileConfiguration.stub(stub[:profile_configuration]) unless stub[:profile_configuration].nil?
-        data['ValidationConfigurations'] = Stubs::ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
-        data['RecipeReference'] = Stubs::RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
+        data['ProfileConfiguration'] = ProfileConfiguration.stub(stub[:profile_configuration]) unless stub[:profile_configuration].nil?
+        data['ValidationConfigurations'] = ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
+        data['RecipeReference'] = RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
-        data['JobSample'] = Stubs::JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobSample'] = JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -856,7 +858,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidationConfiguration.stub(element) unless element.nil?
+          data << ValidationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -898,10 +900,10 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::ProfileConfiguration.new
         data = {}
-        data['DatasetStatisticsConfiguration'] = Stubs::StatisticsConfiguration.stub(stub[:dataset_statistics_configuration]) unless stub[:dataset_statistics_configuration].nil?
-        data['ProfileColumns'] = Stubs::ColumnSelectorList.stub(stub[:profile_columns]) unless stub[:profile_columns].nil?
-        data['ColumnStatisticsConfigurations'] = Stubs::ColumnStatisticsConfigurationList.stub(stub[:column_statistics_configurations]) unless stub[:column_statistics_configurations].nil?
-        data['EntityDetectorConfiguration'] = Stubs::EntityDetectorConfiguration.stub(stub[:entity_detector_configuration]) unless stub[:entity_detector_configuration].nil?
+        data['DatasetStatisticsConfiguration'] = StatisticsConfiguration.stub(stub[:dataset_statistics_configuration]) unless stub[:dataset_statistics_configuration].nil?
+        data['ProfileColumns'] = ColumnSelectorList.stub(stub[:profile_columns]) unless stub[:profile_columns].nil?
+        data['ColumnStatisticsConfigurations'] = ColumnStatisticsConfigurationList.stub(stub[:column_statistics_configurations]) unless stub[:column_statistics_configurations].nil?
+        data['EntityDetectorConfiguration'] = EntityDetectorConfiguration.stub(stub[:entity_detector_configuration]) unless stub[:entity_detector_configuration].nil?
         data
       end
     end
@@ -920,8 +922,8 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::EntityDetectorConfiguration.new
         data = {}
-        data['EntityTypes'] = Stubs::EntityTypeList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
-        data['AllowedStatistics'] = Stubs::AllowedStatisticList.stub(stub[:allowed_statistics]) unless stub[:allowed_statistics].nil?
+        data['EntityTypes'] = EntityTypeList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
+        data['AllowedStatistics'] = AllowedStatisticList.stub(stub[:allowed_statistics]) unless stub[:allowed_statistics].nil?
         data
       end
     end
@@ -940,7 +942,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AllowedStatistics.stub(element) unless element.nil?
+          data << AllowedStatistics.stub(element) unless element.nil?
         end
         data
       end
@@ -959,7 +961,7 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::AllowedStatistics.new
         data = {}
-        data['Statistics'] = Stubs::StatisticList.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['Statistics'] = StatisticList.stub(stub[:statistics]) unless stub[:statistics].nil?
         data
       end
     end
@@ -1018,7 +1020,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnStatisticsConfiguration.stub(element) unless element.nil?
+          data << ColumnStatisticsConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1038,8 +1040,8 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::ColumnStatisticsConfiguration.new
         data = {}
-        data['Selectors'] = Stubs::ColumnSelectorList.stub(stub[:selectors]) unless stub[:selectors].nil?
-        data['Statistics'] = Stubs::StatisticsConfiguration.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['Selectors'] = ColumnSelectorList.stub(stub[:selectors]) unless stub[:selectors].nil?
+        data['Statistics'] = StatisticsConfiguration.stub(stub[:statistics]) unless stub[:statistics].nil?
         data
       end
     end
@@ -1058,8 +1060,8 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::StatisticsConfiguration.new
         data = {}
-        data['IncludedStatistics'] = Stubs::StatisticList.stub(stub[:included_statistics]) unless stub[:included_statistics].nil?
-        data['Overrides'] = Stubs::StatisticOverrideList.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['IncludedStatistics'] = StatisticList.stub(stub[:included_statistics]) unless stub[:included_statistics].nil?
+        data['Overrides'] = StatisticOverrideList.stub(stub[:overrides]) unless stub[:overrides].nil?
         data
       end
     end
@@ -1078,7 +1080,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatisticOverride.stub(element) unless element.nil?
+          data << StatisticOverride.stub(element) unless element.nil?
         end
         data
       end
@@ -1099,7 +1101,7 @@ module AWS::SDK::DataBrew
         stub ||= Types::StatisticOverride.new
         data = {}
         data['Statistic'] = stub[:statistic] unless stub[:statistic].nil?
-        data['Parameters'] = Stubs::ParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnSelector.stub(element) unless element.nil?
+          data << ColumnSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -1178,7 +1180,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatabaseOutput.stub(element) unless element.nil?
+          data << DatabaseOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -1200,7 +1202,7 @@ module AWS::SDK::DataBrew
         stub ||= Types::DatabaseOutput.new
         data = {}
         data['GlueConnectionName'] = stub[:glue_connection_name] unless stub[:glue_connection_name].nil?
-        data['DatabaseOptions'] = Stubs::DatabaseTableOutputOptions.stub(stub[:database_options]) unless stub[:database_options].nil?
+        data['DatabaseOptions'] = DatabaseTableOutputOptions.stub(stub[:database_options]) unless stub[:database_options].nil?
         data['DatabaseOutputMode'] = stub[:database_output_mode] unless stub[:database_output_mode].nil?
         data
       end
@@ -1220,7 +1222,7 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::DatabaseTableOutputOptions.new
         data = {}
-        data['TempDirectory'] = Stubs::S3Location.stub(stub[:temp_directory]) unless stub[:temp_directory].nil?
+        data['TempDirectory'] = S3Location.stub(stub[:temp_directory]) unless stub[:temp_directory].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data
       end
@@ -1240,7 +1242,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataCatalogOutput.stub(element) unless element.nil?
+          data << DataCatalogOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -1267,8 +1269,8 @@ module AWS::SDK::DataBrew
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['S3Options'] = Stubs::S3TableOutputOptions.stub(stub[:s3_options]) unless stub[:s3_options].nil?
-        data['DatabaseOptions'] = Stubs::DatabaseTableOutputOptions.stub(stub[:database_options]) unless stub[:database_options].nil?
+        data['S3Options'] = S3TableOutputOptions.stub(stub[:s3_options]) unless stub[:s3_options].nil?
+        data['DatabaseOptions'] = DatabaseTableOutputOptions.stub(stub[:database_options]) unless stub[:database_options].nil?
         data['Overwrite'] = stub[:overwrite] unless stub[:overwrite].nil?
         data
       end
@@ -1287,7 +1289,7 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::S3TableOutputOptions.new
         data = {}
-        data['Location'] = Stubs::S3Location.stub(stub[:location]) unless stub[:location].nil?
+        data['Location'] = S3Location.stub(stub[:location]) unless stub[:location].nil?
         data
       end
     end
@@ -1306,7 +1308,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Output.stub(element) unless element.nil?
+          data << Output.stub(element) unless element.nil?
         end
         data
       end
@@ -1333,10 +1335,10 @@ module AWS::SDK::DataBrew
         data = {}
         data['CompressionFormat'] = stub[:compression_format] unless stub[:compression_format].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        data['PartitionColumns'] = Stubs::ColumnNameList.stub(stub[:partition_columns]) unless stub[:partition_columns].nil?
-        data['Location'] = Stubs::S3Location.stub(stub[:location]) unless stub[:location].nil?
+        data['PartitionColumns'] = ColumnNameList.stub(stub[:partition_columns]) unless stub[:partition_columns].nil?
+        data['Location'] = S3Location.stub(stub[:location]) unless stub[:location].nil?
         data['Overwrite'] = stub[:overwrite] unless stub[:overwrite].nil?
-        data['FormatOptions'] = Stubs::OutputFormatOptions.stub(stub[:format_options]) unless stub[:format_options].nil?
+        data['FormatOptions'] = OutputFormatOptions.stub(stub[:format_options]) unless stub[:format_options].nil?
         data['MaxOutputFiles'] = stub[:max_output_files] unless stub[:max_output_files].nil?
         data
       end
@@ -1355,7 +1357,7 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::OutputFormatOptions.new
         data = {}
-        data['Csv'] = Stubs::CsvOutputOptions.stub(stub[:csv]) unless stub[:csv].nil?
+        data['Csv'] = CsvOutputOptions.stub(stub[:csv]) unless stub[:csv].nil?
         data
       end
     end
@@ -1434,20 +1436,20 @@ module AWS::SDK::DataBrew
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['ExecutionTime'] = stub[:execution_time] unless stub[:execution_time].nil?
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
-        data['ProfileConfiguration'] = Stubs::ProfileConfiguration.stub(stub[:profile_configuration]) unless stub[:profile_configuration].nil?
-        data['ValidationConfigurations'] = Stubs::ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
+        data['ProfileConfiguration'] = ProfileConfiguration.stub(stub[:profile_configuration]) unless stub[:profile_configuration].nil?
+        data['ValidationConfigurations'] = ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
         data['RunId'] = stub[:run_id] unless stub[:run_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['LogSubscription'] = stub[:log_subscription] unless stub[:log_subscription].nil?
         data['LogGroupName'] = stub[:log_group_name] unless stub[:log_group_name].nil?
-        data['Outputs'] = Stubs::OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        data['DataCatalogOutputs'] = Stubs::DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
-        data['DatabaseOutputs'] = Stubs::DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
-        data['RecipeReference'] = Stubs::RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
+        data['Outputs'] = OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['DataCatalogOutputs'] = DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
+        data['DatabaseOutputs'] = DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
+        data['RecipeReference'] = RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
         data['StartedBy'] = stub[:started_by] unless stub[:started_by].nil?
         data['StartedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_on]).to_i unless stub[:started_on].nil?
-        data['JobSample'] = Stubs::JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobSample'] = JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1484,13 +1486,13 @@ module AWS::SDK::DataBrew
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['RecipeName'] = stub[:recipe_name] unless stub[:recipe_name].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Sample'] = Stubs::Sample.stub(stub[:sample]) unless stub[:sample].nil?
+        data['Sample'] = Sample.stub(stub[:sample]) unless stub[:sample].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['SessionStatus'] = stub[:session_status] unless stub[:session_status].nil?
         data['OpenedBy'] = stub[:opened_by] unless stub[:opened_by].nil?
         data['OpenDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:open_date]).to_i unless stub[:open_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1547,11 +1549,11 @@ module AWS::SDK::DataBrew
         data['PublishedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:published_date]).to_i unless stub[:published_date].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Steps'] = Stubs::RecipeStepList.stub(stub[:steps]) unless stub[:steps].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Steps'] = RecipeStepList.stub(stub[:steps]) unless stub[:steps].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['RecipeVersion'] = stub[:recipe_version] unless stub[:recipe_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1569,7 +1571,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecipeStep.stub(element) unless element.nil?
+          data << RecipeStep.stub(element) unless element.nil?
         end
         data
       end
@@ -1589,8 +1591,8 @@ module AWS::SDK::DataBrew
       def self.stub(stub)
         stub ||= Types::RecipeStep.new
         data = {}
-        data['Action'] = Stubs::RecipeAction.stub(stub[:action]) unless stub[:action].nil?
-        data['ConditionExpressions'] = Stubs::ConditionExpressionList.stub(stub[:condition_expressions]) unless stub[:condition_expressions].nil?
+        data['Action'] = RecipeAction.stub(stub[:action]) unless stub[:action].nil?
+        data['ConditionExpressions'] = ConditionExpressionList.stub(stub[:condition_expressions]) unless stub[:condition_expressions].nil?
         data
       end
     end
@@ -1609,7 +1611,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConditionExpression.stub(element) unless element.nil?
+          data << ConditionExpression.stub(element) unless element.nil?
         end
         data
       end
@@ -1652,7 +1654,7 @@ module AWS::SDK::DataBrew
         stub ||= Types::RecipeAction.new
         data = {}
         data['Operation'] = stub[:operation] unless stub[:operation].nil?
-        data['Parameters'] = Stubs::ParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -1681,14 +1683,14 @@ module AWS::SDK::DataBrew
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['TargetArn'] = stub[:target_arn] unless stub[:target_arn].nil?
-        data['Rules'] = Stubs::RuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = RuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['LastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1706,7 +1708,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Rule.stub(element) unless element.nil?
+          data << Rule.stub(element) unless element.nil?
         end
         data
       end
@@ -1733,9 +1735,9 @@ module AWS::SDK::DataBrew
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Disabled'] = stub[:disabled] unless stub[:disabled].nil?
         data['CheckExpression'] = stub[:check_expression] unless stub[:check_expression].nil?
-        data['SubstitutionMap'] = Stubs::ValuesMap.stub(stub[:substitution_map]) unless stub[:substitution_map].nil?
-        data['Threshold'] = Stubs::Threshold.stub(stub[:threshold]) unless stub[:threshold].nil?
-        data['ColumnSelectors'] = Stubs::ColumnSelectorList.stub(stub[:column_selectors]) unless stub[:column_selectors].nil?
+        data['SubstitutionMap'] = ValuesMap.stub(stub[:substitution_map]) unless stub[:substitution_map].nil?
+        data['Threshold'] = Threshold.stub(stub[:threshold]) unless stub[:threshold].nil?
+        data['ColumnSelectors'] = ColumnSelectorList.stub(stub[:column_selectors]) unless stub[:column_selectors].nil?
         data
       end
     end
@@ -1784,14 +1786,14 @@ module AWS::SDK::DataBrew
         http_resp.headers['Content-Type'] = 'application/json'
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
-        data['JobNames'] = Stubs::JobNameList.stub(stub[:job_names]) unless stub[:job_names].nil?
+        data['JobNames'] = JobNameList.stub(stub[:job_names]) unless stub[:job_names].nil?
         data['LastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['CronExpression'] = stub[:cron_expression] unless stub[:cron_expression].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1828,9 +1830,9 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Datasets'] = Stubs::DatasetList.stub(stub[:datasets]) unless stub[:datasets].nil?
+        data['Datasets'] = DatasetList.stub(stub[:datasets]) unless stub[:datasets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1848,7 +1850,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Dataset.stub(element) unless element.nil?
+          data << Dataset.stub(element) unless element.nil?
         end
         data
       end
@@ -1884,13 +1886,13 @@ module AWS::SDK::DataBrew
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        data['FormatOptions'] = Stubs::FormatOptions.stub(stub[:format_options]) unless stub[:format_options].nil?
-        data['Input'] = Stubs::Input.stub(stub[:input]) unless stub[:input].nil?
+        data['FormatOptions'] = FormatOptions.stub(stub[:format_options]) unless stub[:format_options].nil?
+        data['Input'] = Input.stub(stub[:input]) unless stub[:input].nil?
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['LastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
         data['Source'] = stub[:source] unless stub[:source].nil?
-        data['PathOptions'] = Stubs::PathOptions.stub(stub[:path_options]) unless stub[:path_options].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['PathOptions'] = PathOptions.stub(stub[:path_options]) unless stub[:path_options].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data
       end
@@ -1909,9 +1911,9 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['JobRuns'] = Stubs::JobRunList.stub(stub[:job_runs]) unless stub[:job_runs].nil?
+        data['JobRuns'] = JobRunList.stub(stub[:job_runs]) unless stub[:job_runs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1929,7 +1931,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobRun.stub(element) unless element.nil?
+          data << JobRun.stub(element) unless element.nil?
         end
         data
       end
@@ -1975,14 +1977,14 @@ module AWS::SDK::DataBrew
         data['State'] = stub[:state] unless stub[:state].nil?
         data['LogSubscription'] = stub[:log_subscription] unless stub[:log_subscription].nil?
         data['LogGroupName'] = stub[:log_group_name] unless stub[:log_group_name].nil?
-        data['Outputs'] = Stubs::OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        data['DataCatalogOutputs'] = Stubs::DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
-        data['DatabaseOutputs'] = Stubs::DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
-        data['RecipeReference'] = Stubs::RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
+        data['Outputs'] = OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['DataCatalogOutputs'] = DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
+        data['DatabaseOutputs'] = DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
+        data['RecipeReference'] = RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
         data['StartedBy'] = stub[:started_by] unless stub[:started_by].nil?
         data['StartedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_on]).to_i unless stub[:started_on].nil?
-        data['JobSample'] = Stubs::JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
-        data['ValidationConfigurations'] = Stubs::ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
+        data['JobSample'] = JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
+        data['ValidationConfigurations'] = ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
         data
       end
     end
@@ -2000,9 +2002,9 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Jobs'] = Stubs::JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['Jobs'] = JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2020,7 +2022,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Job.stub(element) unless element.nil?
+          data << Job.stub(element) unless element.nil?
         end
         data
       end
@@ -2075,17 +2077,17 @@ module AWS::SDK::DataBrew
         data['LogSubscription'] = stub[:log_subscription] unless stub[:log_subscription].nil?
         data['MaxCapacity'] = stub[:max_capacity] unless stub[:max_capacity].nil?
         data['MaxRetries'] = stub[:max_retries] unless stub[:max_retries].nil?
-        data['Outputs'] = Stubs::OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        data['DataCatalogOutputs'] = Stubs::DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
-        data['DatabaseOutputs'] = Stubs::DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
+        data['Outputs'] = OutputList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['DataCatalogOutputs'] = DataCatalogOutputList.stub(stub[:data_catalog_outputs]) unless stub[:data_catalog_outputs].nil?
+        data['DatabaseOutputs'] = DatabaseOutputList.stub(stub[:database_outputs]) unless stub[:database_outputs].nil?
         data['ProjectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['RecipeReference'] = Stubs::RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
+        data['RecipeReference'] = RecipeReference.stub(stub[:recipe_reference]) unless stub[:recipe_reference].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['JobSample'] = Stubs::JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
-        data['ValidationConfigurations'] = Stubs::ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['JobSample'] = JobSample.stub(stub[:job_sample]) unless stub[:job_sample].nil?
+        data['ValidationConfigurations'] = ValidationConfigurationList.stub(stub[:validation_configurations]) unless stub[:validation_configurations].nil?
         data
       end
     end
@@ -2103,9 +2105,9 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Projects'] = Stubs::ProjectList.stub(stub[:projects]) unless stub[:projects].nil?
+        data['Projects'] = ProjectList.stub(stub[:projects]) unless stub[:projects].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2123,7 +2125,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Project.stub(element) unless element.nil?
+          data << Project.stub(element) unless element.nil?
         end
         data
       end
@@ -2164,8 +2166,8 @@ module AWS::SDK::DataBrew
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['RecipeName'] = stub[:recipe_name] unless stub[:recipe_name].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Sample'] = Stubs::Sample.stub(stub[:sample]) unless stub[:sample].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Sample'] = Sample.stub(stub[:sample]) unless stub[:sample].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['OpenedBy'] = stub[:opened_by] unless stub[:opened_by].nil?
         data['OpenDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:open_date]).to_i unless stub[:open_date].nil?
@@ -2187,8 +2189,8 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Recipes'] = Stubs::RecipeList.stub(stub[:recipes]) unless stub[:recipes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Recipes'] = RecipeList.stub(stub[:recipes]) unless stub[:recipes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2206,7 +2208,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Recipe.stub(element) unless element.nil?
+          data << Recipe.stub(element) unless element.nil?
         end
         data
       end
@@ -2247,8 +2249,8 @@ module AWS::SDK::DataBrew
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Steps'] = Stubs::RecipeStepList.stub(stub[:steps]) unless stub[:steps].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Steps'] = RecipeStepList.stub(stub[:steps]) unless stub[:steps].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['RecipeVersion'] = stub[:recipe_version] unless stub[:recipe_version].nil?
         data
       end
@@ -2267,9 +2269,9 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Recipes'] = Stubs::RecipeList.stub(stub[:recipes]) unless stub[:recipes].nil?
+        data['Recipes'] = RecipeList.stub(stub[:recipes]) unless stub[:recipes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2286,9 +2288,9 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Rulesets'] = Stubs::RulesetItemList.stub(stub[:rulesets]) unless stub[:rulesets].nil?
+        data['Rulesets'] = RulesetItemList.stub(stub[:rulesets]) unless stub[:rulesets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2306,7 +2308,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RulesetItem.stub(element) unless element.nil?
+          data << RulesetItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2344,7 +2346,7 @@ module AWS::SDK::DataBrew
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['RuleCount'] = stub[:rule_count] unless stub[:rule_count].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['TargetArn'] = stub[:target_arn] unless stub[:target_arn].nil?
         data
       end
@@ -2363,9 +2365,9 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Schedules'] = Stubs::ScheduleList.stub(stub[:schedules]) unless stub[:schedules].nil?
+        data['Schedules'] = ScheduleList.stub(stub[:schedules]) unless stub[:schedules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2383,7 +2385,7 @@ module AWS::SDK::DataBrew
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Schedule.stub(element) unless element.nil?
+          data << Schedule.stub(element) unless element.nil?
         end
         data
       end
@@ -2414,12 +2416,12 @@ module AWS::SDK::DataBrew
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
-        data['JobNames'] = Stubs::JobNameList.stub(stub[:job_names]) unless stub[:job_names].nil?
+        data['JobNames'] = JobNameList.stub(stub[:job_names]) unless stub[:job_names].nil?
         data['LastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['CronExpression'] = stub[:cron_expression] unless stub[:cron_expression].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data
       end
@@ -2437,8 +2439,8 @@ module AWS::SDK::DataBrew
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2455,7 +2457,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2476,7 +2478,7 @@ module AWS::SDK::DataBrew
         data['Result'] = stub[:result] unless stub[:result].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ActionId'] = stub[:action_id] unless stub[:action_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2493,7 +2495,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['RunId'] = stub[:run_id] unless stub[:run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2512,7 +2514,7 @@ module AWS::SDK::DataBrew
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ClientSessionId'] = stub[:client_session_id] unless stub[:client_session_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2529,7 +2531,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['RunId'] = stub[:run_id] unless stub[:run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2572,7 +2574,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2589,7 +2591,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2608,7 +2610,7 @@ module AWS::SDK::DataBrew
         http_resp.headers['Content-Type'] = 'application/json'
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2625,7 +2627,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2642,7 +2644,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2659,7 +2661,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2676,7 +2678,7 @@ module AWS::SDK::DataBrew
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

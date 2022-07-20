@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Shield
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::Shield
       def self.stub(http_resp, stub:)
         data = {}
         data['ProtectionId'] = stub[:protection_id] unless stub[:protection_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,7 +121,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -133,7 +135,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -147,7 +149,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -162,8 +164,8 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Attack'] = Stubs::AttackDetail.stub(stub[:attack]) unless stub[:attack].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attack'] = AttackDetail.stub(stub[:attack]) unless stub[:attack].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -190,12 +192,12 @@ module AWS::SDK::Shield
         data = {}
         data['AttackId'] = stub[:attack_id] unless stub[:attack_id].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['SubResources'] = Stubs::SubResourceSummaryList.stub(stub[:sub_resources]) unless stub[:sub_resources].nil?
+        data['SubResources'] = SubResourceSummaryList.stub(stub[:sub_resources]) unless stub[:sub_resources].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['AttackCounters'] = Stubs::SummarizedCounterList.stub(stub[:attack_counters]) unless stub[:attack_counters].nil?
-        data['AttackProperties'] = Stubs::AttackProperties.stub(stub[:attack_properties]) unless stub[:attack_properties].nil?
-        data['Mitigations'] = Stubs::MitigationList.stub(stub[:mitigations]) unless stub[:mitigations].nil?
+        data['AttackCounters'] = SummarizedCounterList.stub(stub[:attack_counters]) unless stub[:attack_counters].nil?
+        data['AttackProperties'] = AttackProperties.stub(stub[:attack_properties]) unless stub[:attack_properties].nil?
+        data['Mitigations'] = MitigationList.stub(stub[:mitigations]) unless stub[:mitigations].nil?
         data
       end
     end
@@ -214,7 +216,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Mitigation.stub(element) unless element.nil?
+          data << Mitigation.stub(element) unless element.nil?
         end
         data
       end
@@ -252,7 +254,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttackProperty.stub(element) unless element.nil?
+          data << AttackProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -277,7 +279,7 @@ module AWS::SDK::Shield
         data = {}
         data['AttackLayer'] = stub[:attack_layer] unless stub[:attack_layer].nil?
         data['AttackPropertyIdentifier'] = stub[:attack_property_identifier] unless stub[:attack_property_identifier].nil?
-        data['TopContributors'] = Stubs::TopContributors.stub(stub[:top_contributors]) unless stub[:top_contributors].nil?
+        data['TopContributors'] = TopContributors.stub(stub[:top_contributors]) unless stub[:top_contributors].nil?
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
         data['Total'] = stub[:total] unless stub[:total].nil?
         data
@@ -298,7 +300,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Contributor.stub(element) unless element.nil?
+          data << Contributor.stub(element) unless element.nil?
         end
         data
       end
@@ -338,7 +340,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SummarizedCounter.stub(element) unless element.nil?
+          data << SummarizedCounter.stub(element) unless element.nil?
         end
         data
       end
@@ -386,7 +388,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubResourceSummary.stub(element) unless element.nil?
+          data << SubResourceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -410,8 +412,8 @@ module AWS::SDK::Shield
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['AttackVectors'] = Stubs::SummarizedAttackVectorList.stub(stub[:attack_vectors]) unless stub[:attack_vectors].nil?
-        data['Counters'] = Stubs::SummarizedCounterList.stub(stub[:counters]) unless stub[:counters].nil?
+        data['AttackVectors'] = SummarizedAttackVectorList.stub(stub[:attack_vectors]) unless stub[:attack_vectors].nil?
+        data['Counters'] = SummarizedCounterList.stub(stub[:counters]) unless stub[:counters].nil?
         data
       end
     end
@@ -430,7 +432,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SummarizedAttackVector.stub(element) unless element.nil?
+          data << SummarizedAttackVector.stub(element) unless element.nil?
         end
         data
       end
@@ -451,7 +453,7 @@ module AWS::SDK::Shield
         stub ||= Types::SummarizedAttackVector.new
         data = {}
         data['VectorType'] = stub[:vector_type] unless stub[:vector_type].nil?
-        data['VectorCounters'] = Stubs::SummarizedCounterList.stub(stub[:vector_counters]) unless stub[:vector_counters].nil?
+        data['VectorCounters'] = SummarizedCounterList.stub(stub[:vector_counters]) unless stub[:vector_counters].nil?
         data
       end
     end
@@ -467,9 +469,9 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TimeRange'] = Stubs::TimeRange.stub(stub[:time_range]) unless stub[:time_range].nil?
-        data['DataItems'] = Stubs::AttackStatisticsDataList.stub(stub[:data_items]) unless stub[:data_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeRange'] = TimeRange.stub(stub[:time_range]) unless stub[:time_range].nil?
+        data['DataItems'] = AttackStatisticsDataList.stub(stub[:data_items]) unless stub[:data_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -488,7 +490,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttackStatisticsDataItem.stub(element) unless element.nil?
+          data << AttackStatisticsDataItem.stub(element) unless element.nil?
         end
         data
       end
@@ -508,7 +510,7 @@ module AWS::SDK::Shield
       def self.stub(stub)
         stub ||= Types::AttackStatisticsDataItem.new
         data = {}
-        data['AttackVolume'] = Stubs::AttackVolume.stub(stub[:attack_volume]) unless stub[:attack_volume].nil?
+        data['AttackVolume'] = AttackVolume.stub(stub[:attack_volume]) unless stub[:attack_volume].nil?
         data['AttackCount'] = stub[:attack_count] unless stub[:attack_count].nil?
         data
       end
@@ -529,9 +531,9 @@ module AWS::SDK::Shield
       def self.stub(stub)
         stub ||= Types::AttackVolume.new
         data = {}
-        data['BitsPerSecond'] = Stubs::AttackVolumeStatistics.stub(stub[:bits_per_second]) unless stub[:bits_per_second].nil?
-        data['PacketsPerSecond'] = Stubs::AttackVolumeStatistics.stub(stub[:packets_per_second]) unless stub[:packets_per_second].nil?
-        data['RequestsPerSecond'] = Stubs::AttackVolumeStatistics.stub(stub[:requests_per_second]) unless stub[:requests_per_second].nil?
+        data['BitsPerSecond'] = AttackVolumeStatistics.stub(stub[:bits_per_second]) unless stub[:bits_per_second].nil?
+        data['PacketsPerSecond'] = AttackVolumeStatistics.stub(stub[:packets_per_second]) unless stub[:packets_per_second].nil?
+        data['RequestsPerSecond'] = AttackVolumeStatistics.stub(stub[:requests_per_second]) unless stub[:requests_per_second].nil?
         data
       end
     end
@@ -586,8 +588,8 @@ module AWS::SDK::Shield
       def self.stub(http_resp, stub:)
         data = {}
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['LogBucketList'] = Stubs::LogBucketList.stub(stub[:log_bucket_list]) unless stub[:log_bucket_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LogBucketList'] = LogBucketList.stub(stub[:log_bucket_list]) unless stub[:log_bucket_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -622,8 +624,8 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EmergencyContactList'] = Stubs::EmergencyContactList.stub(stub[:emergency_contact_list]) unless stub[:emergency_contact_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EmergencyContactList'] = EmergencyContactList.stub(stub[:emergency_contact_list]) unless stub[:emergency_contact_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -642,7 +644,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EmergencyContact.stub(element) unless element.nil?
+          data << EmergencyContact.stub(element) unless element.nil?
         end
         data
       end
@@ -680,8 +682,8 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Protection'] = Stubs::Protection.stub(stub[:protection]) unless stub[:protection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Protection'] = Protection.stub(stub[:protection]) unless stub[:protection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -707,9 +709,9 @@ module AWS::SDK::Shield
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['HealthCheckIds'] = Stubs::HealthCheckIds.stub(stub[:health_check_ids]) unless stub[:health_check_ids].nil?
+        data['HealthCheckIds'] = HealthCheckIds.stub(stub[:health_check_ids]) unless stub[:health_check_ids].nil?
         data['ProtectionArn'] = stub[:protection_arn] unless stub[:protection_arn].nil?
-        data['ApplicationLayerAutomaticResponseConfiguration'] = Stubs::ApplicationLayerAutomaticResponseConfiguration.stub(stub[:application_layer_automatic_response_configuration]) unless stub[:application_layer_automatic_response_configuration].nil?
+        data['ApplicationLayerAutomaticResponseConfiguration'] = ApplicationLayerAutomaticResponseConfiguration.stub(stub[:application_layer_automatic_response_configuration]) unless stub[:application_layer_automatic_response_configuration].nil?
         data
       end
     end
@@ -729,7 +731,7 @@ module AWS::SDK::Shield
         stub ||= Types::ApplicationLayerAutomaticResponseConfiguration.new
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Action'] = Stubs::ResponseAction.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = ResponseAction.stub(stub[:action]) unless stub[:action].nil?
         data
       end
     end
@@ -748,8 +750,8 @@ module AWS::SDK::Shield
       def self.stub(stub)
         stub ||= Types::ResponseAction.new
         data = {}
-        data['Block'] = Stubs::BlockAction.stub(stub[:block]) unless stub[:block].nil?
-        data['Count'] = Stubs::CountAction.stub(stub[:count]) unless stub[:count].nil?
+        data['Block'] = BlockAction.stub(stub[:block]) unless stub[:block].nil?
+        data['Count'] = CountAction.stub(stub[:count]) unless stub[:count].nil?
         data
       end
     end
@@ -816,8 +818,8 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProtectionGroup'] = Stubs::ProtectionGroup.stub(stub[:protection_group]) unless stub[:protection_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProtectionGroup'] = ProtectionGroup.stub(stub[:protection_group]) unless stub[:protection_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -844,7 +846,7 @@ module AWS::SDK::Shield
         data['Aggregation'] = stub[:aggregation] unless stub[:aggregation].nil?
         data['Pattern'] = stub[:pattern] unless stub[:pattern].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['Members'] = Stubs::ProtectionGroupMembers.stub(stub[:members]) unless stub[:members].nil?
+        data['Members'] = ProtectionGroupMembers.stub(stub[:members]) unless stub[:members].nil?
         data['ProtectionGroupArn'] = stub[:protection_group_arn] unless stub[:protection_group_arn].nil?
         data
       end
@@ -880,8 +882,8 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Subscription'] = Stubs::Subscription.stub(stub[:subscription]) unless stub[:subscription].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Subscription'] = Subscription.stub(stub[:subscription]) unless stub[:subscription].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -910,9 +912,9 @@ module AWS::SDK::Shield
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['TimeCommitmentInSeconds'] = stub[:time_commitment_in_seconds] unless stub[:time_commitment_in_seconds].nil?
         data['AutoRenew'] = stub[:auto_renew] unless stub[:auto_renew].nil?
-        data['Limits'] = Stubs::Limits.stub(stub[:limits]) unless stub[:limits].nil?
+        data['Limits'] = Limits.stub(stub[:limits]) unless stub[:limits].nil?
         data['ProactiveEngagementStatus'] = stub[:proactive_engagement_status] unless stub[:proactive_engagement_status].nil?
-        data['SubscriptionLimits'] = Stubs::SubscriptionLimits.stub(stub[:subscription_limits]) unless stub[:subscription_limits].nil?
+        data['SubscriptionLimits'] = SubscriptionLimits.stub(stub[:subscription_limits]) unless stub[:subscription_limits].nil?
         data['SubscriptionArn'] = stub[:subscription_arn] unless stub[:subscription_arn].nil?
         data
       end
@@ -932,8 +934,8 @@ module AWS::SDK::Shield
       def self.stub(stub)
         stub ||= Types::SubscriptionLimits.new
         data = {}
-        data['ProtectionLimits'] = Stubs::ProtectionLimits.stub(stub[:protection_limits]) unless stub[:protection_limits].nil?
-        data['ProtectionGroupLimits'] = Stubs::ProtectionGroupLimits.stub(stub[:protection_group_limits]) unless stub[:protection_group_limits].nil?
+        data['ProtectionLimits'] = ProtectionLimits.stub(stub[:protection_limits]) unless stub[:protection_limits].nil?
+        data['ProtectionGroupLimits'] = ProtectionGroupLimits.stub(stub[:protection_group_limits]) unless stub[:protection_group_limits].nil?
         data
       end
     end
@@ -953,7 +955,7 @@ module AWS::SDK::Shield
         stub ||= Types::ProtectionGroupLimits.new
         data = {}
         data['MaxProtectionGroups'] = stub[:max_protection_groups] unless stub[:max_protection_groups].nil?
-        data['PatternTypeLimits'] = Stubs::ProtectionGroupPatternTypeLimits.stub(stub[:pattern_type_limits]) unless stub[:pattern_type_limits].nil?
+        data['PatternTypeLimits'] = ProtectionGroupPatternTypeLimits.stub(stub[:pattern_type_limits]) unless stub[:pattern_type_limits].nil?
         data
       end
     end
@@ -971,7 +973,7 @@ module AWS::SDK::Shield
       def self.stub(stub)
         stub ||= Types::ProtectionGroupPatternTypeLimits.new
         data = {}
-        data['ArbitraryPatternLimits'] = Stubs::ProtectionGroupArbitraryPatternLimits.stub(stub[:arbitrary_pattern_limits]) unless stub[:arbitrary_pattern_limits].nil?
+        data['ArbitraryPatternLimits'] = ProtectionGroupArbitraryPatternLimits.stub(stub[:arbitrary_pattern_limits]) unless stub[:arbitrary_pattern_limits].nil?
         data
       end
     end
@@ -1007,7 +1009,7 @@ module AWS::SDK::Shield
       def self.stub(stub)
         stub ||= Types::ProtectionLimits.new
         data = {}
-        data['ProtectedResourceTypeLimits'] = Stubs::Limits.stub(stub[:protected_resource_type_limits]) unless stub[:protected_resource_type_limits].nil?
+        data['ProtectedResourceTypeLimits'] = Limits.stub(stub[:protected_resource_type_limits]) unless stub[:protected_resource_type_limits].nil?
         data
       end
     end
@@ -1026,7 +1028,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Limit.stub(element) unless element.nil?
+          data << Limit.stub(element) unless element.nil?
         end
         data
       end
@@ -1061,7 +1063,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1075,7 +1077,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1089,7 +1091,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1103,7 +1105,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1117,7 +1119,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1131,7 +1133,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1145,7 +1147,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1161,7 +1163,7 @@ module AWS::SDK::Shield
       def self.stub(http_resp, stub:)
         data = {}
         data['SubscriptionState'] = stub[:subscription_state] unless stub[:subscription_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1177,9 +1179,9 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AttackSummaries'] = Stubs::AttackSummaries.stub(stub[:attack_summaries]) unless stub[:attack_summaries].nil?
+        data['AttackSummaries'] = AttackSummaries.stub(stub[:attack_summaries]) unless stub[:attack_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1198,7 +1200,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttackSummary.stub(element) unless element.nil?
+          data << AttackSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1225,7 +1227,7 @@ module AWS::SDK::Shield
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['AttackVectors'] = Stubs::AttackVectorDescriptionList.stub(stub[:attack_vectors]) unless stub[:attack_vectors].nil?
+        data['AttackVectors'] = AttackVectorDescriptionList.stub(stub[:attack_vectors]) unless stub[:attack_vectors].nil?
         data
       end
     end
@@ -1244,7 +1246,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttackVectorDescription.stub(element) unless element.nil?
+          data << AttackVectorDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1279,9 +1281,9 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProtectionGroups'] = Stubs::ProtectionGroups.stub(stub[:protection_groups]) unless stub[:protection_groups].nil?
+        data['ProtectionGroups'] = ProtectionGroups.stub(stub[:protection_groups]) unless stub[:protection_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1300,7 +1302,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProtectionGroup.stub(element) unless element.nil?
+          data << ProtectionGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1317,9 +1319,9 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Protections'] = Stubs::Protections.stub(stub[:protections]) unless stub[:protections].nil?
+        data['Protections'] = Protections.stub(stub[:protections]) unless stub[:protections].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1338,7 +1340,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Protection.stub(element) unless element.nil?
+          data << Protection.stub(element) unless element.nil?
         end
         data
       end
@@ -1355,9 +1357,9 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceArns'] = Stubs::ResourceArnList.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
+        data['ResourceArns'] = ResourceArnList.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1392,8 +1394,8 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1412,7 +1414,7 @@ module AWS::SDK::Shield
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1447,7 +1449,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1461,7 +1463,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1475,7 +1477,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1489,7 +1491,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1503,7 +1505,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1517,7 +1519,7 @@ module AWS::SDK::Shield
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

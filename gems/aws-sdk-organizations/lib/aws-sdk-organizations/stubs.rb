@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Organizations
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshake'] = Stubs::Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Handshake'] = Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,12 +50,12 @@ module AWS::SDK::Organizations
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Parties'] = Stubs::HandshakeParties.stub(stub[:parties]) unless stub[:parties].nil?
+        data['Parties'] = HandshakeParties.stub(stub[:parties]) unless stub[:parties].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['RequestedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:requested_timestamp]).to_i unless stub[:requested_timestamp].nil?
         data['ExpirationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_timestamp]).to_i unless stub[:expiration_timestamp].nil?
         data['Action'] = stub[:action] unless stub[:action].nil?
-        data['Resources'] = Stubs::HandshakeResources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = HandshakeResources.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -72,7 +74,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HandshakeResource.stub(element) unless element.nil?
+          data << HandshakeResource.stub(element) unless element.nil?
         end
         data
       end
@@ -95,7 +97,7 @@ module AWS::SDK::Organizations
         data = {}
         data['Value'] = stub[:value] unless stub[:value].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Resources'] = Stubs::HandshakeResources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = HandshakeResources.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -114,7 +116,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HandshakeParty.stub(element) unless element.nil?
+          data << HandshakeParty.stub(element) unless element.nil?
         end
         data
       end
@@ -149,7 +151,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -164,8 +166,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshake'] = Stubs::Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Handshake'] = Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -194,8 +196,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CreateAccountStatus'] = Stubs::CreateAccountStatus.stub(stub[:create_account_status]) unless stub[:create_account_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CreateAccountStatus'] = CreateAccountStatus.stub(stub[:create_account_status]) unless stub[:create_account_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -242,8 +244,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CreateAccountStatus'] = Stubs::CreateAccountStatus.stub(stub[:create_account_status]) unless stub[:create_account_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CreateAccountStatus'] = CreateAccountStatus.stub(stub[:create_account_status]) unless stub[:create_account_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -258,8 +260,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Organization'] = Stubs::Organization.stub(stub[:organization]) unless stub[:organization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Organization'] = Organization.stub(stub[:organization]) unless stub[:organization].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::Organizations
         data['MasterAccountArn'] = stub[:master_account_arn] unless stub[:master_account_arn].nil?
         data['MasterAccountId'] = stub[:master_account_id] unless stub[:master_account_id].nil?
         data['MasterAccountEmail'] = stub[:master_account_email] unless stub[:master_account_email].nil?
-        data['AvailablePolicyTypes'] = Stubs::PolicyTypes.stub(stub[:available_policy_types]) unless stub[:available_policy_types].nil?
+        data['AvailablePolicyTypes'] = PolicyTypes.stub(stub[:available_policy_types]) unless stub[:available_policy_types].nil?
         data
       end
     end
@@ -308,7 +310,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyTypeSummary.stub(element) unless element.nil?
+          data << PolicyTypeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -344,8 +346,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationalUnit'] = Stubs::OrganizationalUnit.stub(stub[:organizational_unit]) unless stub[:organizational_unit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationalUnit'] = OrganizationalUnit.stub(stub[:organizational_unit]) unless stub[:organizational_unit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -382,8 +384,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policy'] = Stubs::Policy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policy'] = Policy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -402,7 +404,7 @@ module AWS::SDK::Organizations
       def self.stub(stub)
         stub ||= Types::Policy.new
         data = {}
-        data['PolicySummary'] = Stubs::PolicySummary.stub(stub[:policy_summary]) unless stub[:policy_summary].nil?
+        data['PolicySummary'] = PolicySummary.stub(stub[:policy_summary]) unless stub[:policy_summary].nil?
         data['Content'] = stub[:content] unless stub[:content].nil?
         data
       end
@@ -446,8 +448,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshake'] = Stubs::Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Handshake'] = Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -461,7 +463,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -475,7 +477,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -489,7 +491,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -503,7 +505,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -518,8 +520,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Account'] = Stubs::Account.stub(stub[:account]) unless stub[:account].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Account'] = Account.stub(stub[:account]) unless stub[:account].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -564,8 +566,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CreateAccountStatus'] = Stubs::CreateAccountStatus.stub(stub[:create_account_status]) unless stub[:create_account_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CreateAccountStatus'] = CreateAccountStatus.stub(stub[:create_account_status]) unless stub[:create_account_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -580,8 +582,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EffectivePolicy'] = Stubs::EffectivePolicy.stub(stub[:effective_policy]) unless stub[:effective_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EffectivePolicy'] = EffectivePolicy.stub(stub[:effective_policy]) unless stub[:effective_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -620,8 +622,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshake'] = Stubs::Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Handshake'] = Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -636,8 +638,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Organization'] = Stubs::Organization.stub(stub[:organization]) unless stub[:organization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Organization'] = Organization.stub(stub[:organization]) unless stub[:organization].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -652,8 +654,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationalUnit'] = Stubs::OrganizationalUnit.stub(stub[:organizational_unit]) unless stub[:organizational_unit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationalUnit'] = OrganizationalUnit.stub(stub[:organizational_unit]) unless stub[:organizational_unit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -668,8 +670,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policy'] = Stubs::Policy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policy'] = Policy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -683,7 +685,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -697,7 +699,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -712,8 +714,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Root'] = Stubs::Root.stub(stub[:root]) unless stub[:root].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Root'] = Root.stub(stub[:root]) unless stub[:root].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -737,7 +739,7 @@ module AWS::SDK::Organizations
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['PolicyTypes'] = Stubs::PolicyTypes.stub(stub[:policy_types]) unless stub[:policy_types].nil?
+        data['PolicyTypes'] = PolicyTypes.stub(stub[:policy_types]) unless stub[:policy_types].nil?
         data
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -766,8 +768,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshake'] = Stubs::Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Handshake'] = Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -782,8 +784,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Root'] = Stubs::Root.stub(stub[:root]) unless stub[:root].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Root'] = Root.stub(stub[:root]) unless stub[:root].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -798,8 +800,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshake'] = Stubs::Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Handshake'] = Handshake.stub(stub[:handshake]) unless stub[:handshake].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -813,7 +815,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -829,9 +831,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EnabledServicePrincipals'] = Stubs::EnabledServicePrincipals.stub(stub[:enabled_service_principals]) unless stub[:enabled_service_principals].nil?
+        data['EnabledServicePrincipals'] = EnabledServicePrincipals.stub(stub[:enabled_service_principals]) unless stub[:enabled_service_principals].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -850,7 +852,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnabledServicePrincipal.stub(element) unless element.nil?
+          data << EnabledServicePrincipal.stub(element) unless element.nil?
         end
         data
       end
@@ -887,9 +889,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accounts'] = Stubs::Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['Accounts'] = Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -908,7 +910,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Account.stub(element) unless element.nil?
+          data << Account.stub(element) unless element.nil?
         end
         data
       end
@@ -925,9 +927,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accounts'] = Stubs::Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['Accounts'] = Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -943,9 +945,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Children'] = Stubs::Children.stub(stub[:children]) unless stub[:children].nil?
+        data['Children'] = Children.stub(stub[:children]) unless stub[:children].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -964,7 +966,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Child.stub(element) unless element.nil?
+          data << Child.stub(element) unless element.nil?
         end
         data
       end
@@ -1001,9 +1003,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CreateAccountStatuses'] = Stubs::CreateAccountStatuses.stub(stub[:create_account_statuses]) unless stub[:create_account_statuses].nil?
+        data['CreateAccountStatuses'] = CreateAccountStatuses.stub(stub[:create_account_statuses]) unless stub[:create_account_statuses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1022,7 +1024,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CreateAccountStatus.stub(element) unless element.nil?
+          data << CreateAccountStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1039,9 +1041,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DelegatedAdministrators'] = Stubs::DelegatedAdministrators.stub(stub[:delegated_administrators]) unless stub[:delegated_administrators].nil?
+        data['DelegatedAdministrators'] = DelegatedAdministrators.stub(stub[:delegated_administrators]) unless stub[:delegated_administrators].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1060,7 +1062,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DelegatedAdministrator.stub(element) unless element.nil?
+          data << DelegatedAdministrator.stub(element) unless element.nil?
         end
         data
       end
@@ -1109,9 +1111,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DelegatedServices'] = Stubs::DelegatedServices.stub(stub[:delegated_services]) unless stub[:delegated_services].nil?
+        data['DelegatedServices'] = DelegatedServices.stub(stub[:delegated_services]) unless stub[:delegated_services].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1130,7 +1132,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DelegatedService.stub(element) unless element.nil?
+          data << DelegatedService.stub(element) unless element.nil?
         end
         data
       end
@@ -1167,9 +1169,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshakes'] = Stubs::Handshakes.stub(stub[:handshakes]) unless stub[:handshakes].nil?
+        data['Handshakes'] = Handshakes.stub(stub[:handshakes]) unless stub[:handshakes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1188,7 +1190,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Handshake.stub(element) unless element.nil?
+          data << Handshake.stub(element) unless element.nil?
         end
         data
       end
@@ -1205,9 +1207,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Handshakes'] = Stubs::Handshakes.stub(stub[:handshakes]) unless stub[:handshakes].nil?
+        data['Handshakes'] = Handshakes.stub(stub[:handshakes]) unless stub[:handshakes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1223,9 +1225,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationalUnits'] = Stubs::OrganizationalUnits.stub(stub[:organizational_units]) unless stub[:organizational_units].nil?
+        data['OrganizationalUnits'] = OrganizationalUnits.stub(stub[:organizational_units]) unless stub[:organizational_units].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1244,7 +1246,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationalUnit.stub(element) unless element.nil?
+          data << OrganizationalUnit.stub(element) unless element.nil?
         end
         data
       end
@@ -1261,9 +1263,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Parents'] = Stubs::Parents.stub(stub[:parents]) unless stub[:parents].nil?
+        data['Parents'] = Parents.stub(stub[:parents]) unless stub[:parents].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1282,7 +1284,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Parent.stub(element) unless element.nil?
+          data << Parent.stub(element) unless element.nil?
         end
         data
       end
@@ -1319,9 +1321,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['Policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1340,7 +1342,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicySummary.stub(element) unless element.nil?
+          data << PolicySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1357,9 +1359,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['Policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1375,9 +1377,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Roots'] = Stubs::Roots.stub(stub[:roots]) unless stub[:roots].nil?
+        data['Roots'] = Roots.stub(stub[:roots]) unless stub[:roots].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1396,7 +1398,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Root.stub(element) unless element.nil?
+          data << Root.stub(element) unless element.nil?
         end
         data
       end
@@ -1413,9 +1415,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1434,7 +1436,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1471,9 +1473,9 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Targets'] = Stubs::PolicyTargets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = PolicyTargets.stub(stub[:targets]) unless stub[:targets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1492,7 +1494,7 @@ module AWS::SDK::Organizations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyTargetSummary.stub(element) unless element.nil?
+          data << PolicyTargetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1531,7 +1533,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1545,7 +1547,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1559,7 +1561,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1573,7 +1575,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1587,7 +1589,7 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1602,8 +1604,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationalUnit'] = Stubs::OrganizationalUnit.stub(stub[:organizational_unit]) unless stub[:organizational_unit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationalUnit'] = OrganizationalUnit.stub(stub[:organizational_unit]) unless stub[:organizational_unit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1618,8 +1620,8 @@ module AWS::SDK::Organizations
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policy'] = Stubs::Policy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policy'] = Policy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

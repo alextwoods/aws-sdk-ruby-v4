@@ -54,7 +54,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -62,7 +62,7 @@ module AWS::SDK::SageMaker
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -96,8 +96,8 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.model_package_summaries = (Parsers::ModelPackageSummaries.parse(map['ModelPackageSummaries']) unless map['ModelPackageSummaries'].nil?)
-        data.batch_describe_model_package_error_map = (Parsers::BatchDescribeModelPackageErrorMap.parse(map['BatchDescribeModelPackageErrorMap']) unless map['BatchDescribeModelPackageErrorMap'].nil?)
+        data.model_package_summaries = (ModelPackageSummaries.parse(map['ModelPackageSummaries']) unless map['ModelPackageSummaries'].nil?)
+        data.batch_describe_model_package_error_map = (BatchDescribeModelPackageErrorMap.parse(map['BatchDescribeModelPackageErrorMap']) unless map['BatchDescribeModelPackageErrorMap'].nil?)
         data
       end
     end
@@ -106,7 +106,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::BatchDescribeModelPackageError.parse(value) unless value.nil?
+          data[key] = BatchDescribeModelPackageError.parse(value) unless value.nil?
         end
         data
       end
@@ -125,7 +125,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::BatchDescribeModelPackageSummary.parse(value) unless value.nil?
+          data[key] = BatchDescribeModelPackageSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -139,7 +139,7 @@ module AWS::SDK::SageMaker
         data.model_package_arn = map['ModelPackageArn']
         data.model_package_description = map['ModelPackageDescription']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.inference_specification = (Parsers::InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
+        data.inference_specification = (InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
         data.model_package_status = map['ModelPackageStatus']
         data.model_approval_status = map['ModelApprovalStatus']
         return data
@@ -149,11 +149,11 @@ module AWS::SDK::SageMaker
     class InferenceSpecification
       def self.parse(map)
         data = Types::InferenceSpecification.new
-        data.containers = (Parsers::ModelPackageContainerDefinitionList.parse(map['Containers']) unless map['Containers'].nil?)
-        data.supported_transform_instance_types = (Parsers::TransformInstanceTypes.parse(map['SupportedTransformInstanceTypes']) unless map['SupportedTransformInstanceTypes'].nil?)
-        data.supported_realtime_inference_instance_types = (Parsers::RealtimeInferenceInstanceTypes.parse(map['SupportedRealtimeInferenceInstanceTypes']) unless map['SupportedRealtimeInferenceInstanceTypes'].nil?)
-        data.supported_content_types = (Parsers::ContentTypes.parse(map['SupportedContentTypes']) unless map['SupportedContentTypes'].nil?)
-        data.supported_response_mime_types = (Parsers::ResponseMIMETypes.parse(map['SupportedResponseMIMETypes']) unless map['SupportedResponseMIMETypes'].nil?)
+        data.containers = (ModelPackageContainerDefinitionList.parse(map['Containers']) unless map['Containers'].nil?)
+        data.supported_transform_instance_types = (TransformInstanceTypes.parse(map['SupportedTransformInstanceTypes']) unless map['SupportedTransformInstanceTypes'].nil?)
+        data.supported_realtime_inference_instance_types = (RealtimeInferenceInstanceTypes.parse(map['SupportedRealtimeInferenceInstanceTypes']) unless map['SupportedRealtimeInferenceInstanceTypes'].nil?)
+        data.supported_content_types = (ContentTypes.parse(map['SupportedContentTypes']) unless map['SupportedContentTypes'].nil?)
+        data.supported_response_mime_types = (ResponseMIMETypes.parse(map['SupportedResponseMIMETypes']) unless map['SupportedResponseMIMETypes'].nil?)
         return data
       end
     end
@@ -193,7 +193,7 @@ module AWS::SDK::SageMaker
     class ModelPackageContainerDefinitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelPackageContainerDefinition.parse(value) unless value.nil?
+          ModelPackageContainerDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -206,8 +206,8 @@ module AWS::SDK::SageMaker
         data.image_digest = map['ImageDigest']
         data.model_data_url = map['ModelDataUrl']
         data.product_id = map['ProductId']
-        data.environment = (Parsers::EnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.model_input = (Parsers::ModelInput.parse(map['ModelInput']) unless map['ModelInput'].nil?)
+        data.environment = (EnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.model_input = (ModelInput.parse(map['ModelInput']) unless map['ModelInput'].nil?)
         data.framework = map['Framework']
         data.framework_version = map['FrameworkVersion']
         data.nearest_model_name = map['NearestModelName']
@@ -1257,16 +1257,16 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.action_name = map['ActionName']
         data.action_arn = map['ActionArn']
-        data.source = (Parsers::ActionSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ActionSource.parse(map['Source']) unless map['Source'].nil?)
         data.action_type = map['ActionType']
         data.description = map['Description']
         data.status = map['Status']
-        data.properties = (Parsers::LineageEntityParameters.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (LineageEntityParameters.parse(map['Properties']) unless map['Properties'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
         data.lineage_group_arn = map['LineageGroupArn']
         data
       end
@@ -1324,11 +1324,11 @@ module AWS::SDK::SageMaker
         data.algorithm_arn = map['AlgorithmArn']
         data.algorithm_description = map['AlgorithmDescription']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.training_specification = (Parsers::TrainingSpecification.parse(map['TrainingSpecification']) unless map['TrainingSpecification'].nil?)
-        data.inference_specification = (Parsers::InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
-        data.validation_specification = (Parsers::AlgorithmValidationSpecification.parse(map['ValidationSpecification']) unless map['ValidationSpecification'].nil?)
+        data.training_specification = (TrainingSpecification.parse(map['TrainingSpecification']) unless map['TrainingSpecification'].nil?)
+        data.inference_specification = (InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
+        data.validation_specification = (AlgorithmValidationSpecification.parse(map['ValidationSpecification']) unless map['ValidationSpecification'].nil?)
         data.algorithm_status = map['AlgorithmStatus']
-        data.algorithm_status_details = (Parsers::AlgorithmStatusDetails.parse(map['AlgorithmStatusDetails']) unless map['AlgorithmStatusDetails'].nil?)
+        data.algorithm_status_details = (AlgorithmStatusDetails.parse(map['AlgorithmStatusDetails']) unless map['AlgorithmStatusDetails'].nil?)
         data.product_id = map['ProductId']
         data.certify_for_marketplace = map['CertifyForMarketplace']
         data
@@ -1338,8 +1338,8 @@ module AWS::SDK::SageMaker
     class AlgorithmStatusDetails
       def self.parse(map)
         data = Types::AlgorithmStatusDetails.new
-        data.validation_statuses = (Parsers::AlgorithmStatusItemList.parse(map['ValidationStatuses']) unless map['ValidationStatuses'].nil?)
-        data.image_scan_statuses = (Parsers::AlgorithmStatusItemList.parse(map['ImageScanStatuses']) unless map['ImageScanStatuses'].nil?)
+        data.validation_statuses = (AlgorithmStatusItemList.parse(map['ValidationStatuses']) unless map['ValidationStatuses'].nil?)
+        data.image_scan_statuses = (AlgorithmStatusItemList.parse(map['ImageScanStatuses']) unless map['ImageScanStatuses'].nil?)
         return data
       end
     end
@@ -1347,7 +1347,7 @@ module AWS::SDK::SageMaker
     class AlgorithmStatusItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::AlgorithmStatusItem.parse(value) unless value.nil?
+          AlgorithmStatusItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1366,7 +1366,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::AlgorithmValidationSpecification.new
         data.validation_role = map['ValidationRole']
-        data.validation_profiles = (Parsers::AlgorithmValidationProfiles.parse(map['ValidationProfiles']) unless map['ValidationProfiles'].nil?)
+        data.validation_profiles = (AlgorithmValidationProfiles.parse(map['ValidationProfiles']) unless map['ValidationProfiles'].nil?)
         return data
       end
     end
@@ -1374,7 +1374,7 @@ module AWS::SDK::SageMaker
     class AlgorithmValidationProfiles
       def self.parse(list)
         list.map do |value|
-          Parsers::AlgorithmValidationProfile.parse(value) unless value.nil?
+          AlgorithmValidationProfile.parse(value) unless value.nil?
         end
       end
     end
@@ -1383,8 +1383,8 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::AlgorithmValidationProfile.new
         data.profile_name = map['ProfileName']
-        data.training_job_definition = (Parsers::TrainingJobDefinition.parse(map['TrainingJobDefinition']) unless map['TrainingJobDefinition'].nil?)
-        data.transform_job_definition = (Parsers::TransformJobDefinition.parse(map['TransformJobDefinition']) unless map['TransformJobDefinition'].nil?)
+        data.training_job_definition = (TrainingJobDefinition.parse(map['TrainingJobDefinition']) unless map['TrainingJobDefinition'].nil?)
+        data.transform_job_definition = (TransformJobDefinition.parse(map['TransformJobDefinition']) unless map['TransformJobDefinition'].nil?)
         return data
       end
     end
@@ -1395,10 +1395,10 @@ module AWS::SDK::SageMaker
         data.max_concurrent_transforms = map['MaxConcurrentTransforms']
         data.max_payload_in_mb = map['MaxPayloadInMB']
         data.batch_strategy = map['BatchStrategy']
-        data.environment = (Parsers::TransformEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.transform_input = (Parsers::TransformInput.parse(map['TransformInput']) unless map['TransformInput'].nil?)
-        data.transform_output = (Parsers::TransformOutput.parse(map['TransformOutput']) unless map['TransformOutput'].nil?)
-        data.transform_resources = (Parsers::TransformResources.parse(map['TransformResources']) unless map['TransformResources'].nil?)
+        data.environment = (TransformEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.transform_input = (TransformInput.parse(map['TransformInput']) unless map['TransformInput'].nil?)
+        data.transform_output = (TransformOutput.parse(map['TransformOutput']) unless map['TransformOutput'].nil?)
+        data.transform_resources = (TransformResources.parse(map['TransformResources']) unless map['TransformResources'].nil?)
         return data
       end
     end
@@ -1427,7 +1427,7 @@ module AWS::SDK::SageMaker
     class TransformInput
       def self.parse(map)
         data = Types::TransformInput.new
-        data.data_source = (Parsers::TransformDataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.data_source = (TransformDataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
         data.content_type = map['ContentType']
         data.compression_type = map['CompressionType']
         data.split_type = map['SplitType']
@@ -1438,7 +1438,7 @@ module AWS::SDK::SageMaker
     class TransformDataSource
       def self.parse(map)
         data = Types::TransformDataSource.new
-        data.s3_data_source = (Parsers::TransformS3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
+        data.s3_data_source = (TransformS3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
         return data
       end
     end
@@ -1466,11 +1466,11 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::TrainingJobDefinition.new
         data.training_input_mode = map['TrainingInputMode']
-        data.hyper_parameters = (Parsers::HyperParameters.parse(map['HyperParameters']) unless map['HyperParameters'].nil?)
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
-        data.resource_config = (Parsers::ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
-        data.stopping_condition = (Parsers::StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.hyper_parameters = (HyperParameters.parse(map['HyperParameters']) unless map['HyperParameters'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.resource_config = (ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
+        data.stopping_condition = (StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         return data
       end
     end
@@ -1507,7 +1507,7 @@ module AWS::SDK::SageMaker
     class InputDataConfig
       def self.parse(list)
         list.map do |value|
-          Parsers::Channel.parse(value) unless value.nil?
+          Channel.parse(value) unless value.nil?
         end
       end
     end
@@ -1516,12 +1516,12 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::Channel.new
         data.channel_name = map['ChannelName']
-        data.data_source = (Parsers::DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.data_source = (DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
         data.content_type = map['ContentType']
         data.compression_type = map['CompressionType']
         data.record_wrapper_type = map['RecordWrapperType']
         data.input_mode = map['InputMode']
-        data.shuffle_config = (Parsers::ShuffleConfig.parse(map['ShuffleConfig']) unless map['ShuffleConfig'].nil?)
+        data.shuffle_config = (ShuffleConfig.parse(map['ShuffleConfig']) unless map['ShuffleConfig'].nil?)
         return data
       end
     end
@@ -1537,8 +1537,8 @@ module AWS::SDK::SageMaker
     class DataSource
       def self.parse(map)
         data = Types::DataSource.new
-        data.s3_data_source = (Parsers::S3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
-        data.file_system_data_source = (Parsers::FileSystemDataSource.parse(map['FileSystemDataSource']) unless map['FileSystemDataSource'].nil?)
+        data.s3_data_source = (S3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
+        data.file_system_data_source = (FileSystemDataSource.parse(map['FileSystemDataSource']) unless map['FileSystemDataSource'].nil?)
         return data
       end
     end
@@ -1560,7 +1560,7 @@ module AWS::SDK::SageMaker
         data.s3_data_type = map['S3DataType']
         data.s3_uri = map['S3Uri']
         data.s3_data_distribution_type = map['S3DataDistributionType']
-        data.attribute_names = (Parsers::AttributeNames.parse(map['AttributeNames']) unless map['AttributeNames'].nil?)
+        data.attribute_names = (AttributeNames.parse(map['AttributeNames']) unless map['AttributeNames'].nil?)
         return data
       end
     end
@@ -1588,12 +1588,12 @@ module AWS::SDK::SageMaker
         data = Types::TrainingSpecification.new
         data.training_image = map['TrainingImage']
         data.training_image_digest = map['TrainingImageDigest']
-        data.supported_hyper_parameters = (Parsers::HyperParameterSpecifications.parse(map['SupportedHyperParameters']) unless map['SupportedHyperParameters'].nil?)
-        data.supported_training_instance_types = (Parsers::TrainingInstanceTypes.parse(map['SupportedTrainingInstanceTypes']) unless map['SupportedTrainingInstanceTypes'].nil?)
+        data.supported_hyper_parameters = (HyperParameterSpecifications.parse(map['SupportedHyperParameters']) unless map['SupportedHyperParameters'].nil?)
+        data.supported_training_instance_types = (TrainingInstanceTypes.parse(map['SupportedTrainingInstanceTypes']) unless map['SupportedTrainingInstanceTypes'].nil?)
         data.supports_distributed_training = map['SupportsDistributedTraining']
-        data.metric_definitions = (Parsers::MetricDefinitionList.parse(map['MetricDefinitions']) unless map['MetricDefinitions'].nil?)
-        data.training_channels = (Parsers::ChannelSpecifications.parse(map['TrainingChannels']) unless map['TrainingChannels'].nil?)
-        data.supported_tuning_job_objective_metrics = (Parsers::HyperParameterTuningJobObjectives.parse(map['SupportedTuningJobObjectiveMetrics']) unless map['SupportedTuningJobObjectiveMetrics'].nil?)
+        data.metric_definitions = (MetricDefinitionList.parse(map['MetricDefinitions']) unless map['MetricDefinitions'].nil?)
+        data.training_channels = (ChannelSpecifications.parse(map['TrainingChannels']) unless map['TrainingChannels'].nil?)
+        data.supported_tuning_job_objective_metrics = (HyperParameterTuningJobObjectives.parse(map['SupportedTuningJobObjectiveMetrics']) unless map['SupportedTuningJobObjectiveMetrics'].nil?)
         return data
       end
     end
@@ -1601,7 +1601,7 @@ module AWS::SDK::SageMaker
     class HyperParameterTuningJobObjectives
       def self.parse(list)
         list.map do |value|
-          Parsers::HyperParameterTuningJobObjective.parse(value) unless value.nil?
+          HyperParameterTuningJobObjective.parse(value) unless value.nil?
         end
       end
     end
@@ -1618,7 +1618,7 @@ module AWS::SDK::SageMaker
     class ChannelSpecifications
       def self.parse(list)
         list.map do |value|
-          Parsers::ChannelSpecification.parse(value) unless value.nil?
+          ChannelSpecification.parse(value) unless value.nil?
         end
       end
     end
@@ -1629,9 +1629,9 @@ module AWS::SDK::SageMaker
         data.name = map['Name']
         data.description = map['Description']
         data.is_required = map['IsRequired']
-        data.supported_content_types = (Parsers::ContentTypes.parse(map['SupportedContentTypes']) unless map['SupportedContentTypes'].nil?)
-        data.supported_compression_types = (Parsers::CompressionTypes.parse(map['SupportedCompressionTypes']) unless map['SupportedCompressionTypes'].nil?)
-        data.supported_input_modes = (Parsers::InputModes.parse(map['SupportedInputModes']) unless map['SupportedInputModes'].nil?)
+        data.supported_content_types = (ContentTypes.parse(map['SupportedContentTypes']) unless map['SupportedContentTypes'].nil?)
+        data.supported_compression_types = (CompressionTypes.parse(map['SupportedCompressionTypes']) unless map['SupportedCompressionTypes'].nil?)
+        data.supported_input_modes = (InputModes.parse(map['SupportedInputModes']) unless map['SupportedInputModes'].nil?)
         return data
       end
     end
@@ -1655,7 +1655,7 @@ module AWS::SDK::SageMaker
     class MetricDefinitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDefinition.parse(value) unless value.nil?
+          MetricDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -1680,7 +1680,7 @@ module AWS::SDK::SageMaker
     class HyperParameterSpecifications
       def self.parse(list)
         list.map do |value|
-          Parsers::HyperParameterSpecification.parse(value) unless value.nil?
+          HyperParameterSpecification.parse(value) unless value.nil?
         end
       end
     end
@@ -1691,7 +1691,7 @@ module AWS::SDK::SageMaker
         data.name = map['Name']
         data.description = map['Description']
         data.type = map['Type']
-        data.range = (Parsers::ParameterRange.parse(map['Range']) unless map['Range'].nil?)
+        data.range = (ParameterRange.parse(map['Range']) unless map['Range'].nil?)
         data.is_tunable = map['IsTunable']
         data.is_required = map['IsRequired']
         data.default_value = map['DefaultValue']
@@ -1702,9 +1702,9 @@ module AWS::SDK::SageMaker
     class ParameterRange
       def self.parse(map)
         data = Types::ParameterRange.new
-        data.integer_parameter_range_specification = (Parsers::IntegerParameterRangeSpecification.parse(map['IntegerParameterRangeSpecification']) unless map['IntegerParameterRangeSpecification'].nil?)
-        data.continuous_parameter_range_specification = (Parsers::ContinuousParameterRangeSpecification.parse(map['ContinuousParameterRangeSpecification']) unless map['ContinuousParameterRangeSpecification'].nil?)
-        data.categorical_parameter_range_specification = (Parsers::CategoricalParameterRangeSpecification.parse(map['CategoricalParameterRangeSpecification']) unless map['CategoricalParameterRangeSpecification'].nil?)
+        data.integer_parameter_range_specification = (IntegerParameterRangeSpecification.parse(map['IntegerParameterRangeSpecification']) unless map['IntegerParameterRangeSpecification'].nil?)
+        data.continuous_parameter_range_specification = (ContinuousParameterRangeSpecification.parse(map['ContinuousParameterRangeSpecification']) unless map['ContinuousParameterRangeSpecification'].nil?)
+        data.categorical_parameter_range_specification = (CategoricalParameterRangeSpecification.parse(map['CategoricalParameterRangeSpecification']) unless map['CategoricalParameterRangeSpecification'].nil?)
         return data
       end
     end
@@ -1712,7 +1712,7 @@ module AWS::SDK::SageMaker
     class CategoricalParameterRangeSpecification
       def self.parse(map)
         data = Types::CategoricalParameterRangeSpecification.new
-        data.values = (Parsers::ParameterValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (ParameterValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1760,7 +1760,7 @@ module AWS::SDK::SageMaker
         data.last_user_activity_timestamp = Time.at(map['LastUserActivityTimestamp'].to_i) if map['LastUserActivityTimestamp']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.failure_reason = map['FailureReason']
-        data.resource_spec = (Parsers::ResourceSpec.parse(map['ResourceSpec']) unless map['ResourceSpec'].nil?)
+        data.resource_spec = (ResourceSpec.parse(map['ResourceSpec']) unless map['ResourceSpec'].nil?)
         data
       end
     end
@@ -1787,7 +1787,7 @@ module AWS::SDK::SageMaker
         data.app_image_config_name = map['AppImageConfigName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.kernel_gateway_image_config = (Parsers::KernelGatewayImageConfig.parse(map['KernelGatewayImageConfig']) unless map['KernelGatewayImageConfig'].nil?)
+        data.kernel_gateway_image_config = (KernelGatewayImageConfig.parse(map['KernelGatewayImageConfig']) unless map['KernelGatewayImageConfig'].nil?)
         data
       end
     end
@@ -1795,8 +1795,8 @@ module AWS::SDK::SageMaker
     class KernelGatewayImageConfig
       def self.parse(map)
         data = Types::KernelGatewayImageConfig.new
-        data.kernel_specs = (Parsers::KernelSpecs.parse(map['KernelSpecs']) unless map['KernelSpecs'].nil?)
-        data.file_system_config = (Parsers::FileSystemConfig.parse(map['FileSystemConfig']) unless map['FileSystemConfig'].nil?)
+        data.kernel_specs = (KernelSpecs.parse(map['KernelSpecs']) unless map['KernelSpecs'].nil?)
+        data.file_system_config = (FileSystemConfig.parse(map['FileSystemConfig']) unless map['FileSystemConfig'].nil?)
         return data
       end
     end
@@ -1814,7 +1814,7 @@ module AWS::SDK::SageMaker
     class KernelSpecs
       def self.parse(list)
         list.map do |value|
-          Parsers::KernelSpec.parse(value) unless value.nil?
+          KernelSpec.parse(value) unless value.nil?
         end
       end
     end
@@ -1837,14 +1837,14 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.artifact_name = map['ArtifactName']
         data.artifact_arn = map['ArtifactArn']
-        data.source = (Parsers::ArtifactSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ArtifactSource.parse(map['Source']) unless map['Source'].nil?)
         data.artifact_type = map['ArtifactType']
-        data.properties = (Parsers::LineageEntityParameters.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (LineageEntityParameters.parse(map['Properties']) unless map['Properties'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
         data.lineage_group_arn = map['LineageGroupArn']
         data
       end
@@ -1854,7 +1854,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ArtifactSource.new
         data.source_uri = map['SourceUri']
-        data.source_types = (Parsers::ArtifactSourceTypes.parse(map['SourceTypes']) unless map['SourceTypes'].nil?)
+        data.source_types = (ArtifactSourceTypes.parse(map['SourceTypes']) unless map['SourceTypes'].nil?)
         return data
       end
     end
@@ -1862,7 +1862,7 @@ module AWS::SDK::SageMaker
     class ArtifactSourceTypes
       def self.parse(list)
         list.map do |value|
-          Parsers::ArtifactSourceType.parse(value) unless value.nil?
+          ArtifactSourceType.parse(value) unless value.nil?
         end
       end
     end
@@ -1885,25 +1885,25 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.auto_ml_job_name = map['AutoMLJobName']
         data.auto_ml_job_arn = map['AutoMLJobArn']
-        data.input_data_config = (Parsers::AutoMLInputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::AutoMLOutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (AutoMLInputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (AutoMLOutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.role_arn = map['RoleArn']
-        data.auto_ml_job_objective = (Parsers::AutoMLJobObjective.parse(map['AutoMLJobObjective']) unless map['AutoMLJobObjective'].nil?)
+        data.auto_ml_job_objective = (AutoMLJobObjective.parse(map['AutoMLJobObjective']) unless map['AutoMLJobObjective'].nil?)
         data.problem_type = map['ProblemType']
-        data.auto_ml_job_config = (Parsers::AutoMLJobConfig.parse(map['AutoMLJobConfig']) unless map['AutoMLJobConfig'].nil?)
+        data.auto_ml_job_config = (AutoMLJobConfig.parse(map['AutoMLJobConfig']) unless map['AutoMLJobConfig'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.failure_reason = map['FailureReason']
-        data.partial_failure_reasons = (Parsers::AutoMLPartialFailureReasons.parse(map['PartialFailureReasons']) unless map['PartialFailureReasons'].nil?)
-        data.best_candidate = (Parsers::AutoMLCandidate.parse(map['BestCandidate']) unless map['BestCandidate'].nil?)
+        data.partial_failure_reasons = (AutoMLPartialFailureReasons.parse(map['PartialFailureReasons']) unless map['PartialFailureReasons'].nil?)
+        data.best_candidate = (AutoMLCandidate.parse(map['BestCandidate']) unless map['BestCandidate'].nil?)
         data.auto_ml_job_status = map['AutoMLJobStatus']
         data.auto_ml_job_secondary_status = map['AutoMLJobSecondaryStatus']
         data.generate_candidate_definitions_only = map['GenerateCandidateDefinitionsOnly']
-        data.auto_ml_job_artifacts = (Parsers::AutoMLJobArtifacts.parse(map['AutoMLJobArtifacts']) unless map['AutoMLJobArtifacts'].nil?)
-        data.resolved_attributes = (Parsers::ResolvedAttributes.parse(map['ResolvedAttributes']) unless map['ResolvedAttributes'].nil?)
-        data.model_deploy_config = (Parsers::ModelDeployConfig.parse(map['ModelDeployConfig']) unless map['ModelDeployConfig'].nil?)
-        data.model_deploy_result = (Parsers::ModelDeployResult.parse(map['ModelDeployResult']) unless map['ModelDeployResult'].nil?)
+        data.auto_ml_job_artifacts = (AutoMLJobArtifacts.parse(map['AutoMLJobArtifacts']) unless map['AutoMLJobArtifacts'].nil?)
+        data.resolved_attributes = (ResolvedAttributes.parse(map['ResolvedAttributes']) unless map['ResolvedAttributes'].nil?)
+        data.model_deploy_config = (ModelDeployConfig.parse(map['ModelDeployConfig']) unless map['ModelDeployConfig'].nil?)
+        data.model_deploy_result = (ModelDeployResult.parse(map['ModelDeployResult']) unless map['ModelDeployResult'].nil?)
         data
       end
     end
@@ -1928,9 +1928,9 @@ module AWS::SDK::SageMaker
     class ResolvedAttributes
       def self.parse(map)
         data = Types::ResolvedAttributes.new
-        data.auto_ml_job_objective = (Parsers::AutoMLJobObjective.parse(map['AutoMLJobObjective']) unless map['AutoMLJobObjective'].nil?)
+        data.auto_ml_job_objective = (AutoMLJobObjective.parse(map['AutoMLJobObjective']) unless map['AutoMLJobObjective'].nil?)
         data.problem_type = map['ProblemType']
-        data.completion_criteria = (Parsers::AutoMLJobCompletionCriteria.parse(map['CompletionCriteria']) unless map['CompletionCriteria'].nil?)
+        data.completion_criteria = (AutoMLJobCompletionCriteria.parse(map['CompletionCriteria']) unless map['CompletionCriteria'].nil?)
         return data
       end
     end
@@ -1966,16 +1966,16 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::AutoMLCandidate.new
         data.candidate_name = map['CandidateName']
-        data.final_auto_ml_job_objective_metric = (Parsers::FinalAutoMLJobObjectiveMetric.parse(map['FinalAutoMLJobObjectiveMetric']) unless map['FinalAutoMLJobObjectiveMetric'].nil?)
+        data.final_auto_ml_job_objective_metric = (FinalAutoMLJobObjectiveMetric.parse(map['FinalAutoMLJobObjectiveMetric']) unless map['FinalAutoMLJobObjectiveMetric'].nil?)
         data.objective_status = map['ObjectiveStatus']
-        data.candidate_steps = (Parsers::CandidateSteps.parse(map['CandidateSteps']) unless map['CandidateSteps'].nil?)
+        data.candidate_steps = (CandidateSteps.parse(map['CandidateSteps']) unless map['CandidateSteps'].nil?)
         data.candidate_status = map['CandidateStatus']
-        data.inference_containers = (Parsers::AutoMLContainerDefinitions.parse(map['InferenceContainers']) unless map['InferenceContainers'].nil?)
+        data.inference_containers = (AutoMLContainerDefinitions.parse(map['InferenceContainers']) unless map['InferenceContainers'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.failure_reason = map['FailureReason']
-        data.candidate_properties = (Parsers::CandidateProperties.parse(map['CandidateProperties']) unless map['CandidateProperties'].nil?)
+        data.candidate_properties = (CandidateProperties.parse(map['CandidateProperties']) unless map['CandidateProperties'].nil?)
         return data
       end
     end
@@ -1983,8 +1983,8 @@ module AWS::SDK::SageMaker
     class CandidateProperties
       def self.parse(map)
         data = Types::CandidateProperties.new
-        data.candidate_artifact_locations = (Parsers::CandidateArtifactLocations.parse(map['CandidateArtifactLocations']) unless map['CandidateArtifactLocations'].nil?)
-        data.candidate_metrics = (Parsers::MetricDataList.parse(map['CandidateMetrics']) unless map['CandidateMetrics'].nil?)
+        data.candidate_artifact_locations = (CandidateArtifactLocations.parse(map['CandidateArtifactLocations']) unless map['CandidateArtifactLocations'].nil?)
+        data.candidate_metrics = (MetricDataList.parse(map['CandidateMetrics']) unless map['CandidateMetrics'].nil?)
         return data
       end
     end
@@ -1992,7 +1992,7 @@ module AWS::SDK::SageMaker
     class MetricDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDatum.parse(value) unless value.nil?
+          MetricDatum.parse(value) unless value.nil?
         end
       end
     end
@@ -2020,7 +2020,7 @@ module AWS::SDK::SageMaker
     class AutoMLContainerDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoMLContainerDefinition.parse(value) unless value.nil?
+          AutoMLContainerDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -2030,7 +2030,7 @@ module AWS::SDK::SageMaker
         data = Types::AutoMLContainerDefinition.new
         data.image = map['Image']
         data.model_data_url = map['ModelDataUrl']
-        data.environment = (Parsers::EnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (EnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
         return data
       end
     end
@@ -2038,7 +2038,7 @@ module AWS::SDK::SageMaker
     class CandidateSteps
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoMLCandidateStep.parse(value) unless value.nil?
+          AutoMLCandidateStep.parse(value) unless value.nil?
         end
       end
     end
@@ -2066,7 +2066,7 @@ module AWS::SDK::SageMaker
     class AutoMLPartialFailureReasons
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoMLPartialFailureReason.parse(value) unless value.nil?
+          AutoMLPartialFailureReason.parse(value) unless value.nil?
         end
       end
     end
@@ -2082,10 +2082,10 @@ module AWS::SDK::SageMaker
     class AutoMLJobConfig
       def self.parse(map)
         data = Types::AutoMLJobConfig.new
-        data.completion_criteria = (Parsers::AutoMLJobCompletionCriteria.parse(map['CompletionCriteria']) unless map['CompletionCriteria'].nil?)
-        data.security_config = (Parsers::AutoMLSecurityConfig.parse(map['SecurityConfig']) unless map['SecurityConfig'].nil?)
-        data.data_split_config = (Parsers::AutoMLDataSplitConfig.parse(map['DataSplitConfig']) unless map['DataSplitConfig'].nil?)
-        data.candidate_generation_config = (Parsers::AutoMLCandidateGenerationConfig.parse(map['CandidateGenerationConfig']) unless map['CandidateGenerationConfig'].nil?)
+        data.completion_criteria = (AutoMLJobCompletionCriteria.parse(map['CompletionCriteria']) unless map['CompletionCriteria'].nil?)
+        data.security_config = (AutoMLSecurityConfig.parse(map['SecurityConfig']) unless map['SecurityConfig'].nil?)
+        data.data_split_config = (AutoMLDataSplitConfig.parse(map['DataSplitConfig']) unless map['DataSplitConfig'].nil?)
+        data.candidate_generation_config = (AutoMLCandidateGenerationConfig.parse(map['CandidateGenerationConfig']) unless map['CandidateGenerationConfig'].nil?)
         return data
       end
     end
@@ -2111,7 +2111,7 @@ module AWS::SDK::SageMaker
         data = Types::AutoMLSecurityConfig.new
         data.volume_kms_key_id = map['VolumeKmsKeyId']
         data.enable_inter_container_traffic_encryption = map['EnableInterContainerTrafficEncryption']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -2119,8 +2119,8 @@ module AWS::SDK::SageMaker
     class VpcConfig
       def self.parse(map)
         data = Types::VpcConfig.new
-        data.security_group_ids = (Parsers::VpcSecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.subnets = (Parsers::Subnets.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_group_ids = (VpcSecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnets = (Subnets.parse(map['Subnets']) unless map['Subnets'].nil?)
         return data
       end
     end
@@ -2153,7 +2153,7 @@ module AWS::SDK::SageMaker
     class AutoMLInputDataConfig
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoMLChannel.parse(value) unless value.nil?
+          AutoMLChannel.parse(value) unless value.nil?
         end
       end
     end
@@ -2161,7 +2161,7 @@ module AWS::SDK::SageMaker
     class AutoMLChannel
       def self.parse(map)
         data = Types::AutoMLChannel.new
-        data.data_source = (Parsers::AutoMLDataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.data_source = (AutoMLDataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
         data.compression_type = map['CompressionType']
         data.target_attribute_name = map['TargetAttributeName']
         data.content_type = map['ContentType']
@@ -2173,7 +2173,7 @@ module AWS::SDK::SageMaker
     class AutoMLDataSource
       def self.parse(map)
         data = Types::AutoMLDataSource.new
-        data.s3_data_source = (Parsers::AutoMLS3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
+        data.s3_data_source = (AutoMLS3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
         return data
       end
     end
@@ -2198,7 +2198,7 @@ module AWS::SDK::SageMaker
         data.code_repository_arn = map['CodeRepositoryArn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.git_config = (Parsers::GitConfig.parse(map['GitConfig']) unless map['GitConfig'].nil?)
+        data.git_config = (GitConfig.parse(map['GitConfig']) unless map['GitConfig'].nil?)
         data
       end
     end
@@ -2225,18 +2225,18 @@ module AWS::SDK::SageMaker
         data.compilation_job_status = map['CompilationJobStatus']
         data.compilation_start_time = Time.at(map['CompilationStartTime'].to_i) if map['CompilationStartTime']
         data.compilation_end_time = Time.at(map['CompilationEndTime'].to_i) if map['CompilationEndTime']
-        data.stopping_condition = (Parsers::StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.stopping_condition = (StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data.inference_image = map['InferenceImage']
         data.model_package_version_arn = map['ModelPackageVersionArn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.failure_reason = map['FailureReason']
-        data.model_artifacts = (Parsers::ModelArtifacts.parse(map['ModelArtifacts']) unless map['ModelArtifacts'].nil?)
-        data.model_digests = (Parsers::ModelDigests.parse(map['ModelDigests']) unless map['ModelDigests'].nil?)
+        data.model_artifacts = (ModelArtifacts.parse(map['ModelArtifacts']) unless map['ModelArtifacts'].nil?)
+        data.model_digests = (ModelDigests.parse(map['ModelDigests']) unless map['ModelDigests'].nil?)
         data.role_arn = map['RoleArn']
-        data.input_config = (Parsers::InputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
-        data.output_config = (Parsers::OutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
-        data.vpc_config = (Parsers::NeoVpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.input_config = (InputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
+        data.output_config = (OutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.vpc_config = (NeoVpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         data
       end
     end
@@ -2244,8 +2244,8 @@ module AWS::SDK::SageMaker
     class NeoVpcConfig
       def self.parse(map)
         data = Types::NeoVpcConfig.new
-        data.security_group_ids = (Parsers::NeoVpcSecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.subnets = (Parsers::NeoVpcSubnets.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_group_ids = (NeoVpcSecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnets = (NeoVpcSubnets.parse(map['Subnets']) unless map['Subnets'].nil?)
         return data
       end
     end
@@ -2271,7 +2271,7 @@ module AWS::SDK::SageMaker
         data = Types::OutputConfig.new
         data.s3_output_location = map['S3OutputLocation']
         data.target_device = map['TargetDevice']
-        data.target_platform = (Parsers::TargetPlatform.parse(map['TargetPlatform']) unless map['TargetPlatform'].nil?)
+        data.target_platform = (TargetPlatform.parse(map['TargetPlatform']) unless map['TargetPlatform'].nil?)
         data.compiler_options = map['CompilerOptions']
         data.kms_key_id = map['KmsKeyId']
         return data
@@ -2324,14 +2324,14 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.context_name = map['ContextName']
         data.context_arn = map['ContextArn']
-        data.source = (Parsers::ContextSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ContextSource.parse(map['Source']) unless map['Source'].nil?)
         data.context_type = map['ContextType']
         data.description = map['Description']
-        data.properties = (Parsers::LineageEntityParameters.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (LineageEntityParameters.parse(map['Properties']) unless map['Properties'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         data.lineage_group_arn = map['LineageGroupArn']
         data
       end
@@ -2357,14 +2357,14 @@ module AWS::SDK::SageMaker
         data.job_definition_arn = map['JobDefinitionArn']
         data.job_definition_name = map['JobDefinitionName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.data_quality_baseline_config = (Parsers::DataQualityBaselineConfig.parse(map['DataQualityBaselineConfig']) unless map['DataQualityBaselineConfig'].nil?)
-        data.data_quality_app_specification = (Parsers::DataQualityAppSpecification.parse(map['DataQualityAppSpecification']) unless map['DataQualityAppSpecification'].nil?)
-        data.data_quality_job_input = (Parsers::DataQualityJobInput.parse(map['DataQualityJobInput']) unless map['DataQualityJobInput'].nil?)
-        data.data_quality_job_output_config = (Parsers::MonitoringOutputConfig.parse(map['DataQualityJobOutputConfig']) unless map['DataQualityJobOutputConfig'].nil?)
-        data.job_resources = (Parsers::MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
-        data.network_config = (Parsers::MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
+        data.data_quality_baseline_config = (DataQualityBaselineConfig.parse(map['DataQualityBaselineConfig']) unless map['DataQualityBaselineConfig'].nil?)
+        data.data_quality_app_specification = (DataQualityAppSpecification.parse(map['DataQualityAppSpecification']) unless map['DataQualityAppSpecification'].nil?)
+        data.data_quality_job_input = (DataQualityJobInput.parse(map['DataQualityJobInput']) unless map['DataQualityJobInput'].nil?)
+        data.data_quality_job_output_config = (MonitoringOutputConfig.parse(map['DataQualityJobOutputConfig']) unless map['DataQualityJobOutputConfig'].nil?)
+        data.job_resources = (MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
+        data.network_config = (MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
         data.role_arn = map['RoleArn']
-        data.stopping_condition = (Parsers::MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.stopping_condition = (MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data
       end
     end
@@ -2382,7 +2382,7 @@ module AWS::SDK::SageMaker
         data = Types::MonitoringNetworkConfig.new
         data.enable_inter_container_traffic_encryption = map['EnableInterContainerTrafficEncryption']
         data.enable_network_isolation = map['EnableNetworkIsolation']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -2390,7 +2390,7 @@ module AWS::SDK::SageMaker
     class MonitoringResources
       def self.parse(map)
         data = Types::MonitoringResources.new
-        data.cluster_config = (Parsers::MonitoringClusterConfig.parse(map['ClusterConfig']) unless map['ClusterConfig'].nil?)
+        data.cluster_config = (MonitoringClusterConfig.parse(map['ClusterConfig']) unless map['ClusterConfig'].nil?)
         return data
       end
     end
@@ -2409,7 +2409,7 @@ module AWS::SDK::SageMaker
     class MonitoringOutputConfig
       def self.parse(map)
         data = Types::MonitoringOutputConfig.new
-        data.monitoring_outputs = (Parsers::MonitoringOutputs.parse(map['MonitoringOutputs']) unless map['MonitoringOutputs'].nil?)
+        data.monitoring_outputs = (MonitoringOutputs.parse(map['MonitoringOutputs']) unless map['MonitoringOutputs'].nil?)
         data.kms_key_id = map['KmsKeyId']
         return data
       end
@@ -2418,7 +2418,7 @@ module AWS::SDK::SageMaker
     class MonitoringOutputs
       def self.parse(list)
         list.map do |value|
-          Parsers::MonitoringOutput.parse(value) unless value.nil?
+          MonitoringOutput.parse(value) unless value.nil?
         end
       end
     end
@@ -2426,7 +2426,7 @@ module AWS::SDK::SageMaker
     class MonitoringOutput
       def self.parse(map)
         data = Types::MonitoringOutput.new
-        data.s3_output = (Parsers::MonitoringS3Output.parse(map['S3Output']) unless map['S3Output'].nil?)
+        data.s3_output = (MonitoringS3Output.parse(map['S3Output']) unless map['S3Output'].nil?)
         return data
       end
     end
@@ -2444,7 +2444,7 @@ module AWS::SDK::SageMaker
     class DataQualityJobInput
       def self.parse(map)
         data = Types::DataQualityJobInput.new
-        data.endpoint_input = (Parsers::EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
+        data.endpoint_input = (EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
         return data
       end
     end
@@ -2470,11 +2470,11 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::DataQualityAppSpecification.new
         data.image_uri = map['ImageUri']
-        data.container_entrypoint = (Parsers::ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
-        data.container_arguments = (Parsers::MonitoringContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
+        data.container_entrypoint = (ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
+        data.container_arguments = (MonitoringContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
         data.record_preprocessor_source_uri = map['RecordPreprocessorSourceUri']
         data.post_analytics_processor_source_uri = map['PostAnalyticsProcessorSourceUri']
-        data.environment = (Parsers::MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
         return data
       end
     end
@@ -2509,8 +2509,8 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::DataQualityBaselineConfig.new
         data.baselining_job_name = map['BaseliningJobName']
-        data.constraints_resource = (Parsers::MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
-        data.statistics_resource = (Parsers::MonitoringStatisticsResource.parse(map['StatisticsResource']) unless map['StatisticsResource'].nil?)
+        data.constraints_resource = (MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
+        data.statistics_resource = (MonitoringStatisticsResource.parse(map['StatisticsResource']) unless map['StatisticsResource'].nil?)
         return data
       end
     end
@@ -2545,7 +2545,7 @@ module AWS::SDK::SageMaker
         data.iot_thing_name = map['IotThingName']
         data.registration_time = Time.at(map['RegistrationTime'].to_i) if map['RegistrationTime']
         data.latest_heartbeat = Time.at(map['LatestHeartbeat'].to_i) if map['LatestHeartbeat']
-        data.models = (Parsers::EdgeModels.parse(map['Models']) unless map['Models'].nil?)
+        data.models = (EdgeModels.parse(map['Models']) unless map['Models'].nil?)
         data.max_models = map['MaxModels']
         data.next_token = map['NextToken']
         data.agent_version = map['AgentVersion']
@@ -2556,7 +2556,7 @@ module AWS::SDK::SageMaker
     class EdgeModels
       def self.parse(list)
         list.map do |value|
-          Parsers::EdgeModel.parse(value) unless value.nil?
+          EdgeModel.parse(value) unless value.nil?
         end
       end
     end
@@ -2581,7 +2581,7 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.device_fleet_name = map['DeviceFleetName']
         data.device_fleet_arn = map['DeviceFleetArn']
-        data.output_config = (Parsers::EdgeOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.output_config = (EdgeOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
         data.description = map['Description']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
@@ -2619,14 +2619,14 @@ module AWS::SDK::SageMaker
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.failure_reason = map['FailureReason']
         data.auth_mode = map['AuthMode']
-        data.default_user_settings = (Parsers::UserSettings.parse(map['DefaultUserSettings']) unless map['DefaultUserSettings'].nil?)
+        data.default_user_settings = (UserSettings.parse(map['DefaultUserSettings']) unless map['DefaultUserSettings'].nil?)
         data.app_network_access_type = map['AppNetworkAccessType']
         data.home_efs_file_system_kms_key_id = map['HomeEfsFileSystemKmsKeyId']
-        data.subnet_ids = (Parsers::Subnets.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (Subnets.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.url = map['Url']
         data.vpc_id = map['VpcId']
         data.kms_key_id = map['KmsKeyId']
-        data.domain_settings = (Parsers::DomainSettings.parse(map['DomainSettings']) unless map['DomainSettings'].nil?)
+        data.domain_settings = (DomainSettings.parse(map['DomainSettings']) unless map['DomainSettings'].nil?)
         data.app_security_group_management = map['AppSecurityGroupManagement']
         data.security_group_id_for_domain_boundary = map['SecurityGroupIdForDomainBoundary']
         data
@@ -2636,8 +2636,8 @@ module AWS::SDK::SageMaker
     class DomainSettings
       def self.parse(map)
         data = Types::DomainSettings.new
-        data.security_group_ids = (Parsers::DomainSecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.r_studio_server_pro_domain_settings = (Parsers::RStudioServerProDomainSettings.parse(map['RStudioServerProDomainSettings']) unless map['RStudioServerProDomainSettings'].nil?)
+        data.security_group_ids = (DomainSecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.r_studio_server_pro_domain_settings = (RStudioServerProDomainSettings.parse(map['RStudioServerProDomainSettings']) unless map['RStudioServerProDomainSettings'].nil?)
         return data
       end
     end
@@ -2648,7 +2648,7 @@ module AWS::SDK::SageMaker
         data.domain_execution_role_arn = map['DomainExecutionRoleArn']
         data.r_studio_connect_url = map['RStudioConnectUrl']
         data.r_studio_package_manager_url = map['RStudioPackageManagerUrl']
-        data.default_resource_spec = (Parsers::ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
+        data.default_resource_spec = (ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
         return data
       end
     end
@@ -2665,13 +2665,13 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::UserSettings.new
         data.execution_role = map['ExecutionRole']
-        data.security_groups = (Parsers::SecurityGroupIds.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
-        data.sharing_settings = (Parsers::SharingSettings.parse(map['SharingSettings']) unless map['SharingSettings'].nil?)
-        data.jupyter_server_app_settings = (Parsers::JupyterServerAppSettings.parse(map['JupyterServerAppSettings']) unless map['JupyterServerAppSettings'].nil?)
-        data.kernel_gateway_app_settings = (Parsers::KernelGatewayAppSettings.parse(map['KernelGatewayAppSettings']) unless map['KernelGatewayAppSettings'].nil?)
-        data.tensor_board_app_settings = (Parsers::TensorBoardAppSettings.parse(map['TensorBoardAppSettings']) unless map['TensorBoardAppSettings'].nil?)
-        data.r_studio_server_pro_app_settings = (Parsers::RStudioServerProAppSettings.parse(map['RStudioServerProAppSettings']) unless map['RStudioServerProAppSettings'].nil?)
-        data.r_session_app_settings = (Parsers::RSessionAppSettings.parse(map['RSessionAppSettings']) unless map['RSessionAppSettings'].nil?)
+        data.security_groups = (SecurityGroupIds.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.sharing_settings = (SharingSettings.parse(map['SharingSettings']) unless map['SharingSettings'].nil?)
+        data.jupyter_server_app_settings = (JupyterServerAppSettings.parse(map['JupyterServerAppSettings']) unless map['JupyterServerAppSettings'].nil?)
+        data.kernel_gateway_app_settings = (KernelGatewayAppSettings.parse(map['KernelGatewayAppSettings']) unless map['KernelGatewayAppSettings'].nil?)
+        data.tensor_board_app_settings = (TensorBoardAppSettings.parse(map['TensorBoardAppSettings']) unless map['TensorBoardAppSettings'].nil?)
+        data.r_studio_server_pro_app_settings = (RStudioServerProAppSettings.parse(map['RStudioServerProAppSettings']) unless map['RStudioServerProAppSettings'].nil?)
+        data.r_session_app_settings = (RSessionAppSettings.parse(map['RSessionAppSettings']) unless map['RSessionAppSettings'].nil?)
         return data
       end
     end
@@ -2679,8 +2679,8 @@ module AWS::SDK::SageMaker
     class RSessionAppSettings
       def self.parse(map)
         data = Types::RSessionAppSettings.new
-        data.default_resource_spec = (Parsers::ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
-        data.custom_images = (Parsers::CustomImages.parse(map['CustomImages']) unless map['CustomImages'].nil?)
+        data.default_resource_spec = (ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
+        data.custom_images = (CustomImages.parse(map['CustomImages']) unless map['CustomImages'].nil?)
         return data
       end
     end
@@ -2688,7 +2688,7 @@ module AWS::SDK::SageMaker
     class CustomImages
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomImage.parse(value) unless value.nil?
+          CustomImage.parse(value) unless value.nil?
         end
       end
     end
@@ -2715,7 +2715,7 @@ module AWS::SDK::SageMaker
     class TensorBoardAppSettings
       def self.parse(map)
         data = Types::TensorBoardAppSettings.new
-        data.default_resource_spec = (Parsers::ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
+        data.default_resource_spec = (ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
         return data
       end
     end
@@ -2723,9 +2723,9 @@ module AWS::SDK::SageMaker
     class KernelGatewayAppSettings
       def self.parse(map)
         data = Types::KernelGatewayAppSettings.new
-        data.default_resource_spec = (Parsers::ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
-        data.custom_images = (Parsers::CustomImages.parse(map['CustomImages']) unless map['CustomImages'].nil?)
-        data.lifecycle_config_arns = (Parsers::LifecycleConfigArns.parse(map['LifecycleConfigArns']) unless map['LifecycleConfigArns'].nil?)
+        data.default_resource_spec = (ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
+        data.custom_images = (CustomImages.parse(map['CustomImages']) unless map['CustomImages'].nil?)
+        data.lifecycle_config_arns = (LifecycleConfigArns.parse(map['LifecycleConfigArns']) unless map['LifecycleConfigArns'].nil?)
         return data
       end
     end
@@ -2741,8 +2741,8 @@ module AWS::SDK::SageMaker
     class JupyterServerAppSettings
       def self.parse(map)
         data = Types::JupyterServerAppSettings.new
-        data.default_resource_spec = (Parsers::ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
-        data.lifecycle_config_arns = (Parsers::LifecycleConfigArns.parse(map['LifecycleConfigArns']) unless map['LifecycleConfigArns'].nil?)
+        data.default_resource_spec = (ResourceSpec.parse(map['DefaultResourceSpec']) unless map['DefaultResourceSpec'].nil?)
+        data.lifecycle_config_arns = (LifecycleConfigArns.parse(map['LifecycleConfigArns']) unless map['LifecycleConfigArns'].nil?)
         return data
       end
     end
@@ -2778,7 +2778,7 @@ module AWS::SDK::SageMaker
         data.model_name = map['ModelName']
         data.model_version = map['ModelVersion']
         data.role_arn = map['RoleArn']
-        data.output_config = (Parsers::EdgeOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.output_config = (EdgeOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
         data.resource_key = map['ResourceKey']
         data.edge_packaging_job_status = map['EdgePackagingJobStatus']
         data.edge_packaging_job_status_message = map['EdgePackagingJobStatusMessage']
@@ -2786,7 +2786,7 @@ module AWS::SDK::SageMaker
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.model_artifact = map['ModelArtifact']
         data.model_signature = map['ModelSignature']
-        data.preset_deployment_output = (Parsers::EdgePresetDeploymentOutput.parse(map['PresetDeploymentOutput']) unless map['PresetDeploymentOutput'].nil?)
+        data.preset_deployment_output = (EdgePresetDeploymentOutput.parse(map['PresetDeploymentOutput']) unless map['PresetDeploymentOutput'].nil?)
         data
       end
     end
@@ -2812,15 +2812,15 @@ module AWS::SDK::SageMaker
         data.endpoint_name = map['EndpointName']
         data.endpoint_arn = map['EndpointArn']
         data.endpoint_config_name = map['EndpointConfigName']
-        data.production_variants = (Parsers::ProductionVariantSummaryList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
-        data.data_capture_config = (Parsers::DataCaptureConfigSummary.parse(map['DataCaptureConfig']) unless map['DataCaptureConfig'].nil?)
+        data.production_variants = (ProductionVariantSummaryList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
+        data.data_capture_config = (DataCaptureConfigSummary.parse(map['DataCaptureConfig']) unless map['DataCaptureConfig'].nil?)
         data.endpoint_status = map['EndpointStatus']
         data.failure_reason = map['FailureReason']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_deployment_config = (Parsers::DeploymentConfig.parse(map['LastDeploymentConfig']) unless map['LastDeploymentConfig'].nil?)
-        data.async_inference_config = (Parsers::AsyncInferenceConfig.parse(map['AsyncInferenceConfig']) unless map['AsyncInferenceConfig'].nil?)
-        data.pending_deployment_summary = (Parsers::PendingDeploymentSummary.parse(map['PendingDeploymentSummary']) unless map['PendingDeploymentSummary'].nil?)
+        data.last_deployment_config = (DeploymentConfig.parse(map['LastDeploymentConfig']) unless map['LastDeploymentConfig'].nil?)
+        data.async_inference_config = (AsyncInferenceConfig.parse(map['AsyncInferenceConfig']) unless map['AsyncInferenceConfig'].nil?)
+        data.pending_deployment_summary = (PendingDeploymentSummary.parse(map['PendingDeploymentSummary']) unless map['PendingDeploymentSummary'].nil?)
         data
       end
     end
@@ -2829,7 +2829,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::PendingDeploymentSummary.new
         data.endpoint_config_name = map['EndpointConfigName']
-        data.production_variants = (Parsers::PendingProductionVariantSummaryList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
+        data.production_variants = (PendingProductionVariantSummaryList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         return data
       end
@@ -2838,7 +2838,7 @@ module AWS::SDK::SageMaker
     class PendingProductionVariantSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PendingProductionVariantSummary.parse(value) unless value.nil?
+          PendingProductionVariantSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2847,16 +2847,16 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::PendingProductionVariantSummary.new
         data.variant_name = map['VariantName']
-        data.deployed_images = (Parsers::DeployedImages.parse(map['DeployedImages']) unless map['DeployedImages'].nil?)
+        data.deployed_images = (DeployedImages.parse(map['DeployedImages']) unless map['DeployedImages'].nil?)
         data.current_weight = Hearth::NumberHelper.deserialize(map['CurrentWeight'])
         data.desired_weight = Hearth::NumberHelper.deserialize(map['DesiredWeight'])
         data.current_instance_count = map['CurrentInstanceCount']
         data.desired_instance_count = map['DesiredInstanceCount']
         data.instance_type = map['InstanceType']
         data.accelerator_type = map['AcceleratorType']
-        data.variant_status = (Parsers::ProductionVariantStatusList.parse(map['VariantStatus']) unless map['VariantStatus'].nil?)
-        data.current_serverless_config = (Parsers::ProductionVariantServerlessConfig.parse(map['CurrentServerlessConfig']) unless map['CurrentServerlessConfig'].nil?)
-        data.desired_serverless_config = (Parsers::ProductionVariantServerlessConfig.parse(map['DesiredServerlessConfig']) unless map['DesiredServerlessConfig'].nil?)
+        data.variant_status = (ProductionVariantStatusList.parse(map['VariantStatus']) unless map['VariantStatus'].nil?)
+        data.current_serverless_config = (ProductionVariantServerlessConfig.parse(map['CurrentServerlessConfig']) unless map['CurrentServerlessConfig'].nil?)
+        data.desired_serverless_config = (ProductionVariantServerlessConfig.parse(map['DesiredServerlessConfig']) unless map['DesiredServerlessConfig'].nil?)
         return data
       end
     end
@@ -2873,7 +2873,7 @@ module AWS::SDK::SageMaker
     class ProductionVariantStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductionVariantStatus.parse(value) unless value.nil?
+          ProductionVariantStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -2891,7 +2891,7 @@ module AWS::SDK::SageMaker
     class DeployedImages
       def self.parse(list)
         list.map do |value|
-          Parsers::DeployedImage.parse(value) unless value.nil?
+          DeployedImage.parse(value) unless value.nil?
         end
       end
     end
@@ -2909,8 +2909,8 @@ module AWS::SDK::SageMaker
     class AsyncInferenceConfig
       def self.parse(map)
         data = Types::AsyncInferenceConfig.new
-        data.client_config = (Parsers::AsyncInferenceClientConfig.parse(map['ClientConfig']) unless map['ClientConfig'].nil?)
-        data.output_config = (Parsers::AsyncInferenceOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.client_config = (AsyncInferenceClientConfig.parse(map['ClientConfig']) unless map['ClientConfig'].nil?)
+        data.output_config = (AsyncInferenceOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
         return data
       end
     end
@@ -2920,7 +2920,7 @@ module AWS::SDK::SageMaker
         data = Types::AsyncInferenceOutputConfig.new
         data.kms_key_id = map['KmsKeyId']
         data.s3_output_path = map['S3OutputPath']
-        data.notification_config = (Parsers::AsyncInferenceNotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
+        data.notification_config = (AsyncInferenceNotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
         return data
       end
     end
@@ -2945,8 +2945,8 @@ module AWS::SDK::SageMaker
     class DeploymentConfig
       def self.parse(map)
         data = Types::DeploymentConfig.new
-        data.blue_green_update_policy = (Parsers::BlueGreenUpdatePolicy.parse(map['BlueGreenUpdatePolicy']) unless map['BlueGreenUpdatePolicy'].nil?)
-        data.auto_rollback_configuration = (Parsers::AutoRollbackConfig.parse(map['AutoRollbackConfiguration']) unless map['AutoRollbackConfiguration'].nil?)
+        data.blue_green_update_policy = (BlueGreenUpdatePolicy.parse(map['BlueGreenUpdatePolicy']) unless map['BlueGreenUpdatePolicy'].nil?)
+        data.auto_rollback_configuration = (AutoRollbackConfig.parse(map['AutoRollbackConfiguration']) unless map['AutoRollbackConfiguration'].nil?)
         return data
       end
     end
@@ -2954,7 +2954,7 @@ module AWS::SDK::SageMaker
     class AutoRollbackConfig
       def self.parse(map)
         data = Types::AutoRollbackConfig.new
-        data.alarms = (Parsers::AlarmList.parse(map['Alarms']) unless map['Alarms'].nil?)
+        data.alarms = (AlarmList.parse(map['Alarms']) unless map['Alarms'].nil?)
         return data
       end
     end
@@ -2962,7 +2962,7 @@ module AWS::SDK::SageMaker
     class AlarmList
       def self.parse(list)
         list.map do |value|
-          Parsers::Alarm.parse(value) unless value.nil?
+          Alarm.parse(value) unless value.nil?
         end
       end
     end
@@ -2978,7 +2978,7 @@ module AWS::SDK::SageMaker
     class BlueGreenUpdatePolicy
       def self.parse(map)
         data = Types::BlueGreenUpdatePolicy.new
-        data.traffic_routing_configuration = (Parsers::TrafficRoutingConfig.parse(map['TrafficRoutingConfiguration']) unless map['TrafficRoutingConfiguration'].nil?)
+        data.traffic_routing_configuration = (TrafficRoutingConfig.parse(map['TrafficRoutingConfiguration']) unless map['TrafficRoutingConfiguration'].nil?)
         data.termination_wait_in_seconds = map['TerminationWaitInSeconds']
         data.maximum_execution_timeout_in_seconds = map['MaximumExecutionTimeoutInSeconds']
         return data
@@ -2990,8 +2990,8 @@ module AWS::SDK::SageMaker
         data = Types::TrafficRoutingConfig.new
         data.type = map['Type']
         data.wait_interval_in_seconds = map['WaitIntervalInSeconds']
-        data.canary_size = (Parsers::CapacitySize.parse(map['CanarySize']) unless map['CanarySize'].nil?)
-        data.linear_step_size = (Parsers::CapacitySize.parse(map['LinearStepSize']) unless map['LinearStepSize'].nil?)
+        data.canary_size = (CapacitySize.parse(map['CanarySize']) unless map['CanarySize'].nil?)
+        data.linear_step_size = (CapacitySize.parse(map['LinearStepSize']) unless map['LinearStepSize'].nil?)
         return data
       end
     end
@@ -3020,7 +3020,7 @@ module AWS::SDK::SageMaker
     class ProductionVariantSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductionVariantSummary.parse(value) unless value.nil?
+          ProductionVariantSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -3029,14 +3029,14 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ProductionVariantSummary.new
         data.variant_name = map['VariantName']
-        data.deployed_images = (Parsers::DeployedImages.parse(map['DeployedImages']) unless map['DeployedImages'].nil?)
+        data.deployed_images = (DeployedImages.parse(map['DeployedImages']) unless map['DeployedImages'].nil?)
         data.current_weight = Hearth::NumberHelper.deserialize(map['CurrentWeight'])
         data.desired_weight = Hearth::NumberHelper.deserialize(map['DesiredWeight'])
         data.current_instance_count = map['CurrentInstanceCount']
         data.desired_instance_count = map['DesiredInstanceCount']
-        data.variant_status = (Parsers::ProductionVariantStatusList.parse(map['VariantStatus']) unless map['VariantStatus'].nil?)
-        data.current_serverless_config = (Parsers::ProductionVariantServerlessConfig.parse(map['CurrentServerlessConfig']) unless map['CurrentServerlessConfig'].nil?)
-        data.desired_serverless_config = (Parsers::ProductionVariantServerlessConfig.parse(map['DesiredServerlessConfig']) unless map['DesiredServerlessConfig'].nil?)
+        data.variant_status = (ProductionVariantStatusList.parse(map['VariantStatus']) unless map['VariantStatus'].nil?)
+        data.current_serverless_config = (ProductionVariantServerlessConfig.parse(map['CurrentServerlessConfig']) unless map['CurrentServerlessConfig'].nil?)
+        data.desired_serverless_config = (ProductionVariantServerlessConfig.parse(map['DesiredServerlessConfig']) unless map['DesiredServerlessConfig'].nil?)
         return data
       end
     end
@@ -3050,11 +3050,11 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.endpoint_config_name = map['EndpointConfigName']
         data.endpoint_config_arn = map['EndpointConfigArn']
-        data.production_variants = (Parsers::ProductionVariantList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
-        data.data_capture_config = (Parsers::DataCaptureConfig.parse(map['DataCaptureConfig']) unless map['DataCaptureConfig'].nil?)
+        data.production_variants = (ProductionVariantList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
+        data.data_capture_config = (DataCaptureConfig.parse(map['DataCaptureConfig']) unless map['DataCaptureConfig'].nil?)
         data.kms_key_id = map['KmsKeyId']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.async_inference_config = (Parsers::AsyncInferenceConfig.parse(map['AsyncInferenceConfig']) unless map['AsyncInferenceConfig'].nil?)
+        data.async_inference_config = (AsyncInferenceConfig.parse(map['AsyncInferenceConfig']) unless map['AsyncInferenceConfig'].nil?)
         data
       end
     end
@@ -3066,8 +3066,8 @@ module AWS::SDK::SageMaker
         data.initial_sampling_percentage = map['InitialSamplingPercentage']
         data.destination_s3_uri = map['DestinationS3Uri']
         data.kms_key_id = map['KmsKeyId']
-        data.capture_options = (Parsers::CaptureOptionList.parse(map['CaptureOptions']) unless map['CaptureOptions'].nil?)
-        data.capture_content_type_header = (Parsers::CaptureContentTypeHeader.parse(map['CaptureContentTypeHeader']) unless map['CaptureContentTypeHeader'].nil?)
+        data.capture_options = (CaptureOptionList.parse(map['CaptureOptions']) unless map['CaptureOptions'].nil?)
+        data.capture_content_type_header = (CaptureContentTypeHeader.parse(map['CaptureContentTypeHeader']) unless map['CaptureContentTypeHeader'].nil?)
         return data
       end
     end
@@ -3075,8 +3075,8 @@ module AWS::SDK::SageMaker
     class CaptureContentTypeHeader
       def self.parse(map)
         data = Types::CaptureContentTypeHeader.new
-        data.csv_content_types = (Parsers::CsvContentTypes.parse(map['CsvContentTypes']) unless map['CsvContentTypes'].nil?)
-        data.json_content_types = (Parsers::JsonContentTypes.parse(map['JsonContentTypes']) unless map['JsonContentTypes'].nil?)
+        data.csv_content_types = (CsvContentTypes.parse(map['CsvContentTypes']) unless map['CsvContentTypes'].nil?)
+        data.json_content_types = (JsonContentTypes.parse(map['JsonContentTypes']) unless map['JsonContentTypes'].nil?)
         return data
       end
     end
@@ -3100,7 +3100,7 @@ module AWS::SDK::SageMaker
     class CaptureOptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::CaptureOption.parse(value) unless value.nil?
+          CaptureOption.parse(value) unless value.nil?
         end
       end
     end
@@ -3116,7 +3116,7 @@ module AWS::SDK::SageMaker
     class ProductionVariantList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductionVariant.parse(value) unless value.nil?
+          ProductionVariant.parse(value) unless value.nil?
         end
       end
     end
@@ -3130,8 +3130,8 @@ module AWS::SDK::SageMaker
         data.instance_type = map['InstanceType']
         data.initial_variant_weight = Hearth::NumberHelper.deserialize(map['InitialVariantWeight'])
         data.accelerator_type = map['AcceleratorType']
-        data.core_dump_config = (Parsers::ProductionVariantCoreDumpConfig.parse(map['CoreDumpConfig']) unless map['CoreDumpConfig'].nil?)
-        data.serverless_config = (Parsers::ProductionVariantServerlessConfig.parse(map['ServerlessConfig']) unless map['ServerlessConfig'].nil?)
+        data.core_dump_config = (ProductionVariantCoreDumpConfig.parse(map['CoreDumpConfig']) unless map['CoreDumpConfig'].nil?)
+        data.serverless_config = (ProductionVariantServerlessConfig.parse(map['ServerlessConfig']) unless map['ServerlessConfig'].nil?)
         return data
       end
     end
@@ -3155,12 +3155,12 @@ module AWS::SDK::SageMaker
         data.experiment_name = map['ExperimentName']
         data.experiment_arn = map['ExperimentArn']
         data.display_name = map['DisplayName']
-        data.source = (Parsers::ExperimentSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ExperimentSource.parse(map['Source']) unless map['Source'].nil?)
         data.description = map['Description']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         data
       end
     end
@@ -3185,13 +3185,13 @@ module AWS::SDK::SageMaker
         data.feature_group_name = map['FeatureGroupName']
         data.record_identifier_feature_name = map['RecordIdentifierFeatureName']
         data.event_time_feature_name = map['EventTimeFeatureName']
-        data.feature_definitions = (Parsers::FeatureDefinitions.parse(map['FeatureDefinitions']) unless map['FeatureDefinitions'].nil?)
+        data.feature_definitions = (FeatureDefinitions.parse(map['FeatureDefinitions']) unless map['FeatureDefinitions'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.online_store_config = (Parsers::OnlineStoreConfig.parse(map['OnlineStoreConfig']) unless map['OnlineStoreConfig'].nil?)
-        data.offline_store_config = (Parsers::OfflineStoreConfig.parse(map['OfflineStoreConfig']) unless map['OfflineStoreConfig'].nil?)
+        data.online_store_config = (OnlineStoreConfig.parse(map['OnlineStoreConfig']) unless map['OnlineStoreConfig'].nil?)
+        data.offline_store_config = (OfflineStoreConfig.parse(map['OfflineStoreConfig']) unless map['OfflineStoreConfig'].nil?)
         data.role_arn = map['RoleArn']
         data.feature_group_status = map['FeatureGroupStatus']
-        data.offline_store_status = (Parsers::OfflineStoreStatus.parse(map['OfflineStoreStatus']) unless map['OfflineStoreStatus'].nil?)
+        data.offline_store_status = (OfflineStoreStatus.parse(map['OfflineStoreStatus']) unless map['OfflineStoreStatus'].nil?)
         data.failure_reason = map['FailureReason']
         data.description = map['Description']
         data.next_token = map['NextToken']
@@ -3211,9 +3211,9 @@ module AWS::SDK::SageMaker
     class OfflineStoreConfig
       def self.parse(map)
         data = Types::OfflineStoreConfig.new
-        data.s3_storage_config = (Parsers::S3StorageConfig.parse(map['S3StorageConfig']) unless map['S3StorageConfig'].nil?)
+        data.s3_storage_config = (S3StorageConfig.parse(map['S3StorageConfig']) unless map['S3StorageConfig'].nil?)
         data.disable_glue_table_creation = map['DisableGlueTableCreation']
-        data.data_catalog_config = (Parsers::DataCatalogConfig.parse(map['DataCatalogConfig']) unless map['DataCatalogConfig'].nil?)
+        data.data_catalog_config = (DataCatalogConfig.parse(map['DataCatalogConfig']) unless map['DataCatalogConfig'].nil?)
         return data
       end
     end
@@ -3241,7 +3241,7 @@ module AWS::SDK::SageMaker
     class OnlineStoreConfig
       def self.parse(map)
         data = Types::OnlineStoreConfig.new
-        data.security_config = (Parsers::OnlineStoreSecurityConfig.parse(map['SecurityConfig']) unless map['SecurityConfig'].nil?)
+        data.security_config = (OnlineStoreSecurityConfig.parse(map['SecurityConfig']) unless map['SecurityConfig'].nil?)
         data.enable_online_store = map['EnableOnlineStore']
         return data
       end
@@ -3258,7 +3258,7 @@ module AWS::SDK::SageMaker
     class FeatureDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::FeatureDefinition.parse(value) unless value.nil?
+          FeatureDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -3283,10 +3283,10 @@ module AWS::SDK::SageMaker
         data.flow_definition_name = map['FlowDefinitionName']
         data.flow_definition_status = map['FlowDefinitionStatus']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.human_loop_request_source = (Parsers::HumanLoopRequestSource.parse(map['HumanLoopRequestSource']) unless map['HumanLoopRequestSource'].nil?)
-        data.human_loop_activation_config = (Parsers::HumanLoopActivationConfig.parse(map['HumanLoopActivationConfig']) unless map['HumanLoopActivationConfig'].nil?)
-        data.human_loop_config = (Parsers::HumanLoopConfig.parse(map['HumanLoopConfig']) unless map['HumanLoopConfig'].nil?)
-        data.output_config = (Parsers::FlowDefinitionOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.human_loop_request_source = (HumanLoopRequestSource.parse(map['HumanLoopRequestSource']) unless map['HumanLoopRequestSource'].nil?)
+        data.human_loop_activation_config = (HumanLoopActivationConfig.parse(map['HumanLoopActivationConfig']) unless map['HumanLoopActivationConfig'].nil?)
+        data.human_loop_config = (HumanLoopConfig.parse(map['HumanLoopConfig']) unless map['HumanLoopConfig'].nil?)
+        data.output_config = (FlowDefinitionOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
         data.role_arn = map['RoleArn']
         data.failure_reason = map['FailureReason']
         data
@@ -3312,8 +3312,8 @@ module AWS::SDK::SageMaker
         data.task_count = map['TaskCount']
         data.task_availability_lifetime_in_seconds = map['TaskAvailabilityLifetimeInSeconds']
         data.task_time_limit_in_seconds = map['TaskTimeLimitInSeconds']
-        data.task_keywords = (Parsers::FlowDefinitionTaskKeywords.parse(map['TaskKeywords']) unless map['TaskKeywords'].nil?)
-        data.public_workforce_task_price = (Parsers::PublicWorkforceTaskPrice.parse(map['PublicWorkforceTaskPrice']) unless map['PublicWorkforceTaskPrice'].nil?)
+        data.task_keywords = (FlowDefinitionTaskKeywords.parse(map['TaskKeywords']) unless map['TaskKeywords'].nil?)
+        data.public_workforce_task_price = (PublicWorkforceTaskPrice.parse(map['PublicWorkforceTaskPrice']) unless map['PublicWorkforceTaskPrice'].nil?)
         return data
       end
     end
@@ -3321,7 +3321,7 @@ module AWS::SDK::SageMaker
     class PublicWorkforceTaskPrice
       def self.parse(map)
         data = Types::PublicWorkforceTaskPrice.new
-        data.amount_in_usd = (Parsers::USD.parse(map['AmountInUsd']) unless map['AmountInUsd'].nil?)
+        data.amount_in_usd = (USD.parse(map['AmountInUsd']) unless map['AmountInUsd'].nil?)
         return data
       end
     end
@@ -3347,7 +3347,7 @@ module AWS::SDK::SageMaker
     class HumanLoopActivationConfig
       def self.parse(map)
         data = Types::HumanLoopActivationConfig.new
-        data.human_loop_activation_conditions_config = (Parsers::HumanLoopActivationConditionsConfig.parse(map['HumanLoopActivationConditionsConfig']) unless map['HumanLoopActivationConditionsConfig'].nil?)
+        data.human_loop_activation_conditions_config = (HumanLoopActivationConditionsConfig.parse(map['HumanLoopActivationConditionsConfig']) unless map['HumanLoopActivationConditionsConfig'].nil?)
         return data
       end
     end
@@ -3379,7 +3379,7 @@ module AWS::SDK::SageMaker
         data.human_task_ui_name = map['HumanTaskUiName']
         data.human_task_ui_status = map['HumanTaskUiStatus']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.ui_template = (Parsers::UiTemplateInfo.parse(map['UiTemplate']) unless map['UiTemplate'].nil?)
+        data.ui_template = (UiTemplateInfo.parse(map['UiTemplate']) unless map['UiTemplate'].nil?)
         data
       end
     end
@@ -3402,18 +3402,18 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.hyper_parameter_tuning_job_name = map['HyperParameterTuningJobName']
         data.hyper_parameter_tuning_job_arn = map['HyperParameterTuningJobArn']
-        data.hyper_parameter_tuning_job_config = (Parsers::HyperParameterTuningJobConfig.parse(map['HyperParameterTuningJobConfig']) unless map['HyperParameterTuningJobConfig'].nil?)
-        data.training_job_definition = (Parsers::HyperParameterTrainingJobDefinition.parse(map['TrainingJobDefinition']) unless map['TrainingJobDefinition'].nil?)
-        data.training_job_definitions = (Parsers::HyperParameterTrainingJobDefinitions.parse(map['TrainingJobDefinitions']) unless map['TrainingJobDefinitions'].nil?)
+        data.hyper_parameter_tuning_job_config = (HyperParameterTuningJobConfig.parse(map['HyperParameterTuningJobConfig']) unless map['HyperParameterTuningJobConfig'].nil?)
+        data.training_job_definition = (HyperParameterTrainingJobDefinition.parse(map['TrainingJobDefinition']) unless map['TrainingJobDefinition'].nil?)
+        data.training_job_definitions = (HyperParameterTrainingJobDefinitions.parse(map['TrainingJobDefinitions']) unless map['TrainingJobDefinitions'].nil?)
         data.hyper_parameter_tuning_job_status = map['HyperParameterTuningJobStatus']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.hyper_parameter_tuning_end_time = Time.at(map['HyperParameterTuningEndTime'].to_i) if map['HyperParameterTuningEndTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.training_job_status_counters = (Parsers::TrainingJobStatusCounters.parse(map['TrainingJobStatusCounters']) unless map['TrainingJobStatusCounters'].nil?)
-        data.objective_status_counters = (Parsers::ObjectiveStatusCounters.parse(map['ObjectiveStatusCounters']) unless map['ObjectiveStatusCounters'].nil?)
-        data.best_training_job = (Parsers::HyperParameterTrainingJobSummary.parse(map['BestTrainingJob']) unless map['BestTrainingJob'].nil?)
-        data.overall_best_training_job = (Parsers::HyperParameterTrainingJobSummary.parse(map['OverallBestTrainingJob']) unless map['OverallBestTrainingJob'].nil?)
-        data.warm_start_config = (Parsers::HyperParameterTuningJobWarmStartConfig.parse(map['WarmStartConfig']) unless map['WarmStartConfig'].nil?)
+        data.training_job_status_counters = (TrainingJobStatusCounters.parse(map['TrainingJobStatusCounters']) unless map['TrainingJobStatusCounters'].nil?)
+        data.objective_status_counters = (ObjectiveStatusCounters.parse(map['ObjectiveStatusCounters']) unless map['ObjectiveStatusCounters'].nil?)
+        data.best_training_job = (HyperParameterTrainingJobSummary.parse(map['BestTrainingJob']) unless map['BestTrainingJob'].nil?)
+        data.overall_best_training_job = (HyperParameterTrainingJobSummary.parse(map['OverallBestTrainingJob']) unless map['OverallBestTrainingJob'].nil?)
+        data.warm_start_config = (HyperParameterTuningJobWarmStartConfig.parse(map['WarmStartConfig']) unless map['WarmStartConfig'].nil?)
         data.failure_reason = map['FailureReason']
         data
       end
@@ -3422,7 +3422,7 @@ module AWS::SDK::SageMaker
     class HyperParameterTuningJobWarmStartConfig
       def self.parse(map)
         data = Types::HyperParameterTuningJobWarmStartConfig.new
-        data.parent_hyper_parameter_tuning_jobs = (Parsers::ParentHyperParameterTuningJobs.parse(map['ParentHyperParameterTuningJobs']) unless map['ParentHyperParameterTuningJobs'].nil?)
+        data.parent_hyper_parameter_tuning_jobs = (ParentHyperParameterTuningJobs.parse(map['ParentHyperParameterTuningJobs']) unless map['ParentHyperParameterTuningJobs'].nil?)
         data.warm_start_type = map['WarmStartType']
         return data
       end
@@ -3431,7 +3431,7 @@ module AWS::SDK::SageMaker
     class ParentHyperParameterTuningJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::ParentHyperParameterTuningJob.parse(value) unless value.nil?
+          ParentHyperParameterTuningJob.parse(value) unless value.nil?
         end
       end
     end
@@ -3455,9 +3455,9 @@ module AWS::SDK::SageMaker
         data.training_start_time = Time.at(map['TrainingStartTime'].to_i) if map['TrainingStartTime']
         data.training_end_time = Time.at(map['TrainingEndTime'].to_i) if map['TrainingEndTime']
         data.training_job_status = map['TrainingJobStatus']
-        data.tuned_hyper_parameters = (Parsers::HyperParameters.parse(map['TunedHyperParameters']) unless map['TunedHyperParameters'].nil?)
+        data.tuned_hyper_parameters = (HyperParameters.parse(map['TunedHyperParameters']) unless map['TunedHyperParameters'].nil?)
         data.failure_reason = map['FailureReason']
-        data.final_hyper_parameter_tuning_job_objective_metric = (Parsers::FinalHyperParameterTuningJobObjectiveMetric.parse(map['FinalHyperParameterTuningJobObjectiveMetric']) unless map['FinalHyperParameterTuningJobObjectiveMetric'].nil?)
+        data.final_hyper_parameter_tuning_job_objective_metric = (FinalHyperParameterTuningJobObjectiveMetric.parse(map['FinalHyperParameterTuningJobObjectiveMetric']) unless map['FinalHyperParameterTuningJobObjectiveMetric'].nil?)
         data.objective_status = map['ObjectiveStatus']
         return data
       end
@@ -3498,7 +3498,7 @@ module AWS::SDK::SageMaker
     class HyperParameterTrainingJobDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::HyperParameterTrainingJobDefinition.parse(value) unless value.nil?
+          HyperParameterTrainingJobDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -3507,21 +3507,21 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::HyperParameterTrainingJobDefinition.new
         data.definition_name = map['DefinitionName']
-        data.tuning_objective = (Parsers::HyperParameterTuningJobObjective.parse(map['TuningObjective']) unless map['TuningObjective'].nil?)
-        data.hyper_parameter_ranges = (Parsers::ParameterRanges.parse(map['HyperParameterRanges']) unless map['HyperParameterRanges'].nil?)
-        data.static_hyper_parameters = (Parsers::HyperParameters.parse(map['StaticHyperParameters']) unless map['StaticHyperParameters'].nil?)
-        data.algorithm_specification = (Parsers::HyperParameterAlgorithmSpecification.parse(map['AlgorithmSpecification']) unless map['AlgorithmSpecification'].nil?)
+        data.tuning_objective = (HyperParameterTuningJobObjective.parse(map['TuningObjective']) unless map['TuningObjective'].nil?)
+        data.hyper_parameter_ranges = (ParameterRanges.parse(map['HyperParameterRanges']) unless map['HyperParameterRanges'].nil?)
+        data.static_hyper_parameters = (HyperParameters.parse(map['StaticHyperParameters']) unless map['StaticHyperParameters'].nil?)
+        data.algorithm_specification = (HyperParameterAlgorithmSpecification.parse(map['AlgorithmSpecification']) unless map['AlgorithmSpecification'].nil?)
         data.role_arn = map['RoleArn']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
-        data.resource_config = (Parsers::ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
-        data.stopping_condition = (Parsers::StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.resource_config = (ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
+        data.stopping_condition = (StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data.enable_network_isolation = map['EnableNetworkIsolation']
         data.enable_inter_container_traffic_encryption = map['EnableInterContainerTrafficEncryption']
         data.enable_managed_spot_training = map['EnableManagedSpotTraining']
-        data.checkpoint_config = (Parsers::CheckpointConfig.parse(map['CheckpointConfig']) unless map['CheckpointConfig'].nil?)
-        data.retry_strategy = (Parsers::RetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
+        data.checkpoint_config = (CheckpointConfig.parse(map['CheckpointConfig']) unless map['CheckpointConfig'].nil?)
+        data.retry_strategy = (RetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
         return data
       end
     end
@@ -3549,7 +3549,7 @@ module AWS::SDK::SageMaker
         data.training_image = map['TrainingImage']
         data.training_input_mode = map['TrainingInputMode']
         data.algorithm_name = map['AlgorithmName']
-        data.metric_definitions = (Parsers::MetricDefinitionList.parse(map['MetricDefinitions']) unless map['MetricDefinitions'].nil?)
+        data.metric_definitions = (MetricDefinitionList.parse(map['MetricDefinitions']) unless map['MetricDefinitions'].nil?)
         return data
       end
     end
@@ -3557,9 +3557,9 @@ module AWS::SDK::SageMaker
     class ParameterRanges
       def self.parse(map)
         data = Types::ParameterRanges.new
-        data.integer_parameter_ranges = (Parsers::IntegerParameterRanges.parse(map['IntegerParameterRanges']) unless map['IntegerParameterRanges'].nil?)
-        data.continuous_parameter_ranges = (Parsers::ContinuousParameterRanges.parse(map['ContinuousParameterRanges']) unless map['ContinuousParameterRanges'].nil?)
-        data.categorical_parameter_ranges = (Parsers::CategoricalParameterRanges.parse(map['CategoricalParameterRanges']) unless map['CategoricalParameterRanges'].nil?)
+        data.integer_parameter_ranges = (IntegerParameterRanges.parse(map['IntegerParameterRanges']) unless map['IntegerParameterRanges'].nil?)
+        data.continuous_parameter_ranges = (ContinuousParameterRanges.parse(map['ContinuousParameterRanges']) unless map['ContinuousParameterRanges'].nil?)
+        data.categorical_parameter_ranges = (CategoricalParameterRanges.parse(map['CategoricalParameterRanges']) unless map['CategoricalParameterRanges'].nil?)
         return data
       end
     end
@@ -3567,7 +3567,7 @@ module AWS::SDK::SageMaker
     class CategoricalParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::CategoricalParameterRange.parse(value) unless value.nil?
+          CategoricalParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -3576,7 +3576,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::CategoricalParameterRange.new
         data.name = map['Name']
-        data.values = (Parsers::ParameterValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (ParameterValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -3584,7 +3584,7 @@ module AWS::SDK::SageMaker
     class ContinuousParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::ContinuousParameterRange.parse(value) unless value.nil?
+          ContinuousParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -3603,7 +3603,7 @@ module AWS::SDK::SageMaker
     class IntegerParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::IntegerParameterRange.parse(value) unless value.nil?
+          IntegerParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -3623,11 +3623,11 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::HyperParameterTuningJobConfig.new
         data.strategy = map['Strategy']
-        data.hyper_parameter_tuning_job_objective = (Parsers::HyperParameterTuningJobObjective.parse(map['HyperParameterTuningJobObjective']) unless map['HyperParameterTuningJobObjective'].nil?)
-        data.resource_limits = (Parsers::ResourceLimits.parse(map['ResourceLimits']) unless map['ResourceLimits'].nil?)
-        data.parameter_ranges = (Parsers::ParameterRanges.parse(map['ParameterRanges']) unless map['ParameterRanges'].nil?)
+        data.hyper_parameter_tuning_job_objective = (HyperParameterTuningJobObjective.parse(map['HyperParameterTuningJobObjective']) unless map['HyperParameterTuningJobObjective'].nil?)
+        data.resource_limits = (ResourceLimits.parse(map['ResourceLimits']) unless map['ResourceLimits'].nil?)
+        data.parameter_ranges = (ParameterRanges.parse(map['ParameterRanges']) unless map['ParameterRanges'].nil?)
         data.training_job_early_stopping_type = map['TrainingJobEarlyStoppingType']
-        data.tuning_job_completion_criteria = (Parsers::TuningJobCompletionCriteria.parse(map['TuningJobCompletionCriteria']) unless map['TuningJobCompletionCriteria'].nil?)
+        data.tuning_job_completion_criteria = (TuningJobCompletionCriteria.parse(map['TuningJobCompletionCriteria']) unless map['TuningJobCompletionCriteria'].nil?)
         return data
       end
     end
@@ -3706,9 +3706,9 @@ module AWS::SDK::SageMaker
         data.completion_time = Time.at(map['CompletionTime'].to_i) if map['CompletionTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.failure_reason = map['FailureReason']
-        data.input_config = (Parsers::RecommendationJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
-        data.stopping_conditions = (Parsers::RecommendationJobStoppingConditions.parse(map['StoppingConditions']) unless map['StoppingConditions'].nil?)
-        data.inference_recommendations = (Parsers::InferenceRecommendations.parse(map['InferenceRecommendations']) unless map['InferenceRecommendations'].nil?)
+        data.input_config = (RecommendationJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
+        data.stopping_conditions = (RecommendationJobStoppingConditions.parse(map['StoppingConditions']) unless map['StoppingConditions'].nil?)
+        data.inference_recommendations = (InferenceRecommendations.parse(map['InferenceRecommendations']) unless map['InferenceRecommendations'].nil?)
         data
       end
     end
@@ -3716,7 +3716,7 @@ module AWS::SDK::SageMaker
     class InferenceRecommendations
       def self.parse(list)
         list.map do |value|
-          Parsers::InferenceRecommendation.parse(value) unless value.nil?
+          InferenceRecommendation.parse(value) unless value.nil?
         end
       end
     end
@@ -3724,9 +3724,9 @@ module AWS::SDK::SageMaker
     class InferenceRecommendation
       def self.parse(map)
         data = Types::InferenceRecommendation.new
-        data.metrics = (Parsers::RecommendationMetrics.parse(map['Metrics']) unless map['Metrics'].nil?)
-        data.endpoint_configuration = (Parsers::EndpointOutputConfiguration.parse(map['EndpointConfiguration']) unless map['EndpointConfiguration'].nil?)
-        data.model_configuration = (Parsers::ModelConfiguration.parse(map['ModelConfiguration']) unless map['ModelConfiguration'].nil?)
+        data.metrics = (RecommendationMetrics.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.endpoint_configuration = (EndpointOutputConfiguration.parse(map['EndpointConfiguration']) unless map['EndpointConfiguration'].nil?)
+        data.model_configuration = (ModelConfiguration.parse(map['ModelConfiguration']) unless map['ModelConfiguration'].nil?)
         return data
       end
     end
@@ -3735,7 +3735,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ModelConfiguration.new
         data.inference_specification_name = map['InferenceSpecificationName']
-        data.environment_parameters = (Parsers::EnvironmentParameters.parse(map['EnvironmentParameters']) unless map['EnvironmentParameters'].nil?)
+        data.environment_parameters = (EnvironmentParameters.parse(map['EnvironmentParameters']) unless map['EnvironmentParameters'].nil?)
         return data
       end
     end
@@ -3743,7 +3743,7 @@ module AWS::SDK::SageMaker
     class EnvironmentParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentParameter.parse(value) unless value.nil?
+          EnvironmentParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -3784,7 +3784,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::RecommendationJobStoppingConditions.new
         data.max_invocations = map['MaxInvocations']
-        data.model_latency_thresholds = (Parsers::ModelLatencyThresholds.parse(map['ModelLatencyThresholds']) unless map['ModelLatencyThresholds'].nil?)
+        data.model_latency_thresholds = (ModelLatencyThresholds.parse(map['ModelLatencyThresholds']) unless map['ModelLatencyThresholds'].nil?)
         return data
       end
     end
@@ -3792,7 +3792,7 @@ module AWS::SDK::SageMaker
     class ModelLatencyThresholds
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelLatencyThreshold.parse(value) unless value.nil?
+          ModelLatencyThreshold.parse(value) unless value.nil?
         end
       end
     end
@@ -3811,9 +3811,9 @@ module AWS::SDK::SageMaker
         data = Types::RecommendationJobInputConfig.new
         data.model_package_version_arn = map['ModelPackageVersionArn']
         data.job_duration_in_seconds = map['JobDurationInSeconds']
-        data.traffic_pattern = (Parsers::TrafficPattern.parse(map['TrafficPattern']) unless map['TrafficPattern'].nil?)
-        data.resource_limit = (Parsers::RecommendationJobResourceLimit.parse(map['ResourceLimit']) unless map['ResourceLimit'].nil?)
-        data.endpoint_configurations = (Parsers::EndpointInputConfigurations.parse(map['EndpointConfigurations']) unless map['EndpointConfigurations'].nil?)
+        data.traffic_pattern = (TrafficPattern.parse(map['TrafficPattern']) unless map['TrafficPattern'].nil?)
+        data.resource_limit = (RecommendationJobResourceLimit.parse(map['ResourceLimit']) unless map['ResourceLimit'].nil?)
+        data.endpoint_configurations = (EndpointInputConfigurations.parse(map['EndpointConfigurations']) unless map['EndpointConfigurations'].nil?)
         data.volume_kms_key_id = map['VolumeKmsKeyId']
         return data
       end
@@ -3822,7 +3822,7 @@ module AWS::SDK::SageMaker
     class EndpointInputConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointInputConfiguration.parse(value) unless value.nil?
+          EndpointInputConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -3832,7 +3832,7 @@ module AWS::SDK::SageMaker
         data = Types::EndpointInputConfiguration.new
         data.instance_type = map['InstanceType']
         data.inference_specification_name = map['InferenceSpecificationName']
-        data.environment_parameter_ranges = (Parsers::EnvironmentParameterRanges.parse(map['EnvironmentParameterRanges']) unless map['EnvironmentParameterRanges'].nil?)
+        data.environment_parameter_ranges = (EnvironmentParameterRanges.parse(map['EnvironmentParameterRanges']) unless map['EnvironmentParameterRanges'].nil?)
         return data
       end
     end
@@ -3840,7 +3840,7 @@ module AWS::SDK::SageMaker
     class EnvironmentParameterRanges
       def self.parse(map)
         data = Types::EnvironmentParameterRanges.new
-        data.categorical_parameter_ranges = (Parsers::CategoricalParameters.parse(map['CategoricalParameterRanges']) unless map['CategoricalParameterRanges'].nil?)
+        data.categorical_parameter_ranges = (CategoricalParameters.parse(map['CategoricalParameterRanges']) unless map['CategoricalParameterRanges'].nil?)
         return data
       end
     end
@@ -3848,7 +3848,7 @@ module AWS::SDK::SageMaker
     class CategoricalParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::CategoricalParameter.parse(value) unless value.nil?
+          CategoricalParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -3857,7 +3857,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::CategoricalParameter.new
         data.name = map['Name']
-        data.value = (Parsers::CategoricalParameterRangeValues.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (CategoricalParameterRangeValues.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -3883,7 +3883,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::TrafficPattern.new
         data.traffic_type = map['TrafficType']
-        data.phases = (Parsers::Phases.parse(map['Phases']) unless map['Phases'].nil?)
+        data.phases = (Phases.parse(map['Phases']) unless map['Phases'].nil?)
         return data
       end
     end
@@ -3891,7 +3891,7 @@ module AWS::SDK::SageMaker
     class Phases
       def self.parse(list)
         list.map do |value|
-          Parsers::Phase.parse(value) unless value.nil?
+          Phase.parse(value) unless value.nil?
         end
       end
     end
@@ -3914,7 +3914,7 @@ module AWS::SDK::SageMaker
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.labeling_job_status = map['LabelingJobStatus']
-        data.label_counters = (Parsers::LabelCounters.parse(map['LabelCounters']) unless map['LabelCounters'].nil?)
+        data.label_counters = (LabelCounters.parse(map['LabelCounters']) unless map['LabelCounters'].nil?)
         data.failure_reason = map['FailureReason']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
@@ -3922,15 +3922,15 @@ module AWS::SDK::SageMaker
         data.labeling_job_name = map['LabelingJobName']
         data.labeling_job_arn = map['LabelingJobArn']
         data.label_attribute_name = map['LabelAttributeName']
-        data.input_config = (Parsers::LabelingJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
-        data.output_config = (Parsers::LabelingJobOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.input_config = (LabelingJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
+        data.output_config = (LabelingJobOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
         data.role_arn = map['RoleArn']
         data.label_category_config_s3_uri = map['LabelCategoryConfigS3Uri']
-        data.stopping_conditions = (Parsers::LabelingJobStoppingConditions.parse(map['StoppingConditions']) unless map['StoppingConditions'].nil?)
-        data.labeling_job_algorithms_config = (Parsers::LabelingJobAlgorithmsConfig.parse(map['LabelingJobAlgorithmsConfig']) unless map['LabelingJobAlgorithmsConfig'].nil?)
-        data.human_task_config = (Parsers::HumanTaskConfig.parse(map['HumanTaskConfig']) unless map['HumanTaskConfig'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.labeling_job_output = (Parsers::LabelingJobOutput.parse(map['LabelingJobOutput']) unless map['LabelingJobOutput'].nil?)
+        data.stopping_conditions = (LabelingJobStoppingConditions.parse(map['StoppingConditions']) unless map['StoppingConditions'].nil?)
+        data.labeling_job_algorithms_config = (LabelingJobAlgorithmsConfig.parse(map['LabelingJobAlgorithmsConfig']) unless map['LabelingJobAlgorithmsConfig'].nil?)
+        data.human_task_config = (HumanTaskConfig.parse(map['HumanTaskConfig']) unless map['HumanTaskConfig'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.labeling_job_output = (LabelingJobOutput.parse(map['LabelingJobOutput']) unless map['LabelingJobOutput'].nil?)
         data
       end
     end
@@ -3948,17 +3948,17 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::HumanTaskConfig.new
         data.workteam_arn = map['WorkteamArn']
-        data.ui_config = (Parsers::UiConfig.parse(map['UiConfig']) unless map['UiConfig'].nil?)
+        data.ui_config = (UiConfig.parse(map['UiConfig']) unless map['UiConfig'].nil?)
         data.pre_human_task_lambda_arn = map['PreHumanTaskLambdaArn']
-        data.task_keywords = (Parsers::TaskKeywords.parse(map['TaskKeywords']) unless map['TaskKeywords'].nil?)
+        data.task_keywords = (TaskKeywords.parse(map['TaskKeywords']) unless map['TaskKeywords'].nil?)
         data.task_title = map['TaskTitle']
         data.task_description = map['TaskDescription']
         data.number_of_human_workers_per_data_object = map['NumberOfHumanWorkersPerDataObject']
         data.task_time_limit_in_seconds = map['TaskTimeLimitInSeconds']
         data.task_availability_lifetime_in_seconds = map['TaskAvailabilityLifetimeInSeconds']
         data.max_concurrent_task_count = map['MaxConcurrentTaskCount']
-        data.annotation_consolidation_config = (Parsers::AnnotationConsolidationConfig.parse(map['AnnotationConsolidationConfig']) unless map['AnnotationConsolidationConfig'].nil?)
-        data.public_workforce_task_price = (Parsers::PublicWorkforceTaskPrice.parse(map['PublicWorkforceTaskPrice']) unless map['PublicWorkforceTaskPrice'].nil?)
+        data.annotation_consolidation_config = (AnnotationConsolidationConfig.parse(map['AnnotationConsolidationConfig']) unless map['AnnotationConsolidationConfig'].nil?)
+        data.public_workforce_task_price = (PublicWorkforceTaskPrice.parse(map['PublicWorkforceTaskPrice']) unless map['PublicWorkforceTaskPrice'].nil?)
         return data
       end
     end
@@ -3993,7 +3993,7 @@ module AWS::SDK::SageMaker
         data = Types::LabelingJobAlgorithmsConfig.new
         data.labeling_job_algorithm_specification_arn = map['LabelingJobAlgorithmSpecificationArn']
         data.initial_active_learning_model_arn = map['InitialActiveLearningModelArn']
-        data.labeling_job_resource_config = (Parsers::LabelingJobResourceConfig.parse(map['LabelingJobResourceConfig']) unless map['LabelingJobResourceConfig'].nil?)
+        data.labeling_job_resource_config = (LabelingJobResourceConfig.parse(map['LabelingJobResourceConfig']) unless map['LabelingJobResourceConfig'].nil?)
         return data
       end
     end
@@ -4028,8 +4028,8 @@ module AWS::SDK::SageMaker
     class LabelingJobInputConfig
       def self.parse(map)
         data = Types::LabelingJobInputConfig.new
-        data.data_source = (Parsers::LabelingJobDataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
-        data.data_attributes = (Parsers::LabelingJobDataAttributes.parse(map['DataAttributes']) unless map['DataAttributes'].nil?)
+        data.data_source = (LabelingJobDataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.data_attributes = (LabelingJobDataAttributes.parse(map['DataAttributes']) unless map['DataAttributes'].nil?)
         return data
       end
     end
@@ -4037,7 +4037,7 @@ module AWS::SDK::SageMaker
     class LabelingJobDataAttributes
       def self.parse(map)
         data = Types::LabelingJobDataAttributes.new
-        data.content_classifiers = (Parsers::ContentClassifiers.parse(map['ContentClassifiers']) unless map['ContentClassifiers'].nil?)
+        data.content_classifiers = (ContentClassifiers.parse(map['ContentClassifiers']) unless map['ContentClassifiers'].nil?)
         return data
       end
     end
@@ -4053,8 +4053,8 @@ module AWS::SDK::SageMaker
     class LabelingJobDataSource
       def self.parse(map)
         data = Types::LabelingJobDataSource.new
-        data.s3_data_source = (Parsers::LabelingJobS3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
-        data.sns_data_source = (Parsers::LabelingJobSnsDataSource.parse(map['SnsDataSource']) unless map['SnsDataSource'].nil?)
+        data.s3_data_source = (LabelingJobS3DataSource.parse(map['S3DataSource']) unless map['S3DataSource'].nil?)
+        data.sns_data_source = (LabelingJobSnsDataSource.parse(map['SnsDataSource']) unless map['SnsDataSource'].nil?)
         return data
       end
     end
@@ -4099,9 +4099,9 @@ module AWS::SDK::SageMaker
         data.display_name = map['DisplayName']
         data.description = map['Description']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         data
       end
     end
@@ -4114,11 +4114,11 @@ module AWS::SDK::SageMaker
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.model_name = map['ModelName']
-        data.primary_container = (Parsers::ContainerDefinition.parse(map['PrimaryContainer']) unless map['PrimaryContainer'].nil?)
-        data.containers = (Parsers::ContainerDefinitionList.parse(map['Containers']) unless map['Containers'].nil?)
-        data.inference_execution_config = (Parsers::InferenceExecutionConfig.parse(map['InferenceExecutionConfig']) unless map['InferenceExecutionConfig'].nil?)
+        data.primary_container = (ContainerDefinition.parse(map['PrimaryContainer']) unless map['PrimaryContainer'].nil?)
+        data.containers = (ContainerDefinitionList.parse(map['Containers']) unless map['Containers'].nil?)
+        data.inference_execution_config = (InferenceExecutionConfig.parse(map['InferenceExecutionConfig']) unless map['InferenceExecutionConfig'].nil?)
         data.execution_role_arn = map['ExecutionRoleArn']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.model_arn = map['ModelArn']
         data.enable_network_isolation = map['EnableNetworkIsolation']
@@ -4137,7 +4137,7 @@ module AWS::SDK::SageMaker
     class ContainerDefinitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerDefinition.parse(value) unless value.nil?
+          ContainerDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -4147,13 +4147,13 @@ module AWS::SDK::SageMaker
         data = Types::ContainerDefinition.new
         data.container_hostname = map['ContainerHostname']
         data.image = map['Image']
-        data.image_config = (Parsers::ImageConfig.parse(map['ImageConfig']) unless map['ImageConfig'].nil?)
+        data.image_config = (ImageConfig.parse(map['ImageConfig']) unless map['ImageConfig'].nil?)
         data.mode = map['Mode']
         data.model_data_url = map['ModelDataUrl']
-        data.environment = (Parsers::EnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (EnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
         data.model_package_name = map['ModelPackageName']
         data.inference_specification_name = map['InferenceSpecificationName']
-        data.multi_model_config = (Parsers::MultiModelConfig.parse(map['MultiModelConfig']) unless map['MultiModelConfig'].nil?)
+        data.multi_model_config = (MultiModelConfig.parse(map['MultiModelConfig']) unless map['MultiModelConfig'].nil?)
         return data
       end
     end
@@ -4170,7 +4170,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ImageConfig.new
         data.repository_access_mode = map['RepositoryAccessMode']
-        data.repository_auth_config = (Parsers::RepositoryAuthConfig.parse(map['RepositoryAuthConfig']) unless map['RepositoryAuthConfig'].nil?)
+        data.repository_auth_config = (RepositoryAuthConfig.parse(map['RepositoryAuthConfig']) unless map['RepositoryAuthConfig'].nil?)
         return data
       end
     end
@@ -4193,14 +4193,14 @@ module AWS::SDK::SageMaker
         data.job_definition_arn = map['JobDefinitionArn']
         data.job_definition_name = map['JobDefinitionName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.model_bias_baseline_config = (Parsers::ModelBiasBaselineConfig.parse(map['ModelBiasBaselineConfig']) unless map['ModelBiasBaselineConfig'].nil?)
-        data.model_bias_app_specification = (Parsers::ModelBiasAppSpecification.parse(map['ModelBiasAppSpecification']) unless map['ModelBiasAppSpecification'].nil?)
-        data.model_bias_job_input = (Parsers::ModelBiasJobInput.parse(map['ModelBiasJobInput']) unless map['ModelBiasJobInput'].nil?)
-        data.model_bias_job_output_config = (Parsers::MonitoringOutputConfig.parse(map['ModelBiasJobOutputConfig']) unless map['ModelBiasJobOutputConfig'].nil?)
-        data.job_resources = (Parsers::MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
-        data.network_config = (Parsers::MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
+        data.model_bias_baseline_config = (ModelBiasBaselineConfig.parse(map['ModelBiasBaselineConfig']) unless map['ModelBiasBaselineConfig'].nil?)
+        data.model_bias_app_specification = (ModelBiasAppSpecification.parse(map['ModelBiasAppSpecification']) unless map['ModelBiasAppSpecification'].nil?)
+        data.model_bias_job_input = (ModelBiasJobInput.parse(map['ModelBiasJobInput']) unless map['ModelBiasJobInput'].nil?)
+        data.model_bias_job_output_config = (MonitoringOutputConfig.parse(map['ModelBiasJobOutputConfig']) unless map['ModelBiasJobOutputConfig'].nil?)
+        data.job_resources = (MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
+        data.network_config = (MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
         data.role_arn = map['RoleArn']
-        data.stopping_condition = (Parsers::MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.stopping_condition = (MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data
       end
     end
@@ -4208,8 +4208,8 @@ module AWS::SDK::SageMaker
     class ModelBiasJobInput
       def self.parse(map)
         data = Types::ModelBiasJobInput.new
-        data.endpoint_input = (Parsers::EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
-        data.ground_truth_s3_input = (Parsers::MonitoringGroundTruthS3Input.parse(map['GroundTruthS3Input']) unless map['GroundTruthS3Input'].nil?)
+        data.endpoint_input = (EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
+        data.ground_truth_s3_input = (MonitoringGroundTruthS3Input.parse(map['GroundTruthS3Input']) unless map['GroundTruthS3Input'].nil?)
         return data
       end
     end
@@ -4227,7 +4227,7 @@ module AWS::SDK::SageMaker
         data = Types::ModelBiasAppSpecification.new
         data.image_uri = map['ImageUri']
         data.config_uri = map['ConfigUri']
-        data.environment = (Parsers::MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
         return data
       end
     end
@@ -4236,7 +4236,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ModelBiasBaselineConfig.new
         data.baselining_job_name = map['BaseliningJobName']
-        data.constraints_resource = (Parsers::MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
+        data.constraints_resource = (MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
         return data
       end
     end
@@ -4251,14 +4251,14 @@ module AWS::SDK::SageMaker
         data.job_definition_arn = map['JobDefinitionArn']
         data.job_definition_name = map['JobDefinitionName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.model_explainability_baseline_config = (Parsers::ModelExplainabilityBaselineConfig.parse(map['ModelExplainabilityBaselineConfig']) unless map['ModelExplainabilityBaselineConfig'].nil?)
-        data.model_explainability_app_specification = (Parsers::ModelExplainabilityAppSpecification.parse(map['ModelExplainabilityAppSpecification']) unless map['ModelExplainabilityAppSpecification'].nil?)
-        data.model_explainability_job_input = (Parsers::ModelExplainabilityJobInput.parse(map['ModelExplainabilityJobInput']) unless map['ModelExplainabilityJobInput'].nil?)
-        data.model_explainability_job_output_config = (Parsers::MonitoringOutputConfig.parse(map['ModelExplainabilityJobOutputConfig']) unless map['ModelExplainabilityJobOutputConfig'].nil?)
-        data.job_resources = (Parsers::MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
-        data.network_config = (Parsers::MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
+        data.model_explainability_baseline_config = (ModelExplainabilityBaselineConfig.parse(map['ModelExplainabilityBaselineConfig']) unless map['ModelExplainabilityBaselineConfig'].nil?)
+        data.model_explainability_app_specification = (ModelExplainabilityAppSpecification.parse(map['ModelExplainabilityAppSpecification']) unless map['ModelExplainabilityAppSpecification'].nil?)
+        data.model_explainability_job_input = (ModelExplainabilityJobInput.parse(map['ModelExplainabilityJobInput']) unless map['ModelExplainabilityJobInput'].nil?)
+        data.model_explainability_job_output_config = (MonitoringOutputConfig.parse(map['ModelExplainabilityJobOutputConfig']) unless map['ModelExplainabilityJobOutputConfig'].nil?)
+        data.job_resources = (MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
+        data.network_config = (MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
         data.role_arn = map['RoleArn']
-        data.stopping_condition = (Parsers::MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.stopping_condition = (MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data
       end
     end
@@ -4266,7 +4266,7 @@ module AWS::SDK::SageMaker
     class ModelExplainabilityJobInput
       def self.parse(map)
         data = Types::ModelExplainabilityJobInput.new
-        data.endpoint_input = (Parsers::EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
+        data.endpoint_input = (EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
         return data
       end
     end
@@ -4276,7 +4276,7 @@ module AWS::SDK::SageMaker
         data = Types::ModelExplainabilityAppSpecification.new
         data.image_uri = map['ImageUri']
         data.config_uri = map['ConfigUri']
-        data.environment = (Parsers::MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
         return data
       end
     end
@@ -4285,7 +4285,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ModelExplainabilityBaselineConfig.new
         data.baselining_job_name = map['BaseliningJobName']
-        data.constraints_resource = (Parsers::MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
+        data.constraints_resource = (MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
         return data
       end
     end
@@ -4303,25 +4303,25 @@ module AWS::SDK::SageMaker
         data.model_package_arn = map['ModelPackageArn']
         data.model_package_description = map['ModelPackageDescription']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.inference_specification = (Parsers::InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
-        data.source_algorithm_specification = (Parsers::SourceAlgorithmSpecification.parse(map['SourceAlgorithmSpecification']) unless map['SourceAlgorithmSpecification'].nil?)
-        data.validation_specification = (Parsers::ModelPackageValidationSpecification.parse(map['ValidationSpecification']) unless map['ValidationSpecification'].nil?)
+        data.inference_specification = (InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
+        data.source_algorithm_specification = (SourceAlgorithmSpecification.parse(map['SourceAlgorithmSpecification']) unless map['SourceAlgorithmSpecification'].nil?)
+        data.validation_specification = (ModelPackageValidationSpecification.parse(map['ValidationSpecification']) unless map['ValidationSpecification'].nil?)
         data.model_package_status = map['ModelPackageStatus']
-        data.model_package_status_details = (Parsers::ModelPackageStatusDetails.parse(map['ModelPackageStatusDetails']) unless map['ModelPackageStatusDetails'].nil?)
+        data.model_package_status_details = (ModelPackageStatusDetails.parse(map['ModelPackageStatusDetails']) unless map['ModelPackageStatusDetails'].nil?)
         data.certify_for_marketplace = map['CertifyForMarketplace']
         data.model_approval_status = map['ModelApprovalStatus']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
-        data.model_metrics = (Parsers::ModelMetrics.parse(map['ModelMetrics']) unless map['ModelMetrics'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.model_metrics = (ModelMetrics.parse(map['ModelMetrics']) unless map['ModelMetrics'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         data.approval_description = map['ApprovalDescription']
-        data.customer_metadata_properties = (Parsers::CustomerMetadataMap.parse(map['CustomerMetadataProperties']) unless map['CustomerMetadataProperties'].nil?)
-        data.drift_check_baselines = (Parsers::DriftCheckBaselines.parse(map['DriftCheckBaselines']) unless map['DriftCheckBaselines'].nil?)
+        data.customer_metadata_properties = (CustomerMetadataMap.parse(map['CustomerMetadataProperties']) unless map['CustomerMetadataProperties'].nil?)
+        data.drift_check_baselines = (DriftCheckBaselines.parse(map['DriftCheckBaselines']) unless map['DriftCheckBaselines'].nil?)
         data.domain = map['Domain']
         data.task = map['Task']
         data.sample_payload_url = map['SamplePayloadUrl']
-        data.additional_inference_specifications = (Parsers::AdditionalInferenceSpecifications.parse(map['AdditionalInferenceSpecifications']) unless map['AdditionalInferenceSpecifications'].nil?)
+        data.additional_inference_specifications = (AdditionalInferenceSpecifications.parse(map['AdditionalInferenceSpecifications']) unless map['AdditionalInferenceSpecifications'].nil?)
         data
       end
     end
@@ -4329,7 +4329,7 @@ module AWS::SDK::SageMaker
     class AdditionalInferenceSpecifications
       def self.parse(list)
         list.map do |value|
-          Parsers::AdditionalInferenceSpecificationDefinition.parse(value) unless value.nil?
+          AdditionalInferenceSpecificationDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -4339,11 +4339,11 @@ module AWS::SDK::SageMaker
         data = Types::AdditionalInferenceSpecificationDefinition.new
         data.name = map['Name']
         data.description = map['Description']
-        data.containers = (Parsers::ModelPackageContainerDefinitionList.parse(map['Containers']) unless map['Containers'].nil?)
-        data.supported_transform_instance_types = (Parsers::TransformInstanceTypes.parse(map['SupportedTransformInstanceTypes']) unless map['SupportedTransformInstanceTypes'].nil?)
-        data.supported_realtime_inference_instance_types = (Parsers::RealtimeInferenceInstanceTypes.parse(map['SupportedRealtimeInferenceInstanceTypes']) unless map['SupportedRealtimeInferenceInstanceTypes'].nil?)
-        data.supported_content_types = (Parsers::ContentTypes.parse(map['SupportedContentTypes']) unless map['SupportedContentTypes'].nil?)
-        data.supported_response_mime_types = (Parsers::ResponseMIMETypes.parse(map['SupportedResponseMIMETypes']) unless map['SupportedResponseMIMETypes'].nil?)
+        data.containers = (ModelPackageContainerDefinitionList.parse(map['Containers']) unless map['Containers'].nil?)
+        data.supported_transform_instance_types = (TransformInstanceTypes.parse(map['SupportedTransformInstanceTypes']) unless map['SupportedTransformInstanceTypes'].nil?)
+        data.supported_realtime_inference_instance_types = (RealtimeInferenceInstanceTypes.parse(map['SupportedRealtimeInferenceInstanceTypes']) unless map['SupportedRealtimeInferenceInstanceTypes'].nil?)
+        data.supported_content_types = (ContentTypes.parse(map['SupportedContentTypes']) unless map['SupportedContentTypes'].nil?)
+        data.supported_response_mime_types = (ResponseMIMETypes.parse(map['SupportedResponseMIMETypes']) unless map['SupportedResponseMIMETypes'].nil?)
         return data
       end
     end
@@ -4351,10 +4351,10 @@ module AWS::SDK::SageMaker
     class DriftCheckBaselines
       def self.parse(map)
         data = Types::DriftCheckBaselines.new
-        data.bias = (Parsers::DriftCheckBias.parse(map['Bias']) unless map['Bias'].nil?)
-        data.explainability = (Parsers::DriftCheckExplainability.parse(map['Explainability']) unless map['Explainability'].nil?)
-        data.model_quality = (Parsers::DriftCheckModelQuality.parse(map['ModelQuality']) unless map['ModelQuality'].nil?)
-        data.model_data_quality = (Parsers::DriftCheckModelDataQuality.parse(map['ModelDataQuality']) unless map['ModelDataQuality'].nil?)
+        data.bias = (DriftCheckBias.parse(map['Bias']) unless map['Bias'].nil?)
+        data.explainability = (DriftCheckExplainability.parse(map['Explainability']) unless map['Explainability'].nil?)
+        data.model_quality = (DriftCheckModelQuality.parse(map['ModelQuality']) unless map['ModelQuality'].nil?)
+        data.model_data_quality = (DriftCheckModelDataQuality.parse(map['ModelDataQuality']) unless map['ModelDataQuality'].nil?)
         return data
       end
     end
@@ -4362,8 +4362,8 @@ module AWS::SDK::SageMaker
     class DriftCheckModelDataQuality
       def self.parse(map)
         data = Types::DriftCheckModelDataQuality.new
-        data.statistics = (Parsers::MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
-        data.constraints = (Parsers::MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.statistics = (MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.constraints = (MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
         return data
       end
     end
@@ -4381,8 +4381,8 @@ module AWS::SDK::SageMaker
     class DriftCheckModelQuality
       def self.parse(map)
         data = Types::DriftCheckModelQuality.new
-        data.statistics = (Parsers::MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
-        data.constraints = (Parsers::MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.statistics = (MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.constraints = (MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
         return data
       end
     end
@@ -4390,8 +4390,8 @@ module AWS::SDK::SageMaker
     class DriftCheckExplainability
       def self.parse(map)
         data = Types::DriftCheckExplainability.new
-        data.constraints = (Parsers::MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
-        data.config_file = (Parsers::FileSource.parse(map['ConfigFile']) unless map['ConfigFile'].nil?)
+        data.constraints = (MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.config_file = (FileSource.parse(map['ConfigFile']) unless map['ConfigFile'].nil?)
         return data
       end
     end
@@ -4409,9 +4409,9 @@ module AWS::SDK::SageMaker
     class DriftCheckBias
       def self.parse(map)
         data = Types::DriftCheckBias.new
-        data.config_file = (Parsers::FileSource.parse(map['ConfigFile']) unless map['ConfigFile'].nil?)
-        data.pre_training_constraints = (Parsers::MetricsSource.parse(map['PreTrainingConstraints']) unless map['PreTrainingConstraints'].nil?)
-        data.post_training_constraints = (Parsers::MetricsSource.parse(map['PostTrainingConstraints']) unless map['PostTrainingConstraints'].nil?)
+        data.config_file = (FileSource.parse(map['ConfigFile']) unless map['ConfigFile'].nil?)
+        data.pre_training_constraints = (MetricsSource.parse(map['PreTrainingConstraints']) unless map['PreTrainingConstraints'].nil?)
+        data.post_training_constraints = (MetricsSource.parse(map['PostTrainingConstraints']) unless map['PostTrainingConstraints'].nil?)
         return data
       end
     end
@@ -4429,10 +4429,10 @@ module AWS::SDK::SageMaker
     class ModelMetrics
       def self.parse(map)
         data = Types::ModelMetrics.new
-        data.model_quality = (Parsers::ModelQuality.parse(map['ModelQuality']) unless map['ModelQuality'].nil?)
-        data.model_data_quality = (Parsers::ModelDataQuality.parse(map['ModelDataQuality']) unless map['ModelDataQuality'].nil?)
-        data.bias = (Parsers::Bias.parse(map['Bias']) unless map['Bias'].nil?)
-        data.explainability = (Parsers::Explainability.parse(map['Explainability']) unless map['Explainability'].nil?)
+        data.model_quality = (ModelQuality.parse(map['ModelQuality']) unless map['ModelQuality'].nil?)
+        data.model_data_quality = (ModelDataQuality.parse(map['ModelDataQuality']) unless map['ModelDataQuality'].nil?)
+        data.bias = (Bias.parse(map['Bias']) unless map['Bias'].nil?)
+        data.explainability = (Explainability.parse(map['Explainability']) unless map['Explainability'].nil?)
         return data
       end
     end
@@ -4440,7 +4440,7 @@ module AWS::SDK::SageMaker
     class Explainability
       def self.parse(map)
         data = Types::Explainability.new
-        data.report = (Parsers::MetricsSource.parse(map['Report']) unless map['Report'].nil?)
+        data.report = (MetricsSource.parse(map['Report']) unless map['Report'].nil?)
         return data
       end
     end
@@ -4448,9 +4448,9 @@ module AWS::SDK::SageMaker
     class Bias
       def self.parse(map)
         data = Types::Bias.new
-        data.report = (Parsers::MetricsSource.parse(map['Report']) unless map['Report'].nil?)
-        data.pre_training_report = (Parsers::MetricsSource.parse(map['PreTrainingReport']) unless map['PreTrainingReport'].nil?)
-        data.post_training_report = (Parsers::MetricsSource.parse(map['PostTrainingReport']) unless map['PostTrainingReport'].nil?)
+        data.report = (MetricsSource.parse(map['Report']) unless map['Report'].nil?)
+        data.pre_training_report = (MetricsSource.parse(map['PreTrainingReport']) unless map['PreTrainingReport'].nil?)
+        data.post_training_report = (MetricsSource.parse(map['PostTrainingReport']) unless map['PostTrainingReport'].nil?)
         return data
       end
     end
@@ -4458,8 +4458,8 @@ module AWS::SDK::SageMaker
     class ModelDataQuality
       def self.parse(map)
         data = Types::ModelDataQuality.new
-        data.statistics = (Parsers::MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
-        data.constraints = (Parsers::MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.statistics = (MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.constraints = (MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
         return data
       end
     end
@@ -4467,8 +4467,8 @@ module AWS::SDK::SageMaker
     class ModelQuality
       def self.parse(map)
         data = Types::ModelQuality.new
-        data.statistics = (Parsers::MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
-        data.constraints = (Parsers::MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.statistics = (MetricsSource.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.constraints = (MetricsSource.parse(map['Constraints']) unless map['Constraints'].nil?)
         return data
       end
     end
@@ -4476,8 +4476,8 @@ module AWS::SDK::SageMaker
     class ModelPackageStatusDetails
       def self.parse(map)
         data = Types::ModelPackageStatusDetails.new
-        data.validation_statuses = (Parsers::ModelPackageStatusItemList.parse(map['ValidationStatuses']) unless map['ValidationStatuses'].nil?)
-        data.image_scan_statuses = (Parsers::ModelPackageStatusItemList.parse(map['ImageScanStatuses']) unless map['ImageScanStatuses'].nil?)
+        data.validation_statuses = (ModelPackageStatusItemList.parse(map['ValidationStatuses']) unless map['ValidationStatuses'].nil?)
+        data.image_scan_statuses = (ModelPackageStatusItemList.parse(map['ImageScanStatuses']) unless map['ImageScanStatuses'].nil?)
         return data
       end
     end
@@ -4485,7 +4485,7 @@ module AWS::SDK::SageMaker
     class ModelPackageStatusItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelPackageStatusItem.parse(value) unless value.nil?
+          ModelPackageStatusItem.parse(value) unless value.nil?
         end
       end
     end
@@ -4504,7 +4504,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ModelPackageValidationSpecification.new
         data.validation_role = map['ValidationRole']
-        data.validation_profiles = (Parsers::ModelPackageValidationProfiles.parse(map['ValidationProfiles']) unless map['ValidationProfiles'].nil?)
+        data.validation_profiles = (ModelPackageValidationProfiles.parse(map['ValidationProfiles']) unless map['ValidationProfiles'].nil?)
         return data
       end
     end
@@ -4512,7 +4512,7 @@ module AWS::SDK::SageMaker
     class ModelPackageValidationProfiles
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelPackageValidationProfile.parse(value) unless value.nil?
+          ModelPackageValidationProfile.parse(value) unless value.nil?
         end
       end
     end
@@ -4521,7 +4521,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ModelPackageValidationProfile.new
         data.profile_name = map['ProfileName']
-        data.transform_job_definition = (Parsers::TransformJobDefinition.parse(map['TransformJobDefinition']) unless map['TransformJobDefinition'].nil?)
+        data.transform_job_definition = (TransformJobDefinition.parse(map['TransformJobDefinition']) unless map['TransformJobDefinition'].nil?)
         return data
       end
     end
@@ -4529,7 +4529,7 @@ module AWS::SDK::SageMaker
     class SourceAlgorithmSpecification
       def self.parse(map)
         data = Types::SourceAlgorithmSpecification.new
-        data.source_algorithms = (Parsers::SourceAlgorithmList.parse(map['SourceAlgorithms']) unless map['SourceAlgorithms'].nil?)
+        data.source_algorithms = (SourceAlgorithmList.parse(map['SourceAlgorithms']) unless map['SourceAlgorithms'].nil?)
         return data
       end
     end
@@ -4537,7 +4537,7 @@ module AWS::SDK::SageMaker
     class SourceAlgorithmList
       def self.parse(list)
         list.map do |value|
-          Parsers::SourceAlgorithm.parse(value) unless value.nil?
+          SourceAlgorithm.parse(value) unless value.nil?
         end
       end
     end
@@ -4562,7 +4562,7 @@ module AWS::SDK::SageMaker
         data.model_package_group_arn = map['ModelPackageGroupArn']
         data.model_package_group_description = map['ModelPackageGroupDescription']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.model_package_group_status = map['ModelPackageGroupStatus']
         data
       end
@@ -4578,14 +4578,14 @@ module AWS::SDK::SageMaker
         data.job_definition_arn = map['JobDefinitionArn']
         data.job_definition_name = map['JobDefinitionName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.model_quality_baseline_config = (Parsers::ModelQualityBaselineConfig.parse(map['ModelQualityBaselineConfig']) unless map['ModelQualityBaselineConfig'].nil?)
-        data.model_quality_app_specification = (Parsers::ModelQualityAppSpecification.parse(map['ModelQualityAppSpecification']) unless map['ModelQualityAppSpecification'].nil?)
-        data.model_quality_job_input = (Parsers::ModelQualityJobInput.parse(map['ModelQualityJobInput']) unless map['ModelQualityJobInput'].nil?)
-        data.model_quality_job_output_config = (Parsers::MonitoringOutputConfig.parse(map['ModelQualityJobOutputConfig']) unless map['ModelQualityJobOutputConfig'].nil?)
-        data.job_resources = (Parsers::MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
-        data.network_config = (Parsers::MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
+        data.model_quality_baseline_config = (ModelQualityBaselineConfig.parse(map['ModelQualityBaselineConfig']) unless map['ModelQualityBaselineConfig'].nil?)
+        data.model_quality_app_specification = (ModelQualityAppSpecification.parse(map['ModelQualityAppSpecification']) unless map['ModelQualityAppSpecification'].nil?)
+        data.model_quality_job_input = (ModelQualityJobInput.parse(map['ModelQualityJobInput']) unless map['ModelQualityJobInput'].nil?)
+        data.model_quality_job_output_config = (MonitoringOutputConfig.parse(map['ModelQualityJobOutputConfig']) unless map['ModelQualityJobOutputConfig'].nil?)
+        data.job_resources = (MonitoringResources.parse(map['JobResources']) unless map['JobResources'].nil?)
+        data.network_config = (MonitoringNetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
         data.role_arn = map['RoleArn']
-        data.stopping_condition = (Parsers::MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.stopping_condition = (MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data
       end
     end
@@ -4593,8 +4593,8 @@ module AWS::SDK::SageMaker
     class ModelQualityJobInput
       def self.parse(map)
         data = Types::ModelQualityJobInput.new
-        data.endpoint_input = (Parsers::EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
-        data.ground_truth_s3_input = (Parsers::MonitoringGroundTruthS3Input.parse(map['GroundTruthS3Input']) unless map['GroundTruthS3Input'].nil?)
+        data.endpoint_input = (EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
+        data.ground_truth_s3_input = (MonitoringGroundTruthS3Input.parse(map['GroundTruthS3Input']) unless map['GroundTruthS3Input'].nil?)
         return data
       end
     end
@@ -4603,12 +4603,12 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ModelQualityAppSpecification.new
         data.image_uri = map['ImageUri']
-        data.container_entrypoint = (Parsers::ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
-        data.container_arguments = (Parsers::MonitoringContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
+        data.container_entrypoint = (ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
+        data.container_arguments = (MonitoringContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
         data.record_preprocessor_source_uri = map['RecordPreprocessorSourceUri']
         data.post_analytics_processor_source_uri = map['PostAnalyticsProcessorSourceUri']
         data.problem_type = map['ProblemType']
-        data.environment = (Parsers::MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
         return data
       end
     end
@@ -4617,7 +4617,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ModelQualityBaselineConfig.new
         data.baselining_job_name = map['BaseliningJobName']
-        data.constraints_resource = (Parsers::MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
+        data.constraints_resource = (MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
         return data
       end
     end
@@ -4636,9 +4636,9 @@ module AWS::SDK::SageMaker
         data.failure_reason = map['FailureReason']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.monitoring_schedule_config = (Parsers::MonitoringScheduleConfig.parse(map['MonitoringScheduleConfig']) unless map['MonitoringScheduleConfig'].nil?)
+        data.monitoring_schedule_config = (MonitoringScheduleConfig.parse(map['MonitoringScheduleConfig']) unless map['MonitoringScheduleConfig'].nil?)
         data.endpoint_name = map['EndpointName']
-        data.last_monitoring_execution_summary = (Parsers::MonitoringExecutionSummary.parse(map['LastMonitoringExecutionSummary']) unless map['LastMonitoringExecutionSummary'].nil?)
+        data.last_monitoring_execution_summary = (MonitoringExecutionSummary.parse(map['LastMonitoringExecutionSummary']) unless map['LastMonitoringExecutionSummary'].nil?)
         data
       end
     end
@@ -4663,8 +4663,8 @@ module AWS::SDK::SageMaker
     class MonitoringScheduleConfig
       def self.parse(map)
         data = Types::MonitoringScheduleConfig.new
-        data.schedule_config = (Parsers::ScheduleConfig.parse(map['ScheduleConfig']) unless map['ScheduleConfig'].nil?)
-        data.monitoring_job_definition = (Parsers::MonitoringJobDefinition.parse(map['MonitoringJobDefinition']) unless map['MonitoringJobDefinition'].nil?)
+        data.schedule_config = (ScheduleConfig.parse(map['ScheduleConfig']) unless map['ScheduleConfig'].nil?)
+        data.monitoring_job_definition = (MonitoringJobDefinition.parse(map['MonitoringJobDefinition']) unless map['MonitoringJobDefinition'].nil?)
         data.monitoring_job_definition_name = map['MonitoringJobDefinitionName']
         data.monitoring_type = map['MonitoringType']
         return data
@@ -4674,14 +4674,14 @@ module AWS::SDK::SageMaker
     class MonitoringJobDefinition
       def self.parse(map)
         data = Types::MonitoringJobDefinition.new
-        data.baseline_config = (Parsers::MonitoringBaselineConfig.parse(map['BaselineConfig']) unless map['BaselineConfig'].nil?)
-        data.monitoring_inputs = (Parsers::MonitoringInputs.parse(map['MonitoringInputs']) unless map['MonitoringInputs'].nil?)
-        data.monitoring_output_config = (Parsers::MonitoringOutputConfig.parse(map['MonitoringOutputConfig']) unless map['MonitoringOutputConfig'].nil?)
-        data.monitoring_resources = (Parsers::MonitoringResources.parse(map['MonitoringResources']) unless map['MonitoringResources'].nil?)
-        data.monitoring_app_specification = (Parsers::MonitoringAppSpecification.parse(map['MonitoringAppSpecification']) unless map['MonitoringAppSpecification'].nil?)
-        data.stopping_condition = (Parsers::MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
-        data.environment = (Parsers::MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.network_config = (Parsers::NetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
+        data.baseline_config = (MonitoringBaselineConfig.parse(map['BaselineConfig']) unless map['BaselineConfig'].nil?)
+        data.monitoring_inputs = (MonitoringInputs.parse(map['MonitoringInputs']) unless map['MonitoringInputs'].nil?)
+        data.monitoring_output_config = (MonitoringOutputConfig.parse(map['MonitoringOutputConfig']) unless map['MonitoringOutputConfig'].nil?)
+        data.monitoring_resources = (MonitoringResources.parse(map['MonitoringResources']) unless map['MonitoringResources'].nil?)
+        data.monitoring_app_specification = (MonitoringAppSpecification.parse(map['MonitoringAppSpecification']) unless map['MonitoringAppSpecification'].nil?)
+        data.stopping_condition = (MonitoringStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.environment = (MonitoringEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.network_config = (NetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
         data.role_arn = map['RoleArn']
         return data
       end
@@ -4692,7 +4692,7 @@ module AWS::SDK::SageMaker
         data = Types::NetworkConfig.new
         data.enable_inter_container_traffic_encryption = map['EnableInterContainerTrafficEncryption']
         data.enable_network_isolation = map['EnableNetworkIsolation']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -4701,8 +4701,8 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::MonitoringAppSpecification.new
         data.image_uri = map['ImageUri']
-        data.container_entrypoint = (Parsers::ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
-        data.container_arguments = (Parsers::MonitoringContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
+        data.container_entrypoint = (ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
+        data.container_arguments = (MonitoringContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
         data.record_preprocessor_source_uri = map['RecordPreprocessorSourceUri']
         data.post_analytics_processor_source_uri = map['PostAnalyticsProcessorSourceUri']
         return data
@@ -4712,7 +4712,7 @@ module AWS::SDK::SageMaker
     class MonitoringInputs
       def self.parse(list)
         list.map do |value|
-          Parsers::MonitoringInput.parse(value) unless value.nil?
+          MonitoringInput.parse(value) unless value.nil?
         end
       end
     end
@@ -4720,7 +4720,7 @@ module AWS::SDK::SageMaker
     class MonitoringInput
       def self.parse(map)
         data = Types::MonitoringInput.new
-        data.endpoint_input = (Parsers::EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
+        data.endpoint_input = (EndpointInput.parse(map['EndpointInput']) unless map['EndpointInput'].nil?)
         return data
       end
     end
@@ -4729,8 +4729,8 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::MonitoringBaselineConfig.new
         data.baselining_job_name = map['BaseliningJobName']
-        data.constraints_resource = (Parsers::MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
-        data.statistics_resource = (Parsers::MonitoringStatisticsResource.parse(map['StatisticsResource']) unless map['StatisticsResource'].nil?)
+        data.constraints_resource = (MonitoringConstraintsResource.parse(map['ConstraintsResource']) unless map['ConstraintsResource'].nil?)
+        data.statistics_resource = (MonitoringStatisticsResource.parse(map['StatisticsResource']) unless map['StatisticsResource'].nil?)
         return data
       end
     end
@@ -4757,7 +4757,7 @@ module AWS::SDK::SageMaker
         data.url = map['Url']
         data.instance_type = map['InstanceType']
         data.subnet_id = map['SubnetId']
-        data.security_groups = (Parsers::SecurityGroupIds.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.security_groups = (SecurityGroupIds.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data.role_arn = map['RoleArn']
         data.kms_key_id = map['KmsKeyId']
         data.network_interface_id = map['NetworkInterfaceId']
@@ -4766,12 +4766,12 @@ module AWS::SDK::SageMaker
         data.notebook_instance_lifecycle_config_name = map['NotebookInstanceLifecycleConfigName']
         data.direct_internet_access = map['DirectInternetAccess']
         data.volume_size_in_gb = map['VolumeSizeInGB']
-        data.accelerator_types = (Parsers::NotebookInstanceAcceleratorTypes.parse(map['AcceleratorTypes']) unless map['AcceleratorTypes'].nil?)
+        data.accelerator_types = (NotebookInstanceAcceleratorTypes.parse(map['AcceleratorTypes']) unless map['AcceleratorTypes'].nil?)
         data.default_code_repository = map['DefaultCodeRepository']
-        data.additional_code_repositories = (Parsers::AdditionalCodeRepositoryNamesOrUrls.parse(map['AdditionalCodeRepositories']) unless map['AdditionalCodeRepositories'].nil?)
+        data.additional_code_repositories = (AdditionalCodeRepositoryNamesOrUrls.parse(map['AdditionalCodeRepositories']) unless map['AdditionalCodeRepositories'].nil?)
         data.root_access = map['RootAccess']
         data.platform_identifier = map['PlatformIdentifier']
-        data.instance_metadata_service_configuration = (Parsers::InstanceMetadataServiceConfiguration.parse(map['InstanceMetadataServiceConfiguration']) unless map['InstanceMetadataServiceConfiguration'].nil?)
+        data.instance_metadata_service_configuration = (InstanceMetadataServiceConfiguration.parse(map['InstanceMetadataServiceConfiguration']) unless map['InstanceMetadataServiceConfiguration'].nil?)
         data
       end
     end
@@ -4809,8 +4809,8 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.notebook_instance_lifecycle_config_arn = map['NotebookInstanceLifecycleConfigArn']
         data.notebook_instance_lifecycle_config_name = map['NotebookInstanceLifecycleConfigName']
-        data.on_create = (Parsers::NotebookInstanceLifecycleConfigList.parse(map['OnCreate']) unless map['OnCreate'].nil?)
-        data.on_start = (Parsers::NotebookInstanceLifecycleConfigList.parse(map['OnStart']) unless map['OnStart'].nil?)
+        data.on_create = (NotebookInstanceLifecycleConfigList.parse(map['OnCreate']) unless map['OnCreate'].nil?)
+        data.on_start = (NotebookInstanceLifecycleConfigList.parse(map['OnStart']) unless map['OnStart'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
@@ -4820,7 +4820,7 @@ module AWS::SDK::SageMaker
     class NotebookInstanceLifecycleConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::NotebookInstanceLifecycleHook.parse(value) unless value.nil?
+          NotebookInstanceLifecycleHook.parse(value) unless value.nil?
         end
       end
     end
@@ -4850,9 +4850,9 @@ module AWS::SDK::SageMaker
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.last_run_time = Time.at(map['LastRunTime'].to_i) if map['LastRunTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.parallelism_configuration = (Parsers::ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.parallelism_configuration = (ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
         data
       end
     end
@@ -4890,13 +4890,13 @@ module AWS::SDK::SageMaker
         data.pipeline_execution_display_name = map['PipelineExecutionDisplayName']
         data.pipeline_execution_status = map['PipelineExecutionStatus']
         data.pipeline_execution_description = map['PipelineExecutionDescription']
-        data.pipeline_experiment_config = (Parsers::PipelineExperimentConfig.parse(map['PipelineExperimentConfig']) unless map['PipelineExperimentConfig'].nil?)
+        data.pipeline_experiment_config = (PipelineExperimentConfig.parse(map['PipelineExperimentConfig']) unless map['PipelineExperimentConfig'].nil?)
         data.failure_reason = map['FailureReason']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.parallelism_configuration = (Parsers::ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.parallelism_configuration = (ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
         data
       end
     end
@@ -4917,16 +4917,16 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.processing_inputs = (Parsers::ProcessingInputs.parse(map['ProcessingInputs']) unless map['ProcessingInputs'].nil?)
-        data.processing_output_config = (Parsers::ProcessingOutputConfig.parse(map['ProcessingOutputConfig']) unless map['ProcessingOutputConfig'].nil?)
+        data.processing_inputs = (ProcessingInputs.parse(map['ProcessingInputs']) unless map['ProcessingInputs'].nil?)
+        data.processing_output_config = (ProcessingOutputConfig.parse(map['ProcessingOutputConfig']) unless map['ProcessingOutputConfig'].nil?)
         data.processing_job_name = map['ProcessingJobName']
-        data.processing_resources = (Parsers::ProcessingResources.parse(map['ProcessingResources']) unless map['ProcessingResources'].nil?)
-        data.stopping_condition = (Parsers::ProcessingStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
-        data.app_specification = (Parsers::AppSpecification.parse(map['AppSpecification']) unless map['AppSpecification'].nil?)
-        data.environment = (Parsers::ProcessingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.network_config = (Parsers::NetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
+        data.processing_resources = (ProcessingResources.parse(map['ProcessingResources']) unless map['ProcessingResources'].nil?)
+        data.stopping_condition = (ProcessingStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.app_specification = (AppSpecification.parse(map['AppSpecification']) unless map['AppSpecification'].nil?)
+        data.environment = (ProcessingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.network_config = (NetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
         data.role_arn = map['RoleArn']
-        data.experiment_config = (Parsers::ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
+        data.experiment_config = (ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
         data.processing_job_arn = map['ProcessingJobArn']
         data.processing_job_status = map['ProcessingJobStatus']
         data.exit_message = map['ExitMessage']
@@ -4966,8 +4966,8 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::AppSpecification.new
         data.image_uri = map['ImageUri']
-        data.container_entrypoint = (Parsers::ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
-        data.container_arguments = (Parsers::ContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
+        data.container_entrypoint = (ContainerEntrypoint.parse(map['ContainerEntrypoint']) unless map['ContainerEntrypoint'].nil?)
+        data.container_arguments = (ContainerArguments.parse(map['ContainerArguments']) unless map['ContainerArguments'].nil?)
         return data
       end
     end
@@ -4991,7 +4991,7 @@ module AWS::SDK::SageMaker
     class ProcessingResources
       def self.parse(map)
         data = Types::ProcessingResources.new
-        data.cluster_config = (Parsers::ProcessingClusterConfig.parse(map['ClusterConfig']) unless map['ClusterConfig'].nil?)
+        data.cluster_config = (ProcessingClusterConfig.parse(map['ClusterConfig']) unless map['ClusterConfig'].nil?)
         return data
       end
     end
@@ -5010,7 +5010,7 @@ module AWS::SDK::SageMaker
     class ProcessingOutputConfig
       def self.parse(map)
         data = Types::ProcessingOutputConfig.new
-        data.outputs = (Parsers::ProcessingOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.outputs = (ProcessingOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.kms_key_id = map['KmsKeyId']
         return data
       end
@@ -5019,7 +5019,7 @@ module AWS::SDK::SageMaker
     class ProcessingOutputs
       def self.parse(list)
         list.map do |value|
-          Parsers::ProcessingOutput.parse(value) unless value.nil?
+          ProcessingOutput.parse(value) unless value.nil?
         end
       end
     end
@@ -5028,8 +5028,8 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::ProcessingOutput.new
         data.output_name = map['OutputName']
-        data.s3_output = (Parsers::ProcessingS3Output.parse(map['S3Output']) unless map['S3Output'].nil?)
-        data.feature_store_output = (Parsers::ProcessingFeatureStoreOutput.parse(map['FeatureStoreOutput']) unless map['FeatureStoreOutput'].nil?)
+        data.s3_output = (ProcessingS3Output.parse(map['S3Output']) unless map['S3Output'].nil?)
+        data.feature_store_output = (ProcessingFeatureStoreOutput.parse(map['FeatureStoreOutput']) unless map['FeatureStoreOutput'].nil?)
         data.app_managed = map['AppManaged']
         return data
       end
@@ -5056,7 +5056,7 @@ module AWS::SDK::SageMaker
     class ProcessingInputs
       def self.parse(list)
         list.map do |value|
-          Parsers::ProcessingInput.parse(value) unless value.nil?
+          ProcessingInput.parse(value) unless value.nil?
         end
       end
     end
@@ -5066,8 +5066,8 @@ module AWS::SDK::SageMaker
         data = Types::ProcessingInput.new
         data.input_name = map['InputName']
         data.app_managed = map['AppManaged']
-        data.s3_input = (Parsers::ProcessingS3Input.parse(map['S3Input']) unless map['S3Input'].nil?)
-        data.dataset_definition = (Parsers::DatasetDefinition.parse(map['DatasetDefinition']) unless map['DatasetDefinition'].nil?)
+        data.s3_input = (ProcessingS3Input.parse(map['S3Input']) unless map['S3Input'].nil?)
+        data.dataset_definition = (DatasetDefinition.parse(map['DatasetDefinition']) unless map['DatasetDefinition'].nil?)
         return data
       end
     end
@@ -5075,8 +5075,8 @@ module AWS::SDK::SageMaker
     class DatasetDefinition
       def self.parse(map)
         data = Types::DatasetDefinition.new
-        data.athena_dataset_definition = (Parsers::AthenaDatasetDefinition.parse(map['AthenaDatasetDefinition']) unless map['AthenaDatasetDefinition'].nil?)
-        data.redshift_dataset_definition = (Parsers::RedshiftDatasetDefinition.parse(map['RedshiftDatasetDefinition']) unless map['RedshiftDatasetDefinition'].nil?)
+        data.athena_dataset_definition = (AthenaDatasetDefinition.parse(map['AthenaDatasetDefinition']) unless map['AthenaDatasetDefinition'].nil?)
+        data.redshift_dataset_definition = (RedshiftDatasetDefinition.parse(map['RedshiftDatasetDefinition']) unless map['RedshiftDatasetDefinition'].nil?)
         data.local_path = map['LocalPath']
         data.data_distribution_type = map['DataDistributionType']
         data.input_mode = map['InputMode']
@@ -5139,13 +5139,13 @@ module AWS::SDK::SageMaker
         data.project_name = map['ProjectName']
         data.project_id = map['ProjectId']
         data.project_description = map['ProjectDescription']
-        data.service_catalog_provisioning_details = (Parsers::ServiceCatalogProvisioningDetails.parse(map['ServiceCatalogProvisioningDetails']) unless map['ServiceCatalogProvisioningDetails'].nil?)
-        data.service_catalog_provisioned_product_details = (Parsers::ServiceCatalogProvisionedProductDetails.parse(map['ServiceCatalogProvisionedProductDetails']) unless map['ServiceCatalogProvisionedProductDetails'].nil?)
+        data.service_catalog_provisioning_details = (ServiceCatalogProvisioningDetails.parse(map['ServiceCatalogProvisioningDetails']) unless map['ServiceCatalogProvisioningDetails'].nil?)
+        data.service_catalog_provisioned_product_details = (ServiceCatalogProvisionedProductDetails.parse(map['ServiceCatalogProvisionedProductDetails']) unless map['ServiceCatalogProvisionedProductDetails'].nil?)
         data.project_status = map['ProjectStatus']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         data
       end
     end
@@ -5165,7 +5165,7 @@ module AWS::SDK::SageMaker
         data.product_id = map['ProductId']
         data.provisioning_artifact_id = map['ProvisioningArtifactId']
         data.path_id = map['PathId']
-        data.provisioning_parameters = (Parsers::ProvisioningParameters.parse(map['ProvisioningParameters']) unless map['ProvisioningParameters'].nil?)
+        data.provisioning_parameters = (ProvisioningParameters.parse(map['ProvisioningParameters']) unless map['ProvisioningParameters'].nil?)
         return data
       end
     end
@@ -5173,7 +5173,7 @@ module AWS::SDK::SageMaker
     class ProvisioningParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisioningParameter.parse(value) unless value.nil?
+          ProvisioningParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -5211,7 +5211,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subscribed_workteam = (Parsers::SubscribedWorkteam.parse(map['SubscribedWorkteam']) unless map['SubscribedWorkteam'].nil?)
+        data.subscribed_workteam = (SubscribedWorkteam.parse(map['SubscribedWorkteam']) unless map['SubscribedWorkteam'].nil?)
         data
       end
     end
@@ -5240,41 +5240,41 @@ module AWS::SDK::SageMaker
         data.tuning_job_arn = map['TuningJobArn']
         data.labeling_job_arn = map['LabelingJobArn']
         data.auto_ml_job_arn = map['AutoMLJobArn']
-        data.model_artifacts = (Parsers::ModelArtifacts.parse(map['ModelArtifacts']) unless map['ModelArtifacts'].nil?)
+        data.model_artifacts = (ModelArtifacts.parse(map['ModelArtifacts']) unless map['ModelArtifacts'].nil?)
         data.training_job_status = map['TrainingJobStatus']
         data.secondary_status = map['SecondaryStatus']
         data.failure_reason = map['FailureReason']
-        data.hyper_parameters = (Parsers::HyperParameters.parse(map['HyperParameters']) unless map['HyperParameters'].nil?)
-        data.algorithm_specification = (Parsers::AlgorithmSpecification.parse(map['AlgorithmSpecification']) unless map['AlgorithmSpecification'].nil?)
+        data.hyper_parameters = (HyperParameters.parse(map['HyperParameters']) unless map['HyperParameters'].nil?)
+        data.algorithm_specification = (AlgorithmSpecification.parse(map['AlgorithmSpecification']) unless map['AlgorithmSpecification'].nil?)
         data.role_arn = map['RoleArn']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
-        data.resource_config = (Parsers::ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.stopping_condition = (Parsers::StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.resource_config = (ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.stopping_condition = (StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.training_start_time = Time.at(map['TrainingStartTime'].to_i) if map['TrainingStartTime']
         data.training_end_time = Time.at(map['TrainingEndTime'].to_i) if map['TrainingEndTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.secondary_status_transitions = (Parsers::SecondaryStatusTransitions.parse(map['SecondaryStatusTransitions']) unless map['SecondaryStatusTransitions'].nil?)
-        data.final_metric_data_list = (Parsers::FinalMetricDataList.parse(map['FinalMetricDataList']) unless map['FinalMetricDataList'].nil?)
+        data.secondary_status_transitions = (SecondaryStatusTransitions.parse(map['SecondaryStatusTransitions']) unless map['SecondaryStatusTransitions'].nil?)
+        data.final_metric_data_list = (FinalMetricDataList.parse(map['FinalMetricDataList']) unless map['FinalMetricDataList'].nil?)
         data.enable_network_isolation = map['EnableNetworkIsolation']
         data.enable_inter_container_traffic_encryption = map['EnableInterContainerTrafficEncryption']
         data.enable_managed_spot_training = map['EnableManagedSpotTraining']
-        data.checkpoint_config = (Parsers::CheckpointConfig.parse(map['CheckpointConfig']) unless map['CheckpointConfig'].nil?)
+        data.checkpoint_config = (CheckpointConfig.parse(map['CheckpointConfig']) unless map['CheckpointConfig'].nil?)
         data.training_time_in_seconds = map['TrainingTimeInSeconds']
         data.billable_time_in_seconds = map['BillableTimeInSeconds']
-        data.debug_hook_config = (Parsers::DebugHookConfig.parse(map['DebugHookConfig']) unless map['DebugHookConfig'].nil?)
-        data.experiment_config = (Parsers::ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
-        data.debug_rule_configurations = (Parsers::DebugRuleConfigurations.parse(map['DebugRuleConfigurations']) unless map['DebugRuleConfigurations'].nil?)
-        data.tensor_board_output_config = (Parsers::TensorBoardOutputConfig.parse(map['TensorBoardOutputConfig']) unless map['TensorBoardOutputConfig'].nil?)
-        data.debug_rule_evaluation_statuses = (Parsers::DebugRuleEvaluationStatuses.parse(map['DebugRuleEvaluationStatuses']) unless map['DebugRuleEvaluationStatuses'].nil?)
-        data.profiler_config = (Parsers::ProfilerConfig.parse(map['ProfilerConfig']) unless map['ProfilerConfig'].nil?)
-        data.profiler_rule_configurations = (Parsers::ProfilerRuleConfigurations.parse(map['ProfilerRuleConfigurations']) unless map['ProfilerRuleConfigurations'].nil?)
-        data.profiler_rule_evaluation_statuses = (Parsers::ProfilerRuleEvaluationStatuses.parse(map['ProfilerRuleEvaluationStatuses']) unless map['ProfilerRuleEvaluationStatuses'].nil?)
+        data.debug_hook_config = (DebugHookConfig.parse(map['DebugHookConfig']) unless map['DebugHookConfig'].nil?)
+        data.experiment_config = (ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
+        data.debug_rule_configurations = (DebugRuleConfigurations.parse(map['DebugRuleConfigurations']) unless map['DebugRuleConfigurations'].nil?)
+        data.tensor_board_output_config = (TensorBoardOutputConfig.parse(map['TensorBoardOutputConfig']) unless map['TensorBoardOutputConfig'].nil?)
+        data.debug_rule_evaluation_statuses = (DebugRuleEvaluationStatuses.parse(map['DebugRuleEvaluationStatuses']) unless map['DebugRuleEvaluationStatuses'].nil?)
+        data.profiler_config = (ProfilerConfig.parse(map['ProfilerConfig']) unless map['ProfilerConfig'].nil?)
+        data.profiler_rule_configurations = (ProfilerRuleConfigurations.parse(map['ProfilerRuleConfigurations']) unless map['ProfilerRuleConfigurations'].nil?)
+        data.profiler_rule_evaluation_statuses = (ProfilerRuleEvaluationStatuses.parse(map['ProfilerRuleEvaluationStatuses']) unless map['ProfilerRuleEvaluationStatuses'].nil?)
         data.profiling_status = map['ProfilingStatus']
-        data.retry_strategy = (Parsers::RetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
-        data.environment = (Parsers::TrainingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.retry_strategy = (RetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
+        data.environment = (TrainingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
         data
       end
     end
@@ -5292,7 +5292,7 @@ module AWS::SDK::SageMaker
     class ProfilerRuleEvaluationStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::ProfilerRuleEvaluationStatus.parse(value) unless value.nil?
+          ProfilerRuleEvaluationStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -5312,7 +5312,7 @@ module AWS::SDK::SageMaker
     class ProfilerRuleConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::ProfilerRuleConfiguration.parse(value) unless value.nil?
+          ProfilerRuleConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -5326,7 +5326,7 @@ module AWS::SDK::SageMaker
         data.rule_evaluator_image = map['RuleEvaluatorImage']
         data.instance_type = map['InstanceType']
         data.volume_size_in_gb = map['VolumeSizeInGB']
-        data.rule_parameters = (Parsers::RuleParameters.parse(map['RuleParameters']) unless map['RuleParameters'].nil?)
+        data.rule_parameters = (RuleParameters.parse(map['RuleParameters']) unless map['RuleParameters'].nil?)
         return data
       end
     end
@@ -5346,7 +5346,7 @@ module AWS::SDK::SageMaker
         data = Types::ProfilerConfig.new
         data.s3_output_path = map['S3OutputPath']
         data.profiling_interval_in_milliseconds = map['ProfilingIntervalInMilliseconds']
-        data.profiling_parameters = (Parsers::ProfilingParameters.parse(map['ProfilingParameters']) unless map['ProfilingParameters'].nil?)
+        data.profiling_parameters = (ProfilingParameters.parse(map['ProfilingParameters']) unless map['ProfilingParameters'].nil?)
         return data
       end
     end
@@ -5364,7 +5364,7 @@ module AWS::SDK::SageMaker
     class DebugRuleEvaluationStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::DebugRuleEvaluationStatus.parse(value) unless value.nil?
+          DebugRuleEvaluationStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -5393,7 +5393,7 @@ module AWS::SDK::SageMaker
     class DebugRuleConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::DebugRuleConfiguration.parse(value) unless value.nil?
+          DebugRuleConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -5407,7 +5407,7 @@ module AWS::SDK::SageMaker
         data.rule_evaluator_image = map['RuleEvaluatorImage']
         data.instance_type = map['InstanceType']
         data.volume_size_in_gb = map['VolumeSizeInGB']
-        data.rule_parameters = (Parsers::RuleParameters.parse(map['RuleParameters']) unless map['RuleParameters'].nil?)
+        data.rule_parameters = (RuleParameters.parse(map['RuleParameters']) unless map['RuleParameters'].nil?)
         return data
       end
     end
@@ -5417,8 +5417,8 @@ module AWS::SDK::SageMaker
         data = Types::DebugHookConfig.new
         data.local_path = map['LocalPath']
         data.s3_output_path = map['S3OutputPath']
-        data.hook_parameters = (Parsers::HookParameters.parse(map['HookParameters']) unless map['HookParameters'].nil?)
-        data.collection_configurations = (Parsers::CollectionConfigurations.parse(map['CollectionConfigurations']) unless map['CollectionConfigurations'].nil?)
+        data.hook_parameters = (HookParameters.parse(map['HookParameters']) unless map['HookParameters'].nil?)
+        data.collection_configurations = (CollectionConfigurations.parse(map['CollectionConfigurations']) unless map['CollectionConfigurations'].nil?)
         return data
       end
     end
@@ -5426,7 +5426,7 @@ module AWS::SDK::SageMaker
     class CollectionConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::CollectionConfiguration.parse(value) unless value.nil?
+          CollectionConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -5435,7 +5435,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::CollectionConfiguration.new
         data.collection_name = map['CollectionName']
-        data.collection_parameters = (Parsers::CollectionParameters.parse(map['CollectionParameters']) unless map['CollectionParameters'].nil?)
+        data.collection_parameters = (CollectionParameters.parse(map['CollectionParameters']) unless map['CollectionParameters'].nil?)
         return data
       end
     end
@@ -5463,7 +5463,7 @@ module AWS::SDK::SageMaker
     class FinalMetricDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricData.parse(value) unless value.nil?
+          MetricData.parse(value) unless value.nil?
         end
       end
     end
@@ -5481,7 +5481,7 @@ module AWS::SDK::SageMaker
     class SecondaryStatusTransitions
       def self.parse(list)
         list.map do |value|
-          Parsers::SecondaryStatusTransition.parse(value) unless value.nil?
+          SecondaryStatusTransition.parse(value) unless value.nil?
         end
       end
     end
@@ -5503,7 +5503,7 @@ module AWS::SDK::SageMaker
         data.training_image = map['TrainingImage']
         data.algorithm_name = map['AlgorithmName']
         data.training_input_mode = map['TrainingInputMode']
-        data.metric_definitions = (Parsers::MetricDefinitionList.parse(map['MetricDefinitions']) unless map['MetricDefinitions'].nil?)
+        data.metric_definitions = (MetricDefinitionList.parse(map['MetricDefinitions']) unless map['MetricDefinitions'].nil?)
         data.enable_sage_maker_metrics_time_series = map['EnableSageMakerMetricsTimeSeries']
         return data
       end
@@ -5522,20 +5522,20 @@ module AWS::SDK::SageMaker
         data.failure_reason = map['FailureReason']
         data.model_name = map['ModelName']
         data.max_concurrent_transforms = map['MaxConcurrentTransforms']
-        data.model_client_config = (Parsers::ModelClientConfig.parse(map['ModelClientConfig']) unless map['ModelClientConfig'].nil?)
+        data.model_client_config = (ModelClientConfig.parse(map['ModelClientConfig']) unless map['ModelClientConfig'].nil?)
         data.max_payload_in_mb = map['MaxPayloadInMB']
         data.batch_strategy = map['BatchStrategy']
-        data.environment = (Parsers::TransformEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.transform_input = (Parsers::TransformInput.parse(map['TransformInput']) unless map['TransformInput'].nil?)
-        data.transform_output = (Parsers::TransformOutput.parse(map['TransformOutput']) unless map['TransformOutput'].nil?)
-        data.transform_resources = (Parsers::TransformResources.parse(map['TransformResources']) unless map['TransformResources'].nil?)
+        data.environment = (TransformEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.transform_input = (TransformInput.parse(map['TransformInput']) unless map['TransformInput'].nil?)
+        data.transform_output = (TransformOutput.parse(map['TransformOutput']) unless map['TransformOutput'].nil?)
+        data.transform_resources = (TransformResources.parse(map['TransformResources']) unless map['TransformResources'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.transform_start_time = Time.at(map['TransformStartTime'].to_i) if map['TransformStartTime']
         data.transform_end_time = Time.at(map['TransformEndTime'].to_i) if map['TransformEndTime']
         data.labeling_job_arn = map['LabelingJobArn']
         data.auto_ml_job_arn = map['AutoMLJobArn']
-        data.data_processing = (Parsers::DataProcessing.parse(map['DataProcessing']) unless map['DataProcessing'].nil?)
-        data.experiment_config = (Parsers::ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
+        data.data_processing = (DataProcessing.parse(map['DataProcessing']) unless map['DataProcessing'].nil?)
+        data.experiment_config = (ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
         data
       end
     end
@@ -5570,12 +5570,12 @@ module AWS::SDK::SageMaker
         data.trial_arn = map['TrialArn']
         data.display_name = map['DisplayName']
         data.experiment_name = map['ExperimentName']
-        data.source = (Parsers::TrialSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (TrialSource.parse(map['Source']) unless map['Source'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
         data
       end
     end
@@ -5599,19 +5599,19 @@ module AWS::SDK::SageMaker
         data.trial_component_name = map['TrialComponentName']
         data.trial_component_arn = map['TrialComponentArn']
         data.display_name = map['DisplayName']
-        data.source = (Parsers::TrialComponentSource.parse(map['Source']) unless map['Source'].nil?)
-        data.status = (Parsers::TrialComponentStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.source = (TrialComponentSource.parse(map['Source']) unless map['Source'].nil?)
+        data.status = (TrialComponentStatus.parse(map['Status']) unless map['Status'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.parameters = (Parsers::TrialComponentParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.input_artifacts = (Parsers::TrialComponentArtifacts.parse(map['InputArtifacts']) unless map['InputArtifacts'].nil?)
-        data.output_artifacts = (Parsers::TrialComponentArtifacts.parse(map['OutputArtifacts']) unless map['OutputArtifacts'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
-        data.metrics = (Parsers::TrialComponentMetricSummaries.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.parameters = (TrialComponentParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.input_artifacts = (TrialComponentArtifacts.parse(map['InputArtifacts']) unless map['InputArtifacts'].nil?)
+        data.output_artifacts = (TrialComponentArtifacts.parse(map['OutputArtifacts']) unless map['OutputArtifacts'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.metrics = (TrialComponentMetricSummaries.parse(map['Metrics']) unless map['Metrics'].nil?)
         data.lineage_group_arn = map['LineageGroupArn']
         data
       end
@@ -5620,7 +5620,7 @@ module AWS::SDK::SageMaker
     class TrialComponentMetricSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TrialComponentMetricSummary.parse(value) unless value.nil?
+          TrialComponentMetricSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -5645,7 +5645,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::TrialComponentArtifact.parse(value) unless value.nil?
+          data[key] = TrialComponentArtifact.parse(value) unless value.nil?
         end
         data
       end
@@ -5664,7 +5664,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::TrialComponentParameterValue.parse(value) unless value.nil?
+          data[key] = TrialComponentParameterValue.parse(value) unless value.nil?
         end
         data
       end
@@ -5721,7 +5721,7 @@ module AWS::SDK::SageMaker
         data.failure_reason = map['FailureReason']
         data.single_sign_on_user_identifier = map['SingleSignOnUserIdentifier']
         data.single_sign_on_user_value = map['SingleSignOnUserValue']
-        data.user_settings = (Parsers::UserSettings.parse(map['UserSettings']) unless map['UserSettings'].nil?)
+        data.user_settings = (UserSettings.parse(map['UserSettings']) unless map['UserSettings'].nil?)
         data
       end
     end
@@ -5733,7 +5733,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workforce = (Parsers::Workforce.parse(map['Workforce']) unless map['Workforce'].nil?)
+        data.workforce = (Workforce.parse(map['Workforce']) unless map['Workforce'].nil?)
         data
       end
     end
@@ -5744,10 +5744,10 @@ module AWS::SDK::SageMaker
         data.workforce_name = map['WorkforceName']
         data.workforce_arn = map['WorkforceArn']
         data.last_updated_date = Time.at(map['LastUpdatedDate'].to_i) if map['LastUpdatedDate']
-        data.source_ip_config = (Parsers::SourceIpConfig.parse(map['SourceIpConfig']) unless map['SourceIpConfig'].nil?)
+        data.source_ip_config = (SourceIpConfig.parse(map['SourceIpConfig']) unless map['SourceIpConfig'].nil?)
         data.sub_domain = map['SubDomain']
-        data.cognito_config = (Parsers::CognitoConfig.parse(map['CognitoConfig']) unless map['CognitoConfig'].nil?)
-        data.oidc_config = (Parsers::OidcConfigForResponse.parse(map['OidcConfig']) unless map['OidcConfig'].nil?)
+        data.cognito_config = (CognitoConfig.parse(map['CognitoConfig']) unless map['CognitoConfig'].nil?)
+        data.oidc_config = (OidcConfigForResponse.parse(map['OidcConfig']) unless map['OidcConfig'].nil?)
         data.create_date = Time.at(map['CreateDate'].to_i) if map['CreateDate']
         return data
       end
@@ -5779,7 +5779,7 @@ module AWS::SDK::SageMaker
     class SourceIpConfig
       def self.parse(map)
         data = Types::SourceIpConfig.new
-        data.cidrs = (Parsers::Cidrs.parse(map['Cidrs']) unless map['Cidrs'].nil?)
+        data.cidrs = (Cidrs.parse(map['Cidrs']) unless map['Cidrs'].nil?)
         return data
       end
     end
@@ -5799,7 +5799,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workteam = (Parsers::Workteam.parse(map['Workteam']) unless map['Workteam'].nil?)
+        data.workteam = (Workteam.parse(map['Workteam']) unless map['Workteam'].nil?)
         data
       end
     end
@@ -5808,15 +5808,15 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::Workteam.new
         data.workteam_name = map['WorkteamName']
-        data.member_definitions = (Parsers::MemberDefinitions.parse(map['MemberDefinitions']) unless map['MemberDefinitions'].nil?)
+        data.member_definitions = (MemberDefinitions.parse(map['MemberDefinitions']) unless map['MemberDefinitions'].nil?)
         data.workteam_arn = map['WorkteamArn']
         data.workforce_arn = map['WorkforceArn']
-        data.product_listing_ids = (Parsers::ProductListings.parse(map['ProductListingIds']) unless map['ProductListingIds'].nil?)
+        data.product_listing_ids = (ProductListings.parse(map['ProductListingIds']) unless map['ProductListingIds'].nil?)
         data.description = map['Description']
         data.sub_domain = map['SubDomain']
         data.create_date = Time.at(map['CreateDate'].to_i) if map['CreateDate']
         data.last_updated_date = Time.at(map['LastUpdatedDate'].to_i) if map['LastUpdatedDate']
-        data.notification_configuration = (Parsers::NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
+        data.notification_configuration = (NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
         return data
       end
     end
@@ -5840,7 +5840,7 @@ module AWS::SDK::SageMaker
     class MemberDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::MemberDefinition.parse(value) unless value.nil?
+          MemberDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -5848,8 +5848,8 @@ module AWS::SDK::SageMaker
     class MemberDefinition
       def self.parse(map)
         data = Types::MemberDefinition.new
-        data.cognito_member_definition = (Parsers::CognitoMemberDefinition.parse(map['CognitoMemberDefinition']) unless map['CognitoMemberDefinition'].nil?)
-        data.oidc_member_definition = (Parsers::OidcMemberDefinition.parse(map['OidcMemberDefinition']) unless map['OidcMemberDefinition'].nil?)
+        data.cognito_member_definition = (CognitoMemberDefinition.parse(map['CognitoMemberDefinition']) unless map['CognitoMemberDefinition'].nil?)
+        data.oidc_member_definition = (OidcMemberDefinition.parse(map['OidcMemberDefinition']) unless map['OidcMemberDefinition'].nil?)
         return data
       end
     end
@@ -5857,7 +5857,7 @@ module AWS::SDK::SageMaker
     class OidcMemberDefinition
       def self.parse(map)
         data = Types::OidcMemberDefinition.new
-        data.groups = (Parsers::Groups.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (Groups.parse(map['Groups']) unless map['Groups'].nil?)
         return data
       end
     end
@@ -5924,12 +5924,12 @@ module AWS::SDK::SageMaker
         map = Hearth::JSON.load(body)
         data.device_fleet_arn = map['DeviceFleetArn']
         data.device_fleet_name = map['DeviceFleetName']
-        data.output_config = (Parsers::EdgeOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.output_config = (EdgeOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
         data.description = map['Description']
         data.report_generated = Time.at(map['ReportGenerated'].to_i) if map['ReportGenerated']
-        data.device_stats = (Parsers::DeviceStats.parse(map['DeviceStats']) unless map['DeviceStats'].nil?)
-        data.agent_versions = (Parsers::AgentVersions.parse(map['AgentVersions']) unless map['AgentVersions'].nil?)
-        data.model_stats = (Parsers::EdgeModelStats.parse(map['ModelStats']) unless map['ModelStats'].nil?)
+        data.device_stats = (DeviceStats.parse(map['DeviceStats']) unless map['DeviceStats'].nil?)
+        data.agent_versions = (AgentVersions.parse(map['AgentVersions']) unless map['AgentVersions'].nil?)
+        data.model_stats = (EdgeModelStats.parse(map['ModelStats']) unless map['ModelStats'].nil?)
         data
       end
     end
@@ -5937,7 +5937,7 @@ module AWS::SDK::SageMaker
     class EdgeModelStats
       def self.parse(list)
         list.map do |value|
-          Parsers::EdgeModelStat.parse(value) unless value.nil?
+          EdgeModelStat.parse(value) unless value.nil?
         end
       end
     end
@@ -5958,7 +5958,7 @@ module AWS::SDK::SageMaker
     class AgentVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentVersion.parse(value) unless value.nil?
+          AgentVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -6025,7 +6025,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.property_name_suggestions = (Parsers::PropertyNameSuggestionList.parse(map['PropertyNameSuggestions']) unless map['PropertyNameSuggestions'].nil?)
+        data.property_name_suggestions = (PropertyNameSuggestionList.parse(map['PropertyNameSuggestions']) unless map['PropertyNameSuggestions'].nil?)
         data
       end
     end
@@ -6033,7 +6033,7 @@ module AWS::SDK::SageMaker
     class PropertyNameSuggestionList
       def self.parse(list)
         list.map do |value|
-          Parsers::PropertyNameSuggestion.parse(value) unless value.nil?
+          PropertyNameSuggestion.parse(value) unless value.nil?
         end
       end
     end
@@ -6053,7 +6053,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.action_summaries = (Parsers::ActionSummaries.parse(map['ActionSummaries']) unless map['ActionSummaries'].nil?)
+        data.action_summaries = (ActionSummaries.parse(map['ActionSummaries']) unless map['ActionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6062,7 +6062,7 @@ module AWS::SDK::SageMaker
     class ActionSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionSummary.parse(value) unless value.nil?
+          ActionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6072,7 +6072,7 @@ module AWS::SDK::SageMaker
         data = Types::ActionSummary.new
         data.action_arn = map['ActionArn']
         data.action_name = map['ActionName']
-        data.source = (Parsers::ActionSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ActionSource.parse(map['Source']) unless map['Source'].nil?)
         data.action_type = map['ActionType']
         data.status = map['Status']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -6088,7 +6088,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.algorithm_summary_list = (Parsers::AlgorithmSummaryList.parse(map['AlgorithmSummaryList']) unless map['AlgorithmSummaryList'].nil?)
+        data.algorithm_summary_list = (AlgorithmSummaryList.parse(map['AlgorithmSummaryList']) unless map['AlgorithmSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6097,7 +6097,7 @@ module AWS::SDK::SageMaker
     class AlgorithmSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::AlgorithmSummary.parse(value) unless value.nil?
+          AlgorithmSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6122,7 +6122,7 @@ module AWS::SDK::SageMaker
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.app_image_configs = (Parsers::AppImageConfigList.parse(map['AppImageConfigs']) unless map['AppImageConfigs'].nil?)
+        data.app_image_configs = (AppImageConfigList.parse(map['AppImageConfigs']) unless map['AppImageConfigs'].nil?)
         data
       end
     end
@@ -6130,7 +6130,7 @@ module AWS::SDK::SageMaker
     class AppImageConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::AppImageConfigDetails.parse(value) unless value.nil?
+          AppImageConfigDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -6142,7 +6142,7 @@ module AWS::SDK::SageMaker
         data.app_image_config_name = map['AppImageConfigName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.kernel_gateway_image_config = (Parsers::KernelGatewayImageConfig.parse(map['KernelGatewayImageConfig']) unless map['KernelGatewayImageConfig'].nil?)
+        data.kernel_gateway_image_config = (KernelGatewayImageConfig.parse(map['KernelGatewayImageConfig']) unless map['KernelGatewayImageConfig'].nil?)
         return data
       end
     end
@@ -6154,7 +6154,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.apps = (Parsers::AppList.parse(map['Apps']) unless map['Apps'].nil?)
+        data.apps = (AppList.parse(map['Apps']) unless map['Apps'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6163,7 +6163,7 @@ module AWS::SDK::SageMaker
     class AppList
       def self.parse(list)
         list.map do |value|
-          Parsers::AppDetails.parse(value) unless value.nil?
+          AppDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -6188,7 +6188,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.artifact_summaries = (Parsers::ArtifactSummaries.parse(map['ArtifactSummaries']) unless map['ArtifactSummaries'].nil?)
+        data.artifact_summaries = (ArtifactSummaries.parse(map['ArtifactSummaries']) unless map['ArtifactSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6197,7 +6197,7 @@ module AWS::SDK::SageMaker
     class ArtifactSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ArtifactSummary.parse(value) unless value.nil?
+          ArtifactSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6207,7 +6207,7 @@ module AWS::SDK::SageMaker
         data = Types::ArtifactSummary.new
         data.artifact_arn = map['ArtifactArn']
         data.artifact_name = map['ArtifactName']
-        data.source = (Parsers::ArtifactSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ArtifactSource.parse(map['Source']) unless map['Source'].nil?)
         data.artifact_type = map['ArtifactType']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
@@ -6222,7 +6222,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_summaries = (Parsers::AssociationSummaries.parse(map['AssociationSummaries']) unless map['AssociationSummaries'].nil?)
+        data.association_summaries = (AssociationSummaries.parse(map['AssociationSummaries']) unless map['AssociationSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6231,7 +6231,7 @@ module AWS::SDK::SageMaker
     class AssociationSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::AssociationSummary.parse(value) unless value.nil?
+          AssociationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6247,7 +6247,7 @@ module AWS::SDK::SageMaker
         data.source_name = map['SourceName']
         data.destination_name = map['DestinationName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         return data
       end
     end
@@ -6259,7 +6259,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.auto_ml_job_summaries = (Parsers::AutoMLJobSummaries.parse(map['AutoMLJobSummaries']) unless map['AutoMLJobSummaries'].nil?)
+        data.auto_ml_job_summaries = (AutoMLJobSummaries.parse(map['AutoMLJobSummaries']) unless map['AutoMLJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6268,7 +6268,7 @@ module AWS::SDK::SageMaker
     class AutoMLJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoMLJobSummary.parse(value) unless value.nil?
+          AutoMLJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6284,7 +6284,7 @@ module AWS::SDK::SageMaker
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.failure_reason = map['FailureReason']
-        data.partial_failure_reasons = (Parsers::AutoMLPartialFailureReasons.parse(map['PartialFailureReasons']) unless map['PartialFailureReasons'].nil?)
+        data.partial_failure_reasons = (AutoMLPartialFailureReasons.parse(map['PartialFailureReasons']) unless map['PartialFailureReasons'].nil?)
         return data
       end
     end
@@ -6296,7 +6296,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.candidates = (Parsers::AutoMLCandidates.parse(map['Candidates']) unless map['Candidates'].nil?)
+        data.candidates = (AutoMLCandidates.parse(map['Candidates']) unless map['Candidates'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6305,7 +6305,7 @@ module AWS::SDK::SageMaker
     class AutoMLCandidates
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoMLCandidate.parse(value) unless value.nil?
+          AutoMLCandidate.parse(value) unless value.nil?
         end
       end
     end
@@ -6317,7 +6317,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.code_repository_summary_list = (Parsers::CodeRepositorySummaryList.parse(map['CodeRepositorySummaryList']) unless map['CodeRepositorySummaryList'].nil?)
+        data.code_repository_summary_list = (CodeRepositorySummaryList.parse(map['CodeRepositorySummaryList']) unless map['CodeRepositorySummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6326,7 +6326,7 @@ module AWS::SDK::SageMaker
     class CodeRepositorySummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::CodeRepositorySummary.parse(value) unless value.nil?
+          CodeRepositorySummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6338,7 +6338,7 @@ module AWS::SDK::SageMaker
         data.code_repository_arn = map['CodeRepositoryArn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.git_config = (Parsers::GitConfig.parse(map['GitConfig']) unless map['GitConfig'].nil?)
+        data.git_config = (GitConfig.parse(map['GitConfig']) unless map['GitConfig'].nil?)
         return data
       end
     end
@@ -6350,7 +6350,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compilation_job_summaries = (Parsers::CompilationJobSummaries.parse(map['CompilationJobSummaries']) unless map['CompilationJobSummaries'].nil?)
+        data.compilation_job_summaries = (CompilationJobSummaries.parse(map['CompilationJobSummaries']) unless map['CompilationJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6359,7 +6359,7 @@ module AWS::SDK::SageMaker
     class CompilationJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::CompilationJobSummary.parse(value) unless value.nil?
+          CompilationJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6389,7 +6389,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.context_summaries = (Parsers::ContextSummaries.parse(map['ContextSummaries']) unless map['ContextSummaries'].nil?)
+        data.context_summaries = (ContextSummaries.parse(map['ContextSummaries']) unless map['ContextSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6398,7 +6398,7 @@ module AWS::SDK::SageMaker
     class ContextSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ContextSummary.parse(value) unless value.nil?
+          ContextSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6408,7 +6408,7 @@ module AWS::SDK::SageMaker
         data = Types::ContextSummary.new
         data.context_arn = map['ContextArn']
         data.context_name = map['ContextName']
-        data.source = (Parsers::ContextSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ContextSource.parse(map['Source']) unless map['Source'].nil?)
         data.context_type = map['ContextType']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
@@ -6423,7 +6423,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_definition_summaries = (Parsers::MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
+        data.job_definition_summaries = (MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6432,7 +6432,7 @@ module AWS::SDK::SageMaker
     class MonitoringJobDefinitionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::MonitoringJobDefinitionSummary.parse(value) unless value.nil?
+          MonitoringJobDefinitionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6455,7 +6455,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_fleet_summaries = (Parsers::DeviceFleetSummaries.parse(map['DeviceFleetSummaries']) unless map['DeviceFleetSummaries'].nil?)
+        data.device_fleet_summaries = (DeviceFleetSummaries.parse(map['DeviceFleetSummaries']) unless map['DeviceFleetSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6464,7 +6464,7 @@ module AWS::SDK::SageMaker
     class DeviceFleetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceFleetSummary.parse(value) unless value.nil?
+          DeviceFleetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6487,7 +6487,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_summaries = (Parsers::DeviceSummaries.parse(map['DeviceSummaries']) unless map['DeviceSummaries'].nil?)
+        data.device_summaries = (DeviceSummaries.parse(map['DeviceSummaries']) unless map['DeviceSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6496,7 +6496,7 @@ module AWS::SDK::SageMaker
     class DeviceSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceSummary.parse(value) unless value.nil?
+          DeviceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6511,7 +6511,7 @@ module AWS::SDK::SageMaker
         data.iot_thing_name = map['IotThingName']
         data.registration_time = Time.at(map['RegistrationTime'].to_i) if map['RegistrationTime']
         data.latest_heartbeat = Time.at(map['LatestHeartbeat'].to_i) if map['LatestHeartbeat']
-        data.models = (Parsers::EdgeModelSummaries.parse(map['Models']) unless map['Models'].nil?)
+        data.models = (EdgeModelSummaries.parse(map['Models']) unless map['Models'].nil?)
         data.agent_version = map['AgentVersion']
         return data
       end
@@ -6520,7 +6520,7 @@ module AWS::SDK::SageMaker
     class EdgeModelSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::EdgeModelSummary.parse(value) unless value.nil?
+          EdgeModelSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6541,7 +6541,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domains = (Parsers::DomainList.parse(map['Domains']) unless map['Domains'].nil?)
+        data.domains = (DomainList.parse(map['Domains']) unless map['Domains'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6550,7 +6550,7 @@ module AWS::SDK::SageMaker
     class DomainList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainDetails.parse(value) unless value.nil?
+          DomainDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -6576,7 +6576,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.edge_packaging_job_summaries = (Parsers::EdgePackagingJobSummaries.parse(map['EdgePackagingJobSummaries']) unless map['EdgePackagingJobSummaries'].nil?)
+        data.edge_packaging_job_summaries = (EdgePackagingJobSummaries.parse(map['EdgePackagingJobSummaries']) unless map['EdgePackagingJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6585,7 +6585,7 @@ module AWS::SDK::SageMaker
     class EdgePackagingJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::EdgePackagingJobSummary.parse(value) unless value.nil?
+          EdgePackagingJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6612,7 +6612,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_configs = (Parsers::EndpointConfigSummaryList.parse(map['EndpointConfigs']) unless map['EndpointConfigs'].nil?)
+        data.endpoint_configs = (EndpointConfigSummaryList.parse(map['EndpointConfigs']) unless map['EndpointConfigs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6621,7 +6621,7 @@ module AWS::SDK::SageMaker
     class EndpointConfigSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointConfigSummary.parse(value) unless value.nil?
+          EndpointConfigSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6643,7 +6643,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoints = (Parsers::EndpointSummaryList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (EndpointSummaryList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6652,7 +6652,7 @@ module AWS::SDK::SageMaker
     class EndpointSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointSummary.parse(value) unless value.nil?
+          EndpointSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6676,7 +6676,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.experiment_summaries = (Parsers::ExperimentSummaries.parse(map['ExperimentSummaries']) unless map['ExperimentSummaries'].nil?)
+        data.experiment_summaries = (ExperimentSummaries.parse(map['ExperimentSummaries']) unless map['ExperimentSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6685,7 +6685,7 @@ module AWS::SDK::SageMaker
     class ExperimentSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ExperimentSummary.parse(value) unless value.nil?
+          ExperimentSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6696,7 +6696,7 @@ module AWS::SDK::SageMaker
         data.experiment_arn = map['ExperimentArn']
         data.experiment_name = map['ExperimentName']
         data.display_name = map['DisplayName']
-        data.experiment_source = (Parsers::ExperimentSource.parse(map['ExperimentSource']) unless map['ExperimentSource'].nil?)
+        data.experiment_source = (ExperimentSource.parse(map['ExperimentSource']) unless map['ExperimentSource'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         return data
@@ -6710,7 +6710,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.feature_group_summaries = (Parsers::FeatureGroupSummaries.parse(map['FeatureGroupSummaries']) unless map['FeatureGroupSummaries'].nil?)
+        data.feature_group_summaries = (FeatureGroupSummaries.parse(map['FeatureGroupSummaries']) unless map['FeatureGroupSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6719,7 +6719,7 @@ module AWS::SDK::SageMaker
     class FeatureGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::FeatureGroupSummary.parse(value) unless value.nil?
+          FeatureGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6731,7 +6731,7 @@ module AWS::SDK::SageMaker
         data.feature_group_arn = map['FeatureGroupArn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.feature_group_status = map['FeatureGroupStatus']
-        data.offline_store_status = (Parsers::OfflineStoreStatus.parse(map['OfflineStoreStatus']) unless map['OfflineStoreStatus'].nil?)
+        data.offline_store_status = (OfflineStoreStatus.parse(map['OfflineStoreStatus']) unless map['OfflineStoreStatus'].nil?)
         return data
       end
     end
@@ -6743,7 +6743,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.flow_definition_summaries = (Parsers::FlowDefinitionSummaries.parse(map['FlowDefinitionSummaries']) unless map['FlowDefinitionSummaries'].nil?)
+        data.flow_definition_summaries = (FlowDefinitionSummaries.parse(map['FlowDefinitionSummaries']) unless map['FlowDefinitionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6752,7 +6752,7 @@ module AWS::SDK::SageMaker
     class FlowDefinitionSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::FlowDefinitionSummary.parse(value) unless value.nil?
+          FlowDefinitionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6776,7 +6776,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.human_task_ui_summaries = (Parsers::HumanTaskUiSummaries.parse(map['HumanTaskUiSummaries']) unless map['HumanTaskUiSummaries'].nil?)
+        data.human_task_ui_summaries = (HumanTaskUiSummaries.parse(map['HumanTaskUiSummaries']) unless map['HumanTaskUiSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6785,7 +6785,7 @@ module AWS::SDK::SageMaker
     class HumanTaskUiSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::HumanTaskUiSummary.parse(value) unless value.nil?
+          HumanTaskUiSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6807,7 +6807,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hyper_parameter_tuning_job_summaries = (Parsers::HyperParameterTuningJobSummaries.parse(map['HyperParameterTuningJobSummaries']) unless map['HyperParameterTuningJobSummaries'].nil?)
+        data.hyper_parameter_tuning_job_summaries = (HyperParameterTuningJobSummaries.parse(map['HyperParameterTuningJobSummaries']) unless map['HyperParameterTuningJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6816,7 +6816,7 @@ module AWS::SDK::SageMaker
     class HyperParameterTuningJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::HyperParameterTuningJobSummary.parse(value) unless value.nil?
+          HyperParameterTuningJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6831,9 +6831,9 @@ module AWS::SDK::SageMaker
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.hyper_parameter_tuning_end_time = Time.at(map['HyperParameterTuningEndTime'].to_i) if map['HyperParameterTuningEndTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.training_job_status_counters = (Parsers::TrainingJobStatusCounters.parse(map['TrainingJobStatusCounters']) unless map['TrainingJobStatusCounters'].nil?)
-        data.objective_status_counters = (Parsers::ObjectiveStatusCounters.parse(map['ObjectiveStatusCounters']) unless map['ObjectiveStatusCounters'].nil?)
-        data.resource_limits = (Parsers::ResourceLimits.parse(map['ResourceLimits']) unless map['ResourceLimits'].nil?)
+        data.training_job_status_counters = (TrainingJobStatusCounters.parse(map['TrainingJobStatusCounters']) unless map['TrainingJobStatusCounters'].nil?)
+        data.objective_status_counters = (ObjectiveStatusCounters.parse(map['ObjectiveStatusCounters']) unless map['ObjectiveStatusCounters'].nil?)
+        data.resource_limits = (ResourceLimits.parse(map['ResourceLimits']) unless map['ResourceLimits'].nil?)
         return data
       end
     end
@@ -6845,7 +6845,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_versions = (Parsers::ImageVersions.parse(map['ImageVersions']) unless map['ImageVersions'].nil?)
+        data.image_versions = (ImageVersions.parse(map['ImageVersions']) unless map['ImageVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6854,7 +6854,7 @@ module AWS::SDK::SageMaker
     class ImageVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageVersion.parse(value) unless value.nil?
+          ImageVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -6880,7 +6880,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.images = (Parsers::Images.parse(map['Images']) unless map['Images'].nil?)
+        data.images = (Images.parse(map['Images']) unless map['Images'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6889,7 +6889,7 @@ module AWS::SDK::SageMaker
     class Images
       def self.parse(list)
         list.map do |value|
-          Parsers::Image.parse(value) unless value.nil?
+          Image.parse(value) unless value.nil?
         end
       end
     end
@@ -6916,7 +6916,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.inference_recommendations_jobs = (Parsers::InferenceRecommendationsJobs.parse(map['InferenceRecommendationsJobs']) unless map['InferenceRecommendationsJobs'].nil?)
+        data.inference_recommendations_jobs = (InferenceRecommendationsJobs.parse(map['InferenceRecommendationsJobs']) unless map['InferenceRecommendationsJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6925,7 +6925,7 @@ module AWS::SDK::SageMaker
     class InferenceRecommendationsJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::InferenceRecommendationsJob.parse(value) unless value.nil?
+          InferenceRecommendationsJob.parse(value) unless value.nil?
         end
       end
     end
@@ -6954,7 +6954,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.labeling_job_summary_list = (Parsers::LabelingJobSummaryList.parse(map['LabelingJobSummaryList']) unless map['LabelingJobSummaryList'].nil?)
+        data.labeling_job_summary_list = (LabelingJobSummaryList.parse(map['LabelingJobSummaryList']) unless map['LabelingJobSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -6963,7 +6963,7 @@ module AWS::SDK::SageMaker
     class LabelingJobSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::LabelingJobSummary.parse(value) unless value.nil?
+          LabelingJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -6976,13 +6976,13 @@ module AWS::SDK::SageMaker
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.labeling_job_status = map['LabelingJobStatus']
-        data.label_counters = (Parsers::LabelCounters.parse(map['LabelCounters']) unless map['LabelCounters'].nil?)
+        data.label_counters = (LabelCounters.parse(map['LabelCounters']) unless map['LabelCounters'].nil?)
         data.workteam_arn = map['WorkteamArn']
         data.pre_human_task_lambda_arn = map['PreHumanTaskLambdaArn']
         data.annotation_consolidation_lambda_arn = map['AnnotationConsolidationLambdaArn']
         data.failure_reason = map['FailureReason']
-        data.labeling_job_output = (Parsers::LabelingJobOutput.parse(map['LabelingJobOutput']) unless map['LabelingJobOutput'].nil?)
-        data.input_config = (Parsers::LabelingJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
+        data.labeling_job_output = (LabelingJobOutput.parse(map['LabelingJobOutput']) unless map['LabelingJobOutput'].nil?)
+        data.input_config = (LabelingJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
         return data
       end
     end
@@ -6994,7 +6994,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.labeling_job_summary_list = (Parsers::LabelingJobForWorkteamSummaryList.parse(map['LabelingJobSummaryList']) unless map['LabelingJobSummaryList'].nil?)
+        data.labeling_job_summary_list = (LabelingJobForWorkteamSummaryList.parse(map['LabelingJobSummaryList']) unless map['LabelingJobSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7003,7 +7003,7 @@ module AWS::SDK::SageMaker
     class LabelingJobForWorkteamSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::LabelingJobForWorkteamSummary.parse(value) unless value.nil?
+          LabelingJobForWorkteamSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7015,7 +7015,7 @@ module AWS::SDK::SageMaker
         data.job_reference_code = map['JobReferenceCode']
         data.work_requester_account_id = map['WorkRequesterAccountId']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.label_counters = (Parsers::LabelCountersForWorkteam.parse(map['LabelCounters']) unless map['LabelCounters'].nil?)
+        data.label_counters = (LabelCountersForWorkteam.parse(map['LabelCounters']) unless map['LabelCounters'].nil?)
         data.number_of_human_workers_per_data_object = map['NumberOfHumanWorkersPerDataObject']
         return data
       end
@@ -7038,7 +7038,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.lineage_group_summaries = (Parsers::LineageGroupSummaries.parse(map['LineageGroupSummaries']) unless map['LineageGroupSummaries'].nil?)
+        data.lineage_group_summaries = (LineageGroupSummaries.parse(map['LineageGroupSummaries']) unless map['LineageGroupSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7047,7 +7047,7 @@ module AWS::SDK::SageMaker
     class LineageGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::LineageGroupSummary.parse(value) unless value.nil?
+          LineageGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7071,7 +7071,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_definition_summaries = (Parsers::MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
+        data.job_definition_summaries = (MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7084,7 +7084,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_definition_summaries = (Parsers::MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
+        data.job_definition_summaries = (MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7097,7 +7097,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.model_metadata_summaries = (Parsers::ModelMetadataSummaries.parse(map['ModelMetadataSummaries']) unless map['ModelMetadataSummaries'].nil?)
+        data.model_metadata_summaries = (ModelMetadataSummaries.parse(map['ModelMetadataSummaries']) unless map['ModelMetadataSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7106,7 +7106,7 @@ module AWS::SDK::SageMaker
     class ModelMetadataSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelMetadataSummary.parse(value) unless value.nil?
+          ModelMetadataSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7130,7 +7130,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.model_package_group_summary_list = (Parsers::ModelPackageGroupSummaryList.parse(map['ModelPackageGroupSummaryList']) unless map['ModelPackageGroupSummaryList'].nil?)
+        data.model_package_group_summary_list = (ModelPackageGroupSummaryList.parse(map['ModelPackageGroupSummaryList']) unless map['ModelPackageGroupSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7139,7 +7139,7 @@ module AWS::SDK::SageMaker
     class ModelPackageGroupSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelPackageGroupSummary.parse(value) unless value.nil?
+          ModelPackageGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7163,7 +7163,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.model_package_summary_list = (Parsers::ModelPackageSummaryList.parse(map['ModelPackageSummaryList']) unless map['ModelPackageSummaryList'].nil?)
+        data.model_package_summary_list = (ModelPackageSummaryList.parse(map['ModelPackageSummaryList']) unless map['ModelPackageSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7172,7 +7172,7 @@ module AWS::SDK::SageMaker
     class ModelPackageSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelPackageSummary.parse(value) unless value.nil?
+          ModelPackageSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7199,7 +7199,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_definition_summaries = (Parsers::MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
+        data.job_definition_summaries = (MonitoringJobDefinitionSummaryList.parse(map['JobDefinitionSummaries']) unless map['JobDefinitionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7212,7 +7212,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.models = (Parsers::ModelSummaryList.parse(map['Models']) unless map['Models'].nil?)
+        data.models = (ModelSummaryList.parse(map['Models']) unless map['Models'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7221,7 +7221,7 @@ module AWS::SDK::SageMaker
     class ModelSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelSummary.parse(value) unless value.nil?
+          ModelSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7243,7 +7243,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.monitoring_execution_summaries = (Parsers::MonitoringExecutionSummaryList.parse(map['MonitoringExecutionSummaries']) unless map['MonitoringExecutionSummaries'].nil?)
+        data.monitoring_execution_summaries = (MonitoringExecutionSummaryList.parse(map['MonitoringExecutionSummaries']) unless map['MonitoringExecutionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7252,7 +7252,7 @@ module AWS::SDK::SageMaker
     class MonitoringExecutionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::MonitoringExecutionSummary.parse(value) unless value.nil?
+          MonitoringExecutionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7264,7 +7264,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.monitoring_schedule_summaries = (Parsers::MonitoringScheduleSummaryList.parse(map['MonitoringScheduleSummaries']) unless map['MonitoringScheduleSummaries'].nil?)
+        data.monitoring_schedule_summaries = (MonitoringScheduleSummaryList.parse(map['MonitoringScheduleSummaries']) unless map['MonitoringScheduleSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7273,7 +7273,7 @@ module AWS::SDK::SageMaker
     class MonitoringScheduleSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::MonitoringScheduleSummary.parse(value) unless value.nil?
+          MonitoringScheduleSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7301,7 +7301,7 @@ module AWS::SDK::SageMaker
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.notebook_instance_lifecycle_configs = (Parsers::NotebookInstanceLifecycleConfigSummaryList.parse(map['NotebookInstanceLifecycleConfigs']) unless map['NotebookInstanceLifecycleConfigs'].nil?)
+        data.notebook_instance_lifecycle_configs = (NotebookInstanceLifecycleConfigSummaryList.parse(map['NotebookInstanceLifecycleConfigs']) unless map['NotebookInstanceLifecycleConfigs'].nil?)
         data
       end
     end
@@ -7309,7 +7309,7 @@ module AWS::SDK::SageMaker
     class NotebookInstanceLifecycleConfigSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::NotebookInstanceLifecycleConfigSummary.parse(value) unless value.nil?
+          NotebookInstanceLifecycleConfigSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7333,7 +7333,7 @@ module AWS::SDK::SageMaker
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.notebook_instances = (Parsers::NotebookInstanceSummaryList.parse(map['NotebookInstances']) unless map['NotebookInstances'].nil?)
+        data.notebook_instances = (NotebookInstanceSummaryList.parse(map['NotebookInstances']) unless map['NotebookInstances'].nil?)
         data
       end
     end
@@ -7341,7 +7341,7 @@ module AWS::SDK::SageMaker
     class NotebookInstanceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::NotebookInstanceSummary.parse(value) unless value.nil?
+          NotebookInstanceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7358,7 +7358,7 @@ module AWS::SDK::SageMaker
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.notebook_instance_lifecycle_config_name = map['NotebookInstanceLifecycleConfigName']
         data.default_code_repository = map['DefaultCodeRepository']
-        data.additional_code_repositories = (Parsers::AdditionalCodeRepositoryNamesOrUrls.parse(map['AdditionalCodeRepositories']) unless map['AdditionalCodeRepositories'].nil?)
+        data.additional_code_repositories = (AdditionalCodeRepositoryNamesOrUrls.parse(map['AdditionalCodeRepositories']) unless map['AdditionalCodeRepositories'].nil?)
         return data
       end
     end
@@ -7370,7 +7370,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_execution_steps = (Parsers::PipelineExecutionStepList.parse(map['PipelineExecutionSteps']) unless map['PipelineExecutionSteps'].nil?)
+        data.pipeline_execution_steps = (PipelineExecutionStepList.parse(map['PipelineExecutionSteps']) unless map['PipelineExecutionSteps'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7379,7 +7379,7 @@ module AWS::SDK::SageMaker
     class PipelineExecutionStepList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineExecutionStep.parse(value) unless value.nil?
+          PipelineExecutionStep.parse(value) unless value.nil?
         end
       end
     end
@@ -7393,10 +7393,10 @@ module AWS::SDK::SageMaker
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.step_status = map['StepStatus']
-        data.cache_hit_result = (Parsers::CacheHitResult.parse(map['CacheHitResult']) unless map['CacheHitResult'].nil?)
+        data.cache_hit_result = (CacheHitResult.parse(map['CacheHitResult']) unless map['CacheHitResult'].nil?)
         data.attempt_count = map['AttemptCount']
         data.failure_reason = map['FailureReason']
-        data.metadata = (Parsers::PipelineExecutionStepMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.metadata = (PipelineExecutionStepMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
         return data
       end
     end
@@ -7404,19 +7404,19 @@ module AWS::SDK::SageMaker
     class PipelineExecutionStepMetadata
       def self.parse(map)
         data = Types::PipelineExecutionStepMetadata.new
-        data.training_job = (Parsers::TrainingJobStepMetadata.parse(map['TrainingJob']) unless map['TrainingJob'].nil?)
-        data.processing_job = (Parsers::ProcessingJobStepMetadata.parse(map['ProcessingJob']) unless map['ProcessingJob'].nil?)
-        data.transform_job = (Parsers::TransformJobStepMetadata.parse(map['TransformJob']) unless map['TransformJob'].nil?)
-        data.tuning_job = (Parsers::TuningJobStepMetaData.parse(map['TuningJob']) unless map['TuningJob'].nil?)
-        data.model = (Parsers::ModelStepMetadata.parse(map['Model']) unless map['Model'].nil?)
-        data.register_model = (Parsers::RegisterModelStepMetadata.parse(map['RegisterModel']) unless map['RegisterModel'].nil?)
-        data.condition = (Parsers::ConditionStepMetadata.parse(map['Condition']) unless map['Condition'].nil?)
-        data.callback = (Parsers::CallbackStepMetadata.parse(map['Callback']) unless map['Callback'].nil?)
-        data.lambda = (Parsers::LambdaStepMetadata.parse(map['Lambda']) unless map['Lambda'].nil?)
-        data.quality_check = (Parsers::QualityCheckStepMetadata.parse(map['QualityCheck']) unless map['QualityCheck'].nil?)
-        data.clarify_check = (Parsers::ClarifyCheckStepMetadata.parse(map['ClarifyCheck']) unless map['ClarifyCheck'].nil?)
-        data.emr = (Parsers::EMRStepMetadata.parse(map['EMR']) unless map['EMR'].nil?)
-        data.fail = (Parsers::FailStepMetadata.parse(map['Fail']) unless map['Fail'].nil?)
+        data.training_job = (TrainingJobStepMetadata.parse(map['TrainingJob']) unless map['TrainingJob'].nil?)
+        data.processing_job = (ProcessingJobStepMetadata.parse(map['ProcessingJob']) unless map['ProcessingJob'].nil?)
+        data.transform_job = (TransformJobStepMetadata.parse(map['TransformJob']) unless map['TransformJob'].nil?)
+        data.tuning_job = (TuningJobStepMetaData.parse(map['TuningJob']) unless map['TuningJob'].nil?)
+        data.model = (ModelStepMetadata.parse(map['Model']) unless map['Model'].nil?)
+        data.register_model = (RegisterModelStepMetadata.parse(map['RegisterModel']) unless map['RegisterModel'].nil?)
+        data.condition = (ConditionStepMetadata.parse(map['Condition']) unless map['Condition'].nil?)
+        data.callback = (CallbackStepMetadata.parse(map['Callback']) unless map['Callback'].nil?)
+        data.lambda = (LambdaStepMetadata.parse(map['Lambda']) unless map['Lambda'].nil?)
+        data.quality_check = (QualityCheckStepMetadata.parse(map['QualityCheck']) unless map['QualityCheck'].nil?)
+        data.clarify_check = (ClarifyCheckStepMetadata.parse(map['ClarifyCheck']) unless map['ClarifyCheck'].nil?)
+        data.emr = (EMRStepMetadata.parse(map['EMR']) unless map['EMR'].nil?)
+        data.fail = (FailStepMetadata.parse(map['Fail']) unless map['Fail'].nil?)
         return data
       end
     end
@@ -7476,7 +7476,7 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::LambdaStepMetadata.new
         data.arn = map['Arn']
-        data.output_parameters = (Parsers::OutputParameterList.parse(map['OutputParameters']) unless map['OutputParameters'].nil?)
+        data.output_parameters = (OutputParameterList.parse(map['OutputParameters']) unless map['OutputParameters'].nil?)
         return data
       end
     end
@@ -7484,7 +7484,7 @@ module AWS::SDK::SageMaker
     class OutputParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::OutputParameter.parse(value) unless value.nil?
+          OutputParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -7503,7 +7503,7 @@ module AWS::SDK::SageMaker
         data = Types::CallbackStepMetadata.new
         data.callback_token = map['CallbackToken']
         data.sqs_queue_url = map['SqsQueueUrl']
-        data.output_parameters = (Parsers::OutputParameterList.parse(map['OutputParameters']) unless map['OutputParameters'].nil?)
+        data.output_parameters = (OutputParameterList.parse(map['OutputParameters']) unless map['OutputParameters'].nil?)
         return data
       end
     end
@@ -7579,7 +7579,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_execution_summaries = (Parsers::PipelineExecutionSummaryList.parse(map['PipelineExecutionSummaries']) unless map['PipelineExecutionSummaries'].nil?)
+        data.pipeline_execution_summaries = (PipelineExecutionSummaryList.parse(map['PipelineExecutionSummaries']) unless map['PipelineExecutionSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7588,7 +7588,7 @@ module AWS::SDK::SageMaker
     class PipelineExecutionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineExecutionSummary.parse(value) unless value.nil?
+          PipelineExecutionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7613,7 +7613,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_parameters = (Parsers::ParameterList.parse(map['PipelineParameters']) unless map['PipelineParameters'].nil?)
+        data.pipeline_parameters = (ParameterList.parse(map['PipelineParameters']) unless map['PipelineParameters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7622,7 +7622,7 @@ module AWS::SDK::SageMaker
     class ParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::Parameter.parse(value) unless value.nil?
+          Parameter.parse(value) unless value.nil?
         end
       end
     end
@@ -7643,7 +7643,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_summaries = (Parsers::PipelineSummaryList.parse(map['PipelineSummaries']) unless map['PipelineSummaries'].nil?)
+        data.pipeline_summaries = (PipelineSummaryList.parse(map['PipelineSummaries']) unless map['PipelineSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7652,7 +7652,7 @@ module AWS::SDK::SageMaker
     class PipelineSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineSummary.parse(value) unless value.nil?
+          PipelineSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7679,7 +7679,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.processing_job_summaries = (Parsers::ProcessingJobSummaries.parse(map['ProcessingJobSummaries']) unless map['ProcessingJobSummaries'].nil?)
+        data.processing_job_summaries = (ProcessingJobSummaries.parse(map['ProcessingJobSummaries']) unless map['ProcessingJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7688,7 +7688,7 @@ module AWS::SDK::SageMaker
     class ProcessingJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ProcessingJobSummary.parse(value) unless value.nil?
+          ProcessingJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7715,7 +7715,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project_summary_list = (Parsers::ProjectSummaryList.parse(map['ProjectSummaryList']) unless map['ProjectSummaryList'].nil?)
+        data.project_summary_list = (ProjectSummaryList.parse(map['ProjectSummaryList']) unless map['ProjectSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7724,7 +7724,7 @@ module AWS::SDK::SageMaker
     class ProjectSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectSummary.parse(value) unless value.nil?
+          ProjectSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7750,7 +7750,7 @@ module AWS::SDK::SageMaker
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.studio_lifecycle_configs = (Parsers::StudioLifecycleConfigsList.parse(map['StudioLifecycleConfigs']) unless map['StudioLifecycleConfigs'].nil?)
+        data.studio_lifecycle_configs = (StudioLifecycleConfigsList.parse(map['StudioLifecycleConfigs']) unless map['StudioLifecycleConfigs'].nil?)
         data
       end
     end
@@ -7758,7 +7758,7 @@ module AWS::SDK::SageMaker
     class StudioLifecycleConfigsList
       def self.parse(list)
         list.map do |value|
-          Parsers::StudioLifecycleConfigDetails.parse(value) unless value.nil?
+          StudioLifecycleConfigDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -7782,7 +7782,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subscribed_workteams = (Parsers::SubscribedWorkteams.parse(map['SubscribedWorkteams']) unless map['SubscribedWorkteams'].nil?)
+        data.subscribed_workteams = (SubscribedWorkteams.parse(map['SubscribedWorkteams']) unless map['SubscribedWorkteams'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7791,7 +7791,7 @@ module AWS::SDK::SageMaker
     class SubscribedWorkteams
       def self.parse(list)
         list.map do |value|
-          Parsers::SubscribedWorkteam.parse(value) unless value.nil?
+          SubscribedWorkteam.parse(value) unless value.nil?
         end
       end
     end
@@ -7803,7 +7803,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7816,7 +7816,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.training_job_summaries = (Parsers::TrainingJobSummaries.parse(map['TrainingJobSummaries']) unless map['TrainingJobSummaries'].nil?)
+        data.training_job_summaries = (TrainingJobSummaries.parse(map['TrainingJobSummaries']) unless map['TrainingJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7825,7 +7825,7 @@ module AWS::SDK::SageMaker
     class TrainingJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TrainingJobSummary.parse(value) unless value.nil?
+          TrainingJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7850,7 +7850,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.training_job_summaries = (Parsers::HyperParameterTrainingJobSummaries.parse(map['TrainingJobSummaries']) unless map['TrainingJobSummaries'].nil?)
+        data.training_job_summaries = (HyperParameterTrainingJobSummaries.parse(map['TrainingJobSummaries']) unless map['TrainingJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7859,7 +7859,7 @@ module AWS::SDK::SageMaker
     class HyperParameterTrainingJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::HyperParameterTrainingJobSummary.parse(value) unless value.nil?
+          HyperParameterTrainingJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7871,7 +7871,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.transform_job_summaries = (Parsers::TransformJobSummaries.parse(map['TransformJobSummaries']) unless map['TransformJobSummaries'].nil?)
+        data.transform_job_summaries = (TransformJobSummaries.parse(map['TransformJobSummaries']) unless map['TransformJobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7880,7 +7880,7 @@ module AWS::SDK::SageMaker
     class TransformJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TransformJobSummary.parse(value) unless value.nil?
+          TransformJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7906,7 +7906,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trial_component_summaries = (Parsers::TrialComponentSummaries.parse(map['TrialComponentSummaries']) unless map['TrialComponentSummaries'].nil?)
+        data.trial_component_summaries = (TrialComponentSummaries.parse(map['TrialComponentSummaries']) unless map['TrialComponentSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7915,7 +7915,7 @@ module AWS::SDK::SageMaker
     class TrialComponentSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TrialComponentSummary.parse(value) unless value.nil?
+          TrialComponentSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7926,14 +7926,14 @@ module AWS::SDK::SageMaker
         data.trial_component_name = map['TrialComponentName']
         data.trial_component_arn = map['TrialComponentArn']
         data.display_name = map['DisplayName']
-        data.trial_component_source = (Parsers::TrialComponentSource.parse(map['TrialComponentSource']) unless map['TrialComponentSource'].nil?)
-        data.status = (Parsers::TrialComponentStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.trial_component_source = (TrialComponentSource.parse(map['TrialComponentSource']) unless map['TrialComponentSource'].nil?)
+        data.status = (TrialComponentStatus.parse(map['Status']) unless map['Status'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         return data
       end
     end
@@ -7945,7 +7945,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trial_summaries = (Parsers::TrialSummaries.parse(map['TrialSummaries']) unless map['TrialSummaries'].nil?)
+        data.trial_summaries = (TrialSummaries.parse(map['TrialSummaries']) unless map['TrialSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7954,7 +7954,7 @@ module AWS::SDK::SageMaker
     class TrialSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TrialSummary.parse(value) unless value.nil?
+          TrialSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -7965,7 +7965,7 @@ module AWS::SDK::SageMaker
         data.trial_arn = map['TrialArn']
         data.trial_name = map['TrialName']
         data.display_name = map['DisplayName']
-        data.trial_source = (Parsers::TrialSource.parse(map['TrialSource']) unless map['TrialSource'].nil?)
+        data.trial_source = (TrialSource.parse(map['TrialSource']) unless map['TrialSource'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         return data
@@ -7979,7 +7979,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_profiles = (Parsers::UserProfileList.parse(map['UserProfiles']) unless map['UserProfiles'].nil?)
+        data.user_profiles = (UserProfileList.parse(map['UserProfiles']) unless map['UserProfiles'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7988,7 +7988,7 @@ module AWS::SDK::SageMaker
     class UserProfileList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserProfileDetails.parse(value) unless value.nil?
+          UserProfileDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -8012,7 +8012,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workforces = (Parsers::Workforces.parse(map['Workforces']) unless map['Workforces'].nil?)
+        data.workforces = (Workforces.parse(map['Workforces']) unless map['Workforces'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -8021,7 +8021,7 @@ module AWS::SDK::SageMaker
     class Workforces
       def self.parse(list)
         list.map do |value|
-          Parsers::Workforce.parse(value) unless value.nil?
+          Workforce.parse(value) unless value.nil?
         end
       end
     end
@@ -8033,7 +8033,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workteams = (Parsers::Workteams.parse(map['Workteams']) unless map['Workteams'].nil?)
+        data.workteams = (Workteams.parse(map['Workteams']) unless map['Workteams'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -8042,7 +8042,7 @@ module AWS::SDK::SageMaker
     class Workteams
       def self.parse(list)
         list.map do |value|
-          Parsers::Workteam.parse(value) unless value.nil?
+          Workteam.parse(value) unless value.nil?
         end
       end
     end
@@ -8066,8 +8066,8 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vertices = (Parsers::Vertices.parse(map['Vertices']) unless map['Vertices'].nil?)
-        data.edges = (Parsers::Edges.parse(map['Edges']) unless map['Edges'].nil?)
+        data.vertices = (Vertices.parse(map['Vertices']) unless map['Vertices'].nil?)
+        data.edges = (Edges.parse(map['Edges']) unless map['Edges'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -8076,7 +8076,7 @@ module AWS::SDK::SageMaker
     class Edges
       def self.parse(list)
         list.map do |value|
-          Parsers::Edge.parse(value) unless value.nil?
+          Edge.parse(value) unless value.nil?
         end
       end
     end
@@ -8094,7 +8094,7 @@ module AWS::SDK::SageMaker
     class Vertices
       def self.parse(list)
         list.map do |value|
-          Parsers::Vertex.parse(value) unless value.nil?
+          Vertex.parse(value) unless value.nil?
         end
       end
     end
@@ -8128,7 +8128,7 @@ module AWS::SDK::SageMaker
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.rendered_content = map['RenderedContent']
-        data.errors = (Parsers::RenderingErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (RenderingErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -8136,7 +8136,7 @@ module AWS::SDK::SageMaker
     class RenderingErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::RenderingError.parse(value) unless value.nil?
+          RenderingError.parse(value) unless value.nil?
         end
       end
     end
@@ -8169,7 +8169,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::SearchResultsList.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (SearchResultsList.parse(map['Results']) unless map['Results'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -8178,7 +8178,7 @@ module AWS::SDK::SageMaker
     class SearchResultsList
       def self.parse(list)
         list.map do |value|
-          Parsers::SearchRecord.parse(value) unless value.nil?
+          SearchRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -8186,17 +8186,17 @@ module AWS::SDK::SageMaker
     class SearchRecord
       def self.parse(map)
         data = Types::SearchRecord.new
-        data.training_job = (Parsers::TrainingJob.parse(map['TrainingJob']) unless map['TrainingJob'].nil?)
-        data.experiment = (Parsers::Experiment.parse(map['Experiment']) unless map['Experiment'].nil?)
-        data.trial = (Parsers::Trial.parse(map['Trial']) unless map['Trial'].nil?)
-        data.trial_component = (Parsers::TrialComponent.parse(map['TrialComponent']) unless map['TrialComponent'].nil?)
-        data.endpoint = (Parsers::Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
-        data.model_package = (Parsers::ModelPackage.parse(map['ModelPackage']) unless map['ModelPackage'].nil?)
-        data.model_package_group = (Parsers::ModelPackageGroup.parse(map['ModelPackageGroup']) unless map['ModelPackageGroup'].nil?)
-        data.pipeline = (Parsers::Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
-        data.pipeline_execution = (Parsers::PipelineExecution.parse(map['PipelineExecution']) unless map['PipelineExecution'].nil?)
-        data.feature_group = (Parsers::FeatureGroup.parse(map['FeatureGroup']) unless map['FeatureGroup'].nil?)
-        data.project = (Parsers::Project.parse(map['Project']) unless map['Project'].nil?)
+        data.training_job = (TrainingJob.parse(map['TrainingJob']) unless map['TrainingJob'].nil?)
+        data.experiment = (Experiment.parse(map['Experiment']) unless map['Experiment'].nil?)
+        data.trial = (Trial.parse(map['Trial']) unless map['Trial'].nil?)
+        data.trial_component = (TrialComponent.parse(map['TrialComponent']) unless map['TrialComponent'].nil?)
+        data.endpoint = (Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.model_package = (ModelPackage.parse(map['ModelPackage']) unless map['ModelPackage'].nil?)
+        data.model_package_group = (ModelPackageGroup.parse(map['ModelPackageGroup']) unless map['ModelPackageGroup'].nil?)
+        data.pipeline = (Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
+        data.pipeline_execution = (PipelineExecution.parse(map['PipelineExecution']) unless map['PipelineExecution'].nil?)
+        data.feature_group = (FeatureGroup.parse(map['FeatureGroup']) unless map['FeatureGroup'].nil?)
+        data.project = (Project.parse(map['Project']) unless map['Project'].nil?)
         return data
       end
     end
@@ -8208,14 +8208,14 @@ module AWS::SDK::SageMaker
         data.project_name = map['ProjectName']
         data.project_id = map['ProjectId']
         data.project_description = map['ProjectDescription']
-        data.service_catalog_provisioning_details = (Parsers::ServiceCatalogProvisioningDetails.parse(map['ServiceCatalogProvisioningDetails']) unless map['ServiceCatalogProvisioningDetails'].nil?)
-        data.service_catalog_provisioned_product_details = (Parsers::ServiceCatalogProvisionedProductDetails.parse(map['ServiceCatalogProvisionedProductDetails']) unless map['ServiceCatalogProvisionedProductDetails'].nil?)
+        data.service_catalog_provisioning_details = (ServiceCatalogProvisioningDetails.parse(map['ServiceCatalogProvisioningDetails']) unless map['ServiceCatalogProvisioningDetails'].nil?)
+        data.service_catalog_provisioned_product_details = (ServiceCatalogProvisionedProductDetails.parse(map['ServiceCatalogProvisionedProductDetails']) unless map['ServiceCatalogProvisionedProductDetails'].nil?)
         data.project_status = map['ProjectStatus']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         return data
       end
     end
@@ -8227,16 +8227,16 @@ module AWS::SDK::SageMaker
         data.feature_group_name = map['FeatureGroupName']
         data.record_identifier_feature_name = map['RecordIdentifierFeatureName']
         data.event_time_feature_name = map['EventTimeFeatureName']
-        data.feature_definitions = (Parsers::FeatureDefinitions.parse(map['FeatureDefinitions']) unless map['FeatureDefinitions'].nil?)
+        data.feature_definitions = (FeatureDefinitions.parse(map['FeatureDefinitions']) unless map['FeatureDefinitions'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.online_store_config = (Parsers::OnlineStoreConfig.parse(map['OnlineStoreConfig']) unless map['OnlineStoreConfig'].nil?)
-        data.offline_store_config = (Parsers::OfflineStoreConfig.parse(map['OfflineStoreConfig']) unless map['OfflineStoreConfig'].nil?)
+        data.online_store_config = (OnlineStoreConfig.parse(map['OnlineStoreConfig']) unless map['OnlineStoreConfig'].nil?)
+        data.offline_store_config = (OfflineStoreConfig.parse(map['OfflineStoreConfig']) unless map['OfflineStoreConfig'].nil?)
         data.role_arn = map['RoleArn']
         data.feature_group_status = map['FeatureGroupStatus']
-        data.offline_store_status = (Parsers::OfflineStoreStatus.parse(map['OfflineStoreStatus']) unless map['OfflineStoreStatus'].nil?)
+        data.offline_store_status = (OfflineStoreStatus.parse(map['OfflineStoreStatus']) unless map['OfflineStoreStatus'].nil?)
         data.failure_reason = map['FailureReason']
         data.description = map['Description']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8249,14 +8249,14 @@ module AWS::SDK::SageMaker
         data.pipeline_execution_display_name = map['PipelineExecutionDisplayName']
         data.pipeline_execution_status = map['PipelineExecutionStatus']
         data.pipeline_execution_description = map['PipelineExecutionDescription']
-        data.pipeline_experiment_config = (Parsers::PipelineExperimentConfig.parse(map['PipelineExperimentConfig']) unless map['PipelineExperimentConfig'].nil?)
+        data.pipeline_experiment_config = (PipelineExperimentConfig.parse(map['PipelineExperimentConfig']) unless map['PipelineExperimentConfig'].nil?)
         data.failure_reason = map['FailureReason']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.parallelism_configuration = (Parsers::ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
-        data.pipeline_parameters = (Parsers::ParameterList.parse(map['PipelineParameters']) unless map['PipelineParameters'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.parallelism_configuration = (ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
+        data.pipeline_parameters = (ParameterList.parse(map['PipelineParameters']) unless map['PipelineParameters'].nil?)
         return data
       end
     end
@@ -8273,10 +8273,10 @@ module AWS::SDK::SageMaker
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.last_run_time = Time.at(map['LastRunTime'].to_i) if map['LastRunTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.parallelism_configuration = (Parsers::ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.parallelism_configuration = (ParallelismConfiguration.parse(map['ParallelismConfiguration']) unless map['ParallelismConfiguration'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8288,9 +8288,9 @@ module AWS::SDK::SageMaker
         data.model_package_group_arn = map['ModelPackageGroupArn']
         data.model_package_group_description = map['ModelPackageGroupDescription']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.model_package_group_status = map['ModelPackageGroupStatus']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8304,26 +8304,26 @@ module AWS::SDK::SageMaker
         data.model_package_arn = map['ModelPackageArn']
         data.model_package_description = map['ModelPackageDescription']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.inference_specification = (Parsers::InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
-        data.source_algorithm_specification = (Parsers::SourceAlgorithmSpecification.parse(map['SourceAlgorithmSpecification']) unless map['SourceAlgorithmSpecification'].nil?)
-        data.validation_specification = (Parsers::ModelPackageValidationSpecification.parse(map['ValidationSpecification']) unless map['ValidationSpecification'].nil?)
+        data.inference_specification = (InferenceSpecification.parse(map['InferenceSpecification']) unless map['InferenceSpecification'].nil?)
+        data.source_algorithm_specification = (SourceAlgorithmSpecification.parse(map['SourceAlgorithmSpecification']) unless map['SourceAlgorithmSpecification'].nil?)
+        data.validation_specification = (ModelPackageValidationSpecification.parse(map['ValidationSpecification']) unless map['ValidationSpecification'].nil?)
         data.model_package_status = map['ModelPackageStatus']
-        data.model_package_status_details = (Parsers::ModelPackageStatusDetails.parse(map['ModelPackageStatusDetails']) unless map['ModelPackageStatusDetails'].nil?)
+        data.model_package_status_details = (ModelPackageStatusDetails.parse(map['ModelPackageStatusDetails']) unless map['ModelPackageStatusDetails'].nil?)
         data.certify_for_marketplace = map['CertifyForMarketplace']
         data.model_approval_status = map['ModelApprovalStatus']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
-        data.model_metrics = (Parsers::ModelMetrics.parse(map['ModelMetrics']) unless map['ModelMetrics'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.model_metrics = (ModelMetrics.parse(map['ModelMetrics']) unless map['ModelMetrics'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         data.approval_description = map['ApprovalDescription']
         data.domain = map['Domain']
         data.task = map['Task']
         data.sample_payload_url = map['SamplePayloadUrl']
-        data.additional_inference_specifications = (Parsers::AdditionalInferenceSpecifications.parse(map['AdditionalInferenceSpecifications']) unless map['AdditionalInferenceSpecifications'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.customer_metadata_properties = (Parsers::CustomerMetadataMap.parse(map['CustomerMetadataProperties']) unless map['CustomerMetadataProperties'].nil?)
-        data.drift_check_baselines = (Parsers::DriftCheckBaselines.parse(map['DriftCheckBaselines']) unless map['DriftCheckBaselines'].nil?)
+        data.additional_inference_specifications = (AdditionalInferenceSpecifications.parse(map['AdditionalInferenceSpecifications']) unless map['AdditionalInferenceSpecifications'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.customer_metadata_properties = (CustomerMetadataMap.parse(map['CustomerMetadataProperties']) unless map['CustomerMetadataProperties'].nil?)
+        data.drift_check_baselines = (DriftCheckBaselines.parse(map['DriftCheckBaselines']) unless map['DriftCheckBaselines'].nil?)
         return data
       end
     end
@@ -8334,14 +8334,14 @@ module AWS::SDK::SageMaker
         data.endpoint_name = map['EndpointName']
         data.endpoint_arn = map['EndpointArn']
         data.endpoint_config_name = map['EndpointConfigName']
-        data.production_variants = (Parsers::ProductionVariantSummaryList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
-        data.data_capture_config = (Parsers::DataCaptureConfigSummary.parse(map['DataCaptureConfig']) unless map['DataCaptureConfig'].nil?)
+        data.production_variants = (ProductionVariantSummaryList.parse(map['ProductionVariants']) unless map['ProductionVariants'].nil?)
+        data.data_capture_config = (DataCaptureConfigSummary.parse(map['DataCaptureConfig']) unless map['DataCaptureConfig'].nil?)
         data.endpoint_status = map['EndpointStatus']
         data.failure_reason = map['FailureReason']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.monitoring_schedules = (Parsers::MonitoringScheduleList.parse(map['MonitoringSchedules']) unless map['MonitoringSchedules'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.monitoring_schedules = (MonitoringScheduleList.parse(map['MonitoringSchedules']) unless map['MonitoringSchedules'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8349,7 +8349,7 @@ module AWS::SDK::SageMaker
     class MonitoringScheduleList
       def self.parse(list)
         list.map do |value|
-          Parsers::MonitoringSchedule.parse(value) unless value.nil?
+          MonitoringSchedule.parse(value) unless value.nil?
         end
       end
     end
@@ -8364,10 +8364,10 @@ module AWS::SDK::SageMaker
         data.failure_reason = map['FailureReason']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.monitoring_schedule_config = (Parsers::MonitoringScheduleConfig.parse(map['MonitoringScheduleConfig']) unless map['MonitoringScheduleConfig'].nil?)
+        data.monitoring_schedule_config = (MonitoringScheduleConfig.parse(map['MonitoringScheduleConfig']) unless map['MonitoringScheduleConfig'].nil?)
         data.endpoint_name = map['EndpointName']
-        data.last_monitoring_execution_summary = (Parsers::MonitoringExecutionSummary.parse(map['LastMonitoringExecutionSummary']) unless map['LastMonitoringExecutionSummary'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.last_monitoring_execution_summary = (MonitoringExecutionSummary.parse(map['LastMonitoringExecutionSummary']) unless map['LastMonitoringExecutionSummary'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8378,23 +8378,23 @@ module AWS::SDK::SageMaker
         data.trial_component_name = map['TrialComponentName']
         data.display_name = map['DisplayName']
         data.trial_component_arn = map['TrialComponentArn']
-        data.source = (Parsers::TrialComponentSource.parse(map['Source']) unless map['Source'].nil?)
-        data.status = (Parsers::TrialComponentStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.source = (TrialComponentSource.parse(map['Source']) unless map['Source'].nil?)
+        data.status = (TrialComponentStatus.parse(map['Status']) unless map['Status'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.parameters = (Parsers::TrialComponentParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.input_artifacts = (Parsers::TrialComponentArtifacts.parse(map['InputArtifacts']) unless map['InputArtifacts'].nil?)
-        data.output_artifacts = (Parsers::TrialComponentArtifacts.parse(map['OutputArtifacts']) unless map['OutputArtifacts'].nil?)
-        data.metrics = (Parsers::TrialComponentMetricSummaries.parse(map['Metrics']) unless map['Metrics'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
-        data.source_detail = (Parsers::TrialComponentSourceDetail.parse(map['SourceDetail']) unless map['SourceDetail'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.parameters = (TrialComponentParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.input_artifacts = (TrialComponentArtifacts.parse(map['InputArtifacts']) unless map['InputArtifacts'].nil?)
+        data.output_artifacts = (TrialComponentArtifacts.parse(map['OutputArtifacts']) unless map['OutputArtifacts'].nil?)
+        data.metrics = (TrialComponentMetricSummaries.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.source_detail = (TrialComponentSourceDetail.parse(map['SourceDetail']) unless map['SourceDetail'].nil?)
         data.lineage_group_arn = map['LineageGroupArn']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.parents = (Parsers::Parents.parse(map['Parents']) unless map['Parents'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.parents = (Parents.parse(map['Parents']) unless map['Parents'].nil?)
         return data
       end
     end
@@ -8402,7 +8402,7 @@ module AWS::SDK::SageMaker
     class Parents
       def self.parse(list)
         list.map do |value|
-          Parsers::Parent.parse(value) unless value.nil?
+          Parent.parse(value) unless value.nil?
         end
       end
     end
@@ -8420,9 +8420,9 @@ module AWS::SDK::SageMaker
       def self.parse(map)
         data = Types::TrialComponentSourceDetail.new
         data.source_arn = map['SourceArn']
-        data.training_job = (Parsers::TrainingJob.parse(map['TrainingJob']) unless map['TrainingJob'].nil?)
-        data.processing_job = (Parsers::ProcessingJob.parse(map['ProcessingJob']) unless map['ProcessingJob'].nil?)
-        data.transform_job = (Parsers::TransformJob.parse(map['TransformJob']) unless map['TransformJob'].nil?)
+        data.training_job = (TrainingJob.parse(map['TrainingJob']) unless map['TrainingJob'].nil?)
+        data.processing_job = (ProcessingJob.parse(map['ProcessingJob']) unless map['ProcessingJob'].nil?)
+        data.transform_job = (TransformJob.parse(map['TransformJob']) unless map['TransformJob'].nil?)
         return data
       end
     end
@@ -8436,21 +8436,21 @@ module AWS::SDK::SageMaker
         data.failure_reason = map['FailureReason']
         data.model_name = map['ModelName']
         data.max_concurrent_transforms = map['MaxConcurrentTransforms']
-        data.model_client_config = (Parsers::ModelClientConfig.parse(map['ModelClientConfig']) unless map['ModelClientConfig'].nil?)
+        data.model_client_config = (ModelClientConfig.parse(map['ModelClientConfig']) unless map['ModelClientConfig'].nil?)
         data.max_payload_in_mb = map['MaxPayloadInMB']
         data.batch_strategy = map['BatchStrategy']
-        data.environment = (Parsers::TransformEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.transform_input = (Parsers::TransformInput.parse(map['TransformInput']) unless map['TransformInput'].nil?)
-        data.transform_output = (Parsers::TransformOutput.parse(map['TransformOutput']) unless map['TransformOutput'].nil?)
-        data.transform_resources = (Parsers::TransformResources.parse(map['TransformResources']) unless map['TransformResources'].nil?)
+        data.environment = (TransformEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.transform_input = (TransformInput.parse(map['TransformInput']) unless map['TransformInput'].nil?)
+        data.transform_output = (TransformOutput.parse(map['TransformOutput']) unless map['TransformOutput'].nil?)
+        data.transform_resources = (TransformResources.parse(map['TransformResources']) unless map['TransformResources'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.transform_start_time = Time.at(map['TransformStartTime'].to_i) if map['TransformStartTime']
         data.transform_end_time = Time.at(map['TransformEndTime'].to_i) if map['TransformEndTime']
         data.labeling_job_arn = map['LabelingJobArn']
         data.auto_ml_job_arn = map['AutoMLJobArn']
-        data.data_processing = (Parsers::DataProcessing.parse(map['DataProcessing']) unless map['DataProcessing'].nil?)
-        data.experiment_config = (Parsers::ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.data_processing = (DataProcessing.parse(map['DataProcessing']) unless map['DataProcessing'].nil?)
+        data.experiment_config = (ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8458,16 +8458,16 @@ module AWS::SDK::SageMaker
     class ProcessingJob
       def self.parse(map)
         data = Types::ProcessingJob.new
-        data.processing_inputs = (Parsers::ProcessingInputs.parse(map['ProcessingInputs']) unless map['ProcessingInputs'].nil?)
-        data.processing_output_config = (Parsers::ProcessingOutputConfig.parse(map['ProcessingOutputConfig']) unless map['ProcessingOutputConfig'].nil?)
+        data.processing_inputs = (ProcessingInputs.parse(map['ProcessingInputs']) unless map['ProcessingInputs'].nil?)
+        data.processing_output_config = (ProcessingOutputConfig.parse(map['ProcessingOutputConfig']) unless map['ProcessingOutputConfig'].nil?)
         data.processing_job_name = map['ProcessingJobName']
-        data.processing_resources = (Parsers::ProcessingResources.parse(map['ProcessingResources']) unless map['ProcessingResources'].nil?)
-        data.stopping_condition = (Parsers::ProcessingStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
-        data.app_specification = (Parsers::AppSpecification.parse(map['AppSpecification']) unless map['AppSpecification'].nil?)
-        data.environment = (Parsers::ProcessingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.network_config = (Parsers::NetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
+        data.processing_resources = (ProcessingResources.parse(map['ProcessingResources']) unless map['ProcessingResources'].nil?)
+        data.stopping_condition = (ProcessingStoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.app_specification = (AppSpecification.parse(map['AppSpecification']) unless map['AppSpecification'].nil?)
+        data.environment = (ProcessingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.network_config = (NetworkConfig.parse(map['NetworkConfig']) unless map['NetworkConfig'].nil?)
         data.role_arn = map['RoleArn']
-        data.experiment_config = (Parsers::ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
+        data.experiment_config = (ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
         data.processing_job_arn = map['ProcessingJobArn']
         data.processing_job_status = map['ProcessingJobStatus']
         data.exit_message = map['ExitMessage']
@@ -8479,7 +8479,7 @@ module AWS::SDK::SageMaker
         data.monitoring_schedule_arn = map['MonitoringScheduleArn']
         data.auto_ml_job_arn = map['AutoMLJobArn']
         data.training_job_arn = map['TrainingJobArn']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8492,38 +8492,38 @@ module AWS::SDK::SageMaker
         data.tuning_job_arn = map['TuningJobArn']
         data.labeling_job_arn = map['LabelingJobArn']
         data.auto_ml_job_arn = map['AutoMLJobArn']
-        data.model_artifacts = (Parsers::ModelArtifacts.parse(map['ModelArtifacts']) unless map['ModelArtifacts'].nil?)
+        data.model_artifacts = (ModelArtifacts.parse(map['ModelArtifacts']) unless map['ModelArtifacts'].nil?)
         data.training_job_status = map['TrainingJobStatus']
         data.secondary_status = map['SecondaryStatus']
         data.failure_reason = map['FailureReason']
-        data.hyper_parameters = (Parsers::HyperParameters.parse(map['HyperParameters']) unless map['HyperParameters'].nil?)
-        data.algorithm_specification = (Parsers::AlgorithmSpecification.parse(map['AlgorithmSpecification']) unless map['AlgorithmSpecification'].nil?)
+        data.hyper_parameters = (HyperParameters.parse(map['HyperParameters']) unless map['HyperParameters'].nil?)
+        data.algorithm_specification = (AlgorithmSpecification.parse(map['AlgorithmSpecification']) unless map['AlgorithmSpecification'].nil?)
         data.role_arn = map['RoleArn']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
-        data.resource_config = (Parsers::ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.stopping_condition = (Parsers::StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.resource_config = (ResourceConfig.parse(map['ResourceConfig']) unless map['ResourceConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.stopping_condition = (StoppingCondition.parse(map['StoppingCondition']) unless map['StoppingCondition'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.training_start_time = Time.at(map['TrainingStartTime'].to_i) if map['TrainingStartTime']
         data.training_end_time = Time.at(map['TrainingEndTime'].to_i) if map['TrainingEndTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.secondary_status_transitions = (Parsers::SecondaryStatusTransitions.parse(map['SecondaryStatusTransitions']) unless map['SecondaryStatusTransitions'].nil?)
-        data.final_metric_data_list = (Parsers::FinalMetricDataList.parse(map['FinalMetricDataList']) unless map['FinalMetricDataList'].nil?)
+        data.secondary_status_transitions = (SecondaryStatusTransitions.parse(map['SecondaryStatusTransitions']) unless map['SecondaryStatusTransitions'].nil?)
+        data.final_metric_data_list = (FinalMetricDataList.parse(map['FinalMetricDataList']) unless map['FinalMetricDataList'].nil?)
         data.enable_network_isolation = map['EnableNetworkIsolation']
         data.enable_inter_container_traffic_encryption = map['EnableInterContainerTrafficEncryption']
         data.enable_managed_spot_training = map['EnableManagedSpotTraining']
-        data.checkpoint_config = (Parsers::CheckpointConfig.parse(map['CheckpointConfig']) unless map['CheckpointConfig'].nil?)
+        data.checkpoint_config = (CheckpointConfig.parse(map['CheckpointConfig']) unless map['CheckpointConfig'].nil?)
         data.training_time_in_seconds = map['TrainingTimeInSeconds']
         data.billable_time_in_seconds = map['BillableTimeInSeconds']
-        data.debug_hook_config = (Parsers::DebugHookConfig.parse(map['DebugHookConfig']) unless map['DebugHookConfig'].nil?)
-        data.experiment_config = (Parsers::ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
-        data.debug_rule_configurations = (Parsers::DebugRuleConfigurations.parse(map['DebugRuleConfigurations']) unless map['DebugRuleConfigurations'].nil?)
-        data.tensor_board_output_config = (Parsers::TensorBoardOutputConfig.parse(map['TensorBoardOutputConfig']) unless map['TensorBoardOutputConfig'].nil?)
-        data.debug_rule_evaluation_statuses = (Parsers::DebugRuleEvaluationStatuses.parse(map['DebugRuleEvaluationStatuses']) unless map['DebugRuleEvaluationStatuses'].nil?)
-        data.environment = (Parsers::TrainingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
-        data.retry_strategy = (Parsers::RetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.debug_hook_config = (DebugHookConfig.parse(map['DebugHookConfig']) unless map['DebugHookConfig'].nil?)
+        data.experiment_config = (ExperimentConfig.parse(map['ExperimentConfig']) unless map['ExperimentConfig'].nil?)
+        data.debug_rule_configurations = (DebugRuleConfigurations.parse(map['DebugRuleConfigurations']) unless map['DebugRuleConfigurations'].nil?)
+        data.tensor_board_output_config = (TensorBoardOutputConfig.parse(map['TensorBoardOutputConfig']) unless map['TensorBoardOutputConfig'].nil?)
+        data.debug_rule_evaluation_statuses = (DebugRuleEvaluationStatuses.parse(map['DebugRuleEvaluationStatuses']) unless map['DebugRuleEvaluationStatuses'].nil?)
+        data.environment = (TrainingEnvironmentMap.parse(map['Environment']) unless map['Environment'].nil?)
+        data.retry_strategy = (RetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -8535,14 +8535,14 @@ module AWS::SDK::SageMaker
         data.trial_arn = map['TrialArn']
         data.display_name = map['DisplayName']
         data.experiment_name = map['ExperimentName']
-        data.source = (Parsers::TrialSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (TrialSource.parse(map['Source']) unless map['Source'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.metadata_properties = (Parsers::MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.trial_component_summaries = (Parsers::TrialComponentSimpleSummaries.parse(map['TrialComponentSummaries']) unless map['TrialComponentSummaries'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.metadata_properties = (MetadataProperties.parse(map['MetadataProperties']) unless map['MetadataProperties'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.trial_component_summaries = (TrialComponentSimpleSummaries.parse(map['TrialComponentSummaries']) unless map['TrialComponentSummaries'].nil?)
         return data
       end
     end
@@ -8550,7 +8550,7 @@ module AWS::SDK::SageMaker
     class TrialComponentSimpleSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TrialComponentSimpleSummary.parse(value) unless value.nil?
+          TrialComponentSimpleSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -8560,9 +8560,9 @@ module AWS::SDK::SageMaker
         data = Types::TrialComponentSimpleSummary.new
         data.trial_component_name = map['TrialComponentName']
         data.trial_component_arn = map['TrialComponentArn']
-        data.trial_component_source = (Parsers::TrialComponentSource.parse(map['TrialComponentSource']) unless map['TrialComponentSource'].nil?)
+        data.trial_component_source = (TrialComponentSource.parse(map['TrialComponentSource']) unless map['TrialComponentSource'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         return data
       end
     end
@@ -8573,13 +8573,13 @@ module AWS::SDK::SageMaker
         data.experiment_name = map['ExperimentName']
         data.experiment_arn = map['ExperimentArn']
         data.display_name = map['DisplayName']
-        data.source = (Parsers::ExperimentSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ExperimentSource.parse(map['Source']) unless map['Source'].nil?)
         data.description = map['Description']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.created_by = (Parsers::UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (UserContext.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.last_modified_by = (Parsers::UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.last_modified_by = (UserContext.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -9054,7 +9054,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workforce = (Parsers::Workforce.parse(map['Workforce']) unless map['Workforce'].nil?)
+        data.workforce = (Workforce.parse(map['Workforce']) unless map['Workforce'].nil?)
         data
       end
     end
@@ -9066,7 +9066,7 @@ module AWS::SDK::SageMaker
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workteam = (Parsers::Workteam.parse(map['Workteam']) unless map['Workteam'].nil?)
+        data.workteam = (Workteam.parse(map['Workteam']) unless map['Workteam'].nil?)
         data
       end
     end

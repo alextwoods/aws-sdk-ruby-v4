@@ -21,12 +21,12 @@ module AWS::SDK::CognitoIdentity
         data.identity_pool_name = map['IdentityPoolName']
         data.allow_unauthenticated_identities = map['AllowUnauthenticatedIdentities']
         data.allow_classic_flow = map['AllowClassicFlow']
-        data.supported_login_providers = (Parsers::IdentityProviders.parse(map['SupportedLoginProviders']) unless map['SupportedLoginProviders'].nil?)
+        data.supported_login_providers = (IdentityProviders.parse(map['SupportedLoginProviders']) unless map['SupportedLoginProviders'].nil?)
         data.developer_provider_name = map['DeveloperProviderName']
-        data.open_id_connect_provider_ar_ns = (Parsers::OIDCProviderList.parse(map['OpenIdConnectProviderARNs']) unless map['OpenIdConnectProviderARNs'].nil?)
-        data.cognito_identity_providers = (Parsers::CognitoIdentityProviderList.parse(map['CognitoIdentityProviders']) unless map['CognitoIdentityProviders'].nil?)
-        data.saml_provider_ar_ns = (Parsers::SAMLProviderList.parse(map['SamlProviderARNs']) unless map['SamlProviderARNs'].nil?)
-        data.identity_pool_tags = (Parsers::IdentityPoolTagsType.parse(map['IdentityPoolTags']) unless map['IdentityPoolTags'].nil?)
+        data.open_id_connect_provider_ar_ns = (OIDCProviderList.parse(map['OpenIdConnectProviderARNs']) unless map['OpenIdConnectProviderARNs'].nil?)
+        data.cognito_identity_providers = (CognitoIdentityProviderList.parse(map['CognitoIdentityProviders']) unless map['CognitoIdentityProviders'].nil?)
+        data.saml_provider_ar_ns = (SAMLProviderList.parse(map['SamlProviderARNs']) unless map['SamlProviderARNs'].nil?)
+        data.identity_pool_tags = (IdentityPoolTagsType.parse(map['IdentityPoolTags']) unless map['IdentityPoolTags'].nil?)
         data
       end
     end
@@ -52,7 +52,7 @@ module AWS::SDK::CognitoIdentity
     class CognitoIdentityProviderList
       def self.parse(list)
         list.map do |value|
-          Parsers::CognitoIdentityProvider.parse(value) unless value.nil?
+          CognitoIdentityProvider.parse(value) unless value.nil?
         end
       end
     end
@@ -164,7 +164,7 @@ module AWS::SDK::CognitoIdentity
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.unprocessed_identity_ids = (Parsers::UnprocessedIdentityIdList.parse(map['UnprocessedIdentityIds']) unless map['UnprocessedIdentityIds'].nil?)
+        data.unprocessed_identity_ids = (UnprocessedIdentityIdList.parse(map['UnprocessedIdentityIds']) unless map['UnprocessedIdentityIds'].nil?)
         data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::CognitoIdentity
     class UnprocessedIdentityIdList
       def self.parse(list)
         list.map do |value|
-          Parsers::UnprocessedIdentityId.parse(value) unless value.nil?
+          UnprocessedIdentityId.parse(value) unless value.nil?
         end
       end
     end
@@ -217,7 +217,7 @@ module AWS::SDK::CognitoIdentity
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.identity_id = map['IdentityId']
-        data.logins = (Parsers::LoginsList.parse(map['Logins']) unless map['Logins'].nil?)
+        data.logins = (LoginsList.parse(map['Logins']) unless map['Logins'].nil?)
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data
@@ -243,12 +243,12 @@ module AWS::SDK::CognitoIdentity
         data.identity_pool_name = map['IdentityPoolName']
         data.allow_unauthenticated_identities = map['AllowUnauthenticatedIdentities']
         data.allow_classic_flow = map['AllowClassicFlow']
-        data.supported_login_providers = (Parsers::IdentityProviders.parse(map['SupportedLoginProviders']) unless map['SupportedLoginProviders'].nil?)
+        data.supported_login_providers = (IdentityProviders.parse(map['SupportedLoginProviders']) unless map['SupportedLoginProviders'].nil?)
         data.developer_provider_name = map['DeveloperProviderName']
-        data.open_id_connect_provider_ar_ns = (Parsers::OIDCProviderList.parse(map['OpenIdConnectProviderARNs']) unless map['OpenIdConnectProviderARNs'].nil?)
-        data.cognito_identity_providers = (Parsers::CognitoIdentityProviderList.parse(map['CognitoIdentityProviders']) unless map['CognitoIdentityProviders'].nil?)
-        data.saml_provider_ar_ns = (Parsers::SAMLProviderList.parse(map['SamlProviderARNs']) unless map['SamlProviderARNs'].nil?)
-        data.identity_pool_tags = (Parsers::IdentityPoolTagsType.parse(map['IdentityPoolTags']) unless map['IdentityPoolTags'].nil?)
+        data.open_id_connect_provider_ar_ns = (OIDCProviderList.parse(map['OpenIdConnectProviderARNs']) unless map['OpenIdConnectProviderARNs'].nil?)
+        data.cognito_identity_providers = (CognitoIdentityProviderList.parse(map['CognitoIdentityProviders']) unless map['CognitoIdentityProviders'].nil?)
+        data.saml_provider_ar_ns = (SAMLProviderList.parse(map['SamlProviderARNs']) unless map['SamlProviderARNs'].nil?)
+        data.identity_pool_tags = (IdentityPoolTagsType.parse(map['IdentityPoolTags']) unless map['IdentityPoolTags'].nil?)
         data
       end
     end
@@ -261,7 +261,7 @@ module AWS::SDK::CognitoIdentity
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.identity_id = map['IdentityId']
-        data.credentials = (Parsers::Credentials.parse(map['Credentials']) unless map['Credentials'].nil?)
+        data.credentials = (Credentials.parse(map['Credentials']) unless map['Credentials'].nil?)
         data
       end
     end
@@ -321,8 +321,8 @@ module AWS::SDK::CognitoIdentity
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.identity_pool_id = map['IdentityPoolId']
-        data.roles = (Parsers::RolesMap.parse(map['Roles']) unless map['Roles'].nil?)
-        data.role_mappings = (Parsers::RoleMappingMap.parse(map['RoleMappings']) unless map['RoleMappings'].nil?)
+        data.roles = (RolesMap.parse(map['Roles']) unless map['Roles'].nil?)
+        data.role_mappings = (RoleMappingMap.parse(map['RoleMappings']) unless map['RoleMappings'].nil?)
         data
       end
     end
@@ -331,7 +331,7 @@ module AWS::SDK::CognitoIdentity
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::RoleMapping.parse(value) unless value.nil?
+          data[key] = RoleMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -342,7 +342,7 @@ module AWS::SDK::CognitoIdentity
         data = Types::RoleMapping.new
         data.type = map['Type']
         data.ambiguous_role_resolution = map['AmbiguousRoleResolution']
-        data.rules_configuration = (Parsers::RulesConfigurationType.parse(map['RulesConfiguration']) unless map['RulesConfiguration'].nil?)
+        data.rules_configuration = (RulesConfigurationType.parse(map['RulesConfiguration']) unless map['RulesConfiguration'].nil?)
         return data
       end
     end
@@ -350,7 +350,7 @@ module AWS::SDK::CognitoIdentity
     class RulesConfigurationType
       def self.parse(map)
         data = Types::RulesConfigurationType.new
-        data.rules = (Parsers::MappingRulesList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (MappingRulesList.parse(map['Rules']) unless map['Rules'].nil?)
         return data
       end
     end
@@ -358,7 +358,7 @@ module AWS::SDK::CognitoIdentity
     class MappingRulesList
       def self.parse(list)
         list.map do |value|
-          Parsers::MappingRule.parse(value) unless value.nil?
+          MappingRule.parse(value) unless value.nil?
         end
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::CognitoIdentity
         data.identity_pool_id = map['IdentityPoolId']
         data.identity_provider_name = map['IdentityProviderName']
         data.use_defaults = map['UseDefaults']
-        data.principal_tags = (Parsers::PrincipalTags.parse(map['PrincipalTags']) unless map['PrincipalTags'].nil?)
+        data.principal_tags = (PrincipalTags.parse(map['PrincipalTags']) unless map['PrincipalTags'].nil?)
         data
       end
     end
@@ -455,7 +455,7 @@ module AWS::SDK::CognitoIdentity
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.identity_pool_id = map['IdentityPoolId']
-        data.identities = (Parsers::IdentitiesList.parse(map['Identities']) unless map['Identities'].nil?)
+        data.identities = (IdentitiesList.parse(map['Identities']) unless map['Identities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -464,7 +464,7 @@ module AWS::SDK::CognitoIdentity
     class IdentitiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::IdentityDescription.parse(value) unless value.nil?
+          IdentityDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -473,7 +473,7 @@ module AWS::SDK::CognitoIdentity
       def self.parse(map)
         data = Types::IdentityDescription.new
         data.identity_id = map['IdentityId']
-        data.logins = (Parsers::LoginsList.parse(map['Logins']) unless map['Logins'].nil?)
+        data.logins = (LoginsList.parse(map['Logins']) unless map['Logins'].nil?)
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         return data
@@ -487,7 +487,7 @@ module AWS::SDK::CognitoIdentity
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.identity_pools = (Parsers::IdentityPoolsList.parse(map['IdentityPools']) unless map['IdentityPools'].nil?)
+        data.identity_pools = (IdentityPoolsList.parse(map['IdentityPools']) unless map['IdentityPools'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -496,7 +496,7 @@ module AWS::SDK::CognitoIdentity
     class IdentityPoolsList
       def self.parse(list)
         list.map do |value|
-          Parsers::IdentityPoolShortDescription.parse(value) unless value.nil?
+          IdentityPoolShortDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::CognitoIdentity
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::IdentityPoolTagsType.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (IdentityPoolTagsType.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -530,7 +530,7 @@ module AWS::SDK::CognitoIdentity
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.identity_id = map['IdentityId']
-        data.developer_user_identifier_list = (Parsers::DeveloperUserIdentifierList.parse(map['DeveloperUserIdentifierList']) unless map['DeveloperUserIdentifierList'].nil?)
+        data.developer_user_identifier_list = (DeveloperUserIdentifierList.parse(map['DeveloperUserIdentifierList']) unless map['DeveloperUserIdentifierList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -589,7 +589,7 @@ module AWS::SDK::CognitoIdentity
         data.identity_pool_id = map['IdentityPoolId']
         data.identity_provider_name = map['IdentityProviderName']
         data.use_defaults = map['UseDefaults']
-        data.principal_tags = (Parsers::PrincipalTags.parse(map['PrincipalTags']) unless map['PrincipalTags'].nil?)
+        data.principal_tags = (PrincipalTags.parse(map['PrincipalTags']) unless map['PrincipalTags'].nil?)
         data
       end
     end
@@ -649,12 +649,12 @@ module AWS::SDK::CognitoIdentity
         data.identity_pool_name = map['IdentityPoolName']
         data.allow_unauthenticated_identities = map['AllowUnauthenticatedIdentities']
         data.allow_classic_flow = map['AllowClassicFlow']
-        data.supported_login_providers = (Parsers::IdentityProviders.parse(map['SupportedLoginProviders']) unless map['SupportedLoginProviders'].nil?)
+        data.supported_login_providers = (IdentityProviders.parse(map['SupportedLoginProviders']) unless map['SupportedLoginProviders'].nil?)
         data.developer_provider_name = map['DeveloperProviderName']
-        data.open_id_connect_provider_ar_ns = (Parsers::OIDCProviderList.parse(map['OpenIdConnectProviderARNs']) unless map['OpenIdConnectProviderARNs'].nil?)
-        data.cognito_identity_providers = (Parsers::CognitoIdentityProviderList.parse(map['CognitoIdentityProviders']) unless map['CognitoIdentityProviders'].nil?)
-        data.saml_provider_ar_ns = (Parsers::SAMLProviderList.parse(map['SamlProviderARNs']) unless map['SamlProviderARNs'].nil?)
-        data.identity_pool_tags = (Parsers::IdentityPoolTagsType.parse(map['IdentityPoolTags']) unless map['IdentityPoolTags'].nil?)
+        data.open_id_connect_provider_ar_ns = (OIDCProviderList.parse(map['OpenIdConnectProviderARNs']) unless map['OpenIdConnectProviderARNs'].nil?)
+        data.cognito_identity_providers = (CognitoIdentityProviderList.parse(map['CognitoIdentityProviders']) unless map['CognitoIdentityProviders'].nil?)
+        data.saml_provider_ar_ns = (SAMLProviderList.parse(map['SamlProviderARNs']) unless map['SamlProviderARNs'].nil?)
+        data.identity_pool_tags = (IdentityPoolTagsType.parse(map['IdentityPoolTags']) unless map['IdentityPoolTags'].nil?)
         data
       end
     end

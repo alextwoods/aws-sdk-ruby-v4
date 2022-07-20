@@ -17,9 +17,9 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.app_summary = (Parsers::AppSummary.parse(map['appSummary']) unless map['appSummary'].nil?)
-        data.server_groups = (Parsers::ServerGroups.parse(map['serverGroups']) unless map['serverGroups'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.app_summary = (AppSummary.parse(map['appSummary']) unless map['appSummary'].nil?)
+        data.server_groups = (ServerGroups.parse(map['serverGroups']) unless map['serverGroups'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -27,7 +27,7 @@ module AWS::SDK::SMS
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -44,7 +44,7 @@ module AWS::SDK::SMS
     class ServerGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerGroup.parse(value) unless value.nil?
+          ServerGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -54,7 +54,7 @@ module AWS::SDK::SMS
         data = Types::ServerGroup.new
         data.server_group_id = map['serverGroupId']
         data.name = map['name']
-        data.server_list = (Parsers::ServerList.parse(map['serverList']) unless map['serverList'].nil?)
+        data.server_list = (ServerList.parse(map['serverList']) unless map['serverList'].nil?)
         return data
       end
     end
@@ -62,7 +62,7 @@ module AWS::SDK::SMS
     class ServerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Server.parse(value) unless value.nil?
+          Server.parse(value) unless value.nil?
         end
       end
     end
@@ -72,7 +72,7 @@ module AWS::SDK::SMS
         data = Types::Server.new
         data.server_id = map['serverId']
         data.server_type = map['serverType']
-        data.vm_server = (Parsers::VmServer.parse(map['vmServer']) unless map['vmServer'].nil?)
+        data.vm_server = (VmServer.parse(map['vmServer']) unless map['vmServer'].nil?)
         data.replication_job_id = map['replicationJobId']
         data.replication_job_terminated = map['replicationJobTerminated']
         return data
@@ -82,7 +82,7 @@ module AWS::SDK::SMS
     class VmServer
       def self.parse(map)
         data = Types::VmServer.new
-        data.vm_server_address = (Parsers::VmServerAddress.parse(map['vmServerAddress']) unless map['vmServerAddress'].nil?)
+        data.vm_server_address = (VmServerAddress.parse(map['vmServerAddress']) unless map['vmServerAddress'].nil?)
         data.vm_name = map['vmName']
         data.vm_manager_name = map['vmManagerName']
         data.vm_manager_type = map['vmManagerType']
@@ -116,7 +116,7 @@ module AWS::SDK::SMS
         data.launch_configuration_status = map['launchConfigurationStatus']
         data.launch_status = map['launchStatus']
         data.launch_status_message = map['launchStatusMessage']
-        data.launch_details = (Parsers::LaunchDetails.parse(map['launchDetails']) unless map['launchDetails'].nil?)
+        data.launch_details = (LaunchDetails.parse(map['launchDetails']) unless map['launchDetails'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_modified = Time.at(map['lastModified'].to_i) if map['lastModified']
         data.role_name = map['roleName']
@@ -351,7 +351,7 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
         data
       end
     end
@@ -372,7 +372,7 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
         data
       end
     end
@@ -384,9 +384,9 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.app_summary = (Parsers::AppSummary.parse(map['appSummary']) unless map['appSummary'].nil?)
-        data.server_groups = (Parsers::ServerGroups.parse(map['serverGroups']) unless map['serverGroups'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.app_summary = (AppSummary.parse(map['appSummary']) unless map['appSummary'].nil?)
+        data.server_groups = (ServerGroups.parse(map['serverGroups']) unless map['serverGroups'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -401,7 +401,7 @@ module AWS::SDK::SMS
         data.app_id = map['appId']
         data.role_name = map['roleName']
         data.auto_launch = map['autoLaunch']
-        data.server_group_launch_configurations = (Parsers::ServerGroupLaunchConfigurations.parse(map['serverGroupLaunchConfigurations']) unless map['serverGroupLaunchConfigurations'].nil?)
+        data.server_group_launch_configurations = (ServerGroupLaunchConfigurations.parse(map['serverGroupLaunchConfigurations']) unless map['serverGroupLaunchConfigurations'].nil?)
         data
       end
     end
@@ -409,7 +409,7 @@ module AWS::SDK::SMS
     class ServerGroupLaunchConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerGroupLaunchConfiguration.parse(value) unless value.nil?
+          ServerGroupLaunchConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -419,7 +419,7 @@ module AWS::SDK::SMS
         data = Types::ServerGroupLaunchConfiguration.new
         data.server_group_id = map['serverGroupId']
         data.launch_order = map['launchOrder']
-        data.server_launch_configurations = (Parsers::ServerLaunchConfigurations.parse(map['serverLaunchConfigurations']) unless map['serverLaunchConfigurations'].nil?)
+        data.server_launch_configurations = (ServerLaunchConfigurations.parse(map['serverLaunchConfigurations']) unless map['serverLaunchConfigurations'].nil?)
         return data
       end
     end
@@ -427,7 +427,7 @@ module AWS::SDK::SMS
     class ServerLaunchConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerLaunchConfiguration.parse(value) unless value.nil?
+          ServerLaunchConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -435,17 +435,17 @@ module AWS::SDK::SMS
     class ServerLaunchConfiguration
       def self.parse(map)
         data = Types::ServerLaunchConfiguration.new
-        data.server = (Parsers::Server.parse(map['server']) unless map['server'].nil?)
+        data.server = (Server.parse(map['server']) unless map['server'].nil?)
         data.logical_id = map['logicalId']
         data.vpc = map['vpc']
         data.subnet = map['subnet']
         data.security_group = map['securityGroup']
         data.ec2_key_name = map['ec2KeyName']
-        data.user_data = (Parsers::UserData.parse(map['userData']) unless map['userData'].nil?)
+        data.user_data = (UserData.parse(map['userData']) unless map['userData'].nil?)
         data.instance_type = map['instanceType']
         data.associate_public_ip_address = map['associatePublicIpAddress']
         data.iam_instance_profile_name = map['iamInstanceProfileName']
-        data.configure_script = (Parsers::S3Location.parse(map['configureScript']) unless map['configureScript'].nil?)
+        data.configure_script = (S3Location.parse(map['configureScript']) unless map['configureScript'].nil?)
         data.configure_script_type = map['configureScriptType']
         return data
       end
@@ -454,7 +454,7 @@ module AWS::SDK::SMS
     class UserData
       def self.parse(map)
         data = Types::UserData.new
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
         return data
       end
     end
@@ -466,7 +466,7 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server_group_replication_configurations = (Parsers::ServerGroupReplicationConfigurations.parse(map['serverGroupReplicationConfigurations']) unless map['serverGroupReplicationConfigurations'].nil?)
+        data.server_group_replication_configurations = (ServerGroupReplicationConfigurations.parse(map['serverGroupReplicationConfigurations']) unless map['serverGroupReplicationConfigurations'].nil?)
         data
       end
     end
@@ -474,7 +474,7 @@ module AWS::SDK::SMS
     class ServerGroupReplicationConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerGroupReplicationConfiguration.parse(value) unless value.nil?
+          ServerGroupReplicationConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -483,7 +483,7 @@ module AWS::SDK::SMS
       def self.parse(map)
         data = Types::ServerGroupReplicationConfiguration.new
         data.server_group_id = map['serverGroupId']
-        data.server_replication_configurations = (Parsers::ServerReplicationConfigurations.parse(map['serverReplicationConfigurations']) unless map['serverReplicationConfigurations'].nil?)
+        data.server_replication_configurations = (ServerReplicationConfigurations.parse(map['serverReplicationConfigurations']) unless map['serverReplicationConfigurations'].nil?)
         return data
       end
     end
@@ -491,7 +491,7 @@ module AWS::SDK::SMS
     class ServerReplicationConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerReplicationConfiguration.parse(value) unless value.nil?
+          ServerReplicationConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -499,8 +499,8 @@ module AWS::SDK::SMS
     class ServerReplicationConfiguration
       def self.parse(map)
         data = Types::ServerReplicationConfiguration.new
-        data.server = (Parsers::Server.parse(map['server']) unless map['server'].nil?)
-        data.server_replication_parameters = (Parsers::ServerReplicationParameters.parse(map['serverReplicationParameters']) unless map['serverReplicationParameters'].nil?)
+        data.server = (Server.parse(map['server']) unless map['server'].nil?)
+        data.server_replication_parameters = (ServerReplicationParameters.parse(map['serverReplicationParameters']) unless map['serverReplicationParameters'].nil?)
         return data
       end
     end
@@ -526,8 +526,8 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.app_validation_configurations = (Parsers::AppValidationConfigurations.parse(map['appValidationConfigurations']) unless map['appValidationConfigurations'].nil?)
-        data.server_group_validation_configurations = (Parsers::ServerGroupValidationConfigurations.parse(map['serverGroupValidationConfigurations']) unless map['serverGroupValidationConfigurations'].nil?)
+        data.app_validation_configurations = (AppValidationConfigurations.parse(map['appValidationConfigurations']) unless map['appValidationConfigurations'].nil?)
+        data.server_group_validation_configurations = (ServerGroupValidationConfigurations.parse(map['serverGroupValidationConfigurations']) unless map['serverGroupValidationConfigurations'].nil?)
         data
       end
     end
@@ -535,7 +535,7 @@ module AWS::SDK::SMS
     class ServerGroupValidationConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerGroupValidationConfiguration.parse(value) unless value.nil?
+          ServerGroupValidationConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -544,7 +544,7 @@ module AWS::SDK::SMS
       def self.parse(map)
         data = Types::ServerGroupValidationConfiguration.new
         data.server_group_id = map['serverGroupId']
-        data.server_validation_configurations = (Parsers::ServerValidationConfigurations.parse(map['serverValidationConfigurations']) unless map['serverValidationConfigurations'].nil?)
+        data.server_validation_configurations = (ServerValidationConfigurations.parse(map['serverValidationConfigurations']) unless map['serverValidationConfigurations'].nil?)
         return data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::SMS
     class ServerValidationConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerValidationConfiguration.parse(value) unless value.nil?
+          ServerValidationConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -560,11 +560,11 @@ module AWS::SDK::SMS
     class ServerValidationConfiguration
       def self.parse(map)
         data = Types::ServerValidationConfiguration.new
-        data.server = (Parsers::Server.parse(map['server']) unless map['server'].nil?)
+        data.server = (Server.parse(map['server']) unless map['server'].nil?)
         data.validation_id = map['validationId']
         data.name = map['name']
         data.server_validation_strategy = map['serverValidationStrategy']
-        data.user_data_validation_parameters = (Parsers::UserDataValidationParameters.parse(map['userDataValidationParameters']) unless map['userDataValidationParameters'].nil?)
+        data.user_data_validation_parameters = (UserDataValidationParameters.parse(map['userDataValidationParameters']) unless map['userDataValidationParameters'].nil?)
         return data
       end
     end
@@ -572,7 +572,7 @@ module AWS::SDK::SMS
     class UserDataValidationParameters
       def self.parse(map)
         data = Types::UserDataValidationParameters.new
-        data.source = (Parsers::Source.parse(map['source']) unless map['source'].nil?)
+        data.source = (Source.parse(map['source']) unless map['source'].nil?)
         data.script_type = map['scriptType']
         return data
       end
@@ -581,7 +581,7 @@ module AWS::SDK::SMS
     class Source
       def self.parse(map)
         data = Types::Source.new
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
         return data
       end
     end
@@ -589,7 +589,7 @@ module AWS::SDK::SMS
     class AppValidationConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::AppValidationConfiguration.parse(value) unless value.nil?
+          AppValidationConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -600,7 +600,7 @@ module AWS::SDK::SMS
         data.validation_id = map['validationId']
         data.name = map['name']
         data.app_validation_strategy = map['appValidationStrategy']
-        data.ssm_validation_parameters = (Parsers::SSMValidationParameters.parse(map['ssmValidationParameters']) unless map['ssmValidationParameters'].nil?)
+        data.ssm_validation_parameters = (SSMValidationParameters.parse(map['ssmValidationParameters']) unless map['ssmValidationParameters'].nil?)
         return data
       end
     end
@@ -608,7 +608,7 @@ module AWS::SDK::SMS
     class SSMValidationParameters
       def self.parse(map)
         data = Types::SSMValidationParameters.new
-        data.source = (Parsers::Source.parse(map['source']) unless map['source'].nil?)
+        data.source = (Source.parse(map['source']) unless map['source'].nil?)
         data.instance_id = map['instanceId']
         data.script_type = map['scriptType']
         data.command = map['command']
@@ -625,7 +625,7 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.validation_output_list = (Parsers::ValidationOutputList.parse(map['validationOutputList']) unless map['validationOutputList'].nil?)
+        data.validation_output_list = (ValidationOutputList.parse(map['validationOutputList']) unless map['validationOutputList'].nil?)
         data
       end
     end
@@ -633,7 +633,7 @@ module AWS::SDK::SMS
     class ValidationOutputList
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationOutput.parse(value) unless value.nil?
+          ValidationOutput.parse(value) unless value.nil?
         end
       end
     end
@@ -646,8 +646,8 @@ module AWS::SDK::SMS
         data.status = map['status']
         data.status_message = map['statusMessage']
         data.latest_validation_time = Time.at(map['latestValidationTime'].to_i) if map['latestValidationTime']
-        data.app_validation_output = (Parsers::AppValidationOutput.parse(map['appValidationOutput']) unless map['appValidationOutput'].nil?)
-        data.server_validation_output = (Parsers::ServerValidationOutput.parse(map['serverValidationOutput']) unless map['serverValidationOutput'].nil?)
+        data.app_validation_output = (AppValidationOutput.parse(map['appValidationOutput']) unless map['appValidationOutput'].nil?)
+        data.server_validation_output = (ServerValidationOutput.parse(map['serverValidationOutput']) unless map['serverValidationOutput'].nil?)
         return data
       end
     end
@@ -655,7 +655,7 @@ module AWS::SDK::SMS
     class ServerValidationOutput
       def self.parse(map)
         data = Types::ServerValidationOutput.new
-        data.server = (Parsers::Server.parse(map['server']) unless map['server'].nil?)
+        data.server = (Server.parse(map['server']) unless map['server'].nil?)
         return data
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::SMS
     class AppValidationOutput
       def self.parse(map)
         data = Types::AppValidationOutput.new
-        data.ssm_output = (Parsers::SSMOutput.parse(map['ssmOutput']) unless map['ssmOutput'].nil?)
+        data.ssm_output = (SSMOutput.parse(map['ssmOutput']) unless map['ssmOutput'].nil?)
         return data
       end
     end
@@ -671,7 +671,7 @@ module AWS::SDK::SMS
     class SSMOutput
       def self.parse(map)
         data = Types::SSMOutput.new
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
         return data
       end
     end
@@ -683,7 +683,7 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connector_list = (Parsers::ConnectorList.parse(map['connectorList']) unless map['connectorList'].nil?)
+        data.connector_list = (ConnectorList.parse(map['connectorList']) unless map['connectorList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -692,7 +692,7 @@ module AWS::SDK::SMS
     class ConnectorList
       def self.parse(list)
         list.map do |value|
-          Parsers::Connector.parse(value) unless value.nil?
+          Connector.parse(value) unless value.nil?
         end
       end
     end
@@ -703,7 +703,7 @@ module AWS::SDK::SMS
         data.connector_id = map['connectorId']
         data.version = map['version']
         data.status = map['status']
-        data.capability_list = (Parsers::ConnectorCapabilityList.parse(map['capabilityList']) unless map['capabilityList'].nil?)
+        data.capability_list = (ConnectorCapabilityList.parse(map['capabilityList']) unless map['capabilityList'].nil?)
         data.vm_manager_name = map['vmManagerName']
         data.vm_manager_type = map['vmManagerType']
         data.vm_manager_id = map['vmManagerId']
@@ -729,7 +729,7 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_job_list = (Parsers::ReplicationJobList.parse(map['replicationJobList']) unless map['replicationJobList'].nil?)
+        data.replication_job_list = (ReplicationJobList.parse(map['replicationJobList']) unless map['replicationJobList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -738,7 +738,7 @@ module AWS::SDK::SMS
     class ReplicationJobList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationJob.parse(value) unless value.nil?
+          ReplicationJob.parse(value) unless value.nil?
         end
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::SMS
         data.replication_job_id = map['replicationJobId']
         data.server_id = map['serverId']
         data.server_type = map['serverType']
-        data.vm_server = (Parsers::VmServer.parse(map['vmServer']) unless map['vmServer'].nil?)
+        data.vm_server = (VmServer.parse(map['vmServer']) unless map['vmServer'].nil?)
         data.seed_replication_time = Time.at(map['seedReplicationTime'].to_i) if map['seedReplicationTime']
         data.frequency = map['frequency']
         data.run_once = map['runOnce']
@@ -763,7 +763,7 @@ module AWS::SDK::SMS
         data.number_of_recent_amis_to_keep = map['numberOfRecentAmisToKeep']
         data.encrypted = map['encrypted']
         data.kms_key_id = map['kmsKeyId']
-        data.replication_run_list = (Parsers::ReplicationRunList.parse(map['replicationRunList']) unless map['replicationRunList'].nil?)
+        data.replication_run_list = (ReplicationRunList.parse(map['replicationRunList']) unless map['replicationRunList'].nil?)
         return data
       end
     end
@@ -771,7 +771,7 @@ module AWS::SDK::SMS
     class ReplicationRunList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationRun.parse(value) unless value.nil?
+          ReplicationRun.parse(value) unless value.nil?
         end
       end
     end
@@ -782,7 +782,7 @@ module AWS::SDK::SMS
         data.replication_run_id = map['replicationRunId']
         data.state = map['state']
         data.type = map['type']
-        data.stage_details = (Parsers::ReplicationRunStageDetails.parse(map['stageDetails']) unless map['stageDetails'].nil?)
+        data.stage_details = (ReplicationRunStageDetails.parse(map['stageDetails']) unless map['stageDetails'].nil?)
         data.status_message = map['statusMessage']
         data.ami_id = map['amiId']
         data.scheduled_start_time = Time.at(map['scheduledStartTime'].to_i) if map['scheduledStartTime']
@@ -810,8 +810,8 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_job = (Parsers::ReplicationJob.parse(map['replicationJob']) unless map['replicationJob'].nil?)
-        data.replication_run_list = (Parsers::ReplicationRunList.parse(map['replicationRunList']) unless map['replicationRunList'].nil?)
+        data.replication_job = (ReplicationJob.parse(map['replicationJob']) unless map['replicationJob'].nil?)
+        data.replication_run_list = (ReplicationRunList.parse(map['replicationRunList']) unless map['replicationRunList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -826,7 +826,7 @@ module AWS::SDK::SMS
         map = Hearth::JSON.load(body)
         data.last_modified_on = Time.at(map['lastModifiedOn'].to_i) if map['lastModifiedOn']
         data.server_catalog_status = map['serverCatalogStatus']
-        data.server_list = (Parsers::ServerList.parse(map['serverList']) unless map['serverList'].nil?)
+        data.server_list = (ServerList.parse(map['serverList']) unless map['serverList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -872,7 +872,7 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.apps = (Parsers::Apps.parse(map['apps']) unless map['apps'].nil?)
+        data.apps = (Apps.parse(map['apps']) unless map['apps'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -881,7 +881,7 @@ module AWS::SDK::SMS
     class Apps
       def self.parse(list)
         list.map do |value|
-          Parsers::AppSummary.parse(value) unless value.nil?
+          AppSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1017,9 +1017,9 @@ module AWS::SDK::SMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.app_summary = (Parsers::AppSummary.parse(map['appSummary']) unless map['appSummary'].nil?)
-        data.server_groups = (Parsers::ServerGroups.parse(map['serverGroups']) unless map['serverGroups'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.app_summary = (AppSummary.parse(map['appSummary']) unless map['appSummary'].nil?)
+        data.server_groups = (ServerGroups.parse(map['serverGroups']) unless map['serverGroups'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

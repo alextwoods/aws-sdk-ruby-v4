@@ -17,8 +17,8 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.builds_deleted = (Parsers::BuildIds.parse(map['buildsDeleted']) unless map['buildsDeleted'].nil?)
-        data.builds_not_deleted = (Parsers::BuildsNotDeleted.parse(map['buildsNotDeleted']) unless map['buildsNotDeleted'].nil?)
+        data.builds_deleted = (BuildIds.parse(map['buildsDeleted']) unless map['buildsDeleted'].nil?)
+        data.builds_not_deleted = (BuildsNotDeleted.parse(map['buildsNotDeleted']) unless map['buildsNotDeleted'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::CodeBuild
     class BuildsNotDeleted
       def self.parse(list)
         list.map do |value|
-          Parsers::BuildNotDeleted.parse(value) unless value.nil?
+          BuildNotDeleted.parse(value) unless value.nil?
         end
       end
     end
@@ -67,8 +67,8 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build_batches = (Parsers::BuildBatches.parse(map['buildBatches']) unless map['buildBatches'].nil?)
-        data.build_batches_not_found = (Parsers::BuildBatchIds.parse(map['buildBatchesNotFound']) unless map['buildBatchesNotFound'].nil?)
+        data.build_batches = (BuildBatches.parse(map['buildBatches']) unless map['buildBatches'].nil?)
+        data.build_batches_not_found = (BuildBatchIds.parse(map['buildBatchesNotFound']) unless map['buildBatchesNotFound'].nil?)
         data
       end
     end
@@ -84,7 +84,7 @@ module AWS::SDK::CodeBuild
     class BuildBatches
       def self.parse(list)
         list.map do |value|
-          Parsers::BuildBatch.parse(value) unless value.nil?
+          BuildBatch.parse(value) unless value.nil?
         end
       end
     end
@@ -101,26 +101,26 @@ module AWS::SDK::CodeBuild
         data.source_version = map['sourceVersion']
         data.resolved_source_version = map['resolvedSourceVersion']
         data.project_name = map['projectName']
-        data.phases = (Parsers::BuildBatchPhases.parse(map['phases']) unless map['phases'].nil?)
-        data.source = (Parsers::ProjectSource.parse(map['source']) unless map['source'].nil?)
-        data.secondary_sources = (Parsers::ProjectSources.parse(map['secondarySources']) unless map['secondarySources'].nil?)
-        data.secondary_source_versions = (Parsers::ProjectSecondarySourceVersions.parse(map['secondarySourceVersions']) unless map['secondarySourceVersions'].nil?)
-        data.artifacts = (Parsers::BuildArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
-        data.secondary_artifacts = (Parsers::BuildArtifactsList.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
-        data.cache = (Parsers::ProjectCache.parse(map['cache']) unless map['cache'].nil?)
-        data.environment = (Parsers::ProjectEnvironment.parse(map['environment']) unless map['environment'].nil?)
+        data.phases = (BuildBatchPhases.parse(map['phases']) unless map['phases'].nil?)
+        data.source = (ProjectSource.parse(map['source']) unless map['source'].nil?)
+        data.secondary_sources = (ProjectSources.parse(map['secondarySources']) unless map['secondarySources'].nil?)
+        data.secondary_source_versions = (ProjectSecondarySourceVersions.parse(map['secondarySourceVersions']) unless map['secondarySourceVersions'].nil?)
+        data.artifacts = (BuildArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
+        data.secondary_artifacts = (BuildArtifactsList.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
+        data.cache = (ProjectCache.parse(map['cache']) unless map['cache'].nil?)
+        data.environment = (ProjectEnvironment.parse(map['environment']) unless map['environment'].nil?)
         data.service_role = map['serviceRole']
-        data.log_config = (Parsers::LogsConfig.parse(map['logConfig']) unless map['logConfig'].nil?)
+        data.log_config = (LogsConfig.parse(map['logConfig']) unless map['logConfig'].nil?)
         data.build_timeout_in_minutes = map['buildTimeoutInMinutes']
         data.queued_timeout_in_minutes = map['queuedTimeoutInMinutes']
         data.complete = map['complete']
         data.initiator = map['initiator']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
         data.encryption_key = map['encryptionKey']
         data.build_batch_number = map['buildBatchNumber']
-        data.file_system_locations = (Parsers::ProjectFileSystemLocations.parse(map['fileSystemLocations']) unless map['fileSystemLocations'].nil?)
-        data.build_batch_config = (Parsers::ProjectBuildBatchConfig.parse(map['buildBatchConfig']) unless map['buildBatchConfig'].nil?)
-        data.build_groups = (Parsers::BuildGroups.parse(map['buildGroups']) unless map['buildGroups'].nil?)
+        data.file_system_locations = (ProjectFileSystemLocations.parse(map['fileSystemLocations']) unless map['fileSystemLocations'].nil?)
+        data.build_batch_config = (ProjectBuildBatchConfig.parse(map['buildBatchConfig']) unless map['buildBatchConfig'].nil?)
+        data.build_groups = (BuildGroups.parse(map['buildGroups']) unless map['buildGroups'].nil?)
         data.debug_session_enabled = map['debugSessionEnabled']
         return data
       end
@@ -129,7 +129,7 @@ module AWS::SDK::CodeBuild
     class BuildGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::BuildGroup.parse(value) unless value.nil?
+          BuildGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -138,10 +138,10 @@ module AWS::SDK::CodeBuild
       def self.parse(map)
         data = Types::BuildGroup.new
         data.identifier = map['identifier']
-        data.depends_on = (Parsers::Identifiers.parse(map['dependsOn']) unless map['dependsOn'].nil?)
+        data.depends_on = (Identifiers.parse(map['dependsOn']) unless map['dependsOn'].nil?)
         data.ignore_failure = map['ignoreFailure']
-        data.current_build_summary = (Parsers::BuildSummary.parse(map['currentBuildSummary']) unless map['currentBuildSummary'].nil?)
-        data.prior_build_summary_list = (Parsers::BuildSummaries.parse(map['priorBuildSummaryList']) unless map['priorBuildSummaryList'].nil?)
+        data.current_build_summary = (BuildSummary.parse(map['currentBuildSummary']) unless map['currentBuildSummary'].nil?)
+        data.prior_build_summary_list = (BuildSummaries.parse(map['priorBuildSummaryList']) unless map['priorBuildSummaryList'].nil?)
         return data
       end
     end
@@ -149,7 +149,7 @@ module AWS::SDK::CodeBuild
     class BuildSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::BuildSummary.parse(value) unless value.nil?
+          BuildSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -160,8 +160,8 @@ module AWS::SDK::CodeBuild
         data.arn = map['arn']
         data.requested_on = Time.at(map['requestedOn'].to_i) if map['requestedOn']
         data.build_status = map['buildStatus']
-        data.primary_artifact = (Parsers::ResolvedArtifact.parse(map['primaryArtifact']) unless map['primaryArtifact'].nil?)
-        data.secondary_artifacts = (Parsers::ResolvedSecondaryArtifacts.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
+        data.primary_artifact = (ResolvedArtifact.parse(map['primaryArtifact']) unless map['primaryArtifact'].nil?)
+        data.secondary_artifacts = (ResolvedSecondaryArtifacts.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
         return data
       end
     end
@@ -169,7 +169,7 @@ module AWS::SDK::CodeBuild
     class ResolvedSecondaryArtifacts
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolvedArtifact.parse(value) unless value.nil?
+          ResolvedArtifact.parse(value) unless value.nil?
         end
       end
     end
@@ -197,7 +197,7 @@ module AWS::SDK::CodeBuild
         data = Types::ProjectBuildBatchConfig.new
         data.service_role = map['serviceRole']
         data.combine_artifacts = map['combineArtifacts']
-        data.restrictions = (Parsers::BatchRestrictions.parse(map['restrictions']) unless map['restrictions'].nil?)
+        data.restrictions = (BatchRestrictions.parse(map['restrictions']) unless map['restrictions'].nil?)
         data.timeout_in_mins = map['timeoutInMins']
         data.batch_report_mode = map['batchReportMode']
         return data
@@ -208,7 +208,7 @@ module AWS::SDK::CodeBuild
       def self.parse(map)
         data = Types::BatchRestrictions.new
         data.maximum_builds_allowed = map['maximumBuildsAllowed']
-        data.compute_types_allowed = (Parsers::ComputeTypesAllowed.parse(map['computeTypesAllowed']) unless map['computeTypesAllowed'].nil?)
+        data.compute_types_allowed = (ComputeTypesAllowed.parse(map['computeTypesAllowed']) unless map['computeTypesAllowed'].nil?)
         return data
       end
     end
@@ -224,7 +224,7 @@ module AWS::SDK::CodeBuild
     class ProjectFileSystemLocations
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectFileSystemLocation.parse(value) unless value.nil?
+          ProjectFileSystemLocation.parse(value) unless value.nil?
         end
       end
     end
@@ -245,8 +245,8 @@ module AWS::SDK::CodeBuild
       def self.parse(map)
         data = Types::VpcConfig.new
         data.vpc_id = map['vpcId']
-        data.subnets = (Parsers::Subnets.parse(map['subnets']) unless map['subnets'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnets = (Subnets.parse(map['subnets']) unless map['subnets'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         return data
       end
     end
@@ -270,8 +270,8 @@ module AWS::SDK::CodeBuild
     class LogsConfig
       def self.parse(map)
         data = Types::LogsConfig.new
-        data.cloud_watch_logs = (Parsers::CloudWatchLogsConfig.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
-        data.s3_logs = (Parsers::S3LogsConfig.parse(map['s3Logs']) unless map['s3Logs'].nil?)
+        data.cloud_watch_logs = (CloudWatchLogsConfig.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
+        data.s3_logs = (S3LogsConfig.parse(map['s3Logs']) unless map['s3Logs'].nil?)
         return data
       end
     end
@@ -303,10 +303,10 @@ module AWS::SDK::CodeBuild
         data.type = map['type']
         data.image = map['image']
         data.compute_type = map['computeType']
-        data.environment_variables = (Parsers::EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
+        data.environment_variables = (EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
         data.privileged_mode = map['privilegedMode']
         data.certificate = map['certificate']
-        data.registry_credential = (Parsers::RegistryCredential.parse(map['registryCredential']) unless map['registryCredential'].nil?)
+        data.registry_credential = (RegistryCredential.parse(map['registryCredential']) unless map['registryCredential'].nil?)
         data.image_pull_credentials_type = map['imagePullCredentialsType']
         return data
       end
@@ -324,7 +324,7 @@ module AWS::SDK::CodeBuild
     class EnvironmentVariables
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentVariable.parse(value) unless value.nil?
+          EnvironmentVariable.parse(value) unless value.nil?
         end
       end
     end
@@ -344,7 +344,7 @@ module AWS::SDK::CodeBuild
         data = Types::ProjectCache.new
         data.type = map['type']
         data.location = map['location']
-        data.modes = (Parsers::ProjectCacheModes.parse(map['modes']) unless map['modes'].nil?)
+        data.modes = (ProjectCacheModes.parse(map['modes']) unless map['modes'].nil?)
         return data
       end
     end
@@ -360,7 +360,7 @@ module AWS::SDK::CodeBuild
     class BuildArtifactsList
       def self.parse(list)
         list.map do |value|
-          Parsers::BuildArtifacts.parse(value) unless value.nil?
+          BuildArtifacts.parse(value) unless value.nil?
         end
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::CodeBuild
     class ProjectSecondarySourceVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectSourceVersion.parse(value) unless value.nil?
+          ProjectSourceVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -399,7 +399,7 @@ module AWS::SDK::CodeBuild
     class ProjectSources
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectSource.parse(value) unless value.nil?
+          ProjectSource.parse(value) unless value.nil?
         end
       end
     end
@@ -410,11 +410,11 @@ module AWS::SDK::CodeBuild
         data.type = map['type']
         data.location = map['location']
         data.git_clone_depth = map['gitCloneDepth']
-        data.git_submodules_config = (Parsers::GitSubmodulesConfig.parse(map['gitSubmodulesConfig']) unless map['gitSubmodulesConfig'].nil?)
+        data.git_submodules_config = (GitSubmodulesConfig.parse(map['gitSubmodulesConfig']) unless map['gitSubmodulesConfig'].nil?)
         data.buildspec = map['buildspec']
-        data.auth = (Parsers::SourceAuth.parse(map['auth']) unless map['auth'].nil?)
+        data.auth = (SourceAuth.parse(map['auth']) unless map['auth'].nil?)
         data.report_build_status = map['reportBuildStatus']
-        data.build_status_config = (Parsers::BuildStatusConfig.parse(map['buildStatusConfig']) unless map['buildStatusConfig'].nil?)
+        data.build_status_config = (BuildStatusConfig.parse(map['buildStatusConfig']) unless map['buildStatusConfig'].nil?)
         data.insecure_ssl = map['insecureSsl']
         data.source_identifier = map['sourceIdentifier']
         return data
@@ -450,7 +450,7 @@ module AWS::SDK::CodeBuild
     class BuildBatchPhases
       def self.parse(list)
         list.map do |value|
-          Parsers::BuildBatchPhase.parse(value) unless value.nil?
+          BuildBatchPhase.parse(value) unless value.nil?
         end
       end
     end
@@ -463,7 +463,7 @@ module AWS::SDK::CodeBuild
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
         data.duration_in_seconds = map['durationInSeconds']
-        data.contexts = (Parsers::PhaseContexts.parse(map['contexts']) unless map['contexts'].nil?)
+        data.contexts = (PhaseContexts.parse(map['contexts']) unless map['contexts'].nil?)
         return data
       end
     end
@@ -471,7 +471,7 @@ module AWS::SDK::CodeBuild
     class PhaseContexts
       def self.parse(list)
         list.map do |value|
-          Parsers::PhaseContext.parse(value) unless value.nil?
+          PhaseContext.parse(value) unless value.nil?
         end
       end
     end
@@ -492,8 +492,8 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.builds = (Parsers::Builds.parse(map['builds']) unless map['builds'].nil?)
-        data.builds_not_found = (Parsers::BuildIds.parse(map['buildsNotFound']) unless map['buildsNotFound'].nil?)
+        data.builds = (Builds.parse(map['builds']) unless map['builds'].nil?)
+        data.builds_not_found = (BuildIds.parse(map['buildsNotFound']) unless map['buildsNotFound'].nil?)
         data
       end
     end
@@ -501,7 +501,7 @@ module AWS::SDK::CodeBuild
     class Builds
       def self.parse(list)
         list.map do |value|
-          Parsers::Build.parse(value) unless value.nil?
+          Build.parse(value) unless value.nil?
         end
       end
     end
@@ -519,27 +519,27 @@ module AWS::SDK::CodeBuild
         data.source_version = map['sourceVersion']
         data.resolved_source_version = map['resolvedSourceVersion']
         data.project_name = map['projectName']
-        data.phases = (Parsers::BuildPhases.parse(map['phases']) unless map['phases'].nil?)
-        data.source = (Parsers::ProjectSource.parse(map['source']) unless map['source'].nil?)
-        data.secondary_sources = (Parsers::ProjectSources.parse(map['secondarySources']) unless map['secondarySources'].nil?)
-        data.secondary_source_versions = (Parsers::ProjectSecondarySourceVersions.parse(map['secondarySourceVersions']) unless map['secondarySourceVersions'].nil?)
-        data.artifacts = (Parsers::BuildArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
-        data.secondary_artifacts = (Parsers::BuildArtifactsList.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
-        data.cache = (Parsers::ProjectCache.parse(map['cache']) unless map['cache'].nil?)
-        data.environment = (Parsers::ProjectEnvironment.parse(map['environment']) unless map['environment'].nil?)
+        data.phases = (BuildPhases.parse(map['phases']) unless map['phases'].nil?)
+        data.source = (ProjectSource.parse(map['source']) unless map['source'].nil?)
+        data.secondary_sources = (ProjectSources.parse(map['secondarySources']) unless map['secondarySources'].nil?)
+        data.secondary_source_versions = (ProjectSecondarySourceVersions.parse(map['secondarySourceVersions']) unless map['secondarySourceVersions'].nil?)
+        data.artifacts = (BuildArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
+        data.secondary_artifacts = (BuildArtifactsList.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
+        data.cache = (ProjectCache.parse(map['cache']) unless map['cache'].nil?)
+        data.environment = (ProjectEnvironment.parse(map['environment']) unless map['environment'].nil?)
         data.service_role = map['serviceRole']
-        data.logs = (Parsers::LogsLocation.parse(map['logs']) unless map['logs'].nil?)
+        data.logs = (LogsLocation.parse(map['logs']) unless map['logs'].nil?)
         data.timeout_in_minutes = map['timeoutInMinutes']
         data.queued_timeout_in_minutes = map['queuedTimeoutInMinutes']
         data.build_complete = map['buildComplete']
         data.initiator = map['initiator']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
-        data.network_interface = (Parsers::NetworkInterface.parse(map['networkInterface']) unless map['networkInterface'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.network_interface = (NetworkInterface.parse(map['networkInterface']) unless map['networkInterface'].nil?)
         data.encryption_key = map['encryptionKey']
-        data.exported_environment_variables = (Parsers::ExportedEnvironmentVariables.parse(map['exportedEnvironmentVariables']) unless map['exportedEnvironmentVariables'].nil?)
-        data.report_arns = (Parsers::BuildReportArns.parse(map['reportArns']) unless map['reportArns'].nil?)
-        data.file_system_locations = (Parsers::ProjectFileSystemLocations.parse(map['fileSystemLocations']) unless map['fileSystemLocations'].nil?)
-        data.debug_session = (Parsers::DebugSession.parse(map['debugSession']) unless map['debugSession'].nil?)
+        data.exported_environment_variables = (ExportedEnvironmentVariables.parse(map['exportedEnvironmentVariables']) unless map['exportedEnvironmentVariables'].nil?)
+        data.report_arns = (BuildReportArns.parse(map['reportArns']) unless map['reportArns'].nil?)
+        data.file_system_locations = (ProjectFileSystemLocations.parse(map['fileSystemLocations']) unless map['fileSystemLocations'].nil?)
+        data.debug_session = (DebugSession.parse(map['debugSession']) unless map['debugSession'].nil?)
         data.build_batch_arn = map['buildBatchArn']
         return data
       end
@@ -565,7 +565,7 @@ module AWS::SDK::CodeBuild
     class ExportedEnvironmentVariables
       def self.parse(list)
         list.map do |value|
-          Parsers::ExportedEnvironmentVariable.parse(value) unless value.nil?
+          ExportedEnvironmentVariable.parse(value) unless value.nil?
         end
       end
     end
@@ -597,8 +597,8 @@ module AWS::SDK::CodeBuild
         data.s3_deep_link = map['s3DeepLink']
         data.cloud_watch_logs_arn = map['cloudWatchLogsArn']
         data.s3_logs_arn = map['s3LogsArn']
-        data.cloud_watch_logs = (Parsers::CloudWatchLogsConfig.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
-        data.s3_logs = (Parsers::S3LogsConfig.parse(map['s3Logs']) unless map['s3Logs'].nil?)
+        data.cloud_watch_logs = (CloudWatchLogsConfig.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
+        data.s3_logs = (S3LogsConfig.parse(map['s3Logs']) unless map['s3Logs'].nil?)
         return data
       end
     end
@@ -606,7 +606,7 @@ module AWS::SDK::CodeBuild
     class BuildPhases
       def self.parse(list)
         list.map do |value|
-          Parsers::BuildPhase.parse(value) unless value.nil?
+          BuildPhase.parse(value) unless value.nil?
         end
       end
     end
@@ -619,7 +619,7 @@ module AWS::SDK::CodeBuild
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
         data.duration_in_seconds = map['durationInSeconds']
-        data.contexts = (Parsers::PhaseContexts.parse(map['contexts']) unless map['contexts'].nil?)
+        data.contexts = (PhaseContexts.parse(map['contexts']) unless map['contexts'].nil?)
         return data
       end
     end
@@ -631,8 +631,8 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.projects = (Parsers::Projects.parse(map['projects']) unless map['projects'].nil?)
-        data.projects_not_found = (Parsers::ProjectNames.parse(map['projectsNotFound']) unless map['projectsNotFound'].nil?)
+        data.projects = (Projects.parse(map['projects']) unless map['projects'].nil?)
+        data.projects_not_found = (ProjectNames.parse(map['projectsNotFound']) unless map['projectsNotFound'].nil?)
         data
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::CodeBuild
     class Projects
       def self.parse(list)
         list.map do |value|
-          Parsers::Project.parse(value) unless value.nil?
+          Project.parse(value) unless value.nil?
         end
       end
     end
@@ -659,27 +659,27 @@ module AWS::SDK::CodeBuild
         data.name = map['name']
         data.arn = map['arn']
         data.description = map['description']
-        data.source = (Parsers::ProjectSource.parse(map['source']) unless map['source'].nil?)
-        data.secondary_sources = (Parsers::ProjectSources.parse(map['secondarySources']) unless map['secondarySources'].nil?)
+        data.source = (ProjectSource.parse(map['source']) unless map['source'].nil?)
+        data.secondary_sources = (ProjectSources.parse(map['secondarySources']) unless map['secondarySources'].nil?)
         data.source_version = map['sourceVersion']
-        data.secondary_source_versions = (Parsers::ProjectSecondarySourceVersions.parse(map['secondarySourceVersions']) unless map['secondarySourceVersions'].nil?)
-        data.artifacts = (Parsers::ProjectArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
-        data.secondary_artifacts = (Parsers::ProjectArtifactsList.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
-        data.cache = (Parsers::ProjectCache.parse(map['cache']) unless map['cache'].nil?)
-        data.environment = (Parsers::ProjectEnvironment.parse(map['environment']) unless map['environment'].nil?)
+        data.secondary_source_versions = (ProjectSecondarySourceVersions.parse(map['secondarySourceVersions']) unless map['secondarySourceVersions'].nil?)
+        data.artifacts = (ProjectArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
+        data.secondary_artifacts = (ProjectArtifactsList.parse(map['secondaryArtifacts']) unless map['secondaryArtifacts'].nil?)
+        data.cache = (ProjectCache.parse(map['cache']) unless map['cache'].nil?)
+        data.environment = (ProjectEnvironment.parse(map['environment']) unless map['environment'].nil?)
         data.service_role = map['serviceRole']
         data.timeout_in_minutes = map['timeoutInMinutes']
         data.queued_timeout_in_minutes = map['queuedTimeoutInMinutes']
         data.encryption_key = map['encryptionKey']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.created = Time.at(map['created'].to_i) if map['created']
         data.last_modified = Time.at(map['lastModified'].to_i) if map['lastModified']
-        data.webhook = (Parsers::Webhook.parse(map['webhook']) unless map['webhook'].nil?)
-        data.vpc_config = (Parsers::VpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
-        data.badge = (Parsers::ProjectBadge.parse(map['badge']) unless map['badge'].nil?)
-        data.logs_config = (Parsers::LogsConfig.parse(map['logsConfig']) unless map['logsConfig'].nil?)
-        data.file_system_locations = (Parsers::ProjectFileSystemLocations.parse(map['fileSystemLocations']) unless map['fileSystemLocations'].nil?)
-        data.build_batch_config = (Parsers::ProjectBuildBatchConfig.parse(map['buildBatchConfig']) unless map['buildBatchConfig'].nil?)
+        data.webhook = (Webhook.parse(map['webhook']) unless map['webhook'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.badge = (ProjectBadge.parse(map['badge']) unless map['badge'].nil?)
+        data.logs_config = (LogsConfig.parse(map['logsConfig']) unless map['logsConfig'].nil?)
+        data.file_system_locations = (ProjectFileSystemLocations.parse(map['fileSystemLocations']) unless map['fileSystemLocations'].nil?)
+        data.build_batch_config = (ProjectBuildBatchConfig.parse(map['buildBatchConfig']) unless map['buildBatchConfig'].nil?)
         data.concurrent_build_limit = map['concurrentBuildLimit']
         data.project_visibility = map['projectVisibility']
         data.public_project_alias = map['publicProjectAlias']
@@ -704,7 +704,7 @@ module AWS::SDK::CodeBuild
         data.payload_url = map['payloadUrl']
         data.secret = map['secret']
         data.branch_filter = map['branchFilter']
-        data.filter_groups = (Parsers::FilterGroups.parse(map['filterGroups']) unless map['filterGroups'].nil?)
+        data.filter_groups = (FilterGroups.parse(map['filterGroups']) unless map['filterGroups'].nil?)
         data.build_type = map['buildType']
         data.last_modified_secret = Time.at(map['lastModifiedSecret'].to_i) if map['lastModifiedSecret']
         return data
@@ -714,7 +714,7 @@ module AWS::SDK::CodeBuild
     class FilterGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::FilterGroup.parse(value) unless value.nil?
+          FilterGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -722,7 +722,7 @@ module AWS::SDK::CodeBuild
     class FilterGroup
       def self.parse(list)
         list.map do |value|
-          Parsers::WebhookFilter.parse(value) unless value.nil?
+          WebhookFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -740,7 +740,7 @@ module AWS::SDK::CodeBuild
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -757,7 +757,7 @@ module AWS::SDK::CodeBuild
     class ProjectArtifactsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectArtifacts.parse(value) unless value.nil?
+          ProjectArtifacts.parse(value) unless value.nil?
         end
       end
     end
@@ -786,8 +786,8 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.report_groups = (Parsers::ReportGroups.parse(map['reportGroups']) unless map['reportGroups'].nil?)
-        data.report_groups_not_found = (Parsers::ReportGroupArns.parse(map['reportGroupsNotFound']) unless map['reportGroupsNotFound'].nil?)
+        data.report_groups = (ReportGroups.parse(map['reportGroups']) unless map['reportGroups'].nil?)
+        data.report_groups_not_found = (ReportGroupArns.parse(map['reportGroupsNotFound']) unless map['reportGroupsNotFound'].nil?)
         data
       end
     end
@@ -803,7 +803,7 @@ module AWS::SDK::CodeBuild
     class ReportGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::ReportGroup.parse(value) unless value.nil?
+          ReportGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -814,10 +814,10 @@ module AWS::SDK::CodeBuild
         data.arn = map['arn']
         data.name = map['name']
         data.type = map['type']
-        data.export_config = (Parsers::ReportExportConfig.parse(map['exportConfig']) unless map['exportConfig'].nil?)
+        data.export_config = (ReportExportConfig.parse(map['exportConfig']) unless map['exportConfig'].nil?)
         data.created = Time.at(map['created'].to_i) if map['created']
         data.last_modified = Time.at(map['lastModified'].to_i) if map['lastModified']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.status = map['status']
         return data
       end
@@ -827,7 +827,7 @@ module AWS::SDK::CodeBuild
       def self.parse(map)
         data = Types::ReportExportConfig.new
         data.export_config_type = map['exportConfigType']
-        data.s3_destination = (Parsers::S3ReportExportConfig.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3ReportExportConfig.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         return data
       end
     end
@@ -852,8 +852,8 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.reports = (Parsers::Reports.parse(map['reports']) unless map['reports'].nil?)
-        data.reports_not_found = (Parsers::ReportArns.parse(map['reportsNotFound']) unless map['reportsNotFound'].nil?)
+        data.reports = (Reports.parse(map['reports']) unless map['reports'].nil?)
+        data.reports_not_found = (ReportArns.parse(map['reportsNotFound']) unless map['reportsNotFound'].nil?)
         data
       end
     end
@@ -869,7 +869,7 @@ module AWS::SDK::CodeBuild
     class Reports
       def self.parse(list)
         list.map do |value|
-          Parsers::Report.parse(value) unless value.nil?
+          Report.parse(value) unless value.nil?
         end
       end
     end
@@ -885,10 +885,10 @@ module AWS::SDK::CodeBuild
         data.status = map['status']
         data.created = Time.at(map['created'].to_i) if map['created']
         data.expired = Time.at(map['expired'].to_i) if map['expired']
-        data.export_config = (Parsers::ReportExportConfig.parse(map['exportConfig']) unless map['exportConfig'].nil?)
+        data.export_config = (ReportExportConfig.parse(map['exportConfig']) unless map['exportConfig'].nil?)
         data.truncated = map['truncated']
-        data.test_summary = (Parsers::TestReportSummary.parse(map['testSummary']) unless map['testSummary'].nil?)
-        data.code_coverage_summary = (Parsers::CodeCoverageReportSummary.parse(map['codeCoverageSummary']) unless map['codeCoverageSummary'].nil?)
+        data.test_summary = (TestReportSummary.parse(map['testSummary']) unless map['testSummary'].nil?)
+        data.code_coverage_summary = (CodeCoverageReportSummary.parse(map['codeCoverageSummary']) unless map['codeCoverageSummary'].nil?)
         return data
       end
     end
@@ -910,7 +910,7 @@ module AWS::SDK::CodeBuild
       def self.parse(map)
         data = Types::TestReportSummary.new
         data.total = map['total']
-        data.status_counts = (Parsers::ReportStatusCounts.parse(map['statusCounts']) unless map['statusCounts'].nil?)
+        data.status_counts = (ReportStatusCounts.parse(map['statusCounts']) unless map['statusCounts'].nil?)
         data.duration_in_nano_seconds = map['durationInNanoSeconds']
         return data
       end
@@ -933,7 +933,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project = (Parsers::Project.parse(map['project']) unless map['project'].nil?)
+        data.project = (Project.parse(map['project']) unless map['project'].nil?)
         data
       end
     end
@@ -969,7 +969,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.report_group = (Parsers::ReportGroup.parse(map['reportGroup']) unless map['reportGroup'].nil?)
+        data.report_group = (ReportGroup.parse(map['reportGroup']) unless map['reportGroup'].nil?)
         data
       end
     end
@@ -981,7 +981,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.webhook = (Parsers::Webhook.parse(map['webhook']) unless map['webhook'].nil?)
+        data.webhook = (Webhook.parse(map['webhook']) unless map['webhook'].nil?)
         data
       end
     end
@@ -1018,8 +1018,8 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.status_code = map['statusCode']
-        data.builds_deleted = (Parsers::BuildIds.parse(map['buildsDeleted']) unless map['buildsDeleted'].nil?)
-        data.builds_not_deleted = (Parsers::BuildsNotDeleted.parse(map['buildsNotDeleted']) unless map['buildsNotDeleted'].nil?)
+        data.builds_deleted = (BuildIds.parse(map['buildsDeleted']) unless map['buildsDeleted'].nil?)
+        data.builds_not_deleted = (BuildsNotDeleted.parse(map['buildsNotDeleted']) unless map['buildsNotDeleted'].nil?)
         data
       end
     end
@@ -1099,7 +1099,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.code_coverages = (Parsers::CodeCoverages.parse(map['codeCoverages']) unless map['codeCoverages'].nil?)
+        data.code_coverages = (CodeCoverages.parse(map['codeCoverages']) unless map['codeCoverages'].nil?)
         data
       end
     end
@@ -1107,7 +1107,7 @@ module AWS::SDK::CodeBuild
     class CodeCoverages
       def self.parse(list)
         list.map do |value|
-          Parsers::CodeCoverage.parse(value) unless value.nil?
+          CodeCoverage.parse(value) unless value.nil?
         end
       end
     end
@@ -1137,7 +1137,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.test_cases = (Parsers::TestCases.parse(map['testCases']) unless map['testCases'].nil?)
+        data.test_cases = (TestCases.parse(map['testCases']) unless map['testCases'].nil?)
         data
       end
     end
@@ -1145,7 +1145,7 @@ module AWS::SDK::CodeBuild
     class TestCases
       def self.parse(list)
         list.map do |value|
-          Parsers::TestCase.parse(value) unless value.nil?
+          TestCase.parse(value) unless value.nil?
         end
       end
     end
@@ -1172,8 +1172,8 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stats = (Parsers::ReportGroupTrendStats.parse(map['stats']) unless map['stats'].nil?)
-        data.raw_data = (Parsers::ReportGroupTrendRawDataList.parse(map['rawData']) unless map['rawData'].nil?)
+        data.stats = (ReportGroupTrendStats.parse(map['stats']) unless map['stats'].nil?)
+        data.raw_data = (ReportGroupTrendRawDataList.parse(map['rawData']) unless map['rawData'].nil?)
         data
       end
     end
@@ -1181,7 +1181,7 @@ module AWS::SDK::CodeBuild
     class ReportGroupTrendRawDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReportWithRawData.parse(value) unless value.nil?
+          ReportWithRawData.parse(value) unless value.nil?
         end
       end
     end
@@ -1247,7 +1247,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ids = (Parsers::BuildBatchIds.parse(map['ids']) unless map['ids'].nil?)
+        data.ids = (BuildBatchIds.parse(map['ids']) unless map['ids'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1260,7 +1260,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ids = (Parsers::BuildBatchIds.parse(map['ids']) unless map['ids'].nil?)
+        data.ids = (BuildBatchIds.parse(map['ids']) unless map['ids'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1273,7 +1273,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ids = (Parsers::BuildIds.parse(map['ids']) unless map['ids'].nil?)
+        data.ids = (BuildIds.parse(map['ids']) unless map['ids'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1286,7 +1286,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ids = (Parsers::BuildIds.parse(map['ids']) unless map['ids'].nil?)
+        data.ids = (BuildIds.parse(map['ids']) unless map['ids'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1299,7 +1299,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.platforms = (Parsers::EnvironmentPlatforms.parse(map['platforms']) unless map['platforms'].nil?)
+        data.platforms = (EnvironmentPlatforms.parse(map['platforms']) unless map['platforms'].nil?)
         data
       end
     end
@@ -1307,7 +1307,7 @@ module AWS::SDK::CodeBuild
     class EnvironmentPlatforms
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentPlatform.parse(value) unless value.nil?
+          EnvironmentPlatform.parse(value) unless value.nil?
         end
       end
     end
@@ -1316,7 +1316,7 @@ module AWS::SDK::CodeBuild
       def self.parse(map)
         data = Types::EnvironmentPlatform.new
         data.platform = map['platform']
-        data.languages = (Parsers::EnvironmentLanguages.parse(map['languages']) unless map['languages'].nil?)
+        data.languages = (EnvironmentLanguages.parse(map['languages']) unless map['languages'].nil?)
         return data
       end
     end
@@ -1324,7 +1324,7 @@ module AWS::SDK::CodeBuild
     class EnvironmentLanguages
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentLanguage.parse(value) unless value.nil?
+          EnvironmentLanguage.parse(value) unless value.nil?
         end
       end
     end
@@ -1333,7 +1333,7 @@ module AWS::SDK::CodeBuild
       def self.parse(map)
         data = Types::EnvironmentLanguage.new
         data.language = map['language']
-        data.images = (Parsers::EnvironmentImages.parse(map['images']) unless map['images'].nil?)
+        data.images = (EnvironmentImages.parse(map['images']) unless map['images'].nil?)
         return data
       end
     end
@@ -1341,7 +1341,7 @@ module AWS::SDK::CodeBuild
     class EnvironmentImages
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentImage.parse(value) unless value.nil?
+          EnvironmentImage.parse(value) unless value.nil?
         end
       end
     end
@@ -1351,7 +1351,7 @@ module AWS::SDK::CodeBuild
         data = Types::EnvironmentImage.new
         data.name = map['name']
         data.description = map['description']
-        data.versions = (Parsers::ImageVersions.parse(map['versions']) unless map['versions'].nil?)
+        data.versions = (ImageVersions.parse(map['versions']) unless map['versions'].nil?)
         return data
       end
     end
@@ -1372,7 +1372,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.projects = (Parsers::ProjectNames.parse(map['projects']) unless map['projects'].nil?)
+        data.projects = (ProjectNames.parse(map['projects']) unless map['projects'].nil?)
         data
       end
     end
@@ -1385,7 +1385,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.report_groups = (Parsers::ReportGroupArns.parse(map['reportGroups']) unless map['reportGroups'].nil?)
+        data.report_groups = (ReportGroupArns.parse(map['reportGroups']) unless map['reportGroups'].nil?)
         data
       end
     end
@@ -1398,7 +1398,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.reports = (Parsers::ReportArns.parse(map['reports']) unless map['reports'].nil?)
+        data.reports = (ReportArns.parse(map['reports']) unless map['reports'].nil?)
         data
       end
     end
@@ -1411,7 +1411,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.reports = (Parsers::ReportArns.parse(map['reports']) unless map['reports'].nil?)
+        data.reports = (ReportArns.parse(map['reports']) unless map['reports'].nil?)
         data
       end
     end
@@ -1424,7 +1424,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.projects = (Parsers::ProjectArns.parse(map['projects']) unless map['projects'].nil?)
+        data.projects = (ProjectArns.parse(map['projects']) unless map['projects'].nil?)
         data
       end
     end
@@ -1445,7 +1445,7 @@ module AWS::SDK::CodeBuild
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.report_groups = (Parsers::ReportGroupArns.parse(map['reportGroups']) unless map['reportGroups'].nil?)
+        data.report_groups = (ReportGroupArns.parse(map['reportGroups']) unless map['reportGroups'].nil?)
         data
       end
     end
@@ -1457,7 +1457,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.source_credentials_infos = (Parsers::SourceCredentialsInfos.parse(map['sourceCredentialsInfos']) unless map['sourceCredentialsInfos'].nil?)
+        data.source_credentials_infos = (SourceCredentialsInfos.parse(map['sourceCredentialsInfos']) unless map['sourceCredentialsInfos'].nil?)
         data
       end
     end
@@ -1465,7 +1465,7 @@ module AWS::SDK::CodeBuild
     class SourceCredentialsInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::SourceCredentialsInfo.parse(value) unless value.nil?
+          SourceCredentialsInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1499,7 +1499,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build = (Parsers::Build.parse(map['build']) unless map['build'].nil?)
+        data.build = (Build.parse(map['build']) unless map['build'].nil?)
         data
       end
     end
@@ -1511,7 +1511,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build_batch = (Parsers::BuildBatch.parse(map['buildBatch']) unless map['buildBatch'].nil?)
+        data.build_batch = (BuildBatch.parse(map['buildBatch']) unless map['buildBatch'].nil?)
         data
       end
     end
@@ -1523,7 +1523,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build = (Parsers::Build.parse(map['build']) unless map['build'].nil?)
+        data.build = (Build.parse(map['build']) unless map['build'].nil?)
         data
       end
     end
@@ -1535,7 +1535,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build_batch = (Parsers::BuildBatch.parse(map['buildBatch']) unless map['buildBatch'].nil?)
+        data.build_batch = (BuildBatch.parse(map['buildBatch']) unless map['buildBatch'].nil?)
         data
       end
     end
@@ -1547,7 +1547,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build = (Parsers::Build.parse(map['build']) unless map['build'].nil?)
+        data.build = (Build.parse(map['build']) unless map['build'].nil?)
         data
       end
     end
@@ -1559,7 +1559,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build_batch = (Parsers::BuildBatch.parse(map['buildBatch']) unless map['buildBatch'].nil?)
+        data.build_batch = (BuildBatch.parse(map['buildBatch']) unless map['buildBatch'].nil?)
         data
       end
     end
@@ -1571,7 +1571,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project = (Parsers::Project.parse(map['project']) unless map['project'].nil?)
+        data.project = (Project.parse(map['project']) unless map['project'].nil?)
         data
       end
     end
@@ -1597,7 +1597,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.report_group = (Parsers::ReportGroup.parse(map['reportGroup']) unless map['reportGroup'].nil?)
+        data.report_group = (ReportGroup.parse(map['reportGroup']) unless map['reportGroup'].nil?)
         data
       end
     end
@@ -1609,7 +1609,7 @@ module AWS::SDK::CodeBuild
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.webhook = (Parsers::Webhook.parse(map['webhook']) unless map['webhook'].nil?)
+        data.webhook = (Webhook.parse(map['webhook']) unless map['webhook'].nil?)
         data
       end
     end

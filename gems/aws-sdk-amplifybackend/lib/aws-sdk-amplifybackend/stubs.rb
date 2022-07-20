@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AmplifyBackend
   module Stubs
 
@@ -33,7 +35,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -137,7 +139,7 @@ module AWS::SDK::AmplifyBackend
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::AmplifyBackend
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::AmplifyBackend
         data['challengeCode'] = stub[:challenge_code] unless stub[:challenge_code].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['ttl'] = stub[:ttl] unless stub[:ttl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +212,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,7 +239,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -264,7 +266,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -287,7 +289,7 @@ module AWS::SDK::AmplifyBackend
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -304,7 +306,7 @@ module AWS::SDK::AmplifyBackend
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['isSuccess'] = stub[:is_success] unless stub[:is_success].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,7 +333,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -357,10 +359,10 @@ module AWS::SDK::AmplifyBackend
         data['amplifyMetaConfig'] = stub[:amplify_meta_config] unless stub[:amplify_meta_config].nil?
         data['appId'] = stub[:app_id] unless stub[:app_id].nil?
         data['appName'] = stub[:app_name] unless stub[:app_name].nil?
-        data['backendEnvironmentList'] = Stubs::ListOf__string.stub(stub[:backend_environment_list]) unless stub[:backend_environment_list].nil?
+        data['backendEnvironmentList'] = ListOf__string.stub(stub[:backend_environment_list]) unless stub[:backend_environment_list].nil?
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,9 +405,9 @@ module AWS::SDK::AmplifyBackend
         data['appId'] = stub[:app_id] unless stub[:app_id].nil?
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
-        data['resourceConfig'] = Stubs::BackendAPIResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
+        data['resourceConfig'] = BackendAPIResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
         data['resourceName'] = stub[:resource_name] unless stub[:resource_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,10 +429,10 @@ module AWS::SDK::AmplifyBackend
       def self.stub(stub)
         stub ||= Types::BackendAPIResourceConfig.new
         data = {}
-        data['additionalAuthTypes'] = Stubs::ListOfBackendAPIAuthType.stub(stub[:additional_auth_types]) unless stub[:additional_auth_types].nil?
+        data['additionalAuthTypes'] = ListOfBackendAPIAuthType.stub(stub[:additional_auth_types]) unless stub[:additional_auth_types].nil?
         data['apiName'] = stub[:api_name] unless stub[:api_name].nil?
-        data['conflictResolution'] = Stubs::BackendAPIConflictResolution.stub(stub[:conflict_resolution]) unless stub[:conflict_resolution].nil?
-        data['defaultAuthType'] = Stubs::BackendAPIAuthType.stub(stub[:default_auth_type]) unless stub[:default_auth_type].nil?
+        data['conflictResolution'] = BackendAPIConflictResolution.stub(stub[:conflict_resolution]) unless stub[:conflict_resolution].nil?
+        data['defaultAuthType'] = BackendAPIAuthType.stub(stub[:default_auth_type]) unless stub[:default_auth_type].nil?
         data['service'] = stub[:service] unless stub[:service].nil?
         data['transformSchema'] = stub[:transform_schema] unless stub[:transform_schema].nil?
         data
@@ -452,7 +454,7 @@ module AWS::SDK::AmplifyBackend
         stub ||= Types::BackendAPIAuthType.new
         data = {}
         data['mode'] = stub[:mode] unless stub[:mode].nil?
-        data['settings'] = Stubs::BackendAPIAppSyncAuthSettings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['settings'] = BackendAPIAppSyncAuthSettings.stub(stub[:settings]) unless stub[:settings].nil?
         data
       end
     end
@@ -521,7 +523,7 @@ module AWS::SDK::AmplifyBackend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackendAPIAuthType.stub(element) unless element.nil?
+          data << BackendAPIAuthType.stub(element) unless element.nil?
         end
         data
       end
@@ -542,7 +544,7 @@ module AWS::SDK::AmplifyBackend
         http_resp.headers['Content-Type'] = 'application/json'
         data['models'] = stub[:models] unless stub[:models].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -565,9 +567,9 @@ module AWS::SDK::AmplifyBackend
         data['appId'] = stub[:app_id] unless stub[:app_id].nil?
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
-        data['resourceConfig'] = Stubs::CreateBackendAuthResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
+        data['resourceConfig'] = CreateBackendAuthResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
         data['resourceName'] = stub[:resource_name] unless stub[:resource_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -588,9 +590,9 @@ module AWS::SDK::AmplifyBackend
         stub ||= Types::CreateBackendAuthResourceConfig.new
         data = {}
         data['authResources'] = stub[:auth_resources] unless stub[:auth_resources].nil?
-        data['identityPoolConfigs'] = Stubs::CreateBackendAuthIdentityPoolConfig.stub(stub[:identity_pool_configs]) unless stub[:identity_pool_configs].nil?
+        data['identityPoolConfigs'] = CreateBackendAuthIdentityPoolConfig.stub(stub[:identity_pool_configs]) unless stub[:identity_pool_configs].nil?
         data['service'] = stub[:service] unless stub[:service].nil?
-        data['userPoolConfigs'] = Stubs::CreateBackendAuthUserPoolConfig.stub(stub[:user_pool_configs]) unless stub[:user_pool_configs].nil?
+        data['userPoolConfigs'] = CreateBackendAuthUserPoolConfig.stub(stub[:user_pool_configs]) unless stub[:user_pool_configs].nil?
         data
       end
     end
@@ -615,14 +617,14 @@ module AWS::SDK::AmplifyBackend
       def self.stub(stub)
         stub ||= Types::CreateBackendAuthUserPoolConfig.new
         data = {}
-        data['forgotPassword'] = Stubs::CreateBackendAuthForgotPasswordConfig.stub(stub[:forgot_password]) unless stub[:forgot_password].nil?
-        data['mfa'] = Stubs::CreateBackendAuthMFAConfig.stub(stub[:mfa]) unless stub[:mfa].nil?
-        data['oAuth'] = Stubs::CreateBackendAuthOAuthConfig.stub(stub[:o_auth]) unless stub[:o_auth].nil?
-        data['passwordPolicy'] = Stubs::CreateBackendAuthPasswordPolicyConfig.stub(stub[:password_policy]) unless stub[:password_policy].nil?
-        data['requiredSignUpAttributes'] = Stubs::ListOfRequiredSignUpAttributesElement.stub(stub[:required_sign_up_attributes]) unless stub[:required_sign_up_attributes].nil?
+        data['forgotPassword'] = CreateBackendAuthForgotPasswordConfig.stub(stub[:forgot_password]) unless stub[:forgot_password].nil?
+        data['mfa'] = CreateBackendAuthMFAConfig.stub(stub[:mfa]) unless stub[:mfa].nil?
+        data['oAuth'] = CreateBackendAuthOAuthConfig.stub(stub[:o_auth]) unless stub[:o_auth].nil?
+        data['passwordPolicy'] = CreateBackendAuthPasswordPolicyConfig.stub(stub[:password_policy]) unless stub[:password_policy].nil?
+        data['requiredSignUpAttributes'] = ListOfRequiredSignUpAttributesElement.stub(stub[:required_sign_up_attributes]) unless stub[:required_sign_up_attributes].nil?
         data['signInMethod'] = stub[:sign_in_method] unless stub[:sign_in_method].nil?
         data['userPoolName'] = stub[:user_pool_name] unless stub[:user_pool_name].nil?
-        data['verificationMessage'] = Stubs::CreateBackendAuthVerificationMessageConfig.stub(stub[:verification_message]) unless stub[:verification_message].nil?
+        data['verificationMessage'] = CreateBackendAuthVerificationMessageConfig.stub(stub[:verification_message]) unless stub[:verification_message].nil?
         data
       end
     end
@@ -643,8 +645,8 @@ module AWS::SDK::AmplifyBackend
         stub ||= Types::CreateBackendAuthVerificationMessageConfig.new
         data = {}
         data['deliveryMethod'] = stub[:delivery_method] unless stub[:delivery_method].nil?
-        data['emailSettings'] = Stubs::EmailSettings.stub(stub[:email_settings]) unless stub[:email_settings].nil?
-        data['smsSettings'] = Stubs::SmsSettings.stub(stub[:sms_settings]) unless stub[:sms_settings].nil?
+        data['emailSettings'] = EmailSettings.stub(stub[:email_settings]) unless stub[:email_settings].nil?
+        data['smsSettings'] = SmsSettings.stub(stub[:sms_settings]) unless stub[:sms_settings].nil?
         data
       end
     end
@@ -721,7 +723,7 @@ module AWS::SDK::AmplifyBackend
       def self.stub(stub)
         stub ||= Types::CreateBackendAuthPasswordPolicyConfig.new
         data = {}
-        data['additionalConstraints'] = Stubs::ListOfAdditionalConstraintsElement.stub(stub[:additional_constraints]) unless stub[:additional_constraints].nil?
+        data['additionalConstraints'] = ListOfAdditionalConstraintsElement.stub(stub[:additional_constraints]) unless stub[:additional_constraints].nil?
         data['minimumLength'] = Hearth::NumberHelper.serialize(stub[:minimum_length])
         data
       end
@@ -767,10 +769,10 @@ module AWS::SDK::AmplifyBackend
         data = {}
         data['domainPrefix'] = stub[:domain_prefix] unless stub[:domain_prefix].nil?
         data['oAuthGrantType'] = stub[:o_auth_grant_type] unless stub[:o_auth_grant_type].nil?
-        data['oAuthScopes'] = Stubs::ListOfOAuthScopesElement.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
-        data['redirectSignInURIs'] = Stubs::ListOf__string.stub(stub[:redirect_sign_in_ur_is]) unless stub[:redirect_sign_in_ur_is].nil?
-        data['redirectSignOutURIs'] = Stubs::ListOf__string.stub(stub[:redirect_sign_out_ur_is]) unless stub[:redirect_sign_out_ur_is].nil?
-        data['socialProviderSettings'] = Stubs::SocialProviderSettings.stub(stub[:social_provider_settings]) unless stub[:social_provider_settings].nil?
+        data['oAuthScopes'] = ListOfOAuthScopesElement.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
+        data['redirectSignInURIs'] = ListOf__string.stub(stub[:redirect_sign_in_ur_is]) unless stub[:redirect_sign_in_ur_is].nil?
+        data['redirectSignOutURIs'] = ListOf__string.stub(stub[:redirect_sign_out_ur_is]) unless stub[:redirect_sign_out_ur_is].nil?
+        data['socialProviderSettings'] = SocialProviderSettings.stub(stub[:social_provider_settings]) unless stub[:social_provider_settings].nil?
         data
       end
     end
@@ -791,10 +793,10 @@ module AWS::SDK::AmplifyBackend
       def self.stub(stub)
         stub ||= Types::SocialProviderSettings.new
         data = {}
-        data['Facebook'] = Stubs::BackendAuthSocialProviderConfig.stub(stub[:facebook]) unless stub[:facebook].nil?
-        data['Google'] = Stubs::BackendAuthSocialProviderConfig.stub(stub[:google]) unless stub[:google].nil?
-        data['LoginWithAmazon'] = Stubs::BackendAuthSocialProviderConfig.stub(stub[:login_with_amazon]) unless stub[:login_with_amazon].nil?
-        data['SignInWithApple'] = Stubs::BackendAuthAppleProviderConfig.stub(stub[:sign_in_with_apple]) unless stub[:sign_in_with_apple].nil?
+        data['Facebook'] = BackendAuthSocialProviderConfig.stub(stub[:facebook]) unless stub[:facebook].nil?
+        data['Google'] = BackendAuthSocialProviderConfig.stub(stub[:google]) unless stub[:google].nil?
+        data['LoginWithAmazon'] = BackendAuthSocialProviderConfig.stub(stub[:login_with_amazon]) unless stub[:login_with_amazon].nil?
+        data['SignInWithApple'] = BackendAuthAppleProviderConfig.stub(stub[:sign_in_with_apple]) unless stub[:sign_in_with_apple].nil?
         data
       end
     end
@@ -878,7 +880,7 @@ module AWS::SDK::AmplifyBackend
         stub ||= Types::CreateBackendAuthMFAConfig.new
         data = {}
         data['MFAMode'] = stub[:mfa_mode] unless stub[:mfa_mode].nil?
-        data['settings'] = Stubs::Settings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['settings'] = Settings.stub(stub[:settings]) unless stub[:settings].nil?
         data
       end
     end
@@ -897,7 +899,7 @@ module AWS::SDK::AmplifyBackend
       def self.stub(stub)
         stub ||= Types::Settings.new
         data = {}
-        data['mfaTypes'] = Stubs::ListOfMfaTypesElement.stub(stub[:mfa_types]) unless stub[:mfa_types].nil?
+        data['mfaTypes'] = ListOfMfaTypesElement.stub(stub[:mfa_types]) unless stub[:mfa_types].nil?
         data['smsMessage'] = stub[:sms_message] unless stub[:sms_message].nil?
         data
       end
@@ -939,8 +941,8 @@ module AWS::SDK::AmplifyBackend
         stub ||= Types::CreateBackendAuthForgotPasswordConfig.new
         data = {}
         data['deliveryMethod'] = stub[:delivery_method] unless stub[:delivery_method].nil?
-        data['emailSettings'] = Stubs::EmailSettings.stub(stub[:email_settings]) unless stub[:email_settings].nil?
-        data['smsSettings'] = Stubs::SmsSettings.stub(stub[:sms_settings]) unless stub[:sms_settings].nil?
+        data['emailSettings'] = EmailSettings.stub(stub[:email_settings]) unless stub[:email_settings].nil?
+        data['smsSettings'] = SmsSettings.stub(stub[:sms_settings]) unless stub[:sms_settings].nil?
         data
       end
     end
@@ -992,7 +994,7 @@ module AWS::SDK::AmplifyBackend
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['updateTime'] = stub[:update_time] unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1013,9 +1015,9 @@ module AWS::SDK::AmplifyBackend
         http_resp.headers['Content-Type'] = 'application/json'
         data['appId'] = stub[:app_id] unless stub[:app_id].nil?
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
-        data['resourceConfig'] = Stubs::GetBackendStorageResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
+        data['resourceConfig'] = GetBackendStorageResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
         data['resourceName'] = stub[:resource_name] unless stub[:resource_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1037,7 +1039,7 @@ module AWS::SDK::AmplifyBackend
         data = {}
         data['bucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
         data['imported'] = stub[:imported] unless stub[:imported].nil?
-        data['permissions'] = Stubs::BackendStoragePermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = BackendStoragePermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['serviceName'] = stub[:service_name] unless stub[:service_name].nil?
         data
       end
@@ -1057,8 +1059,8 @@ module AWS::SDK::AmplifyBackend
       def self.stub(stub)
         stub ||= Types::BackendStoragePermissions.new
         data = {}
-        data['authenticated'] = Stubs::ListOfAuthenticatedElement.stub(stub[:authenticated]) unless stub[:authenticated].nil?
-        data['unAuthenticated'] = Stubs::ListOfUnAuthenticatedElement.stub(stub[:un_authenticated]) unless stub[:un_authenticated].nil?
+        data['authenticated'] = ListOfAuthenticatedElement.stub(stub[:authenticated]) unless stub[:authenticated].nil?
+        data['unAuthenticated'] = ListOfUnAuthenticatedElement.stub(stub[:un_authenticated]) unless stub[:un_authenticated].nil?
         data
       end
     end
@@ -1122,7 +1124,7 @@ module AWS::SDK::AmplifyBackend
         data['challengeCode'] = stub[:challenge_code] unless stub[:challenge_code].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['ttl'] = stub[:ttl] unless stub[:ttl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1149,7 +1151,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1172,7 +1174,7 @@ module AWS::SDK::AmplifyBackend
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1189,9 +1191,9 @@ module AWS::SDK::AmplifyBackend
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobs'] = Stubs::ListOfBackendJobRespObj.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['jobs'] = ListOfBackendJobRespObj.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1209,7 +1211,7 @@ module AWS::SDK::AmplifyBackend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackendJobRespObj.stub(element) unless element.nil?
+          data << BackendJobRespObj.stub(element) unless element.nil?
         end
         data
       end
@@ -1260,9 +1262,9 @@ module AWS::SDK::AmplifyBackend
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['buckets'] = Stubs::ListOfS3BucketInfo.stub(stub[:buckets]) unless stub[:buckets].nil?
+        data['buckets'] = ListOfS3BucketInfo.stub(stub[:buckets]) unless stub[:buckets].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1280,7 +1282,7 @@ module AWS::SDK::AmplifyBackend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3BucketInfo.stub(element) unless element.nil?
+          data << S3BucketInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1327,7 +1329,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1344,7 +1346,7 @@ module AWS::SDK::AmplifyBackend
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['error'] = stub[:error] unless stub[:error].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1371,7 +1373,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1398,7 +1400,7 @@ module AWS::SDK::AmplifyBackend
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1420,8 +1422,8 @@ module AWS::SDK::AmplifyBackend
         data['appId'] = stub[:app_id] unless stub[:app_id].nil?
         data['backendManagerAppId'] = stub[:backend_manager_app_id] unless stub[:backend_manager_app_id].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
-        data['loginAuthConfig'] = Stubs::LoginAuthConfigReqObj.stub(stub[:login_auth_config]) unless stub[:login_auth_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loginAuthConfig'] = LoginAuthConfigReqObj.stub(stub[:login_auth_config]) unless stub[:login_auth_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1476,7 +1478,7 @@ module AWS::SDK::AmplifyBackend
         data['operation'] = stub[:operation] unless stub[:operation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['updateTime'] = stub[:update_time] unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1499,7 +1501,7 @@ module AWS::SDK::AmplifyBackend
         data['backendEnvironmentName'] = stub[:backend_environment_name] unless stub[:backend_environment_name].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

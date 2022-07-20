@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CustomerProfiles
   module Builders
 
@@ -29,8 +31,8 @@ module AWS::SDK::CustomerProfiles
         data = {}
         data['ProfileId'] = input[:profile_id] unless input[:profile_id].nil?
         data['KeyName'] = input[:key_name] unless input[:key_name].nil?
-        data['Values'] = Builders::RequestValueList.build(input[:values]) unless input[:values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Values'] = RequestValueList.build(input[:values]) unless input[:values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -65,9 +67,9 @@ module AWS::SDK::CustomerProfiles
         data['DefaultExpirationDays'] = input[:default_expiration_days] unless input[:default_expiration_days].nil?
         data['DefaultEncryptionKey'] = input[:default_encryption_key] unless input[:default_encryption_key].nil?
         data['DeadLetterQueueUrl'] = input[:dead_letter_queue_url] unless input[:dead_letter_queue_url].nil?
-        data['Matching'] = Builders::MatchingRequest.build(input[:matching]) unless input[:matching].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Matching'] = MatchingRequest.build(input[:matching]) unless input[:matching].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,9 +89,9 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['JobSchedule'] = Builders::JobSchedule.build(input[:job_schedule]) unless input[:job_schedule].nil?
-        data['AutoMerging'] = Builders::AutoMerging.build(input[:auto_merging]) unless input[:auto_merging].nil?
-        data['ExportingConfig'] = Builders::ExportingConfig.build(input[:exporting_config]) unless input[:exporting_config].nil?
+        data['JobSchedule'] = JobSchedule.build(input[:job_schedule]) unless input[:job_schedule].nil?
+        data['AutoMerging'] = AutoMerging.build(input[:auto_merging]) unless input[:auto_merging].nil?
+        data['ExportingConfig'] = ExportingConfig.build(input[:exporting_config]) unless input[:exporting_config].nil?
         data
       end
     end
@@ -98,7 +100,7 @@ module AWS::SDK::CustomerProfiles
     class ExportingConfig
       def self.build(input)
         data = {}
-        data['S3Exporting'] = Builders::S3ExportingConfig.build(input[:s3_exporting]) unless input[:s3_exporting].nil?
+        data['S3Exporting'] = S3ExportingConfig.build(input[:s3_exporting]) unless input[:s3_exporting].nil?
         data
       end
     end
@@ -118,8 +120,8 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['Consolidation'] = Builders::Consolidation.build(input[:consolidation]) unless input[:consolidation].nil?
-        data['ConflictResolution'] = Builders::ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        data['Consolidation'] = Consolidation.build(input[:consolidation]) unless input[:consolidation].nil?
+        data['ConflictResolution'] = ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
         data
       end
     end
@@ -138,7 +140,7 @@ module AWS::SDK::CustomerProfiles
     class Consolidation
       def self.build(input)
         data = {}
-        data['MatchingAttributesList'] = Builders::MatchingAttributesList.build(input[:matching_attributes_list]) unless input[:matching_attributes_list].nil?
+        data['MatchingAttributesList'] = MatchingAttributesList.build(input[:matching_attributes_list]) unless input[:matching_attributes_list].nil?
         data
       end
     end
@@ -148,7 +150,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MatchingAttributes.build(element) unless element.nil?
+          data << MatchingAttributes.build(element) unless element.nil?
         end
         data
       end
@@ -193,11 +195,11 @@ module AWS::SDK::CustomerProfiles
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['WorkflowType'] = input[:workflow_type] unless input[:workflow_type].nil?
-        data['IntegrationConfig'] = Builders::IntegrationConfig.build(input[:integration_config]) unless input[:integration_config].nil?
+        data['IntegrationConfig'] = IntegrationConfig.build(input[:integration_config]) unless input[:integration_config].nil?
         data['ObjectTypeName'] = input[:object_type_name] unless input[:object_type_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,7 +207,7 @@ module AWS::SDK::CustomerProfiles
     class IntegrationConfig
       def self.build(input)
         data = {}
-        data['AppflowIntegration'] = Builders::AppflowIntegration.build(input[:appflow_integration]) unless input[:appflow_integration].nil?
+        data['AppflowIntegration'] = AppflowIntegration.build(input[:appflow_integration]) unless input[:appflow_integration].nil?
         data
       end
     end
@@ -214,8 +216,8 @@ module AWS::SDK::CustomerProfiles
     class AppflowIntegration
       def self.build(input)
         data = {}
-        data['FlowDefinition'] = Builders::FlowDefinition.build(input[:flow_definition]) unless input[:flow_definition].nil?
-        data['Batches'] = Builders::Batches.build(input[:batches]) unless input[:batches].nil?
+        data['FlowDefinition'] = FlowDefinition.build(input[:flow_definition]) unless input[:flow_definition].nil?
+        data['Batches'] = Batches.build(input[:batches]) unless input[:batches].nil?
         data
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Batch.build(element) unless element.nil?
+          data << Batch.build(element) unless element.nil?
         end
         data
       end
@@ -248,9 +250,9 @@ module AWS::SDK::CustomerProfiles
         data['Description'] = input[:description] unless input[:description].nil?
         data['FlowName'] = input[:flow_name] unless input[:flow_name].nil?
         data['KmsArn'] = input[:kms_arn] unless input[:kms_arn].nil?
-        data['SourceFlowConfig'] = Builders::SourceFlowConfig.build(input[:source_flow_config]) unless input[:source_flow_config].nil?
-        data['Tasks'] = Builders::Tasks.build(input[:tasks]) unless input[:tasks].nil?
-        data['TriggerConfig'] = Builders::TriggerConfig.build(input[:trigger_config]) unless input[:trigger_config].nil?
+        data['SourceFlowConfig'] = SourceFlowConfig.build(input[:source_flow_config]) unless input[:source_flow_config].nil?
+        data['Tasks'] = Tasks.build(input[:tasks]) unless input[:tasks].nil?
+        data['TriggerConfig'] = TriggerConfig.build(input[:trigger_config]) unless input[:trigger_config].nil?
         data
       end
     end
@@ -260,7 +262,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = {}
         data['TriggerType'] = input[:trigger_type] unless input[:trigger_type].nil?
-        data['TriggerProperties'] = Builders::TriggerProperties.build(input[:trigger_properties]) unless input[:trigger_properties].nil?
+        data['TriggerProperties'] = TriggerProperties.build(input[:trigger_properties]) unless input[:trigger_properties].nil?
         data
       end
     end
@@ -269,7 +271,7 @@ module AWS::SDK::CustomerProfiles
     class TriggerProperties
       def self.build(input)
         data = {}
-        data['Scheduled'] = Builders::ScheduledTriggerProperties.build(input[:scheduled]) unless input[:scheduled].nil?
+        data['Scheduled'] = ScheduledTriggerProperties.build(input[:scheduled]) unless input[:scheduled].nil?
         data
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Task.build(element) unless element.nil?
+          data << Task.build(element) unless element.nil?
         end
         data
       end
@@ -304,10 +306,10 @@ module AWS::SDK::CustomerProfiles
     class Task
       def self.build(input)
         data = {}
-        data['ConnectorOperator'] = Builders::ConnectorOperator.build(input[:connector_operator]) unless input[:connector_operator].nil?
+        data['ConnectorOperator'] = ConnectorOperator.build(input[:connector_operator]) unless input[:connector_operator].nil?
         data['DestinationField'] = input[:destination_field] unless input[:destination_field].nil?
-        data['SourceFields'] = Builders::SourceFields.build(input[:source_fields]) unless input[:source_fields].nil?
-        data['TaskProperties'] = Builders::TaskPropertiesMap.build(input[:task_properties]) unless input[:task_properties].nil?
+        data['SourceFields'] = SourceFields.build(input[:source_fields]) unless input[:source_fields].nil?
+        data['TaskProperties'] = TaskPropertiesMap.build(input[:task_properties]) unless input[:task_properties].nil?
         data['TaskType'] = input[:task_type] unless input[:task_type].nil?
         data
       end
@@ -354,8 +356,8 @@ module AWS::SDK::CustomerProfiles
         data = {}
         data['ConnectorProfileName'] = input[:connector_profile_name] unless input[:connector_profile_name].nil?
         data['ConnectorType'] = input[:connector_type] unless input[:connector_type].nil?
-        data['IncrementalPullConfig'] = Builders::IncrementalPullConfig.build(input[:incremental_pull_config]) unless input[:incremental_pull_config].nil?
-        data['SourceConnectorProperties'] = Builders::SourceConnectorProperties.build(input[:source_connector_properties]) unless input[:source_connector_properties].nil?
+        data['IncrementalPullConfig'] = IncrementalPullConfig.build(input[:incremental_pull_config]) unless input[:incremental_pull_config].nil?
+        data['SourceConnectorProperties'] = SourceConnectorProperties.build(input[:source_connector_properties]) unless input[:source_connector_properties].nil?
         data
       end
     end
@@ -364,11 +366,11 @@ module AWS::SDK::CustomerProfiles
     class SourceConnectorProperties
       def self.build(input)
         data = {}
-        data['Marketo'] = Builders::MarketoSourceProperties.build(input[:marketo]) unless input[:marketo].nil?
-        data['S3'] = Builders::S3SourceProperties.build(input[:s3]) unless input[:s3].nil?
-        data['Salesforce'] = Builders::SalesforceSourceProperties.build(input[:salesforce]) unless input[:salesforce].nil?
-        data['ServiceNow'] = Builders::ServiceNowSourceProperties.build(input[:service_now]) unless input[:service_now].nil?
-        data['Zendesk'] = Builders::ZendeskSourceProperties.build(input[:zendesk]) unless input[:zendesk].nil?
+        data['Marketo'] = MarketoSourceProperties.build(input[:marketo]) unless input[:marketo].nil?
+        data['S3'] = S3SourceProperties.build(input[:s3]) unless input[:s3].nil?
+        data['Salesforce'] = SalesforceSourceProperties.build(input[:salesforce]) unless input[:salesforce].nil?
+        data['ServiceNow'] = ServiceNowSourceProperties.build(input[:service_now]) unless input[:service_now].nil?
+        data['Zendesk'] = ZendeskSourceProperties.build(input[:zendesk]) unless input[:zendesk].nil?
         data
       end
     end
@@ -463,12 +465,12 @@ module AWS::SDK::CustomerProfiles
         data['EmailAddress'] = input[:email_address] unless input[:email_address].nil?
         data['PersonalEmailAddress'] = input[:personal_email_address] unless input[:personal_email_address].nil?
         data['BusinessEmailAddress'] = input[:business_email_address] unless input[:business_email_address].nil?
-        data['Address'] = Builders::Address.build(input[:address]) unless input[:address].nil?
-        data['ShippingAddress'] = Builders::Address.build(input[:shipping_address]) unless input[:shipping_address].nil?
-        data['MailingAddress'] = Builders::Address.build(input[:mailing_address]) unless input[:mailing_address].nil?
-        data['BillingAddress'] = Builders::Address.build(input[:billing_address]) unless input[:billing_address].nil?
-        data['Attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Address'] = Address.build(input[:address]) unless input[:address].nil?
+        data['ShippingAddress'] = Address.build(input[:shipping_address]) unless input[:shipping_address].nil?
+        data['MailingAddress'] = Address.build(input[:mailing_address]) unless input[:mailing_address].nil?
+        data['BillingAddress'] = Address.build(input[:billing_address]) unless input[:billing_address].nil?
+        data['Attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -536,7 +538,7 @@ module AWS::SDK::CustomerProfiles
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Uri'] = input[:uri] unless input[:uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -558,7 +560,7 @@ module AWS::SDK::CustomerProfiles
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ProfileId'] = input[:profile_id] unless input[:profile_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -581,8 +583,8 @@ module AWS::SDK::CustomerProfiles
         data = {}
         data['ProfileId'] = input[:profile_id] unless input[:profile_id].nil?
         data['KeyName'] = input[:key_name] unless input[:key_name].nil?
-        data['Values'] = Builders::RequestValueList.build(input[:values]) unless input[:values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Values'] = RequestValueList.build(input[:values]) unless input[:values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -606,7 +608,7 @@ module AWS::SDK::CustomerProfiles
         data['ProfileId'] = input[:profile_id] unless input[:profile_id].nil?
         data['ProfileObjectUniqueKey'] = input[:profile_object_unique_key] unless input[:profile_object_unique_key].nil?
         data['ObjectTypeName'] = input[:object_type_name] unless input[:object_type_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -669,9 +671,9 @@ module AWS::SDK::CustomerProfiles
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Consolidation'] = Builders::Consolidation.build(input[:consolidation]) unless input[:consolidation].nil?
-        data['ConflictResolution'] = Builders::ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Consolidation'] = Consolidation.build(input[:consolidation]) unless input[:consolidation].nil?
+        data['ConflictResolution'] = ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -731,7 +733,7 @@ module AWS::SDK::CustomerProfiles
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Uri'] = input[:uri] unless input[:uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -850,7 +852,7 @@ module AWS::SDK::CustomerProfiles
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Uri'] = input[:uri] unless input[:uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -957,8 +959,8 @@ module AWS::SDK::CustomerProfiles
         data = {}
         data['ObjectTypeName'] = input[:object_type_name] unless input[:object_type_name].nil?
         data['ProfileId'] = input[:profile_id] unless input[:profile_id].nil?
-        data['ObjectFilter'] = Builders::ObjectFilter.build(input[:object_filter]) unless input[:object_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObjectFilter'] = ObjectFilter.build(input[:object_filter]) unless input[:object_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -967,7 +969,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = {}
         data['KeyName'] = input[:key_name] unless input[:key_name].nil?
-        data['Values'] = Builders::RequestValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = RequestValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1012,7 +1014,7 @@ module AWS::SDK::CustomerProfiles
         data['Status'] = input[:status] unless input[:status].nil?
         data['QueryStartDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:query_start_date]).to_i unless input[:query_start_date].nil?
         data['QueryEndDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:query_end_date]).to_i unless input[:query_end_date].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1034,9 +1036,9 @@ module AWS::SDK::CustomerProfiles
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MainProfileId'] = input[:main_profile_id] unless input[:main_profile_id].nil?
-        data['ProfileIdsToBeMerged'] = Builders::ProfileIdToBeMergedList.build(input[:profile_ids_to_be_merged]) unless input[:profile_ids_to_be_merged].nil?
-        data['FieldSourceProfileIds'] = Builders::FieldSourceProfileIds.build(input[:field_source_profile_ids]) unless input[:field_source_profile_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProfileIdsToBeMerged'] = ProfileIdToBeMergedList.build(input[:profile_ids_to_be_merged]) unless input[:profile_ids_to_be_merged].nil?
+        data['FieldSourceProfileIds'] = FieldSourceProfileIds.build(input[:field_source_profile_ids]) unless input[:field_source_profile_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1064,7 +1066,7 @@ module AWS::SDK::CustomerProfiles
         data['ShippingAddress'] = input[:shipping_address] unless input[:shipping_address].nil?
         data['MailingAddress'] = input[:mailing_address] unless input[:mailing_address].nil?
         data['BillingAddress'] = input[:billing_address] unless input[:billing_address].nil?
-        data['Attributes'] = Builders::AttributeSourceIdMap.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = AttributeSourceIdMap.build(input[:attributes]) unless input[:attributes].nil?
         data
       end
     end
@@ -1110,10 +1112,10 @@ module AWS::SDK::CustomerProfiles
         data = {}
         data['Uri'] = input[:uri] unless input[:uri].nil?
         data['ObjectTypeName'] = input[:object_type_name] unless input[:object_type_name].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['FlowDefinition'] = Builders::FlowDefinition.build(input[:flow_definition]) unless input[:flow_definition].nil?
-        data['ObjectTypeNames'] = Builders::ObjectTypeNames.build(input[:object_type_names]) unless input[:object_type_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['FlowDefinition'] = FlowDefinition.build(input[:flow_definition]) unless input[:flow_definition].nil?
+        data['ObjectTypeNames'] = ObjectTypeNames.build(input[:object_type_names]) unless input[:object_type_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1147,7 +1149,7 @@ module AWS::SDK::CustomerProfiles
         data = {}
         data['ObjectTypeName'] = input[:object_type_name] unless input[:object_type_name].nil?
         data['Object'] = input[:object] unless input[:object].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1178,10 +1180,10 @@ module AWS::SDK::CustomerProfiles
         data['EncryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
         data['AllowProfileCreation'] = input[:allow_profile_creation] unless input[:allow_profile_creation].nil?
         data['SourceLastUpdatedTimestampFormat'] = input[:source_last_updated_timestamp_format] unless input[:source_last_updated_timestamp_format].nil?
-        data['Fields'] = Builders::FieldMap.build(input[:fields]) unless input[:fields].nil?
-        data['Keys'] = Builders::KeyMap.build(input[:keys]) unless input[:keys].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fields'] = FieldMap.build(input[:fields]) unless input[:fields].nil?
+        data['Keys'] = KeyMap.build(input[:keys]) unless input[:keys].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1190,7 +1192,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ObjectTypeKeyList.build(value) unless value.nil?
+          data[key] = ObjectTypeKeyList.build(value) unless value.nil?
         end
         data
       end
@@ -1201,7 +1203,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ObjectTypeKey.build(element) unless element.nil?
+          data << ObjectTypeKey.build(element) unless element.nil?
         end
         data
       end
@@ -1211,8 +1213,8 @@ module AWS::SDK::CustomerProfiles
     class ObjectTypeKey
       def self.build(input)
         data = {}
-        data['StandardIdentifiers'] = Builders::StandardIdentifierList.build(input[:standard_identifiers]) unless input[:standard_identifiers].nil?
-        data['FieldNames'] = Builders::FieldNameList.build(input[:field_names]) unless input[:field_names].nil?
+        data['StandardIdentifiers'] = StandardIdentifierList.build(input[:standard_identifiers]) unless input[:standard_identifiers].nil?
+        data['FieldNames'] = FieldNameList.build(input[:field_names]) unless input[:field_names].nil?
         data
       end
     end
@@ -1244,7 +1246,7 @@ module AWS::SDK::CustomerProfiles
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ObjectTypeField.build(value) unless value.nil?
+          data[key] = ObjectTypeField.build(value) unless value.nil?
         end
         data
       end
@@ -1281,8 +1283,8 @@ module AWS::SDK::CustomerProfiles
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['KeyName'] = input[:key_name] unless input[:key_name].nil?
-        data['Values'] = Builders::RequestValueList.build(input[:values]) unless input[:values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Values'] = RequestValueList.build(input[:values]) unless input[:values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1303,8 +1305,8 @@ module AWS::SDK::CustomerProfiles
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1361,9 +1363,9 @@ module AWS::SDK::CustomerProfiles
         data['DefaultExpirationDays'] = input[:default_expiration_days] unless input[:default_expiration_days].nil?
         data['DefaultEncryptionKey'] = input[:default_encryption_key] unless input[:default_encryption_key].nil?
         data['DeadLetterQueueUrl'] = input[:dead_letter_queue_url] unless input[:dead_letter_queue_url].nil?
-        data['Matching'] = Builders::MatchingRequest.build(input[:matching]) unless input[:matching].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Matching'] = MatchingRequest.build(input[:matching]) unless input[:matching].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1401,12 +1403,12 @@ module AWS::SDK::CustomerProfiles
         data['EmailAddress'] = input[:email_address] unless input[:email_address].nil?
         data['PersonalEmailAddress'] = input[:personal_email_address] unless input[:personal_email_address].nil?
         data['BusinessEmailAddress'] = input[:business_email_address] unless input[:business_email_address].nil?
-        data['Address'] = Builders::UpdateAddress.build(input[:address]) unless input[:address].nil?
-        data['ShippingAddress'] = Builders::UpdateAddress.build(input[:shipping_address]) unless input[:shipping_address].nil?
-        data['MailingAddress'] = Builders::UpdateAddress.build(input[:mailing_address]) unless input[:mailing_address].nil?
-        data['BillingAddress'] = Builders::UpdateAddress.build(input[:billing_address]) unless input[:billing_address].nil?
-        data['Attributes'] = Builders::UpdateAttributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Address'] = UpdateAddress.build(input[:address]) unless input[:address].nil?
+        data['ShippingAddress'] = UpdateAddress.build(input[:shipping_address]) unless input[:shipping_address].nil?
+        data['MailingAddress'] = UpdateAddress.build(input[:mailing_address]) unless input[:mailing_address].nil?
+        data['BillingAddress'] = UpdateAddress.build(input[:billing_address]) unless input[:billing_address].nil?
+        data['Attributes'] = UpdateAttributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

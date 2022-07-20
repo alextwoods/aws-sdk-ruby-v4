@@ -250,7 +250,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::InvalidContactFlowException.new
         map = Hearth::JSON.load(http_resp.body)
-        data.problems = (Parsers::Problems.parse(map['problems']) unless map['problems'].nil?)
+        data.problems = (Problems.parse(map['problems']) unless map['problems'].nil?)
         data
       end
     end
@@ -259,7 +259,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProblemDetail.parse(value) unless value.nil?
+          data << ProblemDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -289,7 +289,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::InvalidContactFlowModuleException.new
         map = Hearth::JSON.load(http_resp.body)
-        data.problems = (Parsers::Problems.parse(map['Problems']) unless map['Problems'].nil?)
+        data.problems = (Problems.parse(map['Problems']) unless map['Problems'].nil?)
         data
       end
     end
@@ -388,7 +388,7 @@ module AWS::SDK::Connect
         data = Types::PropertyValidationException.new
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
-        data.property_list = (Parsers::PropertyValidationExceptionPropertyList.parse(map['PropertyList']) unless map['PropertyList'].nil?)
+        data.property_list = (PropertyValidationExceptionPropertyList.parse(map['PropertyList']) unless map['PropertyList'].nil?)
         data
       end
     end
@@ -397,7 +397,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PropertyValidationExceptionProperty.parse(value) unless value.nil?
+          data << PropertyValidationExceptionProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -586,7 +586,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeAgentStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.agent_status = (Parsers::AgentStatus.parse(map['AgentStatus']) unless map['AgentStatus'].nil?)
+        data.agent_status = (AgentStatus.parse(map['AgentStatus']) unless map['AgentStatus'].nil?)
         data
       end
     end
@@ -601,7 +601,7 @@ module AWS::SDK::Connect
         data.type = map['Type']
         data.display_order = map['DisplayOrder']
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -621,7 +621,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeContactOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.contact = (Parsers::Contact.parse(map['Contact']) unless map['Contact'].nil?)
+        data.contact = (Contact.parse(map['Contact']) unless map['Contact'].nil?)
         data
       end
     end
@@ -637,8 +637,8 @@ module AWS::SDK::Connect
         data.name = map['Name']
         data.description = map['Description']
         data.channel = map['Channel']
-        data.queue_info = (Parsers::QueueInfo.parse(map['QueueInfo']) unless map['QueueInfo'].nil?)
-        data.agent_info = (Parsers::AgentInfo.parse(map['AgentInfo']) unless map['AgentInfo'].nil?)
+        data.queue_info = (QueueInfo.parse(map['QueueInfo']) unless map['QueueInfo'].nil?)
+        data.agent_info = (AgentInfo.parse(map['AgentInfo']) unless map['AgentInfo'].nil?)
         data.initiation_timestamp = Time.at(map['InitiationTimestamp'].to_i) if map['InitiationTimestamp']
         data.disconnect_timestamp = Time.at(map['DisconnectTimestamp'].to_i) if map['DisconnectTimestamp']
         data.last_update_timestamp = Time.at(map['LastUpdateTimestamp'].to_i) if map['LastUpdateTimestamp']
@@ -670,7 +670,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeContactFlowOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.contact_flow = (Parsers::ContactFlow.parse(map['ContactFlow']) unless map['ContactFlow'].nil?)
+        data.contact_flow = (ContactFlow.parse(map['ContactFlow']) unless map['ContactFlow'].nil?)
         data
       end
     end
@@ -685,7 +685,7 @@ module AWS::SDK::Connect
         data.state = map['State']
         data.description = map['Description']
         data.content = map['Content']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -705,7 +705,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeContactFlowModuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.contact_flow_module = (Parsers::ContactFlowModule.parse(map['ContactFlowModule']) unless map['ContactFlowModule'].nil?)
+        data.contact_flow_module = (ContactFlowModule.parse(map['ContactFlowModule']) unless map['ContactFlowModule'].nil?)
         data
       end
     end
@@ -720,7 +720,7 @@ module AWS::SDK::Connect
         data.description = map['Description']
         data.state = map['State']
         data.status = map['Status']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -730,7 +730,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeHoursOfOperationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.hours_of_operation = (Parsers::HoursOfOperation.parse(map['HoursOfOperation']) unless map['HoursOfOperation'].nil?)
+        data.hours_of_operation = (HoursOfOperation.parse(map['HoursOfOperation']) unless map['HoursOfOperation'].nil?)
         data
       end
     end
@@ -743,8 +743,8 @@ module AWS::SDK::Connect
         data.name = map['Name']
         data.description = map['Description']
         data.time_zone = map['TimeZone']
-        data.config = (Parsers::HoursOfOperationConfigList.parse(map['Config']) unless map['Config'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.config = (HoursOfOperationConfigList.parse(map['Config']) unless map['Config'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -753,7 +753,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HoursOfOperationConfig.parse(value) unless value.nil?
+          data << HoursOfOperationConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -763,8 +763,8 @@ module AWS::SDK::Connect
       def self.parse(map)
         data = Types::HoursOfOperationConfig.new
         data.day = map['Day']
-        data.start_time = (Parsers::HoursOfOperationTimeSlice.parse(map['StartTime']) unless map['StartTime'].nil?)
-        data.end_time = (Parsers::HoursOfOperationTimeSlice.parse(map['EndTime']) unless map['EndTime'].nil?)
+        data.start_time = (HoursOfOperationTimeSlice.parse(map['StartTime']) unless map['StartTime'].nil?)
+        data.end_time = (HoursOfOperationTimeSlice.parse(map['EndTime']) unless map['EndTime'].nil?)
         return data
       end
     end
@@ -783,7 +783,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeInstanceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.instance = (Parsers::Instance.parse(map['Instance']) unless map['Instance'].nil?)
+        data.instance = (Instance.parse(map['Instance']) unless map['Instance'].nil?)
         data
       end
     end
@@ -798,7 +798,7 @@ module AWS::SDK::Connect
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.service_role = map['ServiceRole']
         data.instance_status = map['InstanceStatus']
-        data.status_reason = (Parsers::InstanceStatusReason.parse(map['StatusReason']) unless map['StatusReason'].nil?)
+        data.status_reason = (InstanceStatusReason.parse(map['StatusReason']) unless map['StatusReason'].nil?)
         data.inbound_calls_enabled = map['InboundCallsEnabled']
         data.outbound_calls_enabled = map['OutboundCallsEnabled']
         return data
@@ -818,7 +818,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeInstanceAttributeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attribute = (Parsers::Attribute.parse(map['Attribute']) unless map['Attribute'].nil?)
+        data.attribute = (Attribute.parse(map['Attribute']) unless map['Attribute'].nil?)
         data
       end
     end
@@ -837,7 +837,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeInstanceStorageConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.storage_config = (Parsers::InstanceStorageConfig.parse(map['StorageConfig']) unless map['StorageConfig'].nil?)
+        data.storage_config = (InstanceStorageConfig.parse(map['StorageConfig']) unless map['StorageConfig'].nil?)
         data
       end
     end
@@ -847,10 +847,10 @@ module AWS::SDK::Connect
         data = Types::InstanceStorageConfig.new
         data.association_id = map['AssociationId']
         data.storage_type = map['StorageType']
-        data.s3_config = (Parsers::S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
-        data.kinesis_video_stream_config = (Parsers::KinesisVideoStreamConfig.parse(map['KinesisVideoStreamConfig']) unless map['KinesisVideoStreamConfig'].nil?)
-        data.kinesis_stream_config = (Parsers::KinesisStreamConfig.parse(map['KinesisStreamConfig']) unless map['KinesisStreamConfig'].nil?)
-        data.kinesis_firehose_config = (Parsers::KinesisFirehoseConfig.parse(map['KinesisFirehoseConfig']) unless map['KinesisFirehoseConfig'].nil?)
+        data.s3_config = (S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
+        data.kinesis_video_stream_config = (KinesisVideoStreamConfig.parse(map['KinesisVideoStreamConfig']) unless map['KinesisVideoStreamConfig'].nil?)
+        data.kinesis_stream_config = (KinesisStreamConfig.parse(map['KinesisStreamConfig']) unless map['KinesisStreamConfig'].nil?)
+        data.kinesis_firehose_config = (KinesisFirehoseConfig.parse(map['KinesisFirehoseConfig']) unless map['KinesisFirehoseConfig'].nil?)
         return data
       end
     end
@@ -876,7 +876,7 @@ module AWS::SDK::Connect
         data = Types::KinesisVideoStreamConfig.new
         data.prefix = map['Prefix']
         data.retention_period_hours = map['RetentionPeriodHours']
-        data.encryption_config = (Parsers::EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
+        data.encryption_config = (EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
         return data
       end
     end
@@ -895,7 +895,7 @@ module AWS::SDK::Connect
         data = Types::S3Config.new
         data.bucket_name = map['BucketName']
         data.bucket_prefix = map['BucketPrefix']
-        data.encryption_config = (Parsers::EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
+        data.encryption_config = (EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
         return data
       end
     end
@@ -905,7 +905,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribePhoneNumberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.claimed_phone_number_summary = (Parsers::ClaimedPhoneNumberSummary.parse(map['ClaimedPhoneNumberSummary']) unless map['ClaimedPhoneNumberSummary'].nil?)
+        data.claimed_phone_number_summary = (ClaimedPhoneNumberSummary.parse(map['ClaimedPhoneNumberSummary']) unless map['ClaimedPhoneNumberSummary'].nil?)
         data
       end
     end
@@ -920,8 +920,8 @@ module AWS::SDK::Connect
         data.phone_number_type = map['PhoneNumberType']
         data.phone_number_description = map['PhoneNumberDescription']
         data.target_arn = map['TargetArn']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.phone_number_status = (Parsers::PhoneNumberStatus.parse(map['PhoneNumberStatus']) unless map['PhoneNumberStatus'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.phone_number_status = (PhoneNumberStatus.parse(map['PhoneNumberStatus']) unless map['PhoneNumberStatus'].nil?)
         return data
       end
     end
@@ -940,7 +940,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeQueueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.queue = (Parsers::Queue.parse(map['Queue']) unless map['Queue'].nil?)
+        data.queue = (Queue.parse(map['Queue']) unless map['Queue'].nil?)
         data
       end
     end
@@ -952,11 +952,11 @@ module AWS::SDK::Connect
         data.queue_arn = map['QueueArn']
         data.queue_id = map['QueueId']
         data.description = map['Description']
-        data.outbound_caller_config = (Parsers::OutboundCallerConfig.parse(map['OutboundCallerConfig']) unless map['OutboundCallerConfig'].nil?)
+        data.outbound_caller_config = (OutboundCallerConfig.parse(map['OutboundCallerConfig']) unless map['OutboundCallerConfig'].nil?)
         data.hours_of_operation_id = map['HoursOfOperationId']
         data.max_contacts = map['MaxContacts']
         data.status = map['Status']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -976,7 +976,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeQuickConnectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.quick_connect = (Parsers::QuickConnect.parse(map['QuickConnect']) unless map['QuickConnect'].nil?)
+        data.quick_connect = (QuickConnect.parse(map['QuickConnect']) unless map['QuickConnect'].nil?)
         data
       end
     end
@@ -988,8 +988,8 @@ module AWS::SDK::Connect
         data.quick_connect_id = map['QuickConnectId']
         data.name = map['Name']
         data.description = map['Description']
-        data.quick_connect_config = (Parsers::QuickConnectConfig.parse(map['QuickConnectConfig']) unless map['QuickConnectConfig'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.quick_connect_config = (QuickConnectConfig.parse(map['QuickConnectConfig']) unless map['QuickConnectConfig'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -998,9 +998,9 @@ module AWS::SDK::Connect
       def self.parse(map)
         data = Types::QuickConnectConfig.new
         data.quick_connect_type = map['QuickConnectType']
-        data.user_config = (Parsers::UserQuickConnectConfig.parse(map['UserConfig']) unless map['UserConfig'].nil?)
-        data.queue_config = (Parsers::QueueQuickConnectConfig.parse(map['QueueConfig']) unless map['QueueConfig'].nil?)
-        data.phone_config = (Parsers::PhoneNumberQuickConnectConfig.parse(map['PhoneConfig']) unless map['PhoneConfig'].nil?)
+        data.user_config = (UserQuickConnectConfig.parse(map['UserConfig']) unless map['UserConfig'].nil?)
+        data.queue_config = (QueueQuickConnectConfig.parse(map['QueueConfig']) unless map['QueueConfig'].nil?)
+        data.phone_config = (PhoneNumberQuickConnectConfig.parse(map['PhoneConfig']) unless map['PhoneConfig'].nil?)
         return data
       end
     end
@@ -1036,7 +1036,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeRoutingProfileOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.routing_profile = (Parsers::RoutingProfile.parse(map['RoutingProfile']) unless map['RoutingProfile'].nil?)
+        data.routing_profile = (RoutingProfile.parse(map['RoutingProfile']) unless map['RoutingProfile'].nil?)
         data
       end
     end
@@ -1049,9 +1049,9 @@ module AWS::SDK::Connect
         data.routing_profile_arn = map['RoutingProfileArn']
         data.routing_profile_id = map['RoutingProfileId']
         data.description = map['Description']
-        data.media_concurrencies = (Parsers::MediaConcurrencies.parse(map['MediaConcurrencies']) unless map['MediaConcurrencies'].nil?)
+        data.media_concurrencies = (MediaConcurrencies.parse(map['MediaConcurrencies']) unless map['MediaConcurrencies'].nil?)
         data.default_outbound_queue_id = map['DefaultOutboundQueueId']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1060,7 +1060,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MediaConcurrency.parse(value) unless value.nil?
+          data << MediaConcurrency.parse(value) unless value.nil?
         end
         data
       end
@@ -1080,7 +1080,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeSecurityProfileOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_profile = (Parsers::SecurityProfile.parse(map['SecurityProfile']) unless map['SecurityProfile'].nil?)
+        data.security_profile = (SecurityProfile.parse(map['SecurityProfile']) unless map['SecurityProfile'].nil?)
         data
       end
     end
@@ -1093,7 +1093,7 @@ module AWS::SDK::Connect
         data.arn = map['Arn']
         data.security_profile_name = map['SecurityProfileName']
         data.description = map['Description']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1103,7 +1103,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -1114,13 +1114,13 @@ module AWS::SDK::Connect
         data.id = map['Id']
         data.arn = map['Arn']
         data.username = map['Username']
-        data.identity_info = (Parsers::UserIdentityInfo.parse(map['IdentityInfo']) unless map['IdentityInfo'].nil?)
-        data.phone_config = (Parsers::UserPhoneConfig.parse(map['PhoneConfig']) unless map['PhoneConfig'].nil?)
+        data.identity_info = (UserIdentityInfo.parse(map['IdentityInfo']) unless map['IdentityInfo'].nil?)
+        data.phone_config = (UserPhoneConfig.parse(map['PhoneConfig']) unless map['PhoneConfig'].nil?)
         data.directory_user_id = map['DirectoryUserId']
-        data.security_profile_ids = (Parsers::SecurityProfileIds.parse(map['SecurityProfileIds']) unless map['SecurityProfileIds'].nil?)
+        data.security_profile_ids = (SecurityProfileIds.parse(map['SecurityProfileIds']) unless map['SecurityProfileIds'].nil?)
         data.routing_profile_id = map['RoutingProfileId']
         data.hierarchy_group_id = map['HierarchyGroupId']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1161,7 +1161,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeUserHierarchyGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.hierarchy_group = (Parsers::HierarchyGroup.parse(map['HierarchyGroup']) unless map['HierarchyGroup'].nil?)
+        data.hierarchy_group = (HierarchyGroup.parse(map['HierarchyGroup']) unless map['HierarchyGroup'].nil?)
         data
       end
     end
@@ -1173,8 +1173,8 @@ module AWS::SDK::Connect
         data.arn = map['Arn']
         data.name = map['Name']
         data.level_id = map['LevelId']
-        data.hierarchy_path = (Parsers::HierarchyPath.parse(map['HierarchyPath']) unless map['HierarchyPath'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.hierarchy_path = (HierarchyPath.parse(map['HierarchyPath']) unless map['HierarchyPath'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1182,11 +1182,11 @@ module AWS::SDK::Connect
     class HierarchyPath
       def self.parse(map)
         data = Types::HierarchyPath.new
-        data.level_one = (Parsers::HierarchyGroupSummary.parse(map['LevelOne']) unless map['LevelOne'].nil?)
-        data.level_two = (Parsers::HierarchyGroupSummary.parse(map['LevelTwo']) unless map['LevelTwo'].nil?)
-        data.level_three = (Parsers::HierarchyGroupSummary.parse(map['LevelThree']) unless map['LevelThree'].nil?)
-        data.level_four = (Parsers::HierarchyGroupSummary.parse(map['LevelFour']) unless map['LevelFour'].nil?)
-        data.level_five = (Parsers::HierarchyGroupSummary.parse(map['LevelFive']) unless map['LevelFive'].nil?)
+        data.level_one = (HierarchyGroupSummary.parse(map['LevelOne']) unless map['LevelOne'].nil?)
+        data.level_two = (HierarchyGroupSummary.parse(map['LevelTwo']) unless map['LevelTwo'].nil?)
+        data.level_three = (HierarchyGroupSummary.parse(map['LevelThree']) unless map['LevelThree'].nil?)
+        data.level_four = (HierarchyGroupSummary.parse(map['LevelFour']) unless map['LevelFour'].nil?)
+        data.level_five = (HierarchyGroupSummary.parse(map['LevelFive']) unless map['LevelFive'].nil?)
         return data
       end
     end
@@ -1206,7 +1206,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeUserHierarchyStructureOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.hierarchy_structure = (Parsers::HierarchyStructure.parse(map['HierarchyStructure']) unless map['HierarchyStructure'].nil?)
+        data.hierarchy_structure = (HierarchyStructure.parse(map['HierarchyStructure']) unless map['HierarchyStructure'].nil?)
         data
       end
     end
@@ -1214,11 +1214,11 @@ module AWS::SDK::Connect
     class HierarchyStructure
       def self.parse(map)
         data = Types::HierarchyStructure.new
-        data.level_one = (Parsers::HierarchyLevel.parse(map['LevelOne']) unless map['LevelOne'].nil?)
-        data.level_two = (Parsers::HierarchyLevel.parse(map['LevelTwo']) unless map['LevelTwo'].nil?)
-        data.level_three = (Parsers::HierarchyLevel.parse(map['LevelThree']) unless map['LevelThree'].nil?)
-        data.level_four = (Parsers::HierarchyLevel.parse(map['LevelFour']) unless map['LevelFour'].nil?)
-        data.level_five = (Parsers::HierarchyLevel.parse(map['LevelFive']) unless map['LevelFive'].nil?)
+        data.level_one = (HierarchyLevel.parse(map['LevelOne']) unless map['LevelOne'].nil?)
+        data.level_two = (HierarchyLevel.parse(map['LevelTwo']) unless map['LevelTwo'].nil?)
+        data.level_three = (HierarchyLevel.parse(map['LevelThree']) unless map['LevelThree'].nil?)
+        data.level_four = (HierarchyLevel.parse(map['LevelFour']) unless map['LevelFour'].nil?)
+        data.level_five = (HierarchyLevel.parse(map['LevelFive']) unless map['LevelFive'].nil?)
         return data
       end
     end
@@ -1238,7 +1238,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::DescribeVocabularyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.vocabulary = (Parsers::Vocabulary.parse(map['Vocabulary']) unless map['Vocabulary'].nil?)
+        data.vocabulary = (Vocabulary.parse(map['Vocabulary']) unless map['Vocabulary'].nil?)
         data
       end
     end
@@ -1254,7 +1254,7 @@ module AWS::SDK::Connect
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.failure_reason = map['FailureReason']
         data.content = map['Content']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1345,7 +1345,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::GetContactAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attributes = (Parsers::Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         data
       end
     end
@@ -1366,7 +1366,7 @@ module AWS::SDK::Connect
         data = Types::GetCurrentMetricDataOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.metric_results = (Parsers::CurrentMetricResults.parse(map['MetricResults']) unless map['MetricResults'].nil?)
+        data.metric_results = (CurrentMetricResults.parse(map['MetricResults']) unless map['MetricResults'].nil?)
         data.data_snapshot_time = Time.at(map['DataSnapshotTime'].to_i) if map['DataSnapshotTime']
         data
       end
@@ -1376,7 +1376,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CurrentMetricResult.parse(value) unless value.nil?
+          data << CurrentMetricResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1385,8 +1385,8 @@ module AWS::SDK::Connect
     class CurrentMetricResult
       def self.parse(map)
         data = Types::CurrentMetricResult.new
-        data.dimensions = (Parsers::Dimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
-        data.collections = (Parsers::CurrentMetricDataCollections.parse(map['Collections']) unless map['Collections'].nil?)
+        data.dimensions = (Dimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.collections = (CurrentMetricDataCollections.parse(map['Collections']) unless map['Collections'].nil?)
         return data
       end
     end
@@ -1395,7 +1395,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CurrentMetricData.parse(value) unless value.nil?
+          data << CurrentMetricData.parse(value) unless value.nil?
         end
         data
       end
@@ -1404,7 +1404,7 @@ module AWS::SDK::Connect
     class CurrentMetricData
       def self.parse(map)
         data = Types::CurrentMetricData.new
-        data.metric = (Parsers::CurrentMetric.parse(map['Metric']) unless map['Metric'].nil?)
+        data.metric = (CurrentMetric.parse(map['Metric']) unless map['Metric'].nil?)
         data.value = Hearth::NumberHelper.deserialize(map['Value'])
         return data
       end
@@ -1422,7 +1422,7 @@ module AWS::SDK::Connect
     class Dimensions
       def self.parse(map)
         data = Types::Dimensions.new
-        data.queue = (Parsers::QueueReference.parse(map['Queue']) unless map['Queue'].nil?)
+        data.queue = (QueueReference.parse(map['Queue']) unless map['Queue'].nil?)
         data.channel = map['Channel']
         return data
       end
@@ -1443,7 +1443,7 @@ module AWS::SDK::Connect
         data = Types::GetCurrentUserDataOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.user_data_list = (Parsers::UserDataList.parse(map['UserDataList']) unless map['UserDataList'].nil?)
+        data.user_data_list = (UserDataList.parse(map['UserDataList']) unless map['UserDataList'].nil?)
         data
       end
     end
@@ -1452,7 +1452,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UserData.parse(value) unless value.nil?
+          data << UserData.parse(value) unless value.nil?
         end
         data
       end
@@ -1461,14 +1461,14 @@ module AWS::SDK::Connect
     class UserData
       def self.parse(map)
         data = Types::UserData.new
-        data.user = (Parsers::UserReference.parse(map['User']) unless map['User'].nil?)
-        data.routing_profile = (Parsers::RoutingProfileReference.parse(map['RoutingProfile']) unless map['RoutingProfile'].nil?)
-        data.hierarchy_path = (Parsers::HierarchyPathReference.parse(map['HierarchyPath']) unless map['HierarchyPath'].nil?)
-        data.status = (Parsers::AgentStatusReference.parse(map['Status']) unless map['Status'].nil?)
-        data.available_slots_by_channel = (Parsers::ChannelToCountMap.parse(map['AvailableSlotsByChannel']) unless map['AvailableSlotsByChannel'].nil?)
-        data.max_slots_by_channel = (Parsers::ChannelToCountMap.parse(map['MaxSlotsByChannel']) unless map['MaxSlotsByChannel'].nil?)
-        data.active_slots_by_channel = (Parsers::ChannelToCountMap.parse(map['ActiveSlotsByChannel']) unless map['ActiveSlotsByChannel'].nil?)
-        data.contacts = (Parsers::AgentContactReferenceList.parse(map['Contacts']) unless map['Contacts'].nil?)
+        data.user = (UserReference.parse(map['User']) unless map['User'].nil?)
+        data.routing_profile = (RoutingProfileReference.parse(map['RoutingProfile']) unless map['RoutingProfile'].nil?)
+        data.hierarchy_path = (HierarchyPathReference.parse(map['HierarchyPath']) unless map['HierarchyPath'].nil?)
+        data.status = (AgentStatusReference.parse(map['Status']) unless map['Status'].nil?)
+        data.available_slots_by_channel = (ChannelToCountMap.parse(map['AvailableSlotsByChannel']) unless map['AvailableSlotsByChannel'].nil?)
+        data.max_slots_by_channel = (ChannelToCountMap.parse(map['MaxSlotsByChannel']) unless map['MaxSlotsByChannel'].nil?)
+        data.active_slots_by_channel = (ChannelToCountMap.parse(map['ActiveSlotsByChannel']) unless map['ActiveSlotsByChannel'].nil?)
+        data.contacts = (AgentContactReferenceList.parse(map['Contacts']) unless map['Contacts'].nil?)
         return data
       end
     end
@@ -1477,7 +1477,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AgentContactReference.parse(value) unless value.nil?
+          data << AgentContactReference.parse(value) unless value.nil?
         end
         data
       end
@@ -1492,7 +1492,7 @@ module AWS::SDK::Connect
         data.agent_contact_state = map['AgentContactState']
         data.state_start_timestamp = Time.at(map['StateStartTimestamp'].to_i) if map['StateStartTimestamp']
         data.connected_to_agent_timestamp = Time.at(map['ConnectedToAgentTimestamp'].to_i) if map['ConnectedToAgentTimestamp']
-        data.queue = (Parsers::QueueReference.parse(map['Queue']) unless map['Queue'].nil?)
+        data.queue = (QueueReference.parse(map['Queue']) unless map['Queue'].nil?)
         return data
       end
     end
@@ -1519,11 +1519,11 @@ module AWS::SDK::Connect
     class HierarchyPathReference
       def self.parse(map)
         data = Types::HierarchyPathReference.new
-        data.level_one = (Parsers::HierarchyGroupSummaryReference.parse(map['LevelOne']) unless map['LevelOne'].nil?)
-        data.level_two = (Parsers::HierarchyGroupSummaryReference.parse(map['LevelTwo']) unless map['LevelTwo'].nil?)
-        data.level_three = (Parsers::HierarchyGroupSummaryReference.parse(map['LevelThree']) unless map['LevelThree'].nil?)
-        data.level_four = (Parsers::HierarchyGroupSummaryReference.parse(map['LevelFour']) unless map['LevelFour'].nil?)
-        data.level_five = (Parsers::HierarchyGroupSummaryReference.parse(map['LevelFive']) unless map['LevelFive'].nil?)
+        data.level_one = (HierarchyGroupSummaryReference.parse(map['LevelOne']) unless map['LevelOne'].nil?)
+        data.level_two = (HierarchyGroupSummaryReference.parse(map['LevelTwo']) unless map['LevelTwo'].nil?)
+        data.level_three = (HierarchyGroupSummaryReference.parse(map['LevelThree']) unless map['LevelThree'].nil?)
+        data.level_four = (HierarchyGroupSummaryReference.parse(map['LevelFour']) unless map['LevelFour'].nil?)
+        data.level_five = (HierarchyGroupSummaryReference.parse(map['LevelFive']) unless map['LevelFive'].nil?)
         return data
       end
     end
@@ -1560,7 +1560,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::GetFederationTokenOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.credentials = (Parsers::Credentials.parse(map['Credentials']) unless map['Credentials'].nil?)
+        data.credentials = (Credentials.parse(map['Credentials']) unless map['Credentials'].nil?)
         data
       end
     end
@@ -1592,7 +1592,7 @@ module AWS::SDK::Connect
         data = Types::GetMetricDataOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.metric_results = (Parsers::HistoricalMetricResults.parse(map['MetricResults']) unless map['MetricResults'].nil?)
+        data.metric_results = (HistoricalMetricResults.parse(map['MetricResults']) unless map['MetricResults'].nil?)
         data
       end
     end
@@ -1601,7 +1601,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HistoricalMetricResult.parse(value) unless value.nil?
+          data << HistoricalMetricResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1610,8 +1610,8 @@ module AWS::SDK::Connect
     class HistoricalMetricResult
       def self.parse(map)
         data = Types::HistoricalMetricResult.new
-        data.dimensions = (Parsers::Dimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
-        data.collections = (Parsers::HistoricalMetricDataCollections.parse(map['Collections']) unless map['Collections'].nil?)
+        data.dimensions = (Dimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.collections = (HistoricalMetricDataCollections.parse(map['Collections']) unless map['Collections'].nil?)
         return data
       end
     end
@@ -1620,7 +1620,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HistoricalMetricData.parse(value) unless value.nil?
+          data << HistoricalMetricData.parse(value) unless value.nil?
         end
         data
       end
@@ -1629,7 +1629,7 @@ module AWS::SDK::Connect
     class HistoricalMetricData
       def self.parse(map)
         data = Types::HistoricalMetricData.new
-        data.metric = (Parsers::HistoricalMetric.parse(map['Metric']) unless map['Metric'].nil?)
+        data.metric = (HistoricalMetric.parse(map['Metric']) unless map['Metric'].nil?)
         data.value = Hearth::NumberHelper.deserialize(map['Value'])
         return data
       end
@@ -1639,7 +1639,7 @@ module AWS::SDK::Connect
       def self.parse(map)
         data = Types::HistoricalMetric.new
         data.name = map['Name']
-        data.threshold = (Parsers::Threshold.parse(map['Threshold']) unless map['Threshold'].nil?)
+        data.threshold = (Threshold.parse(map['Threshold']) unless map['Threshold'].nil?)
         data.statistic = map['Statistic']
         data.unit = map['Unit']
         return data
@@ -1666,13 +1666,13 @@ module AWS::SDK::Connect
         data.name = map['Name']
         data.description = map['Description']
         data.contact_flow_id = map['ContactFlowId']
-        data.constraints = (Parsers::TaskTemplateConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
-        data.defaults = (Parsers::TaskTemplateDefaults.parse(map['Defaults']) unless map['Defaults'].nil?)
-        data.fields = (Parsers::TaskTemplateFields.parse(map['Fields']) unless map['Fields'].nil?)
+        data.constraints = (TaskTemplateConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.defaults = (TaskTemplateDefaults.parse(map['Defaults']) unless map['Defaults'].nil?)
+        data.fields = (TaskTemplateFields.parse(map['Fields']) unless map['Fields'].nil?)
         data.status = map['Status']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1681,7 +1681,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TaskTemplateField.parse(value) unless value.nil?
+          data << TaskTemplateField.parse(value) unless value.nil?
         end
         data
       end
@@ -1690,10 +1690,10 @@ module AWS::SDK::Connect
     class TaskTemplateField
       def self.parse(map)
         data = Types::TaskTemplateField.new
-        data.id = (Parsers::TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
+        data.id = (TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
         data.description = map['Description']
         data.type = map['Type']
-        data.single_select_options = (Parsers::SingleSelectOptions.parse(map['SingleSelectOptions']) unless map['SingleSelectOptions'].nil?)
+        data.single_select_options = (SingleSelectOptions.parse(map['SingleSelectOptions']) unless map['SingleSelectOptions'].nil?)
         return data
       end
     end
@@ -1719,7 +1719,7 @@ module AWS::SDK::Connect
     class TaskTemplateDefaults
       def self.parse(map)
         data = Types::TaskTemplateDefaults.new
-        data.default_field_values = (Parsers::TaskTemplateDefaultFieldValueList.parse(map['DefaultFieldValues']) unless map['DefaultFieldValues'].nil?)
+        data.default_field_values = (TaskTemplateDefaultFieldValueList.parse(map['DefaultFieldValues']) unless map['DefaultFieldValues'].nil?)
         return data
       end
     end
@@ -1728,7 +1728,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TaskTemplateDefaultFieldValue.parse(value) unless value.nil?
+          data << TaskTemplateDefaultFieldValue.parse(value) unless value.nil?
         end
         data
       end
@@ -1737,7 +1737,7 @@ module AWS::SDK::Connect
     class TaskTemplateDefaultFieldValue
       def self.parse(map)
         data = Types::TaskTemplateDefaultFieldValue.new
-        data.id = (Parsers::TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
+        data.id = (TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
         data.default_value = map['DefaultValue']
         return data
       end
@@ -1746,9 +1746,9 @@ module AWS::SDK::Connect
     class TaskTemplateConstraints
       def self.parse(map)
         data = Types::TaskTemplateConstraints.new
-        data.required_fields = (Parsers::RequiredTaskTemplateFields.parse(map['RequiredFields']) unless map['RequiredFields'].nil?)
-        data.read_only_fields = (Parsers::ReadOnlyTaskTemplateFields.parse(map['ReadOnlyFields']) unless map['ReadOnlyFields'].nil?)
-        data.invisible_fields = (Parsers::InvisibleTaskTemplateFields.parse(map['InvisibleFields']) unless map['InvisibleFields'].nil?)
+        data.required_fields = (RequiredTaskTemplateFields.parse(map['RequiredFields']) unless map['RequiredFields'].nil?)
+        data.read_only_fields = (ReadOnlyTaskTemplateFields.parse(map['ReadOnlyFields']) unless map['ReadOnlyFields'].nil?)
+        data.invisible_fields = (InvisibleTaskTemplateFields.parse(map['InvisibleFields']) unless map['InvisibleFields'].nil?)
         return data
       end
     end
@@ -1757,7 +1757,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InvisibleFieldInfo.parse(value) unless value.nil?
+          data << InvisibleFieldInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -1766,7 +1766,7 @@ module AWS::SDK::Connect
     class InvisibleFieldInfo
       def self.parse(map)
         data = Types::InvisibleFieldInfo.new
-        data.id = (Parsers::TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
+        data.id = (TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
         return data
       end
     end
@@ -1775,7 +1775,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReadOnlyFieldInfo.parse(value) unless value.nil?
+          data << ReadOnlyFieldInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -1784,7 +1784,7 @@ module AWS::SDK::Connect
     class ReadOnlyFieldInfo
       def self.parse(map)
         data = Types::ReadOnlyFieldInfo.new
-        data.id = (Parsers::TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
+        data.id = (TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
         return data
       end
     end
@@ -1793,7 +1793,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RequiredFieldInfo.parse(value) unless value.nil?
+          data << RequiredFieldInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -1802,7 +1802,7 @@ module AWS::SDK::Connect
     class RequiredFieldInfo
       def self.parse(map)
         data = Types::RequiredFieldInfo.new
-        data.id = (Parsers::TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
+        data.id = (TaskTemplateFieldIdentifier.parse(map['Id']) unless map['Id'].nil?)
         return data
       end
     end
@@ -1813,7 +1813,7 @@ module AWS::SDK::Connect
         data = Types::ListAgentStatusesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.agent_status_summary_list = (Parsers::AgentStatusSummaryList.parse(map['AgentStatusSummaryList']) unless map['AgentStatusSummaryList'].nil?)
+        data.agent_status_summary_list = (AgentStatusSummaryList.parse(map['AgentStatusSummaryList']) unless map['AgentStatusSummaryList'].nil?)
         data
       end
     end
@@ -1822,7 +1822,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AgentStatusSummary.parse(value) unless value.nil?
+          data << AgentStatusSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1844,7 +1844,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListApprovedOriginsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.origins = (Parsers::OriginsList.parse(map['Origins']) unless map['Origins'].nil?)
+        data.origins = (OriginsList.parse(map['Origins']) unless map['Origins'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1865,7 +1865,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListBotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lex_bots = (Parsers::LexBotConfigList.parse(map['LexBots']) unless map['LexBots'].nil?)
+        data.lex_bots = (LexBotConfigList.parse(map['LexBots']) unless map['LexBots'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1875,7 +1875,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LexBotConfig.parse(value) unless value.nil?
+          data << LexBotConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -1884,8 +1884,8 @@ module AWS::SDK::Connect
     class LexBotConfig
       def self.parse(map)
         data = Types::LexBotConfig.new
-        data.lex_bot = (Parsers::LexBot.parse(map['LexBot']) unless map['LexBot'].nil?)
-        data.lex_v2_bot = (Parsers::LexV2Bot.parse(map['LexV2Bot']) unless map['LexV2Bot'].nil?)
+        data.lex_bot = (LexBot.parse(map['LexBot']) unless map['LexBot'].nil?)
+        data.lex_v2_bot = (LexV2Bot.parse(map['LexV2Bot']) unless map['LexV2Bot'].nil?)
         return data
       end
     end
@@ -1912,7 +1912,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListContactFlowModulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.contact_flow_modules_summary_list = (Parsers::ContactFlowModulesSummaryList.parse(map['ContactFlowModulesSummaryList']) unless map['ContactFlowModulesSummaryList'].nil?)
+        data.contact_flow_modules_summary_list = (ContactFlowModulesSummaryList.parse(map['ContactFlowModulesSummaryList']) unless map['ContactFlowModulesSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1922,7 +1922,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ContactFlowModuleSummary.parse(value) unless value.nil?
+          data << ContactFlowModuleSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1944,7 +1944,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListContactFlowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.contact_flow_summary_list = (Parsers::ContactFlowSummaryList.parse(map['ContactFlowSummaryList']) unless map['ContactFlowSummaryList'].nil?)
+        data.contact_flow_summary_list = (ContactFlowSummaryList.parse(map['ContactFlowSummaryList']) unless map['ContactFlowSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1954,7 +1954,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ContactFlowSummary.parse(value) unless value.nil?
+          data << ContactFlowSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1977,7 +1977,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListContactReferencesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.reference_summary_list = (Parsers::ReferenceSummaryList.parse(map['ReferenceSummaryList']) unless map['ReferenceSummaryList'].nil?)
+        data.reference_summary_list = (ReferenceSummaryList.parse(map['ReferenceSummaryList']) unless map['ReferenceSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1987,7 +1987,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReferenceSummary.parse(value) unless value.nil?
+          data << ReferenceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1998,22 +1998,22 @@ module AWS::SDK::Connect
         key, value = map.flatten
         case key
         when 'Url'
-          value = (Parsers::UrlReference.parse(value) unless value.nil?)
+          value = (UrlReference.parse(value) unless value.nil?)
           Types::ReferenceSummary::Url.new(value) if value
         when 'Attachment'
-          value = (Parsers::AttachmentReference.parse(value) unless value.nil?)
+          value = (AttachmentReference.parse(value) unless value.nil?)
           Types::ReferenceSummary::Attachment.new(value) if value
         when 'String'
-          value = (Parsers::StringReference.parse(value) unless value.nil?)
+          value = (StringReference.parse(value) unless value.nil?)
           Types::ReferenceSummary::String.new(value) if value
         when 'Number'
-          value = (Parsers::NumberReference.parse(value) unless value.nil?)
+          value = (NumberReference.parse(value) unless value.nil?)
           Types::ReferenceSummary::Number.new(value) if value
         when 'Date'
-          value = (Parsers::DateReference.parse(value) unless value.nil?)
+          value = (DateReference.parse(value) unless value.nil?)
           Types::ReferenceSummary::Date.new(value) if value
         when 'Email'
-          value = (Parsers::EmailReference.parse(value) unless value.nil?)
+          value = (EmailReference.parse(value) unless value.nil?)
           Types::ReferenceSummary::Email.new(value) if value
         else
           Types::ReferenceSummary::Unknown.new({name: key, value: value})
@@ -2081,7 +2081,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListDefaultVocabulariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.default_vocabulary_list = (Parsers::DefaultVocabularyList.parse(map['DefaultVocabularyList']) unless map['DefaultVocabularyList'].nil?)
+        data.default_vocabulary_list = (DefaultVocabularyList.parse(map['DefaultVocabularyList']) unless map['DefaultVocabularyList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2091,7 +2091,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DefaultVocabulary.parse(value) unless value.nil?
+          data << DefaultVocabulary.parse(value) unless value.nil?
         end
         data
       end
@@ -2113,7 +2113,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListHoursOfOperationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.hours_of_operation_summary_list = (Parsers::HoursOfOperationSummaryList.parse(map['HoursOfOperationSummaryList']) unless map['HoursOfOperationSummaryList'].nil?)
+        data.hours_of_operation_summary_list = (HoursOfOperationSummaryList.parse(map['HoursOfOperationSummaryList']) unless map['HoursOfOperationSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2123,7 +2123,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HoursOfOperationSummary.parse(value) unless value.nil?
+          data << HoursOfOperationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2144,7 +2144,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListInstanceAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attributes = (Parsers::AttributesList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributesList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2154,7 +2154,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Attribute.parse(value) unless value.nil?
+          data << Attribute.parse(value) unless value.nil?
         end
         data
       end
@@ -2165,7 +2165,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListInstanceStorageConfigsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.storage_configs = (Parsers::InstanceStorageConfigs.parse(map['StorageConfigs']) unless map['StorageConfigs'].nil?)
+        data.storage_configs = (InstanceStorageConfigs.parse(map['StorageConfigs']) unless map['StorageConfigs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2175,7 +2175,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstanceStorageConfig.parse(value) unless value.nil?
+          data << InstanceStorageConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -2186,7 +2186,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.instance_summary_list = (Parsers::InstanceSummaryList.parse(map['InstanceSummaryList']) unless map['InstanceSummaryList'].nil?)
+        data.instance_summary_list = (InstanceSummaryList.parse(map['InstanceSummaryList']) unless map['InstanceSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2196,7 +2196,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstanceSummary.parse(value) unless value.nil?
+          data << InstanceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2223,7 +2223,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListIntegrationAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.integration_association_summary_list = (Parsers::IntegrationAssociationSummaryList.parse(map['IntegrationAssociationSummaryList']) unless map['IntegrationAssociationSummaryList'].nil?)
+        data.integration_association_summary_list = (IntegrationAssociationSummaryList.parse(map['IntegrationAssociationSummaryList']) unless map['IntegrationAssociationSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2233,7 +2233,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IntegrationAssociationSummary.parse(value) unless value.nil?
+          data << IntegrationAssociationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2259,7 +2259,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListLambdaFunctionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lambda_functions = (Parsers::FunctionArnsList.parse(map['LambdaFunctions']) unless map['LambdaFunctions'].nil?)
+        data.lambda_functions = (FunctionArnsList.parse(map['LambdaFunctions']) unless map['LambdaFunctions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2280,7 +2280,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListLexBotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lex_bots = (Parsers::LexBotsList.parse(map['LexBots']) unless map['LexBots'].nil?)
+        data.lex_bots = (LexBotsList.parse(map['LexBots']) unless map['LexBots'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2290,7 +2290,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LexBot.parse(value) unless value.nil?
+          data << LexBot.parse(value) unless value.nil?
         end
         data
       end
@@ -2301,7 +2301,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListPhoneNumbersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_summary_list = (Parsers::PhoneNumberSummaryList.parse(map['PhoneNumberSummaryList']) unless map['PhoneNumberSummaryList'].nil?)
+        data.phone_number_summary_list = (PhoneNumberSummaryList.parse(map['PhoneNumberSummaryList']) unless map['PhoneNumberSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2311,7 +2311,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhoneNumberSummary.parse(value) unless value.nil?
+          data << PhoneNumberSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2335,7 +2335,7 @@ module AWS::SDK::Connect
         data = Types::ListPhoneNumbersV2Output.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.list_phone_numbers_summary_list = (Parsers::ListPhoneNumbersSummaryList.parse(map['ListPhoneNumbersSummaryList']) unless map['ListPhoneNumbersSummaryList'].nil?)
+        data.list_phone_numbers_summary_list = (ListPhoneNumbersSummaryList.parse(map['ListPhoneNumbersSummaryList']) unless map['ListPhoneNumbersSummaryList'].nil?)
         data
       end
     end
@@ -2344,7 +2344,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListPhoneNumbersSummary.parse(value) unless value.nil?
+          data << ListPhoneNumbersSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2368,7 +2368,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListPromptsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.prompt_summary_list = (Parsers::PromptSummaryList.parse(map['PromptSummaryList']) unless map['PromptSummaryList'].nil?)
+        data.prompt_summary_list = (PromptSummaryList.parse(map['PromptSummaryList']) unless map['PromptSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2378,7 +2378,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PromptSummary.parse(value) unless value.nil?
+          data << PromptSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2400,7 +2400,7 @@ module AWS::SDK::Connect
         data = Types::ListQueueQuickConnectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.quick_connect_summary_list = (Parsers::QuickConnectSummaryList.parse(map['QuickConnectSummaryList']) unless map['QuickConnectSummaryList'].nil?)
+        data.quick_connect_summary_list = (QuickConnectSummaryList.parse(map['QuickConnectSummaryList']) unless map['QuickConnectSummaryList'].nil?)
         data
       end
     end
@@ -2409,7 +2409,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::QuickConnectSummary.parse(value) unless value.nil?
+          data << QuickConnectSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2431,7 +2431,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListQueuesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.queue_summary_list = (Parsers::QueueSummaryList.parse(map['QueueSummaryList']) unless map['QueueSummaryList'].nil?)
+        data.queue_summary_list = (QueueSummaryList.parse(map['QueueSummaryList']) unless map['QueueSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2441,7 +2441,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::QueueSummary.parse(value) unless value.nil?
+          data << QueueSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2463,7 +2463,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListQuickConnectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.quick_connect_summary_list = (Parsers::QuickConnectSummaryList.parse(map['QuickConnectSummaryList']) unless map['QuickConnectSummaryList'].nil?)
+        data.quick_connect_summary_list = (QuickConnectSummaryList.parse(map['QuickConnectSummaryList']) unless map['QuickConnectSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2475,7 +2475,7 @@ module AWS::SDK::Connect
         data = Types::ListRoutingProfileQueuesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.routing_profile_queue_config_summary_list = (Parsers::RoutingProfileQueueConfigSummaryList.parse(map['RoutingProfileQueueConfigSummaryList']) unless map['RoutingProfileQueueConfigSummaryList'].nil?)
+        data.routing_profile_queue_config_summary_list = (RoutingProfileQueueConfigSummaryList.parse(map['RoutingProfileQueueConfigSummaryList']) unless map['RoutingProfileQueueConfigSummaryList'].nil?)
         data
       end
     end
@@ -2484,7 +2484,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RoutingProfileQueueConfigSummary.parse(value) unless value.nil?
+          data << RoutingProfileQueueConfigSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2508,7 +2508,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListRoutingProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.routing_profile_summary_list = (Parsers::RoutingProfileSummaryList.parse(map['RoutingProfileSummaryList']) unless map['RoutingProfileSummaryList'].nil?)
+        data.routing_profile_summary_list = (RoutingProfileSummaryList.parse(map['RoutingProfileSummaryList']) unless map['RoutingProfileSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2518,7 +2518,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RoutingProfileSummary.parse(value) unless value.nil?
+          data << RoutingProfileSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2539,7 +2539,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListSecurityKeysOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_keys = (Parsers::SecurityKeysList.parse(map['SecurityKeys']) unless map['SecurityKeys'].nil?)
+        data.security_keys = (SecurityKeysList.parse(map['SecurityKeys']) unless map['SecurityKeys'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2549,7 +2549,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SecurityKey.parse(value) unless value.nil?
+          data << SecurityKey.parse(value) unless value.nil?
         end
         data
       end
@@ -2570,7 +2570,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListSecurityProfilePermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.permissions = (Parsers::PermissionsList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (PermissionsList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2591,7 +2591,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListSecurityProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_profile_summary_list = (Parsers::SecurityProfileSummaryList.parse(map['SecurityProfileSummaryList']) unless map['SecurityProfileSummaryList'].nil?)
+        data.security_profile_summary_list = (SecurityProfileSummaryList.parse(map['SecurityProfileSummaryList']) unless map['SecurityProfileSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2601,7 +2601,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SecurityProfileSummary.parse(value) unless value.nil?
+          data << SecurityProfileSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2622,7 +2622,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -2632,7 +2632,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListTaskTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.task_templates = (Parsers::TaskTemplateList.parse(map['TaskTemplates']) unless map['TaskTemplates'].nil?)
+        data.task_templates = (TaskTemplateList.parse(map['TaskTemplates']) unless map['TaskTemplates'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2642,7 +2642,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TaskTemplateMetadata.parse(value) unless value.nil?
+          data << TaskTemplateMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -2667,7 +2667,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListUseCasesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.use_case_summary_list = (Parsers::UseCaseSummaryList.parse(map['UseCaseSummaryList']) unless map['UseCaseSummaryList'].nil?)
+        data.use_case_summary_list = (UseCaseSummaryList.parse(map['UseCaseSummaryList']) unless map['UseCaseSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2677,7 +2677,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UseCase.parse(value) unless value.nil?
+          data << UseCase.parse(value) unless value.nil?
         end
         data
       end
@@ -2698,7 +2698,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListUserHierarchyGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_hierarchy_group_summary_list = (Parsers::HierarchyGroupSummaryList.parse(map['UserHierarchyGroupSummaryList']) unless map['UserHierarchyGroupSummaryList'].nil?)
+        data.user_hierarchy_group_summary_list = (HierarchyGroupSummaryList.parse(map['UserHierarchyGroupSummaryList']) unless map['UserHierarchyGroupSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2708,7 +2708,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HierarchyGroupSummary.parse(value) unless value.nil?
+          data << HierarchyGroupSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2719,7 +2719,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::ListUsersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_summary_list = (Parsers::UserSummaryList.parse(map['UserSummaryList']) unless map['UserSummaryList'].nil?)
+        data.user_summary_list = (UserSummaryList.parse(map['UserSummaryList']) unless map['UserSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2729,7 +2729,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UserSummary.parse(value) unless value.nil?
+          data << UserSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2778,7 +2778,7 @@ module AWS::SDK::Connect
         data = Types::SearchAvailablePhoneNumbersOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.available_numbers_list = (Parsers::AvailableNumbersList.parse(map['AvailableNumbersList']) unless map['AvailableNumbersList'].nil?)
+        data.available_numbers_list = (AvailableNumbersList.parse(map['AvailableNumbersList']) unless map['AvailableNumbersList'].nil?)
         data
       end
     end
@@ -2787,7 +2787,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AvailableNumberSummary.parse(value) unless value.nil?
+          data << AvailableNumberSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2808,7 +2808,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::SearchUsersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.users = (Parsers::UserSearchSummaryList.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (UserSearchSummaryList.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data.approximate_total_count = map['ApproximateTotalCount']
         data
@@ -2819,7 +2819,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UserSearchSummary.parse(value) unless value.nil?
+          data << UserSearchSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2832,11 +2832,11 @@ module AWS::SDK::Connect
         data.directory_user_id = map['DirectoryUserId']
         data.hierarchy_group_id = map['HierarchyGroupId']
         data.id = map['Id']
-        data.identity_info = (Parsers::UserIdentityInfoLite.parse(map['IdentityInfo']) unless map['IdentityInfo'].nil?)
-        data.phone_config = (Parsers::UserPhoneConfig.parse(map['PhoneConfig']) unless map['PhoneConfig'].nil?)
+        data.identity_info = (UserIdentityInfoLite.parse(map['IdentityInfo']) unless map['IdentityInfo'].nil?)
+        data.phone_config = (UserPhoneConfig.parse(map['PhoneConfig']) unless map['PhoneConfig'].nil?)
         data.routing_profile_id = map['RoutingProfileId']
-        data.security_profile_ids = (Parsers::SecurityProfileIds.parse(map['SecurityProfileIds']) unless map['SecurityProfileIds'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.security_profile_ids = (SecurityProfileIds.parse(map['SecurityProfileIds']) unless map['SecurityProfileIds'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.username = map['Username']
         return data
       end
@@ -2856,7 +2856,7 @@ module AWS::SDK::Connect
       def self.parse(http_resp)
         data = Types::SearchVocabulariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.vocabulary_summary_list = (Parsers::VocabularySummaryList.parse(map['VocabularySummaryList']) unless map['VocabularySummaryList'].nil?)
+        data.vocabulary_summary_list = (VocabularySummaryList.parse(map['VocabularySummaryList']) unless map['VocabularySummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2866,7 +2866,7 @@ module AWS::SDK::Connect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VocabularySummary.parse(value) unless value.nil?
+          data << VocabularySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -3270,9 +3270,9 @@ module AWS::SDK::Connect
         data.name = map['Name']
         data.description = map['Description']
         data.contact_flow_id = map['ContactFlowId']
-        data.constraints = (Parsers::TaskTemplateConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
-        data.defaults = (Parsers::TaskTemplateDefaults.parse(map['Defaults']) unless map['Defaults'].nil?)
-        data.fields = (Parsers::TaskTemplateFields.parse(map['Fields']) unless map['Fields'].nil?)
+        data.constraints = (TaskTemplateConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.defaults = (TaskTemplateDefaults.parse(map['Defaults']) unless map['Defaults'].nil?)
+        data.fields = (TaskTemplateFields.parse(map['Fields']) unless map['Fields'].nil?)
         data.status = map['Status']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']

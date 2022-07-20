@@ -17,7 +17,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_entity_list = (Parsers::AssociateEntitiesToExperienceFailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
+        data.failed_entity_list = (AssociateEntitiesToExperienceFailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::Kendra
     class AssociateEntitiesToExperienceFailedEntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedEntity.parse(value) unless value.nil?
+          FailedEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -118,7 +118,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_entity_list = (Parsers::FailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
+        data.failed_entity_list = (FailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
         data
       end
     end
@@ -126,7 +126,7 @@ module AWS::SDK::Kendra
     class FailedEntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedEntity.parse(value) unless value.nil?
+          FailedEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -138,7 +138,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_documents = (Parsers::BatchDeleteDocumentResponseFailedDocuments.parse(map['FailedDocuments']) unless map['FailedDocuments'].nil?)
+        data.failed_documents = (BatchDeleteDocumentResponseFailedDocuments.parse(map['FailedDocuments']) unless map['FailedDocuments'].nil?)
         data
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::Kendra
     class BatchDeleteDocumentResponseFailedDocuments
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDeleteDocumentResponseFailedDocument.parse(value) unless value.nil?
+          BatchDeleteDocumentResponseFailedDocument.parse(value) unless value.nil?
         end
       end
     end
@@ -180,8 +180,8 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::BatchGetDocumentStatusResponseErrors.parse(map['Errors']) unless map['Errors'].nil?)
-        data.document_status_list = (Parsers::DocumentStatusList.parse(map['DocumentStatusList']) unless map['DocumentStatusList'].nil?)
+        data.errors = (BatchGetDocumentStatusResponseErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.document_status_list = (DocumentStatusList.parse(map['DocumentStatusList']) unless map['DocumentStatusList'].nil?)
         data
       end
     end
@@ -189,7 +189,7 @@ module AWS::SDK::Kendra
     class DocumentStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::Status.parse(value) unless value.nil?
+          Status.parse(value) unless value.nil?
         end
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::Kendra
     class BatchGetDocumentStatusResponseErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchGetDocumentStatusResponseError.parse(value) unless value.nil?
+          BatchGetDocumentStatusResponseError.parse(value) unless value.nil?
         end
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_documents = (Parsers::BatchPutDocumentResponseFailedDocuments.parse(map['FailedDocuments']) unless map['FailedDocuments'].nil?)
+        data.failed_documents = (BatchPutDocumentResponseFailedDocuments.parse(map['FailedDocuments']) unless map['FailedDocuments'].nil?)
         data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::Kendra
     class BatchPutDocumentResponseFailedDocuments
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchPutDocumentResponseFailedDocument.parse(value) unless value.nil?
+          BatchPutDocumentResponseFailedDocument.parse(value) unless value.nil?
         end
       end
     end
@@ -436,7 +436,7 @@ module AWS::SDK::Kendra
         data.index_id = map['IndexId']
         data.name = map['Name']
         data.type = map['Type']
-        data.configuration = (Parsers::DataSourceConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (DataSourceConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
         data.description = map['Description']
@@ -445,7 +445,7 @@ module AWS::SDK::Kendra
         data.role_arn = map['RoleArn']
         data.error_message = map['ErrorMessage']
         data.language_code = map['LanguageCode']
-        data.custom_document_enrichment_configuration = (Parsers::CustomDocumentEnrichmentConfiguration.parse(map['CustomDocumentEnrichmentConfiguration']) unless map['CustomDocumentEnrichmentConfiguration'].nil?)
+        data.custom_document_enrichment_configuration = (CustomDocumentEnrichmentConfiguration.parse(map['CustomDocumentEnrichmentConfiguration']) unless map['CustomDocumentEnrichmentConfiguration'].nil?)
         data
       end
     end
@@ -453,9 +453,9 @@ module AWS::SDK::Kendra
     class CustomDocumentEnrichmentConfiguration
       def self.parse(map)
         data = Types::CustomDocumentEnrichmentConfiguration.new
-        data.inline_configurations = (Parsers::InlineCustomDocumentEnrichmentConfigurationList.parse(map['InlineConfigurations']) unless map['InlineConfigurations'].nil?)
-        data.pre_extraction_hook_configuration = (Parsers::HookConfiguration.parse(map['PreExtractionHookConfiguration']) unless map['PreExtractionHookConfiguration'].nil?)
-        data.post_extraction_hook_configuration = (Parsers::HookConfiguration.parse(map['PostExtractionHookConfiguration']) unless map['PostExtractionHookConfiguration'].nil?)
+        data.inline_configurations = (InlineCustomDocumentEnrichmentConfigurationList.parse(map['InlineConfigurations']) unless map['InlineConfigurations'].nil?)
+        data.pre_extraction_hook_configuration = (HookConfiguration.parse(map['PreExtractionHookConfiguration']) unless map['PreExtractionHookConfiguration'].nil?)
+        data.post_extraction_hook_configuration = (HookConfiguration.parse(map['PostExtractionHookConfiguration']) unless map['PostExtractionHookConfiguration'].nil?)
         data.role_arn = map['RoleArn']
         return data
       end
@@ -464,7 +464,7 @@ module AWS::SDK::Kendra
     class HookConfiguration
       def self.parse(map)
         data = Types::HookConfiguration.new
-        data.invocation_condition = (Parsers::DocumentAttributeCondition.parse(map['InvocationCondition']) unless map['InvocationCondition'].nil?)
+        data.invocation_condition = (DocumentAttributeCondition.parse(map['InvocationCondition']) unless map['InvocationCondition'].nil?)
         data.lambda_arn = map['LambdaArn']
         data.s3_bucket = map['S3Bucket']
         return data
@@ -476,7 +476,7 @@ module AWS::SDK::Kendra
         data = Types::DocumentAttributeCondition.new
         data.condition_document_attribute_key = map['ConditionDocumentAttributeKey']
         data.operator = map['Operator']
-        data.condition_on_value = (Parsers::DocumentAttributeValue.parse(map['ConditionOnValue']) unless map['ConditionOnValue'].nil?)
+        data.condition_on_value = (DocumentAttributeValue.parse(map['ConditionOnValue']) unless map['ConditionOnValue'].nil?)
         return data
       end
     end
@@ -485,7 +485,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::DocumentAttributeValue.new
         data.string_value = map['StringValue']
-        data.string_list_value = (Parsers::DocumentAttributeStringListValue.parse(map['StringListValue']) unless map['StringListValue'].nil?)
+        data.string_list_value = (DocumentAttributeStringListValue.parse(map['StringListValue']) unless map['StringListValue'].nil?)
         data.long_value = map['LongValue']
         data.date_value = Time.at(map['DateValue'].to_i) if map['DateValue']
         return data
@@ -503,7 +503,7 @@ module AWS::SDK::Kendra
     class InlineCustomDocumentEnrichmentConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::InlineCustomDocumentEnrichmentConfiguration.parse(value) unless value.nil?
+          InlineCustomDocumentEnrichmentConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -511,8 +511,8 @@ module AWS::SDK::Kendra
     class InlineCustomDocumentEnrichmentConfiguration
       def self.parse(map)
         data = Types::InlineCustomDocumentEnrichmentConfiguration.new
-        data.condition = (Parsers::DocumentAttributeCondition.parse(map['Condition']) unless map['Condition'].nil?)
-        data.target = (Parsers::DocumentAttributeTarget.parse(map['Target']) unless map['Target'].nil?)
+        data.condition = (DocumentAttributeCondition.parse(map['Condition']) unless map['Condition'].nil?)
+        data.target = (DocumentAttributeTarget.parse(map['Target']) unless map['Target'].nil?)
         data.document_content_deletion = map['DocumentContentDeletion']
         return data
       end
@@ -523,7 +523,7 @@ module AWS::SDK::Kendra
         data = Types::DocumentAttributeTarget.new
         data.target_document_attribute_key = map['TargetDocumentAttributeKey']
         data.target_document_attribute_value_deletion = map['TargetDocumentAttributeValueDeletion']
-        data.target_document_attribute_value = (Parsers::DocumentAttributeValue.parse(map['TargetDocumentAttributeValue']) unless map['TargetDocumentAttributeValue'].nil?)
+        data.target_document_attribute_value = (DocumentAttributeValue.parse(map['TargetDocumentAttributeValue']) unless map['TargetDocumentAttributeValue'].nil?)
         return data
       end
     end
@@ -531,22 +531,22 @@ module AWS::SDK::Kendra
     class DataSourceConfiguration
       def self.parse(map)
         data = Types::DataSourceConfiguration.new
-        data.s3_configuration = (Parsers::S3DataSourceConfiguration.parse(map['S3Configuration']) unless map['S3Configuration'].nil?)
-        data.share_point_configuration = (Parsers::SharePointConfiguration.parse(map['SharePointConfiguration']) unless map['SharePointConfiguration'].nil?)
-        data.database_configuration = (Parsers::DatabaseConfiguration.parse(map['DatabaseConfiguration']) unless map['DatabaseConfiguration'].nil?)
-        data.salesforce_configuration = (Parsers::SalesforceConfiguration.parse(map['SalesforceConfiguration']) unless map['SalesforceConfiguration'].nil?)
-        data.one_drive_configuration = (Parsers::OneDriveConfiguration.parse(map['OneDriveConfiguration']) unless map['OneDriveConfiguration'].nil?)
-        data.service_now_configuration = (Parsers::ServiceNowConfiguration.parse(map['ServiceNowConfiguration']) unless map['ServiceNowConfiguration'].nil?)
-        data.confluence_configuration = (Parsers::ConfluenceConfiguration.parse(map['ConfluenceConfiguration']) unless map['ConfluenceConfiguration'].nil?)
-        data.google_drive_configuration = (Parsers::GoogleDriveConfiguration.parse(map['GoogleDriveConfiguration']) unless map['GoogleDriveConfiguration'].nil?)
-        data.web_crawler_configuration = (Parsers::WebCrawlerConfiguration.parse(map['WebCrawlerConfiguration']) unless map['WebCrawlerConfiguration'].nil?)
-        data.work_docs_configuration = (Parsers::WorkDocsConfiguration.parse(map['WorkDocsConfiguration']) unless map['WorkDocsConfiguration'].nil?)
-        data.fsx_configuration = (Parsers::FsxConfiguration.parse(map['FsxConfiguration']) unless map['FsxConfiguration'].nil?)
-        data.slack_configuration = (Parsers::SlackConfiguration.parse(map['SlackConfiguration']) unless map['SlackConfiguration'].nil?)
-        data.box_configuration = (Parsers::BoxConfiguration.parse(map['BoxConfiguration']) unless map['BoxConfiguration'].nil?)
-        data.quip_configuration = (Parsers::QuipConfiguration.parse(map['QuipConfiguration']) unless map['QuipConfiguration'].nil?)
-        data.jira_configuration = (Parsers::JiraConfiguration.parse(map['JiraConfiguration']) unless map['JiraConfiguration'].nil?)
-        data.git_hub_configuration = (Parsers::GitHubConfiguration.parse(map['GitHubConfiguration']) unless map['GitHubConfiguration'].nil?)
+        data.s3_configuration = (S3DataSourceConfiguration.parse(map['S3Configuration']) unless map['S3Configuration'].nil?)
+        data.share_point_configuration = (SharePointConfiguration.parse(map['SharePointConfiguration']) unless map['SharePointConfiguration'].nil?)
+        data.database_configuration = (DatabaseConfiguration.parse(map['DatabaseConfiguration']) unless map['DatabaseConfiguration'].nil?)
+        data.salesforce_configuration = (SalesforceConfiguration.parse(map['SalesforceConfiguration']) unless map['SalesforceConfiguration'].nil?)
+        data.one_drive_configuration = (OneDriveConfiguration.parse(map['OneDriveConfiguration']) unless map['OneDriveConfiguration'].nil?)
+        data.service_now_configuration = (ServiceNowConfiguration.parse(map['ServiceNowConfiguration']) unless map['ServiceNowConfiguration'].nil?)
+        data.confluence_configuration = (ConfluenceConfiguration.parse(map['ConfluenceConfiguration']) unless map['ConfluenceConfiguration'].nil?)
+        data.google_drive_configuration = (GoogleDriveConfiguration.parse(map['GoogleDriveConfiguration']) unless map['GoogleDriveConfiguration'].nil?)
+        data.web_crawler_configuration = (WebCrawlerConfiguration.parse(map['WebCrawlerConfiguration']) unless map['WebCrawlerConfiguration'].nil?)
+        data.work_docs_configuration = (WorkDocsConfiguration.parse(map['WorkDocsConfiguration']) unless map['WorkDocsConfiguration'].nil?)
+        data.fsx_configuration = (FsxConfiguration.parse(map['FsxConfiguration']) unless map['FsxConfiguration'].nil?)
+        data.slack_configuration = (SlackConfiguration.parse(map['SlackConfiguration']) unless map['SlackConfiguration'].nil?)
+        data.box_configuration = (BoxConfiguration.parse(map['BoxConfiguration']) unless map['BoxConfiguration'].nil?)
+        data.quip_configuration = (QuipConfiguration.parse(map['QuipConfiguration']) unless map['QuipConfiguration'].nil?)
+        data.jira_configuration = (JiraConfiguration.parse(map['JiraConfiguration']) unless map['JiraConfiguration'].nil?)
+        data.git_hub_configuration = (GitHubConfiguration.parse(map['GitHubConfiguration']) unless map['GitHubConfiguration'].nil?)
         return data
       end
     end
@@ -554,28 +554,28 @@ module AWS::SDK::Kendra
     class GitHubConfiguration
       def self.parse(map)
         data = Types::GitHubConfiguration.new
-        data.saa_s_configuration = (Parsers::SaaSConfiguration.parse(map['SaaSConfiguration']) unless map['SaaSConfiguration'].nil?)
-        data.on_premise_configuration = (Parsers::OnPremiseConfiguration.parse(map['OnPremiseConfiguration']) unless map['OnPremiseConfiguration'].nil?)
+        data.saa_s_configuration = (SaaSConfiguration.parse(map['SaaSConfiguration']) unless map['SaaSConfiguration'].nil?)
+        data.on_premise_configuration = (OnPremiseConfiguration.parse(map['OnPremiseConfiguration']) unless map['OnPremiseConfiguration'].nil?)
         data.type = map['Type']
         data.secret_arn = map['SecretArn']
         data.use_change_log = map['UseChangeLog']
-        data.git_hub_document_crawl_properties = (Parsers::GitHubDocumentCrawlProperties.parse(map['GitHubDocumentCrawlProperties']) unless map['GitHubDocumentCrawlProperties'].nil?)
-        data.repository_filter = (Parsers::RepositoryNames.parse(map['RepositoryFilter']) unless map['RepositoryFilter'].nil?)
-        data.inclusion_folder_name_patterns = (Parsers::StringList.parse(map['InclusionFolderNamePatterns']) unless map['InclusionFolderNamePatterns'].nil?)
-        data.inclusion_file_type_patterns = (Parsers::StringList.parse(map['InclusionFileTypePatterns']) unless map['InclusionFileTypePatterns'].nil?)
-        data.inclusion_file_name_patterns = (Parsers::StringList.parse(map['InclusionFileNamePatterns']) unless map['InclusionFileNamePatterns'].nil?)
-        data.exclusion_folder_name_patterns = (Parsers::StringList.parse(map['ExclusionFolderNamePatterns']) unless map['ExclusionFolderNamePatterns'].nil?)
-        data.exclusion_file_type_patterns = (Parsers::StringList.parse(map['ExclusionFileTypePatterns']) unless map['ExclusionFileTypePatterns'].nil?)
-        data.exclusion_file_name_patterns = (Parsers::StringList.parse(map['ExclusionFileNamePatterns']) unless map['ExclusionFileNamePatterns'].nil?)
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
-        data.git_hub_repository_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubRepositoryConfigurationFieldMappings']) unless map['GitHubRepositoryConfigurationFieldMappings'].nil?)
-        data.git_hub_commit_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubCommitConfigurationFieldMappings']) unless map['GitHubCommitConfigurationFieldMappings'].nil?)
-        data.git_hub_issue_document_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubIssueDocumentConfigurationFieldMappings']) unless map['GitHubIssueDocumentConfigurationFieldMappings'].nil?)
-        data.git_hub_issue_comment_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubIssueCommentConfigurationFieldMappings']) unless map['GitHubIssueCommentConfigurationFieldMappings'].nil?)
-        data.git_hub_issue_attachment_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubIssueAttachmentConfigurationFieldMappings']) unless map['GitHubIssueAttachmentConfigurationFieldMappings'].nil?)
-        data.git_hub_pull_request_comment_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubPullRequestCommentConfigurationFieldMappings']) unless map['GitHubPullRequestCommentConfigurationFieldMappings'].nil?)
-        data.git_hub_pull_request_document_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubPullRequestDocumentConfigurationFieldMappings']) unless map['GitHubPullRequestDocumentConfigurationFieldMappings'].nil?)
-        data.git_hub_pull_request_document_attachment_configuration_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['GitHubPullRequestDocumentAttachmentConfigurationFieldMappings']) unless map['GitHubPullRequestDocumentAttachmentConfigurationFieldMappings'].nil?)
+        data.git_hub_document_crawl_properties = (GitHubDocumentCrawlProperties.parse(map['GitHubDocumentCrawlProperties']) unless map['GitHubDocumentCrawlProperties'].nil?)
+        data.repository_filter = (RepositoryNames.parse(map['RepositoryFilter']) unless map['RepositoryFilter'].nil?)
+        data.inclusion_folder_name_patterns = (StringList.parse(map['InclusionFolderNamePatterns']) unless map['InclusionFolderNamePatterns'].nil?)
+        data.inclusion_file_type_patterns = (StringList.parse(map['InclusionFileTypePatterns']) unless map['InclusionFileTypePatterns'].nil?)
+        data.inclusion_file_name_patterns = (StringList.parse(map['InclusionFileNamePatterns']) unless map['InclusionFileNamePatterns'].nil?)
+        data.exclusion_folder_name_patterns = (StringList.parse(map['ExclusionFolderNamePatterns']) unless map['ExclusionFolderNamePatterns'].nil?)
+        data.exclusion_file_type_patterns = (StringList.parse(map['ExclusionFileTypePatterns']) unless map['ExclusionFileTypePatterns'].nil?)
+        data.exclusion_file_name_patterns = (StringList.parse(map['ExclusionFileNamePatterns']) unless map['ExclusionFileNamePatterns'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.git_hub_repository_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubRepositoryConfigurationFieldMappings']) unless map['GitHubRepositoryConfigurationFieldMappings'].nil?)
+        data.git_hub_commit_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubCommitConfigurationFieldMappings']) unless map['GitHubCommitConfigurationFieldMappings'].nil?)
+        data.git_hub_issue_document_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubIssueDocumentConfigurationFieldMappings']) unless map['GitHubIssueDocumentConfigurationFieldMappings'].nil?)
+        data.git_hub_issue_comment_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubIssueCommentConfigurationFieldMappings']) unless map['GitHubIssueCommentConfigurationFieldMappings'].nil?)
+        data.git_hub_issue_attachment_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubIssueAttachmentConfigurationFieldMappings']) unless map['GitHubIssueAttachmentConfigurationFieldMappings'].nil?)
+        data.git_hub_pull_request_comment_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubPullRequestCommentConfigurationFieldMappings']) unless map['GitHubPullRequestCommentConfigurationFieldMappings'].nil?)
+        data.git_hub_pull_request_document_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubPullRequestDocumentConfigurationFieldMappings']) unless map['GitHubPullRequestDocumentConfigurationFieldMappings'].nil?)
+        data.git_hub_pull_request_document_attachment_configuration_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['GitHubPullRequestDocumentAttachmentConfigurationFieldMappings']) unless map['GitHubPullRequestDocumentAttachmentConfigurationFieldMappings'].nil?)
         return data
       end
     end
@@ -583,7 +583,7 @@ module AWS::SDK::Kendra
     class DataSourceToIndexFieldMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::DataSourceToIndexFieldMapping.parse(value) unless value.nil?
+          DataSourceToIndexFieldMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -601,8 +601,8 @@ module AWS::SDK::Kendra
     class DataSourceVpcConfiguration
       def self.parse(map)
         data = Types::DataSourceVpcConfiguration.new
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         return data
       end
     end
@@ -658,7 +658,7 @@ module AWS::SDK::Kendra
         data = Types::OnPremiseConfiguration.new
         data.host_url = map['HostUrl']
         data.organization_name = map['OrganizationName']
-        data.ssl_certificate_s3_path = (Parsers::S3Path.parse(map['SslCertificateS3Path']) unless map['SslCertificateS3Path'].nil?)
+        data.ssl_certificate_s3_path = (S3Path.parse(map['SslCertificateS3Path']) unless map['SslCertificateS3Path'].nil?)
         return data
       end
     end
@@ -687,18 +687,18 @@ module AWS::SDK::Kendra
         data.jira_account_url = map['JiraAccountUrl']
         data.secret_arn = map['SecretArn']
         data.use_change_log = map['UseChangeLog']
-        data.project = (Parsers::Project.parse(map['Project']) unless map['Project'].nil?)
-        data.issue_type = (Parsers::IssueType.parse(map['IssueType']) unless map['IssueType'].nil?)
-        data.status = (Parsers::JiraStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.issue_sub_entity_filter = (Parsers::IssueSubEntityFilter.parse(map['IssueSubEntityFilter']) unless map['IssueSubEntityFilter'].nil?)
-        data.attachment_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['AttachmentFieldMappings']) unless map['AttachmentFieldMappings'].nil?)
-        data.comment_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['CommentFieldMappings']) unless map['CommentFieldMappings'].nil?)
-        data.issue_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['IssueFieldMappings']) unless map['IssueFieldMappings'].nil?)
-        data.project_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['ProjectFieldMappings']) unless map['ProjectFieldMappings'].nil?)
-        data.work_log_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['WorkLogFieldMappings']) unless map['WorkLogFieldMappings'].nil?)
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.project = (Project.parse(map['Project']) unless map['Project'].nil?)
+        data.issue_type = (IssueType.parse(map['IssueType']) unless map['IssueType'].nil?)
+        data.status = (JiraStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.issue_sub_entity_filter = (IssueSubEntityFilter.parse(map['IssueSubEntityFilter']) unless map['IssueSubEntityFilter'].nil?)
+        data.attachment_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['AttachmentFieldMappings']) unless map['AttachmentFieldMappings'].nil?)
+        data.comment_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['CommentFieldMappings']) unless map['CommentFieldMappings'].nil?)
+        data.issue_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['IssueFieldMappings']) unless map['IssueFieldMappings'].nil?)
+        data.project_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['ProjectFieldMappings']) unless map['ProjectFieldMappings'].nil?)
+        data.work_log_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['WorkLogFieldMappings']) unless map['WorkLogFieldMappings'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         return data
       end
     end
@@ -751,13 +751,13 @@ module AWS::SDK::Kendra
         data.crawl_file_comments = map['CrawlFileComments']
         data.crawl_chat_rooms = map['CrawlChatRooms']
         data.crawl_attachments = map['CrawlAttachments']
-        data.folder_ids = (Parsers::FolderIdList.parse(map['FolderIds']) unless map['FolderIds'].nil?)
-        data.thread_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['ThreadFieldMappings']) unless map['ThreadFieldMappings'].nil?)
-        data.message_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['MessageFieldMappings']) unless map['MessageFieldMappings'].nil?)
-        data.attachment_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['AttachmentFieldMappings']) unless map['AttachmentFieldMappings'].nil?)
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.folder_ids = (FolderIdList.parse(map['FolderIds']) unless map['FolderIds'].nil?)
+        data.thread_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['ThreadFieldMappings']) unless map['ThreadFieldMappings'].nil?)
+        data.message_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['MessageFieldMappings']) unless map['MessageFieldMappings'].nil?)
+        data.attachment_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['AttachmentFieldMappings']) unless map['AttachmentFieldMappings'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         return data
       end
     end
@@ -779,13 +779,13 @@ module AWS::SDK::Kendra
         data.crawl_comments = map['CrawlComments']
         data.crawl_tasks = map['CrawlTasks']
         data.crawl_web_links = map['CrawlWebLinks']
-        data.file_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FileFieldMappings']) unless map['FileFieldMappings'].nil?)
-        data.task_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['TaskFieldMappings']) unless map['TaskFieldMappings'].nil?)
-        data.comment_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['CommentFieldMappings']) unless map['CommentFieldMappings'].nil?)
-        data.web_link_field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['WebLinkFieldMappings']) unless map['WebLinkFieldMappings'].nil?)
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.file_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FileFieldMappings']) unless map['FileFieldMappings'].nil?)
+        data.task_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['TaskFieldMappings']) unless map['TaskFieldMappings'].nil?)
+        data.comment_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['CommentFieldMappings']) unless map['CommentFieldMappings'].nil?)
+        data.web_link_field_mappings = (DataSourceToIndexFieldMappingList.parse(map['WebLinkFieldMappings']) unless map['WebLinkFieldMappings'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         return data
       end
     end
@@ -795,18 +795,18 @@ module AWS::SDK::Kendra
         data = Types::SlackConfiguration.new
         data.team_id = map['TeamId']
         data.secret_arn = map['SecretArn']
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
-        data.slack_entity_list = (Parsers::SlackEntityList.parse(map['SlackEntityList']) unless map['SlackEntityList'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.slack_entity_list = (SlackEntityList.parse(map['SlackEntityList']) unless map['SlackEntityList'].nil?)
         data.use_change_log = map['UseChangeLog']
         data.crawl_bot_message = map['CrawlBotMessage']
         data.exclude_archived = map['ExcludeArchived']
         data.since_crawl_date = map['SinceCrawlDate']
         data.look_back_period = map['LookBackPeriod']
-        data.private_channel_filter = (Parsers::PrivateChannelFilter.parse(map['PrivateChannelFilter']) unless map['PrivateChannelFilter'].nil?)
-        data.public_channel_filter = (Parsers::PublicChannelFilter.parse(map['PublicChannelFilter']) unless map['PublicChannelFilter'].nil?)
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.private_channel_filter = (PrivateChannelFilter.parse(map['PrivateChannelFilter']) unless map['PrivateChannelFilter'].nil?)
+        data.public_channel_filter = (PublicChannelFilter.parse(map['PublicChannelFilter']) unless map['PublicChannelFilter'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -840,11 +840,11 @@ module AWS::SDK::Kendra
         data = Types::FsxConfiguration.new
         data.file_system_id = map['FileSystemId']
         data.file_system_type = map['FileSystemType']
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         data.secret_arn = map['SecretArn']
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -855,9 +855,9 @@ module AWS::SDK::Kendra
         data.organization_id = map['OrganizationId']
         data.crawl_comments = map['CrawlComments']
         data.use_change_log = map['UseChangeLog']
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -865,15 +865,15 @@ module AWS::SDK::Kendra
     class WebCrawlerConfiguration
       def self.parse(map)
         data = Types::WebCrawlerConfiguration.new
-        data.urls = (Parsers::Urls.parse(map['Urls']) unless map['Urls'].nil?)
+        data.urls = (Urls.parse(map['Urls']) unless map['Urls'].nil?)
         data.crawl_depth = map['CrawlDepth']
         data.max_links_per_page = map['MaxLinksPerPage']
         data.max_content_size_per_page_in_mega_bytes = Hearth::NumberHelper.deserialize(map['MaxContentSizePerPageInMegaBytes'])
         data.max_urls_per_minute_crawl_rate = map['MaxUrlsPerMinuteCrawlRate']
-        data.url_inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['UrlInclusionPatterns']) unless map['UrlInclusionPatterns'].nil?)
-        data.url_exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['UrlExclusionPatterns']) unless map['UrlExclusionPatterns'].nil?)
-        data.proxy_configuration = (Parsers::ProxyConfiguration.parse(map['ProxyConfiguration']) unless map['ProxyConfiguration'].nil?)
-        data.authentication_configuration = (Parsers::AuthenticationConfiguration.parse(map['AuthenticationConfiguration']) unless map['AuthenticationConfiguration'].nil?)
+        data.url_inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['UrlInclusionPatterns']) unless map['UrlInclusionPatterns'].nil?)
+        data.url_exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['UrlExclusionPatterns']) unless map['UrlExclusionPatterns'].nil?)
+        data.proxy_configuration = (ProxyConfiguration.parse(map['ProxyConfiguration']) unless map['ProxyConfiguration'].nil?)
+        data.authentication_configuration = (AuthenticationConfiguration.parse(map['AuthenticationConfiguration']) unless map['AuthenticationConfiguration'].nil?)
         return data
       end
     end
@@ -881,7 +881,7 @@ module AWS::SDK::Kendra
     class AuthenticationConfiguration
       def self.parse(map)
         data = Types::AuthenticationConfiguration.new
-        data.basic_authentication = (Parsers::BasicAuthenticationConfigurationList.parse(map['BasicAuthentication']) unless map['BasicAuthentication'].nil?)
+        data.basic_authentication = (BasicAuthenticationConfigurationList.parse(map['BasicAuthentication']) unless map['BasicAuthentication'].nil?)
         return data
       end
     end
@@ -889,7 +889,7 @@ module AWS::SDK::Kendra
     class BasicAuthenticationConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::BasicAuthenticationConfiguration.parse(value) unless value.nil?
+          BasicAuthenticationConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -917,8 +917,8 @@ module AWS::SDK::Kendra
     class Urls
       def self.parse(map)
         data = Types::Urls.new
-        data.seed_url_configuration = (Parsers::SeedUrlConfiguration.parse(map['SeedUrlConfiguration']) unless map['SeedUrlConfiguration'].nil?)
-        data.site_maps_configuration = (Parsers::SiteMapsConfiguration.parse(map['SiteMapsConfiguration']) unless map['SiteMapsConfiguration'].nil?)
+        data.seed_url_configuration = (SeedUrlConfiguration.parse(map['SeedUrlConfiguration']) unless map['SeedUrlConfiguration'].nil?)
+        data.site_maps_configuration = (SiteMapsConfiguration.parse(map['SiteMapsConfiguration']) unless map['SiteMapsConfiguration'].nil?)
         return data
       end
     end
@@ -926,7 +926,7 @@ module AWS::SDK::Kendra
     class SiteMapsConfiguration
       def self.parse(map)
         data = Types::SiteMapsConfiguration.new
-        data.site_maps = (Parsers::SiteMapsList.parse(map['SiteMaps']) unless map['SiteMaps'].nil?)
+        data.site_maps = (SiteMapsList.parse(map['SiteMaps']) unless map['SiteMaps'].nil?)
         return data
       end
     end
@@ -942,7 +942,7 @@ module AWS::SDK::Kendra
     class SeedUrlConfiguration
       def self.parse(map)
         data = Types::SeedUrlConfiguration.new
-        data.seed_urls = (Parsers::SeedUrlList.parse(map['SeedUrls']) unless map['SeedUrls'].nil?)
+        data.seed_urls = (SeedUrlList.parse(map['SeedUrls']) unless map['SeedUrls'].nil?)
         data.web_crawler_mode = map['WebCrawlerMode']
         return data
       end
@@ -960,12 +960,12 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::GoogleDriveConfiguration.new
         data.secret_arn = map['SecretArn']
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
-        data.exclude_mime_types = (Parsers::ExcludeMimeTypesList.parse(map['ExcludeMimeTypes']) unless map['ExcludeMimeTypes'].nil?)
-        data.exclude_user_accounts = (Parsers::ExcludeUserAccountsList.parse(map['ExcludeUserAccounts']) unless map['ExcludeUserAccounts'].nil?)
-        data.exclude_shared_drives = (Parsers::ExcludeSharedDrivesList.parse(map['ExcludeSharedDrives']) unless map['ExcludeSharedDrives'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.exclude_mime_types = (ExcludeMimeTypesList.parse(map['ExcludeMimeTypes']) unless map['ExcludeMimeTypes'].nil?)
+        data.exclude_user_accounts = (ExcludeUserAccountsList.parse(map['ExcludeUserAccounts']) unless map['ExcludeUserAccounts'].nil?)
+        data.exclude_shared_drives = (ExcludeSharedDrivesList.parse(map['ExcludeSharedDrives']) unless map['ExcludeSharedDrives'].nil?)
         return data
       end
     end
@@ -1000,13 +1000,13 @@ module AWS::SDK::Kendra
         data.server_url = map['ServerUrl']
         data.secret_arn = map['SecretArn']
         data.version = map['Version']
-        data.space_configuration = (Parsers::ConfluenceSpaceConfiguration.parse(map['SpaceConfiguration']) unless map['SpaceConfiguration'].nil?)
-        data.page_configuration = (Parsers::ConfluencePageConfiguration.parse(map['PageConfiguration']) unless map['PageConfiguration'].nil?)
-        data.blog_configuration = (Parsers::ConfluenceBlogConfiguration.parse(map['BlogConfiguration']) unless map['BlogConfiguration'].nil?)
-        data.attachment_configuration = (Parsers::ConfluenceAttachmentConfiguration.parse(map['AttachmentConfiguration']) unless map['AttachmentConfiguration'].nil?)
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.space_configuration = (ConfluenceSpaceConfiguration.parse(map['SpaceConfiguration']) unless map['SpaceConfiguration'].nil?)
+        data.page_configuration = (ConfluencePageConfiguration.parse(map['PageConfiguration']) unless map['PageConfiguration'].nil?)
+        data.blog_configuration = (ConfluenceBlogConfiguration.parse(map['BlogConfiguration']) unless map['BlogConfiguration'].nil?)
+        data.attachment_configuration = (ConfluenceAttachmentConfiguration.parse(map['AttachmentConfiguration']) unless map['AttachmentConfiguration'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
         return data
       end
     end
@@ -1015,7 +1015,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::ConfluenceAttachmentConfiguration.new
         data.crawl_attachments = map['CrawlAttachments']
-        data.attachment_field_mappings = (Parsers::ConfluenceAttachmentFieldMappingsList.parse(map['AttachmentFieldMappings']) unless map['AttachmentFieldMappings'].nil?)
+        data.attachment_field_mappings = (ConfluenceAttachmentFieldMappingsList.parse(map['AttachmentFieldMappings']) unless map['AttachmentFieldMappings'].nil?)
         return data
       end
     end
@@ -1023,7 +1023,7 @@ module AWS::SDK::Kendra
     class ConfluenceAttachmentFieldMappingsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfluenceAttachmentToIndexFieldMapping.parse(value) unless value.nil?
+          ConfluenceAttachmentToIndexFieldMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -1041,7 +1041,7 @@ module AWS::SDK::Kendra
     class ConfluenceBlogConfiguration
       def self.parse(map)
         data = Types::ConfluenceBlogConfiguration.new
-        data.blog_field_mappings = (Parsers::ConfluenceBlogFieldMappingsList.parse(map['BlogFieldMappings']) unless map['BlogFieldMappings'].nil?)
+        data.blog_field_mappings = (ConfluenceBlogFieldMappingsList.parse(map['BlogFieldMappings']) unless map['BlogFieldMappings'].nil?)
         return data
       end
     end
@@ -1049,7 +1049,7 @@ module AWS::SDK::Kendra
     class ConfluenceBlogFieldMappingsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfluenceBlogToIndexFieldMapping.parse(value) unless value.nil?
+          ConfluenceBlogToIndexFieldMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -1067,7 +1067,7 @@ module AWS::SDK::Kendra
     class ConfluencePageConfiguration
       def self.parse(map)
         data = Types::ConfluencePageConfiguration.new
-        data.page_field_mappings = (Parsers::ConfluencePageFieldMappingsList.parse(map['PageFieldMappings']) unless map['PageFieldMappings'].nil?)
+        data.page_field_mappings = (ConfluencePageFieldMappingsList.parse(map['PageFieldMappings']) unless map['PageFieldMappings'].nil?)
         return data
       end
     end
@@ -1075,7 +1075,7 @@ module AWS::SDK::Kendra
     class ConfluencePageFieldMappingsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfluencePageToIndexFieldMapping.parse(value) unless value.nil?
+          ConfluencePageToIndexFieldMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -1095,9 +1095,9 @@ module AWS::SDK::Kendra
         data = Types::ConfluenceSpaceConfiguration.new
         data.crawl_personal_spaces = map['CrawlPersonalSpaces']
         data.crawl_archived_spaces = map['CrawlArchivedSpaces']
-        data.include_spaces = (Parsers::ConfluenceSpaceList.parse(map['IncludeSpaces']) unless map['IncludeSpaces'].nil?)
-        data.exclude_spaces = (Parsers::ConfluenceSpaceList.parse(map['ExcludeSpaces']) unless map['ExcludeSpaces'].nil?)
-        data.space_field_mappings = (Parsers::ConfluenceSpaceFieldMappingsList.parse(map['SpaceFieldMappings']) unless map['SpaceFieldMappings'].nil?)
+        data.include_spaces = (ConfluenceSpaceList.parse(map['IncludeSpaces']) unless map['IncludeSpaces'].nil?)
+        data.exclude_spaces = (ConfluenceSpaceList.parse(map['ExcludeSpaces']) unless map['ExcludeSpaces'].nil?)
+        data.space_field_mappings = (ConfluenceSpaceFieldMappingsList.parse(map['SpaceFieldMappings']) unless map['SpaceFieldMappings'].nil?)
         return data
       end
     end
@@ -1105,7 +1105,7 @@ module AWS::SDK::Kendra
     class ConfluenceSpaceFieldMappingsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfluenceSpaceToIndexFieldMapping.parse(value) unless value.nil?
+          ConfluenceSpaceToIndexFieldMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -1134,8 +1134,8 @@ module AWS::SDK::Kendra
         data.host_url = map['HostUrl']
         data.secret_arn = map['SecretArn']
         data.service_now_build_version = map['ServiceNowBuildVersion']
-        data.knowledge_article_configuration = (Parsers::ServiceNowKnowledgeArticleConfiguration.parse(map['KnowledgeArticleConfiguration']) unless map['KnowledgeArticleConfiguration'].nil?)
-        data.service_catalog_configuration = (Parsers::ServiceNowServiceCatalogConfiguration.parse(map['ServiceCatalogConfiguration']) unless map['ServiceCatalogConfiguration'].nil?)
+        data.knowledge_article_configuration = (ServiceNowKnowledgeArticleConfiguration.parse(map['KnowledgeArticleConfiguration']) unless map['KnowledgeArticleConfiguration'].nil?)
+        data.service_catalog_configuration = (ServiceNowServiceCatalogConfiguration.parse(map['ServiceCatalogConfiguration']) unless map['ServiceCatalogConfiguration'].nil?)
         data.authentication_type = map['AuthenticationType']
         return data
       end
@@ -1145,11 +1145,11 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::ServiceNowServiceCatalogConfiguration.new
         data.crawl_attachments = map['CrawlAttachments']
-        data.include_attachment_file_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['IncludeAttachmentFilePatterns']) unless map['IncludeAttachmentFilePatterns'].nil?)
-        data.exclude_attachment_file_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExcludeAttachmentFilePatterns']) unless map['ExcludeAttachmentFilePatterns'].nil?)
+        data.include_attachment_file_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['IncludeAttachmentFilePatterns']) unless map['IncludeAttachmentFilePatterns'].nil?)
+        data.exclude_attachment_file_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExcludeAttachmentFilePatterns']) unless map['ExcludeAttachmentFilePatterns'].nil?)
         data.document_data_field_name = map['DocumentDataFieldName']
         data.document_title_field_name = map['DocumentTitleFieldName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -1158,11 +1158,11 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::ServiceNowKnowledgeArticleConfiguration.new
         data.crawl_attachments = map['CrawlAttachments']
-        data.include_attachment_file_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['IncludeAttachmentFilePatterns']) unless map['IncludeAttachmentFilePatterns'].nil?)
-        data.exclude_attachment_file_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExcludeAttachmentFilePatterns']) unless map['ExcludeAttachmentFilePatterns'].nil?)
+        data.include_attachment_file_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['IncludeAttachmentFilePatterns']) unless map['IncludeAttachmentFilePatterns'].nil?)
+        data.exclude_attachment_file_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExcludeAttachmentFilePatterns']) unless map['ExcludeAttachmentFilePatterns'].nil?)
         data.document_data_field_name = map['DocumentDataFieldName']
         data.document_title_field_name = map['DocumentTitleFieldName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         data.filter_query = map['FilterQuery']
         return data
       end
@@ -1173,10 +1173,10 @@ module AWS::SDK::Kendra
         data = Types::OneDriveConfiguration.new
         data.tenant_domain = map['TenantDomain']
         data.secret_arn = map['SecretArn']
-        data.one_drive_users = (Parsers::OneDriveUsers.parse(map['OneDriveUsers']) unless map['OneDriveUsers'].nil?)
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.one_drive_users = (OneDriveUsers.parse(map['OneDriveUsers']) unless map['OneDriveUsers'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         data.disable_local_groups = map['DisableLocalGroups']
         return data
       end
@@ -1185,8 +1185,8 @@ module AWS::SDK::Kendra
     class OneDriveUsers
       def self.parse(map)
         data = Types::OneDriveUsers.new
-        data.one_drive_user_list = (Parsers::OneDriveUserList.parse(map['OneDriveUserList']) unless map['OneDriveUserList'].nil?)
-        data.one_drive_user_s3_path = (Parsers::S3Path.parse(map['OneDriveUserS3Path']) unless map['OneDriveUserS3Path'].nil?)
+        data.one_drive_user_list = (OneDriveUserList.parse(map['OneDriveUserList']) unless map['OneDriveUserList'].nil?)
+        data.one_drive_user_s3_path = (S3Path.parse(map['OneDriveUserS3Path']) unless map['OneDriveUserS3Path'].nil?)
         return data
       end
     end
@@ -1204,13 +1204,13 @@ module AWS::SDK::Kendra
         data = Types::SalesforceConfiguration.new
         data.server_url = map['ServerUrl']
         data.secret_arn = map['SecretArn']
-        data.standard_object_configurations = (Parsers::SalesforceStandardObjectConfigurationList.parse(map['StandardObjectConfigurations']) unless map['StandardObjectConfigurations'].nil?)
-        data.knowledge_article_configuration = (Parsers::SalesforceKnowledgeArticleConfiguration.parse(map['KnowledgeArticleConfiguration']) unless map['KnowledgeArticleConfiguration'].nil?)
-        data.chatter_feed_configuration = (Parsers::SalesforceChatterFeedConfiguration.parse(map['ChatterFeedConfiguration']) unless map['ChatterFeedConfiguration'].nil?)
+        data.standard_object_configurations = (SalesforceStandardObjectConfigurationList.parse(map['StandardObjectConfigurations']) unless map['StandardObjectConfigurations'].nil?)
+        data.knowledge_article_configuration = (SalesforceKnowledgeArticleConfiguration.parse(map['KnowledgeArticleConfiguration']) unless map['KnowledgeArticleConfiguration'].nil?)
+        data.chatter_feed_configuration = (SalesforceChatterFeedConfiguration.parse(map['ChatterFeedConfiguration']) unless map['ChatterFeedConfiguration'].nil?)
         data.crawl_attachments = map['CrawlAttachments']
-        data.standard_object_attachment_configuration = (Parsers::SalesforceStandardObjectAttachmentConfiguration.parse(map['StandardObjectAttachmentConfiguration']) unless map['StandardObjectAttachmentConfiguration'].nil?)
-        data.include_attachment_file_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['IncludeAttachmentFilePatterns']) unless map['IncludeAttachmentFilePatterns'].nil?)
-        data.exclude_attachment_file_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExcludeAttachmentFilePatterns']) unless map['ExcludeAttachmentFilePatterns'].nil?)
+        data.standard_object_attachment_configuration = (SalesforceStandardObjectAttachmentConfiguration.parse(map['StandardObjectAttachmentConfiguration']) unless map['StandardObjectAttachmentConfiguration'].nil?)
+        data.include_attachment_file_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['IncludeAttachmentFilePatterns']) unless map['IncludeAttachmentFilePatterns'].nil?)
+        data.exclude_attachment_file_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExcludeAttachmentFilePatterns']) unless map['ExcludeAttachmentFilePatterns'].nil?)
         return data
       end
     end
@@ -1219,7 +1219,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::SalesforceStandardObjectAttachmentConfiguration.new
         data.document_title_field_name = map['DocumentTitleFieldName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -1229,8 +1229,8 @@ module AWS::SDK::Kendra
         data = Types::SalesforceChatterFeedConfiguration.new
         data.document_data_field_name = map['DocumentDataFieldName']
         data.document_title_field_name = map['DocumentTitleFieldName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
-        data.include_filter_types = (Parsers::SalesforceChatterFeedIncludeFilterTypes.parse(map['IncludeFilterTypes']) unless map['IncludeFilterTypes'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.include_filter_types = (SalesforceChatterFeedIncludeFilterTypes.parse(map['IncludeFilterTypes']) unless map['IncludeFilterTypes'].nil?)
         return data
       end
     end
@@ -1246,9 +1246,9 @@ module AWS::SDK::Kendra
     class SalesforceKnowledgeArticleConfiguration
       def self.parse(map)
         data = Types::SalesforceKnowledgeArticleConfiguration.new
-        data.included_states = (Parsers::SalesforceKnowledgeArticleStateList.parse(map['IncludedStates']) unless map['IncludedStates'].nil?)
-        data.standard_knowledge_article_type_configuration = (Parsers::SalesforceStandardKnowledgeArticleTypeConfiguration.parse(map['StandardKnowledgeArticleTypeConfiguration']) unless map['StandardKnowledgeArticleTypeConfiguration'].nil?)
-        data.custom_knowledge_article_type_configurations = (Parsers::SalesforceCustomKnowledgeArticleTypeConfigurationList.parse(map['CustomKnowledgeArticleTypeConfigurations']) unless map['CustomKnowledgeArticleTypeConfigurations'].nil?)
+        data.included_states = (SalesforceKnowledgeArticleStateList.parse(map['IncludedStates']) unless map['IncludedStates'].nil?)
+        data.standard_knowledge_article_type_configuration = (SalesforceStandardKnowledgeArticleTypeConfiguration.parse(map['StandardKnowledgeArticleTypeConfiguration']) unless map['StandardKnowledgeArticleTypeConfiguration'].nil?)
+        data.custom_knowledge_article_type_configurations = (SalesforceCustomKnowledgeArticleTypeConfigurationList.parse(map['CustomKnowledgeArticleTypeConfigurations']) unless map['CustomKnowledgeArticleTypeConfigurations'].nil?)
         return data
       end
     end
@@ -1256,7 +1256,7 @@ module AWS::SDK::Kendra
     class SalesforceCustomKnowledgeArticleTypeConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::SalesforceCustomKnowledgeArticleTypeConfiguration.parse(value) unless value.nil?
+          SalesforceCustomKnowledgeArticleTypeConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1267,7 +1267,7 @@ module AWS::SDK::Kendra
         data.name = map['Name']
         data.document_data_field_name = map['DocumentDataFieldName']
         data.document_title_field_name = map['DocumentTitleFieldName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -1277,7 +1277,7 @@ module AWS::SDK::Kendra
         data = Types::SalesforceStandardKnowledgeArticleTypeConfiguration.new
         data.document_data_field_name = map['DocumentDataFieldName']
         data.document_title_field_name = map['DocumentTitleFieldName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -1293,7 +1293,7 @@ module AWS::SDK::Kendra
     class SalesforceStandardObjectConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::SalesforceStandardObjectConfiguration.parse(value) unless value.nil?
+          SalesforceStandardObjectConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1304,7 +1304,7 @@ module AWS::SDK::Kendra
         data.name = map['Name']
         data.document_data_field_name = map['DocumentDataFieldName']
         data.document_title_field_name = map['DocumentTitleFieldName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         return data
       end
     end
@@ -1313,11 +1313,11 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::DatabaseConfiguration.new
         data.database_engine_type = map['DatabaseEngineType']
-        data.connection_configuration = (Parsers::ConnectionConfiguration.parse(map['ConnectionConfiguration']) unless map['ConnectionConfiguration'].nil?)
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
-        data.column_configuration = (Parsers::ColumnConfiguration.parse(map['ColumnConfiguration']) unless map['ColumnConfiguration'].nil?)
-        data.acl_configuration = (Parsers::AclConfiguration.parse(map['AclConfiguration']) unless map['AclConfiguration'].nil?)
-        data.sql_configuration = (Parsers::SqlConfiguration.parse(map['SqlConfiguration']) unless map['SqlConfiguration'].nil?)
+        data.connection_configuration = (ConnectionConfiguration.parse(map['ConnectionConfiguration']) unless map['ConnectionConfiguration'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.column_configuration = (ColumnConfiguration.parse(map['ColumnConfiguration']) unless map['ColumnConfiguration'].nil?)
+        data.acl_configuration = (AclConfiguration.parse(map['AclConfiguration']) unless map['AclConfiguration'].nil?)
+        data.sql_configuration = (SqlConfiguration.parse(map['SqlConfiguration']) unless map['SqlConfiguration'].nil?)
         return data
       end
     end
@@ -1344,8 +1344,8 @@ module AWS::SDK::Kendra
         data.document_id_column_name = map['DocumentIdColumnName']
         data.document_data_column_name = map['DocumentDataColumnName']
         data.document_title_column_name = map['DocumentTitleColumnName']
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
-        data.change_detecting_columns = (Parsers::ChangeDetectingColumns.parse(map['ChangeDetectingColumns']) unless map['ChangeDetectingColumns'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.change_detecting_columns = (ChangeDetectingColumns.parse(map['ChangeDetectingColumns']) unless map['ChangeDetectingColumns'].nil?)
         return data
       end
     end
@@ -1374,17 +1374,17 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::SharePointConfiguration.new
         data.share_point_version = map['SharePointVersion']
-        data.urls = (Parsers::SharePointUrlList.parse(map['Urls']) unless map['Urls'].nil?)
+        data.urls = (SharePointUrlList.parse(map['Urls']) unless map['Urls'].nil?)
         data.secret_arn = map['SecretArn']
         data.crawl_attachments = map['CrawlAttachments']
         data.use_change_log = map['UseChangeLog']
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.vpc_configuration = (Parsers::DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
-        data.field_mappings = (Parsers::DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.vpc_configuration = (DataSourceVpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.field_mappings = (DataSourceToIndexFieldMappingList.parse(map['FieldMappings']) unless map['FieldMappings'].nil?)
         data.document_title_field_name = map['DocumentTitleFieldName']
         data.disable_local_groups = map['DisableLocalGroups']
-        data.ssl_certificate_s3_path = (Parsers::S3Path.parse(map['SslCertificateS3Path']) unless map['SslCertificateS3Path'].nil?)
+        data.ssl_certificate_s3_path = (S3Path.parse(map['SslCertificateS3Path']) unless map['SslCertificateS3Path'].nil?)
         return data
       end
     end
@@ -1401,11 +1401,11 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::S3DataSourceConfiguration.new
         data.bucket_name = map['BucketName']
-        data.inclusion_prefixes = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPrefixes']) unless map['InclusionPrefixes'].nil?)
-        data.inclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
-        data.exclusion_patterns = (Parsers::DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
-        data.documents_metadata_configuration = (Parsers::DocumentsMetadataConfiguration.parse(map['DocumentsMetadataConfiguration']) unless map['DocumentsMetadataConfiguration'].nil?)
-        data.access_control_list_configuration = (Parsers::AccessControlListConfiguration.parse(map['AccessControlListConfiguration']) unless map['AccessControlListConfiguration'].nil?)
+        data.inclusion_prefixes = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPrefixes']) unless map['InclusionPrefixes'].nil?)
+        data.inclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['InclusionPatterns']) unless map['InclusionPatterns'].nil?)
+        data.exclusion_patterns = (DataSourceInclusionsExclusionsStrings.parse(map['ExclusionPatterns']) unless map['ExclusionPatterns'].nil?)
+        data.documents_metadata_configuration = (DocumentsMetadataConfiguration.parse(map['DocumentsMetadataConfiguration']) unless map['DocumentsMetadataConfiguration'].nil?)
+        data.access_control_list_configuration = (AccessControlListConfiguration.parse(map['AccessControlListConfiguration']) unless map['AccessControlListConfiguration'].nil?)
         return data
       end
     end
@@ -1436,8 +1436,8 @@ module AWS::SDK::Kendra
         data.id = map['Id']
         data.index_id = map['IndexId']
         data.name = map['Name']
-        data.endpoints = (Parsers::ExperienceEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
-        data.configuration = (Parsers::ExperienceConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.endpoints = (ExperienceEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.configuration = (ExperienceConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
         data.description = map['Description']
@@ -1451,8 +1451,8 @@ module AWS::SDK::Kendra
     class ExperienceConfiguration
       def self.parse(map)
         data = Types::ExperienceConfiguration.new
-        data.content_source_configuration = (Parsers::ContentSourceConfiguration.parse(map['ContentSourceConfiguration']) unless map['ContentSourceConfiguration'].nil?)
-        data.user_identity_configuration = (Parsers::UserIdentityConfiguration.parse(map['UserIdentityConfiguration']) unless map['UserIdentityConfiguration'].nil?)
+        data.content_source_configuration = (ContentSourceConfiguration.parse(map['ContentSourceConfiguration']) unless map['ContentSourceConfiguration'].nil?)
+        data.user_identity_configuration = (UserIdentityConfiguration.parse(map['UserIdentityConfiguration']) unless map['UserIdentityConfiguration'].nil?)
         return data
       end
     end
@@ -1468,8 +1468,8 @@ module AWS::SDK::Kendra
     class ContentSourceConfiguration
       def self.parse(map)
         data = Types::ContentSourceConfiguration.new
-        data.data_source_ids = (Parsers::DataSourceIdList.parse(map['DataSourceIds']) unless map['DataSourceIds'].nil?)
-        data.faq_ids = (Parsers::FaqIdsList.parse(map['FaqIds']) unless map['FaqIds'].nil?)
+        data.data_source_ids = (DataSourceIdList.parse(map['DataSourceIds']) unless map['DataSourceIds'].nil?)
+        data.faq_ids = (FaqIdsList.parse(map['FaqIds']) unless map['FaqIds'].nil?)
         data.direct_put_content = map['DirectPutContent']
         return data
       end
@@ -1494,7 +1494,7 @@ module AWS::SDK::Kendra
     class ExperienceEndpoints
       def self.parse(list)
         list.map do |value|
-          Parsers::ExperienceEndpoint.parse(value) unless value.nil?
+          ExperienceEndpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -1521,7 +1521,7 @@ module AWS::SDK::Kendra
         data.description = map['Description']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.s3_path = (Parsers::S3Path.parse(map['S3Path']) unless map['S3Path'].nil?)
+        data.s3_path = (S3Path.parse(map['S3Path']) unless map['S3Path'].nil?)
         data.status = map['Status']
         data.role_arn = map['RoleArn']
         data.error_message = map['ErrorMessage']
@@ -1542,18 +1542,18 @@ module AWS::SDK::Kendra
         data.id = map['Id']
         data.edition = map['Edition']
         data.role_arn = map['RoleArn']
-        data.server_side_encryption_configuration = (Parsers::ServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
+        data.server_side_encryption_configuration = (ServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
         data.status = map['Status']
         data.description = map['Description']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.document_metadata_configurations = (Parsers::DocumentMetadataConfigurationList.parse(map['DocumentMetadataConfigurations']) unless map['DocumentMetadataConfigurations'].nil?)
-        data.index_statistics = (Parsers::IndexStatistics.parse(map['IndexStatistics']) unless map['IndexStatistics'].nil?)
+        data.document_metadata_configurations = (DocumentMetadataConfigurationList.parse(map['DocumentMetadataConfigurations']) unless map['DocumentMetadataConfigurations'].nil?)
+        data.index_statistics = (IndexStatistics.parse(map['IndexStatistics']) unless map['IndexStatistics'].nil?)
         data.error_message = map['ErrorMessage']
-        data.capacity_units = (Parsers::CapacityUnitsConfiguration.parse(map['CapacityUnits']) unless map['CapacityUnits'].nil?)
-        data.user_token_configurations = (Parsers::UserTokenConfigurationList.parse(map['UserTokenConfigurations']) unless map['UserTokenConfigurations'].nil?)
+        data.capacity_units = (CapacityUnitsConfiguration.parse(map['CapacityUnits']) unless map['CapacityUnits'].nil?)
+        data.user_token_configurations = (UserTokenConfigurationList.parse(map['UserTokenConfigurations']) unless map['UserTokenConfigurations'].nil?)
         data.user_context_policy = map['UserContextPolicy']
-        data.user_group_resolution_configuration = (Parsers::UserGroupResolutionConfiguration.parse(map['UserGroupResolutionConfiguration']) unless map['UserGroupResolutionConfiguration'].nil?)
+        data.user_group_resolution_configuration = (UserGroupResolutionConfiguration.parse(map['UserGroupResolutionConfiguration']) unless map['UserGroupResolutionConfiguration'].nil?)
         data
       end
     end
@@ -1569,7 +1569,7 @@ module AWS::SDK::Kendra
     class UserTokenConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserTokenConfiguration.parse(value) unless value.nil?
+          UserTokenConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1577,8 +1577,8 @@ module AWS::SDK::Kendra
     class UserTokenConfiguration
       def self.parse(map)
         data = Types::UserTokenConfiguration.new
-        data.jwt_token_type_configuration = (Parsers::JwtTokenTypeConfiguration.parse(map['JwtTokenTypeConfiguration']) unless map['JwtTokenTypeConfiguration'].nil?)
-        data.json_token_type_configuration = (Parsers::JsonTokenTypeConfiguration.parse(map['JsonTokenTypeConfiguration']) unless map['JsonTokenTypeConfiguration'].nil?)
+        data.jwt_token_type_configuration = (JwtTokenTypeConfiguration.parse(map['JwtTokenTypeConfiguration']) unless map['JwtTokenTypeConfiguration'].nil?)
+        data.json_token_type_configuration = (JsonTokenTypeConfiguration.parse(map['JsonTokenTypeConfiguration']) unless map['JsonTokenTypeConfiguration'].nil?)
         return data
       end
     end
@@ -1618,8 +1618,8 @@ module AWS::SDK::Kendra
     class IndexStatistics
       def self.parse(map)
         data = Types::IndexStatistics.new
-        data.faq_statistics = (Parsers::FaqStatistics.parse(map['FaqStatistics']) unless map['FaqStatistics'].nil?)
-        data.text_document_statistics = (Parsers::TextDocumentStatistics.parse(map['TextDocumentStatistics']) unless map['TextDocumentStatistics'].nil?)
+        data.faq_statistics = (FaqStatistics.parse(map['FaqStatistics']) unless map['FaqStatistics'].nil?)
+        data.text_document_statistics = (TextDocumentStatistics.parse(map['TextDocumentStatistics']) unless map['TextDocumentStatistics'].nil?)
         return data
       end
     end
@@ -1644,7 +1644,7 @@ module AWS::SDK::Kendra
     class DocumentMetadataConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentMetadataConfiguration.parse(value) unless value.nil?
+          DocumentMetadataConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1654,8 +1654,8 @@ module AWS::SDK::Kendra
         data = Types::DocumentMetadataConfiguration.new
         data.name = map['Name']
         data.type = map['Type']
-        data.relevance = (Parsers::Relevance.parse(map['Relevance']) unless map['Relevance'].nil?)
-        data.search = (Parsers::Search.parse(map['Search']) unless map['Search'].nil?)
+        data.relevance = (Relevance.parse(map['Relevance']) unless map['Relevance'].nil?)
+        data.search = (Search.parse(map['Search']) unless map['Search'].nil?)
         return data
       end
     end
@@ -1678,7 +1678,7 @@ module AWS::SDK::Kendra
         data.importance = map['Importance']
         data.duration = map['Duration']
         data.rank_order = map['RankOrder']
-        data.value_importance_map = (Parsers::ValueImportanceMap.parse(map['ValueImportanceMap']) unless map['ValueImportanceMap'].nil?)
+        data.value_importance_map = (ValueImportanceMap.parse(map['ValueImportanceMap']) unless map['ValueImportanceMap'].nil?)
         return data
       end
     end
@@ -1711,7 +1711,7 @@ module AWS::SDK::Kendra
         data.index_id = map['IndexId']
         data.data_source_id = map['DataSourceId']
         data.group_id = map['GroupId']
-        data.group_ordering_id_summaries = (Parsers::GroupOrderingIdSummaries.parse(map['GroupOrderingIdSummaries']) unless map['GroupOrderingIdSummaries'].nil?)
+        data.group_ordering_id_summaries = (GroupOrderingIdSummaries.parse(map['GroupOrderingIdSummaries']) unless map['GroupOrderingIdSummaries'].nil?)
         data
       end
     end
@@ -1719,7 +1719,7 @@ module AWS::SDK::Kendra
     class GroupOrderingIdSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::GroupOrderingIdSummary.parse(value) unless value.nil?
+          GroupOrderingIdSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1751,7 +1751,7 @@ module AWS::SDK::Kendra
         data.error_message = map['ErrorMessage']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.source_s3_path = (Parsers::S3Path.parse(map['SourceS3Path']) unless map['SourceS3Path'].nil?)
+        data.source_s3_path = (S3Path.parse(map['SourceS3Path']) unless map['SourceS3Path'].nil?)
         data.item_count = map['ItemCount']
         data.file_size_bytes = map['FileSizeBytes']
         data.role_arn = map['RoleArn']
@@ -1795,7 +1795,7 @@ module AWS::SDK::Kendra
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
         data.role_arn = map['RoleArn']
-        data.source_s3_path = (Parsers::S3Path.parse(map['SourceS3Path']) unless map['SourceS3Path'].nil?)
+        data.source_s3_path = (S3Path.parse(map['SourceS3Path']) unless map['SourceS3Path'].nil?)
         data.file_size_bytes = map['FileSizeBytes']
         data.term_count = map['TermCount']
         data.synonym_rule_count = map['SynonymRuleCount']
@@ -1810,7 +1810,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_entity_list = (Parsers::FailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
+        data.failed_entity_list = (FailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
         data
       end
     end
@@ -1822,7 +1822,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_entity_list = (Parsers::FailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
+        data.failed_entity_list = (FailedEntityList.parse(map['FailedEntityList']) unless map['FailedEntityList'].nil?)
         data
       end
     end
@@ -1835,7 +1835,7 @@ module AWS::SDK::Kendra
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.query_suggestions_id = map['QuerySuggestionsId']
-        data.suggestions = (Parsers::SuggestionList.parse(map['Suggestions']) unless map['Suggestions'].nil?)
+        data.suggestions = (SuggestionList.parse(map['Suggestions']) unless map['Suggestions'].nil?)
         data
       end
     end
@@ -1843,7 +1843,7 @@ module AWS::SDK::Kendra
     class SuggestionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Suggestion.parse(value) unless value.nil?
+          Suggestion.parse(value) unless value.nil?
         end
       end
     end
@@ -1852,7 +1852,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::Suggestion.new
         data.id = map['Id']
-        data.value = (Parsers::SuggestionValue.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (SuggestionValue.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -1860,7 +1860,7 @@ module AWS::SDK::Kendra
     class SuggestionValue
       def self.parse(map)
         data = Types::SuggestionValue.new
-        data.text = (Parsers::SuggestionTextWithHighlights.parse(map['Text']) unless map['Text'].nil?)
+        data.text = (SuggestionTextWithHighlights.parse(map['Text']) unless map['Text'].nil?)
         return data
       end
     end
@@ -1869,7 +1869,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::SuggestionTextWithHighlights.new
         data.text = map['Text']
-        data.highlights = (Parsers::SuggestionHighlightList.parse(map['Highlights']) unless map['Highlights'].nil?)
+        data.highlights = (SuggestionHighlightList.parse(map['Highlights']) unless map['Highlights'].nil?)
         return data
       end
     end
@@ -1877,7 +1877,7 @@ module AWS::SDK::Kendra
     class SuggestionHighlightList
       def self.parse(list)
         list.map do |value|
-          Parsers::SuggestionHighlight.parse(value) unless value.nil?
+          SuggestionHighlight.parse(value) unless value.nil?
         end
       end
     end
@@ -1898,9 +1898,9 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snap_shot_time_filter = (Parsers::TimeRange.parse(map['SnapShotTimeFilter']) unless map['SnapShotTimeFilter'].nil?)
-        data.snapshots_data_header = (Parsers::SnapshotsDataHeaderFields.parse(map['SnapshotsDataHeader']) unless map['SnapshotsDataHeader'].nil?)
-        data.snapshots_data = (Parsers::SnapshotsDataRecords.parse(map['SnapshotsData']) unless map['SnapshotsData'].nil?)
+        data.snap_shot_time_filter = (TimeRange.parse(map['SnapShotTimeFilter']) unless map['SnapShotTimeFilter'].nil?)
+        data.snapshots_data_header = (SnapshotsDataHeaderFields.parse(map['SnapshotsDataHeader']) unless map['SnapshotsDataHeader'].nil?)
+        data.snapshots_data = (SnapshotsDataRecords.parse(map['SnapshotsData']) unless map['SnapshotsData'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1909,7 +1909,7 @@ module AWS::SDK::Kendra
     class SnapshotsDataRecords
       def self.parse(list)
         list.map do |value|
-          Parsers::SnapshotsDataRecord.parse(value) unless value.nil?
+          SnapshotsDataRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -1958,7 +1958,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.history = (Parsers::DataSourceSyncJobHistoryList.parse(map['History']) unless map['History'].nil?)
+        data.history = (DataSourceSyncJobHistoryList.parse(map['History']) unless map['History'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1967,7 +1967,7 @@ module AWS::SDK::Kendra
     class DataSourceSyncJobHistoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::DataSourceSyncJob.parse(value) unless value.nil?
+          DataSourceSyncJob.parse(value) unless value.nil?
         end
       end
     end
@@ -1982,7 +1982,7 @@ module AWS::SDK::Kendra
         data.error_message = map['ErrorMessage']
         data.error_code = map['ErrorCode']
         data.data_source_error_code = map['DataSourceErrorCode']
-        data.metrics = (Parsers::DataSourceSyncJobMetrics.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.metrics = (DataSourceSyncJobMetrics.parse(map['Metrics']) unless map['Metrics'].nil?)
         return data
       end
     end
@@ -2006,7 +2006,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary_items = (Parsers::DataSourceSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
+        data.summary_items = (DataSourceSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2015,7 +2015,7 @@ module AWS::SDK::Kendra
     class DataSourceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::DataSourceSummary.parse(value) unless value.nil?
+          DataSourceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2041,7 +2041,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary_items = (Parsers::PersonasSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
+        data.summary_items = (PersonasSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2050,7 +2050,7 @@ module AWS::SDK::Kendra
     class PersonasSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PersonasSummary.parse(value) unless value.nil?
+          PersonasSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2073,7 +2073,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary_items = (Parsers::ExperienceEntitiesSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
+        data.summary_items = (ExperienceEntitiesSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2082,7 +2082,7 @@ module AWS::SDK::Kendra
     class ExperienceEntitiesSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExperienceEntitiesSummary.parse(value) unless value.nil?
+          ExperienceEntitiesSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2092,7 +2092,7 @@ module AWS::SDK::Kendra
         data = Types::ExperienceEntitiesSummary.new
         data.entity_id = map['EntityId']
         data.entity_type = map['EntityType']
-        data.display_data = (Parsers::EntityDisplayData.parse(map['DisplayData']) unless map['DisplayData'].nil?)
+        data.display_data = (EntityDisplayData.parse(map['DisplayData']) unless map['DisplayData'].nil?)
         return data
       end
     end
@@ -2116,7 +2116,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary_items = (Parsers::ExperiencesSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
+        data.summary_items = (ExperiencesSummaryList.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2125,7 +2125,7 @@ module AWS::SDK::Kendra
     class ExperiencesSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExperiencesSummary.parse(value) unless value.nil?
+          ExperiencesSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2137,7 +2137,7 @@ module AWS::SDK::Kendra
         data.id = map['Id']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.status = map['Status']
-        data.endpoints = (Parsers::ExperienceEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (ExperienceEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         return data
       end
     end
@@ -2150,7 +2150,7 @@ module AWS::SDK::Kendra
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.faq_summary_items = (Parsers::FaqSummaryItems.parse(map['FaqSummaryItems']) unless map['FaqSummaryItems'].nil?)
+        data.faq_summary_items = (FaqSummaryItems.parse(map['FaqSummaryItems']) unless map['FaqSummaryItems'].nil?)
         data
       end
     end
@@ -2158,7 +2158,7 @@ module AWS::SDK::Kendra
     class FaqSummaryItems
       def self.parse(list)
         list.map do |value|
-          Parsers::FaqSummary.parse(value) unless value.nil?
+          FaqSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2184,7 +2184,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.groups_summaries = (Parsers::ListOfGroupSummaries.parse(map['GroupsSummaries']) unless map['GroupsSummaries'].nil?)
+        data.groups_summaries = (ListOfGroupSummaries.parse(map['GroupsSummaries']) unless map['GroupsSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2193,7 +2193,7 @@ module AWS::SDK::Kendra
     class ListOfGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::GroupSummary.parse(value) unless value.nil?
+          GroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2214,7 +2214,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.index_configuration_summary_items = (Parsers::IndexConfigurationSummaryList.parse(map['IndexConfigurationSummaryItems']) unless map['IndexConfigurationSummaryItems'].nil?)
+        data.index_configuration_summary_items = (IndexConfigurationSummaryList.parse(map['IndexConfigurationSummaryItems']) unless map['IndexConfigurationSummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2223,7 +2223,7 @@ module AWS::SDK::Kendra
     class IndexConfigurationSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::IndexConfigurationSummary.parse(value) unless value.nil?
+          IndexConfigurationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2248,7 +2248,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.block_list_summary_items = (Parsers::QuerySuggestionsBlockListSummaryItems.parse(map['BlockListSummaryItems']) unless map['BlockListSummaryItems'].nil?)
+        data.block_list_summary_items = (QuerySuggestionsBlockListSummaryItems.parse(map['BlockListSummaryItems']) unless map['BlockListSummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2257,7 +2257,7 @@ module AWS::SDK::Kendra
     class QuerySuggestionsBlockListSummaryItems
       def self.parse(list)
         list.map do |value|
-          Parsers::QuerySuggestionsBlockListSummary.parse(value) unless value.nil?
+          QuerySuggestionsBlockListSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2282,7 +2282,7 @@ module AWS::SDK::Kendra
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2290,7 +2290,7 @@ module AWS::SDK::Kendra
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -2324,7 +2324,7 @@ module AWS::SDK::Kendra
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.thesaurus_summary_items = (Parsers::ThesaurusSummaryItems.parse(map['ThesaurusSummaryItems']) unless map['ThesaurusSummaryItems'].nil?)
+        data.thesaurus_summary_items = (ThesaurusSummaryItems.parse(map['ThesaurusSummaryItems']) unless map['ThesaurusSummaryItems'].nil?)
         data
       end
     end
@@ -2332,7 +2332,7 @@ module AWS::SDK::Kendra
     class ThesaurusSummaryItems
       def self.parse(list)
         list.map do |value|
-          Parsers::ThesaurusSummary.parse(value) unless value.nil?
+          ThesaurusSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2368,11 +2368,11 @@ module AWS::SDK::Kendra
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.query_id = map['QueryId']
-        data.result_items = (Parsers::QueryResultItemList.parse(map['ResultItems']) unless map['ResultItems'].nil?)
-        data.facet_results = (Parsers::FacetResultList.parse(map['FacetResults']) unless map['FacetResults'].nil?)
+        data.result_items = (QueryResultItemList.parse(map['ResultItems']) unless map['ResultItems'].nil?)
+        data.facet_results = (FacetResultList.parse(map['FacetResults']) unless map['FacetResults'].nil?)
         data.total_number_of_results = map['TotalNumberOfResults']
-        data.warnings = (Parsers::WarningList.parse(map['Warnings']) unless map['Warnings'].nil?)
-        data.spell_corrected_queries = (Parsers::SpellCorrectedQueryList.parse(map['SpellCorrectedQueries']) unless map['SpellCorrectedQueries'].nil?)
+        data.warnings = (WarningList.parse(map['Warnings']) unless map['Warnings'].nil?)
+        data.spell_corrected_queries = (SpellCorrectedQueryList.parse(map['SpellCorrectedQueries']) unless map['SpellCorrectedQueries'].nil?)
         data
       end
     end
@@ -2380,7 +2380,7 @@ module AWS::SDK::Kendra
     class SpellCorrectedQueryList
       def self.parse(list)
         list.map do |value|
-          Parsers::SpellCorrectedQuery.parse(value) unless value.nil?
+          SpellCorrectedQuery.parse(value) unless value.nil?
         end
       end
     end
@@ -2389,7 +2389,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::SpellCorrectedQuery.new
         data.suggested_query_text = map['SuggestedQueryText']
-        data.corrections = (Parsers::CorrectionList.parse(map['Corrections']) unless map['Corrections'].nil?)
+        data.corrections = (CorrectionList.parse(map['Corrections']) unless map['Corrections'].nil?)
         return data
       end
     end
@@ -2397,7 +2397,7 @@ module AWS::SDK::Kendra
     class CorrectionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Correction.parse(value) unless value.nil?
+          Correction.parse(value) unless value.nil?
         end
       end
     end
@@ -2416,7 +2416,7 @@ module AWS::SDK::Kendra
     class WarningList
       def self.parse(list)
         list.map do |value|
-          Parsers::Warning.parse(value) unless value.nil?
+          Warning.parse(value) unless value.nil?
         end
       end
     end
@@ -2433,7 +2433,7 @@ module AWS::SDK::Kendra
     class FacetResultList
       def self.parse(list)
         list.map do |value|
-          Parsers::FacetResult.parse(value) unless value.nil?
+          FacetResult.parse(value) unless value.nil?
         end
       end
     end
@@ -2443,7 +2443,7 @@ module AWS::SDK::Kendra
         data = Types::FacetResult.new
         data.document_attribute_key = map['DocumentAttributeKey']
         data.document_attribute_value_type = map['DocumentAttributeValueType']
-        data.document_attribute_value_count_pairs = (Parsers::DocumentAttributeValueCountPairList.parse(map['DocumentAttributeValueCountPairs']) unless map['DocumentAttributeValueCountPairs'].nil?)
+        data.document_attribute_value_count_pairs = (DocumentAttributeValueCountPairList.parse(map['DocumentAttributeValueCountPairs']) unless map['DocumentAttributeValueCountPairs'].nil?)
         return data
       end
     end
@@ -2451,7 +2451,7 @@ module AWS::SDK::Kendra
     class DocumentAttributeValueCountPairList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentAttributeValueCountPair.parse(value) unless value.nil?
+          DocumentAttributeValueCountPair.parse(value) unless value.nil?
         end
       end
     end
@@ -2459,9 +2459,9 @@ module AWS::SDK::Kendra
     class DocumentAttributeValueCountPair
       def self.parse(map)
         data = Types::DocumentAttributeValueCountPair.new
-        data.document_attribute_value = (Parsers::DocumentAttributeValue.parse(map['DocumentAttributeValue']) unless map['DocumentAttributeValue'].nil?)
+        data.document_attribute_value = (DocumentAttributeValue.parse(map['DocumentAttributeValue']) unless map['DocumentAttributeValue'].nil?)
         data.count = map['Count']
-        data.facet_results = (Parsers::FacetResultList.parse(map['FacetResults']) unless map['FacetResults'].nil?)
+        data.facet_results = (FacetResultList.parse(map['FacetResults']) unless map['FacetResults'].nil?)
         return data
       end
     end
@@ -2469,7 +2469,7 @@ module AWS::SDK::Kendra
     class QueryResultItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::QueryResultItem.parse(value) unless value.nil?
+          QueryResultItem.parse(value) unless value.nil?
         end
       end
     end
@@ -2479,13 +2479,13 @@ module AWS::SDK::Kendra
         data = Types::QueryResultItem.new
         data.id = map['Id']
         data.type = map['Type']
-        data.additional_attributes = (Parsers::AdditionalResultAttributeList.parse(map['AdditionalAttributes']) unless map['AdditionalAttributes'].nil?)
+        data.additional_attributes = (AdditionalResultAttributeList.parse(map['AdditionalAttributes']) unless map['AdditionalAttributes'].nil?)
         data.document_id = map['DocumentId']
-        data.document_title = (Parsers::TextWithHighlights.parse(map['DocumentTitle']) unless map['DocumentTitle'].nil?)
-        data.document_excerpt = (Parsers::TextWithHighlights.parse(map['DocumentExcerpt']) unless map['DocumentExcerpt'].nil?)
+        data.document_title = (TextWithHighlights.parse(map['DocumentTitle']) unless map['DocumentTitle'].nil?)
+        data.document_excerpt = (TextWithHighlights.parse(map['DocumentExcerpt']) unless map['DocumentExcerpt'].nil?)
         data.document_uri = map['DocumentURI']
-        data.document_attributes = (Parsers::DocumentAttributeList.parse(map['DocumentAttributes']) unless map['DocumentAttributes'].nil?)
-        data.score_attributes = (Parsers::ScoreAttributes.parse(map['ScoreAttributes']) unless map['ScoreAttributes'].nil?)
+        data.document_attributes = (DocumentAttributeList.parse(map['DocumentAttributes']) unless map['DocumentAttributes'].nil?)
+        data.score_attributes = (ScoreAttributes.parse(map['ScoreAttributes']) unless map['ScoreAttributes'].nil?)
         data.feedback_token = map['FeedbackToken']
         return data
       end
@@ -2502,7 +2502,7 @@ module AWS::SDK::Kendra
     class DocumentAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentAttribute.parse(value) unless value.nil?
+          DocumentAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -2511,7 +2511,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::DocumentAttribute.new
         data.key = map['Key']
-        data.value = (Parsers::DocumentAttributeValue.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (DocumentAttributeValue.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -2520,7 +2520,7 @@ module AWS::SDK::Kendra
       def self.parse(map)
         data = Types::TextWithHighlights.new
         data.text = map['Text']
-        data.highlights = (Parsers::HighlightList.parse(map['Highlights']) unless map['Highlights'].nil?)
+        data.highlights = (HighlightList.parse(map['Highlights']) unless map['Highlights'].nil?)
         return data
       end
     end
@@ -2528,7 +2528,7 @@ module AWS::SDK::Kendra
     class HighlightList
       def self.parse(list)
         list.map do |value|
-          Parsers::Highlight.parse(value) unless value.nil?
+          Highlight.parse(value) unless value.nil?
         end
       end
     end
@@ -2547,7 +2547,7 @@ module AWS::SDK::Kendra
     class AdditionalResultAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::AdditionalResultAttribute.parse(value) unless value.nil?
+          AdditionalResultAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -2557,7 +2557,7 @@ module AWS::SDK::Kendra
         data = Types::AdditionalResultAttribute.new
         data.key = map['Key']
         data.value_type = map['ValueType']
-        data.value = (Parsers::AdditionalResultAttributeValue.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (AdditionalResultAttributeValue.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -2565,7 +2565,7 @@ module AWS::SDK::Kendra
     class AdditionalResultAttributeValue
       def self.parse(map)
         data = Types::AdditionalResultAttributeValue.new
-        data.text_with_highlights_value = (Parsers::TextWithHighlights.parse(map['TextWithHighlightsValue']) unless map['TextWithHighlightsValue'].nil?)
+        data.text_with_highlights_value = (TextWithHighlights.parse(map['TextWithHighlightsValue']) unless map['TextWithHighlightsValue'].nil?)
         return data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SagemakerEdge
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::SagemakerEdge
         data = {}
         data['DeviceName'] = input[:device_name] unless input[:device_name].nil?
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -36,12 +38,12 @@ module AWS::SDK::SagemakerEdge
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AgentMetrics'] = Builders::EdgeMetrics.build(input[:agent_metrics]) unless input[:agent_metrics].nil?
-        data['Models'] = Builders::Models.build(input[:models]) unless input[:models].nil?
+        data['AgentMetrics'] = EdgeMetrics.build(input[:agent_metrics]) unless input[:agent_metrics].nil?
+        data['Models'] = Models.build(input[:models]) unless input[:models].nil?
         data['AgentVersion'] = input[:agent_version] unless input[:agent_version].nil?
         data['DeviceName'] = input[:device_name] unless input[:device_name].nil?
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::SagemakerEdge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Model.build(element) unless element.nil?
+          data << Model.build(element) unless element.nil?
         end
         data
       end
@@ -64,7 +66,7 @@ module AWS::SDK::SagemakerEdge
         data['ModelVersion'] = input[:model_version] unless input[:model_version].nil?
         data['LatestSampleTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:latest_sample_time]).to_i unless input[:latest_sample_time].nil?
         data['LatestInference'] = Hearth::TimeHelper.to_epoch_seconds(input[:latest_inference]).to_i unless input[:latest_inference].nil?
-        data['ModelMetrics'] = Builders::EdgeMetrics.build(input[:model_metrics]) unless input[:model_metrics].nil?
+        data['ModelMetrics'] = EdgeMetrics.build(input[:model_metrics]) unless input[:model_metrics].nil?
         data
       end
     end
@@ -74,7 +76,7 @@ module AWS::SDK::SagemakerEdge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EdgeMetric.build(element) unless element.nil?
+          data << EdgeMetric.build(element) unless element.nil?
         end
         data
       end

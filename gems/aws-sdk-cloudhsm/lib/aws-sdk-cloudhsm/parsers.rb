@@ -142,12 +142,12 @@ module AWS::SDK::CloudHSM
         map = Hearth::JSON.load(body)
         data.hapg_arn = map['HapgArn']
         data.hapg_serial = map['HapgSerial']
-        data.hsms_last_action_failed = (Parsers::HsmList.parse(map['HsmsLastActionFailed']) unless map['HsmsLastActionFailed'].nil?)
-        data.hsms_pending_deletion = (Parsers::HsmList.parse(map['HsmsPendingDeletion']) unless map['HsmsPendingDeletion'].nil?)
-        data.hsms_pending_registration = (Parsers::HsmList.parse(map['HsmsPendingRegistration']) unless map['HsmsPendingRegistration'].nil?)
+        data.hsms_last_action_failed = (HsmList.parse(map['HsmsLastActionFailed']) unless map['HsmsLastActionFailed'].nil?)
+        data.hsms_pending_deletion = (HsmList.parse(map['HsmsPendingDeletion']) unless map['HsmsPendingDeletion'].nil?)
+        data.hsms_pending_registration = (HsmList.parse(map['HsmsPendingRegistration']) unless map['HsmsPendingRegistration'].nil?)
         data.label = map['Label']
         data.last_modified_timestamp = map['LastModifiedTimestamp']
-        data.partition_serial_list = (Parsers::PartitionSerialList.parse(map['PartitionSerialList']) unless map['PartitionSerialList'].nil?)
+        data.partition_serial_list = (PartitionSerialList.parse(map['PartitionSerialList']) unless map['PartitionSerialList'].nil?)
         data.state = map['State']
         data
       end
@@ -196,7 +196,7 @@ module AWS::SDK::CloudHSM
         data.ssh_key_last_updated = map['SshKeyLastUpdated']
         data.server_cert_uri = map['ServerCertUri']
         data.server_cert_last_updated = map['ServerCertLastUpdated']
-        data.partitions = (Parsers::PartitionList.parse(map['Partitions']) unless map['Partitions'].nil?)
+        data.partitions = (PartitionList.parse(map['Partitions']) unless map['Partitions'].nil?)
         data
       end
     end
@@ -246,7 +246,7 @@ module AWS::SDK::CloudHSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.az_list = (Parsers::AZList.parse(map['AZList']) unless map['AZList'].nil?)
+        data.az_list = (AZList.parse(map['AZList']) unless map['AZList'].nil?)
         data
       end
     end
@@ -266,7 +266,7 @@ module AWS::SDK::CloudHSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hapg_list = (Parsers::HapgList.parse(map['HapgList']) unless map['HapgList'].nil?)
+        data.hapg_list = (HapgList.parse(map['HapgList']) unless map['HapgList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -287,7 +287,7 @@ module AWS::SDK::CloudHSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hsm_list = (Parsers::HsmList.parse(map['HsmList']) unless map['HsmList'].nil?)
+        data.hsm_list = (HsmList.parse(map['HsmList']) unless map['HsmList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -300,7 +300,7 @@ module AWS::SDK::CloudHSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.client_list = (Parsers::ClientList.parse(map['ClientList']) unless map['ClientList'].nil?)
+        data.client_list = (ClientList.parse(map['ClientList']) unless map['ClientList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -321,7 +321,7 @@ module AWS::SDK::CloudHSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -329,7 +329,7 @@ module AWS::SDK::CloudHSM
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

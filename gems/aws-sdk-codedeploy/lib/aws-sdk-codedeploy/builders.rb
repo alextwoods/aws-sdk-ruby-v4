@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeDeploy
   module Builders
 
@@ -18,9 +20,9 @@ module AWS::SDK::CodeDeploy
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.AddTagsToOnPremisesInstances'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['instanceNames'] = Builders::InstanceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['instanceNames'] = InstanceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -65,8 +67,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.BatchGetApplicationRevisions'
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
-        data['revisions'] = Builders::RevisionLocationList.build(input[:revisions]) unless input[:revisions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['revisions'] = RevisionLocationList.build(input[:revisions]) unless input[:revisions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,7 +77,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RevisionLocation.build(element) unless element.nil?
+          data << RevisionLocation.build(element) unless element.nil?
         end
         data
       end
@@ -86,10 +88,10 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = {}
         data['revisionType'] = input[:revision_type] unless input[:revision_type].nil?
-        data['s3Location'] = Builders::S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
-        data['gitHubLocation'] = Builders::GitHubLocation.build(input[:git_hub_location]) unless input[:git_hub_location].nil?
-        data['string'] = Builders::RawString.build(input[:string]) unless input[:string].nil?
-        data['appSpecContent'] = Builders::AppSpecContent.build(input[:app_spec_content]) unless input[:app_spec_content].nil?
+        data['s3Location'] = S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
+        data['gitHubLocation'] = GitHubLocation.build(input[:git_hub_location]) unless input[:git_hub_location].nil?
+        data['string'] = RawString.build(input[:string]) unless input[:string].nil?
+        data['appSpecContent'] = AppSpecContent.build(input[:app_spec_content]) unless input[:app_spec_content].nil?
         data
       end
     end
@@ -145,8 +147,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.BatchGetApplications'
         data = {}
-        data['applicationNames'] = Builders::ApplicationsList.build(input[:application_names]) unless input[:application_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['applicationNames'] = ApplicationsList.build(input[:application_names]) unless input[:application_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -170,8 +172,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.BatchGetDeploymentGroups'
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
-        data['deploymentGroupNames'] = Builders::DeploymentGroupsList.build(input[:deployment_group_names]) unless input[:deployment_group_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentGroupNames'] = DeploymentGroupsList.build(input[:deployment_group_names]) unless input[:deployment_group_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -195,8 +197,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.BatchGetDeploymentInstances'
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
-        data['instanceIds'] = Builders::InstancesList.build(input[:instance_ids]) unless input[:instance_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceIds'] = InstancesList.build(input[:instance_ids]) unless input[:instance_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -220,8 +222,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.BatchGetDeploymentTargets'
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
-        data['targetIds'] = Builders::TargetIdList.build(input[:target_ids]) unless input[:target_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['targetIds'] = TargetIdList.build(input[:target_ids]) unless input[:target_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -244,8 +246,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.BatchGetDeployments'
         data = {}
-        data['deploymentIds'] = Builders::DeploymentsList.build(input[:deployment_ids]) unless input[:deployment_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentIds'] = DeploymentsList.build(input[:deployment_ids]) unless input[:deployment_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -268,8 +270,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.BatchGetOnPremisesInstances'
         data = {}
-        data['instanceNames'] = Builders::InstanceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceNames'] = InstanceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -283,7 +285,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['deploymentWaitType'] = input[:deployment_wait_type] unless input[:deployment_wait_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -297,8 +299,8 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['computePlatform'] = input[:compute_platform] unless input[:compute_platform].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,15 +314,15 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['deploymentGroupName'] = input[:deployment_group_name] unless input[:deployment_group_name].nil?
-        data['revision'] = Builders::RevisionLocation.build(input[:revision]) unless input[:revision].nil?
+        data['revision'] = RevisionLocation.build(input[:revision]) unless input[:revision].nil?
         data['deploymentConfigName'] = input[:deployment_config_name] unless input[:deployment_config_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['ignoreApplicationStopFailures'] = input[:ignore_application_stop_failures] unless input[:ignore_application_stop_failures].nil?
-        data['targetInstances'] = Builders::TargetInstances.build(input[:target_instances]) unless input[:target_instances].nil?
-        data['autoRollbackConfiguration'] = Builders::AutoRollbackConfiguration.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
+        data['targetInstances'] = TargetInstances.build(input[:target_instances]) unless input[:target_instances].nil?
+        data['autoRollbackConfiguration'] = AutoRollbackConfiguration.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
         data['updateOutdatedInstancesOnly'] = input[:update_outdated_instances_only] unless input[:update_outdated_instances_only].nil?
         data['fileExistsBehavior'] = input[:file_exists_behavior] unless input[:file_exists_behavior].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['events'] = Builders::AutoRollbackEventsList.build(input[:events]) unless input[:events].nil?
+        data['events'] = AutoRollbackEventsList.build(input[:events]) unless input[:events].nil?
         data
       end
     end
@@ -349,9 +351,9 @@ module AWS::SDK::CodeDeploy
     class TargetInstances
       def self.build(input)
         data = {}
-        data['tagFilters'] = Builders::EC2TagFilterList.build(input[:tag_filters]) unless input[:tag_filters].nil?
-        data['autoScalingGroups'] = Builders::AutoScalingGroupNameList.build(input[:auto_scaling_groups]) unless input[:auto_scaling_groups].nil?
-        data['ec2TagSet'] = Builders::EC2TagSet.build(input[:ec2_tag_set]) unless input[:ec2_tag_set].nil?
+        data['tagFilters'] = EC2TagFilterList.build(input[:tag_filters]) unless input[:tag_filters].nil?
+        data['autoScalingGroups'] = AutoScalingGroupNameList.build(input[:auto_scaling_groups]) unless input[:auto_scaling_groups].nil?
+        data['ec2TagSet'] = EC2TagSet.build(input[:ec2_tag_set]) unless input[:ec2_tag_set].nil?
         data
       end
     end
@@ -360,7 +362,7 @@ module AWS::SDK::CodeDeploy
     class EC2TagSet
       def self.build(input)
         data = {}
-        data['ec2TagSetList'] = Builders::EC2TagSetList.build(input[:ec2_tag_set_list]) unless input[:ec2_tag_set_list].nil?
+        data['ec2TagSetList'] = EC2TagSetList.build(input[:ec2_tag_set_list]) unless input[:ec2_tag_set_list].nil?
         data
       end
     end
@@ -370,7 +372,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EC2TagFilterList.build(element) unless element.nil?
+          data << EC2TagFilterList.build(element) unless element.nil?
         end
         data
       end
@@ -381,7 +383,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EC2TagFilter.build(element) unless element.nil?
+          data << EC2TagFilter.build(element) unless element.nil?
         end
         data
       end
@@ -418,10 +420,10 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.CreateDeploymentConfig'
         data = {}
         data['deploymentConfigName'] = input[:deployment_config_name] unless input[:deployment_config_name].nil?
-        data['minimumHealthyHosts'] = Builders::MinimumHealthyHosts.build(input[:minimum_healthy_hosts]) unless input[:minimum_healthy_hosts].nil?
-        data['trafficRoutingConfig'] = Builders::TrafficRoutingConfig.build(input[:traffic_routing_config]) unless input[:traffic_routing_config].nil?
+        data['minimumHealthyHosts'] = MinimumHealthyHosts.build(input[:minimum_healthy_hosts]) unless input[:minimum_healthy_hosts].nil?
+        data['trafficRoutingConfig'] = TrafficRoutingConfig.build(input[:traffic_routing_config]) unless input[:traffic_routing_config].nil?
         data['computePlatform'] = input[:compute_platform] unless input[:compute_platform].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -430,8 +432,8 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
-        data['timeBasedCanary'] = Builders::TimeBasedCanary.build(input[:time_based_canary]) unless input[:time_based_canary].nil?
-        data['timeBasedLinear'] = Builders::TimeBasedLinear.build(input[:time_based_linear]) unless input[:time_based_linear].nil?
+        data['timeBasedCanary'] = TimeBasedCanary.build(input[:time_based_canary]) unless input[:time_based_canary].nil?
+        data['timeBasedLinear'] = TimeBasedLinear.build(input[:time_based_linear]) unless input[:time_based_linear].nil?
         data
       end
     end
@@ -477,22 +479,22 @@ module AWS::SDK::CodeDeploy
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['deploymentGroupName'] = input[:deployment_group_name] unless input[:deployment_group_name].nil?
         data['deploymentConfigName'] = input[:deployment_config_name] unless input[:deployment_config_name].nil?
-        data['ec2TagFilters'] = Builders::EC2TagFilterList.build(input[:ec2_tag_filters]) unless input[:ec2_tag_filters].nil?
-        data['onPremisesInstanceTagFilters'] = Builders::TagFilterList.build(input[:on_premises_instance_tag_filters]) unless input[:on_premises_instance_tag_filters].nil?
-        data['autoScalingGroups'] = Builders::AutoScalingGroupNameList.build(input[:auto_scaling_groups]) unless input[:auto_scaling_groups].nil?
+        data['ec2TagFilters'] = EC2TagFilterList.build(input[:ec2_tag_filters]) unless input[:ec2_tag_filters].nil?
+        data['onPremisesInstanceTagFilters'] = TagFilterList.build(input[:on_premises_instance_tag_filters]) unless input[:on_premises_instance_tag_filters].nil?
+        data['autoScalingGroups'] = AutoScalingGroupNameList.build(input[:auto_scaling_groups]) unless input[:auto_scaling_groups].nil?
         data['serviceRoleArn'] = input[:service_role_arn] unless input[:service_role_arn].nil?
-        data['triggerConfigurations'] = Builders::TriggerConfigList.build(input[:trigger_configurations]) unless input[:trigger_configurations].nil?
-        data['alarmConfiguration'] = Builders::AlarmConfiguration.build(input[:alarm_configuration]) unless input[:alarm_configuration].nil?
-        data['autoRollbackConfiguration'] = Builders::AutoRollbackConfiguration.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
+        data['triggerConfigurations'] = TriggerConfigList.build(input[:trigger_configurations]) unless input[:trigger_configurations].nil?
+        data['alarmConfiguration'] = AlarmConfiguration.build(input[:alarm_configuration]) unless input[:alarm_configuration].nil?
+        data['autoRollbackConfiguration'] = AutoRollbackConfiguration.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
         data['outdatedInstancesStrategy'] = input[:outdated_instances_strategy] unless input[:outdated_instances_strategy].nil?
-        data['deploymentStyle'] = Builders::DeploymentStyle.build(input[:deployment_style]) unless input[:deployment_style].nil?
-        data['blueGreenDeploymentConfiguration'] = Builders::BlueGreenDeploymentConfiguration.build(input[:blue_green_deployment_configuration]) unless input[:blue_green_deployment_configuration].nil?
-        data['loadBalancerInfo'] = Builders::LoadBalancerInfo.build(input[:load_balancer_info]) unless input[:load_balancer_info].nil?
-        data['ec2TagSet'] = Builders::EC2TagSet.build(input[:ec2_tag_set]) unless input[:ec2_tag_set].nil?
-        data['ecsServices'] = Builders::ECSServiceList.build(input[:ecs_services]) unless input[:ecs_services].nil?
-        data['onPremisesTagSet'] = Builders::OnPremisesTagSet.build(input[:on_premises_tag_set]) unless input[:on_premises_tag_set].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentStyle'] = DeploymentStyle.build(input[:deployment_style]) unless input[:deployment_style].nil?
+        data['blueGreenDeploymentConfiguration'] = BlueGreenDeploymentConfiguration.build(input[:blue_green_deployment_configuration]) unless input[:blue_green_deployment_configuration].nil?
+        data['loadBalancerInfo'] = LoadBalancerInfo.build(input[:load_balancer_info]) unless input[:load_balancer_info].nil?
+        data['ec2TagSet'] = EC2TagSet.build(input[:ec2_tag_set]) unless input[:ec2_tag_set].nil?
+        data['ecsServices'] = ECSServiceList.build(input[:ecs_services]) unless input[:ecs_services].nil?
+        data['onPremisesTagSet'] = OnPremisesTagSet.build(input[:on_premises_tag_set]) unless input[:on_premises_tag_set].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -500,7 +502,7 @@ module AWS::SDK::CodeDeploy
     class OnPremisesTagSet
       def self.build(input)
         data = {}
-        data['onPremisesTagSetList'] = Builders::OnPremisesTagSetList.build(input[:on_premises_tag_set_list]) unless input[:on_premises_tag_set_list].nil?
+        data['onPremisesTagSetList'] = OnPremisesTagSetList.build(input[:on_premises_tag_set_list]) unless input[:on_premises_tag_set_list].nil?
         data
       end
     end
@@ -510,7 +512,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagFilterList.build(element) unless element.nil?
+          data << TagFilterList.build(element) unless element.nil?
         end
         data
       end
@@ -521,7 +523,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagFilter.build(element) unless element.nil?
+          data << TagFilter.build(element) unless element.nil?
         end
         data
       end
@@ -543,7 +545,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ECSService.build(element) unless element.nil?
+          data << ECSService.build(element) unless element.nil?
         end
         data
       end
@@ -563,9 +565,9 @@ module AWS::SDK::CodeDeploy
     class LoadBalancerInfo
       def self.build(input)
         data = {}
-        data['elbInfoList'] = Builders::ELBInfoList.build(input[:elb_info_list]) unless input[:elb_info_list].nil?
-        data['targetGroupInfoList'] = Builders::TargetGroupInfoList.build(input[:target_group_info_list]) unless input[:target_group_info_list].nil?
-        data['targetGroupPairInfoList'] = Builders::TargetGroupPairInfoList.build(input[:target_group_pair_info_list]) unless input[:target_group_pair_info_list].nil?
+        data['elbInfoList'] = ELBInfoList.build(input[:elb_info_list]) unless input[:elb_info_list].nil?
+        data['targetGroupInfoList'] = TargetGroupInfoList.build(input[:target_group_info_list]) unless input[:target_group_info_list].nil?
+        data['targetGroupPairInfoList'] = TargetGroupPairInfoList.build(input[:target_group_pair_info_list]) unless input[:target_group_pair_info_list].nil?
         data
       end
     end
@@ -575,7 +577,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TargetGroupPairInfo.build(element) unless element.nil?
+          data << TargetGroupPairInfo.build(element) unless element.nil?
         end
         data
       end
@@ -585,9 +587,9 @@ module AWS::SDK::CodeDeploy
     class TargetGroupPairInfo
       def self.build(input)
         data = {}
-        data['targetGroups'] = Builders::TargetGroupInfoList.build(input[:target_groups]) unless input[:target_groups].nil?
-        data['prodTrafficRoute'] = Builders::TrafficRoute.build(input[:prod_traffic_route]) unless input[:prod_traffic_route].nil?
-        data['testTrafficRoute'] = Builders::TrafficRoute.build(input[:test_traffic_route]) unless input[:test_traffic_route].nil?
+        data['targetGroups'] = TargetGroupInfoList.build(input[:target_groups]) unless input[:target_groups].nil?
+        data['prodTrafficRoute'] = TrafficRoute.build(input[:prod_traffic_route]) unless input[:prod_traffic_route].nil?
+        data['testTrafficRoute'] = TrafficRoute.build(input[:test_traffic_route]) unless input[:test_traffic_route].nil?
         data
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::CodeDeploy
     class TrafficRoute
       def self.build(input)
         data = {}
-        data['listenerArns'] = Builders::ListenerArnList.build(input[:listener_arns]) unless input[:listener_arns].nil?
+        data['listenerArns'] = ListenerArnList.build(input[:listener_arns]) unless input[:listener_arns].nil?
         data
       end
     end
@@ -617,7 +619,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TargetGroupInfo.build(element) unless element.nil?
+          data << TargetGroupInfo.build(element) unless element.nil?
         end
         data
       end
@@ -637,7 +639,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ELBInfo.build(element) unless element.nil?
+          data << ELBInfo.build(element) unless element.nil?
         end
         data
       end
@@ -656,9 +658,9 @@ module AWS::SDK::CodeDeploy
     class BlueGreenDeploymentConfiguration
       def self.build(input)
         data = {}
-        data['terminateBlueInstancesOnDeploymentSuccess'] = Builders::BlueInstanceTerminationOption.build(input[:terminate_blue_instances_on_deployment_success]) unless input[:terminate_blue_instances_on_deployment_success].nil?
-        data['deploymentReadyOption'] = Builders::DeploymentReadyOption.build(input[:deployment_ready_option]) unless input[:deployment_ready_option].nil?
-        data['greenFleetProvisioningOption'] = Builders::GreenFleetProvisioningOption.build(input[:green_fleet_provisioning_option]) unless input[:green_fleet_provisioning_option].nil?
+        data['terminateBlueInstancesOnDeploymentSuccess'] = BlueInstanceTerminationOption.build(input[:terminate_blue_instances_on_deployment_success]) unless input[:terminate_blue_instances_on_deployment_success].nil?
+        data['deploymentReadyOption'] = DeploymentReadyOption.build(input[:deployment_ready_option]) unless input[:deployment_ready_option].nil?
+        data['greenFleetProvisioningOption'] = GreenFleetProvisioningOption.build(input[:green_fleet_provisioning_option]) unless input[:green_fleet_provisioning_option].nil?
         data
       end
     end
@@ -708,7 +710,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
         data['ignorePollAlarmFailure'] = input[:ignore_poll_alarm_failure] unless input[:ignore_poll_alarm_failure].nil?
-        data['alarms'] = Builders::AlarmList.build(input[:alarms]) unless input[:alarms].nil?
+        data['alarms'] = AlarmList.build(input[:alarms]) unless input[:alarms].nil?
         data
       end
     end
@@ -718,7 +720,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Alarm.build(element) unless element.nil?
+          data << Alarm.build(element) unless element.nil?
         end
         data
       end
@@ -738,7 +740,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TriggerConfig.build(element) unless element.nil?
+          data << TriggerConfig.build(element) unless element.nil?
         end
         data
       end
@@ -750,7 +752,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['triggerName'] = input[:trigger_name] unless input[:trigger_name].nil?
         data['triggerTargetArn'] = input[:trigger_target_arn] unless input[:trigger_target_arn].nil?
-        data['triggerEvents'] = Builders::TriggerEventTypeList.build(input[:trigger_events]) unless input[:trigger_events].nil?
+        data['triggerEvents'] = TriggerEventTypeList.build(input[:trigger_events]) unless input[:trigger_events].nil?
         data
       end
     end
@@ -775,7 +777,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.DeleteApplication'
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -788,7 +790,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.DeleteDeploymentConfig'
         data = {}
         data['deploymentConfigName'] = input[:deployment_config_name] unless input[:deployment_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -802,7 +804,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['deploymentGroupName'] = input[:deployment_group_name] unless input[:deployment_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -815,7 +817,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.DeleteGitHubAccountToken'
         data = {}
         data['tokenName'] = input[:token_name] unless input[:token_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -828,7 +830,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.DeleteResourcesByExternalId'
         data = {}
         data['externalId'] = input[:external_id] unless input[:external_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.DeregisterOnPremisesInstance'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -854,7 +856,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.GetApplication'
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -867,8 +869,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.GetApplicationRevision'
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
-        data['revision'] = Builders::RevisionLocation.build(input[:revision]) unless input[:revision].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['revision'] = RevisionLocation.build(input[:revision]) unless input[:revision].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -881,7 +883,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.GetDeployment'
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -894,7 +896,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.GetDeploymentConfig'
         data = {}
         data['deploymentConfigName'] = input[:deployment_config_name] unless input[:deployment_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -908,7 +910,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['deploymentGroupName'] = input[:deployment_group_name] unless input[:deployment_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,7 +924,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['instanceId'] = input[:instance_id] unless input[:instance_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -936,7 +938,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['targetId'] = input[:target_id] unless input[:target_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -949,7 +951,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.GetOnPremisesInstance'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -968,7 +970,7 @@ module AWS::SDK::CodeDeploy
         data['s3KeyPrefix'] = input[:s3_key_prefix] unless input[:s3_key_prefix].nil?
         data['deployed'] = input[:deployed] unless input[:deployed].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -981,7 +983,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.ListApplications'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.ListDeploymentConfigs'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1008,7 +1010,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1022,9 +1024,9 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['instanceStatusFilter'] = Builders::InstanceStatusList.build(input[:instance_status_filter]) unless input[:instance_status_filter].nil?
-        data['instanceTypeFilter'] = Builders::InstanceTypeList.build(input[:instance_type_filter]) unless input[:instance_type_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceStatusFilter'] = InstanceStatusList.build(input[:instance_status_filter]) unless input[:instance_status_filter].nil?
+        data['instanceTypeFilter'] = InstanceTypeList.build(input[:instance_type_filter]) unless input[:instance_type_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1060,8 +1062,8 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['targetFilters'] = Builders::TargetFilters.build(input[:target_filters]) unless input[:target_filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['targetFilters'] = TargetFilters.build(input[:target_filters]) unless input[:target_filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1070,7 +1072,7 @@ module AWS::SDK::CodeDeploy
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::FilterValueList.build(value) unless value.nil?
+          data[key] = FilterValueList.build(value) unless value.nil?
         end
         data
       end
@@ -1098,10 +1100,10 @@ module AWS::SDK::CodeDeploy
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['deploymentGroupName'] = input[:deployment_group_name] unless input[:deployment_group_name].nil?
         data['externalId'] = input[:external_id] unless input[:external_id].nil?
-        data['includeOnlyStatuses'] = Builders::DeploymentStatusList.build(input[:include_only_statuses]) unless input[:include_only_statuses].nil?
-        data['createTimeRange'] = Builders::TimeRange.build(input[:create_time_range]) unless input[:create_time_range].nil?
+        data['includeOnlyStatuses'] = DeploymentStatusList.build(input[:include_only_statuses]) unless input[:include_only_statuses].nil?
+        data['createTimeRange'] = TimeRange.build(input[:create_time_range]) unless input[:create_time_range].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1135,7 +1137,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.ListGitHubAccountTokenNames'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1148,9 +1150,9 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.ListOnPremisesInstances'
         data = {}
         data['registrationStatus'] = input[:registration_status] unless input[:registration_status].nil?
-        data['tagFilters'] = Builders::TagFilterList.build(input[:tag_filters]) unless input[:tag_filters].nil?
+        data['tagFilters'] = TagFilterList.build(input[:tag_filters]) unless input[:tag_filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1164,7 +1166,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1179,7 +1181,7 @@ module AWS::SDK::CodeDeploy
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['lifecycleEventHookExecutionId'] = input[:lifecycle_event_hook_execution_id] unless input[:lifecycle_event_hook_execution_id].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1193,8 +1195,8 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['revision'] = Builders::RevisionLocation.build(input[:revision]) unless input[:revision].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['revision'] = RevisionLocation.build(input[:revision]) unless input[:revision].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1209,7 +1211,7 @@ module AWS::SDK::CodeDeploy
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
         data['iamSessionArn'] = input[:iam_session_arn] unless input[:iam_session_arn].nil?
         data['iamUserArn'] = input[:iam_user_arn] unless input[:iam_user_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1221,9 +1223,9 @@ module AWS::SDK::CodeDeploy
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.RemoveTagsFromOnPremisesInstances'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['instanceNames'] = Builders::InstanceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['instanceNames'] = InstanceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1236,7 +1238,7 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.SkipWaitTimeForInstanceTermination'
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1250,7 +1252,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['autoRollbackEnabled'] = input[:auto_rollback_enabled] unless input[:auto_rollback_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1263,8 +1265,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1277,8 +1279,8 @@ module AWS::SDK::CodeDeploy
         http_req.headers['X-Amz-Target'] = 'CodeDeploy_20141006.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1303,7 +1305,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = input[:application_name] unless input[:application_name].nil?
         data['newApplicationName'] = input[:new_application_name] unless input[:new_application_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1319,21 +1321,21 @@ module AWS::SDK::CodeDeploy
         data['currentDeploymentGroupName'] = input[:current_deployment_group_name] unless input[:current_deployment_group_name].nil?
         data['newDeploymentGroupName'] = input[:new_deployment_group_name] unless input[:new_deployment_group_name].nil?
         data['deploymentConfigName'] = input[:deployment_config_name] unless input[:deployment_config_name].nil?
-        data['ec2TagFilters'] = Builders::EC2TagFilterList.build(input[:ec2_tag_filters]) unless input[:ec2_tag_filters].nil?
-        data['onPremisesInstanceTagFilters'] = Builders::TagFilterList.build(input[:on_premises_instance_tag_filters]) unless input[:on_premises_instance_tag_filters].nil?
-        data['autoScalingGroups'] = Builders::AutoScalingGroupNameList.build(input[:auto_scaling_groups]) unless input[:auto_scaling_groups].nil?
+        data['ec2TagFilters'] = EC2TagFilterList.build(input[:ec2_tag_filters]) unless input[:ec2_tag_filters].nil?
+        data['onPremisesInstanceTagFilters'] = TagFilterList.build(input[:on_premises_instance_tag_filters]) unless input[:on_premises_instance_tag_filters].nil?
+        data['autoScalingGroups'] = AutoScalingGroupNameList.build(input[:auto_scaling_groups]) unless input[:auto_scaling_groups].nil?
         data['serviceRoleArn'] = input[:service_role_arn] unless input[:service_role_arn].nil?
-        data['triggerConfigurations'] = Builders::TriggerConfigList.build(input[:trigger_configurations]) unless input[:trigger_configurations].nil?
-        data['alarmConfiguration'] = Builders::AlarmConfiguration.build(input[:alarm_configuration]) unless input[:alarm_configuration].nil?
-        data['autoRollbackConfiguration'] = Builders::AutoRollbackConfiguration.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
+        data['triggerConfigurations'] = TriggerConfigList.build(input[:trigger_configurations]) unless input[:trigger_configurations].nil?
+        data['alarmConfiguration'] = AlarmConfiguration.build(input[:alarm_configuration]) unless input[:alarm_configuration].nil?
+        data['autoRollbackConfiguration'] = AutoRollbackConfiguration.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
         data['outdatedInstancesStrategy'] = input[:outdated_instances_strategy] unless input[:outdated_instances_strategy].nil?
-        data['deploymentStyle'] = Builders::DeploymentStyle.build(input[:deployment_style]) unless input[:deployment_style].nil?
-        data['blueGreenDeploymentConfiguration'] = Builders::BlueGreenDeploymentConfiguration.build(input[:blue_green_deployment_configuration]) unless input[:blue_green_deployment_configuration].nil?
-        data['loadBalancerInfo'] = Builders::LoadBalancerInfo.build(input[:load_balancer_info]) unless input[:load_balancer_info].nil?
-        data['ec2TagSet'] = Builders::EC2TagSet.build(input[:ec2_tag_set]) unless input[:ec2_tag_set].nil?
-        data['ecsServices'] = Builders::ECSServiceList.build(input[:ecs_services]) unless input[:ecs_services].nil?
-        data['onPremisesTagSet'] = Builders::OnPremisesTagSet.build(input[:on_premises_tag_set]) unless input[:on_premises_tag_set].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentStyle'] = DeploymentStyle.build(input[:deployment_style]) unless input[:deployment_style].nil?
+        data['blueGreenDeploymentConfiguration'] = BlueGreenDeploymentConfiguration.build(input[:blue_green_deployment_configuration]) unless input[:blue_green_deployment_configuration].nil?
+        data['loadBalancerInfo'] = LoadBalancerInfo.build(input[:load_balancer_info]) unless input[:load_balancer_info].nil?
+        data['ec2TagSet'] = EC2TagSet.build(input[:ec2_tag_set]) unless input[:ec2_tag_set].nil?
+        data['ecsServices'] = ECSServiceList.build(input[:ecs_services]) unless input[:ecs_services].nil?
+        data['onPremisesTagSet'] = OnPremisesTagSet.build(input[:on_premises_tag_set]) unless input[:on_premises_tag_set].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

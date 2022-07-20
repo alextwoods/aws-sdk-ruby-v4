@@ -221,7 +221,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.address = (Parsers::Address.parse(map['Address']) unless map['Address'].nil?)
+        data.address = (Address.parse(map['Address']) unless map['Address'].nil?)
         data
       end
     end
@@ -254,7 +254,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.addresses = (Parsers::AddressList.parse(map['Addresses']) unless map['Addresses'].nil?)
+        data.addresses = (AddressList.parse(map['Addresses']) unless map['Addresses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -263,7 +263,7 @@ module AWS::SDK::Snowball
     class AddressList
       def self.parse(list)
         list.map do |value|
-          Parsers::Address.parse(value) unless value.nil?
+          Address.parse(value) unless value.nil?
         end
       end
     end
@@ -287,7 +287,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster_metadata = (Parsers::ClusterMetadata.parse(map['ClusterMetadata']) unless map['ClusterMetadata'].nil?)
+        data.cluster_metadata = (ClusterMetadata.parse(map['ClusterMetadata']) unless map['ClusterMetadata'].nil?)
         data
       end
     end
@@ -303,13 +303,13 @@ module AWS::SDK::Snowball
         data.job_type = map['JobType']
         data.snowball_type = map['SnowballType']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
-        data.resources = (Parsers::JobResource.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (JobResource.parse(map['Resources']) unless map['Resources'].nil?)
         data.address_id = map['AddressId']
         data.shipping_option = map['ShippingOption']
-        data.notification = (Parsers::Notification.parse(map['Notification']) unless map['Notification'].nil?)
+        data.notification = (Notification.parse(map['Notification']) unless map['Notification'].nil?)
         data.forwarding_address_id = map['ForwardingAddressId']
-        data.tax_documents = (Parsers::TaxDocuments.parse(map['TaxDocuments']) unless map['TaxDocuments'].nil?)
-        data.on_device_service_configuration = (Parsers::OnDeviceServiceConfiguration.parse(map['OnDeviceServiceConfiguration']) unless map['OnDeviceServiceConfiguration'].nil?)
+        data.tax_documents = (TaxDocuments.parse(map['TaxDocuments']) unless map['TaxDocuments'].nil?)
+        data.on_device_service_configuration = (OnDeviceServiceConfiguration.parse(map['OnDeviceServiceConfiguration']) unless map['OnDeviceServiceConfiguration'].nil?)
         return data
       end
     end
@@ -317,8 +317,8 @@ module AWS::SDK::Snowball
     class OnDeviceServiceConfiguration
       def self.parse(map)
         data = Types::OnDeviceServiceConfiguration.new
-        data.nfs_on_device_service = (Parsers::NFSOnDeviceServiceConfiguration.parse(map['NFSOnDeviceService']) unless map['NFSOnDeviceService'].nil?)
-        data.tgw_on_device_service = (Parsers::TGWOnDeviceServiceConfiguration.parse(map['TGWOnDeviceService']) unless map['TGWOnDeviceService'].nil?)
+        data.nfs_on_device_service = (NFSOnDeviceServiceConfiguration.parse(map['NFSOnDeviceService']) unless map['NFSOnDeviceService'].nil?)
+        data.tgw_on_device_service = (TGWOnDeviceServiceConfiguration.parse(map['TGWOnDeviceService']) unless map['TGWOnDeviceService'].nil?)
         return data
       end
     end
@@ -344,7 +344,7 @@ module AWS::SDK::Snowball
     class TaxDocuments
       def self.parse(map)
         data = Types::TaxDocuments.new
-        data.ind = (Parsers::INDTaxDocuments.parse(map['IND']) unless map['IND'].nil?)
+        data.ind = (INDTaxDocuments.parse(map['IND']) unless map['IND'].nil?)
         return data
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::Snowball
       def self.parse(map)
         data = Types::Notification.new
         data.sns_topic_arn = map['SnsTopicARN']
-        data.job_states_to_notify = (Parsers::JobStateList.parse(map['JobStatesToNotify']) unless map['JobStatesToNotify'].nil?)
+        data.job_states_to_notify = (JobStateList.parse(map['JobStatesToNotify']) unless map['JobStatesToNotify'].nil?)
         data.notify_all = map['NotifyAll']
         return data
       end
@@ -378,9 +378,9 @@ module AWS::SDK::Snowball
     class JobResource
       def self.parse(map)
         data = Types::JobResource.new
-        data.s3_resources = (Parsers::S3ResourceList.parse(map['S3Resources']) unless map['S3Resources'].nil?)
-        data.lambda_resources = (Parsers::LambdaResourceList.parse(map['LambdaResources']) unless map['LambdaResources'].nil?)
-        data.ec2_ami_resources = (Parsers::Ec2AmiResourceList.parse(map['Ec2AmiResources']) unless map['Ec2AmiResources'].nil?)
+        data.s3_resources = (S3ResourceList.parse(map['S3Resources']) unless map['S3Resources'].nil?)
+        data.lambda_resources = (LambdaResourceList.parse(map['LambdaResources']) unless map['LambdaResources'].nil?)
+        data.ec2_ami_resources = (Ec2AmiResourceList.parse(map['Ec2AmiResources']) unless map['Ec2AmiResources'].nil?)
         return data
       end
     end
@@ -388,7 +388,7 @@ module AWS::SDK::Snowball
     class Ec2AmiResourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Ec2AmiResource.parse(value) unless value.nil?
+          Ec2AmiResource.parse(value) unless value.nil?
         end
       end
     end
@@ -405,7 +405,7 @@ module AWS::SDK::Snowball
     class LambdaResourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::LambdaResource.parse(value) unless value.nil?
+          LambdaResource.parse(value) unless value.nil?
         end
       end
     end
@@ -414,7 +414,7 @@ module AWS::SDK::Snowball
       def self.parse(map)
         data = Types::LambdaResource.new
         data.lambda_arn = map['LambdaArn']
-        data.event_triggers = (Parsers::EventTriggerDefinitionList.parse(map['EventTriggers']) unless map['EventTriggers'].nil?)
+        data.event_triggers = (EventTriggerDefinitionList.parse(map['EventTriggers']) unless map['EventTriggers'].nil?)
         return data
       end
     end
@@ -422,7 +422,7 @@ module AWS::SDK::Snowball
     class EventTriggerDefinitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventTriggerDefinition.parse(value) unless value.nil?
+          EventTriggerDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::Snowball
     class S3ResourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::S3Resource.parse(value) unless value.nil?
+          S3Resource.parse(value) unless value.nil?
         end
       end
     end
@@ -447,8 +447,8 @@ module AWS::SDK::Snowball
       def self.parse(map)
         data = Types::S3Resource.new
         data.bucket_arn = map['BucketArn']
-        data.key_range = (Parsers::KeyRange.parse(map['KeyRange']) unless map['KeyRange'].nil?)
-        data.target_on_device_services = (Parsers::TargetOnDeviceServiceList.parse(map['TargetOnDeviceServices']) unless map['TargetOnDeviceServices'].nil?)
+        data.key_range = (KeyRange.parse(map['KeyRange']) unless map['KeyRange'].nil?)
+        data.target_on_device_services = (TargetOnDeviceServiceList.parse(map['TargetOnDeviceServices']) unless map['TargetOnDeviceServices'].nil?)
         return data
       end
     end
@@ -456,7 +456,7 @@ module AWS::SDK::Snowball
     class TargetOnDeviceServiceList
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetOnDeviceService.parse(value) unless value.nil?
+          TargetOnDeviceService.parse(value) unless value.nil?
         end
       end
     end
@@ -486,8 +486,8 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_metadata = (Parsers::JobMetadata.parse(map['JobMetadata']) unless map['JobMetadata'].nil?)
-        data.sub_job_metadata = (Parsers::JobMetadataList.parse(map['SubJobMetadata']) unless map['SubJobMetadata'].nil?)
+        data.job_metadata = (JobMetadata.parse(map['JobMetadata']) unless map['JobMetadata'].nil?)
+        data.sub_job_metadata = (JobMetadataList.parse(map['SubJobMetadata']) unless map['SubJobMetadata'].nil?)
         data
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::Snowball
     class JobMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::JobMetadata.parse(value) unless value.nil?
+          JobMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -508,23 +508,23 @@ module AWS::SDK::Snowball
         data.job_type = map['JobType']
         data.snowball_type = map['SnowballType']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
-        data.resources = (Parsers::JobResource.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (JobResource.parse(map['Resources']) unless map['Resources'].nil?)
         data.description = map['Description']
         data.kms_key_arn = map['KmsKeyARN']
         data.role_arn = map['RoleARN']
         data.address_id = map['AddressId']
-        data.shipping_details = (Parsers::ShippingDetails.parse(map['ShippingDetails']) unless map['ShippingDetails'].nil?)
+        data.shipping_details = (ShippingDetails.parse(map['ShippingDetails']) unless map['ShippingDetails'].nil?)
         data.snowball_capacity_preference = map['SnowballCapacityPreference']
-        data.notification = (Parsers::Notification.parse(map['Notification']) unless map['Notification'].nil?)
-        data.data_transfer_progress = (Parsers::DataTransfer.parse(map['DataTransferProgress']) unless map['DataTransferProgress'].nil?)
-        data.job_log_info = (Parsers::JobLogs.parse(map['JobLogInfo']) unless map['JobLogInfo'].nil?)
+        data.notification = (Notification.parse(map['Notification']) unless map['Notification'].nil?)
+        data.data_transfer_progress = (DataTransfer.parse(map['DataTransferProgress']) unless map['DataTransferProgress'].nil?)
+        data.job_log_info = (JobLogs.parse(map['JobLogInfo']) unless map['JobLogInfo'].nil?)
         data.cluster_id = map['ClusterId']
         data.forwarding_address_id = map['ForwardingAddressId']
-        data.tax_documents = (Parsers::TaxDocuments.parse(map['TaxDocuments']) unless map['TaxDocuments'].nil?)
-        data.device_configuration = (Parsers::DeviceConfiguration.parse(map['DeviceConfiguration']) unless map['DeviceConfiguration'].nil?)
+        data.tax_documents = (TaxDocuments.parse(map['TaxDocuments']) unless map['TaxDocuments'].nil?)
+        data.device_configuration = (DeviceConfiguration.parse(map['DeviceConfiguration']) unless map['DeviceConfiguration'].nil?)
         data.remote_management = map['RemoteManagement']
         data.long_term_pricing_id = map['LongTermPricingId']
-        data.on_device_service_configuration = (Parsers::OnDeviceServiceConfiguration.parse(map['OnDeviceServiceConfiguration']) unless map['OnDeviceServiceConfiguration'].nil?)
+        data.on_device_service_configuration = (OnDeviceServiceConfiguration.parse(map['OnDeviceServiceConfiguration']) unless map['OnDeviceServiceConfiguration'].nil?)
         return data
       end
     end
@@ -532,7 +532,7 @@ module AWS::SDK::Snowball
     class DeviceConfiguration
       def self.parse(map)
         data = Types::DeviceConfiguration.new
-        data.snowcone_device_configuration = (Parsers::SnowconeDeviceConfiguration.parse(map['SnowconeDeviceConfiguration']) unless map['SnowconeDeviceConfiguration'].nil?)
+        data.snowcone_device_configuration = (SnowconeDeviceConfiguration.parse(map['SnowconeDeviceConfiguration']) unless map['SnowconeDeviceConfiguration'].nil?)
         return data
       end
     end
@@ -540,7 +540,7 @@ module AWS::SDK::Snowball
     class SnowconeDeviceConfiguration
       def self.parse(map)
         data = Types::SnowconeDeviceConfiguration.new
-        data.wireless_connection = (Parsers::WirelessConnection.parse(map['WirelessConnection']) unless map['WirelessConnection'].nil?)
+        data.wireless_connection = (WirelessConnection.parse(map['WirelessConnection']) unless map['WirelessConnection'].nil?)
         return data
       end
     end
@@ -578,8 +578,8 @@ module AWS::SDK::Snowball
       def self.parse(map)
         data = Types::ShippingDetails.new
         data.shipping_option = map['ShippingOption']
-        data.inbound_shipment = (Parsers::Shipment.parse(map['InboundShipment']) unless map['InboundShipment'].nil?)
-        data.outbound_shipment = (Parsers::Shipment.parse(map['OutboundShipment']) unless map['OutboundShipment'].nil?)
+        data.inbound_shipment = (Shipment.parse(map['InboundShipment']) unless map['InboundShipment'].nil?)
+        data.outbound_shipment = (Shipment.parse(map['OutboundShipment']) unless map['OutboundShipment'].nil?)
         return data
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_list_entries = (Parsers::JobListEntryList.parse(map['JobListEntries']) unless map['JobListEntries'].nil?)
+        data.job_list_entries = (JobListEntryList.parse(map['JobListEntries']) unless map['JobListEntries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -672,7 +672,7 @@ module AWS::SDK::Snowball
     class JobListEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::JobListEntry.parse(value) unless value.nil?
+          JobListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -698,7 +698,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster_list_entries = (Parsers::ClusterListEntryList.parse(map['ClusterListEntries']) unless map['ClusterListEntries'].nil?)
+        data.cluster_list_entries = (ClusterListEntryList.parse(map['ClusterListEntries']) unless map['ClusterListEntries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -707,7 +707,7 @@ module AWS::SDK::Snowball
     class ClusterListEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ClusterListEntry.parse(value) unless value.nil?
+          ClusterListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -730,7 +730,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compatible_images = (Parsers::CompatibleImageList.parse(map['CompatibleImages']) unless map['CompatibleImages'].nil?)
+        data.compatible_images = (CompatibleImageList.parse(map['CompatibleImages']) unless map['CompatibleImages'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -739,7 +739,7 @@ module AWS::SDK::Snowball
     class CompatibleImageList
       def self.parse(list)
         list.map do |value|
-          Parsers::CompatibleImage.parse(value) unless value.nil?
+          CompatibleImage.parse(value) unless value.nil?
         end
       end
     end
@@ -760,7 +760,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_list_entries = (Parsers::JobListEntryList.parse(map['JobListEntries']) unless map['JobListEntries'].nil?)
+        data.job_list_entries = (JobListEntryList.parse(map['JobListEntries']) unless map['JobListEntries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -773,7 +773,7 @@ module AWS::SDK::Snowball
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.long_term_pricing_entries = (Parsers::LongTermPricingEntryList.parse(map['LongTermPricingEntries']) unless map['LongTermPricingEntries'].nil?)
+        data.long_term_pricing_entries = (LongTermPricingEntryList.parse(map['LongTermPricingEntries']) unless map['LongTermPricingEntries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -782,7 +782,7 @@ module AWS::SDK::Snowball
     class LongTermPricingEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::LongTermPricingListEntry.parse(value) unless value.nil?
+          LongTermPricingListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -799,7 +799,7 @@ module AWS::SDK::Snowball
         data.is_long_term_pricing_auto_renew = map['IsLongTermPricingAutoRenew']
         data.long_term_pricing_status = map['LongTermPricingStatus']
         data.snowball_type = map['SnowballType']
-        data.job_ids = (Parsers::LongTermPricingAssociatedJobIdList.parse(map['JobIds']) unless map['JobIds'].nil?)
+        data.job_ids = (LongTermPricingAssociatedJobIdList.parse(map['JobIds']) unless map['JobIds'].nil?)
         return data
       end
     end

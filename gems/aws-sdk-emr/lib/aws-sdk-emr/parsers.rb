@@ -57,7 +57,7 @@ module AWS::SDK::EMR
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.job_flow_id = map['JobFlowId']
-        data.instance_group_ids = (Parsers::InstanceGroupIdsList.parse(map['InstanceGroupIds']) unless map['InstanceGroupIds'].nil?)
+        data.instance_group_ids = (InstanceGroupIdsList.parse(map['InstanceGroupIds']) unless map['InstanceGroupIds'].nil?)
         data.cluster_arn = map['ClusterArn']
         data
       end
@@ -89,7 +89,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.step_ids = (Parsers::StepIdsList.parse(map['StepIds']) unless map['StepIds'].nil?)
+        data.step_ids = (StepIdsList.parse(map['StepIds']) unless map['StepIds'].nil?)
         data
       end
     end
@@ -120,7 +120,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cancel_steps_info_list = (Parsers::CancelStepsInfoList.parse(map['CancelStepsInfoList']) unless map['CancelStepsInfoList'].nil?)
+        data.cancel_steps_info_list = (CancelStepsInfoList.parse(map['CancelStepsInfoList']) unless map['CancelStepsInfoList'].nil?)
         data
       end
     end
@@ -128,7 +128,7 @@ module AWS::SDK::EMR
     class CancelStepsInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::CancelStepsInfo.parse(value) unless value.nil?
+          CancelStepsInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -220,7 +220,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -230,8 +230,8 @@ module AWS::SDK::EMR
         data = Types::Cluster.new
         data.id = map['Id']
         data.name = map['Name']
-        data.status = (Parsers::ClusterStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.ec2_instance_attributes = (Parsers::Ec2InstanceAttributes.parse(map['Ec2InstanceAttributes']) unless map['Ec2InstanceAttributes'].nil?)
+        data.status = (ClusterStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.ec2_instance_attributes = (Ec2InstanceAttributes.parse(map['Ec2InstanceAttributes']) unless map['Ec2InstanceAttributes'].nil?)
         data.instance_collection_type = map['InstanceCollectionType']
         data.log_uri = map['LogUri']
         data.log_encryption_kms_key_id = map['LogEncryptionKmsKeyId']
@@ -241,23 +241,23 @@ module AWS::SDK::EMR
         data.auto_terminate = map['AutoTerminate']
         data.termination_protected = map['TerminationProtected']
         data.visible_to_all_users = map['VisibleToAllUsers']
-        data.applications = (Parsers::ApplicationList.parse(map['Applications']) unless map['Applications'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.applications = (ApplicationList.parse(map['Applications']) unless map['Applications'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.service_role = map['ServiceRole']
         data.normalized_instance_hours = map['NormalizedInstanceHours']
         data.master_public_dns_name = map['MasterPublicDnsName']
-        data.configurations = (Parsers::ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
+        data.configurations = (ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
         data.security_configuration = map['SecurityConfiguration']
         data.auto_scaling_role = map['AutoScalingRole']
         data.scale_down_behavior = map['ScaleDownBehavior']
         data.custom_ami_id = map['CustomAmiId']
         data.ebs_root_volume_size = map['EbsRootVolumeSize']
         data.repo_upgrade_on_boot = map['RepoUpgradeOnBoot']
-        data.kerberos_attributes = (Parsers::KerberosAttributes.parse(map['KerberosAttributes']) unless map['KerberosAttributes'].nil?)
+        data.kerberos_attributes = (KerberosAttributes.parse(map['KerberosAttributes']) unless map['KerberosAttributes'].nil?)
         data.cluster_arn = map['ClusterArn']
         data.outpost_arn = map['OutpostArn']
         data.step_concurrency_level = map['StepConcurrencyLevel']
-        data.placement_groups = (Parsers::PlacementGroupConfigList.parse(map['PlacementGroups']) unless map['PlacementGroups'].nil?)
+        data.placement_groups = (PlacementGroupConfigList.parse(map['PlacementGroups']) unless map['PlacementGroups'].nil?)
         data.os_release_label = map['OSReleaseLabel']
         return data
       end
@@ -266,7 +266,7 @@ module AWS::SDK::EMR
     class PlacementGroupConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::PlacementGroupConfig.parse(value) unless value.nil?
+          PlacementGroupConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::EMR
     class ConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Configuration.parse(value) unless value.nil?
+          Configuration.parse(value) unless value.nil?
         end
       end
     end
@@ -304,8 +304,8 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::Configuration.new
         data.classification = map['Classification']
-        data.configurations = (Parsers::ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
-        data.properties = (Parsers::StringMap.parse(map['Properties']) unless map['Properties'].nil?)
+        data.configurations = (ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
+        data.properties = (StringMap.parse(map['Properties']) unless map['Properties'].nil?)
         return data
       end
     end
@@ -323,7 +323,7 @@ module AWS::SDK::EMR
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -340,7 +340,7 @@ module AWS::SDK::EMR
     class ApplicationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Application.parse(value) unless value.nil?
+          Application.parse(value) unless value.nil?
         end
       end
     end
@@ -350,8 +350,8 @@ module AWS::SDK::EMR
         data = Types::Application.new
         data.name = map['Name']
         data.version = map['Version']
-        data.args = (Parsers::StringList.parse(map['Args']) unless map['Args'].nil?)
-        data.additional_info = (Parsers::StringMap.parse(map['AdditionalInfo']) unless map['AdditionalInfo'].nil?)
+        data.args = (StringList.parse(map['Args']) unless map['Args'].nil?)
+        data.additional_info = (StringMap.parse(map['AdditionalInfo']) unless map['AdditionalInfo'].nil?)
         return data
       end
     end
@@ -369,15 +369,15 @@ module AWS::SDK::EMR
         data = Types::Ec2InstanceAttributes.new
         data.ec2_key_name = map['Ec2KeyName']
         data.ec2_subnet_id = map['Ec2SubnetId']
-        data.requested_ec2_subnet_ids = (Parsers::XmlStringMaxLen256List.parse(map['RequestedEc2SubnetIds']) unless map['RequestedEc2SubnetIds'].nil?)
+        data.requested_ec2_subnet_ids = (XmlStringMaxLen256List.parse(map['RequestedEc2SubnetIds']) unless map['RequestedEc2SubnetIds'].nil?)
         data.ec2_availability_zone = map['Ec2AvailabilityZone']
-        data.requested_ec2_availability_zones = (Parsers::XmlStringMaxLen256List.parse(map['RequestedEc2AvailabilityZones']) unless map['RequestedEc2AvailabilityZones'].nil?)
+        data.requested_ec2_availability_zones = (XmlStringMaxLen256List.parse(map['RequestedEc2AvailabilityZones']) unless map['RequestedEc2AvailabilityZones'].nil?)
         data.iam_instance_profile = map['IamInstanceProfile']
         data.emr_managed_master_security_group = map['EmrManagedMasterSecurityGroup']
         data.emr_managed_slave_security_group = map['EmrManagedSlaveSecurityGroup']
         data.service_access_security_group = map['ServiceAccessSecurityGroup']
-        data.additional_master_security_groups = (Parsers::StringList.parse(map['AdditionalMasterSecurityGroups']) unless map['AdditionalMasterSecurityGroups'].nil?)
-        data.additional_slave_security_groups = (Parsers::StringList.parse(map['AdditionalSlaveSecurityGroups']) unless map['AdditionalSlaveSecurityGroups'].nil?)
+        data.additional_master_security_groups = (StringList.parse(map['AdditionalMasterSecurityGroups']) unless map['AdditionalMasterSecurityGroups'].nil?)
+        data.additional_slave_security_groups = (StringList.parse(map['AdditionalSlaveSecurityGroups']) unless map['AdditionalSlaveSecurityGroups'].nil?)
         return data
       end
     end
@@ -394,8 +394,8 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::ClusterStatus.new
         data.state = map['State']
-        data.state_change_reason = (Parsers::ClusterStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
-        data.timeline = (Parsers::ClusterTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
+        data.state_change_reason = (ClusterStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.timeline = (ClusterTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
         return data
       end
     end
@@ -426,7 +426,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_flows = (Parsers::JobFlowDetailList.parse(map['JobFlows']) unless map['JobFlows'].nil?)
+        data.job_flows = (JobFlowDetailList.parse(map['JobFlows']) unless map['JobFlows'].nil?)
         data
       end
     end
@@ -434,7 +434,7 @@ module AWS::SDK::EMR
     class JobFlowDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::JobFlowDetail.parse(value) unless value.nil?
+          JobFlowDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -447,11 +447,11 @@ module AWS::SDK::EMR
         data.log_uri = map['LogUri']
         data.log_encryption_kms_key_id = map['LogEncryptionKmsKeyId']
         data.ami_version = map['AmiVersion']
-        data.execution_status_detail = (Parsers::JobFlowExecutionStatusDetail.parse(map['ExecutionStatusDetail']) unless map['ExecutionStatusDetail'].nil?)
-        data.instances = (Parsers::JobFlowInstancesDetail.parse(map['Instances']) unless map['Instances'].nil?)
-        data.steps = (Parsers::StepDetailList.parse(map['Steps']) unless map['Steps'].nil?)
-        data.bootstrap_actions = (Parsers::BootstrapActionDetailList.parse(map['BootstrapActions']) unless map['BootstrapActions'].nil?)
-        data.supported_products = (Parsers::SupportedProductsList.parse(map['SupportedProducts']) unless map['SupportedProducts'].nil?)
+        data.execution_status_detail = (JobFlowExecutionStatusDetail.parse(map['ExecutionStatusDetail']) unless map['ExecutionStatusDetail'].nil?)
+        data.instances = (JobFlowInstancesDetail.parse(map['Instances']) unless map['Instances'].nil?)
+        data.steps = (StepDetailList.parse(map['Steps']) unless map['Steps'].nil?)
+        data.bootstrap_actions = (BootstrapActionDetailList.parse(map['BootstrapActions']) unless map['BootstrapActions'].nil?)
+        data.supported_products = (SupportedProductsList.parse(map['SupportedProducts']) unless map['SupportedProducts'].nil?)
         data.visible_to_all_users = map['VisibleToAllUsers']
         data.job_flow_role = map['JobFlowRole']
         data.service_role = map['ServiceRole']
@@ -472,7 +472,7 @@ module AWS::SDK::EMR
     class BootstrapActionDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::BootstrapActionDetail.parse(value) unless value.nil?
+          BootstrapActionDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -480,7 +480,7 @@ module AWS::SDK::EMR
     class BootstrapActionDetail
       def self.parse(map)
         data = Types::BootstrapActionDetail.new
-        data.bootstrap_action_config = (Parsers::BootstrapActionConfig.parse(map['BootstrapActionConfig']) unless map['BootstrapActionConfig'].nil?)
+        data.bootstrap_action_config = (BootstrapActionConfig.parse(map['BootstrapActionConfig']) unless map['BootstrapActionConfig'].nil?)
         return data
       end
     end
@@ -489,7 +489,7 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::BootstrapActionConfig.new
         data.name = map['Name']
-        data.script_bootstrap_action = (Parsers::ScriptBootstrapActionConfig.parse(map['ScriptBootstrapAction']) unless map['ScriptBootstrapAction'].nil?)
+        data.script_bootstrap_action = (ScriptBootstrapActionConfig.parse(map['ScriptBootstrapAction']) unless map['ScriptBootstrapAction'].nil?)
         return data
       end
     end
@@ -498,7 +498,7 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::ScriptBootstrapActionConfig.new
         data.path = map['Path']
-        data.args = (Parsers::XmlStringList.parse(map['Args']) unless map['Args'].nil?)
+        data.args = (XmlStringList.parse(map['Args']) unless map['Args'].nil?)
         return data
       end
     end
@@ -514,7 +514,7 @@ module AWS::SDK::EMR
     class StepDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::StepDetail.parse(value) unless value.nil?
+          StepDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -522,8 +522,8 @@ module AWS::SDK::EMR
     class StepDetail
       def self.parse(map)
         data = Types::StepDetail.new
-        data.step_config = (Parsers::StepConfig.parse(map['StepConfig']) unless map['StepConfig'].nil?)
-        data.execution_status_detail = (Parsers::StepExecutionStatusDetail.parse(map['ExecutionStatusDetail']) unless map['ExecutionStatusDetail'].nil?)
+        data.step_config = (StepConfig.parse(map['StepConfig']) unless map['StepConfig'].nil?)
+        data.execution_status_detail = (StepExecutionStatusDetail.parse(map['ExecutionStatusDetail']) unless map['ExecutionStatusDetail'].nil?)
         return data
       end
     end
@@ -545,7 +545,7 @@ module AWS::SDK::EMR
         data = Types::StepConfig.new
         data.name = map['Name']
         data.action_on_failure = map['ActionOnFailure']
-        data.hadoop_jar_step = (Parsers::HadoopJarStepConfig.parse(map['HadoopJarStep']) unless map['HadoopJarStep'].nil?)
+        data.hadoop_jar_step = (HadoopJarStepConfig.parse(map['HadoopJarStep']) unless map['HadoopJarStep'].nil?)
         return data
       end
     end
@@ -553,10 +553,10 @@ module AWS::SDK::EMR
     class HadoopJarStepConfig
       def self.parse(map)
         data = Types::HadoopJarStepConfig.new
-        data.properties = (Parsers::KeyValueList.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (KeyValueList.parse(map['Properties']) unless map['Properties'].nil?)
         data.jar = map['Jar']
         data.main_class = map['MainClass']
-        data.args = (Parsers::XmlStringList.parse(map['Args']) unless map['Args'].nil?)
+        data.args = (XmlStringList.parse(map['Args']) unless map['Args'].nil?)
         return data
       end
     end
@@ -564,7 +564,7 @@ module AWS::SDK::EMR
     class KeyValueList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyValue.parse(value) unless value.nil?
+          KeyValue.parse(value) unless value.nil?
         end
       end
     end
@@ -586,11 +586,11 @@ module AWS::SDK::EMR
         data.master_instance_id = map['MasterInstanceId']
         data.slave_instance_type = map['SlaveInstanceType']
         data.instance_count = map['InstanceCount']
-        data.instance_groups = (Parsers::InstanceGroupDetailList.parse(map['InstanceGroups']) unless map['InstanceGroups'].nil?)
+        data.instance_groups = (InstanceGroupDetailList.parse(map['InstanceGroups']) unless map['InstanceGroups'].nil?)
         data.normalized_instance_hours = map['NormalizedInstanceHours']
         data.ec2_key_name = map['Ec2KeyName']
         data.ec2_subnet_id = map['Ec2SubnetId']
-        data.placement = (Parsers::PlacementType.parse(map['Placement']) unless map['Placement'].nil?)
+        data.placement = (PlacementType.parse(map['Placement']) unless map['Placement'].nil?)
         data.keep_job_flow_alive_when_no_steps = map['KeepJobFlowAliveWhenNoSteps']
         data.termination_protected = map['TerminationProtected']
         data.hadoop_version = map['HadoopVersion']
@@ -602,7 +602,7 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::PlacementType.new
         data.availability_zone = map['AvailabilityZone']
-        data.availability_zones = (Parsers::XmlStringMaxLen256List.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.availability_zones = (XmlStringMaxLen256List.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
         return data
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::EMR
     class InstanceGroupDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceGroupDetail.parse(value) unless value.nil?
+          InstanceGroupDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -657,7 +657,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.notebook_execution = (Parsers::NotebookExecution.parse(map['NotebookExecution']) unless map['NotebookExecution'].nil?)
+        data.notebook_execution = (NotebookExecution.parse(map['NotebookExecution']) unless map['NotebookExecution'].nil?)
         data
       end
     end
@@ -667,7 +667,7 @@ module AWS::SDK::EMR
         data = Types::NotebookExecution.new
         data.notebook_execution_id = map['NotebookExecutionId']
         data.editor_id = map['EditorId']
-        data.execution_engine = (Parsers::ExecutionEngineConfig.parse(map['ExecutionEngine']) unless map['ExecutionEngine'].nil?)
+        data.execution_engine = (ExecutionEngineConfig.parse(map['ExecutionEngine']) unless map['ExecutionEngine'].nil?)
         data.notebook_execution_name = map['NotebookExecutionName']
         data.notebook_params = map['NotebookParams']
         data.status = map['Status']
@@ -677,7 +677,7 @@ module AWS::SDK::EMR
         data.output_notebook_uri = map['OutputNotebookURI']
         data.last_state_change_reason = map['LastStateChangeReason']
         data.notebook_instance_security_group_id = map['NotebookInstanceSecurityGroupId']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -700,9 +700,9 @@ module AWS::SDK::EMR
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.release_label = map['ReleaseLabel']
-        data.applications = (Parsers::SimplifiedApplicationList.parse(map['Applications']) unless map['Applications'].nil?)
+        data.applications = (SimplifiedApplicationList.parse(map['Applications']) unless map['Applications'].nil?)
         data.next_token = map['NextToken']
-        data.available_os_releases = (Parsers::OSReleaseList.parse(map['AvailableOSReleases']) unless map['AvailableOSReleases'].nil?)
+        data.available_os_releases = (OSReleaseList.parse(map['AvailableOSReleases']) unless map['AvailableOSReleases'].nil?)
         data
       end
     end
@@ -710,7 +710,7 @@ module AWS::SDK::EMR
     class OSReleaseList
       def self.parse(list)
         list.map do |value|
-          Parsers::OSRelease.parse(value) unless value.nil?
+          OSRelease.parse(value) unless value.nil?
         end
       end
     end
@@ -726,7 +726,7 @@ module AWS::SDK::EMR
     class SimplifiedApplicationList
       def self.parse(list)
         list.map do |value|
-          Parsers::SimplifiedApplication.parse(value) unless value.nil?
+          SimplifiedApplication.parse(value) unless value.nil?
         end
       end
     end
@@ -761,7 +761,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.step = (Parsers::Step.parse(map['Step']) unless map['Step'].nil?)
+        data.step = (Step.parse(map['Step']) unless map['Step'].nil?)
         data
       end
     end
@@ -771,9 +771,9 @@ module AWS::SDK::EMR
         data = Types::Step.new
         data.id = map['Id']
         data.name = map['Name']
-        data.config = (Parsers::HadoopStepConfig.parse(map['Config']) unless map['Config'].nil?)
+        data.config = (HadoopStepConfig.parse(map['Config']) unless map['Config'].nil?)
         data.action_on_failure = map['ActionOnFailure']
-        data.status = (Parsers::StepStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (StepStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -782,9 +782,9 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::StepStatus.new
         data.state = map['State']
-        data.state_change_reason = (Parsers::StepStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
-        data.failure_details = (Parsers::FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
-        data.timeline = (Parsers::StepTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
+        data.state_change_reason = (StepStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.failure_details = (FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.timeline = (StepTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
         return data
       end
     end
@@ -822,9 +822,9 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::HadoopStepConfig.new
         data.jar = map['Jar']
-        data.properties = (Parsers::StringMap.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (StringMap.parse(map['Properties']) unless map['Properties'].nil?)
         data.main_class = map['MainClass']
-        data.args = (Parsers::StringList.parse(map['Args']) unless map['Args'].nil?)
+        data.args = (StringList.parse(map['Args']) unless map['Args'].nil?)
         return data
       end
     end
@@ -836,7 +836,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.studio = (Parsers::Studio.parse(map['Studio']) unless map['Studio'].nil?)
+        data.studio = (Studio.parse(map['Studio']) unless map['Studio'].nil?)
         data
       end
     end
@@ -850,7 +850,7 @@ module AWS::SDK::EMR
         data.description = map['Description']
         data.auth_mode = map['AuthMode']
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.service_role = map['ServiceRole']
         data.user_role = map['UserRole']
         data.workspace_security_group_id = map['WorkspaceSecurityGroupId']
@@ -860,7 +860,7 @@ module AWS::SDK::EMR
         data.default_s3_location = map['DefaultS3Location']
         data.idp_auth_url = map['IdpAuthUrl']
         data.idp_relay_state_parameter_name = map['IdpRelayStateParameterName']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -880,7 +880,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.auto_termination_policy = (Parsers::AutoTerminationPolicy.parse(map['AutoTerminationPolicy']) unless map['AutoTerminationPolicy'].nil?)
+        data.auto_termination_policy = (AutoTerminationPolicy.parse(map['AutoTerminationPolicy']) unless map['AutoTerminationPolicy'].nil?)
         data
       end
     end
@@ -900,8 +900,8 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.block_public_access_configuration = (Parsers::BlockPublicAccessConfiguration.parse(map['BlockPublicAccessConfiguration']) unless map['BlockPublicAccessConfiguration'].nil?)
-        data.block_public_access_configuration_metadata = (Parsers::BlockPublicAccessConfigurationMetadata.parse(map['BlockPublicAccessConfigurationMetadata']) unless map['BlockPublicAccessConfigurationMetadata'].nil?)
+        data.block_public_access_configuration = (BlockPublicAccessConfiguration.parse(map['BlockPublicAccessConfiguration']) unless map['BlockPublicAccessConfiguration'].nil?)
+        data.block_public_access_configuration_metadata = (BlockPublicAccessConfigurationMetadata.parse(map['BlockPublicAccessConfigurationMetadata']) unless map['BlockPublicAccessConfigurationMetadata'].nil?)
         data
       end
     end
@@ -919,10 +919,10 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::BlockPublicAccessConfiguration.new
         data.block_public_security_group_rules = map['BlockPublicSecurityGroupRules']
-        data.permitted_public_security_group_rule_ranges = (Parsers::PortRanges.parse(map['PermittedPublicSecurityGroupRuleRanges']) unless map['PermittedPublicSecurityGroupRuleRanges'].nil?)
+        data.permitted_public_security_group_rule_ranges = (PortRanges.parse(map['PermittedPublicSecurityGroupRuleRanges']) unless map['PermittedPublicSecurityGroupRuleRanges'].nil?)
         data.classification = map['Classification']
-        data.configurations = (Parsers::ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
-        data.properties = (Parsers::StringMap.parse(map['Properties']) unless map['Properties'].nil?)
+        data.configurations = (ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
+        data.properties = (StringMap.parse(map['Properties']) unless map['Properties'].nil?)
         return data
       end
     end
@@ -930,7 +930,7 @@ module AWS::SDK::EMR
     class PortRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::PortRange.parse(value) unless value.nil?
+          PortRange.parse(value) unless value.nil?
         end
       end
     end
@@ -951,7 +951,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.managed_scaling_policy = (Parsers::ManagedScalingPolicy.parse(map['ManagedScalingPolicy']) unless map['ManagedScalingPolicy'].nil?)
+        data.managed_scaling_policy = (ManagedScalingPolicy.parse(map['ManagedScalingPolicy']) unless map['ManagedScalingPolicy'].nil?)
         data
       end
     end
@@ -959,7 +959,7 @@ module AWS::SDK::EMR
     class ManagedScalingPolicy
       def self.parse(map)
         data = Types::ManagedScalingPolicy.new
-        data.compute_limits = (Parsers::ComputeLimits.parse(map['ComputeLimits']) unless map['ComputeLimits'].nil?)
+        data.compute_limits = (ComputeLimits.parse(map['ComputeLimits']) unless map['ComputeLimits'].nil?)
         return data
       end
     end
@@ -983,7 +983,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.session_mapping = (Parsers::SessionMappingDetail.parse(map['SessionMapping']) unless map['SessionMapping'].nil?)
+        data.session_mapping = (SessionMappingDetail.parse(map['SessionMapping']) unless map['SessionMapping'].nil?)
         data
       end
     end
@@ -1009,7 +1009,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bootstrap_actions = (Parsers::CommandList.parse(map['BootstrapActions']) unless map['BootstrapActions'].nil?)
+        data.bootstrap_actions = (CommandList.parse(map['BootstrapActions']) unless map['BootstrapActions'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1018,7 +1018,7 @@ module AWS::SDK::EMR
     class CommandList
       def self.parse(list)
         list.map do |value|
-          Parsers::Command.parse(value) unless value.nil?
+          Command.parse(value) unless value.nil?
         end
       end
     end
@@ -1028,7 +1028,7 @@ module AWS::SDK::EMR
         data = Types::Command.new
         data.name = map['Name']
         data.script_path = map['ScriptPath']
-        data.args = (Parsers::StringList.parse(map['Args']) unless map['Args'].nil?)
+        data.args = (StringList.parse(map['Args']) unless map['Args'].nil?)
         return data
       end
     end
@@ -1040,7 +1040,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.clusters = (Parsers::ClusterSummaryList.parse(map['Clusters']) unless map['Clusters'].nil?)
+        data.clusters = (ClusterSummaryList.parse(map['Clusters']) unless map['Clusters'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1049,7 +1049,7 @@ module AWS::SDK::EMR
     class ClusterSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ClusterSummary.parse(value) unless value.nil?
+          ClusterSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1059,7 +1059,7 @@ module AWS::SDK::EMR
         data = Types::ClusterSummary.new
         data.id = map['Id']
         data.name = map['Name']
-        data.status = (Parsers::ClusterStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (ClusterStatus.parse(map['Status']) unless map['Status'].nil?)
         data.normalized_instance_hours = map['NormalizedInstanceHours']
         data.cluster_arn = map['ClusterArn']
         data.outpost_arn = map['OutpostArn']
@@ -1074,7 +1074,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_fleets = (Parsers::InstanceFleetList.parse(map['InstanceFleets']) unless map['InstanceFleets'].nil?)
+        data.instance_fleets = (InstanceFleetList.parse(map['InstanceFleets']) unless map['InstanceFleets'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1083,7 +1083,7 @@ module AWS::SDK::EMR
     class InstanceFleetList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceFleet.parse(value) unless value.nil?
+          InstanceFleet.parse(value) unless value.nil?
         end
       end
     end
@@ -1093,14 +1093,14 @@ module AWS::SDK::EMR
         data = Types::InstanceFleet.new
         data.id = map['Id']
         data.name = map['Name']
-        data.status = (Parsers::InstanceFleetStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (InstanceFleetStatus.parse(map['Status']) unless map['Status'].nil?)
         data.instance_fleet_type = map['InstanceFleetType']
         data.target_on_demand_capacity = map['TargetOnDemandCapacity']
         data.target_spot_capacity = map['TargetSpotCapacity']
         data.provisioned_on_demand_capacity = map['ProvisionedOnDemandCapacity']
         data.provisioned_spot_capacity = map['ProvisionedSpotCapacity']
-        data.instance_type_specifications = (Parsers::InstanceTypeSpecificationList.parse(map['InstanceTypeSpecifications']) unless map['InstanceTypeSpecifications'].nil?)
-        data.launch_specifications = (Parsers::InstanceFleetProvisioningSpecifications.parse(map['LaunchSpecifications']) unless map['LaunchSpecifications'].nil?)
+        data.instance_type_specifications = (InstanceTypeSpecificationList.parse(map['InstanceTypeSpecifications']) unless map['InstanceTypeSpecifications'].nil?)
+        data.launch_specifications = (InstanceFleetProvisioningSpecifications.parse(map['LaunchSpecifications']) unless map['LaunchSpecifications'].nil?)
         return data
       end
     end
@@ -1108,8 +1108,8 @@ module AWS::SDK::EMR
     class InstanceFleetProvisioningSpecifications
       def self.parse(map)
         data = Types::InstanceFleetProvisioningSpecifications.new
-        data.spot_specification = (Parsers::SpotProvisioningSpecification.parse(map['SpotSpecification']) unless map['SpotSpecification'].nil?)
-        data.on_demand_specification = (Parsers::OnDemandProvisioningSpecification.parse(map['OnDemandSpecification']) unless map['OnDemandSpecification'].nil?)
+        data.spot_specification = (SpotProvisioningSpecification.parse(map['SpotSpecification']) unless map['SpotSpecification'].nil?)
+        data.on_demand_specification = (OnDemandProvisioningSpecification.parse(map['OnDemandSpecification']) unless map['OnDemandSpecification'].nil?)
         return data
       end
     end
@@ -1118,7 +1118,7 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::OnDemandProvisioningSpecification.new
         data.allocation_strategy = map['AllocationStrategy']
-        data.capacity_reservation_options = (Parsers::OnDemandCapacityReservationOptions.parse(map['CapacityReservationOptions']) unless map['CapacityReservationOptions'].nil?)
+        data.capacity_reservation_options = (OnDemandCapacityReservationOptions.parse(map['CapacityReservationOptions']) unless map['CapacityReservationOptions'].nil?)
         return data
       end
     end
@@ -1147,7 +1147,7 @@ module AWS::SDK::EMR
     class InstanceTypeSpecificationList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceTypeSpecification.parse(value) unless value.nil?
+          InstanceTypeSpecification.parse(value) unless value.nil?
         end
       end
     end
@@ -1159,8 +1159,8 @@ module AWS::SDK::EMR
         data.weighted_capacity = map['WeightedCapacity']
         data.bid_price = map['BidPrice']
         data.bid_price_as_percentage_of_on_demand_price = Hearth::NumberHelper.deserialize(map['BidPriceAsPercentageOfOnDemandPrice'])
-        data.configurations = (Parsers::ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
-        data.ebs_block_devices = (Parsers::EbsBlockDeviceList.parse(map['EbsBlockDevices']) unless map['EbsBlockDevices'].nil?)
+        data.configurations = (ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
+        data.ebs_block_devices = (EbsBlockDeviceList.parse(map['EbsBlockDevices']) unless map['EbsBlockDevices'].nil?)
         data.ebs_optimized = map['EbsOptimized']
         data.custom_ami_id = map['CustomAmiId']
         return data
@@ -1170,7 +1170,7 @@ module AWS::SDK::EMR
     class EbsBlockDeviceList
       def self.parse(list)
         list.map do |value|
-          Parsers::EbsBlockDevice.parse(value) unless value.nil?
+          EbsBlockDevice.parse(value) unless value.nil?
         end
       end
     end
@@ -1178,7 +1178,7 @@ module AWS::SDK::EMR
     class EbsBlockDevice
       def self.parse(map)
         data = Types::EbsBlockDevice.new
-        data.volume_specification = (Parsers::VolumeSpecification.parse(map['VolumeSpecification']) unless map['VolumeSpecification'].nil?)
+        data.volume_specification = (VolumeSpecification.parse(map['VolumeSpecification']) unless map['VolumeSpecification'].nil?)
         data.device = map['Device']
         return data
       end
@@ -1198,8 +1198,8 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::InstanceFleetStatus.new
         data.state = map['State']
-        data.state_change_reason = (Parsers::InstanceFleetStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
-        data.timeline = (Parsers::InstanceFleetTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
+        data.state_change_reason = (InstanceFleetStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.timeline = (InstanceFleetTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
         return data
       end
     end
@@ -1230,7 +1230,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_groups = (Parsers::InstanceGroupList.parse(map['InstanceGroups']) unless map['InstanceGroups'].nil?)
+        data.instance_groups = (InstanceGroupList.parse(map['InstanceGroups']) unless map['InstanceGroups'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1239,7 +1239,7 @@ module AWS::SDK::EMR
     class InstanceGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceGroup.parse(value) unless value.nil?
+          InstanceGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1255,15 +1255,15 @@ module AWS::SDK::EMR
         data.instance_type = map['InstanceType']
         data.requested_instance_count = map['RequestedInstanceCount']
         data.running_instance_count = map['RunningInstanceCount']
-        data.status = (Parsers::InstanceGroupStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.configurations = (Parsers::ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
+        data.status = (InstanceGroupStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.configurations = (ConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
         data.configurations_version = map['ConfigurationsVersion']
-        data.last_successfully_applied_configurations = (Parsers::ConfigurationList.parse(map['LastSuccessfullyAppliedConfigurations']) unless map['LastSuccessfullyAppliedConfigurations'].nil?)
+        data.last_successfully_applied_configurations = (ConfigurationList.parse(map['LastSuccessfullyAppliedConfigurations']) unless map['LastSuccessfullyAppliedConfigurations'].nil?)
         data.last_successfully_applied_configurations_version = map['LastSuccessfullyAppliedConfigurationsVersion']
-        data.ebs_block_devices = (Parsers::EbsBlockDeviceList.parse(map['EbsBlockDevices']) unless map['EbsBlockDevices'].nil?)
+        data.ebs_block_devices = (EbsBlockDeviceList.parse(map['EbsBlockDevices']) unless map['EbsBlockDevices'].nil?)
         data.ebs_optimized = map['EbsOptimized']
-        data.shrink_policy = (Parsers::ShrinkPolicy.parse(map['ShrinkPolicy']) unless map['ShrinkPolicy'].nil?)
-        data.auto_scaling_policy = (Parsers::AutoScalingPolicyDescription.parse(map['AutoScalingPolicy']) unless map['AutoScalingPolicy'].nil?)
+        data.shrink_policy = (ShrinkPolicy.parse(map['ShrinkPolicy']) unless map['ShrinkPolicy'].nil?)
+        data.auto_scaling_policy = (AutoScalingPolicyDescription.parse(map['AutoScalingPolicy']) unless map['AutoScalingPolicy'].nil?)
         data.custom_ami_id = map['CustomAmiId']
         return data
       end
@@ -1272,9 +1272,9 @@ module AWS::SDK::EMR
     class AutoScalingPolicyDescription
       def self.parse(map)
         data = Types::AutoScalingPolicyDescription.new
-        data.status = (Parsers::AutoScalingPolicyStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.constraints = (Parsers::ScalingConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
-        data.rules = (Parsers::ScalingRuleList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.status = (AutoScalingPolicyStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.constraints = (ScalingConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.rules = (ScalingRuleList.parse(map['Rules']) unless map['Rules'].nil?)
         return data
       end
     end
@@ -1282,7 +1282,7 @@ module AWS::SDK::EMR
     class ScalingRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingRule.parse(value) unless value.nil?
+          ScalingRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1292,8 +1292,8 @@ module AWS::SDK::EMR
         data = Types::ScalingRule.new
         data.name = map['Name']
         data.description = map['Description']
-        data.action = (Parsers::ScalingAction.parse(map['Action']) unless map['Action'].nil?)
-        data.trigger = (Parsers::ScalingTrigger.parse(map['Trigger']) unless map['Trigger'].nil?)
+        data.action = (ScalingAction.parse(map['Action']) unless map['Action'].nil?)
+        data.trigger = (ScalingTrigger.parse(map['Trigger']) unless map['Trigger'].nil?)
         return data
       end
     end
@@ -1301,7 +1301,7 @@ module AWS::SDK::EMR
     class ScalingTrigger
       def self.parse(map)
         data = Types::ScalingTrigger.new
-        data.cloud_watch_alarm_definition = (Parsers::CloudWatchAlarmDefinition.parse(map['CloudWatchAlarmDefinition']) unless map['CloudWatchAlarmDefinition'].nil?)
+        data.cloud_watch_alarm_definition = (CloudWatchAlarmDefinition.parse(map['CloudWatchAlarmDefinition']) unless map['CloudWatchAlarmDefinition'].nil?)
         return data
       end
     end
@@ -1317,7 +1317,7 @@ module AWS::SDK::EMR
         data.statistic = map['Statistic']
         data.threshold = Hearth::NumberHelper.deserialize(map['Threshold'])
         data.unit = map['Unit']
-        data.dimensions = (Parsers::MetricDimensionList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (MetricDimensionList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         return data
       end
     end
@@ -1325,7 +1325,7 @@ module AWS::SDK::EMR
     class MetricDimensionList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDimension.parse(value) unless value.nil?
+          MetricDimension.parse(value) unless value.nil?
         end
       end
     end
@@ -1343,7 +1343,7 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::ScalingAction.new
         data.market = map['Market']
-        data.simple_scaling_policy_configuration = (Parsers::SimpleScalingPolicyConfiguration.parse(map['SimpleScalingPolicyConfiguration']) unless map['SimpleScalingPolicyConfiguration'].nil?)
+        data.simple_scaling_policy_configuration = (SimpleScalingPolicyConfiguration.parse(map['SimpleScalingPolicyConfiguration']) unless map['SimpleScalingPolicyConfiguration'].nil?)
         return data
       end
     end
@@ -1371,7 +1371,7 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::AutoScalingPolicyStatus.new
         data.state = map['State']
-        data.state_change_reason = (Parsers::AutoScalingPolicyStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.state_change_reason = (AutoScalingPolicyStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
         return data
       end
     end
@@ -1389,7 +1389,7 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::ShrinkPolicy.new
         data.decommission_timeout = map['DecommissionTimeout']
-        data.instance_resize_policy = (Parsers::InstanceResizePolicy.parse(map['InstanceResizePolicy']) unless map['InstanceResizePolicy'].nil?)
+        data.instance_resize_policy = (InstanceResizePolicy.parse(map['InstanceResizePolicy']) unless map['InstanceResizePolicy'].nil?)
         return data
       end
     end
@@ -1397,8 +1397,8 @@ module AWS::SDK::EMR
     class InstanceResizePolicy
       def self.parse(map)
         data = Types::InstanceResizePolicy.new
-        data.instances_to_terminate = (Parsers::EC2InstanceIdsList.parse(map['InstancesToTerminate']) unless map['InstancesToTerminate'].nil?)
-        data.instances_to_protect = (Parsers::EC2InstanceIdsList.parse(map['InstancesToProtect']) unless map['InstancesToProtect'].nil?)
+        data.instances_to_terminate = (EC2InstanceIdsList.parse(map['InstancesToTerminate']) unless map['InstancesToTerminate'].nil?)
+        data.instances_to_protect = (EC2InstanceIdsList.parse(map['InstancesToProtect']) unless map['InstancesToProtect'].nil?)
         data.instance_termination_timeout = map['InstanceTerminationTimeout']
         return data
       end
@@ -1416,8 +1416,8 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::InstanceGroupStatus.new
         data.state = map['State']
-        data.state_change_reason = (Parsers::InstanceGroupStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
-        data.timeline = (Parsers::InstanceGroupTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
+        data.state_change_reason = (InstanceGroupStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.timeline = (InstanceGroupTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
         return data
       end
     end
@@ -1448,7 +1448,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instances = (Parsers::InstanceList.parse(map['Instances']) unless map['Instances'].nil?)
+        data.instances = (InstanceList.parse(map['Instances']) unless map['Instances'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1457,7 +1457,7 @@ module AWS::SDK::EMR
     class InstanceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Instance.parse(value) unless value.nil?
+          Instance.parse(value) unless value.nil?
         end
       end
     end
@@ -1471,12 +1471,12 @@ module AWS::SDK::EMR
         data.public_ip_address = map['PublicIpAddress']
         data.private_dns_name = map['PrivateDnsName']
         data.private_ip_address = map['PrivateIpAddress']
-        data.status = (Parsers::InstanceStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (InstanceStatus.parse(map['Status']) unless map['Status'].nil?)
         data.instance_group_id = map['InstanceGroupId']
         data.instance_fleet_id = map['InstanceFleetId']
         data.market = map['Market']
         data.instance_type = map['InstanceType']
-        data.ebs_volumes = (Parsers::EbsVolumeList.parse(map['EbsVolumes']) unless map['EbsVolumes'].nil?)
+        data.ebs_volumes = (EbsVolumeList.parse(map['EbsVolumes']) unless map['EbsVolumes'].nil?)
         return data
       end
     end
@@ -1484,7 +1484,7 @@ module AWS::SDK::EMR
     class EbsVolumeList
       def self.parse(list)
         list.map do |value|
-          Parsers::EbsVolume.parse(value) unless value.nil?
+          EbsVolume.parse(value) unless value.nil?
         end
       end
     end
@@ -1502,8 +1502,8 @@ module AWS::SDK::EMR
       def self.parse(map)
         data = Types::InstanceStatus.new
         data.state = map['State']
-        data.state_change_reason = (Parsers::InstanceStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
-        data.timeline = (Parsers::InstanceTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
+        data.state_change_reason = (InstanceStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.timeline = (InstanceTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
         return data
       end
     end
@@ -1534,7 +1534,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.notebook_executions = (Parsers::NotebookExecutionSummaryList.parse(map['NotebookExecutions']) unless map['NotebookExecutions'].nil?)
+        data.notebook_executions = (NotebookExecutionSummaryList.parse(map['NotebookExecutions']) unless map['NotebookExecutions'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1543,7 +1543,7 @@ module AWS::SDK::EMR
     class NotebookExecutionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::NotebookExecutionSummary.parse(value) unless value.nil?
+          NotebookExecutionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1568,7 +1568,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.release_labels = (Parsers::StringList.parse(map['ReleaseLabels']) unless map['ReleaseLabels'].nil?)
+        data.release_labels = (StringList.parse(map['ReleaseLabels']) unless map['ReleaseLabels'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1581,7 +1581,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.security_configurations = (Parsers::SecurityConfigurationList.parse(map['SecurityConfigurations']) unless map['SecurityConfigurations'].nil?)
+        data.security_configurations = (SecurityConfigurationList.parse(map['SecurityConfigurations']) unless map['SecurityConfigurations'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1590,7 +1590,7 @@ module AWS::SDK::EMR
     class SecurityConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::SecurityConfigurationSummary.parse(value) unless value.nil?
+          SecurityConfigurationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1611,7 +1611,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.steps = (Parsers::StepSummaryList.parse(map['Steps']) unless map['Steps'].nil?)
+        data.steps = (StepSummaryList.parse(map['Steps']) unless map['Steps'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1620,7 +1620,7 @@ module AWS::SDK::EMR
     class StepSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::StepSummary.parse(value) unless value.nil?
+          StepSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1630,9 +1630,9 @@ module AWS::SDK::EMR
         data = Types::StepSummary.new
         data.id = map['Id']
         data.name = map['Name']
-        data.config = (Parsers::HadoopStepConfig.parse(map['Config']) unless map['Config'].nil?)
+        data.config = (HadoopStepConfig.parse(map['Config']) unless map['Config'].nil?)
         data.action_on_failure = map['ActionOnFailure']
-        data.status = (Parsers::StepStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (StepStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -1644,7 +1644,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.session_mappings = (Parsers::SessionMappingSummaryList.parse(map['SessionMappings']) unless map['SessionMappings'].nil?)
+        data.session_mappings = (SessionMappingSummaryList.parse(map['SessionMappings']) unless map['SessionMappings'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1653,7 +1653,7 @@ module AWS::SDK::EMR
     class SessionMappingSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::SessionMappingSummary.parse(value) unless value.nil?
+          SessionMappingSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1678,7 +1678,7 @@ module AWS::SDK::EMR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.studios = (Parsers::StudioSummaryList.parse(map['Studios']) unless map['Studios'].nil?)
+        data.studios = (StudioSummaryList.parse(map['Studios']) unless map['Studios'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1687,7 +1687,7 @@ module AWS::SDK::EMR
     class StudioSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::StudioSummary.parse(value) unless value.nil?
+          StudioSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1749,7 +1749,7 @@ module AWS::SDK::EMR
         map = Hearth::JSON.load(body)
         data.cluster_id = map['ClusterId']
         data.instance_group_id = map['InstanceGroupId']
-        data.auto_scaling_policy = (Parsers::AutoScalingPolicyDescription.parse(map['AutoScalingPolicy']) unless map['AutoScalingPolicy'].nil?)
+        data.auto_scaling_policy = (AutoScalingPolicyDescription.parse(map['AutoScalingPolicy']) unless map['AutoScalingPolicy'].nil?)
         data.cluster_arn = map['ClusterArn']
         data
       end

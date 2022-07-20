@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppRunner
   module Stubs
 
@@ -24,8 +26,8 @@ module AWS::SDK::AppRunner
         data = {}
         data['DNSTarget'] = stub[:dns_target] unless stub[:dns_target].nil?
         data['ServiceArn'] = stub[:service_arn] unless stub[:service_arn].nil?
-        data['CustomDomain'] = Stubs::CustomDomain.stub(stub[:custom_domain]) unless stub[:custom_domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomDomain'] = CustomDomain.stub(stub[:custom_domain]) unless stub[:custom_domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::AppRunner
         data = {}
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['EnableWWWSubdomain'] = stub[:enable_www_subdomain] unless stub[:enable_www_subdomain].nil?
-        data['CertificateValidationRecords'] = Stubs::CertificateValidationRecordList.stub(stub[:certificate_validation_records]) unless stub[:certificate_validation_records].nil?
+        data['CertificateValidationRecords'] = CertificateValidationRecordList.stub(stub[:certificate_validation_records]) unless stub[:certificate_validation_records].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -68,7 +70,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CertificateValidationRecord.stub(element) unless element.nil?
+          data << CertificateValidationRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -108,8 +110,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutoScalingConfiguration'] = Stubs::AutoScalingConfiguration.stub(stub[:auto_scaling_configuration]) unless stub[:auto_scaling_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoScalingConfiguration'] = AutoScalingConfiguration.stub(stub[:auto_scaling_configuration]) unless stub[:auto_scaling_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -160,8 +162,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -202,8 +204,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ObservabilityConfiguration'] = Stubs::ObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObservabilityConfiguration'] = ObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -230,7 +232,7 @@ module AWS::SDK::AppRunner
         data = {}
         data['ObservabilityConfigurationArn'] = stub[:observability_configuration_arn] unless stub[:observability_configuration_arn].nil?
         data['ObservabilityConfigurationName'] = stub[:observability_configuration_name] unless stub[:observability_configuration_name].nil?
-        data['TraceConfiguration'] = Stubs::TraceConfiguration.stub(stub[:trace_configuration]) unless stub[:trace_configuration].nil?
+        data['TraceConfiguration'] = TraceConfiguration.stub(stub[:trace_configuration]) unless stub[:trace_configuration].nil?
         data['ObservabilityConfigurationRevision'] = stub[:observability_configuration_revision] unless stub[:observability_configuration_revision].nil?
         data['Latest'] = stub[:latest] unless stub[:latest].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
@@ -269,9 +271,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -311,13 +313,13 @@ module AWS::SDK::AppRunner
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['DeletedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deleted_at]).to_i unless stub[:deleted_at].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['SourceConfiguration'] = Stubs::SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
-        data['InstanceConfiguration'] = Stubs::InstanceConfiguration.stub(stub[:instance_configuration]) unless stub[:instance_configuration].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        data['HealthCheckConfiguration'] = Stubs::HealthCheckConfiguration.stub(stub[:health_check_configuration]) unless stub[:health_check_configuration].nil?
-        data['AutoScalingConfigurationSummary'] = Stubs::AutoScalingConfigurationSummary.stub(stub[:auto_scaling_configuration_summary]) unless stub[:auto_scaling_configuration_summary].nil?
-        data['NetworkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
-        data['ObservabilityConfiguration'] = Stubs::ServiceObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
+        data['SourceConfiguration'] = SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
+        data['InstanceConfiguration'] = InstanceConfiguration.stub(stub[:instance_configuration]) unless stub[:instance_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['HealthCheckConfiguration'] = HealthCheckConfiguration.stub(stub[:health_check_configuration]) unless stub[:health_check_configuration].nil?
+        data['AutoScalingConfigurationSummary'] = AutoScalingConfigurationSummary.stub(stub[:auto_scaling_configuration_summary]) unless stub[:auto_scaling_configuration_summary].nil?
+        data['NetworkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['ObservabilityConfiguration'] = ServiceObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
         data
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::AppRunner
       def self.stub(stub)
         stub ||= Types::NetworkConfiguration.new
         data = {}
-        data['EgressConfiguration'] = Stubs::EgressConfiguration.stub(stub[:egress_configuration]) unless stub[:egress_configuration].nil?
+        data['EgressConfiguration'] = EgressConfiguration.stub(stub[:egress_configuration]) unless stub[:egress_configuration].nil?
         data
       end
     end
@@ -486,10 +488,10 @@ module AWS::SDK::AppRunner
       def self.stub(stub)
         stub ||= Types::SourceConfiguration.new
         data = {}
-        data['CodeRepository'] = Stubs::CodeRepository.stub(stub[:code_repository]) unless stub[:code_repository].nil?
-        data['ImageRepository'] = Stubs::ImageRepository.stub(stub[:image_repository]) unless stub[:image_repository].nil?
+        data['CodeRepository'] = CodeRepository.stub(stub[:code_repository]) unless stub[:code_repository].nil?
+        data['ImageRepository'] = ImageRepository.stub(stub[:image_repository]) unless stub[:image_repository].nil?
         data['AutoDeploymentsEnabled'] = stub[:auto_deployments_enabled] unless stub[:auto_deployments_enabled].nil?
-        data['AuthenticationConfiguration'] = Stubs::AuthenticationConfiguration.stub(stub[:authentication_configuration]) unless stub[:authentication_configuration].nil?
+        data['AuthenticationConfiguration'] = AuthenticationConfiguration.stub(stub[:authentication_configuration]) unless stub[:authentication_configuration].nil?
         data
       end
     end
@@ -530,7 +532,7 @@ module AWS::SDK::AppRunner
         stub ||= Types::ImageRepository.new
         data = {}
         data['ImageIdentifier'] = stub[:image_identifier] unless stub[:image_identifier].nil?
-        data['ImageConfiguration'] = Stubs::ImageConfiguration.stub(stub[:image_configuration]) unless stub[:image_configuration].nil?
+        data['ImageConfiguration'] = ImageConfiguration.stub(stub[:image_configuration]) unless stub[:image_configuration].nil?
         data['ImageRepositoryType'] = stub[:image_repository_type] unless stub[:image_repository_type].nil?
         data
       end
@@ -551,7 +553,7 @@ module AWS::SDK::AppRunner
       def self.stub(stub)
         stub ||= Types::ImageConfiguration.new
         data = {}
-        data['RuntimeEnvironmentVariables'] = Stubs::RuntimeEnvironmentVariables.stub(stub[:runtime_environment_variables]) unless stub[:runtime_environment_variables].nil?
+        data['RuntimeEnvironmentVariables'] = RuntimeEnvironmentVariables.stub(stub[:runtime_environment_variables]) unless stub[:runtime_environment_variables].nil?
         data['StartCommand'] = stub[:start_command] unless stub[:start_command].nil?
         data['Port'] = stub[:port] unless stub[:port].nil?
         data
@@ -594,8 +596,8 @@ module AWS::SDK::AppRunner
         stub ||= Types::CodeRepository.new
         data = {}
         data['RepositoryUrl'] = stub[:repository_url] unless stub[:repository_url].nil?
-        data['SourceCodeVersion'] = Stubs::SourceCodeVersion.stub(stub[:source_code_version]) unless stub[:source_code_version].nil?
-        data['CodeConfiguration'] = Stubs::CodeConfiguration.stub(stub[:code_configuration]) unless stub[:code_configuration].nil?
+        data['SourceCodeVersion'] = SourceCodeVersion.stub(stub[:source_code_version]) unless stub[:source_code_version].nil?
+        data['CodeConfiguration'] = CodeConfiguration.stub(stub[:code_configuration]) unless stub[:code_configuration].nil?
         data
       end
     end
@@ -615,7 +617,7 @@ module AWS::SDK::AppRunner
         stub ||= Types::CodeConfiguration.new
         data = {}
         data['ConfigurationSource'] = stub[:configuration_source] unless stub[:configuration_source].nil?
-        data['CodeConfigurationValues'] = Stubs::CodeConfigurationValues.stub(stub[:code_configuration_values]) unless stub[:code_configuration_values].nil?
+        data['CodeConfigurationValues'] = CodeConfigurationValues.stub(stub[:code_configuration_values]) unless stub[:code_configuration_values].nil?
         data
       end
     end
@@ -641,7 +643,7 @@ module AWS::SDK::AppRunner
         data['BuildCommand'] = stub[:build_command] unless stub[:build_command].nil?
         data['StartCommand'] = stub[:start_command] unless stub[:start_command].nil?
         data['Port'] = stub[:port] unless stub[:port].nil?
-        data['RuntimeEnvironmentVariables'] = Stubs::RuntimeEnvironmentVariables.stub(stub[:runtime_environment_variables]) unless stub[:runtime_environment_variables].nil?
+        data['RuntimeEnvironmentVariables'] = RuntimeEnvironmentVariables.stub(stub[:runtime_environment_variables]) unless stub[:runtime_environment_variables].nil?
         data
       end
     end
@@ -676,8 +678,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VpcConnector'] = Stubs::VpcConnector.stub(stub[:vpc_connector]) unless stub[:vpc_connector].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConnector'] = VpcConnector.stub(stub[:vpc_connector]) unless stub[:vpc_connector].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -705,8 +707,8 @@ module AWS::SDK::AppRunner
         data['VpcConnectorName'] = stub[:vpc_connector_name] unless stub[:vpc_connector_name].nil?
         data['VpcConnectorArn'] = stub[:vpc_connector_arn] unless stub[:vpc_connector_arn].nil?
         data['VpcConnectorRevision'] = stub[:vpc_connector_revision] unless stub[:vpc_connector_revision].nil?
-        data['Subnets'] = Stubs::StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['SecurityGroups'] = Stubs::StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['Subnets'] = StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroups'] = StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['DeletedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deleted_at]).to_i unless stub[:deleted_at].nil?
@@ -744,8 +746,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutoScalingConfiguration'] = Stubs::AutoScalingConfiguration.stub(stub[:auto_scaling_configuration]) unless stub[:auto_scaling_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoScalingConfiguration'] = AutoScalingConfiguration.stub(stub[:auto_scaling_configuration]) unless stub[:auto_scaling_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -760,8 +762,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -776,8 +778,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ObservabilityConfiguration'] = Stubs::ObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObservabilityConfiguration'] = ObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -793,9 +795,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -810,8 +812,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VpcConnector'] = Stubs::VpcConnector.stub(stub[:vpc_connector]) unless stub[:vpc_connector].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConnector'] = VpcConnector.stub(stub[:vpc_connector]) unless stub[:vpc_connector].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -826,8 +828,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutoScalingConfiguration'] = Stubs::AutoScalingConfiguration.stub(stub[:auto_scaling_configuration]) unless stub[:auto_scaling_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoScalingConfiguration'] = AutoScalingConfiguration.stub(stub[:auto_scaling_configuration]) unless stub[:auto_scaling_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -847,9 +849,9 @@ module AWS::SDK::AppRunner
         data = {}
         data['DNSTarget'] = stub[:dns_target] unless stub[:dns_target].nil?
         data['ServiceArn'] = stub[:service_arn] unless stub[:service_arn].nil?
-        data['CustomDomains'] = Stubs::CustomDomainList.stub(stub[:custom_domains]) unless stub[:custom_domains].nil?
+        data['CustomDomains'] = CustomDomainList.stub(stub[:custom_domains]) unless stub[:custom_domains].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -868,7 +870,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomDomain.stub(element) unless element.nil?
+          data << CustomDomain.stub(element) unless element.nil?
         end
         data
       end
@@ -884,8 +886,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ObservabilityConfiguration'] = Stubs::ObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObservabilityConfiguration'] = ObservabilityConfiguration.stub(stub[:observability_configuration]) unless stub[:observability_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -900,8 +902,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -916,8 +918,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VpcConnector'] = Stubs::VpcConnector.stub(stub[:vpc_connector]) unless stub[:vpc_connector].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConnector'] = VpcConnector.stub(stub[:vpc_connector]) unless stub[:vpc_connector].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -936,8 +938,8 @@ module AWS::SDK::AppRunner
         data = {}
         data['DNSTarget'] = stub[:dns_target] unless stub[:dns_target].nil?
         data['ServiceArn'] = stub[:service_arn] unless stub[:service_arn].nil?
-        data['CustomDomain'] = Stubs::CustomDomain.stub(stub[:custom_domain]) unless stub[:custom_domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomDomain'] = CustomDomain.stub(stub[:custom_domain]) unless stub[:custom_domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -953,9 +955,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutoScalingConfigurationSummaryList'] = Stubs::AutoScalingConfigurationSummaryList.stub(stub[:auto_scaling_configuration_summary_list]) unless stub[:auto_scaling_configuration_summary_list].nil?
+        data['AutoScalingConfigurationSummaryList'] = AutoScalingConfigurationSummaryList.stub(stub[:auto_scaling_configuration_summary_list]) unless stub[:auto_scaling_configuration_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -974,7 +976,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoScalingConfigurationSummary.stub(element) unless element.nil?
+          data << AutoScalingConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -991,9 +993,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConnectionSummaryList'] = Stubs::ConnectionSummaryList.stub(stub[:connection_summary_list]) unless stub[:connection_summary_list].nil?
+        data['ConnectionSummaryList'] = ConnectionSummaryList.stub(stub[:connection_summary_list]) unless stub[:connection_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1012,7 +1014,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectionSummary.stub(element) unless element.nil?
+          data << ConnectionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1055,9 +1057,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ObservabilityConfigurationSummaryList'] = Stubs::ObservabilityConfigurationSummaryList.stub(stub[:observability_configuration_summary_list]) unless stub[:observability_configuration_summary_list].nil?
+        data['ObservabilityConfigurationSummaryList'] = ObservabilityConfigurationSummaryList.stub(stub[:observability_configuration_summary_list]) unless stub[:observability_configuration_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1076,7 +1078,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ObservabilityConfigurationSummary.stub(element) unless element.nil?
+          data << ObservabilityConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1115,9 +1117,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OperationSummaryList'] = Stubs::OperationSummaryList.stub(stub[:operation_summary_list]) unless stub[:operation_summary_list].nil?
+        data['OperationSummaryList'] = OperationSummaryList.stub(stub[:operation_summary_list]) unless stub[:operation_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1136,7 +1138,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OperationSummary.stub(element) unless element.nil?
+          data << OperationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1183,9 +1185,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceSummaryList'] = Stubs::ServiceSummaryList.stub(stub[:service_summary_list]) unless stub[:service_summary_list].nil?
+        data['ServiceSummaryList'] = ServiceSummaryList.stub(stub[:service_summary_list]) unless stub[:service_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1204,7 +1206,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceSummary.stub(element) unless element.nil?
+          data << ServiceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1250,8 +1252,8 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1270,7 +1272,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1307,9 +1309,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VpcConnectors'] = Stubs::VpcConnectors.stub(stub[:vpc_connectors]) unless stub[:vpc_connectors].nil?
+        data['VpcConnectors'] = VpcConnectors.stub(stub[:vpc_connectors]) unless stub[:vpc_connectors].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1328,7 +1330,7 @@ module AWS::SDK::AppRunner
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VpcConnector.stub(element) unless element.nil?
+          data << VpcConnector.stub(element) unless element.nil?
         end
         data
       end
@@ -1345,9 +1347,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1363,9 +1365,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1381,7 +1383,7 @@ module AWS::SDK::AppRunner
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1395,7 +1397,7 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1409,7 +1411,7 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1425,9 +1427,9 @@ module AWS::SDK::AppRunner
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

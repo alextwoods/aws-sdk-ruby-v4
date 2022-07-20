@@ -172,7 +172,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::GetIncidentRecordOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.incident_record = (Parsers::IncidentRecord.parse(map['incidentRecord']) unless map['incidentRecord'].nil?)
+        data.incident_record = (IncidentRecord.parse(map['incidentRecord']) unless map['incidentRecord'].nil?)
         data
       end
     end
@@ -189,11 +189,11 @@ module AWS::SDK::SSMIncidents
         data.resolved_time = Time.at(map['resolvedTime'].to_i) if map['resolvedTime']
         data.last_modified_time = Time.at(map['lastModifiedTime'].to_i) if map['lastModifiedTime']
         data.last_modified_by = map['lastModifiedBy']
-        data.automation_executions = (Parsers::AutomationExecutionSet.parse(map['automationExecutions']) unless map['automationExecutions'].nil?)
-        data.incident_record_source = (Parsers::IncidentRecordSource.parse(map['incidentRecordSource']) unless map['incidentRecordSource'].nil?)
+        data.automation_executions = (AutomationExecutionSet.parse(map['automationExecutions']) unless map['automationExecutions'].nil?)
+        data.incident_record_source = (IncidentRecordSource.parse(map['incidentRecordSource']) unless map['incidentRecordSource'].nil?)
         data.dedupe_string = map['dedupeString']
-        data.chat_channel = (Parsers::ChatChannel.parse(map['chatChannel']) unless map['chatChannel'].nil?)
-        data.notification_targets = (Parsers::NotificationTargetSet.parse(map['notificationTargets']) unless map['notificationTargets'].nil?)
+        data.chat_channel = (ChatChannel.parse(map['chatChannel']) unless map['chatChannel'].nil?)
+        data.notification_targets = (NotificationTargetSet.parse(map['notificationTargets']) unless map['notificationTargets'].nil?)
         return data
       end
     end
@@ -202,7 +202,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NotificationTargetItem.parse(value) unless value.nil?
+          data << NotificationTargetItem.parse(value) unless value.nil?
         end
         data
       end
@@ -226,10 +226,10 @@ module AWS::SDK::SSMIncidents
         key, value = map.flatten
         case key
         when 'empty'
-          value = (Parsers::EmptyChatChannel.parse(value) unless value.nil?)
+          value = (EmptyChatChannel.parse(value) unless value.nil?)
           Types::ChatChannel::Empty.new(value) if value
         when 'chatbotSns'
-          value = (Parsers::ChatbotSnsConfigurationSet.parse(value) unless value.nil?)
+          value = (ChatbotSnsConfigurationSet.parse(value) unless value.nil?)
           Types::ChatChannel::ChatbotSns.new(value) if value
         else
           Types::ChatChannel::Unknown.new({name: key, value: value})
@@ -269,7 +269,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AutomationExecution.parse(value) unless value.nil?
+          data << AutomationExecution.parse(value) unless value.nil?
         end
         data
       end
@@ -293,7 +293,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::GetReplicationSetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.replication_set = (Parsers::ReplicationSet.parse(map['replicationSet']) unless map['replicationSet'].nil?)
+        data.replication_set = (ReplicationSet.parse(map['replicationSet']) unless map['replicationSet'].nil?)
         data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(map)
         data = Types::ReplicationSet.new
         data.arn = map['arn']
-        data.region_map = (Parsers::RegionInfoMap.parse(map['regionMap']) unless map['regionMap'].nil?)
+        data.region_map = (RegionInfoMap.parse(map['regionMap']) unless map['regionMap'].nil?)
         data.status = map['status']
         data.deletion_protected = map['deletionProtected']
         data.created_time = Time.at(map['createdTime'].to_i) if map['createdTime']
@@ -317,7 +317,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::RegionInfo.parse(value) unless value.nil?
+          data[key] = RegionInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -339,7 +339,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::GetResourcePoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_policies = (Parsers::ResourcePolicyList.parse(map['resourcePolicies']) unless map['resourcePolicies'].nil?)
+        data.resource_policies = (ResourcePolicyList.parse(map['resourcePolicies']) unless map['resourcePolicies'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -349,7 +349,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourcePolicy.parse(value) unless value.nil?
+          data << ResourcePolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -373,10 +373,10 @@ module AWS::SDK::SSMIncidents
         data.arn = map['arn']
         data.name = map['name']
         data.display_name = map['displayName']
-        data.incident_template = (Parsers::IncidentTemplate.parse(map['incidentTemplate']) unless map['incidentTemplate'].nil?)
-        data.chat_channel = (Parsers::ChatChannel.parse(map['chatChannel']) unless map['chatChannel'].nil?)
-        data.engagements = (Parsers::EngagementSet.parse(map['engagements']) unless map['engagements'].nil?)
-        data.actions = (Parsers::ActionsList.parse(map['actions']) unless map['actions'].nil?)
+        data.incident_template = (IncidentTemplate.parse(map['incidentTemplate']) unless map['incidentTemplate'].nil?)
+        data.chat_channel = (ChatChannel.parse(map['chatChannel']) unless map['chatChannel'].nil?)
+        data.engagements = (EngagementSet.parse(map['engagements']) unless map['engagements'].nil?)
+        data.actions = (ActionsList.parse(map['actions']) unless map['actions'].nil?)
         data
       end
     end
@@ -385,7 +385,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Action.parse(value) unless value.nil?
+          data << Action.parse(value) unless value.nil?
         end
         data
       end
@@ -396,7 +396,7 @@ module AWS::SDK::SSMIncidents
         key, value = map.flatten
         case key
         when 'ssmAutomation'
-          value = (Parsers::SsmAutomation.parse(value) unless value.nil?)
+          value = (SsmAutomation.parse(value) unless value.nil?)
           Types::Action::SsmAutomation.new(value) if value
         else
           Types::Action::Unknown.new({name: key, value: value})
@@ -411,8 +411,8 @@ module AWS::SDK::SSMIncidents
         data.document_name = map['documentName']
         data.document_version = map['documentVersion']
         data.target_account = map['targetAccount']
-        data.parameters = (Parsers::SsmParameters.parse(map['parameters']) unless map['parameters'].nil?)
-        data.dynamic_parameters = (Parsers::DynamicSsmParameters.parse(map['dynamicParameters']) unless map['dynamicParameters'].nil?)
+        data.parameters = (SsmParameters.parse(map['parameters']) unless map['parameters'].nil?)
+        data.dynamic_parameters = (DynamicSsmParameters.parse(map['dynamicParameters']) unless map['dynamicParameters'].nil?)
         return data
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::DynamicSsmParameterValue.parse(value) unless value.nil?
+          data[key] = DynamicSsmParameterValue.parse(value) unless value.nil?
         end
         data
       end
@@ -444,7 +444,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::SsmParameterValues.parse(value) unless value.nil?
+          data[key] = SsmParameterValues.parse(value) unless value.nil?
         end
         data
       end
@@ -477,7 +477,7 @@ module AWS::SDK::SSMIncidents
         data.impact = map['impact']
         data.summary = map['summary']
         data.dedupe_string = map['dedupeString']
-        data.notification_targets = (Parsers::NotificationTargetSet.parse(map['notificationTargets']) unless map['notificationTargets'].nil?)
+        data.notification_targets = (NotificationTargetSet.parse(map['notificationTargets']) unless map['notificationTargets'].nil?)
         return data
       end
     end
@@ -487,7 +487,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::GetTimelineEventOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event = (Parsers::TimelineEvent.parse(map['event']) unless map['event'].nil?)
+        data.event = (TimelineEvent.parse(map['event']) unless map['event'].nil?)
         data
       end
     end
@@ -510,7 +510,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::ListIncidentRecordsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.incident_record_summaries = (Parsers::IncidentRecordSummaryList.parse(map['incidentRecordSummaries']) unless map['incidentRecordSummaries'].nil?)
+        data.incident_record_summaries = (IncidentRecordSummaryList.parse(map['incidentRecordSummaries']) unless map['incidentRecordSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -520,7 +520,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IncidentRecordSummary.parse(value) unless value.nil?
+          data << IncidentRecordSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -535,7 +535,7 @@ module AWS::SDK::SSMIncidents
         data.impact = map['impact']
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.resolved_time = Time.at(map['resolvedTime'].to_i) if map['resolvedTime']
-        data.incident_record_source = (Parsers::IncidentRecordSource.parse(map['incidentRecordSource']) unless map['incidentRecordSource'].nil?)
+        data.incident_record_source = (IncidentRecordSource.parse(map['incidentRecordSource']) unless map['incidentRecordSource'].nil?)
         return data
       end
     end
@@ -545,7 +545,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::ListRelatedItemsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.related_items = (Parsers::RelatedItemList.parse(map['relatedItems']) unless map['relatedItems'].nil?)
+        data.related_items = (RelatedItemList.parse(map['relatedItems']) unless map['relatedItems'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -555,7 +555,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RelatedItem.parse(value) unless value.nil?
+          data << RelatedItem.parse(value) unless value.nil?
         end
         data
       end
@@ -564,7 +564,7 @@ module AWS::SDK::SSMIncidents
     class RelatedItem
       def self.parse(map)
         data = Types::RelatedItem.new
-        data.identifier = (Parsers::ItemIdentifier.parse(map['identifier']) unless map['identifier'].nil?)
+        data.identifier = (ItemIdentifier.parse(map['identifier']) unless map['identifier'].nil?)
         data.title = map['title']
         return data
       end
@@ -573,7 +573,7 @@ module AWS::SDK::SSMIncidents
     class ItemIdentifier
       def self.parse(map)
         data = Types::ItemIdentifier.new
-        data.value = (Parsers::ItemValue.parse(map['value']) unless map['value'].nil?)
+        data.value = (ItemValue.parse(map['value']) unless map['value'].nil?)
         data.type = map['type']
         return data
       end
@@ -603,7 +603,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::ListReplicationSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.replication_set_arns = (Parsers::ReplicationSetArnList.parse(map['replicationSetArns']) unless map['replicationSetArns'].nil?)
+        data.replication_set_arns = (ReplicationSetArnList.parse(map['replicationSetArns']) unless map['replicationSetArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -624,7 +624,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::ListResponsePlansOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.response_plan_summaries = (Parsers::ResponsePlanSummaryList.parse(map['responsePlanSummaries']) unless map['responsePlanSummaries'].nil?)
+        data.response_plan_summaries = (ResponsePlanSummaryList.parse(map['responsePlanSummaries']) unless map['responsePlanSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -634,7 +634,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResponsePlanSummary.parse(value) unless value.nil?
+          data << ResponsePlanSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -655,7 +655,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -675,7 +675,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(http_resp)
         data = Types::ListTimelineEventsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_summaries = (Parsers::EventSummaryList.parse(map['eventSummaries']) unless map['eventSummaries'].nil?)
+        data.event_summaries = (EventSummaryList.parse(map['eventSummaries']) unless map['eventSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -685,7 +685,7 @@ module AWS::SDK::SSMIncidents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventSummary.parse(value) unless value.nil?
+          data << EventSummary.parse(value) unless value.nil?
         end
         data
       end

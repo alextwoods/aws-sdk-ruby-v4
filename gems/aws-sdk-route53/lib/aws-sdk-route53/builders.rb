@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53
   module Builders
 
@@ -49,9 +51,9 @@ module AWS::SDK::Route53
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateVPCWithHostedZoneRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
-        xml << Builders::VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
+        xml << VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -84,8 +86,8 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('ChangeCidrCollectionRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('CollectionVersion', input[:collection_version].to_s) unless input[:collection_version].nil?
-        xml << Hearth::XML::Node.new('Changes', Builders::CidrCollectionChanges.build('member', input[:changes])) unless input[:changes].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('Changes', CidrCollectionChanges.build('member', input[:changes])) unless input[:changes].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -94,7 +96,7 @@ module AWS::SDK::Route53
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::CidrCollectionChange.build(node_name, element) unless element.nil?
+          xml << CidrCollectionChange.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -106,7 +108,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('LocationName', input[:location_name].to_s) unless input[:location_name].nil?
         xml << Hearth::XML::Node.new('Action', input[:action].to_s) unless input[:action].nil?
-        xml << Hearth::XML::Node.new('CidrList', Builders::CidrList.build('Cidr', input[:cidr_list])) unless input[:cidr_list].nil?
+        xml << Hearth::XML::Node.new('CidrList', CidrList.build('Cidr', input[:cidr_list])) unless input[:cidr_list].nil?
         xml
       end
     end
@@ -140,8 +142,8 @@ module AWS::SDK::Route53
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ChangeResourceRecordSetsRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
-        xml << Builders::ChangeBatch.build('ChangeBatch', input[:change_batch]) unless input[:change_batch].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << ChangeBatch.build('ChangeBatch', input[:change_batch]) unless input[:change_batch].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -150,7 +152,7 @@ module AWS::SDK::Route53
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Hearth::XML::Node.new('Changes', Builders::Changes.build('Change', input[:changes])) unless input[:changes].nil?
+        xml << Hearth::XML::Node.new('Changes', Changes.build('Change', input[:changes])) unless input[:changes].nil?
         xml
       end
     end
@@ -160,7 +162,7 @@ module AWS::SDK::Route53
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::Change.build(node_name, element) unless element.nil?
+          xml << Change.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -171,7 +173,7 @@ module AWS::SDK::Route53
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Action', input[:action].to_s) unless input[:action].nil?
-        xml << Builders::ResourceRecordSet.build('ResourceRecordSet', input[:resource_record_set]) unless input[:resource_record_set].nil?
+        xml << ResourceRecordSet.build('ResourceRecordSet', input[:resource_record_set]) unless input[:resource_record_set].nil?
         xml
       end
     end
@@ -185,15 +187,15 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('SetIdentifier', input[:set_identifier].to_s) unless input[:set_identifier].nil?
         xml << Hearth::XML::Node.new('Weight', input[:weight].to_s) unless input[:weight].nil?
         xml << Hearth::XML::Node.new('Region', input[:region].to_s) unless input[:region].nil?
-        xml << Builders::GeoLocation.build('GeoLocation', input[:geo_location]) unless input[:geo_location].nil?
+        xml << GeoLocation.build('GeoLocation', input[:geo_location]) unless input[:geo_location].nil?
         xml << Hearth::XML::Node.new('Failover', input[:failover].to_s) unless input[:failover].nil?
         xml << Hearth::XML::Node.new('MultiValueAnswer', input[:multi_value_answer].to_s) unless input[:multi_value_answer].nil?
         xml << Hearth::XML::Node.new('TTL', input[:ttl].to_s) unless input[:ttl].nil?
-        xml << Hearth::XML::Node.new('ResourceRecords', Builders::ResourceRecords.build('ResourceRecord', input[:resource_records])) unless input[:resource_records].nil?
-        xml << Builders::AliasTarget.build('AliasTarget', input[:alias_target]) unless input[:alias_target].nil?
+        xml << Hearth::XML::Node.new('ResourceRecords', ResourceRecords.build('ResourceRecord', input[:resource_records])) unless input[:resource_records].nil?
+        xml << AliasTarget.build('AliasTarget', input[:alias_target]) unless input[:alias_target].nil?
         xml << Hearth::XML::Node.new('HealthCheckId', input[:health_check_id].to_s) unless input[:health_check_id].nil?
         xml << Hearth::XML::Node.new('TrafficPolicyInstanceId', input[:traffic_policy_instance_id].to_s) unless input[:traffic_policy_instance_id].nil?
-        xml << Builders::CidrRoutingConfig.build('CidrRoutingConfig', input[:cidr_routing_config]) unless input[:cidr_routing_config].nil?
+        xml << CidrRoutingConfig.build('CidrRoutingConfig', input[:cidr_routing_config]) unless input[:cidr_routing_config].nil?
         xml
       end
     end
@@ -224,7 +226,7 @@ module AWS::SDK::Route53
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::ResourceRecord.build(node_name, element) unless element.nil?
+          xml << ResourceRecord.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -272,9 +274,9 @@ module AWS::SDK::Route53
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ChangeTagsForResourceRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
-        xml << Hearth::XML::Node.new('AddTags', Builders::TagList.build('Tag', input[:add_tags])) unless input[:add_tags].nil?
-        xml << Hearth::XML::Node.new('RemoveTagKeys', Builders::TagKeyList.build('Key', input[:remove_tag_keys])) unless input[:remove_tag_keys].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('AddTags', TagList.build('Tag', input[:add_tags])) unless input[:add_tags].nil?
+        xml << Hearth::XML::Node.new('RemoveTagKeys', TagKeyList.build('Key', input[:remove_tag_keys])) unless input[:remove_tag_keys].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -294,7 +296,7 @@ module AWS::SDK::Route53
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::Tag.build(node_name, element) unless element.nil?
+          xml << Tag.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -323,7 +325,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -339,8 +341,8 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateHealthCheckRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
-        xml << Builders::HealthCheckConfig.build('HealthCheckConfig', input[:health_check_config]) unless input[:health_check_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << HealthCheckConfig.build('HealthCheckConfig', input[:health_check_config]) unless input[:health_check_config].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -360,10 +362,10 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('Inverted', input[:inverted].to_s) unless input[:inverted].nil?
         xml << Hearth::XML::Node.new('Disabled', input[:disabled].to_s) unless input[:disabled].nil?
         xml << Hearth::XML::Node.new('HealthThreshold', input[:health_threshold].to_s) unless input[:health_threshold].nil?
-        xml << Hearth::XML::Node.new('ChildHealthChecks', Builders::ChildHealthCheckList.build('ChildHealthCheck', input[:child_health_checks])) unless input[:child_health_checks].nil?
+        xml << Hearth::XML::Node.new('ChildHealthChecks', ChildHealthCheckList.build('ChildHealthCheck', input[:child_health_checks])) unless input[:child_health_checks].nil?
         xml << Hearth::XML::Node.new('EnableSNI', input[:enable_sni].to_s) unless input[:enable_sni].nil?
-        xml << Hearth::XML::Node.new('Regions', Builders::HealthCheckRegionList.build('Region', input[:regions])) unless input[:regions].nil?
-        xml << Builders::AlarmIdentifier.build('AlarmIdentifier', input[:alarm_identifier]) unless input[:alarm_identifier].nil?
+        xml << Hearth::XML::Node.new('Regions', HealthCheckRegionList.build('Region', input[:regions])) unless input[:regions].nil?
+        xml << AlarmIdentifier.build('AlarmIdentifier', input[:alarm_identifier]) unless input[:alarm_identifier].nil?
         xml << Hearth::XML::Node.new('InsufficientDataHealthStatus', input[:insufficient_data_health_status].to_s) unless input[:insufficient_data_health_status].nil?
         xml << Hearth::XML::Node.new('RoutingControlArn', input[:routing_control_arn].to_s) unless input[:routing_control_arn].nil?
         xml
@@ -414,11 +416,11 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateHostedZoneRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
+        xml << VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
-        xml << Builders::HostedZoneConfig.build('HostedZoneConfig', input[:hosted_zone_config]) unless input[:hosted_zone_config].nil?
+        xml << HostedZoneConfig.build('HostedZoneConfig', input[:hosted_zone_config]) unless input[:hosted_zone_config].nil?
         xml << Hearth::XML::Node.new('DelegationSetId', input[:delegation_set_id].to_s) unless input[:delegation_set_id].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -448,7 +450,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('KeyManagementServiceArn', input[:key_management_service_arn].to_s) unless input[:key_management_service_arn].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('Status', input[:status].to_s) unless input[:status].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -465,7 +467,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('HostedZoneId', input[:hosted_zone_id].to_s) unless input[:hosted_zone_id].nil?
         xml << Hearth::XML::Node.new('CloudWatchLogsLogGroupArn', input[:cloud_watch_logs_log_group_arn].to_s) unless input[:cloud_watch_logs_log_group_arn].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -482,7 +484,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('HostedZoneId', input[:hosted_zone_id].to_s) unless input[:hosted_zone_id].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -500,7 +502,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('Document', input[:document].to_s) unless input[:document].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -520,7 +522,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('TTL', input[:ttl].to_s) unless input[:ttl].nil?
         xml << Hearth::XML::Node.new('TrafficPolicyId', input[:traffic_policy_id].to_s) unless input[:traffic_policy_id].nil?
         xml << Hearth::XML::Node.new('TrafficPolicyVersion', input[:traffic_policy_version].to_s) unless input[:traffic_policy_version].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -544,7 +546,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('Document', input[:document].to_s) unless input[:document].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -566,8 +568,8 @@ module AWS::SDK::Route53
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVPCAssociationAuthorizationRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
-        xml << Builders::VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -754,8 +756,8 @@ module AWS::SDK::Route53
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVPCAssociationAuthorizationRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
-        xml << Builders::VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -794,9 +796,9 @@ module AWS::SDK::Route53
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateVPCFromHostedZoneRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
-        xml << Builders::VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
+        xml << VPC.build('VPC', input[:vpc]) unless input[:vpc].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1305,8 +1307,8 @@ module AWS::SDK::Route53
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListTagsForResourcesRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
-        xml << Hearth::XML::Node.new('ResourceIds', Builders::TagResourceIdList.build('ResourceId', input[:resource_ids])) unless input[:resource_ids].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('ResourceIds', TagResourceIdList.build('ResourceId', input[:resource_ids])) unless input[:resource_ids].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1459,13 +1461,13 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('Inverted', input[:inverted].to_s) unless input[:inverted].nil?
         xml << Hearth::XML::Node.new('Disabled', input[:disabled].to_s) unless input[:disabled].nil?
         xml << Hearth::XML::Node.new('HealthThreshold', input[:health_threshold].to_s) unless input[:health_threshold].nil?
-        xml << Hearth::XML::Node.new('ChildHealthChecks', Builders::ChildHealthCheckList.build('ChildHealthCheck', input[:child_health_checks])) unless input[:child_health_checks].nil?
+        xml << Hearth::XML::Node.new('ChildHealthChecks', ChildHealthCheckList.build('ChildHealthCheck', input[:child_health_checks])) unless input[:child_health_checks].nil?
         xml << Hearth::XML::Node.new('EnableSNI', input[:enable_sni].to_s) unless input[:enable_sni].nil?
-        xml << Hearth::XML::Node.new('Regions', Builders::HealthCheckRegionList.build('Region', input[:regions])) unless input[:regions].nil?
-        xml << Builders::AlarmIdentifier.build('AlarmIdentifier', input[:alarm_identifier]) unless input[:alarm_identifier].nil?
+        xml << Hearth::XML::Node.new('Regions', HealthCheckRegionList.build('Region', input[:regions])) unless input[:regions].nil?
+        xml << AlarmIdentifier.build('AlarmIdentifier', input[:alarm_identifier]) unless input[:alarm_identifier].nil?
         xml << Hearth::XML::Node.new('InsufficientDataHealthStatus', input[:insufficient_data_health_status].to_s) unless input[:insufficient_data_health_status].nil?
-        xml << Hearth::XML::Node.new('ResetElements', Builders::ResettableElementNameList.build('ResettableElementName', input[:reset_elements])) unless input[:reset_elements].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('ResetElements', ResettableElementNameList.build('ResettableElementName', input[:reset_elements])) unless input[:reset_elements].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1499,7 +1501,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('UpdateHostedZoneCommentRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1526,7 +1528,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('UpdateTrafficPolicyCommentRequest')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1551,7 +1553,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('TTL', input[:ttl].to_s) unless input[:ttl].nil?
         xml << Hearth::XML::Node.new('TrafficPolicyId', input[:traffic_policy_id].to_s) unless input[:traffic_policy_id].nil?
         xml << Hearth::XML::Node.new('TrafficPolicyVersion', input[:traffic_policy_version].to_s) unless input[:traffic_policy_version].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
   end

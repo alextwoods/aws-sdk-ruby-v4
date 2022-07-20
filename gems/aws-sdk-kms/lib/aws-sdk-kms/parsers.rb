@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::KMS
   module Parsers
 
@@ -292,7 +294,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_metadata = (Parsers::KeyMetadata.parse(map['KeyMetadata']) unless map['KeyMetadata'].nil?)
+        data.key_metadata = (KeyMetadata.parse(map['KeyMetadata']) unless map['KeyMetadata'].nil?)
         data
       end
     end
@@ -317,12 +319,12 @@ module AWS::SDK::KMS
         data.key_manager = map['KeyManager']
         data.customer_master_key_spec = map['CustomerMasterKeySpec']
         data.key_spec = map['KeySpec']
-        data.encryption_algorithms = (Parsers::EncryptionAlgorithmSpecList.parse(map['EncryptionAlgorithms']) unless map['EncryptionAlgorithms'].nil?)
-        data.signing_algorithms = (Parsers::SigningAlgorithmSpecList.parse(map['SigningAlgorithms']) unless map['SigningAlgorithms'].nil?)
+        data.encryption_algorithms = (EncryptionAlgorithmSpecList.parse(map['EncryptionAlgorithms']) unless map['EncryptionAlgorithms'].nil?)
+        data.signing_algorithms = (SigningAlgorithmSpecList.parse(map['SigningAlgorithms']) unless map['SigningAlgorithms'].nil?)
         data.multi_region = map['MultiRegion']
-        data.multi_region_configuration = (Parsers::MultiRegionConfiguration.parse(map['MultiRegionConfiguration']) unless map['MultiRegionConfiguration'].nil?)
+        data.multi_region_configuration = (MultiRegionConfiguration.parse(map['MultiRegionConfiguration']) unless map['MultiRegionConfiguration'].nil?)
         data.pending_deletion_window_in_days = map['PendingDeletionWindowInDays']
-        data.mac_algorithms = (Parsers::MacAlgorithmSpecList.parse(map['MacAlgorithms']) unless map['MacAlgorithms'].nil?)
+        data.mac_algorithms = (MacAlgorithmSpecList.parse(map['MacAlgorithms']) unless map['MacAlgorithms'].nil?)
         return data
       end
     end
@@ -339,8 +341,8 @@ module AWS::SDK::KMS
       def self.parse(map)
         data = Types::MultiRegionConfiguration.new
         data.multi_region_key_type = map['MultiRegionKeyType']
-        data.primary_key = (Parsers::MultiRegionKey.parse(map['PrimaryKey']) unless map['PrimaryKey'].nil?)
-        data.replica_keys = (Parsers::MultiRegionKeyList.parse(map['ReplicaKeys']) unless map['ReplicaKeys'].nil?)
+        data.primary_key = (MultiRegionKey.parse(map['PrimaryKey']) unless map['PrimaryKey'].nil?)
+        data.replica_keys = (MultiRegionKeyList.parse(map['ReplicaKeys']) unless map['ReplicaKeys'].nil?)
         return data
       end
     end
@@ -348,7 +350,7 @@ module AWS::SDK::KMS
     class MultiRegionKeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::MultiRegionKey.parse(value) unless value.nil?
+          MultiRegionKey.parse(value) unless value.nil?
         end
       end
     end
@@ -422,7 +424,7 @@ module AWS::SDK::KMS
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.key_id = map['KeyId']
-        data.plaintext = Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
+        data.plaintext = ::Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
         data.encryption_algorithm = map['EncryptionAlgorithm']
         data
       end
@@ -528,7 +530,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.custom_key_stores = (Parsers::CustomKeyStoresList.parse(map['CustomKeyStores']) unless map['CustomKeyStores'].nil?)
+        data.custom_key_stores = (CustomKeyStoresList.parse(map['CustomKeyStores']) unless map['CustomKeyStores'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
         data
@@ -538,7 +540,7 @@ module AWS::SDK::KMS
     class CustomKeyStoresList
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomKeyStoresListEntry.parse(value) unless value.nil?
+          CustomKeyStoresListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -576,7 +578,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_metadata = (Parsers::KeyMetadata.parse(map['KeyMetadata']) unless map['KeyMetadata'].nil?)
+        data.key_metadata = (KeyMetadata.parse(map['KeyMetadata']) unless map['KeyMetadata'].nil?)
         data
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ciphertext_blob = Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
+        data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
         data.key_id = map['KeyId']
         data.encryption_algorithm = map['EncryptionAlgorithm']
         data
@@ -657,8 +659,8 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ciphertext_blob = Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
-        data.plaintext = Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
+        data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
+        data.plaintext = ::Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
         data.key_id = map['KeyId']
         data
       end
@@ -671,9 +673,9 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.private_key_ciphertext_blob = Base64::decode64(map['PrivateKeyCiphertextBlob']) unless map['PrivateKeyCiphertextBlob'].nil?
-        data.private_key_plaintext = Base64::decode64(map['PrivateKeyPlaintext']) unless map['PrivateKeyPlaintext'].nil?
-        data.public_key = Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
+        data.private_key_ciphertext_blob = ::Base64::decode64(map['PrivateKeyCiphertextBlob']) unless map['PrivateKeyCiphertextBlob'].nil?
+        data.private_key_plaintext = ::Base64::decode64(map['PrivateKeyPlaintext']) unless map['PrivateKeyPlaintext'].nil?
+        data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
         data.key_id = map['KeyId']
         data.key_pair_spec = map['KeyPairSpec']
         data
@@ -687,8 +689,8 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.private_key_ciphertext_blob = Base64::decode64(map['PrivateKeyCiphertextBlob']) unless map['PrivateKeyCiphertextBlob'].nil?
-        data.public_key = Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
+        data.private_key_ciphertext_blob = ::Base64::decode64(map['PrivateKeyCiphertextBlob']) unless map['PrivateKeyCiphertextBlob'].nil?
+        data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
         data.key_id = map['KeyId']
         data.key_pair_spec = map['KeyPairSpec']
         data
@@ -702,7 +704,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ciphertext_blob = Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
+        data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
         data.key_id = map['KeyId']
         data
       end
@@ -715,7 +717,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.mac = Base64::decode64(map['Mac']) unless map['Mac'].nil?
+        data.mac = ::Base64::decode64(map['Mac']) unless map['Mac'].nil?
         data.mac_algorithm = map['MacAlgorithm']
         data.key_id = map['KeyId']
         data
@@ -729,7 +731,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.plaintext = Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
+        data.plaintext = ::Base64::decode64(map['Plaintext']) unless map['Plaintext'].nil?
         data
       end
     end
@@ -766,8 +768,8 @@ module AWS::SDK::KMS
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.key_id = map['KeyId']
-        data.import_token = Base64::decode64(map['ImportToken']) unless map['ImportToken'].nil?
-        data.public_key = Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
+        data.import_token = ::Base64::decode64(map['ImportToken']) unless map['ImportToken'].nil?
+        data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
         data.parameters_valid_to = Time.at(map['ParametersValidTo'].to_i) if map['ParametersValidTo']
         data
       end
@@ -781,12 +783,12 @@ module AWS::SDK::KMS
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.key_id = map['KeyId']
-        data.public_key = Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
+        data.public_key = ::Base64::decode64(map['PublicKey']) unless map['PublicKey'].nil?
         data.customer_master_key_spec = map['CustomerMasterKeySpec']
         data.key_spec = map['KeySpec']
         data.key_usage = map['KeyUsage']
-        data.encryption_algorithms = (Parsers::EncryptionAlgorithmSpecList.parse(map['EncryptionAlgorithms']) unless map['EncryptionAlgorithms'].nil?)
-        data.signing_algorithms = (Parsers::SigningAlgorithmSpecList.parse(map['SigningAlgorithms']) unless map['SigningAlgorithms'].nil?)
+        data.encryption_algorithms = (EncryptionAlgorithmSpecList.parse(map['EncryptionAlgorithms']) unless map['EncryptionAlgorithms'].nil?)
+        data.signing_algorithms = (SigningAlgorithmSpecList.parse(map['SigningAlgorithms']) unless map['SigningAlgorithms'].nil?)
         data
       end
     end
@@ -845,7 +847,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aliases = (Parsers::AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.aliases = (AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
         data
@@ -855,7 +857,7 @@ module AWS::SDK::KMS
     class AliasList
       def self.parse(list)
         list.map do |value|
-          Parsers::AliasListEntry.parse(value) unless value.nil?
+          AliasListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -879,7 +881,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.grants = (Parsers::GrantList.parse(map['Grants']) unless map['Grants'].nil?)
+        data.grants = (GrantList.parse(map['Grants']) unless map['Grants'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
         data
@@ -889,7 +891,7 @@ module AWS::SDK::KMS
     class GrantList
       def self.parse(list)
         list.map do |value|
-          Parsers::GrantListEntry.parse(value) unless value.nil?
+          GrantListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -904,8 +906,8 @@ module AWS::SDK::KMS
         data.grantee_principal = map['GranteePrincipal']
         data.retiring_principal = map['RetiringPrincipal']
         data.issuing_account = map['IssuingAccount']
-        data.operations = (Parsers::GrantOperationList.parse(map['Operations']) unless map['Operations'].nil?)
-        data.constraints = (Parsers::GrantConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
+        data.operations = (GrantOperationList.parse(map['Operations']) unless map['Operations'].nil?)
+        data.constraints = (GrantConstraints.parse(map['Constraints']) unless map['Constraints'].nil?)
         return data
       end
     end
@@ -913,8 +915,8 @@ module AWS::SDK::KMS
     class GrantConstraints
       def self.parse(map)
         data = Types::GrantConstraints.new
-        data.encryption_context_subset = (Parsers::EncryptionContextType.parse(map['EncryptionContextSubset']) unless map['EncryptionContextSubset'].nil?)
-        data.encryption_context_equals = (Parsers::EncryptionContextType.parse(map['EncryptionContextEquals']) unless map['EncryptionContextEquals'].nil?)
+        data.encryption_context_subset = (EncryptionContextType.parse(map['EncryptionContextSubset']) unless map['EncryptionContextSubset'].nil?)
+        data.encryption_context_equals = (EncryptionContextType.parse(map['EncryptionContextEquals']) unless map['EncryptionContextEquals'].nil?)
         return data
       end
     end
@@ -956,7 +958,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy_names = (Parsers::PolicyNameList.parse(map['PolicyNames']) unless map['PolicyNames'].nil?)
+        data.policy_names = (PolicyNameList.parse(map['PolicyNames']) unless map['PolicyNames'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
         data
@@ -978,7 +980,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.keys = (Parsers::KeyList.parse(map['Keys']) unless map['Keys'].nil?)
+        data.keys = (KeyList.parse(map['Keys']) unless map['Keys'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
         data
@@ -988,7 +990,7 @@ module AWS::SDK::KMS
     class KeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyListEntry.parse(value) unless value.nil?
+          KeyListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -1009,7 +1011,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
         data
@@ -1019,7 +1021,7 @@ module AWS::SDK::KMS
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1040,7 +1042,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.grants = (Parsers::GrantList.parse(map['Grants']) unless map['Grants'].nil?)
+        data.grants = (GrantList.parse(map['Grants']) unless map['Grants'].nil?)
         data.next_marker = map['NextMarker']
         data.truncated = map['Truncated']
         data
@@ -1065,7 +1067,7 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ciphertext_blob = Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
+        data.ciphertext_blob = ::Base64::decode64(map['CiphertextBlob']) unless map['CiphertextBlob'].nil?
         data.source_key_id = map['SourceKeyId']
         data.key_id = map['KeyId']
         data.source_encryption_algorithm = map['SourceEncryptionAlgorithm']
@@ -1081,9 +1083,9 @@ module AWS::SDK::KMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replica_key_metadata = (Parsers::KeyMetadata.parse(map['ReplicaKeyMetadata']) unless map['ReplicaKeyMetadata'].nil?)
+        data.replica_key_metadata = (KeyMetadata.parse(map['ReplicaKeyMetadata']) unless map['ReplicaKeyMetadata'].nil?)
         data.replica_policy = map['ReplicaPolicy']
-        data.replica_tags = (Parsers::TagList.parse(map['ReplicaTags']) unless map['ReplicaTags'].nil?)
+        data.replica_tags = (TagList.parse(map['ReplicaTags']) unless map['ReplicaTags'].nil?)
         data
       end
     end
@@ -1133,7 +1135,7 @@ module AWS::SDK::KMS
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.key_id = map['KeyId']
-        data.signature = Base64::decode64(map['Signature']) unless map['Signature'].nil?
+        data.signature = ::Base64::decode64(map['Signature']) unless map['Signature'].nil?
         data.signing_algorithm = map['SigningAlgorithm']
         data
       end

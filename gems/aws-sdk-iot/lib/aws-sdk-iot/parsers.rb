@@ -476,7 +476,7 @@ module AWS::SDK::IoT
         data.certificate_arn = map['certificateArn']
         data.certificate_id = map['certificateId']
         data.certificate_pem = map['certificatePem']
-        data.key_pair = (Parsers::KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
+        data.key_pair = (KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
         data
       end
     end
@@ -568,7 +568,7 @@ module AWS::SDK::IoT
         map = Hearth::JSON.load(http_resp.body)
         data.certificate_id = map['certificateId']
         data.certificate_pem = map['certificatePem']
-        data.key_pair = (Parsers::KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
+        data.key_pair = (KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
         data.expiration = Time.at(map['expiration'].to_i) if map['expiration']
         data
       end
@@ -704,7 +704,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::CreateTopicRuleDestinationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.topic_rule_destination = (Parsers::TopicRuleDestination.parse(map['topicRuleDestination']) unless map['topicRuleDestination'].nil?)
+        data.topic_rule_destination = (TopicRuleDestination.parse(map['topicRuleDestination']) unless map['topicRuleDestination'].nil?)
         data
       end
     end
@@ -717,8 +717,8 @@ module AWS::SDK::IoT
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.status_reason = map['statusReason']
-        data.http_url_properties = (Parsers::HttpUrlDestinationProperties.parse(map['httpUrlProperties']) unless map['httpUrlProperties'].nil?)
-        data.vpc_properties = (Parsers::VpcDestinationProperties.parse(map['vpcProperties']) unless map['vpcProperties'].nil?)
+        data.http_url_properties = (HttpUrlDestinationProperties.parse(map['httpUrlProperties']) unless map['httpUrlProperties'].nil?)
+        data.vpc_properties = (VpcDestinationProperties.parse(map['vpcProperties']) unless map['vpcProperties'].nil?)
         return data
       end
     end
@@ -726,8 +726,8 @@ module AWS::SDK::IoT
     class VpcDestinationProperties
       def self.parse(map)
         data = Types::VpcDestinationProperties.new
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.security_groups = (Parsers::SecurityGroupList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_groups = (SecurityGroupList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
         data.vpc_id = map['vpcId']
         data.role_arn = map['roleArn']
         return data
@@ -1076,8 +1076,8 @@ module AWS::SDK::IoT
         data = Types::DescribeAccountAuditConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.role_arn = map['roleArn']
-        data.audit_notification_target_configurations = (Parsers::AuditNotificationTargetConfigurations.parse(map['auditNotificationTargetConfigurations']) unless map['auditNotificationTargetConfigurations'].nil?)
-        data.audit_check_configurations = (Parsers::AuditCheckConfigurations.parse(map['auditCheckConfigurations']) unless map['auditCheckConfigurations'].nil?)
+        data.audit_notification_target_configurations = (AuditNotificationTargetConfigurations.parse(map['auditNotificationTargetConfigurations']) unless map['auditNotificationTargetConfigurations'].nil?)
+        data.audit_check_configurations = (AuditCheckConfigurations.parse(map['auditCheckConfigurations']) unless map['auditCheckConfigurations'].nil?)
         data
       end
     end
@@ -1086,7 +1086,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AuditCheckConfiguration.parse(value) unless value.nil?
+          data[key] = AuditCheckConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -1104,7 +1104,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AuditNotificationTarget.parse(value) unless value.nil?
+          data[key] = AuditNotificationTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -1125,7 +1125,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeAuditFindingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.finding = (Parsers::AuditFinding.parse(map['finding']) unless map['finding'].nil?)
+        data.finding = (AuditFinding.parse(map['finding']) unless map['finding'].nil?)
         data
       end
     end
@@ -1139,8 +1139,8 @@ module AWS::SDK::IoT
         data.task_start_time = Time.at(map['taskStartTime'].to_i) if map['taskStartTime']
         data.finding_time = Time.at(map['findingTime'].to_i) if map['findingTime']
         data.severity = map['severity']
-        data.non_compliant_resource = (Parsers::NonCompliantResource.parse(map['nonCompliantResource']) unless map['nonCompliantResource'].nil?)
-        data.related_resources = (Parsers::RelatedResources.parse(map['relatedResources']) unless map['relatedResources'].nil?)
+        data.non_compliant_resource = (NonCompliantResource.parse(map['nonCompliantResource']) unless map['nonCompliantResource'].nil?)
+        data.related_resources = (RelatedResources.parse(map['relatedResources']) unless map['relatedResources'].nil?)
         data.reason_for_non_compliance = map['reasonForNonCompliance']
         data.reason_for_non_compliance_code = map['reasonForNonComplianceCode']
         data.is_suppressed = map['isSuppressed']
@@ -1152,7 +1152,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RelatedResource.parse(value) unless value.nil?
+          data << RelatedResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1162,8 +1162,8 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::RelatedResource.new
         data.resource_type = map['resourceType']
-        data.resource_identifier = (Parsers::ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
-        data.additional_info = (Parsers::StringMap.parse(map['additionalInfo']) unless map['additionalInfo'].nil?)
+        data.resource_identifier = (ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
+        data.additional_info = (StringMap.parse(map['additionalInfo']) unless map['additionalInfo'].nil?)
         return data
       end
     end
@@ -1185,7 +1185,7 @@ module AWS::SDK::IoT
         data.ca_certificate_id = map['caCertificateId']
         data.cognito_identity_pool_id = map['cognitoIdentityPoolId']
         data.client_id = map['clientId']
-        data.policy_version_identifier = (Parsers::PolicyVersionIdentifier.parse(map['policyVersionIdentifier']) unless map['policyVersionIdentifier'].nil?)
+        data.policy_version_identifier = (PolicyVersionIdentifier.parse(map['policyVersionIdentifier']) unless map['policyVersionIdentifier'].nil?)
         data.account = map['account']
         data.iam_role_arn = map['iamRoleArn']
         data.role_alias_arn = map['roleAliasArn']
@@ -1206,8 +1206,8 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::NonCompliantResource.new
         data.resource_type = map['resourceType']
-        data.resource_identifier = (Parsers::ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
-        data.additional_info = (Parsers::StringMap.parse(map['additionalInfo']) unless map['additionalInfo'].nil?)
+        data.resource_identifier = (ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
+        data.additional_info = (StringMap.parse(map['additionalInfo']) unless map['additionalInfo'].nil?)
         return data
       end
     end
@@ -1220,10 +1220,10 @@ module AWS::SDK::IoT
         data.task_status = map['taskStatus']
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
-        data.task_statistics = (Parsers::AuditMitigationActionsTaskStatistics.parse(map['taskStatistics']) unless map['taskStatistics'].nil?)
-        data.target = (Parsers::AuditMitigationActionsTaskTarget.parse(map['target']) unless map['target'].nil?)
-        data.audit_check_to_actions_mapping = (Parsers::AuditCheckToActionsMapping.parse(map['auditCheckToActionsMapping']) unless map['auditCheckToActionsMapping'].nil?)
-        data.actions_definition = (Parsers::MitigationActionList.parse(map['actionsDefinition']) unless map['actionsDefinition'].nil?)
+        data.task_statistics = (AuditMitigationActionsTaskStatistics.parse(map['taskStatistics']) unless map['taskStatistics'].nil?)
+        data.target = (AuditMitigationActionsTaskTarget.parse(map['target']) unless map['target'].nil?)
+        data.audit_check_to_actions_mapping = (AuditCheckToActionsMapping.parse(map['auditCheckToActionsMapping']) unless map['auditCheckToActionsMapping'].nil?)
+        data.actions_definition = (MitigationActionList.parse(map['actionsDefinition']) unless map['actionsDefinition'].nil?)
         data
       end
     end
@@ -1232,7 +1232,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MitigationAction.parse(value) unless value.nil?
+          data << MitigationAction.parse(value) unless value.nil?
         end
         data
       end
@@ -1244,7 +1244,7 @@ module AWS::SDK::IoT
         data.name = map['name']
         data.id = map['id']
         data.role_arn = map['roleArn']
-        data.action_params = (Parsers::MitigationActionParams.parse(map['actionParams']) unless map['actionParams'].nil?)
+        data.action_params = (MitigationActionParams.parse(map['actionParams']) unless map['actionParams'].nil?)
         return data
       end
     end
@@ -1252,12 +1252,12 @@ module AWS::SDK::IoT
     class MitigationActionParams
       def self.parse(map)
         data = Types::MitigationActionParams.new
-        data.update_device_certificate_params = (Parsers::UpdateDeviceCertificateParams.parse(map['updateDeviceCertificateParams']) unless map['updateDeviceCertificateParams'].nil?)
-        data.update_ca_certificate_params = (Parsers::UpdateCACertificateParams.parse(map['updateCACertificateParams']) unless map['updateCACertificateParams'].nil?)
-        data.add_things_to_thing_group_params = (Parsers::AddThingsToThingGroupParams.parse(map['addThingsToThingGroupParams']) unless map['addThingsToThingGroupParams'].nil?)
-        data.replace_default_policy_version_params = (Parsers::ReplaceDefaultPolicyVersionParams.parse(map['replaceDefaultPolicyVersionParams']) unless map['replaceDefaultPolicyVersionParams'].nil?)
-        data.enable_io_t_logging_params = (Parsers::EnableIoTLoggingParams.parse(map['enableIoTLoggingParams']) unless map['enableIoTLoggingParams'].nil?)
-        data.publish_finding_to_sns_params = (Parsers::PublishFindingToSnsParams.parse(map['publishFindingToSnsParams']) unless map['publishFindingToSnsParams'].nil?)
+        data.update_device_certificate_params = (UpdateDeviceCertificateParams.parse(map['updateDeviceCertificateParams']) unless map['updateDeviceCertificateParams'].nil?)
+        data.update_ca_certificate_params = (UpdateCACertificateParams.parse(map['updateCACertificateParams']) unless map['updateCACertificateParams'].nil?)
+        data.add_things_to_thing_group_params = (AddThingsToThingGroupParams.parse(map['addThingsToThingGroupParams']) unless map['addThingsToThingGroupParams'].nil?)
+        data.replace_default_policy_version_params = (ReplaceDefaultPolicyVersionParams.parse(map['replaceDefaultPolicyVersionParams']) unless map['replaceDefaultPolicyVersionParams'].nil?)
+        data.enable_io_t_logging_params = (EnableIoTLoggingParams.parse(map['enableIoTLoggingParams']) unless map['enableIoTLoggingParams'].nil?)
+        data.publish_finding_to_sns_params = (PublishFindingToSnsParams.parse(map['publishFindingToSnsParams']) unless map['publishFindingToSnsParams'].nil?)
         return data
       end
     end
@@ -1290,7 +1290,7 @@ module AWS::SDK::IoT
     class AddThingsToThingGroupParams
       def self.parse(map)
         data = Types::AddThingsToThingGroupParams.new
-        data.thing_group_names = (Parsers::ThingGroupNames.parse(map['thingGroupNames']) unless map['thingGroupNames'].nil?)
+        data.thing_group_names = (ThingGroupNames.parse(map['thingGroupNames']) unless map['thingGroupNames'].nil?)
         data.override_dynamic_groups = map['overrideDynamicGroups']
         return data
       end
@@ -1326,7 +1326,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MitigationActionNameList.parse(value) unless value.nil?
+          data[key] = MitigationActionNameList.parse(value) unless value.nil?
         end
         data
       end
@@ -1346,8 +1346,8 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::AuditMitigationActionsTaskTarget.new
         data.audit_task_id = map['auditTaskId']
-        data.finding_ids = (Parsers::FindingIds.parse(map['findingIds']) unless map['findingIds'].nil?)
-        data.audit_check_to_reason_code_filter = (Parsers::AuditCheckToReasonCodeFilter.parse(map['auditCheckToReasonCodeFilter']) unless map['auditCheckToReasonCodeFilter'].nil?)
+        data.finding_ids = (FindingIds.parse(map['findingIds']) unless map['findingIds'].nil?)
+        data.audit_check_to_reason_code_filter = (AuditCheckToReasonCodeFilter.parse(map['auditCheckToReasonCodeFilter']) unless map['auditCheckToReasonCodeFilter'].nil?)
         return data
       end
     end
@@ -1356,7 +1356,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ReasonForNonComplianceCodes.parse(value) unless value.nil?
+          data[key] = ReasonForNonComplianceCodes.parse(value) unless value.nil?
         end
         data
       end
@@ -1386,7 +1386,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::TaskStatisticsForAuditCheck.parse(value) unless value.nil?
+          data[key] = TaskStatisticsForAuditCheck.parse(value) unless value.nil?
         end
         data
       end
@@ -1410,7 +1410,7 @@ module AWS::SDK::IoT
         data = Types::DescribeAuditSuppressionOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.check_name = map['checkName']
-        data.resource_identifier = (Parsers::ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
+        data.resource_identifier = (ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
         data.expiration_date = Time.at(map['expirationDate'].to_i) if map['expirationDate']
         data.suppress_indefinitely = map['suppressIndefinitely']
         data.description = map['description']
@@ -1426,9 +1426,9 @@ module AWS::SDK::IoT
         data.task_status = map['taskStatus']
         data.task_type = map['taskType']
         data.task_start_time = Time.at(map['taskStartTime'].to_i) if map['taskStartTime']
-        data.task_statistics = (Parsers::TaskStatistics.parse(map['taskStatistics']) unless map['taskStatistics'].nil?)
+        data.task_statistics = (TaskStatistics.parse(map['taskStatistics']) unless map['taskStatistics'].nil?)
         data.scheduled_audit_name = map['scheduledAuditName']
-        data.audit_details = (Parsers::AuditDetails.parse(map['auditDetails']) unless map['auditDetails'].nil?)
+        data.audit_details = (AuditDetails.parse(map['auditDetails']) unless map['auditDetails'].nil?)
         data
       end
     end
@@ -1437,7 +1437,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AuditCheckDetails.parse(value) unless value.nil?
+          data[key] = AuditCheckDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1476,7 +1476,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeAuthorizerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.authorizer_description = (Parsers::AuthorizerDescription.parse(map['authorizerDescription']) unless map['authorizerDescription'].nil?)
+        data.authorizer_description = (AuthorizerDescription.parse(map['authorizerDescription']) unless map['authorizerDescription'].nil?)
         data
       end
     end
@@ -1488,7 +1488,7 @@ module AWS::SDK::IoT
         data.authorizer_arn = map['authorizerArn']
         data.authorizer_function_arn = map['authorizerFunctionArn']
         data.token_key_name = map['tokenKeyName']
-        data.token_signing_public_keys = (Parsers::PublicKeyMap.parse(map['tokenSigningPublicKeys']) unless map['tokenSigningPublicKeys'].nil?)
+        data.token_signing_public_keys = (PublicKeyMap.parse(map['tokenSigningPublicKeys']) unless map['tokenSigningPublicKeys'].nil?)
         data.status = map['status']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
@@ -1517,8 +1517,8 @@ module AWS::SDK::IoT
         data.billing_group_id = map['billingGroupId']
         data.billing_group_arn = map['billingGroupArn']
         data.version = map['version']
-        data.billing_group_properties = (Parsers::BillingGroupProperties.parse(map['billingGroupProperties']) unless map['billingGroupProperties'].nil?)
-        data.billing_group_metadata = (Parsers::BillingGroupMetadata.parse(map['billingGroupMetadata']) unless map['billingGroupMetadata'].nil?)
+        data.billing_group_properties = (BillingGroupProperties.parse(map['billingGroupProperties']) unless map['billingGroupProperties'].nil?)
+        data.billing_group_metadata = (BillingGroupMetadata.parse(map['billingGroupMetadata']) unless map['billingGroupMetadata'].nil?)
         data
       end
     end
@@ -1544,8 +1544,8 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeCACertificateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.certificate_description = (Parsers::CACertificateDescription.parse(map['certificateDescription']) unless map['certificateDescription'].nil?)
-        data.registration_config = (Parsers::RegistrationConfig.parse(map['registrationConfig']) unless map['registrationConfig'].nil?)
+        data.certificate_description = (CACertificateDescription.parse(map['certificateDescription']) unless map['certificateDescription'].nil?)
+        data.registration_config = (RegistrationConfig.parse(map['registrationConfig']) unless map['registrationConfig'].nil?)
         data
       end
     end
@@ -1572,7 +1572,7 @@ module AWS::SDK::IoT
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data.customer_version = map['customerVersion']
         data.generation_id = map['generationId']
-        data.validity = (Parsers::CertificateValidity.parse(map['validity']) unless map['validity'].nil?)
+        data.validity = (CertificateValidity.parse(map['validity']) unless map['validity'].nil?)
         return data
       end
     end
@@ -1591,7 +1591,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeCertificateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.certificate_description = (Parsers::CertificateDescription.parse(map['certificateDescription']) unless map['certificateDescription'].nil?)
+        data.certificate_description = (CertificateDescription.parse(map['certificateDescription']) unless map['certificateDescription'].nil?)
         data
       end
     end
@@ -1609,9 +1609,9 @@ module AWS::SDK::IoT
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data.customer_version = map['customerVersion']
-        data.transfer_data = (Parsers::TransferData.parse(map['transferData']) unless map['transferData'].nil?)
+        data.transfer_data = (TransferData.parse(map['transferData']) unless map['transferData'].nil?)
         data.generation_id = map['generationId']
-        data.validity = (Parsers::CertificateValidity.parse(map['validity']) unless map['validity'].nil?)
+        data.validity = (CertificateValidity.parse(map['validity']) unless map['validity'].nil?)
         data.certificate_mode = map['certificateMode']
         return data
       end
@@ -1649,7 +1649,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeDefaultAuthorizerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.authorizer_description = (Parsers::AuthorizerDescription.parse(map['authorizerDescription']) unless map['authorizerDescription'].nil?)
+        data.authorizer_description = (AuthorizerDescription.parse(map['authorizerDescription']) unless map['authorizerDescription'].nil?)
         data
       end
     end
@@ -1659,7 +1659,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeDetectMitigationActionsTaskOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.task_summary = (Parsers::DetectMitigationActionsTaskSummary.parse(map['taskSummary']) unless map['taskSummary'].nil?)
+        data.task_summary = (DetectMitigationActionsTaskSummary.parse(map['taskSummary']) unless map['taskSummary'].nil?)
         data
       end
     end
@@ -1671,12 +1671,12 @@ module AWS::SDK::IoT
         data.task_status = map['taskStatus']
         data.task_start_time = Time.at(map['taskStartTime'].to_i) if map['taskStartTime']
         data.task_end_time = Time.at(map['taskEndTime'].to_i) if map['taskEndTime']
-        data.target = (Parsers::DetectMitigationActionsTaskTarget.parse(map['target']) unless map['target'].nil?)
-        data.violation_event_occurrence_range = (Parsers::ViolationEventOccurrenceRange.parse(map['violationEventOccurrenceRange']) unless map['violationEventOccurrenceRange'].nil?)
+        data.target = (DetectMitigationActionsTaskTarget.parse(map['target']) unless map['target'].nil?)
+        data.violation_event_occurrence_range = (ViolationEventOccurrenceRange.parse(map['violationEventOccurrenceRange']) unless map['violationEventOccurrenceRange'].nil?)
         data.only_active_violations_included = map['onlyActiveViolationsIncluded']
         data.suppressed_alerts_included = map['suppressedAlertsIncluded']
-        data.actions_definition = (Parsers::MitigationActionList.parse(map['actionsDefinition']) unless map['actionsDefinition'].nil?)
-        data.task_statistics = (Parsers::DetectMitigationActionsTaskStatistics.parse(map['taskStatistics']) unless map['taskStatistics'].nil?)
+        data.actions_definition = (MitigationActionList.parse(map['actionsDefinition']) unless map['actionsDefinition'].nil?)
+        data.task_statistics = (DetectMitigationActionsTaskStatistics.parse(map['taskStatistics']) unless map['taskStatistics'].nil?)
         return data
       end
     end
@@ -1703,7 +1703,7 @@ module AWS::SDK::IoT
     class DetectMitigationActionsTaskTarget
       def self.parse(map)
         data = Types::DetectMitigationActionsTaskTarget.new
-        data.violation_ids = (Parsers::TargetViolationIdsForDetectMitigationActions.parse(map['violationIds']) unless map['violationIds'].nil?)
+        data.violation_ids = (TargetViolationIdsForDetectMitigationActions.parse(map['violationIds']) unless map['violationIds'].nil?)
         data.security_profile_name = map['securityProfileName']
         data.behavior_name = map['behaviorName']
         return data
@@ -1728,7 +1728,7 @@ module AWS::SDK::IoT
         data.name = map['name']
         data.arn = map['arn']
         data.type = map['type']
-        data.string_values = (Parsers::DimensionStringValues.parse(map['stringValues']) unless map['stringValues'].nil?)
+        data.string_values = (DimensionStringValues.parse(map['stringValues']) unless map['stringValues'].nil?)
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data
@@ -1753,8 +1753,8 @@ module AWS::SDK::IoT
         data.domain_configuration_name = map['domainConfigurationName']
         data.domain_configuration_arn = map['domainConfigurationArn']
         data.domain_name = map['domainName']
-        data.server_certificates = (Parsers::ServerCertificates.parse(map['serverCertificates']) unless map['serverCertificates'].nil?)
-        data.authorizer_config = (Parsers::AuthorizerConfig.parse(map['authorizerConfig']) unless map['authorizerConfig'].nil?)
+        data.server_certificates = (ServerCertificates.parse(map['serverCertificates']) unless map['serverCertificates'].nil?)
+        data.authorizer_config = (AuthorizerConfig.parse(map['authorizerConfig']) unless map['authorizerConfig'].nil?)
         data.domain_configuration_status = map['domainConfigurationStatus']
         data.service_type = map['serviceType']
         data.domain_type = map['domainType']
@@ -1776,7 +1776,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServerCertificateSummary.parse(value) unless value.nil?
+          data << ServerCertificateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1807,7 +1807,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeEventConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_configurations = (Parsers::EventConfigurations.parse(map['eventConfigurations']) unless map['eventConfigurations'].nil?)
+        data.event_configurations = (EventConfigurations.parse(map['eventConfigurations']) unless map['eventConfigurations'].nil?)
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data
@@ -1818,7 +1818,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Configuration.parse(value) unless value.nil?
+          data[key] = Configuration.parse(value) unless value.nil?
         end
         data
       end
@@ -1839,7 +1839,7 @@ module AWS::SDK::IoT
         map = Hearth::JSON.load(http_resp.body)
         data.metric_name = map['metricName']
         data.query_string = map['queryString']
-        data.aggregation_type = (Parsers::AggregationType.parse(map['aggregationType']) unless map['aggregationType'].nil?)
+        data.aggregation_type = (AggregationType.parse(map['aggregationType']) unless map['aggregationType'].nil?)
         data.period = map['period']
         data.aggregation_field = map['aggregationField']
         data.description = map['description']
@@ -1858,7 +1858,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::AggregationType.new
         data.name = map['name']
-        data.values = (Parsers::AggregationTypeValues.parse(map['values']) unless map['values'].nil?)
+        data.values = (AggregationTypeValues.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -1891,7 +1891,7 @@ module AWS::SDK::IoT
         data = Types::DescribeJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.document_source = map['documentSource']
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -1906,20 +1906,20 @@ module AWS::SDK::IoT
         data.force_canceled = map['forceCanceled']
         data.reason_code = map['reasonCode']
         data.comment = map['comment']
-        data.targets = (Parsers::JobTargets.parse(map['targets']) unless map['targets'].nil?)
+        data.targets = (JobTargets.parse(map['targets']) unless map['targets'].nil?)
         data.description = map['description']
-        data.presigned_url_config = (Parsers::PresignedUrlConfig.parse(map['presignedUrlConfig']) unless map['presignedUrlConfig'].nil?)
-        data.job_executions_rollout_config = (Parsers::JobExecutionsRolloutConfig.parse(map['jobExecutionsRolloutConfig']) unless map['jobExecutionsRolloutConfig'].nil?)
-        data.abort_config = (Parsers::AbortConfig.parse(map['abortConfig']) unless map['abortConfig'].nil?)
+        data.presigned_url_config = (PresignedUrlConfig.parse(map['presignedUrlConfig']) unless map['presignedUrlConfig'].nil?)
+        data.job_executions_rollout_config = (JobExecutionsRolloutConfig.parse(map['jobExecutionsRolloutConfig']) unless map['jobExecutionsRolloutConfig'].nil?)
+        data.abort_config = (AbortConfig.parse(map['abortConfig']) unless map['abortConfig'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.completed_at = Time.at(map['completedAt'].to_i) if map['completedAt']
-        data.job_process_details = (Parsers::JobProcessDetails.parse(map['jobProcessDetails']) unless map['jobProcessDetails'].nil?)
-        data.timeout_config = (Parsers::TimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
+        data.job_process_details = (JobProcessDetails.parse(map['jobProcessDetails']) unless map['jobProcessDetails'].nil?)
+        data.timeout_config = (TimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
         data.namespace_id = map['namespaceId']
         data.job_template_arn = map['jobTemplateArn']
-        data.job_executions_retry_config = (Parsers::JobExecutionsRetryConfig.parse(map['jobExecutionsRetryConfig']) unless map['jobExecutionsRetryConfig'].nil?)
-        data.document_parameters = (Parsers::ParameterMap.parse(map['documentParameters']) unless map['documentParameters'].nil?)
+        data.job_executions_retry_config = (JobExecutionsRetryConfig.parse(map['jobExecutionsRetryConfig']) unless map['jobExecutionsRetryConfig'].nil?)
+        data.document_parameters = (ParameterMap.parse(map['documentParameters']) unless map['documentParameters'].nil?)
         data.is_concurrent = map['isConcurrent']
         return data
       end
@@ -1938,7 +1938,7 @@ module AWS::SDK::IoT
     class JobExecutionsRetryConfig
       def self.parse(map)
         data = Types::JobExecutionsRetryConfig.new
-        data.criteria_list = (Parsers::RetryCriteriaList.parse(map['criteriaList']) unless map['criteriaList'].nil?)
+        data.criteria_list = (RetryCriteriaList.parse(map['criteriaList']) unless map['criteriaList'].nil?)
         return data
       end
     end
@@ -1947,7 +1947,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RetryCriteria.parse(value) unless value.nil?
+          data << RetryCriteria.parse(value) unless value.nil?
         end
         data
       end
@@ -1973,7 +1973,7 @@ module AWS::SDK::IoT
     class JobProcessDetails
       def self.parse(map)
         data = Types::JobProcessDetails.new
-        data.processing_targets = (Parsers::ProcessingTargetNameList.parse(map['processingTargets']) unless map['processingTargets'].nil?)
+        data.processing_targets = (ProcessingTargetNameList.parse(map['processingTargets']) unless map['processingTargets'].nil?)
         data.number_of_canceled_things = map['numberOfCanceledThings']
         data.number_of_succeeded_things = map['numberOfSucceededThings']
         data.number_of_failed_things = map['numberOfFailedThings']
@@ -1999,7 +1999,7 @@ module AWS::SDK::IoT
     class AbortConfig
       def self.parse(map)
         data = Types::AbortConfig.new
-        data.criteria_list = (Parsers::AbortCriteriaList.parse(map['criteriaList']) unless map['criteriaList'].nil?)
+        data.criteria_list = (AbortCriteriaList.parse(map['criteriaList']) unless map['criteriaList'].nil?)
         return data
       end
     end
@@ -2008,7 +2008,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AbortCriteria.parse(value) unless value.nil?
+          data << AbortCriteria.parse(value) unless value.nil?
         end
         data
       end
@@ -2029,7 +2029,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::JobExecutionsRolloutConfig.new
         data.maximum_per_minute = map['maximumPerMinute']
-        data.exponential_rate = (Parsers::ExponentialRolloutRate.parse(map['exponentialRate']) unless map['exponentialRate'].nil?)
+        data.exponential_rate = (ExponentialRolloutRate.parse(map['exponentialRate']) unless map['exponentialRate'].nil?)
         return data
       end
     end
@@ -2039,7 +2039,7 @@ module AWS::SDK::IoT
         data = Types::ExponentialRolloutRate.new
         data.base_rate_per_minute = map['baseRatePerMinute']
         data.increment_factor = Hearth::NumberHelper.deserialize(map['incrementFactor'])
-        data.rate_increase_criteria = (Parsers::RateIncreaseCriteria.parse(map['rateIncreaseCriteria']) unless map['rateIncreaseCriteria'].nil?)
+        data.rate_increase_criteria = (RateIncreaseCriteria.parse(map['rateIncreaseCriteria']) unless map['rateIncreaseCriteria'].nil?)
         return data
       end
     end
@@ -2077,7 +2077,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeJobExecutionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution = (Parsers::JobExecution.parse(map['execution']) unless map['execution'].nil?)
+        data.execution = (JobExecution.parse(map['execution']) unless map['execution'].nil?)
         data
       end
     end
@@ -2088,7 +2088,7 @@ module AWS::SDK::IoT
         data.job_id = map['jobId']
         data.status = map['status']
         data.force_canceled = map['forceCanceled']
-        data.status_details = (Parsers::JobExecutionStatusDetails.parse(map['statusDetails']) unless map['statusDetails'].nil?)
+        data.status_details = (JobExecutionStatusDetails.parse(map['statusDetails']) unless map['statusDetails'].nil?)
         data.thing_arn = map['thingArn']
         data.queued_at = Time.at(map['queuedAt'].to_i) if map['queuedAt']
         data.started_at = Time.at(map['startedAt'].to_i) if map['startedAt']
@@ -2103,7 +2103,7 @@ module AWS::SDK::IoT
     class JobExecutionStatusDetails
       def self.parse(map)
         data = Types::JobExecutionStatusDetails.new
-        data.details_map = (Parsers::DetailsMap.parse(map['detailsMap']) unless map['detailsMap'].nil?)
+        data.details_map = (DetailsMap.parse(map['detailsMap']) unless map['detailsMap'].nil?)
         return data
       end
     end
@@ -2129,11 +2129,11 @@ module AWS::SDK::IoT
         data.document_source = map['documentSource']
         data.document = map['document']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.presigned_url_config = (Parsers::PresignedUrlConfig.parse(map['presignedUrlConfig']) unless map['presignedUrlConfig'].nil?)
-        data.job_executions_rollout_config = (Parsers::JobExecutionsRolloutConfig.parse(map['jobExecutionsRolloutConfig']) unless map['jobExecutionsRolloutConfig'].nil?)
-        data.abort_config = (Parsers::AbortConfig.parse(map['abortConfig']) unless map['abortConfig'].nil?)
-        data.timeout_config = (Parsers::TimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
-        data.job_executions_retry_config = (Parsers::JobExecutionsRetryConfig.parse(map['jobExecutionsRetryConfig']) unless map['jobExecutionsRetryConfig'].nil?)
+        data.presigned_url_config = (PresignedUrlConfig.parse(map['presignedUrlConfig']) unless map['presignedUrlConfig'].nil?)
+        data.job_executions_rollout_config = (JobExecutionsRolloutConfig.parse(map['jobExecutionsRolloutConfig']) unless map['jobExecutionsRolloutConfig'].nil?)
+        data.abort_config = (AbortConfig.parse(map['abortConfig']) unless map['abortConfig'].nil?)
+        data.timeout_config = (TimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
+        data.job_executions_retry_config = (JobExecutionsRetryConfig.parse(map['jobExecutionsRetryConfig']) unless map['jobExecutionsRetryConfig'].nil?)
         data
       end
     end
@@ -2147,8 +2147,8 @@ module AWS::SDK::IoT
         data.template_arn = map['templateArn']
         data.description = map['description']
         data.template_version = map['templateVersion']
-        data.environments = (Parsers::Environments.parse(map['environments']) unless map['environments'].nil?)
-        data.document_parameters = (Parsers::DocumentParameters.parse(map['documentParameters']) unless map['documentParameters'].nil?)
+        data.environments = (Environments.parse(map['environments']) unless map['environments'].nil?)
+        data.document_parameters = (DocumentParameters.parse(map['documentParameters']) unless map['documentParameters'].nil?)
         data.document = map['document']
         data
       end
@@ -2158,7 +2158,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DocumentParameter.parse(value) unless value.nil?
+          data << DocumentParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -2206,7 +2206,7 @@ module AWS::SDK::IoT
         data.action_arn = map['actionArn']
         data.action_id = map['actionId']
         data.role_arn = map['roleArn']
-        data.action_params = (Parsers::MitigationActionParams.parse(map['actionParams']) unless map['actionParams'].nil?)
+        data.action_params = (MitigationActionParams.parse(map['actionParams']) unless map['actionParams'].nil?)
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data
@@ -2227,7 +2227,7 @@ module AWS::SDK::IoT
         data.template_body = map['templateBody']
         data.enabled = map['enabled']
         data.provisioning_role_arn = map['provisioningRoleArn']
-        data.pre_provisioning_hook = (Parsers::ProvisioningHook.parse(map['preProvisioningHook']) unless map['preProvisioningHook'].nil?)
+        data.pre_provisioning_hook = (ProvisioningHook.parse(map['preProvisioningHook']) unless map['preProvisioningHook'].nil?)
         data
       end
     end
@@ -2259,7 +2259,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeRoleAliasOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.role_alias_description = (Parsers::RoleAliasDescription.parse(map['roleAliasDescription']) unless map['roleAliasDescription'].nil?)
+        data.role_alias_description = (RoleAliasDescription.parse(map['roleAliasDescription']) unless map['roleAliasDescription'].nil?)
         data
       end
     end
@@ -2286,7 +2286,7 @@ module AWS::SDK::IoT
         data.frequency = map['frequency']
         data.day_of_month = map['dayOfMonth']
         data.day_of_week = map['dayOfWeek']
-        data.target_check_names = (Parsers::TargetAuditCheckNames.parse(map['targetCheckNames']) unless map['targetCheckNames'].nil?)
+        data.target_check_names = (TargetAuditCheckNames.parse(map['targetCheckNames']) unless map['targetCheckNames'].nil?)
         data.scheduled_audit_name = map['scheduledAuditName']
         data.scheduled_audit_arn = map['scheduledAuditArn']
         data
@@ -2311,10 +2311,10 @@ module AWS::SDK::IoT
         data.security_profile_name = map['securityProfileName']
         data.security_profile_arn = map['securityProfileArn']
         data.security_profile_description = map['securityProfileDescription']
-        data.behaviors = (Parsers::Behaviors.parse(map['behaviors']) unless map['behaviors'].nil?)
-        data.alert_targets = (Parsers::AlertTargets.parse(map['alertTargets']) unless map['alertTargets'].nil?)
-        data.additional_metrics_to_retain = (Parsers::AdditionalMetricsToRetainList.parse(map['additionalMetricsToRetain']) unless map['additionalMetricsToRetain'].nil?)
-        data.additional_metrics_to_retain_v2 = (Parsers::AdditionalMetricsToRetainV2List.parse(map['additionalMetricsToRetainV2']) unless map['additionalMetricsToRetainV2'].nil?)
+        data.behaviors = (Behaviors.parse(map['behaviors']) unless map['behaviors'].nil?)
+        data.alert_targets = (AlertTargets.parse(map['alertTargets']) unless map['alertTargets'].nil?)
+        data.additional_metrics_to_retain = (AdditionalMetricsToRetainList.parse(map['additionalMetricsToRetain']) unless map['additionalMetricsToRetain'].nil?)
+        data.additional_metrics_to_retain_v2 = (AdditionalMetricsToRetainV2List.parse(map['additionalMetricsToRetainV2']) unless map['additionalMetricsToRetainV2'].nil?)
         data.version = map['version']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
@@ -2326,7 +2326,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MetricToRetain.parse(value) unless value.nil?
+          data << MetricToRetain.parse(value) unless value.nil?
         end
         data
       end
@@ -2336,7 +2336,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::MetricToRetain.new
         data.metric = map['metric']
-        data.metric_dimension = (Parsers::MetricDimension.parse(map['metricDimension']) unless map['metricDimension'].nil?)
+        data.metric_dimension = (MetricDimension.parse(map['metricDimension']) unless map['metricDimension'].nil?)
         return data
       end
     end
@@ -2364,7 +2364,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AlertTarget.parse(value) unless value.nil?
+          data[key] = AlertTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -2383,7 +2383,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Behavior.parse(value) unless value.nil?
+          data << Behavior.parse(value) unless value.nil?
         end
         data
       end
@@ -2394,8 +2394,8 @@ module AWS::SDK::IoT
         data = Types::Behavior.new
         data.name = map['name']
         data.metric = map['metric']
-        data.metric_dimension = (Parsers::MetricDimension.parse(map['metricDimension']) unless map['metricDimension'].nil?)
-        data.criteria = (Parsers::BehaviorCriteria.parse(map['criteria']) unless map['criteria'].nil?)
+        data.metric_dimension = (MetricDimension.parse(map['metricDimension']) unless map['metricDimension'].nil?)
+        data.criteria = (BehaviorCriteria.parse(map['criteria']) unless map['criteria'].nil?)
         data.suppress_alerts = map['suppressAlerts']
         return data
       end
@@ -2405,12 +2405,12 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::BehaviorCriteria.new
         data.comparison_operator = map['comparisonOperator']
-        data.value = (Parsers::MetricValue.parse(map['value']) unless map['value'].nil?)
+        data.value = (MetricValue.parse(map['value']) unless map['value'].nil?)
         data.duration_seconds = map['durationSeconds']
         data.consecutive_datapoints_to_alarm = map['consecutiveDatapointsToAlarm']
         data.consecutive_datapoints_to_clear = map['consecutiveDatapointsToClear']
-        data.statistical_threshold = (Parsers::StatisticalThreshold.parse(map['statisticalThreshold']) unless map['statisticalThreshold'].nil?)
-        data.ml_detection_config = (Parsers::MachineLearningDetectionConfig.parse(map['mlDetectionConfig']) unless map['mlDetectionConfig'].nil?)
+        data.statistical_threshold = (StatisticalThreshold.parse(map['statisticalThreshold']) unless map['statisticalThreshold'].nil?)
+        data.ml_detection_config = (MachineLearningDetectionConfig.parse(map['mlDetectionConfig']) unless map['mlDetectionConfig'].nil?)
         return data
       end
     end
@@ -2435,11 +2435,11 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::MetricValue.new
         data.count = map['count']
-        data.cidrs = (Parsers::Cidrs.parse(map['cidrs']) unless map['cidrs'].nil?)
-        data.ports = (Parsers::Ports.parse(map['ports']) unless map['ports'].nil?)
+        data.cidrs = (Cidrs.parse(map['cidrs']) unless map['cidrs'].nil?)
+        data.ports = (Ports.parse(map['ports']) unless map['ports'].nil?)
         data.number = Hearth::NumberHelper.deserialize(map['number'])
-        data.numbers = (Parsers::NumberList.parse(map['numbers']) unless map['numbers'].nil?)
-        data.strings = (Parsers::StringList.parse(map['strings']) unless map['strings'].nil?)
+        data.numbers = (NumberList.parse(map['numbers']) unless map['numbers'].nil?)
+        data.strings = (StringList.parse(map['strings']) unless map['strings'].nil?)
         return data
       end
     end
@@ -2489,7 +2489,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::DescribeStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_info = (Parsers::StreamInfo.parse(map['streamInfo']) unless map['streamInfo'].nil?)
+        data.stream_info = (StreamInfo.parse(map['streamInfo']) unless map['streamInfo'].nil?)
         data
       end
     end
@@ -2501,7 +2501,7 @@ module AWS::SDK::IoT
         data.stream_arn = map['streamArn']
         data.stream_version = map['streamVersion']
         data.description = map['description']
-        data.files = (Parsers::StreamFiles.parse(map['files']) unless map['files'].nil?)
+        data.files = (StreamFiles.parse(map['files']) unless map['files'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.role_arn = map['roleArn']
@@ -2513,7 +2513,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamFile.parse(value) unless value.nil?
+          data << StreamFile.parse(value) unless value.nil?
         end
         data
       end
@@ -2523,7 +2523,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::StreamFile.new
         data.file_id = map['fileId']
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
         return data
       end
     end
@@ -2548,7 +2548,7 @@ module AWS::SDK::IoT
         data.thing_id = map['thingId']
         data.thing_arn = map['thingArn']
         data.thing_type_name = map['thingTypeName']
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.version = map['version']
         data.billing_group_name = map['billingGroupName']
         data
@@ -2574,8 +2574,8 @@ module AWS::SDK::IoT
         data.thing_group_id = map['thingGroupId']
         data.thing_group_arn = map['thingGroupArn']
         data.version = map['version']
-        data.thing_group_properties = (Parsers::ThingGroupProperties.parse(map['thingGroupProperties']) unless map['thingGroupProperties'].nil?)
-        data.thing_group_metadata = (Parsers::ThingGroupMetadata.parse(map['thingGroupMetadata']) unless map['thingGroupMetadata'].nil?)
+        data.thing_group_properties = (ThingGroupProperties.parse(map['thingGroupProperties']) unless map['thingGroupProperties'].nil?)
+        data.thing_group_metadata = (ThingGroupMetadata.parse(map['thingGroupMetadata']) unless map['thingGroupMetadata'].nil?)
         data.index_name = map['indexName']
         data.query_string = map['queryString']
         data.query_version = map['queryVersion']
@@ -2588,7 +2588,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::ThingGroupMetadata.new
         data.parent_group_name = map['parentGroupName']
-        data.root_to_parent_thing_groups = (Parsers::ThingGroupNameAndArnList.parse(map['rootToParentThingGroups']) unless map['rootToParentThingGroups'].nil?)
+        data.root_to_parent_thing_groups = (ThingGroupNameAndArnList.parse(map['rootToParentThingGroups']) unless map['rootToParentThingGroups'].nil?)
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         return data
       end
@@ -2598,7 +2598,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupNameAndArn.parse(value) unless value.nil?
+          data << GroupNameAndArn.parse(value) unless value.nil?
         end
         data
       end
@@ -2617,7 +2617,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::ThingGroupProperties.new
         data.thing_group_description = map['thingGroupDescription']
-        data.attribute_payload = (Parsers::AttributePayload.parse(map['attributePayload']) unless map['attributePayload'].nil?)
+        data.attribute_payload = (AttributePayload.parse(map['attributePayload']) unless map['attributePayload'].nil?)
         return data
       end
     end
@@ -2625,7 +2625,7 @@ module AWS::SDK::IoT
     class AttributePayload
       def self.parse(map)
         data = Types::AttributePayload.new
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.merge = map['merge']
         return data
       end
@@ -2660,8 +2660,8 @@ module AWS::SDK::IoT
         data.thing_type_name = map['thingTypeName']
         data.thing_type_id = map['thingTypeId']
         data.thing_type_arn = map['thingTypeArn']
-        data.thing_type_properties = (Parsers::ThingTypeProperties.parse(map['thingTypeProperties']) unless map['thingTypeProperties'].nil?)
-        data.thing_type_metadata = (Parsers::ThingTypeMetadata.parse(map['thingTypeMetadata']) unless map['thingTypeMetadata'].nil?)
+        data.thing_type_properties = (ThingTypeProperties.parse(map['thingTypeProperties']) unless map['thingTypeProperties'].nil?)
+        data.thing_type_metadata = (ThingTypeMetadata.parse(map['thingTypeMetadata']) unless map['thingTypeMetadata'].nil?)
         data
       end
     end
@@ -2680,7 +2680,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::ThingTypeProperties.new
         data.thing_type_description = map['thingTypeDescription']
-        data.searchable_attributes = (Parsers::SearchableAttributes.parse(map['searchableAttributes']) unless map['searchableAttributes'].nil?)
+        data.searchable_attributes = (SearchableAttributes.parse(map['searchableAttributes']) unless map['searchableAttributes'].nil?)
         return data
       end
     end
@@ -2754,7 +2754,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::GetBehaviorModelTrainingSummariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.summaries = (Parsers::BehaviorModelTrainingSummaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (BehaviorModelTrainingSummaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2764,7 +2764,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BehaviorModelTrainingSummary.parse(value) unless value.nil?
+          data << BehaviorModelTrainingSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2789,7 +2789,7 @@ module AWS::SDK::IoT
         data = Types::GetBucketsAggregationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.total_count = map['totalCount']
-        data.buckets = (Parsers::Buckets.parse(map['buckets']) unless map['buckets'].nil?)
+        data.buckets = (Buckets.parse(map['buckets']) unless map['buckets'].nil?)
         data
       end
     end
@@ -2798,7 +2798,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Bucket.parse(value) unless value.nil?
+          data << Bucket.parse(value) unless value.nil?
         end
         data
       end
@@ -2828,7 +2828,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::GetEffectivePoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.effective_policies = (Parsers::EffectivePolicies.parse(map['effectivePolicies']) unless map['effectivePolicies'].nil?)
+        data.effective_policies = (EffectivePolicies.parse(map['effectivePolicies']) unless map['effectivePolicies'].nil?)
         data
       end
     end
@@ -2837,7 +2837,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EffectivePolicy.parse(value) unless value.nil?
+          data << EffectivePolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -2858,8 +2858,8 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::GetIndexingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.thing_indexing_configuration = (Parsers::ThingIndexingConfiguration.parse(map['thingIndexingConfiguration']) unless map['thingIndexingConfiguration'].nil?)
-        data.thing_group_indexing_configuration = (Parsers::ThingGroupIndexingConfiguration.parse(map['thingGroupIndexingConfiguration']) unless map['thingGroupIndexingConfiguration'].nil?)
+        data.thing_indexing_configuration = (ThingIndexingConfiguration.parse(map['thingIndexingConfiguration']) unless map['thingIndexingConfiguration'].nil?)
+        data.thing_group_indexing_configuration = (ThingGroupIndexingConfiguration.parse(map['thingGroupIndexingConfiguration']) unless map['thingGroupIndexingConfiguration'].nil?)
         data
       end
     end
@@ -2868,8 +2868,8 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::ThingGroupIndexingConfiguration.new
         data.thing_group_indexing_mode = map['thingGroupIndexingMode']
-        data.managed_fields = (Parsers::Fields.parse(map['managedFields']) unless map['managedFields'].nil?)
-        data.custom_fields = (Parsers::Fields.parse(map['customFields']) unless map['customFields'].nil?)
+        data.managed_fields = (Fields.parse(map['managedFields']) unless map['managedFields'].nil?)
+        data.custom_fields = (Fields.parse(map['customFields']) unless map['customFields'].nil?)
         return data
       end
     end
@@ -2878,7 +2878,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Field.parse(value) unless value.nil?
+          data << Field.parse(value) unless value.nil?
         end
         data
       end
@@ -2900,8 +2900,8 @@ module AWS::SDK::IoT
         data.thing_connectivity_indexing_mode = map['thingConnectivityIndexingMode']
         data.device_defender_indexing_mode = map['deviceDefenderIndexingMode']
         data.named_shadow_indexing_mode = map['namedShadowIndexingMode']
-        data.managed_fields = (Parsers::Fields.parse(map['managedFields']) unless map['managedFields'].nil?)
-        data.custom_fields = (Parsers::Fields.parse(map['customFields']) unless map['customFields'].nil?)
+        data.managed_fields = (Fields.parse(map['managedFields']) unless map['managedFields'].nil?)
+        data.custom_fields = (Fields.parse(map['customFields']) unless map['customFields'].nil?)
         return data
       end
     end
@@ -2932,7 +2932,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::GetOTAUpdateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.ota_update_info = (Parsers::OTAUpdateInfo.parse(map['otaUpdateInfo']) unless map['otaUpdateInfo'].nil?)
+        data.ota_update_info = (OTAUpdateInfo.parse(map['otaUpdateInfo']) unless map['otaUpdateInfo'].nil?)
         data
       end
     end
@@ -2945,17 +2945,17 @@ module AWS::SDK::IoT
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data.description = map['description']
-        data.targets = (Parsers::Targets.parse(map['targets']) unless map['targets'].nil?)
-        data.protocols = (Parsers::Protocols.parse(map['protocols']) unless map['protocols'].nil?)
-        data.aws_job_executions_rollout_config = (Parsers::AwsJobExecutionsRolloutConfig.parse(map['awsJobExecutionsRolloutConfig']) unless map['awsJobExecutionsRolloutConfig'].nil?)
-        data.aws_job_presigned_url_config = (Parsers::AwsJobPresignedUrlConfig.parse(map['awsJobPresignedUrlConfig']) unless map['awsJobPresignedUrlConfig'].nil?)
+        data.targets = (Targets.parse(map['targets']) unless map['targets'].nil?)
+        data.protocols = (Protocols.parse(map['protocols']) unless map['protocols'].nil?)
+        data.aws_job_executions_rollout_config = (AwsJobExecutionsRolloutConfig.parse(map['awsJobExecutionsRolloutConfig']) unless map['awsJobExecutionsRolloutConfig'].nil?)
+        data.aws_job_presigned_url_config = (AwsJobPresignedUrlConfig.parse(map['awsJobPresignedUrlConfig']) unless map['awsJobPresignedUrlConfig'].nil?)
         data.target_selection = map['targetSelection']
-        data.ota_update_files = (Parsers::OTAUpdateFiles.parse(map['otaUpdateFiles']) unless map['otaUpdateFiles'].nil?)
+        data.ota_update_files = (OTAUpdateFiles.parse(map['otaUpdateFiles']) unless map['otaUpdateFiles'].nil?)
         data.ota_update_status = map['otaUpdateStatus']
         data.aws_iot_job_id = map['awsIotJobId']
         data.aws_iot_job_arn = map['awsIotJobArn']
-        data.error_info = (Parsers::ErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
-        data.additional_parameters = (Parsers::AdditionalParameterMap.parse(map['additionalParameters']) unless map['additionalParameters'].nil?)
+        data.error_info = (ErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.additional_parameters = (AdditionalParameterMap.parse(map['additionalParameters']) unless map['additionalParameters'].nil?)
         return data
       end
     end
@@ -2983,7 +2983,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OTAUpdateFile.parse(value) unless value.nil?
+          data << OTAUpdateFile.parse(value) unless value.nil?
         end
         data
       end
@@ -2995,9 +2995,9 @@ module AWS::SDK::IoT
         data.file_name = map['fileName']
         data.file_type = map['fileType']
         data.file_version = map['fileVersion']
-        data.file_location = (Parsers::FileLocation.parse(map['fileLocation']) unless map['fileLocation'].nil?)
-        data.code_signing = (Parsers::CodeSigning.parse(map['codeSigning']) unless map['codeSigning'].nil?)
-        data.attributes = (Parsers::AttributesMap.parse(map['attributes']) unless map['attributes'].nil?)
+        data.file_location = (FileLocation.parse(map['fileLocation']) unless map['fileLocation'].nil?)
+        data.code_signing = (CodeSigning.parse(map['codeSigning']) unless map['codeSigning'].nil?)
+        data.attributes = (AttributesMap.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -3016,8 +3016,8 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::CodeSigning.new
         data.aws_signer_job_id = map['awsSignerJobId']
-        data.start_signing_job_parameter = (Parsers::StartSigningJobParameter.parse(map['startSigningJobParameter']) unless map['startSigningJobParameter'].nil?)
-        data.custom_code_signing = (Parsers::CustomCodeSigning.parse(map['customCodeSigning']) unless map['customCodeSigning'].nil?)
+        data.start_signing_job_parameter = (StartSigningJobParameter.parse(map['startSigningJobParameter']) unless map['startSigningJobParameter'].nil?)
+        data.custom_code_signing = (CustomCodeSigning.parse(map['customCodeSigning']) unless map['customCodeSigning'].nil?)
         return data
       end
     end
@@ -3025,8 +3025,8 @@ module AWS::SDK::IoT
     class CustomCodeSigning
       def self.parse(map)
         data = Types::CustomCodeSigning.new
-        data.signature = (Parsers::CodeSigningSignature.parse(map['signature']) unless map['signature'].nil?)
-        data.certificate_chain = (Parsers::CodeSigningCertificateChain.parse(map['certificateChain']) unless map['certificateChain'].nil?)
+        data.signature = (CodeSigningSignature.parse(map['signature']) unless map['signature'].nil?)
+        data.certificate_chain = (CodeSigningCertificateChain.parse(map['certificateChain']) unless map['certificateChain'].nil?)
         data.hash_algorithm = map['hashAlgorithm']
         data.signature_algorithm = map['signatureAlgorithm']
         return data
@@ -3053,9 +3053,9 @@ module AWS::SDK::IoT
     class StartSigningJobParameter
       def self.parse(map)
         data = Types::StartSigningJobParameter.new
-        data.signing_profile_parameter = (Parsers::SigningProfileParameter.parse(map['signingProfileParameter']) unless map['signingProfileParameter'].nil?)
+        data.signing_profile_parameter = (SigningProfileParameter.parse(map['signingProfileParameter']) unless map['signingProfileParameter'].nil?)
         data.signing_profile_name = map['signingProfileName']
-        data.destination = (Parsers::Destination.parse(map['destination']) unless map['destination'].nil?)
+        data.destination = (Destination.parse(map['destination']) unless map['destination'].nil?)
         return data
       end
     end
@@ -3063,7 +3063,7 @@ module AWS::SDK::IoT
     class Destination
       def self.parse(map)
         data = Types::Destination.new
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         return data
       end
     end
@@ -3090,8 +3090,8 @@ module AWS::SDK::IoT
     class FileLocation
       def self.parse(map)
         data = Types::FileLocation.new
-        data.stream = (Parsers::Stream.parse(map['stream']) unless map['stream'].nil?)
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.stream = (Stream.parse(map['stream']) unless map['stream'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
         return data
       end
     end
@@ -3117,7 +3117,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::AwsJobExecutionsRolloutConfig.new
         data.maximum_per_minute = map['maximumPerMinute']
-        data.exponential_rate = (Parsers::AwsJobExponentialRolloutRate.parse(map['exponentialRate']) unless map['exponentialRate'].nil?)
+        data.exponential_rate = (AwsJobExponentialRolloutRate.parse(map['exponentialRate']) unless map['exponentialRate'].nil?)
         return data
       end
     end
@@ -3127,7 +3127,7 @@ module AWS::SDK::IoT
         data = Types::AwsJobExponentialRolloutRate.new
         data.base_rate_per_minute = map['baseRatePerMinute']
         data.increment_factor = Hearth::NumberHelper.deserialize(map['incrementFactor'])
-        data.rate_increase_criteria = (Parsers::AwsJobRateIncreaseCriteria.parse(map['rateIncreaseCriteria']) unless map['rateIncreaseCriteria'].nil?)
+        data.rate_increase_criteria = (AwsJobRateIncreaseCriteria.parse(map['rateIncreaseCriteria']) unless map['rateIncreaseCriteria'].nil?)
         return data
       end
     end
@@ -3166,7 +3166,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::GetPercentilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.percentiles = (Parsers::Percentiles.parse(map['percentiles']) unless map['percentiles'].nil?)
+        data.percentiles = (Percentiles.parse(map['percentiles']) unless map['percentiles'].nil?)
         data
       end
     end
@@ -3175,7 +3175,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PercentPair.parse(value) unless value.nil?
+          data << PercentPair.parse(value) unless value.nil?
         end
         data
       end
@@ -3238,7 +3238,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::GetStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.statistics = (Parsers::Statistics.parse(map['statistics']) unless map['statistics'].nil?)
+        data.statistics = (Statistics.parse(map['statistics']) unless map['statistics'].nil?)
         data
       end
     end
@@ -3264,7 +3264,7 @@ module AWS::SDK::IoT
         data = Types::GetTopicRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.rule_arn = map['ruleArn']
-        data.rule = (Parsers::TopicRule.parse(map['rule']) unless map['rule'].nil?)
+        data.rule = (TopicRule.parse(map['rule']) unless map['rule'].nil?)
         data
       end
     end
@@ -3276,10 +3276,10 @@ module AWS::SDK::IoT
         data.sql = map['sql']
         data.description = map['description']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.actions = (Parsers::ActionList.parse(map['actions']) unless map['actions'].nil?)
+        data.actions = (ActionList.parse(map['actions']) unless map['actions'].nil?)
         data.rule_disabled = map['ruleDisabled']
         data.aws_iot_sql_version = map['awsIotSqlVersion']
-        data.error_action = (Parsers::Action.parse(map['errorAction']) unless map['errorAction'].nil?)
+        data.error_action = (Action.parse(map['errorAction']) unless map['errorAction'].nil?)
         return data
       end
     end
@@ -3287,28 +3287,28 @@ module AWS::SDK::IoT
     class Action
       def self.parse(map)
         data = Types::Action.new
-        data.dynamo_db = (Parsers::DynamoDBAction.parse(map['dynamoDB']) unless map['dynamoDB'].nil?)
-        data.dynamo_d_bv2 = (Parsers::DynamoDBv2Action.parse(map['dynamoDBv2']) unless map['dynamoDBv2'].nil?)
-        data.lambda = (Parsers::LambdaAction.parse(map['lambda']) unless map['lambda'].nil?)
-        data.sns = (Parsers::SnsAction.parse(map['sns']) unless map['sns'].nil?)
-        data.sqs = (Parsers::SqsAction.parse(map['sqs']) unless map['sqs'].nil?)
-        data.kinesis = (Parsers::KinesisAction.parse(map['kinesis']) unless map['kinesis'].nil?)
-        data.republish = (Parsers::RepublishAction.parse(map['republish']) unless map['republish'].nil?)
-        data.s3 = (Parsers::S3Action.parse(map['s3']) unless map['s3'].nil?)
-        data.firehose = (Parsers::FirehoseAction.parse(map['firehose']) unless map['firehose'].nil?)
-        data.cloudwatch_metric = (Parsers::CloudwatchMetricAction.parse(map['cloudwatchMetric']) unless map['cloudwatchMetric'].nil?)
-        data.cloudwatch_alarm = (Parsers::CloudwatchAlarmAction.parse(map['cloudwatchAlarm']) unless map['cloudwatchAlarm'].nil?)
-        data.cloudwatch_logs = (Parsers::CloudwatchLogsAction.parse(map['cloudwatchLogs']) unless map['cloudwatchLogs'].nil?)
-        data.elasticsearch = (Parsers::ElasticsearchAction.parse(map['elasticsearch']) unless map['elasticsearch'].nil?)
-        data.salesforce = (Parsers::SalesforceAction.parse(map['salesforce']) unless map['salesforce'].nil?)
-        data.iot_analytics = (Parsers::IotAnalyticsAction.parse(map['iotAnalytics']) unless map['iotAnalytics'].nil?)
-        data.iot_events = (Parsers::IotEventsAction.parse(map['iotEvents']) unless map['iotEvents'].nil?)
-        data.iot_site_wise = (Parsers::IotSiteWiseAction.parse(map['iotSiteWise']) unless map['iotSiteWise'].nil?)
-        data.step_functions = (Parsers::StepFunctionsAction.parse(map['stepFunctions']) unless map['stepFunctions'].nil?)
-        data.timestream = (Parsers::TimestreamAction.parse(map['timestream']) unless map['timestream'].nil?)
-        data.http = (Parsers::HttpAction.parse(map['http']) unless map['http'].nil?)
-        data.kafka = (Parsers::KafkaAction.parse(map['kafka']) unless map['kafka'].nil?)
-        data.open_search = (Parsers::OpenSearchAction.parse(map['openSearch']) unless map['openSearch'].nil?)
+        data.dynamo_db = (DynamoDBAction.parse(map['dynamoDB']) unless map['dynamoDB'].nil?)
+        data.dynamo_d_bv2 = (DynamoDBv2Action.parse(map['dynamoDBv2']) unless map['dynamoDBv2'].nil?)
+        data.lambda = (LambdaAction.parse(map['lambda']) unless map['lambda'].nil?)
+        data.sns = (SnsAction.parse(map['sns']) unless map['sns'].nil?)
+        data.sqs = (SqsAction.parse(map['sqs']) unless map['sqs'].nil?)
+        data.kinesis = (KinesisAction.parse(map['kinesis']) unless map['kinesis'].nil?)
+        data.republish = (RepublishAction.parse(map['republish']) unless map['republish'].nil?)
+        data.s3 = (S3Action.parse(map['s3']) unless map['s3'].nil?)
+        data.firehose = (FirehoseAction.parse(map['firehose']) unless map['firehose'].nil?)
+        data.cloudwatch_metric = (CloudwatchMetricAction.parse(map['cloudwatchMetric']) unless map['cloudwatchMetric'].nil?)
+        data.cloudwatch_alarm = (CloudwatchAlarmAction.parse(map['cloudwatchAlarm']) unless map['cloudwatchAlarm'].nil?)
+        data.cloudwatch_logs = (CloudwatchLogsAction.parse(map['cloudwatchLogs']) unless map['cloudwatchLogs'].nil?)
+        data.elasticsearch = (ElasticsearchAction.parse(map['elasticsearch']) unless map['elasticsearch'].nil?)
+        data.salesforce = (SalesforceAction.parse(map['salesforce']) unless map['salesforce'].nil?)
+        data.iot_analytics = (IotAnalyticsAction.parse(map['iotAnalytics']) unless map['iotAnalytics'].nil?)
+        data.iot_events = (IotEventsAction.parse(map['iotEvents']) unless map['iotEvents'].nil?)
+        data.iot_site_wise = (IotSiteWiseAction.parse(map['iotSiteWise']) unless map['iotSiteWise'].nil?)
+        data.step_functions = (StepFunctionsAction.parse(map['stepFunctions']) unless map['stepFunctions'].nil?)
+        data.timestream = (TimestreamAction.parse(map['timestream']) unless map['timestream'].nil?)
+        data.http = (HttpAction.parse(map['http']) unless map['http'].nil?)
+        data.kafka = (KafkaAction.parse(map['kafka']) unless map['kafka'].nil?)
+        data.open_search = (OpenSearchAction.parse(map['openSearch']) unless map['openSearch'].nil?)
         return data
       end
     end
@@ -3332,7 +3332,7 @@ module AWS::SDK::IoT
         data.topic = map['topic']
         data.key = map['key']
         data.partition = map['partition']
-        data.client_properties = (Parsers::ClientProperties.parse(map['clientProperties']) unless map['clientProperties'].nil?)
+        data.client_properties = (ClientProperties.parse(map['clientProperties']) unless map['clientProperties'].nil?)
         return data
       end
     end
@@ -3352,8 +3352,8 @@ module AWS::SDK::IoT
         data = Types::HttpAction.new
         data.url = map['url']
         data.confirmation_url = map['confirmationUrl']
-        data.headers = (Parsers::HeaderList.parse(map['headers']) unless map['headers'].nil?)
-        data.auth = (Parsers::HttpAuthorization.parse(map['auth']) unless map['auth'].nil?)
+        data.headers = (HeaderList.parse(map['headers']) unless map['headers'].nil?)
+        data.auth = (HttpAuthorization.parse(map['auth']) unless map['auth'].nil?)
         return data
       end
     end
@@ -3361,7 +3361,7 @@ module AWS::SDK::IoT
     class HttpAuthorization
       def self.parse(map)
         data = Types::HttpAuthorization.new
-        data.sigv4 = (Parsers::SigV4Authorization.parse(map['sigv4']) unless map['sigv4'].nil?)
+        data.sigv4 = (SigV4Authorization.parse(map['sigv4']) unless map['sigv4'].nil?)
         return data
       end
     end
@@ -3380,7 +3380,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HttpActionHeader.parse(value) unless value.nil?
+          data << HttpActionHeader.parse(value) unless value.nil?
         end
         data
       end
@@ -3401,8 +3401,8 @@ module AWS::SDK::IoT
         data.role_arn = map['roleArn']
         data.database_name = map['databaseName']
         data.table_name = map['tableName']
-        data.dimensions = (Parsers::TimestreamDimensionList.parse(map['dimensions']) unless map['dimensions'].nil?)
-        data.timestamp = (Parsers::TimestreamTimestamp.parse(map['timestamp']) unless map['timestamp'].nil?)
+        data.dimensions = (TimestreamDimensionList.parse(map['dimensions']) unless map['dimensions'].nil?)
+        data.timestamp = (TimestreamTimestamp.parse(map['timestamp']) unless map['timestamp'].nil?)
         return data
       end
     end
@@ -3420,7 +3420,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimestreamDimension.parse(value) unless value.nil?
+          data << TimestreamDimension.parse(value) unless value.nil?
         end
         data
       end
@@ -3448,7 +3448,7 @@ module AWS::SDK::IoT
     class IotSiteWiseAction
       def self.parse(map)
         data = Types::IotSiteWiseAction.new
-        data.put_asset_property_value_entries = (Parsers::PutAssetPropertyValueEntryList.parse(map['putAssetPropertyValueEntries']) unless map['putAssetPropertyValueEntries'].nil?)
+        data.put_asset_property_value_entries = (PutAssetPropertyValueEntryList.parse(map['putAssetPropertyValueEntries']) unless map['putAssetPropertyValueEntries'].nil?)
         data.role_arn = map['roleArn']
         return data
       end
@@ -3458,7 +3458,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PutAssetPropertyValueEntry.parse(value) unless value.nil?
+          data << PutAssetPropertyValueEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -3471,7 +3471,7 @@ module AWS::SDK::IoT
         data.asset_id = map['assetId']
         data.property_id = map['propertyId']
         data.property_alias = map['propertyAlias']
-        data.property_values = (Parsers::AssetPropertyValueList.parse(map['propertyValues']) unless map['propertyValues'].nil?)
+        data.property_values = (AssetPropertyValueList.parse(map['propertyValues']) unless map['propertyValues'].nil?)
         return data
       end
     end
@@ -3480,7 +3480,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetPropertyValue.parse(value) unless value.nil?
+          data << AssetPropertyValue.parse(value) unless value.nil?
         end
         data
       end
@@ -3489,8 +3489,8 @@ module AWS::SDK::IoT
     class AssetPropertyValue
       def self.parse(map)
         data = Types::AssetPropertyValue.new
-        data.value = (Parsers::AssetPropertyVariant.parse(map['value']) unless map['value'].nil?)
-        data.timestamp = (Parsers::AssetPropertyTimestamp.parse(map['timestamp']) unless map['timestamp'].nil?)
+        data.value = (AssetPropertyVariant.parse(map['value']) unless map['value'].nil?)
+        data.timestamp = (AssetPropertyTimestamp.parse(map['timestamp']) unless map['timestamp'].nil?)
         data.quality = map['quality']
         return data
       end
@@ -3677,7 +3677,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::DynamoDBv2Action.new
         data.role_arn = map['roleArn']
-        data.put_item = (Parsers::PutItemInput.parse(map['putItem']) unless map['putItem'].nil?)
+        data.put_item = (PutItemInput.parse(map['putItem']) unless map['putItem'].nil?)
         return data
       end
     end
@@ -3711,7 +3711,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Action.parse(value) unless value.nil?
+          data << Action.parse(value) unless value.nil?
         end
         data
       end
@@ -3722,7 +3722,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::GetTopicRuleDestinationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.topic_rule_destination = (Parsers::TopicRuleDestination.parse(map['topicRuleDestination']) unless map['topicRuleDestination'].nil?)
+        data.topic_rule_destination = (TopicRuleDestination.parse(map['topicRuleDestination']) unless map['topicRuleDestination'].nil?)
         data
       end
     end
@@ -3754,7 +3754,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListActiveViolationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.active_violations = (Parsers::ActiveViolations.parse(map['activeViolations']) unless map['activeViolations'].nil?)
+        data.active_violations = (ActiveViolations.parse(map['activeViolations']) unless map['activeViolations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3764,7 +3764,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActiveViolation.parse(value) unless value.nil?
+          data << ActiveViolation.parse(value) unless value.nil?
         end
         data
       end
@@ -3776,9 +3776,9 @@ module AWS::SDK::IoT
         data.violation_id = map['violationId']
         data.thing_name = map['thingName']
         data.security_profile_name = map['securityProfileName']
-        data.behavior = (Parsers::Behavior.parse(map['behavior']) unless map['behavior'].nil?)
-        data.last_violation_value = (Parsers::MetricValue.parse(map['lastViolationValue']) unless map['lastViolationValue'].nil?)
-        data.violation_event_additional_info = (Parsers::ViolationEventAdditionalInfo.parse(map['violationEventAdditionalInfo']) unless map['violationEventAdditionalInfo'].nil?)
+        data.behavior = (Behavior.parse(map['behavior']) unless map['behavior'].nil?)
+        data.last_violation_value = (MetricValue.parse(map['lastViolationValue']) unless map['lastViolationValue'].nil?)
+        data.violation_event_additional_info = (ViolationEventAdditionalInfo.parse(map['violationEventAdditionalInfo']) unless map['violationEventAdditionalInfo'].nil?)
         data.verification_state = map['verificationState']
         data.verification_state_description = map['verificationStateDescription']
         data.last_violation_time = Time.at(map['lastViolationTime'].to_i) if map['lastViolationTime']
@@ -3800,7 +3800,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListAttachedPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policies = (Parsers::Policies.parse(map['policies']) unless map['policies'].nil?)
+        data.policies = (Policies.parse(map['policies']) unless map['policies'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -3810,7 +3810,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Policy.parse(value) unless value.nil?
+          data << Policy.parse(value) unless value.nil?
         end
         data
       end
@@ -3830,7 +3830,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListAuditFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings = (Parsers::AuditFindings.parse(map['findings']) unless map['findings'].nil?)
+        data.findings = (AuditFindings.parse(map['findings']) unless map['findings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3840,7 +3840,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AuditFinding.parse(value) unless value.nil?
+          data << AuditFinding.parse(value) unless value.nil?
         end
         data
       end
@@ -3851,7 +3851,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListAuditMitigationActionsExecutionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.actions_executions = (Parsers::AuditMitigationActionExecutionMetadataList.parse(map['actionsExecutions']) unless map['actionsExecutions'].nil?)
+        data.actions_executions = (AuditMitigationActionExecutionMetadataList.parse(map['actionsExecutions']) unless map['actionsExecutions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3861,7 +3861,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AuditMitigationActionExecutionMetadata.parse(value) unless value.nil?
+          data << AuditMitigationActionExecutionMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -3888,7 +3888,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListAuditMitigationActionsTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tasks = (Parsers::AuditMitigationActionsTaskMetadataList.parse(map['tasks']) unless map['tasks'].nil?)
+        data.tasks = (AuditMitigationActionsTaskMetadataList.parse(map['tasks']) unless map['tasks'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3898,7 +3898,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AuditMitigationActionsTaskMetadata.parse(value) unless value.nil?
+          data << AuditMitigationActionsTaskMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -3919,7 +3919,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListAuditSuppressionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.suppressions = (Parsers::AuditSuppressionList.parse(map['suppressions']) unless map['suppressions'].nil?)
+        data.suppressions = (AuditSuppressionList.parse(map['suppressions']) unless map['suppressions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3929,7 +3929,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AuditSuppression.parse(value) unless value.nil?
+          data << AuditSuppression.parse(value) unless value.nil?
         end
         data
       end
@@ -3939,7 +3939,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::AuditSuppression.new
         data.check_name = map['checkName']
-        data.resource_identifier = (Parsers::ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
+        data.resource_identifier = (ResourceIdentifier.parse(map['resourceIdentifier']) unless map['resourceIdentifier'].nil?)
         data.expiration_date = Time.at(map['expirationDate'].to_i) if map['expirationDate']
         data.suppress_indefinitely = map['suppressIndefinitely']
         data.description = map['description']
@@ -3952,7 +3952,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListAuditTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tasks = (Parsers::AuditTaskMetadataList.parse(map['tasks']) unless map['tasks'].nil?)
+        data.tasks = (AuditTaskMetadataList.parse(map['tasks']) unless map['tasks'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3962,7 +3962,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AuditTaskMetadata.parse(value) unless value.nil?
+          data << AuditTaskMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -3983,7 +3983,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListAuthorizersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.authorizers = (Parsers::Authorizers.parse(map['authorizers']) unless map['authorizers'].nil?)
+        data.authorizers = (Authorizers.parse(map['authorizers']) unless map['authorizers'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -3993,7 +3993,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AuthorizerSummary.parse(value) unless value.nil?
+          data << AuthorizerSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4013,7 +4013,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListBillingGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.billing_groups = (Parsers::BillingGroupNameAndArnList.parse(map['billingGroups']) unless map['billingGroups'].nil?)
+        data.billing_groups = (BillingGroupNameAndArnList.parse(map['billingGroups']) unless map['billingGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4023,7 +4023,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupNameAndArn.parse(value) unless value.nil?
+          data << GroupNameAndArn.parse(value) unless value.nil?
         end
         data
       end
@@ -4034,7 +4034,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListCACertificatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.certificates = (Parsers::CACertificates.parse(map['certificates']) unless map['certificates'].nil?)
+        data.certificates = (CACertificates.parse(map['certificates']) unless map['certificates'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4044,7 +4044,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CACertificate.parse(value) unless value.nil?
+          data << CACertificate.parse(value) unless value.nil?
         end
         data
       end
@@ -4066,7 +4066,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListCertificatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.certificates = (Parsers::Certificates.parse(map['certificates']) unless map['certificates'].nil?)
+        data.certificates = (Certificates.parse(map['certificates']) unless map['certificates'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4076,7 +4076,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Certificate.parse(value) unless value.nil?
+          data << Certificate.parse(value) unless value.nil?
         end
         data
       end
@@ -4099,7 +4099,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListCertificatesByCAOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.certificates = (Parsers::Certificates.parse(map['certificates']) unless map['certificates'].nil?)
+        data.certificates = (Certificates.parse(map['certificates']) unless map['certificates'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4110,7 +4110,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListCustomMetricsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.metric_names = (Parsers::MetricNames.parse(map['metricNames']) unless map['metricNames'].nil?)
+        data.metric_names = (MetricNames.parse(map['metricNames']) unless map['metricNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4131,7 +4131,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListDetectMitigationActionsExecutionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.actions_executions = (Parsers::DetectMitigationActionExecutionList.parse(map['actionsExecutions']) unless map['actionsExecutions'].nil?)
+        data.actions_executions = (DetectMitigationActionExecutionList.parse(map['actionsExecutions']) unless map['actionsExecutions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4141,7 +4141,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DetectMitigationActionExecution.parse(value) unless value.nil?
+          data << DetectMitigationActionExecution.parse(value) unless value.nil?
         end
         data
       end
@@ -4168,7 +4168,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListDetectMitigationActionsTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tasks = (Parsers::DetectMitigationActionsTaskSummaryList.parse(map['tasks']) unless map['tasks'].nil?)
+        data.tasks = (DetectMitigationActionsTaskSummaryList.parse(map['tasks']) unless map['tasks'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4178,7 +4178,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DetectMitigationActionsTaskSummary.parse(value) unless value.nil?
+          data << DetectMitigationActionsTaskSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4189,7 +4189,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListDimensionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dimension_names = (Parsers::DimensionNames.parse(map['dimensionNames']) unless map['dimensionNames'].nil?)
+        data.dimension_names = (DimensionNames.parse(map['dimensionNames']) unless map['dimensionNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4210,7 +4210,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListDomainConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_configurations = (Parsers::DomainConfigurations.parse(map['domainConfigurations']) unless map['domainConfigurations'].nil?)
+        data.domain_configurations = (DomainConfigurations.parse(map['domainConfigurations']) unless map['domainConfigurations'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4220,7 +4220,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainConfigurationSummary.parse(value) unless value.nil?
+          data << DomainConfigurationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4241,7 +4241,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListFleetMetricsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.fleet_metrics = (Parsers::FleetMetricNameAndArnList.parse(map['fleetMetrics']) unless map['fleetMetrics'].nil?)
+        data.fleet_metrics = (FleetMetricNameAndArnList.parse(map['fleetMetrics']) unless map['fleetMetrics'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4251,7 +4251,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FleetMetricNameAndArn.parse(value) unless value.nil?
+          data << FleetMetricNameAndArn.parse(value) unless value.nil?
         end
         data
       end
@@ -4271,7 +4271,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListIndicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.index_names = (Parsers::IndexNamesList.parse(map['indexNames']) unless map['indexNames'].nil?)
+        data.index_names = (IndexNamesList.parse(map['indexNames']) unless map['indexNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4292,7 +4292,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListJobExecutionsForJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution_summaries = (Parsers::JobExecutionSummaryForJobList.parse(map['executionSummaries']) unless map['executionSummaries'].nil?)
+        data.execution_summaries = (JobExecutionSummaryForJobList.parse(map['executionSummaries']) unless map['executionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4302,7 +4302,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobExecutionSummaryForJob.parse(value) unless value.nil?
+          data << JobExecutionSummaryForJob.parse(value) unless value.nil?
         end
         data
       end
@@ -4312,7 +4312,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::JobExecutionSummaryForJob.new
         data.thing_arn = map['thingArn']
-        data.job_execution_summary = (Parsers::JobExecutionSummary.parse(map['jobExecutionSummary']) unless map['jobExecutionSummary'].nil?)
+        data.job_execution_summary = (JobExecutionSummary.parse(map['jobExecutionSummary']) unless map['jobExecutionSummary'].nil?)
         return data
       end
     end
@@ -4335,7 +4335,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListJobExecutionsForThingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution_summaries = (Parsers::JobExecutionSummaryForThingList.parse(map['executionSummaries']) unless map['executionSummaries'].nil?)
+        data.execution_summaries = (JobExecutionSummaryForThingList.parse(map['executionSummaries']) unless map['executionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4345,7 +4345,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobExecutionSummaryForThing.parse(value) unless value.nil?
+          data << JobExecutionSummaryForThing.parse(value) unless value.nil?
         end
         data
       end
@@ -4355,7 +4355,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::JobExecutionSummaryForThing.new
         data.job_id = map['jobId']
-        data.job_execution_summary = (Parsers::JobExecutionSummary.parse(map['jobExecutionSummary']) unless map['jobExecutionSummary'].nil?)
+        data.job_execution_summary = (JobExecutionSummary.parse(map['jobExecutionSummary']) unless map['jobExecutionSummary'].nil?)
         return data
       end
     end
@@ -4365,7 +4365,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListJobTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_templates = (Parsers::JobTemplateSummaryList.parse(map['jobTemplates']) unless map['jobTemplates'].nil?)
+        data.job_templates = (JobTemplateSummaryList.parse(map['jobTemplates']) unless map['jobTemplates'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4375,7 +4375,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobTemplateSummary.parse(value) unless value.nil?
+          data << JobTemplateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4397,7 +4397,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::JobSummaryList.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (JobSummaryList.parse(map['jobs']) unless map['jobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4407,7 +4407,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobSummary.parse(value) unless value.nil?
+          data << JobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4434,7 +4434,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListManagedJobTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.managed_job_templates = (Parsers::ManagedJobTemplatesSummaryList.parse(map['managedJobTemplates']) unless map['managedJobTemplates'].nil?)
+        data.managed_job_templates = (ManagedJobTemplatesSummaryList.parse(map['managedJobTemplates']) unless map['managedJobTemplates'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4444,7 +4444,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ManagedJobTemplateSummary.parse(value) unless value.nil?
+          data << ManagedJobTemplateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4456,7 +4456,7 @@ module AWS::SDK::IoT
         data.template_arn = map['templateArn']
         data.template_name = map['templateName']
         data.description = map['description']
-        data.environments = (Parsers::Environments.parse(map['environments']) unless map['environments'].nil?)
+        data.environments = (Environments.parse(map['environments']) unless map['environments'].nil?)
         data.template_version = map['templateVersion']
         return data
       end
@@ -4467,7 +4467,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListMetricValuesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.metric_datum_list = (Parsers::MetricDatumList.parse(map['metricDatumList']) unless map['metricDatumList'].nil?)
+        data.metric_datum_list = (MetricDatumList.parse(map['metricDatumList']) unless map['metricDatumList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4477,7 +4477,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MetricDatum.parse(value) unless value.nil?
+          data << MetricDatum.parse(value) unless value.nil?
         end
         data
       end
@@ -4487,7 +4487,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::MetricDatum.new
         data.timestamp = Time.at(map['timestamp'].to_i) if map['timestamp']
-        data.value = (Parsers::MetricValue.parse(map['value']) unless map['value'].nil?)
+        data.value = (MetricValue.parse(map['value']) unless map['value'].nil?)
         return data
       end
     end
@@ -4497,7 +4497,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListMitigationActionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.action_identifiers = (Parsers::MitigationActionIdentifierList.parse(map['actionIdentifiers']) unless map['actionIdentifiers'].nil?)
+        data.action_identifiers = (MitigationActionIdentifierList.parse(map['actionIdentifiers']) unless map['actionIdentifiers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4507,7 +4507,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MitigationActionIdentifier.parse(value) unless value.nil?
+          data << MitigationActionIdentifier.parse(value) unless value.nil?
         end
         data
       end
@@ -4528,7 +4528,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListOTAUpdatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.ota_updates = (Parsers::OTAUpdatesSummary.parse(map['otaUpdates']) unless map['otaUpdates'].nil?)
+        data.ota_updates = (OTAUpdatesSummary.parse(map['otaUpdates']) unless map['otaUpdates'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4538,7 +4538,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OTAUpdateSummary.parse(value) unless value.nil?
+          data << OTAUpdateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4559,7 +4559,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListOutgoingCertificatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.outgoing_certificates = (Parsers::OutgoingCertificates.parse(map['outgoingCertificates']) unless map['outgoingCertificates'].nil?)
+        data.outgoing_certificates = (OutgoingCertificates.parse(map['outgoingCertificates']) unless map['outgoingCertificates'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4569,7 +4569,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutgoingCertificate.parse(value) unless value.nil?
+          data << OutgoingCertificate.parse(value) unless value.nil?
         end
         data
       end
@@ -4593,7 +4593,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policies = (Parsers::Policies.parse(map['policies']) unless map['policies'].nil?)
+        data.policies = (Policies.parse(map['policies']) unless map['policies'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4604,7 +4604,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListPolicyPrincipalsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.principals = (Parsers::Principals.parse(map['principals']) unless map['principals'].nil?)
+        data.principals = (Principals.parse(map['principals']) unless map['principals'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4625,7 +4625,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListPolicyVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy_versions = (Parsers::PolicyVersions.parse(map['policyVersions']) unless map['policyVersions'].nil?)
+        data.policy_versions = (PolicyVersions.parse(map['policyVersions']) unless map['policyVersions'].nil?)
         data
       end
     end
@@ -4634,7 +4634,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PolicyVersion.parse(value) unless value.nil?
+          data << PolicyVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -4655,7 +4655,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListPrincipalPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policies = (Parsers::Policies.parse(map['policies']) unless map['policies'].nil?)
+        data.policies = (Policies.parse(map['policies']) unless map['policies'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4666,7 +4666,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListPrincipalThingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.things = (Parsers::ThingNameList.parse(map['things']) unless map['things'].nil?)
+        data.things = (ThingNameList.parse(map['things']) unless map['things'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4687,7 +4687,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListProvisioningTemplateVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.versions = (Parsers::ProvisioningTemplateVersionListing.parse(map['versions']) unless map['versions'].nil?)
+        data.versions = (ProvisioningTemplateVersionListing.parse(map['versions']) unless map['versions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4697,7 +4697,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProvisioningTemplateVersionSummary.parse(value) unless value.nil?
+          data << ProvisioningTemplateVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4718,7 +4718,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListProvisioningTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.templates = (Parsers::ProvisioningTemplateListing.parse(map['templates']) unless map['templates'].nil?)
+        data.templates = (ProvisioningTemplateListing.parse(map['templates']) unless map['templates'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4728,7 +4728,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProvisioningTemplateSummary.parse(value) unless value.nil?
+          data << ProvisioningTemplateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4752,7 +4752,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListRoleAliasesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.role_aliases = (Parsers::RoleAliases.parse(map['roleAliases']) unless map['roleAliases'].nil?)
+        data.role_aliases = (RoleAliases.parse(map['roleAliases']) unless map['roleAliases'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4773,7 +4773,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListScheduledAuditsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.scheduled_audits = (Parsers::ScheduledAuditMetadataList.parse(map['scheduledAudits']) unless map['scheduledAudits'].nil?)
+        data.scheduled_audits = (ScheduledAuditMetadataList.parse(map['scheduledAudits']) unless map['scheduledAudits'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4783,7 +4783,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ScheduledAuditMetadata.parse(value) unless value.nil?
+          data << ScheduledAuditMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -4806,7 +4806,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListSecurityProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_profile_identifiers = (Parsers::SecurityProfileIdentifiers.parse(map['securityProfileIdentifiers']) unless map['securityProfileIdentifiers'].nil?)
+        data.security_profile_identifiers = (SecurityProfileIdentifiers.parse(map['securityProfileIdentifiers']) unless map['securityProfileIdentifiers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4816,7 +4816,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SecurityProfileIdentifier.parse(value) unless value.nil?
+          data << SecurityProfileIdentifier.parse(value) unless value.nil?
         end
         data
       end
@@ -4836,7 +4836,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListSecurityProfilesForTargetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_profile_target_mappings = (Parsers::SecurityProfileTargetMappings.parse(map['securityProfileTargetMappings']) unless map['securityProfileTargetMappings'].nil?)
+        data.security_profile_target_mappings = (SecurityProfileTargetMappings.parse(map['securityProfileTargetMappings']) unless map['securityProfileTargetMappings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4846,7 +4846,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SecurityProfileTargetMapping.parse(value) unless value.nil?
+          data << SecurityProfileTargetMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -4855,8 +4855,8 @@ module AWS::SDK::IoT
     class SecurityProfileTargetMapping
       def self.parse(map)
         data = Types::SecurityProfileTargetMapping.new
-        data.security_profile_identifier = (Parsers::SecurityProfileIdentifier.parse(map['securityProfileIdentifier']) unless map['securityProfileIdentifier'].nil?)
-        data.target = (Parsers::SecurityProfileTarget.parse(map['target']) unless map['target'].nil?)
+        data.security_profile_identifier = (SecurityProfileIdentifier.parse(map['securityProfileIdentifier']) unless map['securityProfileIdentifier'].nil?)
+        data.target = (SecurityProfileTarget.parse(map['target']) unless map['target'].nil?)
         return data
       end
     end
@@ -4874,7 +4874,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListStreamsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streams = (Parsers::StreamsSummary.parse(map['streams']) unless map['streams'].nil?)
+        data.streams = (StreamsSummary.parse(map['streams']) unless map['streams'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4884,7 +4884,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamSummary.parse(value) unless value.nil?
+          data << StreamSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -4906,7 +4906,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4916,7 +4916,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -4936,7 +4936,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListTargetsForPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.targets = (Parsers::PolicyTargets.parse(map['targets']) unless map['targets'].nil?)
+        data.targets = (PolicyTargets.parse(map['targets']) unless map['targets'].nil?)
         data.next_marker = map['nextMarker']
         data
       end
@@ -4957,7 +4957,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListTargetsForSecurityProfileOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_profile_targets = (Parsers::SecurityProfileTargets.parse(map['securityProfileTargets']) unless map['securityProfileTargets'].nil?)
+        data.security_profile_targets = (SecurityProfileTargets.parse(map['securityProfileTargets']) unless map['securityProfileTargets'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4967,7 +4967,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SecurityProfileTarget.parse(value) unless value.nil?
+          data << SecurityProfileTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -4978,7 +4978,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.thing_groups = (Parsers::ThingGroupNameAndArnList.parse(map['thingGroups']) unless map['thingGroups'].nil?)
+        data.thing_groups = (ThingGroupNameAndArnList.parse(map['thingGroups']) unless map['thingGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -4989,7 +4989,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingGroupsForThingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.thing_groups = (Parsers::ThingGroupNameAndArnList.parse(map['thingGroups']) unless map['thingGroups'].nil?)
+        data.thing_groups = (ThingGroupNameAndArnList.parse(map['thingGroups']) unless map['thingGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5000,7 +5000,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingPrincipalsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.principals = (Parsers::Principals.parse(map['principals']) unless map['principals'].nil?)
+        data.principals = (Principals.parse(map['principals']) unless map['principals'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5011,7 +5011,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingRegistrationTaskReportsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_links = (Parsers::S3FileUrlList.parse(map['resourceLinks']) unless map['resourceLinks'].nil?)
+        data.resource_links = (S3FileUrlList.parse(map['resourceLinks']) unless map['resourceLinks'].nil?)
         data.report_type = map['reportType']
         data.next_token = map['nextToken']
         data
@@ -5033,7 +5033,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingRegistrationTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.task_ids = (Parsers::TaskIdList.parse(map['taskIds']) unless map['taskIds'].nil?)
+        data.task_ids = (TaskIdList.parse(map['taskIds']) unless map['taskIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5054,7 +5054,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.thing_types = (Parsers::ThingTypeList.parse(map['thingTypes']) unless map['thingTypes'].nil?)
+        data.thing_types = (ThingTypeList.parse(map['thingTypes']) unless map['thingTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5064,7 +5064,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThingTypeDefinition.parse(value) unless value.nil?
+          data << ThingTypeDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -5075,8 +5075,8 @@ module AWS::SDK::IoT
         data = Types::ThingTypeDefinition.new
         data.thing_type_name = map['thingTypeName']
         data.thing_type_arn = map['thingTypeArn']
-        data.thing_type_properties = (Parsers::ThingTypeProperties.parse(map['thingTypeProperties']) unless map['thingTypeProperties'].nil?)
-        data.thing_type_metadata = (Parsers::ThingTypeMetadata.parse(map['thingTypeMetadata']) unless map['thingTypeMetadata'].nil?)
+        data.thing_type_properties = (ThingTypeProperties.parse(map['thingTypeProperties']) unless map['thingTypeProperties'].nil?)
+        data.thing_type_metadata = (ThingTypeMetadata.parse(map['thingTypeMetadata']) unless map['thingTypeMetadata'].nil?)
         return data
       end
     end
@@ -5086,7 +5086,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.things = (Parsers::ThingAttributeList.parse(map['things']) unless map['things'].nil?)
+        data.things = (ThingAttributeList.parse(map['things']) unless map['things'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5096,7 +5096,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThingAttribute.parse(value) unless value.nil?
+          data << ThingAttribute.parse(value) unless value.nil?
         end
         data
       end
@@ -5108,7 +5108,7 @@ module AWS::SDK::IoT
         data.thing_name = map['thingName']
         data.thing_type_name = map['thingTypeName']
         data.thing_arn = map['thingArn']
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.version = map['version']
         return data
       end
@@ -5119,7 +5119,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingsInBillingGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.things = (Parsers::ThingNameList.parse(map['things']) unless map['things'].nil?)
+        data.things = (ThingNameList.parse(map['things']) unless map['things'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5130,7 +5130,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListThingsInThingGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.things = (Parsers::ThingNameList.parse(map['things']) unless map['things'].nil?)
+        data.things = (ThingNameList.parse(map['things']) unless map['things'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5141,7 +5141,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListTopicRuleDestinationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.destination_summaries = (Parsers::TopicRuleDestinationSummaries.parse(map['destinationSummaries']) unless map['destinationSummaries'].nil?)
+        data.destination_summaries = (TopicRuleDestinationSummaries.parse(map['destinationSummaries']) unless map['destinationSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5151,7 +5151,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TopicRuleDestinationSummary.parse(value) unless value.nil?
+          data << TopicRuleDestinationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -5165,8 +5165,8 @@ module AWS::SDK::IoT
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.status_reason = map['statusReason']
-        data.http_url_summary = (Parsers::HttpUrlDestinationSummary.parse(map['httpUrlSummary']) unless map['httpUrlSummary'].nil?)
-        data.vpc_destination_summary = (Parsers::VpcDestinationSummary.parse(map['vpcDestinationSummary']) unless map['vpcDestinationSummary'].nil?)
+        data.http_url_summary = (HttpUrlDestinationSummary.parse(map['httpUrlSummary']) unless map['httpUrlSummary'].nil?)
+        data.vpc_destination_summary = (VpcDestinationSummary.parse(map['vpcDestinationSummary']) unless map['vpcDestinationSummary'].nil?)
         return data
       end
     end
@@ -5174,8 +5174,8 @@ module AWS::SDK::IoT
     class VpcDestinationSummary
       def self.parse(map)
         data = Types::VpcDestinationSummary.new
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.security_groups = (Parsers::SecurityGroupList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_groups = (SecurityGroupList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
         data.vpc_id = map['vpcId']
         data.role_arn = map['roleArn']
         return data
@@ -5195,7 +5195,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListTopicRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rules = (Parsers::TopicRuleList.parse(map['rules']) unless map['rules'].nil?)
+        data.rules = (TopicRuleList.parse(map['rules']) unless map['rules'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5205,7 +5205,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TopicRuleListItem.parse(value) unless value.nil?
+          data << TopicRuleListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -5228,7 +5228,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListV2LoggingLevelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.log_target_configurations = (Parsers::LogTargetConfigurations.parse(map['logTargetConfigurations']) unless map['logTargetConfigurations'].nil?)
+        data.log_target_configurations = (LogTargetConfigurations.parse(map['logTargetConfigurations']) unless map['logTargetConfigurations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5238,7 +5238,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LogTargetConfiguration.parse(value) unless value.nil?
+          data << LogTargetConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -5247,7 +5247,7 @@ module AWS::SDK::IoT
     class LogTargetConfiguration
       def self.parse(map)
         data = Types::LogTargetConfiguration.new
-        data.log_target = (Parsers::LogTarget.parse(map['logTarget']) unless map['logTarget'].nil?)
+        data.log_target = (LogTarget.parse(map['logTarget']) unless map['logTarget'].nil?)
         data.log_level = map['logLevel']
         return data
       end
@@ -5267,7 +5267,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::ListViolationEventsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.violation_events = (Parsers::ViolationEvents.parse(map['violationEvents']) unless map['violationEvents'].nil?)
+        data.violation_events = (ViolationEvents.parse(map['violationEvents']) unless map['violationEvents'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -5277,7 +5277,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ViolationEvent.parse(value) unless value.nil?
+          data << ViolationEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -5289,9 +5289,9 @@ module AWS::SDK::IoT
         data.violation_id = map['violationId']
         data.thing_name = map['thingName']
         data.security_profile_name = map['securityProfileName']
-        data.behavior = (Parsers::Behavior.parse(map['behavior']) unless map['behavior'].nil?)
-        data.metric_value = (Parsers::MetricValue.parse(map['metricValue']) unless map['metricValue'].nil?)
-        data.violation_event_additional_info = (Parsers::ViolationEventAdditionalInfo.parse(map['violationEventAdditionalInfo']) unless map['violationEventAdditionalInfo'].nil?)
+        data.behavior = (Behavior.parse(map['behavior']) unless map['behavior'].nil?)
+        data.metric_value = (MetricValue.parse(map['metricValue']) unless map['metricValue'].nil?)
+        data.violation_event_additional_info = (ViolationEventAdditionalInfo.parse(map['violationEventAdditionalInfo']) unless map['violationEventAdditionalInfo'].nil?)
         data.violation_event_type = map['violationEventType']
         data.verification_state = map['verificationState']
         data.verification_state_description = map['verificationStateDescription']
@@ -5368,7 +5368,7 @@ module AWS::SDK::IoT
         data = Types::RegisterThingOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.certificate_pem = map['certificatePem']
-        data.resource_arns = (Parsers::ResourceArns.parse(map['resourceArns']) unless map['resourceArns'].nil?)
+        data.resource_arns = (ResourceArns.parse(map['resourceArns']) unless map['resourceArns'].nil?)
         data
       end
     end
@@ -5435,8 +5435,8 @@ module AWS::SDK::IoT
         data = Types::SearchIndexOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.things = (Parsers::ThingDocumentList.parse(map['things']) unless map['things'].nil?)
-        data.thing_groups = (Parsers::ThingGroupDocumentList.parse(map['thingGroups']) unless map['thingGroups'].nil?)
+        data.things = (ThingDocumentList.parse(map['things']) unless map['things'].nil?)
+        data.thing_groups = (ThingGroupDocumentList.parse(map['thingGroups']) unless map['thingGroups'].nil?)
         data
       end
     end
@@ -5445,7 +5445,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThingGroupDocument.parse(value) unless value.nil?
+          data << ThingGroupDocument.parse(value) unless value.nil?
         end
         data
       end
@@ -5457,8 +5457,8 @@ module AWS::SDK::IoT
         data.thing_group_name = map['thingGroupName']
         data.thing_group_id = map['thingGroupId']
         data.thing_group_description = map['thingGroupDescription']
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
-        data.parent_group_names = (Parsers::ThingGroupNameList.parse(map['parentGroupNames']) unless map['parentGroupNames'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.parent_group_names = (ThingGroupNameList.parse(map['parentGroupNames']) unless map['parentGroupNames'].nil?)
         return data
       end
     end
@@ -5477,7 +5477,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThingDocument.parse(value) unless value.nil?
+          data << ThingDocument.parse(value) unless value.nil?
         end
         data
       end
@@ -5489,11 +5489,11 @@ module AWS::SDK::IoT
         data.thing_name = map['thingName']
         data.thing_id = map['thingId']
         data.thing_type_name = map['thingTypeName']
-        data.thing_group_names = (Parsers::ThingGroupNameList.parse(map['thingGroupNames']) unless map['thingGroupNames'].nil?)
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.thing_group_names = (ThingGroupNameList.parse(map['thingGroupNames']) unless map['thingGroupNames'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.shadow = map['shadow']
         data.device_defender = map['deviceDefender']
-        data.connectivity = (Parsers::ThingConnectivity.parse(map['connectivity']) unless map['connectivity'].nil?)
+        data.connectivity = (ThingConnectivity.parse(map['connectivity']) unless map['connectivity'].nil?)
         return data
       end
     end
@@ -5628,7 +5628,7 @@ module AWS::SDK::IoT
       def self.parse(http_resp)
         data = Types::TestAuthorizationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.auth_results = (Parsers::AuthResults.parse(map['authResults']) unless map['authResults'].nil?)
+        data.auth_results = (AuthResults.parse(map['authResults']) unless map['authResults'].nil?)
         data
       end
     end
@@ -5637,7 +5637,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AuthResult.parse(value) unless value.nil?
+          data << AuthResult.parse(value) unless value.nil?
         end
         data
       end
@@ -5646,11 +5646,11 @@ module AWS::SDK::IoT
     class AuthResult
       def self.parse(map)
         data = Types::AuthResult.new
-        data.auth_info = (Parsers::AuthInfo.parse(map['authInfo']) unless map['authInfo'].nil?)
-        data.allowed = (Parsers::Allowed.parse(map['allowed']) unless map['allowed'].nil?)
-        data.denied = (Parsers::Denied.parse(map['denied']) unless map['denied'].nil?)
+        data.auth_info = (AuthInfo.parse(map['authInfo']) unless map['authInfo'].nil?)
+        data.allowed = (Allowed.parse(map['allowed']) unless map['allowed'].nil?)
+        data.denied = (Denied.parse(map['denied']) unless map['denied'].nil?)
         data.auth_decision = map['authDecision']
-        data.missing_context_values = (Parsers::MissingContextValues.parse(map['missingContextValues']) unless map['missingContextValues'].nil?)
+        data.missing_context_values = (MissingContextValues.parse(map['missingContextValues']) unless map['missingContextValues'].nil?)
         return data
       end
     end
@@ -5668,8 +5668,8 @@ module AWS::SDK::IoT
     class Denied
       def self.parse(map)
         data = Types::Denied.new
-        data.implicit_deny = (Parsers::ImplicitDeny.parse(map['implicitDeny']) unless map['implicitDeny'].nil?)
-        data.explicit_deny = (Parsers::ExplicitDeny.parse(map['explicitDeny']) unless map['explicitDeny'].nil?)
+        data.implicit_deny = (ImplicitDeny.parse(map['implicitDeny']) unless map['implicitDeny'].nil?)
+        data.explicit_deny = (ExplicitDeny.parse(map['explicitDeny']) unless map['explicitDeny'].nil?)
         return data
       end
     end
@@ -5677,7 +5677,7 @@ module AWS::SDK::IoT
     class ExplicitDeny
       def self.parse(map)
         data = Types::ExplicitDeny.new
-        data.policies = (Parsers::Policies.parse(map['policies']) unless map['policies'].nil?)
+        data.policies = (Policies.parse(map['policies']) unless map['policies'].nil?)
         return data
       end
     end
@@ -5685,7 +5685,7 @@ module AWS::SDK::IoT
     class ImplicitDeny
       def self.parse(map)
         data = Types::ImplicitDeny.new
-        data.policies = (Parsers::Policies.parse(map['policies']) unless map['policies'].nil?)
+        data.policies = (Policies.parse(map['policies']) unless map['policies'].nil?)
         return data
       end
     end
@@ -5693,7 +5693,7 @@ module AWS::SDK::IoT
     class Allowed
       def self.parse(map)
         data = Types::Allowed.new
-        data.policies = (Parsers::Policies.parse(map['policies']) unless map['policies'].nil?)
+        data.policies = (Policies.parse(map['policies']) unless map['policies'].nil?)
         return data
       end
     end
@@ -5702,7 +5702,7 @@ module AWS::SDK::IoT
       def self.parse(map)
         data = Types::AuthInfo.new
         data.action_type = map['actionType']
-        data.resources = (Parsers::Resources.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (Resources.parse(map['resources']) unless map['resources'].nil?)
         return data
       end
     end
@@ -5724,7 +5724,7 @@ module AWS::SDK::IoT
         map = Hearth::JSON.load(http_resp.body)
         data.is_authenticated = map['isAuthenticated']
         data.principal_id = map['principalId']
-        data.policy_documents = (Parsers::PolicyDocuments.parse(map['policyDocuments']) unless map['policyDocuments'].nil?)
+        data.policy_documents = (PolicyDocuments.parse(map['policyDocuments']) unless map['policyDocuments'].nil?)
         data.refresh_after_in_seconds = map['refreshAfterInSeconds']
         data.disconnect_after_in_seconds = map['disconnectAfterInSeconds']
         data
@@ -5860,7 +5860,7 @@ module AWS::SDK::IoT
         data.name = map['name']
         data.arn = map['arn']
         data.type = map['type']
-        data.string_values = (Parsers::DimensionStringValues.parse(map['stringValues']) unless map['stringValues'].nil?)
+        data.string_values = (DimensionStringValues.parse(map['stringValues']) unless map['stringValues'].nil?)
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data
@@ -5973,10 +5973,10 @@ module AWS::SDK::IoT
         data.security_profile_name = map['securityProfileName']
         data.security_profile_arn = map['securityProfileArn']
         data.security_profile_description = map['securityProfileDescription']
-        data.behaviors = (Parsers::Behaviors.parse(map['behaviors']) unless map['behaviors'].nil?)
-        data.alert_targets = (Parsers::AlertTargets.parse(map['alertTargets']) unless map['alertTargets'].nil?)
-        data.additional_metrics_to_retain = (Parsers::AdditionalMetricsToRetainList.parse(map['additionalMetricsToRetain']) unless map['additionalMetricsToRetain'].nil?)
-        data.additional_metrics_to_retain_v2 = (Parsers::AdditionalMetricsToRetainV2List.parse(map['additionalMetricsToRetainV2']) unless map['additionalMetricsToRetainV2'].nil?)
+        data.behaviors = (Behaviors.parse(map['behaviors']) unless map['behaviors'].nil?)
+        data.alert_targets = (AlertTargets.parse(map['alertTargets']) unless map['alertTargets'].nil?)
+        data.additional_metrics_to_retain = (AdditionalMetricsToRetainList.parse(map['additionalMetricsToRetain']) unless map['additionalMetricsToRetain'].nil?)
+        data.additional_metrics_to_retain_v2 = (AdditionalMetricsToRetainV2List.parse(map['additionalMetricsToRetainV2']) unless map['additionalMetricsToRetainV2'].nil?)
         data.version = map['version']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
@@ -6040,7 +6040,7 @@ module AWS::SDK::IoT
         data = Types::ValidateSecurityProfileBehaviorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.valid = map['valid']
-        data.validation_errors = (Parsers::ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
+        data.validation_errors = (ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
         data
       end
     end
@@ -6049,7 +6049,7 @@ module AWS::SDK::IoT
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationError.parse(value) unless value.nil?
+          data << ValidationError.parse(value) unless value.nil?
         end
         data
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53Resolver
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRuleGroupAssociation'] = Stubs::FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroupAssociation'] = FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -78,8 +80,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverEndpoint'] = Stubs::ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverEndpoint'] = ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -112,7 +114,7 @@ module AWS::SDK::Route53Resolver
         data['CreatorRequestId'] = stub[:creator_request_id] unless stub[:creator_request_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['Direction'] = stub[:direction] unless stub[:direction].nil?
         data['IpAddressCount'] = stub[:ip_address_count] unless stub[:ip_address_count].nil?
         data['HostVPCId'] = stub[:host_vpc_id] unless stub[:host_vpc_id].nil?
@@ -154,8 +156,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverQueryLogConfigAssociation'] = Stubs::ResolverQueryLogConfigAssociation.stub(stub[:resolver_query_log_config_association]) unless stub[:resolver_query_log_config_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfigAssociation'] = ResolverQueryLogConfigAssociation.stub(stub[:resolver_query_log_config_association]) unless stub[:resolver_query_log_config_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -200,8 +202,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverRuleAssociation'] = Stubs::ResolverRuleAssociation.stub(stub[:resolver_rule_association]) unless stub[:resolver_rule_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRuleAssociation'] = ResolverRuleAssociation.stub(stub[:resolver_rule_association]) unless stub[:resolver_rule_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -244,8 +246,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallDomainList'] = Stubs::FirewallDomainList.stub(stub[:firewall_domain_list]) unless stub[:firewall_domain_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallDomainList'] = FirewallDomainList.stub(stub[:firewall_domain_list]) unless stub[:firewall_domain_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -296,8 +298,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRule'] = Stubs::FirewallRule.stub(stub[:firewall_rule]) unless stub[:firewall_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRule'] = FirewallRule.stub(stub[:firewall_rule]) unless stub[:firewall_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -352,8 +354,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRuleGroup'] = Stubs::FirewallRuleGroup.stub(stub[:firewall_rule_group]) unless stub[:firewall_rule_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroup'] = FirewallRuleGroup.stub(stub[:firewall_rule_group]) unless stub[:firewall_rule_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -406,8 +408,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverEndpoint'] = Stubs::ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverEndpoint'] = ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -422,8 +424,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverQueryLogConfig'] = Stubs::ResolverQueryLogConfig.stub(stub[:resolver_query_log_config]) unless stub[:resolver_query_log_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfig'] = ResolverQueryLogConfig.stub(stub[:resolver_query_log_config]) unless stub[:resolver_query_log_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -474,8 +476,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverRule'] = Stubs::ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRule'] = ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -514,7 +516,7 @@ module AWS::SDK::Route53Resolver
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['RuleType'] = stub[:rule_type] unless stub[:rule_type].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['TargetIps'] = Stubs::TargetList.stub(stub[:target_ips]) unless stub[:target_ips].nil?
+        data['TargetIps'] = TargetList.stub(stub[:target_ips]) unless stub[:target_ips].nil?
         data['ResolverEndpointId'] = stub[:resolver_endpoint_id] unless stub[:resolver_endpoint_id].nil?
         data['OwnerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['ShareStatus'] = stub[:share_status] unless stub[:share_status].nil?
@@ -538,7 +540,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetAddress.stub(element) unless element.nil?
+          data << TargetAddress.stub(element) unless element.nil?
         end
         data
       end
@@ -574,8 +576,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallDomainList'] = Stubs::FirewallDomainList.stub(stub[:firewall_domain_list]) unless stub[:firewall_domain_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallDomainList'] = FirewallDomainList.stub(stub[:firewall_domain_list]) unless stub[:firewall_domain_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -590,8 +592,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRule'] = Stubs::FirewallRule.stub(stub[:firewall_rule]) unless stub[:firewall_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRule'] = FirewallRule.stub(stub[:firewall_rule]) unless stub[:firewall_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -606,8 +608,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRuleGroup'] = Stubs::FirewallRuleGroup.stub(stub[:firewall_rule_group]) unless stub[:firewall_rule_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroup'] = FirewallRuleGroup.stub(stub[:firewall_rule_group]) unless stub[:firewall_rule_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -622,8 +624,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverEndpoint'] = Stubs::ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverEndpoint'] = ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -638,8 +640,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverQueryLogConfig'] = Stubs::ResolverQueryLogConfig.stub(stub[:resolver_query_log_config]) unless stub[:resolver_query_log_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfig'] = ResolverQueryLogConfig.stub(stub[:resolver_query_log_config]) unless stub[:resolver_query_log_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -654,8 +656,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverRule'] = Stubs::ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRule'] = ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -670,8 +672,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRuleGroupAssociation'] = Stubs::FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroupAssociation'] = FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -686,8 +688,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverEndpoint'] = Stubs::ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverEndpoint'] = ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -702,8 +704,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverQueryLogConfigAssociation'] = Stubs::ResolverQueryLogConfigAssociation.stub(stub[:resolver_query_log_config_association]) unless stub[:resolver_query_log_config_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfigAssociation'] = ResolverQueryLogConfigAssociation.stub(stub[:resolver_query_log_config_association]) unless stub[:resolver_query_log_config_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -718,8 +720,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverRuleAssociation'] = Stubs::ResolverRuleAssociation.stub(stub[:resolver_rule_association]) unless stub[:resolver_rule_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRuleAssociation'] = ResolverRuleAssociation.stub(stub[:resolver_rule_association]) unless stub[:resolver_rule_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -734,8 +736,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallConfig'] = Stubs::FirewallConfig.stub(stub[:firewall_config]) unless stub[:firewall_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallConfig'] = FirewallConfig.stub(stub[:firewall_config]) unless stub[:firewall_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -774,8 +776,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallDomainList'] = Stubs::FirewallDomainList.stub(stub[:firewall_domain_list]) unless stub[:firewall_domain_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallDomainList'] = FirewallDomainList.stub(stub[:firewall_domain_list]) unless stub[:firewall_domain_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -790,8 +792,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRuleGroup'] = Stubs::FirewallRuleGroup.stub(stub[:firewall_rule_group]) unless stub[:firewall_rule_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroup'] = FirewallRuleGroup.stub(stub[:firewall_rule_group]) unless stub[:firewall_rule_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -806,8 +808,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRuleGroupAssociation'] = Stubs::FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroupAssociation'] = FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -823,7 +825,7 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['FirewallRuleGroupPolicy'] = stub[:firewall_rule_group_policy] unless stub[:firewall_rule_group_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -838,8 +840,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverConfig'] = Stubs::ResolverConfig.stub(stub[:resolver_config]) unless stub[:resolver_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverConfig'] = ResolverConfig.stub(stub[:resolver_config]) unless stub[:resolver_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -878,8 +880,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverDNSSECConfig'] = Stubs::ResolverDnssecConfig.stub(stub[:resolver_dnssec_config]) unless stub[:resolver_dnssec_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverDNSSECConfig'] = ResolverDnssecConfig.stub(stub[:resolver_dnssec_config]) unless stub[:resolver_dnssec_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -918,8 +920,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverEndpoint'] = Stubs::ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverEndpoint'] = ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -934,8 +936,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverQueryLogConfig'] = Stubs::ResolverQueryLogConfig.stub(stub[:resolver_query_log_config]) unless stub[:resolver_query_log_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfig'] = ResolverQueryLogConfig.stub(stub[:resolver_query_log_config]) unless stub[:resolver_query_log_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -950,8 +952,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverQueryLogConfigAssociation'] = Stubs::ResolverQueryLogConfigAssociation.stub(stub[:resolver_query_log_config_association]) unless stub[:resolver_query_log_config_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfigAssociation'] = ResolverQueryLogConfigAssociation.stub(stub[:resolver_query_log_config_association]) unless stub[:resolver_query_log_config_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -967,7 +969,7 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['ResolverQueryLogConfigPolicy'] = stub[:resolver_query_log_config_policy] unless stub[:resolver_query_log_config_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -982,8 +984,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverRule'] = Stubs::ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRule'] = ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -998,8 +1000,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverRuleAssociation'] = Stubs::ResolverRuleAssociation.stub(stub[:resolver_rule_association]) unless stub[:resolver_rule_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRuleAssociation'] = ResolverRuleAssociation.stub(stub[:resolver_rule_association]) unless stub[:resolver_rule_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1015,7 +1017,7 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['ResolverRulePolicy'] = stub[:resolver_rule_policy] unless stub[:resolver_rule_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1037,7 +1039,7 @@ module AWS::SDK::Route53Resolver
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1054,8 +1056,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FirewallConfigs'] = Stubs::FirewallConfigList.stub(stub[:firewall_configs]) unless stub[:firewall_configs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallConfigs'] = FirewallConfigList.stub(stub[:firewall_configs]) unless stub[:firewall_configs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1074,7 +1076,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallConfig.stub(element) unless element.nil?
+          data << FirewallConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1092,8 +1094,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FirewallDomainLists'] = Stubs::FirewallDomainListMetadataList.stub(stub[:firewall_domain_lists]) unless stub[:firewall_domain_lists].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallDomainLists'] = FirewallDomainListMetadataList.stub(stub[:firewall_domain_lists]) unless stub[:firewall_domain_lists].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1112,7 +1114,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallDomainListMetadata.stub(element) unless element.nil?
+          data << FirewallDomainListMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1156,8 +1158,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Domains'] = Stubs::FirewallDomains.stub(stub[:domains]) unless stub[:domains].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Domains'] = FirewallDomains.stub(stub[:domains]) unless stub[:domains].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1194,8 +1196,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FirewallRuleGroupAssociations'] = Stubs::FirewallRuleGroupAssociations.stub(stub[:firewall_rule_group_associations]) unless stub[:firewall_rule_group_associations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroupAssociations'] = FirewallRuleGroupAssociations.stub(stub[:firewall_rule_group_associations]) unless stub[:firewall_rule_group_associations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1214,7 +1216,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallRuleGroupAssociation.stub(element) unless element.nil?
+          data << FirewallRuleGroupAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1232,8 +1234,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FirewallRuleGroups'] = Stubs::FirewallRuleGroupMetadataList.stub(stub[:firewall_rule_groups]) unless stub[:firewall_rule_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroups'] = FirewallRuleGroupMetadataList.stub(stub[:firewall_rule_groups]) unless stub[:firewall_rule_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1252,7 +1254,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallRuleGroupMetadata.stub(element) unless element.nil?
+          data << FirewallRuleGroupMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1298,8 +1300,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FirewallRules'] = Stubs::FirewallRules.stub(stub[:firewall_rules]) unless stub[:firewall_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRules'] = FirewallRules.stub(stub[:firewall_rules]) unless stub[:firewall_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1318,7 +1320,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallRule.stub(element) unless element.nil?
+          data << FirewallRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1336,8 +1338,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ResolverConfigs'] = Stubs::ResolverConfigList.stub(stub[:resolver_configs]) unless stub[:resolver_configs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverConfigs'] = ResolverConfigList.stub(stub[:resolver_configs]) unless stub[:resolver_configs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1356,7 +1358,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolverConfig.stub(element) unless element.nil?
+          data << ResolverConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1374,8 +1376,8 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ResolverDnssecConfigs'] = Stubs::ResolverDnssecConfigList.stub(stub[:resolver_dnssec_configs]) unless stub[:resolver_dnssec_configs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverDnssecConfigs'] = ResolverDnssecConfigList.stub(stub[:resolver_dnssec_configs]) unless stub[:resolver_dnssec_configs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1394,7 +1396,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolverDnssecConfig.stub(element) unless element.nil?
+          data << ResolverDnssecConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1414,8 +1416,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
-        data['IpAddresses'] = Stubs::IpAddressesResponse.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IpAddresses'] = IpAddressesResponse.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1434,7 +1436,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IpAddressResponse.stub(element) unless element.nil?
+          data << IpAddressResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -1484,8 +1486,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
-        data['ResolverEndpoints'] = Stubs::ResolverEndpoints.stub(stub[:resolver_endpoints]) unless stub[:resolver_endpoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverEndpoints'] = ResolverEndpoints.stub(stub[:resolver_endpoints]) unless stub[:resolver_endpoints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1504,7 +1506,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolverEndpoint.stub(element) unless element.nil?
+          data << ResolverEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -1526,8 +1528,8 @@ module AWS::SDK::Route53Resolver
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data['TotalFilteredCount'] = stub[:total_filtered_count] unless stub[:total_filtered_count].nil?
-        data['ResolverQueryLogConfigAssociations'] = Stubs::ResolverQueryLogConfigAssociationList.stub(stub[:resolver_query_log_config_associations]) unless stub[:resolver_query_log_config_associations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfigAssociations'] = ResolverQueryLogConfigAssociationList.stub(stub[:resolver_query_log_config_associations]) unless stub[:resolver_query_log_config_associations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1546,7 +1548,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolverQueryLogConfigAssociation.stub(element) unless element.nil?
+          data << ResolverQueryLogConfigAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1568,8 +1570,8 @@ module AWS::SDK::Route53Resolver
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data['TotalFilteredCount'] = stub[:total_filtered_count] unless stub[:total_filtered_count].nil?
-        data['ResolverQueryLogConfigs'] = Stubs::ResolverQueryLogConfigList.stub(stub[:resolver_query_log_configs]) unless stub[:resolver_query_log_configs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverQueryLogConfigs'] = ResolverQueryLogConfigList.stub(stub[:resolver_query_log_configs]) unless stub[:resolver_query_log_configs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1588,7 +1590,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolverQueryLogConfig.stub(element) unless element.nil?
+          data << ResolverQueryLogConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1608,8 +1610,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
-        data['ResolverRuleAssociations'] = Stubs::ResolverRuleAssociations.stub(stub[:resolver_rule_associations]) unless stub[:resolver_rule_associations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRuleAssociations'] = ResolverRuleAssociations.stub(stub[:resolver_rule_associations]) unless stub[:resolver_rule_associations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1628,7 +1630,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolverRuleAssociation.stub(element) unless element.nil?
+          data << ResolverRuleAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1648,8 +1650,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
-        data['ResolverRules'] = Stubs::ResolverRules.stub(stub[:resolver_rules]) unless stub[:resolver_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRules'] = ResolverRules.stub(stub[:resolver_rules]) unless stub[:resolver_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1668,7 +1670,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolverRule.stub(element) unless element.nil?
+          data << ResolverRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1685,9 +1687,9 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1706,7 +1708,7 @@ module AWS::SDK::Route53Resolver
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1743,7 +1745,7 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['ReturnValue'] = stub[:return_value] unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1759,7 +1761,7 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['ReturnValue'] = stub[:return_value] unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1775,7 +1777,7 @@ module AWS::SDK::Route53Resolver
       def self.stub(http_resp, stub:)
         data = {}
         data['ReturnValue'] = stub[:return_value] unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1789,7 +1791,7 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1803,7 +1805,7 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1818,8 +1820,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallConfig'] = Stubs::FirewallConfig.stub(stub[:firewall_config]) unless stub[:firewall_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallConfig'] = FirewallConfig.stub(stub[:firewall_config]) unless stub[:firewall_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1841,7 +1843,7 @@ module AWS::SDK::Route53Resolver
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1856,8 +1858,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRule'] = Stubs::FirewallRule.stub(stub[:firewall_rule]) unless stub[:firewall_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRule'] = FirewallRule.stub(stub[:firewall_rule]) unless stub[:firewall_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1872,8 +1874,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallRuleGroupAssociation'] = Stubs::FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallRuleGroupAssociation'] = FirewallRuleGroupAssociation.stub(stub[:firewall_rule_group_association]) unless stub[:firewall_rule_group_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1888,8 +1890,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverConfig'] = Stubs::ResolverConfig.stub(stub[:resolver_config]) unless stub[:resolver_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverConfig'] = ResolverConfig.stub(stub[:resolver_config]) unless stub[:resolver_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1904,8 +1906,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverDNSSECConfig'] = Stubs::ResolverDnssecConfig.stub(stub[:resolver_dnssec_config]) unless stub[:resolver_dnssec_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverDNSSECConfig'] = ResolverDnssecConfig.stub(stub[:resolver_dnssec_config]) unless stub[:resolver_dnssec_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1920,8 +1922,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverEndpoint'] = Stubs::ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverEndpoint'] = ResolverEndpoint.stub(stub[:resolver_endpoint]) unless stub[:resolver_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1936,8 +1938,8 @@ module AWS::SDK::Route53Resolver
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResolverRule'] = Stubs::ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResolverRule'] = ResolverRule.stub(stub[:resolver_rule]) unless stub[:resolver_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaConnect
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['mediaStreams'] = Builders::List____listOfAddMediaStreamRequest.build(input[:media_streams]) unless input[:media_streams].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['mediaStreams'] = List____listOfAddMediaStreamRequest.build(input[:media_streams]) unless input[:media_streams].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AddMediaStreamRequest.build(element) unless element.nil?
+          data << AddMediaStreamRequest.build(element) unless element.nil?
         end
         data
       end
@@ -47,7 +49,7 @@ module AWS::SDK::MediaConnect
     class AddMediaStreamRequest
       def self.build(input)
         data = {}
-        data['attributes'] = Builders::MediaStreamAttributesRequest.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = MediaStreamAttributesRequest.build(input[:attributes]) unless input[:attributes].nil?
         data['clockRate'] = input[:clock_rate] unless input[:clock_rate].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['mediaStreamId'] = input[:media_stream_id] unless input[:media_stream_id].nil?
@@ -62,7 +64,7 @@ module AWS::SDK::MediaConnect
     class MediaStreamAttributesRequest
       def self.build(input)
         data = {}
-        data['fmtp'] = Builders::FmtpRequest.build(input[:fmtp]) unless input[:fmtp].nil?
+        data['fmtp'] = FmtpRequest.build(input[:fmtp]) unless input[:fmtp].nil?
         data['lang'] = input[:lang] unless input[:lang].nil?
         data
       end
@@ -100,8 +102,8 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['outputs'] = Builders::List____listOfAddOutputRequest.build(input[:outputs]) unless input[:outputs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outputs'] = List____listOfAddOutputRequest.build(input[:outputs]) unless input[:outputs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,7 +112,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AddOutputRequest.build(element) unless element.nil?
+          data << AddOutputRequest.build(element) unless element.nil?
         end
         data
       end
@@ -120,12 +122,12 @@ module AWS::SDK::MediaConnect
     class AddOutputRequest
       def self.build(input)
         data = {}
-        data['cidrAllowList'] = Builders::List____listOf__string.build(input[:cidr_allow_list]) unless input[:cidr_allow_list].nil?
+        data['cidrAllowList'] = List____listOf__string.build(input[:cidr_allow_list]) unless input[:cidr_allow_list].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['destination'] = input[:destination] unless input[:destination].nil?
-        data['encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data['maxLatency'] = input[:max_latency] unless input[:max_latency].nil?
-        data['mediaStreamOutputConfigurations'] = Builders::List____listOfMediaStreamOutputConfigurationRequest.build(input[:media_stream_output_configurations]) unless input[:media_stream_output_configurations].nil?
+        data['mediaStreamOutputConfigurations'] = List____listOfMediaStreamOutputConfigurationRequest.build(input[:media_stream_output_configurations]) unless input[:media_stream_output_configurations].nil?
         data['minLatency'] = input[:min_latency] unless input[:min_latency].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['port'] = input[:port] unless input[:port].nil?
@@ -134,7 +136,7 @@ module AWS::SDK::MediaConnect
         data['senderControlPort'] = input[:sender_control_port] unless input[:sender_control_port].nil?
         data['smoothingLatency'] = input[:smoothing_latency] unless input[:smoothing_latency].nil?
         data['streamId'] = input[:stream_id] unless input[:stream_id].nil?
-        data['vpcInterfaceAttachment'] = Builders::VpcInterfaceAttachment.build(input[:vpc_interface_attachment]) unless input[:vpc_interface_attachment].nil?
+        data['vpcInterfaceAttachment'] = VpcInterfaceAttachment.build(input[:vpc_interface_attachment]) unless input[:vpc_interface_attachment].nil?
         data
       end
     end
@@ -153,7 +155,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MediaStreamOutputConfigurationRequest.build(element) unless element.nil?
+          data << MediaStreamOutputConfigurationRequest.build(element) unless element.nil?
         end
         data
       end
@@ -163,9 +165,9 @@ module AWS::SDK::MediaConnect
     class MediaStreamOutputConfigurationRequest
       def self.build(input)
         data = {}
-        data['destinationConfigurations'] = Builders::List____listOfDestinationConfigurationRequest.build(input[:destination_configurations]) unless input[:destination_configurations].nil?
+        data['destinationConfigurations'] = List____listOfDestinationConfigurationRequest.build(input[:destination_configurations]) unless input[:destination_configurations].nil?
         data['encodingName'] = input[:encoding_name] unless input[:encoding_name].nil?
-        data['encodingParameters'] = Builders::EncodingParametersRequest.build(input[:encoding_parameters]) unless input[:encoding_parameters].nil?
+        data['encodingParameters'] = EncodingParametersRequest.build(input[:encoding_parameters]) unless input[:encoding_parameters].nil?
         data['mediaStreamName'] = input[:media_stream_name] unless input[:media_stream_name].nil?
         data
       end
@@ -186,7 +188,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DestinationConfigurationRequest.build(element) unless element.nil?
+          data << DestinationConfigurationRequest.build(element) unless element.nil?
         end
         data
       end
@@ -198,7 +200,7 @@ module AWS::SDK::MediaConnect
         data = {}
         data['destinationIp'] = input[:destination_ip] unless input[:destination_ip].nil?
         data['destinationPort'] = input[:destination_port] unless input[:destination_port].nil?
-        data['interface'] = Builders::InterfaceRequest.build(input[:interface]) unless input[:interface].nil?
+        data['interface'] = InterfaceRequest.build(input[:interface]) unless input[:interface].nil?
         data
       end
     end
@@ -257,8 +259,8 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sources'] = Builders::List____listOfSetSourceRequest.build(input[:sources]) unless input[:sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sources'] = List____listOfSetSourceRequest.build(input[:sources]) unless input[:sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SetSourceRequest.build(element) unless element.nil?
+          data << SetSourceRequest.build(element) unless element.nil?
         end
         data
       end
@@ -277,14 +279,14 @@ module AWS::SDK::MediaConnect
     class SetSourceRequest
       def self.build(input)
         data = {}
-        data['decryption'] = Builders::Encryption.build(input[:decryption]) unless input[:decryption].nil?
+        data['decryption'] = Encryption.build(input[:decryption]) unless input[:decryption].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['entitlementArn'] = input[:entitlement_arn] unless input[:entitlement_arn].nil?
         data['ingestPort'] = input[:ingest_port] unless input[:ingest_port].nil?
         data['maxBitrate'] = input[:max_bitrate] unless input[:max_bitrate].nil?
         data['maxLatency'] = input[:max_latency] unless input[:max_latency].nil?
         data['maxSyncBuffer'] = input[:max_sync_buffer] unless input[:max_sync_buffer].nil?
-        data['mediaStreamSourceConfigurations'] = Builders::List____listOfMediaStreamSourceConfigurationRequest.build(input[:media_stream_source_configurations]) unless input[:media_stream_source_configurations].nil?
+        data['mediaStreamSourceConfigurations'] = List____listOfMediaStreamSourceConfigurationRequest.build(input[:media_stream_source_configurations]) unless input[:media_stream_source_configurations].nil?
         data['minLatency'] = input[:min_latency] unless input[:min_latency].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
@@ -302,7 +304,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MediaStreamSourceConfigurationRequest.build(element) unless element.nil?
+          data << MediaStreamSourceConfigurationRequest.build(element) unless element.nil?
         end
         data
       end
@@ -313,7 +315,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = {}
         data['encodingName'] = input[:encoding_name] unless input[:encoding_name].nil?
-        data['inputConfigurations'] = Builders::List____listOfInputConfigurationRequest.build(input[:input_configurations]) unless input[:input_configurations].nil?
+        data['inputConfigurations'] = List____listOfInputConfigurationRequest.build(input[:input_configurations]) unless input[:input_configurations].nil?
         data['mediaStreamName'] = input[:media_stream_name] unless input[:media_stream_name].nil?
         data
       end
@@ -324,7 +326,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputConfigurationRequest.build(element) unless element.nil?
+          data << InputConfigurationRequest.build(element) unless element.nil?
         end
         data
       end
@@ -335,7 +337,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = {}
         data['inputPort'] = input[:input_port] unless input[:input_port].nil?
-        data['interface'] = Builders::InterfaceRequest.build(input[:interface]) unless input[:interface].nil?
+        data['interface'] = InterfaceRequest.build(input[:interface]) unless input[:interface].nil?
         data
       end
     end
@@ -357,8 +359,8 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['vpcInterfaces'] = Builders::List____listOfVpcInterfaceRequest.build(input[:vpc_interfaces]) unless input[:vpc_interfaces].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpcInterfaces'] = List____listOfVpcInterfaceRequest.build(input[:vpc_interfaces]) unless input[:vpc_interfaces].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -367,7 +369,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VpcInterfaceRequest.build(element) unless element.nil?
+          data << VpcInterfaceRequest.build(element) unless element.nil?
         end
         data
       end
@@ -380,7 +382,7 @@ module AWS::SDK::MediaConnect
         data['name'] = input[:name] unless input[:name].nil?
         data['networkInterfaceType'] = input[:network_interface_type] unless input[:network_interface_type].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['securityGroupIds'] = Builders::List____listOf__string.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['securityGroupIds'] = List____listOf__string.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['subnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
         data
       end
@@ -397,16 +399,16 @@ module AWS::SDK::MediaConnect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['availabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
-        data['entitlements'] = Builders::List____listOfGrantEntitlementRequest.build(input[:entitlements]) unless input[:entitlements].nil?
-        data['mediaStreams'] = Builders::List____listOfAddMediaStreamRequest.build(input[:media_streams]) unless input[:media_streams].nil?
+        data['entitlements'] = List____listOfGrantEntitlementRequest.build(input[:entitlements]) unless input[:entitlements].nil?
+        data['mediaStreams'] = List____listOfAddMediaStreamRequest.build(input[:media_streams]) unless input[:media_streams].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['outputs'] = Builders::List____listOfAddOutputRequest.build(input[:outputs]) unless input[:outputs].nil?
-        data['source'] = Builders::SetSourceRequest.build(input[:source]) unless input[:source].nil?
-        data['sourceFailoverConfig'] = Builders::FailoverConfig.build(input[:source_failover_config]) unless input[:source_failover_config].nil?
-        data['sources'] = Builders::List____listOfSetSourceRequest.build(input[:sources]) unless input[:sources].nil?
-        data['vpcInterfaces'] = Builders::List____listOfVpcInterfaceRequest.build(input[:vpc_interfaces]) unless input[:vpc_interfaces].nil?
-        data['maintenance'] = Builders::AddMaintenance.build(input[:maintenance]) unless input[:maintenance].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outputs'] = List____listOfAddOutputRequest.build(input[:outputs]) unless input[:outputs].nil?
+        data['source'] = SetSourceRequest.build(input[:source]) unless input[:source].nil?
+        data['sourceFailoverConfig'] = FailoverConfig.build(input[:source_failover_config]) unless input[:source_failover_config].nil?
+        data['sources'] = List____listOfSetSourceRequest.build(input[:sources]) unless input[:sources].nil?
+        data['vpcInterfaces'] = List____listOfVpcInterfaceRequest.build(input[:vpc_interfaces]) unless input[:vpc_interfaces].nil?
+        data['maintenance'] = AddMaintenance.build(input[:maintenance]) unless input[:maintenance].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::MediaConnect
         data = {}
         data['failoverMode'] = input[:failover_mode] unless input[:failover_mode].nil?
         data['recoveryWindow'] = input[:recovery_window] unless input[:recovery_window].nil?
-        data['sourcePriority'] = Builders::SourcePriority.build(input[:source_priority]) unless input[:source_priority].nil?
+        data['sourcePriority'] = SourcePriority.build(input[:source_priority]) unless input[:source_priority].nil?
         data['state'] = input[:state] unless input[:state].nil?
         data
       end
@@ -446,7 +448,7 @@ module AWS::SDK::MediaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GrantEntitlementRequest.build(element) unless element.nil?
+          data << GrantEntitlementRequest.build(element) unless element.nil?
         end
         data
       end
@@ -458,10 +460,10 @@ module AWS::SDK::MediaConnect
         data = {}
         data['dataTransferSubscriberFeePercent'] = input[:data_transfer_subscriber_fee_percent] unless input[:data_transfer_subscriber_fee_percent].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data['entitlementStatus'] = input[:entitlement_status] unless input[:entitlement_status].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['subscribers'] = Builders::List____listOf__string.build(input[:subscribers]) unless input[:subscribers].nil?
+        data['subscribers'] = List____listOf__string.build(input[:subscribers]) unless input[:subscribers].nil?
         data
       end
     end
@@ -551,8 +553,8 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entitlements'] = Builders::List____listOfGrantEntitlementRequest.build(input[:entitlements]) unless input[:entitlements].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entitlements'] = List____listOfGrantEntitlementRequest.build(input[:entitlements]) unless input[:entitlements].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -640,7 +642,7 @@ module AWS::SDK::MediaConnect
         data = {}
         data['reservationName'] = input[:reservation_name] unless input[:reservation_name].nil?
         data['start'] = input[:start] unless input[:start].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -800,8 +802,8 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,9 +857,9 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sourceFailoverConfig'] = Builders::UpdateFailoverConfig.build(input[:source_failover_config]) unless input[:source_failover_config].nil?
-        data['maintenance'] = Builders::UpdateMaintenance.build(input[:maintenance]) unless input[:maintenance].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceFailoverConfig'] = UpdateFailoverConfig.build(input[:source_failover_config]) unless input[:source_failover_config].nil?
+        data['maintenance'] = UpdateMaintenance.build(input[:maintenance]) unless input[:maintenance].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -878,7 +880,7 @@ module AWS::SDK::MediaConnect
         data = {}
         data['failoverMode'] = input[:failover_mode] unless input[:failover_mode].nil?
         data['recoveryWindow'] = input[:recovery_window] unless input[:recovery_window].nil?
-        data['sourcePriority'] = Builders::SourcePriority.build(input[:source_priority]) unless input[:source_priority].nil?
+        data['sourcePriority'] = SourcePriority.build(input[:source_priority]) unless input[:source_priority].nil?
         data['state'] = input[:state] unless input[:state].nil?
         data
       end
@@ -906,10 +908,10 @@ module AWS::SDK::MediaConnect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['encryption'] = Builders::UpdateEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['encryption'] = UpdateEncryption.build(input[:encryption]) unless input[:encryption].nil?
         data['entitlementStatus'] = input[:entitlement_status] unless input[:entitlement_status].nil?
-        data['subscribers'] = Builders::List____listOf__string.build(input[:subscribers]) unless input[:subscribers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['subscribers'] = List____listOf__string.build(input[:subscribers]) unless input[:subscribers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -951,12 +953,12 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['attributes'] = Builders::MediaStreamAttributesRequest.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = MediaStreamAttributesRequest.build(input[:attributes]) unless input[:attributes].nil?
         data['clockRate'] = input[:clock_rate] unless input[:clock_rate].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['mediaStreamType'] = input[:media_stream_type] unless input[:media_stream_type].nil?
         data['videoFormat'] = input[:video_format] unless input[:video_format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -981,12 +983,12 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['cidrAllowList'] = Builders::List____listOf__string.build(input[:cidr_allow_list]) unless input[:cidr_allow_list].nil?
+        data['cidrAllowList'] = List____listOf__string.build(input[:cidr_allow_list]) unless input[:cidr_allow_list].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['destination'] = input[:destination] unless input[:destination].nil?
-        data['encryption'] = Builders::UpdateEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['encryption'] = UpdateEncryption.build(input[:encryption]) unless input[:encryption].nil?
         data['maxLatency'] = input[:max_latency] unless input[:max_latency].nil?
-        data['mediaStreamOutputConfigurations'] = Builders::List____listOfMediaStreamOutputConfigurationRequest.build(input[:media_stream_output_configurations]) unless input[:media_stream_output_configurations].nil?
+        data['mediaStreamOutputConfigurations'] = List____listOfMediaStreamOutputConfigurationRequest.build(input[:media_stream_output_configurations]) unless input[:media_stream_output_configurations].nil?
         data['minLatency'] = input[:min_latency] unless input[:min_latency].nil?
         data['port'] = input[:port] unless input[:port].nil?
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
@@ -995,8 +997,8 @@ module AWS::SDK::MediaConnect
         data['senderIpAddress'] = input[:sender_ip_address] unless input[:sender_ip_address].nil?
         data['smoothingLatency'] = input[:smoothing_latency] unless input[:smoothing_latency].nil?
         data['streamId'] = input[:stream_id] unless input[:stream_id].nil?
-        data['vpcInterfaceAttachment'] = Builders::VpcInterfaceAttachment.build(input[:vpc_interface_attachment]) unless input[:vpc_interface_attachment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpcInterfaceAttachment'] = VpcInterfaceAttachment.build(input[:vpc_interface_attachment]) unless input[:vpc_interface_attachment].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1021,14 +1023,14 @@ module AWS::SDK::MediaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['decryption'] = Builders::UpdateEncryption.build(input[:decryption]) unless input[:decryption].nil?
+        data['decryption'] = UpdateEncryption.build(input[:decryption]) unless input[:decryption].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['entitlementArn'] = input[:entitlement_arn] unless input[:entitlement_arn].nil?
         data['ingestPort'] = input[:ingest_port] unless input[:ingest_port].nil?
         data['maxBitrate'] = input[:max_bitrate] unless input[:max_bitrate].nil?
         data['maxLatency'] = input[:max_latency] unless input[:max_latency].nil?
         data['maxSyncBuffer'] = input[:max_sync_buffer] unless input[:max_sync_buffer].nil?
-        data['mediaStreamSourceConfigurations'] = Builders::List____listOfMediaStreamSourceConfigurationRequest.build(input[:media_stream_source_configurations]) unless input[:media_stream_source_configurations].nil?
+        data['mediaStreamSourceConfigurations'] = List____listOfMediaStreamSourceConfigurationRequest.build(input[:media_stream_source_configurations]) unless input[:media_stream_source_configurations].nil?
         data['minLatency'] = input[:min_latency] unless input[:min_latency].nil?
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
         data['senderControlPort'] = input[:sender_control_port] unless input[:sender_control_port].nil?
@@ -1036,7 +1038,7 @@ module AWS::SDK::MediaConnect
         data['streamId'] = input[:stream_id] unless input[:stream_id].nil?
         data['vpcInterfaceName'] = input[:vpc_interface_name] unless input[:vpc_interface_name].nil?
         data['whitelistCidr'] = input[:whitelist_cidr] unless input[:whitelist_cidr].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

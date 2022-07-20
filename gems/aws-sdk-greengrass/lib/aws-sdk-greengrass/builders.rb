@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Greengrass
   module Builders
 
@@ -28,7 +30,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,10 +59,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::ConnectorDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = ConnectorDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -80,7 +82,7 @@ module AWS::SDK::Greengrass
     class ConnectorDefinitionVersion
       def self.build(input)
         data = {}
-        data['Connectors'] = Builders::List____listOfConnector.build(input[:connectors]) unless input[:connectors].nil?
+        data['Connectors'] = List____listOfConnector.build(input[:connectors]) unless input[:connectors].nil?
         data
       end
     end
@@ -90,7 +92,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Connector.build(element) unless element.nil?
+          data << Connector.build(element) unless element.nil?
         end
         data
       end
@@ -102,7 +104,7 @@ module AWS::SDK::Greengrass
         data = {}
         data['ConnectorArn'] = input[:connector_arn] unless input[:connector_arn].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        data['Parameters'] = Builders::Map____mapOf__string.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = Map____mapOf__string.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -135,8 +137,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Connectors'] = Builders::List____listOfConnector.build(input[:connectors]) unless input[:connectors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connectors'] = List____listOfConnector.build(input[:connectors]) unless input[:connectors].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -151,10 +153,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::CoreDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = CoreDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::Greengrass
     class CoreDefinitionVersion
       def self.build(input)
         data = {}
-        data['Cores'] = Builders::List____listOfCore.build(input[:cores]) unless input[:cores].nil?
+        data['Cores'] = List____listOfCore.build(input[:cores]) unless input[:cores].nil?
         data
       end
     end
@@ -173,7 +175,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Core.build(element) unless element.nil?
+          data << Core.build(element) unless element.nil?
         end
         data
       end
@@ -208,8 +210,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Cores'] = Builders::List____listOfCore.build(input[:cores]) unless input[:cores].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cores'] = List____listOfCore.build(input[:cores]) unless input[:cores].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::Greengrass
         data['DeploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['DeploymentType'] = input[:deployment_type] unless input[:deployment_type].nil?
         data['GroupVersionId'] = input[:group_version_id] unless input[:group_version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -249,10 +251,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::DeviceDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = DeviceDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -261,7 +263,7 @@ module AWS::SDK::Greengrass
     class DeviceDefinitionVersion
       def self.build(input)
         data = {}
-        data['Devices'] = Builders::List____listOfDevice.build(input[:devices]) unless input[:devices].nil?
+        data['Devices'] = List____listOfDevice.build(input[:devices]) unless input[:devices].nil?
         data
       end
     end
@@ -271,7 +273,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Device.build(element) unless element.nil?
+          data << Device.build(element) unless element.nil?
         end
         data
       end
@@ -306,8 +308,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Devices'] = Builders::List____listOfDevice.build(input[:devices]) unless input[:devices].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Devices'] = List____listOfDevice.build(input[:devices]) unless input[:devices].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -322,10 +324,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::FunctionDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = FunctionDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -334,8 +336,8 @@ module AWS::SDK::Greengrass
     class FunctionDefinitionVersion
       def self.build(input)
         data = {}
-        data['DefaultConfig'] = Builders::FunctionDefaultConfig.build(input[:default_config]) unless input[:default_config].nil?
-        data['Functions'] = Builders::List____listOfFunction.build(input[:functions]) unless input[:functions].nil?
+        data['DefaultConfig'] = FunctionDefaultConfig.build(input[:default_config]) unless input[:default_config].nil?
+        data['Functions'] = List____listOfFunction.build(input[:functions]) unless input[:functions].nil?
         data
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Function.build(element) unless element.nil?
+          data << Function.build(element) unless element.nil?
         end
         data
       end
@@ -356,7 +358,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['FunctionArn'] = input[:function_arn] unless input[:function_arn].nil?
-        data['FunctionConfiguration'] = Builders::FunctionConfiguration.build(input[:function_configuration]) unless input[:function_configuration].nil?
+        data['FunctionConfiguration'] = FunctionConfiguration.build(input[:function_configuration]) unless input[:function_configuration].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data
       end
@@ -367,7 +369,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['EncodingType'] = input[:encoding_type] unless input[:encoding_type].nil?
-        data['Environment'] = Builders::FunctionConfigurationEnvironment.build(input[:environment]) unless input[:environment].nil?
+        data['Environment'] = FunctionConfigurationEnvironment.build(input[:environment]) unless input[:environment].nil?
         data['ExecArgs'] = input[:exec_args] unless input[:exec_args].nil?
         data['Executable'] = input[:executable] unless input[:executable].nil?
         data['MemorySize'] = input[:memory_size] unless input[:memory_size].nil?
@@ -382,9 +384,9 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['AccessSysfs'] = input[:access_sysfs] unless input[:access_sysfs].nil?
-        data['Execution'] = Builders::FunctionExecutionConfig.build(input[:execution]) unless input[:execution].nil?
-        data['ResourceAccessPolicies'] = Builders::List____listOfResourceAccessPolicy.build(input[:resource_access_policies]) unless input[:resource_access_policies].nil?
-        data['Variables'] = Builders::Map____mapOf__string.build(input[:variables]) unless input[:variables].nil?
+        data['Execution'] = FunctionExecutionConfig.build(input[:execution]) unless input[:execution].nil?
+        data['ResourceAccessPolicies'] = List____listOfResourceAccessPolicy.build(input[:resource_access_policies]) unless input[:resource_access_policies].nil?
+        data['Variables'] = Map____mapOf__string.build(input[:variables]) unless input[:variables].nil?
         data
       end
     end
@@ -394,7 +396,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceAccessPolicy.build(element) unless element.nil?
+          data << ResourceAccessPolicy.build(element) unless element.nil?
         end
         data
       end
@@ -415,7 +417,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['IsolationMode'] = input[:isolation_mode] unless input[:isolation_mode].nil?
-        data['RunAs'] = Builders::FunctionRunAsConfig.build(input[:run_as]) unless input[:run_as].nil?
+        data['RunAs'] = FunctionRunAsConfig.build(input[:run_as]) unless input[:run_as].nil?
         data
       end
     end
@@ -434,7 +436,7 @@ module AWS::SDK::Greengrass
     class FunctionDefaultConfig
       def self.build(input)
         data = {}
-        data['Execution'] = Builders::FunctionDefaultExecutionConfig.build(input[:execution]) unless input[:execution].nil?
+        data['Execution'] = FunctionDefaultExecutionConfig.build(input[:execution]) unless input[:execution].nil?
         data
       end
     end
@@ -444,7 +446,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['IsolationMode'] = input[:isolation_mode] unless input[:isolation_mode].nil?
-        data['RunAs'] = Builders::FunctionRunAsConfig.build(input[:run_as]) unless input[:run_as].nil?
+        data['RunAs'] = FunctionRunAsConfig.build(input[:run_as]) unless input[:run_as].nil?
         data
       end
     end
@@ -466,9 +468,9 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DefaultConfig'] = Builders::FunctionDefaultConfig.build(input[:default_config]) unless input[:default_config].nil?
-        data['Functions'] = Builders::List____listOfFunction.build(input[:functions]) unless input[:functions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DefaultConfig'] = FunctionDefaultConfig.build(input[:default_config]) unless input[:default_config].nil?
+        data['Functions'] = List____listOfFunction.build(input[:functions]) unless input[:functions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -483,10 +485,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::GroupVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = GroupVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -548,7 +550,7 @@ module AWS::SDK::Greengrass
         data['LoggerDefinitionVersionArn'] = input[:logger_definition_version_arn] unless input[:logger_definition_version_arn].nil?
         data['ResourceDefinitionVersionArn'] = input[:resource_definition_version_arn] unless input[:resource_definition_version_arn].nil?
         data['SubscriptionDefinitionVersionArn'] = input[:subscription_definition_version_arn] unless input[:subscription_definition_version_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -563,10 +565,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::LoggerDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = LoggerDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -575,7 +577,7 @@ module AWS::SDK::Greengrass
     class LoggerDefinitionVersion
       def self.build(input)
         data = {}
-        data['Loggers'] = Builders::List____listOfLogger.build(input[:loggers]) unless input[:loggers].nil?
+        data['Loggers'] = List____listOfLogger.build(input[:loggers]) unless input[:loggers].nil?
         data
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Logger.build(element) unless element.nil?
+          data << Logger.build(element) unless element.nil?
         end
         data
       end
@@ -621,8 +623,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Loggers'] = Builders::List____listOfLogger.build(input[:loggers]) unless input[:loggers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Loggers'] = List____listOfLogger.build(input[:loggers]) unless input[:loggers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -637,10 +639,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::ResourceDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = ResourceDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -649,7 +651,7 @@ module AWS::SDK::Greengrass
     class ResourceDefinitionVersion
       def self.build(input)
         data = {}
-        data['Resources'] = Builders::List____listOfResource.build(input[:resources]) unless input[:resources].nil?
+        data['Resources'] = List____listOfResource.build(input[:resources]) unless input[:resources].nil?
         data
       end
     end
@@ -659,7 +661,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Resource.build(element) unless element.nil?
+          data << Resource.build(element) unless element.nil?
         end
         data
       end
@@ -671,7 +673,7 @@ module AWS::SDK::Greengrass
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['ResourceDataContainer'] = Builders::ResourceDataContainer.build(input[:resource_data_container]) unless input[:resource_data_container].nil?
+        data['ResourceDataContainer'] = ResourceDataContainer.build(input[:resource_data_container]) unless input[:resource_data_container].nil?
         data
       end
     end
@@ -680,11 +682,11 @@ module AWS::SDK::Greengrass
     class ResourceDataContainer
       def self.build(input)
         data = {}
-        data['LocalDeviceResourceData'] = Builders::LocalDeviceResourceData.build(input[:local_device_resource_data]) unless input[:local_device_resource_data].nil?
-        data['LocalVolumeResourceData'] = Builders::LocalVolumeResourceData.build(input[:local_volume_resource_data]) unless input[:local_volume_resource_data].nil?
-        data['S3MachineLearningModelResourceData'] = Builders::S3MachineLearningModelResourceData.build(input[:s3_machine_learning_model_resource_data]) unless input[:s3_machine_learning_model_resource_data].nil?
-        data['SageMakerMachineLearningModelResourceData'] = Builders::SageMakerMachineLearningModelResourceData.build(input[:sage_maker_machine_learning_model_resource_data]) unless input[:sage_maker_machine_learning_model_resource_data].nil?
-        data['SecretsManagerSecretResourceData'] = Builders::SecretsManagerSecretResourceData.build(input[:secrets_manager_secret_resource_data]) unless input[:secrets_manager_secret_resource_data].nil?
+        data['LocalDeviceResourceData'] = LocalDeviceResourceData.build(input[:local_device_resource_data]) unless input[:local_device_resource_data].nil?
+        data['LocalVolumeResourceData'] = LocalVolumeResourceData.build(input[:local_volume_resource_data]) unless input[:local_volume_resource_data].nil?
+        data['S3MachineLearningModelResourceData'] = S3MachineLearningModelResourceData.build(input[:s3_machine_learning_model_resource_data]) unless input[:s3_machine_learning_model_resource_data].nil?
+        data['SageMakerMachineLearningModelResourceData'] = SageMakerMachineLearningModelResourceData.build(input[:sage_maker_machine_learning_model_resource_data]) unless input[:sage_maker_machine_learning_model_resource_data].nil?
+        data['SecretsManagerSecretResourceData'] = SecretsManagerSecretResourceData.build(input[:secrets_manager_secret_resource_data]) unless input[:secrets_manager_secret_resource_data].nil?
         data
       end
     end
@@ -694,7 +696,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['ARN'] = input[:arn] unless input[:arn].nil?
-        data['AdditionalStagingLabelsToDownload'] = Builders::List____listOf__string.build(input[:additional_staging_labels_to_download]) unless input[:additional_staging_labels_to_download].nil?
+        data['AdditionalStagingLabelsToDownload'] = List____listOf__string.build(input[:additional_staging_labels_to_download]) unless input[:additional_staging_labels_to_download].nil?
         data
       end
     end
@@ -715,7 +717,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['DestinationPath'] = input[:destination_path] unless input[:destination_path].nil?
-        data['OwnerSetting'] = Builders::ResourceDownloadOwnerSetting.build(input[:owner_setting]) unless input[:owner_setting].nil?
+        data['OwnerSetting'] = ResourceDownloadOwnerSetting.build(input[:owner_setting]) unless input[:owner_setting].nil?
         data['SageMakerJobArn'] = input[:sage_maker_job_arn] unless input[:sage_maker_job_arn].nil?
         data
       end
@@ -736,7 +738,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['DestinationPath'] = input[:destination_path] unless input[:destination_path].nil?
-        data['OwnerSetting'] = Builders::ResourceDownloadOwnerSetting.build(input[:owner_setting]) unless input[:owner_setting].nil?
+        data['OwnerSetting'] = ResourceDownloadOwnerSetting.build(input[:owner_setting]) unless input[:owner_setting].nil?
         data['S3Uri'] = input[:s3_uri] unless input[:s3_uri].nil?
         data
       end
@@ -747,7 +749,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = {}
         data['DestinationPath'] = input[:destination_path] unless input[:destination_path].nil?
-        data['GroupOwnerSetting'] = Builders::GroupOwnerSetting.build(input[:group_owner_setting]) unless input[:group_owner_setting].nil?
+        data['GroupOwnerSetting'] = GroupOwnerSetting.build(input[:group_owner_setting]) unless input[:group_owner_setting].nil?
         data['SourcePath'] = input[:source_path] unless input[:source_path].nil?
         data
       end
@@ -767,7 +769,7 @@ module AWS::SDK::Greengrass
     class LocalDeviceResourceData
       def self.build(input)
         data = {}
-        data['GroupOwnerSetting'] = Builders::GroupOwnerSetting.build(input[:group_owner_setting]) unless input[:group_owner_setting].nil?
+        data['GroupOwnerSetting'] = GroupOwnerSetting.build(input[:group_owner_setting]) unless input[:group_owner_setting].nil?
         data['SourcePath'] = input[:source_path] unless input[:source_path].nil?
         data
       end
@@ -790,8 +792,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Resources'] = Builders::List____listOfResource.build(input[:resources]) unless input[:resources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Resources'] = List____listOfResource.build(input[:resources]) unless input[:resources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -809,10 +811,10 @@ module AWS::SDK::Greengrass
         data['S3UrlSignerRole'] = input[:s3_url_signer_role] unless input[:s3_url_signer_role].nil?
         data['SoftwareToUpdate'] = input[:software_to_update] unless input[:software_to_update].nil?
         data['UpdateAgentLogLevel'] = input[:update_agent_log_level] unless input[:update_agent_log_level].nil?
-        data['UpdateTargets'] = Builders::UpdateTargets.build(input[:update_targets]) unless input[:update_targets].nil?
+        data['UpdateTargets'] = UpdateTargets.build(input[:update_targets]) unless input[:update_targets].nil?
         data['UpdateTargetsArchitecture'] = input[:update_targets_architecture] unless input[:update_targets_architecture].nil?
         data['UpdateTargetsOperatingSystem'] = input[:update_targets_operating_system] unless input[:update_targets_operating_system].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -838,10 +840,10 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InitialVersion'] = Builders::SubscriptionDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
+        data['InitialVersion'] = SubscriptionDefinitionVersion.build(input[:initial_version]) unless input[:initial_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -850,7 +852,7 @@ module AWS::SDK::Greengrass
     class SubscriptionDefinitionVersion
       def self.build(input)
         data = {}
-        data['Subscriptions'] = Builders::List____listOfSubscription.build(input[:subscriptions]) unless input[:subscriptions].nil?
+        data['Subscriptions'] = List____listOfSubscription.build(input[:subscriptions]) unless input[:subscriptions].nil?
         data
       end
     end
@@ -860,7 +862,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Subscription.build(element) unless element.nil?
+          data << Subscription.build(element) unless element.nil?
         end
         data
       end
@@ -895,8 +897,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Subscriptions'] = Builders::List____listOfSubscription.build(input[:subscriptions]) unless input[:subscriptions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Subscriptions'] = List____listOfSubscription.build(input[:subscriptions]) unless input[:subscriptions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -1860,7 +1862,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -1877,8 +1879,8 @@ module AWS::SDK::Greengrass
         data = {}
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['InputFileUri'] = input[:input_file_uri] unless input[:input_file_uri].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:amzn_client_token] unless input[:amzn_client_token].nil? || input[:amzn_client_token].empty?
       end
     end
@@ -1917,8 +1919,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1961,8 +1963,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ConnectivityInfo'] = Builders::List____listOfConnectivityInfo.build(input[:connectivity_info]) unless input[:connectivity_info].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectivityInfo'] = List____listOfConnectivityInfo.build(input[:connectivity_info]) unless input[:connectivity_info].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1971,7 +1973,7 @@ module AWS::SDK::Greengrass
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConnectivityInfo.build(element) unless element.nil?
+          data << ConnectivityInfo.build(element) unless element.nil?
         end
         data
       end
@@ -2007,7 +2009,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2029,7 +2031,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2051,7 +2053,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2073,7 +2075,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2095,7 +2097,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2117,7 +2119,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CertificateExpiryInMilliseconds'] = input[:certificate_expiry_in_milliseconds] unless input[:certificate_expiry_in_milliseconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2139,7 +2141,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2161,7 +2163,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2183,7 +2185,7 @@ module AWS::SDK::Greengrass
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2204,8 +2206,8 @@ module AWS::SDK::Greengrass
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TelemetryConfiguration'] = Builders::TelemetryConfigurationUpdate.build(input[:telemetry_configuration]) unless input[:telemetry_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TelemetryConfiguration'] = TelemetryConfigurationUpdate.build(input[:telemetry_configuration]) unless input[:telemetry_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

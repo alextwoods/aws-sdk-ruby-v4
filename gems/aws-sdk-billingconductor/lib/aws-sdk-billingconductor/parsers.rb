@@ -51,7 +51,7 @@ module AWS::SDK::Billingconductor
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -60,7 +60,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -136,8 +136,8 @@ module AWS::SDK::Billingconductor
       def self.parse(http_resp)
         data = Types::BatchAssociateResourcesToCustomLineItemOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.successfully_associated_resources = (Parsers::AssociateResourcesResponseList.parse(map['SuccessfullyAssociatedResources']) unless map['SuccessfullyAssociatedResources'].nil?)
-        data.failed_associated_resources = (Parsers::AssociateResourcesResponseList.parse(map['FailedAssociatedResources']) unless map['FailedAssociatedResources'].nil?)
+        data.successfully_associated_resources = (AssociateResourcesResponseList.parse(map['SuccessfullyAssociatedResources']) unless map['SuccessfullyAssociatedResources'].nil?)
+        data.failed_associated_resources = (AssociateResourcesResponseList.parse(map['FailedAssociatedResources']) unless map['FailedAssociatedResources'].nil?)
         data
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssociateResourceResponseElement.parse(value) unless value.nil?
+          data << AssociateResourceResponseElement.parse(value) unless value.nil?
         end
         data
       end
@@ -156,7 +156,7 @@ module AWS::SDK::Billingconductor
       def self.parse(map)
         data = Types::AssociateResourceResponseElement.new
         data.arn = map['Arn']
-        data.error = (Parsers::AssociateResourceError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (AssociateResourceError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -175,8 +175,8 @@ module AWS::SDK::Billingconductor
       def self.parse(http_resp)
         data = Types::BatchDisassociateResourcesFromCustomLineItemOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.successfully_disassociated_resources = (Parsers::DisassociateResourcesResponseList.parse(map['SuccessfullyDisassociatedResources']) unless map['SuccessfullyDisassociatedResources'].nil?)
-        data.failed_disassociated_resources = (Parsers::DisassociateResourcesResponseList.parse(map['FailedDisassociatedResources']) unless map['FailedDisassociatedResources'].nil?)
+        data.successfully_disassociated_resources = (DisassociateResourcesResponseList.parse(map['SuccessfullyDisassociatedResources']) unless map['SuccessfullyDisassociatedResources'].nil?)
+        data.failed_disassociated_resources = (DisassociateResourcesResponseList.parse(map['FailedDisassociatedResources']) unless map['FailedDisassociatedResources'].nil?)
         data
       end
     end
@@ -185,7 +185,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DisassociateResourceResponseElement.parse(value) unless value.nil?
+          data << DisassociateResourceResponseElement.parse(value) unless value.nil?
         end
         data
       end
@@ -195,7 +195,7 @@ module AWS::SDK::Billingconductor
       def self.parse(map)
         data = Types::DisassociateResourceResponseElement.new
         data.arn = map['Arn']
-        data.error = (Parsers::AssociateResourceError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (AssociateResourceError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::Billingconductor
       def self.parse(http_resp)
         data = Types::ListAccountAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.linked_accounts = (Parsers::AccountAssociationsList.parse(map['LinkedAccounts']) unless map['LinkedAccounts'].nil?)
+        data.linked_accounts = (AccountAssociationsList.parse(map['LinkedAccounts']) unless map['LinkedAccounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -315,7 +315,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AccountAssociationsListElement.parse(value) unless value.nil?
+          data << AccountAssociationsListElement.parse(value) unless value.nil?
         end
         data
       end
@@ -337,7 +337,7 @@ module AWS::SDK::Billingconductor
       def self.parse(http_resp)
         data = Types::ListBillingGroupCostReportsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.billing_group_cost_reports = (Parsers::BillingGroupCostReportList.parse(map['BillingGroupCostReports']) unless map['BillingGroupCostReports'].nil?)
+        data.billing_group_cost_reports = (BillingGroupCostReportList.parse(map['BillingGroupCostReports']) unless map['BillingGroupCostReports'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -347,7 +347,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BillingGroupCostReportElement.parse(value) unless value.nil?
+          data << BillingGroupCostReportElement.parse(value) unless value.nil?
         end
         data
       end
@@ -371,7 +371,7 @@ module AWS::SDK::Billingconductor
       def self.parse(http_resp)
         data = Types::ListBillingGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.billing_groups = (Parsers::BillingGroupList.parse(map['BillingGroups']) unless map['BillingGroups'].nil?)
+        data.billing_groups = (BillingGroupList.parse(map['BillingGroups']) unless map['BillingGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -381,7 +381,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BillingGroupListElement.parse(value) unless value.nil?
+          data << BillingGroupListElement.parse(value) unless value.nil?
         end
         data
       end
@@ -394,7 +394,7 @@ module AWS::SDK::Billingconductor
         data.arn = map['Arn']
         data.description = map['Description']
         data.primary_account_id = map['PrimaryAccountId']
-        data.computation_preference = (Parsers::ComputationPreference.parse(map['ComputationPreference']) unless map['ComputationPreference'].nil?)
+        data.computation_preference = (ComputationPreference.parse(map['ComputationPreference']) unless map['ComputationPreference'].nil?)
         data.size = map['Size']
         data.creation_time = map['CreationTime']
         data.last_modified_time = map['LastModifiedTime']
@@ -417,7 +417,7 @@ module AWS::SDK::Billingconductor
       def self.parse(http_resp)
         data = Types::ListCustomLineItemsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.custom_line_items = (Parsers::CustomLineItemList.parse(map['CustomLineItems']) unless map['CustomLineItems'].nil?)
+        data.custom_line_items = (CustomLineItemList.parse(map['CustomLineItems']) unless map['CustomLineItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -427,7 +427,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomLineItemListElement.parse(value) unless value.nil?
+          data << CustomLineItemListElement.parse(value) unless value.nil?
         end
         data
       end
@@ -438,7 +438,7 @@ module AWS::SDK::Billingconductor
         data = Types::CustomLineItemListElement.new
         data.arn = map['Arn']
         data.name = map['Name']
-        data.charge_details = (Parsers::ListCustomLineItemChargeDetails.parse(map['ChargeDetails']) unless map['ChargeDetails'].nil?)
+        data.charge_details = (ListCustomLineItemChargeDetails.parse(map['ChargeDetails']) unless map['ChargeDetails'].nil?)
         data.currency_code = map['CurrencyCode']
         data.description = map['Description']
         data.product_code = map['ProductCode']
@@ -453,8 +453,8 @@ module AWS::SDK::Billingconductor
     class ListCustomLineItemChargeDetails
       def self.parse(map)
         data = Types::ListCustomLineItemChargeDetails.new
-        data.flat = (Parsers::ListCustomLineItemFlatChargeDetails.parse(map['Flat']) unless map['Flat'].nil?)
-        data.percentage = (Parsers::ListCustomLineItemPercentageChargeDetails.parse(map['Percentage']) unless map['Percentage'].nil?)
+        data.flat = (ListCustomLineItemFlatChargeDetails.parse(map['Flat']) unless map['Flat'].nil?)
+        data.percentage = (ListCustomLineItemPercentageChargeDetails.parse(map['Percentage']) unless map['Percentage'].nil?)
         data.type = map['Type']
         return data
       end
@@ -482,7 +482,7 @@ module AWS::SDK::Billingconductor
         data = Types::ListPricingPlansOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.billing_period = map['BillingPeriod']
-        data.pricing_plans = (Parsers::PricingPlanList.parse(map['PricingPlans']) unless map['PricingPlans'].nil?)
+        data.pricing_plans = (PricingPlanList.parse(map['PricingPlans']) unless map['PricingPlans'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -492,7 +492,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PricingPlanListElement.parse(value) unless value.nil?
+          data << PricingPlanListElement.parse(value) unless value.nil?
         end
         data
       end
@@ -518,7 +518,7 @@ module AWS::SDK::Billingconductor
         map = Hearth::JSON.load(http_resp.body)
         data.billing_period = map['BillingPeriod']
         data.pricing_rule_arn = map['PricingRuleArn']
-        data.pricing_plan_arns = (Parsers::PricingPlanArns.parse(map['PricingPlanArns']) unless map['PricingPlanArns'].nil?)
+        data.pricing_plan_arns = (PricingPlanArns.parse(map['PricingPlanArns']) unless map['PricingPlanArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -540,7 +540,7 @@ module AWS::SDK::Billingconductor
         data = Types::ListPricingRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.billing_period = map['BillingPeriod']
-        data.pricing_rules = (Parsers::PricingRuleList.parse(map['PricingRules']) unless map['PricingRules'].nil?)
+        data.pricing_rules = (PricingRuleList.parse(map['PricingRules']) unless map['PricingRules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -550,7 +550,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PricingRuleListElement.parse(value) unless value.nil?
+          data << PricingRuleListElement.parse(value) unless value.nil?
         end
         data
       end
@@ -580,7 +580,7 @@ module AWS::SDK::Billingconductor
         map = Hearth::JSON.load(http_resp.body)
         data.billing_period = map['BillingPeriod']
         data.pricing_plan_arn = map['PricingPlanArn']
-        data.pricing_rule_arns = (Parsers::PricingRuleArns.parse(map['PricingRuleArns']) unless map['PricingRuleArns'].nil?)
+        data.pricing_rule_arns = (PricingRuleArns.parse(map['PricingRuleArns']) unless map['PricingRuleArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -602,7 +602,7 @@ module AWS::SDK::Billingconductor
         data = Types::ListResourcesAssociatedToCustomLineItemOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.associated_resources = (Parsers::ListResourcesAssociatedToCustomLineItemResponseList.parse(map['AssociatedResources']) unless map['AssociatedResources'].nil?)
+        data.associated_resources = (ListResourcesAssociatedToCustomLineItemResponseList.parse(map['AssociatedResources']) unless map['AssociatedResources'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -612,7 +612,7 @@ module AWS::SDK::Billingconductor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListResourcesAssociatedToCustomLineItemResponseElement.parse(value) unless value.nil?
+          data << ListResourcesAssociatedToCustomLineItemResponseElement.parse(value) unless value.nil?
         end
         data
       end
@@ -632,7 +632,7 @@ module AWS::SDK::Billingconductor
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -692,7 +692,7 @@ module AWS::SDK::Billingconductor
         data.billing_group_arn = map['BillingGroupArn']
         data.name = map['Name']
         data.description = map['Description']
-        data.charge_details = (Parsers::ListCustomLineItemChargeDetails.parse(map['ChargeDetails']) unless map['ChargeDetails'].nil?)
+        data.charge_details = (ListCustomLineItemChargeDetails.parse(map['ChargeDetails']) unless map['ChargeDetails'].nil?)
         data.last_modified_time = map['LastModifiedTime']
         data.association_size = map['AssociationSize']
         data

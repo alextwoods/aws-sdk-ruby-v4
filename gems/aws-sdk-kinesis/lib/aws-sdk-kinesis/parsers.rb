@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::Kinesis
   module Parsers
 
@@ -135,7 +137,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stream_description = (Parsers::StreamDescription.parse(map['StreamDescription']) unless map['StreamDescription'].nil?)
+        data.stream_description = (StreamDescription.parse(map['StreamDescription']) unless map['StreamDescription'].nil?)
         data
       end
     end
@@ -146,12 +148,12 @@ module AWS::SDK::Kinesis
         data.stream_name = map['StreamName']
         data.stream_arn = map['StreamARN']
         data.stream_status = map['StreamStatus']
-        data.stream_mode_details = (Parsers::StreamModeDetails.parse(map['StreamModeDetails']) unless map['StreamModeDetails'].nil?)
-        data.shards = (Parsers::ShardList.parse(map['Shards']) unless map['Shards'].nil?)
+        data.stream_mode_details = (StreamModeDetails.parse(map['StreamModeDetails']) unless map['StreamModeDetails'].nil?)
+        data.shards = (ShardList.parse(map['Shards']) unless map['Shards'].nil?)
         data.has_more_shards = map['HasMoreShards']
         data.retention_period_hours = map['RetentionPeriodHours']
         data.stream_creation_timestamp = Time.at(map['StreamCreationTimestamp'].to_i) if map['StreamCreationTimestamp']
-        data.enhanced_monitoring = (Parsers::EnhancedMonitoringList.parse(map['EnhancedMonitoring']) unless map['EnhancedMonitoring'].nil?)
+        data.enhanced_monitoring = (EnhancedMonitoringList.parse(map['EnhancedMonitoring']) unless map['EnhancedMonitoring'].nil?)
         data.encryption_type = map['EncryptionType']
         data.key_id = map['KeyId']
         return data
@@ -161,7 +163,7 @@ module AWS::SDK::Kinesis
     class EnhancedMonitoringList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnhancedMetrics.parse(value) unless value.nil?
+          EnhancedMetrics.parse(value) unless value.nil?
         end
       end
     end
@@ -169,7 +171,7 @@ module AWS::SDK::Kinesis
     class EnhancedMetrics
       def self.parse(map)
         data = Types::EnhancedMetrics.new
-        data.shard_level_metrics = (Parsers::MetricsNameList.parse(map['ShardLevelMetrics']) unless map['ShardLevelMetrics'].nil?)
+        data.shard_level_metrics = (MetricsNameList.parse(map['ShardLevelMetrics']) unless map['ShardLevelMetrics'].nil?)
         return data
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::Kinesis
     class ShardList
       def self.parse(list)
         list.map do |value|
-          Parsers::Shard.parse(value) unless value.nil?
+          Shard.parse(value) unless value.nil?
         end
       end
     end
@@ -196,8 +198,8 @@ module AWS::SDK::Kinesis
         data.shard_id = map['ShardId']
         data.parent_shard_id = map['ParentShardId']
         data.adjacent_parent_shard_id = map['AdjacentParentShardId']
-        data.hash_key_range = (Parsers::HashKeyRange.parse(map['HashKeyRange']) unless map['HashKeyRange'].nil?)
-        data.sequence_number_range = (Parsers::SequenceNumberRange.parse(map['SequenceNumberRange']) unless map['SequenceNumberRange'].nil?)
+        data.hash_key_range = (HashKeyRange.parse(map['HashKeyRange']) unless map['HashKeyRange'].nil?)
+        data.sequence_number_range = (SequenceNumberRange.parse(map['SequenceNumberRange']) unless map['SequenceNumberRange'].nil?)
         return data
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.consumer_description = (Parsers::ConsumerDescription.parse(map['ConsumerDescription']) unless map['ConsumerDescription'].nil?)
+        data.consumer_description = (ConsumerDescription.parse(map['ConsumerDescription']) unless map['ConsumerDescription'].nil?)
         data
       end
     end
@@ -259,7 +261,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stream_description_summary = (Parsers::StreamDescriptionSummary.parse(map['StreamDescriptionSummary']) unless map['StreamDescriptionSummary'].nil?)
+        data.stream_description_summary = (StreamDescriptionSummary.parse(map['StreamDescriptionSummary']) unless map['StreamDescriptionSummary'].nil?)
         data
       end
     end
@@ -270,10 +272,10 @@ module AWS::SDK::Kinesis
         data.stream_name = map['StreamName']
         data.stream_arn = map['StreamARN']
         data.stream_status = map['StreamStatus']
-        data.stream_mode_details = (Parsers::StreamModeDetails.parse(map['StreamModeDetails']) unless map['StreamModeDetails'].nil?)
+        data.stream_mode_details = (StreamModeDetails.parse(map['StreamModeDetails']) unless map['StreamModeDetails'].nil?)
         data.retention_period_hours = map['RetentionPeriodHours']
         data.stream_creation_timestamp = Time.at(map['StreamCreationTimestamp'].to_i) if map['StreamCreationTimestamp']
-        data.enhanced_monitoring = (Parsers::EnhancedMonitoringList.parse(map['EnhancedMonitoring']) unless map['EnhancedMonitoring'].nil?)
+        data.enhanced_monitoring = (EnhancedMonitoringList.parse(map['EnhancedMonitoring']) unless map['EnhancedMonitoring'].nil?)
         data.encryption_type = map['EncryptionType']
         data.key_id = map['KeyId']
         data.open_shard_count = map['OpenShardCount']
@@ -290,8 +292,8 @@ module AWS::SDK::Kinesis
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.stream_name = map['StreamName']
-        data.current_shard_level_metrics = (Parsers::MetricsNameList.parse(map['CurrentShardLevelMetrics']) unless map['CurrentShardLevelMetrics'].nil?)
-        data.desired_shard_level_metrics = (Parsers::MetricsNameList.parse(map['DesiredShardLevelMetrics']) unless map['DesiredShardLevelMetrics'].nil?)
+        data.current_shard_level_metrics = (MetricsNameList.parse(map['CurrentShardLevelMetrics']) unless map['CurrentShardLevelMetrics'].nil?)
+        data.desired_shard_level_metrics = (MetricsNameList.parse(map['DesiredShardLevelMetrics']) unless map['DesiredShardLevelMetrics'].nil?)
         data
       end
     end
@@ -304,8 +306,8 @@ module AWS::SDK::Kinesis
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.stream_name = map['StreamName']
-        data.current_shard_level_metrics = (Parsers::MetricsNameList.parse(map['CurrentShardLevelMetrics']) unless map['CurrentShardLevelMetrics'].nil?)
-        data.desired_shard_level_metrics = (Parsers::MetricsNameList.parse(map['DesiredShardLevelMetrics']) unless map['DesiredShardLevelMetrics'].nil?)
+        data.current_shard_level_metrics = (MetricsNameList.parse(map['CurrentShardLevelMetrics']) unless map['CurrentShardLevelMetrics'].nil?)
+        data.desired_shard_level_metrics = (MetricsNameList.parse(map['DesiredShardLevelMetrics']) unless map['DesiredShardLevelMetrics'].nil?)
         data
       end
     end
@@ -317,10 +319,10 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.records = (Parsers::RecordList.parse(map['Records']) unless map['Records'].nil?)
+        data.records = (RecordList.parse(map['Records']) unless map['Records'].nil?)
         data.next_shard_iterator = map['NextShardIterator']
         data.millis_behind_latest = map['MillisBehindLatest']
-        data.child_shards = (Parsers::ChildShardList.parse(map['ChildShards']) unless map['ChildShards'].nil?)
+        data.child_shards = (ChildShardList.parse(map['ChildShards']) unless map['ChildShards'].nil?)
         data
       end
     end
@@ -328,7 +330,7 @@ module AWS::SDK::Kinesis
     class ChildShardList
       def self.parse(list)
         list.map do |value|
-          Parsers::ChildShard.parse(value) unless value.nil?
+          ChildShard.parse(value) unless value.nil?
         end
       end
     end
@@ -337,8 +339,8 @@ module AWS::SDK::Kinesis
       def self.parse(map)
         data = Types::ChildShard.new
         data.shard_id = map['ShardId']
-        data.parent_shards = (Parsers::ShardIdList.parse(map['ParentShards']) unless map['ParentShards'].nil?)
-        data.hash_key_range = (Parsers::HashKeyRange.parse(map['HashKeyRange']) unless map['HashKeyRange'].nil?)
+        data.parent_shards = (ShardIdList.parse(map['ParentShards']) unless map['ParentShards'].nil?)
+        data.hash_key_range = (HashKeyRange.parse(map['HashKeyRange']) unless map['HashKeyRange'].nil?)
         return data
       end
     end
@@ -354,7 +356,7 @@ module AWS::SDK::Kinesis
     class RecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::Record.parse(value) unless value.nil?
+          Record.parse(value) unless value.nil?
         end
       end
     end
@@ -364,7 +366,7 @@ module AWS::SDK::Kinesis
         data = Types::Record.new
         data.sequence_number = map['SequenceNumber']
         data.approximate_arrival_timestamp = Time.at(map['ApproximateArrivalTimestamp'].to_i) if map['ApproximateArrivalTimestamp']
-        data.data = Base64::decode64(map['Data']) unless map['Data'].nil?
+        data.data = ::Base64::decode64(map['Data']) unless map['Data'].nil?
         data.partition_key = map['PartitionKey']
         data.encryption_type = map['EncryptionType']
         return data
@@ -497,7 +499,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.shards = (Parsers::ShardList.parse(map['Shards']) unless map['Shards'].nil?)
+        data.shards = (ShardList.parse(map['Shards']) unless map['Shards'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -522,7 +524,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.consumers = (Parsers::ConsumerList.parse(map['Consumers']) unless map['Consumers'].nil?)
+        data.consumers = (ConsumerList.parse(map['Consumers']) unless map['Consumers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -531,7 +533,7 @@ module AWS::SDK::Kinesis
     class ConsumerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Consumer.parse(value) unless value.nil?
+          Consumer.parse(value) unless value.nil?
         end
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stream_names = (Parsers::StreamNameList.parse(map['StreamNames']) unless map['StreamNames'].nil?)
+        data.stream_names = (StreamNameList.parse(map['StreamNames']) unless map['StreamNames'].nil?)
         data.has_more_streams = map['HasMoreStreams']
         data
       end
@@ -575,7 +577,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.has_more_tags = map['HasMoreTags']
         data
       end
@@ -584,7 +586,7 @@ module AWS::SDK::Kinesis
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::Kinesis
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.failed_record_count = map['FailedRecordCount']
-        data.records = (Parsers::PutRecordsResultEntryList.parse(map['Records']) unless map['Records'].nil?)
+        data.records = (PutRecordsResultEntryList.parse(map['Records']) unless map['Records'].nil?)
         data.encryption_type = map['EncryptionType']
         data
       end
@@ -652,7 +654,7 @@ module AWS::SDK::Kinesis
     class PutRecordsResultEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PutRecordsResultEntry.parse(value) unless value.nil?
+          PutRecordsResultEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -675,7 +677,7 @@ module AWS::SDK::Kinesis
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.consumer = (Parsers::Consumer.parse(map['Consumer']) unless map['Consumer'].nil?)
+        data.consumer = (Consumer.parse(map['Consumer']) unless map['Consumer'].nil?)
         data
       end
     end

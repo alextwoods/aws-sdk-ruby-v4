@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Codeartifact
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repository'] = Stubs::RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,8 +55,8 @@ module AWS::SDK::Codeartifact
         data['domainOwner'] = stub[:domain_owner] unless stub[:domain_owner].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['upstreams'] = Stubs::UpstreamRepositoryInfoList.stub(stub[:upstreams]) unless stub[:upstreams].nil?
-        data['externalConnections'] = Stubs::RepositoryExternalConnectionInfoList.stub(stub[:external_connections]) unless stub[:external_connections].nil?
+        data['upstreams'] = UpstreamRepositoryInfoList.stub(stub[:upstreams]) unless stub[:upstreams].nil?
+        data['externalConnections'] = RepositoryExternalConnectionInfoList.stub(stub[:external_connections]) unless stub[:external_connections].nil?
         data
       end
     end
@@ -73,7 +75,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryExternalConnectionInfo.stub(element) unless element.nil?
+          data << RepositoryExternalConnectionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -115,7 +117,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpstreamRepositoryInfo.stub(element) unless element.nil?
+          data << UpstreamRepositoryInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -152,9 +154,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['successfulVersions'] = Stubs::SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
-        data['failedVersions'] = Stubs::PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['successfulVersions'] = SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
+        data['failedVersions'] = PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -172,7 +174,7 @@ module AWS::SDK::Codeartifact
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PackageVersionError.stub(value) unless value.nil?
+          data[key] = PackageVersionError.stub(value) unless value.nil?
         end
         data
       end
@@ -212,7 +214,7 @@ module AWS::SDK::Codeartifact
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::SuccessfulPackageVersionInfo.stub(value) unless value.nil?
+          data[key] = SuccessfulPackageVersionInfo.stub(value) unless value.nil?
         end
         data
       end
@@ -250,8 +252,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domain'] = Stubs::DomainDescription.stub(stub[:domain]) unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domain'] = DomainDescription.stub(stub[:domain]) unless stub[:domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,8 +303,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repository'] = Stubs::RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,8 +320,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domain'] = Stubs::DomainDescription.stub(stub[:domain]) unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domain'] = DomainDescription.stub(stub[:domain]) unless stub[:domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -335,8 +337,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -375,9 +377,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['successfulVersions'] = Stubs::SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
-        data['failedVersions'] = Stubs::PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['successfulVersions'] = SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
+        data['failedVersions'] = PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -393,8 +395,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repository'] = Stubs::RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -410,8 +412,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,8 +429,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domain'] = Stubs::DomainDescription.stub(stub[:domain]) unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domain'] = DomainDescription.stub(stub[:domain]) unless stub[:domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,8 +446,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['packageVersion'] = Stubs::PackageVersionDescription.stub(stub[:package_version]) unless stub[:package_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['packageVersion'] = PackageVersionDescription.stub(stub[:package_version]) unless stub[:package_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -482,7 +484,7 @@ module AWS::SDK::Codeartifact
         data['homePage'] = stub[:home_page] unless stub[:home_page].nil?
         data['sourceCodeRepository'] = stub[:source_code_repository] unless stub[:source_code_repository].nil?
         data['publishedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:published_time]).to_i unless stub[:published_time].nil?
-        data['licenses'] = Stubs::LicenseInfoList.stub(stub[:licenses]) unless stub[:licenses].nil?
+        data['licenses'] = LicenseInfoList.stub(stub[:licenses]) unless stub[:licenses].nil?
         data['revision'] = stub[:revision] unless stub[:revision].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data
@@ -503,7 +505,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LicenseInfo.stub(element) unless element.nil?
+          data << LicenseInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -541,8 +543,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repository'] = Stubs::RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -558,8 +560,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repository'] = Stubs::RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -576,9 +578,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['successfulVersions'] = Stubs::SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
-        data['failedVersions'] = Stubs::PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['successfulVersions'] = SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
+        data['failedVersions'] = PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -597,7 +599,7 @@ module AWS::SDK::Codeartifact
         http_resp.headers['Content-Type'] = 'application/json'
         data['authorizationToken'] = stub[:authorization_token] unless stub[:authorization_token].nil?
         data['expiration'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration]).to_i unless stub[:expiration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -613,8 +615,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -662,7 +664,7 @@ module AWS::SDK::Codeartifact
         data['version'] = stub[:version] unless stub[:version].nil?
         data['versionRevision'] = stub[:version_revision] unless stub[:version_revision].nil?
         data['readme'] = stub[:readme] unless stub[:readme].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::Codeartifact
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['repositoryEndpoint'] = stub[:repository_endpoint] unless stub[:repository_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -695,8 +697,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -713,9 +715,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domains'] = Stubs::DomainSummaryList.stub(stub[:domains]) unless stub[:domains].nil?
+        data['domains'] = DomainSummaryList.stub(stub[:domains]) unless stub[:domains].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -733,7 +735,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainSummary.stub(element) unless element.nil?
+          data << DomainSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -791,8 +793,8 @@ module AWS::SDK::Codeartifact
         data['version'] = stub[:version] unless stub[:version].nil?
         data['versionRevision'] = stub[:version_revision] unless stub[:version_revision].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['assets'] = Stubs::AssetSummaryList.stub(stub[:assets]) unless stub[:assets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assets'] = AssetSummaryList.stub(stub[:assets]) unless stub[:assets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -810,7 +812,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetSummary.stub(element) unless element.nil?
+          data << AssetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -833,7 +835,7 @@ module AWS::SDK::Codeartifact
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['size'] = stub[:size] unless stub[:size].nil?
-        data['hashes'] = Stubs::AssetHashes.stub(stub[:hashes]) unless stub[:hashes].nil?
+        data['hashes'] = AssetHashes.stub(stub[:hashes]) unless stub[:hashes].nil?
         data
       end
     end
@@ -882,8 +884,8 @@ module AWS::SDK::Codeartifact
         data['version'] = stub[:version] unless stub[:version].nil?
         data['versionRevision'] = stub[:version_revision] unless stub[:version_revision].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['dependencies'] = Stubs::PackageDependencyList.stub(stub[:dependencies]) unless stub[:dependencies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dependencies'] = PackageDependencyList.stub(stub[:dependencies]) unless stub[:dependencies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -901,7 +903,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageDependency.stub(element) unless element.nil?
+          data << PackageDependency.stub(element) unless element.nil?
         end
         data
       end
@@ -952,9 +954,9 @@ module AWS::SDK::Codeartifact
         data['format'] = stub[:format] unless stub[:format].nil?
         data['namespace'] = stub[:namespace] unless stub[:namespace].nil?
         data['package'] = stub[:package] unless stub[:package].nil?
-        data['versions'] = Stubs::PackageVersionSummaryList.stub(stub[:versions]) unless stub[:versions].nil?
+        data['versions'] = PackageVersionSummaryList.stub(stub[:versions]) unless stub[:versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -972,7 +974,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageVersionSummary.stub(element) unless element.nil?
+          data << PackageVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1013,9 +1015,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['packages'] = Stubs::PackageSummaryList.stub(stub[:packages]) unless stub[:packages].nil?
+        data['packages'] = PackageSummaryList.stub(stub[:packages]) unless stub[:packages].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1033,7 +1035,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageSummary.stub(element) unless element.nil?
+          data << PackageSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1074,9 +1076,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repositories'] = Stubs::RepositorySummaryList.stub(stub[:repositories]) unless stub[:repositories].nil?
+        data['repositories'] = RepositorySummaryList.stub(stub[:repositories]) unless stub[:repositories].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1094,7 +1096,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositorySummary.stub(element) unless element.nil?
+          data << RepositorySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1141,9 +1143,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repositories'] = Stubs::RepositorySummaryList.stub(stub[:repositories]) unless stub[:repositories].nil?
+        data['repositories'] = RepositorySummaryList.stub(stub[:repositories]) unless stub[:repositories].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1159,8 +1161,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1178,7 +1180,7 @@ module AWS::SDK::Codeartifact
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1216,8 +1218,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1233,8 +1235,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResourcePolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1277,9 +1279,9 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['successfulVersions'] = Stubs::SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
-        data['failedVersions'] = Stubs::PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['successfulVersions'] = SuccessfulPackageVersionInfoMap.stub(stub[:successful_versions]) unless stub[:successful_versions].nil?
+        data['failedVersions'] = PackageVersionErrorMap.stub(stub[:failed_versions]) unless stub[:failed_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1295,8 +1297,8 @@ module AWS::SDK::Codeartifact
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['repository'] = Stubs::RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = RepositoryDescription.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

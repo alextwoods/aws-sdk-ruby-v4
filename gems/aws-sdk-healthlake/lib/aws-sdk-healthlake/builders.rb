@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::HealthLake
   module Builders
 
@@ -20,11 +22,11 @@ module AWS::SDK::HealthLake
         data = {}
         data['DatastoreName'] = input[:datastore_name] unless input[:datastore_name].nil?
         data['DatastoreTypeVersion'] = input[:datastore_type_version] unless input[:datastore_type_version].nil?
-        data['SseConfiguration'] = Builders::SseConfiguration.build(input[:sse_configuration]) unless input[:sse_configuration].nil?
-        data['PreloadDataConfig'] = Builders::PreloadDataConfig.build(input[:preload_data_config]) unless input[:preload_data_config].nil?
+        data['SseConfiguration'] = SseConfiguration.build(input[:sse_configuration]) unless input[:sse_configuration].nil?
+        data['PreloadDataConfig'] = PreloadDataConfig.build(input[:preload_data_config]) unless input[:preload_data_config].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::HealthLake
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -62,7 +64,7 @@ module AWS::SDK::HealthLake
     class SseConfiguration
       def self.build(input)
         data = {}
-        data['KmsEncryptionConfig'] = Builders::KmsEncryptionConfig.build(input[:kms_encryption_config]) unless input[:kms_encryption_config].nil?
+        data['KmsEncryptionConfig'] = KmsEncryptionConfig.build(input[:kms_encryption_config]) unless input[:kms_encryption_config].nil?
         data
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::HealthLake
         http_req.headers['X-Amz-Target'] = 'HealthLake.DeleteFHIRDatastore'
         data = {}
         data['DatastoreId'] = input[:datastore_id] unless input[:datastore_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -99,7 +101,7 @@ module AWS::SDK::HealthLake
         http_req.headers['X-Amz-Target'] = 'HealthLake.DescribeFHIRDatastore'
         data = {}
         data['DatastoreId'] = input[:datastore_id] unless input[:datastore_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,7 +115,7 @@ module AWS::SDK::HealthLake
         data = {}
         data['DatastoreId'] = input[:datastore_id] unless input[:datastore_id].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,7 +129,7 @@ module AWS::SDK::HealthLake
         data = {}
         data['DatastoreId'] = input[:datastore_id] unless input[:datastore_id].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -139,10 +141,10 @@ module AWS::SDK::HealthLake
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'HealthLake.ListFHIRDatastores'
         data = {}
-        data['Filter'] = Builders::DatastoreFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = DatastoreFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::HealthLake
         data['JobStatus'] = input[:job_status] unless input[:job_status].nil?
         data['SubmittedBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:submitted_before]).to_i unless input[:submitted_before].nil?
         data['SubmittedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:submitted_after]).to_i unless input[:submitted_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,7 +194,7 @@ module AWS::SDK::HealthLake
         data['JobStatus'] = input[:job_status] unless input[:job_status].nil?
         data['SubmittedBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:submitted_before]).to_i unless input[:submitted_before].nil?
         data['SubmittedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:submitted_after]).to_i unless input[:submitted_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,7 +207,7 @@ module AWS::SDK::HealthLake
         http_req.headers['X-Amz-Target'] = 'HealthLake.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,11 +220,11 @@ module AWS::SDK::HealthLake
         http_req.headers['X-Amz-Target'] = 'HealthLake.StartFHIRExportJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DatastoreId'] = input[:datastore_id] unless input[:datastore_id].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -232,7 +234,7 @@ module AWS::SDK::HealthLake
         data = {}
         case input
         when Types::OutputDataConfig::S3Configuration
-          data['S3Configuration'] = (Builders::S3Configuration.build(input) unless input.nil?)
+          data['S3Configuration'] = (S3Configuration.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::OutputDataConfig"
@@ -261,12 +263,12 @@ module AWS::SDK::HealthLake
         http_req.headers['X-Amz-Target'] = 'HealthLake.StartFHIRImportJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['JobOutputDataConfig'] = Builders::OutputDataConfig.build(input[:job_output_data_config]) unless input[:job_output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['JobOutputDataConfig'] = OutputDataConfig.build(input[:job_output_data_config]) unless input[:job_output_data_config].nil?
         data['DatastoreId'] = input[:datastore_id] unless input[:datastore_id].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,8 +297,8 @@ module AWS::SDK::HealthLake
         http_req.headers['X-Amz-Target'] = 'HealthLake.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -309,8 +311,8 @@ module AWS::SDK::HealthLake
         http_req.headers['X-Amz-Target'] = 'HealthLake.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

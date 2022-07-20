@@ -115,7 +115,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(http_resp)
         data = Types::DescribePlacementOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.placement = (Parsers::PlacementDescription.parse(map['placement']) unless map['placement'].nil?)
+        data.placement = (PlacementDescription.parse(map['placement']) unless map['placement'].nil?)
         data
       end
     end
@@ -125,7 +125,7 @@ module AWS::SDK::IoT1ClickProjects
         data = Types::PlacementDescription.new
         data.project_name = map['projectName']
         data.placement_name = map['placementName']
-        data.attributes = (Parsers::PlacementAttributeMap.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (PlacementAttributeMap.parse(map['attributes']) unless map['attributes'].nil?)
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.updated_date = Time.at(map['updatedDate'].to_i) if map['updatedDate']
         return data
@@ -147,7 +147,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(http_resp)
         data = Types::DescribeProjectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.project = (Parsers::ProjectDescription.parse(map['project']) unless map['project'].nil?)
+        data.project = (ProjectDescription.parse(map['project']) unless map['project'].nil?)
         data
       end
     end
@@ -160,8 +160,8 @@ module AWS::SDK::IoT1ClickProjects
         data.description = map['description']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.updated_date = Time.at(map['updatedDate'].to_i) if map['updatedDate']
-        data.placement_template = (Parsers::PlacementTemplate.parse(map['placementTemplate']) unless map['placementTemplate'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.placement_template = (PlacementTemplate.parse(map['placementTemplate']) unless map['placementTemplate'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -179,8 +179,8 @@ module AWS::SDK::IoT1ClickProjects
     class PlacementTemplate
       def self.parse(map)
         data = Types::PlacementTemplate.new
-        data.default_attributes = (Parsers::DefaultPlacementAttributeMap.parse(map['defaultAttributes']) unless map['defaultAttributes'].nil?)
-        data.device_templates = (Parsers::DeviceTemplateMap.parse(map['deviceTemplates']) unless map['deviceTemplates'].nil?)
+        data.default_attributes = (DefaultPlacementAttributeMap.parse(map['defaultAttributes']) unless map['defaultAttributes'].nil?)
+        data.device_templates = (DeviceTemplateMap.parse(map['deviceTemplates']) unless map['deviceTemplates'].nil?)
         return data
       end
     end
@@ -189,7 +189,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::DeviceTemplate.parse(value) unless value.nil?
+          data[key] = DeviceTemplate.parse(value) unless value.nil?
         end
         data
       end
@@ -199,7 +199,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(map)
         data = Types::DeviceTemplate.new
         data.device_type = map['deviceType']
-        data.callback_overrides = (Parsers::DeviceCallbackOverrideMap.parse(map['callbackOverrides']) unless map['callbackOverrides'].nil?)
+        data.callback_overrides = (DeviceCallbackOverrideMap.parse(map['callbackOverrides']) unless map['callbackOverrides'].nil?)
         return data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(http_resp)
         data = Types::GetDevicesInPlacementOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.devices = (Parsers::DeviceMap.parse(map['devices']) unless map['devices'].nil?)
+        data.devices = (DeviceMap.parse(map['devices']) unless map['devices'].nil?)
         data
       end
     end
@@ -258,7 +258,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(http_resp)
         data = Types::ListPlacementsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.placements = (Parsers::PlacementSummaryList.parse(map['placements']) unless map['placements'].nil?)
+        data.placements = (PlacementSummaryList.parse(map['placements']) unless map['placements'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -268,7 +268,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PlacementSummary.parse(value) unless value.nil?
+          data << PlacementSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -290,7 +290,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(http_resp)
         data = Types::ListProjectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.projects = (Parsers::ProjectSummaryList.parse(map['projects']) unless map['projects'].nil?)
+        data.projects = (ProjectSummaryList.parse(map['projects']) unless map['projects'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -300,7 +300,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProjectSummary.parse(value) unless value.nil?
+          data << ProjectSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -313,7 +313,7 @@ module AWS::SDK::IoT1ClickProjects
         data.project_name = map['projectName']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.updated_date = Time.at(map['updatedDate'].to_i) if map['updatedDate']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -323,7 +323,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

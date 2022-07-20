@@ -15,7 +15,7 @@ module AWS::SDK::Synthetics
       def self.parse(http_resp)
         data = Types::CreateCanaryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.canary = (Parsers::Canary.parse(map['Canary']) unless map['Canary'].nil?)
+        data.canary = (Canary.parse(map['Canary']) unless map['Canary'].nil?)
         data
       end
     end
@@ -25,21 +25,21 @@ module AWS::SDK::Synthetics
         data = Types::Canary.new
         data.id = map['Id']
         data.name = map['Name']
-        data.code = (Parsers::CanaryCodeOutput.parse(map['Code']) unless map['Code'].nil?)
+        data.code = (CanaryCodeOutput.parse(map['Code']) unless map['Code'].nil?)
         data.execution_role_arn = map['ExecutionRoleArn']
-        data.schedule = (Parsers::CanaryScheduleOutput.parse(map['Schedule']) unless map['Schedule'].nil?)
-        data.run_config = (Parsers::CanaryRunConfigOutput.parse(map['RunConfig']) unless map['RunConfig'].nil?)
+        data.schedule = (CanaryScheduleOutput.parse(map['Schedule']) unless map['Schedule'].nil?)
+        data.run_config = (CanaryRunConfigOutput.parse(map['RunConfig']) unless map['RunConfig'].nil?)
         data.success_retention_period_in_days = map['SuccessRetentionPeriodInDays']
         data.failure_retention_period_in_days = map['FailureRetentionPeriodInDays']
-        data.status = (Parsers::CanaryStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.timeline = (Parsers::CanaryTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
+        data.status = (CanaryStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.timeline = (CanaryTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
         data.artifact_s3_location = map['ArtifactS3Location']
         data.engine_arn = map['EngineArn']
         data.runtime_version = map['RuntimeVersion']
-        data.vpc_config = (Parsers::VpcConfigOutput.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.visual_reference = (Parsers::VisualReferenceOutput.parse(map['VisualReference']) unless map['VisualReference'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.artifact_config = (Parsers::ArtifactConfigOutput.parse(map['ArtifactConfig']) unless map['ArtifactConfig'].nil?)
+        data.vpc_config = (VpcConfigOutput.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.visual_reference = (VisualReferenceOutput.parse(map['VisualReference']) unless map['VisualReference'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.artifact_config = (ArtifactConfigOutput.parse(map['ArtifactConfig']) unless map['ArtifactConfig'].nil?)
         return data
       end
     end
@@ -47,7 +47,7 @@ module AWS::SDK::Synthetics
     class ArtifactConfigOutput
       def self.parse(map)
         data = Types::ArtifactConfigOutput.new
-        data.s3_encryption = (Parsers::S3EncryptionConfig.parse(map['S3Encryption']) unless map['S3Encryption'].nil?)
+        data.s3_encryption = (S3EncryptionConfig.parse(map['S3Encryption']) unless map['S3Encryption'].nil?)
         return data
       end
     end
@@ -74,7 +74,7 @@ module AWS::SDK::Synthetics
     class VisualReferenceOutput
       def self.parse(map)
         data = Types::VisualReferenceOutput.new
-        data.base_screenshots = (Parsers::BaseScreenshots.parse(map['BaseScreenshots']) unless map['BaseScreenshots'].nil?)
+        data.base_screenshots = (BaseScreenshots.parse(map['BaseScreenshots']) unless map['BaseScreenshots'].nil?)
         data.base_canary_run_id = map['BaseCanaryRunId']
         return data
       end
@@ -84,7 +84,7 @@ module AWS::SDK::Synthetics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BaseScreenshot.parse(value) unless value.nil?
+          data << BaseScreenshot.parse(value) unless value.nil?
         end
         data
       end
@@ -94,7 +94,7 @@ module AWS::SDK::Synthetics
       def self.parse(map)
         data = Types::BaseScreenshot.new
         data.screenshot_name = map['ScreenshotName']
-        data.ignore_coordinates = (Parsers::BaseScreenshotIgnoreCoordinates.parse(map['IgnoreCoordinates']) unless map['IgnoreCoordinates'].nil?)
+        data.ignore_coordinates = (BaseScreenshotIgnoreCoordinates.parse(map['IgnoreCoordinates']) unless map['IgnoreCoordinates'].nil?)
         return data
       end
     end
@@ -113,8 +113,8 @@ module AWS::SDK::Synthetics
       def self.parse(map)
         data = Types::VpcConfigOutput.new
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         return data
       end
     end
@@ -252,7 +252,7 @@ module AWS::SDK::Synthetics
       def self.parse(http_resp)
         data = Types::DescribeCanariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.canaries = (Parsers::Canaries.parse(map['Canaries']) unless map['Canaries'].nil?)
+        data.canaries = (Canaries.parse(map['Canaries']) unless map['Canaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -262,7 +262,7 @@ module AWS::SDK::Synthetics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Canary.parse(value) unless value.nil?
+          data << Canary.parse(value) unless value.nil?
         end
         data
       end
@@ -273,7 +273,7 @@ module AWS::SDK::Synthetics
       def self.parse(http_resp)
         data = Types::DescribeCanariesLastRunOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.canaries_last_run = (Parsers::CanariesLastRun.parse(map['CanariesLastRun']) unless map['CanariesLastRun'].nil?)
+        data.canaries_last_run = (CanariesLastRun.parse(map['CanariesLastRun']) unless map['CanariesLastRun'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -283,7 +283,7 @@ module AWS::SDK::Synthetics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CanaryLastRun.parse(value) unless value.nil?
+          data << CanaryLastRun.parse(value) unless value.nil?
         end
         data
       end
@@ -293,7 +293,7 @@ module AWS::SDK::Synthetics
       def self.parse(map)
         data = Types::CanaryLastRun.new
         data.canary_name = map['CanaryName']
-        data.last_run = (Parsers::CanaryRun.parse(map['LastRun']) unless map['LastRun'].nil?)
+        data.last_run = (CanaryRun.parse(map['LastRun']) unless map['LastRun'].nil?)
         return data
       end
     end
@@ -303,8 +303,8 @@ module AWS::SDK::Synthetics
         data = Types::CanaryRun.new
         data.id = map['Id']
         data.name = map['Name']
-        data.status = (Parsers::CanaryRunStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.timeline = (Parsers::CanaryRunTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
+        data.status = (CanaryRunStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.timeline = (CanaryRunTimeline.parse(map['Timeline']) unless map['Timeline'].nil?)
         data.artifact_s3_location = map['ArtifactS3Location']
         return data
       end
@@ -334,7 +334,7 @@ module AWS::SDK::Synthetics
       def self.parse(http_resp)
         data = Types::DescribeRuntimeVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.runtime_versions = (Parsers::RuntimeVersionList.parse(map['RuntimeVersions']) unless map['RuntimeVersions'].nil?)
+        data.runtime_versions = (RuntimeVersionList.parse(map['RuntimeVersions']) unless map['RuntimeVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -344,7 +344,7 @@ module AWS::SDK::Synthetics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuntimeVersion.parse(value) unless value.nil?
+          data << RuntimeVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -366,7 +366,7 @@ module AWS::SDK::Synthetics
       def self.parse(http_resp)
         data = Types::GetCanaryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.canary = (Parsers::Canary.parse(map['Canary']) unless map['Canary'].nil?)
+        data.canary = (Canary.parse(map['Canary']) unless map['Canary'].nil?)
         data
       end
     end
@@ -376,7 +376,7 @@ module AWS::SDK::Synthetics
       def self.parse(http_resp)
         data = Types::GetCanaryRunsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.canary_runs = (Parsers::CanaryRuns.parse(map['CanaryRuns']) unless map['CanaryRuns'].nil?)
+        data.canary_runs = (CanaryRuns.parse(map['CanaryRuns']) unless map['CanaryRuns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -386,7 +386,7 @@ module AWS::SDK::Synthetics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CanaryRun.parse(value) unless value.nil?
+          data << CanaryRun.parse(value) unless value.nil?
         end
         data
       end
@@ -397,7 +397,7 @@ module AWS::SDK::Synthetics
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

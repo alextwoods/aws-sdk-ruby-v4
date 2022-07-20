@@ -61,15 +61,15 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('BatchDescribeTypeConfigurationsResult')
         xml.at('Errors') do |node|
           children = node.children('member')
-          data.errors = Parsers::BatchDescribeTypeConfigurationsErrors.parse(children)
+          data.errors = BatchDescribeTypeConfigurationsErrors.parse(children)
         end
         xml.at('UnprocessedTypeConfigurations') do |node|
           children = node.children('member')
-          data.unprocessed_type_configurations = Parsers::UnprocessedTypeConfigurations.parse(children)
+          data.unprocessed_type_configurations = UnprocessedTypeConfigurations.parse(children)
         end
         xml.at('TypeConfigurations') do |node|
           children = node.children('member')
-          data.type_configurations = Parsers::TypeConfigurationDetailsList.parse(children)
+          data.type_configurations = TypeConfigurationDetailsList.parse(children)
         end
         data
       end
@@ -79,7 +79,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TypeConfigurationDetails.parse(node)
+          data << TypeConfigurationDetails.parse(node)
         end
         data
       end
@@ -117,7 +117,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TypeConfigurationIdentifier.parse(node)
+          data << TypeConfigurationIdentifier.parse(node)
         end
         data
       end
@@ -149,7 +149,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::BatchDescribeTypeConfigurationsError.parse(node)
+          data << BatchDescribeTypeConfigurationsError.parse(node)
         end
         data
       end
@@ -165,7 +165,7 @@ module AWS::SDK::CloudFormation
           data.error_message = (node.text || '')
         end
         xml.at('TypeConfigurationIdentifier') do |node|
-          data.type_configuration_identifier = Parsers::TypeConfigurationIdentifier.parse(node)
+          data.type_configuration_identifier = TypeConfigurationIdentifier.parse(node)
         end
         return data
       end
@@ -526,7 +526,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('DescribeAccountLimitsResult')
         xml.at('AccountLimits') do |node|
           children = node.children('member')
-          data.account_limits = Parsers::AccountLimitList.parse(children)
+          data.account_limits = AccountLimitList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -539,7 +539,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccountLimit.parse(node)
+          data << AccountLimit.parse(node)
         end
         data
       end
@@ -582,7 +582,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('Parameters') do |node|
           children = node.children('member')
-          data.parameters = Parsers::Parameters.parse(children)
+          data.parameters = Parameters.parse(children)
         end
         xml.at('CreationTime') do |node|
           data.creation_time = Time.parse(node.text) if node.text
@@ -598,22 +598,22 @@ module AWS::SDK::CloudFormation
         end
         xml.at('NotificationARNs') do |node|
           children = node.children('member')
-          data.notification_ar_ns = Parsers::NotificationARNs.parse(children)
+          data.notification_ar_ns = NotificationARNs.parse(children)
         end
         xml.at('RollbackConfiguration') do |node|
-          data.rollback_configuration = Parsers::RollbackConfiguration.parse(node)
+          data.rollback_configuration = RollbackConfiguration.parse(node)
         end
         xml.at('Capabilities') do |node|
           children = node.children('member')
-          data.capabilities = Parsers::Capabilities.parse(children)
+          data.capabilities = Capabilities.parse(children)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::Tags.parse(children)
+          data.tags = Tags.parse(children)
         end
         xml.at('Changes') do |node|
           children = node.children('member')
-          data.changes = Parsers::Changes.parse(children)
+          data.changes = Changes.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -635,7 +635,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Change.parse(node)
+          data << Change.parse(node)
         end
         data
       end
@@ -651,7 +651,7 @@ module AWS::SDK::CloudFormation
           data.hook_invocation_count = node.text&.to_i
         end
         xml.at('ResourceChange') do |node|
-          data.resource_change = Parsers::ResourceChange.parse(node)
+          data.resource_change = ResourceChange.parse(node)
         end
         return data
       end
@@ -677,17 +677,17 @@ module AWS::SDK::CloudFormation
         end
         xml.at('Scope') do |node|
           children = node.children('member')
-          data.scope = Parsers::Scope.parse(children)
+          data.scope = Scope.parse(children)
         end
         xml.at('Details') do |node|
           children = node.children('member')
-          data.details = Parsers::ResourceChangeDetails.parse(children)
+          data.details = ResourceChangeDetails.parse(children)
         end
         xml.at('ChangeSetId') do |node|
           data.change_set_id = (node.text || '')
         end
         xml.at('ModuleInfo') do |node|
-          data.module_info = Parsers::ModuleInfo.parse(node)
+          data.module_info = ModuleInfo.parse(node)
         end
         return data
       end
@@ -710,7 +710,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResourceChangeDetail.parse(node)
+          data << ResourceChangeDetail.parse(node)
         end
         data
       end
@@ -720,7 +720,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = Types::ResourceChangeDetail.new
         xml.at('Target') do |node|
-          data.target = Parsers::ResourceTargetDefinition.parse(node)
+          data.target = ResourceTargetDefinition.parse(node)
         end
         xml.at('Evaluation') do |node|
           data.evaluation = (node.text || '')
@@ -765,7 +765,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -799,7 +799,7 @@ module AWS::SDK::CloudFormation
         data = Types::RollbackConfiguration.new
         xml.at('RollbackTriggers') do |node|
           children = node.children('member')
-          data.rollback_triggers = Parsers::RollbackTriggers.parse(children)
+          data.rollback_triggers = RollbackTriggers.parse(children)
         end
         xml.at('MonitoringTimeInMinutes') do |node|
           data.monitoring_time_in_minutes = node.text&.to_i
@@ -812,7 +812,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RollbackTrigger.parse(node)
+          data << RollbackTrigger.parse(node)
         end
         data
       end
@@ -845,7 +845,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Parameter.parse(node)
+          data << Parameter.parse(node)
         end
         data
       end
@@ -899,7 +899,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('Hooks') do |node|
           children = node.children('member')
-          data.hooks = Parsers::ChangeSetHooks.parse(children)
+          data.hooks = ChangeSetHooks.parse(children)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -921,7 +921,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ChangeSetHook.parse(node)
+          data << ChangeSetHook.parse(node)
         end
         data
       end
@@ -946,7 +946,7 @@ module AWS::SDK::CloudFormation
           data.type_configuration_version_id = (node.text || '')
         end
         xml.at('TargetDetails') do |node|
-          data.target_details = Parsers::ChangeSetHookTargetDetails.parse(node)
+          data.target_details = ChangeSetHookTargetDetails.parse(node)
         end
         return data
       end
@@ -959,7 +959,7 @@ module AWS::SDK::CloudFormation
           data.target_type = (node.text || '')
         end
         xml.at('ResourceTargetDetails') do |node|
-          data.resource_target_details = Parsers::ChangeSetHookResourceTargetDetails.parse(node)
+          data.resource_target_details = ChangeSetHookResourceTargetDetails.parse(node)
         end
         return data
       end
@@ -1045,7 +1045,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('DescribeStackEventsResult')
         xml.at('StackEvents') do |node|
           children = node.children('member')
-          data.stack_events = Parsers::StackEvents.parse(children)
+          data.stack_events = StackEvents.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1058,7 +1058,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackEvent.parse(node)
+          data << StackEvent.parse(node)
         end
         data
       end
@@ -1127,7 +1127,7 @@ module AWS::SDK::CloudFormation
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeStackInstanceResult')
         xml.at('StackInstance') do |node|
-          data.stack_instance = Parsers::StackInstance.parse(node)
+          data.stack_instance = StackInstance.parse(node)
         end
         data
       end
@@ -1150,13 +1150,13 @@ module AWS::SDK::CloudFormation
         end
         xml.at('ParameterOverrides') do |node|
           children = node.children('member')
-          data.parameter_overrides = Parsers::Parameters.parse(children)
+          data.parameter_overrides = Parameters.parse(children)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
         end
         xml.at('StackInstanceStatus') do |node|
-          data.stack_instance_status = Parsers::StackInstanceComprehensiveStatus.parse(node)
+          data.stack_instance_status = StackInstanceComprehensiveStatus.parse(node)
         end
         xml.at('StatusReason') do |node|
           data.status_reason = (node.text || '')
@@ -1206,7 +1206,7 @@ module AWS::SDK::CloudFormation
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeStackResourceResult')
         xml.at('StackResourceDetail') do |node|
-          data.stack_resource_detail = Parsers::StackResourceDetail.parse(node)
+          data.stack_resource_detail = StackResourceDetail.parse(node)
         end
         data
       end
@@ -1246,10 +1246,10 @@ module AWS::SDK::CloudFormation
           data.metadata = (node.text || '')
         end
         xml.at('DriftInformation') do |node|
-          data.drift_information = Parsers::StackResourceDriftInformation.parse(node)
+          data.drift_information = StackResourceDriftInformation.parse(node)
         end
         xml.at('ModuleInfo') do |node|
-          data.module_info = Parsers::ModuleInfo.parse(node)
+          data.module_info = ModuleInfo.parse(node)
         end
         return data
       end
@@ -1277,7 +1277,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('DescribeStackResourceDriftsResult')
         xml.at('StackResourceDrifts') do |node|
           children = node.children('member')
-          data.stack_resource_drifts = Parsers::StackResourceDrifts.parse(children)
+          data.stack_resource_drifts = StackResourceDrifts.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1290,7 +1290,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackResourceDrift.parse(node)
+          data << StackResourceDrift.parse(node)
         end
         data
       end
@@ -1310,7 +1310,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('PhysicalResourceIdContext') do |node|
           children = node.children('member')
-          data.physical_resource_id_context = Parsers::PhysicalResourceIdContext.parse(children)
+          data.physical_resource_id_context = PhysicalResourceIdContext.parse(children)
         end
         xml.at('ResourceType') do |node|
           data.resource_type = (node.text || '')
@@ -1323,7 +1323,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('PropertyDifferences') do |node|
           children = node.children('member')
-          data.property_differences = Parsers::PropertyDifferences.parse(children)
+          data.property_differences = PropertyDifferences.parse(children)
         end
         xml.at('StackResourceDriftStatus') do |node|
           data.stack_resource_drift_status = (node.text || '')
@@ -1332,7 +1332,7 @@ module AWS::SDK::CloudFormation
           data.timestamp = Time.parse(node.text) if node.text
         end
         xml.at('ModuleInfo') do |node|
-          data.module_info = Parsers::ModuleInfo.parse(node)
+          data.module_info = ModuleInfo.parse(node)
         end
         return data
       end
@@ -1342,7 +1342,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PropertyDifference.parse(node)
+          data << PropertyDifference.parse(node)
         end
         data
       end
@@ -1371,7 +1371,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PhysicalResourceIdContextKeyValuePair.parse(node)
+          data << PhysicalResourceIdContextKeyValuePair.parse(node)
         end
         data
       end
@@ -1399,7 +1399,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('DescribeStackResourcesResult')
         xml.at('StackResources') do |node|
           children = node.children('member')
-          data.stack_resources = Parsers::StackResources.parse(children)
+          data.stack_resources = StackResources.parse(children)
         end
         data
       end
@@ -1409,7 +1409,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackResource.parse(node)
+          data << StackResource.parse(node)
         end
         data
       end
@@ -1446,10 +1446,10 @@ module AWS::SDK::CloudFormation
           data.description = (node.text || '')
         end
         xml.at('DriftInformation') do |node|
-          data.drift_information = Parsers::StackResourceDriftInformation.parse(node)
+          data.drift_information = StackResourceDriftInformation.parse(node)
         end
         xml.at('ModuleInfo') do |node|
-          data.module_info = Parsers::ModuleInfo.parse(node)
+          data.module_info = ModuleInfo.parse(node)
         end
         return data
       end
@@ -1463,7 +1463,7 @@ module AWS::SDK::CloudFormation
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeStackSetResult')
         xml.at('StackSet') do |node|
-          data.stack_set = Parsers::StackSet.parse(node)
+          data.stack_set = StackSet.parse(node)
         end
         data
       end
@@ -1489,15 +1489,15 @@ module AWS::SDK::CloudFormation
         end
         xml.at('Parameters') do |node|
           children = node.children('member')
-          data.parameters = Parsers::Parameters.parse(children)
+          data.parameters = Parameters.parse(children)
         end
         xml.at('Capabilities') do |node|
           children = node.children('member')
-          data.capabilities = Parsers::Capabilities.parse(children)
+          data.capabilities = Capabilities.parse(children)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::Tags.parse(children)
+          data.tags = Tags.parse(children)
         end
         xml.at('StackSetARN') do |node|
           data.stack_set_arn = (node.text || '')
@@ -1509,20 +1509,20 @@ module AWS::SDK::CloudFormation
           data.execution_role_name = (node.text || '')
         end
         xml.at('StackSetDriftDetectionDetails') do |node|
-          data.stack_set_drift_detection_details = Parsers::StackSetDriftDetectionDetails.parse(node)
+          data.stack_set_drift_detection_details = StackSetDriftDetectionDetails.parse(node)
         end
         xml.at('AutoDeployment') do |node|
-          data.auto_deployment = Parsers::AutoDeployment.parse(node)
+          data.auto_deployment = AutoDeployment.parse(node)
         end
         xml.at('PermissionModel') do |node|
           data.permission_model = (node.text || '')
         end
         xml.at('OrganizationalUnitIds') do |node|
           children = node.children('member')
-          data.organizational_unit_ids = Parsers::OrganizationalUnitIdList.parse(children)
+          data.organizational_unit_ids = OrganizationalUnitIdList.parse(children)
         end
         xml.at('ManagedExecution') do |node|
-          data.managed_execution = Parsers::ManagedExecution.parse(node)
+          data.managed_execution = ManagedExecution.parse(node)
         end
         return data
       end
@@ -1600,7 +1600,7 @@ module AWS::SDK::CloudFormation
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeStackSetOperationResult')
         xml.at('StackSetOperation') do |node|
-          data.stack_set_operation = Parsers::StackSetOperation.parse(node)
+          data.stack_set_operation = StackSetOperation.parse(node)
         end
         data
       end
@@ -1622,7 +1622,7 @@ module AWS::SDK::CloudFormation
           data.status = (node.text || '')
         end
         xml.at('OperationPreferences') do |node|
-          data.operation_preferences = Parsers::StackSetOperationPreferences.parse(node)
+          data.operation_preferences = StackSetOperationPreferences.parse(node)
         end
         xml.at('RetainStacks') do |node|
           data.retain_stacks = (node.text == 'true')
@@ -1640,10 +1640,10 @@ module AWS::SDK::CloudFormation
           data.end_timestamp = Time.parse(node.text) if node.text
         end
         xml.at('DeploymentTargets') do |node|
-          data.deployment_targets = Parsers::DeploymentTargets.parse(node)
+          data.deployment_targets = DeploymentTargets.parse(node)
         end
         xml.at('StackSetDriftDetectionDetails') do |node|
-          data.stack_set_drift_detection_details = Parsers::StackSetDriftDetectionDetails.parse(node)
+          data.stack_set_drift_detection_details = StackSetDriftDetectionDetails.parse(node)
         end
         xml.at('StatusReason') do |node|
           data.status_reason = (node.text || '')
@@ -1657,14 +1657,14 @@ module AWS::SDK::CloudFormation
         data = Types::DeploymentTargets.new
         xml.at('Accounts') do |node|
           children = node.children('member')
-          data.accounts = Parsers::AccountList.parse(children)
+          data.accounts = AccountList.parse(children)
         end
         xml.at('AccountsUrl') do |node|
           data.accounts_url = (node.text || '')
         end
         xml.at('OrganizationalUnitIds') do |node|
           children = node.children('member')
-          data.organizational_unit_ids = Parsers::OrganizationalUnitIdList.parse(children)
+          data.organizational_unit_ids = OrganizationalUnitIdList.parse(children)
         end
         return data
       end
@@ -1688,7 +1688,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('RegionOrder') do |node|
           children = node.children('member')
-          data.region_order = Parsers::RegionList.parse(children)
+          data.region_order = RegionList.parse(children)
         end
         xml.at('FailureToleranceCount') do |node|
           data.failure_tolerance_count = node.text&.to_i
@@ -1739,7 +1739,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('DescribeStacksResult')
         xml.at('Stacks') do |node|
           children = node.children('member')
-          data.stacks = Parsers::Stacks.parse(children)
+          data.stacks = Stacks.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1752,7 +1752,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Stack.parse(node)
+          data << Stack.parse(node)
         end
         data
       end
@@ -1775,7 +1775,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('Parameters') do |node|
           children = node.children('member')
-          data.parameters = Parsers::Parameters.parse(children)
+          data.parameters = Parameters.parse(children)
         end
         xml.at('CreationTime') do |node|
           data.creation_time = Time.parse(node.text) if node.text
@@ -1787,7 +1787,7 @@ module AWS::SDK::CloudFormation
           data.last_updated_time = Time.parse(node.text) if node.text
         end
         xml.at('RollbackConfiguration') do |node|
-          data.rollback_configuration = Parsers::RollbackConfiguration.parse(node)
+          data.rollback_configuration = RollbackConfiguration.parse(node)
         end
         xml.at('StackStatus') do |node|
           data.stack_status = (node.text || '')
@@ -1800,25 +1800,25 @@ module AWS::SDK::CloudFormation
         end
         xml.at('NotificationARNs') do |node|
           children = node.children('member')
-          data.notification_ar_ns = Parsers::NotificationARNs.parse(children)
+          data.notification_ar_ns = NotificationARNs.parse(children)
         end
         xml.at('TimeoutInMinutes') do |node|
           data.timeout_in_minutes = node.text&.to_i
         end
         xml.at('Capabilities') do |node|
           children = node.children('member')
-          data.capabilities = Parsers::Capabilities.parse(children)
+          data.capabilities = Capabilities.parse(children)
         end
         xml.at('Outputs') do |node|
           children = node.children('member')
-          data.outputs = Parsers::Outputs.parse(children)
+          data.outputs = Outputs.parse(children)
         end
         xml.at('RoleARN') do |node|
           data.role_arn = (node.text || '')
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::Tags.parse(children)
+          data.tags = Tags.parse(children)
         end
         xml.at('EnableTerminationProtection') do |node|
           data.enable_termination_protection = (node.text == 'true')
@@ -1830,7 +1830,7 @@ module AWS::SDK::CloudFormation
           data.root_id = (node.text || '')
         end
         xml.at('DriftInformation') do |node|
-          data.drift_information = Parsers::StackDriftInformation.parse(node)
+          data.drift_information = StackDriftInformation.parse(node)
         end
         return data
       end
@@ -1853,7 +1853,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Output.parse(node)
+          data << Output.parse(node)
         end
         data
       end
@@ -1919,11 +1919,11 @@ module AWS::SDK::CloudFormation
           data.deprecated_status = (node.text || '')
         end
         xml.at('LoggingConfig') do |node|
-          data.logging_config = Parsers::LoggingConfig.parse(node)
+          data.logging_config = LoggingConfig.parse(node)
         end
         xml.at('RequiredActivatedTypes') do |node|
           children = node.children('member')
-          data.required_activated_types = Parsers::RequiredActivatedTypes.parse(children)
+          data.required_activated_types = RequiredActivatedTypes.parse(children)
         end
         xml.at('ExecutionRoleArn') do |node|
           data.execution_role_arn = (node.text || '')
@@ -1975,7 +1975,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RequiredActivatedType.parse(node)
+          data << RequiredActivatedType.parse(node)
         end
         data
       end
@@ -1995,7 +1995,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('SupportedMajorVersions') do |node|
           children = node.children('member')
-          data.supported_major_versions = Parsers::SupportedMajorVersions.parse(children)
+          data.supported_major_versions = SupportedMajorVersions.parse(children)
         end
         return data
       end
@@ -2069,7 +2069,7 @@ module AWS::SDK::CloudFormation
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DetectStackResourceDriftResult')
         xml.at('StackResourceDrift') do |node|
-          data.stack_resource_drift = Parsers::StackResourceDrift.parse(node)
+          data.stack_resource_drift = StackResourceDrift.parse(node)
         end
         data
       end
@@ -2140,7 +2140,7 @@ module AWS::SDK::CloudFormation
         end
         xml.at('StagesAvailable') do |node|
           children = node.children('member')
-          data.stages_available = Parsers::StageList.parse(children)
+          data.stages_available = StageList.parse(children)
         end
         data
       end
@@ -2165,21 +2165,21 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('GetTemplateSummaryResult')
         xml.at('Parameters') do |node|
           children = node.children('member')
-          data.parameters = Parsers::ParameterDeclarations.parse(children)
+          data.parameters = ParameterDeclarations.parse(children)
         end
         xml.at('Description') do |node|
           data.description = (node.text || '')
         end
         xml.at('Capabilities') do |node|
           children = node.children('member')
-          data.capabilities = Parsers::Capabilities.parse(children)
+          data.capabilities = Capabilities.parse(children)
         end
         xml.at('CapabilitiesReason') do |node|
           data.capabilities_reason = (node.text || '')
         end
         xml.at('ResourceTypes') do |node|
           children = node.children('member')
-          data.resource_types = Parsers::ResourceTypes.parse(children)
+          data.resource_types = ResourceTypes.parse(children)
         end
         xml.at('Version') do |node|
           data.version = (node.text || '')
@@ -2189,11 +2189,11 @@ module AWS::SDK::CloudFormation
         end
         xml.at('DeclaredTransforms') do |node|
           children = node.children('member')
-          data.declared_transforms = Parsers::TransformsList.parse(children)
+          data.declared_transforms = TransformsList.parse(children)
         end
         xml.at('ResourceIdentifierSummaries') do |node|
           children = node.children('member')
-          data.resource_identifier_summaries = Parsers::ResourceIdentifierSummaries.parse(children)
+          data.resource_identifier_summaries = ResourceIdentifierSummaries.parse(children)
         end
         data
       end
@@ -2203,7 +2203,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResourceIdentifierSummary.parse(node)
+          data << ResourceIdentifierSummary.parse(node)
         end
         data
       end
@@ -2217,11 +2217,11 @@ module AWS::SDK::CloudFormation
         end
         xml.at('LogicalResourceIds') do |node|
           children = node.children('member')
-          data.logical_resource_ids = Parsers::LogicalResourceIds.parse(children)
+          data.logical_resource_ids = LogicalResourceIds.parse(children)
         end
         xml.at('ResourceIdentifiers') do |node|
           children = node.children('member')
-          data.resource_identifiers = Parsers::ResourceIdentifiers.parse(children)
+          data.resource_identifiers = ResourceIdentifiers.parse(children)
         end
         return data
       end
@@ -2271,7 +2271,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ParameterDeclaration.parse(node)
+          data << ParameterDeclaration.parse(node)
         end
         data
       end
@@ -2296,7 +2296,7 @@ module AWS::SDK::CloudFormation
           data.description = (node.text || '')
         end
         xml.at('ParameterConstraints') do |node|
-          data.parameter_constraints = Parsers::ParameterConstraints.parse(node)
+          data.parameter_constraints = ParameterConstraints.parse(node)
         end
         return data
       end
@@ -2307,7 +2307,7 @@ module AWS::SDK::CloudFormation
         data = Types::ParameterConstraints.new
         xml.at('AllowedValues') do |node|
           children = node.children('member')
-          data.allowed_values = Parsers::AllowedValues.parse(children)
+          data.allowed_values = AllowedValues.parse(children)
         end
         return data
       end
@@ -2360,7 +2360,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListChangeSetsResult')
         xml.at('Summaries') do |node|
           children = node.children('member')
-          data.summaries = Parsers::ChangeSetSummaries.parse(children)
+          data.summaries = ChangeSetSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2373,7 +2373,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ChangeSetSummary.parse(node)
+          data << ChangeSetSummary.parse(node)
         end
         data
       end
@@ -2431,7 +2431,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListExportsResult')
         xml.at('Exports') do |node|
           children = node.children('member')
-          data.exports = Parsers::Exports.parse(children)
+          data.exports = Exports.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2444,7 +2444,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Export.parse(node)
+          data << Export.parse(node)
         end
         data
       end
@@ -2475,7 +2475,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListImportsResult')
         xml.at('Imports') do |node|
           children = node.children('member')
-          data.imports = Parsers::Imports.parse(children)
+          data.imports = Imports.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2503,7 +2503,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListStackInstancesResult')
         xml.at('Summaries') do |node|
           children = node.children('member')
-          data.summaries = Parsers::StackInstanceSummaries.parse(children)
+          data.summaries = StackInstanceSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2516,7 +2516,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackInstanceSummary.parse(node)
+          data << StackInstanceSummary.parse(node)
         end
         data
       end
@@ -2544,7 +2544,7 @@ module AWS::SDK::CloudFormation
           data.status_reason = (node.text || '')
         end
         xml.at('StackInstanceStatus') do |node|
-          data.stack_instance_status = Parsers::StackInstanceComprehensiveStatus.parse(node)
+          data.stack_instance_status = StackInstanceComprehensiveStatus.parse(node)
         end
         xml.at('OrganizationalUnitId') do |node|
           data.organizational_unit_id = (node.text || '')
@@ -2568,7 +2568,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListStackResourcesResult')
         xml.at('StackResourceSummaries') do |node|
           children = node.children('member')
-          data.stack_resource_summaries = Parsers::StackResourceSummaries.parse(children)
+          data.stack_resource_summaries = StackResourceSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2581,7 +2581,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackResourceSummary.parse(node)
+          data << StackResourceSummary.parse(node)
         end
         data
       end
@@ -2609,10 +2609,10 @@ module AWS::SDK::CloudFormation
           data.resource_status_reason = (node.text || '')
         end
         xml.at('DriftInformation') do |node|
-          data.drift_information = Parsers::StackResourceDriftInformationSummary.parse(node)
+          data.drift_information = StackResourceDriftInformationSummary.parse(node)
         end
         xml.at('ModuleInfo') do |node|
-          data.module_info = Parsers::ModuleInfo.parse(node)
+          data.module_info = ModuleInfo.parse(node)
         end
         return data
       end
@@ -2640,7 +2640,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListStackSetOperationResultsResult')
         xml.at('Summaries') do |node|
           children = node.children('member')
-          data.summaries = Parsers::StackSetOperationResultSummaries.parse(children)
+          data.summaries = StackSetOperationResultSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2653,7 +2653,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackSetOperationResultSummary.parse(node)
+          data << StackSetOperationResultSummary.parse(node)
         end
         data
       end
@@ -2675,7 +2675,7 @@ module AWS::SDK::CloudFormation
           data.status_reason = (node.text || '')
         end
         xml.at('AccountGateResult') do |node|
-          data.account_gate_result = Parsers::AccountGateResult.parse(node)
+          data.account_gate_result = AccountGateResult.parse(node)
         end
         xml.at('OrganizationalUnitId') do |node|
           data.organizational_unit_id = (node.text || '')
@@ -2706,7 +2706,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListStackSetOperationsResult')
         xml.at('Summaries') do |node|
           children = node.children('member')
-          data.summaries = Parsers::StackSetOperationSummaries.parse(children)
+          data.summaries = StackSetOperationSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2719,7 +2719,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackSetOperationSummary.parse(node)
+          data << StackSetOperationSummary.parse(node)
         end
         data
       end
@@ -2759,7 +2759,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListStackSetsResult')
         xml.at('Summaries') do |node|
           children = node.children('member')
-          data.summaries = Parsers::StackSetSummaries.parse(children)
+          data.summaries = StackSetSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2772,7 +2772,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackSetSummary.parse(node)
+          data << StackSetSummary.parse(node)
         end
         data
       end
@@ -2794,7 +2794,7 @@ module AWS::SDK::CloudFormation
           data.status = (node.text || '')
         end
         xml.at('AutoDeployment') do |node|
-          data.auto_deployment = Parsers::AutoDeployment.parse(node)
+          data.auto_deployment = AutoDeployment.parse(node)
         end
         xml.at('PermissionModel') do |node|
           data.permission_model = (node.text || '')
@@ -2806,7 +2806,7 @@ module AWS::SDK::CloudFormation
           data.last_drift_check_timestamp = Time.parse(node.text) if node.text
         end
         xml.at('ManagedExecution') do |node|
-          data.managed_execution = Parsers::ManagedExecution.parse(node)
+          data.managed_execution = ManagedExecution.parse(node)
         end
         return data
       end
@@ -2821,7 +2821,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListStacksResult')
         xml.at('StackSummaries') do |node|
           children = node.children('member')
-          data.stack_summaries = Parsers::StackSummaries.parse(children)
+          data.stack_summaries = StackSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2834,7 +2834,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StackSummary.parse(node)
+          data << StackSummary.parse(node)
         end
         data
       end
@@ -2874,7 +2874,7 @@ module AWS::SDK::CloudFormation
           data.root_id = (node.text || '')
         end
         xml.at('DriftInformation') do |node|
-          data.drift_information = Parsers::StackDriftInformationSummary.parse(node)
+          data.drift_information = StackDriftInformationSummary.parse(node)
         end
         return data
       end
@@ -2902,7 +2902,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListTypeRegistrationsResult')
         xml.at('RegistrationTokenList') do |node|
           children = node.children('member')
-          data.registration_token_list = Parsers::RegistrationTokenList.parse(children)
+          data.registration_token_list = RegistrationTokenList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2930,7 +2930,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListTypeVersionsResult')
         xml.at('TypeVersionSummaries') do |node|
           children = node.children('member')
-          data.type_version_summaries = Parsers::TypeVersionSummaries.parse(children)
+          data.type_version_summaries = TypeVersionSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2943,7 +2943,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TypeVersionSummary.parse(node)
+          data << TypeVersionSummary.parse(node)
         end
         data
       end
@@ -2989,7 +2989,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ListTypesResult')
         xml.at('TypeSummaries') do |node|
           children = node.children('member')
-          data.type_summaries = Parsers::TypeSummaries.parse(children)
+          data.type_summaries = TypeSummaries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -3002,7 +3002,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TypeSummary.parse(node)
+          data << TypeSummary.parse(node)
         end
         data
       end
@@ -3286,21 +3286,21 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML.parse(body).at('ValidateTemplateResult')
         xml.at('Parameters') do |node|
           children = node.children('member')
-          data.parameters = Parsers::TemplateParameters.parse(children)
+          data.parameters = TemplateParameters.parse(children)
         end
         xml.at('Description') do |node|
           data.description = (node.text || '')
         end
         xml.at('Capabilities') do |node|
           children = node.children('member')
-          data.capabilities = Parsers::Capabilities.parse(children)
+          data.capabilities = Capabilities.parse(children)
         end
         xml.at('CapabilitiesReason') do |node|
           data.capabilities_reason = (node.text || '')
         end
         xml.at('DeclaredTransforms') do |node|
           children = node.children('member')
-          data.declared_transforms = Parsers::TransformsList.parse(children)
+          data.declared_transforms = TransformsList.parse(children)
         end
         data
       end
@@ -3310,7 +3310,7 @@ module AWS::SDK::CloudFormation
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TemplateParameter.parse(node)
+          data << TemplateParameter.parse(node)
         end
         data
       end

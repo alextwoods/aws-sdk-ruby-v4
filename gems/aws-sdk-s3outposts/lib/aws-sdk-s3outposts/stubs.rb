@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::S3Outposts
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::S3Outposts
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['EndpointArn'] = stub[:endpoint_arn] unless stub[:endpoint_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,9 +55,9 @@ module AWS::SDK::S3Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -73,7 +75,7 @@ module AWS::SDK::S3Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Endpoint.stub(element) unless element.nil?
+          data << Endpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -107,7 +109,7 @@ module AWS::SDK::S3Outposts
         data['CidrBlock'] = stub[:cidr_block] unless stub[:cidr_block].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['NetworkInterfaces'] = Stubs::NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['NetworkInterfaces'] = NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['SecurityGroupId'] = stub[:security_group_id] unless stub[:security_group_id].nil?
@@ -131,7 +133,7 @@ module AWS::SDK::S3Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInterface.stub(element) unless element.nil?
+          data << NetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -168,9 +170,9 @@ module AWS::SDK::S3Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

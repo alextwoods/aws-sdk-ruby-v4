@@ -150,7 +150,7 @@ module AWS::SDK::Translate
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.text_translation_job_properties = (Parsers::TextTranslationJobProperties.parse(map['TextTranslationJobProperties']) unless map['TextTranslationJobProperties'].nil?)
+        data.text_translation_job_properties = (TextTranslationJobProperties.parse(map['TextTranslationJobProperties']) unless map['TextTranslationJobProperties'].nil?)
         data
       end
     end
@@ -161,18 +161,18 @@ module AWS::SDK::Translate
         data.job_id = map['JobId']
         data.job_name = map['JobName']
         data.job_status = map['JobStatus']
-        data.job_details = (Parsers::JobDetails.parse(map['JobDetails']) unless map['JobDetails'].nil?)
+        data.job_details = (JobDetails.parse(map['JobDetails']) unless map['JobDetails'].nil?)
         data.source_language_code = map['SourceLanguageCode']
-        data.target_language_codes = (Parsers::TargetLanguageCodeStringList.parse(map['TargetLanguageCodes']) unless map['TargetLanguageCodes'].nil?)
-        data.terminology_names = (Parsers::ResourceNameList.parse(map['TerminologyNames']) unless map['TerminologyNames'].nil?)
-        data.parallel_data_names = (Parsers::ResourceNameList.parse(map['ParallelDataNames']) unless map['ParallelDataNames'].nil?)
+        data.target_language_codes = (TargetLanguageCodeStringList.parse(map['TargetLanguageCodes']) unless map['TargetLanguageCodes'].nil?)
+        data.terminology_names = (ResourceNameList.parse(map['TerminologyNames']) unless map['TerminologyNames'].nil?)
+        data.parallel_data_names = (ResourceNameList.parse(map['ParallelDataNames']) unless map['ParallelDataNames'].nil?)
         data.message = map['Message']
         data.submitted_time = Time.at(map['SubmittedTime'].to_i) if map['SubmittedTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.data_access_role_arn = map['DataAccessRoleArn']
-        data.settings = (Parsers::TranslationSettings.parse(map['Settings']) unless map['Settings'].nil?)
+        data.settings = (TranslationSettings.parse(map['Settings']) unless map['Settings'].nil?)
         return data
       end
     end
@@ -190,7 +190,7 @@ module AWS::SDK::Translate
       def self.parse(map)
         data = Types::OutputDataConfig.new
         data.s3_uri = map['S3Uri']
-        data.encryption_key = (Parsers::EncryptionKey.parse(map['EncryptionKey']) unless map['EncryptionKey'].nil?)
+        data.encryption_key = (EncryptionKey.parse(map['EncryptionKey']) unless map['EncryptionKey'].nil?)
         return data
       end
     end
@@ -246,10 +246,10 @@ module AWS::SDK::Translate
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parallel_data_properties = (Parsers::ParallelDataProperties.parse(map['ParallelDataProperties']) unless map['ParallelDataProperties'].nil?)
-        data.data_location = (Parsers::ParallelDataDataLocation.parse(map['DataLocation']) unless map['DataLocation'].nil?)
-        data.auxiliary_data_location = (Parsers::ParallelDataDataLocation.parse(map['AuxiliaryDataLocation']) unless map['AuxiliaryDataLocation'].nil?)
-        data.latest_update_attempt_auxiliary_data_location = (Parsers::ParallelDataDataLocation.parse(map['LatestUpdateAttemptAuxiliaryDataLocation']) unless map['LatestUpdateAttemptAuxiliaryDataLocation'].nil?)
+        data.parallel_data_properties = (ParallelDataProperties.parse(map['ParallelDataProperties']) unless map['ParallelDataProperties'].nil?)
+        data.data_location = (ParallelDataDataLocation.parse(map['DataLocation']) unless map['DataLocation'].nil?)
+        data.auxiliary_data_location = (ParallelDataDataLocation.parse(map['AuxiliaryDataLocation']) unless map['AuxiliaryDataLocation'].nil?)
+        data.latest_update_attempt_auxiliary_data_location = (ParallelDataDataLocation.parse(map['LatestUpdateAttemptAuxiliaryDataLocation']) unless map['LatestUpdateAttemptAuxiliaryDataLocation'].nil?)
         data
       end
     end
@@ -271,14 +271,14 @@ module AWS::SDK::Translate
         data.description = map['Description']
         data.status = map['Status']
         data.source_language_code = map['SourceLanguageCode']
-        data.target_language_codes = (Parsers::LanguageCodeStringList.parse(map['TargetLanguageCodes']) unless map['TargetLanguageCodes'].nil?)
-        data.parallel_data_config = (Parsers::ParallelDataConfig.parse(map['ParallelDataConfig']) unless map['ParallelDataConfig'].nil?)
+        data.target_language_codes = (LanguageCodeStringList.parse(map['TargetLanguageCodes']) unless map['TargetLanguageCodes'].nil?)
+        data.parallel_data_config = (ParallelDataConfig.parse(map['ParallelDataConfig']) unless map['ParallelDataConfig'].nil?)
         data.message = map['Message']
         data.imported_data_size = map['ImportedDataSize']
         data.imported_record_count = map['ImportedRecordCount']
         data.failed_record_count = map['FailedRecordCount']
         data.skipped_record_count = map['SkippedRecordCount']
-        data.encryption_key = (Parsers::EncryptionKey.parse(map['EncryptionKey']) unless map['EncryptionKey'].nil?)
+        data.encryption_key = (EncryptionKey.parse(map['EncryptionKey']) unless map['EncryptionKey'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
         data.latest_update_attempt_status = map['LatestUpdateAttemptStatus']
@@ -311,9 +311,9 @@ module AWS::SDK::Translate
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.terminology_properties = (Parsers::TerminologyProperties.parse(map['TerminologyProperties']) unless map['TerminologyProperties'].nil?)
-        data.terminology_data_location = (Parsers::TerminologyDataLocation.parse(map['TerminologyDataLocation']) unless map['TerminologyDataLocation'].nil?)
-        data.auxiliary_data_location = (Parsers::TerminologyDataLocation.parse(map['AuxiliaryDataLocation']) unless map['AuxiliaryDataLocation'].nil?)
+        data.terminology_properties = (TerminologyProperties.parse(map['TerminologyProperties']) unless map['TerminologyProperties'].nil?)
+        data.terminology_data_location = (TerminologyDataLocation.parse(map['TerminologyDataLocation']) unless map['TerminologyDataLocation'].nil?)
+        data.auxiliary_data_location = (TerminologyDataLocation.parse(map['AuxiliaryDataLocation']) unless map['AuxiliaryDataLocation'].nil?)
         data
       end
     end
@@ -334,8 +334,8 @@ module AWS::SDK::Translate
         data.description = map['Description']
         data.arn = map['Arn']
         data.source_language_code = map['SourceLanguageCode']
-        data.target_language_codes = (Parsers::LanguageCodeStringList.parse(map['TargetLanguageCodes']) unless map['TargetLanguageCodes'].nil?)
-        data.encryption_key = (Parsers::EncryptionKey.parse(map['EncryptionKey']) unless map['EncryptionKey'].nil?)
+        data.target_language_codes = (LanguageCodeStringList.parse(map['TargetLanguageCodes']) unless map['TargetLanguageCodes'].nil?)
+        data.encryption_key = (EncryptionKey.parse(map['EncryptionKey']) unless map['EncryptionKey'].nil?)
         data.size_bytes = map['SizeBytes']
         data.term_count = map['TermCount']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
@@ -355,8 +355,8 @@ module AWS::SDK::Translate
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.terminology_properties = (Parsers::TerminologyProperties.parse(map['TerminologyProperties']) unless map['TerminologyProperties'].nil?)
-        data.auxiliary_data_location = (Parsers::TerminologyDataLocation.parse(map['AuxiliaryDataLocation']) unless map['AuxiliaryDataLocation'].nil?)
+        data.terminology_properties = (TerminologyProperties.parse(map['TerminologyProperties']) unless map['TerminologyProperties'].nil?)
+        data.auxiliary_data_location = (TerminologyDataLocation.parse(map['AuxiliaryDataLocation']) unless map['AuxiliaryDataLocation'].nil?)
         data
       end
     end
@@ -368,7 +368,7 @@ module AWS::SDK::Translate
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parallel_data_properties_list = (Parsers::ParallelDataPropertiesList.parse(map['ParallelDataPropertiesList']) unless map['ParallelDataPropertiesList'].nil?)
+        data.parallel_data_properties_list = (ParallelDataPropertiesList.parse(map['ParallelDataPropertiesList']) unless map['ParallelDataPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -377,7 +377,7 @@ module AWS::SDK::Translate
     class ParallelDataPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParallelDataProperties.parse(value) unless value.nil?
+          ParallelDataProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -389,7 +389,7 @@ module AWS::SDK::Translate
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.terminology_properties_list = (Parsers::TerminologyPropertiesList.parse(map['TerminologyPropertiesList']) unless map['TerminologyPropertiesList'].nil?)
+        data.terminology_properties_list = (TerminologyPropertiesList.parse(map['TerminologyPropertiesList']) unless map['TerminologyPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -398,7 +398,7 @@ module AWS::SDK::Translate
     class TerminologyPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::TerminologyProperties.parse(value) unless value.nil?
+          TerminologyProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -410,7 +410,7 @@ module AWS::SDK::Translate
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.text_translation_job_properties_list = (Parsers::TextTranslationJobPropertiesList.parse(map['TextTranslationJobPropertiesList']) unless map['TextTranslationJobPropertiesList'].nil?)
+        data.text_translation_job_properties_list = (TextTranslationJobPropertiesList.parse(map['TextTranslationJobPropertiesList']) unless map['TextTranslationJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -419,7 +419,7 @@ module AWS::SDK::Translate
     class TextTranslationJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::TextTranslationJobProperties.parse(value) unless value.nil?
+          TextTranslationJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -486,8 +486,8 @@ module AWS::SDK::Translate
         data.translated_text = map['TranslatedText']
         data.source_language_code = map['SourceLanguageCode']
         data.target_language_code = map['TargetLanguageCode']
-        data.applied_terminologies = (Parsers::AppliedTerminologyList.parse(map['AppliedTerminologies']) unless map['AppliedTerminologies'].nil?)
-        data.applied_settings = (Parsers::TranslationSettings.parse(map['AppliedSettings']) unless map['AppliedSettings'].nil?)
+        data.applied_terminologies = (AppliedTerminologyList.parse(map['AppliedTerminologies']) unless map['AppliedTerminologies'].nil?)
+        data.applied_settings = (TranslationSettings.parse(map['AppliedSettings']) unless map['AppliedSettings'].nil?)
         data
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::Translate
     class AppliedTerminologyList
       def self.parse(list)
         list.map do |value|
-          Parsers::AppliedTerminology.parse(value) unless value.nil?
+          AppliedTerminology.parse(value) unless value.nil?
         end
       end
     end
@@ -504,7 +504,7 @@ module AWS::SDK::Translate
       def self.parse(map)
         data = Types::AppliedTerminology.new
         data.name = map['Name']
-        data.terms = (Parsers::TermList.parse(map['Terms']) unless map['Terms'].nil?)
+        data.terms = (TermList.parse(map['Terms']) unless map['Terms'].nil?)
         return data
       end
     end
@@ -512,7 +512,7 @@ module AWS::SDK::Translate
     class TermList
       def self.parse(list)
         list.map do |value|
-          Parsers::Term.parse(value) unless value.nil?
+          Term.parse(value) unless value.nil?
         end
       end
     end

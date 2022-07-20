@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkMailMessageFlow
   module Builders
 
@@ -44,8 +46,8 @@ module AWS::SDK::WorkMailMessageFlow
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['content'] = Builders::RawMessageContent.build(input[:content]) unless input[:content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['content'] = RawMessageContent.build(input[:content]) unless input[:content].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::WorkMailMessageFlow
     class RawMessageContent
       def self.build(input)
         data = {}
-        data['s3Reference'] = Builders::S3Reference.build(input[:s3_reference]) unless input[:s3_reference].nil?
+        data['s3Reference'] = S3Reference.build(input[:s3_reference]) unless input[:s3_reference].nil?
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppConfigData
   module Builders
 
@@ -35,7 +37,7 @@ module AWS::SDK::AppConfigData
         data['EnvironmentIdentifier'] = input[:environment_identifier] unless input[:environment_identifier].nil?
         data['ConfigurationProfileIdentifier'] = input[:configuration_profile_identifier] unless input[:configuration_profile_identifier].nil?
         data['RequiredMinimumPollIntervalInSeconds'] = input[:required_minimum_poll_interval_in_seconds] unless input[:required_minimum_poll_interval_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

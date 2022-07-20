@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::OpsWorksCM
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::OpsWorksCM
       def self.stub(http_resp, stub:)
         data = {}
         data['NodeAssociationStatusToken'] = stub[:node_association_status_token] unless stub[:node_association_status_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -36,8 +38,8 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backup'] = Stubs::Backup.stub(stub[:backup]) unless stub[:backup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Backup'] = Backup.stub(stub[:backup]) unless stub[:backup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -94,12 +96,12 @@ module AWS::SDK::OpsWorksCM
         data['S3DataSize'] = stub[:s3_data_size] unless stub[:s3_data_size].nil?
         data['S3DataUrl'] = stub[:s3_data_url] unless stub[:s3_data_url].nil?
         data['S3LogUrl'] = stub[:s3_log_url] unless stub[:s3_log_url].nil?
-        data['SecurityGroupIds'] = Stubs::Strings.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SecurityGroupIds'] = Strings.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['ServerName'] = stub[:server_name] unless stub[:server_name].nil?
         data['ServiceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusDescription'] = stub[:status_description] unless stub[:status_description].nil?
-        data['SubnetIds'] = Stubs::Strings.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = Strings.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['ToolsVersion'] = stub[:tools_version] unless stub[:tools_version].nil?
         data['UserArn'] = stub[:user_arn] unless stub[:user_arn].nil?
         data
@@ -136,8 +138,8 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Server'] = Server.stub(stub[:server]) unless stub[:server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -188,7 +190,7 @@ module AWS::SDK::OpsWorksCM
         data['Endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
         data['Engine'] = stub[:engine] unless stub[:engine].nil?
         data['EngineModel'] = stub[:engine_model] unless stub[:engine_model].nil?
-        data['EngineAttributes'] = Stubs::EngineAttributes.stub(stub[:engine_attributes]) unless stub[:engine_attributes].nil?
+        data['EngineAttributes'] = EngineAttributes.stub(stub[:engine_attributes]) unless stub[:engine_attributes].nil?
         data['EngineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['InstanceProfileArn'] = stub[:instance_profile_arn] unless stub[:instance_profile_arn].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
@@ -196,11 +198,11 @@ module AWS::SDK::OpsWorksCM
         data['MaintenanceStatus'] = stub[:maintenance_status] unless stub[:maintenance_status].nil?
         data['PreferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
         data['PreferredBackupWindow'] = stub[:preferred_backup_window] unless stub[:preferred_backup_window].nil?
-        data['SecurityGroupIds'] = Stubs::Strings.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SecurityGroupIds'] = Strings.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['ServiceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['SubnetIds'] = Stubs::Strings.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = Strings.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['ServerArn'] = stub[:server_arn] unless stub[:server_arn].nil?
         data
       end
@@ -220,7 +222,7 @@ module AWS::SDK::OpsWorksCM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EngineAttribute.stub(element) unless element.nil?
+          data << EngineAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -255,7 +257,7 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -269,7 +271,7 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -284,8 +286,8 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Attributes'] = Stubs::AccountAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = AccountAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -304,7 +306,7 @@ module AWS::SDK::OpsWorksCM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountAttribute.stub(element) unless element.nil?
+          data << AccountAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -343,9 +345,9 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backups'] = Stubs::Backups.stub(stub[:backups]) unless stub[:backups].nil?
+        data['Backups'] = Backups.stub(stub[:backups]) unless stub[:backups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -364,7 +366,7 @@ module AWS::SDK::OpsWorksCM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Backup.stub(element) unless element.nil?
+          data << Backup.stub(element) unless element.nil?
         end
         data
       end
@@ -381,9 +383,9 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServerEvents'] = Stubs::ServerEvents.stub(stub[:server_events]) unless stub[:server_events].nil?
+        data['ServerEvents'] = ServerEvents.stub(stub[:server_events]) unless stub[:server_events].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -402,7 +404,7 @@ module AWS::SDK::OpsWorksCM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerEvent.stub(element) unless element.nil?
+          data << ServerEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -444,8 +446,8 @@ module AWS::SDK::OpsWorksCM
       def self.stub(http_resp, stub:)
         data = {}
         data['NodeAssociationStatus'] = stub[:node_association_status] unless stub[:node_association_status].nil?
-        data['EngineAttributes'] = Stubs::EngineAttributes.stub(stub[:engine_attributes]) unless stub[:engine_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EngineAttributes'] = EngineAttributes.stub(stub[:engine_attributes]) unless stub[:engine_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -461,9 +463,9 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Servers'] = Stubs::Servers.stub(stub[:servers]) unless stub[:servers].nil?
+        data['Servers'] = Servers.stub(stub[:servers]) unless stub[:servers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -482,7 +484,7 @@ module AWS::SDK::OpsWorksCM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Server.stub(element) unless element.nil?
+          data << Server.stub(element) unless element.nil?
         end
         data
       end
@@ -499,7 +501,7 @@ module AWS::SDK::OpsWorksCM
       def self.stub(http_resp, stub:)
         data = {}
         data['NodeAssociationStatusToken'] = stub[:node_association_status_token] unless stub[:node_association_status_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -515,9 +517,9 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EngineAttribute'] = Stubs::EngineAttribute.stub(stub[:engine_attribute]) unless stub[:engine_attribute].nil?
+        data['EngineAttribute'] = EngineAttribute.stub(stub[:engine_attribute]) unless stub[:engine_attribute].nil?
         data['ServerName'] = stub[:server_name] unless stub[:server_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -533,9 +535,9 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::OpsWorksCM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -590,8 +592,8 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Server'] = Server.stub(stub[:server]) unless stub[:server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -606,8 +608,8 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Server'] = Server.stub(stub[:server]) unless stub[:server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -621,7 +623,7 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -635,7 +637,7 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -650,8 +652,8 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Server'] = Server.stub(stub[:server]) unless stub[:server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -666,8 +668,8 @@ module AWS::SDK::OpsWorksCM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Server'] = Server.stub(stub[:server]) unless stub[:server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LakeFormation
   module Builders
 
@@ -21,9 +23,9 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Resource'] = Builders::Resource.build(input[:resource]) unless input[:resource].nil?
-        data['LFTags'] = Builders::LFTagsList.build(input[:lf_tags]) unless input[:lf_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Resource'] = Resource.build(input[:resource]) unless input[:resource].nil?
+        data['LFTags'] = LFTagsList.build(input[:lf_tags]) unless input[:lf_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LFTagPair.build(element) unless element.nil?
+          data << LFTagPair.build(element) unless element.nil?
         end
         data
       end
@@ -44,7 +46,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        data['TagValues'] = Builders::TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['TagValues'] = TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -64,14 +66,14 @@ module AWS::SDK::LakeFormation
     class Resource
       def self.build(input)
         data = {}
-        data['Catalog'] = Builders::CatalogResource.build(input[:catalog]) unless input[:catalog].nil?
-        data['Database'] = Builders::DatabaseResource.build(input[:database]) unless input[:database].nil?
-        data['Table'] = Builders::TableResource.build(input[:table]) unless input[:table].nil?
-        data['TableWithColumns'] = Builders::TableWithColumnsResource.build(input[:table_with_columns]) unless input[:table_with_columns].nil?
-        data['DataLocation'] = Builders::DataLocationResource.build(input[:data_location]) unless input[:data_location].nil?
-        data['DataCellsFilter'] = Builders::DataCellsFilterResource.build(input[:data_cells_filter]) unless input[:data_cells_filter].nil?
-        data['LFTag'] = Builders::LFTagKeyResource.build(input[:lf_tag]) unless input[:lf_tag].nil?
-        data['LFTagPolicy'] = Builders::LFTagPolicyResource.build(input[:lf_tag_policy]) unless input[:lf_tag_policy].nil?
+        data['Catalog'] = CatalogResource.build(input[:catalog]) unless input[:catalog].nil?
+        data['Database'] = DatabaseResource.build(input[:database]) unless input[:database].nil?
+        data['Table'] = TableResource.build(input[:table]) unless input[:table].nil?
+        data['TableWithColumns'] = TableWithColumnsResource.build(input[:table_with_columns]) unless input[:table_with_columns].nil?
+        data['DataLocation'] = DataLocationResource.build(input[:data_location]) unless input[:data_location].nil?
+        data['DataCellsFilter'] = DataCellsFilterResource.build(input[:data_cells_filter]) unless input[:data_cells_filter].nil?
+        data['LFTag'] = LFTagKeyResource.build(input[:lf_tag]) unless input[:lf_tag].nil?
+        data['LFTagPolicy'] = LFTagPolicyResource.build(input[:lf_tag_policy]) unless input[:lf_tag_policy].nil?
         data
       end
     end
@@ -82,7 +84,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['Expression'] = Builders::Expression.build(input[:expression]) unless input[:expression].nil?
+        data['Expression'] = Expression.build(input[:expression]) unless input[:expression].nil?
         data
       end
     end
@@ -92,7 +94,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LFTag.build(element) unless element.nil?
+          data << LFTag.build(element) unless element.nil?
         end
         data
       end
@@ -103,7 +105,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = {}
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        data['TagValues'] = Builders::TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['TagValues'] = TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -114,7 +116,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        data['TagValues'] = Builders::TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['TagValues'] = TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -148,8 +150,8 @@ module AWS::SDK::LakeFormation
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['ColumnNames'] = Builders::ColumnNames.build(input[:column_names]) unless input[:column_names].nil?
-        data['ColumnWildcard'] = Builders::ColumnWildcard.build(input[:column_wildcard]) unless input[:column_wildcard].nil?
+        data['ColumnNames'] = ColumnNames.build(input[:column_names]) unless input[:column_names].nil?
+        data['ColumnWildcard'] = ColumnWildcard.build(input[:column_wildcard]) unless input[:column_wildcard].nil?
         data
       end
     end
@@ -158,7 +160,7 @@ module AWS::SDK::LakeFormation
     class ColumnWildcard
       def self.build(input)
         data = {}
-        data['ExcludedColumnNames'] = Builders::ColumnNames.build(input[:excluded_column_names]) unless input[:excluded_column_names].nil?
+        data['ExcludedColumnNames'] = ColumnNames.build(input[:excluded_column_names]) unless input[:excluded_column_names].nil?
         data
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::LakeFormation
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['TableWildcard'] = Builders::TableWildcard.build(input[:table_wildcard]) unless input[:table_wildcard].nil?
+        data['TableWildcard'] = TableWildcard.build(input[:table_wildcard]) unless input[:table_wildcard].nil?
         data
       end
     end
@@ -223,8 +225,8 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Entries'] = Builders::BatchPermissionsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entries'] = BatchPermissionsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchPermissionsRequestEntry.build(element) unless element.nil?
+          data << BatchPermissionsRequestEntry.build(element) unless element.nil?
         end
         data
       end
@@ -244,10 +246,10 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        data['Principal'] = Builders::DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
-        data['Resource'] = Builders::Resource.build(input[:resource]) unless input[:resource].nil?
-        data['Permissions'] = Builders::PermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['PermissionsWithGrantOption'] = Builders::PermissionList.build(input[:permissions_with_grant_option]) unless input[:permissions_with_grant_option].nil?
+        data['Principal'] = DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
+        data['Resource'] = Resource.build(input[:resource]) unless input[:resource].nil?
+        data['Permissions'] = PermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['PermissionsWithGrantOption'] = PermissionList.build(input[:permissions_with_grant_option]) unless input[:permissions_with_grant_option].nil?
         data
       end
     end
@@ -283,8 +285,8 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Entries'] = Builders::BatchPermissionsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entries'] = BatchPermissionsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -299,7 +301,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -314,7 +316,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,8 +330,8 @@ module AWS::SDK::LakeFormation
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TableData'] = Builders::DataCellsFilter.build(input[:table_data]) unless input[:table_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableData'] = DataCellsFilter.build(input[:table_data]) unless input[:table_data].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -341,9 +343,9 @@ module AWS::SDK::LakeFormation
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['RowFilter'] = Builders::RowFilter.build(input[:row_filter]) unless input[:row_filter].nil?
-        data['ColumnNames'] = Builders::ColumnNames.build(input[:column_names]) unless input[:column_names].nil?
-        data['ColumnWildcard'] = Builders::ColumnWildcard.build(input[:column_wildcard]) unless input[:column_wildcard].nil?
+        data['RowFilter'] = RowFilter.build(input[:row_filter]) unless input[:row_filter].nil?
+        data['ColumnNames'] = ColumnNames.build(input[:column_names]) unless input[:column_names].nil?
+        data['ColumnWildcard'] = ColumnWildcard.build(input[:column_wildcard]) unless input[:column_wildcard].nil?
         data
       end
     end
@@ -353,7 +355,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = {}
         data['FilterExpression'] = input[:filter_expression] unless input[:filter_expression].nil?
-        data['AllRowsWildcard'] = Builders::AllRowsWildcard.build(input[:all_rows_wildcard]) unless input[:all_rows_wildcard].nil?
+        data['AllRowsWildcard'] = AllRowsWildcard.build(input[:all_rows_wildcard]) unless input[:all_rows_wildcard].nil?
         data
       end
     end
@@ -378,8 +380,8 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        data['TagValues'] = Builders::TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagValues'] = TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -397,7 +399,7 @@ module AWS::SDK::LakeFormation
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,7 +415,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -431,8 +433,8 @@ module AWS::SDK::LakeFormation
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        data['Objects'] = Builders::VirtualObjectList.build(input[:objects]) unless input[:objects].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Objects'] = VirtualObjectList.build(input[:objects]) unless input[:objects].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VirtualObject.build(element) unless element.nil?
+          data << VirtualObject.build(element) unless element.nil?
         end
         data
       end
@@ -468,7 +470,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -483,7 +485,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -513,7 +515,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -528,7 +530,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -546,7 +548,7 @@ module AWS::SDK::LakeFormation
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -562,7 +564,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -577,7 +579,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -592,7 +594,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,9 +609,9 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Resource'] = Builders::Resource.build(input[:resource]) unless input[:resource].nil?
+        data['Resource'] = Resource.build(input[:resource]) unless input[:resource].nil?
         data['ShowAssignedLFTags'] = input[:show_assigned_lf_tags] unless input[:show_assigned_lf_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,7 +633,7 @@ module AWS::SDK::LakeFormation
         data['PartitionPredicate'] = input[:partition_predicate] unless input[:partition_predicate].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -646,12 +648,12 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TableArn'] = input[:table_arn] unless input[:table_arn].nil?
-        data['Partition'] = Builders::PartitionValueList.build(input[:partition]) unless input[:partition].nil?
-        data['Permissions'] = Builders::PermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Partition'] = PartitionValueList.build(input[:partition]) unless input[:partition].nil?
+        data['Permissions'] = PermissionList.build(input[:permissions]) unless input[:permissions].nil?
         data['DurationSeconds'] = input[:duration_seconds] unless input[:duration_seconds].nil?
-        data['AuditContext'] = Builders::AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
-        data['SupportedPermissionTypes'] = Builders::PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AuditContext'] = AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
+        data['SupportedPermissionTypes'] = PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::LakeFormation
     class PartitionValueList
       def self.build(input)
         data = {}
-        data['Values'] = Builders::ValueStringList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ValueStringList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -706,11 +708,11 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TableArn'] = input[:table_arn] unless input[:table_arn].nil?
-        data['Permissions'] = Builders::PermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Permissions'] = PermissionList.build(input[:permissions]) unless input[:permissions].nil?
         data['DurationSeconds'] = input[:duration_seconds] unless input[:duration_seconds].nil?
-        data['AuditContext'] = Builders::AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
-        data['SupportedPermissionTypes'] = Builders::PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AuditContext'] = AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
+        data['SupportedPermissionTypes'] = PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -727,7 +729,7 @@ module AWS::SDK::LakeFormation
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
         data['WorkUnitId'] = input[:work_unit_id] unless input[:work_unit_id].nil?
         data['WorkUnitToken'] = input[:work_unit_token] unless input[:work_unit_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -744,7 +746,7 @@ module AWS::SDK::LakeFormation
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -759,11 +761,11 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Principal'] = Builders::DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
-        data['Resource'] = Builders::Resource.build(input[:resource]) unless input[:resource].nil?
-        data['Permissions'] = Builders::PermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['PermissionsWithGrantOption'] = Builders::PermissionList.build(input[:permissions_with_grant_option]) unless input[:permissions_with_grant_option].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Principal'] = DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
+        data['Resource'] = Resource.build(input[:resource]) unless input[:resource].nil?
+        data['Permissions'] = PermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['PermissionsWithGrantOption'] = PermissionList.build(input[:permissions_with_grant_option]) unless input[:permissions_with_grant_option].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -777,10 +779,10 @@ module AWS::SDK::LakeFormation
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Table'] = Builders::TableResource.build(input[:table]) unless input[:table].nil?
+        data['Table'] = TableResource.build(input[:table]) unless input[:table].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -798,7 +800,7 @@ module AWS::SDK::LakeFormation
         data['ResourceShareType'] = input[:resource_share_type] unless input[:resource_share_type].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -813,13 +815,13 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Principal'] = Builders::DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
+        data['Principal'] = DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['Resource'] = Builders::Resource.build(input[:resource]) unless input[:resource].nil?
+        data['Resource'] = Resource.build(input[:resource]) unless input[:resource].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['IncludeRelated'] = input[:include_related] unless input[:include_related].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -833,10 +835,10 @@ module AWS::SDK::LakeFormation
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['FilterConditionList'] = Builders::FilterConditionList.build(input[:filter_condition_list]) unless input[:filter_condition_list].nil?
+        data['FilterConditionList'] = FilterConditionList.build(input[:filter_condition_list]) unless input[:filter_condition_list].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -845,7 +847,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FilterCondition.build(element) unless element.nil?
+          data << FilterCondition.build(element) unless element.nil?
         end
         data
       end
@@ -857,7 +859,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['Field'] = input[:field] unless input[:field].nil?
         data['ComparisonOperator'] = input[:comparison_operator] unless input[:comparison_operator].nil?
-        data['StringValueList'] = Builders::StringValueList.build(input[:string_value_list]) unless input[:string_value_list].nil?
+        data['StringValueList'] = StringValueList.build(input[:string_value_list]) unless input[:string_value_list].nil?
         data
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::LakeFormation
         data['StorageOptimizerType'] = input[:storage_optimizer_type] unless input[:storage_optimizer_type].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -907,7 +909,7 @@ module AWS::SDK::LakeFormation
         data['StatusFilter'] = input[:status_filter] unless input[:status_filter].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,8 +924,8 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['DataLakeSettings'] = Builders::DataLakeSettings.build(input[:data_lake_settings]) unless input[:data_lake_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataLakeSettings'] = DataLakeSettings.build(input[:data_lake_settings]) unless input[:data_lake_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -931,13 +933,13 @@ module AWS::SDK::LakeFormation
     class DataLakeSettings
       def self.build(input)
         data = {}
-        data['DataLakeAdmins'] = Builders::DataLakePrincipalList.build(input[:data_lake_admins]) unless input[:data_lake_admins].nil?
-        data['CreateDatabaseDefaultPermissions'] = Builders::PrincipalPermissionsList.build(input[:create_database_default_permissions]) unless input[:create_database_default_permissions].nil?
-        data['CreateTableDefaultPermissions'] = Builders::PrincipalPermissionsList.build(input[:create_table_default_permissions]) unless input[:create_table_default_permissions].nil?
-        data['TrustedResourceOwners'] = Builders::TrustedResourceOwners.build(input[:trusted_resource_owners]) unless input[:trusted_resource_owners].nil?
+        data['DataLakeAdmins'] = DataLakePrincipalList.build(input[:data_lake_admins]) unless input[:data_lake_admins].nil?
+        data['CreateDatabaseDefaultPermissions'] = PrincipalPermissionsList.build(input[:create_database_default_permissions]) unless input[:create_database_default_permissions].nil?
+        data['CreateTableDefaultPermissions'] = PrincipalPermissionsList.build(input[:create_table_default_permissions]) unless input[:create_table_default_permissions].nil?
+        data['TrustedResourceOwners'] = TrustedResourceOwners.build(input[:trusted_resource_owners]) unless input[:trusted_resource_owners].nil?
         data['AllowExternalDataFiltering'] = input[:allow_external_data_filtering] unless input[:allow_external_data_filtering].nil?
-        data['ExternalDataFilteringAllowList'] = Builders::DataLakePrincipalList.build(input[:external_data_filtering_allow_list]) unless input[:external_data_filtering_allow_list].nil?
-        data['AuthorizedSessionTagValueList'] = Builders::AuthorizedSessionTagValueList.build(input[:authorized_session_tag_value_list]) unless input[:authorized_session_tag_value_list].nil?
+        data['ExternalDataFilteringAllowList'] = DataLakePrincipalList.build(input[:external_data_filtering_allow_list]) unless input[:external_data_filtering_allow_list].nil?
+        data['AuthorizedSessionTagValueList'] = AuthorizedSessionTagValueList.build(input[:authorized_session_tag_value_list]) unless input[:authorized_session_tag_value_list].nil?
         data
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataLakePrincipal.build(element) unless element.nil?
+          data << DataLakePrincipal.build(element) unless element.nil?
         end
         data
       end
@@ -980,7 +982,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PrincipalPermissions.build(element) unless element.nil?
+          data << PrincipalPermissions.build(element) unless element.nil?
         end
         data
       end
@@ -990,8 +992,8 @@ module AWS::SDK::LakeFormation
     class PrincipalPermissions
       def self.build(input)
         data = {}
-        data['Principal'] = Builders::DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
-        data['Permissions'] = Builders::PermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Principal'] = DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
+        data['Permissions'] = PermissionList.build(input[:permissions]) unless input[:permissions].nil?
         data
       end
     end
@@ -1009,7 +1011,7 @@ module AWS::SDK::LakeFormation
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['UseServiceLinkedRole'] = input[:use_service_linked_role] unless input[:use_service_linked_role].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1024,9 +1026,9 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Resource'] = Builders::Resource.build(input[:resource]) unless input[:resource].nil?
-        data['LFTags'] = Builders::LFTagsList.build(input[:lf_tags]) unless input[:lf_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Resource'] = Resource.build(input[:resource]) unless input[:resource].nil?
+        data['LFTags'] = LFTagsList.build(input[:lf_tags]) unless input[:lf_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1041,11 +1043,11 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Principal'] = Builders::DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
-        data['Resource'] = Builders::Resource.build(input[:resource]) unless input[:resource].nil?
-        data['Permissions'] = Builders::PermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['PermissionsWithGrantOption'] = Builders::PermissionList.build(input[:permissions_with_grant_option]) unless input[:permissions_with_grant_option].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Principal'] = DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
+        data['Resource'] = Resource.build(input[:resource]) unless input[:resource].nil?
+        data['Permissions'] = PermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['PermissionsWithGrantOption'] = PermissionList.build(input[:permissions_with_grant_option]) unless input[:permissions_with_grant_option].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1062,8 +1064,8 @@ module AWS::SDK::LakeFormation
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Expression'] = Builders::Expression.build(input[:expression]) unless input[:expression].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Expression'] = Expression.build(input[:expression]) unless input[:expression].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1080,8 +1082,8 @@ module AWS::SDK::LakeFormation
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Expression'] = Builders::Expression.build(input[:expression]) unless input[:expression].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Expression'] = Expression.build(input[:expression]) unless input[:expression].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1095,9 +1097,9 @@ module AWS::SDK::LakeFormation
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['QueryPlanningContext'] = Builders::QueryPlanningContext.build(input[:query_planning_context]) unless input[:query_planning_context].nil?
+        data['QueryPlanningContext'] = QueryPlanningContext.build(input[:query_planning_context]) unless input[:query_planning_context].nil?
         data['QueryString'] = input[:query_string] unless input[:query_string].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1108,7 +1110,7 @@ module AWS::SDK::LakeFormation
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['QueryAsOfTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:query_as_of_time]).to_i unless input[:query_as_of_time].nil?
-        data['QueryParameters'] = Builders::QueryParameterMap.build(input[:query_parameters]) unless input[:query_parameters].nil?
+        data['QueryParameters'] = QueryParameterMap.build(input[:query_parameters]) unless input[:query_parameters].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
         data
       end
@@ -1136,7 +1138,7 @@ module AWS::SDK::LakeFormation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TransactionType'] = input[:transaction_type] unless input[:transaction_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1152,9 +1154,9 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        data['TagValuesToDelete'] = Builders::TagValueList.build(input[:tag_values_to_delete]) unless input[:tag_values_to_delete].nil?
-        data['TagValuesToAdd'] = Builders::TagValueList.build(input[:tag_values_to_add]) unless input[:tag_values_to_add].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagValuesToDelete'] = TagValueList.build(input[:tag_values_to_delete]) unless input[:tag_values_to_delete].nil?
+        data['TagValuesToAdd'] = TagValueList.build(input[:tag_values_to_add]) unless input[:tag_values_to_add].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1170,7 +1172,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,8 +1190,8 @@ module AWS::SDK::LakeFormation
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        data['WriteOperations'] = Builders::WriteOperationList.build(input[:write_operations]) unless input[:write_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WriteOperations'] = WriteOperationList.build(input[:write_operations]) unless input[:write_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1198,7 +1200,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WriteOperation.build(element) unless element.nil?
+          data << WriteOperation.build(element) unless element.nil?
         end
         data
       end
@@ -1208,8 +1210,8 @@ module AWS::SDK::LakeFormation
     class WriteOperation
       def self.build(input)
         data = {}
-        data['AddObject'] = Builders::AddObjectInput.build(input[:add_object]) unless input[:add_object].nil?
-        data['DeleteObject'] = Builders::DeleteObjectInput.build(input[:delete_object]) unless input[:delete_object].nil?
+        data['AddObject'] = AddObjectInput.build(input[:add_object]) unless input[:add_object].nil?
+        data['DeleteObject'] = DeleteObjectInput.build(input[:delete_object]) unless input[:delete_object].nil?
         data
       end
     end
@@ -1220,7 +1222,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['Uri'] = input[:uri] unless input[:uri].nil?
         data['ETag'] = input[:e_tag] unless input[:e_tag].nil?
-        data['PartitionValues'] = Builders::PartitionValuesList.build(input[:partition_values]) unless input[:partition_values].nil?
+        data['PartitionValues'] = PartitionValuesList.build(input[:partition_values]) unless input[:partition_values].nil?
         data
       end
     end
@@ -1243,7 +1245,7 @@ module AWS::SDK::LakeFormation
         data['Uri'] = input[:uri] unless input[:uri].nil?
         data['ETag'] = input[:e_tag] unless input[:e_tag].nil?
         data['Size'] = input[:size] unless input[:size].nil?
-        data['PartitionValues'] = Builders::PartitionValuesList.build(input[:partition_values]) unless input[:partition_values].nil?
+        data['PartitionValues'] = PartitionValuesList.build(input[:partition_values]) unless input[:partition_values].nil?
         data
       end
     end
@@ -1261,8 +1263,8 @@ module AWS::SDK::LakeFormation
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['StorageOptimizerConfig'] = Builders::StorageOptimizerConfigMap.build(input[:storage_optimizer_config]) unless input[:storage_optimizer_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageOptimizerConfig'] = StorageOptimizerConfigMap.build(input[:storage_optimizer_config]) unless input[:storage_optimizer_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1271,7 +1273,7 @@ module AWS::SDK::LakeFormation
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::StorageOptimizerConfig.build(value) unless value.nil?
+          data[key] = StorageOptimizerConfig.build(value) unless value.nil?
         end
         data
       end

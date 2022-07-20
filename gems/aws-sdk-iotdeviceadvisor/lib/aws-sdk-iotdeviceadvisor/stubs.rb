@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IotDeviceAdvisor
   module Stubs
 
@@ -29,7 +31,7 @@ module AWS::SDK::IotDeviceAdvisor
         data['suiteDefinitionArn'] = stub[:suite_definition_arn] unless stub[:suite_definition_arn].nil?
         data['suiteDefinitionName'] = stub[:suite_definition_name] unless stub[:suite_definition_name].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::IotDeviceAdvisor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -86,11 +88,11 @@ module AWS::SDK::IotDeviceAdvisor
         data['suiteDefinitionArn'] = stub[:suite_definition_arn] unless stub[:suite_definition_arn].nil?
         data['suiteDefinitionVersion'] = stub[:suite_definition_version] unless stub[:suite_definition_version].nil?
         data['latestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
-        data['suiteDefinitionConfiguration'] = Stubs::SuiteDefinitionConfiguration.stub(stub[:suite_definition_configuration]) unless stub[:suite_definition_configuration].nil?
+        data['suiteDefinitionConfiguration'] = SuiteDefinitionConfiguration.stub(stub[:suite_definition_configuration]) unless stub[:suite_definition_configuration].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastModifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_at]).to_i unless stub[:last_modified_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::IotDeviceAdvisor
         stub ||= Types::SuiteDefinitionConfiguration.new
         data = {}
         data['suiteDefinitionName'] = stub[:suite_definition_name] unless stub[:suite_definition_name].nil?
-        data['devices'] = Stubs::DeviceUnderTestList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['devices'] = DeviceUnderTestList.stub(stub[:devices]) unless stub[:devices].nil?
         data['intendedForQualification'] = stub[:intended_for_qualification] unless stub[:intended_for_qualification].nil?
         data['rootGroup'] = stub[:root_group] unless stub[:root_group].nil?
         data['devicePermissionRoleArn'] = stub[:device_permission_role_arn] unless stub[:device_permission_role_arn].nil?
@@ -154,7 +156,7 @@ module AWS::SDK::IotDeviceAdvisor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceUnderTest.stub(element) unless element.nil?
+          data << DeviceUnderTest.stub(element) unless element.nil?
         end
         data
       end
@@ -206,14 +208,14 @@ module AWS::SDK::IotDeviceAdvisor
         data['suiteDefinitionVersion'] = stub[:suite_definition_version] unless stub[:suite_definition_version].nil?
         data['suiteRunId'] = stub[:suite_run_id] unless stub[:suite_run_id].nil?
         data['suiteRunArn'] = stub[:suite_run_arn] unless stub[:suite_run_arn].nil?
-        data['suiteRunConfiguration'] = Stubs::SuiteRunConfiguration.stub(stub[:suite_run_configuration]) unless stub[:suite_run_configuration].nil?
-        data['testResult'] = Stubs::TestResult.stub(stub[:test_result]) unless stub[:test_result].nil?
+        data['suiteRunConfiguration'] = SuiteRunConfiguration.stub(stub[:suite_run_configuration]) unless stub[:suite_run_configuration].nil?
+        data['testResult'] = TestResult.stub(stub[:test_result]) unless stub[:test_result].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['errorReason'] = stub[:error_reason] unless stub[:error_reason].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -230,7 +232,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.stub(stub)
         stub ||= Types::TestResult.new
         data = {}
-        data['groups'] = Stubs::GroupResultList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['groups'] = GroupResultList.stub(stub[:groups]) unless stub[:groups].nil?
         data
       end
     end
@@ -249,7 +251,7 @@ module AWS::SDK::IotDeviceAdvisor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupResult.stub(element) unless element.nil?
+          data << GroupResult.stub(element) unless element.nil?
         end
         data
       end
@@ -272,7 +274,7 @@ module AWS::SDK::IotDeviceAdvisor
         data = {}
         data['groupId'] = stub[:group_id] unless stub[:group_id].nil?
         data['groupName'] = stub[:group_name] unless stub[:group_name].nil?
-        data['tests'] = Stubs::TestCaseRuns.stub(stub[:tests]) unless stub[:tests].nil?
+        data['tests'] = TestCaseRuns.stub(stub[:tests]) unless stub[:tests].nil?
         data
       end
     end
@@ -291,7 +293,7 @@ module AWS::SDK::IotDeviceAdvisor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestCaseRun.stub(element) unless element.nil?
+          data << TestCaseRun.stub(element) unless element.nil?
         end
         data
       end
@@ -346,8 +348,8 @@ module AWS::SDK::IotDeviceAdvisor
       def self.stub(stub)
         stub ||= Types::SuiteRunConfiguration.new
         data = {}
-        data['primaryDevice'] = Stubs::DeviceUnderTest.stub(stub[:primary_device]) unless stub[:primary_device].nil?
-        data['selectedTestList'] = Stubs::SelectedTestList.stub(stub[:selected_test_list]) unless stub[:selected_test_list].nil?
+        data['primaryDevice'] = DeviceUnderTest.stub(stub[:primary_device]) unless stub[:primary_device].nil?
+        data['selectedTestList'] = SelectedTestList.stub(stub[:selected_test_list]) unless stub[:selected_test_list].nil?
         data['parallelRun'] = stub[:parallel_run] unless stub[:parallel_run].nil?
         data
       end
@@ -386,7 +388,7 @@ module AWS::SDK::IotDeviceAdvisor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['qualificationReportDownloadUrl'] = stub[:qualification_report_download_url] unless stub[:qualification_report_download_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,9 +405,9 @@ module AWS::SDK::IotDeviceAdvisor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['suiteDefinitionInformationList'] = Stubs::SuiteDefinitionInformationList.stub(stub[:suite_definition_information_list]) unless stub[:suite_definition_information_list].nil?
+        data['suiteDefinitionInformationList'] = SuiteDefinitionInformationList.stub(stub[:suite_definition_information_list]) unless stub[:suite_definition_information_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -423,7 +425,7 @@ module AWS::SDK::IotDeviceAdvisor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SuiteDefinitionInformation.stub(element) unless element.nil?
+          data << SuiteDefinitionInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -448,7 +450,7 @@ module AWS::SDK::IotDeviceAdvisor
         data = {}
         data['suiteDefinitionId'] = stub[:suite_definition_id] unless stub[:suite_definition_id].nil?
         data['suiteDefinitionName'] = stub[:suite_definition_name] unless stub[:suite_definition_name].nil?
-        data['defaultDevices'] = Stubs::DeviceUnderTestList.stub(stub[:default_devices]) unless stub[:default_devices].nil?
+        data['defaultDevices'] = DeviceUnderTestList.stub(stub[:default_devices]) unless stub[:default_devices].nil?
         data['intendedForQualification'] = stub[:intended_for_qualification] unless stub[:intended_for_qualification].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data
@@ -468,9 +470,9 @@ module AWS::SDK::IotDeviceAdvisor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['suiteRunsList'] = Stubs::SuiteRunsList.stub(stub[:suite_runs_list]) unless stub[:suite_runs_list].nil?
+        data['suiteRunsList'] = SuiteRunsList.stub(stub[:suite_runs_list]) unless stub[:suite_runs_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -488,7 +490,7 @@ module AWS::SDK::IotDeviceAdvisor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SuiteRunInformation.stub(element) unless element.nil?
+          data << SuiteRunInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -542,8 +544,8 @@ module AWS::SDK::IotDeviceAdvisor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -564,7 +566,7 @@ module AWS::SDK::IotDeviceAdvisor
         data['suiteRunId'] = stub[:suite_run_id] unless stub[:suite_run_id].nil?
         data['suiteRunArn'] = stub[:suite_run_arn] unless stub[:suite_run_arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -630,7 +632,7 @@ module AWS::SDK::IotDeviceAdvisor
         data['suiteDefinitionVersion'] = stub[:suite_definition_version] unless stub[:suite_definition_version].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

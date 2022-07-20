@@ -16,7 +16,7 @@ module AWS::SDK::MediaConnect
         data = Types::AddFlowMediaStreamsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.media_streams = (Parsers::List____listOfMediaStream.parse(map['mediaStreams']) unless map['mediaStreams'].nil?)
+        data.media_streams = (List____listOfMediaStream.parse(map['mediaStreams']) unless map['mediaStreams'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MediaStream.parse(value) unless value.nil?
+          data << MediaStream.parse(value) unless value.nil?
         end
         data
       end
@@ -34,7 +34,7 @@ module AWS::SDK::MediaConnect
     class MediaStream
       def self.parse(map)
         data = Types::MediaStream.new
-        data.attributes = (Parsers::MediaStreamAttributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (MediaStreamAttributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.clock_rate = map['clockRate']
         data.description = map['description']
         data.fmt = map['fmt']
@@ -49,7 +49,7 @@ module AWS::SDK::MediaConnect
     class MediaStreamAttributes
       def self.parse(map)
         data = Types::MediaStreamAttributes.new
-        data.fmtp = (Parsers::Fmtp.parse(map['fmtp']) unless map['fmtp'].nil?)
+        data.fmtp = (Fmtp.parse(map['fmtp']) unless map['fmtp'].nil?)
         data.lang = map['lang']
         return data
       end
@@ -135,7 +135,7 @@ module AWS::SDK::MediaConnect
         data = Types::AddFlowOutputsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.outputs = (Parsers::List____listOfOutput.parse(map['outputs']) unless map['outputs'].nil?)
+        data.outputs = (List____listOfOutput.parse(map['outputs']) unless map['outputs'].nil?)
         data
       end
     end
@@ -144,7 +144,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Output.parse(value) unless value.nil?
+          data << Output.parse(value) unless value.nil?
         end
         data
       end
@@ -156,16 +156,16 @@ module AWS::SDK::MediaConnect
         data.data_transfer_subscriber_fee_percent = map['dataTransferSubscriberFeePercent']
         data.description = map['description']
         data.destination = map['destination']
-        data.encryption = (Parsers::Encryption.parse(map['encryption']) unless map['encryption'].nil?)
+        data.encryption = (Encryption.parse(map['encryption']) unless map['encryption'].nil?)
         data.entitlement_arn = map['entitlementArn']
         data.listener_address = map['listenerAddress']
         data.media_live_input_arn = map['mediaLiveInputArn']
-        data.media_stream_output_configurations = (Parsers::List____listOfMediaStreamOutputConfiguration.parse(map['mediaStreamOutputConfigurations']) unless map['mediaStreamOutputConfigurations'].nil?)
+        data.media_stream_output_configurations = (List____listOfMediaStreamOutputConfiguration.parse(map['mediaStreamOutputConfigurations']) unless map['mediaStreamOutputConfigurations'].nil?)
         data.name = map['name']
         data.output_arn = map['outputArn']
         data.port = map['port']
-        data.transport = (Parsers::Transport.parse(map['transport']) unless map['transport'].nil?)
-        data.vpc_interface_attachment = (Parsers::VpcInterfaceAttachment.parse(map['vpcInterfaceAttachment']) unless map['vpcInterfaceAttachment'].nil?)
+        data.transport = (Transport.parse(map['transport']) unless map['transport'].nil?)
+        data.vpc_interface_attachment = (VpcInterfaceAttachment.parse(map['vpcInterfaceAttachment']) unless map['vpcInterfaceAttachment'].nil?)
         return data
       end
     end
@@ -181,7 +181,7 @@ module AWS::SDK::MediaConnect
     class Transport
       def self.parse(map)
         data = Types::Transport.new
-        data.cidr_allow_list = (Parsers::List____listOf__string.parse(map['cidrAllowList']) unless map['cidrAllowList'].nil?)
+        data.cidr_allow_list = (List____listOf__string.parse(map['cidrAllowList']) unless map['cidrAllowList'].nil?)
         data.max_bitrate = map['maxBitrate']
         data.max_latency = map['maxLatency']
         data.max_sync_buffer = map['maxSyncBuffer']
@@ -210,7 +210,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MediaStreamOutputConfiguration.parse(value) unless value.nil?
+          data << MediaStreamOutputConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -219,9 +219,9 @@ module AWS::SDK::MediaConnect
     class MediaStreamOutputConfiguration
       def self.parse(map)
         data = Types::MediaStreamOutputConfiguration.new
-        data.destination_configurations = (Parsers::List____listOfDestinationConfiguration.parse(map['destinationConfigurations']) unless map['destinationConfigurations'].nil?)
+        data.destination_configurations = (List____listOfDestinationConfiguration.parse(map['destinationConfigurations']) unless map['destinationConfigurations'].nil?)
         data.encoding_name = map['encodingName']
-        data.encoding_parameters = (Parsers::EncodingParameters.parse(map['encodingParameters']) unless map['encodingParameters'].nil?)
+        data.encoding_parameters = (EncodingParameters.parse(map['encodingParameters']) unless map['encodingParameters'].nil?)
         data.media_stream_name = map['mediaStreamName']
         return data
       end
@@ -240,7 +240,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DestinationConfiguration.parse(value) unless value.nil?
+          data << DestinationConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -251,7 +251,7 @@ module AWS::SDK::MediaConnect
         data = Types::DestinationConfiguration.new
         data.destination_ip = map['destinationIp']
         data.destination_port = map['destinationPort']
-        data.interface = (Parsers::Interface.parse(map['interface']) unless map['interface'].nil?)
+        data.interface = (Interface.parse(map['interface']) unless map['interface'].nil?)
         data.outbound_ip = map['outboundIp']
         return data
       end
@@ -297,7 +297,7 @@ module AWS::SDK::MediaConnect
         data = Types::AddFlowSourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.sources = (Parsers::List____listOfSource.parse(map['sources']) unless map['sources'].nil?)
+        data.sources = (List____listOfSource.parse(map['sources']) unless map['sources'].nil?)
         data
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Source.parse(value) unless value.nil?
+          data << Source.parse(value) unless value.nil?
         end
         data
       end
@@ -316,17 +316,17 @@ module AWS::SDK::MediaConnect
       def self.parse(map)
         data = Types::Source.new
         data.data_transfer_subscriber_fee_percent = map['dataTransferSubscriberFeePercent']
-        data.decryption = (Parsers::Encryption.parse(map['decryption']) unless map['decryption'].nil?)
+        data.decryption = (Encryption.parse(map['decryption']) unless map['decryption'].nil?)
         data.description = map['description']
         data.entitlement_arn = map['entitlementArn']
         data.ingest_ip = map['ingestIp']
         data.ingest_port = map['ingestPort']
-        data.media_stream_source_configurations = (Parsers::List____listOfMediaStreamSourceConfiguration.parse(map['mediaStreamSourceConfigurations']) unless map['mediaStreamSourceConfigurations'].nil?)
+        data.media_stream_source_configurations = (List____listOfMediaStreamSourceConfiguration.parse(map['mediaStreamSourceConfigurations']) unless map['mediaStreamSourceConfigurations'].nil?)
         data.name = map['name']
         data.sender_control_port = map['senderControlPort']
         data.sender_ip_address = map['senderIpAddress']
         data.source_arn = map['sourceArn']
-        data.transport = (Parsers::Transport.parse(map['transport']) unless map['transport'].nil?)
+        data.transport = (Transport.parse(map['transport']) unless map['transport'].nil?)
         data.vpc_interface_name = map['vpcInterfaceName']
         data.whitelist_cidr = map['whitelistCidr']
         return data
@@ -337,7 +337,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MediaStreamSourceConfiguration.parse(value) unless value.nil?
+          data << MediaStreamSourceConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -347,7 +347,7 @@ module AWS::SDK::MediaConnect
       def self.parse(map)
         data = Types::MediaStreamSourceConfiguration.new
         data.encoding_name = map['encodingName']
-        data.input_configurations = (Parsers::List____listOfInputConfiguration.parse(map['inputConfigurations']) unless map['inputConfigurations'].nil?)
+        data.input_configurations = (List____listOfInputConfiguration.parse(map['inputConfigurations']) unless map['inputConfigurations'].nil?)
         data.media_stream_name = map['mediaStreamName']
         return data
       end
@@ -357,7 +357,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputConfiguration.parse(value) unless value.nil?
+          data << InputConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -368,7 +368,7 @@ module AWS::SDK::MediaConnect
         data = Types::InputConfiguration.new
         data.input_ip = map['inputIp']
         data.input_port = map['inputPort']
-        data.interface = (Parsers::Interface.parse(map['interface']) unless map['interface'].nil?)
+        data.interface = (Interface.parse(map['interface']) unless map['interface'].nil?)
         return data
       end
     end
@@ -379,7 +379,7 @@ module AWS::SDK::MediaConnect
         data = Types::AddFlowVpcInterfacesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.vpc_interfaces = (Parsers::List____listOfVpcInterface.parse(map['vpcInterfaces']) unless map['vpcInterfaces'].nil?)
+        data.vpc_interfaces = (List____listOfVpcInterface.parse(map['vpcInterfaces']) unless map['vpcInterfaces'].nil?)
         data
       end
     end
@@ -388,7 +388,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VpcInterface.parse(value) unless value.nil?
+          data << VpcInterface.parse(value) unless value.nil?
         end
         data
       end
@@ -398,10 +398,10 @@ module AWS::SDK::MediaConnect
       def self.parse(map)
         data = Types::VpcInterface.new
         data.name = map['name']
-        data.network_interface_ids = (Parsers::List____listOf__string.parse(map['networkInterfaceIds']) unless map['networkInterfaceIds'].nil?)
+        data.network_interface_ids = (List____listOf__string.parse(map['networkInterfaceIds']) unless map['networkInterfaceIds'].nil?)
         data.network_interface_type = map['networkInterfaceType']
         data.role_arn = map['roleArn']
-        data.security_group_ids = (Parsers::List____listOf__string.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.security_group_ids = (List____listOf__string.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         data.subnet_id = map['subnetId']
         return data
       end
@@ -412,7 +412,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::CreateFlowOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.flow = (Parsers::Flow.parse(map['flow']) unless map['flow'].nil?)
+        data.flow = (Flow.parse(map['flow']) unless map['flow'].nil?)
         data
       end
     end
@@ -423,17 +423,17 @@ module AWS::SDK::MediaConnect
         data.availability_zone = map['availabilityZone']
         data.description = map['description']
         data.egress_ip = map['egressIp']
-        data.entitlements = (Parsers::List____listOfEntitlement.parse(map['entitlements']) unless map['entitlements'].nil?)
+        data.entitlements = (List____listOfEntitlement.parse(map['entitlements']) unless map['entitlements'].nil?)
         data.flow_arn = map['flowArn']
-        data.media_streams = (Parsers::List____listOfMediaStream.parse(map['mediaStreams']) unless map['mediaStreams'].nil?)
+        data.media_streams = (List____listOfMediaStream.parse(map['mediaStreams']) unless map['mediaStreams'].nil?)
         data.name = map['name']
-        data.outputs = (Parsers::List____listOfOutput.parse(map['outputs']) unless map['outputs'].nil?)
-        data.source = (Parsers::Source.parse(map['source']) unless map['source'].nil?)
-        data.source_failover_config = (Parsers::FailoverConfig.parse(map['sourceFailoverConfig']) unless map['sourceFailoverConfig'].nil?)
-        data.sources = (Parsers::List____listOfSource.parse(map['sources']) unless map['sources'].nil?)
+        data.outputs = (List____listOfOutput.parse(map['outputs']) unless map['outputs'].nil?)
+        data.source = (Source.parse(map['source']) unless map['source'].nil?)
+        data.source_failover_config = (FailoverConfig.parse(map['sourceFailoverConfig']) unless map['sourceFailoverConfig'].nil?)
+        data.sources = (List____listOfSource.parse(map['sources']) unless map['sources'].nil?)
         data.status = map['status']
-        data.vpc_interfaces = (Parsers::List____listOfVpcInterface.parse(map['vpcInterfaces']) unless map['vpcInterfaces'].nil?)
-        data.maintenance = (Parsers::Maintenance.parse(map['maintenance']) unless map['maintenance'].nil?)
+        data.vpc_interfaces = (List____listOfVpcInterface.parse(map['vpcInterfaces']) unless map['vpcInterfaces'].nil?)
+        data.maintenance = (Maintenance.parse(map['maintenance']) unless map['maintenance'].nil?)
         return data
       end
     end
@@ -454,7 +454,7 @@ module AWS::SDK::MediaConnect
         data = Types::FailoverConfig.new
         data.failover_mode = map['failoverMode']
         data.recovery_window = map['recoveryWindow']
-        data.source_priority = (Parsers::SourcePriority.parse(map['sourcePriority']) unless map['sourcePriority'].nil?)
+        data.source_priority = (SourcePriority.parse(map['sourcePriority']) unless map['sourcePriority'].nil?)
         data.state = map['state']
         return data
       end
@@ -472,7 +472,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Entitlement.parse(value) unless value.nil?
+          data << Entitlement.parse(value) unless value.nil?
         end
         data
       end
@@ -483,11 +483,11 @@ module AWS::SDK::MediaConnect
         data = Types::Entitlement.new
         data.data_transfer_subscriber_fee_percent = map['dataTransferSubscriberFeePercent']
         data.description = map['description']
-        data.encryption = (Parsers::Encryption.parse(map['encryption']) unless map['encryption'].nil?)
+        data.encryption = (Encryption.parse(map['encryption']) unless map['encryption'].nil?)
         data.entitlement_arn = map['entitlementArn']
         data.entitlement_status = map['entitlementStatus']
         data.name = map['name']
-        data.subscribers = (Parsers::List____listOf__string.parse(map['subscribers']) unless map['subscribers'].nil?)
+        data.subscribers = (List____listOf__string.parse(map['subscribers']) unless map['subscribers'].nil?)
         return data
       end
     end
@@ -518,8 +518,8 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::DescribeFlowOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.flow = (Parsers::Flow.parse(map['flow']) unless map['flow'].nil?)
-        data.messages = (Parsers::Messages.parse(map['messages']) unless map['messages'].nil?)
+        data.flow = (Flow.parse(map['flow']) unless map['flow'].nil?)
+        data.messages = (Messages.parse(map['messages']) unless map['messages'].nil?)
         data
       end
     end
@@ -527,7 +527,7 @@ module AWS::SDK::MediaConnect
     class Messages
       def self.parse(map)
         data = Types::Messages.new
-        data.errors = (Parsers::List____listOf__string.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (List____listOf__string.parse(map['errors']) unless map['errors'].nil?)
         return data
       end
     end
@@ -537,7 +537,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::DescribeOfferingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.offering = (Parsers::Offering.parse(map['offering']) unless map['offering'].nil?)
+        data.offering = (Offering.parse(map['offering']) unless map['offering'].nil?)
         data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::MediaConnect
         data.offering_description = map['offeringDescription']
         data.price_per_unit = map['pricePerUnit']
         data.price_units = map['priceUnits']
-        data.resource_specification = (Parsers::ResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         return data
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::DescribeReservationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.reservation = (Parsers::Reservation.parse(map['reservation']) unless map['reservation'].nil?)
+        data.reservation = (Reservation.parse(map['reservation']) unless map['reservation'].nil?)
         data
       end
     end
@@ -590,7 +590,7 @@ module AWS::SDK::MediaConnect
         data.reservation_arn = map['reservationArn']
         data.reservation_name = map['reservationName']
         data.reservation_state = map['reservationState']
-        data.resource_specification = (Parsers::ResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
+        data.resource_specification = (ResourceSpecification.parse(map['resourceSpecification']) unless map['resourceSpecification'].nil?)
         data.start = map['start']
         return data
       end
@@ -601,7 +601,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::GrantFlowEntitlementsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entitlements = (Parsers::List____listOfEntitlement.parse(map['entitlements']) unless map['entitlements'].nil?)
+        data.entitlements = (List____listOfEntitlement.parse(map['entitlements']) unless map['entitlements'].nil?)
         data.flow_arn = map['flowArn']
         data
       end
@@ -622,7 +622,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::ListEntitlementsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entitlements = (Parsers::List____listOfListedEntitlement.parse(map['entitlements']) unless map['entitlements'].nil?)
+        data.entitlements = (List____listOfListedEntitlement.parse(map['entitlements']) unless map['entitlements'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -632,7 +632,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListedEntitlement.parse(value) unless value.nil?
+          data << ListedEntitlement.parse(value) unless value.nil?
         end
         data
       end
@@ -653,7 +653,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::ListFlowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.flows = (Parsers::List____listOfListedFlow.parse(map['flows']) unless map['flows'].nil?)
+        data.flows = (List____listOfListedFlow.parse(map['flows']) unless map['flows'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -663,7 +663,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListedFlow.parse(value) unless value.nil?
+          data << ListedFlow.parse(value) unless value.nil?
         end
         data
       end
@@ -678,7 +678,7 @@ module AWS::SDK::MediaConnect
         data.name = map['name']
         data.source_type = map['sourceType']
         data.status = map['status']
-        data.maintenance = (Parsers::Maintenance.parse(map['maintenance']) unless map['maintenance'].nil?)
+        data.maintenance = (Maintenance.parse(map['maintenance']) unless map['maintenance'].nil?)
         return data
       end
     end
@@ -689,7 +689,7 @@ module AWS::SDK::MediaConnect
         data = Types::ListOfferingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.offerings = (Parsers::List____listOfOffering.parse(map['offerings']) unless map['offerings'].nil?)
+        data.offerings = (List____listOfOffering.parse(map['offerings']) unless map['offerings'].nil?)
         data
       end
     end
@@ -698,7 +698,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Offering.parse(value) unless value.nil?
+          data << Offering.parse(value) unless value.nil?
         end
         data
       end
@@ -710,7 +710,7 @@ module AWS::SDK::MediaConnect
         data = Types::ListReservationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.reservations = (Parsers::List____listOfReservation.parse(map['reservations']) unless map['reservations'].nil?)
+        data.reservations = (List____listOfReservation.parse(map['reservations']) unless map['reservations'].nil?)
         data
       end
     end
@@ -719,7 +719,7 @@ module AWS::SDK::MediaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Reservation.parse(value) unless value.nil?
+          data << Reservation.parse(value) unless value.nil?
         end
         data
       end
@@ -730,7 +730,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::PurchaseOfferingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.reservation = (Parsers::Reservation.parse(map['reservation']) unless map['reservation'].nil?)
+        data.reservation = (Reservation.parse(map['reservation']) unless map['reservation'].nil?)
         data
       end
     end
@@ -794,7 +794,7 @@ module AWS::SDK::MediaConnect
         data = Types::RemoveFlowVpcInterfaceOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.non_deleted_network_interface_ids = (Parsers::List____listOf__string.parse(map['nonDeletedNetworkInterfaceIds']) unless map['nonDeletedNetworkInterfaceIds'].nil?)
+        data.non_deleted_network_interface_ids = (List____listOf__string.parse(map['nonDeletedNetworkInterfaceIds']) unless map['nonDeletedNetworkInterfaceIds'].nil?)
         data.vpc_interface_name = map['vpcInterfaceName']
         data
       end
@@ -856,7 +856,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::UpdateFlowOperationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.flow = (Parsers::Flow.parse(map['flow']) unless map['flow'].nil?)
+        data.flow = (Flow.parse(map['flow']) unless map['flow'].nil?)
         data
       end
     end
@@ -866,7 +866,7 @@ module AWS::SDK::MediaConnect
       def self.parse(http_resp)
         data = Types::UpdateFlowEntitlementOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entitlement = (Parsers::Entitlement.parse(map['entitlement']) unless map['entitlement'].nil?)
+        data.entitlement = (Entitlement.parse(map['entitlement']) unless map['entitlement'].nil?)
         data.flow_arn = map['flowArn']
         data
       end
@@ -878,7 +878,7 @@ module AWS::SDK::MediaConnect
         data = Types::UpdateFlowMediaStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.media_stream = (Parsers::MediaStream.parse(map['mediaStream']) unless map['mediaStream'].nil?)
+        data.media_stream = (MediaStream.parse(map['mediaStream']) unless map['mediaStream'].nil?)
         data
       end
     end
@@ -889,7 +889,7 @@ module AWS::SDK::MediaConnect
         data = Types::UpdateFlowOutputOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.output = (Parsers::Output.parse(map['output']) unless map['output'].nil?)
+        data.output = (Output.parse(map['output']) unless map['output'].nil?)
         data
       end
     end
@@ -900,7 +900,7 @@ module AWS::SDK::MediaConnect
         data = Types::UpdateFlowSourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.flow_arn = map['flowArn']
-        data.source = (Parsers::Source.parse(map['source']) unless map['source'].nil?)
+        data.source = (Source.parse(map['source']) unless map['source'].nil?)
         data
       end
     end

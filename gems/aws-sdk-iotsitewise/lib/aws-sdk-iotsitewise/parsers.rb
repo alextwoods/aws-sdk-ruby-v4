@@ -95,7 +95,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::BatchAssociateProjectAssetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchAssociateProjectAssetsErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchAssociateProjectAssetsErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -104,7 +104,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetErrorDetails.parse(value) unless value.nil?
+          data << AssetErrorDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -125,7 +125,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::BatchDisassociateProjectAssetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchDisassociateProjectAssetsErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchDisassociateProjectAssetsErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -134,7 +134,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetErrorDetails.parse(value) unless value.nil?
+          data << AssetErrorDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -145,9 +145,9 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::BatchGetAssetPropertyAggregatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchGetAssetPropertyAggregatesErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
-        data.success_entries = (Parsers::BatchGetAssetPropertyAggregatesSuccessEntries.parse(map['successEntries']) unless map['successEntries'].nil?)
-        data.skipped_entries = (Parsers::BatchGetAssetPropertyAggregatesSkippedEntries.parse(map['skippedEntries']) unless map['skippedEntries'].nil?)
+        data.error_entries = (BatchGetAssetPropertyAggregatesErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.success_entries = (BatchGetAssetPropertyAggregatesSuccessEntries.parse(map['successEntries']) unless map['successEntries'].nil?)
+        data.skipped_entries = (BatchGetAssetPropertyAggregatesSkippedEntries.parse(map['skippedEntries']) unless map['skippedEntries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -157,7 +157,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyAggregatesSkippedEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyAggregatesSkippedEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -168,7 +168,7 @@ module AWS::SDK::IoTSiteWise
         data = Types::BatchGetAssetPropertyAggregatesSkippedEntry.new
         data.entry_id = map['entryId']
         data.completion_status = map['completionStatus']
-        data.error_info = (Parsers::BatchGetAssetPropertyAggregatesErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.error_info = (BatchGetAssetPropertyAggregatesErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
         return data
       end
     end
@@ -186,7 +186,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyAggregatesSuccessEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyAggregatesSuccessEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -196,7 +196,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::BatchGetAssetPropertyAggregatesSuccessEntry.new
         data.entry_id = map['entryId']
-        data.aggregated_values = (Parsers::AggregatedValues.parse(map['aggregatedValues']) unless map['aggregatedValues'].nil?)
+        data.aggregated_values = (AggregatedValues.parse(map['aggregatedValues']) unless map['aggregatedValues'].nil?)
         return data
       end
     end
@@ -205,7 +205,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AggregatedValue.parse(value) unless value.nil?
+          data << AggregatedValue.parse(value) unless value.nil?
         end
         data
       end
@@ -216,7 +216,7 @@ module AWS::SDK::IoTSiteWise
         data = Types::AggregatedValue.new
         data.timestamp = Time.at(map['timestamp'].to_i) if map['timestamp']
         data.quality = map['quality']
-        data.value = (Parsers::Aggregates.parse(map['value']) unless map['value'].nil?)
+        data.value = (Aggregates.parse(map['value']) unless map['value'].nil?)
         return data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyAggregatesErrorEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyAggregatesErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -269,9 +269,9 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::BatchGetAssetPropertyValueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchGetAssetPropertyValueErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
-        data.success_entries = (Parsers::BatchGetAssetPropertyValueSuccessEntries.parse(map['successEntries']) unless map['successEntries'].nil?)
-        data.skipped_entries = (Parsers::BatchGetAssetPropertyValueSkippedEntries.parse(map['skippedEntries']) unless map['skippedEntries'].nil?)
+        data.error_entries = (BatchGetAssetPropertyValueErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.success_entries = (BatchGetAssetPropertyValueSuccessEntries.parse(map['successEntries']) unless map['successEntries'].nil?)
+        data.skipped_entries = (BatchGetAssetPropertyValueSkippedEntries.parse(map['skippedEntries']) unless map['skippedEntries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -281,7 +281,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyValueSkippedEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyValueSkippedEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -292,7 +292,7 @@ module AWS::SDK::IoTSiteWise
         data = Types::BatchGetAssetPropertyValueSkippedEntry.new
         data.entry_id = map['entryId']
         data.completion_status = map['completionStatus']
-        data.error_info = (Parsers::BatchGetAssetPropertyValueErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.error_info = (BatchGetAssetPropertyValueErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
         return data
       end
     end
@@ -310,7 +310,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyValueSuccessEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyValueSuccessEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -320,7 +320,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::BatchGetAssetPropertyValueSuccessEntry.new
         data.entry_id = map['entryId']
-        data.asset_property_value = (Parsers::AssetPropertyValue.parse(map['assetPropertyValue']) unless map['assetPropertyValue'].nil?)
+        data.asset_property_value = (AssetPropertyValue.parse(map['assetPropertyValue']) unless map['assetPropertyValue'].nil?)
         return data
       end
     end
@@ -328,8 +328,8 @@ module AWS::SDK::IoTSiteWise
     class AssetPropertyValue
       def self.parse(map)
         data = Types::AssetPropertyValue.new
-        data.value = (Parsers::Variant.parse(map['value']) unless map['value'].nil?)
-        data.timestamp = (Parsers::TimeInNanos.parse(map['timestamp']) unless map['timestamp'].nil?)
+        data.value = (Variant.parse(map['value']) unless map['value'].nil?)
+        data.timestamp = (TimeInNanos.parse(map['timestamp']) unless map['timestamp'].nil?)
         data.quality = map['quality']
         return data
       end
@@ -359,7 +359,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyValueErrorEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyValueErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -380,9 +380,9 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::BatchGetAssetPropertyValueHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchGetAssetPropertyValueHistoryErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
-        data.success_entries = (Parsers::BatchGetAssetPropertyValueHistorySuccessEntries.parse(map['successEntries']) unless map['successEntries'].nil?)
-        data.skipped_entries = (Parsers::BatchGetAssetPropertyValueHistorySkippedEntries.parse(map['skippedEntries']) unless map['skippedEntries'].nil?)
+        data.error_entries = (BatchGetAssetPropertyValueHistoryErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.success_entries = (BatchGetAssetPropertyValueHistorySuccessEntries.parse(map['successEntries']) unless map['successEntries'].nil?)
+        data.skipped_entries = (BatchGetAssetPropertyValueHistorySkippedEntries.parse(map['skippedEntries']) unless map['skippedEntries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -392,7 +392,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyValueHistorySkippedEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyValueHistorySkippedEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -403,7 +403,7 @@ module AWS::SDK::IoTSiteWise
         data = Types::BatchGetAssetPropertyValueHistorySkippedEntry.new
         data.entry_id = map['entryId']
         data.completion_status = map['completionStatus']
-        data.error_info = (Parsers::BatchGetAssetPropertyValueHistoryErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.error_info = (BatchGetAssetPropertyValueHistoryErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
         return data
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyValueHistorySuccessEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyValueHistorySuccessEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -431,7 +431,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::BatchGetAssetPropertyValueHistorySuccessEntry.new
         data.entry_id = map['entryId']
-        data.asset_property_value_history = (Parsers::AssetPropertyValueHistory.parse(map['assetPropertyValueHistory']) unless map['assetPropertyValueHistory'].nil?)
+        data.asset_property_value_history = (AssetPropertyValueHistory.parse(map['assetPropertyValueHistory']) unless map['assetPropertyValueHistory'].nil?)
         return data
       end
     end
@@ -440,7 +440,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetPropertyValue.parse(value) unless value.nil?
+          data << AssetPropertyValue.parse(value) unless value.nil?
         end
         data
       end
@@ -450,7 +450,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetAssetPropertyValueHistoryErrorEntry.parse(value) unless value.nil?
+          data << BatchGetAssetPropertyValueHistoryErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -471,7 +471,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::BatchPutAssetPropertyValueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchPutAssetPropertyErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (BatchPutAssetPropertyErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -480,7 +480,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutAssetPropertyErrorEntry.parse(value) unless value.nil?
+          data << BatchPutAssetPropertyErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -490,7 +490,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::BatchPutAssetPropertyErrorEntry.new
         data.entry_id = map['entryId']
-        data.errors = (Parsers::BatchPutAssetPropertyErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchPutAssetPropertyErrors.parse(map['errors']) unless map['errors'].nil?)
         return data
       end
     end
@@ -499,7 +499,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutAssetPropertyError.parse(value) unless value.nil?
+          data << BatchPutAssetPropertyError.parse(value) unless value.nil?
         end
         data
       end
@@ -510,7 +510,7 @@ module AWS::SDK::IoTSiteWise
         data = Types::BatchPutAssetPropertyError.new
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
-        data.timestamps = (Parsers::Timestamps.parse(map['timestamps']) unless map['timestamps'].nil?)
+        data.timestamps = (Timestamps.parse(map['timestamps']) unless map['timestamps'].nil?)
         return data
       end
     end
@@ -519,7 +519,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimeInNanos.parse(value) unless value.nil?
+          data << TimeInNanos.parse(value) unless value.nil?
         end
         data
       end
@@ -543,7 +543,7 @@ module AWS::SDK::IoTSiteWise
         map = Hearth::JSON.load(http_resp.body)
         data.asset_id = map['assetId']
         data.asset_arn = map['assetArn']
-        data.asset_status = (Parsers::AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
+        data.asset_status = (AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
         data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::AssetStatus.new
         data.state = map['state']
-        data.error = (Parsers::ErrorDetails.parse(map['error']) unless map['error'].nil?)
+        data.error = (ErrorDetails.parse(map['error']) unless map['error'].nil?)
         return data
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::IoTSiteWise
         data = Types::ErrorDetails.new
         data.code = map['code']
         data.message = map['message'] || map['Message']
-        data.details = (Parsers::DetailedErrors.parse(map['details']) unless map['details'].nil?)
+        data.details = (DetailedErrors.parse(map['details']) unless map['details'].nil?)
         return data
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DetailedError.parse(value) unless value.nil?
+          data << DetailedError.parse(value) unless value.nil?
         end
         data
       end
@@ -605,7 +605,7 @@ module AWS::SDK::IoTSiteWise
         map = Hearth::JSON.load(http_resp.body)
         data.asset_model_id = map['assetModelId']
         data.asset_model_arn = map['assetModelArn']
-        data.asset_model_status = (Parsers::AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
+        data.asset_model_status = (AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
         data
       end
     end
@@ -614,7 +614,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::AssetModelStatus.new
         data.state = map['state']
-        data.error = (Parsers::ErrorDetails.parse(map['error']) unless map['error'].nil?)
+        data.error = (ErrorDetails.parse(map['error']) unless map['error'].nil?)
         return data
       end
     end
@@ -649,7 +649,7 @@ module AWS::SDK::IoTSiteWise
         data.portal_id = map['portalId']
         data.portal_arn = map['portalArn']
         data.portal_start_url = map['portalStartUrl']
-        data.portal_status = (Parsers::PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
+        data.portal_status = (PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
         data.sso_application_id = map['ssoApplicationId']
         data
       end
@@ -659,7 +659,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::PortalStatus.new
         data.state = map['state']
-        data.error = (Parsers::MonitorErrorDetails.parse(map['error']) unless map['error'].nil?)
+        data.error = (MonitorErrorDetails.parse(map['error']) unless map['error'].nil?)
         return data
       end
     end
@@ -698,7 +698,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::DeleteAssetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_status = (Parsers::AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
+        data.asset_status = (AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
         data
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::DeleteAssetModelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_model_status = (Parsers::AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
+        data.asset_model_status = (AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
         data
       end
     end
@@ -736,7 +736,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::DeletePortalOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.portal_status = (Parsers::PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
+        data.portal_status = (PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
         data
       end
     end
@@ -766,8 +766,8 @@ module AWS::SDK::IoTSiteWise
         map = Hearth::JSON.load(http_resp.body)
         data.access_policy_id = map['accessPolicyId']
         data.access_policy_arn = map['accessPolicyArn']
-        data.access_policy_identity = (Parsers::Identity.parse(map['accessPolicyIdentity']) unless map['accessPolicyIdentity'].nil?)
-        data.access_policy_resource = (Parsers::Resource.parse(map['accessPolicyResource']) unless map['accessPolicyResource'].nil?)
+        data.access_policy_identity = (Identity.parse(map['accessPolicyIdentity']) unless map['accessPolicyIdentity'].nil?)
+        data.access_policy_resource = (Resource.parse(map['accessPolicyResource']) unless map['accessPolicyResource'].nil?)
         data.access_policy_permission = map['accessPolicyPermission']
         data.access_policy_creation_date = Time.at(map['accessPolicyCreationDate'].to_i) if map['accessPolicyCreationDate']
         data.access_policy_last_update_date = Time.at(map['accessPolicyLastUpdateDate'].to_i) if map['accessPolicyLastUpdateDate']
@@ -778,8 +778,8 @@ module AWS::SDK::IoTSiteWise
     class Resource
       def self.parse(map)
         data = Types::Resource.new
-        data.portal = (Parsers::PortalResource.parse(map['portal']) unless map['portal'].nil?)
-        data.project = (Parsers::ProjectResource.parse(map['project']) unless map['project'].nil?)
+        data.portal = (PortalResource.parse(map['portal']) unless map['portal'].nil?)
+        data.project = (ProjectResource.parse(map['project']) unless map['project'].nil?)
         return data
       end
     end
@@ -803,10 +803,10 @@ module AWS::SDK::IoTSiteWise
     class Identity
       def self.parse(map)
         data = Types::Identity.new
-        data.user = (Parsers::UserIdentity.parse(map['user']) unless map['user'].nil?)
-        data.group = (Parsers::GroupIdentity.parse(map['group']) unless map['group'].nil?)
-        data.iam_user = (Parsers::IAMUserIdentity.parse(map['iamUser']) unless map['iamUser'].nil?)
-        data.iam_role = (Parsers::IAMRoleIdentity.parse(map['iamRole']) unless map['iamRole'].nil?)
+        data.user = (UserIdentity.parse(map['user']) unless map['user'].nil?)
+        data.group = (GroupIdentity.parse(map['group']) unless map['group'].nil?)
+        data.iam_user = (IAMUserIdentity.parse(map['iamUser']) unless map['iamUser'].nil?)
+        data.iam_role = (IAMRoleIdentity.parse(map['iamRole']) unless map['iamRole'].nil?)
         return data
       end
     end
@@ -852,12 +852,12 @@ module AWS::SDK::IoTSiteWise
         data.asset_arn = map['assetArn']
         data.asset_name = map['assetName']
         data.asset_model_id = map['assetModelId']
-        data.asset_properties = (Parsers::AssetProperties.parse(map['assetProperties']) unless map['assetProperties'].nil?)
-        data.asset_hierarchies = (Parsers::AssetHierarchies.parse(map['assetHierarchies']) unless map['assetHierarchies'].nil?)
-        data.asset_composite_models = (Parsers::AssetCompositeModels.parse(map['assetCompositeModels']) unless map['assetCompositeModels'].nil?)
+        data.asset_properties = (AssetProperties.parse(map['assetProperties']) unless map['assetProperties'].nil?)
+        data.asset_hierarchies = (AssetHierarchies.parse(map['assetHierarchies']) unless map['assetHierarchies'].nil?)
+        data.asset_composite_models = (AssetCompositeModels.parse(map['assetCompositeModels']) unless map['assetCompositeModels'].nil?)
         data.asset_creation_date = Time.at(map['assetCreationDate'].to_i) if map['assetCreationDate']
         data.asset_last_update_date = Time.at(map['assetLastUpdateDate'].to_i) if map['assetLastUpdateDate']
-        data.asset_status = (Parsers::AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
+        data.asset_status = (AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
         data.asset_description = map['assetDescription']
         data
       end
@@ -867,7 +867,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetCompositeModel.parse(value) unless value.nil?
+          data << AssetCompositeModel.parse(value) unless value.nil?
         end
         data
       end
@@ -879,7 +879,7 @@ module AWS::SDK::IoTSiteWise
         data.name = map['name']
         data.description = map['description']
         data.type = map['type']
-        data.properties = (Parsers::AssetProperties.parse(map['properties']) unless map['properties'].nil?)
+        data.properties = (AssetProperties.parse(map['properties']) unless map['properties'].nil?)
         return data
       end
     end
@@ -888,7 +888,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetProperty.parse(value) unless value.nil?
+          data << AssetProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -900,7 +900,7 @@ module AWS::SDK::IoTSiteWise
         data.id = map['id']
         data.name = map['name']
         data.alias = map['alias']
-        data.notification = (Parsers::PropertyNotification.parse(map['notification']) unless map['notification'].nil?)
+        data.notification = (PropertyNotification.parse(map['notification']) unless map['notification'].nil?)
         data.data_type = map['dataType']
         data.data_type_spec = map['dataTypeSpec']
         data.unit = map['unit']
@@ -921,7 +921,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetHierarchy.parse(value) unless value.nil?
+          data << AssetHierarchy.parse(value) unless value.nil?
         end
         data
       end
@@ -945,12 +945,12 @@ module AWS::SDK::IoTSiteWise
         data.asset_model_arn = map['assetModelArn']
         data.asset_model_name = map['assetModelName']
         data.asset_model_description = map['assetModelDescription']
-        data.asset_model_properties = (Parsers::AssetModelProperties.parse(map['assetModelProperties']) unless map['assetModelProperties'].nil?)
-        data.asset_model_hierarchies = (Parsers::AssetModelHierarchies.parse(map['assetModelHierarchies']) unless map['assetModelHierarchies'].nil?)
-        data.asset_model_composite_models = (Parsers::AssetModelCompositeModels.parse(map['assetModelCompositeModels']) unless map['assetModelCompositeModels'].nil?)
+        data.asset_model_properties = (AssetModelProperties.parse(map['assetModelProperties']) unless map['assetModelProperties'].nil?)
+        data.asset_model_hierarchies = (AssetModelHierarchies.parse(map['assetModelHierarchies']) unless map['assetModelHierarchies'].nil?)
+        data.asset_model_composite_models = (AssetModelCompositeModels.parse(map['assetModelCompositeModels']) unless map['assetModelCompositeModels'].nil?)
         data.asset_model_creation_date = Time.at(map['assetModelCreationDate'].to_i) if map['assetModelCreationDate']
         data.asset_model_last_update_date = Time.at(map['assetModelLastUpdateDate'].to_i) if map['assetModelLastUpdateDate']
-        data.asset_model_status = (Parsers::AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
+        data.asset_model_status = (AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
         data
       end
     end
@@ -959,7 +959,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetModelCompositeModel.parse(value) unless value.nil?
+          data << AssetModelCompositeModel.parse(value) unless value.nil?
         end
         data
       end
@@ -971,7 +971,7 @@ module AWS::SDK::IoTSiteWise
         data.name = map['name']
         data.description = map['description']
         data.type = map['type']
-        data.properties = (Parsers::AssetModelProperties.parse(map['properties']) unless map['properties'].nil?)
+        data.properties = (AssetModelProperties.parse(map['properties']) unless map['properties'].nil?)
         return data
       end
     end
@@ -980,7 +980,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetModelProperty.parse(value) unless value.nil?
+          data << AssetModelProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -994,7 +994,7 @@ module AWS::SDK::IoTSiteWise
         data.data_type = map['dataType']
         data.data_type_spec = map['dataTypeSpec']
         data.unit = map['unit']
-        data.type = (Parsers::PropertyType.parse(map['type']) unless map['type'].nil?)
+        data.type = (PropertyType.parse(map['type']) unless map['type'].nil?)
         return data
       end
     end
@@ -1002,10 +1002,10 @@ module AWS::SDK::IoTSiteWise
     class PropertyType
       def self.parse(map)
         data = Types::PropertyType.new
-        data.attribute = (Parsers::Attribute.parse(map['attribute']) unless map['attribute'].nil?)
-        data.measurement = (Parsers::Measurement.parse(map['measurement']) unless map['measurement'].nil?)
-        data.transform = (Parsers::Transform.parse(map['transform']) unless map['transform'].nil?)
-        data.metric = (Parsers::Metric.parse(map['metric']) unless map['metric'].nil?)
+        data.attribute = (Attribute.parse(map['attribute']) unless map['attribute'].nil?)
+        data.measurement = (Measurement.parse(map['measurement']) unless map['measurement'].nil?)
+        data.transform = (Transform.parse(map['transform']) unless map['transform'].nil?)
+        data.metric = (Metric.parse(map['metric']) unless map['metric'].nil?)
         return data
       end
     end
@@ -1014,9 +1014,9 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::Metric.new
         data.expression = map['expression']
-        data.variables = (Parsers::ExpressionVariables.parse(map['variables']) unless map['variables'].nil?)
-        data.window = (Parsers::MetricWindow.parse(map['window']) unless map['window'].nil?)
-        data.processing_config = (Parsers::MetricProcessingConfig.parse(map['processingConfig']) unless map['processingConfig'].nil?)
+        data.variables = (ExpressionVariables.parse(map['variables']) unless map['variables'].nil?)
+        data.window = (MetricWindow.parse(map['window']) unless map['window'].nil?)
+        data.processing_config = (MetricProcessingConfig.parse(map['processingConfig']) unless map['processingConfig'].nil?)
         return data
       end
     end
@@ -1032,7 +1032,7 @@ module AWS::SDK::IoTSiteWise
     class MetricWindow
       def self.parse(map)
         data = Types::MetricWindow.new
-        data.tumbling = (Parsers::TumblingWindow.parse(map['tumbling']) unless map['tumbling'].nil?)
+        data.tumbling = (TumblingWindow.parse(map['tumbling']) unless map['tumbling'].nil?)
         return data
       end
     end
@@ -1050,7 +1050,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExpressionVariable.parse(value) unless value.nil?
+          data << ExpressionVariable.parse(value) unless value.nil?
         end
         data
       end
@@ -1060,7 +1060,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::ExpressionVariable.new
         data.name = map['name']
-        data.value = (Parsers::VariableValue.parse(map['value']) unless map['value'].nil?)
+        data.value = (VariableValue.parse(map['value']) unless map['value'].nil?)
         return data
       end
     end
@@ -1078,8 +1078,8 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::Transform.new
         data.expression = map['expression']
-        data.variables = (Parsers::ExpressionVariables.parse(map['variables']) unless map['variables'].nil?)
-        data.processing_config = (Parsers::TransformProcessingConfig.parse(map['processingConfig']) unless map['processingConfig'].nil?)
+        data.variables = (ExpressionVariables.parse(map['variables']) unless map['variables'].nil?)
+        data.processing_config = (TransformProcessingConfig.parse(map['processingConfig']) unless map['processingConfig'].nil?)
         return data
       end
     end
@@ -1088,7 +1088,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::TransformProcessingConfig.new
         data.compute_location = map['computeLocation']
-        data.forwarding_config = (Parsers::ForwardingConfig.parse(map['forwardingConfig']) unless map['forwardingConfig'].nil?)
+        data.forwarding_config = (ForwardingConfig.parse(map['forwardingConfig']) unless map['forwardingConfig'].nil?)
         return data
       end
     end
@@ -1104,7 +1104,7 @@ module AWS::SDK::IoTSiteWise
     class Measurement
       def self.parse(map)
         data = Types::Measurement.new
-        data.processing_config = (Parsers::MeasurementProcessingConfig.parse(map['processingConfig']) unless map['processingConfig'].nil?)
+        data.processing_config = (MeasurementProcessingConfig.parse(map['processingConfig']) unless map['processingConfig'].nil?)
         return data
       end
     end
@@ -1112,7 +1112,7 @@ module AWS::SDK::IoTSiteWise
     class MeasurementProcessingConfig
       def self.parse(map)
         data = Types::MeasurementProcessingConfig.new
-        data.forwarding_config = (Parsers::ForwardingConfig.parse(map['forwardingConfig']) unless map['forwardingConfig'].nil?)
+        data.forwarding_config = (ForwardingConfig.parse(map['forwardingConfig']) unless map['forwardingConfig'].nil?)
         return data
       end
     end
@@ -1129,7 +1129,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetModelHierarchy.parse(value) unless value.nil?
+          data << AssetModelHierarchy.parse(value) unless value.nil?
         end
         data
       end
@@ -1153,8 +1153,8 @@ module AWS::SDK::IoTSiteWise
         data.asset_id = map['assetId']
         data.asset_name = map['assetName']
         data.asset_model_id = map['assetModelId']
-        data.asset_property = (Parsers::Property.parse(map['assetProperty']) unless map['assetProperty'].nil?)
-        data.composite_model = (Parsers::CompositeModelProperty.parse(map['compositeModel']) unless map['compositeModel'].nil?)
+        data.asset_property = (Property.parse(map['assetProperty']) unless map['assetProperty'].nil?)
+        data.composite_model = (CompositeModelProperty.parse(map['compositeModel']) unless map['compositeModel'].nil?)
         data
       end
     end
@@ -1164,7 +1164,7 @@ module AWS::SDK::IoTSiteWise
         data = Types::CompositeModelProperty.new
         data.name = map['name']
         data.type = map['type']
-        data.asset_property = (Parsers::Property.parse(map['assetProperty']) unless map['assetProperty'].nil?)
+        data.asset_property = (Property.parse(map['assetProperty']) unless map['assetProperty'].nil?)
         return data
       end
     end
@@ -1175,10 +1175,10 @@ module AWS::SDK::IoTSiteWise
         data.id = map['id']
         data.name = map['name']
         data.alias = map['alias']
-        data.notification = (Parsers::PropertyNotification.parse(map['notification']) unless map['notification'].nil?)
+        data.notification = (PropertyNotification.parse(map['notification']) unless map['notification'].nil?)
         data.data_type = map['dataType']
         data.unit = map['unit']
-        data.type = (Parsers::PropertyType.parse(map['type']) unless map['type'].nil?)
+        data.type = (PropertyType.parse(map['type']) unless map['type'].nil?)
         return data
       end
     end
@@ -1207,7 +1207,7 @@ module AWS::SDK::IoTSiteWise
         map = Hearth::JSON.load(http_resp.body)
         data.encryption_type = map['encryptionType']
         data.kms_key_arn = map['kmsKeyArn']
-        data.configuration_status = (Parsers::ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
+        data.configuration_status = (ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
         data
       end
     end
@@ -1216,7 +1216,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::ConfigurationStatus.new
         data.state = map['state']
-        data.error = (Parsers::ConfigurationErrorDetails.parse(map['error']) unless map['error'].nil?)
+        data.error = (ConfigurationErrorDetails.parse(map['error']) unless map['error'].nil?)
         return data
       end
     end
@@ -1238,8 +1238,8 @@ module AWS::SDK::IoTSiteWise
         data.gateway_id = map['gatewayId']
         data.gateway_name = map['gatewayName']
         data.gateway_arn = map['gatewayArn']
-        data.gateway_platform = (Parsers::GatewayPlatform.parse(map['gatewayPlatform']) unless map['gatewayPlatform'].nil?)
-        data.gateway_capability_summaries = (Parsers::GatewayCapabilitySummaries.parse(map['gatewayCapabilitySummaries']) unless map['gatewayCapabilitySummaries'].nil?)
+        data.gateway_platform = (GatewayPlatform.parse(map['gatewayPlatform']) unless map['gatewayPlatform'].nil?)
+        data.gateway_capability_summaries = (GatewayCapabilitySummaries.parse(map['gatewayCapabilitySummaries']) unless map['gatewayCapabilitySummaries'].nil?)
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
         data
@@ -1250,7 +1250,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GatewayCapabilitySummary.parse(value) unless value.nil?
+          data << GatewayCapabilitySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1268,8 +1268,8 @@ module AWS::SDK::IoTSiteWise
     class GatewayPlatform
       def self.parse(map)
         data = Types::GatewayPlatform.new
-        data.greengrass = (Parsers::Greengrass.parse(map['greengrass']) unless map['greengrass'].nil?)
-        data.greengrass_v2 = (Parsers::GreengrassV2.parse(map['greengrassV2']) unless map['greengrassV2'].nil?)
+        data.greengrass = (Greengrass.parse(map['greengrass']) unless map['greengrass'].nil?)
+        data.greengrass_v2 = (GreengrassV2.parse(map['greengrassV2']) unless map['greengrassV2'].nil?)
         return data
       end
     end
@@ -1308,7 +1308,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::DescribeLoggingOptionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.logging_options = (Parsers::LoggingOptions.parse(map['loggingOptions']) unless map['loggingOptions'].nil?)
+        data.logging_options = (LoggingOptions.parse(map['loggingOptions']) unless map['loggingOptions'].nil?)
         data
       end
     end
@@ -1333,14 +1333,14 @@ module AWS::SDK::IoTSiteWise
         data.portal_client_id = map['portalClientId']
         data.portal_start_url = map['portalStartUrl']
         data.portal_contact_email = map['portalContactEmail']
-        data.portal_status = (Parsers::PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
+        data.portal_status = (PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
         data.portal_creation_date = Time.at(map['portalCreationDate'].to_i) if map['portalCreationDate']
         data.portal_last_update_date = Time.at(map['portalLastUpdateDate'].to_i) if map['portalLastUpdateDate']
-        data.portal_logo_image_location = (Parsers::ImageLocation.parse(map['portalLogoImageLocation']) unless map['portalLogoImageLocation'].nil?)
+        data.portal_logo_image_location = (ImageLocation.parse(map['portalLogoImageLocation']) unless map['portalLogoImageLocation'].nil?)
         data.role_arn = map['roleArn']
         data.portal_auth_mode = map['portalAuthMode']
         data.notification_sender_email = map['notificationSenderEmail']
-        data.alarms = (Parsers::Alarms.parse(map['alarms']) unless map['alarms'].nil?)
+        data.alarms = (Alarms.parse(map['alarms']) unless map['alarms'].nil?)
         data
       end
     end
@@ -1385,10 +1385,10 @@ module AWS::SDK::IoTSiteWise
         data = Types::DescribeStorageConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.storage_type = map['storageType']
-        data.multi_layer_storage = (Parsers::MultiLayerStorage.parse(map['multiLayerStorage']) unless map['multiLayerStorage'].nil?)
+        data.multi_layer_storage = (MultiLayerStorage.parse(map['multiLayerStorage']) unless map['multiLayerStorage'].nil?)
         data.disassociated_data_storage = map['disassociatedDataStorage']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
-        data.configuration_status = (Parsers::ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.configuration_status = (ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
         data
       end
@@ -1406,7 +1406,7 @@ module AWS::SDK::IoTSiteWise
     class MultiLayerStorage
       def self.parse(map)
         data = Types::MultiLayerStorage.new
-        data.customer_managed_s3_storage = (Parsers::CustomerManagedS3Storage.parse(map['customerManagedS3Storage']) unless map['customerManagedS3Storage'].nil?)
+        data.customer_managed_s3_storage = (CustomerManagedS3Storage.parse(map['customerManagedS3Storage']) unless map['customerManagedS3Storage'].nil?)
         return data
       end
     end
@@ -1460,7 +1460,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::GetAssetPropertyAggregatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.aggregated_values = (Parsers::AggregatedValues.parse(map['aggregatedValues']) unless map['aggregatedValues'].nil?)
+        data.aggregated_values = (AggregatedValues.parse(map['aggregatedValues']) unless map['aggregatedValues'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1471,7 +1471,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::GetAssetPropertyValueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.property_value = (Parsers::AssetPropertyValue.parse(map['propertyValue']) unless map['propertyValue'].nil?)
+        data.property_value = (AssetPropertyValue.parse(map['propertyValue']) unless map['propertyValue'].nil?)
         data
       end
     end
@@ -1481,7 +1481,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::GetAssetPropertyValueHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_property_value_history = (Parsers::AssetPropertyValueHistory.parse(map['assetPropertyValueHistory']) unless map['assetPropertyValueHistory'].nil?)
+        data.asset_property_value_history = (AssetPropertyValueHistory.parse(map['assetPropertyValueHistory']) unless map['assetPropertyValueHistory'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1492,7 +1492,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::GetInterpolatedAssetPropertyValuesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.interpolated_asset_property_values = (Parsers::InterpolatedAssetPropertyValues.parse(map['interpolatedAssetPropertyValues']) unless map['interpolatedAssetPropertyValues'].nil?)
+        data.interpolated_asset_property_values = (InterpolatedAssetPropertyValues.parse(map['interpolatedAssetPropertyValues']) unless map['interpolatedAssetPropertyValues'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1502,7 +1502,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InterpolatedAssetPropertyValue.parse(value) unless value.nil?
+          data << InterpolatedAssetPropertyValue.parse(value) unless value.nil?
         end
         data
       end
@@ -1511,8 +1511,8 @@ module AWS::SDK::IoTSiteWise
     class InterpolatedAssetPropertyValue
       def self.parse(map)
         data = Types::InterpolatedAssetPropertyValue.new
-        data.timestamp = (Parsers::TimeInNanos.parse(map['timestamp']) unless map['timestamp'].nil?)
-        data.value = (Parsers::Variant.parse(map['value']) unless map['value'].nil?)
+        data.timestamp = (TimeInNanos.parse(map['timestamp']) unless map['timestamp'].nil?)
+        data.value = (Variant.parse(map['value']) unless map['value'].nil?)
         return data
       end
     end
@@ -1522,7 +1522,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListAccessPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_policy_summaries = (Parsers::AccessPolicySummaries.parse(map['accessPolicySummaries']) unless map['accessPolicySummaries'].nil?)
+        data.access_policy_summaries = (AccessPolicySummaries.parse(map['accessPolicySummaries']) unless map['accessPolicySummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1532,7 +1532,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AccessPolicySummary.parse(value) unless value.nil?
+          data << AccessPolicySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1542,8 +1542,8 @@ module AWS::SDK::IoTSiteWise
       def self.parse(map)
         data = Types::AccessPolicySummary.new
         data.id = map['id']
-        data.identity = (Parsers::Identity.parse(map['identity']) unless map['identity'].nil?)
-        data.resource = (Parsers::Resource.parse(map['resource']) unless map['resource'].nil?)
+        data.identity = (Identity.parse(map['identity']) unless map['identity'].nil?)
+        data.resource = (Resource.parse(map['resource']) unless map['resource'].nil?)
         data.permission = map['permission']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
@@ -1556,7 +1556,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListAssetModelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_model_summaries = (Parsers::AssetModelSummaries.parse(map['assetModelSummaries']) unless map['assetModelSummaries'].nil?)
+        data.asset_model_summaries = (AssetModelSummaries.parse(map['assetModelSummaries']) unless map['assetModelSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1566,7 +1566,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetModelSummary.parse(value) unless value.nil?
+          data << AssetModelSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1581,7 +1581,7 @@ module AWS::SDK::IoTSiteWise
         data.description = map['description']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
-        data.status = (Parsers::AssetModelStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (AssetModelStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -1591,7 +1591,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListAssetRelationshipsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_relationship_summaries = (Parsers::AssetRelationshipSummaries.parse(map['assetRelationshipSummaries']) unless map['assetRelationshipSummaries'].nil?)
+        data.asset_relationship_summaries = (AssetRelationshipSummaries.parse(map['assetRelationshipSummaries']) unless map['assetRelationshipSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1601,7 +1601,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetRelationshipSummary.parse(value) unless value.nil?
+          data << AssetRelationshipSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1610,7 +1610,7 @@ module AWS::SDK::IoTSiteWise
     class AssetRelationshipSummary
       def self.parse(map)
         data = Types::AssetRelationshipSummary.new
-        data.hierarchy_info = (Parsers::AssetHierarchyInfo.parse(map['hierarchyInfo']) unless map['hierarchyInfo'].nil?)
+        data.hierarchy_info = (AssetHierarchyInfo.parse(map['hierarchyInfo']) unless map['hierarchyInfo'].nil?)
         data.relationship_type = map['relationshipType']
         return data
       end
@@ -1630,7 +1630,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListAssetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_summaries = (Parsers::AssetSummaries.parse(map['assetSummaries']) unless map['assetSummaries'].nil?)
+        data.asset_summaries = (AssetSummaries.parse(map['assetSummaries']) unless map['assetSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1640,7 +1640,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetSummary.parse(value) unless value.nil?
+          data << AssetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1655,8 +1655,8 @@ module AWS::SDK::IoTSiteWise
         data.asset_model_id = map['assetModelId']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
-        data.status = (Parsers::AssetStatus.parse(map['status']) unless map['status'].nil?)
-        data.hierarchies = (Parsers::AssetHierarchies.parse(map['hierarchies']) unless map['hierarchies'].nil?)
+        data.status = (AssetStatus.parse(map['status']) unless map['status'].nil?)
+        data.hierarchies = (AssetHierarchies.parse(map['hierarchies']) unless map['hierarchies'].nil?)
         data.description = map['description']
         return data
       end
@@ -1667,7 +1667,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListAssociatedAssetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_summaries = (Parsers::AssociatedAssetsSummaries.parse(map['assetSummaries']) unless map['assetSummaries'].nil?)
+        data.asset_summaries = (AssociatedAssetsSummaries.parse(map['assetSummaries']) unless map['assetSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1677,7 +1677,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssociatedAssetsSummary.parse(value) unless value.nil?
+          data << AssociatedAssetsSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1692,8 +1692,8 @@ module AWS::SDK::IoTSiteWise
         data.asset_model_id = map['assetModelId']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
-        data.status = (Parsers::AssetStatus.parse(map['status']) unless map['status'].nil?)
-        data.hierarchies = (Parsers::AssetHierarchies.parse(map['hierarchies']) unless map['hierarchies'].nil?)
+        data.status = (AssetStatus.parse(map['status']) unless map['status'].nil?)
+        data.hierarchies = (AssetHierarchies.parse(map['hierarchies']) unless map['hierarchies'].nil?)
         data.description = map['description']
         return data
       end
@@ -1704,7 +1704,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListDashboardsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dashboard_summaries = (Parsers::DashboardSummaries.parse(map['dashboardSummaries']) unless map['dashboardSummaries'].nil?)
+        data.dashboard_summaries = (DashboardSummaries.parse(map['dashboardSummaries']) unless map['dashboardSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1714,7 +1714,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DashboardSummary.parse(value) unless value.nil?
+          data << DashboardSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1737,7 +1737,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListGatewaysOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.gateway_summaries = (Parsers::GatewaySummaries.parse(map['gatewaySummaries']) unless map['gatewaySummaries'].nil?)
+        data.gateway_summaries = (GatewaySummaries.parse(map['gatewaySummaries']) unless map['gatewaySummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1747,7 +1747,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GatewaySummary.parse(value) unless value.nil?
+          data << GatewaySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1758,8 +1758,8 @@ module AWS::SDK::IoTSiteWise
         data = Types::GatewaySummary.new
         data.gateway_id = map['gatewayId']
         data.gateway_name = map['gatewayName']
-        data.gateway_platform = (Parsers::GatewayPlatform.parse(map['gatewayPlatform']) unless map['gatewayPlatform'].nil?)
-        data.gateway_capability_summaries = (Parsers::GatewayCapabilitySummaries.parse(map['gatewayCapabilitySummaries']) unless map['gatewayCapabilitySummaries'].nil?)
+        data.gateway_platform = (GatewayPlatform.parse(map['gatewayPlatform']) unless map['gatewayPlatform'].nil?)
+        data.gateway_capability_summaries = (GatewayCapabilitySummaries.parse(map['gatewayCapabilitySummaries']) unless map['gatewayCapabilitySummaries'].nil?)
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
         return data
@@ -1771,7 +1771,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListPortalsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.portal_summaries = (Parsers::PortalSummaries.parse(map['portalSummaries']) unless map['portalSummaries'].nil?)
+        data.portal_summaries = (PortalSummaries.parse(map['portalSummaries']) unless map['portalSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1781,7 +1781,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PortalSummary.parse(value) unless value.nil?
+          data << PortalSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1797,7 +1797,7 @@ module AWS::SDK::IoTSiteWise
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_update_date = Time.at(map['lastUpdateDate'].to_i) if map['lastUpdateDate']
         data.role_arn = map['roleArn']
-        data.status = (Parsers::PortalStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (PortalStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -1807,7 +1807,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListProjectAssetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_ids = (Parsers::AssetIDs.parse(map['assetIds']) unless map['assetIds'].nil?)
+        data.asset_ids = (AssetIDs.parse(map['assetIds']) unless map['assetIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1828,7 +1828,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListProjectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.project_summaries = (Parsers::ProjectSummaries.parse(map['projectSummaries']) unless map['projectSummaries'].nil?)
+        data.project_summaries = (ProjectSummaries.parse(map['projectSummaries']) unless map['projectSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1838,7 +1838,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProjectSummary.parse(value) unless value.nil?
+          data << ProjectSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1861,7 +1861,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1891,7 +1891,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::ListTimeSeriesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.time_series_summaries = (Parsers::TimeSeriesSummaries.parse(map['TimeSeriesSummaries']) unless map['TimeSeriesSummaries'].nil?)
+        data.time_series_summaries = (TimeSeriesSummaries.parse(map['TimeSeriesSummaries']) unless map['TimeSeriesSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1901,7 +1901,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimeSeriesSummary.parse(value) unless value.nil?
+          data << TimeSeriesSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1929,7 +1929,7 @@ module AWS::SDK::IoTSiteWise
         map = Hearth::JSON.load(http_resp.body)
         data.encryption_type = map['encryptionType']
         data.kms_key_arn = map['kmsKeyArn']
-        data.configuration_status = (Parsers::ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
+        data.configuration_status = (ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
         data
       end
     end
@@ -1949,10 +1949,10 @@ module AWS::SDK::IoTSiteWise
         data = Types::PutStorageConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.storage_type = map['storageType']
-        data.multi_layer_storage = (Parsers::MultiLayerStorage.parse(map['multiLayerStorage']) unless map['multiLayerStorage'].nil?)
+        data.multi_layer_storage = (MultiLayerStorage.parse(map['multiLayerStorage']) unless map['multiLayerStorage'].nil?)
         data.disassociated_data_storage = map['disassociatedDataStorage']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
-        data.configuration_status = (Parsers::ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.configuration_status = (ConfigurationStatus.parse(map['configurationStatus']) unless map['configurationStatus'].nil?)
         data
       end
     end
@@ -2000,7 +2000,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::UpdateAssetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_status = (Parsers::AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
+        data.asset_status = (AssetStatus.parse(map['assetStatus']) unless map['assetStatus'].nil?)
         data
       end
     end
@@ -2010,7 +2010,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::UpdateAssetModelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.asset_model_status = (Parsers::AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
+        data.asset_model_status = (AssetModelStatus.parse(map['assetModelStatus']) unless map['assetModelStatus'].nil?)
         data
       end
     end
@@ -2058,7 +2058,7 @@ module AWS::SDK::IoTSiteWise
       def self.parse(http_resp)
         data = Types::UpdatePortalOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.portal_status = (Parsers::PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
+        data.portal_status = (PortalStatus.parse(map['portalStatus']) unless map['portalStatus'].nil?)
         data
       end
     end

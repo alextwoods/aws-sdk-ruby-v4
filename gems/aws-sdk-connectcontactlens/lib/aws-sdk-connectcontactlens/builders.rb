@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ConnectContactLens
   module Builders
 
@@ -24,7 +26,7 @@ module AWS::SDK::ConnectContactLens
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

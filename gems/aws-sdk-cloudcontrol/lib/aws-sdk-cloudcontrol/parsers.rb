@@ -17,7 +17,7 @@ module AWS::SDK::CloudControl
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.progress_event = (Parsers::ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
+        data.progress_event = (ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
         data
       end
     end
@@ -70,7 +70,7 @@ module AWS::SDK::CloudControl
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.progress_event = (Parsers::ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
+        data.progress_event = (ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
         data
       end
     end
@@ -310,7 +310,7 @@ module AWS::SDK::CloudControl
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.progress_event = (Parsers::ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
+        data.progress_event = (ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
         data
       end
     end
@@ -323,7 +323,7 @@ module AWS::SDK::CloudControl
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.type_name = map['TypeName']
-        data.resource_description = (Parsers::ResourceDescription.parse(map['ResourceDescription']) unless map['ResourceDescription'].nil?)
+        data.resource_description = (ResourceDescription.parse(map['ResourceDescription']) unless map['ResourceDescription'].nil?)
         data
       end
     end
@@ -344,7 +344,7 @@ module AWS::SDK::CloudControl
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.progress_event = (Parsers::ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
+        data.progress_event = (ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
         data
       end
     end
@@ -356,7 +356,7 @@ module AWS::SDK::CloudControl
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_request_status_summaries = (Parsers::ResourceRequestStatusSummaries.parse(map['ResourceRequestStatusSummaries']) unless map['ResourceRequestStatusSummaries'].nil?)
+        data.resource_request_status_summaries = (ResourceRequestStatusSummaries.parse(map['ResourceRequestStatusSummaries']) unless map['ResourceRequestStatusSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -365,7 +365,7 @@ module AWS::SDK::CloudControl
     class ResourceRequestStatusSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ProgressEvent.parse(value) unless value.nil?
+          ProgressEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -378,7 +378,7 @@ module AWS::SDK::CloudControl
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.type_name = map['TypeName']
-        data.resource_descriptions = (Parsers::ResourceDescriptions.parse(map['ResourceDescriptions']) unless map['ResourceDescriptions'].nil?)
+        data.resource_descriptions = (ResourceDescriptions.parse(map['ResourceDescriptions']) unless map['ResourceDescriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -387,7 +387,7 @@ module AWS::SDK::CloudControl
     class ResourceDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceDescription.parse(value) unless value.nil?
+          ResourceDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -399,7 +399,7 @@ module AWS::SDK::CloudControl
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.progress_event = (Parsers::ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
+        data.progress_event = (ProgressEvent.parse(map['ProgressEvent']) unless map['ProgressEvent'].nil?)
         data
       end
     end

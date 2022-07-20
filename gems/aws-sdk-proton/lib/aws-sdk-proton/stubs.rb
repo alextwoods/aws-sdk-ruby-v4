@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Proton
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentAccountConnection'] = Stubs::EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentAccountConnection'] = EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -72,8 +74,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['component'] = Stubs::Component.stub(stub[:component]) unless stub[:component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['component'] = Component.stub(stub[:component]) unless stub[:component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -130,8 +132,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -182,7 +184,7 @@ module AWS::SDK::Proton
         data['environmentAccountId'] = stub[:environment_account_id] unless stub[:environment_account_id].nil?
         data['spec'] = stub[:spec] unless stub[:spec].nil?
         data['provisioning'] = stub[:provisioning] unless stub[:provisioning].nil?
-        data['provisioningRepository'] = Stubs::RepositoryBranch.stub(stub[:provisioning_repository]) unless stub[:provisioning_repository].nil?
+        data['provisioningRepository'] = RepositoryBranch.stub(stub[:provisioning_repository]) unless stub[:provisioning_repository].nil?
         data['componentRoleArn'] = stub[:component_role_arn] unless stub[:component_role_arn].nil?
         data
       end
@@ -222,8 +224,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceInstance'] = Stubs::ServiceInstance.stub(stub[:service_instance]) unless stub[:service_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceInstance'] = ServiceInstance.stub(stub[:service_instance]) unless stub[:service_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -280,8 +282,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipeline'] = Stubs::ServicePipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipeline'] = ServicePipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -332,8 +334,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['component'] = Stubs::Component.stub(stub[:component]) unless stub[:component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['component'] = Component.stub(stub[:component]) unless stub[:component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -348,8 +350,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -364,8 +366,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentAccountConnection'] = Stubs::EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentAccountConnection'] = EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -380,8 +382,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplate'] = Stubs::EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplate'] = EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -430,8 +432,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplateVersion'] = Stubs::EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplateVersion'] = EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -484,8 +486,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repository'] = Stubs::Repository.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = Repository.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -526,8 +528,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -566,7 +568,7 @@ module AWS::SDK::Proton
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['spec'] = stub[:spec] unless stub[:spec].nil?
-        data['pipeline'] = Stubs::ServicePipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        data['pipeline'] = ServicePipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
         data['repositoryConnectionArn'] = stub[:repository_connection_arn] unless stub[:repository_connection_arn].nil?
         data['repositoryId'] = stub[:repository_id] unless stub[:repository_id].nil?
         data['branchName'] = stub[:branch_name] unless stub[:branch_name].nil?
@@ -584,8 +586,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplate'] = Stubs::ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplate'] = ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -634,8 +636,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplateVersion'] = Stubs::ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplateVersion'] = ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -675,9 +677,9 @@ module AWS::SDK::Proton
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastModifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_at]).to_i unless stub[:last_modified_at].nil?
-        data['compatibleEnvironmentTemplates'] = Stubs::CompatibleEnvironmentTemplateList.stub(stub[:compatible_environment_templates]) unless stub[:compatible_environment_templates].nil?
+        data['compatibleEnvironmentTemplates'] = CompatibleEnvironmentTemplateList.stub(stub[:compatible_environment_templates]) unless stub[:compatible_environment_templates].nil?
         data['schema'] = stub[:schema] unless stub[:schema].nil?
-        data['supportedComponentSources'] = Stubs::ServiceTemplateSupportedComponentSourceInputList.stub(stub[:supported_component_sources]) unless stub[:supported_component_sources].nil?
+        data['supportedComponentSources'] = ServiceTemplateSupportedComponentSourceInputList.stub(stub[:supported_component_sources]) unless stub[:supported_component_sources].nil?
         data
       end
     end
@@ -716,7 +718,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CompatibleEnvironmentTemplate.stub(element) unless element.nil?
+          data << CompatibleEnvironmentTemplate.stub(element) unless element.nil?
         end
         data
       end
@@ -752,8 +754,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['templateSyncConfig'] = Stubs::TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateSyncConfig'] = TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -796,8 +798,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['component'] = Stubs::Component.stub(stub[:component]) unless stub[:component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['component'] = Component.stub(stub[:component]) unless stub[:component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -812,8 +814,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -828,8 +830,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentAccountConnection'] = Stubs::EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentAccountConnection'] = EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -844,8 +846,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplate'] = Stubs::EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplate'] = EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -860,8 +862,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplateVersion'] = Stubs::EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplateVersion'] = EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -876,8 +878,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repository'] = Stubs::Repository.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = Repository.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -892,8 +894,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -908,8 +910,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplate'] = Stubs::ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplate'] = ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -924,8 +926,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplateVersion'] = Stubs::ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplateVersion'] = ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -940,8 +942,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['templateSyncConfig'] = Stubs::TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateSyncConfig'] = TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -956,8 +958,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['accountSettings'] = Stubs::AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountSettings'] = AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -977,7 +979,7 @@ module AWS::SDK::Proton
         stub ||= Types::AccountSettings.new
         data = {}
         data['pipelineServiceRoleArn'] = stub[:pipeline_service_role_arn] unless stub[:pipeline_service_role_arn].nil?
-        data['pipelineProvisioningRepository'] = Stubs::RepositoryBranch.stub(stub[:pipeline_provisioning_repository]) unless stub[:pipeline_provisioning_repository].nil?
+        data['pipelineProvisioningRepository'] = RepositoryBranch.stub(stub[:pipeline_provisioning_repository]) unless stub[:pipeline_provisioning_repository].nil?
         data
       end
     end
@@ -992,8 +994,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['component'] = Stubs::Component.stub(stub[:component]) unless stub[:component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['component'] = Component.stub(stub[:component]) unless stub[:component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1008,8 +1010,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1024,8 +1026,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentAccountConnection'] = Stubs::EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentAccountConnection'] = EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1040,8 +1042,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplate'] = Stubs::EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplate'] = EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1056,8 +1058,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplateVersion'] = Stubs::EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplateVersion'] = EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1072,8 +1074,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repository'] = Stubs::Repository.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = Repository.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1088,8 +1090,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['latestSync'] = Stubs::RepositorySyncAttempt.stub(stub[:latest_sync]) unless stub[:latest_sync].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['latestSync'] = RepositorySyncAttempt.stub(stub[:latest_sync]) unless stub[:latest_sync].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1111,7 +1113,7 @@ module AWS::SDK::Proton
         data = {}
         data['startedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['events'] = Stubs::RepositorySyncEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = RepositorySyncEvents.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -1130,7 +1132,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositorySyncEvent.stub(element) unless element.nil?
+          data << RepositorySyncEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -1170,8 +1172,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1186,8 +1188,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceInstance'] = Stubs::ServiceInstance.stub(stub[:service_instance]) unless stub[:service_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceInstance'] = ServiceInstance.stub(stub[:service_instance]) unless stub[:service_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1202,8 +1204,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplate'] = Stubs::ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplate'] = ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1218,8 +1220,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplateVersion'] = Stubs::ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplateVersion'] = ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1234,8 +1236,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['templateSyncConfig'] = Stubs::TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateSyncConfig'] = TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1252,10 +1254,10 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['latestSync'] = Stubs::ResourceSyncAttempt.stub(stub[:latest_sync]) unless stub[:latest_sync].nil?
-        data['latestSuccessfulSync'] = Stubs::ResourceSyncAttempt.stub(stub[:latest_successful_sync]) unless stub[:latest_successful_sync].nil?
-        data['desiredState'] = Stubs::Revision.stub(stub[:desired_state]) unless stub[:desired_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['latestSync'] = ResourceSyncAttempt.stub(stub[:latest_sync]) unless stub[:latest_sync].nil?
+        data['latestSuccessfulSync'] = ResourceSyncAttempt.stub(stub[:latest_successful_sync]) unless stub[:latest_successful_sync].nil?
+        data['desiredState'] = Revision.stub(stub[:desired_state]) unless stub[:desired_state].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1304,12 +1306,12 @@ module AWS::SDK::Proton
       def self.stub(stub)
         stub ||= Types::ResourceSyncAttempt.new
         data = {}
-        data['initialRevision'] = Stubs::Revision.stub(stub[:initial_revision]) unless stub[:initial_revision].nil?
-        data['targetRevision'] = Stubs::Revision.stub(stub[:target_revision]) unless stub[:target_revision].nil?
+        data['initialRevision'] = Revision.stub(stub[:initial_revision]) unless stub[:initial_revision].nil?
+        data['targetRevision'] = Revision.stub(stub[:target_revision]) unless stub[:target_revision].nil?
         data['target'] = stub[:target] unless stub[:target].nil?
         data['startedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['events'] = Stubs::ResourceSyncEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = ResourceSyncEvents.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -1328,7 +1330,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceSyncEvent.stub(element) unless element.nil?
+          data << ResourceSyncEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -1370,8 +1372,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['outputs'] = Stubs::OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outputs'] = OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1390,7 +1392,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Output.stub(element) unless element.nil?
+          data << Output.stub(element) unless element.nil?
         end
         data
       end
@@ -1428,8 +1430,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['provisionedResources'] = Stubs::ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['provisionedResources'] = ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1448,7 +1450,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisionedResource.stub(element) unless element.nil?
+          data << ProvisionedResource.stub(element) unless element.nil?
         end
         data
       end
@@ -1488,8 +1490,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['components'] = Stubs::ComponentSummaryList.stub(stub[:components]) unless stub[:components].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['components'] = ComponentSummaryList.stub(stub[:components]) unless stub[:components].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1508,7 +1510,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentSummary.stub(element) unless element.nil?
+          data << ComponentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1563,9 +1565,9 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentAccountConnections'] = Stubs::EnvironmentAccountConnectionSummaryList.stub(stub[:environment_account_connections]) unless stub[:environment_account_connections].nil?
+        data['environmentAccountConnections'] = EnvironmentAccountConnectionSummaryList.stub(stub[:environment_account_connections]) unless stub[:environment_account_connections].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1584,7 +1586,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentAccountConnectionSummary.stub(element) unless element.nil?
+          data << EnvironmentAccountConnectionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1638,8 +1640,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['outputs'] = Stubs::OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outputs'] = OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1656,8 +1658,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['provisionedResources'] = Stubs::ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['provisionedResources'] = ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1674,8 +1676,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['templateVersions'] = Stubs::EnvironmentTemplateVersionSummaryList.stub(stub[:template_versions]) unless stub[:template_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateVersions'] = EnvironmentTemplateVersionSummaryList.stub(stub[:template_versions]) unless stub[:template_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1694,7 +1696,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentTemplateVersionSummary.stub(element) unless element.nil?
+          data << EnvironmentTemplateVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1748,8 +1750,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['templates'] = Stubs::EnvironmentTemplateSummaryList.stub(stub[:templates]) unless stub[:templates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templates'] = EnvironmentTemplateSummaryList.stub(stub[:templates]) unless stub[:templates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1768,7 +1770,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentTemplateSummary.stub(element) unless element.nil?
+          data << EnvironmentTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1818,8 +1820,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['environments'] = Stubs::EnvironmentSummaryList.stub(stub[:environments]) unless stub[:environments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environments'] = EnvironmentSummaryList.stub(stub[:environments]) unless stub[:environments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1838,7 +1840,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentSummary.stub(element) unless element.nil?
+          data << EnvironmentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1904,8 +1906,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['repositories'] = Stubs::RepositorySummaryList.stub(stub[:repositories]) unless stub[:repositories].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositories'] = RepositorySummaryList.stub(stub[:repositories]) unless stub[:repositories].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1924,7 +1926,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositorySummary.stub(element) unless element.nil?
+          data << RepositorySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1964,8 +1966,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['syncDefinitions'] = Stubs::RepositorySyncDefinitionList.stub(stub[:sync_definitions]) unless stub[:sync_definitions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['syncDefinitions'] = RepositorySyncDefinitionList.stub(stub[:sync_definitions]) unless stub[:sync_definitions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1984,7 +1986,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositorySyncDefinition.stub(element) unless element.nil?
+          data << RepositorySyncDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -2026,8 +2028,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['outputs'] = Stubs::OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outputs'] = OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2044,8 +2046,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['provisionedResources'] = Stubs::ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['provisionedResources'] = ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2062,8 +2064,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['serviceInstances'] = Stubs::ServiceInstanceSummaryList.stub(stub[:service_instances]) unless stub[:service_instances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceInstances'] = ServiceInstanceSummaryList.stub(stub[:service_instances]) unless stub[:service_instances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2082,7 +2084,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceInstanceSummary.stub(element) unless element.nil?
+          data << ServiceInstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2140,8 +2142,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['outputs'] = Stubs::OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outputs'] = OutputsList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2158,8 +2160,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['provisionedResources'] = Stubs::ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['provisionedResources'] = ProvisionedResourceList.stub(stub[:provisioned_resources]) unless stub[:provisioned_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2176,8 +2178,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['templateVersions'] = Stubs::ServiceTemplateVersionSummaryList.stub(stub[:template_versions]) unless stub[:template_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateVersions'] = ServiceTemplateVersionSummaryList.stub(stub[:template_versions]) unless stub[:template_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2196,7 +2198,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceTemplateVersionSummary.stub(element) unless element.nil?
+          data << ServiceTemplateVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2250,8 +2252,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['templates'] = Stubs::ServiceTemplateSummaryList.stub(stub[:templates]) unless stub[:templates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templates'] = ServiceTemplateSummaryList.stub(stub[:templates]) unless stub[:templates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2270,7 +2272,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceTemplateSummary.stub(element) unless element.nil?
+          data << ServiceTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2320,8 +2322,8 @@ module AWS::SDK::Proton
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['services'] = Stubs::ServiceSummaryList.stub(stub[:services]) unless stub[:services].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['services'] = ServiceSummaryList.stub(stub[:services]) unless stub[:services].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2340,7 +2342,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceSummary.stub(element) unless element.nil?
+          data << ServiceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2389,9 +2391,9 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2410,7 +2412,7 @@ module AWS::SDK::Proton
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2445,7 +2447,7 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2460,8 +2462,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentAccountConnection'] = Stubs::EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentAccountConnection'] = EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2475,7 +2477,7 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2489,7 +2491,7 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2504,8 +2506,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['accountSettings'] = Stubs::AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountSettings'] = AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2520,8 +2522,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['component'] = Stubs::Component.stub(stub[:component]) unless stub[:component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['component'] = Component.stub(stub[:component]) unless stub[:component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2536,8 +2538,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2552,8 +2554,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentAccountConnection'] = Stubs::EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentAccountConnection'] = EnvironmentAccountConnection.stub(stub[:environment_account_connection]) unless stub[:environment_account_connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2568,8 +2570,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplate'] = Stubs::EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplate'] = EnvironmentTemplate.stub(stub[:environment_template]) unless stub[:environment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2584,8 +2586,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environmentTemplateVersion'] = Stubs::EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplateVersion'] = EnvironmentTemplateVersion.stub(stub[:environment_template_version]) unless stub[:environment_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2600,8 +2602,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2616,8 +2618,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceInstance'] = Stubs::ServiceInstance.stub(stub[:service_instance]) unless stub[:service_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceInstance'] = ServiceInstance.stub(stub[:service_instance]) unless stub[:service_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2632,8 +2634,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipeline'] = Stubs::ServicePipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipeline'] = ServicePipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2648,8 +2650,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplate'] = Stubs::ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplate'] = ServiceTemplate.stub(stub[:service_template]) unless stub[:service_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2664,8 +2666,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceTemplateVersion'] = Stubs::ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceTemplateVersion'] = ServiceTemplateVersion.stub(stub[:service_template_version]) unless stub[:service_template_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2680,8 +2682,8 @@ module AWS::SDK::Proton
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['templateSyncConfig'] = Stubs::TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateSyncConfig'] = TemplateSyncConfig.stub(stub[:template_sync_config]) unless stub[:template_sync_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -101,7 +101,7 @@ module AWS::SDK::Firehose
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.delivery_stream_description = (Parsers::DeliveryStreamDescription.parse(map['DeliveryStreamDescription']) unless map['DeliveryStreamDescription'].nil?)
+        data.delivery_stream_description = (DeliveryStreamDescription.parse(map['DeliveryStreamDescription']) unless map['DeliveryStreamDescription'].nil?)
         data
       end
     end
@@ -112,14 +112,14 @@ module AWS::SDK::Firehose
         data.delivery_stream_name = map['DeliveryStreamName']
         data.delivery_stream_arn = map['DeliveryStreamARN']
         data.delivery_stream_status = map['DeliveryStreamStatus']
-        data.failure_description = (Parsers::FailureDescription.parse(map['FailureDescription']) unless map['FailureDescription'].nil?)
-        data.delivery_stream_encryption_configuration = (Parsers::DeliveryStreamEncryptionConfiguration.parse(map['DeliveryStreamEncryptionConfiguration']) unless map['DeliveryStreamEncryptionConfiguration'].nil?)
+        data.failure_description = (FailureDescription.parse(map['FailureDescription']) unless map['FailureDescription'].nil?)
+        data.delivery_stream_encryption_configuration = (DeliveryStreamEncryptionConfiguration.parse(map['DeliveryStreamEncryptionConfiguration']) unless map['DeliveryStreamEncryptionConfiguration'].nil?)
         data.delivery_stream_type = map['DeliveryStreamType']
         data.version_id = map['VersionId']
         data.create_timestamp = Time.at(map['CreateTimestamp'].to_i) if map['CreateTimestamp']
         data.last_update_timestamp = Time.at(map['LastUpdateTimestamp'].to_i) if map['LastUpdateTimestamp']
-        data.source = (Parsers::SourceDescription.parse(map['Source']) unless map['Source'].nil?)
-        data.destinations = (Parsers::DestinationDescriptionList.parse(map['Destinations']) unless map['Destinations'].nil?)
+        data.source = (SourceDescription.parse(map['Source']) unless map['Source'].nil?)
+        data.destinations = (DestinationDescriptionList.parse(map['Destinations']) unless map['Destinations'].nil?)
         data.has_more_destinations = map['HasMoreDestinations']
         return data
       end
@@ -128,7 +128,7 @@ module AWS::SDK::Firehose
     class DestinationDescriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::DestinationDescription.parse(value) unless value.nil?
+          DestinationDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -137,13 +137,13 @@ module AWS::SDK::Firehose
       def self.parse(map)
         data = Types::DestinationDescription.new
         data.destination_id = map['DestinationId']
-        data.s3_destination_description = (Parsers::S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
-        data.extended_s3_destination_description = (Parsers::ExtendedS3DestinationDescription.parse(map['ExtendedS3DestinationDescription']) unless map['ExtendedS3DestinationDescription'].nil?)
-        data.redshift_destination_description = (Parsers::RedshiftDestinationDescription.parse(map['RedshiftDestinationDescription']) unless map['RedshiftDestinationDescription'].nil?)
-        data.elasticsearch_destination_description = (Parsers::ElasticsearchDestinationDescription.parse(map['ElasticsearchDestinationDescription']) unless map['ElasticsearchDestinationDescription'].nil?)
-        data.amazonopensearchservice_destination_description = (Parsers::AmazonopensearchserviceDestinationDescription.parse(map['AmazonopensearchserviceDestinationDescription']) unless map['AmazonopensearchserviceDestinationDescription'].nil?)
-        data.splunk_destination_description = (Parsers::SplunkDestinationDescription.parse(map['SplunkDestinationDescription']) unless map['SplunkDestinationDescription'].nil?)
-        data.http_endpoint_destination_description = (Parsers::HttpEndpointDestinationDescription.parse(map['HttpEndpointDestinationDescription']) unless map['HttpEndpointDestinationDescription'].nil?)
+        data.s3_destination_description = (S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
+        data.extended_s3_destination_description = (ExtendedS3DestinationDescription.parse(map['ExtendedS3DestinationDescription']) unless map['ExtendedS3DestinationDescription'].nil?)
+        data.redshift_destination_description = (RedshiftDestinationDescription.parse(map['RedshiftDestinationDescription']) unless map['RedshiftDestinationDescription'].nil?)
+        data.elasticsearch_destination_description = (ElasticsearchDestinationDescription.parse(map['ElasticsearchDestinationDescription']) unless map['ElasticsearchDestinationDescription'].nil?)
+        data.amazonopensearchservice_destination_description = (AmazonopensearchserviceDestinationDescription.parse(map['AmazonopensearchserviceDestinationDescription']) unless map['AmazonopensearchserviceDestinationDescription'].nil?)
+        data.splunk_destination_description = (SplunkDestinationDescription.parse(map['SplunkDestinationDescription']) unless map['SplunkDestinationDescription'].nil?)
+        data.http_endpoint_destination_description = (HttpEndpointDestinationDescription.parse(map['HttpEndpointDestinationDescription']) unless map['HttpEndpointDestinationDescription'].nil?)
         return data
       end
     end
@@ -151,15 +151,15 @@ module AWS::SDK::Firehose
     class HttpEndpointDestinationDescription
       def self.parse(map)
         data = Types::HttpEndpointDestinationDescription.new
-        data.endpoint_configuration = (Parsers::HttpEndpointDescription.parse(map['EndpointConfiguration']) unless map['EndpointConfiguration'].nil?)
-        data.buffering_hints = (Parsers::HttpEndpointBufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
-        data.cloud_watch_logging_options = (Parsers::CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
-        data.request_configuration = (Parsers::HttpEndpointRequestConfiguration.parse(map['RequestConfiguration']) unless map['RequestConfiguration'].nil?)
-        data.processing_configuration = (Parsers::ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
+        data.endpoint_configuration = (HttpEndpointDescription.parse(map['EndpointConfiguration']) unless map['EndpointConfiguration'].nil?)
+        data.buffering_hints = (HttpEndpointBufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
+        data.cloud_watch_logging_options = (CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
+        data.request_configuration = (HttpEndpointRequestConfiguration.parse(map['RequestConfiguration']) unless map['RequestConfiguration'].nil?)
+        data.processing_configuration = (ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
         data.role_arn = map['RoleARN']
-        data.retry_options = (Parsers::HttpEndpointRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
+        data.retry_options = (HttpEndpointRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
         data.s3_backup_mode = map['S3BackupMode']
-        data.s3_destination_description = (Parsers::S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
+        data.s3_destination_description = (S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
         return data
       end
     end
@@ -171,10 +171,10 @@ module AWS::SDK::Firehose
         data.bucket_arn = map['BucketARN']
         data.prefix = map['Prefix']
         data.error_output_prefix = map['ErrorOutputPrefix']
-        data.buffering_hints = (Parsers::BufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
+        data.buffering_hints = (BufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
         data.compression_format = map['CompressionFormat']
-        data.encryption_configuration = (Parsers::EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
-        data.cloud_watch_logging_options = (Parsers::CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
+        data.encryption_configuration = (EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
+        data.cloud_watch_logging_options = (CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
         return data
       end
     end
@@ -193,7 +193,7 @@ module AWS::SDK::Firehose
       def self.parse(map)
         data = Types::EncryptionConfiguration.new
         data.no_encryption_config = map['NoEncryptionConfig']
-        data.kms_encryption_config = (Parsers::KMSEncryptionConfig.parse(map['KMSEncryptionConfig']) unless map['KMSEncryptionConfig'].nil?)
+        data.kms_encryption_config = (KMSEncryptionConfig.parse(map['KMSEncryptionConfig']) unless map['KMSEncryptionConfig'].nil?)
         return data
       end
     end
@@ -227,7 +227,7 @@ module AWS::SDK::Firehose
       def self.parse(map)
         data = Types::ProcessingConfiguration.new
         data.enabled = map['Enabled']
-        data.processors = (Parsers::ProcessorList.parse(map['Processors']) unless map['Processors'].nil?)
+        data.processors = (ProcessorList.parse(map['Processors']) unless map['Processors'].nil?)
         return data
       end
     end
@@ -235,7 +235,7 @@ module AWS::SDK::Firehose
     class ProcessorList
       def self.parse(list)
         list.map do |value|
-          Parsers::Processor.parse(value) unless value.nil?
+          Processor.parse(value) unless value.nil?
         end
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::Firehose
       def self.parse(map)
         data = Types::Processor.new
         data.type = map['Type']
-        data.parameters = (Parsers::ProcessorParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ProcessorParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -252,7 +252,7 @@ module AWS::SDK::Firehose
     class ProcessorParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProcessorParameter.parse(value) unless value.nil?
+          ProcessorParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -270,7 +270,7 @@ module AWS::SDK::Firehose
       def self.parse(map)
         data = Types::HttpEndpointRequestConfiguration.new
         data.content_encoding = map['ContentEncoding']
-        data.common_attributes = (Parsers::HttpEndpointCommonAttributesList.parse(map['CommonAttributes']) unless map['CommonAttributes'].nil?)
+        data.common_attributes = (HttpEndpointCommonAttributesList.parse(map['CommonAttributes']) unless map['CommonAttributes'].nil?)
         return data
       end
     end
@@ -278,7 +278,7 @@ module AWS::SDK::Firehose
     class HttpEndpointCommonAttributesList
       def self.parse(list)
         list.map do |value|
-          Parsers::HttpEndpointCommonAttribute.parse(value) unless value.nil?
+          HttpEndpointCommonAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -317,11 +317,11 @@ module AWS::SDK::Firehose
         data.hec_endpoint_type = map['HECEndpointType']
         data.hec_token = map['HECToken']
         data.hec_acknowledgment_timeout_in_seconds = map['HECAcknowledgmentTimeoutInSeconds']
-        data.retry_options = (Parsers::SplunkRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
+        data.retry_options = (SplunkRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
         data.s3_backup_mode = map['S3BackupMode']
-        data.s3_destination_description = (Parsers::S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
-        data.processing_configuration = (Parsers::ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
-        data.cloud_watch_logging_options = (Parsers::CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
+        data.s3_destination_description = (S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
+        data.processing_configuration = (ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
+        data.cloud_watch_logging_options = (CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
         return data
       end
     end
@@ -343,13 +343,13 @@ module AWS::SDK::Firehose
         data.index_name = map['IndexName']
         data.type_name = map['TypeName']
         data.index_rotation_period = map['IndexRotationPeriod']
-        data.buffering_hints = (Parsers::AmazonopensearchserviceBufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
-        data.retry_options = (Parsers::AmazonopensearchserviceRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
+        data.buffering_hints = (AmazonopensearchserviceBufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
+        data.retry_options = (AmazonopensearchserviceRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
         data.s3_backup_mode = map['S3BackupMode']
-        data.s3_destination_description = (Parsers::S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
-        data.processing_configuration = (Parsers::ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
-        data.cloud_watch_logging_options = (Parsers::CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
-        data.vpc_configuration_description = (Parsers::VpcConfigurationDescription.parse(map['VpcConfigurationDescription']) unless map['VpcConfigurationDescription'].nil?)
+        data.s3_destination_description = (S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
+        data.processing_configuration = (ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
+        data.cloud_watch_logging_options = (CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
+        data.vpc_configuration_description = (VpcConfigurationDescription.parse(map['VpcConfigurationDescription']) unless map['VpcConfigurationDescription'].nil?)
         return data
       end
     end
@@ -357,9 +357,9 @@ module AWS::SDK::Firehose
     class VpcConfigurationDescription
       def self.parse(map)
         data = Types::VpcConfigurationDescription.new
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.role_arn = map['RoleARN']
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -407,13 +407,13 @@ module AWS::SDK::Firehose
         data.index_name = map['IndexName']
         data.type_name = map['TypeName']
         data.index_rotation_period = map['IndexRotationPeriod']
-        data.buffering_hints = (Parsers::ElasticsearchBufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
-        data.retry_options = (Parsers::ElasticsearchRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
+        data.buffering_hints = (ElasticsearchBufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
+        data.retry_options = (ElasticsearchRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
         data.s3_backup_mode = map['S3BackupMode']
-        data.s3_destination_description = (Parsers::S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
-        data.processing_configuration = (Parsers::ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
-        data.cloud_watch_logging_options = (Parsers::CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
-        data.vpc_configuration_description = (Parsers::VpcConfigurationDescription.parse(map['VpcConfigurationDescription']) unless map['VpcConfigurationDescription'].nil?)
+        data.s3_destination_description = (S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
+        data.processing_configuration = (ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
+        data.cloud_watch_logging_options = (CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
+        data.vpc_configuration_description = (VpcConfigurationDescription.parse(map['VpcConfigurationDescription']) unless map['VpcConfigurationDescription'].nil?)
         return data
       end
     end
@@ -440,14 +440,14 @@ module AWS::SDK::Firehose
         data = Types::RedshiftDestinationDescription.new
         data.role_arn = map['RoleARN']
         data.cluster_jdbcurl = map['ClusterJDBCURL']
-        data.copy_command = (Parsers::CopyCommand.parse(map['CopyCommand']) unless map['CopyCommand'].nil?)
+        data.copy_command = (CopyCommand.parse(map['CopyCommand']) unless map['CopyCommand'].nil?)
         data.username = map['Username']
-        data.retry_options = (Parsers::RedshiftRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
-        data.s3_destination_description = (Parsers::S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
-        data.processing_configuration = (Parsers::ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
+        data.retry_options = (RedshiftRetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
+        data.s3_destination_description = (S3DestinationDescription.parse(map['S3DestinationDescription']) unless map['S3DestinationDescription'].nil?)
+        data.processing_configuration = (ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
         data.s3_backup_mode = map['S3BackupMode']
-        data.s3_backup_description = (Parsers::S3DestinationDescription.parse(map['S3BackupDescription']) unless map['S3BackupDescription'].nil?)
-        data.cloud_watch_logging_options = (Parsers::CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
+        data.s3_backup_description = (S3DestinationDescription.parse(map['S3BackupDescription']) unless map['S3BackupDescription'].nil?)
+        data.cloud_watch_logging_options = (CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
         return data
       end
     end
@@ -477,15 +477,15 @@ module AWS::SDK::Firehose
         data.bucket_arn = map['BucketARN']
         data.prefix = map['Prefix']
         data.error_output_prefix = map['ErrorOutputPrefix']
-        data.buffering_hints = (Parsers::BufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
+        data.buffering_hints = (BufferingHints.parse(map['BufferingHints']) unless map['BufferingHints'].nil?)
         data.compression_format = map['CompressionFormat']
-        data.encryption_configuration = (Parsers::EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
-        data.cloud_watch_logging_options = (Parsers::CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
-        data.processing_configuration = (Parsers::ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
+        data.encryption_configuration = (EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
+        data.cloud_watch_logging_options = (CloudWatchLoggingOptions.parse(map['CloudWatchLoggingOptions']) unless map['CloudWatchLoggingOptions'].nil?)
+        data.processing_configuration = (ProcessingConfiguration.parse(map['ProcessingConfiguration']) unless map['ProcessingConfiguration'].nil?)
         data.s3_backup_mode = map['S3BackupMode']
-        data.s3_backup_description = (Parsers::S3DestinationDescription.parse(map['S3BackupDescription']) unless map['S3BackupDescription'].nil?)
-        data.data_format_conversion_configuration = (Parsers::DataFormatConversionConfiguration.parse(map['DataFormatConversionConfiguration']) unless map['DataFormatConversionConfiguration'].nil?)
-        data.dynamic_partitioning_configuration = (Parsers::DynamicPartitioningConfiguration.parse(map['DynamicPartitioningConfiguration']) unless map['DynamicPartitioningConfiguration'].nil?)
+        data.s3_backup_description = (S3DestinationDescription.parse(map['S3BackupDescription']) unless map['S3BackupDescription'].nil?)
+        data.data_format_conversion_configuration = (DataFormatConversionConfiguration.parse(map['DataFormatConversionConfiguration']) unless map['DataFormatConversionConfiguration'].nil?)
+        data.dynamic_partitioning_configuration = (DynamicPartitioningConfiguration.parse(map['DynamicPartitioningConfiguration']) unless map['DynamicPartitioningConfiguration'].nil?)
         return data
       end
     end
@@ -493,7 +493,7 @@ module AWS::SDK::Firehose
     class DynamicPartitioningConfiguration
       def self.parse(map)
         data = Types::DynamicPartitioningConfiguration.new
-        data.retry_options = (Parsers::RetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
+        data.retry_options = (RetryOptions.parse(map['RetryOptions']) unless map['RetryOptions'].nil?)
         data.enabled = map['Enabled']
         return data
       end
@@ -510,9 +510,9 @@ module AWS::SDK::Firehose
     class DataFormatConversionConfiguration
       def self.parse(map)
         data = Types::DataFormatConversionConfiguration.new
-        data.schema_configuration = (Parsers::SchemaConfiguration.parse(map['SchemaConfiguration']) unless map['SchemaConfiguration'].nil?)
-        data.input_format_configuration = (Parsers::InputFormatConfiguration.parse(map['InputFormatConfiguration']) unless map['InputFormatConfiguration'].nil?)
-        data.output_format_configuration = (Parsers::OutputFormatConfiguration.parse(map['OutputFormatConfiguration']) unless map['OutputFormatConfiguration'].nil?)
+        data.schema_configuration = (SchemaConfiguration.parse(map['SchemaConfiguration']) unless map['SchemaConfiguration'].nil?)
+        data.input_format_configuration = (InputFormatConfiguration.parse(map['InputFormatConfiguration']) unless map['InputFormatConfiguration'].nil?)
+        data.output_format_configuration = (OutputFormatConfiguration.parse(map['OutputFormatConfiguration']) unless map['OutputFormatConfiguration'].nil?)
         data.enabled = map['Enabled']
         return data
       end
@@ -521,7 +521,7 @@ module AWS::SDK::Firehose
     class OutputFormatConfiguration
       def self.parse(map)
         data = Types::OutputFormatConfiguration.new
-        data.serializer = (Parsers::Serializer.parse(map['Serializer']) unless map['Serializer'].nil?)
+        data.serializer = (Serializer.parse(map['Serializer']) unless map['Serializer'].nil?)
         return data
       end
     end
@@ -529,8 +529,8 @@ module AWS::SDK::Firehose
     class Serializer
       def self.parse(map)
         data = Types::Serializer.new
-        data.parquet_ser_de = (Parsers::ParquetSerDe.parse(map['ParquetSerDe']) unless map['ParquetSerDe'].nil?)
-        data.orc_ser_de = (Parsers::OrcSerDe.parse(map['OrcSerDe']) unless map['OrcSerDe'].nil?)
+        data.parquet_ser_de = (ParquetSerDe.parse(map['ParquetSerDe']) unless map['ParquetSerDe'].nil?)
+        data.orc_ser_de = (OrcSerDe.parse(map['OrcSerDe']) unless map['OrcSerDe'].nil?)
         return data
       end
     end
@@ -544,7 +544,7 @@ module AWS::SDK::Firehose
         data.enable_padding = map['EnablePadding']
         data.padding_tolerance = Hearth::NumberHelper.deserialize(map['PaddingTolerance'])
         data.compression = map['Compression']
-        data.bloom_filter_columns = (Parsers::ListOfNonEmptyStringsWithoutWhitespace.parse(map['BloomFilterColumns']) unless map['BloomFilterColumns'].nil?)
+        data.bloom_filter_columns = (ListOfNonEmptyStringsWithoutWhitespace.parse(map['BloomFilterColumns']) unless map['BloomFilterColumns'].nil?)
         data.bloom_filter_false_positive_probability = Hearth::NumberHelper.deserialize(map['BloomFilterFalsePositiveProbability'])
         data.dictionary_key_threshold = Hearth::NumberHelper.deserialize(map['DictionaryKeyThreshold'])
         data.format_version = map['FormatVersion']
@@ -576,7 +576,7 @@ module AWS::SDK::Firehose
     class InputFormatConfiguration
       def self.parse(map)
         data = Types::InputFormatConfiguration.new
-        data.deserializer = (Parsers::Deserializer.parse(map['Deserializer']) unless map['Deserializer'].nil?)
+        data.deserializer = (Deserializer.parse(map['Deserializer']) unless map['Deserializer'].nil?)
         return data
       end
     end
@@ -584,8 +584,8 @@ module AWS::SDK::Firehose
     class Deserializer
       def self.parse(map)
         data = Types::Deserializer.new
-        data.open_x_json_ser_de = (Parsers::OpenXJsonSerDe.parse(map['OpenXJsonSerDe']) unless map['OpenXJsonSerDe'].nil?)
-        data.hive_json_ser_de = (Parsers::HiveJsonSerDe.parse(map['HiveJsonSerDe']) unless map['HiveJsonSerDe'].nil?)
+        data.open_x_json_ser_de = (OpenXJsonSerDe.parse(map['OpenXJsonSerDe']) unless map['OpenXJsonSerDe'].nil?)
+        data.hive_json_ser_de = (HiveJsonSerDe.parse(map['HiveJsonSerDe']) unless map['HiveJsonSerDe'].nil?)
         return data
       end
     end
@@ -593,7 +593,7 @@ module AWS::SDK::Firehose
     class HiveJsonSerDe
       def self.parse(map)
         data = Types::HiveJsonSerDe.new
-        data.timestamp_formats = (Parsers::ListOfNonEmptyStrings.parse(map['TimestampFormats']) unless map['TimestampFormats'].nil?)
+        data.timestamp_formats = (ListOfNonEmptyStrings.parse(map['TimestampFormats']) unless map['TimestampFormats'].nil?)
         return data
       end
     end
@@ -611,7 +611,7 @@ module AWS::SDK::Firehose
         data = Types::OpenXJsonSerDe.new
         data.convert_dots_in_json_keys_to_underscores = map['ConvertDotsInJsonKeysToUnderscores']
         data.case_insensitive = map['CaseInsensitive']
-        data.column_to_json_key_mappings = (Parsers::ColumnToJsonKeyMappings.parse(map['ColumnToJsonKeyMappings']) unless map['ColumnToJsonKeyMappings'].nil?)
+        data.column_to_json_key_mappings = (ColumnToJsonKeyMappings.parse(map['ColumnToJsonKeyMappings']) unless map['ColumnToJsonKeyMappings'].nil?)
         return data
       end
     end
@@ -642,7 +642,7 @@ module AWS::SDK::Firehose
     class SourceDescription
       def self.parse(map)
         data = Types::SourceDescription.new
-        data.kinesis_stream_source_description = (Parsers::KinesisStreamSourceDescription.parse(map['KinesisStreamSourceDescription']) unless map['KinesisStreamSourceDescription'].nil?)
+        data.kinesis_stream_source_description = (KinesisStreamSourceDescription.parse(map['KinesisStreamSourceDescription']) unless map['KinesisStreamSourceDescription'].nil?)
         return data
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::Firehose
         data.key_arn = map['KeyARN']
         data.key_type = map['KeyType']
         data.status = map['Status']
-        data.failure_description = (Parsers::FailureDescription.parse(map['FailureDescription']) unless map['FailureDescription'].nil?)
+        data.failure_description = (FailureDescription.parse(map['FailureDescription']) unless map['FailureDescription'].nil?)
         return data
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::Firehose
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.delivery_stream_names = (Parsers::DeliveryStreamNameList.parse(map['DeliveryStreamNames']) unless map['DeliveryStreamNames'].nil?)
+        data.delivery_stream_names = (DeliveryStreamNameList.parse(map['DeliveryStreamNames']) unless map['DeliveryStreamNames'].nil?)
         data.has_more_delivery_streams = map['HasMoreDeliveryStreams']
         data
       end
@@ -705,7 +705,7 @@ module AWS::SDK::Firehose
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::ListTagsForDeliveryStreamOutputTagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (ListTagsForDeliveryStreamOutputTagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.has_more_tags = map['HasMoreTags']
         data
       end
@@ -714,7 +714,7 @@ module AWS::SDK::Firehose
     class ListTagsForDeliveryStreamOutputTagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -762,7 +762,7 @@ module AWS::SDK::Firehose
         map = Hearth::JSON.load(body)
         data.failed_put_count = map['FailedPutCount']
         data.encrypted = map['Encrypted']
-        data.request_responses = (Parsers::PutRecordBatchResponseEntryList.parse(map['RequestResponses']) unless map['RequestResponses'].nil?)
+        data.request_responses = (PutRecordBatchResponseEntryList.parse(map['RequestResponses']) unless map['RequestResponses'].nil?)
         data
       end
     end
@@ -770,7 +770,7 @@ module AWS::SDK::Firehose
     class PutRecordBatchResponseEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PutRecordBatchResponseEntry.parse(value) unless value.nil?
+          PutRecordBatchResponseEntry.parse(value) unless value.nil?
         end
       end
     end

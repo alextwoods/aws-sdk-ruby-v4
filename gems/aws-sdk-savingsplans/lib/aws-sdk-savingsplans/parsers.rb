@@ -75,7 +75,7 @@ module AWS::SDK::Savingsplans
         data = Types::DescribeSavingsPlanRatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.savings_plan_id = map['savingsPlanId']
-        data.search_results = (Parsers::SavingsPlanRateList.parse(map['searchResults']) unless map['searchResults'].nil?)
+        data.search_results = (SavingsPlanRateList.parse(map['searchResults']) unless map['searchResults'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -85,7 +85,7 @@ module AWS::SDK::Savingsplans
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SavingsPlanRate.parse(value) unless value.nil?
+          data << SavingsPlanRate.parse(value) unless value.nil?
         end
         data
       end
@@ -101,7 +101,7 @@ module AWS::SDK::Savingsplans
         data.service_code = map['serviceCode']
         data.usage_type = map['usageType']
         data.operation = map['operation']
-        data.properties = (Parsers::SavingsPlanRatePropertyList.parse(map['properties']) unless map['properties'].nil?)
+        data.properties = (SavingsPlanRatePropertyList.parse(map['properties']) unless map['properties'].nil?)
         return data
       end
     end
@@ -110,7 +110,7 @@ module AWS::SDK::Savingsplans
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SavingsPlanRateProperty.parse(value) unless value.nil?
+          data << SavingsPlanRateProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -130,7 +130,7 @@ module AWS::SDK::Savingsplans
       def self.parse(http_resp)
         data = Types::DescribeSavingsPlansOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.savings_plans = (Parsers::SavingsPlanList.parse(map['savingsPlans']) unless map['savingsPlans'].nil?)
+        data.savings_plans = (SavingsPlanList.parse(map['savingsPlans']) unless map['savingsPlans'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -140,7 +140,7 @@ module AWS::SDK::Savingsplans
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SavingsPlan.parse(value) unless value.nil?
+          data << SavingsPlan.parse(value) unless value.nil?
         end
         data
       end
@@ -160,13 +160,13 @@ module AWS::SDK::Savingsplans
         data.ec2_instance_family = map['ec2InstanceFamily']
         data.savings_plan_type = map['savingsPlanType']
         data.payment_option = map['paymentOption']
-        data.product_types = (Parsers::SavingsPlanProductTypeList.parse(map['productTypes']) unless map['productTypes'].nil?)
+        data.product_types = (SavingsPlanProductTypeList.parse(map['productTypes']) unless map['productTypes'].nil?)
         data.currency = map['currency']
         data.commitment = map['commitment']
         data.upfront_payment_amount = map['upfrontPaymentAmount']
         data.recurring_payment_amount = map['recurringPaymentAmount']
         data.term_duration_in_seconds = map['termDurationInSeconds']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -196,7 +196,7 @@ module AWS::SDK::Savingsplans
       def self.parse(http_resp)
         data = Types::DescribeSavingsPlansOfferingRatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.search_results = (Parsers::SavingsPlanOfferingRatesList.parse(map['searchResults']) unless map['searchResults'].nil?)
+        data.search_results = (SavingsPlanOfferingRatesList.parse(map['searchResults']) unless map['searchResults'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -206,7 +206,7 @@ module AWS::SDK::Savingsplans
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SavingsPlanOfferingRate.parse(value) unless value.nil?
+          data << SavingsPlanOfferingRate.parse(value) unless value.nil?
         end
         data
       end
@@ -215,14 +215,14 @@ module AWS::SDK::Savingsplans
     class SavingsPlanOfferingRate
       def self.parse(map)
         data = Types::SavingsPlanOfferingRate.new
-        data.savings_plan_offering = (Parsers::ParentSavingsPlanOffering.parse(map['savingsPlanOffering']) unless map['savingsPlanOffering'].nil?)
+        data.savings_plan_offering = (ParentSavingsPlanOffering.parse(map['savingsPlanOffering']) unless map['savingsPlanOffering'].nil?)
         data.rate = map['rate']
         data.unit = map['unit']
         data.product_type = map['productType']
         data.service_code = map['serviceCode']
         data.usage_type = map['usageType']
         data.operation = map['operation']
-        data.properties = (Parsers::SavingsPlanOfferingRatePropertyList.parse(map['properties']) unless map['properties'].nil?)
+        data.properties = (SavingsPlanOfferingRatePropertyList.parse(map['properties']) unless map['properties'].nil?)
         return data
       end
     end
@@ -231,7 +231,7 @@ module AWS::SDK::Savingsplans
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SavingsPlanOfferingRateProperty.parse(value) unless value.nil?
+          data << SavingsPlanOfferingRateProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -264,7 +264,7 @@ module AWS::SDK::Savingsplans
       def self.parse(http_resp)
         data = Types::DescribeSavingsPlansOfferingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.search_results = (Parsers::SavingsPlanOfferingsList.parse(map['searchResults']) unless map['searchResults'].nil?)
+        data.search_results = (SavingsPlanOfferingsList.parse(map['searchResults']) unless map['searchResults'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -274,7 +274,7 @@ module AWS::SDK::Savingsplans
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SavingsPlanOffering.parse(value) unless value.nil?
+          data << SavingsPlanOffering.parse(value) unless value.nil?
         end
         data
       end
@@ -284,7 +284,7 @@ module AWS::SDK::Savingsplans
       def self.parse(map)
         data = Types::SavingsPlanOffering.new
         data.offering_id = map['offeringId']
-        data.product_types = (Parsers::SavingsPlanProductTypeList.parse(map['productTypes']) unless map['productTypes'].nil?)
+        data.product_types = (SavingsPlanProductTypeList.parse(map['productTypes']) unless map['productTypes'].nil?)
         data.plan_type = map['planType']
         data.description = map['description']
         data.payment_option = map['paymentOption']
@@ -293,7 +293,7 @@ module AWS::SDK::Savingsplans
         data.service_code = map['serviceCode']
         data.usage_type = map['usageType']
         data.operation = map['operation']
-        data.properties = (Parsers::SavingsPlanOfferingPropertyList.parse(map['properties']) unless map['properties'].nil?)
+        data.properties = (SavingsPlanOfferingPropertyList.parse(map['properties']) unless map['properties'].nil?)
         return data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::Savingsplans
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SavingsPlanOfferingProperty.parse(value) unless value.nil?
+          data << SavingsPlanOfferingProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -322,7 +322,7 @@ module AWS::SDK::Savingsplans
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

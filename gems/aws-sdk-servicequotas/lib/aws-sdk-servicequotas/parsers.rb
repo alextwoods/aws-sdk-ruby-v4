@@ -182,7 +182,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.quota = (Parsers::ServiceQuota.parse(map['Quota']) unless map['Quota'].nil?)
+        data.quota = (ServiceQuota.parse(map['Quota']) unless map['Quota'].nil?)
         data
       end
     end
@@ -199,9 +199,9 @@ module AWS::SDK::ServiceQuotas
         data.unit = map['Unit']
         data.adjustable = map['Adjustable']
         data.global_quota = map['GlobalQuota']
-        data.usage_metric = (Parsers::MetricInfo.parse(map['UsageMetric']) unless map['UsageMetric'].nil?)
-        data.period = (Parsers::QuotaPeriod.parse(map['Period']) unless map['Period'].nil?)
-        data.error_reason = (Parsers::ErrorReason.parse(map['ErrorReason']) unless map['ErrorReason'].nil?)
+        data.usage_metric = (MetricInfo.parse(map['UsageMetric']) unless map['UsageMetric'].nil?)
+        data.period = (QuotaPeriod.parse(map['Period']) unless map['Period'].nil?)
+        data.error_reason = (ErrorReason.parse(map['ErrorReason']) unless map['ErrorReason'].nil?)
         return data
       end
     end
@@ -229,7 +229,7 @@ module AWS::SDK::ServiceQuotas
         data = Types::MetricInfo.new
         data.metric_namespace = map['MetricNamespace']
         data.metric_name = map['MetricName']
-        data.metric_dimensions = (Parsers::MetricDimensionsMapDefinition.parse(map['MetricDimensions']) unless map['MetricDimensions'].nil?)
+        data.metric_dimensions = (MetricDimensionsMapDefinition.parse(map['MetricDimensions']) unless map['MetricDimensions'].nil?)
         data.metric_statistic_recommendation = map['MetricStatisticRecommendation']
         return data
       end
@@ -264,7 +264,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.requested_quota = (Parsers::RequestedServiceQuotaChange.parse(map['RequestedQuota']) unless map['RequestedQuota'].nil?)
+        data.requested_quota = (RequestedServiceQuotaChange.parse(map['RequestedQuota']) unless map['RequestedQuota'].nil?)
         data
       end
     end
@@ -297,7 +297,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.quota = (Parsers::ServiceQuota.parse(map['Quota']) unless map['Quota'].nil?)
+        data.quota = (ServiceQuota.parse(map['Quota']) unless map['Quota'].nil?)
         data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_quota_increase_request_in_template = (Parsers::ServiceQuotaIncreaseRequestInTemplate.parse(map['ServiceQuotaIncreaseRequestInTemplate']) unless map['ServiceQuotaIncreaseRequestInTemplate'].nil?)
+        data.service_quota_increase_request_in_template = (ServiceQuotaIncreaseRequestInTemplate.parse(map['ServiceQuotaIncreaseRequestInTemplate']) unless map['ServiceQuotaIncreaseRequestInTemplate'].nil?)
         data
       end
     end
@@ -337,7 +337,7 @@ module AWS::SDK::ServiceQuotas
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.quotas = (Parsers::ServiceQuotaListDefinition.parse(map['Quotas']) unless map['Quotas'].nil?)
+        data.quotas = (ServiceQuotaListDefinition.parse(map['Quotas']) unless map['Quotas'].nil?)
         data
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::ServiceQuotas
     class ServiceQuotaListDefinition
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceQuota.parse(value) unless value.nil?
+          ServiceQuota.parse(value) unless value.nil?
         end
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::ServiceQuotas
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.requested_quotas = (Parsers::RequestedServiceQuotaChangeHistoryListDefinition.parse(map['RequestedQuotas']) unless map['RequestedQuotas'].nil?)
+        data.requested_quotas = (RequestedServiceQuotaChangeHistoryListDefinition.parse(map['RequestedQuotas']) unless map['RequestedQuotas'].nil?)
         data
       end
     end
@@ -378,7 +378,7 @@ module AWS::SDK::ServiceQuotas
     class RequestedServiceQuotaChangeHistoryListDefinition
       def self.parse(list)
         list.map do |value|
-          Parsers::RequestedServiceQuotaChange.parse(value) unless value.nil?
+          RequestedServiceQuotaChange.parse(value) unless value.nil?
         end
       end
     end
@@ -391,7 +391,7 @@ module AWS::SDK::ServiceQuotas
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.requested_quotas = (Parsers::RequestedServiceQuotaChangeHistoryListDefinition.parse(map['RequestedQuotas']) unless map['RequestedQuotas'].nil?)
+        data.requested_quotas = (RequestedServiceQuotaChangeHistoryListDefinition.parse(map['RequestedQuotas']) unless map['RequestedQuotas'].nil?)
         data
       end
     end
@@ -403,7 +403,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_quota_increase_request_in_template_list = (Parsers::ServiceQuotaIncreaseRequestInTemplateList.parse(map['ServiceQuotaIncreaseRequestInTemplateList']) unless map['ServiceQuotaIncreaseRequestInTemplateList'].nil?)
+        data.service_quota_increase_request_in_template_list = (ServiceQuotaIncreaseRequestInTemplateList.parse(map['ServiceQuotaIncreaseRequestInTemplateList']) unless map['ServiceQuotaIncreaseRequestInTemplateList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -412,7 +412,7 @@ module AWS::SDK::ServiceQuotas
     class ServiceQuotaIncreaseRequestInTemplateList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceQuotaIncreaseRequestInTemplate.parse(value) unless value.nil?
+          ServiceQuotaIncreaseRequestInTemplate.parse(value) unless value.nil?
         end
       end
     end
@@ -425,7 +425,7 @@ module AWS::SDK::ServiceQuotas
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.quotas = (Parsers::ServiceQuotaListDefinition.parse(map['Quotas']) unless map['Quotas'].nil?)
+        data.quotas = (ServiceQuotaListDefinition.parse(map['Quotas']) unless map['Quotas'].nil?)
         data
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::ServiceQuotas
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.services = (Parsers::ServiceInfoListDefinition.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (ServiceInfoListDefinition.parse(map['Services']) unless map['Services'].nil?)
         data
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::ServiceQuotas
     class ServiceInfoListDefinition
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceInfo.parse(value) unless value.nil?
+          ServiceInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::OutputTags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (OutputTags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -475,7 +475,7 @@ module AWS::SDK::ServiceQuotas
     class OutputTags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_quota_increase_request_in_template = (Parsers::ServiceQuotaIncreaseRequestInTemplate.parse(map['ServiceQuotaIncreaseRequestInTemplate']) unless map['ServiceQuotaIncreaseRequestInTemplate'].nil?)
+        data.service_quota_increase_request_in_template = (ServiceQuotaIncreaseRequestInTemplate.parse(map['ServiceQuotaIncreaseRequestInTemplate']) unless map['ServiceQuotaIncreaseRequestInTemplate'].nil?)
         data
       end
     end
@@ -520,7 +520,7 @@ module AWS::SDK::ServiceQuotas
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.requested_quota = (Parsers::RequestedServiceQuotaChange.parse(map['RequestedQuota']) unless map['RequestedQuota'].nil?)
+        data.requested_quota = (RequestedServiceQuotaChange.parse(map['RequestedQuota']) unless map['RequestedQuota'].nil?)
         data
       end
     end

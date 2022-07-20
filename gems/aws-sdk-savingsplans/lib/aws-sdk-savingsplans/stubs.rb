@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Savingsplans
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Savingsplans
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['savingsPlanId'] = stub[:savings_plan_id] unless stub[:savings_plan_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,9 +57,9 @@ module AWS::SDK::Savingsplans
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['savingsPlanId'] = stub[:savings_plan_id] unless stub[:savings_plan_id].nil?
-        data['searchResults'] = Stubs::SavingsPlanRateList.stub(stub[:search_results]) unless stub[:search_results].nil?
+        data['searchResults'] = SavingsPlanRateList.stub(stub[:search_results]) unless stub[:search_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,7 +77,7 @@ module AWS::SDK::Savingsplans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlanRate.stub(element) unless element.nil?
+          data << SavingsPlanRate.stub(element) unless element.nil?
         end
         data
       end
@@ -108,7 +110,7 @@ module AWS::SDK::Savingsplans
         data['serviceCode'] = stub[:service_code] unless stub[:service_code].nil?
         data['usageType'] = stub[:usage_type] unless stub[:usage_type].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
-        data['properties'] = Stubs::SavingsPlanRatePropertyList.stub(stub[:properties]) unless stub[:properties].nil?
+        data['properties'] = SavingsPlanRatePropertyList.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::Savingsplans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlanRateProperty.stub(element) unless element.nil?
+          data << SavingsPlanRateProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -166,9 +168,9 @@ module AWS::SDK::Savingsplans
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['savingsPlans'] = Stubs::SavingsPlanList.stub(stub[:savings_plans]) unless stub[:savings_plans].nil?
+        data['savingsPlans'] = SavingsPlanList.stub(stub[:savings_plans]) unless stub[:savings_plans].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -186,7 +188,7 @@ module AWS::SDK::Savingsplans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlan.stub(element) unless element.nil?
+          data << SavingsPlan.stub(element) unless element.nil?
         end
         data
       end
@@ -233,13 +235,13 @@ module AWS::SDK::Savingsplans
         data['ec2InstanceFamily'] = stub[:ec2_instance_family] unless stub[:ec2_instance_family].nil?
         data['savingsPlanType'] = stub[:savings_plan_type] unless stub[:savings_plan_type].nil?
         data['paymentOption'] = stub[:payment_option] unless stub[:payment_option].nil?
-        data['productTypes'] = Stubs::SavingsPlanProductTypeList.stub(stub[:product_types]) unless stub[:product_types].nil?
+        data['productTypes'] = SavingsPlanProductTypeList.stub(stub[:product_types]) unless stub[:product_types].nil?
         data['currency'] = stub[:currency] unless stub[:currency].nil?
         data['commitment'] = stub[:commitment] unless stub[:commitment].nil?
         data['upfrontPaymentAmount'] = stub[:upfront_payment_amount] unless stub[:upfront_payment_amount].nil?
         data['recurringPaymentAmount'] = stub[:recurring_payment_amount] unless stub[:recurring_payment_amount].nil?
         data['termDurationInSeconds'] = stub[:term_duration_in_seconds] unless stub[:term_duration_in_seconds].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -297,9 +299,9 @@ module AWS::SDK::Savingsplans
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['searchResults'] = Stubs::SavingsPlanOfferingRatesList.stub(stub[:search_results]) unless stub[:search_results].nil?
+        data['searchResults'] = SavingsPlanOfferingRatesList.stub(stub[:search_results]) unless stub[:search_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::Savingsplans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlanOfferingRate.stub(element) unless element.nil?
+          data << SavingsPlanOfferingRate.stub(element) unless element.nil?
         end
         data
       end
@@ -343,14 +345,14 @@ module AWS::SDK::Savingsplans
       def self.stub(stub)
         stub ||= Types::SavingsPlanOfferingRate.new
         data = {}
-        data['savingsPlanOffering'] = Stubs::ParentSavingsPlanOffering.stub(stub[:savings_plan_offering]) unless stub[:savings_plan_offering].nil?
+        data['savingsPlanOffering'] = ParentSavingsPlanOffering.stub(stub[:savings_plan_offering]) unless stub[:savings_plan_offering].nil?
         data['rate'] = stub[:rate] unless stub[:rate].nil?
         data['unit'] = stub[:unit] unless stub[:unit].nil?
         data['productType'] = stub[:product_type] unless stub[:product_type].nil?
         data['serviceCode'] = stub[:service_code] unless stub[:service_code].nil?
         data['usageType'] = stub[:usage_type] unless stub[:usage_type].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
-        data['properties'] = Stubs::SavingsPlanOfferingRatePropertyList.stub(stub[:properties]) unless stub[:properties].nil?
+        data['properties'] = SavingsPlanOfferingRatePropertyList.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -369,7 +371,7 @@ module AWS::SDK::Savingsplans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlanOfferingRateProperty.stub(element) unless element.nil?
+          data << SavingsPlanOfferingRateProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -436,9 +438,9 @@ module AWS::SDK::Savingsplans
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['searchResults'] = Stubs::SavingsPlanOfferingsList.stub(stub[:search_results]) unless stub[:search_results].nil?
+        data['searchResults'] = SavingsPlanOfferingsList.stub(stub[:search_results]) unless stub[:search_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -456,7 +458,7 @@ module AWS::SDK::Savingsplans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlanOffering.stub(element) unless element.nil?
+          data << SavingsPlanOffering.stub(element) unless element.nil?
         end
         data
       end
@@ -486,7 +488,7 @@ module AWS::SDK::Savingsplans
         stub ||= Types::SavingsPlanOffering.new
         data = {}
         data['offeringId'] = stub[:offering_id] unless stub[:offering_id].nil?
-        data['productTypes'] = Stubs::SavingsPlanProductTypeList.stub(stub[:product_types]) unless stub[:product_types].nil?
+        data['productTypes'] = SavingsPlanProductTypeList.stub(stub[:product_types]) unless stub[:product_types].nil?
         data['planType'] = stub[:plan_type] unless stub[:plan_type].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['paymentOption'] = stub[:payment_option] unless stub[:payment_option].nil?
@@ -495,7 +497,7 @@ module AWS::SDK::Savingsplans
         data['serviceCode'] = stub[:service_code] unless stub[:service_code].nil?
         data['usageType'] = stub[:usage_type] unless stub[:usage_type].nil?
         data['operation'] = stub[:operation] unless stub[:operation].nil?
-        data['properties'] = Stubs::SavingsPlanOfferingPropertyList.stub(stub[:properties]) unless stub[:properties].nil?
+        data['properties'] = SavingsPlanOfferingPropertyList.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -514,7 +516,7 @@ module AWS::SDK::Savingsplans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlanOfferingProperty.stub(element) unless element.nil?
+          data << SavingsPlanOfferingProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -552,8 +554,8 @@ module AWS::SDK::Savingsplans
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

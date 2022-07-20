@@ -17,8 +17,8 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.layers = (Parsers::LayerList.parse(map['layers']) unless map['layers'].nil?)
-        data.failures = (Parsers::LayerFailureList.parse(map['failures']) unless map['failures'].nil?)
+        data.layers = (LayerList.parse(map['layers']) unless map['layers'].nil?)
+        data.failures = (LayerFailureList.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::ECR
     class LayerFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::LayerFailure.parse(value) unless value.nil?
+          LayerFailure.parse(value) unless value.nil?
         end
       end
     end
@@ -44,7 +44,7 @@ module AWS::SDK::ECR
     class LayerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Layer.parse(value) unless value.nil?
+          Layer.parse(value) unless value.nil?
         end
       end
     end
@@ -103,8 +103,8 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_ids = (Parsers::ImageIdentifierList.parse(map['imageIds']) unless map['imageIds'].nil?)
-        data.failures = (Parsers::ImageFailureList.parse(map['failures']) unless map['failures'].nil?)
+        data.image_ids = (ImageIdentifierList.parse(map['imageIds']) unless map['imageIds'].nil?)
+        data.failures = (ImageFailureList.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -112,7 +112,7 @@ module AWS::SDK::ECR
     class ImageFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageFailure.parse(value) unless value.nil?
+          ImageFailure.parse(value) unless value.nil?
         end
       end
     end
@@ -120,7 +120,7 @@ module AWS::SDK::ECR
     class ImageFailure
       def self.parse(map)
         data = Types::ImageFailure.new
-        data.image_id = (Parsers::ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
+        data.image_id = (ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
         data.failure_code = map['failureCode']
         data.failure_reason = map['failureReason']
         return data
@@ -139,7 +139,7 @@ module AWS::SDK::ECR
     class ImageIdentifierList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageIdentifier.parse(value) unless value.nil?
+          ImageIdentifier.parse(value) unless value.nil?
         end
       end
     end
@@ -151,8 +151,8 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.images = (Parsers::ImageList.parse(map['images']) unless map['images'].nil?)
-        data.failures = (Parsers::ImageFailureList.parse(map['failures']) unless map['failures'].nil?)
+        data.images = (ImageList.parse(map['images']) unless map['images'].nil?)
+        data.failures = (ImageFailureList.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -160,7 +160,7 @@ module AWS::SDK::ECR
     class ImageList
       def self.parse(list)
         list.map do |value|
-          Parsers::Image.parse(value) unless value.nil?
+          Image.parse(value) unless value.nil?
         end
       end
     end
@@ -170,7 +170,7 @@ module AWS::SDK::ECR
         data = Types::Image.new
         data.registry_id = map['registryId']
         data.repository_name = map['repositoryName']
-        data.image_id = (Parsers::ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
+        data.image_id = (ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
         data.image_manifest = map['imageManifest']
         data.image_manifest_media_type = map['imageManifestMediaType']
         return data
@@ -184,8 +184,8 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scanning_configurations = (Parsers::RepositoryScanningConfigurationList.parse(map['scanningConfigurations']) unless map['scanningConfigurations'].nil?)
-        data.failures = (Parsers::RepositoryScanningConfigurationFailureList.parse(map['failures']) unless map['failures'].nil?)
+        data.scanning_configurations = (RepositoryScanningConfigurationList.parse(map['scanningConfigurations']) unless map['scanningConfigurations'].nil?)
+        data.failures = (RepositoryScanningConfigurationFailureList.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -193,7 +193,7 @@ module AWS::SDK::ECR
     class RepositoryScanningConfigurationFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositoryScanningConfigurationFailure.parse(value) unless value.nil?
+          RepositoryScanningConfigurationFailure.parse(value) unless value.nil?
         end
       end
     end
@@ -211,7 +211,7 @@ module AWS::SDK::ECR
     class RepositoryScanningConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositoryScanningConfiguration.parse(value) unless value.nil?
+          RepositoryScanningConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -223,7 +223,7 @@ module AWS::SDK::ECR
         data.repository_name = map['repositoryName']
         data.scan_on_push = map['scanOnPush']
         data.scan_frequency = map['scanFrequency']
-        data.applied_scan_filters = (Parsers::ScanningRepositoryFilterList.parse(map['appliedScanFilters']) unless map['appliedScanFilters'].nil?)
+        data.applied_scan_filters = (ScanningRepositoryFilterList.parse(map['appliedScanFilters']) unless map['appliedScanFilters'].nil?)
         return data
       end
     end
@@ -231,7 +231,7 @@ module AWS::SDK::ECR
     class ScanningRepositoryFilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::ScanningRepositoryFilter.parse(value) unless value.nil?
+          ScanningRepositoryFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -403,7 +403,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository = (Parsers::Repository.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (Repository.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -417,8 +417,8 @@ module AWS::SDK::ECR
         data.repository_uri = map['repositoryUri']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.image_tag_mutability = map['imageTagMutability']
-        data.image_scanning_configuration = (Parsers::ImageScanningConfiguration.parse(map['imageScanningConfiguration']) unless map['imageScanningConfiguration'].nil?)
-        data.encryption_configuration = (Parsers::EncryptionConfiguration.parse(map['encryptionConfiguration']) unless map['encryptionConfiguration'].nil?)
+        data.image_scanning_configuration = (ImageScanningConfiguration.parse(map['imageScanningConfiguration']) unless map['imageScanningConfiguration'].nil?)
+        data.encryption_configuration = (EncryptionConfiguration.parse(map['encryptionConfiguration']) unless map['encryptionConfiguration'].nil?)
         return data
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository = (Parsers::Repository.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (Repository.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -613,8 +613,8 @@ module AWS::SDK::ECR
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.repository_name = map['repositoryName']
-        data.image_id = (Parsers::ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
-        data.replication_statuses = (Parsers::ImageReplicationStatusList.parse(map['replicationStatuses']) unless map['replicationStatuses'].nil?)
+        data.image_id = (ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
+        data.replication_statuses = (ImageReplicationStatusList.parse(map['replicationStatuses']) unless map['replicationStatuses'].nil?)
         data
       end
     end
@@ -622,7 +622,7 @@ module AWS::SDK::ECR
     class ImageReplicationStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageReplicationStatus.parse(value) unless value.nil?
+          ImageReplicationStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -659,9 +659,9 @@ module AWS::SDK::ECR
         map = Hearth::JSON.load(body)
         data.registry_id = map['registryId']
         data.repository_name = map['repositoryName']
-        data.image_id = (Parsers::ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
-        data.image_scan_status = (Parsers::ImageScanStatus.parse(map['imageScanStatus']) unless map['imageScanStatus'].nil?)
-        data.image_scan_findings = (Parsers::ImageScanFindings.parse(map['imageScanFindings']) unless map['imageScanFindings'].nil?)
+        data.image_id = (ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
+        data.image_scan_status = (ImageScanStatus.parse(map['imageScanStatus']) unless map['imageScanStatus'].nil?)
+        data.image_scan_findings = (ImageScanFindings.parse(map['imageScanFindings']) unless map['imageScanFindings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -672,9 +672,9 @@ module AWS::SDK::ECR
         data = Types::ImageScanFindings.new
         data.image_scan_completed_at = Time.at(map['imageScanCompletedAt'].to_i) if map['imageScanCompletedAt']
         data.vulnerability_source_updated_at = Time.at(map['vulnerabilitySourceUpdatedAt'].to_i) if map['vulnerabilitySourceUpdatedAt']
-        data.finding_severity_counts = (Parsers::FindingSeverityCounts.parse(map['findingSeverityCounts']) unless map['findingSeverityCounts'].nil?)
-        data.findings = (Parsers::ImageScanFindingList.parse(map['findings']) unless map['findings'].nil?)
-        data.enhanced_findings = (Parsers::EnhancedImageScanFindingList.parse(map['enhancedFindings']) unless map['enhancedFindings'].nil?)
+        data.finding_severity_counts = (FindingSeverityCounts.parse(map['findingSeverityCounts']) unless map['findingSeverityCounts'].nil?)
+        data.findings = (ImageScanFindingList.parse(map['findings']) unless map['findings'].nil?)
+        data.enhanced_findings = (EnhancedImageScanFindingList.parse(map['enhancedFindings']) unless map['enhancedFindings'].nil?)
         return data
       end
     end
@@ -682,7 +682,7 @@ module AWS::SDK::ECR
     class EnhancedImageScanFindingList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnhancedImageScanFinding.parse(value) unless value.nil?
+          EnhancedImageScanFinding.parse(value) unless value.nil?
         end
       end
     end
@@ -695,11 +695,11 @@ module AWS::SDK::ECR
         data.finding_arn = map['findingArn']
         data.first_observed_at = Time.at(map['firstObservedAt'].to_i) if map['firstObservedAt']
         data.last_observed_at = Time.at(map['lastObservedAt'].to_i) if map['lastObservedAt']
-        data.package_vulnerability_details = (Parsers::PackageVulnerabilityDetails.parse(map['packageVulnerabilityDetails']) unless map['packageVulnerabilityDetails'].nil?)
-        data.remediation = (Parsers::Remediation.parse(map['remediation']) unless map['remediation'].nil?)
-        data.resources = (Parsers::ResourceList.parse(map['resources']) unless map['resources'].nil?)
+        data.package_vulnerability_details = (PackageVulnerabilityDetails.parse(map['packageVulnerabilityDetails']) unless map['packageVulnerabilityDetails'].nil?)
+        data.remediation = (Remediation.parse(map['remediation']) unless map['remediation'].nil?)
+        data.resources = (ResourceList.parse(map['resources']) unless map['resources'].nil?)
         data.score = Hearth::NumberHelper.deserialize(map['score'])
-        data.score_details = (Parsers::ScoreDetails.parse(map['scoreDetails']) unless map['scoreDetails'].nil?)
+        data.score_details = (ScoreDetails.parse(map['scoreDetails']) unless map['scoreDetails'].nil?)
         data.severity = map['severity']
         data.status = map['status']
         data.title = map['title']
@@ -712,7 +712,7 @@ module AWS::SDK::ECR
     class ScoreDetails
       def self.parse(map)
         data = Types::ScoreDetails.new
-        data.cvss = (Parsers::CvssScoreDetails.parse(map['cvss']) unless map['cvss'].nil?)
+        data.cvss = (CvssScoreDetails.parse(map['cvss']) unless map['cvss'].nil?)
         return data
       end
     end
@@ -720,7 +720,7 @@ module AWS::SDK::ECR
     class CvssScoreDetails
       def self.parse(map)
         data = Types::CvssScoreDetails.new
-        data.adjustments = (Parsers::CvssScoreAdjustmentList.parse(map['adjustments']) unless map['adjustments'].nil?)
+        data.adjustments = (CvssScoreAdjustmentList.parse(map['adjustments']) unless map['adjustments'].nil?)
         data.score = Hearth::NumberHelper.deserialize(map['score'])
         data.score_source = map['scoreSource']
         data.scoring_vector = map['scoringVector']
@@ -732,7 +732,7 @@ module AWS::SDK::ECR
     class CvssScoreAdjustmentList
       def self.parse(list)
         list.map do |value|
-          Parsers::CvssScoreAdjustment.parse(value) unless value.nil?
+          CvssScoreAdjustment.parse(value) unless value.nil?
         end
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::ECR
     class ResourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Resource.parse(value) unless value.nil?
+          Resource.parse(value) unless value.nil?
         end
       end
     end
@@ -757,9 +757,9 @@ module AWS::SDK::ECR
     class Resource
       def self.parse(map)
         data = Types::Resource.new
-        data.details = (Parsers::ResourceDetails.parse(map['details']) unless map['details'].nil?)
+        data.details = (ResourceDetails.parse(map['details']) unless map['details'].nil?)
         data.id = map['id']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.type = map['type']
         return data
       end
@@ -778,7 +778,7 @@ module AWS::SDK::ECR
     class ResourceDetails
       def self.parse(map)
         data = Types::ResourceDetails.new
-        data.aws_ecr_container_image = (Parsers::AwsEcrContainerImageDetails.parse(map['awsEcrContainerImage']) unless map['awsEcrContainerImage'].nil?)
+        data.aws_ecr_container_image = (AwsEcrContainerImageDetails.parse(map['awsEcrContainerImage']) unless map['awsEcrContainerImage'].nil?)
         return data
       end
     end
@@ -789,7 +789,7 @@ module AWS::SDK::ECR
         data.architecture = map['architecture']
         data.author = map['author']
         data.image_hash = map['imageHash']
-        data.image_tags = (Parsers::ImageTagsList.parse(map['imageTags']) unless map['imageTags'].nil?)
+        data.image_tags = (ImageTagsList.parse(map['imageTags']) unless map['imageTags'].nil?)
         data.platform = map['platform']
         data.pushed_at = Time.at(map['pushedAt'].to_i) if map['pushedAt']
         data.registry = map['registry']
@@ -809,7 +809,7 @@ module AWS::SDK::ECR
     class Remediation
       def self.parse(map)
         data = Types::Remediation.new
-        data.recommendation = (Parsers::Recommendation.parse(map['recommendation']) unless map['recommendation'].nil?)
+        data.recommendation = (Recommendation.parse(map['recommendation']) unless map['recommendation'].nil?)
         return data
       end
     end
@@ -826,16 +826,16 @@ module AWS::SDK::ECR
     class PackageVulnerabilityDetails
       def self.parse(map)
         data = Types::PackageVulnerabilityDetails.new
-        data.cvss = (Parsers::CvssScoreList.parse(map['cvss']) unless map['cvss'].nil?)
-        data.reference_urls = (Parsers::ReferenceUrlsList.parse(map['referenceUrls']) unless map['referenceUrls'].nil?)
-        data.related_vulnerabilities = (Parsers::RelatedVulnerabilitiesList.parse(map['relatedVulnerabilities']) unless map['relatedVulnerabilities'].nil?)
+        data.cvss = (CvssScoreList.parse(map['cvss']) unless map['cvss'].nil?)
+        data.reference_urls = (ReferenceUrlsList.parse(map['referenceUrls']) unless map['referenceUrls'].nil?)
+        data.related_vulnerabilities = (RelatedVulnerabilitiesList.parse(map['relatedVulnerabilities']) unless map['relatedVulnerabilities'].nil?)
         data.source = map['source']
         data.source_url = map['sourceUrl']
         data.vendor_created_at = Time.at(map['vendorCreatedAt'].to_i) if map['vendorCreatedAt']
         data.vendor_severity = map['vendorSeverity']
         data.vendor_updated_at = Time.at(map['vendorUpdatedAt'].to_i) if map['vendorUpdatedAt']
         data.vulnerability_id = map['vulnerabilityId']
-        data.vulnerable_packages = (Parsers::VulnerablePackagesList.parse(map['vulnerablePackages']) unless map['vulnerablePackages'].nil?)
+        data.vulnerable_packages = (VulnerablePackagesList.parse(map['vulnerablePackages']) unless map['vulnerablePackages'].nil?)
         return data
       end
     end
@@ -843,7 +843,7 @@ module AWS::SDK::ECR
     class VulnerablePackagesList
       def self.parse(list)
         list.map do |value|
-          Parsers::VulnerablePackage.parse(value) unless value.nil?
+          VulnerablePackage.parse(value) unless value.nil?
         end
       end
     end
@@ -882,7 +882,7 @@ module AWS::SDK::ECR
     class CvssScoreList
       def self.parse(list)
         list.map do |value|
-          Parsers::CvssScore.parse(value) unless value.nil?
+          CvssScore.parse(value) unless value.nil?
         end
       end
     end
@@ -901,7 +901,7 @@ module AWS::SDK::ECR
     class ImageScanFindingList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageScanFinding.parse(value) unless value.nil?
+          ImageScanFinding.parse(value) unless value.nil?
         end
       end
     end
@@ -913,7 +913,7 @@ module AWS::SDK::ECR
         data.description = map['description']
         data.uri = map['uri']
         data.severity = map['severity']
-        data.attributes = (Parsers::AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -921,7 +921,7 @@ module AWS::SDK::ECR
     class AttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Attribute.parse(value) unless value.nil?
+          Attribute.parse(value) unless value.nil?
         end
       end
     end
@@ -973,7 +973,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_details = (Parsers::ImageDetailList.parse(map['imageDetails']) unless map['imageDetails'].nil?)
+        data.image_details = (ImageDetailList.parse(map['imageDetails']) unless map['imageDetails'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -982,7 +982,7 @@ module AWS::SDK::ECR
     class ImageDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageDetail.parse(value) unless value.nil?
+          ImageDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -993,11 +993,11 @@ module AWS::SDK::ECR
         data.registry_id = map['registryId']
         data.repository_name = map['repositoryName']
         data.image_digest = map['imageDigest']
-        data.image_tags = (Parsers::ImageTagList.parse(map['imageTags']) unless map['imageTags'].nil?)
+        data.image_tags = (ImageTagList.parse(map['imageTags']) unless map['imageTags'].nil?)
         data.image_size_in_bytes = map['imageSizeInBytes']
         data.image_pushed_at = Time.at(map['imagePushedAt'].to_i) if map['imagePushedAt']
-        data.image_scan_status = (Parsers::ImageScanStatus.parse(map['imageScanStatus']) unless map['imageScanStatus'].nil?)
-        data.image_scan_findings_summary = (Parsers::ImageScanFindingsSummary.parse(map['imageScanFindingsSummary']) unless map['imageScanFindingsSummary'].nil?)
+        data.image_scan_status = (ImageScanStatus.parse(map['imageScanStatus']) unless map['imageScanStatus'].nil?)
+        data.image_scan_findings_summary = (ImageScanFindingsSummary.parse(map['imageScanFindingsSummary']) unless map['imageScanFindingsSummary'].nil?)
         data.image_manifest_media_type = map['imageManifestMediaType']
         data.artifact_media_type = map['artifactMediaType']
         data.last_recorded_pull_time = Time.at(map['lastRecordedPullTime'].to_i) if map['lastRecordedPullTime']
@@ -1010,7 +1010,7 @@ module AWS::SDK::ECR
         data = Types::ImageScanFindingsSummary.new
         data.image_scan_completed_at = Time.at(map['imageScanCompletedAt'].to_i) if map['imageScanCompletedAt']
         data.vulnerability_source_updated_at = Time.at(map['vulnerabilitySourceUpdatedAt'].to_i) if map['vulnerabilitySourceUpdatedAt']
-        data.finding_severity_counts = (Parsers::FindingSeverityCounts.parse(map['findingSeverityCounts']) unless map['findingSeverityCounts'].nil?)
+        data.finding_severity_counts = (FindingSeverityCounts.parse(map['findingSeverityCounts']) unless map['findingSeverityCounts'].nil?)
         return data
       end
     end
@@ -1030,7 +1030,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_through_cache_rules = (Parsers::PullThroughCacheRuleList.parse(map['pullThroughCacheRules']) unless map['pullThroughCacheRules'].nil?)
+        data.pull_through_cache_rules = (PullThroughCacheRuleList.parse(map['pullThroughCacheRules']) unless map['pullThroughCacheRules'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1039,7 +1039,7 @@ module AWS::SDK::ECR
     class PullThroughCacheRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::PullThroughCacheRule.parse(value) unless value.nil?
+          PullThroughCacheRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1063,7 +1063,7 @@ module AWS::SDK::ECR
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.registry_id = map['registryId']
-        data.replication_configuration = (Parsers::ReplicationConfiguration.parse(map['replicationConfiguration']) unless map['replicationConfiguration'].nil?)
+        data.replication_configuration = (ReplicationConfiguration.parse(map['replicationConfiguration']) unless map['replicationConfiguration'].nil?)
         data
       end
     end
@@ -1071,7 +1071,7 @@ module AWS::SDK::ECR
     class ReplicationConfiguration
       def self.parse(map)
         data = Types::ReplicationConfiguration.new
-        data.rules = (Parsers::ReplicationRuleList.parse(map['rules']) unless map['rules'].nil?)
+        data.rules = (ReplicationRuleList.parse(map['rules']) unless map['rules'].nil?)
         return data
       end
     end
@@ -1079,7 +1079,7 @@ module AWS::SDK::ECR
     class ReplicationRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationRule.parse(value) unless value.nil?
+          ReplicationRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1087,8 +1087,8 @@ module AWS::SDK::ECR
     class ReplicationRule
       def self.parse(map)
         data = Types::ReplicationRule.new
-        data.destinations = (Parsers::ReplicationDestinationList.parse(map['destinations']) unless map['destinations'].nil?)
-        data.repository_filters = (Parsers::RepositoryFilterList.parse(map['repositoryFilters']) unless map['repositoryFilters'].nil?)
+        data.destinations = (ReplicationDestinationList.parse(map['destinations']) unless map['destinations'].nil?)
+        data.repository_filters = (RepositoryFilterList.parse(map['repositoryFilters']) unless map['repositoryFilters'].nil?)
         return data
       end
     end
@@ -1096,7 +1096,7 @@ module AWS::SDK::ECR
     class RepositoryFilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositoryFilter.parse(value) unless value.nil?
+          RepositoryFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -1113,7 +1113,7 @@ module AWS::SDK::ECR
     class ReplicationDestinationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationDestination.parse(value) unless value.nil?
+          ReplicationDestination.parse(value) unless value.nil?
         end
       end
     end
@@ -1134,7 +1134,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repositories = (Parsers::RepositoryList.parse(map['repositories']) unless map['repositories'].nil?)
+        data.repositories = (RepositoryList.parse(map['repositories']) unless map['repositories'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1143,7 +1143,7 @@ module AWS::SDK::ECR
     class RepositoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::Repository.parse(value) unless value.nil?
+          Repository.parse(value) unless value.nil?
         end
       end
     end
@@ -1155,7 +1155,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.authorization_data = (Parsers::AuthorizationDataList.parse(map['authorizationData']) unless map['authorizationData'].nil?)
+        data.authorization_data = (AuthorizationDataList.parse(map['authorizationData']) unless map['authorizationData'].nil?)
         data
       end
     end
@@ -1163,7 +1163,7 @@ module AWS::SDK::ECR
     class AuthorizationDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::AuthorizationData.parse(value) unless value.nil?
+          AuthorizationData.parse(value) unless value.nil?
         end
       end
     end
@@ -1242,8 +1242,8 @@ module AWS::SDK::ECR
         data.lifecycle_policy_text = map['lifecyclePolicyText']
         data.status = map['status']
         data.next_token = map['nextToken']
-        data.preview_results = (Parsers::LifecyclePolicyPreviewResultList.parse(map['previewResults']) unless map['previewResults'].nil?)
-        data.summary = (Parsers::LifecyclePolicyPreviewSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.preview_results = (LifecyclePolicyPreviewResultList.parse(map['previewResults']) unless map['previewResults'].nil?)
+        data.summary = (LifecyclePolicyPreviewSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end
@@ -1259,7 +1259,7 @@ module AWS::SDK::ECR
     class LifecyclePolicyPreviewResultList
       def self.parse(list)
         list.map do |value|
-          Parsers::LifecyclePolicyPreviewResult.parse(value) unless value.nil?
+          LifecyclePolicyPreviewResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1267,10 +1267,10 @@ module AWS::SDK::ECR
     class LifecyclePolicyPreviewResult
       def self.parse(map)
         data = Types::LifecyclePolicyPreviewResult.new
-        data.image_tags = (Parsers::ImageTagList.parse(map['imageTags']) unless map['imageTags'].nil?)
+        data.image_tags = (ImageTagList.parse(map['imageTags']) unless map['imageTags'].nil?)
         data.image_digest = map['imageDigest']
         data.image_pushed_at = Time.at(map['imagePushedAt'].to_i) if map['imagePushedAt']
-        data.action = (Parsers::LifecyclePolicyRuleAction.parse(map['action']) unless map['action'].nil?)
+        data.action = (LifecyclePolicyRuleAction.parse(map['action']) unless map['action'].nil?)
         data.applied_rule_priority = map['appliedRulePriority']
         return data
       end
@@ -1317,7 +1317,7 @@ module AWS::SDK::ECR
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.registry_id = map['registryId']
-        data.scanning_configuration = (Parsers::RegistryScanningConfiguration.parse(map['scanningConfiguration']) unless map['scanningConfiguration'].nil?)
+        data.scanning_configuration = (RegistryScanningConfiguration.parse(map['scanningConfiguration']) unless map['scanningConfiguration'].nil?)
         data
       end
     end
@@ -1326,7 +1326,7 @@ module AWS::SDK::ECR
       def self.parse(map)
         data = Types::RegistryScanningConfiguration.new
         data.scan_type = map['scanType']
-        data.rules = (Parsers::RegistryScanningRuleList.parse(map['rules']) unless map['rules'].nil?)
+        data.rules = (RegistryScanningRuleList.parse(map['rules']) unless map['rules'].nil?)
         return data
       end
     end
@@ -1334,7 +1334,7 @@ module AWS::SDK::ECR
     class RegistryScanningRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::RegistryScanningRule.parse(value) unless value.nil?
+          RegistryScanningRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1343,7 +1343,7 @@ module AWS::SDK::ECR
       def self.parse(map)
         data = Types::RegistryScanningRule.new
         data.scan_frequency = map['scanFrequency']
-        data.repository_filters = (Parsers::ScanningRepositoryFilterList.parse(map['repositoryFilters']) unless map['repositoryFilters'].nil?)
+        data.repository_filters = (ScanningRepositoryFilterList.parse(map['repositoryFilters']) unless map['repositoryFilters'].nil?)
         return data
       end
     end
@@ -1382,7 +1382,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_ids = (Parsers::ImageIdentifierList.parse(map['imageIds']) unless map['imageIds'].nil?)
+        data.image_ids = (ImageIdentifierList.parse(map['imageIds']) unless map['imageIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1395,7 +1395,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1403,7 +1403,7 @@ module AWS::SDK::ECR
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1424,7 +1424,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image = (Parsers::Image.parse(map['image']) unless map['image'].nil?)
+        data.image = (Image.parse(map['image']) unless map['image'].nil?)
         data
       end
     end
@@ -1486,7 +1486,7 @@ module AWS::SDK::ECR
         map = Hearth::JSON.load(body)
         data.registry_id = map['registryId']
         data.repository_name = map['repositoryName']
-        data.image_scanning_configuration = (Parsers::ImageScanningConfiguration.parse(map['imageScanningConfiguration']) unless map['imageScanningConfiguration'].nil?)
+        data.image_scanning_configuration = (ImageScanningConfiguration.parse(map['imageScanningConfiguration']) unless map['imageScanningConfiguration'].nil?)
         data
       end
     end
@@ -1539,7 +1539,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.registry_scanning_configuration = (Parsers::RegistryScanningConfiguration.parse(map['registryScanningConfiguration']) unless map['registryScanningConfiguration'].nil?)
+        data.registry_scanning_configuration = (RegistryScanningConfiguration.parse(map['registryScanningConfiguration']) unless map['registryScanningConfiguration'].nil?)
         data
       end
     end
@@ -1551,7 +1551,7 @@ module AWS::SDK::ECR
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_configuration = (Parsers::ReplicationConfiguration.parse(map['replicationConfiguration']) unless map['replicationConfiguration'].nil?)
+        data.replication_configuration = (ReplicationConfiguration.parse(map['replicationConfiguration']) unless map['replicationConfiguration'].nil?)
         data
       end
     end
@@ -1579,8 +1579,8 @@ module AWS::SDK::ECR
         map = Hearth::JSON.load(body)
         data.registry_id = map['registryId']
         data.repository_name = map['repositoryName']
-        data.image_id = (Parsers::ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
-        data.image_scan_status = (Parsers::ImageScanStatus.parse(map['imageScanStatus']) unless map['imageScanStatus'].nil?)
+        data.image_id = (ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
+        data.image_scan_status = (ImageScanStatus.parse(map['imageScanStatus']) unless map['imageScanStatus'].nil?)
         data
       end
     end

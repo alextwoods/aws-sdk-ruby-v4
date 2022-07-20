@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudFront
   module Stubs
 
@@ -40,7 +42,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicy.build('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentity.build('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1825,7 +1827,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1846,7 +1848,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryption.build('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2075,7 +2077,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfile.build('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2244,7 +2246,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2331,7 +2333,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['Location'] = stub[:location] unless stub[:location].nil? || stub[:location].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::Invalidation.build('Invalidation', stub[:invalidation]) unless stub[:invalidation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2436,7 +2438,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroup.build('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2517,7 +2519,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::MonitoringSubscription.build('MonitoringSubscription', stub[:monitoring_subscription]) unless stub[:monitoring_subscription].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2574,7 +2576,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicy.build('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2703,7 +2705,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKey.build('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2769,7 +2771,7 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new('CreateRealtimeLogConfigResult')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Stubs::RealtimeLogConfig.stub('RealtimeLogConfig', stub[:realtime_log_config]) unless stub[:realtime_log_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2896,7 +2898,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicy.build('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3393,7 +3395,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3518,7 +3520,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3706,7 +3708,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3725,7 +3727,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicy.build('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3744,7 +3746,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyConfig.build('CachePolicyConfig', stub[:cache_policy_config]) unless stub[:cache_policy_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3763,7 +3765,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentity.build('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3782,7 +3784,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', stub[:cloud_front_origin_access_identity_config]) unless stub[:cloud_front_origin_access_identity_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3801,7 +3803,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3820,7 +3822,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfig.build('DistributionConfig', stub[:distribution_config]) unless stub[:distribution_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3839,7 +3841,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryption.build('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3858,7 +3860,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', stub[:field_level_encryption_config]) unless stub[:field_level_encryption_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3877,7 +3879,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfile.build('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3896,7 +3898,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', stub[:field_level_encryption_profile_config]) unless stub[:field_level_encryption_profile_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3916,7 +3918,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:function_code] || '')
+        http_resp.body = ::StringIO.new(stub[:function_code] || '')
       end
     end
 
@@ -3933,7 +3935,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::Invalidation.build('Invalidation', stub[:invalidation]) unless stub[:invalidation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3952,7 +3954,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroup.build('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3971,7 +3973,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupConfig.build('KeyGroupConfig', stub[:key_group_config]) unless stub[:key_group_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3988,7 +3990,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::MonitoringSubscription.build('MonitoringSubscription', stub[:monitoring_subscription]) unless stub[:monitoring_subscription].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4007,7 +4009,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicy.build('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4026,7 +4028,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', stub[:origin_request_policy_config]) unless stub[:origin_request_policy_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4045,7 +4047,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKey.build('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4064,7 +4066,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyConfig.build('PublicKeyConfig', stub[:public_key_config]) unless stub[:public_key_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4084,7 +4086,7 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new('GetRealtimeLogConfigResult')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Stubs::RealtimeLogConfig.stub('RealtimeLogConfig', stub[:realtime_log_config]) unless stub[:realtime_log_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4103,7 +4105,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicy.build('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4122,7 +4124,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', stub[:response_headers_policy_config]) unless stub[:response_headers_policy_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4141,7 +4143,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4160,7 +4162,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', stub[:streaming_distribution_config]) unless stub[:streaming_distribution_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4177,7 +4179,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyList.build('CachePolicyList', stub[:cache_policy_list]) unless stub[:cache_policy_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4258,7 +4260,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityList.build('CloudFrontOriginAccessIdentityList', stub[:cloud_front_origin_access_identity_list]) unless stub[:cloud_front_origin_access_identity_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4345,7 +4347,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ConflictingAliasesList.build('ConflictingAliasesList', stub[:conflicting_aliases_list]) unless stub[:conflicting_aliases_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4428,7 +4430,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionList.build('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4549,7 +4551,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4614,7 +4616,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4631,7 +4633,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4648,7 +4650,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionList.build('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4665,7 +4667,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionIdList.build('DistributionIdList', stub[:distribution_id_list]) unless stub[:distribution_id_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4682,7 +4684,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionList.build('DistributionList', stub[:distribution_list]) unless stub[:distribution_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4699,7 +4701,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionList.build('FieldLevelEncryptionList', stub[:field_level_encryption_list]) unless stub[:field_level_encryption_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4786,7 +4788,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileList.build('FieldLevelEncryptionProfileList', stub[:field_level_encryption_profile_list]) unless stub[:field_level_encryption_profile_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4873,7 +4875,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FunctionList.build('FunctionList', stub[:function_list]) unless stub[:function_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -4934,7 +4936,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::InvalidationList.build('InvalidationList', stub[:invalidation_list]) unless stub[:invalidation_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5021,7 +5023,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupList.build('KeyGroupList', stub[:key_group_list]) unless stub[:key_group_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5100,7 +5102,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyList.build('OriginRequestPolicyList', stub[:origin_request_policy_list]) unless stub[:origin_request_policy_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5181,7 +5183,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyList.build('PublicKeyList', stub[:public_key_list]) unless stub[:public_key_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5268,7 +5270,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::RealtimeLogConfigs.build('RealtimeLogConfigs', stub[:realtime_log_configs]) unless stub[:realtime_log_configs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5331,7 +5333,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyList.build('ResponseHeadersPolicyList', stub[:response_headers_policy_list]) unless stub[:response_headers_policy_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5412,7 +5414,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionList.build('StreamingDistributionList', stub[:streaming_distribution_list]) unless stub[:streaming_distribution_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5515,7 +5517,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tags.build('Tags', stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5590,7 +5592,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5620,7 +5622,7 @@ module AWS::SDK::CloudFront
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::TestResult.build('TestResult', stub[:test_result]) unless stub[:test_result].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5698,7 +5700,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicy.build('CachePolicy', stub[:cache_policy]) unless stub[:cache_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5717,7 +5719,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentity.build('CloudFrontOriginAccessIdentity', stub[:cloud_front_origin_access_identity]) unless stub[:cloud_front_origin_access_identity].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5736,7 +5738,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::Distribution.build('Distribution', stub[:distribution]) unless stub[:distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5755,7 +5757,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryption.build('FieldLevelEncryption', stub[:field_level_encryption]) unless stub[:field_level_encryption].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5774,7 +5776,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfile.build('FieldLevelEncryptionProfile', stub[:field_level_encryption_profile]) unless stub[:field_level_encryption_profile].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5793,7 +5795,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETtag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::FunctionSummary.build('FunctionSummary', stub[:function_summary]) unless stub[:function_summary].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5812,7 +5814,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroup.build('KeyGroup', stub[:key_group]) unless stub[:key_group].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5831,7 +5833,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicy.build('OriginRequestPolicy', stub[:origin_request_policy]) unless stub[:origin_request_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5850,7 +5852,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKey.build('PublicKey', stub[:public_key]) unless stub[:public_key].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5870,7 +5872,7 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new('UpdateRealtimeLogConfigResult')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Stubs::RealtimeLogConfig.stub('RealtimeLogConfig', stub[:realtime_log_config]) unless stub[:realtime_log_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5889,7 +5891,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicy.build('ResponseHeadersPolicy', stub[:response_headers_policy]) unless stub[:response_headers_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -5908,7 +5910,7 @@ module AWS::SDK::CloudFront
         http_resp.headers['ETag'] = stub[:e_tag] unless stub[:e_tag].nil? || stub[:e_tag].empty?
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistribution.build('StreamingDistribution', stub[:streaming_distribution]) unless stub[:streaming_distribution].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
   end

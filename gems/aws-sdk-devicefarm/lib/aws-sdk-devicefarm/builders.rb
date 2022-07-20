@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DeviceFarm
   module Builders
 
@@ -21,9 +23,9 @@ module AWS::SDK::DeviceFarm
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['rules'] = Builders::Rules.build(input[:rules]) unless input[:rules].nil?
+        data['rules'] = Rules.build(input[:rules]) unless input[:rules].nil?
         data['maxDevices'] = input[:max_devices] unless input[:max_devices].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::DeviceFarm
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Rule.build(element) unless element.nil?
+          data << Rule.build(element) unless element.nil?
         end
         data
       end
@@ -60,9 +62,9 @@ module AWS::SDK::DeviceFarm
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['packageCleanup'] = input[:package_cleanup] unless input[:package_cleanup].nil?
-        data['excludeAppPackagesFromCleanup'] = Builders::PackageIds.build(input[:exclude_app_packages_from_cleanup]) unless input[:exclude_app_packages_from_cleanup].nil?
+        data['excludeAppPackagesFromCleanup'] = PackageIds.build(input[:exclude_app_packages_from_cleanup]) unless input[:exclude_app_packages_from_cleanup].nil?
         data['rebootAfterUse'] = input[:reboot_after_use] unless input[:reboot_after_use].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,7 +99,7 @@ module AWS::SDK::DeviceFarm
         data['downlinkJitterMs'] = input[:downlink_jitter_ms] unless input[:downlink_jitter_ms].nil?
         data['uplinkLossPercent'] = input[:uplink_loss_percent] unless input[:uplink_loss_percent].nil?
         data['downlinkLossPercent'] = input[:downlink_loss_percent] unless input[:downlink_loss_percent].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -111,7 +113,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['defaultJobTimeoutMinutes'] = input[:default_job_timeout_minutes] unless input[:default_job_timeout_minutes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,10 +134,10 @@ module AWS::SDK::DeviceFarm
         data['remoteRecordAppArn'] = input[:remote_record_app_arn] unless input[:remote_record_app_arn].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['clientId'] = input[:client_id] unless input[:client_id].nil?
-        data['configuration'] = Builders::CreateRemoteAccessSessionConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['configuration'] = CreateRemoteAccessSessionConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['interactionMode'] = input[:interaction_mode] unless input[:interaction_mode].nil?
         data['skipAppResign'] = input[:skip_app_resign] unless input[:skip_app_resign].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -144,7 +146,7 @@ module AWS::SDK::DeviceFarm
       def self.build(input)
         data = {}
         data['billingMethod'] = input[:billing_method] unless input[:billing_method].nil?
-        data['vpceConfigurationArns'] = Builders::AmazonResourceNames.build(input[:vpce_configuration_arns]) unless input[:vpce_configuration_arns].nil?
+        data['vpceConfigurationArns'] = AmazonResourceNames.build(input[:vpce_configuration_arns]) unless input[:vpce_configuration_arns].nil?
         data
       end
     end
@@ -170,8 +172,8 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['vpcConfig'] = Builders::TestGridVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpcConfig'] = TestGridVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,8 +181,8 @@ module AWS::SDK::DeviceFarm
     class TestGridVpcConfig
       def self.build(input)
         data = {}
-        data['securityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['subnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['vpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data
       end
@@ -218,7 +220,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
         data['expiresInSeconds'] = input[:expires_in_seconds] unless input[:expires_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::DeviceFarm
         data['name'] = input[:name] unless input[:name].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::DeviceFarm
         data['vpceServiceName'] = input[:vpce_service_name] unless input[:vpce_service_name].nil?
         data['serviceDnsName'] = input[:service_dns_name] unless input[:service_dns_name].nil?
         data['vpceConfigurationDescription'] = input[:vpce_configuration_description] unless input[:vpce_configuration_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -263,7 +265,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteDevicePool'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -276,7 +278,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteInstanceProfile'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteNetworkProfile'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteProject'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteRemoteAccessSession'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteRun'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -341,7 +343,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteTestGridProject'
         data = {}
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -354,7 +356,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteUpload'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -367,7 +369,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.DeleteVPCEConfiguration'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -379,7 +381,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetAccountSettings'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetDevice'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -405,7 +407,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetDeviceInstance'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -418,7 +420,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetDevicePool'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,9 +435,9 @@ module AWS::SDK::DeviceFarm
         data['devicePoolArn'] = input[:device_pool_arn] unless input[:device_pool_arn].nil?
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['testType'] = input[:test_type] unless input[:test_type].nil?
-        data['test'] = Builders::ScheduleRunTest.build(input[:test]) unless input[:test].nil?
-        data['configuration'] = Builders::ScheduleRunConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['test'] = ScheduleRunTest.build(input[:test]) unless input[:test].nil?
+        data['configuration'] = ScheduleRunConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,11 +448,11 @@ module AWS::SDK::DeviceFarm
         data['extraDataPackageArn'] = input[:extra_data_package_arn] unless input[:extra_data_package_arn].nil?
         data['networkProfileArn'] = input[:network_profile_arn] unless input[:network_profile_arn].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
-        data['location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
-        data['vpceConfigurationArns'] = Builders::AmazonResourceNames.build(input[:vpce_configuration_arns]) unless input[:vpce_configuration_arns].nil?
-        data['customerArtifactPaths'] = Builders::CustomerArtifactPaths.build(input[:customer_artifact_paths]) unless input[:customer_artifact_paths].nil?
-        data['radios'] = Builders::Radios.build(input[:radios]) unless input[:radios].nil?
-        data['auxiliaryApps'] = Builders::AmazonResourceNames.build(input[:auxiliary_apps]) unless input[:auxiliary_apps].nil?
+        data['location'] = Location.build(input[:location]) unless input[:location].nil?
+        data['vpceConfigurationArns'] = AmazonResourceNames.build(input[:vpce_configuration_arns]) unless input[:vpce_configuration_arns].nil?
+        data['customerArtifactPaths'] = CustomerArtifactPaths.build(input[:customer_artifact_paths]) unless input[:customer_artifact_paths].nil?
+        data['radios'] = Radios.build(input[:radios]) unless input[:radios].nil?
+        data['auxiliaryApps'] = AmazonResourceNames.build(input[:auxiliary_apps]) unless input[:auxiliary_apps].nil?
         data['billingMethod'] = input[:billing_method] unless input[:billing_method].nil?
         data
       end
@@ -472,9 +474,9 @@ module AWS::SDK::DeviceFarm
     class CustomerArtifactPaths
       def self.build(input)
         data = {}
-        data['iosPaths'] = Builders::IosPaths.build(input[:ios_paths]) unless input[:ios_paths].nil?
-        data['androidPaths'] = Builders::AndroidPaths.build(input[:android_paths]) unless input[:android_paths].nil?
-        data['deviceHostPaths'] = Builders::DeviceHostPaths.build(input[:device_host_paths]) unless input[:device_host_paths].nil?
+        data['iosPaths'] = IosPaths.build(input[:ios_paths]) unless input[:ios_paths].nil?
+        data['androidPaths'] = AndroidPaths.build(input[:android_paths]) unless input[:android_paths].nil?
+        data['deviceHostPaths'] = DeviceHostPaths.build(input[:device_host_paths]) unless input[:device_host_paths].nil?
         data
       end
     end
@@ -530,7 +532,7 @@ module AWS::SDK::DeviceFarm
         data['testPackageArn'] = input[:test_package_arn] unless input[:test_package_arn].nil?
         data['testSpecArn'] = input[:test_spec_arn] unless input[:test_spec_arn].nil?
         data['filter'] = input[:filter] unless input[:filter].nil?
-        data['parameters'] = Builders::TestParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['parameters'] = TestParameters.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -555,7 +557,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetInstanceProfile'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -568,7 +570,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetJob'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -581,7 +583,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetNetworkProfile'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,7 +596,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetOfferingStatus'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetProject'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -620,7 +622,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetRemoteAccessSession'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetRun'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -646,7 +648,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetSuite'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -659,7 +661,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetTest'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -672,7 +674,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetTestGridProject'
         data = {}
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,7 +689,7 @@ module AWS::SDK::DeviceFarm
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
         data['sessionId'] = input[:session_id] unless input[:session_id].nil?
         data['sessionArn'] = input[:session_arn] unless input[:session_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -700,7 +702,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetUpload'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -713,7 +715,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.GetVPCEConfiguration'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -727,7 +729,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['remoteAccessSessionArn'] = input[:remote_access_session_arn] unless input[:remote_access_session_arn].nil?
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -742,7 +744,7 @@ module AWS::SDK::DeviceFarm
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -756,7 +758,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -771,7 +773,7 @@ module AWS::SDK::DeviceFarm
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -785,8 +787,8 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['filters'] = Builders::DeviceFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = DeviceFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -795,7 +797,7 @@ module AWS::SDK::DeviceFarm
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DeviceFilter.build(element) unless element.nil?
+          data << DeviceFilter.build(element) unless element.nil?
         end
         data
       end
@@ -807,7 +809,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['attribute'] = input[:attribute] unless input[:attribute].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
-        data['values'] = Builders::DeviceFilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = DeviceFilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -833,7 +835,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -847,7 +849,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::DeviceFarm
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -875,7 +877,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.ListOfferingPromotions'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -888,7 +890,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.ListOfferingTransactions'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -901,7 +903,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.ListOfferings'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -915,7 +917,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -929,7 +931,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -943,7 +945,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -957,7 +959,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -971,7 +973,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -984,7 +986,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -998,7 +1000,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['maxResult'] = input[:max_result] unless input[:max_result].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1013,7 +1015,7 @@ module AWS::SDK::DeviceFarm
         data['sessionArn'] = input[:session_arn] unless input[:session_arn].nil?
         data['maxResult'] = input[:max_result] unless input[:max_result].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1029,7 +1031,7 @@ module AWS::SDK::DeviceFarm
         data['type'] = input[:type] unless input[:type].nil?
         data['maxResult'] = input[:max_result] unless input[:max_result].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1049,7 +1051,7 @@ module AWS::SDK::DeviceFarm
         data['endTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time_before]).to_i unless input[:end_time_before].nil?
         data['maxResult'] = input[:max_result] unless input[:max_result].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1063,7 +1065,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1077,7 +1079,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1092,7 +1094,7 @@ module AWS::SDK::DeviceFarm
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1106,7 +1108,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1121,7 +1123,7 @@ module AWS::SDK::DeviceFarm
         data['offeringId'] = input[:offering_id] unless input[:offering_id].nil?
         data['quantity'] = input[:quantity] unless input[:quantity].nil?
         data['offeringPromotionId'] = input[:offering_promotion_id] unless input[:offering_promotion_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1135,7 +1137,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['offeringId'] = input[:offering_id] unless input[:offering_id].nil?
         data['quantity'] = input[:quantity] unless input[:quantity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1150,12 +1152,12 @@ module AWS::SDK::DeviceFarm
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['devicePoolArn'] = input[:device_pool_arn] unless input[:device_pool_arn].nil?
-        data['deviceSelectionConfiguration'] = Builders::DeviceSelectionConfiguration.build(input[:device_selection_configuration]) unless input[:device_selection_configuration].nil?
+        data['deviceSelectionConfiguration'] = DeviceSelectionConfiguration.build(input[:device_selection_configuration]) unless input[:device_selection_configuration].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['test'] = Builders::ScheduleRunTest.build(input[:test]) unless input[:test].nil?
-        data['configuration'] = Builders::ScheduleRunConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        data['executionConfiguration'] = Builders::ExecutionConfiguration.build(input[:execution_configuration]) unless input[:execution_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['test'] = ScheduleRunTest.build(input[:test]) unless input[:test].nil?
+        data['configuration'] = ScheduleRunConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['executionConfiguration'] = ExecutionConfiguration.build(input[:execution_configuration]) unless input[:execution_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1176,7 +1178,7 @@ module AWS::SDK::DeviceFarm
     class DeviceSelectionConfiguration
       def self.build(input)
         data = {}
-        data['filters'] = Builders::DeviceFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = DeviceFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxDevices'] = input[:max_devices] unless input[:max_devices].nil?
         data
       end
@@ -1191,7 +1193,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.StopJob'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1204,7 +1206,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.StopRemoteAccessSession'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1217,7 +1219,7 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.StopRun'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1230,8 +1232,8 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1240,7 +1242,7 @@ module AWS::SDK::DeviceFarm
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -1265,8 +1267,8 @@ module AWS::SDK::DeviceFarm
         http_req.headers['X-Amz-Target'] = 'DeviceFarm_20150623.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1291,8 +1293,8 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['profileArn'] = input[:profile_arn] unless input[:profile_arn].nil?
-        data['labels'] = Builders::InstanceLabels.build(input[:labels]) unless input[:labels].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['labels'] = InstanceLabels.build(input[:labels]) unless input[:labels].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1318,10 +1320,10 @@ module AWS::SDK::DeviceFarm
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['rules'] = Builders::Rules.build(input[:rules]) unless input[:rules].nil?
+        data['rules'] = Rules.build(input[:rules]) unless input[:rules].nil?
         data['maxDevices'] = input[:max_devices] unless input[:max_devices].nil?
         data['clearMaxDevices'] = input[:clear_max_devices] unless input[:clear_max_devices].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1337,9 +1339,9 @@ module AWS::SDK::DeviceFarm
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['packageCleanup'] = input[:package_cleanup] unless input[:package_cleanup].nil?
-        data['excludeAppPackagesFromCleanup'] = Builders::PackageIds.build(input[:exclude_app_packages_from_cleanup]) unless input[:exclude_app_packages_from_cleanup].nil?
+        data['excludeAppPackagesFromCleanup'] = PackageIds.build(input[:exclude_app_packages_from_cleanup]) unless input[:exclude_app_packages_from_cleanup].nil?
         data['rebootAfterUse'] = input[:reboot_after_use] unless input[:reboot_after_use].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,7 +1365,7 @@ module AWS::SDK::DeviceFarm
         data['downlinkJitterMs'] = input[:downlink_jitter_ms] unless input[:downlink_jitter_ms].nil?
         data['uplinkLossPercent'] = input[:uplink_loss_percent] unless input[:uplink_loss_percent].nil?
         data['downlinkLossPercent'] = input[:downlink_loss_percent] unless input[:downlink_loss_percent].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1378,7 +1380,7 @@ module AWS::SDK::DeviceFarm
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['defaultJobTimeoutMinutes'] = input[:default_job_timeout_minutes] unless input[:default_job_timeout_minutes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1393,8 +1395,8 @@ module AWS::SDK::DeviceFarm
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['vpcConfig'] = Builders::TestGridVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpcConfig'] = TestGridVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1410,7 +1412,7 @@ module AWS::SDK::DeviceFarm
         data['name'] = input[:name] unless input[:name].nil?
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
         data['editContent'] = input[:edit_content] unless input[:edit_content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1427,7 +1429,7 @@ module AWS::SDK::DeviceFarm
         data['vpceServiceName'] = input[:vpce_service_name] unless input[:vpce_service_name].nil?
         data['serviceDnsName'] = input[:service_dns_name] unless input[:service_dns_name].nil?
         data['vpceConfigurationDescription'] = input[:vpce_configuration_description] unless input[:vpce_configuration_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

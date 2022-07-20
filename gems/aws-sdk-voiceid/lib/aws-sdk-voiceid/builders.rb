@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::VoiceID
   module Builders
 
@@ -20,10 +22,10 @@ module AWS::SDK::VoiceID
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ServerSideEncryptionConfiguration'] = Builders::ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
+        data['ServerSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::VoiceID
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -66,7 +68,7 @@ module AWS::SDK::VoiceID
         http_req.headers['X-Amz-Target'] = 'VoiceID.DeleteDomain'
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['FraudsterId'] = input[:fraudster_id] unless input[:fraudster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -94,7 +96,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['SpeakerId'] = input[:speaker_id] unless input[:speaker_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -107,7 +109,7 @@ module AWS::SDK::VoiceID
         http_req.headers['X-Amz-Target'] = 'VoiceID.DescribeDomain'
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['FraudsterId'] = input[:fraudster_id] unless input[:fraudster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['SpeakerId'] = input[:speaker_id] unless input[:speaker_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['SessionNameOrId'] = input[:session_name_or_id] unless input[:session_name_or_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,7 +193,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -207,7 +209,7 @@ module AWS::SDK::VoiceID
         data['JobStatus'] = input[:job_status] unless input[:job_status].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,7 +225,7 @@ module AWS::SDK::VoiceID
         data['JobStatus'] = input[:job_status] unless input[:job_status].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -238,7 +240,7 @@ module AWS::SDK::VoiceID
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -251,7 +253,7 @@ module AWS::SDK::VoiceID
         http_req.headers['X-Amz-Target'] = 'VoiceID.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -265,7 +267,7 @@ module AWS::SDK::VoiceID
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['SpeakerId'] = input[:speaker_id] unless input[:speaker_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,10 +283,10 @@ module AWS::SDK::VoiceID
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
-        data['RegistrationConfig'] = Builders::RegistrationConfig.build(input[:registration_config]) unless input[:registration_config].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegistrationConfig'] = RegistrationConfig.build(input[:registration_config]) unless input[:registration_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,10 +331,10 @@ module AWS::SDK::VoiceID
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
-        data['EnrollmentConfig'] = Builders::EnrollmentConfig.build(input[:enrollment_config]) unless input[:enrollment_config].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EnrollmentConfig'] = EnrollmentConfig.build(input[:enrollment_config]) unless input[:enrollment_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -341,7 +343,7 @@ module AWS::SDK::VoiceID
       def self.build(input)
         data = {}
         data['ExistingEnrollmentAction'] = input[:existing_enrollment_action] unless input[:existing_enrollment_action].nil?
-        data['FraudDetectionConfig'] = Builders::EnrollmentJobFraudDetectionConfig.build(input[:fraud_detection_config]) unless input[:fraud_detection_config].nil?
+        data['FraudDetectionConfig'] = EnrollmentJobFraudDetectionConfig.build(input[:fraud_detection_config]) unless input[:fraud_detection_config].nil?
         data
       end
     end
@@ -365,8 +367,8 @@ module AWS::SDK::VoiceID
         http_req.headers['X-Amz-Target'] = 'VoiceID.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -379,8 +381,8 @@ module AWS::SDK::VoiceID
         http_req.headers['X-Amz-Target'] = 'VoiceID.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,8 +408,8 @@ module AWS::SDK::VoiceID
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ServerSideEncryptionConfiguration'] = Builders::ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServerSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

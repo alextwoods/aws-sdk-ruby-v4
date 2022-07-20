@@ -15,7 +15,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.parse(http_resp)
         data = Types::DescribeJobExecutionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution = (Parsers::JobExecution.parse(map['execution']) unless map['execution'].nil?)
+        data.execution = (JobExecution.parse(map['execution']) unless map['execution'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::IoTJobsDataPlane
         data.job_id = map['jobId']
         data.thing_name = map['thingName']
         data.status = map['status']
-        data.status_details = (Parsers::DetailsMap.parse(map['statusDetails']) unless map['statusDetails'].nil?)
+        data.status_details = (DetailsMap.parse(map['statusDetails']) unless map['statusDetails'].nil?)
         data.queued_at = map['queuedAt']
         data.started_at = map['startedAt']
         data.last_updated_at = map['lastUpdatedAt']
@@ -114,8 +114,8 @@ module AWS::SDK::IoTJobsDataPlane
       def self.parse(http_resp)
         data = Types::GetPendingJobExecutionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.in_progress_jobs = (Parsers::JobExecutionSummaryList.parse(map['inProgressJobs']) unless map['inProgressJobs'].nil?)
-        data.queued_jobs = (Parsers::JobExecutionSummaryList.parse(map['queuedJobs']) unless map['queuedJobs'].nil?)
+        data.in_progress_jobs = (JobExecutionSummaryList.parse(map['inProgressJobs']) unless map['inProgressJobs'].nil?)
+        data.queued_jobs = (JobExecutionSummaryList.parse(map['queuedJobs']) unless map['queuedJobs'].nil?)
         data
       end
     end
@@ -124,7 +124,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobExecutionSummary.parse(value) unless value.nil?
+          data << JobExecutionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -148,7 +148,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.parse(http_resp)
         data = Types::StartNextPendingJobExecutionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution = (Parsers::JobExecution.parse(map['execution']) unless map['execution'].nil?)
+        data.execution = (JobExecution.parse(map['execution']) unless map['execution'].nil?)
         data
       end
     end
@@ -158,7 +158,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.parse(http_resp)
         data = Types::UpdateJobExecutionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution_state = (Parsers::JobExecutionState.parse(map['executionState']) unless map['executionState'].nil?)
+        data.execution_state = (JobExecutionState.parse(map['executionState']) unless map['executionState'].nil?)
         data.job_document = map['jobDocument']
         data
       end
@@ -168,7 +168,7 @@ module AWS::SDK::IoTJobsDataPlane
       def self.parse(map)
         data = Types::JobExecutionState.new
         data.status = map['status']
-        data.status_details = (Parsers::DetailsMap.parse(map['statusDetails']) unless map['statusDetails'].nil?)
+        data.status_details = (DetailsMap.parse(map['statusDetails']) unless map['statusDetails'].nil?)
         data.version_number = map['versionNumber']
         return data
       end

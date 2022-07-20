@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticTranscoder
   module Stubs
 
@@ -35,8 +37,8 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,15 +69,15 @@ module AWS::SDK::ElasticTranscoder
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['PipelineId'] = stub[:pipeline_id] unless stub[:pipeline_id].nil?
-        data['Input'] = Stubs::JobInput.stub(stub[:input]) unless stub[:input].nil?
-        data['Inputs'] = Stubs::JobInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Output'] = Stubs::JobOutput.stub(stub[:output]) unless stub[:output].nil?
-        data['Outputs'] = Stubs::JobOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Input'] = JobInput.stub(stub[:input]) unless stub[:input].nil?
+        data['Inputs'] = JobInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Output'] = JobOutput.stub(stub[:output]) unless stub[:output].nil?
+        data['Outputs'] = JobOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['OutputKeyPrefix'] = stub[:output_key_prefix] unless stub[:output_key_prefix].nil?
-        data['Playlists'] = Stubs::Playlists.stub(stub[:playlists]) unless stub[:playlists].nil?
+        data['Playlists'] = Playlists.stub(stub[:playlists]) unless stub[:playlists].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['UserMetadata'] = Stubs::UserMetadata.stub(stub[:user_metadata]) unless stub[:user_metadata].nil?
-        data['Timing'] = Stubs::Timing.stub(stub[:timing]) unless stub[:timing].nil?
+        data['UserMetadata'] = UserMetadata.stub(stub[:user_metadata]) unless stub[:user_metadata].nil?
+        data['Timing'] = Timing.stub(stub[:timing]) unless stub[:timing].nil?
         data
       end
     end
@@ -136,7 +138,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Playlist.stub(element) unless element.nil?
+          data << Playlist.stub(element) unless element.nil?
         end
         data
       end
@@ -163,9 +165,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        data['OutputKeys'] = Stubs::OutputKeys.stub(stub[:output_keys]) unless stub[:output_keys].nil?
-        data['HlsContentProtection'] = Stubs::HlsContentProtection.stub(stub[:hls_content_protection]) unless stub[:hls_content_protection].nil?
-        data['PlayReadyDrm'] = Stubs::PlayReadyDrm.stub(stub[:play_ready_drm]) unless stub[:play_ready_drm].nil?
+        data['OutputKeys'] = OutputKeys.stub(stub[:output_keys]) unless stub[:output_keys].nil?
+        data['HlsContentProtection'] = HlsContentProtection.stub(stub[:hls_content_protection]) unless stub[:hls_content_protection].nil?
+        data['PlayReadyDrm'] = PlayReadyDrm.stub(stub[:play_ready_drm]) unless stub[:play_ready_drm].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusDetail'] = stub[:status_detail] unless stub[:status_detail].nil?
         data
@@ -262,7 +264,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobOutput.stub(element) unless element.nil?
+          data << JobOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -304,7 +306,7 @@ module AWS::SDK::ElasticTranscoder
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Key'] = stub[:key] unless stub[:key].nil?
         data['ThumbnailPattern'] = stub[:thumbnail_pattern] unless stub[:thumbnail_pattern].nil?
-        data['ThumbnailEncryption'] = Stubs::Encryption.stub(stub[:thumbnail_encryption]) unless stub[:thumbnail_encryption].nil?
+        data['ThumbnailEncryption'] = Encryption.stub(stub[:thumbnail_encryption]) unless stub[:thumbnail_encryption].nil?
         data['Rotate'] = stub[:rotate] unless stub[:rotate].nil?
         data['PresetId'] = stub[:preset_id] unless stub[:preset_id].nil?
         data['SegmentDuration'] = stub[:segment_duration] unless stub[:segment_duration].nil?
@@ -316,11 +318,11 @@ module AWS::SDK::ElasticTranscoder
         data['FrameRate'] = stub[:frame_rate] unless stub[:frame_rate].nil?
         data['FileSize'] = stub[:file_size] unless stub[:file_size].nil?
         data['DurationMillis'] = stub[:duration_millis] unless stub[:duration_millis].nil?
-        data['Watermarks'] = Stubs::JobWatermarks.stub(stub[:watermarks]) unless stub[:watermarks].nil?
-        data['AlbumArt'] = Stubs::JobAlbumArt.stub(stub[:album_art]) unless stub[:album_art].nil?
-        data['Composition'] = Stubs::Composition.stub(stub[:composition]) unless stub[:composition].nil?
-        data['Captions'] = Stubs::Captions.stub(stub[:captions]) unless stub[:captions].nil?
-        data['Encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['Watermarks'] = JobWatermarks.stub(stub[:watermarks]) unless stub[:watermarks].nil?
+        data['AlbumArt'] = JobAlbumArt.stub(stub[:album_art]) unless stub[:album_art].nil?
+        data['Composition'] = Composition.stub(stub[:composition]) unless stub[:composition].nil?
+        data['Captions'] = Captions.stub(stub[:captions]) unless stub[:captions].nil?
+        data['Encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['AppliedColorSpaceConversion'] = stub[:applied_color_space_conversion] unless stub[:applied_color_space_conversion].nil?
         data
       end
@@ -366,8 +368,8 @@ module AWS::SDK::ElasticTranscoder
         stub ||= Types::Captions.new
         data = {}
         data['MergePolicy'] = stub[:merge_policy] unless stub[:merge_policy].nil?
-        data['CaptionSources'] = Stubs::CaptionSources.stub(stub[:caption_sources]) unless stub[:caption_sources].nil?
-        data['CaptionFormats'] = Stubs::CaptionFormats.stub(stub[:caption_formats]) unless stub[:caption_formats].nil?
+        data['CaptionSources'] = CaptionSources.stub(stub[:caption_sources]) unless stub[:caption_sources].nil?
+        data['CaptionFormats'] = CaptionFormats.stub(stub[:caption_formats]) unless stub[:caption_formats].nil?
         data
       end
     end
@@ -386,7 +388,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CaptionFormat.stub(element) unless element.nil?
+          data << CaptionFormat.stub(element) unless element.nil?
         end
         data
       end
@@ -409,7 +411,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['Format'] = stub[:format] unless stub[:format].nil?
         data['Pattern'] = stub[:pattern] unless stub[:pattern].nil?
-        data['Encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['Encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data
       end
     end
@@ -428,7 +430,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CaptionSource.stub(element) unless element.nil?
+          data << CaptionSource.stub(element) unless element.nil?
         end
         data
       end
@@ -455,7 +457,7 @@ module AWS::SDK::ElasticTranscoder
         data['Language'] = stub[:language] unless stub[:language].nil?
         data['TimeOffset'] = stub[:time_offset] unless stub[:time_offset].nil?
         data['Label'] = stub[:label] unless stub[:label].nil?
-        data['Encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['Encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Clip.stub(element) unless element.nil?
+          data << Clip.stub(element) unless element.nil?
         end
         data
       end
@@ -493,7 +495,7 @@ module AWS::SDK::ElasticTranscoder
       def self.stub(stub)
         stub ||= Types::Clip.new
         data = {}
-        data['TimeSpan'] = Stubs::TimeSpan.stub(stub[:time_span]) unless stub[:time_span].nil?
+        data['TimeSpan'] = TimeSpan.stub(stub[:time_span]) unless stub[:time_span].nil?
         data
       end
     end
@@ -533,7 +535,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= Types::JobAlbumArt.new
         data = {}
         data['MergePolicy'] = stub[:merge_policy] unless stub[:merge_policy].nil?
-        data['Artwork'] = Stubs::Artworks.stub(stub[:artwork]) unless stub[:artwork].nil?
+        data['Artwork'] = Artworks.stub(stub[:artwork]) unless stub[:artwork].nil?
         data
       end
     end
@@ -552,7 +554,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Artwork.stub(element) unless element.nil?
+          data << Artwork.stub(element) unless element.nil?
         end
         data
       end
@@ -583,7 +585,7 @@ module AWS::SDK::ElasticTranscoder
         data['SizingPolicy'] = stub[:sizing_policy] unless stub[:sizing_policy].nil?
         data['PaddingPolicy'] = stub[:padding_policy] unless stub[:padding_policy].nil?
         data['AlbumArtFormat'] = stub[:album_art_format] unless stub[:album_art_format].nil?
-        data['Encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['Encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data
       end
     end
@@ -602,7 +604,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobWatermark.stub(element) unless element.nil?
+          data << JobWatermark.stub(element) unless element.nil?
         end
         data
       end
@@ -625,7 +627,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['PresetWatermarkId'] = stub[:preset_watermark_id] unless stub[:preset_watermark_id].nil?
         data['InputKey'] = stub[:input_key] unless stub[:input_key].nil?
-        data['Encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['Encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data
       end
     end
@@ -644,7 +646,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobInput.stub(element) unless element.nil?
+          data << JobInput.stub(element) unless element.nil?
         end
         data
       end
@@ -678,10 +680,10 @@ module AWS::SDK::ElasticTranscoder
         data['AspectRatio'] = stub[:aspect_ratio] unless stub[:aspect_ratio].nil?
         data['Interlaced'] = stub[:interlaced] unless stub[:interlaced].nil?
         data['Container'] = stub[:container] unless stub[:container].nil?
-        data['Encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
-        data['TimeSpan'] = Stubs::TimeSpan.stub(stub[:time_span]) unless stub[:time_span].nil?
-        data['InputCaptions'] = Stubs::InputCaptions.stub(stub[:input_captions]) unless stub[:input_captions].nil?
-        data['DetectedProperties'] = Stubs::DetectedProperties.stub(stub[:detected_properties]) unless stub[:detected_properties].nil?
+        data['Encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['TimeSpan'] = TimeSpan.stub(stub[:time_span]) unless stub[:time_span].nil?
+        data['InputCaptions'] = InputCaptions.stub(stub[:input_captions]) unless stub[:input_captions].nil?
+        data['DetectedProperties'] = DetectedProperties.stub(stub[:detected_properties]) unless stub[:detected_properties].nil?
         data
       end
     end
@@ -727,7 +729,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= Types::InputCaptions.new
         data = {}
         data['MergePolicy'] = stub[:merge_policy] unless stub[:merge_policy].nil?
-        data['CaptionSources'] = Stubs::CaptionSources.stub(stub[:caption_sources]) unless stub[:caption_sources].nil?
+        data['CaptionSources'] = CaptionSources.stub(stub[:caption_sources]) unless stub[:caption_sources].nil?
         data
       end
     end
@@ -745,9 +747,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Pipeline'] = Stubs::Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        data['Warnings'] = Stubs::Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Pipeline'] = Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        data['Warnings'] = Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -765,7 +767,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Warning.stub(element) unless element.nil?
+          data << Warning.stub(element) unless element.nil?
         end
         data
       end
@@ -822,9 +824,9 @@ module AWS::SDK::ElasticTranscoder
         data['OutputBucket'] = stub[:output_bucket] unless stub[:output_bucket].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
         data['AwsKmsKeyArn'] = stub[:aws_kms_key_arn] unless stub[:aws_kms_key_arn].nil?
-        data['Notifications'] = Stubs::Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
-        data['ContentConfig'] = Stubs::PipelineOutputConfig.stub(stub[:content_config]) unless stub[:content_config].nil?
-        data['ThumbnailConfig'] = Stubs::PipelineOutputConfig.stub(stub[:thumbnail_config]) unless stub[:thumbnail_config].nil?
+        data['Notifications'] = Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
+        data['ContentConfig'] = PipelineOutputConfig.stub(stub[:content_config]) unless stub[:content_config].nil?
+        data['ThumbnailConfig'] = PipelineOutputConfig.stub(stub[:thumbnail_config]) unless stub[:thumbnail_config].nil?
         data
       end
     end
@@ -846,7 +848,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['Bucket'] = stub[:bucket] unless stub[:bucket].nil?
         data['StorageClass'] = stub[:storage_class] unless stub[:storage_class].nil?
-        data['Permissions'] = Stubs::Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
         data
       end
     end
@@ -865,7 +867,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Permission.stub(element) unless element.nil?
+          data << Permission.stub(element) unless element.nil?
         end
         data
       end
@@ -888,7 +890,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['GranteeType'] = stub[:grantee_type] unless stub[:grantee_type].nil?
         data['Grantee'] = stub[:grantee] unless stub[:grantee].nil?
-        data['Access'] = Stubs::AccessControls.stub(stub[:access]) unless stub[:access].nil?
+        data['Access'] = AccessControls.stub(stub[:access]) unless stub[:access].nil?
         data
       end
     end
@@ -950,9 +952,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Preset'] = Stubs::Preset.stub(stub[:preset]) unless stub[:preset].nil?
+        data['Preset'] = Preset.stub(stub[:preset]) unless stub[:preset].nil?
         data['Warning'] = stub[:warning] unless stub[:warning].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -982,9 +984,9 @@ module AWS::SDK::ElasticTranscoder
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Container'] = stub[:container] unless stub[:container].nil?
-        data['Audio'] = Stubs::AudioParameters.stub(stub[:audio]) unless stub[:audio].nil?
-        data['Video'] = Stubs::VideoParameters.stub(stub[:video]) unless stub[:video].nil?
-        data['Thumbnails'] = Stubs::Thumbnails.stub(stub[:thumbnails]) unless stub[:thumbnails].nil?
+        data['Audio'] = AudioParameters.stub(stub[:audio]) unless stub[:audio].nil?
+        data['Video'] = VideoParameters.stub(stub[:video]) unless stub[:video].nil?
+        data['Thumbnails'] = Thumbnails.stub(stub[:thumbnails]) unless stub[:thumbnails].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -1050,7 +1052,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= Types::VideoParameters.new
         data = {}
         data['Codec'] = stub[:codec] unless stub[:codec].nil?
-        data['CodecOptions'] = Stubs::CodecOptions.stub(stub[:codec_options]) unless stub[:codec_options].nil?
+        data['CodecOptions'] = CodecOptions.stub(stub[:codec_options]) unless stub[:codec_options].nil?
         data['KeyframesMaxDist'] = stub[:keyframes_max_dist] unless stub[:keyframes_max_dist].nil?
         data['FixedGOP'] = stub[:fixed_gop] unless stub[:fixed_gop].nil?
         data['BitRate'] = stub[:bit_rate] unless stub[:bit_rate].nil?
@@ -1063,7 +1065,7 @@ module AWS::SDK::ElasticTranscoder
         data['DisplayAspectRatio'] = stub[:display_aspect_ratio] unless stub[:display_aspect_ratio].nil?
         data['SizingPolicy'] = stub[:sizing_policy] unless stub[:sizing_policy].nil?
         data['PaddingPolicy'] = stub[:padding_policy] unless stub[:padding_policy].nil?
-        data['Watermarks'] = Stubs::PresetWatermarks.stub(stub[:watermarks]) unless stub[:watermarks].nil?
+        data['Watermarks'] = PresetWatermarks.stub(stub[:watermarks]) unless stub[:watermarks].nil?
         data
       end
     end
@@ -1082,7 +1084,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PresetWatermark.stub(element) unless element.nil?
+          data << PresetWatermark.stub(element) unless element.nil?
         end
         data
       end
@@ -1167,7 +1169,7 @@ module AWS::SDK::ElasticTranscoder
         data['BitRate'] = stub[:bit_rate] unless stub[:bit_rate].nil?
         data['Channels'] = stub[:channels] unless stub[:channels].nil?
         data['AudioPackingMode'] = stub[:audio_packing_mode] unless stub[:audio_packing_mode].nil?
-        data['CodecOptions'] = Stubs::AudioCodecOptions.stub(stub[:codec_options]) unless stub[:codec_options].nil?
+        data['CodecOptions'] = AudioCodecOptions.stub(stub[:codec_options]) unless stub[:codec_options].nil?
         data
       end
     end
@@ -1235,9 +1237,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Jobs'] = Stubs::Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['Jobs'] = Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1255,7 +1257,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Job.stub(element) unless element.nil?
+          data << Job.stub(element) unless element.nil?
         end
         data
       end
@@ -1274,9 +1276,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Jobs'] = Stubs::Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['Jobs'] = Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1293,9 +1295,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Pipelines'] = Stubs::Pipelines.stub(stub[:pipelines]) unless stub[:pipelines].nil?
+        data['Pipelines'] = Pipelines.stub(stub[:pipelines]) unless stub[:pipelines].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1313,7 +1315,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Pipeline.stub(element) unless element.nil?
+          data << Pipeline.stub(element) unless element.nil?
         end
         data
       end
@@ -1332,9 +1334,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Presets'] = Stubs::Presets.stub(stub[:presets]) unless stub[:presets].nil?
+        data['Presets'] = Presets.stub(stub[:presets]) unless stub[:presets].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1352,7 +1354,7 @@ module AWS::SDK::ElasticTranscoder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Preset.stub(element) unless element.nil?
+          data << Preset.stub(element) unless element.nil?
         end
         data
       end
@@ -1370,8 +1372,8 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1388,9 +1390,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Pipeline'] = Stubs::Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        data['Warnings'] = Stubs::Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Pipeline'] = Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        data['Warnings'] = Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1406,8 +1408,8 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Preset'] = Stubs::Preset.stub(stub[:preset]) unless stub[:preset].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Preset'] = Preset.stub(stub[:preset]) unless stub[:preset].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1425,8 +1427,8 @@ module AWS::SDK::ElasticTranscoder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Success'] = stub[:success] unless stub[:success].nil?
-        data['Messages'] = Stubs::ExceptionMessages.stub(stub[:messages]) unless stub[:messages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Messages'] = ExceptionMessages.stub(stub[:messages]) unless stub[:messages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1463,9 +1465,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Pipeline'] = Stubs::Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        data['Warnings'] = Stubs::Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Pipeline'] = Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        data['Warnings'] = Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1481,8 +1483,8 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Pipeline'] = Stubs::Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Pipeline'] = Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1498,8 +1500,8 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Pipeline'] = Stubs::Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Pipeline'] = Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

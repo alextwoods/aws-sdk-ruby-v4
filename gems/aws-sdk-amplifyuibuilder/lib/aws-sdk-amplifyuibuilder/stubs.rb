@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AmplifyUIBuilder
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::Component.stub(stub[:entity]) unless stub[:entity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = Component.stub(stub[:entity]) unless stub[:entity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -62,16 +64,16 @@ module AWS::SDK::AmplifyUIBuilder
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['componentType'] = stub[:component_type] unless stub[:component_type].nil?
-        data['properties'] = Stubs::ComponentProperties.stub(stub[:properties]) unless stub[:properties].nil?
-        data['children'] = Stubs::ComponentChildList.stub(stub[:children]) unless stub[:children].nil?
-        data['variants'] = Stubs::ComponentVariants.stub(stub[:variants]) unless stub[:variants].nil?
-        data['overrides'] = Stubs::ComponentOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
-        data['bindingProperties'] = Stubs::ComponentBindingProperties.stub(stub[:binding_properties]) unless stub[:binding_properties].nil?
-        data['collectionProperties'] = Stubs::ComponentCollectionProperties.stub(stub[:collection_properties]) unless stub[:collection_properties].nil?
+        data['properties'] = ComponentProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['children'] = ComponentChildList.stub(stub[:children]) unless stub[:children].nil?
+        data['variants'] = ComponentVariants.stub(stub[:variants]) unless stub[:variants].nil?
+        data['overrides'] = ComponentOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['bindingProperties'] = ComponentBindingProperties.stub(stub[:binding_properties]) unless stub[:binding_properties].nil?
+        data['collectionProperties'] = ComponentCollectionProperties.stub(stub[:collection_properties]) unless stub[:collection_properties].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['modifiedAt'] = Hearth::TimeHelper.to_date_time(stub[:modified_at]) unless stub[:modified_at].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['events'] = Stubs::ComponentEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['events'] = ComponentEvents.stub(stub[:events]) unless stub[:events].nil?
         data['schemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data
       end
@@ -91,7 +93,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ComponentEvent.stub(value) unless value.nil?
+          data[key] = ComponentEvent.stub(value) unless value.nil?
         end
         data
       end
@@ -113,7 +115,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= Types::ComponentEvent.new
         data = {}
         data['action'] = stub[:action] unless stub[:action].nil?
-        data['parameters'] = Stubs::ActionParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['parameters'] = ActionParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['bindingEvent'] = stub[:binding_event] unless stub[:binding_event].nil?
         data
       end
@@ -140,15 +142,15 @@ module AWS::SDK::AmplifyUIBuilder
       def self.stub(stub)
         stub ||= Types::ActionParameters.new
         data = {}
-        data['type'] = Stubs::ComponentProperty.stub(stub[:type]) unless stub[:type].nil?
-        data['url'] = Stubs::ComponentProperty.stub(stub[:url]) unless stub[:url].nil?
-        data['anchor'] = Stubs::ComponentProperty.stub(stub[:anchor]) unless stub[:anchor].nil?
-        data['target'] = Stubs::ComponentProperty.stub(stub[:target]) unless stub[:target].nil?
-        data['global'] = Stubs::ComponentProperty.stub(stub[:global]) unless stub[:global].nil?
+        data['type'] = ComponentProperty.stub(stub[:type]) unless stub[:type].nil?
+        data['url'] = ComponentProperty.stub(stub[:url]) unless stub[:url].nil?
+        data['anchor'] = ComponentProperty.stub(stub[:anchor]) unless stub[:anchor].nil?
+        data['target'] = ComponentProperty.stub(stub[:target]) unless stub[:target].nil?
+        data['global'] = ComponentProperty.stub(stub[:global]) unless stub[:global].nil?
         data['model'] = stub[:model] unless stub[:model].nil?
-        data['id'] = Stubs::ComponentProperty.stub(stub[:id]) unless stub[:id].nil?
-        data['fields'] = Stubs::ComponentProperties.stub(stub[:fields]) unless stub[:fields].nil?
-        data['state'] = Stubs::MutationActionSetStateParameter.stub(stub[:state]) unless stub[:state].nil?
+        data['id'] = ComponentProperty.stub(stub[:id]) unless stub[:id].nil?
+        data['fields'] = ComponentProperties.stub(stub[:fields]) unless stub[:fields].nil?
+        data['state'] = MutationActionSetStateParameter.stub(stub[:state]) unless stub[:state].nil?
         data
       end
     end
@@ -170,7 +172,7 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         data['componentName'] = stub[:component_name] unless stub[:component_name].nil?
         data['property'] = stub[:property] unless stub[:property].nil?
-        data['set'] = Stubs::ComponentProperty.stub(stub[:set]) unless stub[:set].nil?
+        data['set'] = ComponentProperty.stub(stub[:set]) unless stub[:set].nil?
         data
       end
     end
@@ -203,15 +205,15 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= Types::ComponentProperty.new
         data = {}
         data['value'] = stub[:value] unless stub[:value].nil?
-        data['bindingProperties'] = Stubs::ComponentPropertyBindingProperties.stub(stub[:binding_properties]) unless stub[:binding_properties].nil?
-        data['collectionBindingProperties'] = Stubs::ComponentPropertyBindingProperties.stub(stub[:collection_binding_properties]) unless stub[:collection_binding_properties].nil?
+        data['bindingProperties'] = ComponentPropertyBindingProperties.stub(stub[:binding_properties]) unless stub[:binding_properties].nil?
+        data['collectionBindingProperties'] = ComponentPropertyBindingProperties.stub(stub[:collection_binding_properties]) unless stub[:collection_binding_properties].nil?
         data['defaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data['model'] = stub[:model] unless stub[:model].nil?
-        data['bindings'] = Stubs::FormBindings.stub(stub[:bindings]) unless stub[:bindings].nil?
+        data['bindings'] = FormBindings.stub(stub[:bindings]) unless stub[:bindings].nil?
         data['event'] = stub[:event] unless stub[:event].nil?
         data['userAttribute'] = stub[:user_attribute] unless stub[:user_attribute].nil?
-        data['concat'] = Stubs::ComponentPropertyList.stub(stub[:concat]) unless stub[:concat].nil?
-        data['condition'] = Stubs::ComponentConditionProperty.stub(stub[:condition]) unless stub[:condition].nil?
+        data['concat'] = ComponentPropertyList.stub(stub[:concat]) unless stub[:concat].nil?
+        data['condition'] = ComponentConditionProperty.stub(stub[:condition]) unless stub[:condition].nil?
         data['configured'] = stub[:configured] unless stub[:configured].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['importedValue'] = stub[:imported_value] unless stub[:imported_value].nil?
@@ -244,8 +246,8 @@ module AWS::SDK::AmplifyUIBuilder
         data['field'] = stub[:field] unless stub[:field].nil?
         data['operator'] = stub[:operator] unless stub[:operator].nil?
         data['operand'] = stub[:operand] unless stub[:operand].nil?
-        data['then'] = Stubs::ComponentProperty.stub(stub[:member_then]) unless stub[:member_then].nil?
-        data['else'] = Stubs::ComponentProperty.stub(stub[:else]) unless stub[:else].nil?
+        data['then'] = ComponentProperty.stub(stub[:member_then]) unless stub[:member_then].nil?
+        data['else'] = ComponentProperty.stub(stub[:else]) unless stub[:else].nil?
         data['operandType'] = stub[:operand_type] unless stub[:operand_type].nil?
         data
       end
@@ -265,7 +267,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentProperty.stub(element) unless element.nil?
+          data << ComponentProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -285,7 +287,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FormBindingElement.stub(value) unless value.nil?
+          data[key] = FormBindingElement.stub(value) unless value.nil?
         end
         data
       end
@@ -345,7 +347,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ComponentProperty.stub(value) unless value.nil?
+          data[key] = ComponentProperty.stub(value) unless value.nil?
         end
         data
       end
@@ -385,7 +387,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ComponentDataConfiguration.stub(value) unless value.nil?
+          data[key] = ComponentDataConfiguration.stub(value) unless value.nil?
         end
         data
       end
@@ -408,9 +410,9 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= Types::ComponentDataConfiguration.new
         data = {}
         data['model'] = stub[:model] unless stub[:model].nil?
-        data['sort'] = Stubs::SortPropertyList.stub(stub[:sort]) unless stub[:sort].nil?
-        data['predicate'] = Stubs::Predicate.stub(stub[:predicate]) unless stub[:predicate].nil?
-        data['identifiers'] = Stubs::IdentifierList.stub(stub[:identifiers]) unless stub[:identifiers].nil?
+        data['sort'] = SortPropertyList.stub(stub[:sort]) unless stub[:sort].nil?
+        data['predicate'] = Predicate.stub(stub[:predicate]) unless stub[:predicate].nil?
+        data['identifiers'] = IdentifierList.stub(stub[:identifiers]) unless stub[:identifiers].nil?
         data
       end
     end
@@ -452,8 +454,8 @@ module AWS::SDK::AmplifyUIBuilder
       def self.stub(stub)
         stub ||= Types::Predicate.new
         data = {}
-        data['or'] = Stubs::PredicateList.stub(stub[:or]) unless stub[:or].nil?
-        data['and'] = Stubs::PredicateList.stub(stub[:and]) unless stub[:and].nil?
+        data['or'] = PredicateList.stub(stub[:or]) unless stub[:or].nil?
+        data['and'] = PredicateList.stub(stub[:and]) unless stub[:and].nil?
         data['field'] = stub[:field] unless stub[:field].nil?
         data['operator'] = stub[:operator] unless stub[:operator].nil?
         data['operand'] = stub[:operand] unless stub[:operand].nil?
@@ -475,7 +477,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Predicate.stub(element) unless element.nil?
+          data << Predicate.stub(element) unless element.nil?
         end
         data
       end
@@ -495,7 +497,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SortProperty.stub(element) unless element.nil?
+          data << SortProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -535,7 +537,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ComponentBindingPropertiesValue.stub(value) unless value.nil?
+          data[key] = ComponentBindingPropertiesValue.stub(value) unless value.nil?
         end
         data
       end
@@ -557,7 +559,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= Types::ComponentBindingPropertiesValue.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['bindingProperties'] = Stubs::ComponentBindingPropertiesValueProperties.stub(stub[:binding_properties]) unless stub[:binding_properties].nil?
+        data['bindingProperties'] = ComponentBindingPropertiesValueProperties.stub(stub[:binding_properties]) unless stub[:binding_properties].nil?
         data['defaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data
       end
@@ -584,7 +586,7 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         data['model'] = stub[:model] unless stub[:model].nil?
         data['field'] = stub[:field] unless stub[:field].nil?
-        data['predicates'] = Stubs::PredicateList.stub(stub[:predicates]) unless stub[:predicates].nil?
+        data['predicates'] = PredicateList.stub(stub[:predicates]) unless stub[:predicates].nil?
         data['userAttribute'] = stub[:user_attribute] unless stub[:user_attribute].nil?
         data['bucket'] = stub[:bucket] unless stub[:bucket].nil?
         data['key'] = stub[:key] unless stub[:key].nil?
@@ -607,7 +609,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ComponentOverridesValue.stub(value) unless value.nil?
+          data[key] = ComponentOverridesValue.stub(value) unless value.nil?
         end
         data
       end
@@ -647,7 +649,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentVariant.stub(element) unless element.nil?
+          data << ComponentVariant.stub(element) unless element.nil?
         end
         data
       end
@@ -667,8 +669,8 @@ module AWS::SDK::AmplifyUIBuilder
       def self.stub(stub)
         stub ||= Types::ComponentVariant.new
         data = {}
-        data['variantValues'] = Stubs::ComponentVariantValues.stub(stub[:variant_values]) unless stub[:variant_values].nil?
-        data['overrides'] = Stubs::ComponentOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['variantValues'] = ComponentVariantValues.stub(stub[:variant_values]) unless stub[:variant_values].nil?
+        data['overrides'] = ComponentOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
         data
       end
     end
@@ -707,7 +709,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentChild.stub(element) unless element.nil?
+          data << ComponentChild.stub(element) unless element.nil?
         end
         data
       end
@@ -733,9 +735,9 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         data['componentType'] = stub[:component_type] unless stub[:component_type].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['properties'] = Stubs::ComponentProperties.stub(stub[:properties]) unless stub[:properties].nil?
-        data['children'] = Stubs::ComponentChildList.stub(stub[:children]) unless stub[:children].nil?
-        data['events'] = Stubs::ComponentEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['properties'] = ComponentProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['children'] = ComponentChildList.stub(stub[:children]) unless stub[:children].nil?
+        data['events'] = ComponentEvents.stub(stub[:events]) unless stub[:events].nil?
         data['sourceId'] = stub[:source_id] unless stub[:source_id].nil?
         data
       end
@@ -753,8 +755,8 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::Theme.stub(stub[:entity]) unless stub[:entity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = Theme.stub(stub[:entity]) unless stub[:entity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -785,9 +787,9 @@ module AWS::SDK::AmplifyUIBuilder
         data['name'] = stub[:name] unless stub[:name].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['modifiedAt'] = Hearth::TimeHelper.to_date_time(stub[:modified_at]) unless stub[:modified_at].nil?
-        data['values'] = Stubs::ThemeValuesList.stub(stub[:values]) unless stub[:values].nil?
-        data['overrides'] = Stubs::ThemeValuesList.stub(stub[:overrides]) unless stub[:overrides].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['values'] = ThemeValuesList.stub(stub[:values]) unless stub[:values].nil?
+        data['overrides'] = ThemeValuesList.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -806,7 +808,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThemeValues.stub(element) unless element.nil?
+          data << ThemeValues.stub(element) unless element.nil?
         end
         data
       end
@@ -827,7 +829,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= Types::ThemeValues.new
         data = {}
         data['key'] = stub[:key] unless stub[:key].nil?
-        data['value'] = Stubs::ThemeValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = ThemeValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -847,7 +849,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= Types::ThemeValue.new
         data = {}
         data['value'] = stub[:value] unless stub[:value].nil?
-        data['children'] = Stubs::ThemeValuesList.stub(stub[:children]) unless stub[:children].nil?
+        data['children'] = ThemeValuesList.stub(stub[:children]) unless stub[:children].nil?
         data
       end
     end
@@ -895,7 +897,7 @@ module AWS::SDK::AmplifyUIBuilder
         data['accessToken'] = stub[:access_token] unless stub[:access_token].nil?
         data['expiresIn'] = stub[:expires_in] unless stub[:expires_in].nil?
         data['refreshToken'] = stub[:refresh_token] unless stub[:refresh_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -912,9 +914,9 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entities'] = Stubs::ComponentList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['entities'] = ComponentList.stub(stub[:entities]) unless stub[:entities].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -932,7 +934,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Component.stub(element) unless element.nil?
+          data << Component.stub(element) unless element.nil?
         end
         data
       end
@@ -951,9 +953,9 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entities'] = Stubs::ThemeList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['entities'] = ThemeList.stub(stub[:entities]) unless stub[:entities].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -971,7 +973,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Theme.stub(element) unless element.nil?
+          data << Theme.stub(element) unless element.nil?
         end
         data
       end
@@ -989,8 +991,8 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::Component.stub(stub[:component]) unless stub[:component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = Component.stub(stub[:component]) unless stub[:component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1006,8 +1008,8 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::Theme.stub(stub[:theme]) unless stub[:theme].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = Theme.stub(stub[:theme]) unless stub[:theme].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1024,9 +1026,9 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entities'] = Stubs::ComponentSummaryList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['entities'] = ComponentSummaryList.stub(stub[:entities]) unless stub[:entities].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1044,7 +1046,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentSummary.stub(element) unless element.nil?
+          data << ComponentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1089,9 +1091,9 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entities'] = Stubs::ThemeSummaryList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['entities'] = ThemeSummaryList.stub(stub[:entities]) unless stub[:entities].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1109,7 +1111,7 @@ module AWS::SDK::AmplifyUIBuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThemeSummary.stub(element) unless element.nil?
+          data << ThemeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1154,7 +1156,7 @@ module AWS::SDK::AmplifyUIBuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['accessToken'] = stub[:access_token] unless stub[:access_token].nil?
         data['expiresIn'] = stub[:expires_in] unless stub[:expires_in].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1170,8 +1172,8 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::Component.stub(stub[:entity]) unless stub[:entity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = Component.stub(stub[:entity]) unless stub[:entity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1187,8 +1189,8 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::Theme.stub(stub[:entity]) unless stub[:entity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = Theme.stub(stub[:entity]) unless stub[:entity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

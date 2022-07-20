@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHubConfig
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::MigrationHubConfig
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HomeRegionControl'] = Stubs::HomeRegionControl.stub(stub[:home_region_control]) unless stub[:home_region_control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HomeRegionControl'] = HomeRegionControl.stub(stub[:home_region_control]) unless stub[:home_region_control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -44,7 +46,7 @@ module AWS::SDK::MigrationHubConfig
         data = {}
         data['ControlId'] = stub[:control_id] unless stub[:control_id].nil?
         data['HomeRegion'] = stub[:home_region] unless stub[:home_region].nil?
-        data['Target'] = Stubs::Target.stub(stub[:target]) unless stub[:target].nil?
+        data['Target'] = Target.stub(stub[:target]) unless stub[:target].nil?
         data['RequestedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:requested_time]).to_i unless stub[:requested_time].nil?
         data
       end
@@ -81,9 +83,9 @@ module AWS::SDK::MigrationHubConfig
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HomeRegionControls'] = Stubs::HomeRegionControls.stub(stub[:home_region_controls]) unless stub[:home_region_controls].nil?
+        data['HomeRegionControls'] = HomeRegionControls.stub(stub[:home_region_controls]) unless stub[:home_region_controls].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -102,7 +104,7 @@ module AWS::SDK::MigrationHubConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HomeRegionControl.stub(element) unless element.nil?
+          data << HomeRegionControl.stub(element) unless element.nil?
         end
         data
       end
@@ -119,7 +121,7 @@ module AWS::SDK::MigrationHubConfig
       def self.stub(http_resp, stub:)
         data = {}
         data['HomeRegion'] = stub[:home_region] unless stub[:home_region].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

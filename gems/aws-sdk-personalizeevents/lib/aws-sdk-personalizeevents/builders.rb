@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PersonalizeEvents
   module Builders
 
@@ -23,8 +25,8 @@ module AWS::SDK::PersonalizeEvents
         data['trackingId'] = input[:tracking_id] unless input[:tracking_id].nil?
         data['userId'] = input[:user_id] unless input[:user_id].nil?
         data['sessionId'] = input[:session_id] unless input[:session_id].nil?
-        data['eventList'] = Builders::EventList.build(input[:event_list]) unless input[:event_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eventList'] = EventList.build(input[:event_list]) unless input[:event_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::PersonalizeEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Event.build(element) unless element.nil?
+          data << Event.build(element) unless element.nil?
         end
         data
       end
@@ -50,7 +52,7 @@ module AWS::SDK::PersonalizeEvents
         data['properties'] = input[:properties] unless input[:properties].nil?
         data['sentAt'] = Hearth::TimeHelper.to_epoch_seconds(input[:sent_at]).to_i unless input[:sent_at].nil?
         data['recommendationId'] = input[:recommendation_id] unless input[:recommendation_id].nil?
-        data['impression'] = Builders::Impression.build(input[:impression]) unless input[:impression].nil?
+        data['impression'] = Impression.build(input[:impression]) unless input[:impression].nil?
         data
       end
     end
@@ -77,8 +79,8 @@ module AWS::SDK::PersonalizeEvents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        data['items'] = Builders::ItemList.build(input[:items]) unless input[:items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['items'] = ItemList.build(input[:items]) unless input[:items].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::PersonalizeEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Item.build(element) unless element.nil?
+          data << Item.build(element) unless element.nil?
         end
         data
       end
@@ -114,8 +116,8 @@ module AWS::SDK::PersonalizeEvents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        data['users'] = Builders::UserList.build(input[:users]) unless input[:users].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['users'] = UserList.build(input[:users]) unless input[:users].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -124,7 +126,7 @@ module AWS::SDK::PersonalizeEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::User.build(element) unless element.nil?
+          data << User.build(element) unless element.nil?
         end
         data
       end

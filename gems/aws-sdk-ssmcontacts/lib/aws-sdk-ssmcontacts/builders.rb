@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSMContacts
   module Builders
 
@@ -24,7 +26,7 @@ module AWS::SDK::SSMContacts
         data['Note'] = input[:note] unless input[:note].nil?
         data['AcceptCode'] = input[:accept_code] unless input[:accept_code].nil?
         data['AcceptCodeValidation'] = input[:accept_code_validation] unless input[:accept_code_validation].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::SSMContacts
         data = {}
         data['ContactChannelId'] = input[:contact_channel_id] unless input[:contact_channel_id].nil?
         data['ActivationCode'] = input[:activation_code] unless input[:activation_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,10 +55,10 @@ module AWS::SDK::SSMContacts
         data['Alias'] = input[:alias] unless input[:alias].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Plan'] = Builders::Plan.build(input[:plan]) unless input[:plan].nil?
-        data['Tags'] = Builders::TagsList.build(input[:tags]) unless input[:tags].nil?
+        data['Plan'] = Plan.build(input[:plan]) unless input[:plan].nil?
+        data['Tags'] = TagsList.build(input[:tags]) unless input[:tags].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -65,7 +67,7 @@ module AWS::SDK::SSMContacts
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -85,7 +87,7 @@ module AWS::SDK::SSMContacts
     class Plan
       def self.build(input)
         data = {}
-        data['Stages'] = Builders::StagesList.build(input[:stages]) unless input[:stages].nil?
+        data['Stages'] = StagesList.build(input[:stages]) unless input[:stages].nil?
         data
       end
     end
@@ -95,7 +97,7 @@ module AWS::SDK::SSMContacts
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Stage.build(element) unless element.nil?
+          data << Stage.build(element) unless element.nil?
         end
         data
       end
@@ -106,7 +108,7 @@ module AWS::SDK::SSMContacts
       def self.build(input)
         data = {}
         data['DurationInMinutes'] = input[:duration_in_minutes] unless input[:duration_in_minutes].nil?
-        data['Targets'] = Builders::TargetsList.build(input[:targets]) unless input[:targets].nil?
+        data['Targets'] = TargetsList.build(input[:targets]) unless input[:targets].nil?
         data
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::SSMContacts
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Target.build(element) unless element.nil?
+          data << Target.build(element) unless element.nil?
         end
         data
       end
@@ -126,8 +128,8 @@ module AWS::SDK::SSMContacts
     class Target
       def self.build(input)
         data = {}
-        data['ChannelTargetInfo'] = Builders::ChannelTargetInfo.build(input[:channel_target_info]) unless input[:channel_target_info].nil?
-        data['ContactTargetInfo'] = Builders::ContactTargetInfo.build(input[:contact_target_info]) unless input[:contact_target_info].nil?
+        data['ChannelTargetInfo'] = ChannelTargetInfo.build(input[:channel_target_info]) unless input[:channel_target_info].nil?
+        data['ContactTargetInfo'] = ContactTargetInfo.build(input[:contact_target_info]) unless input[:contact_target_info].nil?
         data
       end
     end
@@ -163,10 +165,10 @@ module AWS::SDK::SSMContacts
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['DeliveryAddress'] = Builders::ContactChannelAddress.build(input[:delivery_address]) unless input[:delivery_address].nil?
+        data['DeliveryAddress'] = ContactChannelAddress.build(input[:delivery_address]) unless input[:delivery_address].nil?
         data['DeferActivation'] = input[:defer_activation] unless input[:defer_activation].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,7 +190,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.DeactivateContactChannel'
         data = {}
         data['ContactChannelId'] = input[:contact_channel_id] unless input[:contact_channel_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.DeleteContact'
         data = {}
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -214,7 +216,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.DeleteContactChannel'
         data = {}
         data['ContactChannelId'] = input[:contact_channel_id] unless input[:contact_channel_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -227,7 +229,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.DescribeEngagement'
         data = {}
         data['EngagementId'] = input[:engagement_id] unless input[:engagement_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.DescribePage'
         data = {}
         data['PageId'] = input[:page_id] unless input[:page_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -253,7 +255,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.GetContact'
         data = {}
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -266,7 +268,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.GetContactChannel'
         data = {}
         data['ContactChannelId'] = input[:contact_channel_id] unless input[:contact_channel_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -279,7 +281,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.GetContactPolicy'
         data = {}
         data['ContactArn'] = input[:contact_arn] unless input[:contact_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -294,7 +296,7 @@ module AWS::SDK::SSMContacts
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -310,7 +312,7 @@ module AWS::SDK::SSMContacts
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['AliasPrefix'] = input[:alias_prefix] unless input[:alias_prefix].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,8 +327,8 @@ module AWS::SDK::SSMContacts
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['IncidentId'] = input[:incident_id] unless input[:incident_id].nil?
-        data['TimeRangeValue'] = Builders::TimeRange.build(input[:time_range_value]) unless input[:time_range_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeRangeValue'] = TimeRange.build(input[:time_range_value]) unless input[:time_range_value].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::SSMContacts
         data['PageId'] = input[:page_id] unless input[:page_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,7 +368,7 @@ module AWS::SDK::SSMContacts
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -381,7 +383,7 @@ module AWS::SDK::SSMContacts
         data['EngagementId'] = input[:engagement_id] unless input[:engagement_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -408,7 +410,7 @@ module AWS::SDK::SSMContacts
         data = {}
         data['ContactArn'] = input[:contact_arn] unless input[:contact_arn].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -421,7 +423,7 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.SendActivationCode'
         data = {}
         data['ContactChannelId'] = input[:contact_channel_id] unless input[:contact_channel_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::SSMContacts
         data['PublicContent'] = input[:public_content] unless input[:public_content].nil?
         data['IncidentId'] = input[:incident_id] unless input[:incident_id].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -455,7 +457,7 @@ module AWS::SDK::SSMContacts
         data = {}
         data['EngagementId'] = input[:engagement_id] unless input[:engagement_id].nil?
         data['Reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -468,8 +470,8 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagsList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -482,8 +484,8 @@ module AWS::SDK::SSMContacts
         http_req.headers['X-Amz-Target'] = 'SSMContacts.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -508,8 +510,8 @@ module AWS::SDK::SSMContacts
         data = {}
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        data['Plan'] = Builders::Plan.build(input[:plan]) unless input[:plan].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Plan'] = Plan.build(input[:plan]) unless input[:plan].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -523,8 +525,8 @@ module AWS::SDK::SSMContacts
         data = {}
         data['ContactChannelId'] = input[:contact_channel_id] unless input[:contact_channel_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['DeliveryAddress'] = Builders::ContactChannelAddress.build(input[:delivery_address]) unless input[:delivery_address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryAddress'] = ContactChannelAddress.build(input[:delivery_address]) unless input[:delivery_address].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

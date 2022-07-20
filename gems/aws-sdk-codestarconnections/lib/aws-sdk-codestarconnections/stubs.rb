@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeStarConnections
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::CodeStarConnections
       def self.stub(http_resp, stub:)
         data = {}
         data['ConnectionArn'] = stub[:connection_arn] unless stub[:connection_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::CodeStarConnections
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -80,8 +82,8 @@ module AWS::SDK::CodeStarConnections
       def self.stub(http_resp, stub:)
         data = {}
         data['HostArn'] = stub[:host_arn] unless stub[:host_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -95,7 +97,7 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -109,7 +111,7 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -124,8 +126,8 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -176,8 +178,8 @@ module AWS::SDK::CodeStarConnections
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ProviderType'] = stub[:provider_type] unless stub[:provider_type].nil?
         data['ProviderEndpoint'] = stub[:provider_endpoint] unless stub[:provider_endpoint].nil?
-        data['VpcConfiguration'] = Stubs::VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfiguration'] = VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -199,8 +201,8 @@ module AWS::SDK::CodeStarConnections
         stub ||= Types::VpcConfiguration.new
         data = {}
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['TlsCertificate'] = stub[:tls_certificate] unless stub[:tls_certificate].nil?
         data
       end
@@ -257,9 +259,9 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['Connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -278,7 +280,7 @@ module AWS::SDK::CodeStarConnections
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connection.stub(element) unless element.nil?
+          data << Connection.stub(element) unless element.nil?
         end
         data
       end
@@ -295,9 +297,9 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Hosts'] = Stubs::HostList.stub(stub[:hosts]) unless stub[:hosts].nil?
+        data['Hosts'] = HostList.stub(stub[:hosts]) unless stub[:hosts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -316,7 +318,7 @@ module AWS::SDK::CodeStarConnections
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Host.stub(element) unless element.nil?
+          data << Host.stub(element) unless element.nil?
         end
         data
       end
@@ -345,7 +347,7 @@ module AWS::SDK::CodeStarConnections
         data['HostArn'] = stub[:host_arn] unless stub[:host_arn].nil?
         data['ProviderType'] = stub[:provider_type] unless stub[:provider_type].nil?
         data['ProviderEndpoint'] = stub[:provider_endpoint] unless stub[:provider_endpoint].nil?
-        data['VpcConfiguration'] = Stubs::VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['VpcConfiguration'] = VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data
@@ -362,8 +364,8 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -377,7 +379,7 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -391,7 +393,7 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -405,7 +407,7 @@ module AWS::SDK::CodeStarConnections
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

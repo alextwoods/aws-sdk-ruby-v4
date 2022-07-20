@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::FraudDetector
   module Builders
 
@@ -18,9 +21,9 @@ module AWS::SDK::FraudDetector
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.BatchCreateVariable'
         data = {}
-        data['variableEntries'] = Builders::VariableEntryList.build(input[:variable_entries]) unless input[:variable_entries].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['variableEntries'] = VariableEntryList.build(input[:variable_entries]) unless input[:variable_entries].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +32,7 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -50,7 +53,7 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VariableEntry.build(element) unless element.nil?
+          data << VariableEntry.build(element) unless element.nil?
         end
         data
       end
@@ -78,8 +81,8 @@ module AWS::SDK::FraudDetector
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.BatchGetVariable'
         data = {}
-        data['names'] = Builders::NameList.build(input[:names]) unless input[:names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['names'] = NameList.build(input[:names]) unless input[:names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -103,7 +106,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.CancelBatchImportJob'
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -116,7 +119,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.CancelBatchPredictionJob'
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,8 +136,8 @@ module AWS::SDK::FraudDetector
         data['outputPath'] = input[:output_path] unless input[:output_path].nil?
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
         data['iamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -153,8 +156,8 @@ module AWS::SDK::FraudDetector
         data['detectorName'] = input[:detector_name] unless input[:detector_name].nil?
         data['detectorVersion'] = input[:detector_version] unless input[:detector_version].nil?
         data['iamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,12 +171,12 @@ module AWS::SDK::FraudDetector
         data = {}
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['externalModelEndpoints'] = Builders::ListOfStrings.build(input[:external_model_endpoints]) unless input[:external_model_endpoints].nil?
-        data['rules'] = Builders::RuleList.build(input[:rules]) unless input[:rules].nil?
-        data['modelVersions'] = Builders::ListOfModelVersions.build(input[:model_versions]) unless input[:model_versions].nil?
+        data['externalModelEndpoints'] = ListOfStrings.build(input[:external_model_endpoints]) unless input[:external_model_endpoints].nil?
+        data['rules'] = RuleList.build(input[:rules]) unless input[:rules].nil?
+        data['modelVersions'] = ListOfModelVersions.build(input[:model_versions]) unless input[:model_versions].nil?
         data['ruleExecutionMode'] = input[:rule_execution_mode] unless input[:rule_execution_mode].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +185,7 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ModelVersion.build(element) unless element.nil?
+          data << ModelVersion.build(element) unless element.nil?
         end
         data
       end
@@ -205,7 +208,7 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Rule.build(element) unless element.nil?
+          data << Rule.build(element) unless element.nil?
         end
         data
       end
@@ -245,8 +248,8 @@ module AWS::SDK::FraudDetector
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,11 +264,11 @@ module AWS::SDK::FraudDetector
         data['modelId'] = input[:model_id] unless input[:model_id].nil?
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['trainingDataSource'] = input[:training_data_source] unless input[:training_data_source].nil?
-        data['trainingDataSchema'] = Builders::TrainingDataSchema.build(input[:training_data_schema]) unless input[:training_data_schema].nil?
-        data['externalEventsDetail'] = Builders::ExternalEventsDetail.build(input[:external_events_detail]) unless input[:external_events_detail].nil?
-        data['ingestedEventsDetail'] = Builders::IngestedEventsDetail.build(input[:ingested_events_detail]) unless input[:ingested_events_detail].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['trainingDataSchema'] = TrainingDataSchema.build(input[:training_data_schema]) unless input[:training_data_schema].nil?
+        data['externalEventsDetail'] = ExternalEventsDetail.build(input[:external_events_detail]) unless input[:external_events_detail].nil?
+        data['ingestedEventsDetail'] = IngestedEventsDetail.build(input[:ingested_events_detail]) unless input[:ingested_events_detail].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -273,7 +276,7 @@ module AWS::SDK::FraudDetector
     class IngestedEventsDetail
       def self.build(input)
         data = {}
-        data['ingestedEventsTimeWindow'] = Builders::IngestedEventsTimeWindow.build(input[:ingested_events_time_window]) unless input[:ingested_events_time_window].nil?
+        data['ingestedEventsTimeWindow'] = IngestedEventsTimeWindow.build(input[:ingested_events_time_window]) unless input[:ingested_events_time_window].nil?
         data
       end
     end
@@ -302,8 +305,8 @@ module AWS::SDK::FraudDetector
     class TrainingDataSchema
       def self.build(input)
         data = {}
-        data['modelVariables'] = Builders::ListOfStrings.build(input[:model_variables]) unless input[:model_variables].nil?
-        data['labelSchema'] = Builders::LabelSchema.build(input[:label_schema]) unless input[:label_schema].nil?
+        data['modelVariables'] = ListOfStrings.build(input[:model_variables]) unless input[:model_variables].nil?
+        data['labelSchema'] = LabelSchema.build(input[:label_schema]) unless input[:label_schema].nil?
         data
       end
     end
@@ -312,7 +315,7 @@ module AWS::SDK::FraudDetector
     class LabelSchema
       def self.build(input)
         data = {}
-        data['labelMapper'] = Builders::LabelMapper.build(input[:label_mapper]) unless input[:label_mapper].nil?
+        data['labelMapper'] = LabelMapper.build(input[:label_mapper]) unless input[:label_mapper].nil?
         data['unlabeledEventsTreatment'] = input[:unlabeled_events_treatment] unless input[:unlabeled_events_treatment].nil?
         data
       end
@@ -323,7 +326,7 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::NonEmptyListOfStrings.build(value) unless value.nil?
+          data[key] = NonEmptyListOfStrings.build(value) unless value.nil?
         end
         data
       end
@@ -353,9 +356,9 @@ module AWS::SDK::FraudDetector
         data['description'] = input[:description] unless input[:description].nil?
         data['expression'] = input[:expression] unless input[:expression].nil?
         data['language'] = input[:language] unless input[:language].nil?
-        data['outcomes'] = Builders::NonEmptyListOfStrings.build(input[:outcomes]) unless input[:outcomes].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outcomes'] = NonEmptyListOfStrings.build(input[:outcomes]) unless input[:outcomes].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -373,8 +376,8 @@ module AWS::SDK::FraudDetector
         data['defaultValue'] = input[:default_value] unless input[:default_value].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['variableType'] = input[:variable_type] unless input[:variable_type].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,7 +390,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteBatchImportJob'
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -400,7 +403,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteBatchPredictionJob'
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,7 +416,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteDetector'
         data = {}
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,7 +430,7 @@ module AWS::SDK::FraudDetector
         data = {}
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['detectorVersionId'] = input[:detector_version_id] unless input[:detector_version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -440,7 +443,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteEntityType'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -455,7 +458,7 @@ module AWS::SDK::FraudDetector
         data['eventId'] = input[:event_id] unless input[:event_id].nil?
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
         data['deleteAuditHistory'] = input[:delete_audit_history] unless input[:delete_audit_history].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -468,7 +471,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteEventType'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -481,7 +484,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteEventsByEventType'
         data = {}
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,7 +497,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteExternalModel'
         data = {}
         data['modelEndpoint'] = input[:model_endpoint] unless input[:model_endpoint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -507,7 +510,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteLabel'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -521,7 +524,7 @@ module AWS::SDK::FraudDetector
         data = {}
         data['modelId'] = input[:model_id] unless input[:model_id].nil?
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -536,7 +539,7 @@ module AWS::SDK::FraudDetector
         data['modelId'] = input[:model_id] unless input[:model_id].nil?
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['modelVersionNumber'] = input[:model_version_number] unless input[:model_version_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -549,7 +552,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteOutcome'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -561,8 +564,8 @@ module AWS::SDK::FraudDetector
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteRule'
         data = {}
-        data['rule'] = Builders::Rule.build(input[:rule]) unless input[:rule].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rule'] = Rule.build(input[:rule]) unless input[:rule].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,7 +578,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.DeleteVariable'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -590,7 +593,7 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,7 +610,7 @@ module AWS::SDK::FraudDetector
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -622,7 +625,7 @@ module AWS::SDK::FraudDetector
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,7 +640,7 @@ module AWS::SDK::FraudDetector
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -650,7 +653,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.GetDeleteEventsByEventTypeStatus'
         data = {}
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +667,7 @@ module AWS::SDK::FraudDetector
         data = {}
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['detectorVersionId'] = input[:detector_version_id] unless input[:detector_version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,7 +682,7 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -694,7 +697,7 @@ module AWS::SDK::FraudDetector
         data['name'] = input[:name] unless input[:name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -708,7 +711,7 @@ module AWS::SDK::FraudDetector
         data = {}
         data['eventId'] = input[:event_id] unless input[:event_id].nil?
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -724,11 +727,11 @@ module AWS::SDK::FraudDetector
         data['detectorVersionId'] = input[:detector_version_id] unless input[:detector_version_id].nil?
         data['eventId'] = input[:event_id] unless input[:event_id].nil?
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
-        data['entities'] = Builders::ListOfEntities.build(input[:entities]) unless input[:entities].nil?
+        data['entities'] = ListOfEntities.build(input[:entities]) unless input[:entities].nil?
         data['eventTimestamp'] = input[:event_timestamp] unless input[:event_timestamp].nil?
-        data['eventVariables'] = Builders::EventVariableMap.build(input[:event_variables]) unless input[:event_variables].nil?
-        data['externalModelEndpointDataBlobs'] = Builders::ExternalModelEndpointDataBlobMap.build(input[:external_model_endpoint_data_blobs]) unless input[:external_model_endpoint_data_blobs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eventVariables'] = EventVariableMap.build(input[:event_variables]) unless input[:event_variables].nil?
+        data['externalModelEndpointDataBlobs'] = ExternalModelEndpointDataBlobMap.build(input[:external_model_endpoint_data_blobs]) unless input[:external_model_endpoint_data_blobs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -737,7 +740,7 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ModelEndpointDataBlob.build(value) unless value.nil?
+          data[key] = ModelEndpointDataBlob.build(value) unless value.nil?
         end
         data
       end
@@ -747,7 +750,7 @@ module AWS::SDK::FraudDetector
     class ModelEndpointDataBlob
       def self.build(input)
         data = {}
-        data['byteBuffer'] = Base64::encode64(input[:byte_buffer]).strip unless input[:byte_buffer].nil?
+        data['byteBuffer'] = ::Base64::encode64(input[:byte_buffer]).strip unless input[:byte_buffer].nil?
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
         data
       end
@@ -769,7 +772,7 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Entity.build(element) unless element.nil?
+          data << Entity.build(element) unless element.nil?
         end
         data
       end
@@ -798,7 +801,7 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['detectorVersionId'] = input[:detector_version_id] unless input[:detector_version_id].nil?
         data['predictionTimestamp'] = input[:prediction_timestamp] unless input[:prediction_timestamp].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -813,7 +816,7 @@ module AWS::SDK::FraudDetector
         data['name'] = input[:name] unless input[:name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -828,7 +831,7 @@ module AWS::SDK::FraudDetector
         data['modelEndpoint'] = input[:model_endpoint] unless input[:model_endpoint].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,7 +843,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.GetKMSEncryptionKey'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,7 +858,7 @@ module AWS::SDK::FraudDetector
         data['name'] = input[:name] unless input[:name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -870,7 +873,7 @@ module AWS::SDK::FraudDetector
         data['modelId'] = input[:model_id] unless input[:model_id].nil?
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['modelVersionNumber'] = input[:model_version_number] unless input[:model_version_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -886,7 +889,7 @@ module AWS::SDK::FraudDetector
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -901,7 +904,7 @@ module AWS::SDK::FraudDetector
         data['name'] = input[:name] unless input[:name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -918,7 +921,7 @@ module AWS::SDK::FraudDetector
         data['ruleVersion'] = input[:rule_version] unless input[:rule_version].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -933,7 +936,7 @@ module AWS::SDK::FraudDetector
         data['name'] = input[:name] unless input[:name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -945,14 +948,14 @@ module AWS::SDK::FraudDetector
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.ListEventPredictions'
         data = {}
-        data['eventId'] = Builders::FilterCondition.build(input[:event_id]) unless input[:event_id].nil?
-        data['eventType'] = Builders::FilterCondition.build(input[:event_type]) unless input[:event_type].nil?
-        data['detectorId'] = Builders::FilterCondition.build(input[:detector_id]) unless input[:detector_id].nil?
-        data['detectorVersionId'] = Builders::FilterCondition.build(input[:detector_version_id]) unless input[:detector_version_id].nil?
-        data['predictionTimeRange'] = Builders::PredictionTimeRange.build(input[:prediction_time_range]) unless input[:prediction_time_range].nil?
+        data['eventId'] = FilterCondition.build(input[:event_id]) unless input[:event_id].nil?
+        data['eventType'] = FilterCondition.build(input[:event_type]) unless input[:event_type].nil?
+        data['detectorId'] = FilterCondition.build(input[:detector_id]) unless input[:detector_id].nil?
+        data['detectorVersionId'] = FilterCondition.build(input[:detector_version_id]) unless input[:detector_version_id].nil?
+        data['predictionTimeRange'] = PredictionTimeRange.build(input[:prediction_time_range]) unless input[:prediction_time_range].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -986,7 +989,7 @@ module AWS::SDK::FraudDetector
         data['resourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1001,8 +1004,8 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1016,8 +1019,8 @@ module AWS::SDK::FraudDetector
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1031,12 +1034,12 @@ module AWS::SDK::FraudDetector
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['eventVariables'] = Builders::NonEmptyListOfStrings.build(input[:event_variables]) unless input[:event_variables].nil?
-        data['labels'] = Builders::ListOfStrings.build(input[:labels]) unless input[:labels].nil?
-        data['entityTypes'] = Builders::NonEmptyListOfStrings.build(input[:entity_types]) unless input[:entity_types].nil?
+        data['eventVariables'] = NonEmptyListOfStrings.build(input[:event_variables]) unless input[:event_variables].nil?
+        data['labels'] = ListOfStrings.build(input[:labels]) unless input[:labels].nil?
+        data['entityTypes'] = NonEmptyListOfStrings.build(input[:entity_types]) unless input[:entity_types].nil?
         data['eventIngestion'] = input[:event_ingestion] unless input[:event_ingestion].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1051,11 +1054,11 @@ module AWS::SDK::FraudDetector
         data['modelEndpoint'] = input[:model_endpoint] unless input[:model_endpoint].nil?
         data['modelSource'] = input[:model_source] unless input[:model_source].nil?
         data['invokeModelEndpointRoleArn'] = input[:invoke_model_endpoint_role_arn] unless input[:invoke_model_endpoint_role_arn].nil?
-        data['inputConfiguration'] = Builders::ModelInputConfiguration.build(input[:input_configuration]) unless input[:input_configuration].nil?
-        data['outputConfiguration'] = Builders::ModelOutputConfiguration.build(input[:output_configuration]) unless input[:output_configuration].nil?
+        data['inputConfiguration'] = ModelInputConfiguration.build(input[:input_configuration]) unless input[:input_configuration].nil?
+        data['outputConfiguration'] = ModelOutputConfiguration.build(input[:output_configuration]) unless input[:output_configuration].nil?
         data['modelEndpointStatus'] = input[:model_endpoint_status] unless input[:model_endpoint_status].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1064,8 +1067,8 @@ module AWS::SDK::FraudDetector
       def self.build(input)
         data = {}
         data['format'] = input[:format] unless input[:format].nil?
-        data['jsonKeyToVariableMap'] = Builders::JsonKeyToVariableMap.build(input[:json_key_to_variable_map]) unless input[:json_key_to_variable_map].nil?
-        data['csvIndexToVariableMap'] = Builders::CsvIndexToVariableMap.build(input[:csv_index_to_variable_map]) unless input[:csv_index_to_variable_map].nil?
+        data['jsonKeyToVariableMap'] = JsonKeyToVariableMap.build(input[:json_key_to_variable_map]) unless input[:json_key_to_variable_map].nil?
+        data['csvIndexToVariableMap'] = CsvIndexToVariableMap.build(input[:csv_index_to_variable_map]) unless input[:csv_index_to_variable_map].nil?
         data
       end
     end
@@ -1114,7 +1117,7 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.PutKMSEncryptionKey'
         data = {}
         data['kmsEncryptionKeyArn'] = input[:kms_encryption_key_arn] unless input[:kms_encryption_key_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1128,8 +1131,8 @@ module AWS::SDK::FraudDetector
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1143,8 +1146,8 @@ module AWS::SDK::FraudDetector
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1159,11 +1162,11 @@ module AWS::SDK::FraudDetector
         data['eventId'] = input[:event_id] unless input[:event_id].nil?
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
         data['eventTimestamp'] = input[:event_timestamp] unless input[:event_timestamp].nil?
-        data['eventVariables'] = Builders::EventVariableMap.build(input[:event_variables]) unless input[:event_variables].nil?
+        data['eventVariables'] = EventVariableMap.build(input[:event_variables]) unless input[:event_variables].nil?
         data['assignedLabel'] = input[:assigned_label] unless input[:assigned_label].nil?
         data['labelTimestamp'] = input[:label_timestamp] unless input[:label_timestamp].nil?
-        data['entities'] = Builders::ListOfEntities.build(input[:entities]) unless input[:entities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entities'] = ListOfEntities.build(input[:entities]) unless input[:entities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1176,8 +1179,8 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.TagResource'
         data = {}
         data['resourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1190,8 +1193,8 @@ module AWS::SDK::FraudDetector
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.UntagResource'
         data = {}
         data['resourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1216,12 +1219,12 @@ module AWS::SDK::FraudDetector
         data = {}
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['detectorVersionId'] = input[:detector_version_id] unless input[:detector_version_id].nil?
-        data['externalModelEndpoints'] = Builders::ListOfStrings.build(input[:external_model_endpoints]) unless input[:external_model_endpoints].nil?
-        data['rules'] = Builders::RuleList.build(input[:rules]) unless input[:rules].nil?
+        data['externalModelEndpoints'] = ListOfStrings.build(input[:external_model_endpoints]) unless input[:external_model_endpoints].nil?
+        data['rules'] = RuleList.build(input[:rules]) unless input[:rules].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['modelVersions'] = Builders::ListOfModelVersions.build(input[:model_versions]) unless input[:model_versions].nil?
+        data['modelVersions'] = ListOfModelVersions.build(input[:model_versions]) unless input[:model_versions].nil?
         data['ruleExecutionMode'] = input[:rule_execution_mode] unless input[:rule_execution_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1236,7 +1239,7 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['detectorVersionId'] = input[:detector_version_id] unless input[:detector_version_id].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1251,7 +1254,7 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = input[:detector_id] unless input[:detector_id].nil?
         data['detectorVersionId'] = input[:detector_version_id] unless input[:detector_version_id].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1267,7 +1270,7 @@ module AWS::SDK::FraudDetector
         data['eventTypeName'] = input[:event_type_name] unless input[:event_type_name].nil?
         data['assignedLabel'] = input[:assigned_label] unless input[:assigned_label].nil?
         data['labelTimestamp'] = input[:label_timestamp] unless input[:label_timestamp].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1282,7 +1285,7 @@ module AWS::SDK::FraudDetector
         data['modelId'] = input[:model_id] unless input[:model_id].nil?
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1297,10 +1300,10 @@ module AWS::SDK::FraudDetector
         data['modelId'] = input[:model_id] unless input[:model_id].nil?
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['majorVersionNumber'] = input[:major_version_number] unless input[:major_version_number].nil?
-        data['externalEventsDetail'] = Builders::ExternalEventsDetail.build(input[:external_events_detail]) unless input[:external_events_detail].nil?
-        data['ingestedEventsDetail'] = Builders::IngestedEventsDetail.build(input[:ingested_events_detail]) unless input[:ingested_events_detail].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['externalEventsDetail'] = ExternalEventsDetail.build(input[:external_events_detail]) unless input[:external_events_detail].nil?
+        data['ingestedEventsDetail'] = IngestedEventsDetail.build(input[:ingested_events_detail]) unless input[:ingested_events_detail].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1316,7 +1319,7 @@ module AWS::SDK::FraudDetector
         data['modelType'] = input[:model_type] unless input[:model_type].nil?
         data['modelVersionNumber'] = input[:model_version_number] unless input[:model_version_number].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1328,9 +1331,9 @@ module AWS::SDK::FraudDetector
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.UpdateRuleMetadata'
         data = {}
-        data['rule'] = Builders::Rule.build(input[:rule]) unless input[:rule].nil?
+        data['rule'] = Rule.build(input[:rule]) unless input[:rule].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1342,13 +1345,13 @@ module AWS::SDK::FraudDetector
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHawksNestServiceFacade.UpdateRuleVersion'
         data = {}
-        data['rule'] = Builders::Rule.build(input[:rule]) unless input[:rule].nil?
+        data['rule'] = Rule.build(input[:rule]) unless input[:rule].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['expression'] = input[:expression] unless input[:expression].nil?
         data['language'] = input[:language] unless input[:language].nil?
-        data['outcomes'] = Builders::NonEmptyListOfStrings.build(input[:outcomes]) unless input[:outcomes].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outcomes'] = NonEmptyListOfStrings.build(input[:outcomes]) unless input[:outcomes].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1364,7 +1367,7 @@ module AWS::SDK::FraudDetector
         data['defaultValue'] = input[:default_value] unless input[:default_value].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['variableType'] = input[:variable_type] unless input[:variable_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

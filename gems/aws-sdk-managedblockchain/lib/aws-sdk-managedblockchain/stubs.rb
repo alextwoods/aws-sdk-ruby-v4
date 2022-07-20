@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ManagedBlockchain
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::ManagedBlockchain
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['MemberId'] = stub[:member_id] unless stub[:member_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::ManagedBlockchain
         http_resp.headers['Content-Type'] = 'application/json'
         data['NetworkId'] = stub[:network_id] unless stub[:network_id].nil?
         data['MemberId'] = stub[:member_id] unless stub[:member_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::ManagedBlockchain
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NodeId'] = stub[:node_id] unless stub[:node_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::ManagedBlockchain
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ProposalId'] = stub[:proposal_id] unless stub[:proposal_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,8 +120,8 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Member'] = Stubs::Member.stub(stub[:member]) unless stub[:member].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Member'] = Member.stub(stub[:member]) unless stub[:member].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -150,11 +152,11 @@ module AWS::SDK::ManagedBlockchain
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['FrameworkAttributes'] = Stubs::MemberFrameworkAttributes.stub(stub[:framework_attributes]) unless stub[:framework_attributes].nil?
-        data['LogPublishingConfiguration'] = Stubs::MemberLogPublishingConfiguration.stub(stub[:log_publishing_configuration]) unless stub[:log_publishing_configuration].nil?
+        data['FrameworkAttributes'] = MemberFrameworkAttributes.stub(stub[:framework_attributes]) unless stub[:framework_attributes].nil?
+        data['LogPublishingConfiguration'] = MemberLogPublishingConfiguration.stub(stub[:log_publishing_configuration]) unless stub[:log_publishing_configuration].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_date_time(stub[:creation_date]) unless stub[:creation_date].nil?
-        data['Tags'] = Stubs::OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['KmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
         data
@@ -194,7 +196,7 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::MemberLogPublishingConfiguration.new
         data = {}
-        data['Fabric'] = Stubs::MemberFabricLogPublishingConfiguration.stub(stub[:fabric]) unless stub[:fabric].nil?
+        data['Fabric'] = MemberFabricLogPublishingConfiguration.stub(stub[:fabric]) unless stub[:fabric].nil?
         data
       end
     end
@@ -212,7 +214,7 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::MemberFabricLogPublishingConfiguration.new
         data = {}
-        data['CaLogs'] = Stubs::LogConfigurations.stub(stub[:ca_logs]) unless stub[:ca_logs].nil?
+        data['CaLogs'] = LogConfigurations.stub(stub[:ca_logs]) unless stub[:ca_logs].nil?
         data
       end
     end
@@ -230,7 +232,7 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::LogConfigurations.new
         data = {}
-        data['Cloudwatch'] = Stubs::LogConfiguration.stub(stub[:cloudwatch]) unless stub[:cloudwatch].nil?
+        data['Cloudwatch'] = LogConfiguration.stub(stub[:cloudwatch]) unless stub[:cloudwatch].nil?
         data
       end
     end
@@ -266,7 +268,7 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::MemberFrameworkAttributes.new
         data = {}
-        data['Fabric'] = Stubs::MemberFabricAttributes.stub(stub[:fabric]) unless stub[:fabric].nil?
+        data['Fabric'] = MemberFabricAttributes.stub(stub[:fabric]) unless stub[:fabric].nil?
         data
       end
     end
@@ -303,8 +305,8 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Network'] = Stubs::Network.stub(stub[:network]) unless stub[:network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Network'] = Network.stub(stub[:network]) unless stub[:network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,12 +339,12 @@ module AWS::SDK::ManagedBlockchain
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Framework'] = stub[:framework] unless stub[:framework].nil?
         data['FrameworkVersion'] = stub[:framework_version] unless stub[:framework_version].nil?
-        data['FrameworkAttributes'] = Stubs::NetworkFrameworkAttributes.stub(stub[:framework_attributes]) unless stub[:framework_attributes].nil?
+        data['FrameworkAttributes'] = NetworkFrameworkAttributes.stub(stub[:framework_attributes]) unless stub[:framework_attributes].nil?
         data['VpcEndpointServiceName'] = stub[:vpc_endpoint_service_name] unless stub[:vpc_endpoint_service_name].nil?
-        data['VotingPolicy'] = Stubs::VotingPolicy.stub(stub[:voting_policy]) unless stub[:voting_policy].nil?
+        data['VotingPolicy'] = VotingPolicy.stub(stub[:voting_policy]) unless stub[:voting_policy].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_date_time(stub[:creation_date]) unless stub[:creation_date].nil?
-        data['Tags'] = Stubs::OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data
       end
@@ -361,7 +363,7 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::VotingPolicy.new
         data = {}
-        data['ApprovalThresholdPolicy'] = Stubs::ApprovalThresholdPolicy.stub(stub[:approval_threshold_policy]) unless stub[:approval_threshold_policy].nil?
+        data['ApprovalThresholdPolicy'] = ApprovalThresholdPolicy.stub(stub[:approval_threshold_policy]) unless stub[:approval_threshold_policy].nil?
         data
       end
     end
@@ -402,8 +404,8 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::NetworkFrameworkAttributes.new
         data = {}
-        data['Fabric'] = Stubs::NetworkFabricAttributes.stub(stub[:fabric]) unless stub[:fabric].nil?
-        data['Ethereum'] = Stubs::NetworkEthereumAttributes.stub(stub[:ethereum]) unless stub[:ethereum].nil?
+        data['Fabric'] = NetworkFabricAttributes.stub(stub[:fabric]) unless stub[:fabric].nil?
+        data['Ethereum'] = NetworkEthereumAttributes.stub(stub[:ethereum]) unless stub[:ethereum].nil?
         data
       end
     end
@@ -458,8 +460,8 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Node'] = Stubs::Node.stub(stub[:node]) unless stub[:node].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Node'] = Node.stub(stub[:node]) unless stub[:node].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -493,12 +495,12 @@ module AWS::SDK::ManagedBlockchain
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
-        data['FrameworkAttributes'] = Stubs::NodeFrameworkAttributes.stub(stub[:framework_attributes]) unless stub[:framework_attributes].nil?
-        data['LogPublishingConfiguration'] = Stubs::NodeLogPublishingConfiguration.stub(stub[:log_publishing_configuration]) unless stub[:log_publishing_configuration].nil?
+        data['FrameworkAttributes'] = NodeFrameworkAttributes.stub(stub[:framework_attributes]) unless stub[:framework_attributes].nil?
+        data['LogPublishingConfiguration'] = NodeLogPublishingConfiguration.stub(stub[:log_publishing_configuration]) unless stub[:log_publishing_configuration].nil?
         data['StateDB'] = stub[:state_db] unless stub[:state_db].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_date_time(stub[:creation_date]) unless stub[:creation_date].nil?
-        data['Tags'] = Stubs::OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['KmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
         data
@@ -518,7 +520,7 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::NodeLogPublishingConfiguration.new
         data = {}
-        data['Fabric'] = Stubs::NodeFabricLogPublishingConfiguration.stub(stub[:fabric]) unless stub[:fabric].nil?
+        data['Fabric'] = NodeFabricLogPublishingConfiguration.stub(stub[:fabric]) unless stub[:fabric].nil?
         data
       end
     end
@@ -537,8 +539,8 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::NodeFabricLogPublishingConfiguration.new
         data = {}
-        data['ChaincodeLogs'] = Stubs::LogConfigurations.stub(stub[:chaincode_logs]) unless stub[:chaincode_logs].nil?
-        data['PeerLogs'] = Stubs::LogConfigurations.stub(stub[:peer_logs]) unless stub[:peer_logs].nil?
+        data['ChaincodeLogs'] = LogConfigurations.stub(stub[:chaincode_logs]) unless stub[:chaincode_logs].nil?
+        data['PeerLogs'] = LogConfigurations.stub(stub[:peer_logs]) unless stub[:peer_logs].nil?
         data
       end
     end
@@ -557,8 +559,8 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::NodeFrameworkAttributes.new
         data = {}
-        data['Fabric'] = Stubs::NodeFabricAttributes.stub(stub[:fabric]) unless stub[:fabric].nil?
-        data['Ethereum'] = Stubs::NodeEthereumAttributes.stub(stub[:ethereum]) unless stub[:ethereum].nil?
+        data['Fabric'] = NodeFabricAttributes.stub(stub[:fabric]) unless stub[:fabric].nil?
+        data['Ethereum'] = NodeEthereumAttributes.stub(stub[:ethereum]) unless stub[:ethereum].nil?
         data
       end
     end
@@ -615,8 +617,8 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Proposal'] = Stubs::Proposal.stub(stub[:proposal]) unless stub[:proposal].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Proposal'] = Proposal.stub(stub[:proposal]) unless stub[:proposal].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::ManagedBlockchain
         data['ProposalId'] = stub[:proposal_id] unless stub[:proposal_id].nil?
         data['NetworkId'] = stub[:network_id] unless stub[:network_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Actions'] = Stubs::ProposalActions.stub(stub[:actions]) unless stub[:actions].nil?
+        data['Actions'] = ProposalActions.stub(stub[:actions]) unless stub[:actions].nil?
         data['ProposedByMemberId'] = stub[:proposed_by_member_id] unless stub[:proposed_by_member_id].nil?
         data['ProposedByMemberName'] = stub[:proposed_by_member_name] unless stub[:proposed_by_member_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
@@ -658,7 +660,7 @@ module AWS::SDK::ManagedBlockchain
         data['YesVoteCount'] = stub[:yes_vote_count] unless stub[:yes_vote_count].nil?
         data['NoVoteCount'] = stub[:no_vote_count] unless stub[:no_vote_count].nil?
         data['OutstandingVoteCount'] = stub[:outstanding_vote_count] unless stub[:outstanding_vote_count].nil?
-        data['Tags'] = Stubs::OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data
       end
@@ -678,8 +680,8 @@ module AWS::SDK::ManagedBlockchain
       def self.stub(stub)
         stub ||= Types::ProposalActions.new
         data = {}
-        data['Invitations'] = Stubs::InviteActionList.stub(stub[:invitations]) unless stub[:invitations].nil?
-        data['Removals'] = Stubs::RemoveActionList.stub(stub[:removals]) unless stub[:removals].nil?
+        data['Invitations'] = InviteActionList.stub(stub[:invitations]) unless stub[:invitations].nil?
+        data['Removals'] = RemoveActionList.stub(stub[:removals]) unless stub[:removals].nil?
         data
       end
     end
@@ -698,7 +700,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemoveAction.stub(element) unless element.nil?
+          data << RemoveAction.stub(element) unless element.nil?
         end
         data
       end
@@ -736,7 +738,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InviteAction.stub(element) unless element.nil?
+          data << InviteAction.stub(element) unless element.nil?
         end
         data
       end
@@ -773,9 +775,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Invitations'] = Stubs::InvitationList.stub(stub[:invitations]) unless stub[:invitations].nil?
+        data['Invitations'] = InvitationList.stub(stub[:invitations]) unless stub[:invitations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -793,7 +795,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Invitation.stub(element) unless element.nil?
+          data << Invitation.stub(element) unless element.nil?
         end
         data
       end
@@ -821,7 +823,7 @@ module AWS::SDK::ManagedBlockchain
         data['CreationDate'] = Hearth::TimeHelper.to_date_time(stub[:creation_date]) unless stub[:creation_date].nil?
         data['ExpirationDate'] = Hearth::TimeHelper.to_date_time(stub[:expiration_date]) unless stub[:expiration_date].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['NetworkSummary'] = Stubs::NetworkSummary.stub(stub[:network_summary]) unless stub[:network_summary].nil?
+        data['NetworkSummary'] = NetworkSummary.stub(stub[:network_summary]) unless stub[:network_summary].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data
       end
@@ -872,9 +874,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Members'] = Stubs::MemberSummaryList.stub(stub[:members]) unless stub[:members].nil?
+        data['Members'] = MemberSummaryList.stub(stub[:members]) unless stub[:members].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -892,7 +894,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MemberSummary.stub(element) unless element.nil?
+          data << MemberSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -941,9 +943,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Networks'] = Stubs::NetworkSummaryList.stub(stub[:networks]) unless stub[:networks].nil?
+        data['Networks'] = NetworkSummaryList.stub(stub[:networks]) unless stub[:networks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -961,7 +963,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkSummary.stub(element) unless element.nil?
+          data << NetworkSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -980,9 +982,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Nodes'] = Stubs::NodeSummaryList.stub(stub[:nodes]) unless stub[:nodes].nil?
+        data['Nodes'] = NodeSummaryList.stub(stub[:nodes]) unless stub[:nodes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1000,7 +1002,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeSummary.stub(element) unless element.nil?
+          data << NodeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1047,9 +1049,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProposalVotes'] = Stubs::ProposalVoteList.stub(stub[:proposal_votes]) unless stub[:proposal_votes].nil?
+        data['ProposalVotes'] = ProposalVoteList.stub(stub[:proposal_votes]) unless stub[:proposal_votes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1067,7 +1069,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VoteSummary.stub(element) unless element.nil?
+          data << VoteSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1108,9 +1110,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Proposals'] = Stubs::ProposalSummaryList.stub(stub[:proposals]) unless stub[:proposals].nil?
+        data['Proposals'] = ProposalSummaryList.stub(stub[:proposals]) unless stub[:proposals].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1128,7 +1130,7 @@ module AWS::SDK::ManagedBlockchain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProposalSummary.stub(element) unless element.nil?
+          data << ProposalSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1178,8 +1180,8 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = OutputTagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

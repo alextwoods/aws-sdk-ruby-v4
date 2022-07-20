@@ -121,7 +121,7 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_objects = (Parsers::PipelineObjectList.parse(map['pipelineObjects']) unless map['pipelineObjects'].nil?)
+        data.pipeline_objects = (PipelineObjectList.parse(map['pipelineObjects']) unless map['pipelineObjects'].nil?)
         data.marker = map['marker']
         data.has_more_results = map['hasMoreResults']
         data
@@ -131,7 +131,7 @@ module AWS::SDK::DataPipeline
     class PipelineObjectList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineObject.parse(value) unless value.nil?
+          PipelineObject.parse(value) unless value.nil?
         end
       end
     end
@@ -141,7 +141,7 @@ module AWS::SDK::DataPipeline
         data = Types::PipelineObject.new
         data.id = map['id']
         data.name = map['name']
-        data.fields = (Parsers::FieldList.parse(map['fields']) unless map['fields'].nil?)
+        data.fields = (FieldList.parse(map['fields']) unless map['fields'].nil?)
         return data
       end
     end
@@ -149,7 +149,7 @@ module AWS::SDK::DataPipeline
     class FieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::Field.parse(value) unless value.nil?
+          Field.parse(value) unless value.nil?
         end
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_description_list = (Parsers::PipelineDescriptionList.parse(map['pipelineDescriptionList']) unless map['pipelineDescriptionList'].nil?)
+        data.pipeline_description_list = (PipelineDescriptionList.parse(map['pipelineDescriptionList']) unless map['pipelineDescriptionList'].nil?)
         data
       end
     end
@@ -179,7 +179,7 @@ module AWS::SDK::DataPipeline
     class PipelineDescriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineDescription.parse(value) unless value.nil?
+          PipelineDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -189,9 +189,9 @@ module AWS::SDK::DataPipeline
         data = Types::PipelineDescription.new
         data.pipeline_id = map['pipelineId']
         data.name = map['name']
-        data.fields = (Parsers::FieldList.parse(map['fields']) unless map['fields'].nil?)
+        data.fields = (FieldList.parse(map['fields']) unless map['fields'].nil?)
         data.description = map['description']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -199,7 +199,7 @@ module AWS::SDK::DataPipeline
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -244,9 +244,9 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_objects = (Parsers::PipelineObjectList.parse(map['pipelineObjects']) unless map['pipelineObjects'].nil?)
-        data.parameter_objects = (Parsers::ParameterObjectList.parse(map['parameterObjects']) unless map['parameterObjects'].nil?)
-        data.parameter_values = (Parsers::ParameterValueList.parse(map['parameterValues']) unless map['parameterValues'].nil?)
+        data.pipeline_objects = (PipelineObjectList.parse(map['pipelineObjects']) unless map['pipelineObjects'].nil?)
+        data.parameter_objects = (ParameterObjectList.parse(map['parameterObjects']) unless map['parameterObjects'].nil?)
+        data.parameter_values = (ParameterValueList.parse(map['parameterValues']) unless map['parameterValues'].nil?)
         data
       end
     end
@@ -254,7 +254,7 @@ module AWS::SDK::DataPipeline
     class ParameterValueList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterValue.parse(value) unless value.nil?
+          ParameterValue.parse(value) unless value.nil?
         end
       end
     end
@@ -271,7 +271,7 @@ module AWS::SDK::DataPipeline
     class ParameterObjectList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterObject.parse(value) unless value.nil?
+          ParameterObject.parse(value) unless value.nil?
         end
       end
     end
@@ -280,7 +280,7 @@ module AWS::SDK::DataPipeline
       def self.parse(map)
         data = Types::ParameterObject.new
         data.id = map['id']
-        data.attributes = (Parsers::ParameterAttributeList.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (ParameterAttributeList.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -288,7 +288,7 @@ module AWS::SDK::DataPipeline
     class ParameterAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterAttribute.parse(value) unless value.nil?
+          ParameterAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_id_list = (Parsers::PipelineList.parse(map['pipelineIdList']) unless map['pipelineIdList'].nil?)
+        data.pipeline_id_list = (PipelineList.parse(map['pipelineIdList']) unless map['pipelineIdList'].nil?)
         data.marker = map['marker']
         data.has_more_results = map['hasMoreResults']
         data
@@ -319,7 +319,7 @@ module AWS::SDK::DataPipeline
     class PipelineList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineIdName.parse(value) unless value.nil?
+          PipelineIdName.parse(value) unless value.nil?
         end
       end
     end
@@ -340,7 +340,7 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_object = (Parsers::TaskObject.parse(map['taskObject']) unless map['taskObject'].nil?)
+        data.task_object = (TaskObject.parse(map['taskObject']) unless map['taskObject'].nil?)
         data
       end
     end
@@ -351,7 +351,7 @@ module AWS::SDK::DataPipeline
         data.task_id = map['taskId']
         data.pipeline_id = map['pipelineId']
         data.attempt_id = map['attemptId']
-        data.objects = (Parsers::PipelineObjectMap.parse(map['objects']) unless map['objects'].nil?)
+        data.objects = (PipelineObjectMap.parse(map['objects']) unless map['objects'].nil?)
         return data
       end
     end
@@ -360,7 +360,7 @@ module AWS::SDK::DataPipeline
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::PipelineObject.parse(value) unless value.nil?
+          data[key] = PipelineObject.parse(value) unless value.nil?
         end
         data
       end
@@ -373,8 +373,8 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.validation_errors = (Parsers::ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
-        data.validation_warnings = (Parsers::ValidationWarnings.parse(map['validationWarnings']) unless map['validationWarnings'].nil?)
+        data.validation_errors = (ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
+        data.validation_warnings = (ValidationWarnings.parse(map['validationWarnings']) unless map['validationWarnings'].nil?)
         data.errored = map['errored']
         data
       end
@@ -383,7 +383,7 @@ module AWS::SDK::DataPipeline
     class ValidationWarnings
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationWarning.parse(value) unless value.nil?
+          ValidationWarning.parse(value) unless value.nil?
         end
       end
     end
@@ -392,7 +392,7 @@ module AWS::SDK::DataPipeline
       def self.parse(map)
         data = Types::ValidationWarning.new
         data.id = map['id']
-        data.warnings = (Parsers::ValidationMessages.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (ValidationMessages.parse(map['warnings']) unless map['warnings'].nil?)
         return data
       end
     end
@@ -408,7 +408,7 @@ module AWS::SDK::DataPipeline
     class ValidationErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationError.parse(value) unless value.nil?
+          ValidationError.parse(value) unless value.nil?
         end
       end
     end
@@ -417,7 +417,7 @@ module AWS::SDK::DataPipeline
       def self.parse(map)
         data = Types::ValidationError.new
         data.id = map['id']
-        data.errors = (Parsers::ValidationMessages.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (ValidationMessages.parse(map['errors']) unless map['errors'].nil?)
         return data
       end
     end
@@ -429,7 +429,7 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ids = (Parsers::IdList.parse(map['ids']) unless map['ids'].nil?)
+        data.ids = (IdList.parse(map['ids']) unless map['ids'].nil?)
         data.marker = map['marker']
         data.has_more_results = map['hasMoreResults']
         data
@@ -508,8 +508,8 @@ module AWS::SDK::DataPipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.validation_errors = (Parsers::ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
-        data.validation_warnings = (Parsers::ValidationWarnings.parse(map['validationWarnings']) unless map['validationWarnings'].nil?)
+        data.validation_errors = (ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
+        data.validation_warnings = (ValidationWarnings.parse(map['validationWarnings']) unless map['validationWarnings'].nil?)
         data.errored = map['errored']
         data
       end

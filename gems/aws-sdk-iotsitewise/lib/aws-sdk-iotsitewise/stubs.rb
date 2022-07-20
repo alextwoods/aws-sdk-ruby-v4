@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTSiteWise
   module Stubs
 
@@ -48,8 +50,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errors'] = Stubs::BatchAssociateProjectAssetsErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = BatchAssociateProjectAssetsErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetErrorDetails.stub(element) unless element.nil?
+          data << AssetErrorDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -107,8 +109,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errors'] = Stubs::BatchDisassociateProjectAssetsErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = BatchDisassociateProjectAssetsErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -126,7 +128,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetErrorDetails.stub(element) unless element.nil?
+          data << AssetErrorDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -147,11 +149,11 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchGetAssetPropertyAggregatesErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        data['successEntries'] = Stubs::BatchGetAssetPropertyAggregatesSuccessEntries.stub(stub[:success_entries]) unless stub[:success_entries].nil?
-        data['skippedEntries'] = Stubs::BatchGetAssetPropertyAggregatesSkippedEntries.stub(stub[:skipped_entries]) unless stub[:skipped_entries].nil?
+        data['errorEntries'] = BatchGetAssetPropertyAggregatesErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        data['successEntries'] = BatchGetAssetPropertyAggregatesSuccessEntries.stub(stub[:success_entries]) unless stub[:success_entries].nil?
+        data['skippedEntries'] = BatchGetAssetPropertyAggregatesSkippedEntries.stub(stub[:skipped_entries]) unless stub[:skipped_entries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyAggregatesSkippedEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyAggregatesSkippedEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -192,7 +194,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['entryId'] = stub[:entry_id] unless stub[:entry_id].nil?
         data['completionStatus'] = stub[:completion_status] unless stub[:completion_status].nil?
-        data['errorInfo'] = Stubs::BatchGetAssetPropertyAggregatesErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = BatchGetAssetPropertyAggregatesErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data
       end
     end
@@ -231,7 +233,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyAggregatesSuccessEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyAggregatesSuccessEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -252,7 +254,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::BatchGetAssetPropertyAggregatesSuccessEntry.new
         data = {}
         data['entryId'] = stub[:entry_id] unless stub[:entry_id].nil?
-        data['aggregatedValues'] = Stubs::AggregatedValues.stub(stub[:aggregated_values]) unless stub[:aggregated_values].nil?
+        data['aggregatedValues'] = AggregatedValues.stub(stub[:aggregated_values]) unless stub[:aggregated_values].nil?
         data
       end
     end
@@ -271,7 +273,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregatedValue.stub(element) unless element.nil?
+          data << AggregatedValue.stub(element) unless element.nil?
         end
         data
       end
@@ -294,7 +296,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
         data['quality'] = stub[:quality] unless stub[:quality].nil?
-        data['value'] = Stubs::Aggregates.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = Aggregates.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -341,7 +343,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyAggregatesErrorEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyAggregatesErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -384,11 +386,11 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchGetAssetPropertyValueErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        data['successEntries'] = Stubs::BatchGetAssetPropertyValueSuccessEntries.stub(stub[:success_entries]) unless stub[:success_entries].nil?
-        data['skippedEntries'] = Stubs::BatchGetAssetPropertyValueSkippedEntries.stub(stub[:skipped_entries]) unless stub[:skipped_entries].nil?
+        data['errorEntries'] = BatchGetAssetPropertyValueErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        data['successEntries'] = BatchGetAssetPropertyValueSuccessEntries.stub(stub[:success_entries]) unless stub[:success_entries].nil?
+        data['skippedEntries'] = BatchGetAssetPropertyValueSkippedEntries.stub(stub[:skipped_entries]) unless stub[:skipped_entries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyValueSkippedEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyValueSkippedEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -429,7 +431,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['entryId'] = stub[:entry_id] unless stub[:entry_id].nil?
         data['completionStatus'] = stub[:completion_status] unless stub[:completion_status].nil?
-        data['errorInfo'] = Stubs::BatchGetAssetPropertyValueErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = BatchGetAssetPropertyValueErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data
       end
     end
@@ -468,7 +470,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyValueSuccessEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyValueSuccessEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -489,7 +491,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::BatchGetAssetPropertyValueSuccessEntry.new
         data = {}
         data['entryId'] = stub[:entry_id] unless stub[:entry_id].nil?
-        data['assetPropertyValue'] = Stubs::AssetPropertyValue.stub(stub[:asset_property_value]) unless stub[:asset_property_value].nil?
+        data['assetPropertyValue'] = AssetPropertyValue.stub(stub[:asset_property_value]) unless stub[:asset_property_value].nil?
         data
       end
     end
@@ -509,8 +511,8 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::AssetPropertyValue.new
         data = {}
-        data['value'] = Stubs::Variant.stub(stub[:value]) unless stub[:value].nil?
-        data['timestamp'] = Stubs::TimeInNanos.stub(stub[:timestamp]) unless stub[:timestamp].nil?
+        data['value'] = Variant.stub(stub[:value]) unless stub[:value].nil?
+        data['timestamp'] = TimeInNanos.stub(stub[:timestamp]) unless stub[:timestamp].nil?
         data['quality'] = stub[:quality] unless stub[:quality].nil?
         data
       end
@@ -574,7 +576,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyValueErrorEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyValueErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -617,11 +619,11 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchGetAssetPropertyValueHistoryErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        data['successEntries'] = Stubs::BatchGetAssetPropertyValueHistorySuccessEntries.stub(stub[:success_entries]) unless stub[:success_entries].nil?
-        data['skippedEntries'] = Stubs::BatchGetAssetPropertyValueHistorySkippedEntries.stub(stub[:skipped_entries]) unless stub[:skipped_entries].nil?
+        data['errorEntries'] = BatchGetAssetPropertyValueHistoryErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        data['successEntries'] = BatchGetAssetPropertyValueHistorySuccessEntries.stub(stub[:success_entries]) unless stub[:success_entries].nil?
+        data['skippedEntries'] = BatchGetAssetPropertyValueHistorySkippedEntries.stub(stub[:skipped_entries]) unless stub[:skipped_entries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -639,7 +641,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyValueHistorySkippedEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyValueHistorySkippedEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -662,7 +664,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['entryId'] = stub[:entry_id] unless stub[:entry_id].nil?
         data['completionStatus'] = stub[:completion_status] unless stub[:completion_status].nil?
-        data['errorInfo'] = Stubs::BatchGetAssetPropertyValueHistoryErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = BatchGetAssetPropertyValueHistoryErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data
       end
     end
@@ -701,7 +703,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyValueHistorySuccessEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyValueHistorySuccessEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -722,7 +724,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::BatchGetAssetPropertyValueHistorySuccessEntry.new
         data = {}
         data['entryId'] = stub[:entry_id] unless stub[:entry_id].nil?
-        data['assetPropertyValueHistory'] = Stubs::AssetPropertyValueHistory.stub(stub[:asset_property_value_history]) unless stub[:asset_property_value_history].nil?
+        data['assetPropertyValueHistory'] = AssetPropertyValueHistory.stub(stub[:asset_property_value_history]) unless stub[:asset_property_value_history].nil?
         data
       end
     end
@@ -741,7 +743,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetPropertyValue.stub(element) unless element.nil?
+          data << AssetPropertyValue.stub(element) unless element.nil?
         end
         data
       end
@@ -761,7 +763,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetAssetPropertyValueHistoryErrorEntry.stub(element) unless element.nil?
+          data << BatchGetAssetPropertyValueHistoryErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -801,8 +803,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchPutAssetPropertyErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = BatchPutAssetPropertyErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -820,7 +822,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutAssetPropertyErrorEntry.stub(element) unless element.nil?
+          data << BatchPutAssetPropertyErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -841,7 +843,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::BatchPutAssetPropertyErrorEntry.new
         data = {}
         data['entryId'] = stub[:entry_id] unless stub[:entry_id].nil?
-        data['errors'] = Stubs::BatchPutAssetPropertyErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        data['errors'] = BatchPutAssetPropertyErrors.stub(stub[:errors]) unless stub[:errors].nil?
         data
       end
     end
@@ -860,7 +862,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutAssetPropertyError.stub(element) unless element.nil?
+          data << BatchPutAssetPropertyError.stub(element) unless element.nil?
         end
         data
       end
@@ -883,7 +885,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['timestamps'] = Stubs::Timestamps.stub(stub[:timestamps]) unless stub[:timestamps].nil?
+        data['timestamps'] = Timestamps.stub(stub[:timestamps]) unless stub[:timestamps].nil?
         data
       end
     end
@@ -902,7 +904,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimeInNanos.stub(element) unless element.nil?
+          data << TimeInNanos.stub(element) unless element.nil?
         end
         data
       end
@@ -923,7 +925,7 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['accessPolicyId'] = stub[:access_policy_id] unless stub[:access_policy_id].nil?
         data['accessPolicyArn'] = stub[:access_policy_arn] unless stub[:access_policy_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -943,8 +945,8 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['assetId'] = stub[:asset_id] unless stub[:asset_id].nil?
         data['assetArn'] = stub[:asset_arn] unless stub[:asset_arn].nil?
-        data['assetStatus'] = Stubs::AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetStatus'] = AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -963,7 +965,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::AssetStatus.new
         data = {}
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['error'] = Stubs::ErrorDetails.stub(stub[:error]) unless stub[:error].nil?
+        data['error'] = ErrorDetails.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -985,7 +987,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['code'] = stub[:code] unless stub[:code].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['details'] = Stubs::DetailedErrors.stub(stub[:details]) unless stub[:details].nil?
+        data['details'] = DetailedErrors.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -1004,7 +1006,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DetailedError.stub(element) unless element.nil?
+          data << DetailedError.stub(element) unless element.nil?
         end
         data
       end
@@ -1046,8 +1048,8 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['assetModelId'] = stub[:asset_model_id] unless stub[:asset_model_id].nil?
         data['assetModelArn'] = stub[:asset_model_arn] unless stub[:asset_model_arn].nil?
-        data['assetModelStatus'] = Stubs::AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetModelStatus'] = AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1066,7 +1068,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::AssetModelStatus.new
         data = {}
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['error'] = Stubs::ErrorDetails.stub(stub[:error]) unless stub[:error].nil?
+        data['error'] = ErrorDetails.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -1086,7 +1088,7 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['dashboardId'] = stub[:dashboard_id] unless stub[:dashboard_id].nil?
         data['dashboardArn'] = stub[:dashboard_arn] unless stub[:dashboard_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1105,7 +1107,7 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['gatewayId'] = stub[:gateway_id] unless stub[:gateway_id].nil?
         data['gatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1128,9 +1130,9 @@ module AWS::SDK::IoTSiteWise
         data['portalId'] = stub[:portal_id] unless stub[:portal_id].nil?
         data['portalArn'] = stub[:portal_arn] unless stub[:portal_arn].nil?
         data['portalStartUrl'] = stub[:portal_start_url] unless stub[:portal_start_url].nil?
-        data['portalStatus'] = Stubs::PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
+        data['portalStatus'] = PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
         data['ssoApplicationId'] = stub[:sso_application_id] unless stub[:sso_application_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1149,7 +1151,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::PortalStatus.new
         data = {}
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['error'] = Stubs::MonitorErrorDetails.stub(stub[:error]) unless stub[:error].nil?
+        data['error'] = MonitorErrorDetails.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -1189,7 +1191,7 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['projectId'] = stub[:project_id] unless stub[:project_id].nil?
         data['projectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1218,8 +1220,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetStatus'] = Stubs::AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetStatus'] = AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1235,8 +1237,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetModelStatus'] = Stubs::AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetModelStatus'] = AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1278,8 +1280,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['portalStatus'] = Stubs::PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['portalStatus'] = PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1329,12 +1331,12 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['accessPolicyId'] = stub[:access_policy_id] unless stub[:access_policy_id].nil?
         data['accessPolicyArn'] = stub[:access_policy_arn] unless stub[:access_policy_arn].nil?
-        data['accessPolicyIdentity'] = Stubs::Identity.stub(stub[:access_policy_identity]) unless stub[:access_policy_identity].nil?
-        data['accessPolicyResource'] = Stubs::Resource.stub(stub[:access_policy_resource]) unless stub[:access_policy_resource].nil?
+        data['accessPolicyIdentity'] = Identity.stub(stub[:access_policy_identity]) unless stub[:access_policy_identity].nil?
+        data['accessPolicyResource'] = Resource.stub(stub[:access_policy_resource]) unless stub[:access_policy_resource].nil?
         data['accessPolicyPermission'] = stub[:access_policy_permission] unless stub[:access_policy_permission].nil?
         data['accessPolicyCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:access_policy_creation_date]).to_i unless stub[:access_policy_creation_date].nil?
         data['accessPolicyLastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:access_policy_last_update_date]).to_i unless stub[:access_policy_last_update_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1352,8 +1354,8 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::Resource.new
         data = {}
-        data['portal'] = Stubs::PortalResource.stub(stub[:portal]) unless stub[:portal].nil?
-        data['project'] = Stubs::ProjectResource.stub(stub[:project]) unless stub[:project].nil?
+        data['portal'] = PortalResource.stub(stub[:portal]) unless stub[:portal].nil?
+        data['project'] = ProjectResource.stub(stub[:project]) unless stub[:project].nil?
         data
       end
     end
@@ -1410,10 +1412,10 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::Identity.new
         data = {}
-        data['user'] = Stubs::UserIdentity.stub(stub[:user]) unless stub[:user].nil?
-        data['group'] = Stubs::GroupIdentity.stub(stub[:group]) unless stub[:group].nil?
-        data['iamUser'] = Stubs::IAMUserIdentity.stub(stub[:iam_user]) unless stub[:iam_user].nil?
-        data['iamRole'] = Stubs::IAMRoleIdentity.stub(stub[:iam_role]) unless stub[:iam_role].nil?
+        data['user'] = UserIdentity.stub(stub[:user]) unless stub[:user].nil?
+        data['group'] = GroupIdentity.stub(stub[:group]) unless stub[:group].nil?
+        data['iamUser'] = IAMUserIdentity.stub(stub[:iam_user]) unless stub[:iam_user].nil?
+        data['iamRole'] = IAMRoleIdentity.stub(stub[:iam_role]) unless stub[:iam_role].nil?
         data
       end
     end
@@ -1516,14 +1518,14 @@ module AWS::SDK::IoTSiteWise
         data['assetArn'] = stub[:asset_arn] unless stub[:asset_arn].nil?
         data['assetName'] = stub[:asset_name] unless stub[:asset_name].nil?
         data['assetModelId'] = stub[:asset_model_id] unless stub[:asset_model_id].nil?
-        data['assetProperties'] = Stubs::AssetProperties.stub(stub[:asset_properties]) unless stub[:asset_properties].nil?
-        data['assetHierarchies'] = Stubs::AssetHierarchies.stub(stub[:asset_hierarchies]) unless stub[:asset_hierarchies].nil?
-        data['assetCompositeModels'] = Stubs::AssetCompositeModels.stub(stub[:asset_composite_models]) unless stub[:asset_composite_models].nil?
+        data['assetProperties'] = AssetProperties.stub(stub[:asset_properties]) unless stub[:asset_properties].nil?
+        data['assetHierarchies'] = AssetHierarchies.stub(stub[:asset_hierarchies]) unless stub[:asset_hierarchies].nil?
+        data['assetCompositeModels'] = AssetCompositeModels.stub(stub[:asset_composite_models]) unless stub[:asset_composite_models].nil?
         data['assetCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:asset_creation_date]).to_i unless stub[:asset_creation_date].nil?
         data['assetLastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:asset_last_update_date]).to_i unless stub[:asset_last_update_date].nil?
-        data['assetStatus'] = Stubs::AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
+        data['assetStatus'] = AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
         data['assetDescription'] = stub[:asset_description] unless stub[:asset_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1541,7 +1543,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetCompositeModel.stub(element) unless element.nil?
+          data << AssetCompositeModel.stub(element) unless element.nil?
         end
         data
       end
@@ -1566,7 +1568,7 @@ module AWS::SDK::IoTSiteWise
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['properties'] = Stubs::AssetProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['properties'] = AssetProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -1585,7 +1587,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetProperty.stub(element) unless element.nil?
+          data << AssetProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -1613,7 +1615,7 @@ module AWS::SDK::IoTSiteWise
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['alias'] = stub[:alias] unless stub[:alias].nil?
-        data['notification'] = Stubs::PropertyNotification.stub(stub[:notification]) unless stub[:notification].nil?
+        data['notification'] = PropertyNotification.stub(stub[:notification]) unless stub[:notification].nil?
         data['dataType'] = stub[:data_type] unless stub[:data_type].nil?
         data['dataTypeSpec'] = stub[:data_type_spec] unless stub[:data_type_spec].nil?
         data['unit'] = stub[:unit] unless stub[:unit].nil?
@@ -1655,7 +1657,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetHierarchy.stub(element) unless element.nil?
+          data << AssetHierarchy.stub(element) unless element.nil?
         end
         data
       end
@@ -1706,13 +1708,13 @@ module AWS::SDK::IoTSiteWise
         data['assetModelArn'] = stub[:asset_model_arn] unless stub[:asset_model_arn].nil?
         data['assetModelName'] = stub[:asset_model_name] unless stub[:asset_model_name].nil?
         data['assetModelDescription'] = stub[:asset_model_description] unless stub[:asset_model_description].nil?
-        data['assetModelProperties'] = Stubs::AssetModelProperties.stub(stub[:asset_model_properties]) unless stub[:asset_model_properties].nil?
-        data['assetModelHierarchies'] = Stubs::AssetModelHierarchies.stub(stub[:asset_model_hierarchies]) unless stub[:asset_model_hierarchies].nil?
-        data['assetModelCompositeModels'] = Stubs::AssetModelCompositeModels.stub(stub[:asset_model_composite_models]) unless stub[:asset_model_composite_models].nil?
+        data['assetModelProperties'] = AssetModelProperties.stub(stub[:asset_model_properties]) unless stub[:asset_model_properties].nil?
+        data['assetModelHierarchies'] = AssetModelHierarchies.stub(stub[:asset_model_hierarchies]) unless stub[:asset_model_hierarchies].nil?
+        data['assetModelCompositeModels'] = AssetModelCompositeModels.stub(stub[:asset_model_composite_models]) unless stub[:asset_model_composite_models].nil?
         data['assetModelCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:asset_model_creation_date]).to_i unless stub[:asset_model_creation_date].nil?
         data['assetModelLastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:asset_model_last_update_date]).to_i unless stub[:asset_model_last_update_date].nil?
-        data['assetModelStatus'] = Stubs::AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetModelStatus'] = AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1730,7 +1732,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetModelCompositeModel.stub(element) unless element.nil?
+          data << AssetModelCompositeModel.stub(element) unless element.nil?
         end
         data
       end
@@ -1755,7 +1757,7 @@ module AWS::SDK::IoTSiteWise
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['properties'] = Stubs::AssetModelProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['properties'] = AssetModelProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -1774,7 +1776,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetModelProperty.stub(element) unless element.nil?
+          data << AssetModelProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -1803,7 +1805,7 @@ module AWS::SDK::IoTSiteWise
         data['dataType'] = stub[:data_type] unless stub[:data_type].nil?
         data['dataTypeSpec'] = stub[:data_type_spec] unless stub[:data_type_spec].nil?
         data['unit'] = stub[:unit] unless stub[:unit].nil?
-        data['type'] = Stubs::PropertyType.stub(stub[:type]) unless stub[:type].nil?
+        data['type'] = PropertyType.stub(stub[:type]) unless stub[:type].nil?
         data
       end
     end
@@ -1824,10 +1826,10 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::PropertyType.new
         data = {}
-        data['attribute'] = Stubs::Attribute.stub(stub[:attribute]) unless stub[:attribute].nil?
-        data['measurement'] = Stubs::Measurement.stub(stub[:measurement]) unless stub[:measurement].nil?
-        data['transform'] = Stubs::Transform.stub(stub[:transform]) unless stub[:transform].nil?
-        data['metric'] = Stubs::Metric.stub(stub[:metric]) unless stub[:metric].nil?
+        data['attribute'] = Attribute.stub(stub[:attribute]) unless stub[:attribute].nil?
+        data['measurement'] = Measurement.stub(stub[:measurement]) unless stub[:measurement].nil?
+        data['transform'] = Transform.stub(stub[:transform]) unless stub[:transform].nil?
+        data['metric'] = Metric.stub(stub[:metric]) unless stub[:metric].nil?
         data
       end
     end
@@ -1849,9 +1851,9 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::Metric.new
         data = {}
         data['expression'] = stub[:expression] unless stub[:expression].nil?
-        data['variables'] = Stubs::ExpressionVariables.stub(stub[:variables]) unless stub[:variables].nil?
-        data['window'] = Stubs::MetricWindow.stub(stub[:window]) unless stub[:window].nil?
-        data['processingConfig'] = Stubs::MetricProcessingConfig.stub(stub[:processing_config]) unless stub[:processing_config].nil?
+        data['variables'] = ExpressionVariables.stub(stub[:variables]) unless stub[:variables].nil?
+        data['window'] = MetricWindow.stub(stub[:window]) unless stub[:window].nil?
+        data['processingConfig'] = MetricProcessingConfig.stub(stub[:processing_config]) unless stub[:processing_config].nil?
         data
       end
     end
@@ -1887,7 +1889,7 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::MetricWindow.new
         data = {}
-        data['tumbling'] = Stubs::TumblingWindow.stub(stub[:tumbling]) unless stub[:tumbling].nil?
+        data['tumbling'] = TumblingWindow.stub(stub[:tumbling]) unless stub[:tumbling].nil?
         data
       end
     end
@@ -1926,7 +1928,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExpressionVariable.stub(element) unless element.nil?
+          data << ExpressionVariable.stub(element) unless element.nil?
         end
         data
       end
@@ -1947,7 +1949,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::ExpressionVariable.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['value'] = Stubs::VariableValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = VariableValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -1988,8 +1990,8 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::Transform.new
         data = {}
         data['expression'] = stub[:expression] unless stub[:expression].nil?
-        data['variables'] = Stubs::ExpressionVariables.stub(stub[:variables]) unless stub[:variables].nil?
-        data['processingConfig'] = Stubs::TransformProcessingConfig.stub(stub[:processing_config]) unless stub[:processing_config].nil?
+        data['variables'] = ExpressionVariables.stub(stub[:variables]) unless stub[:variables].nil?
+        data['processingConfig'] = TransformProcessingConfig.stub(stub[:processing_config]) unless stub[:processing_config].nil?
         data
       end
     end
@@ -2009,7 +2011,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::TransformProcessingConfig.new
         data = {}
         data['computeLocation'] = stub[:compute_location] unless stub[:compute_location].nil?
-        data['forwardingConfig'] = Stubs::ForwardingConfig.stub(stub[:forwarding_config]) unless stub[:forwarding_config].nil?
+        data['forwardingConfig'] = ForwardingConfig.stub(stub[:forwarding_config]) unless stub[:forwarding_config].nil?
         data
       end
     end
@@ -2045,7 +2047,7 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::Measurement.new
         data = {}
-        data['processingConfig'] = Stubs::MeasurementProcessingConfig.stub(stub[:processing_config]) unless stub[:processing_config].nil?
+        data['processingConfig'] = MeasurementProcessingConfig.stub(stub[:processing_config]) unless stub[:processing_config].nil?
         data
       end
     end
@@ -2063,7 +2065,7 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::MeasurementProcessingConfig.new
         data = {}
-        data['forwardingConfig'] = Stubs::ForwardingConfig.stub(stub[:forwarding_config]) unless stub[:forwarding_config].nil?
+        data['forwardingConfig'] = ForwardingConfig.stub(stub[:forwarding_config]) unless stub[:forwarding_config].nil?
         data
       end
     end
@@ -2100,7 +2102,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetModelHierarchy.stub(element) unless element.nil?
+          data << AssetModelHierarchy.stub(element) unless element.nil?
         end
         data
       end
@@ -2147,9 +2149,9 @@ module AWS::SDK::IoTSiteWise
         data['assetId'] = stub[:asset_id] unless stub[:asset_id].nil?
         data['assetName'] = stub[:asset_name] unless stub[:asset_name].nil?
         data['assetModelId'] = stub[:asset_model_id] unless stub[:asset_model_id].nil?
-        data['assetProperty'] = Stubs::Property.stub(stub[:asset_property]) unless stub[:asset_property].nil?
-        data['compositeModel'] = Stubs::CompositeModelProperty.stub(stub[:composite_model]) unless stub[:composite_model].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetProperty'] = Property.stub(stub[:asset_property]) unless stub[:asset_property].nil?
+        data['compositeModel'] = CompositeModelProperty.stub(stub[:composite_model]) unless stub[:composite_model].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2170,7 +2172,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['assetProperty'] = Stubs::Property.stub(stub[:asset_property]) unless stub[:asset_property].nil?
+        data['assetProperty'] = Property.stub(stub[:asset_property]) unless stub[:asset_property].nil?
         data
       end
     end
@@ -2197,10 +2199,10 @@ module AWS::SDK::IoTSiteWise
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['alias'] = stub[:alias] unless stub[:alias].nil?
-        data['notification'] = Stubs::PropertyNotification.stub(stub[:notification]) unless stub[:notification].nil?
+        data['notification'] = PropertyNotification.stub(stub[:notification]) unless stub[:notification].nil?
         data['dataType'] = stub[:data_type] unless stub[:data_type].nil?
         data['unit'] = stub[:unit] unless stub[:unit].nil?
-        data['type'] = Stubs::PropertyType.stub(stub[:type]) unless stub[:type].nil?
+        data['type'] = PropertyType.stub(stub[:type]) unless stub[:type].nil?
         data
       end
     end
@@ -2232,7 +2234,7 @@ module AWS::SDK::IoTSiteWise
         data['dashboardDefinition'] = stub[:dashboard_definition] unless stub[:dashboard_definition].nil?
         data['dashboardCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:dashboard_creation_date]).to_i unless stub[:dashboard_creation_date].nil?
         data['dashboardLastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:dashboard_last_update_date]).to_i unless stub[:dashboard_last_update_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2252,8 +2254,8 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['encryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
         data['kmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['configurationStatus'] = Stubs::ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configurationStatus'] = ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2272,7 +2274,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::ConfigurationStatus.new
         data = {}
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['error'] = Stubs::ConfigurationErrorDetails.stub(stub[:error]) unless stub[:error].nil?
+        data['error'] = ConfigurationErrorDetails.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -2318,11 +2320,11 @@ module AWS::SDK::IoTSiteWise
         data['gatewayId'] = stub[:gateway_id] unless stub[:gateway_id].nil?
         data['gatewayName'] = stub[:gateway_name] unless stub[:gateway_name].nil?
         data['gatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['gatewayPlatform'] = Stubs::GatewayPlatform.stub(stub[:gateway_platform]) unless stub[:gateway_platform].nil?
-        data['gatewayCapabilitySummaries'] = Stubs::GatewayCapabilitySummaries.stub(stub[:gateway_capability_summaries]) unless stub[:gateway_capability_summaries].nil?
+        data['gatewayPlatform'] = GatewayPlatform.stub(stub[:gateway_platform]) unless stub[:gateway_platform].nil?
+        data['gatewayCapabilitySummaries'] = GatewayCapabilitySummaries.stub(stub[:gateway_capability_summaries]) unless stub[:gateway_capability_summaries].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2340,7 +2342,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GatewayCapabilitySummary.stub(element) unless element.nil?
+          data << GatewayCapabilitySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2380,8 +2382,8 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::GatewayPlatform.new
         data = {}
-        data['greengrass'] = Stubs::Greengrass.stub(stub[:greengrass]) unless stub[:greengrass].nil?
-        data['greengrassV2'] = Stubs::GreengrassV2.stub(stub[:greengrass_v2]) unless stub[:greengrass_v2].nil?
+        data['greengrass'] = Greengrass.stub(stub[:greengrass]) unless stub[:greengrass].nil?
+        data['greengrassV2'] = GreengrassV2.stub(stub[:greengrass_v2]) unless stub[:greengrass_v2].nil?
         data
       end
     end
@@ -2441,7 +2443,7 @@ module AWS::SDK::IoTSiteWise
         data['capabilityNamespace'] = stub[:capability_namespace] unless stub[:capability_namespace].nil?
         data['capabilityConfiguration'] = stub[:capability_configuration] unless stub[:capability_configuration].nil?
         data['capabilitySyncStatus'] = stub[:capability_sync_status] unless stub[:capability_sync_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2457,8 +2459,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['loggingOptions'] = Stubs::LoggingOptions.stub(stub[:logging_options]) unless stub[:logging_options].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingOptions'] = LoggingOptions.stub(stub[:logging_options]) unless stub[:logging_options].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2513,15 +2515,15 @@ module AWS::SDK::IoTSiteWise
         data['portalClientId'] = stub[:portal_client_id] unless stub[:portal_client_id].nil?
         data['portalStartUrl'] = stub[:portal_start_url] unless stub[:portal_start_url].nil?
         data['portalContactEmail'] = stub[:portal_contact_email] unless stub[:portal_contact_email].nil?
-        data['portalStatus'] = Stubs::PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
+        data['portalStatus'] = PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
         data['portalCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:portal_creation_date]).to_i unless stub[:portal_creation_date].nil?
         data['portalLastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:portal_last_update_date]).to_i unless stub[:portal_last_update_date].nil?
-        data['portalLogoImageLocation'] = Stubs::ImageLocation.stub(stub[:portal_logo_image_location]) unless stub[:portal_logo_image_location].nil?
+        data['portalLogoImageLocation'] = ImageLocation.stub(stub[:portal_logo_image_location]) unless stub[:portal_logo_image_location].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['portalAuthMode'] = stub[:portal_auth_mode] unless stub[:portal_auth_mode].nil?
         data['notificationSenderEmail'] = stub[:notification_sender_email] unless stub[:notification_sender_email].nil?
-        data['alarms'] = Stubs::Alarms.stub(stub[:alarms]) unless stub[:alarms].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alarms'] = Alarms.stub(stub[:alarms]) unless stub[:alarms].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2590,7 +2592,7 @@ module AWS::SDK::IoTSiteWise
         data['projectDescription'] = stub[:project_description] unless stub[:project_description].nil?
         data['projectCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:project_creation_date]).to_i unless stub[:project_creation_date].nil?
         data['projectLastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:project_last_update_date]).to_i unless stub[:project_last_update_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2612,12 +2614,12 @@ module AWS::SDK::IoTSiteWise
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['storageType'] = stub[:storage_type] unless stub[:storage_type].nil?
-        data['multiLayerStorage'] = Stubs::MultiLayerStorage.stub(stub[:multi_layer_storage]) unless stub[:multi_layer_storage].nil?
+        data['multiLayerStorage'] = MultiLayerStorage.stub(stub[:multi_layer_storage]) unless stub[:multi_layer_storage].nil?
         data['disassociatedDataStorage'] = stub[:disassociated_data_storage] unless stub[:disassociated_data_storage].nil?
-        data['retentionPeriod'] = Stubs::RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
-        data['configurationStatus'] = Stubs::ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
+        data['retentionPeriod'] = RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
+        data['configurationStatus'] = ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2654,7 +2656,7 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::MultiLayerStorage.new
         data = {}
-        data['customerManagedS3Storage'] = Stubs::CustomerManagedS3Storage.stub(stub[:customer_managed_s3_storage]) unless stub[:customer_managed_s3_storage].nil?
+        data['customerManagedS3Storage'] = CustomerManagedS3Storage.stub(stub[:customer_managed_s3_storage]) unless stub[:customer_managed_s3_storage].nil?
         data
       end
     end
@@ -2706,7 +2708,7 @@ module AWS::SDK::IoTSiteWise
         data['dataTypeSpec'] = stub[:data_type_spec] unless stub[:data_type_spec].nil?
         data['timeSeriesCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:time_series_creation_date]).to_i unless stub[:time_series_creation_date].nil?
         data['timeSeriesLastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:time_series_last_update_date]).to_i unless stub[:time_series_last_update_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2749,9 +2751,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['aggregatedValues'] = Stubs::AggregatedValues.stub(stub[:aggregated_values]) unless stub[:aggregated_values].nil?
+        data['aggregatedValues'] = AggregatedValues.stub(stub[:aggregated_values]) unless stub[:aggregated_values].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2767,8 +2769,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['propertyValue'] = Stubs::AssetPropertyValue.stub(stub[:property_value]) unless stub[:property_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['propertyValue'] = AssetPropertyValue.stub(stub[:property_value]) unless stub[:property_value].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2785,9 +2787,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetPropertyValueHistory'] = Stubs::AssetPropertyValueHistory.stub(stub[:asset_property_value_history]) unless stub[:asset_property_value_history].nil?
+        data['assetPropertyValueHistory'] = AssetPropertyValueHistory.stub(stub[:asset_property_value_history]) unless stub[:asset_property_value_history].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2804,9 +2806,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['interpolatedAssetPropertyValues'] = Stubs::InterpolatedAssetPropertyValues.stub(stub[:interpolated_asset_property_values]) unless stub[:interpolated_asset_property_values].nil?
+        data['interpolatedAssetPropertyValues'] = InterpolatedAssetPropertyValues.stub(stub[:interpolated_asset_property_values]) unless stub[:interpolated_asset_property_values].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2824,7 +2826,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InterpolatedAssetPropertyValue.stub(element) unless element.nil?
+          data << InterpolatedAssetPropertyValue.stub(element) unless element.nil?
         end
         data
       end
@@ -2844,8 +2846,8 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::InterpolatedAssetPropertyValue.new
         data = {}
-        data['timestamp'] = Stubs::TimeInNanos.stub(stub[:timestamp]) unless stub[:timestamp].nil?
-        data['value'] = Stubs::Variant.stub(stub[:value]) unless stub[:value].nil?
+        data['timestamp'] = TimeInNanos.stub(stub[:timestamp]) unless stub[:timestamp].nil?
+        data['value'] = Variant.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -2863,9 +2865,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accessPolicySummaries'] = Stubs::AccessPolicySummaries.stub(stub[:access_policy_summaries]) unless stub[:access_policy_summaries].nil?
+        data['accessPolicySummaries'] = AccessPolicySummaries.stub(stub[:access_policy_summaries]) unless stub[:access_policy_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2883,7 +2885,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessPolicySummary.stub(element) unless element.nil?
+          data << AccessPolicySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2908,8 +2910,8 @@ module AWS::SDK::IoTSiteWise
         stub ||= Types::AccessPolicySummary.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['identity'] = Stubs::Identity.stub(stub[:identity]) unless stub[:identity].nil?
-        data['resource'] = Stubs::Resource.stub(stub[:resource]) unless stub[:resource].nil?
+        data['identity'] = Identity.stub(stub[:identity]) unless stub[:identity].nil?
+        data['resource'] = Resource.stub(stub[:resource]) unless stub[:resource].nil?
         data['permission'] = stub[:permission] unless stub[:permission].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
@@ -2930,9 +2932,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetModelSummaries'] = Stubs::AssetModelSummaries.stub(stub[:asset_model_summaries]) unless stub[:asset_model_summaries].nil?
+        data['assetModelSummaries'] = AssetModelSummaries.stub(stub[:asset_model_summaries]) unless stub[:asset_model_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2950,7 +2952,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetModelSummary.stub(element) unless element.nil?
+          data << AssetModelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2981,7 +2983,7 @@ module AWS::SDK::IoTSiteWise
         data['description'] = stub[:description] unless stub[:description].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
-        data['status'] = Stubs::AssetModelStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = AssetModelStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -2999,9 +3001,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetRelationshipSummaries'] = Stubs::AssetRelationshipSummaries.stub(stub[:asset_relationship_summaries]) unless stub[:asset_relationship_summaries].nil?
+        data['assetRelationshipSummaries'] = AssetRelationshipSummaries.stub(stub[:asset_relationship_summaries]) unless stub[:asset_relationship_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3019,7 +3021,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetRelationshipSummary.stub(element) unless element.nil?
+          data << AssetRelationshipSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3039,7 +3041,7 @@ module AWS::SDK::IoTSiteWise
       def self.stub(stub)
         stub ||= Types::AssetRelationshipSummary.new
         data = {}
-        data['hierarchyInfo'] = Stubs::AssetHierarchyInfo.stub(stub[:hierarchy_info]) unless stub[:hierarchy_info].nil?
+        data['hierarchyInfo'] = AssetHierarchyInfo.stub(stub[:hierarchy_info]) unless stub[:hierarchy_info].nil?
         data['relationshipType'] = stub[:relationship_type] unless stub[:relationship_type].nil?
         data
       end
@@ -3078,9 +3080,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetSummaries'] = Stubs::AssetSummaries.stub(stub[:asset_summaries]) unless stub[:asset_summaries].nil?
+        data['assetSummaries'] = AssetSummaries.stub(stub[:asset_summaries]) unless stub[:asset_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3098,7 +3100,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetSummary.stub(element) unless element.nil?
+          data << AssetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3131,8 +3133,8 @@ module AWS::SDK::IoTSiteWise
         data['assetModelId'] = stub[:asset_model_id] unless stub[:asset_model_id].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
-        data['status'] = Stubs::AssetStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['hierarchies'] = Stubs::AssetHierarchies.stub(stub[:hierarchies]) unless stub[:hierarchies].nil?
+        data['status'] = AssetStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['hierarchies'] = AssetHierarchies.stub(stub[:hierarchies]) unless stub[:hierarchies].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data
       end
@@ -3151,9 +3153,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetSummaries'] = Stubs::AssociatedAssetsSummaries.stub(stub[:asset_summaries]) unless stub[:asset_summaries].nil?
+        data['assetSummaries'] = AssociatedAssetsSummaries.stub(stub[:asset_summaries]) unless stub[:asset_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3171,7 +3173,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociatedAssetsSummary.stub(element) unless element.nil?
+          data << AssociatedAssetsSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3204,8 +3206,8 @@ module AWS::SDK::IoTSiteWise
         data['assetModelId'] = stub[:asset_model_id] unless stub[:asset_model_id].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
-        data['status'] = Stubs::AssetStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['hierarchies'] = Stubs::AssetHierarchies.stub(stub[:hierarchies]) unless stub[:hierarchies].nil?
+        data['status'] = AssetStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['hierarchies'] = AssetHierarchies.stub(stub[:hierarchies]) unless stub[:hierarchies].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data
       end
@@ -3224,9 +3226,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dashboardSummaries'] = Stubs::DashboardSummaries.stub(stub[:dashboard_summaries]) unless stub[:dashboard_summaries].nil?
+        data['dashboardSummaries'] = DashboardSummaries.stub(stub[:dashboard_summaries]) unless stub[:dashboard_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3244,7 +3246,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DashboardSummary.stub(element) unless element.nil?
+          data << DashboardSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3289,9 +3291,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['gatewaySummaries'] = Stubs::GatewaySummaries.stub(stub[:gateway_summaries]) unless stub[:gateway_summaries].nil?
+        data['gatewaySummaries'] = GatewaySummaries.stub(stub[:gateway_summaries]) unless stub[:gateway_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3309,7 +3311,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GatewaySummary.stub(element) unless element.nil?
+          data << GatewaySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3335,8 +3337,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['gatewayId'] = stub[:gateway_id] unless stub[:gateway_id].nil?
         data['gatewayName'] = stub[:gateway_name] unless stub[:gateway_name].nil?
-        data['gatewayPlatform'] = Stubs::GatewayPlatform.stub(stub[:gateway_platform]) unless stub[:gateway_platform].nil?
-        data['gatewayCapabilitySummaries'] = Stubs::GatewayCapabilitySummaries.stub(stub[:gateway_capability_summaries]) unless stub[:gateway_capability_summaries].nil?
+        data['gatewayPlatform'] = GatewayPlatform.stub(stub[:gateway_platform]) unless stub[:gateway_platform].nil?
+        data['gatewayCapabilitySummaries'] = GatewayCapabilitySummaries.stub(stub[:gateway_capability_summaries]) unless stub[:gateway_capability_summaries].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
         data
@@ -3356,9 +3358,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['portalSummaries'] = Stubs::PortalSummaries.stub(stub[:portal_summaries]) unless stub[:portal_summaries].nil?
+        data['portalSummaries'] = PortalSummaries.stub(stub[:portal_summaries]) unless stub[:portal_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3376,7 +3378,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortalSummary.stub(element) unless element.nil?
+          data << PortalSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3409,7 +3411,7 @@ module AWS::SDK::IoTSiteWise
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastUpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date]).to_i unless stub[:last_update_date].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['status'] = Stubs::PortalStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = PortalStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -3427,9 +3429,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetIds'] = Stubs::AssetIDs.stub(stub[:asset_ids]) unless stub[:asset_ids].nil?
+        data['assetIds'] = AssetIDs.stub(stub[:asset_ids]) unless stub[:asset_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3466,9 +3468,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['projectSummaries'] = Stubs::ProjectSummaries.stub(stub[:project_summaries]) unless stub[:project_summaries].nil?
+        data['projectSummaries'] = ProjectSummaries.stub(stub[:project_summaries]) unless stub[:project_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3486,7 +3488,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSummary.stub(element) unless element.nil?
+          data << ProjectSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3530,8 +3532,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3568,9 +3570,9 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TimeSeriesSummaries'] = Stubs::TimeSeriesSummaries.stub(stub[:time_series_summaries]) unless stub[:time_series_summaries].nil?
+        data['TimeSeriesSummaries'] = TimeSeriesSummaries.stub(stub[:time_series_summaries]) unless stub[:time_series_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3588,7 +3590,7 @@ module AWS::SDK::IoTSiteWise
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimeSeriesSummary.stub(element) unless element.nil?
+          data << TimeSeriesSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3642,8 +3644,8 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['encryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
         data['kmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        data['configurationStatus'] = Stubs::ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configurationStatus'] = ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3677,11 +3679,11 @@ module AWS::SDK::IoTSiteWise
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['storageType'] = stub[:storage_type] unless stub[:storage_type].nil?
-        data['multiLayerStorage'] = Stubs::MultiLayerStorage.stub(stub[:multi_layer_storage]) unless stub[:multi_layer_storage].nil?
+        data['multiLayerStorage'] = MultiLayerStorage.stub(stub[:multi_layer_storage]) unless stub[:multi_layer_storage].nil?
         data['disassociatedDataStorage'] = stub[:disassociated_data_storage] unless stub[:disassociated_data_storage].nil?
-        data['retentionPeriod'] = Stubs::RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
-        data['configurationStatus'] = Stubs::ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['retentionPeriod'] = RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
+        data['configurationStatus'] = ConfigurationStatus.stub(stub[:configuration_status]) unless stub[:configuration_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3736,8 +3738,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetStatus'] = Stubs::AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetStatus'] = AssetStatus.stub(stub[:asset_status]) unless stub[:asset_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3753,8 +3755,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assetModelStatus'] = Stubs::AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assetModelStatus'] = AssetModelStatus.stub(stub[:asset_model_status]) unless stub[:asset_model_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3812,7 +3814,7 @@ module AWS::SDK::IoTSiteWise
         http_resp.headers['Content-Type'] = 'application/json'
         data['capabilityNamespace'] = stub[:capability_namespace] unless stub[:capability_namespace].nil?
         data['capabilitySyncStatus'] = stub[:capability_sync_status] unless stub[:capability_sync_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3828,8 +3830,8 @@ module AWS::SDK::IoTSiteWise
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['portalStatus'] = Stubs::PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['portalStatus'] = PortalStatus.stub(stub[:portal_status]) unless stub[:portal_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

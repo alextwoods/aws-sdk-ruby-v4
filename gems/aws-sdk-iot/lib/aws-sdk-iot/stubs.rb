@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::IoT
   module Stubs
 
@@ -66,7 +69,7 @@ module AWS::SDK::IoT
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,7 +194,7 @@ module AWS::SDK::IoT
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -262,7 +265,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['authorizerName'] = stub[:authorizer_name] unless stub[:authorizer_name].nil?
         data['authorizerArn'] = stub[:authorizer_arn] unless stub[:authorizer_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -283,7 +286,7 @@ module AWS::SDK::IoT
         data['billingGroupName'] = stub[:billing_group_name] unless stub[:billing_group_name].nil?
         data['billingGroupArn'] = stub[:billing_group_arn] unless stub[:billing_group_arn].nil?
         data['billingGroupId'] = stub[:billing_group_id] unless stub[:billing_group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -304,7 +307,7 @@ module AWS::SDK::IoT
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['certificateId'] = stub[:certificate_id] unless stub[:certificate_id].nil?
         data['certificatePem'] = stub[:certificate_pem] unless stub[:certificate_pem].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,7 +326,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['metricArn'] = stub[:metric_arn] unless stub[:metric_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,7 +345,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,7 +364,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['domainConfigurationName'] = stub[:domain_configuration_name] unless stub[:domain_configuration_name].nil?
         data['domainConfigurationArn'] = stub[:domain_configuration_arn] unless stub[:domain_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,7 +391,7 @@ module AWS::SDK::IoT
         data['indexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['queryString'] = stub[:query_string] unless stub[:query_string].nil?
         data['queryVersion'] = stub[:query_version] unless stub[:query_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -407,7 +410,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['metricArn'] = stub[:metric_arn] unless stub[:metric_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -428,7 +431,7 @@ module AWS::SDK::IoT
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -447,7 +450,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobTemplateArn'] = stub[:job_template_arn] unless stub[:job_template_arn].nil?
         data['jobTemplateId'] = stub[:job_template_id] unless stub[:job_template_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -469,8 +472,8 @@ module AWS::SDK::IoT
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['certificateId'] = stub[:certificate_id] unless stub[:certificate_id].nil?
         data['certificatePem'] = stub[:certificate_pem] unless stub[:certificate_pem].nil?
-        data['keyPair'] = Stubs::KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['keyPair'] = KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -509,7 +512,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['actionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
         data['actionId'] = stub[:action_id] unless stub[:action_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -534,7 +537,7 @@ module AWS::SDK::IoT
         data['otaUpdateArn'] = stub[:ota_update_arn] unless stub[:ota_update_arn].nil?
         data['awsIotJobArn'] = stub[:aws_iot_job_arn] unless stub[:aws_iot_job_arn].nil?
         data['otaUpdateStatus'] = stub[:ota_update_status] unless stub[:ota_update_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -557,7 +560,7 @@ module AWS::SDK::IoT
         data['policyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
         data['policyDocument'] = stub[:policy_document] unless stub[:policy_document].nil?
         data['policyVersionId'] = stub[:policy_version_id] unless stub[:policy_version_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -580,7 +583,7 @@ module AWS::SDK::IoT
         data['policyDocument'] = stub[:policy_document] unless stub[:policy_document].nil?
         data['policyVersionId'] = stub[:policy_version_id] unless stub[:policy_version_id].nil?
         data['isDefaultVersion'] = stub[:is_default_version] unless stub[:is_default_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -601,9 +604,9 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['certificateId'] = stub[:certificate_id] unless stub[:certificate_id].nil?
         data['certificatePem'] = stub[:certificate_pem] unless stub[:certificate_pem].nil?
-        data['keyPair'] = Stubs::KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
+        data['keyPair'] = KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
         data['expiration'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration]).to_i unless stub[:expiration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -624,7 +627,7 @@ module AWS::SDK::IoT
         data['templateArn'] = stub[:template_arn] unless stub[:template_arn].nil?
         data['templateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['defaultVersionId'] = stub[:default_version_id] unless stub[:default_version_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -647,7 +650,7 @@ module AWS::SDK::IoT
         data['templateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['versionId'] = stub[:version_id] unless stub[:version_id].nil?
         data['isDefaultVersion'] = stub[:is_default_version] unless stub[:is_default_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -666,7 +669,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['roleAlias'] = stub[:role_alias] unless stub[:role_alias].nil?
         data['roleAliasArn'] = stub[:role_alias_arn] unless stub[:role_alias_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -683,7 +686,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['scheduledAuditArn'] = stub[:scheduled_audit_arn] unless stub[:scheduled_audit_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -702,7 +705,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['securityProfileName'] = stub[:security_profile_name] unless stub[:security_profile_name].nil?
         data['securityProfileArn'] = stub[:security_profile_arn] unless stub[:security_profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -725,7 +728,7 @@ module AWS::SDK::IoT
         data['streamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['streamVersion'] = stub[:stream_version] unless stub[:stream_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -746,7 +749,7 @@ module AWS::SDK::IoT
         data['thingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['thingArn'] = stub[:thing_arn] unless stub[:thing_arn].nil?
         data['thingId'] = stub[:thing_id] unless stub[:thing_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -767,7 +770,7 @@ module AWS::SDK::IoT
         data['thingGroupName'] = stub[:thing_group_name] unless stub[:thing_group_name].nil?
         data['thingGroupArn'] = stub[:thing_group_arn] unless stub[:thing_group_arn].nil?
         data['thingGroupId'] = stub[:thing_group_id] unless stub[:thing_group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -788,7 +791,7 @@ module AWS::SDK::IoT
         data['thingTypeName'] = stub[:thing_type_name] unless stub[:thing_type_name].nil?
         data['thingTypeArn'] = stub[:thing_type_arn] unless stub[:thing_type_arn].nil?
         data['thingTypeId'] = stub[:thing_type_id] unless stub[:thing_type_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -817,8 +820,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['topicRuleDestination'] = Stubs::TopicRuleDestination.stub(stub[:topic_rule_destination]) unless stub[:topic_rule_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['topicRuleDestination'] = TopicRuleDestination.stub(stub[:topic_rule_destination]) unless stub[:topic_rule_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -846,8 +849,8 @@ module AWS::SDK::IoT
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['httpUrlProperties'] = Stubs::HttpUrlDestinationProperties.stub(stub[:http_url_properties]) unless stub[:http_url_properties].nil?
-        data['vpcProperties'] = Stubs::VpcDestinationProperties.stub(stub[:vpc_properties]) unless stub[:vpc_properties].nil?
+        data['httpUrlProperties'] = HttpUrlDestinationProperties.stub(stub[:http_url_properties]) unless stub[:http_url_properties].nil?
+        data['vpcProperties'] = VpcDestinationProperties.stub(stub[:vpc_properties]) unless stub[:vpc_properties].nil?
         data
       end
     end
@@ -868,8 +871,8 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::VpcDestinationProperties.new
         data = {}
-        data['subnetIds'] = Stubs::SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['securityGroups'] = Stubs::SecurityGroupList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['subnetIds'] = SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroups'] = SecurityGroupList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data
@@ -1365,9 +1368,9 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['auditNotificationTargetConfigurations'] = Stubs::AuditNotificationTargetConfigurations.stub(stub[:audit_notification_target_configurations]) unless stub[:audit_notification_target_configurations].nil?
-        data['auditCheckConfigurations'] = Stubs::AuditCheckConfigurations.stub(stub[:audit_check_configurations]) unless stub[:audit_check_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['auditNotificationTargetConfigurations'] = AuditNotificationTargetConfigurations.stub(stub[:audit_notification_target_configurations]) unless stub[:audit_notification_target_configurations].nil?
+        data['auditCheckConfigurations'] = AuditCheckConfigurations.stub(stub[:audit_check_configurations]) unless stub[:audit_check_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1385,7 +1388,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AuditCheckConfiguration.stub(value) unless value.nil?
+          data[key] = AuditCheckConfiguration.stub(value) unless value.nil?
         end
         data
       end
@@ -1423,7 +1426,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AuditNotificationTarget.stub(value) unless value.nil?
+          data[key] = AuditNotificationTarget.stub(value) unless value.nil?
         end
         data
       end
@@ -1463,8 +1466,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['finding'] = Stubs::AuditFinding.stub(stub[:finding]) unless stub[:finding].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['finding'] = AuditFinding.stub(stub[:finding]) unless stub[:finding].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1497,8 +1500,8 @@ module AWS::SDK::IoT
         data['taskStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:task_start_time]).to_i unless stub[:task_start_time].nil?
         data['findingTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:finding_time]).to_i unless stub[:finding_time].nil?
         data['severity'] = stub[:severity] unless stub[:severity].nil?
-        data['nonCompliantResource'] = Stubs::NonCompliantResource.stub(stub[:non_compliant_resource]) unless stub[:non_compliant_resource].nil?
-        data['relatedResources'] = Stubs::RelatedResources.stub(stub[:related_resources]) unless stub[:related_resources].nil?
+        data['nonCompliantResource'] = NonCompliantResource.stub(stub[:non_compliant_resource]) unless stub[:non_compliant_resource].nil?
+        data['relatedResources'] = RelatedResources.stub(stub[:related_resources]) unless stub[:related_resources].nil?
         data['reasonForNonCompliance'] = stub[:reason_for_non_compliance] unless stub[:reason_for_non_compliance].nil?
         data['reasonForNonComplianceCode'] = stub[:reason_for_non_compliance_code] unless stub[:reason_for_non_compliance_code].nil?
         data['isSuppressed'] = stub[:is_suppressed] unless stub[:is_suppressed].nil?
@@ -1520,7 +1523,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelatedResource.stub(element) unless element.nil?
+          data << RelatedResource.stub(element) unless element.nil?
         end
         data
       end
@@ -1542,8 +1545,8 @@ module AWS::SDK::IoT
         stub ||= Types::RelatedResource.new
         data = {}
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['resourceIdentifier'] = Stubs::ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
-        data['additionalInfo'] = Stubs::StringMap.stub(stub[:additional_info]) unless stub[:additional_info].nil?
+        data['resourceIdentifier'] = ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
+        data['additionalInfo'] = StringMap.stub(stub[:additional_info]) unless stub[:additional_info].nil?
         data
       end
     end
@@ -1592,7 +1595,7 @@ module AWS::SDK::IoT
         data['caCertificateId'] = stub[:ca_certificate_id] unless stub[:ca_certificate_id].nil?
         data['cognitoIdentityPoolId'] = stub[:cognito_identity_pool_id] unless stub[:cognito_identity_pool_id].nil?
         data['clientId'] = stub[:client_id] unless stub[:client_id].nil?
-        data['policyVersionIdentifier'] = Stubs::PolicyVersionIdentifier.stub(stub[:policy_version_identifier]) unless stub[:policy_version_identifier].nil?
+        data['policyVersionIdentifier'] = PolicyVersionIdentifier.stub(stub[:policy_version_identifier]) unless stub[:policy_version_identifier].nil?
         data['account'] = stub[:account] unless stub[:account].nil?
         data['iamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
         data['roleAliasArn'] = stub[:role_alias_arn] unless stub[:role_alias_arn].nil?
@@ -1636,8 +1639,8 @@ module AWS::SDK::IoT
         stub ||= Types::NonCompliantResource.new
         data = {}
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['resourceIdentifier'] = Stubs::ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
-        data['additionalInfo'] = Stubs::StringMap.stub(stub[:additional_info]) unless stub[:additional_info].nil?
+        data['resourceIdentifier'] = ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
+        data['additionalInfo'] = StringMap.stub(stub[:additional_info]) unless stub[:additional_info].nil?
         data
       end
     end
@@ -1663,11 +1666,11 @@ module AWS::SDK::IoT
         data['taskStatus'] = stub[:task_status] unless stub[:task_status].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['taskStatistics'] = Stubs::AuditMitigationActionsTaskStatistics.stub(stub[:task_statistics]) unless stub[:task_statistics].nil?
-        data['target'] = Stubs::AuditMitigationActionsTaskTarget.stub(stub[:target]) unless stub[:target].nil?
-        data['auditCheckToActionsMapping'] = Stubs::AuditCheckToActionsMapping.stub(stub[:audit_check_to_actions_mapping]) unless stub[:audit_check_to_actions_mapping].nil?
-        data['actionsDefinition'] = Stubs::MitigationActionList.stub(stub[:actions_definition]) unless stub[:actions_definition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskStatistics'] = AuditMitigationActionsTaskStatistics.stub(stub[:task_statistics]) unless stub[:task_statistics].nil?
+        data['target'] = AuditMitigationActionsTaskTarget.stub(stub[:target]) unless stub[:target].nil?
+        data['auditCheckToActionsMapping'] = AuditCheckToActionsMapping.stub(stub[:audit_check_to_actions_mapping]) unless stub[:audit_check_to_actions_mapping].nil?
+        data['actionsDefinition'] = MitigationActionList.stub(stub[:actions_definition]) unless stub[:actions_definition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1685,7 +1688,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MitigationAction.stub(element) unless element.nil?
+          data << MitigationAction.stub(element) unless element.nil?
         end
         data
       end
@@ -1710,7 +1713,7 @@ module AWS::SDK::IoT
         data['name'] = stub[:name] unless stub[:name].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['actionParams'] = Stubs::MitigationActionParams.stub(stub[:action_params]) unless stub[:action_params].nil?
+        data['actionParams'] = MitigationActionParams.stub(stub[:action_params]) unless stub[:action_params].nil?
         data
       end
     end
@@ -1733,12 +1736,12 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::MitigationActionParams.new
         data = {}
-        data['updateDeviceCertificateParams'] = Stubs::UpdateDeviceCertificateParams.stub(stub[:update_device_certificate_params]) unless stub[:update_device_certificate_params].nil?
-        data['updateCACertificateParams'] = Stubs::UpdateCACertificateParams.stub(stub[:update_ca_certificate_params]) unless stub[:update_ca_certificate_params].nil?
-        data['addThingsToThingGroupParams'] = Stubs::AddThingsToThingGroupParams.stub(stub[:add_things_to_thing_group_params]) unless stub[:add_things_to_thing_group_params].nil?
-        data['replaceDefaultPolicyVersionParams'] = Stubs::ReplaceDefaultPolicyVersionParams.stub(stub[:replace_default_policy_version_params]) unless stub[:replace_default_policy_version_params].nil?
-        data['enableIoTLoggingParams'] = Stubs::EnableIoTLoggingParams.stub(stub[:enable_io_t_logging_params]) unless stub[:enable_io_t_logging_params].nil?
-        data['publishFindingToSnsParams'] = Stubs::PublishFindingToSnsParams.stub(stub[:publish_finding_to_sns_params]) unless stub[:publish_finding_to_sns_params].nil?
+        data['updateDeviceCertificateParams'] = UpdateDeviceCertificateParams.stub(stub[:update_device_certificate_params]) unless stub[:update_device_certificate_params].nil?
+        data['updateCACertificateParams'] = UpdateCACertificateParams.stub(stub[:update_ca_certificate_params]) unless stub[:update_ca_certificate_params].nil?
+        data['addThingsToThingGroupParams'] = AddThingsToThingGroupParams.stub(stub[:add_things_to_thing_group_params]) unless stub[:add_things_to_thing_group_params].nil?
+        data['replaceDefaultPolicyVersionParams'] = ReplaceDefaultPolicyVersionParams.stub(stub[:replace_default_policy_version_params]) unless stub[:replace_default_policy_version_params].nil?
+        data['enableIoTLoggingParams'] = EnableIoTLoggingParams.stub(stub[:enable_io_t_logging_params]) unless stub[:enable_io_t_logging_params].nil?
+        data['publishFindingToSnsParams'] = PublishFindingToSnsParams.stub(stub[:publish_finding_to_sns_params]) unless stub[:publish_finding_to_sns_params].nil?
         data
       end
     end
@@ -1813,7 +1816,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::AddThingsToThingGroupParams.new
         data = {}
-        data['thingGroupNames'] = Stubs::ThingGroupNames.stub(stub[:thing_group_names]) unless stub[:thing_group_names].nil?
+        data['thingGroupNames'] = ThingGroupNames.stub(stub[:thing_group_names]) unless stub[:thing_group_names].nil?
         data['overrideDynamicGroups'] = stub[:override_dynamic_groups] unless stub[:override_dynamic_groups].nil?
         data
       end
@@ -1889,7 +1892,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MitigationActionNameList.stub(value) unless value.nil?
+          data[key] = MitigationActionNameList.stub(value) unless value.nil?
         end
         data
       end
@@ -1931,8 +1934,8 @@ module AWS::SDK::IoT
         stub ||= Types::AuditMitigationActionsTaskTarget.new
         data = {}
         data['auditTaskId'] = stub[:audit_task_id] unless stub[:audit_task_id].nil?
-        data['findingIds'] = Stubs::FindingIds.stub(stub[:finding_ids]) unless stub[:finding_ids].nil?
-        data['auditCheckToReasonCodeFilter'] = Stubs::AuditCheckToReasonCodeFilter.stub(stub[:audit_check_to_reason_code_filter]) unless stub[:audit_check_to_reason_code_filter].nil?
+        data['findingIds'] = FindingIds.stub(stub[:finding_ids]) unless stub[:finding_ids].nil?
+        data['auditCheckToReasonCodeFilter'] = AuditCheckToReasonCodeFilter.stub(stub[:audit_check_to_reason_code_filter]) unless stub[:audit_check_to_reason_code_filter].nil?
         data
       end
     end
@@ -1951,7 +1954,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ReasonForNonComplianceCodes.stub(value) unless value.nil?
+          data[key] = ReasonForNonComplianceCodes.stub(value) unless value.nil?
         end
         data
       end
@@ -2011,7 +2014,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::TaskStatisticsForAuditCheck.stub(value) unless value.nil?
+          data[key] = TaskStatisticsForAuditCheck.stub(value) unless value.nil?
         end
         data
       end
@@ -2060,11 +2063,11 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['checkName'] = stub[:check_name] unless stub[:check_name].nil?
-        data['resourceIdentifier'] = Stubs::ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
+        data['resourceIdentifier'] = ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
         data['expirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
         data['suppressIndefinitely'] = stub[:suppress_indefinitely] unless stub[:suppress_indefinitely].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2088,10 +2091,10 @@ module AWS::SDK::IoT
         data['taskStatus'] = stub[:task_status] unless stub[:task_status].nil?
         data['taskType'] = stub[:task_type] unless stub[:task_type].nil?
         data['taskStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:task_start_time]).to_i unless stub[:task_start_time].nil?
-        data['taskStatistics'] = Stubs::TaskStatistics.stub(stub[:task_statistics]) unless stub[:task_statistics].nil?
+        data['taskStatistics'] = TaskStatistics.stub(stub[:task_statistics]) unless stub[:task_statistics].nil?
         data['scheduledAuditName'] = stub[:scheduled_audit_name] unless stub[:scheduled_audit_name].nil?
-        data['auditDetails'] = Stubs::AuditDetails.stub(stub[:audit_details]) unless stub[:audit_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['auditDetails'] = AuditDetails.stub(stub[:audit_details]) unless stub[:audit_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2109,7 +2112,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AuditCheckDetails.stub(value) unless value.nil?
+          data[key] = AuditCheckDetails.stub(value) unless value.nil?
         end
         data
       end
@@ -2187,8 +2190,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['authorizerDescription'] = Stubs::AuthorizerDescription.stub(stub[:authorizer_description]) unless stub[:authorizer_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authorizerDescription'] = AuthorizerDescription.stub(stub[:authorizer_description]) unless stub[:authorizer_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2218,7 +2221,7 @@ module AWS::SDK::IoT
         data['authorizerArn'] = stub[:authorizer_arn] unless stub[:authorizer_arn].nil?
         data['authorizerFunctionArn'] = stub[:authorizer_function_arn] unless stub[:authorizer_function_arn].nil?
         data['tokenKeyName'] = stub[:token_key_name] unless stub[:token_key_name].nil?
-        data['tokenSigningPublicKeys'] = Stubs::PublicKeyMap.stub(stub[:token_signing_public_keys]) unless stub[:token_signing_public_keys].nil?
+        data['tokenSigningPublicKeys'] = PublicKeyMap.stub(stub[:token_signing_public_keys]) unless stub[:token_signing_public_keys].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
@@ -2269,9 +2272,9 @@ module AWS::SDK::IoT
         data['billingGroupId'] = stub[:billing_group_id] unless stub[:billing_group_id].nil?
         data['billingGroupArn'] = stub[:billing_group_arn] unless stub[:billing_group_arn].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['billingGroupProperties'] = Stubs::BillingGroupProperties.stub(stub[:billing_group_properties]) unless stub[:billing_group_properties].nil?
-        data['billingGroupMetadata'] = Stubs::BillingGroupMetadata.stub(stub[:billing_group_metadata]) unless stub[:billing_group_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['billingGroupProperties'] = BillingGroupProperties.stub(stub[:billing_group_properties]) unless stub[:billing_group_properties].nil?
+        data['billingGroupMetadata'] = BillingGroupMetadata.stub(stub[:billing_group_metadata]) unless stub[:billing_group_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2324,9 +2327,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['certificateDescription'] = Stubs::CACertificateDescription.stub(stub[:certificate_description]) unless stub[:certificate_description].nil?
-        data['registrationConfig'] = Stubs::RegistrationConfig.stub(stub[:registration_config]) unless stub[:registration_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['certificateDescription'] = CACertificateDescription.stub(stub[:certificate_description]) unless stub[:certificate_description].nil?
+        data['registrationConfig'] = RegistrationConfig.stub(stub[:registration_config]) unless stub[:registration_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2383,7 +2386,7 @@ module AWS::SDK::IoT
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['customerVersion'] = stub[:customer_version] unless stub[:customer_version].nil?
         data['generationId'] = stub[:generation_id] unless stub[:generation_id].nil?
-        data['validity'] = Stubs::CertificateValidity.stub(stub[:validity]) unless stub[:validity].nil?
+        data['validity'] = CertificateValidity.stub(stub[:validity]) unless stub[:validity].nil?
         data
       end
     end
@@ -2420,8 +2423,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['certificateDescription'] = Stubs::CertificateDescription.stub(stub[:certificate_description]) unless stub[:certificate_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['certificateDescription'] = CertificateDescription.stub(stub[:certificate_description]) unless stub[:certificate_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2461,9 +2464,9 @@ module AWS::SDK::IoT
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['customerVersion'] = stub[:customer_version] unless stub[:customer_version].nil?
-        data['transferData'] = Stubs::TransferData.stub(stub[:transfer_data]) unless stub[:transfer_data].nil?
+        data['transferData'] = TransferData.stub(stub[:transfer_data]) unless stub[:transfer_data].nil?
         data['generationId'] = stub[:generation_id] unless stub[:generation_id].nil?
-        data['validity'] = Stubs::CertificateValidity.stub(stub[:validity]) unless stub[:validity].nil?
+        data['validity'] = CertificateValidity.stub(stub[:validity]) unless stub[:validity].nil?
         data['certificateMode'] = stub[:certificate_mode] unless stub[:certificate_mode].nil?
         data
       end
@@ -2518,7 +2521,7 @@ module AWS::SDK::IoT
         data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2534,8 +2537,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['authorizerDescription'] = Stubs::AuthorizerDescription.stub(stub[:authorizer_description]) unless stub[:authorizer_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authorizerDescription'] = AuthorizerDescription.stub(stub[:authorizer_description]) unless stub[:authorizer_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2551,8 +2554,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['taskSummary'] = Stubs::DetectMitigationActionsTaskSummary.stub(stub[:task_summary]) unless stub[:task_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskSummary'] = DetectMitigationActionsTaskSummary.stub(stub[:task_summary]) unless stub[:task_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2582,12 +2585,12 @@ module AWS::SDK::IoT
         data['taskStatus'] = stub[:task_status] unless stub[:task_status].nil?
         data['taskStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:task_start_time]).to_i unless stub[:task_start_time].nil?
         data['taskEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:task_end_time]).to_i unless stub[:task_end_time].nil?
-        data['target'] = Stubs::DetectMitigationActionsTaskTarget.stub(stub[:target]) unless stub[:target].nil?
-        data['violationEventOccurrenceRange'] = Stubs::ViolationEventOccurrenceRange.stub(stub[:violation_event_occurrence_range]) unless stub[:violation_event_occurrence_range].nil?
+        data['target'] = DetectMitigationActionsTaskTarget.stub(stub[:target]) unless stub[:target].nil?
+        data['violationEventOccurrenceRange'] = ViolationEventOccurrenceRange.stub(stub[:violation_event_occurrence_range]) unless stub[:violation_event_occurrence_range].nil?
         data['onlyActiveViolationsIncluded'] = stub[:only_active_violations_included] unless stub[:only_active_violations_included].nil?
         data['suppressedAlertsIncluded'] = stub[:suppressed_alerts_included] unless stub[:suppressed_alerts_included].nil?
-        data['actionsDefinition'] = Stubs::MitigationActionList.stub(stub[:actions_definition]) unless stub[:actions_definition].nil?
-        data['taskStatistics'] = Stubs::DetectMitigationActionsTaskStatistics.stub(stub[:task_statistics]) unless stub[:task_statistics].nil?
+        data['actionsDefinition'] = MitigationActionList.stub(stub[:actions_definition]) unless stub[:actions_definition].nil?
+        data['taskStatistics'] = DetectMitigationActionsTaskStatistics.stub(stub[:task_statistics]) unless stub[:task_statistics].nil?
         data
       end
     end
@@ -2649,7 +2652,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::DetectMitigationActionsTaskTarget.new
         data = {}
-        data['violationIds'] = Stubs::TargetViolationIdsForDetectMitigationActions.stub(stub[:violation_ids]) unless stub[:violation_ids].nil?
+        data['violationIds'] = TargetViolationIdsForDetectMitigationActions.stub(stub[:violation_ids]) unless stub[:violation_ids].nil?
         data['securityProfileName'] = stub[:security_profile_name] unless stub[:security_profile_name].nil?
         data['behaviorName'] = stub[:behavior_name] unless stub[:behavior_name].nil?
         data
@@ -2696,10 +2699,10 @@ module AWS::SDK::IoT
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['stringValues'] = Stubs::DimensionStringValues.stub(stub[:string_values]) unless stub[:string_values].nil?
+        data['stringValues'] = DimensionStringValues.stub(stub[:string_values]) unless stub[:string_values].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2746,13 +2749,13 @@ module AWS::SDK::IoT
         data['domainConfigurationName'] = stub[:domain_configuration_name] unless stub[:domain_configuration_name].nil?
         data['domainConfigurationArn'] = stub[:domain_configuration_arn] unless stub[:domain_configuration_arn].nil?
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['serverCertificates'] = Stubs::ServerCertificates.stub(stub[:server_certificates]) unless stub[:server_certificates].nil?
-        data['authorizerConfig'] = Stubs::AuthorizerConfig.stub(stub[:authorizer_config]) unless stub[:authorizer_config].nil?
+        data['serverCertificates'] = ServerCertificates.stub(stub[:server_certificates]) unless stub[:server_certificates].nil?
+        data['authorizerConfig'] = AuthorizerConfig.stub(stub[:authorizer_config]) unless stub[:authorizer_config].nil?
         data['domainConfigurationStatus'] = stub[:domain_configuration_status] unless stub[:domain_configuration_status].nil?
         data['serviceType'] = stub[:service_type] unless stub[:service_type].nil?
         data['domainType'] = stub[:domain_type] unless stub[:domain_type].nil?
         data['lastStatusChangeDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_status_change_date]).to_i unless stub[:last_status_change_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2790,7 +2793,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerCertificateSummary.stub(element) unless element.nil?
+          data << ServerCertificateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2831,7 +2834,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['endpointAddress'] = stub[:endpoint_address] unless stub[:endpoint_address].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2849,10 +2852,10 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['eventConfigurations'] = Stubs::EventConfigurations.stub(stub[:event_configurations]) unless stub[:event_configurations].nil?
+        data['eventConfigurations'] = EventConfigurations.stub(stub[:event_configurations]) unless stub[:event_configurations].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2870,7 +2873,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Configuration.stub(value) unless value.nil?
+          data[key] = Configuration.stub(value) unless value.nil?
         end
         data
       end
@@ -2920,7 +2923,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['queryString'] = stub[:query_string] unless stub[:query_string].nil?
-        data['aggregationType'] = Stubs::AggregationType.stub(stub[:aggregation_type]) unless stub[:aggregation_type].nil?
+        data['aggregationType'] = AggregationType.stub(stub[:aggregation_type]) unless stub[:aggregation_type].nil?
         data['period'] = stub[:period] unless stub[:period].nil?
         data['aggregationField'] = stub[:aggregation_field] unless stub[:aggregation_field].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
@@ -2931,7 +2934,7 @@ module AWS::SDK::IoT
         data['unit'] = stub[:unit] unless stub[:unit].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['metricArn'] = stub[:metric_arn] unless stub[:metric_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2950,7 +2953,7 @@ module AWS::SDK::IoT
         stub ||= Types::AggregationType.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['values'] = Stubs::AggregationTypeValues.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = AggregationTypeValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -2992,7 +2995,7 @@ module AWS::SDK::IoT
         data['indexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['indexStatus'] = stub[:index_status] unless stub[:index_status].nil?
         data['schema'] = stub[:schema] unless stub[:schema].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3010,8 +3013,8 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['documentSource'] = stub[:document_source] unless stub[:document_source].nil?
-        data['job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3056,20 +3059,20 @@ module AWS::SDK::IoT
         data['forceCanceled'] = stub[:force_canceled] unless stub[:force_canceled].nil?
         data['reasonCode'] = stub[:reason_code] unless stub[:reason_code].nil?
         data['comment'] = stub[:comment] unless stub[:comment].nil?
-        data['targets'] = Stubs::JobTargets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['targets'] = JobTargets.stub(stub[:targets]) unless stub[:targets].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['presignedUrlConfig'] = Stubs::PresignedUrlConfig.stub(stub[:presigned_url_config]) unless stub[:presigned_url_config].nil?
-        data['jobExecutionsRolloutConfig'] = Stubs::JobExecutionsRolloutConfig.stub(stub[:job_executions_rollout_config]) unless stub[:job_executions_rollout_config].nil?
-        data['abortConfig'] = Stubs::AbortConfig.stub(stub[:abort_config]) unless stub[:abort_config].nil?
+        data['presignedUrlConfig'] = PresignedUrlConfig.stub(stub[:presigned_url_config]) unless stub[:presigned_url_config].nil?
+        data['jobExecutionsRolloutConfig'] = JobExecutionsRolloutConfig.stub(stub[:job_executions_rollout_config]) unless stub[:job_executions_rollout_config].nil?
+        data['abortConfig'] = AbortConfig.stub(stub[:abort_config]) unless stub[:abort_config].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['completedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_at]).to_i unless stub[:completed_at].nil?
-        data['jobProcessDetails'] = Stubs::JobProcessDetails.stub(stub[:job_process_details]) unless stub[:job_process_details].nil?
-        data['timeoutConfig'] = Stubs::TimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
+        data['jobProcessDetails'] = JobProcessDetails.stub(stub[:job_process_details]) unless stub[:job_process_details].nil?
+        data['timeoutConfig'] = TimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
         data['namespaceId'] = stub[:namespace_id] unless stub[:namespace_id].nil?
         data['jobTemplateArn'] = stub[:job_template_arn] unless stub[:job_template_arn].nil?
-        data['jobExecutionsRetryConfig'] = Stubs::JobExecutionsRetryConfig.stub(stub[:job_executions_retry_config]) unless stub[:job_executions_retry_config].nil?
-        data['documentParameters'] = Stubs::ParameterMap.stub(stub[:document_parameters]) unless stub[:document_parameters].nil?
+        data['jobExecutionsRetryConfig'] = JobExecutionsRetryConfig.stub(stub[:job_executions_retry_config]) unless stub[:job_executions_retry_config].nil?
+        data['documentParameters'] = ParameterMap.stub(stub[:document_parameters]) unless stub[:document_parameters].nil?
         data['isConcurrent'] = stub[:is_concurrent] unless stub[:is_concurrent].nil?
         data
       end
@@ -3108,7 +3111,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::JobExecutionsRetryConfig.new
         data = {}
-        data['criteriaList'] = Stubs::RetryCriteriaList.stub(stub[:criteria_list]) unless stub[:criteria_list].nil?
+        data['criteriaList'] = RetryCriteriaList.stub(stub[:criteria_list]) unless stub[:criteria_list].nil?
         data
       end
     end
@@ -3127,7 +3130,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RetryCriteria.stub(element) unless element.nil?
+          data << RetryCriteria.stub(element) unless element.nil?
         end
         data
       end
@@ -3192,7 +3195,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::JobProcessDetails.new
         data = {}
-        data['processingTargets'] = Stubs::ProcessingTargetNameList.stub(stub[:processing_targets]) unless stub[:processing_targets].nil?
+        data['processingTargets'] = ProcessingTargetNameList.stub(stub[:processing_targets]) unless stub[:processing_targets].nil?
         data['numberOfCanceledThings'] = stub[:number_of_canceled_things] unless stub[:number_of_canceled_things].nil?
         data['numberOfSucceededThings'] = stub[:number_of_succeeded_things] unless stub[:number_of_succeeded_things].nil?
         data['numberOfFailedThings'] = stub[:number_of_failed_things] unless stub[:number_of_failed_things].nil?
@@ -3238,7 +3241,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::AbortConfig.new
         data = {}
-        data['criteriaList'] = Stubs::AbortCriteriaList.stub(stub[:criteria_list]) unless stub[:criteria_list].nil?
+        data['criteriaList'] = AbortCriteriaList.stub(stub[:criteria_list]) unless stub[:criteria_list].nil?
         data
       end
     end
@@ -3257,7 +3260,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AbortCriteria.stub(element) unless element.nil?
+          data << AbortCriteria.stub(element) unless element.nil?
         end
         data
       end
@@ -3302,7 +3305,7 @@ module AWS::SDK::IoT
         stub ||= Types::JobExecutionsRolloutConfig.new
         data = {}
         data['maximumPerMinute'] = stub[:maximum_per_minute] unless stub[:maximum_per_minute].nil?
-        data['exponentialRate'] = Stubs::ExponentialRolloutRate.stub(stub[:exponential_rate]) unless stub[:exponential_rate].nil?
+        data['exponentialRate'] = ExponentialRolloutRate.stub(stub[:exponential_rate]) unless stub[:exponential_rate].nil?
         data
       end
     end
@@ -3324,7 +3327,7 @@ module AWS::SDK::IoT
         data = {}
         data['baseRatePerMinute'] = stub[:base_rate_per_minute] unless stub[:base_rate_per_minute].nil?
         data['incrementFactor'] = Hearth::NumberHelper.serialize(stub[:increment_factor])
-        data['rateIncreaseCriteria'] = Stubs::RateIncreaseCriteria.stub(stub[:rate_increase_criteria]) unless stub[:rate_increase_criteria].nil?
+        data['rateIncreaseCriteria'] = RateIncreaseCriteria.stub(stub[:rate_increase_criteria]) unless stub[:rate_increase_criteria].nil?
         data
       end
     end
@@ -3401,8 +3404,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['execution'] = Stubs::JobExecution.stub(stub[:execution]) unless stub[:execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['execution'] = JobExecution.stub(stub[:execution]) unless stub[:execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3432,7 +3435,7 @@ module AWS::SDK::IoT
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['forceCanceled'] = stub[:force_canceled] unless stub[:force_canceled].nil?
-        data['statusDetails'] = Stubs::JobExecutionStatusDetails.stub(stub[:status_details]) unless stub[:status_details].nil?
+        data['statusDetails'] = JobExecutionStatusDetails.stub(stub[:status_details]) unless stub[:status_details].nil?
         data['thingArn'] = stub[:thing_arn] unless stub[:thing_arn].nil?
         data['queuedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:queued_at]).to_i unless stub[:queued_at].nil?
         data['startedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
@@ -3457,7 +3460,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::JobExecutionStatusDetails.new
         data = {}
-        data['detailsMap'] = Stubs::DetailsMap.stub(stub[:details_map]) unless stub[:details_map].nil?
+        data['detailsMap'] = DetailsMap.stub(stub[:details_map]) unless stub[:details_map].nil?
         data
       end
     end
@@ -3510,12 +3513,12 @@ module AWS::SDK::IoT
         data['documentSource'] = stub[:document_source] unless stub[:document_source].nil?
         data['document'] = stub[:document] unless stub[:document].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['presignedUrlConfig'] = Stubs::PresignedUrlConfig.stub(stub[:presigned_url_config]) unless stub[:presigned_url_config].nil?
-        data['jobExecutionsRolloutConfig'] = Stubs::JobExecutionsRolloutConfig.stub(stub[:job_executions_rollout_config]) unless stub[:job_executions_rollout_config].nil?
-        data['abortConfig'] = Stubs::AbortConfig.stub(stub[:abort_config]) unless stub[:abort_config].nil?
-        data['timeoutConfig'] = Stubs::TimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
-        data['jobExecutionsRetryConfig'] = Stubs::JobExecutionsRetryConfig.stub(stub[:job_executions_retry_config]) unless stub[:job_executions_retry_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['presignedUrlConfig'] = PresignedUrlConfig.stub(stub[:presigned_url_config]) unless stub[:presigned_url_config].nil?
+        data['jobExecutionsRolloutConfig'] = JobExecutionsRolloutConfig.stub(stub[:job_executions_rollout_config]) unless stub[:job_executions_rollout_config].nil?
+        data['abortConfig'] = AbortConfig.stub(stub[:abort_config]) unless stub[:abort_config].nil?
+        data['timeoutConfig'] = TimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
+        data['jobExecutionsRetryConfig'] = JobExecutionsRetryConfig.stub(stub[:job_executions_retry_config]) unless stub[:job_executions_retry_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3541,10 +3544,10 @@ module AWS::SDK::IoT
         data['templateArn'] = stub[:template_arn] unless stub[:template_arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['templateVersion'] = stub[:template_version] unless stub[:template_version].nil?
-        data['environments'] = Stubs::Environments.stub(stub[:environments]) unless stub[:environments].nil?
-        data['documentParameters'] = Stubs::DocumentParameters.stub(stub[:document_parameters]) unless stub[:document_parameters].nil?
+        data['environments'] = Environments.stub(stub[:environments]) unless stub[:environments].nil?
+        data['documentParameters'] = DocumentParameters.stub(stub[:document_parameters]) unless stub[:document_parameters].nil?
         data['document'] = stub[:document] unless stub[:document].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3562,7 +3565,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentParameter.stub(element) unless element.nil?
+          data << DocumentParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -3638,10 +3641,10 @@ module AWS::SDK::IoT
         data['actionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
         data['actionId'] = stub[:action_id] unless stub[:action_id].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['actionParams'] = Stubs::MitigationActionParams.stub(stub[:action_params]) unless stub[:action_params].nil?
+        data['actionParams'] = MitigationActionParams.stub(stub[:action_params]) unless stub[:action_params].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3675,8 +3678,8 @@ module AWS::SDK::IoT
         data['templateBody'] = stub[:template_body] unless stub[:template_body].nil?
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['provisioningRoleArn'] = stub[:provisioning_role_arn] unless stub[:provisioning_role_arn].nil?
-        data['preProvisioningHook'] = Stubs::ProvisioningHook.stub(stub[:pre_provisioning_hook]) unless stub[:pre_provisioning_hook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['preProvisioningHook'] = ProvisioningHook.stub(stub[:pre_provisioning_hook]) unless stub[:pre_provisioning_hook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3719,7 +3722,7 @@ module AWS::SDK::IoT
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['templateBody'] = stub[:template_body] unless stub[:template_body].nil?
         data['isDefaultVersion'] = stub[:is_default_version] unless stub[:is_default_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3735,8 +3738,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['roleAliasDescription'] = Stubs::RoleAliasDescription.stub(stub[:role_alias_description]) unless stub[:role_alias_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['roleAliasDescription'] = RoleAliasDescription.stub(stub[:role_alias_description]) unless stub[:role_alias_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3790,10 +3793,10 @@ module AWS::SDK::IoT
         data['frequency'] = stub[:frequency] unless stub[:frequency].nil?
         data['dayOfMonth'] = stub[:day_of_month] unless stub[:day_of_month].nil?
         data['dayOfWeek'] = stub[:day_of_week] unless stub[:day_of_week].nil?
-        data['targetCheckNames'] = Stubs::TargetAuditCheckNames.stub(stub[:target_check_names]) unless stub[:target_check_names].nil?
+        data['targetCheckNames'] = TargetAuditCheckNames.stub(stub[:target_check_names]) unless stub[:target_check_names].nil?
         data['scheduledAuditName'] = stub[:scheduled_audit_name] unless stub[:scheduled_audit_name].nil?
         data['scheduledAuditArn'] = stub[:scheduled_audit_arn] unless stub[:scheduled_audit_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3841,14 +3844,14 @@ module AWS::SDK::IoT
         data['securityProfileName'] = stub[:security_profile_name] unless stub[:security_profile_name].nil?
         data['securityProfileArn'] = stub[:security_profile_arn] unless stub[:security_profile_arn].nil?
         data['securityProfileDescription'] = stub[:security_profile_description] unless stub[:security_profile_description].nil?
-        data['behaviors'] = Stubs::Behaviors.stub(stub[:behaviors]) unless stub[:behaviors].nil?
-        data['alertTargets'] = Stubs::AlertTargets.stub(stub[:alert_targets]) unless stub[:alert_targets].nil?
-        data['additionalMetricsToRetain'] = Stubs::AdditionalMetricsToRetainList.stub(stub[:additional_metrics_to_retain]) unless stub[:additional_metrics_to_retain].nil?
-        data['additionalMetricsToRetainV2'] = Stubs::AdditionalMetricsToRetainV2List.stub(stub[:additional_metrics_to_retain_v2]) unless stub[:additional_metrics_to_retain_v2].nil?
+        data['behaviors'] = Behaviors.stub(stub[:behaviors]) unless stub[:behaviors].nil?
+        data['alertTargets'] = AlertTargets.stub(stub[:alert_targets]) unless stub[:alert_targets].nil?
+        data['additionalMetricsToRetain'] = AdditionalMetricsToRetainList.stub(stub[:additional_metrics_to_retain]) unless stub[:additional_metrics_to_retain].nil?
+        data['additionalMetricsToRetainV2'] = AdditionalMetricsToRetainV2List.stub(stub[:additional_metrics_to_retain_v2]) unless stub[:additional_metrics_to_retain_v2].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3866,7 +3869,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricToRetain.stub(element) unless element.nil?
+          data << MetricToRetain.stub(element) unless element.nil?
         end
         data
       end
@@ -3887,7 +3890,7 @@ module AWS::SDK::IoT
         stub ||= Types::MetricToRetain.new
         data = {}
         data['metric'] = stub[:metric] unless stub[:metric].nil?
-        data['metricDimension'] = Stubs::MetricDimension.stub(stub[:metric_dimension]) unless stub[:metric_dimension].nil?
+        data['metricDimension'] = MetricDimension.stub(stub[:metric_dimension]) unless stub[:metric_dimension].nil?
         data
       end
     end
@@ -3946,7 +3949,7 @@ module AWS::SDK::IoT
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AlertTarget.stub(value) unless value.nil?
+          data[key] = AlertTarget.stub(value) unless value.nil?
         end
         data
       end
@@ -3986,7 +3989,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Behavior.stub(element) unless element.nil?
+          data << Behavior.stub(element) unless element.nil?
         end
         data
       end
@@ -4011,8 +4014,8 @@ module AWS::SDK::IoT
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['metric'] = stub[:metric] unless stub[:metric].nil?
-        data['metricDimension'] = Stubs::MetricDimension.stub(stub[:metric_dimension]) unless stub[:metric_dimension].nil?
-        data['criteria'] = Stubs::BehaviorCriteria.stub(stub[:criteria]) unless stub[:criteria].nil?
+        data['metricDimension'] = MetricDimension.stub(stub[:metric_dimension]) unless stub[:metric_dimension].nil?
+        data['criteria'] = BehaviorCriteria.stub(stub[:criteria]) unless stub[:criteria].nil?
         data['suppressAlerts'] = stub[:suppress_alerts] unless stub[:suppress_alerts].nil?
         data
       end
@@ -4038,12 +4041,12 @@ module AWS::SDK::IoT
         stub ||= Types::BehaviorCriteria.new
         data = {}
         data['comparisonOperator'] = stub[:comparison_operator] unless stub[:comparison_operator].nil?
-        data['value'] = Stubs::MetricValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = MetricValue.stub(stub[:value]) unless stub[:value].nil?
         data['durationSeconds'] = stub[:duration_seconds] unless stub[:duration_seconds].nil?
         data['consecutiveDatapointsToAlarm'] = stub[:consecutive_datapoints_to_alarm] unless stub[:consecutive_datapoints_to_alarm].nil?
         data['consecutiveDatapointsToClear'] = stub[:consecutive_datapoints_to_clear] unless stub[:consecutive_datapoints_to_clear].nil?
-        data['statisticalThreshold'] = Stubs::StatisticalThreshold.stub(stub[:statistical_threshold]) unless stub[:statistical_threshold].nil?
-        data['mlDetectionConfig'] = Stubs::MachineLearningDetectionConfig.stub(stub[:ml_detection_config]) unless stub[:ml_detection_config].nil?
+        data['statisticalThreshold'] = StatisticalThreshold.stub(stub[:statistical_threshold]) unless stub[:statistical_threshold].nil?
+        data['mlDetectionConfig'] = MachineLearningDetectionConfig.stub(stub[:ml_detection_config]) unless stub[:ml_detection_config].nil?
         data
       end
     end
@@ -4103,11 +4106,11 @@ module AWS::SDK::IoT
         stub ||= Types::MetricValue.new
         data = {}
         data['count'] = stub[:count] unless stub[:count].nil?
-        data['cidrs'] = Stubs::Cidrs.stub(stub[:cidrs]) unless stub[:cidrs].nil?
-        data['ports'] = Stubs::Ports.stub(stub[:ports]) unless stub[:ports].nil?
+        data['cidrs'] = Cidrs.stub(stub[:cidrs]) unless stub[:cidrs].nil?
+        data['ports'] = Ports.stub(stub[:ports]) unless stub[:ports].nil?
         data['number'] = Hearth::NumberHelper.serialize(stub[:number])
-        data['numbers'] = Stubs::NumberList.stub(stub[:numbers]) unless stub[:numbers].nil?
-        data['strings'] = Stubs::StringList.stub(stub[:strings]) unless stub[:strings].nil?
+        data['numbers'] = NumberList.stub(stub[:numbers]) unless stub[:numbers].nil?
+        data['strings'] = StringList.stub(stub[:strings]) unless stub[:strings].nil?
         data
       end
     end
@@ -4204,8 +4207,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamInfo'] = Stubs::StreamInfo.stub(stub[:stream_info]) unless stub[:stream_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamInfo'] = StreamInfo.stub(stub[:stream_info]) unless stub[:stream_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4233,7 +4236,7 @@ module AWS::SDK::IoT
         data['streamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['streamVersion'] = stub[:stream_version] unless stub[:stream_version].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['files'] = Stubs::StreamFiles.stub(stub[:files]) unless stub[:files].nil?
+        data['files'] = StreamFiles.stub(stub[:files]) unless stub[:files].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
@@ -4255,7 +4258,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamFile.stub(element) unless element.nil?
+          data << StreamFile.stub(element) unless element.nil?
         end
         data
       end
@@ -4276,7 +4279,7 @@ module AWS::SDK::IoT
         stub ||= Types::StreamFile.new
         data = {}
         data['fileId'] = stub[:file_id] unless stub[:file_id].nil?
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -4327,10 +4330,10 @@ module AWS::SDK::IoT
         data['thingId'] = stub[:thing_id] unless stub[:thing_id].nil?
         data['thingArn'] = stub[:thing_arn] unless stub[:thing_arn].nil?
         data['thingTypeName'] = stub[:thing_type_name] unless stub[:thing_type_name].nil?
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['billingGroupName'] = stub[:billing_group_name] unless stub[:billing_group_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4379,13 +4382,13 @@ module AWS::SDK::IoT
         data['thingGroupId'] = stub[:thing_group_id] unless stub[:thing_group_id].nil?
         data['thingGroupArn'] = stub[:thing_group_arn] unless stub[:thing_group_arn].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['thingGroupProperties'] = Stubs::ThingGroupProperties.stub(stub[:thing_group_properties]) unless stub[:thing_group_properties].nil?
-        data['thingGroupMetadata'] = Stubs::ThingGroupMetadata.stub(stub[:thing_group_metadata]) unless stub[:thing_group_metadata].nil?
+        data['thingGroupProperties'] = ThingGroupProperties.stub(stub[:thing_group_properties]) unless stub[:thing_group_properties].nil?
+        data['thingGroupMetadata'] = ThingGroupMetadata.stub(stub[:thing_group_metadata]) unless stub[:thing_group_metadata].nil?
         data['indexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['queryString'] = stub[:query_string] unless stub[:query_string].nil?
         data['queryVersion'] = stub[:query_version] unless stub[:query_version].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4405,7 +4408,7 @@ module AWS::SDK::IoT
         stub ||= Types::ThingGroupMetadata.new
         data = {}
         data['parentGroupName'] = stub[:parent_group_name] unless stub[:parent_group_name].nil?
-        data['rootToParentThingGroups'] = Stubs::ThingGroupNameAndArnList.stub(stub[:root_to_parent_thing_groups]) unless stub[:root_to_parent_thing_groups].nil?
+        data['rootToParentThingGroups'] = ThingGroupNameAndArnList.stub(stub[:root_to_parent_thing_groups]) unless stub[:root_to_parent_thing_groups].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data
       end
@@ -4425,7 +4428,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupNameAndArn.stub(element) unless element.nil?
+          data << GroupNameAndArn.stub(element) unless element.nil?
         end
         data
       end
@@ -4466,7 +4469,7 @@ module AWS::SDK::IoT
         stub ||= Types::ThingGroupProperties.new
         data = {}
         data['thingGroupDescription'] = stub[:thing_group_description] unless stub[:thing_group_description].nil?
-        data['attributePayload'] = Stubs::AttributePayload.stub(stub[:attribute_payload]) unless stub[:attribute_payload].nil?
+        data['attributePayload'] = AttributePayload.stub(stub[:attribute_payload]) unless stub[:attribute_payload].nil?
         data
       end
     end
@@ -4485,7 +4488,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::AttributePayload.new
         data = {}
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['merge'] = stub[:merge] unless stub[:merge].nil?
         data
       end
@@ -4526,7 +4529,7 @@ module AWS::SDK::IoT
         data['successCount'] = stub[:success_count] unless stub[:success_count].nil?
         data['failureCount'] = stub[:failure_count] unless stub[:failure_count].nil?
         data['percentageProgress'] = stub[:percentage_progress] unless stub[:percentage_progress].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4549,9 +4552,9 @@ module AWS::SDK::IoT
         data['thingTypeName'] = stub[:thing_type_name] unless stub[:thing_type_name].nil?
         data['thingTypeId'] = stub[:thing_type_id] unless stub[:thing_type_id].nil?
         data['thingTypeArn'] = stub[:thing_type_arn] unless stub[:thing_type_arn].nil?
-        data['thingTypeProperties'] = Stubs::ThingTypeProperties.stub(stub[:thing_type_properties]) unless stub[:thing_type_properties].nil?
-        data['thingTypeMetadata'] = Stubs::ThingTypeMetadata.stub(stub[:thing_type_metadata]) unless stub[:thing_type_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['thingTypeProperties'] = ThingTypeProperties.stub(stub[:thing_type_properties]) unless stub[:thing_type_properties].nil?
+        data['thingTypeMetadata'] = ThingTypeMetadata.stub(stub[:thing_type_metadata]) unless stub[:thing_type_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4592,7 +4595,7 @@ module AWS::SDK::IoT
         stub ||= Types::ThingTypeProperties.new
         data = {}
         data['thingTypeDescription'] = stub[:thing_type_description] unless stub[:thing_type_description].nil?
-        data['searchableAttributes'] = Stubs::SearchableAttributes.stub(stub[:searchable_attributes]) unless stub[:searchable_attributes].nil?
+        data['searchableAttributes'] = SearchableAttributes.stub(stub[:searchable_attributes]) unless stub[:searchable_attributes].nil?
         data
       end
     end
@@ -4708,9 +4711,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['summaries'] = Stubs::BehaviorModelTrainingSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = BehaviorModelTrainingSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4728,7 +4731,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BehaviorModelTrainingSummary.stub(element) unless element.nil?
+          data << BehaviorModelTrainingSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4776,8 +4779,8 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['totalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        data['buckets'] = Stubs::Buckets.stub(stub[:buckets]) unless stub[:buckets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['buckets'] = Buckets.stub(stub[:buckets]) unless stub[:buckets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4795,7 +4798,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Bucket.stub(element) unless element.nil?
+          data << Bucket.stub(element) unless element.nil?
         end
         data
       end
@@ -4834,7 +4837,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['cardinality'] = stub[:cardinality] unless stub[:cardinality].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4850,8 +4853,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['effectivePolicies'] = Stubs::EffectivePolicies.stub(stub[:effective_policies]) unless stub[:effective_policies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['effectivePolicies'] = EffectivePolicies.stub(stub[:effective_policies]) unless stub[:effective_policies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4869,7 +4872,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EffectivePolicy.stub(element) unless element.nil?
+          data << EffectivePolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -4910,9 +4913,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['thingIndexingConfiguration'] = Stubs::ThingIndexingConfiguration.stub(stub[:thing_indexing_configuration]) unless stub[:thing_indexing_configuration].nil?
-        data['thingGroupIndexingConfiguration'] = Stubs::ThingGroupIndexingConfiguration.stub(stub[:thing_group_indexing_configuration]) unless stub[:thing_group_indexing_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['thingIndexingConfiguration'] = ThingIndexingConfiguration.stub(stub[:thing_indexing_configuration]) unless stub[:thing_indexing_configuration].nil?
+        data['thingGroupIndexingConfiguration'] = ThingGroupIndexingConfiguration.stub(stub[:thing_group_indexing_configuration]) unless stub[:thing_group_indexing_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4932,8 +4935,8 @@ module AWS::SDK::IoT
         stub ||= Types::ThingGroupIndexingConfiguration.new
         data = {}
         data['thingGroupIndexingMode'] = stub[:thing_group_indexing_mode] unless stub[:thing_group_indexing_mode].nil?
-        data['managedFields'] = Stubs::Fields.stub(stub[:managed_fields]) unless stub[:managed_fields].nil?
-        data['customFields'] = Stubs::Fields.stub(stub[:custom_fields]) unless stub[:custom_fields].nil?
+        data['managedFields'] = Fields.stub(stub[:managed_fields]) unless stub[:managed_fields].nil?
+        data['customFields'] = Fields.stub(stub[:custom_fields]) unless stub[:custom_fields].nil?
         data
       end
     end
@@ -4952,7 +4955,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Field.stub(element) unless element.nil?
+          data << Field.stub(element) unless element.nil?
         end
         data
       end
@@ -5000,8 +5003,8 @@ module AWS::SDK::IoT
         data['thingConnectivityIndexingMode'] = stub[:thing_connectivity_indexing_mode] unless stub[:thing_connectivity_indexing_mode].nil?
         data['deviceDefenderIndexingMode'] = stub[:device_defender_indexing_mode] unless stub[:device_defender_indexing_mode].nil?
         data['namedShadowIndexingMode'] = stub[:named_shadow_indexing_mode] unless stub[:named_shadow_indexing_mode].nil?
-        data['managedFields'] = Stubs::Fields.stub(stub[:managed_fields]) unless stub[:managed_fields].nil?
-        data['customFields'] = Stubs::Fields.stub(stub[:custom_fields]) unless stub[:custom_fields].nil?
+        data['managedFields'] = Fields.stub(stub[:managed_fields]) unless stub[:managed_fields].nil?
+        data['customFields'] = Fields.stub(stub[:custom_fields]) unless stub[:custom_fields].nil?
         data
       end
     end
@@ -5019,7 +5022,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['document'] = stub[:document] unless stub[:document].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5038,7 +5041,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5054,8 +5057,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['otaUpdateInfo'] = Stubs::OTAUpdateInfo.stub(stub[:ota_update_info]) unless stub[:ota_update_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['otaUpdateInfo'] = OTAUpdateInfo.stub(stub[:ota_update_info]) unless stub[:ota_update_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5092,17 +5095,17 @@ module AWS::SDK::IoT
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
-        data['protocols'] = Stubs::Protocols.stub(stub[:protocols]) unless stub[:protocols].nil?
-        data['awsJobExecutionsRolloutConfig'] = Stubs::AwsJobExecutionsRolloutConfig.stub(stub[:aws_job_executions_rollout_config]) unless stub[:aws_job_executions_rollout_config].nil?
-        data['awsJobPresignedUrlConfig'] = Stubs::AwsJobPresignedUrlConfig.stub(stub[:aws_job_presigned_url_config]) unless stub[:aws_job_presigned_url_config].nil?
+        data['targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['protocols'] = Protocols.stub(stub[:protocols]) unless stub[:protocols].nil?
+        data['awsJobExecutionsRolloutConfig'] = AwsJobExecutionsRolloutConfig.stub(stub[:aws_job_executions_rollout_config]) unless stub[:aws_job_executions_rollout_config].nil?
+        data['awsJobPresignedUrlConfig'] = AwsJobPresignedUrlConfig.stub(stub[:aws_job_presigned_url_config]) unless stub[:aws_job_presigned_url_config].nil?
         data['targetSelection'] = stub[:target_selection] unless stub[:target_selection].nil?
-        data['otaUpdateFiles'] = Stubs::OTAUpdateFiles.stub(stub[:ota_update_files]) unless stub[:ota_update_files].nil?
+        data['otaUpdateFiles'] = OTAUpdateFiles.stub(stub[:ota_update_files]) unless stub[:ota_update_files].nil?
         data['otaUpdateStatus'] = stub[:ota_update_status] unless stub[:ota_update_status].nil?
         data['awsIotJobId'] = stub[:aws_iot_job_id] unless stub[:aws_iot_job_id].nil?
         data['awsIotJobArn'] = stub[:aws_iot_job_arn] unless stub[:aws_iot_job_arn].nil?
-        data['errorInfo'] = Stubs::ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
-        data['additionalParameters'] = Stubs::AdditionalParameterMap.stub(stub[:additional_parameters]) unless stub[:additional_parameters].nil?
+        data['errorInfo'] = ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['additionalParameters'] = AdditionalParameterMap.stub(stub[:additional_parameters]) unless stub[:additional_parameters].nil?
         data
       end
     end
@@ -5161,7 +5164,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OTAUpdateFile.stub(element) unless element.nil?
+          data << OTAUpdateFile.stub(element) unless element.nil?
         end
         data
       end
@@ -5188,9 +5191,9 @@ module AWS::SDK::IoT
         data['fileName'] = stub[:file_name] unless stub[:file_name].nil?
         data['fileType'] = stub[:file_type] unless stub[:file_type].nil?
         data['fileVersion'] = stub[:file_version] unless stub[:file_version].nil?
-        data['fileLocation'] = Stubs::FileLocation.stub(stub[:file_location]) unless stub[:file_location].nil?
-        data['codeSigning'] = Stubs::CodeSigning.stub(stub[:code_signing]) unless stub[:code_signing].nil?
-        data['attributes'] = Stubs::AttributesMap.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['fileLocation'] = FileLocation.stub(stub[:file_location]) unless stub[:file_location].nil?
+        data['codeSigning'] = CodeSigning.stub(stub[:code_signing]) unless stub[:code_signing].nil?
+        data['attributes'] = AttributesMap.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -5231,8 +5234,8 @@ module AWS::SDK::IoT
         stub ||= Types::CodeSigning.new
         data = {}
         data['awsSignerJobId'] = stub[:aws_signer_job_id] unless stub[:aws_signer_job_id].nil?
-        data['startSigningJobParameter'] = Stubs::StartSigningJobParameter.stub(stub[:start_signing_job_parameter]) unless stub[:start_signing_job_parameter].nil?
-        data['customCodeSigning'] = Stubs::CustomCodeSigning.stub(stub[:custom_code_signing]) unless stub[:custom_code_signing].nil?
+        data['startSigningJobParameter'] = StartSigningJobParameter.stub(stub[:start_signing_job_parameter]) unless stub[:start_signing_job_parameter].nil?
+        data['customCodeSigning'] = CustomCodeSigning.stub(stub[:custom_code_signing]) unless stub[:custom_code_signing].nil?
         data
       end
     end
@@ -5253,8 +5256,8 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::CustomCodeSigning.new
         data = {}
-        data['signature'] = Stubs::CodeSigningSignature.stub(stub[:signature]) unless stub[:signature].nil?
-        data['certificateChain'] = Stubs::CodeSigningCertificateChain.stub(stub[:certificate_chain]) unless stub[:certificate_chain].nil?
+        data['signature'] = CodeSigningSignature.stub(stub[:signature]) unless stub[:signature].nil?
+        data['certificateChain'] = CodeSigningCertificateChain.stub(stub[:certificate_chain]) unless stub[:certificate_chain].nil?
         data['hashAlgorithm'] = stub[:hash_algorithm] unless stub[:hash_algorithm].nil?
         data['signatureAlgorithm'] = stub[:signature_algorithm] unless stub[:signature_algorithm].nil?
         data
@@ -5294,7 +5297,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::CodeSigningSignature.new
         data = {}
-        data['inlineDocument'] = Base64::encode64(stub[:inline_document]) unless stub[:inline_document].nil?
+        data['inlineDocument'] = ::Base64::encode64(stub[:inline_document]) unless stub[:inline_document].nil?
         data
       end
     end
@@ -5314,9 +5317,9 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::StartSigningJobParameter.new
         data = {}
-        data['signingProfileParameter'] = Stubs::SigningProfileParameter.stub(stub[:signing_profile_parameter]) unless stub[:signing_profile_parameter].nil?
+        data['signingProfileParameter'] = SigningProfileParameter.stub(stub[:signing_profile_parameter]) unless stub[:signing_profile_parameter].nil?
         data['signingProfileName'] = stub[:signing_profile_name] unless stub[:signing_profile_name].nil?
-        data['destination'] = Stubs::Destination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['destination'] = Destination.stub(stub[:destination]) unless stub[:destination].nil?
         data
       end
     end
@@ -5334,7 +5337,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::Destination.new
         data = {}
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data
       end
     end
@@ -5395,8 +5398,8 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::FileLocation.new
         data = {}
-        data['stream'] = Stubs::Stream.stub(stub[:stream]) unless stub[:stream].nil?
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['stream'] = Stream.stub(stub[:stream]) unless stub[:stream].nil?
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -5454,7 +5457,7 @@ module AWS::SDK::IoT
         stub ||= Types::AwsJobExecutionsRolloutConfig.new
         data = {}
         data['maximumPerMinute'] = stub[:maximum_per_minute] unless stub[:maximum_per_minute].nil?
-        data['exponentialRate'] = Stubs::AwsJobExponentialRolloutRate.stub(stub[:exponential_rate]) unless stub[:exponential_rate].nil?
+        data['exponentialRate'] = AwsJobExponentialRolloutRate.stub(stub[:exponential_rate]) unless stub[:exponential_rate].nil?
         data
       end
     end
@@ -5476,7 +5479,7 @@ module AWS::SDK::IoT
         data = {}
         data['baseRatePerMinute'] = stub[:base_rate_per_minute] unless stub[:base_rate_per_minute].nil?
         data['incrementFactor'] = Hearth::NumberHelper.serialize(stub[:increment_factor])
-        data['rateIncreaseCriteria'] = Stubs::AwsJobRateIncreaseCriteria.stub(stub[:rate_increase_criteria]) unless stub[:rate_increase_criteria].nil?
+        data['rateIncreaseCriteria'] = AwsJobRateIncreaseCriteria.stub(stub[:rate_increase_criteria]) unless stub[:rate_increase_criteria].nil?
         data
       end
     end
@@ -5553,8 +5556,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['percentiles'] = Stubs::Percentiles.stub(stub[:percentiles]) unless stub[:percentiles].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['percentiles'] = Percentiles.stub(stub[:percentiles]) unless stub[:percentiles].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5572,7 +5575,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PercentPair.stub(element) unless element.nil?
+          data << PercentPair.stub(element) unless element.nil?
         end
         data
       end
@@ -5623,7 +5626,7 @@ module AWS::SDK::IoT
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['generationId'] = stub[:generation_id] unless stub[:generation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5654,7 +5657,7 @@ module AWS::SDK::IoT
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['generationId'] = stub[:generation_id] unless stub[:generation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5671,7 +5674,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['registrationCode'] = stub[:registration_code] unless stub[:registration_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5687,8 +5690,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['statistics'] = Stubs::Statistics.stub(stub[:statistics]) unless stub[:statistics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['statistics'] = Statistics.stub(stub[:statistics]) unless stub[:statistics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5738,8 +5741,8 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ruleArn'] = stub[:rule_arn] unless stub[:rule_arn].nil?
-        data['rule'] = Stubs::TopicRule.stub(stub[:rule]) unless stub[:rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rule'] = TopicRule.stub(stub[:rule]) unless stub[:rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5767,10 +5770,10 @@ module AWS::SDK::IoT
         data['sql'] = stub[:sql] unless stub[:sql].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['actions'] = Stubs::ActionList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['actions'] = ActionList.stub(stub[:actions]) unless stub[:actions].nil?
         data['ruleDisabled'] = stub[:rule_disabled] unless stub[:rule_disabled].nil?
         data['awsIotSqlVersion'] = stub[:aws_iot_sql_version] unless stub[:aws_iot_sql_version].nil?
-        data['errorAction'] = Stubs::Action.stub(stub[:error_action]) unless stub[:error_action].nil?
+        data['errorAction'] = Action.stub(stub[:error_action]) unless stub[:error_action].nil?
         data
       end
     end
@@ -5809,28 +5812,28 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::Action.new
         data = {}
-        data['dynamoDB'] = Stubs::DynamoDBAction.stub(stub[:dynamo_db]) unless stub[:dynamo_db].nil?
-        data['dynamoDBv2'] = Stubs::DynamoDBv2Action.stub(stub[:dynamo_d_bv2]) unless stub[:dynamo_d_bv2].nil?
-        data['lambda'] = Stubs::LambdaAction.stub(stub[:lambda]) unless stub[:lambda].nil?
-        data['sns'] = Stubs::SnsAction.stub(stub[:sns]) unless stub[:sns].nil?
-        data['sqs'] = Stubs::SqsAction.stub(stub[:sqs]) unless stub[:sqs].nil?
-        data['kinesis'] = Stubs::KinesisAction.stub(stub[:kinesis]) unless stub[:kinesis].nil?
-        data['republish'] = Stubs::RepublishAction.stub(stub[:republish]) unless stub[:republish].nil?
-        data['s3'] = Stubs::S3Action.stub(stub[:s3]) unless stub[:s3].nil?
-        data['firehose'] = Stubs::FirehoseAction.stub(stub[:firehose]) unless stub[:firehose].nil?
-        data['cloudwatchMetric'] = Stubs::CloudwatchMetricAction.stub(stub[:cloudwatch_metric]) unless stub[:cloudwatch_metric].nil?
-        data['cloudwatchAlarm'] = Stubs::CloudwatchAlarmAction.stub(stub[:cloudwatch_alarm]) unless stub[:cloudwatch_alarm].nil?
-        data['cloudwatchLogs'] = Stubs::CloudwatchLogsAction.stub(stub[:cloudwatch_logs]) unless stub[:cloudwatch_logs].nil?
-        data['elasticsearch'] = Stubs::ElasticsearchAction.stub(stub[:elasticsearch]) unless stub[:elasticsearch].nil?
-        data['salesforce'] = Stubs::SalesforceAction.stub(stub[:salesforce]) unless stub[:salesforce].nil?
-        data['iotAnalytics'] = Stubs::IotAnalyticsAction.stub(stub[:iot_analytics]) unless stub[:iot_analytics].nil?
-        data['iotEvents'] = Stubs::IotEventsAction.stub(stub[:iot_events]) unless stub[:iot_events].nil?
-        data['iotSiteWise'] = Stubs::IotSiteWiseAction.stub(stub[:iot_site_wise]) unless stub[:iot_site_wise].nil?
-        data['stepFunctions'] = Stubs::StepFunctionsAction.stub(stub[:step_functions]) unless stub[:step_functions].nil?
-        data['timestream'] = Stubs::TimestreamAction.stub(stub[:timestream]) unless stub[:timestream].nil?
-        data['http'] = Stubs::HttpAction.stub(stub[:http]) unless stub[:http].nil?
-        data['kafka'] = Stubs::KafkaAction.stub(stub[:kafka]) unless stub[:kafka].nil?
-        data['openSearch'] = Stubs::OpenSearchAction.stub(stub[:open_search]) unless stub[:open_search].nil?
+        data['dynamoDB'] = DynamoDBAction.stub(stub[:dynamo_db]) unless stub[:dynamo_db].nil?
+        data['dynamoDBv2'] = DynamoDBv2Action.stub(stub[:dynamo_d_bv2]) unless stub[:dynamo_d_bv2].nil?
+        data['lambda'] = LambdaAction.stub(stub[:lambda]) unless stub[:lambda].nil?
+        data['sns'] = SnsAction.stub(stub[:sns]) unless stub[:sns].nil?
+        data['sqs'] = SqsAction.stub(stub[:sqs]) unless stub[:sqs].nil?
+        data['kinesis'] = KinesisAction.stub(stub[:kinesis]) unless stub[:kinesis].nil?
+        data['republish'] = RepublishAction.stub(stub[:republish]) unless stub[:republish].nil?
+        data['s3'] = S3Action.stub(stub[:s3]) unless stub[:s3].nil?
+        data['firehose'] = FirehoseAction.stub(stub[:firehose]) unless stub[:firehose].nil?
+        data['cloudwatchMetric'] = CloudwatchMetricAction.stub(stub[:cloudwatch_metric]) unless stub[:cloudwatch_metric].nil?
+        data['cloudwatchAlarm'] = CloudwatchAlarmAction.stub(stub[:cloudwatch_alarm]) unless stub[:cloudwatch_alarm].nil?
+        data['cloudwatchLogs'] = CloudwatchLogsAction.stub(stub[:cloudwatch_logs]) unless stub[:cloudwatch_logs].nil?
+        data['elasticsearch'] = ElasticsearchAction.stub(stub[:elasticsearch]) unless stub[:elasticsearch].nil?
+        data['salesforce'] = SalesforceAction.stub(stub[:salesforce]) unless stub[:salesforce].nil?
+        data['iotAnalytics'] = IotAnalyticsAction.stub(stub[:iot_analytics]) unless stub[:iot_analytics].nil?
+        data['iotEvents'] = IotEventsAction.stub(stub[:iot_events]) unless stub[:iot_events].nil?
+        data['iotSiteWise'] = IotSiteWiseAction.stub(stub[:iot_site_wise]) unless stub[:iot_site_wise].nil?
+        data['stepFunctions'] = StepFunctionsAction.stub(stub[:step_functions]) unless stub[:step_functions].nil?
+        data['timestream'] = TimestreamAction.stub(stub[:timestream]) unless stub[:timestream].nil?
+        data['http'] = HttpAction.stub(stub[:http]) unless stub[:http].nil?
+        data['kafka'] = KafkaAction.stub(stub[:kafka]) unless stub[:kafka].nil?
+        data['openSearch'] = OpenSearchAction.stub(stub[:open_search]) unless stub[:open_search].nil?
         data
       end
     end
@@ -5882,7 +5885,7 @@ module AWS::SDK::IoT
         data['topic'] = stub[:topic] unless stub[:topic].nil?
         data['key'] = stub[:key] unless stub[:key].nil?
         data['partition'] = stub[:partition] unless stub[:partition].nil?
-        data['clientProperties'] = Stubs::ClientProperties.stub(stub[:client_properties]) unless stub[:client_properties].nil?
+        data['clientProperties'] = ClientProperties.stub(stub[:client_properties]) unless stub[:client_properties].nil?
         data
       end
     end
@@ -5925,8 +5928,8 @@ module AWS::SDK::IoT
         data = {}
         data['url'] = stub[:url] unless stub[:url].nil?
         data['confirmationUrl'] = stub[:confirmation_url] unless stub[:confirmation_url].nil?
-        data['headers'] = Stubs::HeaderList.stub(stub[:headers]) unless stub[:headers].nil?
-        data['auth'] = Stubs::HttpAuthorization.stub(stub[:auth]) unless stub[:auth].nil?
+        data['headers'] = HeaderList.stub(stub[:headers]) unless stub[:headers].nil?
+        data['auth'] = HttpAuthorization.stub(stub[:auth]) unless stub[:auth].nil?
         data
       end
     end
@@ -5944,7 +5947,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::HttpAuthorization.new
         data = {}
-        data['sigv4'] = Stubs::SigV4Authorization.stub(stub[:sigv4]) unless stub[:sigv4].nil?
+        data['sigv4'] = SigV4Authorization.stub(stub[:sigv4]) unless stub[:sigv4].nil?
         data
       end
     end
@@ -5985,7 +5988,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HttpActionHeader.stub(element) unless element.nil?
+          data << HttpActionHeader.stub(element) unless element.nil?
         end
         data
       end
@@ -6031,8 +6034,8 @@ module AWS::SDK::IoT
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['databaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['tableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['dimensions'] = Stubs::TimestreamDimensionList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
-        data['timestamp'] = Stubs::TimestreamTimestamp.stub(stub[:timestamp]) unless stub[:timestamp].nil?
+        data['dimensions'] = TimestreamDimensionList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['timestamp'] = TimestreamTimestamp.stub(stub[:timestamp]) unless stub[:timestamp].nil?
         data
       end
     end
@@ -6071,7 +6074,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimestreamDimension.stub(element) unless element.nil?
+          data << TimestreamDimension.stub(element) unless element.nil?
         end
         data
       end
@@ -6133,7 +6136,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::IotSiteWiseAction.new
         data = {}
-        data['putAssetPropertyValueEntries'] = Stubs::PutAssetPropertyValueEntryList.stub(stub[:put_asset_property_value_entries]) unless stub[:put_asset_property_value_entries].nil?
+        data['putAssetPropertyValueEntries'] = PutAssetPropertyValueEntryList.stub(stub[:put_asset_property_value_entries]) unless stub[:put_asset_property_value_entries].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data
       end
@@ -6153,7 +6156,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PutAssetPropertyValueEntry.stub(element) unless element.nil?
+          data << PutAssetPropertyValueEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -6180,7 +6183,7 @@ module AWS::SDK::IoT
         data['assetId'] = stub[:asset_id] unless stub[:asset_id].nil?
         data['propertyId'] = stub[:property_id] unless stub[:property_id].nil?
         data['propertyAlias'] = stub[:property_alias] unless stub[:property_alias].nil?
-        data['propertyValues'] = Stubs::AssetPropertyValueList.stub(stub[:property_values]) unless stub[:property_values].nil?
+        data['propertyValues'] = AssetPropertyValueList.stub(stub[:property_values]) unless stub[:property_values].nil?
         data
       end
     end
@@ -6199,7 +6202,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetPropertyValue.stub(element) unless element.nil?
+          data << AssetPropertyValue.stub(element) unless element.nil?
         end
         data
       end
@@ -6220,8 +6223,8 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::AssetPropertyValue.new
         data = {}
-        data['value'] = Stubs::AssetPropertyVariant.stub(stub[:value]) unless stub[:value].nil?
-        data['timestamp'] = Stubs::AssetPropertyTimestamp.stub(stub[:timestamp]) unless stub[:timestamp].nil?
+        data['value'] = AssetPropertyVariant.stub(stub[:value]) unless stub[:value].nil?
+        data['timestamp'] = AssetPropertyTimestamp.stub(stub[:timestamp]) unless stub[:timestamp].nil?
         data['quality'] = stub[:quality] unless stub[:quality].nil?
         data
       end
@@ -6612,7 +6615,7 @@ module AWS::SDK::IoT
         stub ||= Types::DynamoDBv2Action.new
         data = {}
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['putItem'] = Stubs::PutItemInput.stub(stub[:put_item]) unless stub[:put_item].nil?
+        data['putItem'] = PutItemInput.stub(stub[:put_item]) unless stub[:put_item].nil?
         data
       end
     end
@@ -6685,7 +6688,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Action.stub(element) unless element.nil?
+          data << Action.stub(element) unless element.nil?
         end
         data
       end
@@ -6703,8 +6706,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['topicRuleDestination'] = Stubs::TopicRuleDestination.stub(stub[:topic_rule_destination]) unless stub[:topic_rule_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['topicRuleDestination'] = TopicRuleDestination.stub(stub[:topic_rule_destination]) unless stub[:topic_rule_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6725,7 +6728,7 @@ module AWS::SDK::IoT
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['defaultLogLevel'] = stub[:default_log_level] unless stub[:default_log_level].nil?
         data['disableAllLogs'] = stub[:disable_all_logs] unless stub[:disable_all_logs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6742,9 +6745,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['activeViolations'] = Stubs::ActiveViolations.stub(stub[:active_violations]) unless stub[:active_violations].nil?
+        data['activeViolations'] = ActiveViolations.stub(stub[:active_violations]) unless stub[:active_violations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6762,7 +6765,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActiveViolation.stub(element) unless element.nil?
+          data << ActiveViolation.stub(element) unless element.nil?
         end
         data
       end
@@ -6793,9 +6796,9 @@ module AWS::SDK::IoT
         data['violationId'] = stub[:violation_id] unless stub[:violation_id].nil?
         data['thingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['securityProfileName'] = stub[:security_profile_name] unless stub[:security_profile_name].nil?
-        data['behavior'] = Stubs::Behavior.stub(stub[:behavior]) unless stub[:behavior].nil?
-        data['lastViolationValue'] = Stubs::MetricValue.stub(stub[:last_violation_value]) unless stub[:last_violation_value].nil?
-        data['violationEventAdditionalInfo'] = Stubs::ViolationEventAdditionalInfo.stub(stub[:violation_event_additional_info]) unless stub[:violation_event_additional_info].nil?
+        data['behavior'] = Behavior.stub(stub[:behavior]) unless stub[:behavior].nil?
+        data['lastViolationValue'] = MetricValue.stub(stub[:last_violation_value]) unless stub[:last_violation_value].nil?
+        data['violationEventAdditionalInfo'] = ViolationEventAdditionalInfo.stub(stub[:violation_event_additional_info]) unless stub[:violation_event_additional_info].nil?
         data['verificationState'] = stub[:verification_state] unless stub[:verification_state].nil?
         data['verificationStateDescription'] = stub[:verification_state_description] unless stub[:verification_state_description].nil?
         data['lastViolationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_violation_time]).to_i unless stub[:last_violation_time].nil?
@@ -6835,9 +6838,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6855,7 +6858,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Policy.stub(element) unless element.nil?
+          data << Policy.stub(element) unless element.nil?
         end
         data
       end
@@ -6894,9 +6897,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findings'] = Stubs::AuditFindings.stub(stub[:findings]) unless stub[:findings].nil?
+        data['findings'] = AuditFindings.stub(stub[:findings]) unless stub[:findings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6914,7 +6917,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuditFinding.stub(element) unless element.nil?
+          data << AuditFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -6933,9 +6936,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['actionsExecutions'] = Stubs::AuditMitigationActionExecutionMetadataList.stub(stub[:actions_executions]) unless stub[:actions_executions].nil?
+        data['actionsExecutions'] = AuditMitigationActionExecutionMetadataList.stub(stub[:actions_executions]) unless stub[:actions_executions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6953,7 +6956,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuditMitigationActionExecutionMetadata.stub(element) unless element.nil?
+          data << AuditMitigationActionExecutionMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -7006,9 +7009,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tasks'] = Stubs::AuditMitigationActionsTaskMetadataList.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['tasks'] = AuditMitigationActionsTaskMetadataList.stub(stub[:tasks]) unless stub[:tasks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7026,7 +7029,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuditMitigationActionsTaskMetadata.stub(element) unless element.nil?
+          data << AuditMitigationActionsTaskMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -7067,9 +7070,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['suppressions'] = Stubs::AuditSuppressionList.stub(stub[:suppressions]) unless stub[:suppressions].nil?
+        data['suppressions'] = AuditSuppressionList.stub(stub[:suppressions]) unless stub[:suppressions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7087,7 +7090,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuditSuppression.stub(element) unless element.nil?
+          data << AuditSuppression.stub(element) unless element.nil?
         end
         data
       end
@@ -7111,7 +7114,7 @@ module AWS::SDK::IoT
         stub ||= Types::AuditSuppression.new
         data = {}
         data['checkName'] = stub[:check_name] unless stub[:check_name].nil?
-        data['resourceIdentifier'] = Stubs::ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
+        data['resourceIdentifier'] = ResourceIdentifier.stub(stub[:resource_identifier]) unless stub[:resource_identifier].nil?
         data['expirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
         data['suppressIndefinitely'] = stub[:suppress_indefinitely] unless stub[:suppress_indefinitely].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
@@ -7132,9 +7135,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tasks'] = Stubs::AuditTaskMetadataList.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['tasks'] = AuditTaskMetadataList.stub(stub[:tasks]) unless stub[:tasks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7152,7 +7155,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuditTaskMetadata.stub(element) unless element.nil?
+          data << AuditTaskMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -7193,9 +7196,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['authorizers'] = Stubs::Authorizers.stub(stub[:authorizers]) unless stub[:authorizers].nil?
+        data['authorizers'] = Authorizers.stub(stub[:authorizers]) unless stub[:authorizers].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7213,7 +7216,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuthorizerSummary.stub(element) unless element.nil?
+          data << AuthorizerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -7252,9 +7255,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['billingGroups'] = Stubs::BillingGroupNameAndArnList.stub(stub[:billing_groups]) unless stub[:billing_groups].nil?
+        data['billingGroups'] = BillingGroupNameAndArnList.stub(stub[:billing_groups]) unless stub[:billing_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7272,7 +7275,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupNameAndArn.stub(element) unless element.nil?
+          data << GroupNameAndArn.stub(element) unless element.nil?
         end
         data
       end
@@ -7291,9 +7294,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['certificates'] = Stubs::CACertificates.stub(stub[:certificates]) unless stub[:certificates].nil?
+        data['certificates'] = CACertificates.stub(stub[:certificates]) unless stub[:certificates].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7311,7 +7314,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CACertificate.stub(element) unless element.nil?
+          data << CACertificate.stub(element) unless element.nil?
         end
         data
       end
@@ -7354,9 +7357,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['certificates'] = Stubs::Certificates.stub(stub[:certificates]) unless stub[:certificates].nil?
+        data['certificates'] = Certificates.stub(stub[:certificates]) unless stub[:certificates].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7374,7 +7377,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Certificate.stub(element) unless element.nil?
+          data << Certificate.stub(element) unless element.nil?
         end
         data
       end
@@ -7419,9 +7422,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['certificates'] = Stubs::Certificates.stub(stub[:certificates]) unless stub[:certificates].nil?
+        data['certificates'] = Certificates.stub(stub[:certificates]) unless stub[:certificates].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7438,9 +7441,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['metricNames'] = Stubs::MetricNames.stub(stub[:metric_names]) unless stub[:metric_names].nil?
+        data['metricNames'] = MetricNames.stub(stub[:metric_names]) unless stub[:metric_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7477,9 +7480,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['actionsExecutions'] = Stubs::DetectMitigationActionExecutionList.stub(stub[:actions_executions]) unless stub[:actions_executions].nil?
+        data['actionsExecutions'] = DetectMitigationActionExecutionList.stub(stub[:actions_executions]) unless stub[:actions_executions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7497,7 +7500,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DetectMitigationActionExecution.stub(element) unless element.nil?
+          data << DetectMitigationActionExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -7550,9 +7553,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tasks'] = Stubs::DetectMitigationActionsTaskSummaryList.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['tasks'] = DetectMitigationActionsTaskSummaryList.stub(stub[:tasks]) unless stub[:tasks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7570,7 +7573,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DetectMitigationActionsTaskSummary.stub(element) unless element.nil?
+          data << DetectMitigationActionsTaskSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -7589,9 +7592,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dimensionNames'] = Stubs::DimensionNames.stub(stub[:dimension_names]) unless stub[:dimension_names].nil?
+        data['dimensionNames'] = DimensionNames.stub(stub[:dimension_names]) unless stub[:dimension_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7628,9 +7631,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainConfigurations'] = Stubs::DomainConfigurations.stub(stub[:domain_configurations]) unless stub[:domain_configurations].nil?
+        data['domainConfigurations'] = DomainConfigurations.stub(stub[:domain_configurations]) unless stub[:domain_configurations].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7648,7 +7651,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainConfigurationSummary.stub(element) unless element.nil?
+          data << DomainConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -7689,9 +7692,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['fleetMetrics'] = Stubs::FleetMetricNameAndArnList.stub(stub[:fleet_metrics]) unless stub[:fleet_metrics].nil?
+        data['fleetMetrics'] = FleetMetricNameAndArnList.stub(stub[:fleet_metrics]) unless stub[:fleet_metrics].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7709,7 +7712,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetMetricNameAndArn.stub(element) unless element.nil?
+          data << FleetMetricNameAndArn.stub(element) unless element.nil?
         end
         data
       end
@@ -7748,9 +7751,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['indexNames'] = Stubs::IndexNamesList.stub(stub[:index_names]) unless stub[:index_names].nil?
+        data['indexNames'] = IndexNamesList.stub(stub[:index_names]) unless stub[:index_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7787,9 +7790,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['executionSummaries'] = Stubs::JobExecutionSummaryForJobList.stub(stub[:execution_summaries]) unless stub[:execution_summaries].nil?
+        data['executionSummaries'] = JobExecutionSummaryForJobList.stub(stub[:execution_summaries]) unless stub[:execution_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7807,7 +7810,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobExecutionSummaryForJob.stub(element) unless element.nil?
+          data << JobExecutionSummaryForJob.stub(element) unless element.nil?
         end
         data
       end
@@ -7828,7 +7831,7 @@ module AWS::SDK::IoT
         stub ||= Types::JobExecutionSummaryForJob.new
         data = {}
         data['thingArn'] = stub[:thing_arn] unless stub[:thing_arn].nil?
-        data['jobExecutionSummary'] = Stubs::JobExecutionSummary.stub(stub[:job_execution_summary]) unless stub[:job_execution_summary].nil?
+        data['jobExecutionSummary'] = JobExecutionSummary.stub(stub[:job_execution_summary]) unless stub[:job_execution_summary].nil?
         data
       end
     end
@@ -7874,9 +7877,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['executionSummaries'] = Stubs::JobExecutionSummaryForThingList.stub(stub[:execution_summaries]) unless stub[:execution_summaries].nil?
+        data['executionSummaries'] = JobExecutionSummaryForThingList.stub(stub[:execution_summaries]) unless stub[:execution_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7894,7 +7897,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobExecutionSummaryForThing.stub(element) unless element.nil?
+          data << JobExecutionSummaryForThing.stub(element) unless element.nil?
         end
         data
       end
@@ -7915,7 +7918,7 @@ module AWS::SDK::IoT
         stub ||= Types::JobExecutionSummaryForThing.new
         data = {}
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['jobExecutionSummary'] = Stubs::JobExecutionSummary.stub(stub[:job_execution_summary]) unless stub[:job_execution_summary].nil?
+        data['jobExecutionSummary'] = JobExecutionSummary.stub(stub[:job_execution_summary]) unless stub[:job_execution_summary].nil?
         data
       end
     end
@@ -7933,9 +7936,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobTemplates'] = Stubs::JobTemplateSummaryList.stub(stub[:job_templates]) unless stub[:job_templates].nil?
+        data['jobTemplates'] = JobTemplateSummaryList.stub(stub[:job_templates]) unless stub[:job_templates].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7953,7 +7956,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobTemplateSummary.stub(element) unless element.nil?
+          data << JobTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -7996,9 +7999,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobs'] = Stubs::JobSummaryList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['jobs'] = JobSummaryList.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8016,7 +8019,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobSummary.stub(element) unless element.nil?
+          data << JobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -8069,9 +8072,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['managedJobTemplates'] = Stubs::ManagedJobTemplatesSummaryList.stub(stub[:managed_job_templates]) unless stub[:managed_job_templates].nil?
+        data['managedJobTemplates'] = ManagedJobTemplatesSummaryList.stub(stub[:managed_job_templates]) unless stub[:managed_job_templates].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8089,7 +8092,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedJobTemplateSummary.stub(element) unless element.nil?
+          data << ManagedJobTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -8115,7 +8118,7 @@ module AWS::SDK::IoT
         data['templateArn'] = stub[:template_arn] unless stub[:template_arn].nil?
         data['templateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['environments'] = Stubs::Environments.stub(stub[:environments]) unless stub[:environments].nil?
+        data['environments'] = Environments.stub(stub[:environments]) unless stub[:environments].nil?
         data['templateVersion'] = stub[:template_version] unless stub[:template_version].nil?
         data
       end
@@ -8134,9 +8137,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['metricDatumList'] = Stubs::MetricDatumList.stub(stub[:metric_datum_list]) unless stub[:metric_datum_list].nil?
+        data['metricDatumList'] = MetricDatumList.stub(stub[:metric_datum_list]) unless stub[:metric_datum_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8154,7 +8157,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDatum.stub(element) unless element.nil?
+          data << MetricDatum.stub(element) unless element.nil?
         end
         data
       end
@@ -8175,7 +8178,7 @@ module AWS::SDK::IoT
         stub ||= Types::MetricDatum.new
         data = {}
         data['timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
-        data['value'] = Stubs::MetricValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = MetricValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -8193,9 +8196,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['actionIdentifiers'] = Stubs::MitigationActionIdentifierList.stub(stub[:action_identifiers]) unless stub[:action_identifiers].nil?
+        data['actionIdentifiers'] = MitigationActionIdentifierList.stub(stub[:action_identifiers]) unless stub[:action_identifiers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8213,7 +8216,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MitigationActionIdentifier.stub(element) unless element.nil?
+          data << MitigationActionIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -8254,9 +8257,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['otaUpdates'] = Stubs::OTAUpdatesSummary.stub(stub[:ota_updates]) unless stub[:ota_updates].nil?
+        data['otaUpdates'] = OTAUpdatesSummary.stub(stub[:ota_updates]) unless stub[:ota_updates].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8274,7 +8277,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OTAUpdateSummary.stub(element) unless element.nil?
+          data << OTAUpdateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -8315,9 +8318,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['outgoingCertificates'] = Stubs::OutgoingCertificates.stub(stub[:outgoing_certificates]) unless stub[:outgoing_certificates].nil?
+        data['outgoingCertificates'] = OutgoingCertificates.stub(stub[:outgoing_certificates]) unless stub[:outgoing_certificates].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8335,7 +8338,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutgoingCertificate.stub(element) unless element.nil?
+          data << OutgoingCertificate.stub(element) unless element.nil?
         end
         data
       end
@@ -8382,9 +8385,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8401,9 +8404,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['principals'] = Stubs::Principals.stub(stub[:principals]) unless stub[:principals].nil?
+        data['principals'] = Principals.stub(stub[:principals]) unless stub[:principals].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8439,8 +8442,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policyVersions'] = Stubs::PolicyVersions.stub(stub[:policy_versions]) unless stub[:policy_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policyVersions'] = PolicyVersions.stub(stub[:policy_versions]) unless stub[:policy_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8458,7 +8461,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyVersion.stub(element) unless element.nil?
+          data << PolicyVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -8499,9 +8502,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8518,9 +8521,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['things'] = Stubs::ThingNameList.stub(stub[:things]) unless stub[:things].nil?
+        data['things'] = ThingNameList.stub(stub[:things]) unless stub[:things].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8557,9 +8560,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['versions'] = Stubs::ProvisioningTemplateVersionListing.stub(stub[:versions]) unless stub[:versions].nil?
+        data['versions'] = ProvisioningTemplateVersionListing.stub(stub[:versions]) unless stub[:versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8577,7 +8580,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningTemplateVersionSummary.stub(element) unless element.nil?
+          data << ProvisioningTemplateVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -8618,9 +8621,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['templates'] = Stubs::ProvisioningTemplateListing.stub(stub[:templates]) unless stub[:templates].nil?
+        data['templates'] = ProvisioningTemplateListing.stub(stub[:templates]) unless stub[:templates].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8638,7 +8641,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningTemplateSummary.stub(element) unless element.nil?
+          data << ProvisioningTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -8685,9 +8688,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['roleAliases'] = Stubs::RoleAliases.stub(stub[:role_aliases]) unless stub[:role_aliases].nil?
+        data['roleAliases'] = RoleAliases.stub(stub[:role_aliases]) unless stub[:role_aliases].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8724,9 +8727,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['scheduledAudits'] = Stubs::ScheduledAuditMetadataList.stub(stub[:scheduled_audits]) unless stub[:scheduled_audits].nil?
+        data['scheduledAudits'] = ScheduledAuditMetadataList.stub(stub[:scheduled_audits]) unless stub[:scheduled_audits].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8744,7 +8747,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduledAuditMetadata.stub(element) unless element.nil?
+          data << ScheduledAuditMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -8789,9 +8792,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['securityProfileIdentifiers'] = Stubs::SecurityProfileIdentifiers.stub(stub[:security_profile_identifiers]) unless stub[:security_profile_identifiers].nil?
+        data['securityProfileIdentifiers'] = SecurityProfileIdentifiers.stub(stub[:security_profile_identifiers]) unless stub[:security_profile_identifiers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8809,7 +8812,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityProfileIdentifier.stub(element) unless element.nil?
+          data << SecurityProfileIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -8848,9 +8851,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['securityProfileTargetMappings'] = Stubs::SecurityProfileTargetMappings.stub(stub[:security_profile_target_mappings]) unless stub[:security_profile_target_mappings].nil?
+        data['securityProfileTargetMappings'] = SecurityProfileTargetMappings.stub(stub[:security_profile_target_mappings]) unless stub[:security_profile_target_mappings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8868,7 +8871,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityProfileTargetMapping.stub(element) unless element.nil?
+          data << SecurityProfileTargetMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -8888,8 +8891,8 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::SecurityProfileTargetMapping.new
         data = {}
-        data['securityProfileIdentifier'] = Stubs::SecurityProfileIdentifier.stub(stub[:security_profile_identifier]) unless stub[:security_profile_identifier].nil?
-        data['target'] = Stubs::SecurityProfileTarget.stub(stub[:target]) unless stub[:target].nil?
+        data['securityProfileIdentifier'] = SecurityProfileIdentifier.stub(stub[:security_profile_identifier]) unless stub[:security_profile_identifier].nil?
+        data['target'] = SecurityProfileTarget.stub(stub[:target]) unless stub[:target].nil?
         data
       end
     end
@@ -8925,9 +8928,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streams'] = Stubs::StreamsSummary.stub(stub[:streams]) unless stub[:streams].nil?
+        data['streams'] = StreamsSummary.stub(stub[:streams]) unless stub[:streams].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8945,7 +8948,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamSummary.stub(element) unless element.nil?
+          data << StreamSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -8988,9 +8991,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9008,7 +9011,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -9047,9 +9050,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['targets'] = Stubs::PolicyTargets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['targets'] = PolicyTargets.stub(stub[:targets]) unless stub[:targets].nil?
         data['nextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9086,9 +9089,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['securityProfileTargets'] = Stubs::SecurityProfileTargets.stub(stub[:security_profile_targets]) unless stub[:security_profile_targets].nil?
+        data['securityProfileTargets'] = SecurityProfileTargets.stub(stub[:security_profile_targets]) unless stub[:security_profile_targets].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9106,7 +9109,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityProfileTarget.stub(element) unless element.nil?
+          data << SecurityProfileTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -9125,9 +9128,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['thingGroups'] = Stubs::ThingGroupNameAndArnList.stub(stub[:thing_groups]) unless stub[:thing_groups].nil?
+        data['thingGroups'] = ThingGroupNameAndArnList.stub(stub[:thing_groups]) unless stub[:thing_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9144,9 +9147,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['thingGroups'] = Stubs::ThingGroupNameAndArnList.stub(stub[:thing_groups]) unless stub[:thing_groups].nil?
+        data['thingGroups'] = ThingGroupNameAndArnList.stub(stub[:thing_groups]) unless stub[:thing_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9163,9 +9166,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['principals'] = Stubs::Principals.stub(stub[:principals]) unless stub[:principals].nil?
+        data['principals'] = Principals.stub(stub[:principals]) unless stub[:principals].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9183,10 +9186,10 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceLinks'] = Stubs::S3FileUrlList.stub(stub[:resource_links]) unless stub[:resource_links].nil?
+        data['resourceLinks'] = S3FileUrlList.stub(stub[:resource_links]) unless stub[:resource_links].nil?
         data['reportType'] = stub[:report_type] unless stub[:report_type].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9223,9 +9226,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['taskIds'] = Stubs::TaskIdList.stub(stub[:task_ids]) unless stub[:task_ids].nil?
+        data['taskIds'] = TaskIdList.stub(stub[:task_ids]) unless stub[:task_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9262,9 +9265,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['thingTypes'] = Stubs::ThingTypeList.stub(stub[:thing_types]) unless stub[:thing_types].nil?
+        data['thingTypes'] = ThingTypeList.stub(stub[:thing_types]) unless stub[:thing_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9282,7 +9285,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThingTypeDefinition.stub(element) unless element.nil?
+          data << ThingTypeDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -9306,8 +9309,8 @@ module AWS::SDK::IoT
         data = {}
         data['thingTypeName'] = stub[:thing_type_name] unless stub[:thing_type_name].nil?
         data['thingTypeArn'] = stub[:thing_type_arn] unless stub[:thing_type_arn].nil?
-        data['thingTypeProperties'] = Stubs::ThingTypeProperties.stub(stub[:thing_type_properties]) unless stub[:thing_type_properties].nil?
-        data['thingTypeMetadata'] = Stubs::ThingTypeMetadata.stub(stub[:thing_type_metadata]) unless stub[:thing_type_metadata].nil?
+        data['thingTypeProperties'] = ThingTypeProperties.stub(stub[:thing_type_properties]) unless stub[:thing_type_properties].nil?
+        data['thingTypeMetadata'] = ThingTypeMetadata.stub(stub[:thing_type_metadata]) unless stub[:thing_type_metadata].nil?
         data
       end
     end
@@ -9325,9 +9328,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['things'] = Stubs::ThingAttributeList.stub(stub[:things]) unless stub[:things].nil?
+        data['things'] = ThingAttributeList.stub(stub[:things]) unless stub[:things].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9345,7 +9348,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThingAttribute.stub(element) unless element.nil?
+          data << ThingAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -9371,7 +9374,7 @@ module AWS::SDK::IoT
         data['thingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['thingTypeName'] = stub[:thing_type_name] unless stub[:thing_type_name].nil?
         data['thingArn'] = stub[:thing_arn] unless stub[:thing_arn].nil?
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data
       end
@@ -9390,9 +9393,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['things'] = Stubs::ThingNameList.stub(stub[:things]) unless stub[:things].nil?
+        data['things'] = ThingNameList.stub(stub[:things]) unless stub[:things].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9409,9 +9412,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['things'] = Stubs::ThingNameList.stub(stub[:things]) unless stub[:things].nil?
+        data['things'] = ThingNameList.stub(stub[:things]) unless stub[:things].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9428,9 +9431,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['destinationSummaries'] = Stubs::TopicRuleDestinationSummaries.stub(stub[:destination_summaries]) unless stub[:destination_summaries].nil?
+        data['destinationSummaries'] = TopicRuleDestinationSummaries.stub(stub[:destination_summaries]) unless stub[:destination_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9448,7 +9451,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TopicRuleDestinationSummary.stub(element) unless element.nil?
+          data << TopicRuleDestinationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -9478,8 +9481,8 @@ module AWS::SDK::IoT
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['httpUrlSummary'] = Stubs::HttpUrlDestinationSummary.stub(stub[:http_url_summary]) unless stub[:http_url_summary].nil?
-        data['vpcDestinationSummary'] = Stubs::VpcDestinationSummary.stub(stub[:vpc_destination_summary]) unless stub[:vpc_destination_summary].nil?
+        data['httpUrlSummary'] = HttpUrlDestinationSummary.stub(stub[:http_url_summary]) unless stub[:http_url_summary].nil?
+        data['vpcDestinationSummary'] = VpcDestinationSummary.stub(stub[:vpc_destination_summary]) unless stub[:vpc_destination_summary].nil?
         data
       end
     end
@@ -9500,8 +9503,8 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::VpcDestinationSummary.new
         data = {}
-        data['subnetIds'] = Stubs::SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['securityGroups'] = Stubs::SecurityGroupList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['subnetIds'] = SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroups'] = SecurityGroupList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data
@@ -9539,9 +9542,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['rules'] = Stubs::TopicRuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['rules'] = TopicRuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9559,7 +9562,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TopicRuleListItem.stub(element) unless element.nil?
+          data << TopicRuleListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -9604,9 +9607,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['logTargetConfigurations'] = Stubs::LogTargetConfigurations.stub(stub[:log_target_configurations]) unless stub[:log_target_configurations].nil?
+        data['logTargetConfigurations'] = LogTargetConfigurations.stub(stub[:log_target_configurations]) unless stub[:log_target_configurations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9624,7 +9627,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogTargetConfiguration.stub(element) unless element.nil?
+          data << LogTargetConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -9644,7 +9647,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::LogTargetConfiguration.new
         data = {}
-        data['logTarget'] = Stubs::LogTarget.stub(stub[:log_target]) unless stub[:log_target].nil?
+        data['logTarget'] = LogTarget.stub(stub[:log_target]) unless stub[:log_target].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
         data
       end
@@ -9683,9 +9686,9 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['violationEvents'] = Stubs::ViolationEvents.stub(stub[:violation_events]) unless stub[:violation_events].nil?
+        data['violationEvents'] = ViolationEvents.stub(stub[:violation_events]) unless stub[:violation_events].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9703,7 +9706,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ViolationEvent.stub(element) unless element.nil?
+          data << ViolationEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -9734,9 +9737,9 @@ module AWS::SDK::IoT
         data['violationId'] = stub[:violation_id] unless stub[:violation_id].nil?
         data['thingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['securityProfileName'] = stub[:security_profile_name] unless stub[:security_profile_name].nil?
-        data['behavior'] = Stubs::Behavior.stub(stub[:behavior]) unless stub[:behavior].nil?
-        data['metricValue'] = Stubs::MetricValue.stub(stub[:metric_value]) unless stub[:metric_value].nil?
-        data['violationEventAdditionalInfo'] = Stubs::ViolationEventAdditionalInfo.stub(stub[:violation_event_additional_info]) unless stub[:violation_event_additional_info].nil?
+        data['behavior'] = Behavior.stub(stub[:behavior]) unless stub[:behavior].nil?
+        data['metricValue'] = MetricValue.stub(stub[:metric_value]) unless stub[:metric_value].nil?
+        data['violationEventAdditionalInfo'] = ViolationEventAdditionalInfo.stub(stub[:violation_event_additional_info]) unless stub[:violation_event_additional_info].nil?
         data['violationEventType'] = stub[:violation_event_type] unless stub[:violation_event_type].nil?
         data['verificationState'] = stub[:verification_state] unless stub[:verification_state].nil?
         data['verificationStateDescription'] = stub[:verification_state_description] unless stub[:verification_state_description].nil?
@@ -9773,7 +9776,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['certificateId'] = stub[:certificate_id] unless stub[:certificate_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9792,7 +9795,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['certificateId'] = stub[:certificate_id] unless stub[:certificate_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9811,7 +9814,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['certificateId'] = stub[:certificate_id] unless stub[:certificate_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9829,8 +9832,8 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['certificatePem'] = stub[:certificate_pem] unless stub[:certificate_pem].nil?
-        data['resourceArns'] = Stubs::ResourceArns.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceArns'] = ResourceArns.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9921,9 +9924,9 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['things'] = Stubs::ThingDocumentList.stub(stub[:things]) unless stub[:things].nil?
-        data['thingGroups'] = Stubs::ThingGroupDocumentList.stub(stub[:thing_groups]) unless stub[:thing_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['things'] = ThingDocumentList.stub(stub[:things]) unless stub[:things].nil?
+        data['thingGroups'] = ThingGroupDocumentList.stub(stub[:thing_groups]) unless stub[:thing_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -9941,7 +9944,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThingGroupDocument.stub(element) unless element.nil?
+          data << ThingGroupDocument.stub(element) unless element.nil?
         end
         data
       end
@@ -9967,8 +9970,8 @@ module AWS::SDK::IoT
         data['thingGroupName'] = stub[:thing_group_name] unless stub[:thing_group_name].nil?
         data['thingGroupId'] = stub[:thing_group_id] unless stub[:thing_group_id].nil?
         data['thingGroupDescription'] = stub[:thing_group_description] unless stub[:thing_group_description].nil?
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['parentGroupNames'] = Stubs::ThingGroupNameList.stub(stub[:parent_group_names]) unless stub[:parent_group_names].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['parentGroupNames'] = ThingGroupNameList.stub(stub[:parent_group_names]) unless stub[:parent_group_names].nil?
         data
       end
     end
@@ -10007,7 +10010,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThingDocument.stub(element) unless element.nil?
+          data << ThingDocument.stub(element) unless element.nil?
         end
         data
       end
@@ -10036,11 +10039,11 @@ module AWS::SDK::IoT
         data['thingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['thingId'] = stub[:thing_id] unless stub[:thing_id].nil?
         data['thingTypeName'] = stub[:thing_type_name] unless stub[:thing_type_name].nil?
-        data['thingGroupNames'] = Stubs::ThingGroupNameList.stub(stub[:thing_group_names]) unless stub[:thing_group_names].nil?
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['thingGroupNames'] = ThingGroupNameList.stub(stub[:thing_group_names]) unless stub[:thing_group_names].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['shadow'] = stub[:shadow] unless stub[:shadow].nil?
         data['deviceDefender'] = stub[:device_defender] unless stub[:device_defender].nil?
-        data['connectivity'] = Stubs::ThingConnectivity.stub(stub[:connectivity]) unless stub[:connectivity].nil?
+        data['connectivity'] = ThingConnectivity.stub(stub[:connectivity]) unless stub[:connectivity].nil?
         data
       end
     end
@@ -10082,7 +10085,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['authorizerName'] = stub[:authorizer_name] unless stub[:authorizer_name].nil?
         data['authorizerArn'] = stub[:authorizer_arn] unless stub[:authorizer_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10151,7 +10154,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10168,7 +10171,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10185,7 +10188,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10202,7 +10205,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10244,8 +10247,8 @@ module AWS::SDK::IoT
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['authResults'] = Stubs::AuthResults.stub(stub[:auth_results]) unless stub[:auth_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authResults'] = AuthResults.stub(stub[:auth_results]) unless stub[:auth_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10263,7 +10266,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuthResult.stub(element) unless element.nil?
+          data << AuthResult.stub(element) unless element.nil?
         end
         data
       end
@@ -10286,11 +10289,11 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::AuthResult.new
         data = {}
-        data['authInfo'] = Stubs::AuthInfo.stub(stub[:auth_info]) unless stub[:auth_info].nil?
-        data['allowed'] = Stubs::Allowed.stub(stub[:allowed]) unless stub[:allowed].nil?
-        data['denied'] = Stubs::Denied.stub(stub[:denied]) unless stub[:denied].nil?
+        data['authInfo'] = AuthInfo.stub(stub[:auth_info]) unless stub[:auth_info].nil?
+        data['allowed'] = Allowed.stub(stub[:allowed]) unless stub[:allowed].nil?
+        data['denied'] = Denied.stub(stub[:denied]) unless stub[:denied].nil?
         data['authDecision'] = stub[:auth_decision] unless stub[:auth_decision].nil?
-        data['missingContextValues'] = Stubs::MissingContextValues.stub(stub[:missing_context_values]) unless stub[:missing_context_values].nil?
+        data['missingContextValues'] = MissingContextValues.stub(stub[:missing_context_values]) unless stub[:missing_context_values].nil?
         data
       end
     end
@@ -10329,8 +10332,8 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::Denied.new
         data = {}
-        data['implicitDeny'] = Stubs::ImplicitDeny.stub(stub[:implicit_deny]) unless stub[:implicit_deny].nil?
-        data['explicitDeny'] = Stubs::ExplicitDeny.stub(stub[:explicit_deny]) unless stub[:explicit_deny].nil?
+        data['implicitDeny'] = ImplicitDeny.stub(stub[:implicit_deny]) unless stub[:implicit_deny].nil?
+        data['explicitDeny'] = ExplicitDeny.stub(stub[:explicit_deny]) unless stub[:explicit_deny].nil?
         data
       end
     end
@@ -10348,7 +10351,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::ExplicitDeny.new
         data = {}
-        data['policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data
       end
     end
@@ -10366,7 +10369,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::ImplicitDeny.new
         data = {}
-        data['policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data
       end
     end
@@ -10384,7 +10387,7 @@ module AWS::SDK::IoT
       def self.stub(stub)
         stub ||= Types::Allowed.new
         data = {}
-        data['policies'] = Stubs::Policies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['policies'] = Policies.stub(stub[:policies]) unless stub[:policies].nil?
         data
       end
     end
@@ -10404,7 +10407,7 @@ module AWS::SDK::IoT
         stub ||= Types::AuthInfo.new
         data = {}
         data['actionType'] = stub[:action_type] unless stub[:action_type].nil?
-        data['resources'] = Stubs::Resources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = Resources.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -10447,10 +10450,10 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['isAuthenticated'] = stub[:is_authenticated] unless stub[:is_authenticated].nil?
         data['principalId'] = stub[:principal_id] unless stub[:principal_id].nil?
-        data['policyDocuments'] = Stubs::PolicyDocuments.stub(stub[:policy_documents]) unless stub[:policy_documents].nil?
+        data['policyDocuments'] = PolicyDocuments.stub(stub[:policy_documents]) unless stub[:policy_documents].nil?
         data['refreshAfterInSeconds'] = stub[:refresh_after_in_seconds] unless stub[:refresh_after_in_seconds].nil?
         data['disconnectAfterInSeconds'] = stub[:disconnect_after_in_seconds] unless stub[:disconnect_after_in_seconds].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10487,7 +10490,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['transferredCertificateArn'] = stub[:transferred_certificate_arn] unless stub[:transferred_certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10545,7 +10548,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['authorizerName'] = stub[:authorizer_name] unless stub[:authorizer_name].nil?
         data['authorizerArn'] = stub[:authorizer_arn] unless stub[:authorizer_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10562,7 +10565,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10615,7 +10618,7 @@ module AWS::SDK::IoT
         data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10639,10 +10642,10 @@ module AWS::SDK::IoT
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['stringValues'] = Stubs::DimensionStringValues.stub(stub[:string_values]) unless stub[:string_values].nil?
+        data['stringValues'] = DimensionStringValues.stub(stub[:string_values]) unless stub[:string_values].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10661,7 +10664,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['domainConfigurationName'] = stub[:domain_configuration_name] unless stub[:domain_configuration_name].nil?
         data['domainConfigurationArn'] = stub[:domain_configuration_arn] unless stub[:domain_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10678,7 +10681,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10749,7 +10752,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['actionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
         data['actionId'] = stub[:action_id] unless stub[:action_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10781,7 +10784,7 @@ module AWS::SDK::IoT
         http_resp.headers['Content-Type'] = 'application/json'
         data['roleAlias'] = stub[:role_alias] unless stub[:role_alias].nil?
         data['roleAliasArn'] = stub[:role_alias_arn] unless stub[:role_alias_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10798,7 +10801,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['scheduledAuditArn'] = stub[:scheduled_audit_arn] unless stub[:scheduled_audit_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10826,14 +10829,14 @@ module AWS::SDK::IoT
         data['securityProfileName'] = stub[:security_profile_name] unless stub[:security_profile_name].nil?
         data['securityProfileArn'] = stub[:security_profile_arn] unless stub[:security_profile_arn].nil?
         data['securityProfileDescription'] = stub[:security_profile_description] unless stub[:security_profile_description].nil?
-        data['behaviors'] = Stubs::Behaviors.stub(stub[:behaviors]) unless stub[:behaviors].nil?
-        data['alertTargets'] = Stubs::AlertTargets.stub(stub[:alert_targets]) unless stub[:alert_targets].nil?
-        data['additionalMetricsToRetain'] = Stubs::AdditionalMetricsToRetainList.stub(stub[:additional_metrics_to_retain]) unless stub[:additional_metrics_to_retain].nil?
-        data['additionalMetricsToRetainV2'] = Stubs::AdditionalMetricsToRetainV2List.stub(stub[:additional_metrics_to_retain_v2]) unless stub[:additional_metrics_to_retain_v2].nil?
+        data['behaviors'] = Behaviors.stub(stub[:behaviors]) unless stub[:behaviors].nil?
+        data['alertTargets'] = AlertTargets.stub(stub[:alert_targets]) unless stub[:alert_targets].nil?
+        data['additionalMetricsToRetain'] = AdditionalMetricsToRetainList.stub(stub[:additional_metrics_to_retain]) unless stub[:additional_metrics_to_retain].nil?
+        data['additionalMetricsToRetainV2'] = AdditionalMetricsToRetainV2List.stub(stub[:additional_metrics_to_retain_v2]) unless stub[:additional_metrics_to_retain_v2].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10856,7 +10859,7 @@ module AWS::SDK::IoT
         data['streamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['streamVersion'] = stub[:stream_version] unless stub[:stream_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10886,7 +10889,7 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10930,8 +10933,8 @@ module AWS::SDK::IoT
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['valid'] = stub[:valid] unless stub[:valid].nil?
-        data['validationErrors'] = Stubs::ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['validationErrors'] = ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -10949,7 +10952,7 @@ module AWS::SDK::IoT
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidationError.stub(element) unless element.nil?
+          data << ValidationError.stub(element) unless element.nil?
         end
         data
       end

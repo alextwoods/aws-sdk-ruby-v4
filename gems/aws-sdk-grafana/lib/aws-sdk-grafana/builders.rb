@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Grafana
   module Builders
 
@@ -46,15 +48,15 @@ module AWS::SDK::Grafana
         data['organizationRoleName'] = input[:organization_role_name] unless input[:organization_role_name].nil?
         data['permissionType'] = input[:permission_type] unless input[:permission_type].nil?
         data['stackSetName'] = input[:stack_set_name] unless input[:stack_set_name].nil?
-        data['workspaceDataSources'] = Builders::DataSourceTypesList.build(input[:workspace_data_sources]) unless input[:workspace_data_sources].nil?
+        data['workspaceDataSources'] = DataSourceTypesList.build(input[:workspace_data_sources]) unless input[:workspace_data_sources].nil?
         data['workspaceDescription'] = input[:workspace_description] unless input[:workspace_description].nil?
         data['workspaceName'] = input[:workspace_name] unless input[:workspace_name].nil?
-        data['workspaceNotificationDestinations'] = Builders::NotificationDestinationsList.build(input[:workspace_notification_destinations]) unless input[:workspace_notification_destinations].nil?
-        data['workspaceOrganizationalUnits'] = Builders::OrganizationalUnitList.build(input[:workspace_organizational_units]) unless input[:workspace_organizational_units].nil?
+        data['workspaceNotificationDestinations'] = NotificationDestinationsList.build(input[:workspace_notification_destinations]) unless input[:workspace_notification_destinations].nil?
+        data['workspaceOrganizationalUnits'] = OrganizationalUnitList.build(input[:workspace_organizational_units]) unless input[:workspace_organizational_units].nil?
         data['workspaceRoleArn'] = input[:workspace_role_arn] unless input[:workspace_role_arn].nil?
-        data['authenticationProviders'] = Builders::AuthenticationProviders.build(input[:authentication_providers]) unless input[:authentication_providers].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authenticationProviders'] = AuthenticationProviders.build(input[:authentication_providers]) unless input[:authentication_providers].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,7 +135,7 @@ module AWS::SDK::Grafana
         data['keyName'] = input[:key_name] unless input[:key_name].nil?
         data['keyRole'] = input[:key_role] unless input[:key_role].nil?
         data['secondsToLive'] = input[:seconds_to_live] unless input[:seconds_to_live].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -298,8 +300,8 @@ module AWS::SDK::Grafana
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,8 +355,8 @@ module AWS::SDK::Grafana
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['updateInstructionBatch'] = Builders::UpdateInstructionBatch.build(input[:update_instruction_batch]) unless input[:update_instruction_batch].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['updateInstructionBatch'] = UpdateInstructionBatch.build(input[:update_instruction_batch]) unless input[:update_instruction_batch].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -363,7 +365,7 @@ module AWS::SDK::Grafana
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateInstruction.build(element) unless element.nil?
+          data << UpdateInstruction.build(element) unless element.nil?
         end
         data
       end
@@ -375,7 +377,7 @@ module AWS::SDK::Grafana
         data = {}
         data['action'] = input[:action] unless input[:action].nil?
         data['role'] = input[:role] unless input[:role].nil?
-        data['users'] = Builders::UserList.build(input[:users]) unless input[:users].nil?
+        data['users'] = UserList.build(input[:users]) unless input[:users].nil?
         data
       end
     end
@@ -385,7 +387,7 @@ module AWS::SDK::Grafana
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::User.build(element) unless element.nil?
+          data << User.build(element) unless element.nil?
         end
         data
       end
@@ -422,13 +424,13 @@ module AWS::SDK::Grafana
         data['organizationRoleName'] = input[:organization_role_name] unless input[:organization_role_name].nil?
         data['permissionType'] = input[:permission_type] unless input[:permission_type].nil?
         data['stackSetName'] = input[:stack_set_name] unless input[:stack_set_name].nil?
-        data['workspaceDataSources'] = Builders::DataSourceTypesList.build(input[:workspace_data_sources]) unless input[:workspace_data_sources].nil?
+        data['workspaceDataSources'] = DataSourceTypesList.build(input[:workspace_data_sources]) unless input[:workspace_data_sources].nil?
         data['workspaceDescription'] = input[:workspace_description] unless input[:workspace_description].nil?
         data['workspaceName'] = input[:workspace_name] unless input[:workspace_name].nil?
-        data['workspaceNotificationDestinations'] = Builders::NotificationDestinationsList.build(input[:workspace_notification_destinations]) unless input[:workspace_notification_destinations].nil?
-        data['workspaceOrganizationalUnits'] = Builders::OrganizationalUnitList.build(input[:workspace_organizational_units]) unless input[:workspace_organizational_units].nil?
+        data['workspaceNotificationDestinations'] = NotificationDestinationsList.build(input[:workspace_notification_destinations]) unless input[:workspace_notification_destinations].nil?
+        data['workspaceOrganizationalUnits'] = OrganizationalUnitList.build(input[:workspace_organizational_units]) unless input[:workspace_organizational_units].nil?
         data['workspaceRoleArn'] = input[:workspace_role_arn] unless input[:workspace_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -449,9 +451,9 @@ module AWS::SDK::Grafana
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['authenticationProviders'] = Builders::AuthenticationProviders.build(input[:authentication_providers]) unless input[:authentication_providers].nil?
-        data['samlConfiguration'] = Builders::SamlConfiguration.build(input[:saml_configuration]) unless input[:saml_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authenticationProviders'] = AuthenticationProviders.build(input[:authentication_providers]) unless input[:authentication_providers].nil?
+        data['samlConfiguration'] = SamlConfiguration.build(input[:saml_configuration]) unless input[:saml_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,10 +461,10 @@ module AWS::SDK::Grafana
     class SamlConfiguration
       def self.build(input)
         data = {}
-        data['idpMetadata'] = Builders::IdpMetadata.build(input[:idp_metadata]) unless input[:idp_metadata].nil?
-        data['assertionAttributes'] = Builders::AssertionAttributes.build(input[:assertion_attributes]) unless input[:assertion_attributes].nil?
-        data['roleValues'] = Builders::RoleValues.build(input[:role_values]) unless input[:role_values].nil?
-        data['allowedOrganizations'] = Builders::AllowedOrganizations.build(input[:allowed_organizations]) unless input[:allowed_organizations].nil?
+        data['idpMetadata'] = IdpMetadata.build(input[:idp_metadata]) unless input[:idp_metadata].nil?
+        data['assertionAttributes'] = AssertionAttributes.build(input[:assertion_attributes]) unless input[:assertion_attributes].nil?
+        data['roleValues'] = RoleValues.build(input[:role_values]) unless input[:role_values].nil?
+        data['allowedOrganizations'] = AllowedOrganizations.build(input[:allowed_organizations]) unless input[:allowed_organizations].nil?
         data['loginValidityDuration'] = input[:login_validity_duration] unless input[:login_validity_duration].nil?
         data
       end
@@ -483,8 +485,8 @@ module AWS::SDK::Grafana
     class RoleValues
       def self.build(input)
         data = {}
-        data['editor'] = Builders::RoleValueList.build(input[:editor]) unless input[:editor].nil?
-        data['admin'] = Builders::RoleValueList.build(input[:admin]) unless input[:admin].nil?
+        data['editor'] = RoleValueList.build(input[:editor]) unless input[:editor].nil?
+        data['admin'] = RoleValueList.build(input[:admin]) unless input[:admin].nil?
         data
       end
     end

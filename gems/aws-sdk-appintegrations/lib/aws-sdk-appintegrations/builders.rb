@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppIntegrations
   module Builders
 
@@ -24,10 +26,10 @@ module AWS::SDK::AppIntegrations
         data['Description'] = input[:description] unless input[:description].nil?
         data['KmsKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['SourceURI'] = input[:source_uri] unless input[:source_uri].nil?
-        data['ScheduleConfig'] = Builders::ScheduleConfiguration.build(input[:schedule_config]) unless input[:schedule_config].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['ScheduleConfig'] = ScheduleConfiguration.build(input[:schedule_config]) unless input[:schedule_config].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -65,11 +67,11 @@ module AWS::SDK::AppIntegrations
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['EventFilter'] = Builders::EventFilter.build(input[:event_filter]) unless input[:event_filter].nil?
+        data['EventFilter'] = EventFilter.build(input[:event_filter]) unless input[:event_filter].nil?
         data['EventBridgeBus'] = input[:event_bridge_bus] unless input[:event_bridge_bus].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -246,8 +248,8 @@ module AWS::SDK::AppIntegrations
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,7 +305,7 @@ module AWS::SDK::AppIntegrations
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,7 +327,7 @@ module AWS::SDK::AppIntegrations
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

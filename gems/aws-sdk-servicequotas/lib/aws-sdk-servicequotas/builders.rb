@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ServiceQuotas
   module Builders
 
@@ -18,7 +20,7 @@ module AWS::SDK::ServiceQuotas
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ServiceQuotasV20190624.AssociateServiceQuotaTemplate'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::ServiceQuotas
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['QuotaCode'] = input[:quota_code] unless input[:quota_code].nil?
         data['AwsRegion'] = input[:aws_region] unless input[:aws_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::ServiceQuotas
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ServiceQuotasV20190624.DisassociateServiceQuotaTemplate'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::ServiceQuotas
         data = {}
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['QuotaCode'] = input[:quota_code] unless input[:quota_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::ServiceQuotas
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ServiceQuotasV20190624.GetAssociationForServiceQuotaTemplate'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::ServiceQuotas
         http_req.headers['X-Amz-Target'] = 'ServiceQuotasV20190624.GetRequestedServiceQuotaChange'
         data = {}
         data['RequestId'] = input[:request_id] unless input[:request_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::ServiceQuotas
         data = {}
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['QuotaCode'] = input[:quota_code] unless input[:quota_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,7 +115,7 @@ module AWS::SDK::ServiceQuotas
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['QuotaCode'] = input[:quota_code] unless input[:quota_code].nil?
         data['AwsRegion'] = input[:aws_region] unless input[:aws_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,7 +130,7 @@ module AWS::SDK::ServiceQuotas
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -144,7 +146,7 @@ module AWS::SDK::ServiceQuotas
         data['Status'] = input[:status] unless input[:status].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::ServiceQuotas
         data['Status'] = input[:status] unless input[:status].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::ServiceQuotas
         data['AwsRegion'] = input[:aws_region] unless input[:aws_region].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,7 +194,7 @@ module AWS::SDK::ServiceQuotas
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,7 +208,7 @@ module AWS::SDK::ServiceQuotas
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::ServiceQuotas
         http_req.headers['X-Amz-Target'] = 'ServiceQuotasV20190624.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::ServiceQuotas
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['AwsRegion'] = input[:aws_region] unless input[:aws_region].nil?
         data['DesiredValue'] = Hearth::NumberHelper.serialize(input[:desired_value]) unless input[:desired_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::ServiceQuotas
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
         data['QuotaCode'] = input[:quota_code] unless input[:quota_code].nil?
         data['DesiredValue'] = Hearth::NumberHelper.serialize(input[:desired_value]) unless input[:desired_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -263,8 +265,8 @@ module AWS::SDK::ServiceQuotas
         http_req.headers['X-Amz-Target'] = 'ServiceQuotasV20190624.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::InputTags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = InputTags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::ServiceQuotas
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -298,8 +300,8 @@ module AWS::SDK::ServiceQuotas
         http_req.headers['X-Amz-Target'] = 'ServiceQuotasV20190624.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::InputTagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = InputTagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

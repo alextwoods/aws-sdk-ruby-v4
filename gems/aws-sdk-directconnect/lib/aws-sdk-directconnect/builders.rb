@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DirectConnect
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::DirectConnect
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
         data['proposalId'] = input[:proposal_id] unless input[:proposal_id].nil?
         data['associatedGatewayOwnerAccount'] = input[:associated_gateway_owner_account] unless input[:associated_gateway_owner_account].nil?
-        data['overrideAllowedPrefixesToDirectConnectGateway'] = Builders::RouteFilterPrefixList.build(input[:override_allowed_prefixes_to_direct_connect_gateway]) unless input[:override_allowed_prefixes_to_direct_connect_gateway].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['overrideAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.build(input[:override_allowed_prefixes_to_direct_connect_gateway]) unless input[:override_allowed_prefixes_to_direct_connect_gateway].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -31,7 +33,7 @@ module AWS::SDK::DirectConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RouteFilterPrefix.build(element) unless element.nil?
+          data << RouteFilterPrefix.build(element) unless element.nil?
         end
         data
       end
@@ -59,7 +61,7 @@ module AWS::SDK::DirectConnect
         data['ownerAccount'] = input[:owner_account] unless input[:owner_account].nil?
         data['interconnectId'] = input[:interconnect_id] unless input[:interconnect_id].nil?
         data['vlan'] = input[:vlan] unless input[:vlan].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,8 +78,8 @@ module AWS::SDK::DirectConnect
         data['bandwidth'] = input[:bandwidth] unless input[:bandwidth].nil?
         data['connectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['vlan'] = input[:vlan] unless input[:vlan].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::DirectConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -112,8 +114,8 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['ownerAccount'] = input[:owner_account] unless input[:owner_account].nil?
-        data['newPrivateVirtualInterfaceAllocation'] = Builders::NewPrivateVirtualInterfaceAllocation.build(input[:new_private_virtual_interface_allocation]) unless input[:new_private_virtual_interface_allocation].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['newPrivateVirtualInterfaceAllocation'] = NewPrivateVirtualInterfaceAllocation.build(input[:new_private_virtual_interface_allocation]) unless input[:new_private_virtual_interface_allocation].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,7 +131,7 @@ module AWS::SDK::DirectConnect
         data['amazonAddress'] = input[:amazon_address] unless input[:amazon_address].nil?
         data['addressFamily'] = input[:address_family] unless input[:address_family].nil?
         data['customerAddress'] = input[:customer_address] unless input[:customer_address].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -144,8 +146,8 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['ownerAccount'] = input[:owner_account] unless input[:owner_account].nil?
-        data['newPublicVirtualInterfaceAllocation'] = Builders::NewPublicVirtualInterfaceAllocation.build(input[:new_public_virtual_interface_allocation]) unless input[:new_public_virtual_interface_allocation].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['newPublicVirtualInterfaceAllocation'] = NewPublicVirtualInterfaceAllocation.build(input[:new_public_virtual_interface_allocation]) unless input[:new_public_virtual_interface_allocation].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,8 +162,8 @@ module AWS::SDK::DirectConnect
         data['amazonAddress'] = input[:amazon_address] unless input[:amazon_address].nil?
         data['customerAddress'] = input[:customer_address] unless input[:customer_address].nil?
         data['addressFamily'] = input[:address_family] unless input[:address_family].nil?
-        data['routeFilterPrefixes'] = Builders::RouteFilterPrefixList.build(input[:route_filter_prefixes]) unless input[:route_filter_prefixes].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.build(input[:route_filter_prefixes]) unless input[:route_filter_prefixes].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -176,8 +178,8 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['ownerAccount'] = input[:owner_account] unless input[:owner_account].nil?
-        data['newTransitVirtualInterfaceAllocation'] = Builders::NewTransitVirtualInterfaceAllocation.build(input[:new_transit_virtual_interface_allocation]) unless input[:new_transit_virtual_interface_allocation].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['newTransitVirtualInterfaceAllocation'] = NewTransitVirtualInterfaceAllocation.build(input[:new_transit_virtual_interface_allocation]) unless input[:new_transit_virtual_interface_allocation].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -193,7 +195,7 @@ module AWS::SDK::DirectConnect
         data['amazonAddress'] = input[:amazon_address] unless input[:amazon_address].nil?
         data['customerAddress'] = input[:customer_address] unless input[:customer_address].nil?
         data['addressFamily'] = input[:address_family] unless input[:address_family].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -208,7 +210,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['lagId'] = input[:lag_id] unless input[:lag_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['parentConnectionId'] = input[:parent_connection_id] unless input[:parent_connection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -238,7 +240,7 @@ module AWS::SDK::DirectConnect
         data['secretARN'] = input[:secret_arn] unless input[:secret_arn].nil?
         data['ckn'] = input[:ckn] unless input[:ckn].nil?
         data['cak'] = input[:cak] unless input[:cak].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -252,7 +254,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -265,7 +267,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.ConfirmConnection'
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -278,7 +280,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.ConfirmCustomerAgreement'
         data = {}
         data['agreementName'] = input[:agreement_name] unless input[:agreement_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -293,7 +295,7 @@ module AWS::SDK::DirectConnect
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
         data['virtualGatewayId'] = input[:virtual_gateway_id] unless input[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.ConfirmPublicVirtualInterface'
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -333,8 +335,8 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.CreateBGPPeer'
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
-        data['newBGPPeer'] = Builders::NewBGPPeer.build(input[:new_bgp_peer]) unless input[:new_bgp_peer].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['newBGPPeer'] = NewBGPPeer.build(input[:new_bgp_peer]) unless input[:new_bgp_peer].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -363,10 +365,10 @@ module AWS::SDK::DirectConnect
         data['bandwidth'] = input[:bandwidth] unless input[:bandwidth].nil?
         data['connectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['lagId'] = input[:lag_id] unless input[:lag_id].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['providerName'] = input[:provider_name] unless input[:provider_name].nil?
         data['requestMACSec'] = input[:request_mac_sec] unless input[:request_mac_sec].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['directConnectGatewayName'] = input[:direct_connect_gateway_name] unless input[:direct_connect_gateway_name].nil?
         data['amazonSideAsn'] = input[:amazon_side_asn] unless input[:amazon_side_asn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,9 +396,9 @@ module AWS::SDK::DirectConnect
         data = {}
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
         data['gatewayId'] = input[:gateway_id] unless input[:gateway_id].nil?
-        data['addAllowedPrefixesToDirectConnectGateway'] = Builders::RouteFilterPrefixList.build(input[:add_allowed_prefixes_to_direct_connect_gateway]) unless input[:add_allowed_prefixes_to_direct_connect_gateway].nil?
+        data['addAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.build(input[:add_allowed_prefixes_to_direct_connect_gateway]) unless input[:add_allowed_prefixes_to_direct_connect_gateway].nil?
         data['virtualGatewayId'] = input[:virtual_gateway_id] unless input[:virtual_gateway_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -411,9 +413,9 @@ module AWS::SDK::DirectConnect
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
         data['directConnectGatewayOwnerAccount'] = input[:direct_connect_gateway_owner_account] unless input[:direct_connect_gateway_owner_account].nil?
         data['gatewayId'] = input[:gateway_id] unless input[:gateway_id].nil?
-        data['addAllowedPrefixesToDirectConnectGateway'] = Builders::RouteFilterPrefixList.build(input[:add_allowed_prefixes_to_direct_connect_gateway]) unless input[:add_allowed_prefixes_to_direct_connect_gateway].nil?
-        data['removeAllowedPrefixesToDirectConnectGateway'] = Builders::RouteFilterPrefixList.build(input[:remove_allowed_prefixes_to_direct_connect_gateway]) unless input[:remove_allowed_prefixes_to_direct_connect_gateway].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['addAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.build(input[:add_allowed_prefixes_to_direct_connect_gateway]) unless input[:add_allowed_prefixes_to_direct_connect_gateway].nil?
+        data['removeAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.build(input[:remove_allowed_prefixes_to_direct_connect_gateway]) unless input[:remove_allowed_prefixes_to_direct_connect_gateway].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,9 +431,9 @@ module AWS::SDK::DirectConnect
         data['bandwidth'] = input[:bandwidth] unless input[:bandwidth].nil?
         data['location'] = input[:location] unless input[:location].nil?
         data['lagId'] = input[:lag_id] unless input[:lag_id].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['providerName'] = input[:provider_name] unless input[:provider_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,11 +450,11 @@ module AWS::SDK::DirectConnect
         data['connectionsBandwidth'] = input[:connections_bandwidth] unless input[:connections_bandwidth].nil?
         data['lagName'] = input[:lag_name] unless input[:lag_name].nil?
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['childConnectionTags'] = Builders::TagList.build(input[:child_connection_tags]) unless input[:child_connection_tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['childConnectionTags'] = TagList.build(input[:child_connection_tags]) unless input[:child_connection_tags].nil?
         data['providerName'] = input[:provider_name] unless input[:provider_name].nil?
         data['requestMACSec'] = input[:request_mac_sec] unless input[:request_mac_sec].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -465,8 +467,8 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.CreatePrivateVirtualInterface'
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        data['newPrivateVirtualInterface'] = Builders::NewPrivateVirtualInterface.build(input[:new_private_virtual_interface]) unless input[:new_private_virtual_interface].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['newPrivateVirtualInterface'] = NewPrivateVirtualInterface.build(input[:new_private_virtual_interface]) unless input[:new_private_virtual_interface].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -484,7 +486,7 @@ module AWS::SDK::DirectConnect
         data['addressFamily'] = input[:address_family] unless input[:address_family].nil?
         data['virtualGatewayId'] = input[:virtual_gateway_id] unless input[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['enableSiteLink'] = input[:enable_site_link] unless input[:enable_site_link].nil?
         data
       end
@@ -499,8 +501,8 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.CreatePublicVirtualInterface'
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        data['newPublicVirtualInterface'] = Builders::NewPublicVirtualInterface.build(input[:new_public_virtual_interface]) unless input[:new_public_virtual_interface].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['newPublicVirtualInterface'] = NewPublicVirtualInterface.build(input[:new_public_virtual_interface]) unless input[:new_public_virtual_interface].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -515,8 +517,8 @@ module AWS::SDK::DirectConnect
         data['amazonAddress'] = input[:amazon_address] unless input[:amazon_address].nil?
         data['customerAddress'] = input[:customer_address] unless input[:customer_address].nil?
         data['addressFamily'] = input[:address_family] unless input[:address_family].nil?
-        data['routeFilterPrefixes'] = Builders::RouteFilterPrefixList.build(input[:route_filter_prefixes]) unless input[:route_filter_prefixes].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.build(input[:route_filter_prefixes]) unless input[:route_filter_prefixes].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -530,8 +532,8 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.CreateTransitVirtualInterface'
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        data['newTransitVirtualInterface'] = Builders::NewTransitVirtualInterface.build(input[:new_transit_virtual_interface]) unless input[:new_transit_virtual_interface].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['newTransitVirtualInterface'] = NewTransitVirtualInterface.build(input[:new_transit_virtual_interface]) unless input[:new_transit_virtual_interface].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -548,7 +550,7 @@ module AWS::SDK::DirectConnect
         data['customerAddress'] = input[:customer_address] unless input[:customer_address].nil?
         data['addressFamily'] = input[:address_family] unless input[:address_family].nil?
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['enableSiteLink'] = input[:enable_site_link] unless input[:enable_site_link].nil?
         data
       end
@@ -566,7 +568,7 @@ module AWS::SDK::DirectConnect
         data['asn'] = input[:asn] unless input[:asn].nil?
         data['customerAddress'] = input[:customer_address] unless input[:customer_address].nil?
         data['bgpPeerId'] = input[:bgp_peer_id] unless input[:bgp_peer_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -579,7 +581,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DeleteConnection'
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -592,7 +594,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DeleteDirectConnectGateway'
         data = {}
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::DirectConnect
         data['associationId'] = input[:association_id] unless input[:association_id].nil?
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
         data['virtualGatewayId'] = input[:virtual_gateway_id] unless input[:virtual_gateway_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -620,7 +622,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DeleteDirectConnectGatewayAssociationProposal'
         data = {}
         data['proposalId'] = input[:proposal_id] unless input[:proposal_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DeleteInterconnect'
         data = {}
         data['interconnectId'] = input[:interconnect_id] unless input[:interconnect_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -646,7 +648,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DeleteLag'
         data = {}
         data['lagId'] = input[:lag_id] unless input[:lag_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -659,7 +661,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DeleteVirtualInterface'
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -674,7 +676,7 @@ module AWS::SDK::DirectConnect
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['providerName'] = input[:provider_name] unless input[:provider_name].nil?
         data['loaContentType'] = input[:loa_content_type] unless input[:loa_content_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,7 +689,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeConnections'
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -700,7 +702,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeConnectionsOnInterconnect'
         data = {}
         data['interconnectId'] = input[:interconnect_id] unless input[:interconnect_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -712,7 +714,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeCustomerMetadata'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -729,7 +731,7 @@ module AWS::SDK::DirectConnect
         data['associatedGatewayId'] = input[:associated_gateway_id] unless input[:associated_gateway_id].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::DirectConnect
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['virtualGatewayId'] = input[:virtual_gateway_id] unless input[:virtual_gateway_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -763,7 +765,7 @@ module AWS::SDK::DirectConnect
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -778,7 +780,7 @@ module AWS::SDK::DirectConnect
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -791,7 +793,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeHostedConnections'
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -806,7 +808,7 @@ module AWS::SDK::DirectConnect
         data['interconnectId'] = input[:interconnect_id] unless input[:interconnect_id].nil?
         data['providerName'] = input[:provider_name] unless input[:provider_name].nil?
         data['loaContentType'] = input[:loa_content_type] unless input[:loa_content_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -819,7 +821,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeInterconnects'
         data = {}
         data['interconnectId'] = input[:interconnect_id] unless input[:interconnect_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -832,7 +834,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeLags'
         data = {}
         data['lagId'] = input[:lag_id] unless input[:lag_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -847,7 +849,7 @@ module AWS::SDK::DirectConnect
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['providerName'] = input[:provider_name] unless input[:provider_name].nil?
         data['loaContentType'] = input[:loa_content_type] unless input[:loa_content_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -859,7 +861,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeLocations'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -873,7 +875,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
         data['routerTypeIdentifier'] = input[:router_type_identifier] unless input[:router_type_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -885,8 +887,8 @@ module AWS::SDK::DirectConnect
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeTags'
         data = {}
-        data['resourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -909,7 +911,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'OvertureService.DescribeVirtualGateways'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -923,7 +925,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -937,7 +939,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['lagId'] = input[:lag_id] unless input[:lag_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -951,7 +953,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['secretARN'] = input[:secret_arn] unless input[:secret_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -965,11 +967,11 @@ module AWS::SDK::DirectConnect
         data = {}
         data['testId'] = input[:test_id] unless input[:test_id].nil?
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
-        data['bgpPeers'] = Builders::BGPPeerIdList.build(input[:bgp_peers]) unless input[:bgp_peers].nil?
+        data['bgpPeers'] = BGPPeerIdList.build(input[:bgp_peers]) unless input[:bgp_peers].nil?
         data['status'] = input[:status] unless input[:status].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -993,9 +995,9 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.StartBgpFailoverTest'
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
-        data['bgpPeers'] = Builders::BGPPeerIdList.build(input[:bgp_peers]) unless input[:bgp_peers].nil?
+        data['bgpPeers'] = BGPPeerIdList.build(input[:bgp_peers]) unless input[:bgp_peers].nil?
         data['testDurationInMinutes'] = input[:test_duration_in_minutes] unless input[:test_duration_in_minutes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1008,7 +1010,7 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.StopBgpFailoverTest'
         data = {}
         data['virtualInterfaceId'] = input[:virtual_interface_id] unless input[:virtual_interface_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1021,8 +1023,8 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1035,8 +1037,8 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1062,7 +1064,7 @@ module AWS::SDK::DirectConnect
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['connectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['encryptionMode'] = input[:encryption_mode] unless input[:encryption_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1076,7 +1078,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['directConnectGatewayId'] = input[:direct_connect_gateway_id] unless input[:direct_connect_gateway_id].nil?
         data['newDirectConnectGatewayName'] = input[:new_direct_connect_gateway_name] unless input[:new_direct_connect_gateway_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1089,9 +1091,9 @@ module AWS::SDK::DirectConnect
         http_req.headers['X-Amz-Target'] = 'OvertureService.UpdateDirectConnectGatewayAssociation'
         data = {}
         data['associationId'] = input[:association_id] unless input[:association_id].nil?
-        data['addAllowedPrefixesToDirectConnectGateway'] = Builders::RouteFilterPrefixList.build(input[:add_allowed_prefixes_to_direct_connect_gateway]) unless input[:add_allowed_prefixes_to_direct_connect_gateway].nil?
-        data['removeAllowedPrefixesToDirectConnectGateway'] = Builders::RouteFilterPrefixList.build(input[:remove_allowed_prefixes_to_direct_connect_gateway]) unless input[:remove_allowed_prefixes_to_direct_connect_gateway].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['addAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.build(input[:add_allowed_prefixes_to_direct_connect_gateway]) unless input[:add_allowed_prefixes_to_direct_connect_gateway].nil?
+        data['removeAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.build(input[:remove_allowed_prefixes_to_direct_connect_gateway]) unless input[:remove_allowed_prefixes_to_direct_connect_gateway].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1107,7 +1109,7 @@ module AWS::SDK::DirectConnect
         data['lagName'] = input[:lag_name] unless input[:lag_name].nil?
         data['minimumLinks'] = input[:minimum_links] unless input[:minimum_links].nil?
         data['encryptionMode'] = input[:encryption_mode] unless input[:encryption_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1123,7 +1125,7 @@ module AWS::SDK::DirectConnect
         data['mtu'] = input[:mtu] unless input[:mtu].nil?
         data['enableSiteLink'] = input[:enable_site_link] unless input[:enable_site_link].nil?
         data['virtualInterfaceName'] = input[:virtual_interface_name] unless input[:virtual_interface_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::RoboMaker
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedWorlds'] = Stubs::Arns.stub(stub[:unprocessed_worlds]) unless stub[:unprocessed_worlds].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedWorlds'] = Arns.stub(stub[:unprocessed_worlds]) unless stub[:unprocessed_worlds].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,9 +62,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobs'] = Stubs::SimulationJobs.stub(stub[:jobs]) unless stub[:jobs].nil?
-        data['unprocessedJobs'] = Stubs::Arns.stub(stub[:unprocessed_jobs]) unless stub[:unprocessed_jobs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobs'] = SimulationJobs.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['unprocessedJobs'] = Arns.stub(stub[:unprocessed_jobs]) unless stub[:unprocessed_jobs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimulationJob.stub(element) unless element.nil?
+          data << SimulationJob.stub(element) unless element.nil?
         end
         data
       end
@@ -128,18 +130,18 @@ module AWS::SDK::RoboMaker
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['outputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
-        data['loggingConfig'] = Stubs::LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
+        data['outputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['loggingConfig'] = LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
         data['maxJobDurationInSeconds'] = stub[:max_job_duration_in_seconds] unless stub[:max_job_duration_in_seconds].nil?
         data['simulationTimeMillis'] = stub[:simulation_time_millis] unless stub[:simulation_time_millis].nil?
         data['iamRole'] = stub[:iam_role] unless stub[:iam_role].nil?
-        data['robotApplications'] = Stubs::RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
-        data['simulationApplications'] = Stubs::SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
-        data['dataSources'] = Stubs::DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpcConfig'] = Stubs::VPCConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['networkInterface'] = Stubs::NetworkInterface.stub(stub[:network_interface]) unless stub[:network_interface].nil?
-        data['compute'] = Stubs::ComputeResponse.stub(stub[:compute]) unless stub[:compute].nil?
+        data['robotApplications'] = RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
+        data['simulationApplications'] = SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
+        data['dataSources'] = DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpcConfig'] = VPCConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['networkInterface'] = NetworkInterface.stub(stub[:network_interface]) unless stub[:network_interface].nil?
+        data['compute'] = ComputeResponse.stub(stub[:compute]) unless stub[:compute].nil?
         data
       end
     end
@@ -204,8 +206,8 @@ module AWS::SDK::RoboMaker
       def self.stub(stub)
         stub ||= Types::VPCConfigResponse.new
         data = {}
-        data['subnets'] = Stubs::Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['securityGroups'] = Stubs::SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['subnets'] = Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['securityGroups'] = SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['assignPublicIp'] = stub[:assign_public_ip] unless stub[:assign_public_ip].nil?
         data
@@ -286,7 +288,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSource.stub(element) unless element.nil?
+          data << DataSource.stub(element) unless element.nil?
         end
         data
       end
@@ -311,7 +313,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['s3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
-        data['s3Keys'] = Stubs::S3KeyOutputs.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
+        data['s3Keys'] = S3KeyOutputs.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['destination'] = stub[:destination] unless stub[:destination].nil?
         data
@@ -332,7 +334,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3KeyOutput.stub(element) unless element.nil?
+          data << S3KeyOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -372,7 +374,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimulationApplicationConfig.stub(element) unless element.nil?
+          data << SimulationApplicationConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -400,11 +402,11 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = stub[:application] unless stub[:application].nil?
         data['applicationVersion'] = stub[:application_version] unless stub[:application_version].nil?
-        data['launchConfig'] = Stubs::LaunchConfig.stub(stub[:launch_config]) unless stub[:launch_config].nil?
-        data['uploadConfigurations'] = Stubs::UploadConfigurations.stub(stub[:upload_configurations]) unless stub[:upload_configurations].nil?
-        data['worldConfigs'] = Stubs::WorldConfigs.stub(stub[:world_configs]) unless stub[:world_configs].nil?
+        data['launchConfig'] = LaunchConfig.stub(stub[:launch_config]) unless stub[:launch_config].nil?
+        data['uploadConfigurations'] = UploadConfigurations.stub(stub[:upload_configurations]) unless stub[:upload_configurations].nil?
+        data['worldConfigs'] = WorldConfigs.stub(stub[:world_configs]) unless stub[:world_configs].nil?
         data['useDefaultUploadConfigurations'] = stub[:use_default_upload_configurations] unless stub[:use_default_upload_configurations].nil?
-        data['tools'] = Stubs::Tools.stub(stub[:tools]) unless stub[:tools].nil?
+        data['tools'] = Tools.stub(stub[:tools]) unless stub[:tools].nil?
         data['useDefaultTools'] = stub[:use_default_tools] unless stub[:use_default_tools].nil?
         data
       end
@@ -424,7 +426,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tool.stub(element) unless element.nil?
+          data << Tool.stub(element) unless element.nil?
         end
         data
       end
@@ -470,7 +472,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorldConfig.stub(element) unless element.nil?
+          data << WorldConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -508,7 +510,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UploadConfiguration.stub(element) unless element.nil?
+          data << UploadConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -556,10 +558,10 @@ module AWS::SDK::RoboMaker
         data = {}
         data['packageName'] = stub[:package_name] unless stub[:package_name].nil?
         data['launchFile'] = stub[:launch_file] unless stub[:launch_file].nil?
-        data['environmentVariables'] = Stubs::EnvironmentVariableMap.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
-        data['portForwardingConfig'] = Stubs::PortForwardingConfig.stub(stub[:port_forwarding_config]) unless stub[:port_forwarding_config].nil?
+        data['environmentVariables'] = EnvironmentVariableMap.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
+        data['portForwardingConfig'] = PortForwardingConfig.stub(stub[:port_forwarding_config]) unless stub[:port_forwarding_config].nil?
         data['streamUI'] = stub[:stream_ui] unless stub[:stream_ui].nil?
-        data['command'] = Stubs::CommandList.stub(stub[:command]) unless stub[:command].nil?
+        data['command'] = CommandList.stub(stub[:command]) unless stub[:command].nil?
         data
       end
     end
@@ -597,7 +599,7 @@ module AWS::SDK::RoboMaker
       def self.stub(stub)
         stub ||= Types::PortForwardingConfig.new
         data = {}
-        data['portMappings'] = Stubs::PortMappingList.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
+        data['portMappings'] = PortMappingList.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
         data
       end
     end
@@ -616,7 +618,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortMapping.stub(element) unless element.nil?
+          data << PortMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -678,7 +680,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RobotApplicationConfig.stub(element) unless element.nil?
+          data << RobotApplicationConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -705,10 +707,10 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = stub[:application] unless stub[:application].nil?
         data['applicationVersion'] = stub[:application_version] unless stub[:application_version].nil?
-        data['launchConfig'] = Stubs::LaunchConfig.stub(stub[:launch_config]) unless stub[:launch_config].nil?
-        data['uploadConfigurations'] = Stubs::UploadConfigurations.stub(stub[:upload_configurations]) unless stub[:upload_configurations].nil?
+        data['launchConfig'] = LaunchConfig.stub(stub[:launch_config]) unless stub[:launch_config].nil?
+        data['uploadConfigurations'] = UploadConfigurations.stub(stub[:upload_configurations]) unless stub[:upload_configurations].nil?
         data['useDefaultUploadConfigurations'] = stub[:use_default_upload_configurations] unless stub[:use_default_upload_configurations].nil?
-        data['tools'] = Stubs::Tools.stub(stub[:tools]) unless stub[:tools].nil?
+        data['tools'] = Tools.stub(stub[:tools]) unless stub[:tools].nil?
         data['useDefaultTools'] = stub[:use_default_tools] unless stub[:use_default_tools].nil?
         data
       end
@@ -840,13 +842,13 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['fleet'] = stub[:fleet] unless stub[:fleet].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['deploymentApplicationConfigs'] = Stubs::DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
+        data['deploymentApplicationConfigs'] = DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['deploymentConfig'] = Stubs::DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentConfig'] = DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -869,7 +871,7 @@ module AWS::SDK::RoboMaker
         data['concurrentDeploymentPercentage'] = stub[:concurrent_deployment_percentage] unless stub[:concurrent_deployment_percentage].nil?
         data['failureThresholdPercentage'] = stub[:failure_threshold_percentage] unless stub[:failure_threshold_percentage].nil?
         data['robotDeploymentTimeoutInSeconds'] = stub[:robot_deployment_timeout_in_seconds] unless stub[:robot_deployment_timeout_in_seconds].nil?
-        data['downloadConditionFile'] = Stubs::S3Object.stub(stub[:download_condition_file]) unless stub[:download_condition_file].nil?
+        data['downloadConditionFile'] = S3Object.stub(stub[:download_condition_file]) unless stub[:download_condition_file].nil?
         data
       end
     end
@@ -910,7 +912,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentApplicationConfig.stub(element) unless element.nil?
+          data << DeploymentApplicationConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -933,7 +935,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = stub[:application] unless stub[:application].nil?
         data['applicationVersion'] = stub[:application_version] unless stub[:application_version].nil?
-        data['launchConfig'] = Stubs::DeploymentLaunchConfig.stub(stub[:launch_config]) unless stub[:launch_config].nil?
+        data['launchConfig'] = DeploymentLaunchConfig.stub(stub[:launch_config]) unless stub[:launch_config].nil?
         data
       end
     end
@@ -959,7 +961,7 @@ module AWS::SDK::RoboMaker
         data['preLaunchFile'] = stub[:pre_launch_file] unless stub[:pre_launch_file].nil?
         data['launchFile'] = stub[:launch_file] unless stub[:launch_file].nil?
         data['postLaunchFile'] = stub[:post_launch_file] unless stub[:post_launch_file].nil?
-        data['environmentVariables'] = Stubs::EnvironmentVariableMap.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariableMap.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
         data
       end
     end
@@ -982,8 +984,8 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1009,8 +1011,8 @@ module AWS::SDK::RoboMaker
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['greengrassGroupId'] = stub[:greengrass_group_id] unless stub[:greengrass_group_id].nil?
         data['architecture'] = stub[:architecture] unless stub[:architecture].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1037,13 +1039,13 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1099,7 +1101,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Source.stub(element) unless element.nil?
+          data << Source.stub(element) unless element.nil?
         end
         data
       end
@@ -1151,12 +1153,12 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1185,15 +1187,15 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['simulationSoftwareSuite'] = Stubs::SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
-        data['renderingEngine'] = Stubs::RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['simulationSoftwareSuite'] = SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['renderingEngine'] = RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1261,14 +1263,14 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['simulationSoftwareSuite'] = Stubs::SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
-        data['renderingEngine'] = Stubs::RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['simulationSoftwareSuite'] = SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['renderingEngine'] = RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1308,18 +1310,18 @@ module AWS::SDK::RoboMaker
         data['failureBehavior'] = stub[:failure_behavior] unless stub[:failure_behavior].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['outputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
-        data['loggingConfig'] = Stubs::LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
+        data['outputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['loggingConfig'] = LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
         data['maxJobDurationInSeconds'] = stub[:max_job_duration_in_seconds] unless stub[:max_job_duration_in_seconds].nil?
         data['simulationTimeMillis'] = stub[:simulation_time_millis] unless stub[:simulation_time_millis].nil?
         data['iamRole'] = stub[:iam_role] unless stub[:iam_role].nil?
-        data['robotApplications'] = Stubs::RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
-        data['simulationApplications'] = Stubs::SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
-        data['dataSources'] = Stubs::DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpcConfig'] = Stubs::VPCConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['compute'] = Stubs::ComputeResponse.stub(stub[:compute]) unless stub[:compute].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['robotApplications'] = RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
+        data['simulationApplications'] = SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
+        data['dataSources'] = DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpcConfig'] = VPCConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['compute'] = ComputeResponse.stub(stub[:compute]) unless stub[:compute].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1347,10 +1349,10 @@ module AWS::SDK::RoboMaker
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['outputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['outputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
         data['iamRole'] = stub[:iam_role] unless stub[:iam_role].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1380,10 +1382,10 @@ module AWS::SDK::RoboMaker
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
         data['template'] = stub[:template] unless stub[:template].nil?
-        data['worldCount'] = Stubs::WorldCount.stub(stub[:world_count]) unless stub[:world_count].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['worldTags'] = Stubs::TagMap.stub(stub[:world_tags]) unless stub[:world_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['worldCount'] = WorldCount.stub(stub[:world_count]) unless stub[:world_count].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['worldTags'] = TagMap.stub(stub[:world_tags]) unless stub[:world_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1427,8 +1429,8 @@ module AWS::SDK::RoboMaker
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1512,7 +1514,7 @@ module AWS::SDK::RoboMaker
         http_resp.headers['Content-Type'] = 'application/json'
         data['fleet'] = stub[:fleet] unless stub[:fleet].nil?
         data['robot'] = stub[:robot] unless stub[:robot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1540,14 +1542,14 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['fleet'] = stub[:fleet] unless stub[:fleet].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['deploymentConfig'] = Stubs::DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
-        data['deploymentApplicationConfigs'] = Stubs::DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
+        data['deploymentConfig'] = DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
+        data['deploymentApplicationConfigs'] = DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['robotDeploymentSummary'] = Stubs::RobotDeploymentSummary.stub(stub[:robot_deployment_summary]) unless stub[:robot_deployment_summary].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['robotDeploymentSummary'] = RobotDeploymentSummary.stub(stub[:robot_deployment_summary]) unless stub[:robot_deployment_summary].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1565,7 +1567,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RobotDeployment.stub(element) unless element.nil?
+          data << RobotDeployment.stub(element) unless element.nil?
         end
         data
       end
@@ -1594,7 +1596,7 @@ module AWS::SDK::RoboMaker
         data['deploymentStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deployment_start_time]).to_i unless stub[:deployment_start_time].nil?
         data['deploymentFinishTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deployment_finish_time]).to_i unless stub[:deployment_finish_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['progressDetail'] = Stubs::ProgressDetail.stub(stub[:progress_detail]) unless stub[:progress_detail].nil?
+        data['progressDetail'] = ProgressDetail.stub(stub[:progress_detail]) unless stub[:progress_detail].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data
@@ -1646,13 +1648,13 @@ module AWS::SDK::RoboMaker
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['robots'] = Stubs::Robots.stub(stub[:robots]) unless stub[:robots].nil?
+        data['robots'] = Robots.stub(stub[:robots]) unless stub[:robots].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastDeploymentStatus'] = stub[:last_deployment_status] unless stub[:last_deployment_status].nil?
         data['lastDeploymentJob'] = stub[:last_deployment_job] unless stub[:last_deployment_job].nil?
         data['lastDeploymentTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_deployment_time]).to_i unless stub[:last_deployment_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1670,7 +1672,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Robot.stub(element) unless element.nil?
+          data << Robot.stub(element) unless element.nil?
         end
         data
       end
@@ -1740,8 +1742,8 @@ module AWS::SDK::RoboMaker
         data['architecture'] = stub[:architecture] unless stub[:architecture].nil?
         data['lastDeploymentJob'] = stub[:last_deployment_job] unless stub[:last_deployment_job].nil?
         data['lastDeploymentTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_deployment_time]).to_i unless stub[:last_deployment_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1769,14 +1771,14 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
         data['imageDigest'] = stub[:image_digest] unless stub[:image_digest].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1806,16 +1808,16 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['simulationSoftwareSuite'] = Stubs::SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
-        data['renderingEngine'] = Stubs::RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['simulationSoftwareSuite'] = SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['renderingEngine'] = RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
         data['imageDigest'] = stub[:image_digest] unless stub[:image_digest].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1860,19 +1862,19 @@ module AWS::SDK::RoboMaker
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['outputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
-        data['loggingConfig'] = Stubs::LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
+        data['outputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['loggingConfig'] = LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
         data['maxJobDurationInSeconds'] = stub[:max_job_duration_in_seconds] unless stub[:max_job_duration_in_seconds].nil?
         data['simulationTimeMillis'] = stub[:simulation_time_millis] unless stub[:simulation_time_millis].nil?
         data['iamRole'] = stub[:iam_role] unless stub[:iam_role].nil?
-        data['robotApplications'] = Stubs::RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
-        data['simulationApplications'] = Stubs::SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
-        data['dataSources'] = Stubs::DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpcConfig'] = Stubs::VPCConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['networkInterface'] = Stubs::NetworkInterface.stub(stub[:network_interface]) unless stub[:network_interface].nil?
-        data['compute'] = Stubs::ComputeResponse.stub(stub[:compute]) unless stub[:compute].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['robotApplications'] = RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
+        data['simulationApplications'] = SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
+        data['dataSources'] = DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpcConfig'] = VPCConfigResponse.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['networkInterface'] = NetworkInterface.stub(stub[:network_interface]) unless stub[:network_interface].nil?
+        data['compute'] = ComputeResponse.stub(stub[:compute]) unless stub[:compute].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1904,14 +1906,14 @@ module AWS::SDK::RoboMaker
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['batchPolicy'] = Stubs::BatchPolicy.stub(stub[:batch_policy]) unless stub[:batch_policy].nil?
+        data['batchPolicy'] = BatchPolicy.stub(stub[:batch_policy]) unless stub[:batch_policy].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['failedRequests'] = Stubs::FailedCreateSimulationJobRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        data['pendingRequests'] = Stubs::CreateSimulationJobRequests.stub(stub[:pending_requests]) unless stub[:pending_requests].nil?
-        data['createdRequests'] = Stubs::SimulationJobSummaries.stub(stub[:created_requests]) unless stub[:created_requests].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedRequests'] = FailedCreateSimulationJobRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        data['pendingRequests'] = CreateSimulationJobRequests.stub(stub[:pending_requests]) unless stub[:pending_requests].nil?
+        data['createdRequests'] = SimulationJobSummaries.stub(stub[:created_requests]) unless stub[:created_requests].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1929,7 +1931,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimulationJobSummary.stub(element) unless element.nil?
+          data << SimulationJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1959,9 +1961,9 @@ module AWS::SDK::RoboMaker
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['simulationApplicationNames'] = Stubs::SimulationApplicationNames.stub(stub[:simulation_application_names]) unless stub[:simulation_application_names].nil?
-        data['robotApplicationNames'] = Stubs::RobotApplicationNames.stub(stub[:robot_application_names]) unless stub[:robot_application_names].nil?
-        data['dataSourceNames'] = Stubs::DataSourceNames.stub(stub[:data_source_names]) unless stub[:data_source_names].nil?
+        data['simulationApplicationNames'] = SimulationApplicationNames.stub(stub[:simulation_application_names]) unless stub[:simulation_application_names].nil?
+        data['robotApplicationNames'] = RobotApplicationNames.stub(stub[:robot_application_names]) unless stub[:robot_application_names].nil?
+        data['dataSourceNames'] = DataSourceNames.stub(stub[:data_source_names]) unless stub[:data_source_names].nil?
         data['computeType'] = stub[:compute_type] unless stub[:compute_type].nil?
         data
       end
@@ -2041,7 +2043,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimulationJobRequest.stub(element) unless element.nil?
+          data << SimulationJobRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2071,18 +2073,18 @@ module AWS::SDK::RoboMaker
       def self.stub(stub)
         stub ||= Types::SimulationJobRequest.new
         data = {}
-        data['outputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
-        data['loggingConfig'] = Stubs::LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
+        data['outputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['loggingConfig'] = LoggingConfig.stub(stub[:logging_config]) unless stub[:logging_config].nil?
         data['maxJobDurationInSeconds'] = stub[:max_job_duration_in_seconds] unless stub[:max_job_duration_in_seconds].nil?
         data['iamRole'] = stub[:iam_role] unless stub[:iam_role].nil?
         data['failureBehavior'] = stub[:failure_behavior] unless stub[:failure_behavior].nil?
         data['useDefaultApplications'] = stub[:use_default_applications] unless stub[:use_default_applications].nil?
-        data['robotApplications'] = Stubs::RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
-        data['simulationApplications'] = Stubs::SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
-        data['dataSources'] = Stubs::DataSourceConfigs.stub(stub[:data_sources]) unless stub[:data_sources].nil?
-        data['vpcConfig'] = Stubs::VPCConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['compute'] = Stubs::Compute.stub(stub[:compute]) unless stub[:compute].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['robotApplications'] = RobotApplicationConfigs.stub(stub[:robot_applications]) unless stub[:robot_applications].nil?
+        data['simulationApplications'] = SimulationApplicationConfigs.stub(stub[:simulation_applications]) unless stub[:simulation_applications].nil?
+        data['dataSources'] = DataSourceConfigs.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['vpcConfig'] = VPCConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['compute'] = Compute.stub(stub[:compute]) unless stub[:compute].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2124,8 +2126,8 @@ module AWS::SDK::RoboMaker
       def self.stub(stub)
         stub ||= Types::VPCConfig.new
         data = {}
-        data['subnets'] = Stubs::Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['securityGroups'] = Stubs::SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['subnets'] = Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['securityGroups'] = SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['assignPublicIp'] = stub[:assign_public_ip] unless stub[:assign_public_ip].nil?
         data
       end
@@ -2145,7 +2147,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSourceConfig.stub(element) unless element.nil?
+          data << DataSourceConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -2170,7 +2172,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['s3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
-        data['s3Keys'] = Stubs::S3KeysOrPrefixes.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
+        data['s3Keys'] = S3KeysOrPrefixes.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['destination'] = stub[:destination] unless stub[:destination].nil?
         data
@@ -2211,7 +2213,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedCreateSimulationJobRequest.stub(element) unless element.nil?
+          data << FailedCreateSimulationJobRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2233,7 +2235,7 @@ module AWS::SDK::RoboMaker
       def self.stub(stub)
         stub ||= Types::FailedCreateSimulationJobRequest.new
         data = {}
-        data['request'] = Stubs::SimulationJobRequest.stub(stub[:request]) unless stub[:request].nil?
+        data['request'] = SimulationJobRequest.stub(stub[:request]) unless stub[:request].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:failed_at]).to_i unless stub[:failed_at].nil?
@@ -2282,9 +2284,9 @@ module AWS::SDK::RoboMaker
         data['generationJob'] = stub[:generation_job] unless stub[:generation_job].nil?
         data['template'] = stub[:template] unless stub[:template].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['worldDescriptionBody'] = stub[:world_description_body] unless stub[:world_description_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2315,11 +2317,11 @@ module AWS::SDK::RoboMaker
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['worlds'] = Stubs::Arns.stub(stub[:worlds]) unless stub[:worlds].nil?
-        data['outputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['worlds'] = Arns.stub(stub[:worlds]) unless stub[:worlds].nil?
+        data['outputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
         data['iamRole'] = stub[:iam_role] unless stub[:iam_role].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2352,11 +2354,11 @@ module AWS::SDK::RoboMaker
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
         data['template'] = stub[:template] unless stub[:template].nil?
-        data['worldCount'] = Stubs::WorldCount.stub(stub[:world_count]) unless stub[:world_count].nil?
-        data['finishedWorldsSummary'] = Stubs::FinishedWorldsSummary.stub(stub[:finished_worlds_summary]) unless stub[:finished_worlds_summary].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['worldTags'] = Stubs::TagMap.stub(stub[:world_tags]) unless stub[:world_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['worldCount'] = WorldCount.stub(stub[:world_count]) unless stub[:world_count].nil?
+        data['finishedWorldsSummary'] = FinishedWorldsSummary.stub(stub[:finished_worlds_summary]) unless stub[:finished_worlds_summary].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['worldTags'] = TagMap.stub(stub[:world_tags]) unless stub[:world_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2376,8 +2378,8 @@ module AWS::SDK::RoboMaker
         stub ||= Types::FinishedWorldsSummary.new
         data = {}
         data['finishedCount'] = stub[:finished_count] unless stub[:finished_count].nil?
-        data['succeededWorlds'] = Stubs::Arns.stub(stub[:succeeded_worlds]) unless stub[:succeeded_worlds].nil?
-        data['failureSummary'] = Stubs::FailureSummary.stub(stub[:failure_summary]) unless stub[:failure_summary].nil?
+        data['succeededWorlds'] = Arns.stub(stub[:succeeded_worlds]) unless stub[:succeeded_worlds].nil?
+        data['failureSummary'] = FailureSummary.stub(stub[:failure_summary]) unless stub[:failure_summary].nil?
         data
       end
     end
@@ -2397,7 +2399,7 @@ module AWS::SDK::RoboMaker
         stub ||= Types::FailureSummary.new
         data = {}
         data['totalFailureCount'] = stub[:total_failure_count] unless stub[:total_failure_count].nil?
-        data['failures'] = Stubs::WorldFailures.stub(stub[:failures]) unless stub[:failures].nil?
+        data['failures'] = WorldFailures.stub(stub[:failures]) unless stub[:failures].nil?
         data
       end
     end
@@ -2416,7 +2418,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorldFailure.stub(element) unless element.nil?
+          data << WorldFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -2467,9 +2469,9 @@ module AWS::SDK::RoboMaker
         data['name'] = stub[:name] unless stub[:name].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2486,7 +2488,7 @@ module AWS::SDK::RoboMaker
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['templateBody'] = stub[:template_body] unless stub[:template_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2503,9 +2505,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['deploymentJobs'] = Stubs::DeploymentJobs.stub(stub[:deployment_jobs]) unless stub[:deployment_jobs].nil?
+        data['deploymentJobs'] = DeploymentJobs.stub(stub[:deployment_jobs]) unless stub[:deployment_jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2523,7 +2525,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentJob.stub(element) unless element.nil?
+          data << DeploymentJob.stub(element) unless element.nil?
         end
         data
       end
@@ -2552,8 +2554,8 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['fleet'] = stub[:fleet] unless stub[:fleet].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['deploymentApplicationConfigs'] = Stubs::DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
-        data['deploymentConfig'] = Stubs::DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
+        data['deploymentApplicationConfigs'] = DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
+        data['deploymentConfig'] = DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
@@ -2574,9 +2576,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['fleetDetails'] = Stubs::Fleets.stub(stub[:fleet_details]) unless stub[:fleet_details].nil?
+        data['fleetDetails'] = Fleets.stub(stub[:fleet_details]) unless stub[:fleet_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2594,7 +2596,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Fleet.stub(element) unless element.nil?
+          data << Fleet.stub(element) unless element.nil?
         end
         data
       end
@@ -2641,9 +2643,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['robotApplicationSummaries'] = Stubs::RobotApplicationSummaries.stub(stub[:robot_application_summaries]) unless stub[:robot_application_summaries].nil?
+        data['robotApplicationSummaries'] = RobotApplicationSummaries.stub(stub[:robot_application_summaries]) unless stub[:robot_application_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2661,7 +2663,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RobotApplicationSummary.stub(element) unless element.nil?
+          data << RobotApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2688,7 +2690,7 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
         data
       end
     end
@@ -2706,9 +2708,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['robots'] = Stubs::Robots.stub(stub[:robots]) unless stub[:robots].nil?
+        data['robots'] = Robots.stub(stub[:robots]) unless stub[:robots].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2725,9 +2727,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['simulationApplicationSummaries'] = Stubs::SimulationApplicationSummaries.stub(stub[:simulation_application_summaries]) unless stub[:simulation_application_summaries].nil?
+        data['simulationApplicationSummaries'] = SimulationApplicationSummaries.stub(stub[:simulation_application_summaries]) unless stub[:simulation_application_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2745,7 +2747,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimulationApplicationSummary.stub(element) unless element.nil?
+          data << SimulationApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2773,8 +2775,8 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
-        data['simulationSoftwareSuite'] = Stubs::SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['simulationSoftwareSuite'] = SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
         data
       end
     end
@@ -2792,9 +2794,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['simulationJobBatchSummaries'] = Stubs::SimulationJobBatchSummaries.stub(stub[:simulation_job_batch_summaries]) unless stub[:simulation_job_batch_summaries].nil?
+        data['simulationJobBatchSummaries'] = SimulationJobBatchSummaries.stub(stub[:simulation_job_batch_summaries]) unless stub[:simulation_job_batch_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2812,7 +2814,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimulationJobBatchSummary.stub(element) unless element.nil?
+          data << SimulationJobBatchSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2861,9 +2863,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['simulationJobSummaries'] = Stubs::SimulationJobSummaries.stub(stub[:simulation_job_summaries]) unless stub[:simulation_job_summaries].nil?
+        data['simulationJobSummaries'] = SimulationJobSummaries.stub(stub[:simulation_job_summaries]) unless stub[:simulation_job_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2879,8 +2881,8 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2897,9 +2899,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['worldExportJobSummaries'] = Stubs::WorldExportJobSummaries.stub(stub[:world_export_job_summaries]) unless stub[:world_export_job_summaries].nil?
+        data['worldExportJobSummaries'] = WorldExportJobSummaries.stub(stub[:world_export_job_summaries]) unless stub[:world_export_job_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2917,7 +2919,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorldExportJobSummary.stub(element) unless element.nil?
+          data << WorldExportJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2943,8 +2945,8 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['worlds'] = Stubs::Arns.stub(stub[:worlds]) unless stub[:worlds].nil?
-        data['outputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['worlds'] = Arns.stub(stub[:worlds]) unless stub[:worlds].nil?
+        data['outputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
         data
       end
     end
@@ -2962,9 +2964,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['worldGenerationJobSummaries'] = Stubs::WorldGenerationJobSummaries.stub(stub[:world_generation_job_summaries]) unless stub[:world_generation_job_summaries].nil?
+        data['worldGenerationJobSummaries'] = WorldGenerationJobSummaries.stub(stub[:world_generation_job_summaries]) unless stub[:world_generation_job_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2982,7 +2984,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorldGenerationJobSummary.stub(element) unless element.nil?
+          data << WorldGenerationJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3011,7 +3013,7 @@ module AWS::SDK::RoboMaker
         data['template'] = stub[:template] unless stub[:template].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['worldCount'] = Stubs::WorldCount.stub(stub[:world_count]) unless stub[:world_count].nil?
+        data['worldCount'] = WorldCount.stub(stub[:world_count]) unless stub[:world_count].nil?
         data['succeededWorldCount'] = stub[:succeeded_world_count] unless stub[:succeeded_world_count].nil?
         data['failedWorldCount'] = stub[:failed_world_count] unless stub[:failed_world_count].nil?
         data
@@ -3031,9 +3033,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['templateSummaries'] = Stubs::TemplateSummaries.stub(stub[:template_summaries]) unless stub[:template_summaries].nil?
+        data['templateSummaries'] = TemplateSummaries.stub(stub[:template_summaries]) unless stub[:template_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3051,7 +3053,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TemplateSummary.stub(element) unless element.nil?
+          data << TemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3096,9 +3098,9 @@ module AWS::SDK::RoboMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['worldSummaries'] = Stubs::WorldSummaries.stub(stub[:world_summaries]) unless stub[:world_summaries].nil?
+        data['worldSummaries'] = WorldSummaries.stub(stub[:world_summaries]) unless stub[:world_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3116,7 +3118,7 @@ module AWS::SDK::RoboMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorldSummary.stub(element) unless element.nil?
+          data << WorldSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3161,7 +3163,7 @@ module AWS::SDK::RoboMaker
         http_resp.headers['Content-Type'] = 'application/json'
         data['fleet'] = stub[:fleet] unless stub[:fleet].nil?
         data['robot'] = stub[:robot] unless stub[:robot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3204,14 +3206,14 @@ module AWS::SDK::RoboMaker
         data['status'] = stub[:status] unless stub[:status].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['batchPolicy'] = Stubs::BatchPolicy.stub(stub[:batch_policy]) unless stub[:batch_policy].nil?
+        data['batchPolicy'] = BatchPolicy.stub(stub[:batch_policy]) unless stub[:batch_policy].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['failedRequests'] = Stubs::FailedCreateSimulationJobRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        data['pendingRequests'] = Stubs::CreateSimulationJobRequests.stub(stub[:pending_requests]) unless stub[:pending_requests].nil?
-        data['createdRequests'] = Stubs::SimulationJobSummaries.stub(stub[:created_requests]) unless stub[:created_requests].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedRequests'] = FailedCreateSimulationJobRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        data['pendingRequests'] = CreateSimulationJobRequests.stub(stub[:pending_requests]) unless stub[:pending_requests].nil?
+        data['createdRequests'] = SimulationJobSummaries.stub(stub[:created_requests]) unless stub[:created_requests].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3237,12 +3239,12 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['fleet'] = stub[:fleet] unless stub[:fleet].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['deploymentConfig'] = Stubs::DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
-        data['deploymentApplicationConfigs'] = Stubs::DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
+        data['deploymentConfig'] = DeploymentConfig.stub(stub[:deployment_config]) unless stub[:deployment_config].nil?
+        data['deploymentApplicationConfigs'] = DeploymentApplicationConfigs.stub(stub[:deployment_application_configs]) unless stub[:deployment_application_configs].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3294,12 +3296,12 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3327,14 +3329,14 @@ module AWS::SDK::RoboMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['sources'] = Stubs::Sources.stub(stub[:sources]) unless stub[:sources].nil?
-        data['simulationSoftwareSuite'] = Stubs::SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
-        data['robotSoftwareSuite'] = Stubs::RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
-        data['renderingEngine'] = Stubs::RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
+        data['sources'] = Sources.stub(stub[:sources]) unless stub[:sources].nil?
+        data['simulationSoftwareSuite'] = SimulationSoftwareSuite.stub(stub[:simulation_software_suite]) unless stub[:simulation_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.stub(stub[:robot_software_suite]) unless stub[:robot_software_suite].nil?
+        data['renderingEngine'] = RenderingEngine.stub(stub[:rendering_engine]) unless stub[:rendering_engine].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3357,7 +3359,7 @@ module AWS::SDK::RoboMaker
         data['name'] = stub[:name] unless stub[:name].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

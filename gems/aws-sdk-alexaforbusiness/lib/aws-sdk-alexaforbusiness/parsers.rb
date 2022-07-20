@@ -555,7 +555,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.address_book = (Parsers::AddressBook.parse(map['AddressBook']) unless map['AddressBook'].nil?)
+        data.address_book = (AddressBook.parse(map['AddressBook']) unless map['AddressBook'].nil?)
         data
       end
     end
@@ -577,7 +577,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.preference = (Parsers::ConferencePreference.parse(map['Preference']) unless map['Preference'].nil?)
+        data.preference = (ConferencePreference.parse(map['Preference']) unless map['Preference'].nil?)
         data
       end
     end
@@ -597,7 +597,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conference_provider = (Parsers::ConferenceProvider.parse(map['ConferenceProvider']) unless map['ConferenceProvider'].nil?)
+        data.conference_provider = (ConferenceProvider.parse(map['ConferenceProvider']) unless map['ConferenceProvider'].nil?)
         data
       end
     end
@@ -608,9 +608,9 @@ module AWS::SDK::AlexaForBusiness
         data.arn = map['Arn']
         data.name = map['Name']
         data.type = map['Type']
-        data.ip_dial_in = (Parsers::IPDialIn.parse(map['IPDialIn']) unless map['IPDialIn'].nil?)
-        data.pstn_dial_in = (Parsers::PSTNDialIn.parse(map['PSTNDialIn']) unless map['PSTNDialIn'].nil?)
-        data.meeting_setting = (Parsers::MeetingSetting.parse(map['MeetingSetting']) unless map['MeetingSetting'].nil?)
+        data.ip_dial_in = (IPDialIn.parse(map['IPDialIn']) unless map['IPDialIn'].nil?)
+        data.pstn_dial_in = (PSTNDialIn.parse(map['PSTNDialIn']) unless map['PSTNDialIn'].nil?)
+        data.meeting_setting = (MeetingSetting.parse(map['MeetingSetting']) unless map['MeetingSetting'].nil?)
         return data
       end
     end
@@ -650,7 +650,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.contact = (Parsers::Contact.parse(map['Contact']) unless map['Contact'].nil?)
+        data.contact = (Contact.parse(map['Contact']) unless map['Contact'].nil?)
         data
       end
     end
@@ -663,8 +663,8 @@ module AWS::SDK::AlexaForBusiness
         data.first_name = map['FirstName']
         data.last_name = map['LastName']
         data.phone_number = map['PhoneNumber']
-        data.phone_numbers = (Parsers::PhoneNumberList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
-        data.sip_addresses = (Parsers::SipAddressList.parse(map['SipAddresses']) unless map['SipAddresses'].nil?)
+        data.phone_numbers = (PhoneNumberList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
+        data.sip_addresses = (SipAddressList.parse(map['SipAddresses']) unless map['SipAddresses'].nil?)
         return data
       end
     end
@@ -672,7 +672,7 @@ module AWS::SDK::AlexaForBusiness
     class SipAddressList
       def self.parse(list)
         list.map do |value|
-          Parsers::SipAddress.parse(value) unless value.nil?
+          SipAddress.parse(value) unless value.nil?
         end
       end
     end
@@ -689,7 +689,7 @@ module AWS::SDK::AlexaForBusiness
     class PhoneNumberList
       def self.parse(list)
         list.map do |value|
-          Parsers::PhoneNumber.parse(value) unless value.nil?
+          PhoneNumber.parse(value) unless value.nil?
         end
       end
     end
@@ -710,7 +710,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device = (Parsers::Device.parse(map['Device']) unless map['Device'].nil?)
+        data.device = (Device.parse(map['Device']) unless map['Device'].nil?)
         data
       end
     end
@@ -726,8 +726,8 @@ module AWS::SDK::AlexaForBusiness
         data.mac_address = map['MacAddress']
         data.room_arn = map['RoomArn']
         data.device_status = map['DeviceStatus']
-        data.device_status_info = (Parsers::DeviceStatusInfo.parse(map['DeviceStatusInfo']) unless map['DeviceStatusInfo'].nil?)
-        data.network_profile_info = (Parsers::DeviceNetworkProfileInfo.parse(map['NetworkProfileInfo']) unless map['NetworkProfileInfo'].nil?)
+        data.device_status_info = (DeviceStatusInfo.parse(map['DeviceStatusInfo']) unless map['DeviceStatusInfo'].nil?)
+        data.network_profile_info = (DeviceNetworkProfileInfo.parse(map['NetworkProfileInfo']) unless map['NetworkProfileInfo'].nil?)
         return data
       end
     end
@@ -745,7 +745,7 @@ module AWS::SDK::AlexaForBusiness
     class DeviceStatusInfo
       def self.parse(map)
         data = Types::DeviceStatusInfo.new
-        data.device_status_details = (Parsers::DeviceStatusDetails.parse(map['DeviceStatusDetails']) unless map['DeviceStatusDetails'].nil?)
+        data.device_status_details = (DeviceStatusDetails.parse(map['DeviceStatusDetails']) unless map['DeviceStatusDetails'].nil?)
         data.connection_status = map['ConnectionStatus']
         data.connection_status_updated_time = Time.at(map['ConnectionStatusUpdatedTime'].to_i) if map['ConnectionStatusUpdatedTime']
         return data
@@ -755,7 +755,7 @@ module AWS::SDK::AlexaForBusiness
     class DeviceStatusDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceStatusDetail.parse(value) unless value.nil?
+          DeviceStatusDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -776,7 +776,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.gateway = (Parsers::Gateway.parse(map['Gateway']) unless map['Gateway'].nil?)
+        data.gateway = (Gateway.parse(map['Gateway']) unless map['Gateway'].nil?)
         data
       end
     end
@@ -800,7 +800,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.gateway_group = (Parsers::GatewayGroup.parse(map['GatewayGroup']) unless map['GatewayGroup'].nil?)
+        data.gateway_group = (GatewayGroup.parse(map['GatewayGroup']) unless map['GatewayGroup'].nil?)
         data
       end
     end
@@ -824,7 +824,7 @@ module AWS::SDK::AlexaForBusiness
         map = Hearth::JSON.load(body)
         data.organization_name = map['OrganizationName']
         data.contact_email = map['ContactEmail']
-        data.private_skill_ids = (Parsers::ShortSkillIdList.parse(map['PrivateSkillIds']) unless map['PrivateSkillIds'].nil?)
+        data.private_skill_ids = (ShortSkillIdList.parse(map['PrivateSkillIds']) unless map['PrivateSkillIds'].nil?)
         data
       end
     end
@@ -844,7 +844,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.network_profile = (Parsers::NetworkProfile.parse(map['NetworkProfile']) unless map['NetworkProfile'].nil?)
+        data.network_profile = (NetworkProfile.parse(map['NetworkProfile']) unless map['NetworkProfile'].nil?)
         data
       end
     end
@@ -861,7 +861,7 @@ module AWS::SDK::AlexaForBusiness
         data.current_password = map['CurrentPassword']
         data.next_password = map['NextPassword']
         data.certificate_authority_arn = map['CertificateAuthorityArn']
-        data.trust_anchors = (Parsers::TrustAnchorList.parse(map['TrustAnchors']) unless map['TrustAnchors'].nil?)
+        data.trust_anchors = (TrustAnchorList.parse(map['TrustAnchors']) unless map['TrustAnchors'].nil?)
         return data
       end
     end
@@ -893,7 +893,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.profile = (Parsers::Profile.parse(map['Profile']) unless map['Profile'].nil?)
+        data.profile = (Profile.parse(map['Profile']) unless map['Profile'].nil?)
         data
       end
     end
@@ -915,7 +915,7 @@ module AWS::SDK::AlexaForBusiness
         data.pstn_enabled = map['PSTNEnabled']
         data.data_retention_opt_in = map['DataRetentionOptIn']
         data.address_book_arn = map['AddressBookArn']
-        data.meeting_room_configuration = (Parsers::MeetingRoomConfiguration.parse(map['MeetingRoomConfiguration']) unless map['MeetingRoomConfiguration'].nil?)
+        data.meeting_room_configuration = (MeetingRoomConfiguration.parse(map['MeetingRoomConfiguration']) unless map['MeetingRoomConfiguration'].nil?)
         return data
       end
     end
@@ -924,9 +924,9 @@ module AWS::SDK::AlexaForBusiness
       def self.parse(map)
         data = Types::MeetingRoomConfiguration.new
         data.room_utilization_metrics_enabled = map['RoomUtilizationMetricsEnabled']
-        data.end_of_meeting_reminder = (Parsers::EndOfMeetingReminder.parse(map['EndOfMeetingReminder']) unless map['EndOfMeetingReminder'].nil?)
-        data.instant_booking = (Parsers::InstantBooking.parse(map['InstantBooking']) unless map['InstantBooking'].nil?)
-        data.require_check_in = (Parsers::RequireCheckIn.parse(map['RequireCheckIn']) unless map['RequireCheckIn'].nil?)
+        data.end_of_meeting_reminder = (EndOfMeetingReminder.parse(map['EndOfMeetingReminder']) unless map['EndOfMeetingReminder'].nil?)
+        data.instant_booking = (InstantBooking.parse(map['InstantBooking']) unless map['InstantBooking'].nil?)
+        data.require_check_in = (RequireCheckIn.parse(map['RequireCheckIn']) unless map['RequireCheckIn'].nil?)
         return data
       end
     end
@@ -952,7 +952,7 @@ module AWS::SDK::AlexaForBusiness
     class EndOfMeetingReminder
       def self.parse(map)
         data = Types::EndOfMeetingReminder.new
-        data.reminder_at_minutes = (Parsers::EndOfMeetingReminderMinutesList.parse(map['ReminderAtMinutes']) unless map['ReminderAtMinutes'].nil?)
+        data.reminder_at_minutes = (EndOfMeetingReminderMinutesList.parse(map['ReminderAtMinutes']) unless map['ReminderAtMinutes'].nil?)
         data.reminder_type = map['ReminderType']
         data.enabled = map['Enabled']
         return data
@@ -974,7 +974,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.room = (Parsers::Room.parse(map['Room']) unless map['Room'].nil?)
+        data.room = (Room.parse(map['Room']) unless map['Room'].nil?)
         data
       end
     end
@@ -998,7 +998,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.room_skill_parameter = (Parsers::RoomSkillParameter.parse(map['RoomSkillParameter']) unless map['RoomSkillParameter'].nil?)
+        data.room_skill_parameter = (RoomSkillParameter.parse(map['RoomSkillParameter']) unless map['RoomSkillParameter'].nil?)
         data
       end
     end
@@ -1019,7 +1019,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.skill_group = (Parsers::SkillGroup.parse(map['SkillGroup']) unless map['SkillGroup'].nil?)
+        data.skill_group = (SkillGroup.parse(map['SkillGroup']) unless map['SkillGroup'].nil?)
         data
       end
     end
@@ -1041,7 +1041,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.business_report_schedules = (Parsers::BusinessReportScheduleList.parse(map['BusinessReportSchedules']) unless map['BusinessReportSchedules'].nil?)
+        data.business_report_schedules = (BusinessReportScheduleList.parse(map['BusinessReportSchedules']) unless map['BusinessReportSchedules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1050,7 +1050,7 @@ module AWS::SDK::AlexaForBusiness
     class BusinessReportScheduleList
       def self.parse(list)
         list.map do |value|
-          Parsers::BusinessReportSchedule.parse(value) unless value.nil?
+          BusinessReportSchedule.parse(value) unless value.nil?
         end
       end
     end
@@ -1063,9 +1063,9 @@ module AWS::SDK::AlexaForBusiness
         data.s3_bucket_name = map['S3BucketName']
         data.s3_key_prefix = map['S3KeyPrefix']
         data.format = map['Format']
-        data.content_range = (Parsers::BusinessReportContentRange.parse(map['ContentRange']) unless map['ContentRange'].nil?)
-        data.recurrence = (Parsers::BusinessReportRecurrence.parse(map['Recurrence']) unless map['Recurrence'].nil?)
-        data.last_business_report = (Parsers::BusinessReport.parse(map['LastBusinessReport']) unless map['LastBusinessReport'].nil?)
+        data.content_range = (BusinessReportContentRange.parse(map['ContentRange']) unless map['ContentRange'].nil?)
+        data.recurrence = (BusinessReportRecurrence.parse(map['Recurrence']) unless map['Recurrence'].nil?)
+        data.last_business_report = (BusinessReport.parse(map['LastBusinessReport']) unless map['LastBusinessReport'].nil?)
         return data
       end
     end
@@ -1075,7 +1075,7 @@ module AWS::SDK::AlexaForBusiness
         data = Types::BusinessReport.new
         data.status = map['Status']
         data.failure_code = map['FailureCode']
-        data.s3_location = (Parsers::BusinessReportS3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
+        data.s3_location = (BusinessReportS3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
         data.delivery_time = Time.at(map['DeliveryTime'].to_i) if map['DeliveryTime']
         data.download_url = map['DownloadUrl']
         return data
@@ -1114,7 +1114,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conference_providers = (Parsers::ConferenceProvidersList.parse(map['ConferenceProviders']) unless map['ConferenceProviders'].nil?)
+        data.conference_providers = (ConferenceProvidersList.parse(map['ConferenceProviders']) unless map['ConferenceProviders'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1123,7 +1123,7 @@ module AWS::SDK::AlexaForBusiness
     class ConferenceProvidersList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConferenceProvider.parse(value) unless value.nil?
+          ConferenceProvider.parse(value) unless value.nil?
         end
       end
     end
@@ -1135,7 +1135,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_events = (Parsers::DeviceEventList.parse(map['DeviceEvents']) unless map['DeviceEvents'].nil?)
+        data.device_events = (DeviceEventList.parse(map['DeviceEvents']) unless map['DeviceEvents'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1144,7 +1144,7 @@ module AWS::SDK::AlexaForBusiness
     class DeviceEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceEvent.parse(value) unless value.nil?
+          DeviceEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -1166,7 +1166,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.gateway_groups = (Parsers::GatewayGroupSummaries.parse(map['GatewayGroups']) unless map['GatewayGroups'].nil?)
+        data.gateway_groups = (GatewayGroupSummaries.parse(map['GatewayGroups']) unless map['GatewayGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1175,7 +1175,7 @@ module AWS::SDK::AlexaForBusiness
     class GatewayGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::GatewayGroupSummary.parse(value) unless value.nil?
+          GatewayGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1197,7 +1197,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.gateways = (Parsers::GatewaySummaries.parse(map['Gateways']) unless map['Gateways'].nil?)
+        data.gateways = (GatewaySummaries.parse(map['Gateways']) unless map['Gateways'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1206,7 +1206,7 @@ module AWS::SDK::AlexaForBusiness
     class GatewaySummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::GatewaySummary.parse(value) unless value.nil?
+          GatewaySummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1230,7 +1230,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.skill_summaries = (Parsers::SkillSummaryList.parse(map['SkillSummaries']) unless map['SkillSummaries'].nil?)
+        data.skill_summaries = (SkillSummaryList.parse(map['SkillSummaries']) unless map['SkillSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1239,7 +1239,7 @@ module AWS::SDK::AlexaForBusiness
     class SkillSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::SkillSummary.parse(value) unless value.nil?
+          SkillSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1263,7 +1263,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.category_list = (Parsers::CategoryList.parse(map['CategoryList']) unless map['CategoryList'].nil?)
+        data.category_list = (CategoryList.parse(map['CategoryList']) unless map['CategoryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1272,7 +1272,7 @@ module AWS::SDK::AlexaForBusiness
     class CategoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::Category.parse(value) unless value.nil?
+          Category.parse(value) unless value.nil?
         end
       end
     end
@@ -1293,7 +1293,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.skills_store_skills = (Parsers::SkillsStoreSkillList.parse(map['SkillsStoreSkills']) unless map['SkillsStoreSkills'].nil?)
+        data.skills_store_skills = (SkillsStoreSkillList.parse(map['SkillsStoreSkills']) unless map['SkillsStoreSkills'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1302,7 +1302,7 @@ module AWS::SDK::AlexaForBusiness
     class SkillsStoreSkillList
       def self.parse(list)
         list.map do |value|
-          Parsers::SkillsStoreSkill.parse(value) unless value.nil?
+          SkillsStoreSkill.parse(value) unless value.nil?
         end
       end
     end
@@ -1314,8 +1314,8 @@ module AWS::SDK::AlexaForBusiness
         data.skill_name = map['SkillName']
         data.short_description = map['ShortDescription']
         data.icon_url = map['IconUrl']
-        data.sample_utterances = (Parsers::SampleUtterances.parse(map['SampleUtterances']) unless map['SampleUtterances'].nil?)
-        data.skill_details = (Parsers::SkillDetails.parse(map['SkillDetails']) unless map['SkillDetails'].nil?)
+        data.sample_utterances = (SampleUtterances.parse(map['SampleUtterances']) unless map['SampleUtterances'].nil?)
+        data.skill_details = (SkillDetails.parse(map['SkillDetails']) unless map['SkillDetails'].nil?)
         data.supports_linking = map['SupportsLinking']
         return data
       end
@@ -1328,12 +1328,12 @@ module AWS::SDK::AlexaForBusiness
         data.invocation_phrase = map['InvocationPhrase']
         data.release_date = map['ReleaseDate']
         data.end_user_license_agreement = map['EndUserLicenseAgreement']
-        data.generic_keywords = (Parsers::GenericKeywords.parse(map['GenericKeywords']) unless map['GenericKeywords'].nil?)
-        data.bullet_points = (Parsers::BulletPoints.parse(map['BulletPoints']) unless map['BulletPoints'].nil?)
-        data.new_in_this_version_bullet_points = (Parsers::NewInThisVersionBulletPoints.parse(map['NewInThisVersionBulletPoints']) unless map['NewInThisVersionBulletPoints'].nil?)
-        data.skill_types = (Parsers::SkillTypes.parse(map['SkillTypes']) unless map['SkillTypes'].nil?)
-        data.reviews = (Parsers::Reviews.parse(map['Reviews']) unless map['Reviews'].nil?)
-        data.developer_info = (Parsers::DeveloperInfo.parse(map['DeveloperInfo']) unless map['DeveloperInfo'].nil?)
+        data.generic_keywords = (GenericKeywords.parse(map['GenericKeywords']) unless map['GenericKeywords'].nil?)
+        data.bullet_points = (BulletPoints.parse(map['BulletPoints']) unless map['BulletPoints'].nil?)
+        data.new_in_this_version_bullet_points = (NewInThisVersionBulletPoints.parse(map['NewInThisVersionBulletPoints']) unless map['NewInThisVersionBulletPoints'].nil?)
+        data.skill_types = (SkillTypes.parse(map['SkillTypes']) unless map['SkillTypes'].nil?)
+        data.reviews = (Reviews.parse(map['Reviews']) unless map['Reviews'].nil?)
+        data.developer_info = (DeveloperInfo.parse(map['DeveloperInfo']) unless map['DeveloperInfo'].nil?)
         return data
       end
     end
@@ -1406,7 +1406,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.smart_home_appliances = (Parsers::SmartHomeApplianceList.parse(map['SmartHomeAppliances']) unless map['SmartHomeAppliances'].nil?)
+        data.smart_home_appliances = (SmartHomeApplianceList.parse(map['SmartHomeAppliances']) unless map['SmartHomeAppliances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1415,7 +1415,7 @@ module AWS::SDK::AlexaForBusiness
     class SmartHomeApplianceList
       def self.parse(list)
         list.map do |value|
-          Parsers::SmartHomeAppliance.parse(value) unless value.nil?
+          SmartHomeAppliance.parse(value) unless value.nil?
         end
       end
     end
@@ -1437,7 +1437,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1446,7 +1446,7 @@ module AWS::SDK::AlexaForBusiness
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1560,7 +1560,7 @@ module AWS::SDK::AlexaForBusiness
         map = Hearth::JSON.load(body)
         data.room_arn = map['RoomArn']
         data.room_name = map['RoomName']
-        data.room_skill_parameters = (Parsers::RoomSkillParameters.parse(map['RoomSkillParameters']) unless map['RoomSkillParameters'].nil?)
+        data.room_skill_parameters = (RoomSkillParameters.parse(map['RoomSkillParameters']) unless map['RoomSkillParameters'].nil?)
         data
       end
     end
@@ -1568,7 +1568,7 @@ module AWS::SDK::AlexaForBusiness
     class RoomSkillParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::RoomSkillParameter.parse(value) unless value.nil?
+          RoomSkillParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -1591,7 +1591,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.address_books = (Parsers::AddressBookDataList.parse(map['AddressBooks']) unless map['AddressBooks'].nil?)
+        data.address_books = (AddressBookDataList.parse(map['AddressBooks']) unless map['AddressBooks'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1601,7 +1601,7 @@ module AWS::SDK::AlexaForBusiness
     class AddressBookDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::AddressBookData.parse(value) unless value.nil?
+          AddressBookData.parse(value) unless value.nil?
         end
       end
     end
@@ -1623,7 +1623,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.contacts = (Parsers::ContactDataList.parse(map['Contacts']) unless map['Contacts'].nil?)
+        data.contacts = (ContactDataList.parse(map['Contacts']) unless map['Contacts'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1633,7 +1633,7 @@ module AWS::SDK::AlexaForBusiness
     class ContactDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContactData.parse(value) unless value.nil?
+          ContactData.parse(value) unless value.nil?
         end
       end
     end
@@ -1646,8 +1646,8 @@ module AWS::SDK::AlexaForBusiness
         data.first_name = map['FirstName']
         data.last_name = map['LastName']
         data.phone_number = map['PhoneNumber']
-        data.phone_numbers = (Parsers::PhoneNumberList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
-        data.sip_addresses = (Parsers::SipAddressList.parse(map['SipAddresses']) unless map['SipAddresses'].nil?)
+        data.phone_numbers = (PhoneNumberList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
+        data.sip_addresses = (SipAddressList.parse(map['SipAddresses']) unless map['SipAddresses'].nil?)
         return data
       end
     end
@@ -1659,7 +1659,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.devices = (Parsers::DeviceDataList.parse(map['Devices']) unless map['Devices'].nil?)
+        data.devices = (DeviceDataList.parse(map['Devices']) unless map['Devices'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1669,7 +1669,7 @@ module AWS::SDK::AlexaForBusiness
     class DeviceDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceData.parse(value) unless value.nil?
+          DeviceData.parse(value) unless value.nil?
         end
       end
     end
@@ -1688,7 +1688,7 @@ module AWS::SDK::AlexaForBusiness
         data.network_profile_name = map['NetworkProfileName']
         data.room_arn = map['RoomArn']
         data.room_name = map['RoomName']
-        data.device_status_info = (Parsers::DeviceStatusInfo.parse(map['DeviceStatusInfo']) unless map['DeviceStatusInfo'].nil?)
+        data.device_status_info = (DeviceStatusInfo.parse(map['DeviceStatusInfo']) unless map['DeviceStatusInfo'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
       end
@@ -1701,7 +1701,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.network_profiles = (Parsers::NetworkProfileDataList.parse(map['NetworkProfiles']) unless map['NetworkProfiles'].nil?)
+        data.network_profiles = (NetworkProfileDataList.parse(map['NetworkProfiles']) unless map['NetworkProfiles'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1711,7 +1711,7 @@ module AWS::SDK::AlexaForBusiness
     class NetworkProfileDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::NetworkProfileData.parse(value) unless value.nil?
+          NetworkProfileData.parse(value) unless value.nil?
         end
       end
     end
@@ -1737,7 +1737,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.profiles = (Parsers::ProfileDataList.parse(map['Profiles']) unless map['Profiles'].nil?)
+        data.profiles = (ProfileDataList.parse(map['Profiles']) unless map['Profiles'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1747,7 +1747,7 @@ module AWS::SDK::AlexaForBusiness
     class ProfileDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProfileData.parse(value) unless value.nil?
+          ProfileData.parse(value) unless value.nil?
         end
       end
     end
@@ -1775,7 +1775,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rooms = (Parsers::RoomDataList.parse(map['Rooms']) unless map['Rooms'].nil?)
+        data.rooms = (RoomDataList.parse(map['Rooms']) unless map['Rooms'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1785,7 +1785,7 @@ module AWS::SDK::AlexaForBusiness
     class RoomDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::RoomData.parse(value) unless value.nil?
+          RoomData.parse(value) unless value.nil?
         end
       end
     end
@@ -1810,7 +1810,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.skill_groups = (Parsers::SkillGroupDataList.parse(map['SkillGroups']) unless map['SkillGroups'].nil?)
+        data.skill_groups = (SkillGroupDataList.parse(map['SkillGroups']) unless map['SkillGroups'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1820,7 +1820,7 @@ module AWS::SDK::AlexaForBusiness
     class SkillGroupDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::SkillGroupData.parse(value) unless value.nil?
+          SkillGroupData.parse(value) unless value.nil?
         end
       end
     end
@@ -1842,7 +1842,7 @@ module AWS::SDK::AlexaForBusiness
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.users = (Parsers::UserDataList.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (UserDataList.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data
@@ -1852,7 +1852,7 @@ module AWS::SDK::AlexaForBusiness
     class UserDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserData.parse(value) unless value.nil?
+          UserData.parse(value) unless value.nil?
         end
       end
     end

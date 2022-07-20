@@ -135,7 +135,7 @@ module AWS::SDK::ACM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificate = (Parsers::CertificateDetail.parse(map['Certificate']) unless map['Certificate'].nil?)
+        data.certificate = (CertificateDetail.parse(map['Certificate']) unless map['Certificate'].nil?)
         data
       end
     end
@@ -145,8 +145,8 @@ module AWS::SDK::ACM
         data = Types::CertificateDetail.new
         data.certificate_arn = map['CertificateArn']
         data.domain_name = map['DomainName']
-        data.subject_alternative_names = (Parsers::DomainList.parse(map['SubjectAlternativeNames']) unless map['SubjectAlternativeNames'].nil?)
-        data.domain_validation_options = (Parsers::DomainValidationList.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
+        data.subject_alternative_names = (DomainList.parse(map['SubjectAlternativeNames']) unless map['SubjectAlternativeNames'].nil?)
+        data.domain_validation_options = (DomainValidationList.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
         data.serial = map['Serial']
         data.subject = map['Subject']
         data.issuer = map['Issuer']
@@ -160,15 +160,15 @@ module AWS::SDK::ACM
         data.not_after = Time.at(map['NotAfter'].to_i) if map['NotAfter']
         data.key_algorithm = map['KeyAlgorithm']
         data.signature_algorithm = map['SignatureAlgorithm']
-        data.in_use_by = (Parsers::InUseList.parse(map['InUseBy']) unless map['InUseBy'].nil?)
+        data.in_use_by = (InUseList.parse(map['InUseBy']) unless map['InUseBy'].nil?)
         data.failure_reason = map['FailureReason']
         data.type = map['Type']
-        data.renewal_summary = (Parsers::RenewalSummary.parse(map['RenewalSummary']) unless map['RenewalSummary'].nil?)
-        data.key_usages = (Parsers::KeyUsageList.parse(map['KeyUsages']) unless map['KeyUsages'].nil?)
-        data.extended_key_usages = (Parsers::ExtendedKeyUsageList.parse(map['ExtendedKeyUsages']) unless map['ExtendedKeyUsages'].nil?)
+        data.renewal_summary = (RenewalSummary.parse(map['RenewalSummary']) unless map['RenewalSummary'].nil?)
+        data.key_usages = (KeyUsageList.parse(map['KeyUsages']) unless map['KeyUsages'].nil?)
+        data.extended_key_usages = (ExtendedKeyUsageList.parse(map['ExtendedKeyUsages']) unless map['ExtendedKeyUsages'].nil?)
         data.certificate_authority_arn = map['CertificateAuthorityArn']
         data.renewal_eligibility = map['RenewalEligibility']
-        data.options = (Parsers::CertificateOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.options = (CertificateOptions.parse(map['Options']) unless map['Options'].nil?)
         return data
       end
     end
@@ -184,7 +184,7 @@ module AWS::SDK::ACM
     class ExtendedKeyUsageList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExtendedKeyUsage.parse(value) unless value.nil?
+          ExtendedKeyUsage.parse(value) unless value.nil?
         end
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::ACM
     class KeyUsageList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyUsage.parse(value) unless value.nil?
+          KeyUsage.parse(value) unless value.nil?
         end
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::ACM
       def self.parse(map)
         data = Types::RenewalSummary.new
         data.renewal_status = map['RenewalStatus']
-        data.domain_validation_options = (Parsers::DomainValidationList.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
+        data.domain_validation_options = (DomainValidationList.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
         data.renewal_status_reason = map['RenewalStatusReason']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
         return data
@@ -228,7 +228,7 @@ module AWS::SDK::ACM
     class DomainValidationList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainValidation.parse(value) unless value.nil?
+          DomainValidation.parse(value) unless value.nil?
         end
       end
     end
@@ -237,10 +237,10 @@ module AWS::SDK::ACM
       def self.parse(map)
         data = Types::DomainValidation.new
         data.domain_name = map['DomainName']
-        data.validation_emails = (Parsers::ValidationEmailList.parse(map['ValidationEmails']) unless map['ValidationEmails'].nil?)
+        data.validation_emails = (ValidationEmailList.parse(map['ValidationEmails']) unless map['ValidationEmails'].nil?)
         data.validation_domain = map['ValidationDomain']
         data.validation_status = map['ValidationStatus']
-        data.resource_record = (Parsers::ResourceRecord.parse(map['ResourceRecord']) unless map['ResourceRecord'].nil?)
+        data.resource_record = (ResourceRecord.parse(map['ResourceRecord']) unless map['ResourceRecord'].nil?)
         data.validation_method = map['ValidationMethod']
         return data
       end
@@ -313,7 +313,7 @@ module AWS::SDK::ACM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.expiry_events = (Parsers::ExpiryEventsConfiguration.parse(map['ExpiryEvents']) unless map['ExpiryEvents'].nil?)
+        data.expiry_events = (ExpiryEventsConfiguration.parse(map['ExpiryEvents']) unless map['ExpiryEvents'].nil?)
         data
       end
     end
@@ -383,7 +383,7 @@ module AWS::SDK::ACM
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.certificate_summary_list = (Parsers::CertificateSummaryList.parse(map['CertificateSummaryList']) unless map['CertificateSummaryList'].nil?)
+        data.certificate_summary_list = (CertificateSummaryList.parse(map['CertificateSummaryList']) unless map['CertificateSummaryList'].nil?)
         data
       end
     end
@@ -391,7 +391,7 @@ module AWS::SDK::ACM
     class CertificateSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::CertificateSummary.parse(value) unless value.nil?
+          CertificateSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -424,7 +424,7 @@ module AWS::SDK::ACM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::ACM
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

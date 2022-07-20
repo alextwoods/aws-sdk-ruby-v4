@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Panorama
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::Panorama
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ApplicationInstanceId'] = stub[:application_instance_id] unless stub[:application_instance_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -39,8 +42,8 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Jobs'] = Stubs::JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Jobs'] = JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +61,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Job.stub(element) unless element.nil?
+          data << Job.stub(element) unless element.nil?
         end
         data
       end
@@ -97,7 +100,7 @@ module AWS::SDK::Panorama
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,8 +120,8 @@ module AWS::SDK::Panorama
         http_resp.headers['Content-Type'] = 'application/json'
         data['PackageId'] = stub[:package_id] unless stub[:package_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['StorageLocation'] = Stubs::StorageLocation.stub(stub[:storage_location]) unless stub[:storage_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageLocation'] = StorageLocation.stub(stub[:storage_location]) unless stub[:storage_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +164,7 @@ module AWS::SDK::Panorama
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -178,7 +181,7 @@ module AWS::SDK::Panorama
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -246,8 +249,8 @@ module AWS::SDK::Panorama
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['ApplicationInstanceId'] = stub[:application_instance_id] unless stub[:application_instance_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -293,12 +296,12 @@ module AWS::SDK::Panorama
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['DefaultRuntimeContextDevice'] = stub[:default_runtime_context_device] unless stub[:default_runtime_context_device].nil?
-        data['ManifestPayload'] = Stubs::ManifestPayload.stub(stub[:manifest_payload]) unless stub[:manifest_payload].nil?
-        data['ManifestOverridesPayload'] = Stubs::ManifestOverridesPayload.stub(stub[:manifest_overrides_payload]) unless stub[:manifest_overrides_payload].nil?
+        data['ManifestPayload'] = ManifestPayload.stub(stub[:manifest_payload]) unless stub[:manifest_payload].nil?
+        data['ManifestOverridesPayload'] = ManifestOverridesPayload.stub(stub[:manifest_overrides_payload]) unless stub[:manifest_overrides_payload].nil?
         data['ApplicationInstanceIdToReplace'] = stub[:application_instance_id_to_replace] unless stub[:application_instance_id_to_replace].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['ApplicationInstanceId'] = stub[:application_instance_id] unless stub[:application_instance_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -390,14 +393,14 @@ module AWS::SDK::Panorama
         data['LatestSoftware'] = stub[:latest_software] unless stub[:latest_software].nil?
         data['CurrentSoftware'] = stub[:current_software] unless stub[:current_software].nil?
         data['SerialNumber'] = stub[:serial_number] unless stub[:serial_number].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['NetworkingConfiguration'] = Stubs::NetworkPayload.stub(stub[:networking_configuration]) unless stub[:networking_configuration].nil?
-        data['CurrentNetworkingStatus'] = Stubs::NetworkStatus.stub(stub[:current_networking_status]) unless stub[:current_networking_status].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['NetworkingConfiguration'] = NetworkPayload.stub(stub[:networking_configuration]) unless stub[:networking_configuration].nil?
+        data['CurrentNetworkingStatus'] = NetworkStatus.stub(stub[:current_networking_status]) unless stub[:current_networking_status].nil?
         data['LeaseExpirationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:lease_expiration_time]).to_i unless stub[:lease_expiration_time].nil?
-        data['AlternateSoftwares'] = Stubs::AlternateSoftwares.stub(stub[:alternate_softwares]) unless stub[:alternate_softwares].nil?
+        data['AlternateSoftwares'] = AlternateSoftwares.stub(stub[:alternate_softwares]) unless stub[:alternate_softwares].nil?
         data['LatestAlternateSoftware'] = stub[:latest_alternate_software] unless stub[:latest_alternate_software].nil?
         data['Brand'] = stub[:brand] unless stub[:brand].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +418,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlternateSoftwareMetadata.stub(element) unless element.nil?
+          data << AlternateSoftwareMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -455,9 +458,9 @@ module AWS::SDK::Panorama
       def self.stub(stub)
         stub ||= Types::NetworkStatus.new
         data = {}
-        data['Ethernet0Status'] = Stubs::EthernetStatus.stub(stub[:ethernet0_status]) unless stub[:ethernet0_status].nil?
-        data['Ethernet1Status'] = Stubs::EthernetStatus.stub(stub[:ethernet1_status]) unless stub[:ethernet1_status].nil?
-        data['NtpStatus'] = Stubs::NtpStatus.stub(stub[:ntp_status]) unless stub[:ntp_status].nil?
+        data['Ethernet0Status'] = EthernetStatus.stub(stub[:ethernet0_status]) unless stub[:ethernet0_status].nil?
+        data['Ethernet1Status'] = EthernetStatus.stub(stub[:ethernet1_status]) unless stub[:ethernet1_status].nil?
+        data['NtpStatus'] = NtpStatus.stub(stub[:ntp_status]) unless stub[:ntp_status].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data
       end
@@ -522,9 +525,9 @@ module AWS::SDK::Panorama
       def self.stub(stub)
         stub ||= Types::NetworkPayload.new
         data = {}
-        data['Ethernet0'] = Stubs::EthernetPayload.stub(stub[:ethernet0]) unless stub[:ethernet0].nil?
-        data['Ethernet1'] = Stubs::EthernetPayload.stub(stub[:ethernet1]) unless stub[:ethernet1].nil?
-        data['Ntp'] = Stubs::NtpPayload.stub(stub[:ntp]) unless stub[:ntp].nil?
+        data['Ethernet0'] = EthernetPayload.stub(stub[:ethernet0]) unless stub[:ethernet0].nil?
+        data['Ethernet1'] = EthernetPayload.stub(stub[:ethernet1]) unless stub[:ethernet1].nil?
+        data['Ntp'] = NtpPayload.stub(stub[:ntp]) unless stub[:ntp].nil?
         data
       end
     end
@@ -542,7 +545,7 @@ module AWS::SDK::Panorama
       def self.stub(stub)
         stub ||= Types::NtpPayload.new
         data = {}
-        data['NtpServers'] = Stubs::NtpServerList.stub(stub[:ntp_servers]) unless stub[:ntp_servers].nil?
+        data['NtpServers'] = NtpServerList.stub(stub[:ntp_servers]) unless stub[:ntp_servers].nil?
         data
       end
     end
@@ -582,7 +585,7 @@ module AWS::SDK::Panorama
         stub ||= Types::EthernetPayload.new
         data = {}
         data['ConnectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
-        data['StaticIpConnectionInfo'] = Stubs::StaticIpConnectionInfo.stub(stub[:static_ip_connection_info]) unless stub[:static_ip_connection_info].nil?
+        data['StaticIpConnectionInfo'] = StaticIpConnectionInfo.stub(stub[:static_ip_connection_info]) unless stub[:static_ip_connection_info].nil?
         data
       end
     end
@@ -605,7 +608,7 @@ module AWS::SDK::Panorama
         data = {}
         data['IpAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['Mask'] = stub[:mask] unless stub[:mask].nil?
-        data['Dns'] = Stubs::DnsList.stub(stub[:dns]) unless stub[:dns].nil?
+        data['Dns'] = DnsList.stub(stub[:dns]) unless stub[:dns].nil?
         data['DefaultGateway'] = stub[:default_gateway] unless stub[:default_gateway].nil?
         data
       end
@@ -658,7 +661,7 @@ module AWS::SDK::Panorama
         data['ImageVersion'] = stub[:image_version] unless stub[:image_version].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -696,12 +699,12 @@ module AWS::SDK::Panorama
         data['PackageArn'] = stub[:package_arn] unless stub[:package_arn].nil?
         data['PackageVersion'] = stub[:package_version] unless stub[:package_version].nil?
         data['PatchVersion'] = stub[:patch_version] unless stub[:patch_version].nil?
-        data['NodeInterface'] = Stubs::NodeInterface.stub(stub[:node_interface]) unless stub[:node_interface].nil?
+        data['NodeInterface'] = NodeInterface.stub(stub[:node_interface]) unless stub[:node_interface].nil?
         data['AssetName'] = stub[:asset_name] unless stub[:asset_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -719,8 +722,8 @@ module AWS::SDK::Panorama
       def self.stub(stub)
         stub ||= Types::NodeInterface.new
         data = {}
-        data['Inputs'] = Stubs::InputPortList.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Outputs'] = Stubs::OutputPortList.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Inputs'] = InputPortList.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Outputs'] = OutputPortList.stub(stub[:outputs]) unless stub[:outputs].nil?
         data
       end
     end
@@ -739,7 +742,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeOutputPort.stub(element) unless element.nil?
+          data << NodeOutputPort.stub(element) unless element.nil?
         end
         data
       end
@@ -781,7 +784,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeInputPort.stub(element) unless element.nil?
+          data << NodeInputPort.stub(element) unless element.nil?
         end
         data
       end
@@ -846,9 +849,9 @@ module AWS::SDK::Panorama
         data['NodeName'] = stub[:node_name] unless stub[:node_name].nil?
         data['NodeDescription'] = stub[:node_description] unless stub[:node_description].nil?
         data['TemplateType'] = stub[:template_type] unless stub[:template_type].nil?
-        data['TemplateParameters'] = Stubs::TemplateParametersMap.stub(stub[:template_parameters]) unless stub[:template_parameters].nil?
-        data['JobTags'] = Stubs::JobTagsList.stub(stub[:job_tags]) unless stub[:job_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TemplateParameters'] = TemplateParametersMap.stub(stub[:template_parameters]) unless stub[:template_parameters].nil?
+        data['JobTags'] = JobTagsList.stub(stub[:job_tags]) unless stub[:job_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -866,7 +869,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobResourceTags.stub(element) unless element.nil?
+          data << JobResourceTags.stub(element) unless element.nil?
         end
         data
       end
@@ -887,7 +890,7 @@ module AWS::SDK::Panorama
         stub ||= Types::JobResourceTags.new
         data = {}
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -934,12 +937,12 @@ module AWS::SDK::Panorama
         data['PackageId'] = stub[:package_id] unless stub[:package_id].nil?
         data['PackageName'] = stub[:package_name] unless stub[:package_name].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['StorageLocation'] = Stubs::StorageLocation.stub(stub[:storage_location]) unless stub[:storage_location].nil?
-        data['ReadAccessPrincipalArns'] = Stubs::PrincipalArnsList.stub(stub[:read_access_principal_arns]) unless stub[:read_access_principal_arns].nil?
-        data['WriteAccessPrincipalArns'] = Stubs::PrincipalArnsList.stub(stub[:write_access_principal_arns]) unless stub[:write_access_principal_arns].nil?
+        data['StorageLocation'] = StorageLocation.stub(stub[:storage_location]) unless stub[:storage_location].nil?
+        data['ReadAccessPrincipalArns'] = PrincipalArnsList.stub(stub[:read_access_principal_arns]) unless stub[:read_access_principal_arns].nil?
+        data['WriteAccessPrincipalArns'] = PrincipalArnsList.stub(stub[:write_access_principal_arns]) unless stub[:write_access_principal_arns].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -988,15 +991,15 @@ module AWS::SDK::Panorama
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['ClientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['JobType'] = stub[:job_type] unless stub[:job_type].nil?
-        data['InputConfig'] = Stubs::PackageImportJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
-        data['OutputConfig'] = Stubs::PackageImportJobOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
-        data['Output'] = Stubs::PackageImportJobOutput.stub(stub[:output]) unless stub[:output].nil?
+        data['InputConfig'] = PackageImportJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
+        data['OutputConfig'] = PackageImportJobOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['Output'] = PackageImportJobOutput.stub(stub[:output]) unless stub[:output].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['JobTags'] = Stubs::JobTagsList.stub(stub[:job_tags]) unless stub[:job_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobTags'] = JobTagsList.stub(stub[:job_tags]) unless stub[:job_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1019,7 +1022,7 @@ module AWS::SDK::Panorama
         data['PackageId'] = stub[:package_id] unless stub[:package_id].nil?
         data['PackageVersion'] = stub[:package_version] unless stub[:package_version].nil?
         data['PatchVersion'] = stub[:patch_version] unless stub[:patch_version].nil?
-        data['OutputS3Location'] = Stubs::OutPutS3Location.stub(stub[:output_s3_location]) unless stub[:output_s3_location].nil?
+        data['OutputS3Location'] = OutPutS3Location.stub(stub[:output_s3_location]) unless stub[:output_s3_location].nil?
         data
       end
     end
@@ -1057,7 +1060,7 @@ module AWS::SDK::Panorama
       def self.stub(stub)
         stub ||= Types::PackageImportJobOutputConfig.new
         data = {}
-        data['PackageVersionOutputConfig'] = Stubs::PackageVersionOutputConfig.stub(stub[:package_version_output_config]) unless stub[:package_version_output_config].nil?
+        data['PackageVersionOutputConfig'] = PackageVersionOutputConfig.stub(stub[:package_version_output_config]) unless stub[:package_version_output_config].nil?
         data
       end
     end
@@ -1097,7 +1100,7 @@ module AWS::SDK::Panorama
       def self.stub(stub)
         stub ||= Types::PackageImportJobInputConfig.new
         data = {}
-        data['PackageVersionInputConfig'] = Stubs::PackageVersionInputConfig.stub(stub[:package_version_input_config]) unless stub[:package_version_input_config].nil?
+        data['PackageVersionInputConfig'] = PackageVersionInputConfig.stub(stub[:package_version_input_config]) unless stub[:package_version_input_config].nil?
         data
       end
     end
@@ -1115,7 +1118,7 @@ module AWS::SDK::Panorama
       def self.stub(stub)
         stub ||= Types::PackageVersionInputConfig.new
         data = {}
-        data['S3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['S3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -1173,7 +1176,7 @@ module AWS::SDK::Panorama
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusDescription'] = stub[:status_description] unless stub[:status_description].nil?
         data['RegisteredTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registered_time]).to_i unless stub[:registered_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1190,9 +1193,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PackageObjects'] = Stubs::PackageObjects.stub(stub[:package_objects]) unless stub[:package_objects].nil?
+        data['PackageObjects'] = PackageObjects.stub(stub[:package_objects]) unless stub[:package_objects].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1210,7 +1213,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageObject.stub(element) unless element.nil?
+          data << PackageObject.stub(element) unless element.nil?
         end
         data
       end
@@ -1251,9 +1254,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['NodeInstances'] = Stubs::NodeInstances.stub(stub[:node_instances]) unless stub[:node_instances].nil?
+        data['NodeInstances'] = NodeInstances.stub(stub[:node_instances]) unless stub[:node_instances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1271,7 +1274,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeInstance.stub(element) unless element.nil?
+          data << NodeInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -1320,9 +1323,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ApplicationInstances'] = Stubs::ApplicationInstances.stub(stub[:application_instances]) unless stub[:application_instances].nil?
+        data['ApplicationInstances'] = ApplicationInstances.stub(stub[:application_instances]) unless stub[:application_instances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1340,7 +1343,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationInstance.stub(element) unless element.nil?
+          data << ApplicationInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -1379,7 +1382,7 @@ module AWS::SDK::Panorama
         data['StatusDescription'] = stub[:status_description] unless stub[:status_description].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1397,9 +1400,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Devices'] = Stubs::DeviceList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['Devices'] = DeviceList.stub(stub[:devices]) unless stub[:devices].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1417,7 +1420,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Device.stub(element) unless element.nil?
+          data << Device.stub(element) unless element.nil?
         end
         data
       end
@@ -1466,9 +1469,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DeviceJobs'] = Stubs::DeviceJobList.stub(stub[:device_jobs]) unless stub[:device_jobs].nil?
+        data['DeviceJobs'] = DeviceJobList.stub(stub[:device_jobs]) unless stub[:device_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1486,7 +1489,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceJob.stub(element) unless element.nil?
+          data << DeviceJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1529,9 +1532,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['NodeFromTemplateJobs'] = Stubs::NodeFromTemplateJobList.stub(stub[:node_from_template_jobs]) unless stub[:node_from_template_jobs].nil?
+        data['NodeFromTemplateJobs'] = NodeFromTemplateJobList.stub(stub[:node_from_template_jobs]) unless stub[:node_from_template_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1549,7 +1552,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeFromTemplateJob.stub(element) unless element.nil?
+          data << NodeFromTemplateJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1596,9 +1599,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Nodes'] = Stubs::NodesList.stub(stub[:nodes]) unless stub[:nodes].nil?
+        data['Nodes'] = NodesList.stub(stub[:nodes]) unless stub[:nodes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1616,7 +1619,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Node.stub(element) unless element.nil?
+          data << Node.stub(element) unless element.nil?
         end
         data
       end
@@ -1673,9 +1676,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PackageImportJobs'] = Stubs::PackageImportJobList.stub(stub[:package_import_jobs]) unless stub[:package_import_jobs].nil?
+        data['PackageImportJobs'] = PackageImportJobList.stub(stub[:package_import_jobs]) unless stub[:package_import_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1693,7 +1696,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageImportJob.stub(element) unless element.nil?
+          data << PackageImportJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1740,9 +1743,9 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Packages'] = Stubs::PackageList.stub(stub[:packages]) unless stub[:packages].nil?
+        data['Packages'] = PackageList.stub(stub[:packages]) unless stub[:packages].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1760,7 +1763,7 @@ module AWS::SDK::Panorama
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageListItem.stub(element) unless element.nil?
+          data << PackageListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1787,7 +1790,7 @@ module AWS::SDK::Panorama
         data['PackageName'] = stub[:package_name] unless stub[:package_name].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1804,8 +1807,8 @@ module AWS::SDK::Panorama
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1828,9 +1831,9 @@ module AWS::SDK::Panorama
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Certificates'] = Base64::encode64(stub[:certificates]) unless stub[:certificates].nil?
+        data['Certificates'] = ::Base64::encode64(stub[:certificates]) unless stub[:certificates].nil?
         data['IotThingName'] = stub[:iot_thing_name] unless stub[:iot_thing_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1899,7 +1902,7 @@ module AWS::SDK::Panorama
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -230,7 +230,7 @@ module AWS::SDK::ACMPCA
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificate_authority = (Parsers::CertificateAuthority.parse(map['CertificateAuthority']) unless map['CertificateAuthority'].nil?)
+        data.certificate_authority = (CertificateAuthority.parse(map['CertificateAuthority']) unless map['CertificateAuthority'].nil?)
         data
       end
     end
@@ -248,8 +248,8 @@ module AWS::SDK::ACMPCA
         data.not_before = Time.at(map['NotBefore'].to_i) if map['NotBefore']
         data.not_after = Time.at(map['NotAfter'].to_i) if map['NotAfter']
         data.failure_reason = map['FailureReason']
-        data.certificate_authority_configuration = (Parsers::CertificateAuthorityConfiguration.parse(map['CertificateAuthorityConfiguration']) unless map['CertificateAuthorityConfiguration'].nil?)
-        data.revocation_configuration = (Parsers::RevocationConfiguration.parse(map['RevocationConfiguration']) unless map['RevocationConfiguration'].nil?)
+        data.certificate_authority_configuration = (CertificateAuthorityConfiguration.parse(map['CertificateAuthorityConfiguration']) unless map['CertificateAuthorityConfiguration'].nil?)
+        data.revocation_configuration = (RevocationConfiguration.parse(map['RevocationConfiguration']) unless map['RevocationConfiguration'].nil?)
         data.restorable_until = Time.at(map['RestorableUntil'].to_i) if map['RestorableUntil']
         data.key_storage_security_standard = map['KeyStorageSecurityStandard']
         return data
@@ -259,8 +259,8 @@ module AWS::SDK::ACMPCA
     class RevocationConfiguration
       def self.parse(map)
         data = Types::RevocationConfiguration.new
-        data.crl_configuration = (Parsers::CrlConfiguration.parse(map['CrlConfiguration']) unless map['CrlConfiguration'].nil?)
-        data.ocsp_configuration = (Parsers::OcspConfiguration.parse(map['OcspConfiguration']) unless map['OcspConfiguration'].nil?)
+        data.crl_configuration = (CrlConfiguration.parse(map['CrlConfiguration']) unless map['CrlConfiguration'].nil?)
+        data.ocsp_configuration = (OcspConfiguration.parse(map['OcspConfiguration']) unless map['OcspConfiguration'].nil?)
         return data
       end
     end
@@ -291,8 +291,8 @@ module AWS::SDK::ACMPCA
         data = Types::CertificateAuthorityConfiguration.new
         data.key_algorithm = map['KeyAlgorithm']
         data.signing_algorithm = map['SigningAlgorithm']
-        data.subject = (Parsers::ASN1Subject.parse(map['Subject']) unless map['Subject'].nil?)
-        data.csr_extensions = (Parsers::CsrExtensions.parse(map['CsrExtensions']) unless map['CsrExtensions'].nil?)
+        data.subject = (ASN1Subject.parse(map['Subject']) unless map['Subject'].nil?)
+        data.csr_extensions = (CsrExtensions.parse(map['CsrExtensions']) unless map['CsrExtensions'].nil?)
         return data
       end
     end
@@ -300,8 +300,8 @@ module AWS::SDK::ACMPCA
     class CsrExtensions
       def self.parse(map)
         data = Types::CsrExtensions.new
-        data.key_usage = (Parsers::KeyUsage.parse(map['KeyUsage']) unless map['KeyUsage'].nil?)
-        data.subject_information_access = (Parsers::AccessDescriptionList.parse(map['SubjectInformationAccess']) unless map['SubjectInformationAccess'].nil?)
+        data.key_usage = (KeyUsage.parse(map['KeyUsage']) unless map['KeyUsage'].nil?)
+        data.subject_information_access = (AccessDescriptionList.parse(map['SubjectInformationAccess']) unless map['SubjectInformationAccess'].nil?)
         return data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::ACMPCA
     class AccessDescriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccessDescription.parse(value) unless value.nil?
+          AccessDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -317,8 +317,8 @@ module AWS::SDK::ACMPCA
     class AccessDescription
       def self.parse(map)
         data = Types::AccessDescription.new
-        data.access_method = (Parsers::AccessMethod.parse(map['AccessMethod']) unless map['AccessMethod'].nil?)
-        data.access_location = (Parsers::GeneralName.parse(map['AccessLocation']) unless map['AccessLocation'].nil?)
+        data.access_method = (AccessMethod.parse(map['AccessMethod']) unless map['AccessMethod'].nil?)
+        data.access_location = (GeneralName.parse(map['AccessLocation']) unless map['AccessLocation'].nil?)
         return data
       end
     end
@@ -326,11 +326,11 @@ module AWS::SDK::ACMPCA
     class GeneralName
       def self.parse(map)
         data = Types::GeneralName.new
-        data.other_name = (Parsers::OtherName.parse(map['OtherName']) unless map['OtherName'].nil?)
+        data.other_name = (OtherName.parse(map['OtherName']) unless map['OtherName'].nil?)
         data.rfc822_name = map['Rfc822Name']
         data.dns_name = map['DnsName']
-        data.directory_name = (Parsers::ASN1Subject.parse(map['DirectoryName']) unless map['DirectoryName'].nil?)
-        data.edi_party_name = (Parsers::EdiPartyName.parse(map['EdiPartyName']) unless map['EdiPartyName'].nil?)
+        data.directory_name = (ASN1Subject.parse(map['DirectoryName']) unless map['DirectoryName'].nil?)
+        data.edi_party_name = (EdiPartyName.parse(map['EdiPartyName']) unless map['EdiPartyName'].nil?)
         data.uniform_resource_identifier = map['UniformResourceIdentifier']
         data.ip_address = map['IpAddress']
         data.registered_id = map['RegisteredId']
@@ -364,7 +364,7 @@ module AWS::SDK::ACMPCA
         data.initials = map['Initials']
         data.pseudonym = map['Pseudonym']
         data.generation_qualifier = map['GenerationQualifier']
-        data.custom_attributes = (Parsers::CustomAttributeList.parse(map['CustomAttributes']) unless map['CustomAttributes'].nil?)
+        data.custom_attributes = (CustomAttributeList.parse(map['CustomAttributes']) unless map['CustomAttributes'].nil?)
         return data
       end
     end
@@ -372,7 +372,7 @@ module AWS::SDK::ACMPCA
     class CustomAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomAttribute.parse(value) unless value.nil?
+          CustomAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -563,7 +563,7 @@ module AWS::SDK::ACMPCA
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificate_authorities = (Parsers::CertificateAuthorities.parse(map['CertificateAuthorities']) unless map['CertificateAuthorities'].nil?)
+        data.certificate_authorities = (CertificateAuthorities.parse(map['CertificateAuthorities']) unless map['CertificateAuthorities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -572,7 +572,7 @@ module AWS::SDK::ACMPCA
     class CertificateAuthorities
       def self.parse(list)
         list.map do |value|
-          Parsers::CertificateAuthority.parse(value) unless value.nil?
+          CertificateAuthority.parse(value) unless value.nil?
         end
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::ACMPCA
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permissions = (Parsers::PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -605,7 +605,7 @@ module AWS::SDK::ACMPCA
     class PermissionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Permission.parse(value) unless value.nil?
+          Permission.parse(value) unless value.nil?
         end
       end
     end
@@ -617,7 +617,7 @@ module AWS::SDK::ACMPCA
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.principal = map['Principal']
         data.source_account = map['SourceAccount']
-        data.actions = (Parsers::ActionList.parse(map['Actions']) unless map['Actions'].nil?)
+        data.actions = (ActionList.parse(map['Actions']) unless map['Actions'].nil?)
         data.policy = map['Policy']
         return data
       end
@@ -638,7 +638,7 @@ module AWS::SDK::ACMPCA
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -647,7 +647,7 @@ module AWS::SDK::ACMPCA
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PI
   module Stubs
 
@@ -26,10 +28,10 @@ module AWS::SDK::PI
         data = {}
         data['AlignedStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:aligned_start_time]).to_i unless stub[:aligned_start_time].nil?
         data['AlignedEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:aligned_end_time]).to_i unless stub[:aligned_end_time].nil?
-        data['PartitionKeys'] = Stubs::ResponsePartitionKeyList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
-        data['Keys'] = Stubs::DimensionKeyDescriptionList.stub(stub[:keys]) unless stub[:keys].nil?
+        data['PartitionKeys'] = ResponsePartitionKeyList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['Keys'] = DimensionKeyDescriptionList.stub(stub[:keys]) unless stub[:keys].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionKeyDescription.stub(element) unless element.nil?
+          data << DimensionKeyDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -70,10 +72,10 @@ module AWS::SDK::PI
       def self.stub(stub)
         stub ||= Types::DimensionKeyDescription.new
         data = {}
-        data['Dimensions'] = Stubs::DimensionMap.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = DimensionMap.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['Total'] = Hearth::NumberHelper.serialize(stub[:total])
-        data['AdditionalMetrics'] = Stubs::AdditionalMetricsMap.stub(stub[:additional_metrics]) unless stub[:additional_metrics].nil?
-        data['Partitions'] = Stubs::MetricValuesList.stub(stub[:partitions]) unless stub[:partitions].nil?
+        data['AdditionalMetrics'] = AdditionalMetricsMap.stub(stub[:additional_metrics]) unless stub[:additional_metrics].nil?
+        data['Partitions'] = MetricValuesList.stub(stub[:partitions]) unless stub[:partitions].nil?
         data
       end
     end
@@ -152,7 +154,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResponsePartitionKey.stub(element) unless element.nil?
+          data << ResponsePartitionKey.stub(element) unless element.nil?
         end
         data
       end
@@ -171,7 +173,7 @@ module AWS::SDK::PI
       def self.stub(stub)
         stub ||= Types::ResponsePartitionKey.new
         data = {}
-        data['Dimensions'] = Stubs::DimensionMap.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = DimensionMap.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data
       end
     end
@@ -186,8 +188,8 @@ module AWS::SDK::PI
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Dimensions'] = Stubs::DimensionKeyDetailList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Dimensions'] = DimensionKeyDetailList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -206,7 +208,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionKeyDetail.stub(element) unless element.nil?
+          data << DimensionKeyDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -246,8 +248,8 @@ module AWS::SDK::PI
       def self.stub(http_resp, stub:)
         data = {}
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
-        data['Features'] = Stubs::FeatureMetadataMap.stub(stub[:features]) unless stub[:features].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Features'] = FeatureMetadataMap.stub(stub[:features]) unless stub[:features].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -266,7 +268,7 @@ module AWS::SDK::PI
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FeatureMetadata.stub(value) unless value.nil?
+          data[key] = FeatureMetadata.stub(value) unless value.nil?
         end
         data
       end
@@ -307,9 +309,9 @@ module AWS::SDK::PI
         data['AlignedStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:aligned_start_time]).to_i unless stub[:aligned_start_time].nil?
         data['AlignedEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:aligned_end_time]).to_i unless stub[:aligned_end_time].nil?
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
-        data['MetricList'] = Stubs::MetricKeyDataPointsList.stub(stub[:metric_list]) unless stub[:metric_list].nil?
+        data['MetricList'] = MetricKeyDataPointsList.stub(stub[:metric_list]) unless stub[:metric_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -328,7 +330,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricKeyDataPoints.stub(element) unless element.nil?
+          data << MetricKeyDataPoints.stub(element) unless element.nil?
         end
         data
       end
@@ -348,8 +350,8 @@ module AWS::SDK::PI
       def self.stub(stub)
         stub ||= Types::MetricKeyDataPoints.new
         data = {}
-        data['Key'] = Stubs::ResponseResourceMetricKey.stub(stub[:key]) unless stub[:key].nil?
-        data['DataPoints'] = Stubs::DataPointsList.stub(stub[:data_points]) unless stub[:data_points].nil?
+        data['Key'] = ResponseResourceMetricKey.stub(stub[:key]) unless stub[:key].nil?
+        data['DataPoints'] = DataPointsList.stub(stub[:data_points]) unless stub[:data_points].nil?
         data
       end
     end
@@ -368,7 +370,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataPoint.stub(element) unless element.nil?
+          data << DataPoint.stub(element) unless element.nil?
         end
         data
       end
@@ -409,7 +411,7 @@ module AWS::SDK::PI
         stub ||= Types::ResponseResourceMetricKey.new
         data = {}
         data['Metric'] = stub[:metric] unless stub[:metric].nil?
-        data['Dimensions'] = Stubs::DimensionMap.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = DimensionMap.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data
       end
     end
@@ -425,9 +427,9 @@ module AWS::SDK::PI
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MetricDimensions'] = Stubs::MetricDimensionsList.stub(stub[:metric_dimensions]) unless stub[:metric_dimensions].nil?
+        data['MetricDimensions'] = MetricDimensionsList.stub(stub[:metric_dimensions]) unless stub[:metric_dimensions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -446,7 +448,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDimensionGroups.stub(element) unless element.nil?
+          data << MetricDimensionGroups.stub(element) unless element.nil?
         end
         data
       end
@@ -467,7 +469,7 @@ module AWS::SDK::PI
         stub ||= Types::MetricDimensionGroups.new
         data = {}
         data['Metric'] = stub[:metric] unless stub[:metric].nil?
-        data['Groups'] = Stubs::DimensionGroupDetailList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = DimensionGroupDetailList.stub(stub[:groups]) unless stub[:groups].nil?
         data
       end
     end
@@ -486,7 +488,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionGroupDetail.stub(element) unless element.nil?
+          data << DimensionGroupDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -507,7 +509,7 @@ module AWS::SDK::PI
         stub ||= Types::DimensionGroupDetail.new
         data = {}
         data['Group'] = stub[:group] unless stub[:group].nil?
-        data['Dimensions'] = Stubs::DimensionDetailList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = DimensionDetailList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data
       end
     end
@@ -526,7 +528,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionDetail.stub(element) unless element.nil?
+          data << DimensionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -561,9 +563,9 @@ module AWS::SDK::PI
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Metrics'] = Stubs::ResponseResourceMetricList.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Metrics'] = ResponseResourceMetricList.stub(stub[:metrics]) unless stub[:metrics].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -582,7 +584,7 @@ module AWS::SDK::PI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResponseResourceMetric.stub(element) unless element.nil?
+          data << ResponseResourceMetric.stub(element) unless element.nil?
         end
         data
       end

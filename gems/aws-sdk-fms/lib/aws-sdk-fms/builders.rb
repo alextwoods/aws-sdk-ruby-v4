@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::FMS
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.AssociateAdminAccount'
         data = {}
         data['AdminAccount'] = input[:admin_account] unless input[:admin_account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.AssociateThirdPartyFirewall'
         data = {}
         data['ThirdPartyFirewall'] = input[:third_party_firewall] unless input[:third_party_firewall].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.DeleteAppsList'
         data = {}
         data['ListId'] = input[:list_id] unless input[:list_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,7 +59,7 @@ module AWS::SDK::FMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.DeleteNotificationChannel'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::FMS
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['DeleteAllPolicyResources'] = input[:delete_all_policy_resources] unless input[:delete_all_policy_resources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.DeleteProtocolsList'
         data = {}
         data['ListId'] = input[:list_id] unless input[:list_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,7 +98,7 @@ module AWS::SDK::FMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.DisassociateAdminAccount'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,7 +111,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.DisassociateThirdPartyFirewall'
         data = {}
         data['ThirdPartyFirewall'] = input[:third_party_firewall] unless input[:third_party_firewall].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::FMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.GetAdminAccount'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::FMS
         data = {}
         data['ListId'] = input[:list_id] unless input[:list_id].nil?
         data['DefaultList'] = input[:default_list] unless input[:default_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::FMS
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['MemberAccount'] = input[:member_account] unless input[:member_account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::FMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.GetNotificationChannel'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.GetPolicy'
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,7 +194,7 @@ module AWS::SDK::FMS
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,7 +208,7 @@ module AWS::SDK::FMS
         data = {}
         data['ListId'] = input[:list_id] unless input[:list_id].nil?
         data['DefaultList'] = input[:default_list] unless input[:default_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.GetThirdPartyFirewallAssociationStatus'
         data = {}
         data['ThirdPartyFirewall'] = input[:third_party_firewall] unless input[:third_party_firewall].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::FMS
         data['MemberAccount'] = input[:member_account] unless input[:member_account].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::FMS
         data['DefaultLists'] = input[:default_lists] unless input[:default_lists].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -265,7 +267,7 @@ module AWS::SDK::FMS
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -279,7 +281,7 @@ module AWS::SDK::FMS
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -293,7 +295,7 @@ module AWS::SDK::FMS
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::FMS
         data['DefaultLists'] = input[:default_lists] unless input[:default_lists].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,7 +323,7 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,7 +338,7 @@ module AWS::SDK::FMS
         data['ThirdPartyFirewall'] = input[:third_party_firewall] unless input[:third_party_firewall].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,9 +350,9 @@ module AWS::SDK::FMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.PutAppsList'
         data = {}
-        data['AppsList'] = Builders::AppsListData.build(input[:apps_list]) unless input[:apps_list].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppsList'] = AppsListData.build(input[:apps_list]) unless input[:apps_list].nil?
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::FMS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -384,8 +386,8 @@ module AWS::SDK::FMS
         data['ListUpdateToken'] = input[:list_update_token] unless input[:list_update_token].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:create_time]).to_i unless input[:create_time].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_update_time]).to_i unless input[:last_update_time].nil?
-        data['AppsList'] = Builders::AppsList.build(input[:apps_list]) unless input[:apps_list].nil?
-        data['PreviousAppsList'] = Builders::PreviousAppsList.build(input[:previous_apps_list]) unless input[:previous_apps_list].nil?
+        data['AppsList'] = AppsList.build(input[:apps_list]) unless input[:apps_list].nil?
+        data['PreviousAppsList'] = PreviousAppsList.build(input[:previous_apps_list]) unless input[:previous_apps_list].nil?
         data
       end
     end
@@ -395,7 +397,7 @@ module AWS::SDK::FMS
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AppsList.build(value) unless value.nil?
+          data[key] = AppsList.build(value) unless value.nil?
         end
         data
       end
@@ -406,7 +408,7 @@ module AWS::SDK::FMS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::App.build(element) unless element.nil?
+          data << App.build(element) unless element.nil?
         end
         data
       end
@@ -433,7 +435,7 @@ module AWS::SDK::FMS
         data = {}
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
         data['SnsRoleName'] = input[:sns_role_name] unless input[:sns_role_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,9 +447,9 @@ module AWS::SDK::FMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.PutPolicy'
         data = {}
-        data['Policy'] = Builders::Policy.build(input[:policy]) unless input[:policy].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policy'] = Policy.build(input[:policy]) unless input[:policy].nil?
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -458,15 +460,15 @@ module AWS::SDK::FMS
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['PolicyName'] = input[:policy_name] unless input[:policy_name].nil?
         data['PolicyUpdateToken'] = input[:policy_update_token] unless input[:policy_update_token].nil?
-        data['SecurityServicePolicyData'] = Builders::SecurityServicePolicyData.build(input[:security_service_policy_data]) unless input[:security_service_policy_data].nil?
+        data['SecurityServicePolicyData'] = SecurityServicePolicyData.build(input[:security_service_policy_data]) unless input[:security_service_policy_data].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['ResourceTypeList'] = Builders::ResourceTypeList.build(input[:resource_type_list]) unless input[:resource_type_list].nil?
-        data['ResourceTags'] = Builders::ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        data['ResourceTypeList'] = ResourceTypeList.build(input[:resource_type_list]) unless input[:resource_type_list].nil?
+        data['ResourceTags'] = ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
         data['ExcludeResourceTags'] = input[:exclude_resource_tags] unless input[:exclude_resource_tags].nil?
         data['RemediationEnabled'] = input[:remediation_enabled] unless input[:remediation_enabled].nil?
         data['DeleteUnusedFMManagedResources'] = input[:delete_unused_fm_managed_resources] unless input[:delete_unused_fm_managed_resources].nil?
-        data['IncludeMap'] = Builders::CustomerPolicyScopeMap.build(input[:include_map]) unless input[:include_map].nil?
-        data['ExcludeMap'] = Builders::CustomerPolicyScopeMap.build(input[:exclude_map]) unless input[:exclude_map].nil?
+        data['IncludeMap'] = CustomerPolicyScopeMap.build(input[:include_map]) unless input[:include_map].nil?
+        data['ExcludeMap'] = CustomerPolicyScopeMap.build(input[:exclude_map]) unless input[:exclude_map].nil?
         data
       end
     end
@@ -476,7 +478,7 @@ module AWS::SDK::FMS
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::CustomerPolicyScopeIdList.build(value) unless value.nil?
+          data[key] = CustomerPolicyScopeIdList.build(value) unless value.nil?
         end
         data
       end
@@ -498,7 +500,7 @@ module AWS::SDK::FMS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceTag.build(element) unless element.nil?
+          data << ResourceTag.build(element) unless element.nil?
         end
         data
       end
@@ -531,7 +533,7 @@ module AWS::SDK::FMS
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
         data['ManagedServiceData'] = input[:managed_service_data] unless input[:managed_service_data].nil?
-        data['PolicyOption'] = Builders::PolicyOption.build(input[:policy_option]) unless input[:policy_option].nil?
+        data['PolicyOption'] = PolicyOption.build(input[:policy_option]) unless input[:policy_option].nil?
         data
       end
     end
@@ -540,8 +542,8 @@ module AWS::SDK::FMS
     class PolicyOption
       def self.build(input)
         data = {}
-        data['NetworkFirewallPolicy'] = Builders::NetworkFirewallPolicy.build(input[:network_firewall_policy]) unless input[:network_firewall_policy].nil?
-        data['ThirdPartyFirewallPolicy'] = Builders::ThirdPartyFirewallPolicy.build(input[:third_party_firewall_policy]) unless input[:third_party_firewall_policy].nil?
+        data['NetworkFirewallPolicy'] = NetworkFirewallPolicy.build(input[:network_firewall_policy]) unless input[:network_firewall_policy].nil?
+        data['ThirdPartyFirewallPolicy'] = ThirdPartyFirewallPolicy.build(input[:third_party_firewall_policy]) unless input[:third_party_firewall_policy].nil?
         data
       end
     end
@@ -572,9 +574,9 @@ module AWS::SDK::FMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.PutProtocolsList'
         data = {}
-        data['ProtocolsList'] = Builders::ProtocolsListData.build(input[:protocols_list]) unless input[:protocols_list].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProtocolsList'] = ProtocolsListData.build(input[:protocols_list]) unless input[:protocols_list].nil?
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -587,8 +589,8 @@ module AWS::SDK::FMS
         data['ListUpdateToken'] = input[:list_update_token] unless input[:list_update_token].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:create_time]).to_i unless input[:create_time].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_update_time]).to_i unless input[:last_update_time].nil?
-        data['ProtocolsList'] = Builders::ProtocolsList.build(input[:protocols_list]) unless input[:protocols_list].nil?
-        data['PreviousProtocolsList'] = Builders::PreviousProtocolsList.build(input[:previous_protocols_list]) unless input[:previous_protocols_list].nil?
+        data['ProtocolsList'] = ProtocolsList.build(input[:protocols_list]) unless input[:protocols_list].nil?
+        data['PreviousProtocolsList'] = PreviousProtocolsList.build(input[:previous_protocols_list]) unless input[:previous_protocols_list].nil?
         data
       end
     end
@@ -598,7 +600,7 @@ module AWS::SDK::FMS
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ProtocolsList.build(value) unless value.nil?
+          data[key] = ProtocolsList.build(value) unless value.nil?
         end
         data
       end
@@ -624,8 +626,8 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -638,8 +640,8 @@ module AWS::SDK::FMS
         http_req.headers['X-Amz-Target'] = 'AWSFMS_20180101.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

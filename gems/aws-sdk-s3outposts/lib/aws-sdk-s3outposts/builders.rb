@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::S3Outposts
   module Builders
 
@@ -25,7 +27,7 @@ module AWS::SDK::S3Outposts
         data['SecurityGroupId'] = input[:security_group_id] unless input[:security_group_id].nil?
         data['AccessType'] = input[:access_type] unless input[:access_type].nil?
         data['CustomerOwnedIpv4Pool'] = input[:customer_owned_ipv4_pool] unless input[:customer_owned_ipv4_pool].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

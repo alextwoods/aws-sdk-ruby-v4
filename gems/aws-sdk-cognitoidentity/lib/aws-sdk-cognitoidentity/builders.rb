@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CognitoIdentity
   module Builders
 
@@ -21,13 +23,13 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolName'] = input[:identity_pool_name] unless input[:identity_pool_name].nil?
         data['AllowUnauthenticatedIdentities'] = input[:allow_unauthenticated_identities] unless input[:allow_unauthenticated_identities].nil?
         data['AllowClassicFlow'] = input[:allow_classic_flow] unless input[:allow_classic_flow].nil?
-        data['SupportedLoginProviders'] = Builders::IdentityProviders.build(input[:supported_login_providers]) unless input[:supported_login_providers].nil?
+        data['SupportedLoginProviders'] = IdentityProviders.build(input[:supported_login_providers]) unless input[:supported_login_providers].nil?
         data['DeveloperProviderName'] = input[:developer_provider_name] unless input[:developer_provider_name].nil?
-        data['OpenIdConnectProviderARNs'] = Builders::OIDCProviderList.build(input[:open_id_connect_provider_ar_ns]) unless input[:open_id_connect_provider_ar_ns].nil?
-        data['CognitoIdentityProviders'] = Builders::CognitoIdentityProviderList.build(input[:cognito_identity_providers]) unless input[:cognito_identity_providers].nil?
-        data['SamlProviderARNs'] = Builders::SAMLProviderList.build(input[:saml_provider_ar_ns]) unless input[:saml_provider_ar_ns].nil?
-        data['IdentityPoolTags'] = Builders::IdentityPoolTagsType.build(input[:identity_pool_tags]) unless input[:identity_pool_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenIdConnectProviderARNs'] = OIDCProviderList.build(input[:open_id_connect_provider_ar_ns]) unless input[:open_id_connect_provider_ar_ns].nil?
+        data['CognitoIdentityProviders'] = CognitoIdentityProviderList.build(input[:cognito_identity_providers]) unless input[:cognito_identity_providers].nil?
+        data['SamlProviderARNs'] = SAMLProviderList.build(input[:saml_provider_ar_ns]) unless input[:saml_provider_ar_ns].nil?
+        data['IdentityPoolTags'] = IdentityPoolTagsType.build(input[:identity_pool_tags]) unless input[:identity_pool_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::CognitoIdentity
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CognitoIdentityProvider.build(element) unless element.nil?
+          data << CognitoIdentityProvider.build(element) unless element.nil?
         end
         data
       end
@@ -105,8 +107,8 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.DeleteIdentities'
         data = {}
-        data['IdentityIdsToDelete'] = Builders::IdentityIdList.build(input[:identity_ids_to_delete]) unless input[:identity_ids_to_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IdentityIdsToDelete'] = IdentityIdList.build(input[:identity_ids_to_delete]) unless input[:identity_ids_to_delete].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,7 +132,7 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.DeleteIdentityPool'
         data = {}
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.DescribeIdentity'
         data = {}
         data['IdentityId'] = input[:identity_id] unless input[:identity_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,7 +158,7 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.DescribeIdentityPool'
         data = {}
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,9 +171,9 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.GetCredentialsForIdentity'
         data = {}
         data['IdentityId'] = input[:identity_id] unless input[:identity_id].nil?
-        data['Logins'] = Builders::LoginsMap.build(input[:logins]) unless input[:logins].nil?
+        data['Logins'] = LoginsMap.build(input[:logins]) unless input[:logins].nil?
         data['CustomRoleArn'] = input[:custom_role_arn] unless input[:custom_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,8 +198,8 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
-        data['Logins'] = Builders::LoginsMap.build(input[:logins]) unless input[:logins].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Logins'] = LoginsMap.build(input[:logins]) unless input[:logins].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +212,7 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.GetIdentityPoolRoles'
         data = {}
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,8 +225,8 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.GetOpenIdToken'
         data = {}
         data['IdentityId'] = input[:identity_id] unless input[:identity_id].nil?
-        data['Logins'] = Builders::LoginsMap.build(input[:logins]) unless input[:logins].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Logins'] = LoginsMap.build(input[:logins]) unless input[:logins].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -238,10 +240,10 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
         data['IdentityId'] = input[:identity_id] unless input[:identity_id].nil?
-        data['Logins'] = Builders::LoginsMap.build(input[:logins]) unless input[:logins].nil?
-        data['PrincipalTags'] = Builders::PrincipalTags.build(input[:principal_tags]) unless input[:principal_tags].nil?
+        data['Logins'] = LoginsMap.build(input[:logins]) unless input[:logins].nil?
+        data['PrincipalTags'] = PrincipalTags.build(input[:principal_tags]) unless input[:principal_tags].nil?
         data['TokenDuration'] = input[:token_duration] unless input[:token_duration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -266,7 +268,7 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
         data['IdentityProviderName'] = input[:identity_provider_name] unless input[:identity_provider_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,7 +284,7 @@ module AWS::SDK::CognitoIdentity
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['HideDisabled'] = input[:hide_disabled] unless input[:hide_disabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -296,7 +298,7 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -309,7 +311,7 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -326,7 +328,7 @@ module AWS::SDK::CognitoIdentity
         data['DeveloperUserIdentifier'] = input[:developer_user_identifier] unless input[:developer_user_identifier].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::CognitoIdentity
         data['DestinationUserIdentifier'] = input[:destination_user_identifier] unless input[:destination_user_identifier].nil?
         data['DeveloperProviderName'] = input[:developer_provider_name] unless input[:developer_provider_name].nil?
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,9 +357,9 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.SetIdentityPoolRoles'
         data = {}
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
-        data['Roles'] = Builders::RolesMap.build(input[:roles]) unless input[:roles].nil?
-        data['RoleMappings'] = Builders::RoleMappingMap.build(input[:role_mappings]) unless input[:role_mappings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Roles'] = RolesMap.build(input[:roles]) unless input[:roles].nil?
+        data['RoleMappings'] = RoleMappingMap.build(input[:role_mappings]) unless input[:role_mappings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,7 +368,7 @@ module AWS::SDK::CognitoIdentity
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::RoleMapping.build(value) unless value.nil?
+          data[key] = RoleMapping.build(value) unless value.nil?
         end
         data
       end
@@ -378,7 +380,7 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
         data['AmbiguousRoleResolution'] = input[:ambiguous_role_resolution] unless input[:ambiguous_role_resolution].nil?
-        data['RulesConfiguration'] = Builders::RulesConfigurationType.build(input[:rules_configuration]) unless input[:rules_configuration].nil?
+        data['RulesConfiguration'] = RulesConfigurationType.build(input[:rules_configuration]) unless input[:rules_configuration].nil?
         data
       end
     end
@@ -387,7 +389,7 @@ module AWS::SDK::CognitoIdentity
     class RulesConfigurationType
       def self.build(input)
         data = {}
-        data['Rules'] = Builders::MappingRulesList.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = MappingRulesList.build(input[:rules]) unless input[:rules].nil?
         data
       end
     end
@@ -397,7 +399,7 @@ module AWS::SDK::CognitoIdentity
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MappingRule.build(element) unless element.nil?
+          data << MappingRule.build(element) unless element.nil?
         end
         data
       end
@@ -437,8 +439,8 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
         data['IdentityProviderName'] = input[:identity_provider_name] unless input[:identity_provider_name].nil?
         data['UseDefaults'] = input[:use_defaults] unless input[:use_defaults].nil?
-        data['PrincipalTags'] = Builders::PrincipalTags.build(input[:principal_tags]) unless input[:principal_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PrincipalTags'] = PrincipalTags.build(input[:principal_tags]) unless input[:principal_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -451,8 +453,8 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::IdentityPoolTagsType.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = IdentityPoolTagsType.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -468,7 +470,7 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
         data['DeveloperProviderName'] = input[:developer_provider_name] unless input[:developer_provider_name].nil?
         data['DeveloperUserIdentifier'] = input[:developer_user_identifier] unless input[:developer_user_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -481,9 +483,9 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.UnlinkIdentity'
         data = {}
         data['IdentityId'] = input[:identity_id] unless input[:identity_id].nil?
-        data['Logins'] = Builders::LoginsMap.build(input[:logins]) unless input[:logins].nil?
-        data['LoginsToRemove'] = Builders::LoginsList.build(input[:logins_to_remove]) unless input[:logins_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Logins'] = LoginsMap.build(input[:logins]) unless input[:logins].nil?
+        data['LoginsToRemove'] = LoginsList.build(input[:logins_to_remove]) unless input[:logins_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -507,8 +509,8 @@ module AWS::SDK::CognitoIdentity
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::IdentityPoolTagsListType.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = IdentityPoolTagsListType.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -535,13 +537,13 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolName'] = input[:identity_pool_name] unless input[:identity_pool_name].nil?
         data['AllowUnauthenticatedIdentities'] = input[:allow_unauthenticated_identities] unless input[:allow_unauthenticated_identities].nil?
         data['AllowClassicFlow'] = input[:allow_classic_flow] unless input[:allow_classic_flow].nil?
-        data['SupportedLoginProviders'] = Builders::IdentityProviders.build(input[:supported_login_providers]) unless input[:supported_login_providers].nil?
+        data['SupportedLoginProviders'] = IdentityProviders.build(input[:supported_login_providers]) unless input[:supported_login_providers].nil?
         data['DeveloperProviderName'] = input[:developer_provider_name] unless input[:developer_provider_name].nil?
-        data['OpenIdConnectProviderARNs'] = Builders::OIDCProviderList.build(input[:open_id_connect_provider_ar_ns]) unless input[:open_id_connect_provider_ar_ns].nil?
-        data['CognitoIdentityProviders'] = Builders::CognitoIdentityProviderList.build(input[:cognito_identity_providers]) unless input[:cognito_identity_providers].nil?
-        data['SamlProviderARNs'] = Builders::SAMLProviderList.build(input[:saml_provider_ar_ns]) unless input[:saml_provider_ar_ns].nil?
-        data['IdentityPoolTags'] = Builders::IdentityPoolTagsType.build(input[:identity_pool_tags]) unless input[:identity_pool_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenIdConnectProviderARNs'] = OIDCProviderList.build(input[:open_id_connect_provider_ar_ns]) unless input[:open_id_connect_provider_ar_ns].nil?
+        data['CognitoIdentityProviders'] = CognitoIdentityProviderList.build(input[:cognito_identity_providers]) unless input[:cognito_identity_providers].nil?
+        data['SamlProviderARNs'] = SAMLProviderList.build(input[:saml_provider_ar_ns]) unless input[:saml_provider_ar_ns].nil?
+        data['IdentityPoolTags'] = IdentityPoolTagsType.build(input[:identity_pool_tags]) unless input[:identity_pool_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

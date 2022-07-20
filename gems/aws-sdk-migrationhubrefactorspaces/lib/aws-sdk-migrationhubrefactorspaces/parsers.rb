@@ -23,9 +23,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.environment_id = map['EnvironmentId']
         data.vpc_id = map['VpcId']
         data.proxy_type = map['ProxyType']
-        data.api_gateway_proxy = (Parsers::ApiGatewayProxyInput.parse(map['ApiGatewayProxy']) unless map['ApiGatewayProxy'].nil?)
+        data.api_gateway_proxy = (ApiGatewayProxyInput.parse(map['ApiGatewayProxy']) unless map['ApiGatewayProxy'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -144,7 +144,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.network_fabric_type = map['NetworkFabricType']
         data.owner_account_id = map['OwnerAccountId']
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -163,9 +163,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.route_type = map['RouteType']
         data.service_id = map['ServiceId']
         data.application_id = map['ApplicationId']
-        data.uri_path_route = (Parsers::UriPathRouteInput.parse(map['UriPathRoute']) unless map['UriPathRoute'].nil?)
+        data.uri_path_route = (UriPathRouteInput.parse(map['UriPathRoute']) unless map['UriPathRoute'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -177,7 +177,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = Types::UriPathRouteInput.new
         data.source_path = map['SourcePath']
         data.activation_state = map['ActivationState']
-        data.member_methods = (Parsers::HttpMethods.parse(map['Methods']) unless map['Methods'].nil?)
+        data.member_methods = (HttpMethods.parse(map['Methods']) unless map['Methods'].nil?)
         data.include_child_paths = map['IncludeChildPaths']
         return data
       end
@@ -208,10 +208,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.application_id = map['ApplicationId']
         data.vpc_id = map['VpcId']
         data.endpoint_type = map['EndpointType']
-        data.url_endpoint = (Parsers::UrlEndpointInput.parse(map['UrlEndpoint']) unless map['UrlEndpoint'].nil?)
-        data.lambda_endpoint = (Parsers::LambdaEndpointInput.parse(map['LambdaEndpoint']) unless map['LambdaEndpoint'].nil?)
+        data.url_endpoint = (UrlEndpointInput.parse(map['UrlEndpoint']) unless map['UrlEndpoint'].nil?)
+        data.lambda_endpoint = (LambdaEndpointInput.parse(map['LambdaEndpoint']) unless map['LambdaEndpoint'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -317,10 +317,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.environment_id = map['EnvironmentId']
         data.vpc_id = map['VpcId']
         data.proxy_type = map['ProxyType']
-        data.api_gateway_proxy = (Parsers::ApiGatewayProxyConfig.parse(map['ApiGatewayProxy']) unless map['ApiGatewayProxy'].nil?)
+        data.api_gateway_proxy = (ApiGatewayProxyConfig.parse(map['ApiGatewayProxy']) unless map['ApiGatewayProxy'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -335,7 +335,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.account_id = map['AccountId']
         data.resource_identifier = map['ResourceIdentifier']
         data.resource_type = map['ResourceType']
-        data.additional_details = (Parsers::AdditionalDetails.parse(map['AdditionalDetails']) unless map['AdditionalDetails'].nil?)
+        data.additional_details = (AdditionalDetails.parse(map['AdditionalDetails']) unless map['AdditionalDetails'].nil?)
         return data
       end
     end
@@ -377,8 +377,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.owner_account_id = map['OwnerAccountId']
         data.transit_gateway_id = map['TransitGatewayId']
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -409,12 +409,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.application_id = map['ApplicationId']
         data.environment_id = map['EnvironmentId']
         data.source_path = map['SourcePath']
-        data.member_methods = (Parsers::HttpMethods.parse(map['Methods']) unless map['Methods'].nil?)
+        data.member_methods = (HttpMethods.parse(map['Methods']) unless map['Methods'].nil?)
         data.include_child_paths = map['IncludeChildPaths']
-        data.path_resource_to_id = (Parsers::PathResourceToId.parse(map['PathResourceToId']) unless map['PathResourceToId'].nil?)
+        data.path_resource_to_id = (PathResourceToId.parse(map['PathResourceToId']) unless map['PathResourceToId'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -446,11 +446,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.application_id = map['ApplicationId']
         data.vpc_id = map['VpcId']
         data.endpoint_type = map['EndpointType']
-        data.url_endpoint = (Parsers::UrlEndpointConfig.parse(map['UrlEndpoint']) unless map['UrlEndpoint'].nil?)
-        data.lambda_endpoint = (Parsers::LambdaEndpointConfig.parse(map['LambdaEndpoint']) unless map['LambdaEndpoint'].nil?)
+        data.url_endpoint = (UrlEndpointConfig.parse(map['UrlEndpoint']) unless map['UrlEndpoint'].nil?)
+        data.lambda_endpoint = (LambdaEndpointConfig.parse(map['LambdaEndpoint']) unless map['LambdaEndpoint'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data
@@ -479,7 +479,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(http_resp)
         data = Types::ListApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application_summary_list = (Parsers::ApplicationSummaries.parse(map['ApplicationSummaryList']) unless map['ApplicationSummaryList'].nil?)
+        data.application_summary_list = (ApplicationSummaries.parse(map['ApplicationSummaryList']) unless map['ApplicationSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -489,7 +489,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationSummary.parse(value) unless value.nil?
+          data << ApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -506,10 +506,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.environment_id = map['EnvironmentId']
         data.vpc_id = map['VpcId']
         data.proxy_type = map['ProxyType']
-        data.api_gateway_proxy = (Parsers::ApiGatewayProxySummary.parse(map['ApiGatewayProxy']) unless map['ApiGatewayProxy'].nil?)
+        data.api_gateway_proxy = (ApiGatewayProxySummary.parse(map['ApiGatewayProxy']) unless map['ApiGatewayProxy'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
@@ -535,7 +535,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(http_resp)
         data = Types::ListEnvironmentVpcsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environment_vpc_list = (Parsers::EnvironmentVpcs.parse(map['EnvironmentVpcList']) unless map['EnvironmentVpcList'].nil?)
+        data.environment_vpc_list = (EnvironmentVpcs.parse(map['EnvironmentVpcList']) unless map['EnvironmentVpcList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -545,7 +545,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EnvironmentVpc.parse(value) unless value.nil?
+          data << EnvironmentVpc.parse(value) unless value.nil?
         end
         data
       end
@@ -557,7 +557,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.environment_id = map['EnvironmentId']
         data.vpc_id = map['VpcId']
         data.account_id = map['AccountId']
-        data.cidr_blocks = (Parsers::CidrBlocks.parse(map['CidrBlocks']) unless map['CidrBlocks'].nil?)
+        data.cidr_blocks = (CidrBlocks.parse(map['CidrBlocks']) unless map['CidrBlocks'].nil?)
         data.vpc_name = map['VpcName']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
@@ -580,7 +580,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(http_resp)
         data = Types::ListEnvironmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environment_summary_list = (Parsers::EnvironmentSummaries.parse(map['EnvironmentSummaryList']) unless map['EnvironmentSummaryList'].nil?)
+        data.environment_summary_list = (EnvironmentSummaries.parse(map['EnvironmentSummaryList']) unless map['EnvironmentSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -590,7 +590,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EnvironmentSummary.parse(value) unless value.nil?
+          data << EnvironmentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -607,8 +607,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.owner_account_id = map['OwnerAccountId']
         data.transit_gateway_id = map['TransitGatewayId']
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
@@ -620,7 +620,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(http_resp)
         data = Types::ListRoutesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.route_summary_list = (Parsers::RouteSummaries.parse(map['RouteSummaryList']) unless map['RouteSummaryList'].nil?)
+        data.route_summary_list = (RouteSummaries.parse(map['RouteSummaryList']) unless map['RouteSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -630,7 +630,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RouteSummary.parse(value) unless value.nil?
+          data << RouteSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -648,12 +648,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.application_id = map['ApplicationId']
         data.environment_id = map['EnvironmentId']
         data.source_path = map['SourcePath']
-        data.member_methods = (Parsers::HttpMethods.parse(map['Methods']) unless map['Methods'].nil?)
+        data.member_methods = (HttpMethods.parse(map['Methods']) unless map['Methods'].nil?)
         data.include_child_paths = map['IncludeChildPaths']
-        data.path_resource_to_id = (Parsers::PathResourceToId.parse(map['PathResourceToId']) unless map['PathResourceToId'].nil?)
+        data.path_resource_to_id = (PathResourceToId.parse(map['PathResourceToId']) unless map['PathResourceToId'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
@@ -665,7 +665,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(http_resp)
         data = Types::ListServicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.service_summary_list = (Parsers::ServiceSummaries.parse(map['ServiceSummaryList']) unless map['ServiceSummaryList'].nil?)
+        data.service_summary_list = (ServiceSummaries.parse(map['ServiceSummaryList']) unless map['ServiceSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -675,7 +675,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServiceSummary.parse(value) unless value.nil?
+          data << ServiceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -694,11 +694,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data.application_id = map['ApplicationId']
         data.vpc_id = map['VpcId']
         data.endpoint_type = map['EndpointType']
-        data.url_endpoint = (Parsers::UrlEndpointSummary.parse(map['UrlEndpoint']) unless map['UrlEndpoint'].nil?)
-        data.lambda_endpoint = (Parsers::LambdaEndpointSummary.parse(map['LambdaEndpoint']) unless map['LambdaEndpoint'].nil?)
+        data.url_endpoint = (UrlEndpointSummary.parse(map['UrlEndpoint']) unless map['UrlEndpoint'].nil?)
+        data.lambda_endpoint = (LambdaEndpointSummary.parse(map['LambdaEndpoint']) unless map['LambdaEndpoint'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.error = (Parsers::ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.error = (ErrorResponse.parse(map['Error']) unless map['Error'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
@@ -727,7 +727,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

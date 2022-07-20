@@ -180,7 +180,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.apps_list = (Parsers::AppsListData.parse(map['AppsList']) unless map['AppsList'].nil?)
+        data.apps_list = (AppsListData.parse(map['AppsList']) unless map['AppsList'].nil?)
         data.apps_list_arn = map['AppsListArn']
         data
       end
@@ -194,8 +194,8 @@ module AWS::SDK::FMS
         data.list_update_token = map['ListUpdateToken']
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
-        data.apps_list = (Parsers::AppsList.parse(map['AppsList']) unless map['AppsList'].nil?)
-        data.previous_apps_list = (Parsers::PreviousAppsList.parse(map['PreviousAppsList']) unless map['PreviousAppsList'].nil?)
+        data.apps_list = (AppsList.parse(map['AppsList']) unless map['AppsList'].nil?)
+        data.previous_apps_list = (PreviousAppsList.parse(map['PreviousAppsList']) unless map['PreviousAppsList'].nil?)
         return data
       end
     end
@@ -204,7 +204,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AppsList.parse(value) unless value.nil?
+          data[key] = AppsList.parse(value) unless value.nil?
         end
         data
       end
@@ -213,7 +213,7 @@ module AWS::SDK::FMS
     class AppsList
       def self.parse(list)
         list.map do |value|
-          Parsers::App.parse(value) unless value.nil?
+          App.parse(value) unless value.nil?
         end
       end
     end
@@ -235,7 +235,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy_compliance_detail = (Parsers::PolicyComplianceDetail.parse(map['PolicyComplianceDetail']) unless map['PolicyComplianceDetail'].nil?)
+        data.policy_compliance_detail = (PolicyComplianceDetail.parse(map['PolicyComplianceDetail']) unless map['PolicyComplianceDetail'].nil?)
         data
       end
     end
@@ -246,10 +246,10 @@ module AWS::SDK::FMS
         data.policy_owner = map['PolicyOwner']
         data.policy_id = map['PolicyId']
         data.member_account = map['MemberAccount']
-        data.violators = (Parsers::ComplianceViolators.parse(map['Violators']) unless map['Violators'].nil?)
+        data.violators = (ComplianceViolators.parse(map['Violators']) unless map['Violators'].nil?)
         data.evaluation_limit_exceeded = map['EvaluationLimitExceeded']
         data.expired_at = Time.at(map['ExpiredAt'].to_i) if map['ExpiredAt']
-        data.issue_info_map = (Parsers::IssueInfoMap.parse(map['IssueInfoMap']) unless map['IssueInfoMap'].nil?)
+        data.issue_info_map = (IssueInfoMap.parse(map['IssueInfoMap']) unless map['IssueInfoMap'].nil?)
         return data
       end
     end
@@ -267,7 +267,7 @@ module AWS::SDK::FMS
     class ComplianceViolators
       def self.parse(list)
         list.map do |value|
-          Parsers::ComplianceViolator.parse(value) unless value.nil?
+          ComplianceViolator.parse(value) unless value.nil?
         end
       end
     end
@@ -278,7 +278,7 @@ module AWS::SDK::FMS
         data.resource_id = map['ResourceId']
         data.violation_reason = map['ViolationReason']
         data.resource_type = map['ResourceType']
-        data.metadata = (Parsers::ComplianceViolatorMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.metadata = (ComplianceViolatorMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
         return data
       end
     end
@@ -313,7 +313,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy = (Parsers::Policy.parse(map['Policy']) unless map['Policy'].nil?)
+        data.policy = (Policy.parse(map['Policy']) unless map['Policy'].nil?)
         data.policy_arn = map['PolicyArn']
         data
       end
@@ -325,15 +325,15 @@ module AWS::SDK::FMS
         data.policy_id = map['PolicyId']
         data.policy_name = map['PolicyName']
         data.policy_update_token = map['PolicyUpdateToken']
-        data.security_service_policy_data = (Parsers::SecurityServicePolicyData.parse(map['SecurityServicePolicyData']) unless map['SecurityServicePolicyData'].nil?)
+        data.security_service_policy_data = (SecurityServicePolicyData.parse(map['SecurityServicePolicyData']) unless map['SecurityServicePolicyData'].nil?)
         data.resource_type = map['ResourceType']
-        data.resource_type_list = (Parsers::ResourceTypeList.parse(map['ResourceTypeList']) unless map['ResourceTypeList'].nil?)
-        data.resource_tags = (Parsers::ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
+        data.resource_type_list = (ResourceTypeList.parse(map['ResourceTypeList']) unless map['ResourceTypeList'].nil?)
+        data.resource_tags = (ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
         data.exclude_resource_tags = map['ExcludeResourceTags']
         data.remediation_enabled = map['RemediationEnabled']
         data.delete_unused_fm_managed_resources = map['DeleteUnusedFMManagedResources']
-        data.include_map = (Parsers::CustomerPolicyScopeMap.parse(map['IncludeMap']) unless map['IncludeMap'].nil?)
-        data.exclude_map = (Parsers::CustomerPolicyScopeMap.parse(map['ExcludeMap']) unless map['ExcludeMap'].nil?)
+        data.include_map = (CustomerPolicyScopeMap.parse(map['IncludeMap']) unless map['IncludeMap'].nil?)
+        data.exclude_map = (CustomerPolicyScopeMap.parse(map['ExcludeMap']) unless map['ExcludeMap'].nil?)
         return data
       end
     end
@@ -342,7 +342,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::CustomerPolicyScopeIdList.parse(value) unless value.nil?
+          data[key] = CustomerPolicyScopeIdList.parse(value) unless value.nil?
         end
         data
       end
@@ -359,7 +359,7 @@ module AWS::SDK::FMS
     class ResourceTags
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceTag.parse(value) unless value.nil?
+          ResourceTag.parse(value) unless value.nil?
         end
       end
     end
@@ -386,7 +386,7 @@ module AWS::SDK::FMS
         data = Types::SecurityServicePolicyData.new
         data.type = map['Type']
         data.managed_service_data = map['ManagedServiceData']
-        data.policy_option = (Parsers::PolicyOption.parse(map['PolicyOption']) unless map['PolicyOption'].nil?)
+        data.policy_option = (PolicyOption.parse(map['PolicyOption']) unless map['PolicyOption'].nil?)
         return data
       end
     end
@@ -394,8 +394,8 @@ module AWS::SDK::FMS
     class PolicyOption
       def self.parse(map)
         data = Types::PolicyOption.new
-        data.network_firewall_policy = (Parsers::NetworkFirewallPolicy.parse(map['NetworkFirewallPolicy']) unless map['NetworkFirewallPolicy'].nil?)
-        data.third_party_firewall_policy = (Parsers::ThirdPartyFirewallPolicy.parse(map['ThirdPartyFirewallPolicy']) unless map['ThirdPartyFirewallPolicy'].nil?)
+        data.network_firewall_policy = (NetworkFirewallPolicy.parse(map['NetworkFirewallPolicy']) unless map['NetworkFirewallPolicy'].nil?)
+        data.third_party_firewall_policy = (ThirdPartyFirewallPolicy.parse(map['ThirdPartyFirewallPolicy']) unless map['ThirdPartyFirewallPolicy'].nil?)
         return data
       end
     end
@@ -450,7 +450,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.protocols_list = (Parsers::ProtocolsListData.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
+        data.protocols_list = (ProtocolsListData.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
         data.protocols_list_arn = map['ProtocolsListArn']
         data
       end
@@ -464,8 +464,8 @@ module AWS::SDK::FMS
         data.list_update_token = map['ListUpdateToken']
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
-        data.protocols_list = (Parsers::ProtocolsList.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
-        data.previous_protocols_list = (Parsers::PreviousProtocolsList.parse(map['PreviousProtocolsList']) unless map['PreviousProtocolsList'].nil?)
+        data.protocols_list = (ProtocolsList.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
+        data.previous_protocols_list = (PreviousProtocolsList.parse(map['PreviousProtocolsList']) unless map['PreviousProtocolsList'].nil?)
         return data
       end
     end
@@ -474,7 +474,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ProtocolsList.parse(value) unless value.nil?
+          data[key] = ProtocolsList.parse(value) unless value.nil?
         end
         data
       end
@@ -508,7 +508,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.violation_detail = (Parsers::ViolationDetail.parse(map['ViolationDetail']) unless map['ViolationDetail'].nil?)
+        data.violation_detail = (ViolationDetail.parse(map['ViolationDetail']) unless map['ViolationDetail'].nil?)
         data
       end
     end
@@ -520,8 +520,8 @@ module AWS::SDK::FMS
         data.member_account = map['MemberAccount']
         data.resource_id = map['ResourceId']
         data.resource_type = map['ResourceType']
-        data.resource_violations = (Parsers::ResourceViolations.parse(map['ResourceViolations']) unless map['ResourceViolations'].nil?)
-        data.resource_tags = (Parsers::TagList.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
+        data.resource_violations = (ResourceViolations.parse(map['ResourceViolations']) unless map['ResourceViolations'].nil?)
+        data.resource_tags = (TagList.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
         data.resource_description = map['ResourceDescription']
         return data
       end
@@ -530,7 +530,7 @@ module AWS::SDK::FMS
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -547,7 +547,7 @@ module AWS::SDK::FMS
     class ResourceViolations
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceViolation.parse(value) unless value.nil?
+          ResourceViolation.parse(value) unless value.nil?
         end
       end
     end
@@ -555,29 +555,29 @@ module AWS::SDK::FMS
     class ResourceViolation
       def self.parse(map)
         data = Types::ResourceViolation.new
-        data.aws_vpc_security_group_violation = (Parsers::AwsVPCSecurityGroupViolation.parse(map['AwsVPCSecurityGroupViolation']) unless map['AwsVPCSecurityGroupViolation'].nil?)
-        data.aws_ec2_network_interface_violation = (Parsers::AwsEc2NetworkInterfaceViolation.parse(map['AwsEc2NetworkInterfaceViolation']) unless map['AwsEc2NetworkInterfaceViolation'].nil?)
-        data.aws_ec2_instance_violation = (Parsers::AwsEc2InstanceViolation.parse(map['AwsEc2InstanceViolation']) unless map['AwsEc2InstanceViolation'].nil?)
-        data.network_firewall_missing_firewall_violation = (Parsers::NetworkFirewallMissingFirewallViolation.parse(map['NetworkFirewallMissingFirewallViolation']) unless map['NetworkFirewallMissingFirewallViolation'].nil?)
-        data.network_firewall_missing_subnet_violation = (Parsers::NetworkFirewallMissingSubnetViolation.parse(map['NetworkFirewallMissingSubnetViolation']) unless map['NetworkFirewallMissingSubnetViolation'].nil?)
-        data.network_firewall_missing_expected_rt_violation = (Parsers::NetworkFirewallMissingExpectedRTViolation.parse(map['NetworkFirewallMissingExpectedRTViolation']) unless map['NetworkFirewallMissingExpectedRTViolation'].nil?)
-        data.network_firewall_policy_modified_violation = (Parsers::NetworkFirewallPolicyModifiedViolation.parse(map['NetworkFirewallPolicyModifiedViolation']) unless map['NetworkFirewallPolicyModifiedViolation'].nil?)
-        data.network_firewall_internet_traffic_not_inspected_violation = (Parsers::NetworkFirewallInternetTrafficNotInspectedViolation.parse(map['NetworkFirewallInternetTrafficNotInspectedViolation']) unless map['NetworkFirewallInternetTrafficNotInspectedViolation'].nil?)
-        data.network_firewall_invalid_route_configuration_violation = (Parsers::NetworkFirewallInvalidRouteConfigurationViolation.parse(map['NetworkFirewallInvalidRouteConfigurationViolation']) unless map['NetworkFirewallInvalidRouteConfigurationViolation'].nil?)
-        data.network_firewall_black_hole_route_detected_violation = (Parsers::NetworkFirewallBlackHoleRouteDetectedViolation.parse(map['NetworkFirewallBlackHoleRouteDetectedViolation']) unless map['NetworkFirewallBlackHoleRouteDetectedViolation'].nil?)
-        data.network_firewall_unexpected_firewall_routes_violation = (Parsers::NetworkFirewallUnexpectedFirewallRoutesViolation.parse(map['NetworkFirewallUnexpectedFirewallRoutesViolation']) unless map['NetworkFirewallUnexpectedFirewallRoutesViolation'].nil?)
-        data.network_firewall_unexpected_gateway_routes_violation = (Parsers::NetworkFirewallUnexpectedGatewayRoutesViolation.parse(map['NetworkFirewallUnexpectedGatewayRoutesViolation']) unless map['NetworkFirewallUnexpectedGatewayRoutesViolation'].nil?)
-        data.network_firewall_missing_expected_routes_violation = (Parsers::NetworkFirewallMissingExpectedRoutesViolation.parse(map['NetworkFirewallMissingExpectedRoutesViolation']) unless map['NetworkFirewallMissingExpectedRoutesViolation'].nil?)
-        data.dns_rule_group_priority_conflict_violation = (Parsers::DnsRuleGroupPriorityConflictViolation.parse(map['DnsRuleGroupPriorityConflictViolation']) unless map['DnsRuleGroupPriorityConflictViolation'].nil?)
-        data.dns_duplicate_rule_group_violation = (Parsers::DnsDuplicateRuleGroupViolation.parse(map['DnsDuplicateRuleGroupViolation']) unless map['DnsDuplicateRuleGroupViolation'].nil?)
-        data.dns_rule_group_limit_exceeded_violation = (Parsers::DnsRuleGroupLimitExceededViolation.parse(map['DnsRuleGroupLimitExceededViolation']) unless map['DnsRuleGroupLimitExceededViolation'].nil?)
-        data.possible_remediation_actions = (Parsers::PossibleRemediationActions.parse(map['PossibleRemediationActions']) unless map['PossibleRemediationActions'].nil?)
-        data.firewall_subnet_is_out_of_scope_violation = (Parsers::FirewallSubnetIsOutOfScopeViolation.parse(map['FirewallSubnetIsOutOfScopeViolation']) unless map['FirewallSubnetIsOutOfScopeViolation'].nil?)
-        data.route_has_out_of_scope_endpoint_violation = (Parsers::RouteHasOutOfScopeEndpointViolation.parse(map['RouteHasOutOfScopeEndpointViolation']) unless map['RouteHasOutOfScopeEndpointViolation'].nil?)
-        data.third_party_firewall_missing_firewall_violation = (Parsers::ThirdPartyFirewallMissingFirewallViolation.parse(map['ThirdPartyFirewallMissingFirewallViolation']) unless map['ThirdPartyFirewallMissingFirewallViolation'].nil?)
-        data.third_party_firewall_missing_subnet_violation = (Parsers::ThirdPartyFirewallMissingSubnetViolation.parse(map['ThirdPartyFirewallMissingSubnetViolation']) unless map['ThirdPartyFirewallMissingSubnetViolation'].nil?)
-        data.third_party_firewall_missing_expected_route_table_violation = (Parsers::ThirdPartyFirewallMissingExpectedRouteTableViolation.parse(map['ThirdPartyFirewallMissingExpectedRouteTableViolation']) unless map['ThirdPartyFirewallMissingExpectedRouteTableViolation'].nil?)
-        data.firewall_subnet_missing_vpc_endpoint_violation = (Parsers::FirewallSubnetMissingVPCEndpointViolation.parse(map['FirewallSubnetMissingVPCEndpointViolation']) unless map['FirewallSubnetMissingVPCEndpointViolation'].nil?)
+        data.aws_vpc_security_group_violation = (AwsVPCSecurityGroupViolation.parse(map['AwsVPCSecurityGroupViolation']) unless map['AwsVPCSecurityGroupViolation'].nil?)
+        data.aws_ec2_network_interface_violation = (AwsEc2NetworkInterfaceViolation.parse(map['AwsEc2NetworkInterfaceViolation']) unless map['AwsEc2NetworkInterfaceViolation'].nil?)
+        data.aws_ec2_instance_violation = (AwsEc2InstanceViolation.parse(map['AwsEc2InstanceViolation']) unless map['AwsEc2InstanceViolation'].nil?)
+        data.network_firewall_missing_firewall_violation = (NetworkFirewallMissingFirewallViolation.parse(map['NetworkFirewallMissingFirewallViolation']) unless map['NetworkFirewallMissingFirewallViolation'].nil?)
+        data.network_firewall_missing_subnet_violation = (NetworkFirewallMissingSubnetViolation.parse(map['NetworkFirewallMissingSubnetViolation']) unless map['NetworkFirewallMissingSubnetViolation'].nil?)
+        data.network_firewall_missing_expected_rt_violation = (NetworkFirewallMissingExpectedRTViolation.parse(map['NetworkFirewallMissingExpectedRTViolation']) unless map['NetworkFirewallMissingExpectedRTViolation'].nil?)
+        data.network_firewall_policy_modified_violation = (NetworkFirewallPolicyModifiedViolation.parse(map['NetworkFirewallPolicyModifiedViolation']) unless map['NetworkFirewallPolicyModifiedViolation'].nil?)
+        data.network_firewall_internet_traffic_not_inspected_violation = (NetworkFirewallInternetTrafficNotInspectedViolation.parse(map['NetworkFirewallInternetTrafficNotInspectedViolation']) unless map['NetworkFirewallInternetTrafficNotInspectedViolation'].nil?)
+        data.network_firewall_invalid_route_configuration_violation = (NetworkFirewallInvalidRouteConfigurationViolation.parse(map['NetworkFirewallInvalidRouteConfigurationViolation']) unless map['NetworkFirewallInvalidRouteConfigurationViolation'].nil?)
+        data.network_firewall_black_hole_route_detected_violation = (NetworkFirewallBlackHoleRouteDetectedViolation.parse(map['NetworkFirewallBlackHoleRouteDetectedViolation']) unless map['NetworkFirewallBlackHoleRouteDetectedViolation'].nil?)
+        data.network_firewall_unexpected_firewall_routes_violation = (NetworkFirewallUnexpectedFirewallRoutesViolation.parse(map['NetworkFirewallUnexpectedFirewallRoutesViolation']) unless map['NetworkFirewallUnexpectedFirewallRoutesViolation'].nil?)
+        data.network_firewall_unexpected_gateway_routes_violation = (NetworkFirewallUnexpectedGatewayRoutesViolation.parse(map['NetworkFirewallUnexpectedGatewayRoutesViolation']) unless map['NetworkFirewallUnexpectedGatewayRoutesViolation'].nil?)
+        data.network_firewall_missing_expected_routes_violation = (NetworkFirewallMissingExpectedRoutesViolation.parse(map['NetworkFirewallMissingExpectedRoutesViolation']) unless map['NetworkFirewallMissingExpectedRoutesViolation'].nil?)
+        data.dns_rule_group_priority_conflict_violation = (DnsRuleGroupPriorityConflictViolation.parse(map['DnsRuleGroupPriorityConflictViolation']) unless map['DnsRuleGroupPriorityConflictViolation'].nil?)
+        data.dns_duplicate_rule_group_violation = (DnsDuplicateRuleGroupViolation.parse(map['DnsDuplicateRuleGroupViolation']) unless map['DnsDuplicateRuleGroupViolation'].nil?)
+        data.dns_rule_group_limit_exceeded_violation = (DnsRuleGroupLimitExceededViolation.parse(map['DnsRuleGroupLimitExceededViolation']) unless map['DnsRuleGroupLimitExceededViolation'].nil?)
+        data.possible_remediation_actions = (PossibleRemediationActions.parse(map['PossibleRemediationActions']) unless map['PossibleRemediationActions'].nil?)
+        data.firewall_subnet_is_out_of_scope_violation = (FirewallSubnetIsOutOfScopeViolation.parse(map['FirewallSubnetIsOutOfScopeViolation']) unless map['FirewallSubnetIsOutOfScopeViolation'].nil?)
+        data.route_has_out_of_scope_endpoint_violation = (RouteHasOutOfScopeEndpointViolation.parse(map['RouteHasOutOfScopeEndpointViolation']) unless map['RouteHasOutOfScopeEndpointViolation'].nil?)
+        data.third_party_firewall_missing_firewall_violation = (ThirdPartyFirewallMissingFirewallViolation.parse(map['ThirdPartyFirewallMissingFirewallViolation']) unless map['ThirdPartyFirewallMissingFirewallViolation'].nil?)
+        data.third_party_firewall_missing_subnet_violation = (ThirdPartyFirewallMissingSubnetViolation.parse(map['ThirdPartyFirewallMissingSubnetViolation']) unless map['ThirdPartyFirewallMissingSubnetViolation'].nil?)
+        data.third_party_firewall_missing_expected_route_table_violation = (ThirdPartyFirewallMissingExpectedRouteTableViolation.parse(map['ThirdPartyFirewallMissingExpectedRouteTableViolation']) unless map['ThirdPartyFirewallMissingExpectedRouteTableViolation'].nil?)
+        data.firewall_subnet_missing_vpc_endpoint_violation = (FirewallSubnetMissingVPCEndpointViolation.parse(map['FirewallSubnetMissingVPCEndpointViolation']) unless map['FirewallSubnetMissingVPCEndpointViolation'].nil?)
         return data
       end
     end
@@ -633,15 +633,15 @@ module AWS::SDK::FMS
         data.subnet_id = map['SubnetId']
         data.vpc_id = map['VpcId']
         data.route_table_id = map['RouteTableId']
-        data.violating_routes = (Parsers::Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
+        data.violating_routes = (Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
         data.subnet_availability_zone = map['SubnetAvailabilityZone']
         data.subnet_availability_zone_id = map['SubnetAvailabilityZoneId']
         data.current_firewall_subnet_route_table = map['CurrentFirewallSubnetRouteTable']
         data.firewall_subnet_id = map['FirewallSubnetId']
-        data.firewall_subnet_routes = (Parsers::Routes.parse(map['FirewallSubnetRoutes']) unless map['FirewallSubnetRoutes'].nil?)
+        data.firewall_subnet_routes = (Routes.parse(map['FirewallSubnetRoutes']) unless map['FirewallSubnetRoutes'].nil?)
         data.internet_gateway_id = map['InternetGatewayId']
         data.current_internet_gateway_route_table = map['CurrentInternetGatewayRouteTable']
-        data.internet_gateway_routes = (Parsers::Routes.parse(map['InternetGatewayRoutes']) unless map['InternetGatewayRoutes'].nil?)
+        data.internet_gateway_routes = (Routes.parse(map['InternetGatewayRoutes']) unless map['InternetGatewayRoutes'].nil?)
         return data
       end
     end
@@ -649,7 +649,7 @@ module AWS::SDK::FMS
     class Routes
       def self.parse(list)
         list.map do |value|
-          Parsers::Route.parse(value) unless value.nil?
+          Route.parse(value) unless value.nil?
         end
       end
     end
@@ -681,7 +681,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::PossibleRemediationActions.new
         data.description = map['Description']
-        data.actions = (Parsers::PossibleRemediationActionList.parse(map['Actions']) unless map['Actions'].nil?)
+        data.actions = (PossibleRemediationActionList.parse(map['Actions']) unless map['Actions'].nil?)
         return data
       end
     end
@@ -689,7 +689,7 @@ module AWS::SDK::FMS
     class PossibleRemediationActionList
       def self.parse(list)
         list.map do |value|
-          Parsers::PossibleRemediationAction.parse(value) unless value.nil?
+          PossibleRemediationAction.parse(value) unless value.nil?
         end
       end
     end
@@ -698,7 +698,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::PossibleRemediationAction.new
         data.description = map['Description']
-        data.ordered_remediation_actions = (Parsers::OrderedRemediationActions.parse(map['OrderedRemediationActions']) unless map['OrderedRemediationActions'].nil?)
+        data.ordered_remediation_actions = (OrderedRemediationActions.parse(map['OrderedRemediationActions']) unless map['OrderedRemediationActions'].nil?)
         data.is_default_action = map['IsDefaultAction']
         return data
       end
@@ -707,7 +707,7 @@ module AWS::SDK::FMS
     class OrderedRemediationActions
       def self.parse(list)
         list.map do |value|
-          Parsers::RemediationActionWithOrder.parse(value) unless value.nil?
+          RemediationActionWithOrder.parse(value) unless value.nil?
         end
       end
     end
@@ -715,7 +715,7 @@ module AWS::SDK::FMS
     class RemediationActionWithOrder
       def self.parse(map)
         data = Types::RemediationActionWithOrder.new
-        data.remediation_action = (Parsers::RemediationAction.parse(map['RemediationAction']) unless map['RemediationAction'].nil?)
+        data.remediation_action = (RemediationAction.parse(map['RemediationAction']) unless map['RemediationAction'].nil?)
         data.order = map['Order']
         return data
       end
@@ -725,14 +725,14 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::RemediationAction.new
         data.description = map['Description']
-        data.ec2_create_route_action = (Parsers::EC2CreateRouteAction.parse(map['EC2CreateRouteAction']) unless map['EC2CreateRouteAction'].nil?)
-        data.ec2_replace_route_action = (Parsers::EC2ReplaceRouteAction.parse(map['EC2ReplaceRouteAction']) unless map['EC2ReplaceRouteAction'].nil?)
-        data.ec2_delete_route_action = (Parsers::EC2DeleteRouteAction.parse(map['EC2DeleteRouteAction']) unless map['EC2DeleteRouteAction'].nil?)
-        data.ec2_copy_route_table_action = (Parsers::EC2CopyRouteTableAction.parse(map['EC2CopyRouteTableAction']) unless map['EC2CopyRouteTableAction'].nil?)
-        data.ec2_replace_route_table_association_action = (Parsers::EC2ReplaceRouteTableAssociationAction.parse(map['EC2ReplaceRouteTableAssociationAction']) unless map['EC2ReplaceRouteTableAssociationAction'].nil?)
-        data.ec2_associate_route_table_action = (Parsers::EC2AssociateRouteTableAction.parse(map['EC2AssociateRouteTableAction']) unless map['EC2AssociateRouteTableAction'].nil?)
-        data.ec2_create_route_table_action = (Parsers::EC2CreateRouteTableAction.parse(map['EC2CreateRouteTableAction']) unless map['EC2CreateRouteTableAction'].nil?)
-        data.fms_policy_update_firewall_creation_config_action = (Parsers::FMSPolicyUpdateFirewallCreationConfigAction.parse(map['FMSPolicyUpdateFirewallCreationConfigAction']) unless map['FMSPolicyUpdateFirewallCreationConfigAction'].nil?)
+        data.ec2_create_route_action = (EC2CreateRouteAction.parse(map['EC2CreateRouteAction']) unless map['EC2CreateRouteAction'].nil?)
+        data.ec2_replace_route_action = (EC2ReplaceRouteAction.parse(map['EC2ReplaceRouteAction']) unless map['EC2ReplaceRouteAction'].nil?)
+        data.ec2_delete_route_action = (EC2DeleteRouteAction.parse(map['EC2DeleteRouteAction']) unless map['EC2DeleteRouteAction'].nil?)
+        data.ec2_copy_route_table_action = (EC2CopyRouteTableAction.parse(map['EC2CopyRouteTableAction']) unless map['EC2CopyRouteTableAction'].nil?)
+        data.ec2_replace_route_table_association_action = (EC2ReplaceRouteTableAssociationAction.parse(map['EC2ReplaceRouteTableAssociationAction']) unless map['EC2ReplaceRouteTableAssociationAction'].nil?)
+        data.ec2_associate_route_table_action = (EC2AssociateRouteTableAction.parse(map['EC2AssociateRouteTableAction']) unless map['EC2AssociateRouteTableAction'].nil?)
+        data.ec2_create_route_table_action = (EC2CreateRouteTableAction.parse(map['EC2CreateRouteTableAction']) unless map['EC2CreateRouteTableAction'].nil?)
+        data.fms_policy_update_firewall_creation_config_action = (FMSPolicyUpdateFirewallCreationConfigAction.parse(map['FMSPolicyUpdateFirewallCreationConfigAction']) unless map['FMSPolicyUpdateFirewallCreationConfigAction'].nil?)
         return data
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::EC2CreateRouteTableAction.new
         data.description = map['Description']
-        data.vpc_id = (Parsers::ActionTarget.parse(map['VpcId']) unless map['VpcId'].nil?)
+        data.vpc_id = (ActionTarget.parse(map['VpcId']) unless map['VpcId'].nil?)
         return data
       end
     end
@@ -768,9 +768,9 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::EC2AssociateRouteTableAction.new
         data.description = map['Description']
-        data.route_table_id = (Parsers::ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
-        data.subnet_id = (Parsers::ActionTarget.parse(map['SubnetId']) unless map['SubnetId'].nil?)
-        data.gateway_id = (Parsers::ActionTarget.parse(map['GatewayId']) unless map['GatewayId'].nil?)
+        data.route_table_id = (ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
+        data.subnet_id = (ActionTarget.parse(map['SubnetId']) unless map['SubnetId'].nil?)
+        data.gateway_id = (ActionTarget.parse(map['GatewayId']) unless map['GatewayId'].nil?)
         return data
       end
     end
@@ -779,8 +779,8 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::EC2ReplaceRouteTableAssociationAction.new
         data.description = map['Description']
-        data.association_id = (Parsers::ActionTarget.parse(map['AssociationId']) unless map['AssociationId'].nil?)
-        data.route_table_id = (Parsers::ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
+        data.association_id = (ActionTarget.parse(map['AssociationId']) unless map['AssociationId'].nil?)
+        data.route_table_id = (ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
         return data
       end
     end
@@ -789,8 +789,8 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::EC2CopyRouteTableAction.new
         data.description = map['Description']
-        data.vpc_id = (Parsers::ActionTarget.parse(map['VpcId']) unless map['VpcId'].nil?)
-        data.route_table_id = (Parsers::ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
+        data.vpc_id = (ActionTarget.parse(map['VpcId']) unless map['VpcId'].nil?)
+        data.route_table_id = (ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
         return data
       end
     end
@@ -802,7 +802,7 @@ module AWS::SDK::FMS
         data.destination_cidr_block = map['DestinationCidrBlock']
         data.destination_prefix_list_id = map['DestinationPrefixListId']
         data.destination_ipv6_cidr_block = map['DestinationIpv6CidrBlock']
-        data.route_table_id = (Parsers::ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
+        data.route_table_id = (ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
         return data
       end
     end
@@ -814,8 +814,8 @@ module AWS::SDK::FMS
         data.destination_cidr_block = map['DestinationCidrBlock']
         data.destination_prefix_list_id = map['DestinationPrefixListId']
         data.destination_ipv6_cidr_block = map['DestinationIpv6CidrBlock']
-        data.gateway_id = (Parsers::ActionTarget.parse(map['GatewayId']) unless map['GatewayId'].nil?)
-        data.route_table_id = (Parsers::ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
+        data.gateway_id = (ActionTarget.parse(map['GatewayId']) unless map['GatewayId'].nil?)
+        data.route_table_id = (ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
         return data
       end
     end
@@ -827,9 +827,9 @@ module AWS::SDK::FMS
         data.destination_cidr_block = map['DestinationCidrBlock']
         data.destination_prefix_list_id = map['DestinationPrefixListId']
         data.destination_ipv6_cidr_block = map['DestinationIpv6CidrBlock']
-        data.vpc_endpoint_id = (Parsers::ActionTarget.parse(map['VpcEndpointId']) unless map['VpcEndpointId'].nil?)
-        data.gateway_id = (Parsers::ActionTarget.parse(map['GatewayId']) unless map['GatewayId'].nil?)
-        data.route_table_id = (Parsers::ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
+        data.vpc_endpoint_id = (ActionTarget.parse(map['VpcEndpointId']) unless map['VpcEndpointId'].nil?)
+        data.gateway_id = (ActionTarget.parse(map['GatewayId']) unless map['GatewayId'].nil?)
+        data.route_table_id = (ActionTarget.parse(map['RouteTableId']) unless map['RouteTableId'].nil?)
         return data
       end
     end
@@ -860,7 +860,7 @@ module AWS::SDK::FMS
         data.violation_target_description = map['ViolationTargetDescription']
         data.conflicting_priority = map['ConflictingPriority']
         data.conflicting_policy_id = map['ConflictingPolicyId']
-        data.unavailable_priorities = (Parsers::DnsRuleGroupPriorities.parse(map['UnavailablePriorities']) unless map['UnavailablePriorities'].nil?)
+        data.unavailable_priorities = (DnsRuleGroupPriorities.parse(map['UnavailablePriorities']) unless map['UnavailablePriorities'].nil?)
         return data
       end
     end
@@ -877,7 +877,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::NetworkFirewallMissingExpectedRoutesViolation.new
         data.violation_target = map['ViolationTarget']
-        data.expected_routes = (Parsers::ExpectedRoutes.parse(map['ExpectedRoutes']) unless map['ExpectedRoutes'].nil?)
+        data.expected_routes = (ExpectedRoutes.parse(map['ExpectedRoutes']) unless map['ExpectedRoutes'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -886,7 +886,7 @@ module AWS::SDK::FMS
     class ExpectedRoutes
       def self.parse(list)
         list.map do |value|
-          Parsers::ExpectedRoute.parse(value) unless value.nil?
+          ExpectedRoute.parse(value) unless value.nil?
         end
       end
     end
@@ -897,8 +897,8 @@ module AWS::SDK::FMS
         data.ip_v4_cidr = map['IpV4Cidr']
         data.prefix_list_id = map['PrefixListId']
         data.ip_v6_cidr = map['IpV6Cidr']
-        data.contributing_subnets = (Parsers::ResourceIdList.parse(map['ContributingSubnets']) unless map['ContributingSubnets'].nil?)
-        data.allowed_targets = (Parsers::LengthBoundedStringList.parse(map['AllowedTargets']) unless map['AllowedTargets'].nil?)
+        data.contributing_subnets = (ResourceIdList.parse(map['ContributingSubnets']) unless map['ContributingSubnets'].nil?)
+        data.allowed_targets = (LengthBoundedStringList.parse(map['AllowedTargets']) unless map['AllowedTargets'].nil?)
         data.route_table_id = map['RouteTableId']
         return data
       end
@@ -924,7 +924,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::NetworkFirewallUnexpectedGatewayRoutesViolation.new
         data.gateway_id = map['GatewayId']
-        data.violating_routes = (Parsers::Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
+        data.violating_routes = (Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
         data.route_table_id = map['RouteTableId']
         data.vpc_id = map['VpcId']
         return data
@@ -935,7 +935,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::NetworkFirewallUnexpectedFirewallRoutesViolation.new
         data.firewall_subnet_id = map['FirewallSubnetId']
-        data.violating_routes = (Parsers::Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
+        data.violating_routes = (Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
         data.route_table_id = map['RouteTableId']
         data.firewall_endpoint = map['FirewallEndpoint']
         data.vpc_id = map['VpcId']
@@ -949,7 +949,7 @@ module AWS::SDK::FMS
         data.violation_target = map['ViolationTarget']
         data.route_table_id = map['RouteTableId']
         data.vpc_id = map['VpcId']
-        data.violating_routes = (Parsers::Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
+        data.violating_routes = (Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
         return data
       end
     end
@@ -957,21 +957,21 @@ module AWS::SDK::FMS
     class NetworkFirewallInvalidRouteConfigurationViolation
       def self.parse(map)
         data = Types::NetworkFirewallInvalidRouteConfigurationViolation.new
-        data.affected_subnets = (Parsers::ResourceIdList.parse(map['AffectedSubnets']) unless map['AffectedSubnets'].nil?)
+        data.affected_subnets = (ResourceIdList.parse(map['AffectedSubnets']) unless map['AffectedSubnets'].nil?)
         data.route_table_id = map['RouteTableId']
         data.is_route_table_used_in_different_az = map['IsRouteTableUsedInDifferentAZ']
-        data.violating_route = (Parsers::Route.parse(map['ViolatingRoute']) unless map['ViolatingRoute'].nil?)
+        data.violating_route = (Route.parse(map['ViolatingRoute']) unless map['ViolatingRoute'].nil?)
         data.current_firewall_subnet_route_table = map['CurrentFirewallSubnetRouteTable']
         data.expected_firewall_endpoint = map['ExpectedFirewallEndpoint']
         data.actual_firewall_endpoint = map['ActualFirewallEndpoint']
         data.expected_firewall_subnet_id = map['ExpectedFirewallSubnetId']
         data.actual_firewall_subnet_id = map['ActualFirewallSubnetId']
-        data.expected_firewall_subnet_routes = (Parsers::ExpectedRoutes.parse(map['ExpectedFirewallSubnetRoutes']) unless map['ExpectedFirewallSubnetRoutes'].nil?)
-        data.actual_firewall_subnet_routes = (Parsers::Routes.parse(map['ActualFirewallSubnetRoutes']) unless map['ActualFirewallSubnetRoutes'].nil?)
+        data.expected_firewall_subnet_routes = (ExpectedRoutes.parse(map['ExpectedFirewallSubnetRoutes']) unless map['ExpectedFirewallSubnetRoutes'].nil?)
+        data.actual_firewall_subnet_routes = (Routes.parse(map['ActualFirewallSubnetRoutes']) unless map['ActualFirewallSubnetRoutes'].nil?)
         data.internet_gateway_id = map['InternetGatewayId']
         data.current_internet_gateway_route_table = map['CurrentInternetGatewayRouteTable']
-        data.expected_internet_gateway_routes = (Parsers::ExpectedRoutes.parse(map['ExpectedInternetGatewayRoutes']) unless map['ExpectedInternetGatewayRoutes'].nil?)
-        data.actual_internet_gateway_routes = (Parsers::Routes.parse(map['ActualInternetGatewayRoutes']) unless map['ActualInternetGatewayRoutes'].nil?)
+        data.expected_internet_gateway_routes = (ExpectedRoutes.parse(map['ExpectedInternetGatewayRoutes']) unless map['ExpectedInternetGatewayRoutes'].nil?)
+        data.actual_internet_gateway_routes = (Routes.parse(map['ActualInternetGatewayRoutes']) unless map['ActualInternetGatewayRoutes'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -983,17 +983,17 @@ module AWS::SDK::FMS
         data.subnet_id = map['SubnetId']
         data.subnet_availability_zone = map['SubnetAvailabilityZone']
         data.route_table_id = map['RouteTableId']
-        data.violating_routes = (Parsers::Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
+        data.violating_routes = (Routes.parse(map['ViolatingRoutes']) unless map['ViolatingRoutes'].nil?)
         data.is_route_table_used_in_different_az = map['IsRouteTableUsedInDifferentAZ']
         data.current_firewall_subnet_route_table = map['CurrentFirewallSubnetRouteTable']
         data.expected_firewall_endpoint = map['ExpectedFirewallEndpoint']
         data.firewall_subnet_id = map['FirewallSubnetId']
-        data.expected_firewall_subnet_routes = (Parsers::ExpectedRoutes.parse(map['ExpectedFirewallSubnetRoutes']) unless map['ExpectedFirewallSubnetRoutes'].nil?)
-        data.actual_firewall_subnet_routes = (Parsers::Routes.parse(map['ActualFirewallSubnetRoutes']) unless map['ActualFirewallSubnetRoutes'].nil?)
+        data.expected_firewall_subnet_routes = (ExpectedRoutes.parse(map['ExpectedFirewallSubnetRoutes']) unless map['ExpectedFirewallSubnetRoutes'].nil?)
+        data.actual_firewall_subnet_routes = (Routes.parse(map['ActualFirewallSubnetRoutes']) unless map['ActualFirewallSubnetRoutes'].nil?)
         data.internet_gateway_id = map['InternetGatewayId']
         data.current_internet_gateway_route_table = map['CurrentInternetGatewayRouteTable']
-        data.expected_internet_gateway_routes = (Parsers::ExpectedRoutes.parse(map['ExpectedInternetGatewayRoutes']) unless map['ExpectedInternetGatewayRoutes'].nil?)
-        data.actual_internet_gateway_routes = (Parsers::Routes.parse(map['ActualInternetGatewayRoutes']) unless map['ActualInternetGatewayRoutes'].nil?)
+        data.expected_internet_gateway_routes = (ExpectedRoutes.parse(map['ExpectedInternetGatewayRoutes']) unless map['ExpectedInternetGatewayRoutes'].nil?)
+        data.actual_internet_gateway_routes = (Routes.parse(map['ActualInternetGatewayRoutes']) unless map['ActualInternetGatewayRoutes'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -1003,8 +1003,8 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::NetworkFirewallPolicyModifiedViolation.new
         data.violation_target = map['ViolationTarget']
-        data.current_policy_description = (Parsers::NetworkFirewallPolicyDescription.parse(map['CurrentPolicyDescription']) unless map['CurrentPolicyDescription'].nil?)
-        data.expected_policy_description = (Parsers::NetworkFirewallPolicyDescription.parse(map['ExpectedPolicyDescription']) unless map['ExpectedPolicyDescription'].nil?)
+        data.current_policy_description = (NetworkFirewallPolicyDescription.parse(map['CurrentPolicyDescription']) unless map['CurrentPolicyDescription'].nil?)
+        data.expected_policy_description = (NetworkFirewallPolicyDescription.parse(map['ExpectedPolicyDescription']) unless map['ExpectedPolicyDescription'].nil?)
         return data
       end
     end
@@ -1012,11 +1012,11 @@ module AWS::SDK::FMS
     class NetworkFirewallPolicyDescription
       def self.parse(map)
         data = Types::NetworkFirewallPolicyDescription.new
-        data.stateless_rule_groups = (Parsers::StatelessRuleGroupList.parse(map['StatelessRuleGroups']) unless map['StatelessRuleGroups'].nil?)
-        data.stateless_default_actions = (Parsers::NetworkFirewallActionList.parse(map['StatelessDefaultActions']) unless map['StatelessDefaultActions'].nil?)
-        data.stateless_fragment_default_actions = (Parsers::NetworkFirewallActionList.parse(map['StatelessFragmentDefaultActions']) unless map['StatelessFragmentDefaultActions'].nil?)
-        data.stateless_custom_actions = (Parsers::NetworkFirewallActionList.parse(map['StatelessCustomActions']) unless map['StatelessCustomActions'].nil?)
-        data.stateful_rule_groups = (Parsers::StatefulRuleGroupList.parse(map['StatefulRuleGroups']) unless map['StatefulRuleGroups'].nil?)
+        data.stateless_rule_groups = (StatelessRuleGroupList.parse(map['StatelessRuleGroups']) unless map['StatelessRuleGroups'].nil?)
+        data.stateless_default_actions = (NetworkFirewallActionList.parse(map['StatelessDefaultActions']) unless map['StatelessDefaultActions'].nil?)
+        data.stateless_fragment_default_actions = (NetworkFirewallActionList.parse(map['StatelessFragmentDefaultActions']) unless map['StatelessFragmentDefaultActions'].nil?)
+        data.stateless_custom_actions = (NetworkFirewallActionList.parse(map['StatelessCustomActions']) unless map['StatelessCustomActions'].nil?)
+        data.stateful_rule_groups = (StatefulRuleGroupList.parse(map['StatefulRuleGroups']) unless map['StatefulRuleGroups'].nil?)
         return data
       end
     end
@@ -1024,7 +1024,7 @@ module AWS::SDK::FMS
     class StatefulRuleGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::StatefulRuleGroup.parse(value) unless value.nil?
+          StatefulRuleGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1049,7 +1049,7 @@ module AWS::SDK::FMS
     class StatelessRuleGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::StatelessRuleGroup.parse(value) unless value.nil?
+          StatelessRuleGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1102,7 +1102,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::AwsEc2InstanceViolation.new
         data.violation_target = map['ViolationTarget']
-        data.aws_ec2_network_interface_violations = (Parsers::AwsEc2NetworkInterfaceViolations.parse(map['AwsEc2NetworkInterfaceViolations']) unless map['AwsEc2NetworkInterfaceViolations'].nil?)
+        data.aws_ec2_network_interface_violations = (AwsEc2NetworkInterfaceViolations.parse(map['AwsEc2NetworkInterfaceViolations']) unless map['AwsEc2NetworkInterfaceViolations'].nil?)
         return data
       end
     end
@@ -1110,7 +1110,7 @@ module AWS::SDK::FMS
     class AwsEc2NetworkInterfaceViolations
       def self.parse(list)
         list.map do |value|
-          Parsers::AwsEc2NetworkInterfaceViolation.parse(value) unless value.nil?
+          AwsEc2NetworkInterfaceViolation.parse(value) unless value.nil?
         end
       end
     end
@@ -1119,7 +1119,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::AwsEc2NetworkInterfaceViolation.new
         data.violation_target = map['ViolationTarget']
-        data.violating_security_groups = (Parsers::ResourceIdList.parse(map['ViolatingSecurityGroups']) unless map['ViolatingSecurityGroups'].nil?)
+        data.violating_security_groups = (ResourceIdList.parse(map['ViolatingSecurityGroups']) unless map['ViolatingSecurityGroups'].nil?)
         return data
       end
     end
@@ -1129,8 +1129,8 @@ module AWS::SDK::FMS
         data = Types::AwsVPCSecurityGroupViolation.new
         data.violation_target = map['ViolationTarget']
         data.violation_target_description = map['ViolationTargetDescription']
-        data.partial_matches = (Parsers::PartialMatches.parse(map['PartialMatches']) unless map['PartialMatches'].nil?)
-        data.possible_security_group_remediation_actions = (Parsers::SecurityGroupRemediationActions.parse(map['PossibleSecurityGroupRemediationActions']) unless map['PossibleSecurityGroupRemediationActions'].nil?)
+        data.partial_matches = (PartialMatches.parse(map['PartialMatches']) unless map['PartialMatches'].nil?)
+        data.possible_security_group_remediation_actions = (SecurityGroupRemediationActions.parse(map['PossibleSecurityGroupRemediationActions']) unless map['PossibleSecurityGroupRemediationActions'].nil?)
         return data
       end
     end
@@ -1138,7 +1138,7 @@ module AWS::SDK::FMS
     class SecurityGroupRemediationActions
       def self.parse(list)
         list.map do |value|
-          Parsers::SecurityGroupRemediationAction.parse(value) unless value.nil?
+          SecurityGroupRemediationAction.parse(value) unless value.nil?
         end
       end
     end
@@ -1148,7 +1148,7 @@ module AWS::SDK::FMS
         data = Types::SecurityGroupRemediationAction.new
         data.remediation_action_type = map['RemediationActionType']
         data.description = map['Description']
-        data.remediation_result = (Parsers::SecurityGroupRuleDescription.parse(map['RemediationResult']) unless map['RemediationResult'].nil?)
+        data.remediation_result = (SecurityGroupRuleDescription.parse(map['RemediationResult']) unless map['RemediationResult'].nil?)
         data.is_default_action = map['IsDefaultAction']
         return data
       end
@@ -1170,7 +1170,7 @@ module AWS::SDK::FMS
     class PartialMatches
       def self.parse(list)
         list.map do |value|
-          Parsers::PartialMatch.parse(value) unless value.nil?
+          PartialMatch.parse(value) unless value.nil?
         end
       end
     end
@@ -1179,7 +1179,7 @@ module AWS::SDK::FMS
       def self.parse(map)
         data = Types::PartialMatch.new
         data.reference = map['Reference']
-        data.target_violation_reasons = (Parsers::TargetViolationReasons.parse(map['TargetViolationReasons']) unless map['TargetViolationReasons'].nil?)
+        data.target_violation_reasons = (TargetViolationReasons.parse(map['TargetViolationReasons']) unless map['TargetViolationReasons'].nil?)
         return data
       end
     end
@@ -1199,7 +1199,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.apps_lists = (Parsers::AppsListsData.parse(map['AppsLists']) unless map['AppsLists'].nil?)
+        data.apps_lists = (AppsListsData.parse(map['AppsLists']) unless map['AppsLists'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1208,7 +1208,7 @@ module AWS::SDK::FMS
     class AppsListsData
       def self.parse(list)
         list.map do |value|
-          Parsers::AppsListDataSummary.parse(value) unless value.nil?
+          AppsListDataSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1219,7 +1219,7 @@ module AWS::SDK::FMS
         data.list_arn = map['ListArn']
         data.list_id = map['ListId']
         data.list_name = map['ListName']
-        data.apps_list = (Parsers::AppsList.parse(map['AppsList']) unless map['AppsList'].nil?)
+        data.apps_list = (AppsList.parse(map['AppsList']) unless map['AppsList'].nil?)
         return data
       end
     end
@@ -1231,7 +1231,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy_compliance_status_list = (Parsers::PolicyComplianceStatusList.parse(map['PolicyComplianceStatusList']) unless map['PolicyComplianceStatusList'].nil?)
+        data.policy_compliance_status_list = (PolicyComplianceStatusList.parse(map['PolicyComplianceStatusList']) unless map['PolicyComplianceStatusList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1240,7 +1240,7 @@ module AWS::SDK::FMS
     class PolicyComplianceStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::PolicyComplianceStatus.parse(value) unless value.nil?
+          PolicyComplianceStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1252,9 +1252,9 @@ module AWS::SDK::FMS
         data.policy_id = map['PolicyId']
         data.policy_name = map['PolicyName']
         data.member_account = map['MemberAccount']
-        data.evaluation_results = (Parsers::EvaluationResults.parse(map['EvaluationResults']) unless map['EvaluationResults'].nil?)
+        data.evaluation_results = (EvaluationResults.parse(map['EvaluationResults']) unless map['EvaluationResults'].nil?)
         data.last_updated = Time.at(map['LastUpdated'].to_i) if map['LastUpdated']
-        data.issue_info_map = (Parsers::IssueInfoMap.parse(map['IssueInfoMap']) unless map['IssueInfoMap'].nil?)
+        data.issue_info_map = (IssueInfoMap.parse(map['IssueInfoMap']) unless map['IssueInfoMap'].nil?)
         return data
       end
     end
@@ -1262,7 +1262,7 @@ module AWS::SDK::FMS
     class EvaluationResults
       def self.parse(list)
         list.map do |value|
-          Parsers::EvaluationResult.parse(value) unless value.nil?
+          EvaluationResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1284,7 +1284,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.member_accounts = (Parsers::MemberAccounts.parse(map['MemberAccounts']) unless map['MemberAccounts'].nil?)
+        data.member_accounts = (MemberAccounts.parse(map['MemberAccounts']) unless map['MemberAccounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1305,7 +1305,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy_list = (Parsers::PolicySummaryList.parse(map['PolicyList']) unless map['PolicyList'].nil?)
+        data.policy_list = (PolicySummaryList.parse(map['PolicyList']) unless map['PolicyList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1314,7 +1314,7 @@ module AWS::SDK::FMS
     class PolicySummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PolicySummary.parse(value) unless value.nil?
+          PolicySummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1340,7 +1340,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.protocols_lists = (Parsers::ProtocolsListsData.parse(map['ProtocolsLists']) unless map['ProtocolsLists'].nil?)
+        data.protocols_lists = (ProtocolsListsData.parse(map['ProtocolsLists']) unless map['ProtocolsLists'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1349,7 +1349,7 @@ module AWS::SDK::FMS
     class ProtocolsListsData
       def self.parse(list)
         list.map do |value|
-          Parsers::ProtocolsListDataSummary.parse(value) unless value.nil?
+          ProtocolsListDataSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1360,7 +1360,7 @@ module AWS::SDK::FMS
         data.list_arn = map['ListArn']
         data.list_id = map['ListId']
         data.list_name = map['ListName']
-        data.protocols_list = (Parsers::ProtocolsList.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
+        data.protocols_list = (ProtocolsList.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
         return data
       end
     end
@@ -1372,7 +1372,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -1384,7 +1384,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.third_party_firewall_firewall_policies = (Parsers::ThirdPartyFirewallFirewallPolicies.parse(map['ThirdPartyFirewallFirewallPolicies']) unless map['ThirdPartyFirewallFirewallPolicies'].nil?)
+        data.third_party_firewall_firewall_policies = (ThirdPartyFirewallFirewallPolicies.parse(map['ThirdPartyFirewallFirewallPolicies']) unless map['ThirdPartyFirewallFirewallPolicies'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1393,7 +1393,7 @@ module AWS::SDK::FMS
     class ThirdPartyFirewallFirewallPolicies
       def self.parse(list)
         list.map do |value|
-          Parsers::ThirdPartyFirewallFirewallPolicy.parse(value) unless value.nil?
+          ThirdPartyFirewallFirewallPolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -1414,7 +1414,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.apps_list = (Parsers::AppsListData.parse(map['AppsList']) unless map['AppsList'].nil?)
+        data.apps_list = (AppsListData.parse(map['AppsList']) unless map['AppsList'].nil?)
         data.apps_list_arn = map['AppsListArn']
         data
       end
@@ -1438,7 +1438,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy = (Parsers::Policy.parse(map['Policy']) unless map['Policy'].nil?)
+        data.policy = (Policy.parse(map['Policy']) unless map['Policy'].nil?)
         data.policy_arn = map['PolicyArn']
         data
       end
@@ -1451,7 +1451,7 @@ module AWS::SDK::FMS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.protocols_list = (Parsers::ProtocolsListData.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
+        data.protocols_list = (ProtocolsListData.parse(map['ProtocolsList']) unless map['ProtocolsList'].nil?)
         data.protocols_list_arn = map['ProtocolsListArn']
         data
       end

@@ -127,7 +127,7 @@ module AWS::SDK::Cloud9
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.membership = (Parsers::EnvironmentMember.parse(map['membership']) unless map['membership'].nil?)
+        data.membership = (EnvironmentMember.parse(map['membership']) unless map['membership'].nil?)
         data
       end
     end
@@ -173,7 +173,7 @@ module AWS::SDK::Cloud9
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.memberships = (Parsers::EnvironmentMembersList.parse(map['memberships']) unless map['memberships'].nil?)
+        data.memberships = (EnvironmentMembersList.parse(map['memberships']) unless map['memberships'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -182,7 +182,7 @@ module AWS::SDK::Cloud9
     class EnvironmentMembersList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentMember.parse(value) unless value.nil?
+          EnvironmentMember.parse(value) unless value.nil?
         end
       end
     end
@@ -207,7 +207,7 @@ module AWS::SDK::Cloud9
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environments = (Parsers::EnvironmentList.parse(map['environments']) unless map['environments'].nil?)
+        data.environments = (EnvironmentList.parse(map['environments']) unless map['environments'].nil?)
         data
       end
     end
@@ -215,7 +215,7 @@ module AWS::SDK::Cloud9
     class EnvironmentList
       def self.parse(list)
         list.map do |value|
-          Parsers::Environment.parse(value) unless value.nil?
+          Environment.parse(value) unless value.nil?
         end
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::Cloud9
         data.connection_type = map['connectionType']
         data.arn = map['arn']
         data.owner_arn = map['ownerArn']
-        data.lifecycle = (Parsers::EnvironmentLifecycle.parse(map['lifecycle']) unless map['lifecycle'].nil?)
+        data.lifecycle = (EnvironmentLifecycle.parse(map['lifecycle']) unless map['lifecycle'].nil?)
         data.managed_credentials_status = map['managedCredentialsStatus']
         return data
       end
@@ -254,7 +254,7 @@ module AWS::SDK::Cloud9
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.environment_ids = (Parsers::EnvironmentIdList.parse(map['environmentIds']) unless map['environmentIds'].nil?)
+        data.environment_ids = (EnvironmentIdList.parse(map['environmentIds']) unless map['environmentIds'].nil?)
         data
       end
     end
@@ -274,7 +274,7 @@ module AWS::SDK::Cloud9
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -282,7 +282,7 @@ module AWS::SDK::Cloud9
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -350,7 +350,7 @@ module AWS::SDK::Cloud9
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.membership = (Parsers::EnvironmentMember.parse(map['membership']) unless map['membership'].nil?)
+        data.membership = (EnvironmentMember.parse(map['membership']) unless map['membership'].nil?)
         data
       end
     end

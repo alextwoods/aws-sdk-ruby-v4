@@ -149,7 +149,7 @@ module AWS::SDK::TimestreamQuery
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoints = (Parsers::Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data
       end
     end
@@ -157,7 +157,7 @@ module AWS::SDK::TimestreamQuery
     class Endpoints
       def self.parse(list)
         list.map do |value|
-          Parsers::Endpoint.parse(value) unless value.nil?
+          Endpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -178,7 +178,7 @@ module AWS::SDK::TimestreamQuery
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scheduled_query = (Parsers::ScheduledQueryDescription.parse(map['ScheduledQuery']) unless map['ScheduledQuery'].nil?)
+        data.scheduled_query = (ScheduledQueryDescription.parse(map['ScheduledQuery']) unless map['ScheduledQuery'].nil?)
         data
       end
     end
@@ -193,14 +193,14 @@ module AWS::SDK::TimestreamQuery
         data.state = map['State']
         data.previous_invocation_time = Time.at(map['PreviousInvocationTime'].to_i) if map['PreviousInvocationTime']
         data.next_invocation_time = Time.at(map['NextInvocationTime'].to_i) if map['NextInvocationTime']
-        data.schedule_configuration = (Parsers::ScheduleConfiguration.parse(map['ScheduleConfiguration']) unless map['ScheduleConfiguration'].nil?)
-        data.notification_configuration = (Parsers::NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
-        data.target_configuration = (Parsers::TargetConfiguration.parse(map['TargetConfiguration']) unless map['TargetConfiguration'].nil?)
+        data.schedule_configuration = (ScheduleConfiguration.parse(map['ScheduleConfiguration']) unless map['ScheduleConfiguration'].nil?)
+        data.notification_configuration = (NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
+        data.target_configuration = (TargetConfiguration.parse(map['TargetConfiguration']) unless map['TargetConfiguration'].nil?)
         data.scheduled_query_execution_role_arn = map['ScheduledQueryExecutionRoleArn']
         data.kms_key_id = map['KmsKeyId']
-        data.error_report_configuration = (Parsers::ErrorReportConfiguration.parse(map['ErrorReportConfiguration']) unless map['ErrorReportConfiguration'].nil?)
-        data.last_run_summary = (Parsers::ScheduledQueryRunSummary.parse(map['LastRunSummary']) unless map['LastRunSummary'].nil?)
-        data.recently_failed_runs = (Parsers::ScheduledQueryRunSummaryList.parse(map['RecentlyFailedRuns']) unless map['RecentlyFailedRuns'].nil?)
+        data.error_report_configuration = (ErrorReportConfiguration.parse(map['ErrorReportConfiguration']) unless map['ErrorReportConfiguration'].nil?)
+        data.last_run_summary = (ScheduledQueryRunSummary.parse(map['LastRunSummary']) unless map['LastRunSummary'].nil?)
+        data.recently_failed_runs = (ScheduledQueryRunSummaryList.parse(map['RecentlyFailedRuns']) unless map['RecentlyFailedRuns'].nil?)
         return data
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::TimestreamQuery
     class ScheduledQueryRunSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ScheduledQueryRunSummary.parse(value) unless value.nil?
+          ScheduledQueryRunSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -219,8 +219,8 @@ module AWS::SDK::TimestreamQuery
         data.invocation_time = Time.at(map['InvocationTime'].to_i) if map['InvocationTime']
         data.trigger_time = Time.at(map['TriggerTime'].to_i) if map['TriggerTime']
         data.run_status = map['RunStatus']
-        data.execution_stats = (Parsers::ExecutionStats.parse(map['ExecutionStats']) unless map['ExecutionStats'].nil?)
-        data.error_report_location = (Parsers::ErrorReportLocation.parse(map['ErrorReportLocation']) unless map['ErrorReportLocation'].nil?)
+        data.execution_stats = (ExecutionStats.parse(map['ExecutionStats']) unless map['ExecutionStats'].nil?)
+        data.error_report_location = (ErrorReportLocation.parse(map['ErrorReportLocation']) unless map['ErrorReportLocation'].nil?)
         data.failure_reason = map['FailureReason']
         return data
       end
@@ -229,7 +229,7 @@ module AWS::SDK::TimestreamQuery
     class ErrorReportLocation
       def self.parse(map)
         data = Types::ErrorReportLocation.new
-        data.s3_report_location = (Parsers::S3ReportLocation.parse(map['S3ReportLocation']) unless map['S3ReportLocation'].nil?)
+        data.s3_report_location = (S3ReportLocation.parse(map['S3ReportLocation']) unless map['S3ReportLocation'].nil?)
         return data
       end
     end
@@ -258,7 +258,7 @@ module AWS::SDK::TimestreamQuery
     class ErrorReportConfiguration
       def self.parse(map)
         data = Types::ErrorReportConfiguration.new
-        data.s3_configuration = (Parsers::S3Configuration.parse(map['S3Configuration']) unless map['S3Configuration'].nil?)
+        data.s3_configuration = (S3Configuration.parse(map['S3Configuration']) unless map['S3Configuration'].nil?)
         return data
       end
     end
@@ -276,7 +276,7 @@ module AWS::SDK::TimestreamQuery
     class TargetConfiguration
       def self.parse(map)
         data = Types::TargetConfiguration.new
-        data.timestream_configuration = (Parsers::TimestreamConfiguration.parse(map['TimestreamConfiguration']) unless map['TimestreamConfiguration'].nil?)
+        data.timestream_configuration = (TimestreamConfiguration.parse(map['TimestreamConfiguration']) unless map['TimestreamConfiguration'].nil?)
         return data
       end
     end
@@ -287,9 +287,9 @@ module AWS::SDK::TimestreamQuery
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
         data.time_column = map['TimeColumn']
-        data.dimension_mappings = (Parsers::DimensionMappingList.parse(map['DimensionMappings']) unless map['DimensionMappings'].nil?)
-        data.multi_measure_mappings = (Parsers::MultiMeasureMappings.parse(map['MultiMeasureMappings']) unless map['MultiMeasureMappings'].nil?)
-        data.mixed_measure_mappings = (Parsers::MixedMeasureMappingList.parse(map['MixedMeasureMappings']) unless map['MixedMeasureMappings'].nil?)
+        data.dimension_mappings = (DimensionMappingList.parse(map['DimensionMappings']) unless map['DimensionMappings'].nil?)
+        data.multi_measure_mappings = (MultiMeasureMappings.parse(map['MultiMeasureMappings']) unless map['MultiMeasureMappings'].nil?)
+        data.mixed_measure_mappings = (MixedMeasureMappingList.parse(map['MixedMeasureMappings']) unless map['MixedMeasureMappings'].nil?)
         data.measure_name_column = map['MeasureNameColumn']
         return data
       end
@@ -298,7 +298,7 @@ module AWS::SDK::TimestreamQuery
     class MixedMeasureMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::MixedMeasureMapping.parse(value) unless value.nil?
+          MixedMeasureMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -310,7 +310,7 @@ module AWS::SDK::TimestreamQuery
         data.source_column = map['SourceColumn']
         data.target_measure_name = map['TargetMeasureName']
         data.measure_value_type = map['MeasureValueType']
-        data.multi_measure_attribute_mappings = (Parsers::MultiMeasureAttributeMappingList.parse(map['MultiMeasureAttributeMappings']) unless map['MultiMeasureAttributeMappings'].nil?)
+        data.multi_measure_attribute_mappings = (MultiMeasureAttributeMappingList.parse(map['MultiMeasureAttributeMappings']) unless map['MultiMeasureAttributeMappings'].nil?)
         return data
       end
     end
@@ -318,7 +318,7 @@ module AWS::SDK::TimestreamQuery
     class MultiMeasureAttributeMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::MultiMeasureAttributeMapping.parse(value) unless value.nil?
+          MultiMeasureAttributeMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -337,7 +337,7 @@ module AWS::SDK::TimestreamQuery
       def self.parse(map)
         data = Types::MultiMeasureMappings.new
         data.target_multi_measure_name = map['TargetMultiMeasureName']
-        data.multi_measure_attribute_mappings = (Parsers::MultiMeasureAttributeMappingList.parse(map['MultiMeasureAttributeMappings']) unless map['MultiMeasureAttributeMappings'].nil?)
+        data.multi_measure_attribute_mappings = (MultiMeasureAttributeMappingList.parse(map['MultiMeasureAttributeMappings']) unless map['MultiMeasureAttributeMappings'].nil?)
         return data
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::TimestreamQuery
     class DimensionMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::DimensionMapping.parse(value) unless value.nil?
+          DimensionMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -362,7 +362,7 @@ module AWS::SDK::TimestreamQuery
     class NotificationConfiguration
       def self.parse(map)
         data = Types::NotificationConfiguration.new
-        data.sns_configuration = (Parsers::SnsConfiguration.parse(map['SnsConfiguration']) unless map['SnsConfiguration'].nil?)
+        data.sns_configuration = (SnsConfiguration.parse(map['SnsConfiguration']) unless map['SnsConfiguration'].nil?)
         return data
       end
     end
@@ -401,7 +401,7 @@ module AWS::SDK::TimestreamQuery
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scheduled_queries = (Parsers::ScheduledQueryList.parse(map['ScheduledQueries']) unless map['ScheduledQueries'].nil?)
+        data.scheduled_queries = (ScheduledQueryList.parse(map['ScheduledQueries']) unless map['ScheduledQueries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -410,7 +410,7 @@ module AWS::SDK::TimestreamQuery
     class ScheduledQueryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ScheduledQuery.parse(value) unless value.nil?
+          ScheduledQuery.parse(value) unless value.nil?
         end
       end
     end
@@ -424,8 +424,8 @@ module AWS::SDK::TimestreamQuery
         data.state = map['State']
         data.previous_invocation_time = Time.at(map['PreviousInvocationTime'].to_i) if map['PreviousInvocationTime']
         data.next_invocation_time = Time.at(map['NextInvocationTime'].to_i) if map['NextInvocationTime']
-        data.error_report_configuration = (Parsers::ErrorReportConfiguration.parse(map['ErrorReportConfiguration']) unless map['ErrorReportConfiguration'].nil?)
-        data.target_destination = (Parsers::TargetDestination.parse(map['TargetDestination']) unless map['TargetDestination'].nil?)
+        data.error_report_configuration = (ErrorReportConfiguration.parse(map['ErrorReportConfiguration']) unless map['ErrorReportConfiguration'].nil?)
+        data.target_destination = (TargetDestination.parse(map['TargetDestination']) unless map['TargetDestination'].nil?)
         data.last_run_status = map['LastRunStatus']
         return data
       end
@@ -434,7 +434,7 @@ module AWS::SDK::TimestreamQuery
     class TargetDestination
       def self.parse(map)
         data = Types::TargetDestination.new
-        data.timestream_destination = (Parsers::TimestreamDestination.parse(map['TimestreamDestination']) unless map['TimestreamDestination'].nil?)
+        data.timestream_destination = (TimestreamDestination.parse(map['TimestreamDestination']) unless map['TimestreamDestination'].nil?)
         return data
       end
     end
@@ -455,7 +455,7 @@ module AWS::SDK::TimestreamQuery
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -464,7 +464,7 @@ module AWS::SDK::TimestreamQuery
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -486,8 +486,8 @@ module AWS::SDK::TimestreamQuery
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.query_string = map['QueryString']
-        data.columns = (Parsers::SelectColumnList.parse(map['Columns']) unless map['Columns'].nil?)
-        data.parameters = (Parsers::ParameterMappingList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.columns = (SelectColumnList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.parameters = (ParameterMappingList.parse(map['Parameters']) unless map['Parameters'].nil?)
         data
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::TimestreamQuery
     class ParameterMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterMapping.parse(value) unless value.nil?
+          ParameterMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -504,7 +504,7 @@ module AWS::SDK::TimestreamQuery
       def self.parse(map)
         data = Types::ParameterMapping.new
         data.name = map['Name']
-        data.type = (Parsers::Type.parse(map['Type']) unless map['Type'].nil?)
+        data.type = (Type.parse(map['Type']) unless map['Type'].nil?)
         return data
       end
     end
@@ -513,9 +513,9 @@ module AWS::SDK::TimestreamQuery
       def self.parse(map)
         data = Types::Type.new
         data.scalar_type = map['ScalarType']
-        data.array_column_info = (Parsers::ColumnInfo.parse(map['ArrayColumnInfo']) unless map['ArrayColumnInfo'].nil?)
-        data.time_series_measure_value_column_info = (Parsers::ColumnInfo.parse(map['TimeSeriesMeasureValueColumnInfo']) unless map['TimeSeriesMeasureValueColumnInfo'].nil?)
-        data.row_column_info = (Parsers::ColumnInfoList.parse(map['RowColumnInfo']) unless map['RowColumnInfo'].nil?)
+        data.array_column_info = (ColumnInfo.parse(map['ArrayColumnInfo']) unless map['ArrayColumnInfo'].nil?)
+        data.time_series_measure_value_column_info = (ColumnInfo.parse(map['TimeSeriesMeasureValueColumnInfo']) unless map['TimeSeriesMeasureValueColumnInfo'].nil?)
+        data.row_column_info = (ColumnInfoList.parse(map['RowColumnInfo']) unless map['RowColumnInfo'].nil?)
         return data
       end
     end
@@ -523,7 +523,7 @@ module AWS::SDK::TimestreamQuery
     class ColumnInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnInfo.parse(value) unless value.nil?
+          ColumnInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -532,7 +532,7 @@ module AWS::SDK::TimestreamQuery
       def self.parse(map)
         data = Types::ColumnInfo.new
         data.name = map['Name']
-        data.type = (Parsers::Type.parse(map['Type']) unless map['Type'].nil?)
+        data.type = (Type.parse(map['Type']) unless map['Type'].nil?)
         return data
       end
     end
@@ -540,7 +540,7 @@ module AWS::SDK::TimestreamQuery
     class SelectColumnList
       def self.parse(list)
         list.map do |value|
-          Parsers::SelectColumn.parse(value) unless value.nil?
+          SelectColumn.parse(value) unless value.nil?
         end
       end
     end
@@ -549,7 +549,7 @@ module AWS::SDK::TimestreamQuery
       def self.parse(map)
         data = Types::SelectColumn.new
         data.name = map['Name']
-        data.type = (Parsers::Type.parse(map['Type']) unless map['Type'].nil?)
+        data.type = (Type.parse(map['Type']) unless map['Type'].nil?)
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
         data.aliased = map['Aliased']
@@ -566,9 +566,9 @@ module AWS::SDK::TimestreamQuery
         map = Hearth::JSON.load(body)
         data.query_id = map['QueryId']
         data.next_token = map['NextToken']
-        data.rows = (Parsers::RowList.parse(map['Rows']) unless map['Rows'].nil?)
-        data.column_info = (Parsers::ColumnInfoList.parse(map['ColumnInfo']) unless map['ColumnInfo'].nil?)
-        data.query_status = (Parsers::QueryStatus.parse(map['QueryStatus']) unless map['QueryStatus'].nil?)
+        data.rows = (RowList.parse(map['Rows']) unless map['Rows'].nil?)
+        data.column_info = (ColumnInfoList.parse(map['ColumnInfo']) unless map['ColumnInfo'].nil?)
+        data.query_status = (QueryStatus.parse(map['QueryStatus']) unless map['QueryStatus'].nil?)
         data
       end
     end
@@ -586,7 +586,7 @@ module AWS::SDK::TimestreamQuery
     class RowList
       def self.parse(list)
         list.map do |value|
-          Parsers::Row.parse(value) unless value.nil?
+          Row.parse(value) unless value.nil?
         end
       end
     end
@@ -594,7 +594,7 @@ module AWS::SDK::TimestreamQuery
     class Row
       def self.parse(map)
         data = Types::Row.new
-        data.data = (Parsers::DatumList.parse(map['Data']) unless map['Data'].nil?)
+        data.data = (DatumList.parse(map['Data']) unless map['Data'].nil?)
         return data
       end
     end
@@ -602,7 +602,7 @@ module AWS::SDK::TimestreamQuery
     class DatumList
       def self.parse(list)
         list.map do |value|
-          Parsers::Datum.parse(value) unless value.nil?
+          Datum.parse(value) unless value.nil?
         end
       end
     end
@@ -611,9 +611,9 @@ module AWS::SDK::TimestreamQuery
       def self.parse(map)
         data = Types::Datum.new
         data.scalar_value = map['ScalarValue']
-        data.time_series_value = (Parsers::TimeSeriesDataPointList.parse(map['TimeSeriesValue']) unless map['TimeSeriesValue'].nil?)
-        data.array_value = (Parsers::DatumList.parse(map['ArrayValue']) unless map['ArrayValue'].nil?)
-        data.row_value = (Parsers::Row.parse(map['RowValue']) unless map['RowValue'].nil?)
+        data.time_series_value = (TimeSeriesDataPointList.parse(map['TimeSeriesValue']) unless map['TimeSeriesValue'].nil?)
+        data.array_value = (DatumList.parse(map['ArrayValue']) unless map['ArrayValue'].nil?)
+        data.row_value = (Row.parse(map['RowValue']) unless map['RowValue'].nil?)
         data.null_value = map['NullValue']
         return data
       end
@@ -622,7 +622,7 @@ module AWS::SDK::TimestreamQuery
     class TimeSeriesDataPointList
       def self.parse(list)
         list.map do |value|
-          Parsers::TimeSeriesDataPoint.parse(value) unless value.nil?
+          TimeSeriesDataPoint.parse(value) unless value.nil?
         end
       end
     end
@@ -631,7 +631,7 @@ module AWS::SDK::TimestreamQuery
       def self.parse(map)
         data = Types::TimeSeriesDataPoint.new
         data.time = map['Time']
-        data.value = (Parsers::Datum.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (Datum.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end

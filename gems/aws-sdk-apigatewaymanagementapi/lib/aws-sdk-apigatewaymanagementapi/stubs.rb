@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApiGatewayManagementApi
   module Stubs
 
@@ -38,9 +40,9 @@ module AWS::SDK::ApiGatewayManagementApi
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['connectedAt'] = Hearth::TimeHelper.to_date_time(stub[:connected_at]) unless stub[:connected_at].nil?
-        data['identity'] = Stubs::Identity.stub(stub[:identity]) unless stub[:identity].nil?
+        data['identity'] = Identity.stub(stub[:identity]) unless stub[:identity].nil?
         data['lastActiveAt'] = Hearth::TimeHelper.to_date_time(stub[:last_active_at]) unless stub[:last_active_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

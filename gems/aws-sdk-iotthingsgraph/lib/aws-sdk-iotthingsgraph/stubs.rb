@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTThingsGraph
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -34,8 +36,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summary'] = Stubs::FlowTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summary'] = FlowTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -74,8 +76,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summary'] = Stubs::SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summary'] = SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -124,8 +126,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summary'] = Stubs::SystemTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summary'] = SystemTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::IoTThingsGraph
         data = {}
         data['namespaceArn'] = stub[:namespace_arn] unless stub[:namespace_arn].nil?
         data['namespaceName'] = stub[:namespace_name] unless stub[:namespace_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -225,9 +227,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summary'] = Stubs::SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['summary'] = SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
         data['greengrassDeploymentId'] = stub[:greengrass_deployment_id] unless stub[:greengrass_deployment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -241,7 +243,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -279,7 +281,7 @@ module AWS::SDK::IoTThingsGraph
         data['trackingNamespaceName'] = stub[:tracking_namespace_name] unless stub[:tracking_namespace_name].nil?
         data['trackingNamespaceVersion'] = stub[:tracking_namespace_version] unless stub[:tracking_namespace_version].nil?
         data['namespaceVersion'] = stub[:namespace_version] unless stub[:namespace_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -293,7 +295,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -308,8 +310,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['descriptions'] = Stubs::EntityDescriptions.stub(stub[:descriptions]) unless stub[:descriptions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['descriptions'] = EntityDescriptions.stub(stub[:descriptions]) unless stub[:descriptions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -328,7 +330,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityDescription.stub(element) unless element.nil?
+          data << EntityDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -355,7 +357,7 @@ module AWS::SDK::IoTThingsGraph
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['definition'] = Stubs::DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
+        data['definition'] = DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
         data
       end
     end
@@ -390,8 +392,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['description'] = Stubs::FlowTemplateDescription.stub(stub[:description]) unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['description'] = FlowTemplateDescription.stub(stub[:description]) unless stub[:description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -411,8 +413,8 @@ module AWS::SDK::IoTThingsGraph
       def self.stub(stub)
         stub ||= Types::FlowTemplateDescription.new
         data = {}
-        data['summary'] = Stubs::FlowTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['definition'] = Stubs::DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
+        data['summary'] = FlowTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['definition'] = DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
         data['validatedNamespaceVersion'] = stub[:validated_namespace_version] unless stub[:validated_namespace_version].nil?
         data
       end
@@ -429,9 +431,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summaries'] = Stubs::FlowTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = FlowTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -450,7 +452,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FlowTemplateSummary.stub(element) unless element.nil?
+          data << FlowTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -475,7 +477,7 @@ module AWS::SDK::IoTThingsGraph
         data['status'] = stub[:status] unless stub[:status].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -490,8 +492,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['description'] = Stubs::SystemInstanceDescription.stub(stub[:description]) unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['description'] = SystemInstanceDescription.stub(stub[:description]) unless stub[:description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -515,12 +517,12 @@ module AWS::SDK::IoTThingsGraph
       def self.stub(stub)
         stub ||= Types::SystemInstanceDescription.new
         data = {}
-        data['summary'] = Stubs::SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['definition'] = Stubs::DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
+        data['summary'] = SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['definition'] = DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
         data['s3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
-        data['metricsConfiguration'] = Stubs::MetricsConfiguration.stub(stub[:metrics_configuration]) unless stub[:metrics_configuration].nil?
+        data['metricsConfiguration'] = MetricsConfiguration.stub(stub[:metrics_configuration]) unless stub[:metrics_configuration].nil?
         data['validatedNamespaceVersion'] = stub[:validated_namespace_version] unless stub[:validated_namespace_version].nil?
-        data['validatedDependencyRevisions'] = Stubs::DependencyRevisions.stub(stub[:validated_dependency_revisions]) unless stub[:validated_dependency_revisions].nil?
+        data['validatedDependencyRevisions'] = DependencyRevisions.stub(stub[:validated_dependency_revisions]) unless stub[:validated_dependency_revisions].nil?
         data['flowActionsRoleArn'] = stub[:flow_actions_role_arn] unless stub[:flow_actions_role_arn].nil?
         data
       end
@@ -540,7 +542,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DependencyRevision.stub(element) unless element.nil?
+          data << DependencyRevision.stub(element) unless element.nil?
         end
         data
       end
@@ -596,8 +598,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['description'] = Stubs::SystemTemplateDescription.stub(stub[:description]) unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['description'] = SystemTemplateDescription.stub(stub[:description]) unless stub[:description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -617,8 +619,8 @@ module AWS::SDK::IoTThingsGraph
       def self.stub(stub)
         stub ||= Types::SystemTemplateDescription.new
         data = {}
-        data['summary'] = Stubs::SystemTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['definition'] = Stubs::DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
+        data['summary'] = SystemTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['definition'] = DefinitionDocument.stub(stub[:definition]) unless stub[:definition].nil?
         data['validatedNamespaceVersion'] = stub[:validated_namespace_version] unless stub[:validated_namespace_version].nil?
         data
       end
@@ -635,9 +637,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summaries'] = Stubs::SystemTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = SystemTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SystemTemplateSummary.stub(element) unless element.nil?
+          data << SystemTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -683,9 +685,9 @@ module AWS::SDK::IoTThingsGraph
         data['namespaceArn'] = stub[:namespace_arn] unless stub[:namespace_arn].nil?
         data['namespaceName'] = stub[:namespace_name] unless stub[:namespace_name].nil?
         data['namespaceVersion'] = stub[:namespace_version] unless stub[:namespace_version].nil?
-        data['failureReason'] = Stubs::StringList.stub(stub[:failure_reason]) unless stub[:failure_reason].nil?
+        data['failureReason'] = StringList.stub(stub[:failure_reason]) unless stub[:failure_reason].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -721,9 +723,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['messages'] = Stubs::FlowExecutionMessages.stub(stub[:messages]) unless stub[:messages].nil?
+        data['messages'] = FlowExecutionMessages.stub(stub[:messages]) unless stub[:messages].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FlowExecutionMessage.stub(element) unless element.nil?
+          data << FlowExecutionMessage.stub(element) unless element.nil?
         end
         data
       end
@@ -783,9 +785,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -804,7 +806,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -841,9 +843,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['descriptions'] = Stubs::EntityDescriptions.stub(stub[:descriptions]) unless stub[:descriptions].nil?
+        data['descriptions'] = EntityDescriptions.stub(stub[:descriptions]) unless stub[:descriptions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -859,9 +861,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summaries'] = Stubs::FlowExecutionSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = FlowExecutionSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -880,7 +882,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FlowExecutionSummary.stub(element) unless element.nil?
+          data << FlowExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -925,9 +927,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summaries'] = Stubs::FlowTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = FlowTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -943,9 +945,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summaries'] = Stubs::SystemInstanceSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = SystemInstanceSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -964,7 +966,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SystemInstanceSummary.stub(element) unless element.nil?
+          data << SystemInstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -981,9 +983,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summaries'] = Stubs::SystemTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = SystemTemplateSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -999,9 +1001,9 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['things'] = Stubs::Things.stub(stub[:things]) unless stub[:things].nil?
+        data['things'] = Things.stub(stub[:things]) unless stub[:things].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1020,7 +1022,7 @@ module AWS::SDK::IoTThingsGraph
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Thing.stub(element) unless element.nil?
+          data << Thing.stub(element) unless element.nil?
         end
         data
       end
@@ -1055,7 +1057,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1070,8 +1072,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summary'] = Stubs::SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summary'] = SystemInstanceSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1085,7 +1087,7 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1100,8 +1102,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summary'] = Stubs::FlowTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summary'] = FlowTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1116,8 +1118,8 @@ module AWS::SDK::IoTThingsGraph
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summary'] = Stubs::SystemTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summary'] = SystemTemplateSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1133,7 +1135,7 @@ module AWS::SDK::IoTThingsGraph
       def self.stub(http_resp, stub:)
         data = {}
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

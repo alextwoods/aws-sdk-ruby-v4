@@ -319,7 +319,7 @@ module AWS::SDK::Imagebuilder
         data = Types::GetComponentOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.component = (Parsers::Component.parse(map['component']) unless map['component'].nil?)
+        data.component = (Component.parse(map['component']) unless map['component'].nil?)
         data
       end
     end
@@ -334,15 +334,15 @@ module AWS::SDK::Imagebuilder
         data.change_description = map['changeDescription']
         data.type = map['type']
         data.platform = map['platform']
-        data.supported_os_versions = (Parsers::OsVersionList.parse(map['supportedOsVersions']) unless map['supportedOsVersions'].nil?)
-        data.state = (Parsers::ComponentState.parse(map['state']) unless map['state'].nil?)
-        data.parameters = (Parsers::ComponentParameterDetailList.parse(map['parameters']) unless map['parameters'].nil?)
+        data.supported_os_versions = (OsVersionList.parse(map['supportedOsVersions']) unless map['supportedOsVersions'].nil?)
+        data.state = (ComponentState.parse(map['state']) unless map['state'].nil?)
+        data.parameters = (ComponentParameterDetailList.parse(map['parameters']) unless map['parameters'].nil?)
         data.owner = map['owner']
         data.data = map['data']
         data.kms_key_id = map['kmsKeyId']
         data.encrypted = map['encrypted']
         data.date_created = map['dateCreated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentParameterDetail.parse(value) unless value.nil?
+          data << ComponentParameterDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -372,7 +372,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ComponentParameterDetail.new
         data.name = map['name']
         data.type = map['type']
-        data.default_value = (Parsers::ComponentParameterValueList.parse(map['defaultValue']) unless map['defaultValue'].nil?)
+        data.default_value = (ComponentParameterValueList.parse(map['defaultValue']) unless map['defaultValue'].nil?)
         data.description = map['description']
         return data
       end
@@ -434,7 +434,7 @@ module AWS::SDK::Imagebuilder
         data = Types::GetContainerRecipeOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.container_recipe = (Parsers::ContainerRecipe.parse(map['containerRecipe']) unless map['containerRecipe'].nil?)
+        data.container_recipe = (ContainerRecipe.parse(map['containerRecipe']) unless map['containerRecipe'].nil?)
         data
       end
     end
@@ -449,16 +449,16 @@ module AWS::SDK::Imagebuilder
         data.platform = map['platform']
         data.owner = map['owner']
         data.version = map['version']
-        data.components = (Parsers::ComponentConfigurationList.parse(map['components']) unless map['components'].nil?)
-        data.instance_configuration = (Parsers::InstanceConfiguration.parse(map['instanceConfiguration']) unless map['instanceConfiguration'].nil?)
+        data.components = (ComponentConfigurationList.parse(map['components']) unless map['components'].nil?)
+        data.instance_configuration = (InstanceConfiguration.parse(map['instanceConfiguration']) unless map['instanceConfiguration'].nil?)
         data.dockerfile_template_data = map['dockerfileTemplateData']
         data.kms_key_id = map['kmsKeyId']
         data.encrypted = map['encrypted']
         data.parent_image = map['parentImage']
         data.date_created = map['dateCreated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.working_directory = map['workingDirectory']
-        data.target_repository = (Parsers::TargetContainerRepository.parse(map['targetRepository']) unless map['targetRepository'].nil?)
+        data.target_repository = (TargetContainerRepository.parse(map['targetRepository']) unless map['targetRepository'].nil?)
         return data
       end
     end
@@ -476,7 +476,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::InstanceConfiguration.new
         data.image = map['image']
-        data.block_device_mappings = (Parsers::InstanceBlockDeviceMappings.parse(map['blockDeviceMappings']) unless map['blockDeviceMappings'].nil?)
+        data.block_device_mappings = (InstanceBlockDeviceMappings.parse(map['blockDeviceMappings']) unless map['blockDeviceMappings'].nil?)
         return data
       end
     end
@@ -485,7 +485,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstanceBlockDeviceMapping.parse(value) unless value.nil?
+          data << InstanceBlockDeviceMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -495,7 +495,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::InstanceBlockDeviceMapping.new
         data.device_name = map['deviceName']
-        data.ebs = (Parsers::EbsInstanceBlockDeviceSpecification.parse(map['ebs']) unless map['ebs'].nil?)
+        data.ebs = (EbsInstanceBlockDeviceSpecification.parse(map['ebs']) unless map['ebs'].nil?)
         data.virtual_name = map['virtualName']
         data.no_device = map['noDevice']
         return data
@@ -521,7 +521,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentConfiguration.parse(value) unless value.nil?
+          data << ComponentConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -531,7 +531,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::ComponentConfiguration.new
         data.component_arn = map['componentArn']
-        data.parameters = (Parsers::ComponentParameterList.parse(map['parameters']) unless map['parameters'].nil?)
+        data.parameters = (ComponentParameterList.parse(map['parameters']) unless map['parameters'].nil?)
         return data
       end
     end
@@ -540,7 +540,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentParameter.parse(value) unless value.nil?
+          data << ComponentParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -550,7 +550,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::ComponentParameter.new
         data.name = map['name']
-        data.value = (Parsers::ComponentParameterValueList.parse(map['value']) unless map['value'].nil?)
+        data.value = (ComponentParameterValueList.parse(map['value']) unless map['value'].nil?)
         return data
       end
     end
@@ -572,7 +572,7 @@ module AWS::SDK::Imagebuilder
         data = Types::GetDistributionConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.distribution_configuration = (Parsers::DistributionConfiguration.parse(map['distributionConfiguration']) unless map['distributionConfiguration'].nil?)
+        data.distribution_configuration = (DistributionConfiguration.parse(map['distributionConfiguration']) unless map['distributionConfiguration'].nil?)
         data
       end
     end
@@ -583,11 +583,11 @@ module AWS::SDK::Imagebuilder
         data.arn = map['arn']
         data.name = map['name']
         data.description = map['description']
-        data.distributions = (Parsers::DistributionList.parse(map['distributions']) unless map['distributions'].nil?)
+        data.distributions = (DistributionList.parse(map['distributions']) unless map['distributions'].nil?)
         data.timeout_minutes = map['timeoutMinutes']
         data.date_created = map['dateCreated']
         data.date_updated = map['dateUpdated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Distribution.parse(value) unless value.nil?
+          data << Distribution.parse(value) unless value.nil?
         end
         data
       end
@@ -606,12 +606,12 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::Distribution.new
         data.region = map['region']
-        data.ami_distribution_configuration = (Parsers::AmiDistributionConfiguration.parse(map['amiDistributionConfiguration']) unless map['amiDistributionConfiguration'].nil?)
-        data.container_distribution_configuration = (Parsers::ContainerDistributionConfiguration.parse(map['containerDistributionConfiguration']) unless map['containerDistributionConfiguration'].nil?)
-        data.license_configuration_arns = (Parsers::LicenseConfigurationArnList.parse(map['licenseConfigurationArns']) unless map['licenseConfigurationArns'].nil?)
-        data.launch_template_configurations = (Parsers::LaunchTemplateConfigurationList.parse(map['launchTemplateConfigurations']) unless map['launchTemplateConfigurations'].nil?)
-        data.s3_export_configuration = (Parsers::S3ExportConfiguration.parse(map['s3ExportConfiguration']) unless map['s3ExportConfiguration'].nil?)
-        data.fast_launch_configurations = (Parsers::FastLaunchConfigurationList.parse(map['fastLaunchConfigurations']) unless map['fastLaunchConfigurations'].nil?)
+        data.ami_distribution_configuration = (AmiDistributionConfiguration.parse(map['amiDistributionConfiguration']) unless map['amiDistributionConfiguration'].nil?)
+        data.container_distribution_configuration = (ContainerDistributionConfiguration.parse(map['containerDistributionConfiguration']) unless map['containerDistributionConfiguration'].nil?)
+        data.license_configuration_arns = (LicenseConfigurationArnList.parse(map['licenseConfigurationArns']) unless map['licenseConfigurationArns'].nil?)
+        data.launch_template_configurations = (LaunchTemplateConfigurationList.parse(map['launchTemplateConfigurations']) unless map['launchTemplateConfigurations'].nil?)
+        data.s3_export_configuration = (S3ExportConfiguration.parse(map['s3ExportConfiguration']) unless map['s3ExportConfiguration'].nil?)
+        data.fast_launch_configurations = (FastLaunchConfigurationList.parse(map['fastLaunchConfigurations']) unless map['fastLaunchConfigurations'].nil?)
         return data
       end
     end
@@ -620,7 +620,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FastLaunchConfiguration.parse(value) unless value.nil?
+          data << FastLaunchConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -630,9 +630,9 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::FastLaunchConfiguration.new
         data.enabled = map['enabled']
-        data.snapshot_configuration = (Parsers::FastLaunchSnapshotConfiguration.parse(map['snapshotConfiguration']) unless map['snapshotConfiguration'].nil?)
+        data.snapshot_configuration = (FastLaunchSnapshotConfiguration.parse(map['snapshotConfiguration']) unless map['snapshotConfiguration'].nil?)
         data.max_parallel_launches = map['maxParallelLaunches']
-        data.launch_template = (Parsers::FastLaunchLaunchTemplateSpecification.parse(map['launchTemplate']) unless map['launchTemplate'].nil?)
+        data.launch_template = (FastLaunchLaunchTemplateSpecification.parse(map['launchTemplate']) unless map['launchTemplate'].nil?)
         data.account_id = map['accountId']
         return data
       end
@@ -671,7 +671,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LaunchTemplateConfiguration.parse(value) unless value.nil?
+          data << LaunchTemplateConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -701,8 +701,8 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::ContainerDistributionConfiguration.new
         data.description = map['description']
-        data.container_tags = (Parsers::StringList.parse(map['containerTags']) unless map['containerTags'].nil?)
-        data.target_repository = (Parsers::TargetContainerRepository.parse(map['targetRepository']) unless map['targetRepository'].nil?)
+        data.container_tags = (StringList.parse(map['containerTags']) unless map['containerTags'].nil?)
+        data.target_repository = (TargetContainerRepository.parse(map['targetRepository']) unless map['targetRepository'].nil?)
         return data
       end
     end
@@ -722,10 +722,10 @@ module AWS::SDK::Imagebuilder
         data = Types::AmiDistributionConfiguration.new
         data.name = map['name']
         data.description = map['description']
-        data.target_account_ids = (Parsers::AccountList.parse(map['targetAccountIds']) unless map['targetAccountIds'].nil?)
-        data.ami_tags = (Parsers::TagMap.parse(map['amiTags']) unless map['amiTags'].nil?)
+        data.target_account_ids = (AccountList.parse(map['targetAccountIds']) unless map['targetAccountIds'].nil?)
+        data.ami_tags = (TagMap.parse(map['amiTags']) unless map['amiTags'].nil?)
         data.kms_key_id = map['kmsKeyId']
-        data.launch_permission = (Parsers::LaunchPermissionConfiguration.parse(map['launchPermission']) unless map['launchPermission'].nil?)
+        data.launch_permission = (LaunchPermissionConfiguration.parse(map['launchPermission']) unless map['launchPermission'].nil?)
         return data
       end
     end
@@ -733,10 +733,10 @@ module AWS::SDK::Imagebuilder
     class LaunchPermissionConfiguration
       def self.parse(map)
         data = Types::LaunchPermissionConfiguration.new
-        data.user_ids = (Parsers::AccountList.parse(map['userIds']) unless map['userIds'].nil?)
-        data.user_groups = (Parsers::StringList.parse(map['userGroups']) unless map['userGroups'].nil?)
-        data.organization_arns = (Parsers::OrganizationArnList.parse(map['organizationArns']) unless map['organizationArns'].nil?)
-        data.organizational_unit_arns = (Parsers::OrganizationalUnitArnList.parse(map['organizationalUnitArns']) unless map['organizationalUnitArns'].nil?)
+        data.user_ids = (AccountList.parse(map['userIds']) unless map['userIds'].nil?)
+        data.user_groups = (StringList.parse(map['userGroups']) unless map['userGroups'].nil?)
+        data.organization_arns = (OrganizationArnList.parse(map['organizationArns']) unless map['organizationArns'].nil?)
+        data.organizational_unit_arns = (OrganizationalUnitArnList.parse(map['organizationalUnitArns']) unless map['organizationalUnitArns'].nil?)
         return data
       end
     end
@@ -777,7 +777,7 @@ module AWS::SDK::Imagebuilder
         data = Types::GetImageOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image = (Parsers::Image.parse(map['image']) unless map['image'].nil?)
+        data.image = (Image.parse(map['image']) unless map['image'].nil?)
         data
       end
     end
@@ -792,17 +792,17 @@ module AWS::SDK::Imagebuilder
         data.platform = map['platform']
         data.enhanced_image_metadata_enabled = map['enhancedImageMetadataEnabled']
         data.os_version = map['osVersion']
-        data.state = (Parsers::ImageState.parse(map['state']) unless map['state'].nil?)
-        data.image_recipe = (Parsers::ImageRecipe.parse(map['imageRecipe']) unless map['imageRecipe'].nil?)
-        data.container_recipe = (Parsers::ContainerRecipe.parse(map['containerRecipe']) unless map['containerRecipe'].nil?)
+        data.state = (ImageState.parse(map['state']) unless map['state'].nil?)
+        data.image_recipe = (ImageRecipe.parse(map['imageRecipe']) unless map['imageRecipe'].nil?)
+        data.container_recipe = (ContainerRecipe.parse(map['containerRecipe']) unless map['containerRecipe'].nil?)
         data.source_pipeline_name = map['sourcePipelineName']
         data.source_pipeline_arn = map['sourcePipelineArn']
-        data.infrastructure_configuration = (Parsers::InfrastructureConfiguration.parse(map['infrastructureConfiguration']) unless map['infrastructureConfiguration'].nil?)
-        data.distribution_configuration = (Parsers::DistributionConfiguration.parse(map['distributionConfiguration']) unless map['distributionConfiguration'].nil?)
-        data.image_tests_configuration = (Parsers::ImageTestsConfiguration.parse(map['imageTestsConfiguration']) unless map['imageTestsConfiguration'].nil?)
+        data.infrastructure_configuration = (InfrastructureConfiguration.parse(map['infrastructureConfiguration']) unless map['infrastructureConfiguration'].nil?)
+        data.distribution_configuration = (DistributionConfiguration.parse(map['distributionConfiguration']) unless map['distributionConfiguration'].nil?)
+        data.image_tests_configuration = (ImageTestsConfiguration.parse(map['imageTestsConfiguration']) unless map['imageTestsConfiguration'].nil?)
         data.date_created = map['dateCreated']
-        data.output_resources = (Parsers::OutputResources.parse(map['outputResources']) unless map['outputResources'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.output_resources = (OutputResources.parse(map['outputResources']) unless map['outputResources'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.build_type = map['buildType']
         return data
       end
@@ -811,8 +811,8 @@ module AWS::SDK::Imagebuilder
     class OutputResources
       def self.parse(map)
         data = Types::OutputResources.new
-        data.amis = (Parsers::AmiList.parse(map['amis']) unless map['amis'].nil?)
-        data.containers = (Parsers::ContainerList.parse(map['containers']) unless map['containers'].nil?)
+        data.amis = (AmiList.parse(map['amis']) unless map['amis'].nil?)
+        data.containers = (ContainerList.parse(map['containers']) unless map['containers'].nil?)
         return data
       end
     end
@@ -821,7 +821,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Container.parse(value) unless value.nil?
+          data << Container.parse(value) unless value.nil?
         end
         data
       end
@@ -831,7 +831,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(map)
         data = Types::Container.new
         data.region = map['region']
-        data.image_uris = (Parsers::StringList.parse(map['imageUris']) unless map['imageUris'].nil?)
+        data.image_uris = (StringList.parse(map['imageUris']) unless map['imageUris'].nil?)
         return data
       end
     end
@@ -840,7 +840,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Ami.parse(value) unless value.nil?
+          data << Ami.parse(value) unless value.nil?
         end
         data
       end
@@ -853,7 +853,7 @@ module AWS::SDK::Imagebuilder
         data.image = map['image']
         data.name = map['name']
         data.description = map['description']
-        data.state = (Parsers::ImageState.parse(map['state']) unless map['state'].nil?)
+        data.state = (ImageState.parse(map['state']) unless map['state'].nil?)
         data.account_id = map['accountId']
         return data
       end
@@ -883,19 +883,19 @@ module AWS::SDK::Imagebuilder
         data.arn = map['arn']
         data.name = map['name']
         data.description = map['description']
-        data.instance_types = (Parsers::InstanceTypeList.parse(map['instanceTypes']) unless map['instanceTypes'].nil?)
+        data.instance_types = (InstanceTypeList.parse(map['instanceTypes']) unless map['instanceTypes'].nil?)
         data.instance_profile_name = map['instanceProfileName']
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         data.subnet_id = map['subnetId']
-        data.logging = (Parsers::Logging.parse(map['logging']) unless map['logging'].nil?)
+        data.logging = (Logging.parse(map['logging']) unless map['logging'].nil?)
         data.key_pair = map['keyPair']
         data.terminate_instance_on_failure = map['terminateInstanceOnFailure']
         data.sns_topic_arn = map['snsTopicArn']
         data.date_created = map['dateCreated']
         data.date_updated = map['dateUpdated']
-        data.resource_tags = (Parsers::ResourceTagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
-        data.instance_metadata_options = (Parsers::InstanceMetadataOptions.parse(map['instanceMetadataOptions']) unless map['instanceMetadataOptions'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.resource_tags = (ResourceTagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
+        data.instance_metadata_options = (InstanceMetadataOptions.parse(map['instanceMetadataOptions']) unless map['instanceMetadataOptions'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -922,7 +922,7 @@ module AWS::SDK::Imagebuilder
     class Logging
       def self.parse(map)
         data = Types::Logging.new
-        data.s3_logs = (Parsers::S3Logs.parse(map['s3Logs']) unless map['s3Logs'].nil?)
+        data.s3_logs = (S3Logs.parse(map['s3Logs']) unless map['s3Logs'].nil?)
         return data
       end
     end
@@ -966,13 +966,13 @@ module AWS::SDK::Imagebuilder
         data.platform = map['platform']
         data.owner = map['owner']
         data.version = map['version']
-        data.components = (Parsers::ComponentConfigurationList.parse(map['components']) unless map['components'].nil?)
+        data.components = (ComponentConfigurationList.parse(map['components']) unless map['components'].nil?)
         data.parent_image = map['parentImage']
-        data.block_device_mappings = (Parsers::InstanceBlockDeviceMappings.parse(map['blockDeviceMappings']) unless map['blockDeviceMappings'].nil?)
+        data.block_device_mappings = (InstanceBlockDeviceMappings.parse(map['blockDeviceMappings']) unless map['blockDeviceMappings'].nil?)
         data.date_created = map['dateCreated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.working_directory = map['workingDirectory']
-        data.additional_instance_configuration = (Parsers::AdditionalInstanceConfiguration.parse(map['additionalInstanceConfiguration']) unless map['additionalInstanceConfiguration'].nil?)
+        data.additional_instance_configuration = (AdditionalInstanceConfiguration.parse(map['additionalInstanceConfiguration']) unless map['additionalInstanceConfiguration'].nil?)
         return data
       end
     end
@@ -980,7 +980,7 @@ module AWS::SDK::Imagebuilder
     class AdditionalInstanceConfiguration
       def self.parse(map)
         data = Types::AdditionalInstanceConfiguration.new
-        data.systems_manager_agent = (Parsers::SystemsManagerAgent.parse(map['systemsManagerAgent']) unless map['systemsManagerAgent'].nil?)
+        data.systems_manager_agent = (SystemsManagerAgent.parse(map['systemsManagerAgent']) unless map['systemsManagerAgent'].nil?)
         data.user_data_override = map['userDataOverride']
         return data
       end
@@ -1000,7 +1000,7 @@ module AWS::SDK::Imagebuilder
         data = Types::GetImagePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_pipeline = (Parsers::ImagePipeline.parse(map['imagePipeline']) unless map['imagePipeline'].nil?)
+        data.image_pipeline = (ImagePipeline.parse(map['imagePipeline']) unless map['imagePipeline'].nil?)
         data
       end
     end
@@ -1017,14 +1017,14 @@ module AWS::SDK::Imagebuilder
         data.container_recipe_arn = map['containerRecipeArn']
         data.infrastructure_configuration_arn = map['infrastructureConfigurationArn']
         data.distribution_configuration_arn = map['distributionConfigurationArn']
-        data.image_tests_configuration = (Parsers::ImageTestsConfiguration.parse(map['imageTestsConfiguration']) unless map['imageTestsConfiguration'].nil?)
-        data.schedule = (Parsers::Schedule.parse(map['schedule']) unless map['schedule'].nil?)
+        data.image_tests_configuration = (ImageTestsConfiguration.parse(map['imageTestsConfiguration']) unless map['imageTestsConfiguration'].nil?)
+        data.schedule = (Schedule.parse(map['schedule']) unless map['schedule'].nil?)
         data.status = map['status']
         data.date_created = map['dateCreated']
         data.date_updated = map['dateUpdated']
         data.date_last_run = map['dateLastRun']
         data.date_next_run = map['dateNextRun']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1056,7 +1056,7 @@ module AWS::SDK::Imagebuilder
         data = Types::GetImageRecipeOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_recipe = (Parsers::ImageRecipe.parse(map['imageRecipe']) unless map['imageRecipe'].nil?)
+        data.image_recipe = (ImageRecipe.parse(map['imageRecipe']) unless map['imageRecipe'].nil?)
         data
       end
     end
@@ -1078,7 +1078,7 @@ module AWS::SDK::Imagebuilder
         data = Types::GetInfrastructureConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.infrastructure_configuration = (Parsers::InfrastructureConfiguration.parse(map['infrastructureConfiguration']) unless map['infrastructureConfiguration'].nil?)
+        data.infrastructure_configuration = (InfrastructureConfiguration.parse(map['infrastructureConfiguration']) unless map['infrastructureConfiguration'].nil?)
         data
       end
     end
@@ -1113,7 +1113,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListComponentBuildVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.component_summary_list = (Parsers::ComponentSummaryList.parse(map['componentSummaryList']) unless map['componentSummaryList'].nil?)
+        data.component_summary_list = (ComponentSummaryList.parse(map['componentSummaryList']) unless map['componentSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1123,7 +1123,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentSummary.parse(value) unless value.nil?
+          data << ComponentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1136,14 +1136,14 @@ module AWS::SDK::Imagebuilder
         data.name = map['name']
         data.version = map['version']
         data.platform = map['platform']
-        data.supported_os_versions = (Parsers::OsVersionList.parse(map['supportedOsVersions']) unless map['supportedOsVersions'].nil?)
-        data.state = (Parsers::ComponentState.parse(map['state']) unless map['state'].nil?)
+        data.supported_os_versions = (OsVersionList.parse(map['supportedOsVersions']) unless map['supportedOsVersions'].nil?)
+        data.state = (ComponentState.parse(map['state']) unless map['state'].nil?)
         data.type = map['type']
         data.owner = map['owner']
         data.description = map['description']
         data.change_description = map['changeDescription']
         data.date_created = map['dateCreated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1164,7 +1164,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListComponentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.component_version_list = (Parsers::ComponentVersionList.parse(map['componentVersionList']) unless map['componentVersionList'].nil?)
+        data.component_version_list = (ComponentVersionList.parse(map['componentVersionList']) unless map['componentVersionList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1174,7 +1174,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentVersion.parse(value) unless value.nil?
+          data << ComponentVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::Imagebuilder
         data.version = map['version']
         data.description = map['description']
         data.platform = map['platform']
-        data.supported_os_versions = (Parsers::OsVersionList.parse(map['supportedOsVersions']) unless map['supportedOsVersions'].nil?)
+        data.supported_os_versions = (OsVersionList.parse(map['supportedOsVersions']) unless map['supportedOsVersions'].nil?)
         data.type = map['type']
         data.owner = map['owner']
         data.date_created = map['dateCreated']
@@ -1202,7 +1202,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListContainerRecipesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.container_recipe_summary_list = (Parsers::ContainerRecipeSummaryList.parse(map['containerRecipeSummaryList']) unless map['containerRecipeSummaryList'].nil?)
+        data.container_recipe_summary_list = (ContainerRecipeSummaryList.parse(map['containerRecipeSummaryList']) unless map['containerRecipeSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1212,7 +1212,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ContainerRecipeSummary.parse(value) unless value.nil?
+          data << ContainerRecipeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1228,7 +1228,7 @@ module AWS::SDK::Imagebuilder
         data.owner = map['owner']
         data.parent_image = map['parentImage']
         data.date_created = map['dateCreated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1239,7 +1239,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListDistributionConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.distribution_configuration_summary_list = (Parsers::DistributionConfigurationSummaryList.parse(map['distributionConfigurationSummaryList']) unless map['distributionConfigurationSummaryList'].nil?)
+        data.distribution_configuration_summary_list = (DistributionConfigurationSummaryList.parse(map['distributionConfigurationSummaryList']) unless map['distributionConfigurationSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1249,7 +1249,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DistributionConfigurationSummary.parse(value) unless value.nil?
+          data << DistributionConfigurationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1263,8 +1263,8 @@ module AWS::SDK::Imagebuilder
         data.description = map['description']
         data.date_created = map['dateCreated']
         data.date_updated = map['dateUpdated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.regions = (Parsers::RegionList.parse(map['regions']) unless map['regions'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.regions = (RegionList.parse(map['regions']) unless map['regions'].nil?)
         return data
       end
     end
@@ -1285,7 +1285,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListImageBuildVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_summary_list = (Parsers::ImageSummaryList.parse(map['imageSummaryList']) unless map['imageSummaryList'].nil?)
+        data.image_summary_list = (ImageSummaryList.parse(map['imageSummaryList']) unless map['imageSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1295,7 +1295,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImageSummary.parse(value) unless value.nil?
+          data << ImageSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1310,11 +1310,11 @@ module AWS::SDK::Imagebuilder
         data.version = map['version']
         data.platform = map['platform']
         data.os_version = map['osVersion']
-        data.state = (Parsers::ImageState.parse(map['state']) unless map['state'].nil?)
+        data.state = (ImageState.parse(map['state']) unless map['state'].nil?)
         data.owner = map['owner']
         data.date_created = map['dateCreated']
-        data.output_resources = (Parsers::OutputResources.parse(map['outputResources']) unless map['outputResources'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.output_resources = (OutputResources.parse(map['outputResources']) unless map['outputResources'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.build_type = map['buildType']
         return data
       end
@@ -1326,7 +1326,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListImagePackagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_package_list = (Parsers::ImagePackageList.parse(map['imagePackageList']) unless map['imagePackageList'].nil?)
+        data.image_package_list = (ImagePackageList.parse(map['imagePackageList']) unless map['imagePackageList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1336,7 +1336,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImagePackage.parse(value) unless value.nil?
+          data << ImagePackage.parse(value) unless value.nil?
         end
         data
       end
@@ -1357,7 +1357,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListImagePipelineImagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_summary_list = (Parsers::ImageSummaryList.parse(map['imageSummaryList']) unless map['imageSummaryList'].nil?)
+        data.image_summary_list = (ImageSummaryList.parse(map['imageSummaryList']) unless map['imageSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1369,7 +1369,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListImagePipelinesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_pipeline_list = (Parsers::ImagePipelineList.parse(map['imagePipelineList']) unless map['imagePipelineList'].nil?)
+        data.image_pipeline_list = (ImagePipelineList.parse(map['imagePipelineList']) unless map['imagePipelineList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1379,7 +1379,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImagePipeline.parse(value) unless value.nil?
+          data << ImagePipeline.parse(value) unless value.nil?
         end
         data
       end
@@ -1391,7 +1391,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListImageRecipesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_recipe_summary_list = (Parsers::ImageRecipeSummaryList.parse(map['imageRecipeSummaryList']) unless map['imageRecipeSummaryList'].nil?)
+        data.image_recipe_summary_list = (ImageRecipeSummaryList.parse(map['imageRecipeSummaryList']) unless map['imageRecipeSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1401,7 +1401,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImageRecipeSummary.parse(value) unless value.nil?
+          data << ImageRecipeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1416,7 +1416,7 @@ module AWS::SDK::Imagebuilder
         data.owner = map['owner']
         data.parent_image = map['parentImage']
         data.date_created = map['dateCreated']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1427,7 +1427,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListImagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.image_version_list = (Parsers::ImageVersionList.parse(map['imageVersionList']) unless map['imageVersionList'].nil?)
+        data.image_version_list = (ImageVersionList.parse(map['imageVersionList']) unless map['imageVersionList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1437,7 +1437,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImageVersion.parse(value) unless value.nil?
+          data << ImageVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -1465,7 +1465,7 @@ module AWS::SDK::Imagebuilder
         data = Types::ListInfrastructureConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.request_id = map['requestId']
-        data.infrastructure_configuration_summary_list = (Parsers::InfrastructureConfigurationSummaryList.parse(map['infrastructureConfigurationSummaryList']) unless map['infrastructureConfigurationSummaryList'].nil?)
+        data.infrastructure_configuration_summary_list = (InfrastructureConfigurationSummaryList.parse(map['infrastructureConfigurationSummaryList']) unless map['infrastructureConfigurationSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1475,7 +1475,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InfrastructureConfigurationSummary.parse(value) unless value.nil?
+          data << InfrastructureConfigurationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1489,9 +1489,9 @@ module AWS::SDK::Imagebuilder
         data.description = map['description']
         data.date_created = map['dateCreated']
         data.date_updated = map['dateUpdated']
-        data.resource_tags = (Parsers::ResourceTagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.instance_types = (Parsers::InstanceTypeList.parse(map['instanceTypes']) unless map['instanceTypes'].nil?)
+        data.resource_tags = (ResourceTagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.instance_types = (InstanceTypeList.parse(map['instanceTypes']) unless map['instanceTypes'].nil?)
         data.instance_profile_name = map['instanceProfileName']
         return data
       end
@@ -1502,7 +1502,7 @@ module AWS::SDK::Imagebuilder
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

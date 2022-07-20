@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoT1ClickDevicesService
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::IoT1ClickDevicesService
         http_resp.headers['Content-Type'] = 'application/json'
         data['claimCode'] = stub[:claim_code] unless stub[:claim_code].nil?
         data['total'] = stub[:total] unless stub[:total].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,8 +43,8 @@ module AWS::SDK::IoT1ClickDevicesService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['deviceDescription'] = Stubs::DeviceDescription.stub(stub[:device_description]) unless stub[:device_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deviceDescription'] = DeviceDescription.stub(stub[:device_description]) unless stub[:device_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,12 +68,12 @@ module AWS::SDK::IoT1ClickDevicesService
         stub ||= Types::DeviceDescription.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['attributes'] = Stubs::DeviceAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = DeviceAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['deviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['remainingLife'] = Hearth::NumberHelper.serialize(stub[:remaining_life])
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -129,7 +131,7 @@ module AWS::SDK::IoT1ClickDevicesService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,8 +147,8 @@ module AWS::SDK::IoT1ClickDevicesService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['deviceMethods'] = Stubs::List____listOfDeviceMethod.stub(stub[:device_methods]) unless stub[:device_methods].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deviceMethods'] = List____listOfDeviceMethod.stub(stub[:device_methods]) unless stub[:device_methods].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::IoT1ClickDevicesService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceMethod.stub(element) unless element.nil?
+          data << DeviceMethod.stub(element) unless element.nil?
         end
         data
       end
@@ -203,7 +205,7 @@ module AWS::SDK::IoT1ClickDevicesService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::IoT1ClickDevicesService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['deviceMethodResponse'] = stub[:device_method_response] unless stub[:device_method_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,9 +239,9 @@ module AWS::SDK::IoT1ClickDevicesService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['events'] = Stubs::List____listOfDeviceEvent.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = List____listOfDeviceEvent.stub(stub[:events]) unless stub[:events].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::IoT1ClickDevicesService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceEvent.stub(element) unless element.nil?
+          data << DeviceEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -277,7 +279,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.stub(stub)
         stub ||= Types::DeviceEvent.new
         data = {}
-        data['device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
+        data['device'] = Device.stub(stub[:device]) unless stub[:device].nil?
         data['stdEvent'] = stub[:std_event] unless stub[:std_event].nil?
         data
       end
@@ -298,7 +300,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.stub(stub)
         stub ||= Types::Device.new
         data = {}
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['deviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
@@ -334,9 +336,9 @@ module AWS::SDK::IoT1ClickDevicesService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['devices'] = Stubs::List____listOfDeviceDescription.stub(stub[:devices]) unless stub[:devices].nil?
+        data['devices'] = List____listOfDeviceDescription.stub(stub[:devices]) unless stub[:devices].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -354,7 +356,7 @@ module AWS::SDK::IoT1ClickDevicesService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceDescription.stub(element) unless element.nil?
+          data << DeviceDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -372,8 +374,8 @@ module AWS::SDK::IoT1ClickDevicesService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,7 +405,7 @@ module AWS::SDK::IoT1ClickDevicesService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

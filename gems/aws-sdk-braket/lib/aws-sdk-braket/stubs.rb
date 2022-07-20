@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Braket
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::Braket
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['cancellationStatus'] = stub[:cancellation_status] unless stub[:cancellation_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::Braket
         http_resp.headers['Content-Type'] = 'application/json'
         data['quantumTaskArn'] = stub[:quantum_task_arn] unless stub[:quantum_task_arn].nil?
         data['cancellationStatus'] = stub[:cancellation_status] unless stub[:cancellation_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::Braket
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -78,7 +80,7 @@ module AWS::SDK::Braket
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['quantumTaskArn'] = stub[:quantum_task_arn] unless stub[:quantum_task_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::Braket
         data['deviceType'] = stub[:device_type] unless stub[:device_type].nil?
         data['deviceStatus'] = stub[:device_status] unless stub[:device_status].nil?
         data['deviceCapabilities'] = stub[:device_capabilities] unless stub[:device_capabilities].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -144,21 +146,21 @@ module AWS::SDK::Braket
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['jobName'] = stub[:job_name] unless stub[:job_name].nil?
-        data['hyperParameters'] = Stubs::HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
-        data['inputDataConfig'] = Stubs::InputConfigList.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['outputDataConfig'] = Stubs::JobOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
-        data['stoppingCondition'] = Stubs::JobStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        data['checkpointConfig'] = Stubs::JobCheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
-        data['algorithmSpecification'] = Stubs::AlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
-        data['instanceConfig'] = Stubs::InstanceConfig.stub(stub[:instance_config]) unless stub[:instance_config].nil?
+        data['hyperParameters'] = HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
+        data['inputDataConfig'] = InputConfigList.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['outputDataConfig'] = JobOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['stoppingCondition'] = JobStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['checkpointConfig'] = JobCheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
+        data['algorithmSpecification'] = AlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
+        data['instanceConfig'] = InstanceConfig.stub(stub[:instance_config]) unless stub[:instance_config].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['startedAt'] = Hearth::TimeHelper.to_date_time(stub[:started_at]) unless stub[:started_at].nil?
         data['endedAt'] = Hearth::TimeHelper.to_date_time(stub[:ended_at]) unless stub[:ended_at].nil?
         data['billableDuration'] = stub[:billable_duration] unless stub[:billable_duration].nil?
-        data['deviceConfig'] = Stubs::DeviceConfig.stub(stub[:device_config]) unless stub[:device_config].nil?
-        data['events'] = Stubs::JobEvents.stub(stub[:events]) unless stub[:events].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deviceConfig'] = DeviceConfig.stub(stub[:device_config]) unless stub[:device_config].nil?
+        data['events'] = JobEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::Braket
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobEventDetails.stub(element) unless element.nil?
+          data << JobEventDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -278,8 +280,8 @@ module AWS::SDK::Braket
       def self.stub(stub)
         stub ||= Types::AlgorithmSpecification.new
         data = {}
-        data['scriptModeConfig'] = Stubs::ScriptModeConfig.stub(stub[:script_mode_config]) unless stub[:script_mode_config].nil?
-        data['containerImage'] = Stubs::ContainerImage.stub(stub[:container_image]) unless stub[:container_image].nil?
+        data['scriptModeConfig'] = ScriptModeConfig.stub(stub[:script_mode_config]) unless stub[:script_mode_config].nil?
+        data['containerImage'] = ContainerImage.stub(stub[:container_image]) unless stub[:container_image].nil?
         data
       end
     end
@@ -396,7 +398,7 @@ module AWS::SDK::Braket
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputFileConfig.stub(element) unless element.nil?
+          data << InputFileConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -419,7 +421,7 @@ module AWS::SDK::Braket
         data = {}
         data['channelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        data['dataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['dataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data
       end
     end
@@ -437,7 +439,7 @@ module AWS::SDK::Braket
       def self.stub(stub)
         stub ||= Types::DataSource.new
         data = {}
-        data['s3DataSource'] = Stubs::S3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
+        data['s3DataSource'] = S3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
         data
       end
     end
@@ -513,9 +515,9 @@ module AWS::SDK::Braket
         data['outputS3Directory'] = stub[:output_s3_directory] unless stub[:output_s3_directory].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['endedAt'] = Hearth::TimeHelper.to_date_time(stub[:ended_at]) unless stub[:ended_at].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,8 +533,8 @@ module AWS::SDK::Braket
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -549,9 +551,9 @@ module AWS::SDK::Braket
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['devices'] = Stubs::DeviceSummaryList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['devices'] = DeviceSummaryList.stub(stub[:devices]) unless stub[:devices].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -569,7 +571,7 @@ module AWS::SDK::Braket
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceSummary.stub(element) unless element.nil?
+          data << DeviceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -614,9 +616,9 @@ module AWS::SDK::Braket
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobs'] = Stubs::JobSummaryList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['jobs'] = JobSummaryList.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -634,7 +636,7 @@ module AWS::SDK::Braket
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobSummary.stub(element) unless element.nil?
+          data << JobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -667,7 +669,7 @@ module AWS::SDK::Braket
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['startedAt'] = Hearth::TimeHelper.to_date_time(stub[:started_at]) unless stub[:started_at].nil?
         data['endedAt'] = Hearth::TimeHelper.to_date_time(stub[:ended_at]) unless stub[:ended_at].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -685,9 +687,9 @@ module AWS::SDK::Braket
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['quantumTasks'] = Stubs::QuantumTaskSummaryList.stub(stub[:quantum_tasks]) unless stub[:quantum_tasks].nil?
+        data['quantumTasks'] = QuantumTaskSummaryList.stub(stub[:quantum_tasks]) unless stub[:quantum_tasks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -705,7 +707,7 @@ module AWS::SDK::Braket
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QuantumTaskSummary.stub(element) unless element.nil?
+          data << QuantumTaskSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -740,7 +742,7 @@ module AWS::SDK::Braket
         data['outputS3Directory'] = stub[:output_s3_directory] unless stub[:output_s3_directory].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['endedAt'] = Hearth::TimeHelper.to_date_time(stub[:ended_at]) unless stub[:ended_at].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end

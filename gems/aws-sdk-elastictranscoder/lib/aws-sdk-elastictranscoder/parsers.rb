@@ -84,7 +84,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::CreateJobOperationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['Job']) unless map['Job'].nil?)
+        data.job = (Job.parse(map['Job']) unless map['Job'].nil?)
         data
       end
     end
@@ -95,15 +95,15 @@ module AWS::SDK::ElasticTranscoder
         data.id = map['Id']
         data.arn = map['Arn']
         data.pipeline_id = map['PipelineId']
-        data.input = (Parsers::JobInput.parse(map['Input']) unless map['Input'].nil?)
-        data.inputs = (Parsers::JobInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.output = (Parsers::JobOutput.parse(map['Output']) unless map['Output'].nil?)
-        data.outputs = (Parsers::JobOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.input = (JobInput.parse(map['Input']) unless map['Input'].nil?)
+        data.inputs = (JobInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.output = (JobOutput.parse(map['Output']) unless map['Output'].nil?)
+        data.outputs = (JobOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.output_key_prefix = map['OutputKeyPrefix']
-        data.playlists = (Parsers::Playlists.parse(map['Playlists']) unless map['Playlists'].nil?)
+        data.playlists = (Playlists.parse(map['Playlists']) unless map['Playlists'].nil?)
         data.status = map['Status']
-        data.user_metadata = (Parsers::UserMetadata.parse(map['UserMetadata']) unless map['UserMetadata'].nil?)
-        data.timing = (Parsers::Timing.parse(map['Timing']) unless map['Timing'].nil?)
+        data.user_metadata = (UserMetadata.parse(map['UserMetadata']) unless map['UserMetadata'].nil?)
+        data.timing = (Timing.parse(map['Timing']) unless map['Timing'].nil?)
         return data
       end
     end
@@ -132,7 +132,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Playlist.parse(value) unless value.nil?
+          data << Playlist.parse(value) unless value.nil?
         end
         data
       end
@@ -143,9 +143,9 @@ module AWS::SDK::ElasticTranscoder
         data = Types::Playlist.new
         data.name = map['Name']
         data.format = map['Format']
-        data.output_keys = (Parsers::OutputKeys.parse(map['OutputKeys']) unless map['OutputKeys'].nil?)
-        data.hls_content_protection = (Parsers::HlsContentProtection.parse(map['HlsContentProtection']) unless map['HlsContentProtection'].nil?)
-        data.play_ready_drm = (Parsers::PlayReadyDrm.parse(map['PlayReadyDrm']) unless map['PlayReadyDrm'].nil?)
+        data.output_keys = (OutputKeys.parse(map['OutputKeys']) unless map['OutputKeys'].nil?)
+        data.hls_content_protection = (HlsContentProtection.parse(map['HlsContentProtection']) unless map['HlsContentProtection'].nil?)
+        data.play_ready_drm = (PlayReadyDrm.parse(map['PlayReadyDrm']) unless map['PlayReadyDrm'].nil?)
         data.status = map['Status']
         data.status_detail = map['StatusDetail']
         return data
@@ -192,7 +192,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobOutput.parse(value) unless value.nil?
+          data << JobOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -204,7 +204,7 @@ module AWS::SDK::ElasticTranscoder
         data.id = map['Id']
         data.key = map['Key']
         data.thumbnail_pattern = map['ThumbnailPattern']
-        data.thumbnail_encryption = (Parsers::Encryption.parse(map['ThumbnailEncryption']) unless map['ThumbnailEncryption'].nil?)
+        data.thumbnail_encryption = (Encryption.parse(map['ThumbnailEncryption']) unless map['ThumbnailEncryption'].nil?)
         data.rotate = map['Rotate']
         data.preset_id = map['PresetId']
         data.segment_duration = map['SegmentDuration']
@@ -216,11 +216,11 @@ module AWS::SDK::ElasticTranscoder
         data.frame_rate = map['FrameRate']
         data.file_size = map['FileSize']
         data.duration_millis = map['DurationMillis']
-        data.watermarks = (Parsers::JobWatermarks.parse(map['Watermarks']) unless map['Watermarks'].nil?)
-        data.album_art = (Parsers::JobAlbumArt.parse(map['AlbumArt']) unless map['AlbumArt'].nil?)
-        data.composition = (Parsers::Composition.parse(map['Composition']) unless map['Composition'].nil?)
-        data.captions = (Parsers::Captions.parse(map['Captions']) unless map['Captions'].nil?)
-        data.encryption = (Parsers::Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.watermarks = (JobWatermarks.parse(map['Watermarks']) unless map['Watermarks'].nil?)
+        data.album_art = (JobAlbumArt.parse(map['AlbumArt']) unless map['AlbumArt'].nil?)
+        data.composition = (Composition.parse(map['Composition']) unless map['Composition'].nil?)
+        data.captions = (Captions.parse(map['Captions']) unless map['Captions'].nil?)
+        data.encryption = (Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
         data.applied_color_space_conversion = map['AppliedColorSpaceConversion']
         return data
       end
@@ -241,8 +241,8 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(map)
         data = Types::Captions.new
         data.merge_policy = map['MergePolicy']
-        data.caption_sources = (Parsers::CaptionSources.parse(map['CaptionSources']) unless map['CaptionSources'].nil?)
-        data.caption_formats = (Parsers::CaptionFormats.parse(map['CaptionFormats']) unless map['CaptionFormats'].nil?)
+        data.caption_sources = (CaptionSources.parse(map['CaptionSources']) unless map['CaptionSources'].nil?)
+        data.caption_formats = (CaptionFormats.parse(map['CaptionFormats']) unless map['CaptionFormats'].nil?)
         return data
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CaptionFormat.parse(value) unless value.nil?
+          data << CaptionFormat.parse(value) unless value.nil?
         end
         data
       end
@@ -262,7 +262,7 @@ module AWS::SDK::ElasticTranscoder
         data = Types::CaptionFormat.new
         data.format = map['Format']
         data.pattern = map['Pattern']
-        data.encryption = (Parsers::Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.encryption = (Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
         return data
       end
     end
@@ -271,7 +271,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CaptionSource.parse(value) unless value.nil?
+          data << CaptionSource.parse(value) unless value.nil?
         end
         data
       end
@@ -284,7 +284,7 @@ module AWS::SDK::ElasticTranscoder
         data.language = map['Language']
         data.time_offset = map['TimeOffset']
         data.label = map['Label']
-        data.encryption = (Parsers::Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.encryption = (Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
         return data
       end
     end
@@ -293,7 +293,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Clip.parse(value) unless value.nil?
+          data << Clip.parse(value) unless value.nil?
         end
         data
       end
@@ -302,7 +302,7 @@ module AWS::SDK::ElasticTranscoder
     class Clip
       def self.parse(map)
         data = Types::Clip.new
-        data.time_span = (Parsers::TimeSpan.parse(map['TimeSpan']) unless map['TimeSpan'].nil?)
+        data.time_span = (TimeSpan.parse(map['TimeSpan']) unless map['TimeSpan'].nil?)
         return data
       end
     end
@@ -320,7 +320,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(map)
         data = Types::JobAlbumArt.new
         data.merge_policy = map['MergePolicy']
-        data.artwork = (Parsers::Artworks.parse(map['Artwork']) unless map['Artwork'].nil?)
+        data.artwork = (Artworks.parse(map['Artwork']) unless map['Artwork'].nil?)
         return data
       end
     end
@@ -329,7 +329,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Artwork.parse(value) unless value.nil?
+          data << Artwork.parse(value) unless value.nil?
         end
         data
       end
@@ -344,7 +344,7 @@ module AWS::SDK::ElasticTranscoder
         data.sizing_policy = map['SizingPolicy']
         data.padding_policy = map['PaddingPolicy']
         data.album_art_format = map['AlbumArtFormat']
-        data.encryption = (Parsers::Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.encryption = (Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
         return data
       end
     end
@@ -353,7 +353,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobWatermark.parse(value) unless value.nil?
+          data << JobWatermark.parse(value) unless value.nil?
         end
         data
       end
@@ -364,7 +364,7 @@ module AWS::SDK::ElasticTranscoder
         data = Types::JobWatermark.new
         data.preset_watermark_id = map['PresetWatermarkId']
         data.input_key = map['InputKey']
-        data.encryption = (Parsers::Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.encryption = (Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
         return data
       end
     end
@@ -373,7 +373,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobInput.parse(value) unless value.nil?
+          data << JobInput.parse(value) unless value.nil?
         end
         data
       end
@@ -388,10 +388,10 @@ module AWS::SDK::ElasticTranscoder
         data.aspect_ratio = map['AspectRatio']
         data.interlaced = map['Interlaced']
         data.container = map['Container']
-        data.encryption = (Parsers::Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
-        data.time_span = (Parsers::TimeSpan.parse(map['TimeSpan']) unless map['TimeSpan'].nil?)
-        data.input_captions = (Parsers::InputCaptions.parse(map['InputCaptions']) unless map['InputCaptions'].nil?)
-        data.detected_properties = (Parsers::DetectedProperties.parse(map['DetectedProperties']) unless map['DetectedProperties'].nil?)
+        data.encryption = (Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.time_span = (TimeSpan.parse(map['TimeSpan']) unless map['TimeSpan'].nil?)
+        data.input_captions = (InputCaptions.parse(map['InputCaptions']) unless map['InputCaptions'].nil?)
+        data.detected_properties = (DetectedProperties.parse(map['DetectedProperties']) unless map['DetectedProperties'].nil?)
         return data
       end
     end
@@ -412,7 +412,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(map)
         data = Types::InputCaptions.new
         data.merge_policy = map['MergePolicy']
-        data.caption_sources = (Parsers::CaptionSources.parse(map['CaptionSources']) unless map['CaptionSources'].nil?)
+        data.caption_sources = (CaptionSources.parse(map['CaptionSources']) unless map['CaptionSources'].nil?)
         return data
       end
     end
@@ -432,8 +432,8 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::CreatePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipeline = (Parsers::Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
-        data.warnings = (Parsers::Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
+        data.pipeline = (Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
+        data.warnings = (Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
         data
       end
     end
@@ -442,7 +442,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Warning.parse(value) unless value.nil?
+          data << Warning.parse(value) unless value.nil?
         end
         data
       end
@@ -468,9 +468,9 @@ module AWS::SDK::ElasticTranscoder
         data.output_bucket = map['OutputBucket']
         data.role = map['Role']
         data.aws_kms_key_arn = map['AwsKmsKeyArn']
-        data.notifications = (Parsers::Notifications.parse(map['Notifications']) unless map['Notifications'].nil?)
-        data.content_config = (Parsers::PipelineOutputConfig.parse(map['ContentConfig']) unless map['ContentConfig'].nil?)
-        data.thumbnail_config = (Parsers::PipelineOutputConfig.parse(map['ThumbnailConfig']) unless map['ThumbnailConfig'].nil?)
+        data.notifications = (Notifications.parse(map['Notifications']) unless map['Notifications'].nil?)
+        data.content_config = (PipelineOutputConfig.parse(map['ContentConfig']) unless map['ContentConfig'].nil?)
+        data.thumbnail_config = (PipelineOutputConfig.parse(map['ThumbnailConfig']) unless map['ThumbnailConfig'].nil?)
         return data
       end
     end
@@ -480,7 +480,7 @@ module AWS::SDK::ElasticTranscoder
         data = Types::PipelineOutputConfig.new
         data.bucket = map['Bucket']
         data.storage_class = map['StorageClass']
-        data.permissions = (Parsers::Permissions.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (Permissions.parse(map['Permissions']) unless map['Permissions'].nil?)
         return data
       end
     end
@@ -489,7 +489,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Permission.parse(value) unless value.nil?
+          data << Permission.parse(value) unless value.nil?
         end
         data
       end
@@ -500,7 +500,7 @@ module AWS::SDK::ElasticTranscoder
         data = Types::Permission.new
         data.grantee_type = map['GranteeType']
         data.grantee = map['Grantee']
-        data.access = (Parsers::AccessControls.parse(map['Access']) unless map['Access'].nil?)
+        data.access = (AccessControls.parse(map['Access']) unless map['Access'].nil?)
         return data
       end
     end
@@ -531,7 +531,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::CreatePresetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.preset = (Parsers::Preset.parse(map['Preset']) unless map['Preset'].nil?)
+        data.preset = (Preset.parse(map['Preset']) unless map['Preset'].nil?)
         data.warning = map['Warning']
         data
       end
@@ -545,9 +545,9 @@ module AWS::SDK::ElasticTranscoder
         data.name = map['Name']
         data.description = map['Description']
         data.container = map['Container']
-        data.audio = (Parsers::AudioParameters.parse(map['Audio']) unless map['Audio'].nil?)
-        data.video = (Parsers::VideoParameters.parse(map['Video']) unless map['Video'].nil?)
-        data.thumbnails = (Parsers::Thumbnails.parse(map['Thumbnails']) unless map['Thumbnails'].nil?)
+        data.audio = (AudioParameters.parse(map['Audio']) unless map['Audio'].nil?)
+        data.video = (VideoParameters.parse(map['Video']) unless map['Video'].nil?)
+        data.thumbnails = (Thumbnails.parse(map['Thumbnails']) unless map['Thumbnails'].nil?)
         data.type = map['Type']
         return data
       end
@@ -572,7 +572,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(map)
         data = Types::VideoParameters.new
         data.codec = map['Codec']
-        data.codec_options = (Parsers::CodecOptions.parse(map['CodecOptions']) unless map['CodecOptions'].nil?)
+        data.codec_options = (CodecOptions.parse(map['CodecOptions']) unless map['CodecOptions'].nil?)
         data.keyframes_max_dist = map['KeyframesMaxDist']
         data.fixed_gop = map['FixedGOP']
         data.bit_rate = map['BitRate']
@@ -585,7 +585,7 @@ module AWS::SDK::ElasticTranscoder
         data.display_aspect_ratio = map['DisplayAspectRatio']
         data.sizing_policy = map['SizingPolicy']
         data.padding_policy = map['PaddingPolicy']
-        data.watermarks = (Parsers::PresetWatermarks.parse(map['Watermarks']) unless map['Watermarks'].nil?)
+        data.watermarks = (PresetWatermarks.parse(map['Watermarks']) unless map['Watermarks'].nil?)
         return data
       end
     end
@@ -594,7 +594,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PresetWatermark.parse(value) unless value.nil?
+          data << PresetWatermark.parse(value) unless value.nil?
         end
         data
       end
@@ -635,7 +635,7 @@ module AWS::SDK::ElasticTranscoder
         data.bit_rate = map['BitRate']
         data.channels = map['Channels']
         data.audio_packing_mode = map['AudioPackingMode']
-        data.codec_options = (Parsers::AudioCodecOptions.parse(map['CodecOptions']) unless map['CodecOptions'].nil?)
+        data.codec_options = (AudioCodecOptions.parse(map['CodecOptions']) unless map['CodecOptions'].nil?)
         return data
       end
     end
@@ -674,7 +674,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::ListJobsByPipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::Jobs.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs = (Jobs.parse(map['Jobs']) unless map['Jobs'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -684,7 +684,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Job.parse(value) unless value.nil?
+          data << Job.parse(value) unless value.nil?
         end
         data
       end
@@ -695,7 +695,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::ListJobsByStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::Jobs.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs = (Jobs.parse(map['Jobs']) unless map['Jobs'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -706,7 +706,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::ListPipelinesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipelines = (Parsers::Pipelines.parse(map['Pipelines']) unless map['Pipelines'].nil?)
+        data.pipelines = (Pipelines.parse(map['Pipelines']) unless map['Pipelines'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -716,7 +716,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Pipeline.parse(value) unless value.nil?
+          data << Pipeline.parse(value) unless value.nil?
         end
         data
       end
@@ -727,7 +727,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::ListPresetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.presets = (Parsers::Presets.parse(map['Presets']) unless map['Presets'].nil?)
+        data.presets = (Presets.parse(map['Presets']) unless map['Presets'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -737,7 +737,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Preset.parse(value) unless value.nil?
+          data << Preset.parse(value) unless value.nil?
         end
         data
       end
@@ -748,7 +748,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::ReadJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['Job']) unless map['Job'].nil?)
+        data.job = (Job.parse(map['Job']) unless map['Job'].nil?)
         data
       end
     end
@@ -758,8 +758,8 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::ReadPipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipeline = (Parsers::Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
-        data.warnings = (Parsers::Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
+        data.pipeline = (Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
+        data.warnings = (Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
         data
       end
     end
@@ -769,7 +769,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::ReadPresetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.preset = (Parsers::Preset.parse(map['Preset']) unless map['Preset'].nil?)
+        data.preset = (Preset.parse(map['Preset']) unless map['Preset'].nil?)
         data
       end
     end
@@ -780,7 +780,7 @@ module AWS::SDK::ElasticTranscoder
         data = Types::TestRoleOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.success = map['Success']
-        data.messages = (Parsers::ExceptionMessages.parse(map['Messages']) unless map['Messages'].nil?)
+        data.messages = (ExceptionMessages.parse(map['Messages']) unless map['Messages'].nil?)
         data
       end
     end
@@ -800,8 +800,8 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::UpdatePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipeline = (Parsers::Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
-        data.warnings = (Parsers::Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
+        data.pipeline = (Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
+        data.warnings = (Warnings.parse(map['Warnings']) unless map['Warnings'].nil?)
         data
       end
     end
@@ -811,7 +811,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::UpdatePipelineNotificationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipeline = (Parsers::Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
+        data.pipeline = (Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
         data
       end
     end
@@ -821,7 +821,7 @@ module AWS::SDK::ElasticTranscoder
       def self.parse(http_resp)
         data = Types::UpdatePipelineStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipeline = (Parsers::Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
+        data.pipeline = (Pipeline.parse(map['Pipeline']) unless map['Pipeline'].nil?)
         data
       end
     end

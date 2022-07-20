@@ -15,7 +15,7 @@ module AWS::SDK::ElasticInference
       def self.parse(http_resp)
         data = Types::DescribeAcceleratorOfferingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.accelerator_type_offerings = (Parsers::AcceleratorTypeOfferingList.parse(map['acceleratorTypeOfferings']) unless map['acceleratorTypeOfferings'].nil?)
+        data.accelerator_type_offerings = (AcceleratorTypeOfferingList.parse(map['acceleratorTypeOfferings']) unless map['acceleratorTypeOfferings'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::ElasticInference
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AcceleratorTypeOffering.parse(value) unless value.nil?
+          data << AcceleratorTypeOffering.parse(value) unless value.nil?
         end
         data
       end
@@ -75,7 +75,7 @@ module AWS::SDK::ElasticInference
       def self.parse(http_resp)
         data = Types::DescribeAcceleratorTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.accelerator_types = (Parsers::AcceleratorTypeList.parse(map['acceleratorTypes']) unless map['acceleratorTypes'].nil?)
+        data.accelerator_types = (AcceleratorTypeList.parse(map['acceleratorTypes']) unless map['acceleratorTypes'].nil?)
         data
       end
     end
@@ -84,7 +84,7 @@ module AWS::SDK::ElasticInference
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AcceleratorType.parse(value) unless value.nil?
+          data << AcceleratorType.parse(value) unless value.nil?
         end
         data
       end
@@ -94,8 +94,8 @@ module AWS::SDK::ElasticInference
       def self.parse(map)
         data = Types::AcceleratorType.new
         data.accelerator_type_name = map['acceleratorTypeName']
-        data.memory_info = (Parsers::MemoryInfo.parse(map['memoryInfo']) unless map['memoryInfo'].nil?)
-        data.throughput_info = (Parsers::ThroughputInfoList.parse(map['throughputInfo']) unless map['throughputInfo'].nil?)
+        data.memory_info = (MemoryInfo.parse(map['memoryInfo']) unless map['memoryInfo'].nil?)
+        data.throughput_info = (ThroughputInfoList.parse(map['throughputInfo']) unless map['throughputInfo'].nil?)
         return data
       end
     end
@@ -104,7 +104,7 @@ module AWS::SDK::ElasticInference
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KeyValuePair.parse(value) unless value.nil?
+          data << KeyValuePair.parse(value) unless value.nil?
         end
         data
       end
@@ -132,7 +132,7 @@ module AWS::SDK::ElasticInference
       def self.parse(http_resp)
         data = Types::DescribeAcceleratorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.accelerator_set = (Parsers::ElasticInferenceAcceleratorSet.parse(map['acceleratorSet']) unless map['acceleratorSet'].nil?)
+        data.accelerator_set = (ElasticInferenceAcceleratorSet.parse(map['acceleratorSet']) unless map['acceleratorSet'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -142,7 +142,7 @@ module AWS::SDK::ElasticInference
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ElasticInferenceAccelerator.parse(value) unless value.nil?
+          data << ElasticInferenceAccelerator.parse(value) unless value.nil?
         end
         data
       end
@@ -151,7 +151,7 @@ module AWS::SDK::ElasticInference
     class ElasticInferenceAccelerator
       def self.parse(map)
         data = Types::ElasticInferenceAccelerator.new
-        data.accelerator_health = (Parsers::ElasticInferenceAcceleratorHealth.parse(map['acceleratorHealth']) unless map['acceleratorHealth'].nil?)
+        data.accelerator_health = (ElasticInferenceAcceleratorHealth.parse(map['acceleratorHealth']) unless map['acceleratorHealth'].nil?)
         data.accelerator_type = map['acceleratorType']
         data.accelerator_id = map['acceleratorId']
         data.availability_zone = map['availabilityZone']
@@ -173,7 +173,7 @@ module AWS::SDK::ElasticInference
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

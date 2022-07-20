@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::RDSData
   module Builders
 
@@ -25,9 +28,9 @@ module AWS::SDK::RDSData
         data['sql'] = input[:sql] unless input[:sql].nil?
         data['database'] = input[:database] unless input[:database].nil?
         data['schema'] = input[:schema] unless input[:schema].nil?
-        data['parameterSets'] = Builders::SqlParameterSets.build(input[:parameter_sets]) unless input[:parameter_sets].nil?
+        data['parameterSets'] = SqlParameterSets.build(input[:parameter_sets]) unless input[:parameter_sets].nil?
         data['transactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -36,7 +39,7 @@ module AWS::SDK::RDSData
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SqlParametersList.build(element) unless element.nil?
+          data << SqlParametersList.build(element) unless element.nil?
         end
         data
       end
@@ -47,7 +50,7 @@ module AWS::SDK::RDSData
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SqlParameter.build(element) unless element.nil?
+          data << SqlParameter.build(element) unless element.nil?
         end
         data
       end
@@ -58,7 +61,7 @@ module AWS::SDK::RDSData
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['value'] = Builders::Field.build(input[:value]) unless input[:value].nil?
+        data['value'] = Field.build(input[:value]) unless input[:value].nil?
         data['typeHint'] = input[:type_hint] unless input[:type_hint].nil?
         data
       end
@@ -80,10 +83,10 @@ module AWS::SDK::RDSData
         when Types::Field::StringValue
           data['stringValue'] = input
         when Types::Field::BlobValue
-          data['blobValue'] = Base64::encode64(input).strip
+          data['blobValue'] = ::Base64::encode64(input).strip
         when Types::Field::ArrayValue
           input = input.__getobj__
-          data['arrayValue'] = (Builders::ArrayValue.build(input) unless input.nil?)
+          data['arrayValue'] = (ArrayValue.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Field"
@@ -99,15 +102,15 @@ module AWS::SDK::RDSData
         data = {}
         case input
         when Types::ArrayValue::BooleanValues
-          data['booleanValues'] = (Builders::BooleanArray.build(input) unless input.nil?)
+          data['booleanValues'] = (BooleanArray.build(input) unless input.nil?)
         when Types::ArrayValue::LongValues
-          data['longValues'] = (Builders::LongArray.build(input) unless input.nil?)
+          data['longValues'] = (LongArray.build(input) unless input.nil?)
         when Types::ArrayValue::DoubleValues
-          data['doubleValues'] = (Builders::DoubleArray.build(input) unless input.nil?)
+          data['doubleValues'] = (DoubleArray.build(input) unless input.nil?)
         when Types::ArrayValue::StringValues
-          data['stringValues'] = (Builders::StringArray.build(input) unless input.nil?)
+          data['stringValues'] = (StringArray.build(input) unless input.nil?)
         when Types::ArrayValue::ArrayValues
-          data['arrayValues'] = (Builders::ArrayOfArray.build(input) unless input.nil?)
+          data['arrayValues'] = (ArrayOfArray.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ArrayValue"
@@ -122,7 +125,7 @@ module AWS::SDK::RDSData
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ArrayValue.build(element) unless element.nil?
+          data << ArrayValue.build(element) unless element.nil?
         end
         data
       end
@@ -186,7 +189,7 @@ module AWS::SDK::RDSData
         data['secretArn'] = input[:secret_arn] unless input[:secret_arn].nil?
         data['database'] = input[:database] unless input[:database].nil?
         data['schema'] = input[:schema] unless input[:schema].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,7 +206,7 @@ module AWS::SDK::RDSData
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['secretArn'] = input[:secret_arn] unless input[:secret_arn].nil?
         data['transactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +225,7 @@ module AWS::SDK::RDSData
         data['sqlStatements'] = input[:sql_statements] unless input[:sql_statements].nil?
         data['database'] = input[:database] unless input[:database].nil?
         data['schema'] = input[:schema] unless input[:schema].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -241,13 +244,13 @@ module AWS::SDK::RDSData
         data['sql'] = input[:sql] unless input[:sql].nil?
         data['database'] = input[:database] unless input[:database].nil?
         data['schema'] = input[:schema] unless input[:schema].nil?
-        data['parameters'] = Builders::SqlParametersList.build(input[:parameters]) unless input[:parameters].nil?
+        data['parameters'] = SqlParametersList.build(input[:parameters]) unless input[:parameters].nil?
         data['transactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
         data['includeResultMetadata'] = input[:include_result_metadata] unless input[:include_result_metadata].nil?
         data['continueAfterTimeout'] = input[:continue_after_timeout] unless input[:continue_after_timeout].nil?
-        data['resultSetOptions'] = Builders::ResultSetOptions.build(input[:result_set_options]) unless input[:result_set_options].nil?
+        data['resultSetOptions'] = ResultSetOptions.build(input[:result_set_options]) unless input[:result_set_options].nil?
         data['formatRecordsAs'] = input[:format_records_as] unless input[:format_records_as].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -274,7 +277,7 @@ module AWS::SDK::RDSData
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['secretArn'] = input[:secret_arn] unless input[:secret_arn].nil?
         data['transactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

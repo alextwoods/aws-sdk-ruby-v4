@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Finspace
   module Builders
 
@@ -23,12 +25,12 @@ module AWS::SDK::Finspace
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['federationMode'] = input[:federation_mode] unless input[:federation_mode].nil?
-        data['federationParameters'] = Builders::FederationParameters.build(input[:federation_parameters]) unless input[:federation_parameters].nil?
-        data['superuserParameters'] = Builders::SuperuserParameters.build(input[:superuser_parameters]) unless input[:superuser_parameters].nil?
-        data['dataBundles'] = Builders::DataBundleArns.build(input[:data_bundles]) unless input[:data_bundles].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['federationParameters'] = FederationParameters.build(input[:federation_parameters]) unless input[:federation_parameters].nil?
+        data['superuserParameters'] = SuperuserParameters.build(input[:superuser_parameters]) unless input[:superuser_parameters].nil?
+        data['dataBundles'] = DataBundleArns.build(input[:data_bundles]) unless input[:data_bundles].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::Finspace
         data['applicationCallBackURL'] = input[:application_call_back_url] unless input[:application_call_back_url].nil?
         data['federationURN'] = input[:federation_urn] unless input[:federation_urn].nil?
         data['federationProviderName'] = input[:federation_provider_name] unless input[:federation_provider_name].nil?
-        data['attributeMap'] = Builders::AttributeMap.build(input[:attribute_map]) unless input[:attribute_map].nil?
+        data['attributeMap'] = AttributeMap.build(input[:attribute_map]) unless input[:attribute_map].nil?
         data
       end
     end
@@ -170,8 +172,8 @@ module AWS::SDK::Finspace
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -228,8 +230,8 @@ module AWS::SDK::Finspace
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['federationMode'] = input[:federation_mode] unless input[:federation_mode].nil?
-        data['federationParameters'] = Builders::FederationParameters.build(input[:federation_parameters]) unless input[:federation_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['federationParameters'] = FederationParameters.build(input[:federation_parameters]) unless input[:federation_parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

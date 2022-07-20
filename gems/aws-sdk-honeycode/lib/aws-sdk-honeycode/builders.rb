@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Honeycode
   module Builders
 
@@ -31,9 +33,9 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['rowsToCreate'] = Builders::CreateRowDataList.build(input[:rows_to_create]) unless input[:rows_to_create].nil?
+        data['rowsToCreate'] = CreateRowDataList.build(input[:rows_to_create]) unless input[:rows_to_create].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateRowData.build(element) unless element.nil?
+          data << CreateRowData.build(element) unless element.nil?
         end
         data
       end
@@ -53,7 +55,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = {}
         data['batchItemId'] = input[:batch_item_id] unless input[:batch_item_id].nil?
-        data['cellsToCreate'] = Builders::RowDataInput.build(input[:cells_to_create]) unless input[:cells_to_create].nil?
+        data['cellsToCreate'] = RowDataInput.build(input[:cells_to_create]) unless input[:cells_to_create].nil?
         data
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::CellInput.build(value) unless value.nil?
+          data[key] = CellInput.build(value) unless value.nil?
         end
         data
       end
@@ -74,7 +76,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = {}
         data['fact'] = input[:fact] unless input[:fact].nil?
-        data['facts'] = Builders::FactList.build(input[:facts]) unless input[:facts].nil?
+        data['facts'] = FactList.build(input[:facts]) unless input[:facts].nil?
         data
       end
     end
@@ -111,9 +113,9 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['rowIds'] = Builders::RowIdList.build(input[:row_ids]) unless input[:row_ids].nil?
+        data['rowIds'] = RowIdList.build(input[:row_ids]) unless input[:row_ids].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,9 +151,9 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['rowsToUpdate'] = Builders::UpdateRowDataList.build(input[:rows_to_update]) unless input[:rows_to_update].nil?
+        data['rowsToUpdate'] = UpdateRowDataList.build(input[:rows_to_update]) unless input[:rows_to_update].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateRowData.build(element) unless element.nil?
+          data << UpdateRowData.build(element) unless element.nil?
         end
         data
       end
@@ -171,7 +173,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = {}
         data['rowId'] = input[:row_id] unless input[:row_id].nil?
-        data['cellsToUpdate'] = Builders::RowDataInput.build(input[:cells_to_update]) unless input[:cells_to_update].nil?
+        data['cellsToUpdate'] = RowDataInput.build(input[:cells_to_update]) unless input[:cells_to_update].nil?
         data
       end
     end
@@ -197,9 +199,9 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['rowsToUpsert'] = Builders::UpsertRowDataList.build(input[:rows_to_upsert]) unless input[:rows_to_upsert].nil?
+        data['rowsToUpsert'] = UpsertRowDataList.build(input[:rows_to_upsert]) unless input[:rows_to_upsert].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -208,7 +210,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpsertRowData.build(element) unless element.nil?
+          data << UpsertRowData.build(element) unless element.nil?
         end
         data
       end
@@ -219,8 +221,8 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = {}
         data['batchItemId'] = input[:batch_item_id] unless input[:batch_item_id].nil?
-        data['filter'] = Builders::Filter.build(input[:filter]) unless input[:filter].nil?
-        data['cellsToUpdate'] = Builders::RowDataInput.build(input[:cells_to_update]) unless input[:cells_to_update].nil?
+        data['filter'] = Filter.build(input[:filter]) unless input[:filter].nil?
+        data['cellsToUpdate'] = RowDataInput.build(input[:cells_to_update]) unless input[:cells_to_update].nil?
         data
       end
     end
@@ -273,10 +275,10 @@ module AWS::SDK::Honeycode
         data['workbookId'] = input[:workbook_id] unless input[:workbook_id].nil?
         data['appId'] = input[:app_id] unless input[:app_id].nil?
         data['screenId'] = input[:screen_id] unless input[:screen_id].nil?
-        data['variables'] = Builders::VariableValueMap.build(input[:variables]) unless input[:variables].nil?
+        data['variables'] = VariableValueMap.build(input[:variables]) unless input[:variables].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,7 +287,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::VariableValue.build(value) unless value.nil?
+          data[key] = VariableValue.build(value) unless value.nil?
         end
         data
       end
@@ -329,10 +331,10 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['variables'] = Builders::VariableValueMap.build(input[:variables]) unless input[:variables].nil?
+        data['variables'] = VariableValueMap.build(input[:variables]) unless input[:variables].nil?
         data['rowId'] = input[:row_id] unless input[:row_id].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -379,10 +381,10 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['rowIds'] = Builders::RowIdList.build(input[:row_ids]) unless input[:row_ids].nil?
+        data['rowIds'] = RowIdList.build(input[:row_ids]) unless input[:row_ids].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -443,10 +445,10 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filterFormula'] = Builders::Filter.build(input[:filter_formula]) unless input[:filter_formula].nil?
+        data['filterFormula'] = Filter.build(input[:filter_formula]) unless input[:filter_formula].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,11 +473,11 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['dataSource'] = Builders::ImportDataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['dataSource'] = ImportDataSource.build(input[:data_source]) unless input[:data_source].nil?
         data['dataFormat'] = input[:data_format] unless input[:data_format].nil?
-        data['importOptions'] = Builders::ImportOptions.build(input[:import_options]) unless input[:import_options].nil?
+        data['importOptions'] = ImportOptions.build(input[:import_options]) unless input[:import_options].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -483,8 +485,8 @@ module AWS::SDK::Honeycode
     class ImportOptions
       def self.build(input)
         data = {}
-        data['destinationOptions'] = Builders::DestinationOptions.build(input[:destination_options]) unless input[:destination_options].nil?
-        data['delimitedTextOptions'] = Builders::DelimitedTextImportOptions.build(input[:delimited_text_options]) unless input[:delimited_text_options].nil?
+        data['destinationOptions'] = DestinationOptions.build(input[:destination_options]) unless input[:destination_options].nil?
+        data['delimitedTextOptions'] = DelimitedTextImportOptions.build(input[:delimited_text_options]) unless input[:delimited_text_options].nil?
         data
       end
     end
@@ -505,7 +507,7 @@ module AWS::SDK::Honeycode
     class DestinationOptions
       def self.build(input)
         data = {}
-        data['columnMap'] = Builders::ImportColumnMap.build(input[:column_map]) unless input[:column_map].nil?
+        data['columnMap'] = ImportColumnMap.build(input[:column_map]) unless input[:column_map].nil?
         data
       end
     end
@@ -515,7 +517,7 @@ module AWS::SDK::Honeycode
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::SourceDataColumnProperties.build(value) unless value.nil?
+          data[key] = SourceDataColumnProperties.build(value) unless value.nil?
         end
         data
       end
@@ -534,7 +536,7 @@ module AWS::SDK::Honeycode
     class ImportDataSource
       def self.build(input)
         data = {}
-        data['dataSourceConfig'] = Builders::ImportDataSourceConfig.build(input[:data_source_config]) unless input[:data_source_config].nil?
+        data['dataSourceConfig'] = ImportDataSourceConfig.build(input[:data_source_config]) unless input[:data_source_config].nil?
         data
       end
     end
@@ -565,8 +567,8 @@ module AWS::SDK::Honeycode
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

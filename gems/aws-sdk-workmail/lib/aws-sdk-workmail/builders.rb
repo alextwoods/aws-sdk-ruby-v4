@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkMail
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
         data['MemberId'] = input[:member_id] unless input[:member_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,7 +53,7 @@ module AWS::SDK::WorkMail
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['Alias'] = input[:alias] unless input[:alias].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,15 +99,15 @@ module AWS::SDK::WorkMail
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Effect'] = input[:effect] unless input[:effect].nil?
-        data['DeviceTypes'] = Builders::DeviceTypeList.build(input[:device_types]) unless input[:device_types].nil?
-        data['NotDeviceTypes'] = Builders::DeviceTypeList.build(input[:not_device_types]) unless input[:not_device_types].nil?
-        data['DeviceModels'] = Builders::DeviceModelList.build(input[:device_models]) unless input[:device_models].nil?
-        data['NotDeviceModels'] = Builders::DeviceModelList.build(input[:not_device_models]) unless input[:not_device_models].nil?
-        data['DeviceOperatingSystems'] = Builders::DeviceOperatingSystemList.build(input[:device_operating_systems]) unless input[:device_operating_systems].nil?
-        data['NotDeviceOperatingSystems'] = Builders::DeviceOperatingSystemList.build(input[:not_device_operating_systems]) unless input[:not_device_operating_systems].nil?
-        data['DeviceUserAgents'] = Builders::DeviceUserAgentList.build(input[:device_user_agents]) unless input[:device_user_agents].nil?
-        data['NotDeviceUserAgents'] = Builders::DeviceUserAgentList.build(input[:not_device_user_agents]) unless input[:not_device_user_agents].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceTypes'] = DeviceTypeList.build(input[:device_types]) unless input[:device_types].nil?
+        data['NotDeviceTypes'] = DeviceTypeList.build(input[:not_device_types]) unless input[:not_device_types].nil?
+        data['DeviceModels'] = DeviceModelList.build(input[:device_models]) unless input[:device_models].nil?
+        data['NotDeviceModels'] = DeviceModelList.build(input[:not_device_models]) unless input[:not_device_models].nil?
+        data['DeviceOperatingSystems'] = DeviceOperatingSystemList.build(input[:device_operating_systems]) unless input[:device_operating_systems].nil?
+        data['NotDeviceOperatingSystems'] = DeviceOperatingSystemList.build(input[:not_device_operating_systems]) unless input[:not_device_operating_systems].nil?
+        data['DeviceUserAgents'] = DeviceUserAgentList.build(input[:device_user_agents]) unless input[:device_user_agents].nil?
+        data['NotDeviceUserAgents'] = DeviceUserAgentList.build(input[:not_device_user_agents]) unless input[:not_device_user_agents].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,10 +166,10 @@ module AWS::SDK::WorkMail
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['Alias'] = input[:alias] unless input[:alias].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Domains'] = Builders::Domains.build(input[:domains]) unless input[:domains].nil?
+        data['Domains'] = Domains.build(input[:domains]) unless input[:domains].nil?
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data['EnableInteroperability'] = input[:enable_interoperability] unless input[:enable_interoperability].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::WorkMail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Domain.build(element) unless element.nil?
+          data << Domain.build(element) unless element.nil?
         end
         data
       end
@@ -203,7 +205,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::WorkMail
         data['Name'] = input[:name] unless input[:name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['Alias'] = input[:alias] unless input[:alias].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,7 +263,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.DeleteEmailMonitoringConfiguration'
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -275,7 +277,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -290,7 +292,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['GranteeId'] = input[:grantee_id] unless input[:grantee_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['MobileDeviceAccessRuleId'] = input[:mobile_device_access_rule_id] unless input[:mobile_device_access_rule_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::WorkMail
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['DeleteDirectory'] = input[:delete_directory] unless input[:delete_directory].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,7 +350,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -362,7 +364,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -376,7 +378,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -390,7 +392,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -404,7 +406,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,7 +419,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.DescribeEmailMonitoringConfiguration'
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,7 +446,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.DescribeInboundDmarcSettings'
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -458,7 +460,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,7 +473,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.DescribeOrganization'
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -499,7 +501,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -514,7 +516,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -529,7 +531,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
         data['MemberId'] = input[:member_id] unless input[:member_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,7 +547,7 @@ module AWS::SDK::WorkMail
         data['IpAddress'] = input[:ip_address] unless input[:ip_address].nil?
         data['Action'] = input[:action] unless input[:action].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -558,7 +560,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.GetDefaultRetentionPolicy'
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -572,7 +574,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -586,7 +588,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -603,7 +605,7 @@ module AWS::SDK::WorkMail
         data['DeviceModel'] = input[:device_model] unless input[:device_model].nil?
         data['DeviceOperatingSystem'] = input[:device_operating_system] unless input[:device_operating_system].nil?
         data['DeviceUserAgent'] = input[:device_user_agent] unless input[:device_user_agent].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -618,7 +620,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,7 +633,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.ListAccessControlRules'
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -647,7 +649,7 @@ module AWS::SDK::WorkMail
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -663,7 +665,7 @@ module AWS::SDK::WorkMail
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -678,7 +680,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -693,7 +695,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -724,7 +726,7 @@ module AWS::SDK::WorkMail
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -741,7 +743,7 @@ module AWS::SDK::WorkMail
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -754,7 +756,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.ListMobileDeviceAccessRules'
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -768,7 +770,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::WorkMail
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -799,7 +801,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -812,7 +814,7 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -827,7 +829,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -842,14 +844,14 @@ module AWS::SDK::WorkMail
         data['Name'] = input[:name] unless input[:name].nil?
         data['Effect'] = input[:effect] unless input[:effect].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['IpRanges'] = Builders::IpRangeList.build(input[:ip_ranges]) unless input[:ip_ranges].nil?
-        data['NotIpRanges'] = Builders::IpRangeList.build(input[:not_ip_ranges]) unless input[:not_ip_ranges].nil?
-        data['Actions'] = Builders::ActionsList.build(input[:actions]) unless input[:actions].nil?
-        data['NotActions'] = Builders::ActionsList.build(input[:not_actions]) unless input[:not_actions].nil?
-        data['UserIds'] = Builders::UserIdList.build(input[:user_ids]) unless input[:user_ids].nil?
-        data['NotUserIds'] = Builders::UserIdList.build(input[:not_user_ids]) unless input[:not_user_ids].nil?
+        data['IpRanges'] = IpRangeList.build(input[:ip_ranges]) unless input[:ip_ranges].nil?
+        data['NotIpRanges'] = IpRangeList.build(input[:not_ip_ranges]) unless input[:not_ip_ranges].nil?
+        data['Actions'] = ActionsList.build(input[:actions]) unless input[:actions].nil?
+        data['NotActions'] = ActionsList.build(input[:not_actions]) unless input[:not_actions].nil?
+        data['UserIds'] = UserIdList.build(input[:user_ids]) unless input[:user_ids].nil?
+        data['NotUserIds'] = UserIdList.build(input[:not_user_ids]) unless input[:not_user_ids].nil?
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -897,7 +899,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['LogGroupArn'] = input[:log_group_arn] unless input[:log_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -911,7 +913,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['Enforced'] = input[:enforced] unless input[:enforced].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -926,8 +928,8 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['GranteeId'] = input[:grantee_id] unless input[:grantee_id].nil?
-        data['PermissionValues'] = Builders::PermissionValues.build(input[:permission_values]) unless input[:permission_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PermissionValues'] = PermissionValues.build(input[:permission_values]) unless input[:permission_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -955,7 +957,7 @@ module AWS::SDK::WorkMail
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
         data['Effect'] = input[:effect] unless input[:effect].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -971,8 +973,8 @@ module AWS::SDK::WorkMail
         data['Id'] = input[:id] unless input[:id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['FolderConfigurations'] = Builders::FolderConfigurations.build(input[:folder_configurations]) unless input[:folder_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FolderConfigurations'] = FolderConfigurations.build(input[:folder_configurations]) unless input[:folder_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -981,7 +983,7 @@ module AWS::SDK::WorkMail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FolderConfiguration.build(element) unless element.nil?
+          data << FolderConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -1009,7 +1011,7 @@ module AWS::SDK::WorkMail
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1024,7 +1026,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['Email'] = input[:email] unless input[:email].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1039,7 +1041,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1059,7 +1061,7 @@ module AWS::SDK::WorkMail
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data['S3BucketName'] = input[:s3_bucket_name] unless input[:s3_bucket_name].nil?
         data['S3Prefix'] = input[:s3_prefix] unless input[:s3_prefix].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1072,8 +1074,8 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1082,7 +1084,7 @@ module AWS::SDK::WorkMail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -1107,8 +1109,8 @@ module AWS::SDK::WorkMail
         http_req.headers['X-Amz-Target'] = 'WorkMailService.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1133,7 +1135,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1148,7 +1150,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['MailboxQuota'] = input[:mailbox_quota] unless input[:mailbox_quota].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1165,15 +1167,15 @@ module AWS::SDK::WorkMail
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Effect'] = input[:effect] unless input[:effect].nil?
-        data['DeviceTypes'] = Builders::DeviceTypeList.build(input[:device_types]) unless input[:device_types].nil?
-        data['NotDeviceTypes'] = Builders::DeviceTypeList.build(input[:not_device_types]) unless input[:not_device_types].nil?
-        data['DeviceModels'] = Builders::DeviceModelList.build(input[:device_models]) unless input[:device_models].nil?
-        data['NotDeviceModels'] = Builders::DeviceModelList.build(input[:not_device_models]) unless input[:not_device_models].nil?
-        data['DeviceOperatingSystems'] = Builders::DeviceOperatingSystemList.build(input[:device_operating_systems]) unless input[:device_operating_systems].nil?
-        data['NotDeviceOperatingSystems'] = Builders::DeviceOperatingSystemList.build(input[:not_device_operating_systems]) unless input[:not_device_operating_systems].nil?
-        data['DeviceUserAgents'] = Builders::DeviceUserAgentList.build(input[:device_user_agents]) unless input[:device_user_agents].nil?
-        data['NotDeviceUserAgents'] = Builders::DeviceUserAgentList.build(input[:not_device_user_agents]) unless input[:not_device_user_agents].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceTypes'] = DeviceTypeList.build(input[:device_types]) unless input[:device_types].nil?
+        data['NotDeviceTypes'] = DeviceTypeList.build(input[:not_device_types]) unless input[:not_device_types].nil?
+        data['DeviceModels'] = DeviceModelList.build(input[:device_models]) unless input[:device_models].nil?
+        data['NotDeviceModels'] = DeviceModelList.build(input[:not_device_models]) unless input[:not_device_models].nil?
+        data['DeviceOperatingSystems'] = DeviceOperatingSystemList.build(input[:device_operating_systems]) unless input[:device_operating_systems].nil?
+        data['NotDeviceOperatingSystems'] = DeviceOperatingSystemList.build(input[:not_device_operating_systems]) unless input[:not_device_operating_systems].nil?
+        data['DeviceUserAgents'] = DeviceUserAgentList.build(input[:device_user_agents]) unless input[:device_user_agents].nil?
+        data['NotDeviceUserAgents'] = DeviceUserAgentList.build(input[:not_device_user_agents]) unless input[:not_device_user_agents].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,7 +1190,7 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['Email'] = input[:email] unless input[:email].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1203,8 +1205,8 @@ module AWS::SDK::WorkMail
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['BookingOptions'] = Builders::BookingOptions.build(input[:booking_options]) unless input[:booking_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BookingOptions'] = BookingOptions.build(input[:booking_options]) unless input[:booking_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

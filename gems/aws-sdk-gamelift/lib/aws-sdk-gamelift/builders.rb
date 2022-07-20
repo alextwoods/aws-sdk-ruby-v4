@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::GameLift
   module Builders
 
@@ -19,9 +22,9 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.AcceptMatch'
         data = {}
         data['TicketId'] = input[:ticket_id] unless input[:ticket_id].nil?
-        data['PlayerIds'] = Builders::StringList.build(input[:player_ids]) unless input[:player_ids].nil?
+        data['PlayerIds'] = StringList.build(input[:player_ids]) unless input[:player_ids].nil?
         data['AcceptanceType'] = input[:acceptance_type] unless input[:acceptance_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -47,7 +50,7 @@ module AWS::SDK::GameLift
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
         data['GameServerId'] = input[:game_server_id] unless input[:game_server_id].nil?
         data['GameServerData'] = input[:game_server_data] unless input[:game_server_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,9 +64,9 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RoutingStrategy'] = Builders::RoutingStrategy.build(input[:routing_strategy]) unless input[:routing_strategy].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingStrategy'] = RoutingStrategy.build(input[:routing_strategy]) unless input[:routing_strategy].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,7 +75,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -109,10 +112,10 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['StorageLocation'] = Builders::S3Location.build(input[:storage_location]) unless input[:storage_location].nil?
+        data['StorageLocation'] = S3Location.build(input[:storage_location]) unless input[:storage_location].nil?
         data['OperatingSystem'] = input[:operating_system] unless input[:operating_system].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -142,21 +145,21 @@ module AWS::SDK::GameLift
         data['ScriptId'] = input[:script_id] unless input[:script_id].nil?
         data['ServerLaunchPath'] = input[:server_launch_path] unless input[:server_launch_path].nil?
         data['ServerLaunchParameters'] = input[:server_launch_parameters] unless input[:server_launch_parameters].nil?
-        data['LogPaths'] = Builders::StringList.build(input[:log_paths]) unless input[:log_paths].nil?
+        data['LogPaths'] = StringList.build(input[:log_paths]) unless input[:log_paths].nil?
         data['EC2InstanceType'] = input[:ec2_instance_type] unless input[:ec2_instance_type].nil?
-        data['EC2InboundPermissions'] = Builders::IpPermissionsList.build(input[:ec2_inbound_permissions]) unless input[:ec2_inbound_permissions].nil?
+        data['EC2InboundPermissions'] = IpPermissionsList.build(input[:ec2_inbound_permissions]) unless input[:ec2_inbound_permissions].nil?
         data['NewGameSessionProtectionPolicy'] = input[:new_game_session_protection_policy] unless input[:new_game_session_protection_policy].nil?
-        data['RuntimeConfiguration'] = Builders::RuntimeConfiguration.build(input[:runtime_configuration]) unless input[:runtime_configuration].nil?
-        data['ResourceCreationLimitPolicy'] = Builders::ResourceCreationLimitPolicy.build(input[:resource_creation_limit_policy]) unless input[:resource_creation_limit_policy].nil?
-        data['MetricGroups'] = Builders::MetricGroupList.build(input[:metric_groups]) unless input[:metric_groups].nil?
+        data['RuntimeConfiguration'] = RuntimeConfiguration.build(input[:runtime_configuration]) unless input[:runtime_configuration].nil?
+        data['ResourceCreationLimitPolicy'] = ResourceCreationLimitPolicy.build(input[:resource_creation_limit_policy]) unless input[:resource_creation_limit_policy].nil?
+        data['MetricGroups'] = MetricGroupList.build(input[:metric_groups]) unless input[:metric_groups].nil?
         data['PeerVpcAwsAccountId'] = input[:peer_vpc_aws_account_id] unless input[:peer_vpc_aws_account_id].nil?
         data['PeerVpcId'] = input[:peer_vpc_id] unless input[:peer_vpc_id].nil?
         data['FleetType'] = input[:fleet_type] unless input[:fleet_type].nil?
         data['InstanceRoleArn'] = input[:instance_role_arn] unless input[:instance_role_arn].nil?
-        data['CertificateConfiguration'] = Builders::CertificateConfiguration.build(input[:certificate_configuration]) unless input[:certificate_configuration].nil?
-        data['Locations'] = Builders::LocationConfigurationList.build(input[:locations]) unless input[:locations].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CertificateConfiguration'] = CertificateConfiguration.build(input[:certificate_configuration]) unless input[:certificate_configuration].nil?
+        data['Locations'] = LocationConfigurationList.build(input[:locations]) unless input[:locations].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +168,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LocationConfiguration.build(element) unless element.nil?
+          data << LocationConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -214,7 +217,7 @@ module AWS::SDK::GameLift
     class RuntimeConfiguration
       def self.build(input)
         data = {}
-        data['ServerProcesses'] = Builders::ServerProcessList.build(input[:server_processes]) unless input[:server_processes].nil?
+        data['ServerProcesses'] = ServerProcessList.build(input[:server_processes]) unless input[:server_processes].nil?
         data['MaxConcurrentGameSessionActivations'] = input[:max_concurrent_game_session_activations] unless input[:max_concurrent_game_session_activations].nil?
         data['GameSessionActivationTimeoutSeconds'] = input[:game_session_activation_timeout_seconds] unless input[:game_session_activation_timeout_seconds].nil?
         data
@@ -226,7 +229,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ServerProcess.build(element) unless element.nil?
+          data << ServerProcess.build(element) unless element.nil?
         end
         data
       end
@@ -248,7 +251,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IpPermission.build(element) unless element.nil?
+          data << IpPermission.build(element) unless element.nil?
         end
         data
       end
@@ -275,8 +278,8 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.CreateFleetLocations'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        data['Locations'] = Builders::LocationConfigurationList.build(input[:locations]) unless input[:locations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Locations'] = LocationConfigurationList.build(input[:locations]) unless input[:locations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,14 +295,14 @@ module AWS::SDK::GameLift
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['MinSize'] = input[:min_size] unless input[:min_size].nil?
         data['MaxSize'] = input[:max_size] unless input[:max_size].nil?
-        data['LaunchTemplate'] = Builders::LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
-        data['InstanceDefinitions'] = Builders::InstanceDefinitions.build(input[:instance_definitions]) unless input[:instance_definitions].nil?
-        data['AutoScalingPolicy'] = Builders::GameServerGroupAutoScalingPolicy.build(input[:auto_scaling_policy]) unless input[:auto_scaling_policy].nil?
+        data['LaunchTemplate'] = LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['InstanceDefinitions'] = InstanceDefinitions.build(input[:instance_definitions]) unless input[:instance_definitions].nil?
+        data['AutoScalingPolicy'] = GameServerGroupAutoScalingPolicy.build(input[:auto_scaling_policy]) unless input[:auto_scaling_policy].nil?
         data['BalancingStrategy'] = input[:balancing_strategy] unless input[:balancing_strategy].nil?
         data['GameServerProtectionPolicy'] = input[:game_server_protection_policy] unless input[:game_server_protection_policy].nil?
-        data['VpcSubnets'] = Builders::VpcSubnets.build(input[:vpc_subnets]) unless input[:vpc_subnets].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcSubnets'] = VpcSubnets.build(input[:vpc_subnets]) unless input[:vpc_subnets].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -319,7 +322,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = {}
         data['EstimatedInstanceWarmup'] = input[:estimated_instance_warmup] unless input[:estimated_instance_warmup].nil?
-        data['TargetTrackingConfiguration'] = Builders::TargetTrackingConfiguration.build(input[:target_tracking_configuration]) unless input[:target_tracking_configuration].nil?
+        data['TargetTrackingConfiguration'] = TargetTrackingConfiguration.build(input[:target_tracking_configuration]) unless input[:target_tracking_configuration].nil?
         data
       end
     end
@@ -338,7 +341,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InstanceDefinition.build(element) unless element.nil?
+          data << InstanceDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -377,13 +380,13 @@ module AWS::SDK::GameLift
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
         data['MaximumPlayerSessionCount'] = input[:maximum_player_session_count] unless input[:maximum_player_session_count].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['GameProperties'] = Builders::GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
+        data['GameProperties'] = GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
         data['CreatorId'] = input[:creator_id] unless input[:creator_id].nil?
         data['GameSessionId'] = input[:game_session_id] unless input[:game_session_id].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
         data['GameSessionData'] = input[:game_session_data] unless input[:game_session_data].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,7 +395,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GameProperty.build(element) unless element.nil?
+          data << GameProperty.build(element) unless element.nil?
         end
         data
       end
@@ -418,14 +421,14 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['TimeoutInSeconds'] = input[:timeout_in_seconds] unless input[:timeout_in_seconds].nil?
-        data['PlayerLatencyPolicies'] = Builders::PlayerLatencyPolicyList.build(input[:player_latency_policies]) unless input[:player_latency_policies].nil?
-        data['Destinations'] = Builders::GameSessionQueueDestinationList.build(input[:destinations]) unless input[:destinations].nil?
-        data['FilterConfiguration'] = Builders::FilterConfiguration.build(input[:filter_configuration]) unless input[:filter_configuration].nil?
-        data['PriorityConfiguration'] = Builders::PriorityConfiguration.build(input[:priority_configuration]) unless input[:priority_configuration].nil?
+        data['PlayerLatencyPolicies'] = PlayerLatencyPolicyList.build(input[:player_latency_policies]) unless input[:player_latency_policies].nil?
+        data['Destinations'] = GameSessionQueueDestinationList.build(input[:destinations]) unless input[:destinations].nil?
+        data['FilterConfiguration'] = FilterConfiguration.build(input[:filter_configuration]) unless input[:filter_configuration].nil?
+        data['PriorityConfiguration'] = PriorityConfiguration.build(input[:priority_configuration]) unless input[:priority_configuration].nil?
         data['CustomEventData'] = input[:custom_event_data] unless input[:custom_event_data].nil?
         data['NotificationTarget'] = input[:notification_target] unless input[:notification_target].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,8 +436,8 @@ module AWS::SDK::GameLift
     class PriorityConfiguration
       def self.build(input)
         data = {}
-        data['PriorityOrder'] = Builders::PriorityTypeList.build(input[:priority_order]) unless input[:priority_order].nil?
-        data['LocationOrder'] = Builders::LocationList.build(input[:location_order]) unless input[:location_order].nil?
+        data['PriorityOrder'] = PriorityTypeList.build(input[:priority_order]) unless input[:priority_order].nil?
+        data['LocationOrder'] = LocationList.build(input[:location_order]) unless input[:location_order].nil?
         data
       end
     end
@@ -465,7 +468,7 @@ module AWS::SDK::GameLift
     class FilterConfiguration
       def self.build(input)
         data = {}
-        data['AllowedLocations'] = Builders::LocationList.build(input[:allowed_locations]) unless input[:allowed_locations].nil?
+        data['AllowedLocations'] = LocationList.build(input[:allowed_locations]) unless input[:allowed_locations].nil?
         data
       end
     end
@@ -475,7 +478,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GameSessionQueueDestination.build(element) unless element.nil?
+          data << GameSessionQueueDestination.build(element) unless element.nil?
         end
         data
       end
@@ -495,7 +498,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlayerLatencyPolicy.build(element) unless element.nil?
+          data << PlayerLatencyPolicy.build(element) unless element.nil?
         end
         data
       end
@@ -521,7 +524,7 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['GameSessionQueueArns'] = Builders::QueueArnsList.build(input[:game_session_queue_arns]) unless input[:game_session_queue_arns].nil?
+        data['GameSessionQueueArns'] = QueueArnsList.build(input[:game_session_queue_arns]) unless input[:game_session_queue_arns].nil?
         data['RequestTimeoutSeconds'] = input[:request_timeout_seconds] unless input[:request_timeout_seconds].nil?
         data['AcceptanceTimeoutSeconds'] = input[:acceptance_timeout_seconds] unless input[:acceptance_timeout_seconds].nil?
         data['AcceptanceRequired'] = input[:acceptance_required] unless input[:acceptance_required].nil?
@@ -529,12 +532,12 @@ module AWS::SDK::GameLift
         data['NotificationTarget'] = input[:notification_target] unless input[:notification_target].nil?
         data['AdditionalPlayerCount'] = input[:additional_player_count] unless input[:additional_player_count].nil?
         data['CustomEventData'] = input[:custom_event_data] unless input[:custom_event_data].nil?
-        data['GameProperties'] = Builders::GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
+        data['GameProperties'] = GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
         data['GameSessionData'] = input[:game_session_data] unless input[:game_session_data].nil?
         data['BackfillMode'] = input[:backfill_mode] unless input[:backfill_mode].nil?
         data['FlexMatchMode'] = input[:flex_match_mode] unless input[:flex_match_mode].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -559,8 +562,8 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RuleSetBody'] = input[:rule_set_body] unless input[:rule_set_body].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,7 +578,7 @@ module AWS::SDK::GameLift
         data['GameSessionId'] = input[:game_session_id] unless input[:game_session_id].nil?
         data['PlayerId'] = input[:player_id] unless input[:player_id].nil?
         data['PlayerData'] = input[:player_data] unless input[:player_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -588,9 +591,9 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.CreatePlayerSessions'
         data = {}
         data['GameSessionId'] = input[:game_session_id] unless input[:game_session_id].nil?
-        data['PlayerIds'] = Builders::PlayerIdList.build(input[:player_ids]) unless input[:player_ids].nil?
-        data['PlayerDataMap'] = Builders::PlayerDataMap.build(input[:player_data_map]) unless input[:player_data_map].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PlayerIds'] = PlayerIdList.build(input[:player_ids]) unless input[:player_ids].nil?
+        data['PlayerDataMap'] = PlayerDataMap.build(input[:player_data_map]) unless input[:player_data_map].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -626,10 +629,10 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['StorageLocation'] = Builders::S3Location.build(input[:storage_location]) unless input[:storage_location].nil?
-        data['ZipFile'] = Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageLocation'] = S3Location.build(input[:storage_location]) unless input[:storage_location].nil?
+        data['ZipFile'] = ::Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -643,7 +646,7 @@ module AWS::SDK::GameLift
         data = {}
         data['GameLiftAwsAccountId'] = input[:game_lift_aws_account_id] unless input[:game_lift_aws_account_id].nil?
         data['PeerVpcId'] = input[:peer_vpc_id] unless input[:peer_vpc_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -658,7 +661,7 @@ module AWS::SDK::GameLift
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
         data['PeerVpcAwsAccountId'] = input[:peer_vpc_aws_account_id] unless input[:peer_vpc_aws_account_id].nil?
         data['PeerVpcId'] = input[:peer_vpc_id] unless input[:peer_vpc_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -671,7 +674,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteAlias'
         data = {}
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -684,7 +687,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteBuild'
         data = {}
         data['BuildId'] = input[:build_id] unless input[:build_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -697,7 +700,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteFleet'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -710,8 +713,8 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteFleetLocations'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        data['Locations'] = Builders::LocationList.build(input[:locations]) unless input[:locations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Locations'] = LocationList.build(input[:locations]) unless input[:locations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -725,7 +728,7 @@ module AWS::SDK::GameLift
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
         data['DeleteOption'] = input[:delete_option] unless input[:delete_option].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -738,7 +741,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteGameSessionQueue'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -751,7 +754,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteMatchmakingConfiguration'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -764,7 +767,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteMatchmakingRuleSet'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -778,7 +781,7 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -791,7 +794,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DeleteScript'
         data = {}
         data['ScriptId'] = input[:script_id] unless input[:script_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -805,7 +808,7 @@ module AWS::SDK::GameLift
         data = {}
         data['GameLiftAwsAccountId'] = input[:game_lift_aws_account_id] unless input[:game_lift_aws_account_id].nil?
         data['PeerVpcId'] = input[:peer_vpc_id] unless input[:peer_vpc_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -819,7 +822,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
         data['VpcPeeringConnectionId'] = input[:vpc_peering_connection_id] unless input[:vpc_peering_connection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -833,7 +836,7 @@ module AWS::SDK::GameLift
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
         data['GameServerId'] = input[:game_server_id] unless input[:game_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -846,7 +849,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeAlias'
         data = {}
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -859,7 +862,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeBuild'
         data = {}
         data['BuildId'] = input[:build_id] unless input[:build_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -873,7 +876,7 @@ module AWS::SDK::GameLift
         data = {}
         data['EC2InstanceType'] = input[:ec2_instance_type] unless input[:ec2_instance_type].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -885,10 +888,10 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeFleetAttributes'
         data = {}
-        data['FleetIds'] = Builders::FleetIdOrArnList.build(input[:fleet_ids]) unless input[:fleet_ids].nil?
+        data['FleetIds'] = FleetIdOrArnList.build(input[:fleet_ids]) unless input[:fleet_ids].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -911,10 +914,10 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeFleetCapacity'
         data = {}
-        data['FleetIds'] = Builders::FleetIdOrArnList.build(input[:fleet_ids]) unless input[:fleet_ids].nil?
+        data['FleetIds'] = FleetIdOrArnList.build(input[:fleet_ids]) unless input[:fleet_ids].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -931,7 +934,7 @@ module AWS::SDK::GameLift
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -944,10 +947,10 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeFleetLocationAttributes'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        data['Locations'] = Builders::LocationList.build(input[:locations]) unless input[:locations].nil?
+        data['Locations'] = LocationList.build(input[:locations]) unless input[:locations].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -961,7 +964,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -975,7 +978,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -989,7 +992,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1001,10 +1004,10 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeFleetUtilization'
         data = {}
-        data['FleetIds'] = Builders::FleetIdOrArnList.build(input[:fleet_ids]) unless input[:fleet_ids].nil?
+        data['FleetIds'] = FleetIdOrArnList.build(input[:fleet_ids]) unless input[:fleet_ids].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1018,7 +1021,7 @@ module AWS::SDK::GameLift
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
         data['GameServerId'] = input[:game_server_id] unless input[:game_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1031,7 +1034,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeGameServerGroup'
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1044,10 +1047,10 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeGameServerInstances'
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
-        data['InstanceIds'] = Builders::GameServerInstanceIds.build(input[:instance_ids]) unless input[:instance_ids].nil?
+        data['InstanceIds'] = GameServerInstanceIds.build(input[:instance_ids]) unless input[:instance_ids].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1077,7 +1080,7 @@ module AWS::SDK::GameLift
         data['StatusFilter'] = input[:status_filter] unless input[:status_filter].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1090,7 +1093,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeGameSessionPlacement'
         data = {}
         data['PlacementId'] = input[:placement_id] unless input[:placement_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1102,10 +1105,10 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeGameSessionQueues'
         data = {}
-        data['Names'] = Builders::GameSessionQueueNameOrArnList.build(input[:names]) unless input[:names].nil?
+        data['Names'] = GameSessionQueueNameOrArnList.build(input[:names]) unless input[:names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1135,7 +1138,7 @@ module AWS::SDK::GameLift
         data['StatusFilter'] = input[:status_filter] unless input[:status_filter].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1152,7 +1155,7 @@ module AWS::SDK::GameLift
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1164,8 +1167,8 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeMatchmaking'
         data = {}
-        data['TicketIds'] = Builders::MatchmakingIdList.build(input[:ticket_ids]) unless input[:ticket_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TicketIds'] = MatchmakingIdList.build(input[:ticket_ids]) unless input[:ticket_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,11 +1191,11 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeMatchmakingConfigurations'
         data = {}
-        data['Names'] = Builders::MatchmakingConfigurationNameList.build(input[:names]) unless input[:names].nil?
+        data['Names'] = MatchmakingConfigurationNameList.build(input[:names]) unless input[:names].nil?
         data['RuleSetName'] = input[:rule_set_name] unless input[:rule_set_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1215,10 +1218,10 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeMatchmakingRuleSets'
         data = {}
-        data['Names'] = Builders::MatchmakingRuleSetNameList.build(input[:names]) unless input[:names].nil?
+        data['Names'] = MatchmakingRuleSetNameList.build(input[:names]) unless input[:names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1247,7 +1250,7 @@ module AWS::SDK::GameLift
         data['PlayerSessionStatusFilter'] = input[:player_session_status_filter] unless input[:player_session_status_filter].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1260,7 +1263,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeRuntimeConfiguration'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1277,7 +1280,7 @@ module AWS::SDK::GameLift
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1290,7 +1293,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeScript'
         data = {}
         data['ScriptId'] = input[:script_id] unless input[:script_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1302,7 +1305,7 @@ module AWS::SDK::GameLift
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeVpcPeeringAuthorizations'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1315,7 +1318,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.DescribeVpcPeeringConnections'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1328,7 +1331,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.GetGameSessionLogUrl'
         data = {}
         data['GameSessionId'] = input[:game_session_id] unless input[:game_session_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1342,7 +1345,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1358,7 +1361,7 @@ module AWS::SDK::GameLift
         data['Name'] = input[:name] unless input[:name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1373,7 +1376,7 @@ module AWS::SDK::GameLift
         data['Status'] = input[:status] unless input[:status].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1389,7 +1392,7 @@ module AWS::SDK::GameLift
         data['ScriptId'] = input[:script_id] unless input[:script_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1403,7 +1406,7 @@ module AWS::SDK::GameLift
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1419,7 +1422,7 @@ module AWS::SDK::GameLift
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1433,7 +1436,7 @@ module AWS::SDK::GameLift
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1446,7 +1449,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1467,8 +1470,8 @@ module AWS::SDK::GameLift
         data['EvaluationPeriods'] = input[:evaluation_periods] unless input[:evaluation_periods].nil?
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['PolicyType'] = input[:policy_type] unless input[:policy_type].nil?
-        data['TargetConfiguration'] = Builders::TargetConfiguration.build(input[:target_configuration]) unless input[:target_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TargetConfiguration'] = TargetConfiguration.build(input[:target_configuration]) unless input[:target_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1494,7 +1497,7 @@ module AWS::SDK::GameLift
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ConnectionInfo'] = input[:connection_info] unless input[:connection_info].nil?
         data['GameServerData'] = input[:game_server_data] unless input[:game_server_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1507,7 +1510,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.RequestUploadCredentials'
         data = {}
         data['BuildId'] = input[:build_id] unless input[:build_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1520,7 +1523,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.ResolveAlias'
         data = {}
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1533,8 +1536,8 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.ResumeGameServerGroup'
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
-        data['ResumeActions'] = Builders::GameServerGroupActions.build(input[:resume_actions]) unless input[:resume_actions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResumeActions'] = GameServerGroupActions.build(input[:resume_actions]) unless input[:resume_actions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1564,7 +1567,7 @@ module AWS::SDK::GameLift
         data['SortExpression'] = input[:sort_expression] unless input[:sort_expression].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1577,9 +1580,9 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.StartFleetActions'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        data['Actions'] = Builders::FleetActionList.build(input[:actions]) unless input[:actions].nil?
+        data['Actions'] = FleetActionList.build(input[:actions]) unless input[:actions].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1604,13 +1607,13 @@ module AWS::SDK::GameLift
         data = {}
         data['PlacementId'] = input[:placement_id] unless input[:placement_id].nil?
         data['GameSessionQueueName'] = input[:game_session_queue_name] unless input[:game_session_queue_name].nil?
-        data['GameProperties'] = Builders::GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
+        data['GameProperties'] = GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
         data['MaximumPlayerSessionCount'] = input[:maximum_player_session_count] unless input[:maximum_player_session_count].nil?
         data['GameSessionName'] = input[:game_session_name] unless input[:game_session_name].nil?
-        data['PlayerLatencies'] = Builders::PlayerLatencyList.build(input[:player_latencies]) unless input[:player_latencies].nil?
-        data['DesiredPlayerSessions'] = Builders::DesiredPlayerSessionList.build(input[:desired_player_sessions]) unless input[:desired_player_sessions].nil?
+        data['PlayerLatencies'] = PlayerLatencyList.build(input[:player_latencies]) unless input[:player_latencies].nil?
+        data['DesiredPlayerSessions'] = DesiredPlayerSessionList.build(input[:desired_player_sessions]) unless input[:desired_player_sessions].nil?
         data['GameSessionData'] = input[:game_session_data] unless input[:game_session_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1619,7 +1622,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DesiredPlayerSession.build(element) unless element.nil?
+          data << DesiredPlayerSession.build(element) unless element.nil?
         end
         data
       end
@@ -1640,7 +1643,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlayerLatency.build(element) unless element.nil?
+          data << PlayerLatency.build(element) unless element.nil?
         end
         data
       end
@@ -1668,8 +1671,8 @@ module AWS::SDK::GameLift
         data['TicketId'] = input[:ticket_id] unless input[:ticket_id].nil?
         data['ConfigurationName'] = input[:configuration_name] unless input[:configuration_name].nil?
         data['GameSessionArn'] = input[:game_session_arn] unless input[:game_session_arn].nil?
-        data['Players'] = Builders::PlayerList.build(input[:players]) unless input[:players].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Players'] = PlayerList.build(input[:players]) unless input[:players].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1678,7 +1681,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Player.build(element) unless element.nil?
+          data << Player.build(element) unless element.nil?
         end
         data
       end
@@ -1689,9 +1692,9 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = {}
         data['PlayerId'] = input[:player_id] unless input[:player_id].nil?
-        data['PlayerAttributes'] = Builders::PlayerAttributeMap.build(input[:player_attributes]) unless input[:player_attributes].nil?
+        data['PlayerAttributes'] = PlayerAttributeMap.build(input[:player_attributes]) unless input[:player_attributes].nil?
         data['Team'] = input[:team] unless input[:team].nil?
-        data['LatencyInMs'] = Builders::LatencyMap.build(input[:latency_in_ms]) unless input[:latency_in_ms].nil?
+        data['LatencyInMs'] = LatencyMap.build(input[:latency_in_ms]) unless input[:latency_in_ms].nil?
         data
       end
     end
@@ -1712,7 +1715,7 @@ module AWS::SDK::GameLift
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AttributeValue.build(value) unless value.nil?
+          data[key] = AttributeValue.build(value) unless value.nil?
         end
         data
       end
@@ -1724,8 +1727,8 @@ module AWS::SDK::GameLift
         data = {}
         data['S'] = input[:s] unless input[:s].nil?
         data['N'] = Hearth::NumberHelper.serialize(input[:n]) unless input[:n].nil?
-        data['SL'] = Builders::StringList.build(input[:sl]) unless input[:sl].nil?
-        data['SDM'] = Builders::StringDoubleMap.build(input[:sdm]) unless input[:sdm].nil?
+        data['SL'] = StringList.build(input[:sl]) unless input[:sl].nil?
+        data['SDM'] = StringDoubleMap.build(input[:sdm]) unless input[:sdm].nil?
         data
       end
     end
@@ -1751,8 +1754,8 @@ module AWS::SDK::GameLift
         data = {}
         data['TicketId'] = input[:ticket_id] unless input[:ticket_id].nil?
         data['ConfigurationName'] = input[:configuration_name] unless input[:configuration_name].nil?
-        data['Players'] = Builders::PlayerList.build(input[:players]) unless input[:players].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Players'] = PlayerList.build(input[:players]) unless input[:players].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1765,9 +1768,9 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.StopFleetActions'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        data['Actions'] = Builders::FleetActionList.build(input[:actions]) unless input[:actions].nil?
+        data['Actions'] = FleetActionList.build(input[:actions]) unless input[:actions].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1780,7 +1783,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.StopGameSessionPlacement'
         data = {}
         data['PlacementId'] = input[:placement_id] unless input[:placement_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1793,7 +1796,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.StopMatchmaking'
         data = {}
         data['TicketId'] = input[:ticket_id] unless input[:ticket_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1806,8 +1809,8 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.SuspendGameServerGroup'
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
-        data['SuspendActions'] = Builders::GameServerGroupActions.build(input[:suspend_actions]) unless input[:suspend_actions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuspendActions'] = GameServerGroupActions.build(input[:suspend_actions]) unless input[:suspend_actions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1820,8 +1823,8 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1834,8 +1837,8 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1861,8 +1864,8 @@ module AWS::SDK::GameLift
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RoutingStrategy'] = Builders::RoutingStrategy.build(input[:routing_strategy]) unless input[:routing_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingStrategy'] = RoutingStrategy.build(input[:routing_strategy]) unless input[:routing_strategy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1877,7 +1880,7 @@ module AWS::SDK::GameLift
         data['BuildId'] = input[:build_id] unless input[:build_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1893,9 +1896,9 @@ module AWS::SDK::GameLift
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['NewGameSessionProtectionPolicy'] = input[:new_game_session_protection_policy] unless input[:new_game_session_protection_policy].nil?
-        data['ResourceCreationLimitPolicy'] = Builders::ResourceCreationLimitPolicy.build(input[:resource_creation_limit_policy]) unless input[:resource_creation_limit_policy].nil?
-        data['MetricGroups'] = Builders::MetricGroupList.build(input[:metric_groups]) unless input[:metric_groups].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceCreationLimitPolicy'] = ResourceCreationLimitPolicy.build(input[:resource_creation_limit_policy]) unless input[:resource_creation_limit_policy].nil?
+        data['MetricGroups'] = MetricGroupList.build(input[:metric_groups]) unless input[:metric_groups].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1912,7 +1915,7 @@ module AWS::SDK::GameLift
         data['MinSize'] = input[:min_size] unless input[:min_size].nil?
         data['MaxSize'] = input[:max_size] unless input[:max_size].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1925,9 +1928,9 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.UpdateFleetPortSettings'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        data['InboundPermissionAuthorizations'] = Builders::IpPermissionsList.build(input[:inbound_permission_authorizations]) unless input[:inbound_permission_authorizations].nil?
-        data['InboundPermissionRevocations'] = Builders::IpPermissionsList.build(input[:inbound_permission_revocations]) unless input[:inbound_permission_revocations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InboundPermissionAuthorizations'] = IpPermissionsList.build(input[:inbound_permission_authorizations]) unless input[:inbound_permission_authorizations].nil?
+        data['InboundPermissionRevocations'] = IpPermissionsList.build(input[:inbound_permission_revocations]) unless input[:inbound_permission_revocations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1944,7 +1947,7 @@ module AWS::SDK::GameLift
         data['GameServerData'] = input[:game_server_data] unless input[:game_server_data].nil?
         data['UtilizationStatus'] = input[:utilization_status] unless input[:utilization_status].nil?
         data['HealthCheck'] = input[:health_check] unless input[:health_check].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1958,10 +1961,10 @@ module AWS::SDK::GameLift
         data = {}
         data['GameServerGroupName'] = input[:game_server_group_name] unless input[:game_server_group_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['InstanceDefinitions'] = Builders::InstanceDefinitions.build(input[:instance_definitions]) unless input[:instance_definitions].nil?
+        data['InstanceDefinitions'] = InstanceDefinitions.build(input[:instance_definitions]) unless input[:instance_definitions].nil?
         data['GameServerProtectionPolicy'] = input[:game_server_protection_policy] unless input[:game_server_protection_policy].nil?
         data['BalancingStrategy'] = input[:balancing_strategy] unless input[:balancing_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1978,7 +1981,7 @@ module AWS::SDK::GameLift
         data['Name'] = input[:name] unless input[:name].nil?
         data['PlayerSessionCreationPolicy'] = input[:player_session_creation_policy] unless input[:player_session_creation_policy].nil?
         data['ProtectionPolicy'] = input[:protection_policy] unless input[:protection_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1992,13 +1995,13 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['TimeoutInSeconds'] = input[:timeout_in_seconds] unless input[:timeout_in_seconds].nil?
-        data['PlayerLatencyPolicies'] = Builders::PlayerLatencyPolicyList.build(input[:player_latency_policies]) unless input[:player_latency_policies].nil?
-        data['Destinations'] = Builders::GameSessionQueueDestinationList.build(input[:destinations]) unless input[:destinations].nil?
-        data['FilterConfiguration'] = Builders::FilterConfiguration.build(input[:filter_configuration]) unless input[:filter_configuration].nil?
-        data['PriorityConfiguration'] = Builders::PriorityConfiguration.build(input[:priority_configuration]) unless input[:priority_configuration].nil?
+        data['PlayerLatencyPolicies'] = PlayerLatencyPolicyList.build(input[:player_latency_policies]) unless input[:player_latency_policies].nil?
+        data['Destinations'] = GameSessionQueueDestinationList.build(input[:destinations]) unless input[:destinations].nil?
+        data['FilterConfiguration'] = FilterConfiguration.build(input[:filter_configuration]) unless input[:filter_configuration].nil?
+        data['PriorityConfiguration'] = PriorityConfiguration.build(input[:priority_configuration]) unless input[:priority_configuration].nil?
         data['CustomEventData'] = input[:custom_event_data] unless input[:custom_event_data].nil?
         data['NotificationTarget'] = input[:notification_target] unless input[:notification_target].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2012,7 +2015,7 @@ module AWS::SDK::GameLift
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['GameSessionQueueArns'] = Builders::QueueArnsList.build(input[:game_session_queue_arns]) unless input[:game_session_queue_arns].nil?
+        data['GameSessionQueueArns'] = QueueArnsList.build(input[:game_session_queue_arns]) unless input[:game_session_queue_arns].nil?
         data['RequestTimeoutSeconds'] = input[:request_timeout_seconds] unless input[:request_timeout_seconds].nil?
         data['AcceptanceTimeoutSeconds'] = input[:acceptance_timeout_seconds] unless input[:acceptance_timeout_seconds].nil?
         data['AcceptanceRequired'] = input[:acceptance_required] unless input[:acceptance_required].nil?
@@ -2020,11 +2023,11 @@ module AWS::SDK::GameLift
         data['NotificationTarget'] = input[:notification_target] unless input[:notification_target].nil?
         data['AdditionalPlayerCount'] = input[:additional_player_count] unless input[:additional_player_count].nil?
         data['CustomEventData'] = input[:custom_event_data] unless input[:custom_event_data].nil?
-        data['GameProperties'] = Builders::GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
+        data['GameProperties'] = GamePropertyList.build(input[:game_properties]) unless input[:game_properties].nil?
         data['GameSessionData'] = input[:game_session_data] unless input[:game_session_data].nil?
         data['BackfillMode'] = input[:backfill_mode] unless input[:backfill_mode].nil?
         data['FlexMatchMode'] = input[:flex_match_mode] unless input[:flex_match_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2037,8 +2040,8 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.UpdateRuntimeConfiguration'
         data = {}
         data['FleetId'] = input[:fleet_id] unless input[:fleet_id].nil?
-        data['RuntimeConfiguration'] = Builders::RuntimeConfiguration.build(input[:runtime_configuration]) unless input[:runtime_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuntimeConfiguration'] = RuntimeConfiguration.build(input[:runtime_configuration]) unless input[:runtime_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2053,9 +2056,9 @@ module AWS::SDK::GameLift
         data['ScriptId'] = input[:script_id] unless input[:script_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['StorageLocation'] = Builders::S3Location.build(input[:storage_location]) unless input[:storage_location].nil?
-        data['ZipFile'] = Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageLocation'] = S3Location.build(input[:storage_location]) unless input[:storage_location].nil?
+        data['ZipFile'] = ::Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2068,7 +2071,7 @@ module AWS::SDK::GameLift
         http_req.headers['X-Amz-Target'] = 'GameLift.ValidateMatchmakingRuleSet'
         data = {}
         data['RuleSetBody'] = input[:rule_set_body] unless input[:rule_set_body].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

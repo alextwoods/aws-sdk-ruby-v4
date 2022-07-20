@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Ivschat
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::Ivschat
         data['token'] = stub[:token] unless stub[:token].nil?
         data['tokenExpirationTime'] = Hearth::TimeHelper.to_date_time(stub[:token_expiration_time]) unless stub[:token_expiration_time].nil?
         data['sessionExpirationTime'] = Hearth::TimeHelper.to_date_time(stub[:session_expiration_time]) unless stub[:session_expiration_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,9 +60,9 @@ module AWS::SDK::Ivschat
         data['updateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
         data['maximumMessageRatePerSecond'] = stub[:maximum_message_rate_per_second] unless stub[:maximum_message_rate_per_second].nil?
         data['maximumMessageLength'] = stub[:maximum_message_length] unless stub[:maximum_message_length].nil?
-        data['messageReviewHandler'] = Stubs::MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messageReviewHandler'] = MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::Ivschat
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,9 +176,9 @@ module AWS::SDK::Ivschat
         data['updateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
         data['maximumMessageRatePerSecond'] = stub[:maximum_message_rate_per_second] unless stub[:maximum_message_rate_per_second].nil?
         data['maximumMessageLength'] = stub[:maximum_message_length] unless stub[:maximum_message_length].nil?
-        data['messageReviewHandler'] = Stubs::MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messageReviewHandler'] = MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -193,9 +195,9 @@ module AWS::SDK::Ivschat
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['rooms'] = Stubs::RoomList.stub(stub[:rooms]) unless stub[:rooms].nil?
+        data['rooms'] = RoomList.stub(stub[:rooms]) unless stub[:rooms].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -213,7 +215,7 @@ module AWS::SDK::Ivschat
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoomSummary.stub(element) unless element.nil?
+          data << RoomSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -241,10 +243,10 @@ module AWS::SDK::Ivschat
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['messageReviewHandler'] = Stubs::MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
+        data['messageReviewHandler'] = MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
         data['createTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['updateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -261,8 +263,8 @@ module AWS::SDK::Ivschat
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -279,7 +281,7 @@ module AWS::SDK::Ivschat
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,9 +338,9 @@ module AWS::SDK::Ivschat
         data['updateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
         data['maximumMessageRatePerSecond'] = stub[:maximum_message_rate_per_second] unless stub[:maximum_message_rate_per_second].nil?
         data['maximumMessageLength'] = stub[:maximum_message_length] unless stub[:maximum_message_length].nil?
-        data['messageReviewHandler'] = Stubs::MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messageReviewHandler'] = MessageReviewHandler.stub(stub[:message_review_handler]) unless stub[:message_review_handler].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

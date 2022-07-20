@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Budgets
   module Builders
 
@@ -19,9 +21,9 @@ module AWS::SDK::Budgets
         http_req.headers['X-Amz-Target'] = 'AWSBudgetServiceGateway.CreateBudget'
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        data['Budget'] = Builders::Budget.build(input[:budget]) unless input[:budget].nil?
-        data['NotificationsWithSubscribers'] = Builders::NotificationWithSubscribersList.build(input[:notifications_with_subscribers]) unless input[:notifications_with_subscribers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Budget'] = Budget.build(input[:budget]) unless input[:budget].nil?
+        data['NotificationsWithSubscribers'] = NotificationWithSubscribersList.build(input[:notifications_with_subscribers]) unless input[:notifications_with_subscribers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NotificationWithSubscribers.build(element) unless element.nil?
+          data << NotificationWithSubscribers.build(element) unless element.nil?
         end
         data
       end
@@ -40,8 +42,8 @@ module AWS::SDK::Budgets
     class NotificationWithSubscribers
       def self.build(input)
         data = {}
-        data['Notification'] = Builders::Notification.build(input[:notification]) unless input[:notification].nil?
-        data['Subscribers'] = Builders::Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
+        data['Notification'] = Notification.build(input[:notification]) unless input[:notification].nil?
+        data['Subscribers'] = Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
         data
       end
     end
@@ -51,7 +53,7 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Subscriber.build(element) unless element.nil?
+          data << Subscriber.build(element) unless element.nil?
         end
         data
       end
@@ -85,16 +87,16 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = {}
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['BudgetLimit'] = Builders::Spend.build(input[:budget_limit]) unless input[:budget_limit].nil?
-        data['PlannedBudgetLimits'] = Builders::PlannedBudgetLimits.build(input[:planned_budget_limits]) unless input[:planned_budget_limits].nil?
-        data['CostFilters'] = Builders::CostFilters.build(input[:cost_filters]) unless input[:cost_filters].nil?
-        data['CostTypes'] = Builders::CostTypes.build(input[:cost_types]) unless input[:cost_types].nil?
+        data['BudgetLimit'] = Spend.build(input[:budget_limit]) unless input[:budget_limit].nil?
+        data['PlannedBudgetLimits'] = PlannedBudgetLimits.build(input[:planned_budget_limits]) unless input[:planned_budget_limits].nil?
+        data['CostFilters'] = CostFilters.build(input[:cost_filters]) unless input[:cost_filters].nil?
+        data['CostTypes'] = CostTypes.build(input[:cost_types]) unless input[:cost_types].nil?
         data['TimeUnit'] = input[:time_unit] unless input[:time_unit].nil?
-        data['TimePeriod'] = Builders::TimePeriod.build(input[:time_period]) unless input[:time_period].nil?
-        data['CalculatedSpend'] = Builders::CalculatedSpend.build(input[:calculated_spend]) unless input[:calculated_spend].nil?
+        data['TimePeriod'] = TimePeriod.build(input[:time_period]) unless input[:time_period].nil?
+        data['CalculatedSpend'] = CalculatedSpend.build(input[:calculated_spend]) unless input[:calculated_spend].nil?
         data['BudgetType'] = input[:budget_type] unless input[:budget_type].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_updated_time]).to_i unless input[:last_updated_time].nil?
-        data['AutoAdjustData'] = Builders::AutoAdjustData.build(input[:auto_adjust_data]) unless input[:auto_adjust_data].nil?
+        data['AutoAdjustData'] = AutoAdjustData.build(input[:auto_adjust_data]) unless input[:auto_adjust_data].nil?
         data
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = {}
         data['AutoAdjustType'] = input[:auto_adjust_type] unless input[:auto_adjust_type].nil?
-        data['HistoricalOptions'] = Builders::HistoricalOptions.build(input[:historical_options]) unless input[:historical_options].nil?
+        data['HistoricalOptions'] = HistoricalOptions.build(input[:historical_options]) unless input[:historical_options].nil?
         data['LastAutoAdjustTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_auto_adjust_time]).to_i unless input[:last_auto_adjust_time].nil?
         data
       end
@@ -124,8 +126,8 @@ module AWS::SDK::Budgets
     class CalculatedSpend
       def self.build(input)
         data = {}
-        data['ActualSpend'] = Builders::Spend.build(input[:actual_spend]) unless input[:actual_spend].nil?
-        data['ForecastedSpend'] = Builders::Spend.build(input[:forecasted_spend]) unless input[:forecasted_spend].nil?
+        data['ActualSpend'] = Spend.build(input[:actual_spend]) unless input[:actual_spend].nil?
+        data['ForecastedSpend'] = Spend.build(input[:forecasted_spend]) unless input[:forecasted_spend].nil?
         data
       end
     end
@@ -174,7 +176,7 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::DimensionValues.build(value) unless value.nil?
+          data[key] = DimensionValues.build(value) unless value.nil?
         end
         data
       end
@@ -196,7 +198,7 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Spend.build(value) unless value.nil?
+          data[key] = Spend.build(value) unless value.nil?
         end
         data
       end
@@ -214,12 +216,12 @@ module AWS::SDK::Budgets
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['NotificationType'] = input[:notification_type] unless input[:notification_type].nil?
         data['ActionType'] = input[:action_type] unless input[:action_type].nil?
-        data['ActionThreshold'] = Builders::ActionThreshold.build(input[:action_threshold]) unless input[:action_threshold].nil?
-        data['Definition'] = Builders::Definition.build(input[:definition]) unless input[:definition].nil?
+        data['ActionThreshold'] = ActionThreshold.build(input[:action_threshold]) unless input[:action_threshold].nil?
+        data['Definition'] = Definition.build(input[:definition]) unless input[:definition].nil?
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['ApprovalModel'] = input[:approval_model] unless input[:approval_model].nil?
-        data['Subscribers'] = Builders::Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Subscribers'] = Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -227,9 +229,9 @@ module AWS::SDK::Budgets
     class Definition
       def self.build(input)
         data = {}
-        data['IamActionDefinition'] = Builders::IamActionDefinition.build(input[:iam_action_definition]) unless input[:iam_action_definition].nil?
-        data['ScpActionDefinition'] = Builders::ScpActionDefinition.build(input[:scp_action_definition]) unless input[:scp_action_definition].nil?
-        data['SsmActionDefinition'] = Builders::SsmActionDefinition.build(input[:ssm_action_definition]) unless input[:ssm_action_definition].nil?
+        data['IamActionDefinition'] = IamActionDefinition.build(input[:iam_action_definition]) unless input[:iam_action_definition].nil?
+        data['ScpActionDefinition'] = ScpActionDefinition.build(input[:scp_action_definition]) unless input[:scp_action_definition].nil?
+        data['SsmActionDefinition'] = SsmActionDefinition.build(input[:ssm_action_definition]) unless input[:ssm_action_definition].nil?
         data
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::Budgets
         data = {}
         data['ActionSubType'] = input[:action_sub_type] unless input[:action_sub_type].nil?
         data['Region'] = input[:region] unless input[:region].nil?
-        data['InstanceIds'] = Builders::InstanceIds.build(input[:instance_ids]) unless input[:instance_ids].nil?
+        data['InstanceIds'] = InstanceIds.build(input[:instance_ids]) unless input[:instance_ids].nil?
         data
       end
     end
@@ -261,7 +263,7 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
-        data['TargetIds'] = Builders::TargetIds.build(input[:target_ids]) unless input[:target_ids].nil?
+        data['TargetIds'] = TargetIds.build(input[:target_ids]) unless input[:target_ids].nil?
         data
       end
     end
@@ -282,9 +284,9 @@ module AWS::SDK::Budgets
       def self.build(input)
         data = {}
         data['PolicyArn'] = input[:policy_arn] unless input[:policy_arn].nil?
-        data['Roles'] = Builders::Roles.build(input[:roles]) unless input[:roles].nil?
-        data['Groups'] = Builders::Groups.build(input[:groups]) unless input[:groups].nil?
-        data['Users'] = Builders::Users.build(input[:users]) unless input[:users].nil?
+        data['Roles'] = Roles.build(input[:roles]) unless input[:roles].nil?
+        data['Groups'] = Groups.build(input[:groups]) unless input[:groups].nil?
+        data['Users'] = Users.build(input[:users]) unless input[:users].nil?
         data
       end
     end
@@ -342,9 +344,9 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['Notification'] = Builders::Notification.build(input[:notification]) unless input[:notification].nil?
-        data['Subscribers'] = Builders::Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notification'] = Notification.build(input[:notification]) unless input[:notification].nil?
+        data['Subscribers'] = Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -358,9 +360,9 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['Notification'] = Builders::Notification.build(input[:notification]) unless input[:notification].nil?
-        data['Subscriber'] = Builders::Subscriber.build(input[:subscriber]) unless input[:subscriber].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notification'] = Notification.build(input[:notification]) unless input[:notification].nil?
+        data['Subscriber'] = Subscriber.build(input[:subscriber]) unless input[:subscriber].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,7 +376,7 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -389,7 +391,7 @@ module AWS::SDK::Budgets
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['ActionId'] = input[:action_id] unless input[:action_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,8 +405,8 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['Notification'] = Builders::Notification.build(input[:notification]) unless input[:notification].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notification'] = Notification.build(input[:notification]) unless input[:notification].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -418,9 +420,9 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['Notification'] = Builders::Notification.build(input[:notification]) unless input[:notification].nil?
-        data['Subscriber'] = Builders::Subscriber.build(input[:subscriber]) unless input[:subscriber].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notification'] = Notification.build(input[:notification]) unless input[:notification].nil?
+        data['Subscriber'] = Subscriber.build(input[:subscriber]) unless input[:subscriber].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -434,7 +436,7 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -449,7 +451,7 @@ module AWS::SDK::Budgets
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['ActionId'] = input[:action_id] unless input[:action_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -464,10 +466,10 @@ module AWS::SDK::Budgets
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['ActionId'] = input[:action_id] unless input[:action_id].nil?
-        data['TimePeriod'] = Builders::TimePeriod.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = TimePeriod.build(input[:time_period]) unless input[:time_period].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -482,7 +484,7 @@ module AWS::SDK::Budgets
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::Budgets
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -513,7 +515,7 @@ module AWS::SDK::Budgets
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,10 +529,10 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['TimePeriod'] = Builders::TimePeriod.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = TimePeriod.build(input[:time_period]) unless input[:time_period].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,7 +547,7 @@ module AWS::SDK::Budgets
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -561,7 +563,7 @@ module AWS::SDK::Budgets
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,10 +577,10 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['Notification'] = Builders::Notification.build(input[:notification]) unless input[:notification].nil?
+        data['Notification'] = Notification.build(input[:notification]) unless input[:notification].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,7 +596,7 @@ module AWS::SDK::Budgets
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['ActionId'] = input[:action_id] unless input[:action_id].nil?
         data['ExecutionType'] = input[:execution_type] unless input[:execution_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,8 +609,8 @@ module AWS::SDK::Budgets
         http_req.headers['X-Amz-Target'] = 'AWSBudgetServiceGateway.UpdateBudget'
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        data['NewBudget'] = Builders::Budget.build(input[:new_budget]) unless input[:new_budget].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NewBudget'] = Budget.build(input[:new_budget]) unless input[:new_budget].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -624,12 +626,12 @@ module AWS::SDK::Budgets
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['ActionId'] = input[:action_id] unless input[:action_id].nil?
         data['NotificationType'] = input[:notification_type] unless input[:notification_type].nil?
-        data['ActionThreshold'] = Builders::ActionThreshold.build(input[:action_threshold]) unless input[:action_threshold].nil?
-        data['Definition'] = Builders::Definition.build(input[:definition]) unless input[:definition].nil?
+        data['ActionThreshold'] = ActionThreshold.build(input[:action_threshold]) unless input[:action_threshold].nil?
+        data['Definition'] = Definition.build(input[:definition]) unless input[:definition].nil?
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['ApprovalModel'] = input[:approval_model] unless input[:approval_model].nil?
-        data['Subscribers'] = Builders::Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Subscribers'] = Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -643,9 +645,9 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['OldNotification'] = Builders::Notification.build(input[:old_notification]) unless input[:old_notification].nil?
-        data['NewNotification'] = Builders::Notification.build(input[:new_notification]) unless input[:new_notification].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OldNotification'] = Notification.build(input[:old_notification]) unless input[:old_notification].nil?
+        data['NewNotification'] = Notification.build(input[:new_notification]) unless input[:new_notification].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -659,10 +661,10 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
-        data['Notification'] = Builders::Notification.build(input[:notification]) unless input[:notification].nil?
-        data['OldSubscriber'] = Builders::Subscriber.build(input[:old_subscriber]) unless input[:old_subscriber].nil?
-        data['NewSubscriber'] = Builders::Subscriber.build(input[:new_subscriber]) unless input[:new_subscriber].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notification'] = Notification.build(input[:notification]) unless input[:notification].nil?
+        data['OldSubscriber'] = Subscriber.build(input[:old_subscriber]) unless input[:old_subscriber].nil?
+        data['NewSubscriber'] = Subscriber.build(input[:new_subscriber]) unless input[:new_subscriber].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

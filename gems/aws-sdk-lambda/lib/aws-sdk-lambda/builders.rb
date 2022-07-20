@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Lambda
   module Builders
 
@@ -36,7 +39,7 @@ module AWS::SDK::Lambda
         data['Action'] = input[:action] unless input[:action].nil?
         data['Principal'] = input[:principal] unless input[:principal].nil?
         data['OrganizationId'] = input[:organization_id] unless input[:organization_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +70,7 @@ module AWS::SDK::Lambda
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data['PrincipalOrgID'] = input[:principal_org_id] unless input[:principal_org_id].nil?
         data['FunctionUrlAuthType'] = input[:function_url_auth_type] unless input[:function_url_auth_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,8 +94,8 @@ module AWS::SDK::Lambda
         data['Name'] = input[:name] unless input[:name].nil?
         data['FunctionVersion'] = input[:function_version] unless input[:function_version].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RoutingConfig'] = Builders::AliasRoutingConfiguration.build(input[:routing_config]) unless input[:routing_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingConfig'] = AliasRoutingConfiguration.build(input[:routing_config]) unless input[:routing_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,7 +103,7 @@ module AWS::SDK::Lambda
     class AliasRoutingConfiguration
       def self.build(input)
         data = {}
-        data['AdditionalVersionWeights'] = Builders::AdditionalVersionWeights.build(input[:additional_version_weights]) unless input[:additional_version_weights].nil?
+        data['AdditionalVersionWeights'] = AdditionalVersionWeights.build(input[:additional_version_weights]) unless input[:additional_version_weights].nil?
         data
       end
     end
@@ -127,9 +130,9 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['AllowedPublishers'] = Builders::AllowedPublishers.build(input[:allowed_publishers]) unless input[:allowed_publishers].nil?
-        data['CodeSigningPolicies'] = Builders::CodeSigningPolicies.build(input[:code_signing_policies]) unless input[:code_signing_policies].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AllowedPublishers'] = AllowedPublishers.build(input[:allowed_publishers]) unless input[:allowed_publishers].nil?
+        data['CodeSigningPolicies'] = CodeSigningPolicies.build(input[:code_signing_policies]) unless input[:code_signing_policies].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -146,7 +149,7 @@ module AWS::SDK::Lambda
     class AllowedPublishers
       def self.build(input)
         data = {}
-        data['SigningProfileVersionArns'] = Builders::SigningProfileVersionArns.build(input[:signing_profile_version_arns]) unless input[:signing_profile_version_arns].nil?
+        data['SigningProfileVersionArns'] = SigningProfileVersionArns.build(input[:signing_profile_version_arns]) unless input[:signing_profile_version_arns].nil?
         data
       end
     end
@@ -176,22 +179,22 @@ module AWS::SDK::Lambda
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data['BatchSize'] = input[:batch_size] unless input[:batch_size].nil?
-        data['FilterCriteria'] = Builders::FilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
+        data['FilterCriteria'] = FilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
         data['MaximumBatchingWindowInSeconds'] = input[:maximum_batching_window_in_seconds] unless input[:maximum_batching_window_in_seconds].nil?
         data['ParallelizationFactor'] = input[:parallelization_factor] unless input[:parallelization_factor].nil?
         data['StartingPosition'] = input[:starting_position] unless input[:starting_position].nil?
         data['StartingPositionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:starting_position_timestamp]).to_i unless input[:starting_position_timestamp].nil?
-        data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        data['DestinationConfig'] = DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
         data['MaximumRecordAgeInSeconds'] = input[:maximum_record_age_in_seconds] unless input[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = input[:bisect_batch_on_function_error] unless input[:bisect_batch_on_function_error].nil?
         data['MaximumRetryAttempts'] = input[:maximum_retry_attempts] unless input[:maximum_retry_attempts].nil?
         data['TumblingWindowInSeconds'] = input[:tumbling_window_in_seconds] unless input[:tumbling_window_in_seconds].nil?
-        data['Topics'] = Builders::Topics.build(input[:topics]) unless input[:topics].nil?
-        data['Queues'] = Builders::Queues.build(input[:queues]) unless input[:queues].nil?
-        data['SourceAccessConfigurations'] = Builders::SourceAccessConfigurations.build(input[:source_access_configurations]) unless input[:source_access_configurations].nil?
-        data['SelfManagedEventSource'] = Builders::SelfManagedEventSource.build(input[:self_managed_event_source]) unless input[:self_managed_event_source].nil?
-        data['FunctionResponseTypes'] = Builders::FunctionResponseTypeList.build(input[:function_response_types]) unless input[:function_response_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Topics'] = Topics.build(input[:topics]) unless input[:topics].nil?
+        data['Queues'] = Queues.build(input[:queues]) unless input[:queues].nil?
+        data['SourceAccessConfigurations'] = SourceAccessConfigurations.build(input[:source_access_configurations]) unless input[:source_access_configurations].nil?
+        data['SelfManagedEventSource'] = SelfManagedEventSource.build(input[:self_managed_event_source]) unless input[:self_managed_event_source].nil?
+        data['FunctionResponseTypes'] = FunctionResponseTypeList.build(input[:function_response_types]) unless input[:function_response_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +213,7 @@ module AWS::SDK::Lambda
     class SelfManagedEventSource
       def self.build(input)
         data = {}
-        data['Endpoints'] = Builders::Endpoints.build(input[:endpoints]) unless input[:endpoints].nil?
+        data['Endpoints'] = Endpoints.build(input[:endpoints]) unless input[:endpoints].nil?
         data
       end
     end
@@ -220,7 +223,7 @@ module AWS::SDK::Lambda
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::EndpointLists.build(value) unless value.nil?
+          data[key] = EndpointLists.build(value) unless value.nil?
         end
         data
       end
@@ -242,7 +245,7 @@ module AWS::SDK::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SourceAccessConfiguration.build(element) unless element.nil?
+          data << SourceAccessConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -284,8 +287,8 @@ module AWS::SDK::Lambda
     class DestinationConfig
       def self.build(input)
         data = {}
-        data['OnSuccess'] = Builders::OnSuccess.build(input[:on_success]) unless input[:on_success].nil?
-        data['OnFailure'] = Builders::OnFailure.build(input[:on_failure]) unless input[:on_failure].nil?
+        data['OnSuccess'] = OnSuccess.build(input[:on_success]) unless input[:on_success].nil?
+        data['OnFailure'] = OnFailure.build(input[:on_failure]) unless input[:on_failure].nil?
         data
       end
     end
@@ -312,7 +315,7 @@ module AWS::SDK::Lambda
     class FilterCriteria
       def self.build(input)
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data
       end
     end
@@ -322,7 +325,7 @@ module AWS::SDK::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -351,25 +354,25 @@ module AWS::SDK::Lambda
         data['Runtime'] = input[:runtime] unless input[:runtime].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data['Handler'] = input[:handler] unless input[:handler].nil?
-        data['Code'] = Builders::FunctionCode.build(input[:code]) unless input[:code].nil?
+        data['Code'] = FunctionCode.build(input[:code]) unless input[:code].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['MemorySize'] = input[:memory_size] unless input[:memory_size].nil?
         data['Publish'] = input[:publish] unless input[:publish].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['PackageType'] = input[:package_type] unless input[:package_type].nil?
-        data['DeadLetterConfig'] = Builders::DeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
-        data['Environment'] = Builders::Environment.build(input[:environment]) unless input[:environment].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
+        data['Environment'] = Environment.build(input[:environment]) unless input[:environment].nil?
         data['KMSKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
-        data['TracingConfig'] = Builders::TracingConfig.build(input[:tracing_config]) unless input[:tracing_config].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['Layers'] = Builders::LayerList.build(input[:layers]) unless input[:layers].nil?
-        data['FileSystemConfigs'] = Builders::FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
-        data['ImageConfig'] = Builders::ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
+        data['TracingConfig'] = TracingConfig.build(input[:tracing_config]) unless input[:tracing_config].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Layers'] = LayerList.build(input[:layers]) unless input[:layers].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
+        data['ImageConfig'] = ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
         data['CodeSigningConfigArn'] = input[:code_signing_config_arn] unless input[:code_signing_config_arn].nil?
-        data['Architectures'] = Builders::ArchitecturesList.build(input[:architectures]) unless input[:architectures].nil?
-        data['EphemeralStorage'] = Builders::EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Architectures'] = ArchitecturesList.build(input[:architectures]) unless input[:architectures].nil?
+        data['EphemeralStorage'] = EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -397,8 +400,8 @@ module AWS::SDK::Lambda
     class ImageConfig
       def self.build(input)
         data = {}
-        data['EntryPoint'] = Builders::StringList.build(input[:entry_point]) unless input[:entry_point].nil?
-        data['Command'] = Builders::StringList.build(input[:command]) unless input[:command].nil?
+        data['EntryPoint'] = StringList.build(input[:entry_point]) unless input[:entry_point].nil?
+        data['Command'] = StringList.build(input[:command]) unless input[:command].nil?
         data['WorkingDirectory'] = input[:working_directory] unless input[:working_directory].nil?
         data
       end
@@ -420,7 +423,7 @@ module AWS::SDK::Lambda
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FileSystemConfig.build(element) unless element.nil?
+          data << FileSystemConfig.build(element) unless element.nil?
         end
         data
       end
@@ -471,7 +474,7 @@ module AWS::SDK::Lambda
     class Environment
       def self.build(input)
         data = {}
-        data['Variables'] = Builders::EnvironmentVariables.build(input[:variables]) unless input[:variables].nil?
+        data['Variables'] = EnvironmentVariables.build(input[:variables]) unless input[:variables].nil?
         data
       end
     end
@@ -500,8 +503,8 @@ module AWS::SDK::Lambda
     class VpcConfig
       def self.build(input)
         data = {}
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -532,7 +535,7 @@ module AWS::SDK::Lambda
     class FunctionCode
       def self.build(input)
         data = {}
-        data['ZipFile'] = Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
+        data['ZipFile'] = ::Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
         data['S3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
         data['S3Key'] = input[:s3_key] unless input[:s3_key].nil?
         data['S3ObjectVersion'] = input[:s3_object_version] unless input[:s3_object_version].nil?
@@ -560,8 +563,8 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AuthType'] = input[:auth_type] unless input[:auth_type].nil?
-        data['Cors'] = Builders::Cors.build(input[:cors]) unless input[:cors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cors'] = Cors.build(input[:cors]) unless input[:cors].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,10 +573,10 @@ module AWS::SDK::Lambda
       def self.build(input)
         data = {}
         data['AllowCredentials'] = input[:allow_credentials] unless input[:allow_credentials].nil?
-        data['AllowHeaders'] = Builders::HeadersList.build(input[:allow_headers]) unless input[:allow_headers].nil?
-        data['AllowMethods'] = Builders::AllowMethodsList.build(input[:allow_methods]) unless input[:allow_methods].nil?
-        data['AllowOrigins'] = Builders::AllowOriginsList.build(input[:allow_origins]) unless input[:allow_origins].nil?
-        data['ExposeHeaders'] = Builders::HeadersList.build(input[:expose_headers]) unless input[:expose_headers].nil?
+        data['AllowHeaders'] = HeadersList.build(input[:allow_headers]) unless input[:allow_headers].nil?
+        data['AllowMethods'] = AllowMethodsList.build(input[:allow_methods]) unless input[:allow_methods].nil?
+        data['AllowOrigins'] = AllowOriginsList.build(input[:allow_origins]) unless input[:allow_origins].nil?
+        data['ExposeHeaders'] = HeadersList.build(input[:expose_headers]) unless input[:expose_headers].nil?
         data['MaxAge'] = input[:max_age] unless input[:max_age].nil?
         data
       end
@@ -1073,7 +1076,7 @@ module AWS::SDK::Lambda
         params['Qualifier'] = input[:qualifier].to_s unless input[:qualifier].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:payload] || '')
+        http_req.body = ::StringIO.new(input[:payload] || '')
         http_req.headers['X-Amz-Invocation-Type'] = input[:invocation_type] unless input[:invocation_type].nil? || input[:invocation_type].empty?
         http_req.headers['X-Amz-Log-Type'] = input[:log_type] unless input[:log_type].nil? || input[:log_type].empty?
         http_req.headers['X-Amz-Client-Context'] = input[:client_context] unless input[:client_context].nil? || input[:client_context].empty?
@@ -1328,11 +1331,11 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Content'] = Builders::LayerVersionContentInput.build(input[:content]) unless input[:content].nil?
-        data['CompatibleRuntimes'] = Builders::CompatibleRuntimes.build(input[:compatible_runtimes]) unless input[:compatible_runtimes].nil?
+        data['Content'] = LayerVersionContentInput.build(input[:content]) unless input[:content].nil?
+        data['CompatibleRuntimes'] = CompatibleRuntimes.build(input[:compatible_runtimes]) unless input[:compatible_runtimes].nil?
         data['LicenseInfo'] = input[:license_info] unless input[:license_info].nil?
-        data['CompatibleArchitectures'] = Builders::CompatibleArchitectures.build(input[:compatible_architectures]) unless input[:compatible_architectures].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CompatibleArchitectures'] = CompatibleArchitectures.build(input[:compatible_architectures]) unless input[:compatible_architectures].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1365,7 +1368,7 @@ module AWS::SDK::Lambda
         data['S3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
         data['S3Key'] = input[:s3_key] unless input[:s3_key].nil?
         data['S3ObjectVersion'] = input[:s3_object_version] unless input[:s3_object_version].nil?
-        data['ZipFile'] = Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
+        data['ZipFile'] = ::Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
         data
       end
     end
@@ -1390,7 +1393,7 @@ module AWS::SDK::Lambda
         data['CodeSha256'] = input[:code_sha256] unless input[:code_sha256].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1412,7 +1415,7 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CodeSigningConfigArn'] = input[:code_signing_config_arn] unless input[:code_signing_config_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1434,7 +1437,7 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ReservedConcurrentExecutions'] = input[:reserved_concurrent_executions] unless input[:reserved_concurrent_executions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1458,8 +1461,8 @@ module AWS::SDK::Lambda
         data = {}
         data['MaximumRetryAttempts'] = input[:maximum_retry_attempts] unless input[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = input[:maximum_event_age_in_seconds] unless input[:maximum_event_age_in_seconds].nil?
-        data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DestinationConfig'] = DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1482,7 +1485,7 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ProvisionedConcurrentExecutions'] = input[:provisioned_concurrent_executions] unless input[:provisioned_concurrent_executions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1552,8 +1555,8 @@ module AWS::SDK::Lambda
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1613,9 +1616,9 @@ module AWS::SDK::Lambda
         data = {}
         data['FunctionVersion'] = input[:function_version] unless input[:function_version].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RoutingConfig'] = Builders::AliasRoutingConfiguration.build(input[:routing_config]) unless input[:routing_config].nil?
+        data['RoutingConfig'] = AliasRoutingConfiguration.build(input[:routing_config]) unless input[:routing_config].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1637,9 +1640,9 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['AllowedPublishers'] = Builders::AllowedPublishers.build(input[:allowed_publishers]) unless input[:allowed_publishers].nil?
-        data['CodeSigningPolicies'] = Builders::CodeSigningPolicies.build(input[:code_signing_policies]) unless input[:code_signing_policies].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AllowedPublishers'] = AllowedPublishers.build(input[:allowed_publishers]) unless input[:allowed_publishers].nil?
+        data['CodeSigningPolicies'] = CodeSigningPolicies.build(input[:code_signing_policies]) unless input[:code_signing_policies].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1663,17 +1666,17 @@ module AWS::SDK::Lambda
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data['BatchSize'] = input[:batch_size] unless input[:batch_size].nil?
-        data['FilterCriteria'] = Builders::FilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
+        data['FilterCriteria'] = FilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
         data['MaximumBatchingWindowInSeconds'] = input[:maximum_batching_window_in_seconds] unless input[:maximum_batching_window_in_seconds].nil?
-        data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        data['DestinationConfig'] = DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
         data['MaximumRecordAgeInSeconds'] = input[:maximum_record_age_in_seconds] unless input[:maximum_record_age_in_seconds].nil?
         data['BisectBatchOnFunctionError'] = input[:bisect_batch_on_function_error] unless input[:bisect_batch_on_function_error].nil?
         data['MaximumRetryAttempts'] = input[:maximum_retry_attempts] unless input[:maximum_retry_attempts].nil?
         data['ParallelizationFactor'] = input[:parallelization_factor] unless input[:parallelization_factor].nil?
-        data['SourceAccessConfigurations'] = Builders::SourceAccessConfigurations.build(input[:source_access_configurations]) unless input[:source_access_configurations].nil?
+        data['SourceAccessConfigurations'] = SourceAccessConfigurations.build(input[:source_access_configurations]) unless input[:source_access_configurations].nil?
         data['TumblingWindowInSeconds'] = input[:tumbling_window_in_seconds] unless input[:tumbling_window_in_seconds].nil?
-        data['FunctionResponseTypes'] = Builders::FunctionResponseTypeList.build(input[:function_response_types]) unless input[:function_response_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FunctionResponseTypes'] = FunctionResponseTypeList.build(input[:function_response_types]) unless input[:function_response_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1694,7 +1697,7 @@ module AWS::SDK::Lambda
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ZipFile'] = Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
+        data['ZipFile'] = ::Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
         data['S3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
         data['S3Key'] = input[:s3_key] unless input[:s3_key].nil?
         data['S3ObjectVersion'] = input[:s3_object_version] unless input[:s3_object_version].nil?
@@ -1702,8 +1705,8 @@ module AWS::SDK::Lambda
         data['Publish'] = input[:publish] unless input[:publish].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        data['Architectures'] = Builders::ArchitecturesList.build(input[:architectures]) unless input[:architectures].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Architectures'] = ArchitecturesList.build(input[:architectures]) unless input[:architectures].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1729,18 +1732,18 @@ module AWS::SDK::Lambda
         data['Description'] = input[:description] unless input[:description].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['MemorySize'] = input[:memory_size] unless input[:memory_size].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Environment'] = Builders::Environment.build(input[:environment]) unless input[:environment].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Environment'] = Environment.build(input[:environment]) unless input[:environment].nil?
         data['Runtime'] = input[:runtime] unless input[:runtime].nil?
-        data['DeadLetterConfig'] = Builders::DeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
         data['KMSKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
-        data['TracingConfig'] = Builders::TracingConfig.build(input[:tracing_config]) unless input[:tracing_config].nil?
+        data['TracingConfig'] = TracingConfig.build(input[:tracing_config]) unless input[:tracing_config].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        data['Layers'] = Builders::LayerList.build(input[:layers]) unless input[:layers].nil?
-        data['FileSystemConfigs'] = Builders::FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
-        data['ImageConfig'] = Builders::ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
-        data['EphemeralStorage'] = Builders::EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Layers'] = LayerList.build(input[:layers]) unless input[:layers].nil?
+        data['FileSystemConfigs'] = FileSystemConfigList.build(input[:file_system_configs]) unless input[:file_system_configs].nil?
+        data['ImageConfig'] = ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
+        data['EphemeralStorage'] = EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1764,8 +1767,8 @@ module AWS::SDK::Lambda
         data = {}
         data['MaximumRetryAttempts'] = input[:maximum_retry_attempts] unless input[:maximum_retry_attempts].nil?
         data['MaximumEventAgeInSeconds'] = input[:maximum_event_age_in_seconds] unless input[:maximum_event_age_in_seconds].nil?
-        data['DestinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DestinationConfig'] = DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1788,8 +1791,8 @@ module AWS::SDK::Lambda
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AuthType'] = input[:auth_type] unless input[:auth_type].nil?
-        data['Cors'] = Builders::Cors.build(input[:cors]) unless input[:cors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cors'] = Cors.build(input[:cors]) unless input[:cors].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

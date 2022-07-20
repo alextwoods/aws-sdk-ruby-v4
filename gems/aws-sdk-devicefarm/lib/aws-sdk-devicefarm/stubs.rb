@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DeviceFarm
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['devicePool'] = Stubs::DevicePool.stub(stub[:device_pool]) unless stub[:device_pool].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['devicePool'] = DevicePool.stub(stub[:device_pool]) unless stub[:device_pool].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::DeviceFarm
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['rules'] = Stubs::Rules.stub(stub[:rules]) unless stub[:rules].nil?
+        data['rules'] = Rules.stub(stub[:rules]) unless stub[:rules].nil?
         data['maxDevices'] = stub[:max_devices] unless stub[:max_devices].nil?
         data
       end
@@ -68,7 +70,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Rule.stub(element) unless element.nil?
+          data << Rule.stub(element) unless element.nil?
         end
         data
       end
@@ -106,8 +108,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceProfile'] = Stubs::InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceProfile'] = InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -132,7 +134,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['packageCleanup'] = stub[:package_cleanup] unless stub[:package_cleanup].nil?
-        data['excludeAppPackagesFromCleanup'] = Stubs::PackageIds.stub(stub[:exclude_app_packages_from_cleanup]) unless stub[:exclude_app_packages_from_cleanup].nil?
+        data['excludeAppPackagesFromCleanup'] = PackageIds.stub(stub[:exclude_app_packages_from_cleanup]) unless stub[:exclude_app_packages_from_cleanup].nil?
         data['rebootAfterUse'] = stub[:reboot_after_use] unless stub[:reboot_after_use].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
@@ -170,8 +172,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['networkProfile'] = Stubs::NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['networkProfile'] = NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -226,8 +228,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -266,8 +268,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['remoteAccessSession'] = Stubs::RemoteAccessSession.stub(stub[:remote_access_session]) unless stub[:remote_access_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['remoteAccessSession'] = RemoteAccessSession.stub(stub[:remote_access_session]) unless stub[:remote_access_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -313,7 +315,7 @@ module AWS::SDK::DeviceFarm
         data['message'] = stub[:message] unless stub[:message].nil?
         data['started'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started]).to_i unless stub[:started].nil?
         data['stopped'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stopped]).to_i unless stub[:stopped].nil?
-        data['device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
+        data['device'] = Device.stub(stub[:device]) unless stub[:device].nil?
         data['instanceArn'] = stub[:instance_arn] unless stub[:instance_arn].nil?
         data['remoteDebugEnabled'] = stub[:remote_debug_enabled] unless stub[:remote_debug_enabled].nil?
         data['remoteRecordEnabled'] = stub[:remote_record_enabled] unless stub[:remote_record_enabled].nil?
@@ -321,7 +323,7 @@ module AWS::SDK::DeviceFarm
         data['hostAddress'] = stub[:host_address] unless stub[:host_address].nil?
         data['clientId'] = stub[:client_id] unless stub[:client_id].nil?
         data['billingMethod'] = stub[:billing_method] unless stub[:billing_method].nil?
-        data['deviceMinutes'] = Stubs::DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
+        data['deviceMinutes'] = DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
         data['endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
         data['deviceUdid'] = stub[:device_udid] unless stub[:device_udid].nil?
         data['interactionMode'] = stub[:interaction_mode] unless stub[:interaction_mode].nil?
@@ -393,8 +395,8 @@ module AWS::SDK::DeviceFarm
         data['formFactor'] = stub[:form_factor] unless stub[:form_factor].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data['os'] = stub[:os] unless stub[:os].nil?
-        data['cpu'] = Stubs::CPU.stub(stub[:cpu]) unless stub[:cpu].nil?
-        data['resolution'] = Stubs::Resolution.stub(stub[:resolution]) unless stub[:resolution].nil?
+        data['cpu'] = CPU.stub(stub[:cpu]) unless stub[:cpu].nil?
+        data['resolution'] = Resolution.stub(stub[:resolution]) unless stub[:resolution].nil?
         data['heapSize'] = stub[:heap_size] unless stub[:heap_size].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
         data['image'] = stub[:image] unless stub[:image].nil?
@@ -404,7 +406,7 @@ module AWS::SDK::DeviceFarm
         data['remoteDebugEnabled'] = stub[:remote_debug_enabled] unless stub[:remote_debug_enabled].nil?
         data['fleetType'] = stub[:fleet_type] unless stub[:fleet_type].nil?
         data['fleetName'] = stub[:fleet_name] unless stub[:fleet_name].nil?
-        data['instances'] = Stubs::DeviceInstances.stub(stub[:instances]) unless stub[:instances].nil?
+        data['instances'] = DeviceInstances.stub(stub[:instances]) unless stub[:instances].nil?
         data['availability'] = stub[:availability] unless stub[:availability].nil?
         data
       end
@@ -424,7 +426,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceInstance.stub(element) unless element.nil?
+          data << DeviceInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -450,10 +452,10 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['deviceArn'] = stub[:device_arn] unless stub[:device_arn].nil?
-        data['labels'] = Stubs::InstanceLabels.stub(stub[:labels]) unless stub[:labels].nil?
+        data['labels'] = InstanceLabels.stub(stub[:labels]) unless stub[:labels].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['udid'] = stub[:udid] unless stub[:udid].nil?
-        data['instanceProfile'] = Stubs::InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
+        data['instanceProfile'] = InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
         data
       end
     end
@@ -530,8 +532,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['testGridProject'] = Stubs::TestGridProject.stub(stub[:test_grid_project]) unless stub[:test_grid_project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['testGridProject'] = TestGridProject.stub(stub[:test_grid_project]) unless stub[:test_grid_project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::DeviceFarm
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['vpcConfig'] = Stubs::TestGridVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['vpcConfig'] = TestGridVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['created'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created]).to_i unless stub[:created].nil?
         data
       end
@@ -577,8 +579,8 @@ module AWS::SDK::DeviceFarm
       def self.stub(stub)
         stub ||= Types::TestGridVpcConfig.new
         data = {}
-        data['securityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['subnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -637,7 +639,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['url'] = stub[:url] unless stub[:url].nil?
         data['expires'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expires]).to_i unless stub[:expires].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -652,8 +654,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['upload'] = Stubs::Upload.stub(stub[:upload]) unless stub[:upload].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['upload'] = Upload.stub(stub[:upload]) unless stub[:upload].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -704,8 +706,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['vpceConfiguration'] = Stubs::VPCEConfiguration.stub(stub[:vpce_configuration]) unless stub[:vpce_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpceConfiguration'] = VPCEConfiguration.stub(stub[:vpce_configuration]) unless stub[:vpce_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -745,7 +747,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -759,7 +761,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -773,7 +775,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -787,7 +789,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -815,7 +817,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -829,7 +831,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -843,7 +845,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -857,7 +859,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -872,8 +874,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['accountSettings'] = Stubs::AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountSettings'] = AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -899,11 +901,11 @@ module AWS::SDK::DeviceFarm
         stub ||= Types::AccountSettings.new
         data = {}
         data['awsAccountNumber'] = stub[:aws_account_number] unless stub[:aws_account_number].nil?
-        data['unmeteredDevices'] = Stubs::PurchasedDevicesMap.stub(stub[:unmetered_devices]) unless stub[:unmetered_devices].nil?
-        data['unmeteredRemoteAccessDevices'] = Stubs::PurchasedDevicesMap.stub(stub[:unmetered_remote_access_devices]) unless stub[:unmetered_remote_access_devices].nil?
+        data['unmeteredDevices'] = PurchasedDevicesMap.stub(stub[:unmetered_devices]) unless stub[:unmetered_devices].nil?
+        data['unmeteredRemoteAccessDevices'] = PurchasedDevicesMap.stub(stub[:unmetered_remote_access_devices]) unless stub[:unmetered_remote_access_devices].nil?
         data['maxJobTimeoutMinutes'] = stub[:max_job_timeout_minutes] unless stub[:max_job_timeout_minutes].nil?
-        data['trialMinutes'] = Stubs::TrialMinutes.stub(stub[:trial_minutes]) unless stub[:trial_minutes].nil?
-        data['maxSlots'] = Stubs::MaxSlotMap.stub(stub[:max_slots]) unless stub[:max_slots].nil?
+        data['trialMinutes'] = TrialMinutes.stub(stub[:trial_minutes]) unless stub[:trial_minutes].nil?
+        data['maxSlots'] = MaxSlotMap.stub(stub[:max_slots]) unless stub[:max_slots].nil?
         data['defaultJobTimeoutMinutes'] = stub[:default_job_timeout_minutes] unless stub[:default_job_timeout_minutes].nil?
         data['skipAppResign'] = stub[:skip_app_resign] unless stub[:skip_app_resign].nil?
         data
@@ -980,8 +982,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['device'] = Device.stub(stub[:device]) unless stub[:device].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -996,8 +998,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deviceInstance'] = Stubs::DeviceInstance.stub(stub[:device_instance]) unless stub[:device_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deviceInstance'] = DeviceInstance.stub(stub[:device_instance]) unless stub[:device_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1012,8 +1014,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['devicePool'] = Stubs::DevicePool.stub(stub[:device_pool]) unless stub[:device_pool].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['devicePool'] = DevicePool.stub(stub[:device_pool]) unless stub[:device_pool].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1029,9 +1031,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['compatibleDevices'] = Stubs::DevicePoolCompatibilityResults.stub(stub[:compatible_devices]) unless stub[:compatible_devices].nil?
-        data['incompatibleDevices'] = Stubs::DevicePoolCompatibilityResults.stub(stub[:incompatible_devices]) unless stub[:incompatible_devices].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['compatibleDevices'] = DevicePoolCompatibilityResults.stub(stub[:compatible_devices]) unless stub[:compatible_devices].nil?
+        data['incompatibleDevices'] = DevicePoolCompatibilityResults.stub(stub[:incompatible_devices]) unless stub[:incompatible_devices].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1050,7 +1052,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DevicePoolCompatibilityResult.stub(element) unless element.nil?
+          data << DevicePoolCompatibilityResult.stub(element) unless element.nil?
         end
         data
       end
@@ -1071,9 +1073,9 @@ module AWS::SDK::DeviceFarm
       def self.stub(stub)
         stub ||= Types::DevicePoolCompatibilityResult.new
         data = {}
-        data['device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
+        data['device'] = Device.stub(stub[:device]) unless stub[:device].nil?
         data['compatible'] = stub[:compatible] unless stub[:compatible].nil?
-        data['incompatibilityMessages'] = Stubs::IncompatibilityMessages.stub(stub[:incompatibility_messages]) unless stub[:incompatibility_messages].nil?
+        data['incompatibilityMessages'] = IncompatibilityMessages.stub(stub[:incompatibility_messages]) unless stub[:incompatibility_messages].nil?
         data
       end
     end
@@ -1092,7 +1094,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IncompatibilityMessage.stub(element) unless element.nil?
+          data << IncompatibilityMessage.stub(element) unless element.nil?
         end
         data
       end
@@ -1128,8 +1130,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceProfile'] = Stubs::InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceProfile'] = InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1144,8 +1146,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1185,11 +1187,11 @@ module AWS::SDK::DeviceFarm
         data['result'] = stub[:result] unless stub[:result].nil?
         data['started'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started]).to_i unless stub[:started].nil?
         data['stopped'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stopped]).to_i unless stub[:stopped].nil?
-        data['counters'] = Stubs::Counters.stub(stub[:counters]) unless stub[:counters].nil?
+        data['counters'] = Counters.stub(stub[:counters]) unless stub[:counters].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
+        data['device'] = Device.stub(stub[:device]) unless stub[:device].nil?
         data['instanceArn'] = stub[:instance_arn] unless stub[:instance_arn].nil?
-        data['deviceMinutes'] = Stubs::DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
+        data['deviceMinutes'] = DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
         data['videoEndpoint'] = stub[:video_endpoint] unless stub[:video_endpoint].nil?
         data['videoCapture'] = stub[:video_capture] unless stub[:video_capture].nil?
         data
@@ -1236,8 +1238,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['networkProfile'] = Stubs::NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['networkProfile'] = NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1254,10 +1256,10 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['current'] = Stubs::OfferingStatusMap.stub(stub[:current]) unless stub[:current].nil?
-        data['nextPeriod'] = Stubs::OfferingStatusMap.stub(stub[:next_period]) unless stub[:next_period].nil?
+        data['current'] = OfferingStatusMap.stub(stub[:current]) unless stub[:current].nil?
+        data['nextPeriod'] = OfferingStatusMap.stub(stub[:next_period]) unless stub[:next_period].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1276,7 +1278,7 @@ module AWS::SDK::DeviceFarm
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::OfferingStatus.stub(value) unless value.nil?
+          data[key] = OfferingStatus.stub(value) unless value.nil?
         end
         data
       end
@@ -1299,7 +1301,7 @@ module AWS::SDK::DeviceFarm
         stub ||= Types::OfferingStatus.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['offering'] = Stubs::Offering.stub(stub[:offering]) unless stub[:offering].nil?
+        data['offering'] = Offering.stub(stub[:offering]) unless stub[:offering].nil?
         data['quantity'] = stub[:quantity] unless stub[:quantity].nil?
         data['effectiveOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:effective_on]).to_i unless stub[:effective_on].nil?
         data
@@ -1327,7 +1329,7 @@ module AWS::SDK::DeviceFarm
         data['description'] = stub[:description] unless stub[:description].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
-        data['recurringCharges'] = Stubs::RecurringCharges.stub(stub[:recurring_charges]) unless stub[:recurring_charges].nil?
+        data['recurringCharges'] = RecurringCharges.stub(stub[:recurring_charges]) unless stub[:recurring_charges].nil?
         data
       end
     end
@@ -1346,7 +1348,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecurringCharge.stub(element) unless element.nil?
+          data << RecurringCharge.stub(element) unless element.nil?
         end
         data
       end
@@ -1366,7 +1368,7 @@ module AWS::SDK::DeviceFarm
       def self.stub(stub)
         stub ||= Types::RecurringCharge.new
         data = {}
-        data['cost'] = Stubs::MonetaryAmount.stub(stub[:cost]) unless stub[:cost].nil?
+        data['cost'] = MonetaryAmount.stub(stub[:cost]) unless stub[:cost].nil?
         data['frequency'] = stub[:frequency] unless stub[:frequency].nil?
         data
       end
@@ -1402,8 +1404,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1418,8 +1420,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['remoteAccessSession'] = Stubs::RemoteAccessSession.stub(stub[:remote_access_session]) unless stub[:remote_access_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['remoteAccessSession'] = RemoteAccessSession.stub(stub[:remote_access_session]) unless stub[:remote_access_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1434,8 +1436,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['run'] = Stubs::Run.stub(stub[:run]) unless stub[:run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['run'] = Run.stub(stub[:run]) unless stub[:run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1492,13 +1494,13 @@ module AWS::SDK::DeviceFarm
         data['result'] = stub[:result] unless stub[:result].nil?
         data['started'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started]).to_i unless stub[:started].nil?
         data['stopped'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stopped]).to_i unless stub[:stopped].nil?
-        data['counters'] = Stubs::Counters.stub(stub[:counters]) unless stub[:counters].nil?
+        data['counters'] = Counters.stub(stub[:counters]) unless stub[:counters].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
         data['totalJobs'] = stub[:total_jobs] unless stub[:total_jobs].nil?
         data['completedJobs'] = stub[:completed_jobs] unless stub[:completed_jobs].nil?
         data['billingMethod'] = stub[:billing_method] unless stub[:billing_method].nil?
-        data['deviceMinutes'] = Stubs::DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
-        data['networkProfile'] = Stubs::NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
+        data['deviceMinutes'] = DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
+        data['networkProfile'] = NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
         data['parsingResultUrl'] = stub[:parsing_result_url] unless stub[:parsing_result_url].nil?
         data['resultCode'] = stub[:result_code] unless stub[:result_code].nil?
         data['seed'] = stub[:seed] unless stub[:seed].nil?
@@ -1507,13 +1509,13 @@ module AWS::SDK::DeviceFarm
         data['jobTimeoutMinutes'] = stub[:job_timeout_minutes] unless stub[:job_timeout_minutes].nil?
         data['devicePoolArn'] = stub[:device_pool_arn] unless stub[:device_pool_arn].nil?
         data['locale'] = stub[:locale] unless stub[:locale].nil?
-        data['radios'] = Stubs::Radios.stub(stub[:radios]) unless stub[:radios].nil?
-        data['location'] = Stubs::Location.stub(stub[:location]) unless stub[:location].nil?
-        data['customerArtifactPaths'] = Stubs::CustomerArtifactPaths.stub(stub[:customer_artifact_paths]) unless stub[:customer_artifact_paths].nil?
+        data['radios'] = Radios.stub(stub[:radios]) unless stub[:radios].nil?
+        data['location'] = Location.stub(stub[:location]) unless stub[:location].nil?
+        data['customerArtifactPaths'] = CustomerArtifactPaths.stub(stub[:customer_artifact_paths]) unless stub[:customer_artifact_paths].nil?
         data['webUrl'] = stub[:web_url] unless stub[:web_url].nil?
         data['skipAppResign'] = stub[:skip_app_resign] unless stub[:skip_app_resign].nil?
         data['testSpecArn'] = stub[:test_spec_arn] unless stub[:test_spec_arn].nil?
-        data['deviceSelectionResult'] = Stubs::DeviceSelectionResult.stub(stub[:device_selection_result]) unless stub[:device_selection_result].nil?
+        data['deviceSelectionResult'] = DeviceSelectionResult.stub(stub[:device_selection_result]) unless stub[:device_selection_result].nil?
         data
       end
     end
@@ -1533,7 +1535,7 @@ module AWS::SDK::DeviceFarm
       def self.stub(stub)
         stub ||= Types::DeviceSelectionResult.new
         data = {}
-        data['filters'] = Stubs::DeviceFilters.stub(stub[:filters]) unless stub[:filters].nil?
+        data['filters'] = DeviceFilters.stub(stub[:filters]) unless stub[:filters].nil?
         data['matchedDevicesCount'] = stub[:matched_devices_count] unless stub[:matched_devices_count].nil?
         data['maxDevices'] = stub[:max_devices] unless stub[:max_devices].nil?
         data
@@ -1554,7 +1556,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceFilter.stub(element) unless element.nil?
+          data << DeviceFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -1577,7 +1579,7 @@ module AWS::SDK::DeviceFarm
         data = {}
         data['attribute'] = stub[:attribute] unless stub[:attribute].nil?
         data['operator'] = stub[:operator] unless stub[:operator].nil?
-        data['values'] = Stubs::DeviceFilterValues.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = DeviceFilterValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1617,9 +1619,9 @@ module AWS::SDK::DeviceFarm
       def self.stub(stub)
         stub ||= Types::CustomerArtifactPaths.new
         data = {}
-        data['iosPaths'] = Stubs::IosPaths.stub(stub[:ios_paths]) unless stub[:ios_paths].nil?
-        data['androidPaths'] = Stubs::AndroidPaths.stub(stub[:android_paths]) unless stub[:android_paths].nil?
-        data['deviceHostPaths'] = Stubs::DeviceHostPaths.stub(stub[:device_host_paths]) unless stub[:device_host_paths].nil?
+        data['iosPaths'] = IosPaths.stub(stub[:ios_paths]) unless stub[:ios_paths].nil?
+        data['androidPaths'] = AndroidPaths.stub(stub[:android_paths]) unless stub[:android_paths].nil?
+        data['deviceHostPaths'] = DeviceHostPaths.stub(stub[:device_host_paths]) unless stub[:device_host_paths].nil?
         data
       end
     end
@@ -1738,8 +1740,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['suite'] = Stubs::Suite.stub(stub[:suite]) unless stub[:suite].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['suite'] = Suite.stub(stub[:suite]) unless stub[:suite].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1775,9 +1777,9 @@ module AWS::SDK::DeviceFarm
         data['result'] = stub[:result] unless stub[:result].nil?
         data['started'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started]).to_i unless stub[:started].nil?
         data['stopped'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stopped]).to_i unless stub[:stopped].nil?
-        data['counters'] = Stubs::Counters.stub(stub[:counters]) unless stub[:counters].nil?
+        data['counters'] = Counters.stub(stub[:counters]) unless stub[:counters].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['deviceMinutes'] = Stubs::DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
+        data['deviceMinutes'] = DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
         data
       end
     end
@@ -1792,8 +1794,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['test'] = Stubs::Test.stub(stub[:test]) unless stub[:test].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['test'] = Test.stub(stub[:test]) unless stub[:test].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1829,9 +1831,9 @@ module AWS::SDK::DeviceFarm
         data['result'] = stub[:result] unless stub[:result].nil?
         data['started'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started]).to_i unless stub[:started].nil?
         data['stopped'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stopped]).to_i unless stub[:stopped].nil?
-        data['counters'] = Stubs::Counters.stub(stub[:counters]) unless stub[:counters].nil?
+        data['counters'] = Counters.stub(stub[:counters]) unless stub[:counters].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['deviceMinutes'] = Stubs::DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
+        data['deviceMinutes'] = DeviceMinutes.stub(stub[:device_minutes]) unless stub[:device_minutes].nil?
         data
       end
     end
@@ -1846,8 +1848,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['testGridProject'] = Stubs::TestGridProject.stub(stub[:test_grid_project]) unless stub[:test_grid_project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['testGridProject'] = TestGridProject.stub(stub[:test_grid_project]) unless stub[:test_grid_project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1862,8 +1864,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['testGridSession'] = Stubs::TestGridSession.stub(stub[:test_grid_session]) unless stub[:test_grid_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['testGridSession'] = TestGridSession.stub(stub[:test_grid_session]) unless stub[:test_grid_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1906,8 +1908,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['upload'] = Stubs::Upload.stub(stub[:upload]) unless stub[:upload].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['upload'] = Upload.stub(stub[:upload]) unless stub[:upload].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1922,8 +1924,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['vpceConfiguration'] = Stubs::VPCEConfiguration.stub(stub[:vpce_configuration]) unless stub[:vpce_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpceConfiguration'] = VPCEConfiguration.stub(stub[:vpce_configuration]) unless stub[:vpce_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1938,8 +1940,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['appUpload'] = Stubs::Upload.stub(stub[:app_upload]) unless stub[:app_upload].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['appUpload'] = Upload.stub(stub[:app_upload]) unless stub[:app_upload].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1955,9 +1957,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['artifacts'] = Stubs::Artifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
+        data['artifacts'] = Artifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1976,7 +1978,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Artifact.stub(element) unless element.nil?
+          data << Artifact.stub(element) unless element.nil?
         end
         data
       end
@@ -2019,9 +2021,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deviceInstances'] = Stubs::DeviceInstances.stub(stub[:device_instances]) unless stub[:device_instances].nil?
+        data['deviceInstances'] = DeviceInstances.stub(stub[:device_instances]) unless stub[:device_instances].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2037,9 +2039,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['devicePools'] = Stubs::DevicePools.stub(stub[:device_pools]) unless stub[:device_pools].nil?
+        data['devicePools'] = DevicePools.stub(stub[:device_pools]) unless stub[:device_pools].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2058,7 +2060,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DevicePool.stub(element) unless element.nil?
+          data << DevicePool.stub(element) unless element.nil?
         end
         data
       end
@@ -2075,9 +2077,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['devices'] = Stubs::Devices.stub(stub[:devices]) unless stub[:devices].nil?
+        data['devices'] = Devices.stub(stub[:devices]) unless stub[:devices].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2096,7 +2098,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Device.stub(element) unless element.nil?
+          data << Device.stub(element) unless element.nil?
         end
         data
       end
@@ -2113,9 +2115,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceProfiles'] = Stubs::InstanceProfiles.stub(stub[:instance_profiles]) unless stub[:instance_profiles].nil?
+        data['instanceProfiles'] = InstanceProfiles.stub(stub[:instance_profiles]) unless stub[:instance_profiles].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2134,7 +2136,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceProfile.stub(element) unless element.nil?
+          data << InstanceProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -2151,9 +2153,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['jobs'] = Stubs::Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['jobs'] = Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2172,7 +2174,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Job.stub(element) unless element.nil?
+          data << Job.stub(element) unless element.nil?
         end
         data
       end
@@ -2189,9 +2191,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['networkProfiles'] = Stubs::NetworkProfiles.stub(stub[:network_profiles]) unless stub[:network_profiles].nil?
+        data['networkProfiles'] = NetworkProfiles.stub(stub[:network_profiles]) unless stub[:network_profiles].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2210,7 +2212,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkProfile.stub(element) unless element.nil?
+          data << NetworkProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -2227,9 +2229,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['offeringPromotions'] = Stubs::OfferingPromotions.stub(stub[:offering_promotions]) unless stub[:offering_promotions].nil?
+        data['offeringPromotions'] = OfferingPromotions.stub(stub[:offering_promotions]) unless stub[:offering_promotions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2248,7 +2250,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OfferingPromotion.stub(element) unless element.nil?
+          data << OfferingPromotion.stub(element) unless element.nil?
         end
         data
       end
@@ -2285,9 +2287,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['offeringTransactions'] = Stubs::OfferingTransactions.stub(stub[:offering_transactions]) unless stub[:offering_transactions].nil?
+        data['offeringTransactions'] = OfferingTransactions.stub(stub[:offering_transactions]) unless stub[:offering_transactions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2306,7 +2308,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OfferingTransaction.stub(element) unless element.nil?
+          data << OfferingTransaction.stub(element) unless element.nil?
         end
         data
       end
@@ -2329,11 +2331,11 @@ module AWS::SDK::DeviceFarm
       def self.stub(stub)
         stub ||= Types::OfferingTransaction.new
         data = {}
-        data['offeringStatus'] = Stubs::OfferingStatus.stub(stub[:offering_status]) unless stub[:offering_status].nil?
+        data['offeringStatus'] = OfferingStatus.stub(stub[:offering_status]) unless stub[:offering_status].nil?
         data['transactionId'] = stub[:transaction_id] unless stub[:transaction_id].nil?
         data['offeringPromotionId'] = stub[:offering_promotion_id] unless stub[:offering_promotion_id].nil?
         data['createdOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_on]).to_i unless stub[:created_on].nil?
-        data['cost'] = Stubs::MonetaryAmount.stub(stub[:cost]) unless stub[:cost].nil?
+        data['cost'] = MonetaryAmount.stub(stub[:cost]) unless stub[:cost].nil?
         data
       end
     end
@@ -2349,9 +2351,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['offerings'] = Stubs::Offerings.stub(stub[:offerings]) unless stub[:offerings].nil?
+        data['offerings'] = Offerings.stub(stub[:offerings]) unless stub[:offerings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2370,7 +2372,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Offering.stub(element) unless element.nil?
+          data << Offering.stub(element) unless element.nil?
         end
         data
       end
@@ -2387,9 +2389,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['projects'] = Stubs::Projects.stub(stub[:projects]) unless stub[:projects].nil?
+        data['projects'] = Projects.stub(stub[:projects]) unless stub[:projects].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2408,7 +2410,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Project.stub(element) unless element.nil?
+          data << Project.stub(element) unless element.nil?
         end
         data
       end
@@ -2425,9 +2427,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['remoteAccessSessions'] = Stubs::RemoteAccessSessions.stub(stub[:remote_access_sessions]) unless stub[:remote_access_sessions].nil?
+        data['remoteAccessSessions'] = RemoteAccessSessions.stub(stub[:remote_access_sessions]) unless stub[:remote_access_sessions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2446,7 +2448,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemoteAccessSession.stub(element) unless element.nil?
+          data << RemoteAccessSession.stub(element) unless element.nil?
         end
         data
       end
@@ -2463,9 +2465,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['runs'] = Stubs::Runs.stub(stub[:runs]) unless stub[:runs].nil?
+        data['runs'] = Runs.stub(stub[:runs]) unless stub[:runs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2484,7 +2486,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Run.stub(element) unless element.nil?
+          data << Run.stub(element) unless element.nil?
         end
         data
       end
@@ -2501,9 +2503,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['samples'] = Stubs::Samples.stub(stub[:samples]) unless stub[:samples].nil?
+        data['samples'] = Samples.stub(stub[:samples]) unless stub[:samples].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2522,7 +2524,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Sample.stub(element) unless element.nil?
+          data << Sample.stub(element) unless element.nil?
         end
         data
       end
@@ -2561,9 +2563,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['suites'] = Stubs::Suites.stub(stub[:suites]) unless stub[:suites].nil?
+        data['suites'] = Suites.stub(stub[:suites]) unless stub[:suites].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2582,7 +2584,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Suite.stub(element) unless element.nil?
+          data << Suite.stub(element) unless element.nil?
         end
         data
       end
@@ -2598,8 +2600,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2618,7 +2620,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2655,9 +2657,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['testGridProjects'] = Stubs::TestGridProjects.stub(stub[:test_grid_projects]) unless stub[:test_grid_projects].nil?
+        data['testGridProjects'] = TestGridProjects.stub(stub[:test_grid_projects]) unless stub[:test_grid_projects].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2676,7 +2678,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestGridProject.stub(element) unless element.nil?
+          data << TestGridProject.stub(element) unless element.nil?
         end
         data
       end
@@ -2693,9 +2695,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['actions'] = Stubs::TestGridSessionActions.stub(stub[:actions]) unless stub[:actions].nil?
+        data['actions'] = TestGridSessionActions.stub(stub[:actions]) unless stub[:actions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2714,7 +2716,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestGridSessionAction.stub(element) unless element.nil?
+          data << TestGridSessionAction.stub(element) unless element.nil?
         end
         data
       end
@@ -2757,9 +2759,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['artifacts'] = Stubs::TestGridSessionArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
+        data['artifacts'] = TestGridSessionArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2778,7 +2780,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestGridSessionArtifact.stub(element) unless element.nil?
+          data << TestGridSessionArtifact.stub(element) unless element.nil?
         end
         data
       end
@@ -2817,9 +2819,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['testGridSessions'] = Stubs::TestGridSessions.stub(stub[:test_grid_sessions]) unless stub[:test_grid_sessions].nil?
+        data['testGridSessions'] = TestGridSessions.stub(stub[:test_grid_sessions]) unless stub[:test_grid_sessions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2838,7 +2840,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestGridSession.stub(element) unless element.nil?
+          data << TestGridSession.stub(element) unless element.nil?
         end
         data
       end
@@ -2855,9 +2857,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tests'] = Stubs::Tests.stub(stub[:tests]) unless stub[:tests].nil?
+        data['tests'] = Tests.stub(stub[:tests]) unless stub[:tests].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2876,7 +2878,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Test.stub(element) unless element.nil?
+          data << Test.stub(element) unless element.nil?
         end
         data
       end
@@ -2893,9 +2895,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['uniqueProblems'] = Stubs::UniqueProblemsByExecutionResultMap.stub(stub[:unique_problems]) unless stub[:unique_problems].nil?
+        data['uniqueProblems'] = UniqueProblemsByExecutionResultMap.stub(stub[:unique_problems]) unless stub[:unique_problems].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2914,7 +2916,7 @@ module AWS::SDK::DeviceFarm
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::UniqueProblems.stub(value) unless value.nil?
+          data[key] = UniqueProblems.stub(value) unless value.nil?
         end
         data
       end
@@ -2934,7 +2936,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UniqueProblem.stub(element) unless element.nil?
+          data << UniqueProblem.stub(element) unless element.nil?
         end
         data
       end
@@ -2955,7 +2957,7 @@ module AWS::SDK::DeviceFarm
         stub ||= Types::UniqueProblem.new
         data = {}
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['problems'] = Stubs::Problems.stub(stub[:problems]) unless stub[:problems].nil?
+        data['problems'] = Problems.stub(stub[:problems]) unless stub[:problems].nil?
         data
       end
     end
@@ -2974,7 +2976,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Problem.stub(element) unless element.nil?
+          data << Problem.stub(element) unless element.nil?
         end
         data
       end
@@ -2999,11 +3001,11 @@ module AWS::SDK::DeviceFarm
       def self.stub(stub)
         stub ||= Types::Problem.new
         data = {}
-        data['run'] = Stubs::ProblemDetail.stub(stub[:run]) unless stub[:run].nil?
-        data['job'] = Stubs::ProblemDetail.stub(stub[:job]) unless stub[:job].nil?
-        data['suite'] = Stubs::ProblemDetail.stub(stub[:suite]) unless stub[:suite].nil?
-        data['test'] = Stubs::ProblemDetail.stub(stub[:test]) unless stub[:test].nil?
-        data['device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
+        data['run'] = ProblemDetail.stub(stub[:run]) unless stub[:run].nil?
+        data['job'] = ProblemDetail.stub(stub[:job]) unless stub[:job].nil?
+        data['suite'] = ProblemDetail.stub(stub[:suite]) unless stub[:suite].nil?
+        data['test'] = ProblemDetail.stub(stub[:test]) unless stub[:test].nil?
+        data['device'] = Device.stub(stub[:device]) unless stub[:device].nil?
         data['result'] = stub[:result] unless stub[:result].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
         data
@@ -3041,9 +3043,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['uploads'] = Stubs::Uploads.stub(stub[:uploads]) unless stub[:uploads].nil?
+        data['uploads'] = Uploads.stub(stub[:uploads]) unless stub[:uploads].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3062,7 +3064,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Upload.stub(element) unless element.nil?
+          data << Upload.stub(element) unless element.nil?
         end
         data
       end
@@ -3079,9 +3081,9 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['vpceConfigurations'] = Stubs::VPCEConfigurations.stub(stub[:vpce_configurations]) unless stub[:vpce_configurations].nil?
+        data['vpceConfigurations'] = VPCEConfigurations.stub(stub[:vpce_configurations]) unless stub[:vpce_configurations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3100,7 +3102,7 @@ module AWS::SDK::DeviceFarm
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VPCEConfiguration.stub(element) unless element.nil?
+          data << VPCEConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -3116,8 +3118,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['offeringTransaction'] = Stubs::OfferingTransaction.stub(stub[:offering_transaction]) unless stub[:offering_transaction].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['offeringTransaction'] = OfferingTransaction.stub(stub[:offering_transaction]) unless stub[:offering_transaction].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3132,8 +3134,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['offeringTransaction'] = Stubs::OfferingTransaction.stub(stub[:offering_transaction]) unless stub[:offering_transaction].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['offeringTransaction'] = OfferingTransaction.stub(stub[:offering_transaction]) unless stub[:offering_transaction].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3148,8 +3150,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['run'] = Stubs::Run.stub(stub[:run]) unless stub[:run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['run'] = Run.stub(stub[:run]) unless stub[:run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3164,8 +3166,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3180,8 +3182,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['remoteAccessSession'] = Stubs::RemoteAccessSession.stub(stub[:remote_access_session]) unless stub[:remote_access_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['remoteAccessSession'] = RemoteAccessSession.stub(stub[:remote_access_session]) unless stub[:remote_access_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3196,8 +3198,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['run'] = Stubs::Run.stub(stub[:run]) unless stub[:run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['run'] = Run.stub(stub[:run]) unless stub[:run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3211,7 +3213,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3225,7 +3227,7 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3240,8 +3242,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deviceInstance'] = Stubs::DeviceInstance.stub(stub[:device_instance]) unless stub[:device_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deviceInstance'] = DeviceInstance.stub(stub[:device_instance]) unless stub[:device_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3256,8 +3258,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['devicePool'] = Stubs::DevicePool.stub(stub[:device_pool]) unless stub[:device_pool].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['devicePool'] = DevicePool.stub(stub[:device_pool]) unless stub[:device_pool].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3272,8 +3274,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceProfile'] = Stubs::InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceProfile'] = InstanceProfile.stub(stub[:instance_profile]) unless stub[:instance_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3288,8 +3290,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['networkProfile'] = Stubs::NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['networkProfile'] = NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3304,8 +3306,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3320,8 +3322,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['testGridProject'] = Stubs::TestGridProject.stub(stub[:test_grid_project]) unless stub[:test_grid_project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['testGridProject'] = TestGridProject.stub(stub[:test_grid_project]) unless stub[:test_grid_project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3336,8 +3338,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['upload'] = Stubs::Upload.stub(stub[:upload]) unless stub[:upload].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['upload'] = Upload.stub(stub[:upload]) unless stub[:upload].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3352,8 +3354,8 @@ module AWS::SDK::DeviceFarm
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['vpceConfiguration'] = Stubs::VPCEConfiguration.stub(stub[:vpce_configuration]) unless stub[:vpce_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpceConfiguration'] = VPCEConfiguration.stub(stub[:vpce_configuration]) unless stub[:vpce_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

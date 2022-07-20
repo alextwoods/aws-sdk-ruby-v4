@@ -15,7 +15,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::AddNotificationChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.notification_configuration = (Parsers::NotificationConfiguration.parse(map['notificationConfiguration']) unless map['notificationConfiguration'].nil?)
+        data.notification_configuration = (NotificationConfiguration.parse(map['notificationConfiguration']) unless map['notificationConfiguration'].nil?)
         data
       end
     end
@@ -23,7 +23,7 @@ module AWS::SDK::CodeGuruProfiler
     class NotificationConfiguration
       def self.parse(map)
         data = Types::NotificationConfiguration.new
-        data.channels = (Parsers::Channels.parse(map['channels']) unless map['channels'].nil?)
+        data.channels = (Channels.parse(map['channels']) unless map['channels'].nil?)
         return data
       end
     end
@@ -32,7 +32,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Channel.parse(value) unless value.nil?
+          data << Channel.parse(value) unless value.nil?
         end
         data
       end
@@ -43,7 +43,7 @@ module AWS::SDK::CodeGuruProfiler
         data = Types::Channel.new
         data.id = map['id']
         data.uri = map['uri']
-        data.event_publishers = (Parsers::EventPublishers.parse(map['eventPublishers']) unless map['eventPublishers'].nil?)
+        data.event_publishers = (EventPublishers.parse(map['eventPublishers']) unless map['eventPublishers'].nil?)
         return data
       end
     end
@@ -126,9 +126,9 @@ module AWS::SDK::CodeGuruProfiler
         data.start_time = Time.parse(map['startTime']) if map['startTime']
         data.end_time = Time.parse(map['endTime']) if map['endTime']
         data.resolution = map['resolution']
-        data.end_times = (Parsers::ListOfTimestamps.parse(map['endTimes']) unless map['endTimes'].nil?)
-        data.unprocessed_end_times = (Parsers::UnprocessedEndTimeMap.parse(map['unprocessedEndTimes']) unless map['unprocessedEndTimes'].nil?)
-        data.frame_metric_data = (Parsers::FrameMetricData.parse(map['frameMetricData']) unless map['frameMetricData'].nil?)
+        data.end_times = (ListOfTimestamps.parse(map['endTimes']) unless map['endTimes'].nil?)
+        data.unprocessed_end_times = (UnprocessedEndTimeMap.parse(map['unprocessedEndTimes']) unless map['unprocessedEndTimes'].nil?)
+        data.frame_metric_data = (FrameMetricData.parse(map['frameMetricData']) unless map['frameMetricData'].nil?)
         data
       end
     end
@@ -137,7 +137,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FrameMetricDatum.parse(value) unless value.nil?
+          data << FrameMetricDatum.parse(value) unless value.nil?
         end
         data
       end
@@ -146,8 +146,8 @@ module AWS::SDK::CodeGuruProfiler
     class FrameMetricDatum
       def self.parse(map)
         data = Types::FrameMetricDatum.new
-        data.frame_metric = (Parsers::FrameMetric.parse(map['frameMetric']) unless map['frameMetric'].nil?)
-        data.values = (Parsers::FrameMetricValues.parse(map['values']) unless map['values'].nil?)
+        data.frame_metric = (FrameMetric.parse(map['frameMetric']) unless map['frameMetric'].nil?)
+        data.values = (FrameMetricValues.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -167,7 +167,7 @@ module AWS::SDK::CodeGuruProfiler
         data = Types::FrameMetric.new
         data.frame_name = map['frameName']
         data.type = map['type']
-        data.thread_states = (Parsers::ThreadStates.parse(map['threadStates']) unless map['threadStates'].nil?)
+        data.thread_states = (ThreadStates.parse(map['threadStates']) unless map['threadStates'].nil?)
         return data
       end
     end
@@ -186,7 +186,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ListOfTimestamps.parse(value) unless value.nil?
+          data[key] = ListOfTimestamps.parse(value) unless value.nil?
         end
         data
       end
@@ -196,7 +196,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimestampStructure.parse(value) unless value.nil?
+          data << TimestampStructure.parse(value) unless value.nil?
         end
         data
       end
@@ -215,7 +215,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::ConfigureAgentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.configuration = Parsers::AgentConfiguration.parse(json)
+        data.configuration = AgentConfiguration.parse(json)
         data
       end
     end
@@ -225,7 +225,7 @@ module AWS::SDK::CodeGuruProfiler
         data = Types::AgentConfiguration.new
         data.should_profile = map['shouldProfile']
         data.period_in_seconds = map['periodInSeconds']
-        data.agent_parameters = (Parsers::AgentParameters.parse(map['agentParameters']) unless map['agentParameters'].nil?)
+        data.agent_parameters = (AgentParameters.parse(map['agentParameters']) unless map['agentParameters'].nil?)
         return data
       end
     end
@@ -245,7 +245,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::CreateProfilingGroupOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.profiling_group = Parsers::ProfilingGroupDescription.parse(json)
+        data.profiling_group = ProfilingGroupDescription.parse(json)
         data
       end
     end
@@ -254,13 +254,13 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(map)
         data = Types::ProfilingGroupDescription.new
         data.name = map['name']
-        data.agent_orchestration_config = (Parsers::AgentOrchestrationConfig.parse(map['agentOrchestrationConfig']) unless map['agentOrchestrationConfig'].nil?)
+        data.agent_orchestration_config = (AgentOrchestrationConfig.parse(map['agentOrchestrationConfig']) unless map['agentOrchestrationConfig'].nil?)
         data.arn = map['arn']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
-        data.profiling_status = (Parsers::ProfilingStatus.parse(map['profilingStatus']) unless map['profilingStatus'].nil?)
+        data.profiling_status = (ProfilingStatus.parse(map['profilingStatus']) unless map['profilingStatus'].nil?)
         data.compute_platform = map['computePlatform']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(map)
         data = Types::ProfilingStatus.new
         data.latest_agent_profile_reported_at = Time.parse(map['latestAgentProfileReportedAt']) if map['latestAgentProfileReportedAt']
-        data.latest_aggregated_profile = (Parsers::AggregatedProfileTime.parse(map['latestAggregatedProfile']) unless map['latestAggregatedProfile'].nil?)
+        data.latest_aggregated_profile = (AggregatedProfileTime.parse(map['latestAggregatedProfile']) unless map['latestAggregatedProfile'].nil?)
         data.latest_agent_orchestrated_at = Time.parse(map['latestAgentOrchestratedAt']) if map['latestAgentOrchestratedAt']
         return data
       end
@@ -316,7 +316,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::DescribeProfilingGroupOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.profiling_group = Parsers::ProfilingGroupDescription.parse(json)
+        data.profiling_group = ProfilingGroupDescription.parse(json)
         data
       end
     end
@@ -326,7 +326,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::GetFindingsReportAccountSummaryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.report_summaries = (Parsers::FindingsReportSummaries.parse(map['reportSummaries']) unless map['reportSummaries'].nil?)
+        data.report_summaries = (FindingsReportSummaries.parse(map['reportSummaries']) unless map['reportSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -336,7 +336,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FindingsReportSummary.parse(value) unless value.nil?
+          data << FindingsReportSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -359,7 +359,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::GetNotificationConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.notification_configuration = (Parsers::NotificationConfiguration.parse(map['notificationConfiguration']) unless map['notificationConfiguration'].nil?)
+        data.notification_configuration = (NotificationConfiguration.parse(map['notificationConfiguration']) unless map['notificationConfiguration'].nil?)
         data
       end
     end
@@ -395,8 +395,8 @@ module AWS::SDK::CodeGuruProfiler
         data.profiling_group_name = map['profilingGroupName']
         data.profile_start_time = Time.parse(map['profileStartTime']) if map['profileStartTime']
         data.profile_end_time = Time.parse(map['profileEndTime']) if map['profileEndTime']
-        data.recommendations = (Parsers::Recommendations.parse(map['recommendations']) unless map['recommendations'].nil?)
-        data.anomalies = (Parsers::Anomalies.parse(map['anomalies']) unless map['anomalies'].nil?)
+        data.recommendations = (Recommendations.parse(map['recommendations']) unless map['recommendations'].nil?)
+        data.anomalies = (Anomalies.parse(map['anomalies']) unless map['anomalies'].nil?)
         data
       end
     end
@@ -405,7 +405,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Anomaly.parse(value) unless value.nil?
+          data << Anomaly.parse(value) unless value.nil?
         end
         data
       end
@@ -414,9 +414,9 @@ module AWS::SDK::CodeGuruProfiler
     class Anomaly
       def self.parse(map)
         data = Types::Anomaly.new
-        data.metric = (Parsers::Metric.parse(map['metric']) unless map['metric'].nil?)
+        data.metric = (Metric.parse(map['metric']) unless map['metric'].nil?)
         data.reason = map['reason']
-        data.instances = (Parsers::AnomalyInstances.parse(map['instances']) unless map['instances'].nil?)
+        data.instances = (AnomalyInstances.parse(map['instances']) unless map['instances'].nil?)
         return data
       end
     end
@@ -425,7 +425,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnomalyInstance.parse(value) unless value.nil?
+          data << AnomalyInstance.parse(value) unless value.nil?
         end
         data
       end
@@ -437,7 +437,7 @@ module AWS::SDK::CodeGuruProfiler
         data.id = map['id']
         data.start_time = Time.parse(map['startTime']) if map['startTime']
         data.end_time = Time.parse(map['endTime']) if map['endTime']
-        data.user_feedback = (Parsers::UserFeedback.parse(map['userFeedback']) unless map['userFeedback'].nil?)
+        data.user_feedback = (UserFeedback.parse(map['userFeedback']) unless map['userFeedback'].nil?)
         return data
       end
     end
@@ -455,7 +455,7 @@ module AWS::SDK::CodeGuruProfiler
         data = Types::Metric.new
         data.frame_name = map['frameName']
         data.type = map['type']
-        data.thread_states = (Parsers::Strings.parse(map['threadStates']) unless map['threadStates'].nil?)
+        data.thread_states = (Strings.parse(map['threadStates']) unless map['threadStates'].nil?)
         return data
       end
     end
@@ -474,7 +474,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Recommendation.parse(value) unless value.nil?
+          data << Recommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -485,8 +485,8 @@ module AWS::SDK::CodeGuruProfiler
         data = Types::Recommendation.new
         data.all_matches_count = map['allMatchesCount']
         data.all_matches_sum = Hearth::NumberHelper.deserialize(map['allMatchesSum'])
-        data.pattern = (Parsers::Pattern.parse(map['pattern']) unless map['pattern'].nil?)
-        data.top_matches = (Parsers::Matches.parse(map['topMatches']) unless map['topMatches'].nil?)
+        data.pattern = (Pattern.parse(map['pattern']) unless map['pattern'].nil?)
+        data.top_matches = (Matches.parse(map['topMatches']) unless map['topMatches'].nil?)
         data.start_time = Time.parse(map['startTime']) if map['startTime']
         data.end_time = Time.parse(map['endTime']) if map['endTime']
         return data
@@ -497,7 +497,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Match.parse(value) unless value.nil?
+          data << Match.parse(value) unless value.nil?
         end
         data
       end
@@ -520,9 +520,9 @@ module AWS::SDK::CodeGuruProfiler
         data.name = map['name']
         data.description = map['description']
         data.resolution_steps = map['resolutionSteps']
-        data.target_frames = (Parsers::TargetFrames.parse(map['targetFrames']) unless map['targetFrames'].nil?)
+        data.target_frames = (TargetFrames.parse(map['targetFrames']) unless map['targetFrames'].nil?)
         data.threshold_percent = Hearth::NumberHelper.deserialize(map['thresholdPercent'])
-        data.counters_to_aggregate = (Parsers::Strings.parse(map['countersToAggregate']) unless map['countersToAggregate'].nil?)
+        data.counters_to_aggregate = (Strings.parse(map['countersToAggregate']) unless map['countersToAggregate'].nil?)
         return data
       end
     end
@@ -531,7 +531,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TargetFrame.parse(value) unless value.nil?
+          data << TargetFrame.parse(value) unless value.nil?
         end
         data
       end
@@ -552,7 +552,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::ListFindingsReportsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings_report_summaries = (Parsers::FindingsReportSummaries.parse(map['findingsReportSummaries']) unless map['findingsReportSummaries'].nil?)
+        data.findings_report_summaries = (FindingsReportSummaries.parse(map['findingsReportSummaries']) unless map['findingsReportSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -563,7 +563,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::ListProfileTimesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.profile_times = (Parsers::ProfileTimes.parse(map['profileTimes']) unless map['profileTimes'].nil?)
+        data.profile_times = (ProfileTimes.parse(map['profileTimes']) unless map['profileTimes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -573,7 +573,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProfileTime.parse(value) unless value.nil?
+          data << ProfileTime.parse(value) unless value.nil?
         end
         data
       end
@@ -592,8 +592,8 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::ListProfilingGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.profiling_group_names = (Parsers::ProfilingGroupNames.parse(map['profilingGroupNames']) unless map['profilingGroupNames'].nil?)
-        data.profiling_groups = (Parsers::ProfilingGroupDescriptions.parse(map['profilingGroups']) unless map['profilingGroups'].nil?)
+        data.profiling_group_names = (ProfilingGroupNames.parse(map['profilingGroupNames']) unless map['profilingGroupNames'].nil?)
+        data.profiling_groups = (ProfilingGroupDescriptions.parse(map['profilingGroups']) unless map['profilingGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -603,7 +603,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProfilingGroupDescription.parse(value) unless value.nil?
+          data << ProfilingGroupDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -624,7 +624,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -654,7 +654,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::RemoveNotificationChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.notification_configuration = (Parsers::NotificationConfiguration.parse(map['notificationConfiguration']) unless map['notificationConfiguration'].nil?)
+        data.notification_configuration = (NotificationConfiguration.parse(map['notificationConfiguration']) unless map['notificationConfiguration'].nil?)
         data
       end
     end
@@ -702,7 +702,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.parse(http_resp)
         data = Types::UpdateProfilingGroupOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.profiling_group = Parsers::ProfilingGroupDescription.parse(json)
+        data.profiling_group = ProfilingGroupDescription.parse(json)
         data
       end
     end

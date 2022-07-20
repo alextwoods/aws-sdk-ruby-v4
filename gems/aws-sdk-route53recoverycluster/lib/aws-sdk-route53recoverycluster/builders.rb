@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53RecoveryCluster
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::Route53RecoveryCluster
         http_req.headers['X-Amz-Target'] = 'ToggleCustomerAPI.GetRoutingControlState'
         data = {}
         data['RoutingControlArn'] = input[:routing_control_arn] unless input[:routing_control_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,7 +36,7 @@ module AWS::SDK::Route53RecoveryCluster
         data['ControlPanelArn'] = input[:control_panel_arn] unless input[:control_panel_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,8 +50,8 @@ module AWS::SDK::Route53RecoveryCluster
         data = {}
         data['RoutingControlArn'] = input[:routing_control_arn] unless input[:routing_control_arn].nil?
         data['RoutingControlState'] = input[:routing_control_state] unless input[:routing_control_state].nil?
-        data['SafetyRulesToOverride'] = Builders::Arns.build(input[:safety_rules_to_override]) unless input[:safety_rules_to_override].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SafetyRulesToOverride'] = Arns.build(input[:safety_rules_to_override]) unless input[:safety_rules_to_override].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,9 +74,9 @@ module AWS::SDK::Route53RecoveryCluster
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ToggleCustomerAPI.UpdateRoutingControlStates'
         data = {}
-        data['UpdateRoutingControlStateEntries'] = Builders::UpdateRoutingControlStateEntries.build(input[:update_routing_control_state_entries]) unless input[:update_routing_control_state_entries].nil?
-        data['SafetyRulesToOverride'] = Builders::Arns.build(input[:safety_rules_to_override]) unless input[:safety_rules_to_override].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UpdateRoutingControlStateEntries'] = UpdateRoutingControlStateEntries.build(input[:update_routing_control_state_entries]) unless input[:update_routing_control_state_entries].nil?
+        data['SafetyRulesToOverride'] = Arns.build(input[:safety_rules_to_override]) unless input[:safety_rules_to_override].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::Route53RecoveryCluster
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateRoutingControlStateEntry.build(element) unless element.nil?
+          data << UpdateRoutingControlStateEntry.build(element) unless element.nil?
         end
         data
       end

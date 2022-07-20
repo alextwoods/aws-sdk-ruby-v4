@@ -15,7 +15,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::CreateDatasetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset_metadata = (Parsers::DatasetMetadata.parse(map['DatasetMetadata']) unless map['DatasetMetadata'].nil?)
+        data.dataset_metadata = (DatasetMetadata.parse(map['DatasetMetadata']) unless map['DatasetMetadata'].nil?)
         data
       end
     end
@@ -118,7 +118,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::CreateModelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.model_metadata = (Parsers::ModelMetadata.parse(map['ModelMetadata']) unless map['ModelMetadata'].nil?)
+        data.model_metadata = (ModelMetadata.parse(map['ModelMetadata']) unless map['ModelMetadata'].nil?)
         data
       end
     end
@@ -132,7 +132,7 @@ module AWS::SDK::LookoutVision
         data.description = map['Description']
         data.status = map['Status']
         data.status_message = map['StatusMessage']
-        data.performance = (Parsers::ModelPerformance.parse(map['Performance']) unless map['Performance'].nil?)
+        data.performance = (ModelPerformance.parse(map['Performance']) unless map['Performance'].nil?)
         return data
       end
     end
@@ -152,7 +152,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::CreateProjectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.project_metadata = (Parsers::ProjectMetadata.parse(map['ProjectMetadata']) unless map['ProjectMetadata'].nil?)
+        data.project_metadata = (ProjectMetadata.parse(map['ProjectMetadata']) unless map['ProjectMetadata'].nil?)
         data
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::DescribeDatasetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset_description = (Parsers::DatasetDescription.parse(map['DatasetDescription']) unless map['DatasetDescription'].nil?)
+        data.dataset_description = (DatasetDescription.parse(map['DatasetDescription']) unless map['DatasetDescription'].nil?)
         data
       end
     end
@@ -215,7 +215,7 @@ module AWS::SDK::LookoutVision
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
         data.status = map['Status']
         data.status_message = map['StatusMessage']
-        data.image_stats = (Parsers::DatasetImageStats.parse(map['ImageStats']) unless map['ImageStats'].nil?)
+        data.image_stats = (DatasetImageStats.parse(map['ImageStats']) unless map['ImageStats'].nil?)
         return data
       end
     end
@@ -236,7 +236,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::DescribeModelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.model_description = (Parsers::ModelDescription.parse(map['ModelDescription']) unless map['ModelDescription'].nil?)
+        data.model_description = (ModelDescription.parse(map['ModelDescription']) unless map['ModelDescription'].nil?)
         data
       end
     end
@@ -250,10 +250,10 @@ module AWS::SDK::LookoutVision
         data.description = map['Description']
         data.status = map['Status']
         data.status_message = map['StatusMessage']
-        data.performance = (Parsers::ModelPerformance.parse(map['Performance']) unless map['Performance'].nil?)
-        data.output_config = (Parsers::OutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
-        data.evaluation_manifest = (Parsers::OutputS3Object.parse(map['EvaluationManifest']) unless map['EvaluationManifest'].nil?)
-        data.evaluation_result = (Parsers::OutputS3Object.parse(map['EvaluationResult']) unless map['EvaluationResult'].nil?)
+        data.performance = (ModelPerformance.parse(map['Performance']) unless map['Performance'].nil?)
+        data.output_config = (OutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.evaluation_manifest = (OutputS3Object.parse(map['EvaluationManifest']) unless map['EvaluationManifest'].nil?)
+        data.evaluation_result = (OutputS3Object.parse(map['EvaluationResult']) unless map['EvaluationResult'].nil?)
         data.evaluation_end_timestamp = Time.at(map['EvaluationEndTimestamp'].to_i) if map['EvaluationEndTimestamp']
         data.kms_key_id = map['KmsKeyId']
         return data
@@ -272,7 +272,7 @@ module AWS::SDK::LookoutVision
     class OutputConfig
       def self.parse(map)
         data = Types::OutputConfig.new
-        data.s3_location = (Parsers::S3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
         return data
       end
     end
@@ -291,7 +291,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::DescribeModelPackagingJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.model_packaging_description = (Parsers::ModelPackagingDescription.parse(map['ModelPackagingDescription']) unless map['ModelPackagingDescription'].nil?)
+        data.model_packaging_description = (ModelPackagingDescription.parse(map['ModelPackagingDescription']) unless map['ModelPackagingDescription'].nil?)
         data
       end
     end
@@ -302,10 +302,10 @@ module AWS::SDK::LookoutVision
         data.job_name = map['JobName']
         data.project_name = map['ProjectName']
         data.model_version = map['ModelVersion']
-        data.model_packaging_configuration = (Parsers::ModelPackagingConfiguration.parse(map['ModelPackagingConfiguration']) unless map['ModelPackagingConfiguration'].nil?)
+        data.model_packaging_configuration = (ModelPackagingConfiguration.parse(map['ModelPackagingConfiguration']) unless map['ModelPackagingConfiguration'].nil?)
         data.model_packaging_job_description = map['ModelPackagingJobDescription']
         data.model_packaging_method = map['ModelPackagingMethod']
-        data.model_packaging_output_details = (Parsers::ModelPackagingOutputDetails.parse(map['ModelPackagingOutputDetails']) unless map['ModelPackagingOutputDetails'].nil?)
+        data.model_packaging_output_details = (ModelPackagingOutputDetails.parse(map['ModelPackagingOutputDetails']) unless map['ModelPackagingOutputDetails'].nil?)
         data.status = map['Status']
         data.status_message = map['StatusMessage']
         data.creation_timestamp = Time.at(map['CreationTimestamp'].to_i) if map['CreationTimestamp']
@@ -317,7 +317,7 @@ module AWS::SDK::LookoutVision
     class ModelPackagingOutputDetails
       def self.parse(map)
         data = Types::ModelPackagingOutputDetails.new
-        data.greengrass = (Parsers::GreengrassOutputDetails.parse(map['Greengrass']) unless map['Greengrass'].nil?)
+        data.greengrass = (GreengrassOutputDetails.parse(map['Greengrass']) unless map['Greengrass'].nil?)
         return data
       end
     end
@@ -335,7 +335,7 @@ module AWS::SDK::LookoutVision
     class ModelPackagingConfiguration
       def self.parse(map)
         data = Types::ModelPackagingConfiguration.new
-        data.greengrass = (Parsers::GreengrassConfiguration.parse(map['Greengrass']) unless map['Greengrass'].nil?)
+        data.greengrass = (GreengrassConfiguration.parse(map['Greengrass']) unless map['Greengrass'].nil?)
         return data
       end
     end
@@ -345,12 +345,12 @@ module AWS::SDK::LookoutVision
         data = Types::GreengrassConfiguration.new
         data.compiler_options = map['CompilerOptions']
         data.target_device = map['TargetDevice']
-        data.target_platform = (Parsers::TargetPlatform.parse(map['TargetPlatform']) unless map['TargetPlatform'].nil?)
-        data.s3_output_location = (Parsers::S3Location.parse(map['S3OutputLocation']) unless map['S3OutputLocation'].nil?)
+        data.target_platform = (TargetPlatform.parse(map['TargetPlatform']) unless map['TargetPlatform'].nil?)
+        data.s3_output_location = (S3Location.parse(map['S3OutputLocation']) unless map['S3OutputLocation'].nil?)
         data.component_name = map['ComponentName']
         data.component_version = map['ComponentVersion']
         data.component_description = map['ComponentDescription']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -359,7 +359,7 @@ module AWS::SDK::LookoutVision
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -389,7 +389,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::DescribeProjectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.project_description = (Parsers::ProjectDescription.parse(map['ProjectDescription']) unless map['ProjectDescription'].nil?)
+        data.project_description = (ProjectDescription.parse(map['ProjectDescription']) unless map['ProjectDescription'].nil?)
         data
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::LookoutVision
         data.project_arn = map['ProjectArn']
         data.project_name = map['ProjectName']
         data.creation_timestamp = Time.at(map['CreationTimestamp'].to_i) if map['CreationTimestamp']
-        data.datasets = (Parsers::DatasetMetadataList.parse(map['Datasets']) unless map['Datasets'].nil?)
+        data.datasets = (DatasetMetadataList.parse(map['Datasets']) unless map['Datasets'].nil?)
         return data
       end
     end
@@ -409,7 +409,7 @@ module AWS::SDK::LookoutVision
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetMetadata.parse(value) unless value.nil?
+          data << DatasetMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -420,7 +420,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::DetectAnomaliesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detect_anomaly_result = (Parsers::DetectAnomalyResult.parse(map['DetectAnomalyResult']) unless map['DetectAnomalyResult'].nil?)
+        data.detect_anomaly_result = (DetectAnomalyResult.parse(map['DetectAnomalyResult']) unless map['DetectAnomalyResult'].nil?)
         data
       end
     end
@@ -428,7 +428,7 @@ module AWS::SDK::LookoutVision
     class DetectAnomalyResult
       def self.parse(map)
         data = Types::DetectAnomalyResult.new
-        data.source = (Parsers::ImageSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (ImageSource.parse(map['Source']) unless map['Source'].nil?)
         data.is_anomalous = map['IsAnomalous']
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         return data
@@ -448,7 +448,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::ListDatasetEntriesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset_entries = (Parsers::DatasetEntryList.parse(map['DatasetEntries']) unless map['DatasetEntries'].nil?)
+        data.dataset_entries = (DatasetEntryList.parse(map['DatasetEntries']) unless map['DatasetEntries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -469,7 +469,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::ListModelPackagingJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.model_packaging_jobs = (Parsers::ModelPackagingJobsList.parse(map['ModelPackagingJobs']) unless map['ModelPackagingJobs'].nil?)
+        data.model_packaging_jobs = (ModelPackagingJobsList.parse(map['ModelPackagingJobs']) unless map['ModelPackagingJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -479,7 +479,7 @@ module AWS::SDK::LookoutVision
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ModelPackagingJobMetadata.parse(value) unless value.nil?
+          data << ModelPackagingJobMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -506,7 +506,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::ListModelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.models = (Parsers::ModelMetadataList.parse(map['Models']) unless map['Models'].nil?)
+        data.models = (ModelMetadataList.parse(map['Models']) unless map['Models'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -516,7 +516,7 @@ module AWS::SDK::LookoutVision
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ModelMetadata.parse(value) unless value.nil?
+          data << ModelMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -527,7 +527,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::ListProjectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.projects = (Parsers::ProjectMetadataList.parse(map['Projects']) unless map['Projects'].nil?)
+        data.projects = (ProjectMetadataList.parse(map['Projects']) unless map['Projects'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -537,7 +537,7 @@ module AWS::SDK::LookoutVision
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProjectMetadata.parse(value) unless value.nil?
+          data << ProjectMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -548,7 +548,7 @@ module AWS::SDK::LookoutVision
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

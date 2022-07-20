@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkLink
   module Stubs
 
@@ -36,7 +38,7 @@ module AWS::SDK::WorkLink
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AuthorizationProviderId'] = stub[:authorization_provider_id] unless stub[:authorization_provider_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::WorkLink
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['WebsiteCaId'] = stub[:website_ca_id] unless stub[:website_ca_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::WorkLink
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::WorkLink
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AuditStreamArn'] = stub[:audit_stream_arn] unless stub[:audit_stream_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,9 +121,9 @@ module AWS::SDK::WorkLink
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::WorkLink
         data['FirstAccessedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:first_accessed_time]).to_i unless stub[:first_accessed_time].nil?
         data['LastAccessedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_accessed_time]).to_i unless stub[:last_accessed_time].nil?
         data['Username'] = stub[:username] unless stub[:username].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -211,7 +213,7 @@ module AWS::SDK::WorkLink
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeviceCaCertificate'] = stub[:device_ca_certificate] unless stub[:device_ca_certificate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -236,7 +238,7 @@ module AWS::SDK::WorkLink
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['DomainStatus'] = stub[:domain_status] unless stub[:domain_status].nil?
         data['AcmCertificateArn'] = stub[:acm_certificate_arn] unless stub[:acm_certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -266,8 +268,8 @@ module AWS::SDK::WorkLink
         data['OptimizeForEndUserLocation'] = stub[:optimize_for_end_user_location] unless stub[:optimize_for_end_user_location].nil?
         data['CompanyCode'] = stub[:company_code] unless stub[:company_code].nil?
         data['FleetStatus'] = stub[:fleet_status] unless stub[:fleet_status].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::WorkLink
         data['IdentityProviderType'] = stub[:identity_provider_type] unless stub[:identity_provider_type].nil?
         data['ServiceProviderSamlMetadata'] = stub[:service_provider_saml_metadata] unless stub[:service_provider_saml_metadata].nil?
         data['IdentityProviderSamlMetadata'] = stub[:identity_provider_saml_metadata] unless stub[:identity_provider_saml_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::WorkLink
         data['Certificate'] = stub[:certificate] unless stub[:certificate].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,9 +387,9 @@ module AWS::SDK::WorkLink
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Devices'] = Stubs::DeviceSummaryList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['Devices'] = DeviceSummaryList.stub(stub[:devices]) unless stub[:devices].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -405,7 +407,7 @@ module AWS::SDK::WorkLink
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceSummary.stub(element) unless element.nil?
+          data << DeviceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -444,9 +446,9 @@ module AWS::SDK::WorkLink
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Domains'] = Stubs::DomainSummaryList.stub(stub[:domains]) unless stub[:domains].nil?
+        data['Domains'] = DomainSummaryList.stub(stub[:domains]) unless stub[:domains].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -464,7 +466,7 @@ module AWS::SDK::WorkLink
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainSummary.stub(element) unless element.nil?
+          data << DomainSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -507,9 +509,9 @@ module AWS::SDK::WorkLink
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['FleetSummaryList'] = Stubs::FleetSummaryList.stub(stub[:fleet_summary_list]) unless stub[:fleet_summary_list].nil?
+        data['FleetSummaryList'] = FleetSummaryList.stub(stub[:fleet_summary_list]) unless stub[:fleet_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::WorkLink
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetSummary.stub(element) unless element.nil?
+          data << FleetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -560,7 +562,7 @@ module AWS::SDK::WorkLink
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['CompanyCode'] = stub[:company_code] unless stub[:company_code].nil?
         data['FleetStatus'] = stub[:fleet_status] unless stub[:fleet_status].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -577,8 +579,8 @@ module AWS::SDK::WorkLink
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,9 +597,9 @@ module AWS::SDK::WorkLink
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['WebsiteAuthorizationProviders'] = Stubs::WebsiteAuthorizationProvidersSummaryList.stub(stub[:website_authorization_providers]) unless stub[:website_authorization_providers].nil?
+        data['WebsiteAuthorizationProviders'] = WebsiteAuthorizationProvidersSummaryList.stub(stub[:website_authorization_providers]) unless stub[:website_authorization_providers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,7 +617,7 @@ module AWS::SDK::WorkLink
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WebsiteAuthorizationProviderSummary.stub(element) unless element.nil?
+          data << WebsiteAuthorizationProviderSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -658,9 +660,9 @@ module AWS::SDK::WorkLink
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['WebsiteCertificateAuthorities'] = Stubs::WebsiteCaSummaryList.stub(stub[:website_certificate_authorities]) unless stub[:website_certificate_authorities].nil?
+        data['WebsiteCertificateAuthorities'] = WebsiteCaSummaryList.stub(stub[:website_certificate_authorities]) unless stub[:website_certificate_authorities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -678,7 +680,7 @@ module AWS::SDK::WorkLink
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WebsiteCaSummary.stub(element) unless element.nil?
+          data << WebsiteCaSummary.stub(element) unless element.nil?
         end
         data
       end

@@ -112,7 +112,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_assignment_creation_status = (Parsers::AccountAssignmentOperationStatus.parse(map['AccountAssignmentCreationStatus']) unless map['AccountAssignmentCreationStatus'].nil?)
+        data.account_assignment_creation_status = (AccountAssignmentOperationStatus.parse(map['AccountAssignmentCreationStatus']) unless map['AccountAssignmentCreationStatus'].nil?)
         data
       end
     end
@@ -151,7 +151,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permission_set = (Parsers::PermissionSet.parse(map['PermissionSet']) unless map['PermissionSet'].nil?)
+        data.permission_set = (PermissionSet.parse(map['PermissionSet']) unless map['PermissionSet'].nil?)
         data
       end
     end
@@ -176,7 +176,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_assignment_deletion_status = (Parsers::AccountAssignmentOperationStatus.parse(map['AccountAssignmentDeletionStatus']) unless map['AccountAssignmentDeletionStatus'].nil?)
+        data.account_assignment_deletion_status = (AccountAssignmentOperationStatus.parse(map['AccountAssignmentDeletionStatus']) unless map['AccountAssignmentDeletionStatus'].nil?)
         data
       end
     end
@@ -221,7 +221,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_assignment_creation_status = (Parsers::AccountAssignmentOperationStatus.parse(map['AccountAssignmentCreationStatus']) unless map['AccountAssignmentCreationStatus'].nil?)
+        data.account_assignment_creation_status = (AccountAssignmentOperationStatus.parse(map['AccountAssignmentCreationStatus']) unless map['AccountAssignmentCreationStatus'].nil?)
         data
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_assignment_deletion_status = (Parsers::AccountAssignmentOperationStatus.parse(map['AccountAssignmentDeletionStatus']) unless map['AccountAssignmentDeletionStatus'].nil?)
+        data.account_assignment_deletion_status = (AccountAssignmentOperationStatus.parse(map['AccountAssignmentDeletionStatus']) unless map['AccountAssignmentDeletionStatus'].nil?)
         data
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::SSOAdmin
         map = Hearth::JSON.load(body)
         data.status = map['Status']
         data.status_reason = map['StatusReason']
-        data.instance_access_control_attribute_configuration = (Parsers::InstanceAccessControlAttributeConfiguration.parse(map['InstanceAccessControlAttributeConfiguration']) unless map['InstanceAccessControlAttributeConfiguration'].nil?)
+        data.instance_access_control_attribute_configuration = (InstanceAccessControlAttributeConfiguration.parse(map['InstanceAccessControlAttributeConfiguration']) unless map['InstanceAccessControlAttributeConfiguration'].nil?)
         data
       end
     end
@@ -255,7 +255,7 @@ module AWS::SDK::SSOAdmin
     class InstanceAccessControlAttributeConfiguration
       def self.parse(map)
         data = Types::InstanceAccessControlAttributeConfiguration.new
-        data.access_control_attributes = (Parsers::AccessControlAttributeList.parse(map['AccessControlAttributes']) unless map['AccessControlAttributes'].nil?)
+        data.access_control_attributes = (AccessControlAttributeList.parse(map['AccessControlAttributes']) unless map['AccessControlAttributes'].nil?)
         return data
       end
     end
@@ -263,7 +263,7 @@ module AWS::SDK::SSOAdmin
     class AccessControlAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccessControlAttribute.parse(value) unless value.nil?
+          AccessControlAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -272,7 +272,7 @@ module AWS::SDK::SSOAdmin
       def self.parse(map)
         data = Types::AccessControlAttribute.new
         data.key = map['Key']
-        data.value = (Parsers::AccessControlAttributeValue.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (AccessControlAttributeValue.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -280,7 +280,7 @@ module AWS::SDK::SSOAdmin
     class AccessControlAttributeValue
       def self.parse(map)
         data = Types::AccessControlAttributeValue.new
-        data.source = (Parsers::AccessControlAttributeValueSourceList.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (AccessControlAttributeValueSourceList.parse(map['Source']) unless map['Source'].nil?)
         return data
       end
     end
@@ -300,7 +300,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permission_set = (Parsers::PermissionSet.parse(map['PermissionSet']) unless map['PermissionSet'].nil?)
+        data.permission_set = (PermissionSet.parse(map['PermissionSet']) unless map['PermissionSet'].nil?)
         data
       end
     end
@@ -312,7 +312,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permission_set_provisioning_status = (Parsers::PermissionSetProvisioningStatus.parse(map['PermissionSetProvisioningStatus']) unless map['PermissionSetProvisioningStatus'].nil?)
+        data.permission_set_provisioning_status = (PermissionSetProvisioningStatus.parse(map['PermissionSetProvisioningStatus']) unless map['PermissionSetProvisioningStatus'].nil?)
         data
       end
     end
@@ -360,7 +360,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_assignments_creation_status = (Parsers::AccountAssignmentOperationStatusList.parse(map['AccountAssignmentsCreationStatus']) unless map['AccountAssignmentsCreationStatus'].nil?)
+        data.account_assignments_creation_status = (AccountAssignmentOperationStatusList.parse(map['AccountAssignmentsCreationStatus']) unless map['AccountAssignmentsCreationStatus'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -369,7 +369,7 @@ module AWS::SDK::SSOAdmin
     class AccountAssignmentOperationStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountAssignmentOperationStatusMetadata.parse(value) unless value.nil?
+          AccountAssignmentOperationStatusMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -391,7 +391,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_assignments_deletion_status = (Parsers::AccountAssignmentOperationStatusList.parse(map['AccountAssignmentsDeletionStatus']) unless map['AccountAssignmentsDeletionStatus'].nil?)
+        data.account_assignments_deletion_status = (AccountAssignmentOperationStatusList.parse(map['AccountAssignmentsDeletionStatus']) unless map['AccountAssignmentsDeletionStatus'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -404,7 +404,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_assignments = (Parsers::AccountAssignmentList.parse(map['AccountAssignments']) unless map['AccountAssignments'].nil?)
+        data.account_assignments = (AccountAssignmentList.parse(map['AccountAssignments']) unless map['AccountAssignments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -413,7 +413,7 @@ module AWS::SDK::SSOAdmin
     class AccountAssignmentList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountAssignment.parse(value) unless value.nil?
+          AccountAssignment.parse(value) unless value.nil?
         end
       end
     end
@@ -436,7 +436,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_ids = (Parsers::AccountList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
+        data.account_ids = (AccountList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -457,7 +457,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instances = (Parsers::InstanceList.parse(map['Instances']) unless map['Instances'].nil?)
+        data.instances = (InstanceList.parse(map['Instances']) unless map['Instances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -466,7 +466,7 @@ module AWS::SDK::SSOAdmin
     class InstanceList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceMetadata.parse(value) unless value.nil?
+          InstanceMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -487,7 +487,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attached_managed_policies = (Parsers::AttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
+        data.attached_managed_policies = (AttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -496,7 +496,7 @@ module AWS::SDK::SSOAdmin
     class AttachedManagedPolicyList
       def self.parse(list)
         list.map do |value|
-          Parsers::AttachedManagedPolicy.parse(value) unless value.nil?
+          AttachedManagedPolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permission_sets_provisioning_status = (Parsers::PermissionSetProvisioningStatusList.parse(map['PermissionSetsProvisioningStatus']) unless map['PermissionSetsProvisioningStatus'].nil?)
+        data.permission_sets_provisioning_status = (PermissionSetProvisioningStatusList.parse(map['PermissionSetsProvisioningStatus']) unless map['PermissionSetsProvisioningStatus'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -526,7 +526,7 @@ module AWS::SDK::SSOAdmin
     class PermissionSetProvisioningStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::PermissionSetProvisioningStatusMetadata.parse(value) unless value.nil?
+          PermissionSetProvisioningStatusMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -548,7 +548,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permission_sets = (Parsers::PermissionSetList.parse(map['PermissionSets']) unless map['PermissionSets'].nil?)
+        data.permission_sets = (PermissionSetList.parse(map['PermissionSets']) unless map['PermissionSets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -570,7 +570,7 @@ module AWS::SDK::SSOAdmin
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.permission_sets = (Parsers::PermissionSetList.parse(map['PermissionSets']) unless map['PermissionSets'].nil?)
+        data.permission_sets = (PermissionSetList.parse(map['PermissionSets']) unless map['PermissionSets'].nil?)
         data
       end
     end
@@ -582,7 +582,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -591,7 +591,7 @@ module AWS::SDK::SSOAdmin
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -612,7 +612,7 @@ module AWS::SDK::SSOAdmin
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permission_set_provisioning_status = (Parsers::PermissionSetProvisioningStatus.parse(map['PermissionSetProvisioningStatus']) unless map['PermissionSetProvisioningStatus'].nil?)
+        data.permission_set_provisioning_status = (PermissionSetProvisioningStatus.parse(map['PermissionSetProvisioningStatus']) unless map['PermissionSetProvisioningStatus'].nil?)
         data
       end
     end

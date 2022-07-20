@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeStar
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::CodeStar
       def self.stub(http_resp, stub:)
         data = {}
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -43,7 +45,7 @@ module AWS::SDK::CodeStar
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
         data['projectTemplateId'] = stub[:project_template_id] unless stub[:project_template_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::CodeStar
         data['sshPublicKey'] = stub[:ssh_public_key] unless stub[:ssh_public_key].nil?
         data['createdTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['lastModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_timestamp]).to_i unless stub[:last_modified_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -87,7 +89,7 @@ module AWS::SDK::CodeStar
         data = {}
         data['stackId'] = stub[:stack_id] unless stub[:stack_id].nil?
         data['projectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::CodeStar
       def self.stub(http_resp, stub:)
         data = {}
         data['userArn'] = stub[:user_arn] unless stub[:user_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -134,8 +136,8 @@ module AWS::SDK::CodeStar
         data['createdTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time_stamp]).to_i unless stub[:created_time_stamp].nil?
         data['stackId'] = stub[:stack_id] unless stub[:stack_id].nil?
         data['projectTemplateId'] = stub[:project_template_id] unless stub[:project_template_id].nil?
-        data['status'] = Stubs::ProjectStatus.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = ProjectStatus.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::CodeStar
         data['sshPublicKey'] = stub[:ssh_public_key] unless stub[:ssh_public_key].nil?
         data['createdTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['lastModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_timestamp]).to_i unless stub[:last_modified_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -211,9 +213,9 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['projects'] = Stubs::ProjectsList.stub(stub[:projects]) unless stub[:projects].nil?
+        data['projects'] = ProjectsList.stub(stub[:projects]) unless stub[:projects].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -232,7 +234,7 @@ module AWS::SDK::CodeStar
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSummary.stub(element) unless element.nil?
+          data << ProjectSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -269,9 +271,9 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['resources'] = Stubs::ResourcesResult.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = ResourcesResult.stub(stub[:resources]) unless stub[:resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::CodeStar
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -325,9 +327,9 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -363,9 +365,9 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['teamMembers'] = Stubs::TeamMemberResult.stub(stub[:team_members]) unless stub[:team_members].nil?
+        data['teamMembers'] = TeamMemberResult.stub(stub[:team_members]) unless stub[:team_members].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -384,7 +386,7 @@ module AWS::SDK::CodeStar
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TeamMember.stub(element) unless element.nil?
+          data << TeamMember.stub(element) unless element.nil?
         end
         data
       end
@@ -423,9 +425,9 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['userProfiles'] = Stubs::UserProfilesList.stub(stub[:user_profiles]) unless stub[:user_profiles].nil?
+        data['userProfiles'] = UserProfilesList.stub(stub[:user_profiles]) unless stub[:user_profiles].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -444,7 +446,7 @@ module AWS::SDK::CodeStar
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserProfileSummary.stub(element) unless element.nil?
+          data << UserProfileSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -484,8 +486,8 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -513,7 +515,7 @@ module AWS::SDK::CodeStar
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -533,7 +535,7 @@ module AWS::SDK::CodeStar
         data['userArn'] = stub[:user_arn] unless stub[:user_arn].nil?
         data['projectRole'] = stub[:project_role] unless stub[:project_role].nil?
         data['remoteAccessAllowed'] = stub[:remote_access_allowed] unless stub[:remote_access_allowed].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -559,7 +561,7 @@ module AWS::SDK::CodeStar
         data['sshPublicKey'] = stub[:ssh_public_key] unless stub[:ssh_public_key].nil?
         data['createdTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['lastModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_timestamp]).to_i unless stub[:last_modified_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

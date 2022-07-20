@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::FinspaceData
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::FinspaceData
         http_resp.headers['Content-Type'] = 'application/json'
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
         data['changesetId'] = stub[:changeset_id] unless stub[:changeset_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::FinspaceData
         http_resp.headers['Content-Type'] = 'application/json'
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
         data['dataViewId'] = stub[:data_view_id] unless stub[:data_view_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -78,7 +80,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['permissionGroupId'] = stub[:permission_group_id] unless stub[:permission_group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -95,7 +97,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['userId'] = stub[:user_id] unless stub[:user_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -112,7 +114,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,7 +131,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['permissionGroupId'] = stub[:permission_group_id] unless stub[:permission_group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -146,7 +148,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['userId'] = stub[:user_id] unless stub[:user_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['userId'] = stub[:user_id] unless stub[:user_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -195,16 +197,16 @@ module AWS::SDK::FinspaceData
         data['changesetArn'] = stub[:changeset_arn] unless stub[:changeset_arn].nil?
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
         data['changeType'] = stub[:change_type] unless stub[:change_type].nil?
-        data['sourceParams'] = Stubs::SourceParams.stub(stub[:source_params]) unless stub[:source_params].nil?
-        data['formatParams'] = Stubs::FormatParams.stub(stub[:format_params]) unless stub[:format_params].nil?
+        data['sourceParams'] = SourceParams.stub(stub[:source_params]) unless stub[:source_params].nil?
+        data['formatParams'] = FormatParams.stub(stub[:format_params]) unless stub[:format_params].nil?
         data['createTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['errorInfo'] = Stubs::ChangesetErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = ChangesetErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data['activeUntilTimestamp'] = stub[:active_until_timestamp] unless stub[:active_until_timestamp].nil?
         data['activeFromTimestamp'] = stub[:active_from_timestamp] unless stub[:active_from_timestamp].nil?
         data['updatesChangesetId'] = stub[:updates_changeset_id] unless stub[:updates_changeset_id].nil?
         data['updatedByChangesetId'] = stub[:updated_by_changeset_id] unless stub[:updated_by_changeset_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,18 +294,18 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['autoUpdate'] = stub[:auto_update] unless stub[:auto_update].nil?
-        data['partitionColumns'] = Stubs::PartitionColumnList.stub(stub[:partition_columns]) unless stub[:partition_columns].nil?
+        data['partitionColumns'] = PartitionColumnList.stub(stub[:partition_columns]) unless stub[:partition_columns].nil?
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
         data['asOfTimestamp'] = stub[:as_of_timestamp] unless stub[:as_of_timestamp].nil?
-        data['errorInfo'] = Stubs::DataViewErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = DataViewErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data['lastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         data['createTime'] = stub[:create_time] unless stub[:create_time].nil?
-        data['sortColumns'] = Stubs::SortColumnList.stub(stub[:sort_columns]) unless stub[:sort_columns].nil?
+        data['sortColumns'] = SortColumnList.stub(stub[:sort_columns]) unless stub[:sort_columns].nil?
         data['dataViewId'] = stub[:data_view_id] unless stub[:data_view_id].nil?
         data['dataViewArn'] = stub[:data_view_arn] unless stub[:data_view_arn].nil?
-        data['destinationTypeParams'] = Stubs::DataViewDestinationTypeParams.stub(stub[:destination_type_params]) unless stub[:destination_type_params].nil?
+        data['destinationTypeParams'] = DataViewDestinationTypeParams.stub(stub[:destination_type_params]) unless stub[:destination_type_params].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::FinspaceData
         data = {}
         data['destinationType'] = stub[:destination_type] unless stub[:destination_type].nil?
         data['s3DestinationExportFileFormat'] = stub[:s3_destination_export_file_format] unless stub[:s3_destination_export_file_format].nil?
-        data['s3DestinationExportFileFormatOptions'] = Stubs::S3DestinationFormatOptions.stub(stub[:s3_destination_export_file_format_options]) unless stub[:s3_destination_export_file_format_options].nil?
+        data['s3DestinationExportFileFormatOptions'] = S3DestinationFormatOptions.stub(stub[:s3_destination_export_file_format_options]) unless stub[:s3_destination_export_file_format_options].nil?
         data
       end
     end
@@ -437,10 +439,10 @@ module AWS::SDK::FinspaceData
         data['datasetDescription'] = stub[:dataset_description] unless stub[:dataset_description].nil?
         data['createTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['lastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
-        data['schemaDefinition'] = Stubs::SchemaUnion.stub(stub[:schema_definition]) unless stub[:schema_definition].nil?
+        data['schemaDefinition'] = SchemaUnion.stub(stub[:schema_definition]) unless stub[:schema_definition].nil?
         data['alias'] = stub[:alias] unless stub[:alias].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -457,7 +459,7 @@ module AWS::SDK::FinspaceData
       def self.stub(stub)
         stub ||= Types::SchemaUnion.new
         data = {}
-        data['tabularSchemaConfig'] = Stubs::SchemaDefinition.stub(stub[:tabular_schema_config]) unless stub[:tabular_schema_config].nil?
+        data['tabularSchemaConfig'] = SchemaDefinition.stub(stub[:tabular_schema_config]) unless stub[:tabular_schema_config].nil?
         data
       end
     end
@@ -476,8 +478,8 @@ module AWS::SDK::FinspaceData
       def self.stub(stub)
         stub ||= Types::SchemaDefinition.new
         data = {}
-        data['columns'] = Stubs::ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
-        data['primaryKeyColumns'] = Stubs::ColumnNameList.stub(stub[:primary_key_columns]) unless stub[:primary_key_columns].nil?
+        data['columns'] = ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['primaryKeyColumns'] = ColumnNameList.stub(stub[:primary_key_columns]) unless stub[:primary_key_columns].nil?
         data
       end
     end
@@ -516,7 +518,7 @@ module AWS::SDK::FinspaceData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnDefinition.stub(element) unless element.nil?
+          data << ColumnDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -557,9 +559,9 @@ module AWS::SDK::FinspaceData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['credentials'] = Stubs::Credentials.stub(stub[:credentials]) unless stub[:credentials].nil?
+        data['credentials'] = Credentials.stub(stub[:credentials]) unless stub[:credentials].nil?
         data['durationInMinutes'] = stub[:duration_in_minutes] unless stub[:duration_in_minutes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -622,7 +624,7 @@ module AWS::SDK::FinspaceData
         data['lastDisabledTime'] = stub[:last_disabled_time] unless stub[:last_disabled_time].nil?
         data['lastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         data['lastLoginTime'] = stub[:last_login_time] unless stub[:last_login_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -643,7 +645,7 @@ module AWS::SDK::FinspaceData
         data['s3Uri'] = stub[:s3_uri] unless stub[:s3_uri].nil?
         data['s3Path'] = stub[:s3_path] unless stub[:s3_path].nil?
         data['s3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -660,9 +662,9 @@ module AWS::SDK::FinspaceData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['changesets'] = Stubs::ChangesetList.stub(stub[:changesets]) unless stub[:changesets].nil?
+        data['changesets'] = ChangesetList.stub(stub[:changesets]) unless stub[:changesets].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -680,7 +682,7 @@ module AWS::SDK::FinspaceData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChangesetSummary.stub(element) unless element.nil?
+          data << ChangesetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -715,11 +717,11 @@ module AWS::SDK::FinspaceData
         data['changesetArn'] = stub[:changeset_arn] unless stub[:changeset_arn].nil?
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
         data['changeType'] = stub[:change_type] unless stub[:change_type].nil?
-        data['sourceParams'] = Stubs::SourceParams.stub(stub[:source_params]) unless stub[:source_params].nil?
-        data['formatParams'] = Stubs::FormatParams.stub(stub[:format_params]) unless stub[:format_params].nil?
+        data['sourceParams'] = SourceParams.stub(stub[:source_params]) unless stub[:source_params].nil?
+        data['formatParams'] = FormatParams.stub(stub[:format_params]) unless stub[:format_params].nil?
         data['createTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['errorInfo'] = Stubs::ChangesetErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = ChangesetErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data['activeUntilTimestamp'] = stub[:active_until_timestamp] unless stub[:active_until_timestamp].nil?
         data['activeFromTimestamp'] = stub[:active_from_timestamp] unless stub[:active_from_timestamp].nil?
         data['updatesChangesetId'] = stub[:updates_changeset_id] unless stub[:updates_changeset_id].nil?
@@ -742,8 +744,8 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['dataViews'] = Stubs::DataViewList.stub(stub[:data_views]) unless stub[:data_views].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataViews'] = DataViewList.stub(stub[:data_views]) unless stub[:data_views].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -761,7 +763,7 @@ module AWS::SDK::FinspaceData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataViewSummary.stub(element) unless element.nil?
+          data << DataViewSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -795,11 +797,11 @@ module AWS::SDK::FinspaceData
         data['dataViewArn'] = stub[:data_view_arn] unless stub[:data_view_arn].nil?
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
         data['asOfTimestamp'] = stub[:as_of_timestamp] unless stub[:as_of_timestamp].nil?
-        data['partitionColumns'] = Stubs::PartitionColumnList.stub(stub[:partition_columns]) unless stub[:partition_columns].nil?
-        data['sortColumns'] = Stubs::SortColumnList.stub(stub[:sort_columns]) unless stub[:sort_columns].nil?
+        data['partitionColumns'] = PartitionColumnList.stub(stub[:partition_columns]) unless stub[:partition_columns].nil?
+        data['sortColumns'] = SortColumnList.stub(stub[:sort_columns]) unless stub[:sort_columns].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['errorInfo'] = Stubs::DataViewErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
-        data['destinationTypeProperties'] = Stubs::DataViewDestinationTypeParams.stub(stub[:destination_type_properties]) unless stub[:destination_type_properties].nil?
+        data['errorInfo'] = DataViewErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['destinationTypeProperties'] = DataViewDestinationTypeParams.stub(stub[:destination_type_properties]) unless stub[:destination_type_properties].nil?
         data['autoUpdate'] = stub[:auto_update] unless stub[:auto_update].nil?
         data['createTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['lastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
@@ -820,9 +822,9 @@ module AWS::SDK::FinspaceData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['datasets'] = Stubs::DatasetList.stub(stub[:datasets]) unless stub[:datasets].nil?
+        data['datasets'] = DatasetList.stub(stub[:datasets]) unless stub[:datasets].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,7 +842,7 @@ module AWS::SDK::FinspaceData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Dataset.stub(element) unless element.nil?
+          data << Dataset.stub(element) unless element.nil?
         end
         data
       end
@@ -873,10 +875,10 @@ module AWS::SDK::FinspaceData
         data['datasetTitle'] = stub[:dataset_title] unless stub[:dataset_title].nil?
         data['kind'] = stub[:kind] unless stub[:kind].nil?
         data['datasetDescription'] = stub[:dataset_description] unless stub[:dataset_description].nil?
-        data['ownerInfo'] = Stubs::DatasetOwnerInfo.stub(stub[:owner_info]) unless stub[:owner_info].nil?
+        data['ownerInfo'] = DatasetOwnerInfo.stub(stub[:owner_info]) unless stub[:owner_info].nil?
         data['createTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['lastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
-        data['schemaDefinition'] = Stubs::SchemaUnion.stub(stub[:schema_definition]) unless stub[:schema_definition].nil?
+        data['schemaDefinition'] = SchemaUnion.stub(stub[:schema_definition]) unless stub[:schema_definition].nil?
         data['alias'] = stub[:alias] unless stub[:alias].nil?
         data
       end
@@ -917,9 +919,9 @@ module AWS::SDK::FinspaceData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['permissionGroups'] = Stubs::PermissionGroupList.stub(stub[:permission_groups]) unless stub[:permission_groups].nil?
+        data['permissionGroups'] = PermissionGroupList.stub(stub[:permission_groups]) unless stub[:permission_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -937,7 +939,7 @@ module AWS::SDK::FinspaceData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PermissionGroup.stub(element) unless element.nil?
+          data << PermissionGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -964,7 +966,7 @@ module AWS::SDK::FinspaceData
         data['permissionGroupId'] = stub[:permission_group_id] unless stub[:permission_group_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['applicationPermissions'] = Stubs::ApplicationPermissionList.stub(stub[:application_permissions]) unless stub[:application_permissions].nil?
+        data['applicationPermissions'] = ApplicationPermissionList.stub(stub[:application_permissions]) unless stub[:application_permissions].nil?
         data['createTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['lastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         data
@@ -1004,9 +1006,9 @@ module AWS::SDK::FinspaceData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['users'] = Stubs::UserList.stub(stub[:users]) unless stub[:users].nil?
+        data['users'] = UserList.stub(stub[:users]) unless stub[:users].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1024,7 +1026,7 @@ module AWS::SDK::FinspaceData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end
@@ -1087,7 +1089,7 @@ module AWS::SDK::FinspaceData
         http_resp.headers['Content-Type'] = 'application/json'
         data['userId'] = stub[:user_id] unless stub[:user_id].nil?
         data['temporaryPassword'] = stub[:temporary_password] unless stub[:temporary_password].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1106,7 +1108,7 @@ module AWS::SDK::FinspaceData
         http_resp.headers['Content-Type'] = 'application/json'
         data['changesetId'] = stub[:changeset_id] unless stub[:changeset_id].nil?
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1123,7 +1125,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['datasetId'] = stub[:dataset_id] unless stub[:dataset_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1140,7 +1142,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['permissionGroupId'] = stub[:permission_group_id] unless stub[:permission_group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1157,7 +1159,7 @@ module AWS::SDK::FinspaceData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['userId'] = stub[:user_id] unless stub[:user_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSMIncidents
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::SSMIncidents
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::SSMIncidents
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::SSMIncidents
         http_resp.headers['Content-Type'] = 'application/json'
         data['incidentRecordArn'] = stub[:incident_record_arn] unless stub[:incident_record_arn].nil?
         data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -140,8 +142,8 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['incidentRecord'] = Stubs::IncidentRecord.stub(stub[:incident_record]) unless stub[:incident_record].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['incidentRecord'] = IncidentRecord.stub(stub[:incident_record]) unless stub[:incident_record].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -180,11 +182,11 @@ module AWS::SDK::SSMIncidents
         data['resolvedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:resolved_time]).to_i unless stub[:resolved_time].nil?
         data['lastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['lastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
-        data['automationExecutions'] = Stubs::AutomationExecutionSet.stub(stub[:automation_executions]) unless stub[:automation_executions].nil?
-        data['incidentRecordSource'] = Stubs::IncidentRecordSource.stub(stub[:incident_record_source]) unless stub[:incident_record_source].nil?
+        data['automationExecutions'] = AutomationExecutionSet.stub(stub[:automation_executions]) unless stub[:automation_executions].nil?
+        data['incidentRecordSource'] = IncidentRecordSource.stub(stub[:incident_record_source]) unless stub[:incident_record_source].nil?
         data['dedupeString'] = stub[:dedupe_string] unless stub[:dedupe_string].nil?
-        data['chatChannel'] = Stubs::ChatChannel.stub(stub[:chat_channel]) unless stub[:chat_channel].nil?
-        data['notificationTargets'] = Stubs::NotificationTargetSet.stub(stub[:notification_targets]) unless stub[:notification_targets].nil?
+        data['chatChannel'] = ChatChannel.stub(stub[:chat_channel]) unless stub[:chat_channel].nil?
+        data['notificationTargets'] = NotificationTargetSet.stub(stub[:notification_targets]) unless stub[:notification_targets].nil?
         data
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotificationTargetItem.stub(element) unless element.nil?
+          data << NotificationTargetItem.stub(element) unless element.nil?
         end
         data
       end
@@ -247,9 +249,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         case stub
         when Types::ChatChannel::Empty
-          data['empty'] = (Stubs::EmptyChatChannel.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['empty'] = (EmptyChatChannel.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ChatChannel::ChatbotSns
-          data['chatbotSns'] = (Stubs::ChatbotSnsConfigurationSet.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['chatbotSns'] = (ChatbotSnsConfigurationSet.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ChatChannel"
@@ -333,7 +335,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutomationExecution.stub(element) unless element.nil?
+          data << AutomationExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -375,8 +377,8 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['replicationSet'] = Stubs::ReplicationSet.stub(stub[:replication_set]) unless stub[:replication_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['replicationSet'] = ReplicationSet.stub(stub[:replication_set]) unless stub[:replication_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::SSMIncidents
         stub ||= Types::ReplicationSet.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['regionMap'] = Stubs::RegionInfoMap.stub(stub[:region_map]) unless stub[:region_map].nil?
+        data['regionMap'] = RegionInfoMap.stub(stub[:region_map]) unless stub[:region_map].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['deletionProtected'] = stub[:deletion_protected] unless stub[:deletion_protected].nil?
         data['createdTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
@@ -426,7 +428,7 @@ module AWS::SDK::SSMIncidents
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::RegionInfo.stub(value) unless value.nil?
+          data[key] = RegionInfo.stub(value) unless value.nil?
         end
         data
       end
@@ -469,9 +471,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourcePolicies'] = Stubs::ResourcePolicyList.stub(stub[:resource_policies]) unless stub[:resource_policies].nil?
+        data['resourcePolicies'] = ResourcePolicyList.stub(stub[:resource_policies]) unless stub[:resource_policies].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -489,7 +491,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourcePolicy.stub(element) unless element.nil?
+          data << ResourcePolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -538,11 +540,11 @@ module AWS::SDK::SSMIncidents
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['incidentTemplate'] = Stubs::IncidentTemplate.stub(stub[:incident_template]) unless stub[:incident_template].nil?
-        data['chatChannel'] = Stubs::ChatChannel.stub(stub[:chat_channel]) unless stub[:chat_channel].nil?
-        data['engagements'] = Stubs::EngagementSet.stub(stub[:engagements]) unless stub[:engagements].nil?
-        data['actions'] = Stubs::ActionsList.stub(stub[:actions]) unless stub[:actions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['incidentTemplate'] = IncidentTemplate.stub(stub[:incident_template]) unless stub[:incident_template].nil?
+        data['chatChannel'] = ChatChannel.stub(stub[:chat_channel]) unless stub[:chat_channel].nil?
+        data['engagements'] = EngagementSet.stub(stub[:engagements]) unless stub[:engagements].nil?
+        data['actions'] = ActionsList.stub(stub[:actions]) unless stub[:actions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Action.stub(element) unless element.nil?
+          data << Action.stub(element) unless element.nil?
         end
         data
       end
@@ -580,7 +582,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         case stub
         when Types::Action::SsmAutomation
-          data['ssmAutomation'] = (Stubs::SsmAutomation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ssmAutomation'] = (SsmAutomation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Action"
@@ -612,8 +614,8 @@ module AWS::SDK::SSMIncidents
         data['documentName'] = stub[:document_name] unless stub[:document_name].nil?
         data['documentVersion'] = stub[:document_version] unless stub[:document_version].nil?
         data['targetAccount'] = stub[:target_account] unless stub[:target_account].nil?
-        data['parameters'] = Stubs::SsmParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['dynamicParameters'] = Stubs::DynamicSsmParameters.stub(stub[:dynamic_parameters]) unless stub[:dynamic_parameters].nil?
+        data['parameters'] = SsmParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['dynamicParameters'] = DynamicSsmParameters.stub(stub[:dynamic_parameters]) unless stub[:dynamic_parameters].nil?
         data
       end
     end
@@ -632,7 +634,7 @@ module AWS::SDK::SSMIncidents
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::DynamicSsmParameterValue.stub(value) unless value.nil?
+          data[key] = DynamicSsmParameterValue.stub(value) unless value.nil?
         end
         data
       end
@@ -676,7 +678,7 @@ module AWS::SDK::SSMIncidents
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::SsmParameterValues.stub(value) unless value.nil?
+          data[key] = SsmParameterValues.stub(value) unless value.nil?
         end
         data
       end
@@ -743,7 +745,7 @@ module AWS::SDK::SSMIncidents
         data['impact'] = stub[:impact] unless stub[:impact].nil?
         data['summary'] = stub[:summary] unless stub[:summary].nil?
         data['dedupeString'] = stub[:dedupe_string] unless stub[:dedupe_string].nil?
-        data['notificationTargets'] = Stubs::NotificationTargetSet.stub(stub[:notification_targets]) unless stub[:notification_targets].nil?
+        data['notificationTargets'] = NotificationTargetSet.stub(stub[:notification_targets]) unless stub[:notification_targets].nil?
         data
       end
     end
@@ -760,8 +762,8 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['event'] = Stubs::TimelineEvent.stub(stub[:event]) unless stub[:event].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['event'] = TimelineEvent.stub(stub[:event]) unless stub[:event].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -806,9 +808,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['incidentRecordSummaries'] = Stubs::IncidentRecordSummaryList.stub(stub[:incident_record_summaries]) unless stub[:incident_record_summaries].nil?
+        data['incidentRecordSummaries'] = IncidentRecordSummaryList.stub(stub[:incident_record_summaries]) unless stub[:incident_record_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -826,7 +828,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IncidentRecordSummary.stub(element) unless element.nil?
+          data << IncidentRecordSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -857,7 +859,7 @@ module AWS::SDK::SSMIncidents
         data['impact'] = stub[:impact] unless stub[:impact].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['resolvedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:resolved_time]).to_i unless stub[:resolved_time].nil?
-        data['incidentRecordSource'] = Stubs::IncidentRecordSource.stub(stub[:incident_record_source]) unless stub[:incident_record_source].nil?
+        data['incidentRecordSource'] = IncidentRecordSource.stub(stub[:incident_record_source]) unless stub[:incident_record_source].nil?
         data
       end
     end
@@ -875,9 +877,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['relatedItems'] = Stubs::RelatedItemList.stub(stub[:related_items]) unless stub[:related_items].nil?
+        data['relatedItems'] = RelatedItemList.stub(stub[:related_items]) unless stub[:related_items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -895,7 +897,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelatedItem.stub(element) unless element.nil?
+          data << RelatedItem.stub(element) unless element.nil?
         end
         data
       end
@@ -915,7 +917,7 @@ module AWS::SDK::SSMIncidents
       def self.stub(stub)
         stub ||= Types::RelatedItem.new
         data = {}
-        data['identifier'] = Stubs::ItemIdentifier.stub(stub[:identifier]) unless stub[:identifier].nil?
+        data['identifier'] = ItemIdentifier.stub(stub[:identifier]) unless stub[:identifier].nil?
         data['title'] = stub[:title] unless stub[:title].nil?
         data
       end
@@ -935,7 +937,7 @@ module AWS::SDK::SSMIncidents
       def self.stub(stub)
         stub ||= Types::ItemIdentifier.new
         data = {}
-        data['value'] = Stubs::ItemValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = ItemValue.stub(stub[:value]) unless stub[:value].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -982,9 +984,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['replicationSetArns'] = Stubs::ReplicationSetArnList.stub(stub[:replication_set_arns]) unless stub[:replication_set_arns].nil?
+        data['replicationSetArns'] = ReplicationSetArnList.stub(stub[:replication_set_arns]) unless stub[:replication_set_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1021,9 +1023,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['responsePlanSummaries'] = Stubs::ResponsePlanSummaryList.stub(stub[:response_plan_summaries]) unless stub[:response_plan_summaries].nil?
+        data['responsePlanSummaries'] = ResponsePlanSummaryList.stub(stub[:response_plan_summaries]) unless stub[:response_plan_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1041,7 +1043,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResponsePlanSummary.stub(element) unless element.nil?
+          data << ResponsePlanSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1081,8 +1083,8 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,9 +1121,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['eventSummaries'] = Stubs::EventSummaryList.stub(stub[:event_summaries]) unless stub[:event_summaries].nil?
+        data['eventSummaries'] = EventSummaryList.stub(stub[:event_summaries]) unless stub[:event_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1139,7 +1141,7 @@ module AWS::SDK::SSMIncidents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventSummary.stub(element) unless element.nil?
+          data << EventSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1184,7 +1186,7 @@ module AWS::SDK::SSMIncidents
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['policyId'] = stub[:policy_id] unless stub[:policy_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1201,7 +1203,7 @@ module AWS::SDK::SSMIncidents
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['incidentRecordArn'] = stub[:incident_record_arn] unless stub[:incident_record_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

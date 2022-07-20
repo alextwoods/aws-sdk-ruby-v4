@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::QuickSight
   module Stubs
 
@@ -30,7 +32,7 @@ module AWS::SDK::QuickSight
         data['IngestionId'] = stub[:ingestion_id] unless stub[:ingestion_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,10 +57,10 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['AwsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
         data['Namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['AccountCustomization'] = Stubs::AccountCustomization.stub(stub[:account_customization]) unless stub[:account_customization].nil?
+        data['AccountCustomization'] = AccountCustomization.stub(stub[:account_customization]) unless stub[:account_customization].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -104,7 +106,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::QuickSight
         data['IngestionId'] = stub[:ingestion_id] unless stub[:ingestion_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -186,7 +188,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +212,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['FolderId'] = stub[:folder_id] unless stub[:folder_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -229,9 +231,9 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['FolderMember'] = Stubs::FolderMember.stub(stub[:folder_member]) unless stub[:folder_member].nil?
+        data['FolderMember'] = FolderMember.stub(stub[:folder_member]) unless stub[:folder_member].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -270,10 +272,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -316,10 +318,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupMember'] = Stubs::GroupMember.stub(stub[:group_member]) unless stub[:group_member].nil?
+        data['GroupMember'] = GroupMember.stub(stub[:group_member]) unless stub[:group_member].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,10 +368,10 @@ module AWS::SDK::QuickSight
         data['AssignmentId'] = stub[:assignment_id] unless stub[:assignment_id].nil?
         data['AssignmentStatus'] = stub[:assignment_status] unless stub[:assignment_status].nil?
         data['PolicyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        data['Identities'] = Stubs::IdentityMap.stub(stub[:identities]) unless stub[:identities].nil?
+        data['Identities'] = IdentityMap.stub(stub[:identities]) unless stub[:identities].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,7 +389,7 @@ module AWS::SDK::QuickSight
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::IdentityNameList.stub(value) unless value.nil?
+          data[key] = IdentityNameList.stub(value) unless value.nil?
         end
         data
       end
@@ -435,7 +437,7 @@ module AWS::SDK::QuickSight
         data['IngestionStatus'] = stub[:ingestion_status] unless stub[:ingestion_status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -465,7 +467,7 @@ module AWS::SDK::QuickSight
         data['IdentityStore'] = stub[:identity_store] unless stub[:identity_store].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -493,7 +495,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -512,10 +514,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TemplateAlias'] = Stubs::TemplateAlias.stub(stub[:template_alias]) unless stub[:template_alias].nil?
+        data['TemplateAlias'] = TemplateAlias.stub(stub[:template_alias]) unless stub[:template_alias].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -565,7 +567,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,10 +586,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ThemeAlias'] = Stubs::ThemeAlias.stub(stub[:theme_alias]) unless stub[:theme_alias].nil?
+        data['ThemeAlias'] = ThemeAlias.stub(stub[:theme_alias]) unless stub[:theme_alias].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -629,7 +631,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::QuickSight
         data['AnalysisId'] = stub[:analysis_id] unless stub[:analysis_id].nil?
         data['DeletionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deletion_time]).to_i unless stub[:deletion_time].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['DashboardId'] = stub[:dashboard_id] unless stub[:dashboard_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -703,7 +705,7 @@ module AWS::SDK::QuickSight
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -727,7 +729,7 @@ module AWS::SDK::QuickSight
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['FolderId'] = stub[:folder_id] unless stub[:folder_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -770,7 +772,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -790,7 +792,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -810,7 +812,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -832,7 +834,7 @@ module AWS::SDK::QuickSight
         data['AssignmentName'] = stub[:assignment_name] unless stub[:assignment_name].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -852,7 +854,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -876,7 +878,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['TemplateId'] = stub[:template_id] unless stub[:template_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -902,7 +904,7 @@ module AWS::SDK::QuickSight
         data['AliasName'] = stub[:alias_name] unless stub[:alias_name].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -926,7 +928,7 @@ module AWS::SDK::QuickSight
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ThemeId'] = stub[:theme_id] unless stub[:theme_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -952,7 +954,7 @@ module AWS::SDK::QuickSight
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ThemeId'] = stub[:theme_id] unless stub[:theme_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -972,7 +974,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -992,7 +994,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1017,10 +1019,10 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['AwsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
         data['Namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['AccountCustomization'] = Stubs::AccountCustomization.stub(stub[:account_customization]) unless stub[:account_customization].nil?
+        data['AccountCustomization'] = AccountCustomization.stub(stub[:account_customization]) unless stub[:account_customization].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1039,10 +1041,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AccountSettings'] = Stubs::AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
+        data['AccountSettings'] = AccountSettings.stub(stub[:account_settings]) unless stub[:account_settings].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1087,10 +1089,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Analysis'] = Stubs::Analysis.stub(stub[:analysis]) unless stub[:analysis].nil?
+        data['Analysis'] = Analysis.stub(stub[:analysis]) unless stub[:analysis].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1120,12 +1122,12 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Errors'] = Stubs::AnalysisErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        data['DataSetArns'] = Stubs::DataSetArnsList.stub(stub[:data_set_arns]) unless stub[:data_set_arns].nil?
+        data['Errors'] = AnalysisErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        data['DataSetArns'] = DataSetArnsList.stub(stub[:data_set_arns]) unless stub[:data_set_arns].nil?
         data['ThemeArn'] = stub[:theme_arn] unless stub[:theme_arn].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        data['Sheets'] = Stubs::SheetList.stub(stub[:sheets]) unless stub[:sheets].nil?
+        data['Sheets'] = SheetList.stub(stub[:sheets]) unless stub[:sheets].nil?
         data
       end
     end
@@ -1144,7 +1146,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Sheet.stub(element) unless element.nil?
+          data << Sheet.stub(element) unless element.nil?
         end
         data
       end
@@ -1204,7 +1206,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnalysisError.stub(element) unless element.nil?
+          data << AnalysisError.stub(element) unless element.nil?
         end
         data
       end
@@ -1249,10 +1251,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['AnalysisId'] = stub[:analysis_id] unless stub[:analysis_id].nil?
         data['AnalysisArn'] = stub[:analysis_arn] unless stub[:analysis_arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1270,7 +1272,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourcePermission.stub(element) unless element.nil?
+          data << ResourcePermission.stub(element) unless element.nil?
         end
         data
       end
@@ -1291,7 +1293,7 @@ module AWS::SDK::QuickSight
         stub ||= Types::ResourcePermission.new
         data = {}
         data['Principal'] = stub[:principal] unless stub[:principal].nil?
-        data['Actions'] = Stubs::ActionList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['Actions'] = ActionList.stub(stub[:actions]) unless stub[:actions].nil?
         data
       end
     end
@@ -1331,10 +1333,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Dashboard'] = Stubs::Dashboard.stub(stub[:dashboard]) unless stub[:dashboard].nil?
+        data['Dashboard'] = Dashboard.stub(stub[:dashboard]) unless stub[:dashboard].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1360,7 +1362,7 @@ module AWS::SDK::QuickSight
         data['DashboardId'] = stub[:dashboard_id] unless stub[:dashboard_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Version'] = Stubs::DashboardVersion.stub(stub[:version]) unless stub[:version].nil?
+        data['Version'] = DashboardVersion.stub(stub[:version]) unless stub[:version].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastPublishedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_published_time]).to_i unless stub[:last_published_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
@@ -1391,15 +1393,15 @@ module AWS::SDK::QuickSight
         stub ||= Types::DashboardVersion.new
         data = {}
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['Errors'] = Stubs::DashboardErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        data['Errors'] = DashboardErrorList.stub(stub[:errors]) unless stub[:errors].nil?
         data['VersionNumber'] = stub[:version_number] unless stub[:version_number].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['SourceEntityArn'] = stub[:source_entity_arn] unless stub[:source_entity_arn].nil?
-        data['DataSetArns'] = Stubs::DataSetArnsList.stub(stub[:data_set_arns]) unless stub[:data_set_arns].nil?
+        data['DataSetArns'] = DataSetArnsList.stub(stub[:data_set_arns]) unless stub[:data_set_arns].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ThemeArn'] = stub[:theme_arn] unless stub[:theme_arn].nil?
-        data['Sheets'] = Stubs::SheetList.stub(stub[:sheets]) unless stub[:sheets].nil?
+        data['Sheets'] = SheetList.stub(stub[:sheets]) unless stub[:sheets].nil?
         data
       end
     end
@@ -1418,7 +1420,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DashboardError.stub(element) unless element.nil?
+          data << DashboardError.stub(element) unless element.nil?
         end
         data
       end
@@ -1464,11 +1466,11 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['DashboardId'] = stub[:dashboard_id] unless stub[:dashboard_id].nil?
         data['DashboardArn'] = stub[:dashboard_arn] unless stub[:dashboard_arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['LinkSharingConfiguration'] = Stubs::LinkSharingConfiguration.stub(stub[:link_sharing_configuration]) unless stub[:link_sharing_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LinkSharingConfiguration'] = LinkSharingConfiguration.stub(stub[:link_sharing_configuration]) unless stub[:link_sharing_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1485,7 +1487,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::LinkSharingConfiguration.new
         data = {}
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data
       end
     end
@@ -1505,10 +1507,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataSet'] = Stubs::DataSet.stub(stub[:data_set]) unless stub[:data_set].nil?
+        data['DataSet'] = DataSet.stub(stub[:data_set]) unless stub[:data_set].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1545,17 +1547,17 @@ module AWS::SDK::QuickSight
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        data['PhysicalTableMap'] = Stubs::PhysicalTableMap.stub(stub[:physical_table_map]) unless stub[:physical_table_map].nil?
-        data['LogicalTableMap'] = Stubs::LogicalTableMap.stub(stub[:logical_table_map]) unless stub[:logical_table_map].nil?
-        data['OutputColumns'] = Stubs::OutputColumnList.stub(stub[:output_columns]) unless stub[:output_columns].nil?
+        data['PhysicalTableMap'] = PhysicalTableMap.stub(stub[:physical_table_map]) unless stub[:physical_table_map].nil?
+        data['LogicalTableMap'] = LogicalTableMap.stub(stub[:logical_table_map]) unless stub[:logical_table_map].nil?
+        data['OutputColumns'] = OutputColumnList.stub(stub[:output_columns]) unless stub[:output_columns].nil?
         data['ImportMode'] = stub[:import_mode] unless stub[:import_mode].nil?
         data['ConsumedSpiceCapacityInBytes'] = stub[:consumed_spice_capacity_in_bytes] unless stub[:consumed_spice_capacity_in_bytes].nil?
-        data['ColumnGroups'] = Stubs::ColumnGroupList.stub(stub[:column_groups]) unless stub[:column_groups].nil?
-        data['FieldFolders'] = Stubs::FieldFolderMap.stub(stub[:field_folders]) unless stub[:field_folders].nil?
-        data['RowLevelPermissionDataSet'] = Stubs::RowLevelPermissionDataSet.stub(stub[:row_level_permission_data_set]) unless stub[:row_level_permission_data_set].nil?
-        data['RowLevelPermissionTagConfiguration'] = Stubs::RowLevelPermissionTagConfiguration.stub(stub[:row_level_permission_tag_configuration]) unless stub[:row_level_permission_tag_configuration].nil?
-        data['ColumnLevelPermissionRules'] = Stubs::ColumnLevelPermissionRuleList.stub(stub[:column_level_permission_rules]) unless stub[:column_level_permission_rules].nil?
-        data['DataSetUsageConfiguration'] = Stubs::DataSetUsageConfiguration.stub(stub[:data_set_usage_configuration]) unless stub[:data_set_usage_configuration].nil?
+        data['ColumnGroups'] = ColumnGroupList.stub(stub[:column_groups]) unless stub[:column_groups].nil?
+        data['FieldFolders'] = FieldFolderMap.stub(stub[:field_folders]) unless stub[:field_folders].nil?
+        data['RowLevelPermissionDataSet'] = RowLevelPermissionDataSet.stub(stub[:row_level_permission_data_set]) unless stub[:row_level_permission_data_set].nil?
+        data['RowLevelPermissionTagConfiguration'] = RowLevelPermissionTagConfiguration.stub(stub[:row_level_permission_tag_configuration]) unless stub[:row_level_permission_tag_configuration].nil?
+        data['ColumnLevelPermissionRules'] = ColumnLevelPermissionRuleList.stub(stub[:column_level_permission_rules]) unless stub[:column_level_permission_rules].nil?
+        data['DataSetUsageConfiguration'] = DataSetUsageConfiguration.stub(stub[:data_set_usage_configuration]) unless stub[:data_set_usage_configuration].nil?
         data
       end
     end
@@ -1594,7 +1596,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnLevelPermissionRule.stub(element) unless element.nil?
+          data << ColumnLevelPermissionRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1614,8 +1616,8 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::ColumnLevelPermissionRule.new
         data = {}
-        data['Principals'] = Stubs::PrincipalList.stub(stub[:principals]) unless stub[:principals].nil?
-        data['ColumnNames'] = Stubs::ColumnNameList.stub(stub[:column_names]) unless stub[:column_names].nil?
+        data['Principals'] = PrincipalList.stub(stub[:principals]) unless stub[:principals].nil?
+        data['ColumnNames'] = ColumnNameList.stub(stub[:column_names]) unless stub[:column_names].nil?
         data
       end
     end
@@ -1675,7 +1677,7 @@ module AWS::SDK::QuickSight
         stub ||= Types::RowLevelPermissionTagConfiguration.new
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['TagRules'] = Stubs::RowLevelPermissionTagRuleList.stub(stub[:tag_rules]) unless stub[:tag_rules].nil?
+        data['TagRules'] = RowLevelPermissionTagRuleList.stub(stub[:tag_rules]) unless stub[:tag_rules].nil?
         data
       end
     end
@@ -1694,7 +1696,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RowLevelPermissionTagRule.stub(element) unless element.nil?
+          data << RowLevelPermissionTagRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1764,7 +1766,7 @@ module AWS::SDK::QuickSight
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FieldFolder.stub(value) unless value.nil?
+          data[key] = FieldFolder.stub(value) unless value.nil?
         end
         data
       end
@@ -1785,7 +1787,7 @@ module AWS::SDK::QuickSight
         stub ||= Types::FieldFolder.new
         data = {}
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['columns'] = Stubs::FolderColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['columns'] = FolderColumnList.stub(stub[:columns]) unless stub[:columns].nil?
         data
       end
     end
@@ -1824,7 +1826,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnGroup.stub(element) unless element.nil?
+          data << ColumnGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1843,7 +1845,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::ColumnGroup.new
         data = {}
-        data['GeoSpatialColumnGroup'] = Stubs::GeoSpatialColumnGroup.stub(stub[:geo_spatial_column_group]) unless stub[:geo_spatial_column_group].nil?
+        data['GeoSpatialColumnGroup'] = GeoSpatialColumnGroup.stub(stub[:geo_spatial_column_group]) unless stub[:geo_spatial_column_group].nil?
         data
       end
     end
@@ -1865,7 +1867,7 @@ module AWS::SDK::QuickSight
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['CountryCode'] = stub[:country_code] unless stub[:country_code].nil?
-        data['Columns'] = Stubs::ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Columns'] = ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
         data
       end
     end
@@ -1904,7 +1906,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputColumn.stub(element) unless element.nil?
+          data << OutputColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -1946,7 +1948,7 @@ module AWS::SDK::QuickSight
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::LogicalTable.stub(value) unless value.nil?
+          data[key] = LogicalTable.stub(value) unless value.nil?
         end
         data
       end
@@ -1968,8 +1970,8 @@ module AWS::SDK::QuickSight
         stub ||= Types::LogicalTable.new
         data = {}
         data['Alias'] = stub[:alias] unless stub[:alias].nil?
-        data['DataTransforms'] = Stubs::TransformOperationList.stub(stub[:data_transforms]) unless stub[:data_transforms].nil?
-        data['Source'] = Stubs::LogicalTableSource.stub(stub[:source]) unless stub[:source].nil?
+        data['DataTransforms'] = TransformOperationList.stub(stub[:data_transforms]) unless stub[:data_transforms].nil?
+        data['Source'] = LogicalTableSource.stub(stub[:source]) unless stub[:source].nil?
         data
       end
     end
@@ -1989,7 +1991,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::LogicalTableSource.new
         data = {}
-        data['JoinInstruction'] = Stubs::JoinInstruction.stub(stub[:join_instruction]) unless stub[:join_instruction].nil?
+        data['JoinInstruction'] = JoinInstruction.stub(stub[:join_instruction]) unless stub[:join_instruction].nil?
         data['PhysicalTableId'] = stub[:physical_table_id] unless stub[:physical_table_id].nil?
         data['DataSetArn'] = stub[:data_set_arn] unless stub[:data_set_arn].nil?
         data
@@ -2016,8 +2018,8 @@ module AWS::SDK::QuickSight
         data = {}
         data['LeftOperand'] = stub[:left_operand] unless stub[:left_operand].nil?
         data['RightOperand'] = stub[:right_operand] unless stub[:right_operand].nil?
-        data['LeftJoinKeyProperties'] = Stubs::JoinKeyProperties.stub(stub[:left_join_key_properties]) unless stub[:left_join_key_properties].nil?
-        data['RightJoinKeyProperties'] = Stubs::JoinKeyProperties.stub(stub[:right_join_key_properties]) unless stub[:right_join_key_properties].nil?
+        data['LeftJoinKeyProperties'] = JoinKeyProperties.stub(stub[:left_join_key_properties]) unless stub[:left_join_key_properties].nil?
+        data['RightJoinKeyProperties'] = JoinKeyProperties.stub(stub[:right_join_key_properties]) unless stub[:right_join_key_properties].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['OnClause'] = stub[:on_clause] unless stub[:on_clause].nil?
         data
@@ -2056,7 +2058,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TransformOperation.stub(element) unless element.nil?
+          data << TransformOperation.stub(element) unless element.nil?
         end
         data
       end
@@ -2076,19 +2078,19 @@ module AWS::SDK::QuickSight
         data = {}
         case stub
         when Types::TransformOperation::ProjectOperation
-          data['ProjectOperation'] = (Stubs::ProjectOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ProjectOperation'] = (ProjectOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TransformOperation::FilterOperation
-          data['FilterOperation'] = (Stubs::FilterOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['FilterOperation'] = (FilterOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TransformOperation::CreateColumnsOperation
-          data['CreateColumnsOperation'] = (Stubs::CreateColumnsOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['CreateColumnsOperation'] = (CreateColumnsOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TransformOperation::RenameColumnOperation
-          data['RenameColumnOperation'] = (Stubs::RenameColumnOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['RenameColumnOperation'] = (RenameColumnOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TransformOperation::CastColumnTypeOperation
-          data['CastColumnTypeOperation'] = (Stubs::CastColumnTypeOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['CastColumnTypeOperation'] = (CastColumnTypeOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TransformOperation::TagColumnOperation
-          data['TagColumnOperation'] = (Stubs::TagColumnOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TagColumnOperation'] = (TagColumnOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TransformOperation::UntagColumnOperation
-          data['UntagColumnOperation'] = (Stubs::UntagColumnOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['UntagColumnOperation'] = (UntagColumnOperation.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::TransformOperation"
@@ -2113,7 +2115,7 @@ module AWS::SDK::QuickSight
         stub ||= Types::UntagColumnOperation.new
         data = {}
         data['ColumnName'] = stub[:column_name] unless stub[:column_name].nil?
-        data['TagNames'] = Stubs::ColumnTagNames.stub(stub[:tag_names]) unless stub[:tag_names].nil?
+        data['TagNames'] = ColumnTagNames.stub(stub[:tag_names]) unless stub[:tag_names].nil?
         data
       end
     end
@@ -2153,7 +2155,7 @@ module AWS::SDK::QuickSight
         stub ||= Types::TagColumnOperation.new
         data = {}
         data['ColumnName'] = stub[:column_name] unless stub[:column_name].nil?
-        data['Tags'] = Stubs::ColumnTagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = ColumnTagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2172,7 +2174,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnTag.stub(element) unless element.nil?
+          data << ColumnTag.stub(element) unless element.nil?
         end
         data
       end
@@ -2193,7 +2195,7 @@ module AWS::SDK::QuickSight
         stub ||= Types::ColumnTag.new
         data = {}
         data['ColumnGeographicRole'] = stub[:column_geographic_role] unless stub[:column_geographic_role].nil?
-        data['ColumnDescription'] = Stubs::ColumnDescription.stub(stub[:column_description]) unless stub[:column_description].nil?
+        data['ColumnDescription'] = ColumnDescription.stub(stub[:column_description]) unless stub[:column_description].nil?
         data
       end
     end
@@ -2271,7 +2273,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::CreateColumnsOperation.new
         data = {}
-        data['Columns'] = Stubs::CalculatedColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Columns'] = CalculatedColumnList.stub(stub[:columns]) unless stub[:columns].nil?
         data
       end
     end
@@ -2290,7 +2292,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CalculatedColumn.stub(element) unless element.nil?
+          data << CalculatedColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -2349,7 +2351,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::ProjectOperation.new
         data = {}
-        data['ProjectedColumns'] = Stubs::ProjectedColumnList.stub(stub[:projected_columns]) unless stub[:projected_columns].nil?
+        data['ProjectedColumns'] = ProjectedColumnList.stub(stub[:projected_columns]) unless stub[:projected_columns].nil?
         data
       end
     end
@@ -2388,7 +2390,7 @@ module AWS::SDK::QuickSight
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PhysicalTable.stub(value) unless value.nil?
+          data[key] = PhysicalTable.stub(value) unless value.nil?
         end
         data
       end
@@ -2408,11 +2410,11 @@ module AWS::SDK::QuickSight
         data = {}
         case stub
         when Types::PhysicalTable::RelationalTable
-          data['RelationalTable'] = (Stubs::RelationalTable.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['RelationalTable'] = (RelationalTable.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::PhysicalTable::CustomSql
-          data['CustomSql'] = (Stubs::CustomSql.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['CustomSql'] = (CustomSql.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::PhysicalTable::S3Source
-          data['S3Source'] = (Stubs::S3Source.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['S3Source'] = (S3Source.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::PhysicalTable"
@@ -2438,8 +2440,8 @@ module AWS::SDK::QuickSight
         stub ||= Types::S3Source.new
         data = {}
         data['DataSourceArn'] = stub[:data_source_arn] unless stub[:data_source_arn].nil?
-        data['UploadSettings'] = Stubs::UploadSettings.stub(stub[:upload_settings]) unless stub[:upload_settings].nil?
-        data['InputColumns'] = Stubs::InputColumnList.stub(stub[:input_columns]) unless stub[:input_columns].nil?
+        data['UploadSettings'] = UploadSettings.stub(stub[:upload_settings]) unless stub[:upload_settings].nil?
+        data['InputColumns'] = InputColumnList.stub(stub[:input_columns]) unless stub[:input_columns].nil?
         data
       end
     end
@@ -2458,7 +2460,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputColumn.stub(element) unless element.nil?
+          data << InputColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -2529,7 +2531,7 @@ module AWS::SDK::QuickSight
         data['DataSourceArn'] = stub[:data_source_arn] unless stub[:data_source_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['SqlQuery'] = stub[:sql_query] unless stub[:sql_query].nil?
-        data['Columns'] = Stubs::InputColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Columns'] = InputColumnList.stub(stub[:columns]) unless stub[:columns].nil?
         data
       end
     end
@@ -2555,7 +2557,7 @@ module AWS::SDK::QuickSight
         data['Catalog'] = stub[:catalog] unless stub[:catalog].nil?
         data['Schema'] = stub[:schema] unless stub[:schema].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['InputColumns'] = Stubs::InputColumnList.stub(stub[:input_columns]) unless stub[:input_columns].nil?
+        data['InputColumns'] = InputColumnList.stub(stub[:input_columns]) unless stub[:input_columns].nil?
         data
       end
     end
@@ -2579,10 +2581,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['DataSetArn'] = stub[:data_set_arn] unless stub[:data_set_arn].nil?
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2601,10 +2603,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['DataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2639,11 +2641,11 @@ module AWS::SDK::QuickSight
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        data['DataSourceParameters'] = Stubs::DataSourceParameters.stub(stub[:data_source_parameters]) unless stub[:data_source_parameters].nil?
-        data['AlternateDataSourceParameters'] = Stubs::DataSourceParametersList.stub(stub[:alternate_data_source_parameters]) unless stub[:alternate_data_source_parameters].nil?
-        data['VpcConnectionProperties'] = Stubs::VpcConnectionProperties.stub(stub[:vpc_connection_properties]) unless stub[:vpc_connection_properties].nil?
-        data['SslProperties'] = Stubs::SslProperties.stub(stub[:ssl_properties]) unless stub[:ssl_properties].nil?
-        data['ErrorInfo'] = Stubs::DataSourceErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['DataSourceParameters'] = DataSourceParameters.stub(stub[:data_source_parameters]) unless stub[:data_source_parameters].nil?
+        data['AlternateDataSourceParameters'] = DataSourceParametersList.stub(stub[:alternate_data_source_parameters]) unless stub[:alternate_data_source_parameters].nil?
+        data['VpcConnectionProperties'] = VpcConnectionProperties.stub(stub[:vpc_connection_properties]) unless stub[:vpc_connection_properties].nil?
+        data['SslProperties'] = SslProperties.stub(stub[:ssl_properties]) unless stub[:ssl_properties].nil?
+        data['ErrorInfo'] = DataSourceErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data
       end
     end
@@ -2718,7 +2720,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSourceParameters.stub(element) unless element.nil?
+          data << DataSourceParameters.stub(element) unless element.nil?
         end
         data
       end
@@ -2738,49 +2740,49 @@ module AWS::SDK::QuickSight
         data = {}
         case stub
         when Types::DataSourceParameters::AmazonElasticsearchParameters
-          data['AmazonElasticsearchParameters'] = (Stubs::AmazonElasticsearchParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AmazonElasticsearchParameters'] = (AmazonElasticsearchParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::AthenaParameters
-          data['AthenaParameters'] = (Stubs::AthenaParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AthenaParameters'] = (AthenaParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::AuroraParameters
-          data['AuroraParameters'] = (Stubs::AuroraParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AuroraParameters'] = (AuroraParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::AuroraPostgreSqlParameters
-          data['AuroraPostgreSqlParameters'] = (Stubs::AuroraPostgreSqlParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AuroraPostgreSqlParameters'] = (AuroraPostgreSqlParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::AwsIotAnalyticsParameters
-          data['AwsIotAnalyticsParameters'] = (Stubs::AwsIotAnalyticsParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AwsIotAnalyticsParameters'] = (AwsIotAnalyticsParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::JiraParameters
-          data['JiraParameters'] = (Stubs::JiraParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['JiraParameters'] = (JiraParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::MariaDbParameters
-          data['MariaDbParameters'] = (Stubs::MariaDbParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['MariaDbParameters'] = (MariaDbParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::MySqlParameters
-          data['MySqlParameters'] = (Stubs::MySqlParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['MySqlParameters'] = (MySqlParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::OracleParameters
-          data['OracleParameters'] = (Stubs::OracleParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['OracleParameters'] = (OracleParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::PostgreSqlParameters
-          data['PostgreSqlParameters'] = (Stubs::PostgreSqlParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['PostgreSqlParameters'] = (PostgreSqlParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::PrestoParameters
-          data['PrestoParameters'] = (Stubs::PrestoParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['PrestoParameters'] = (PrestoParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::RdsParameters
-          data['RdsParameters'] = (Stubs::RdsParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['RdsParameters'] = (RdsParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::RedshiftParameters
-          data['RedshiftParameters'] = (Stubs::RedshiftParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['RedshiftParameters'] = (RedshiftParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::S3Parameters
-          data['S3Parameters'] = (Stubs::S3Parameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['S3Parameters'] = (S3Parameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::ServiceNowParameters
-          data['ServiceNowParameters'] = (Stubs::ServiceNowParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ServiceNowParameters'] = (ServiceNowParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::SnowflakeParameters
-          data['SnowflakeParameters'] = (Stubs::SnowflakeParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['SnowflakeParameters'] = (SnowflakeParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::SparkParameters
-          data['SparkParameters'] = (Stubs::SparkParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['SparkParameters'] = (SparkParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::SqlServerParameters
-          data['SqlServerParameters'] = (Stubs::SqlServerParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['SqlServerParameters'] = (SqlServerParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::TeradataParameters
-          data['TeradataParameters'] = (Stubs::TeradataParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TeradataParameters'] = (TeradataParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::TwitterParameters
-          data['TwitterParameters'] = (Stubs::TwitterParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TwitterParameters'] = (TwitterParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::AmazonOpenSearchParameters
-          data['AmazonOpenSearchParameters'] = (Stubs::AmazonOpenSearchParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AmazonOpenSearchParameters'] = (AmazonOpenSearchParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DataSourceParameters::ExasolParameters
-          data['ExasolParameters'] = (Stubs::ExasolParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ExasolParameters'] = (ExasolParameters.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DataSourceParameters"
@@ -2965,7 +2967,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::S3Parameters.new
         data = {}
-        data['ManifestFileLocation'] = Stubs::ManifestFileLocation.stub(stub[:manifest_file_location]) unless stub[:manifest_file_location].nil?
+        data['ManifestFileLocation'] = ManifestFileLocation.stub(stub[:manifest_file_location]) unless stub[:manifest_file_location].nil?
         data
       end
     end
@@ -3279,10 +3281,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['DataSourceArn'] = stub[:data_source_arn] unless stub[:data_source_arn].nil?
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3302,9 +3304,9 @@ module AWS::SDK::QuickSight
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Folder'] = Stubs::Folder.stub(stub[:folder]) unless stub[:folder].nil?
+        data['Folder'] = Folder.stub(stub[:folder]) unless stub[:folder].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3331,7 +3333,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['FolderType'] = stub[:folder_type] unless stub[:folder_type].nil?
-        data['FolderPath'] = Stubs::Path.stub(stub[:folder_path]) unless stub[:folder_path].nil?
+        data['FolderPath'] = Path.stub(stub[:folder_path]) unless stub[:folder_path].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data
@@ -3378,9 +3380,9 @@ module AWS::SDK::QuickSight
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FolderId'] = stub[:folder_id] unless stub[:folder_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3404,9 +3406,9 @@ module AWS::SDK::QuickSight
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FolderId'] = stub[:folder_id] unless stub[:folder_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3425,10 +3427,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3447,10 +3449,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupMember'] = Stubs::GroupMember.stub(stub[:group_member]) unless stub[:group_member].nil?
+        data['GroupMember'] = GroupMember.stub(stub[:group_member]) unless stub[:group_member].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3469,10 +3471,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IAMPolicyAssignment'] = Stubs::IAMPolicyAssignment.stub(stub[:iam_policy_assignment]) unless stub[:iam_policy_assignment].nil?
+        data['IAMPolicyAssignment'] = IAMPolicyAssignment.stub(stub[:iam_policy_assignment]) unless stub[:iam_policy_assignment].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3498,7 +3500,7 @@ module AWS::SDK::QuickSight
         data['AssignmentId'] = stub[:assignment_id] unless stub[:assignment_id].nil?
         data['AssignmentName'] = stub[:assignment_name] unless stub[:assignment_name].nil?
         data['PolicyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        data['Identities'] = Stubs::IdentityMap.stub(stub[:identities]) unless stub[:identities].nil?
+        data['Identities'] = IdentityMap.stub(stub[:identities]) unless stub[:identities].nil?
         data['AssignmentStatus'] = stub[:assignment_status] unless stub[:assignment_status].nil?
         data
       end
@@ -3519,10 +3521,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Ingestion'] = Stubs::Ingestion.stub(stub[:ingestion]) unless stub[:ingestion].nil?
+        data['Ingestion'] = Ingestion.stub(stub[:ingestion]) unless stub[:ingestion].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3552,9 +3554,9 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['IngestionId'] = stub[:ingestion_id] unless stub[:ingestion_id].nil?
         data['IngestionStatus'] = stub[:ingestion_status] unless stub[:ingestion_status].nil?
-        data['ErrorInfo'] = Stubs::ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
-        data['RowInfo'] = Stubs::RowInfo.stub(stub[:row_info]) unless stub[:row_info].nil?
-        data['QueueInfo'] = Stubs::QueueInfo.stub(stub[:queue_info]) unless stub[:queue_info].nil?
+        data['ErrorInfo'] = ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['RowInfo'] = RowInfo.stub(stub[:row_info]) unless stub[:row_info].nil?
+        data['QueueInfo'] = QueueInfo.stub(stub[:queue_info]) unless stub[:queue_info].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['IngestionTimeInSeconds'] = stub[:ingestion_time_in_seconds] unless stub[:ingestion_time_in_seconds].nil?
         data['IngestionSizeInBytes'] = stub[:ingestion_size_in_bytes] unless stub[:ingestion_size_in_bytes].nil?
@@ -3644,11 +3646,11 @@ module AWS::SDK::QuickSight
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
         data['AwsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
-        data['IpRestrictionRuleMap'] = Stubs::IpRestrictionRuleMap.stub(stub[:ip_restriction_rule_map]) unless stub[:ip_restriction_rule_map].nil?
+        data['IpRestrictionRuleMap'] = IpRestrictionRuleMap.stub(stub[:ip_restriction_rule_map]) unless stub[:ip_restriction_rule_map].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3687,10 +3689,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Namespace'] = Stubs::NamespaceInfoV2.stub(stub[:namespace]) unless stub[:namespace].nil?
+        data['Namespace'] = NamespaceInfoV2.stub(stub[:namespace]) unless stub[:namespace].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3717,7 +3719,7 @@ module AWS::SDK::QuickSight
         data['CapacityRegion'] = stub[:capacity_region] unless stub[:capacity_region].nil?
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['IdentityStore'] = stub[:identity_store] unless stub[:identity_store].nil?
-        data['NamespaceError'] = Stubs::NamespaceError.stub(stub[:namespace_error]) unless stub[:namespace_error].nil?
+        data['NamespaceError'] = NamespaceError.stub(stub[:namespace_error]) unless stub[:namespace_error].nil?
         data
       end
     end
@@ -3757,10 +3759,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Template'] = Stubs::Template.stub(stub[:template]) unless stub[:template].nil?
+        data['Template'] = Template.stub(stub[:template]) unless stub[:template].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3784,7 +3786,7 @@ module AWS::SDK::QuickSight
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Version'] = Stubs::TemplateVersion.stub(stub[:version]) unless stub[:version].nil?
+        data['Version'] = TemplateVersion.stub(stub[:version]) unless stub[:version].nil?
         data['TemplateId'] = stub[:template_id] unless stub[:template_id].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
@@ -3814,14 +3816,14 @@ module AWS::SDK::QuickSight
         stub ||= Types::TemplateVersion.new
         data = {}
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['Errors'] = Stubs::TemplateErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        data['Errors'] = TemplateErrorList.stub(stub[:errors]) unless stub[:errors].nil?
         data['VersionNumber'] = stub[:version_number] unless stub[:version_number].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['DataSetConfigurations'] = Stubs::DataSetConfigurationList.stub(stub[:data_set_configurations]) unless stub[:data_set_configurations].nil?
+        data['DataSetConfigurations'] = DataSetConfigurationList.stub(stub[:data_set_configurations]) unless stub[:data_set_configurations].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['SourceEntityArn'] = stub[:source_entity_arn] unless stub[:source_entity_arn].nil?
         data['ThemeArn'] = stub[:theme_arn] unless stub[:theme_arn].nil?
-        data['Sheets'] = Stubs::SheetList.stub(stub[:sheets]) unless stub[:sheets].nil?
+        data['Sheets'] = SheetList.stub(stub[:sheets]) unless stub[:sheets].nil?
         data
       end
     end
@@ -3840,7 +3842,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSetConfiguration.stub(element) unless element.nil?
+          data << DataSetConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -3862,8 +3864,8 @@ module AWS::SDK::QuickSight
         stub ||= Types::DataSetConfiguration.new
         data = {}
         data['Placeholder'] = stub[:placeholder] unless stub[:placeholder].nil?
-        data['DataSetSchema'] = Stubs::DataSetSchema.stub(stub[:data_set_schema]) unless stub[:data_set_schema].nil?
-        data['ColumnGroupSchemaList'] = Stubs::ColumnGroupSchemaList.stub(stub[:column_group_schema_list]) unless stub[:column_group_schema_list].nil?
+        data['DataSetSchema'] = DataSetSchema.stub(stub[:data_set_schema]) unless stub[:data_set_schema].nil?
+        data['ColumnGroupSchemaList'] = ColumnGroupSchemaList.stub(stub[:column_group_schema_list]) unless stub[:column_group_schema_list].nil?
         data
       end
     end
@@ -3882,7 +3884,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnGroupSchema.stub(element) unless element.nil?
+          data << ColumnGroupSchema.stub(element) unless element.nil?
         end
         data
       end
@@ -3903,7 +3905,7 @@ module AWS::SDK::QuickSight
         stub ||= Types::ColumnGroupSchema.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ColumnGroupColumnSchemaList'] = Stubs::ColumnGroupColumnSchemaList.stub(stub[:column_group_column_schema_list]) unless stub[:column_group_column_schema_list].nil?
+        data['ColumnGroupColumnSchemaList'] = ColumnGroupColumnSchemaList.stub(stub[:column_group_column_schema_list]) unless stub[:column_group_column_schema_list].nil?
         data
       end
     end
@@ -3922,7 +3924,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnGroupColumnSchema.stub(element) unless element.nil?
+          data << ColumnGroupColumnSchema.stub(element) unless element.nil?
         end
         data
       end
@@ -3959,7 +3961,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::DataSetSchema.new
         data = {}
-        data['ColumnSchemaList'] = Stubs::ColumnSchemaList.stub(stub[:column_schema_list]) unless stub[:column_schema_list].nil?
+        data['ColumnSchemaList'] = ColumnSchemaList.stub(stub[:column_schema_list]) unless stub[:column_schema_list].nil?
         data
       end
     end
@@ -3978,7 +3980,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnSchema.stub(element) unless element.nil?
+          data << ColumnSchema.stub(element) unless element.nil?
         end
         data
       end
@@ -4020,7 +4022,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TemplateError.stub(element) unless element.nil?
+          data << TemplateError.stub(element) unless element.nil?
         end
         data
       end
@@ -4061,10 +4063,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TemplateAlias'] = Stubs::TemplateAlias.stub(stub[:template_alias]) unless stub[:template_alias].nil?
+        data['TemplateAlias'] = TemplateAlias.stub(stub[:template_alias]) unless stub[:template_alias].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4087,10 +4089,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['TemplateId'] = stub[:template_id] unless stub[:template_id].nil?
         data['TemplateArn'] = stub[:template_arn] unless stub[:template_arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4109,10 +4111,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Theme'] = Stubs::Theme.stub(stub[:theme]) unless stub[:theme].nil?
+        data['Theme'] = Theme.stub(stub[:theme]) unless stub[:theme].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4138,7 +4140,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ThemeId'] = stub[:theme_id] unless stub[:theme_id].nil?
-        data['Version'] = Stubs::ThemeVersion.stub(stub[:version]) unless stub[:version].nil?
+        data['Version'] = ThemeVersion.stub(stub[:version]) unless stub[:version].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
@@ -4171,8 +4173,8 @@ module AWS::SDK::QuickSight
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['BaseThemeId'] = stub[:base_theme_id] unless stub[:base_theme_id].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['Configuration'] = Stubs::ThemeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['Errors'] = Stubs::ThemeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        data['Configuration'] = ThemeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Errors'] = ThemeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -4192,7 +4194,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThemeError.stub(element) unless element.nil?
+          data << ThemeError.stub(element) unless element.nil?
         end
         data
       end
@@ -4233,9 +4235,9 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::ThemeConfiguration.new
         data = {}
-        data['DataColorPalette'] = Stubs::DataColorPalette.stub(stub[:data_color_palette]) unless stub[:data_color_palette].nil?
-        data['UIColorPalette'] = Stubs::UIColorPalette.stub(stub[:ui_color_palette]) unless stub[:ui_color_palette].nil?
-        data['Sheet'] = Stubs::SheetStyle.stub(stub[:sheet]) unless stub[:sheet].nil?
+        data['DataColorPalette'] = DataColorPalette.stub(stub[:data_color_palette]) unless stub[:data_color_palette].nil?
+        data['UIColorPalette'] = UIColorPalette.stub(stub[:ui_color_palette]) unless stub[:ui_color_palette].nil?
+        data['Sheet'] = SheetStyle.stub(stub[:sheet]) unless stub[:sheet].nil?
         data
       end
     end
@@ -4254,8 +4256,8 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::SheetStyle.new
         data = {}
-        data['Tile'] = Stubs::TileStyle.stub(stub[:tile]) unless stub[:tile].nil?
-        data['TileLayout'] = Stubs::TileLayoutStyle.stub(stub[:tile_layout]) unless stub[:tile_layout].nil?
+        data['Tile'] = TileStyle.stub(stub[:tile]) unless stub[:tile].nil?
+        data['TileLayout'] = TileLayoutStyle.stub(stub[:tile_layout]) unless stub[:tile_layout].nil?
         data
       end
     end
@@ -4274,8 +4276,8 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::TileLayoutStyle.new
         data = {}
-        data['Gutter'] = Stubs::GutterStyle.stub(stub[:gutter]) unless stub[:gutter].nil?
-        data['Margin'] = Stubs::MarginStyle.stub(stub[:margin]) unless stub[:margin].nil?
+        data['Gutter'] = GutterStyle.stub(stub[:gutter]) unless stub[:gutter].nil?
+        data['Margin'] = MarginStyle.stub(stub[:margin]) unless stub[:margin].nil?
         data
       end
     end
@@ -4329,7 +4331,7 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::TileStyle.new
         data = {}
-        data['Border'] = Stubs::BorderStyle.stub(stub[:border]) unless stub[:border].nil?
+        data['Border'] = BorderStyle.stub(stub[:border]) unless stub[:border].nil?
         data
       end
     end
@@ -4415,8 +4417,8 @@ module AWS::SDK::QuickSight
       def self.stub(stub)
         stub ||= Types::DataColorPalette.new
         data = {}
-        data['Colors'] = Stubs::ColorList.stub(stub[:colors]) unless stub[:colors].nil?
-        data['MinMaxGradient'] = Stubs::ColorList.stub(stub[:min_max_gradient]) unless stub[:min_max_gradient].nil?
+        data['Colors'] = ColorList.stub(stub[:colors]) unless stub[:colors].nil?
+        data['MinMaxGradient'] = ColorList.stub(stub[:min_max_gradient]) unless stub[:min_max_gradient].nil?
         data['EmptyFillColor'] = stub[:empty_fill_color] unless stub[:empty_fill_color].nil?
         data
       end
@@ -4457,10 +4459,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ThemeAlias'] = Stubs::ThemeAlias.stub(stub[:theme_alias]) unless stub[:theme_alias].nil?
+        data['ThemeAlias'] = ThemeAlias.stub(stub[:theme_alias]) unless stub[:theme_alias].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4483,10 +4485,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['ThemeId'] = stub[:theme_id] unless stub[:theme_id].nil?
         data['ThemeArn'] = stub[:theme_arn] unless stub[:theme_arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4505,10 +4507,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4568,7 +4570,7 @@ module AWS::SDK::QuickSight
         data['EmbedUrl'] = stub[:embed_url] unless stub[:embed_url].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4590,7 +4592,7 @@ module AWS::SDK::QuickSight
         data['EmbedUrl'] = stub[:embed_url] unless stub[:embed_url].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4612,7 +4614,7 @@ module AWS::SDK::QuickSight
         data['EmbedUrl'] = stub[:embed_url] unless stub[:embed_url].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4634,7 +4636,7 @@ module AWS::SDK::QuickSight
         data['EmbedUrl'] = stub[:embed_url] unless stub[:embed_url].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4654,11 +4656,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AnalysisSummaryList'] = Stubs::AnalysisSummaryList.stub(stub[:analysis_summary_list]) unless stub[:analysis_summary_list].nil?
+        data['AnalysisSummaryList'] = AnalysisSummaryList.stub(stub[:analysis_summary_list]) unless stub[:analysis_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4676,7 +4678,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnalysisSummary.stub(element) unless element.nil?
+          data << AnalysisSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4726,11 +4728,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DashboardVersionSummaryList'] = Stubs::DashboardVersionSummaryList.stub(stub[:dashboard_version_summary_list]) unless stub[:dashboard_version_summary_list].nil?
+        data['DashboardVersionSummaryList'] = DashboardVersionSummaryList.stub(stub[:dashboard_version_summary_list]) unless stub[:dashboard_version_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4748,7 +4750,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DashboardVersionSummary.stub(element) unless element.nil?
+          data << DashboardVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4798,11 +4800,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DashboardSummaryList'] = Stubs::DashboardSummaryList.stub(stub[:dashboard_summary_list]) unless stub[:dashboard_summary_list].nil?
+        data['DashboardSummaryList'] = DashboardSummaryList.stub(stub[:dashboard_summary_list]) unless stub[:dashboard_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4820,7 +4822,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DashboardSummary.stub(element) unless element.nil?
+          data << DashboardSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4872,11 +4874,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataSetSummaries'] = Stubs::DataSetSummaryList.stub(stub[:data_set_summaries]) unless stub[:data_set_summaries].nil?
+        data['DataSetSummaries'] = DataSetSummaryList.stub(stub[:data_set_summaries]) unless stub[:data_set_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4894,7 +4896,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSetSummary.stub(element) unless element.nil?
+          data << DataSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4927,7 +4929,7 @@ module AWS::SDK::QuickSight
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['ImportMode'] = stub[:import_mode] unless stub[:import_mode].nil?
-        data['RowLevelPermissionDataSet'] = Stubs::RowLevelPermissionDataSet.stub(stub[:row_level_permission_data_set]) unless stub[:row_level_permission_data_set].nil?
+        data['RowLevelPermissionDataSet'] = RowLevelPermissionDataSet.stub(stub[:row_level_permission_data_set]) unless stub[:row_level_permission_data_set].nil?
         data['RowLevelPermissionTagConfigurationApplied'] = stub[:row_level_permission_tag_configuration_applied] unless stub[:row_level_permission_tag_configuration_applied].nil?
         data['ColumnLevelPermissionRulesApplied'] = stub[:column_level_permission_rules_applied] unless stub[:column_level_permission_rules_applied].nil?
         data
@@ -4950,11 +4952,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataSources'] = Stubs::DataSourceList.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['DataSources'] = DataSourceList.stub(stub[:data_sources]) unless stub[:data_sources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4972,7 +4974,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSource.stub(element) unless element.nil?
+          data << DataSource.stub(element) unless element.nil?
         end
         data
       end
@@ -4995,10 +4997,10 @@ module AWS::SDK::QuickSight
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['FolderMemberList'] = Stubs::FolderMemberList.stub(stub[:folder_member_list]) unless stub[:folder_member_list].nil?
+        data['FolderMemberList'] = FolderMemberList.stub(stub[:folder_member_list]) unless stub[:folder_member_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5016,7 +5018,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MemberIdArnPair.stub(element) unless element.nil?
+          data << MemberIdArnPair.stub(element) unless element.nil?
         end
         data
       end
@@ -5059,10 +5061,10 @@ module AWS::SDK::QuickSight
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['FolderSummaryList'] = Stubs::FolderSummaryList.stub(stub[:folder_summary_list]) unless stub[:folder_summary_list].nil?
+        data['FolderSummaryList'] = FolderSummaryList.stub(stub[:folder_summary_list]) unless stub[:folder_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5080,7 +5082,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FolderSummary.stub(element) unless element.nil?
+          data << FolderSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5130,11 +5132,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupMemberList'] = Stubs::GroupMemberList.stub(stub[:group_member_list]) unless stub[:group_member_list].nil?
+        data['GroupMemberList'] = GroupMemberList.stub(stub[:group_member_list]) unless stub[:group_member_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5152,7 +5154,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupMember.stub(element) unless element.nil?
+          data << GroupMember.stub(element) unless element.nil?
         end
         data
       end
@@ -5174,11 +5176,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupList'] = Stubs::GroupList.stub(stub[:group_list]) unless stub[:group_list].nil?
+        data['GroupList'] = GroupList.stub(stub[:group_list]) unless stub[:group_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5196,7 +5198,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Group.stub(element) unless element.nil?
+          data << Group.stub(element) unless element.nil?
         end
         data
       end
@@ -5218,11 +5220,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IAMPolicyAssignments'] = Stubs::IAMPolicyAssignmentSummaryList.stub(stub[:iam_policy_assignments]) unless stub[:iam_policy_assignments].nil?
+        data['IAMPolicyAssignments'] = IAMPolicyAssignmentSummaryList.stub(stub[:iam_policy_assignments]) unless stub[:iam_policy_assignments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5240,7 +5242,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IAMPolicyAssignmentSummary.stub(element) unless element.nil?
+          data << IAMPolicyAssignmentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5282,11 +5284,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ActiveAssignments'] = Stubs::ActiveIAMPolicyAssignmentList.stub(stub[:active_assignments]) unless stub[:active_assignments].nil?
+        data['ActiveAssignments'] = ActiveIAMPolicyAssignmentList.stub(stub[:active_assignments]) unless stub[:active_assignments].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5304,7 +5306,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActiveIAMPolicyAssignment.stub(element) unless element.nil?
+          data << ActiveIAMPolicyAssignment.stub(element) unless element.nil?
         end
         data
       end
@@ -5346,11 +5348,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Ingestions'] = Stubs::Ingestions.stub(stub[:ingestions]) unless stub[:ingestions].nil?
+        data['Ingestions'] = Ingestions.stub(stub[:ingestions]) unless stub[:ingestions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5368,7 +5370,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Ingestion.stub(element) unless element.nil?
+          data << Ingestion.stub(element) unless element.nil?
         end
         data
       end
@@ -5390,11 +5392,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Namespaces'] = Stubs::Namespaces.stub(stub[:namespaces]) unless stub[:namespaces].nil?
+        data['Namespaces'] = Namespaces.stub(stub[:namespaces]) unless stub[:namespaces].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5412,7 +5414,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NamespaceInfoV2.stub(element) unless element.nil?
+          data << NamespaceInfoV2.stub(element) unless element.nil?
         end
         data
       end
@@ -5433,10 +5435,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5454,7 +5456,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -5496,11 +5498,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TemplateAliasList'] = Stubs::TemplateAliasList.stub(stub[:template_alias_list]) unless stub[:template_alias_list].nil?
+        data['TemplateAliasList'] = TemplateAliasList.stub(stub[:template_alias_list]) unless stub[:template_alias_list].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5518,7 +5520,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TemplateAlias.stub(element) unless element.nil?
+          data << TemplateAlias.stub(element) unless element.nil?
         end
         data
       end
@@ -5540,11 +5542,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TemplateVersionSummaryList'] = Stubs::TemplateVersionSummaryList.stub(stub[:template_version_summary_list]) unless stub[:template_version_summary_list].nil?
+        data['TemplateVersionSummaryList'] = TemplateVersionSummaryList.stub(stub[:template_version_summary_list]) unless stub[:template_version_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5562,7 +5564,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TemplateVersionSummary.stub(element) unless element.nil?
+          data << TemplateVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5610,11 +5612,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TemplateSummaryList'] = Stubs::TemplateSummaryList.stub(stub[:template_summary_list]) unless stub[:template_summary_list].nil?
+        data['TemplateSummaryList'] = TemplateSummaryList.stub(stub[:template_summary_list]) unless stub[:template_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5632,7 +5634,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TemplateSummary.stub(element) unless element.nil?
+          data << TemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5682,11 +5684,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ThemeAliasList'] = Stubs::ThemeAliasList.stub(stub[:theme_alias_list]) unless stub[:theme_alias_list].nil?
+        data['ThemeAliasList'] = ThemeAliasList.stub(stub[:theme_alias_list]) unless stub[:theme_alias_list].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5704,7 +5706,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThemeAlias.stub(element) unless element.nil?
+          data << ThemeAlias.stub(element) unless element.nil?
         end
         data
       end
@@ -5726,11 +5728,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ThemeVersionSummaryList'] = Stubs::ThemeVersionSummaryList.stub(stub[:theme_version_summary_list]) unless stub[:theme_version_summary_list].nil?
+        data['ThemeVersionSummaryList'] = ThemeVersionSummaryList.stub(stub[:theme_version_summary_list]) unless stub[:theme_version_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5748,7 +5750,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThemeVersionSummary.stub(element) unless element.nil?
+          data << ThemeVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5796,11 +5798,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ThemeSummaryList'] = Stubs::ThemeSummaryList.stub(stub[:theme_summary_list]) unless stub[:theme_summary_list].nil?
+        data['ThemeSummaryList'] = ThemeSummaryList.stub(stub[:theme_summary_list]) unless stub[:theme_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5818,7 +5820,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThemeSummary.stub(element) unless element.nil?
+          data << ThemeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5868,11 +5870,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupList'] = Stubs::GroupList.stub(stub[:group_list]) unless stub[:group_list].nil?
+        data['GroupList'] = GroupList.stub(stub[:group_list]) unless stub[:group_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5892,11 +5894,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UserList'] = Stubs::UserList.stub(stub[:user_list]) unless stub[:user_list].nil?
+        data['UserList'] = UserList.stub(stub[:user_list]) unless stub[:user_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5914,7 +5916,7 @@ module AWS::SDK::QuickSight
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end
@@ -5936,11 +5938,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
         data['UserInvitationUrl'] = stub[:user_invitation_url] unless stub[:user_invitation_url].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5964,7 +5966,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['AnalysisId'] = stub[:analysis_id] unless stub[:analysis_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5984,11 +5986,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AnalysisSummaryList'] = Stubs::AnalysisSummaryList.stub(stub[:analysis_summary_list]) unless stub[:analysis_summary_list].nil?
+        data['AnalysisSummaryList'] = AnalysisSummaryList.stub(stub[:analysis_summary_list]) unless stub[:analysis_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6008,11 +6010,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DashboardSummaryList'] = Stubs::DashboardSummaryList.stub(stub[:dashboard_summary_list]) unless stub[:dashboard_summary_list].nil?
+        data['DashboardSummaryList'] = DashboardSummaryList.stub(stub[:dashboard_summary_list]) unless stub[:dashboard_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6033,10 +6035,10 @@ module AWS::SDK::QuickSight
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['FolderSummaryList'] = Stubs::FolderSummaryList.stub(stub[:folder_summary_list]) unless stub[:folder_summary_list].nil?
+        data['FolderSummaryList'] = FolderSummaryList.stub(stub[:folder_summary_list]) unless stub[:folder_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6056,11 +6058,11 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupList'] = Stubs::GroupList.stub(stub[:group_list]) unless stub[:group_list].nil?
+        data['GroupList'] = GroupList.stub(stub[:group_list]) unless stub[:group_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6080,7 +6082,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6100,7 +6102,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6125,10 +6127,10 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['AwsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
         data['Namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['AccountCustomization'] = Stubs::AccountCustomization.stub(stub[:account_customization]) unless stub[:account_customization].nil?
+        data['AccountCustomization'] = AccountCustomization.stub(stub[:account_customization]) unless stub[:account_customization].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6148,7 +6150,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6174,7 +6176,7 @@ module AWS::SDK::QuickSight
         data['UpdateStatus'] = stub[:update_status] unless stub[:update_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6197,10 +6199,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['AnalysisArn'] = stub[:analysis_arn] unless stub[:analysis_arn].nil?
         data['AnalysisId'] = stub[:analysis_id] unless stub[:analysis_id].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6227,7 +6229,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6251,11 +6253,11 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['DashboardArn'] = stub[:dashboard_arn] unless stub[:dashboard_arn].nil?
         data['DashboardId'] = stub[:dashboard_id] unless stub[:dashboard_id].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['LinkSharingConfiguration'] = Stubs::LinkSharingConfiguration.stub(stub[:link_sharing_configuration]) unless stub[:link_sharing_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LinkSharingConfiguration'] = LinkSharingConfiguration.stub(stub[:link_sharing_configuration]) unless stub[:link_sharing_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6279,7 +6281,7 @@ module AWS::SDK::QuickSight
         data['DashboardArn'] = stub[:dashboard_arn] unless stub[:dashboard_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6307,7 +6309,7 @@ module AWS::SDK::QuickSight
         data['IngestionId'] = stub[:ingestion_id] unless stub[:ingestion_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6331,7 +6333,7 @@ module AWS::SDK::QuickSight
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6357,7 +6359,7 @@ module AWS::SDK::QuickSight
         data['UpdateStatus'] = stub[:update_status] unless stub[:update_status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6381,7 +6383,7 @@ module AWS::SDK::QuickSight
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6405,7 +6407,7 @@ module AWS::SDK::QuickSight
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['FolderId'] = stub[:folder_id] unless stub[:folder_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6428,9 +6430,9 @@ module AWS::SDK::QuickSight
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['FolderId'] = stub[:folder_id] unless stub[:folder_id].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6449,10 +6451,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6478,11 +6480,11 @@ module AWS::SDK::QuickSight
         data['AssignmentName'] = stub[:assignment_name] unless stub[:assignment_name].nil?
         data['AssignmentId'] = stub[:assignment_id] unless stub[:assignment_id].nil?
         data['PolicyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        data['Identities'] = Stubs::IdentityMap.stub(stub[:identities]) unless stub[:identities].nil?
+        data['Identities'] = IdentityMap.stub(stub[:identities]) unless stub[:identities].nil?
         data['AssignmentStatus'] = stub[:assignment_status] unless stub[:assignment_status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6504,7 +6506,7 @@ module AWS::SDK::QuickSight
         data['AwsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6524,7 +6526,7 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6552,7 +6554,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6571,10 +6573,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TemplateAlias'] = Stubs::TemplateAlias.stub(stub[:template_alias]) unless stub[:template_alias].nil?
+        data['TemplateAlias'] = TemplateAlias.stub(stub[:template_alias]) unless stub[:template_alias].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6597,10 +6599,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['TemplateId'] = stub[:template_id] unless stub[:template_id].nil?
         data['TemplateArn'] = stub[:template_arn] unless stub[:template_arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6628,7 +6630,7 @@ module AWS::SDK::QuickSight
         data['CreationStatus'] = stub[:creation_status] unless stub[:creation_status].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6647,10 +6649,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ThemeAlias'] = Stubs::ThemeAlias.stub(stub[:theme_alias]) unless stub[:theme_alias].nil?
+        data['ThemeAlias'] = ThemeAlias.stub(stub[:theme_alias]) unless stub[:theme_alias].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6673,10 +6675,10 @@ module AWS::SDK::QuickSight
         http_resp.headers['Content-Type'] = 'application/json'
         data['ThemeId'] = stub[:theme_id] unless stub[:theme_id].nil?
         data['ThemeArn'] = stub[:theme_arn] unless stub[:theme_arn].nil?
-        data['Permissions'] = Stubs::ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = ResourcePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6695,10 +6697,10 @@ module AWS::SDK::QuickSight
         http_resp.status = 200
         http_resp.status = stub[:status]
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

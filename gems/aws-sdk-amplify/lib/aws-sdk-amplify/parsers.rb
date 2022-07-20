@@ -15,7 +15,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::CreateAppOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app = (Parsers::App.parse(map['app']) unless map['app'].nil?)
+        data.app = (App.parse(map['app']) unless map['app'].nil?)
         data
       end
     end
@@ -26,26 +26,26 @@ module AWS::SDK::Amplify
         data.app_id = map['appId']
         data.app_arn = map['appArn']
         data.name = map['name']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.description = map['description']
         data.repository = map['repository']
         data.platform = map['platform']
         data.create_time = Time.at(map['createTime'].to_i) if map['createTime']
         data.update_time = Time.at(map['updateTime'].to_i) if map['updateTime']
         data.iam_service_role_arn = map['iamServiceRoleArn']
-        data.environment_variables = (Parsers::EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
+        data.environment_variables = (EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
         data.default_domain = map['defaultDomain']
         data.enable_branch_auto_build = map['enableBranchAutoBuild']
         data.enable_branch_auto_deletion = map['enableBranchAutoDeletion']
         data.enable_basic_auth = map['enableBasicAuth']
         data.basic_auth_credentials = map['basicAuthCredentials']
-        data.custom_rules = (Parsers::CustomRules.parse(map['customRules']) unless map['customRules'].nil?)
-        data.production_branch = (Parsers::ProductionBranch.parse(map['productionBranch']) unless map['productionBranch'].nil?)
+        data.custom_rules = (CustomRules.parse(map['customRules']) unless map['customRules'].nil?)
+        data.production_branch = (ProductionBranch.parse(map['productionBranch']) unless map['productionBranch'].nil?)
         data.build_spec = map['buildSpec']
         data.custom_headers = map['customHeaders']
         data.enable_auto_branch_creation = map['enableAutoBranchCreation']
-        data.auto_branch_creation_patterns = (Parsers::AutoBranchCreationPatterns.parse(map['autoBranchCreationPatterns']) unless map['autoBranchCreationPatterns'].nil?)
-        data.auto_branch_creation_config = (Parsers::AutoBranchCreationConfig.parse(map['autoBranchCreationConfig']) unless map['autoBranchCreationConfig'].nil?)
+        data.auto_branch_creation_patterns = (AutoBranchCreationPatterns.parse(map['autoBranchCreationPatterns']) unless map['autoBranchCreationPatterns'].nil?)
+        data.auto_branch_creation_config = (AutoBranchCreationConfig.parse(map['autoBranchCreationConfig']) unless map['autoBranchCreationConfig'].nil?)
         data.repository_clone_method = map['repositoryCloneMethod']
         return data
       end
@@ -57,7 +57,7 @@ module AWS::SDK::Amplify
         data.stage = map['stage']
         data.framework = map['framework']
         data.enable_auto_build = map['enableAutoBuild']
-        data.environment_variables = (Parsers::EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
+        data.environment_variables = (EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
         data.basic_auth_credentials = map['basicAuthCredentials']
         data.enable_basic_auth = map['enableBasicAuth']
         data.enable_performance_mode = map['enablePerformanceMode']
@@ -103,7 +103,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomRule.parse(value) unless value.nil?
+          data << CustomRule.parse(value) unless value.nil?
         end
         data
       end
@@ -185,7 +185,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::CreateBackendEnvironmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backend_environment = (Parsers::BackendEnvironment.parse(map['backendEnvironment']) unless map['backendEnvironment'].nil?)
+        data.backend_environment = (BackendEnvironment.parse(map['backendEnvironment']) unless map['backendEnvironment'].nil?)
         data
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::CreateBranchOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.branch = (Parsers::Branch.parse(map['branch']) unless map['branch'].nil?)
+        data.branch = (Branch.parse(map['branch']) unless map['branch'].nil?)
         data
       end
     end
@@ -229,15 +229,15 @@ module AWS::SDK::Amplify
         data.branch_arn = map['branchArn']
         data.branch_name = map['branchName']
         data.description = map['description']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.stage = map['stage']
         data.display_name = map['displayName']
         data.enable_notification = map['enableNotification']
         data.create_time = Time.at(map['createTime'].to_i) if map['createTime']
         data.update_time = Time.at(map['updateTime'].to_i) if map['updateTime']
-        data.environment_variables = (Parsers::EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
+        data.environment_variables = (EnvironmentVariables.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
         data.enable_auto_build = map['enableAutoBuild']
-        data.custom_domains = (Parsers::CustomDomains.parse(map['customDomains']) unless map['customDomains'].nil?)
+        data.custom_domains = (CustomDomains.parse(map['customDomains']) unless map['customDomains'].nil?)
         data.framework = map['framework']
         data.active_job_id = map['activeJobId']
         data.total_number_of_jobs = map['totalNumberOfJobs']
@@ -247,7 +247,7 @@ module AWS::SDK::Amplify
         data.basic_auth_credentials = map['basicAuthCredentials']
         data.build_spec = map['buildSpec']
         data.ttl = map['ttl']
-        data.associated_resources = (Parsers::AssociatedResources.parse(map['associatedResources']) unless map['associatedResources'].nil?)
+        data.associated_resources = (AssociatedResources.parse(map['associatedResources']) unless map['associatedResources'].nil?)
         data.enable_pull_request_preview = map['enablePullRequestPreview']
         data.pull_request_environment_name = map['pullRequestEnvironmentName']
         data.destination_branch = map['destinationBranch']
@@ -283,7 +283,7 @@ module AWS::SDK::Amplify
         data = Types::CreateDeploymentOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.job_id = map['jobId']
-        data.file_upload_urls = (Parsers::FileUploadUrls.parse(map['fileUploadUrls']) unless map['fileUploadUrls'].nil?)
+        data.file_upload_urls = (FileUploadUrls.parse(map['fileUploadUrls']) unless map['fileUploadUrls'].nil?)
         data.zip_upload_url = map['zipUploadUrl']
         data
       end
@@ -304,7 +304,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::CreateDomainAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_association = (Parsers::DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
+        data.domain_association = (DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
         data
       end
     end
@@ -315,12 +315,12 @@ module AWS::SDK::Amplify
         data.domain_association_arn = map['domainAssociationArn']
         data.domain_name = map['domainName']
         data.enable_auto_sub_domain = map['enableAutoSubDomain']
-        data.auto_sub_domain_creation_patterns = (Parsers::AutoSubDomainCreationPatterns.parse(map['autoSubDomainCreationPatterns']) unless map['autoSubDomainCreationPatterns'].nil?)
+        data.auto_sub_domain_creation_patterns = (AutoSubDomainCreationPatterns.parse(map['autoSubDomainCreationPatterns']) unless map['autoSubDomainCreationPatterns'].nil?)
         data.auto_sub_domain_iam_role = map['autoSubDomainIAMRole']
         data.domain_status = map['domainStatus']
         data.status_reason = map['statusReason']
         data.certificate_verification_dns_record = map['certificateVerificationDNSRecord']
-        data.sub_domains = (Parsers::SubDomains.parse(map['subDomains']) unless map['subDomains'].nil?)
+        data.sub_domains = (SubDomains.parse(map['subDomains']) unless map['subDomains'].nil?)
         return data
       end
     end
@@ -329,7 +329,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SubDomain.parse(value) unless value.nil?
+          data << SubDomain.parse(value) unless value.nil?
         end
         data
       end
@@ -338,7 +338,7 @@ module AWS::SDK::Amplify
     class SubDomain
       def self.parse(map)
         data = Types::SubDomain.new
-        data.sub_domain_setting = (Parsers::SubDomainSetting.parse(map['subDomainSetting']) unless map['subDomainSetting'].nil?)
+        data.sub_domain_setting = (SubDomainSetting.parse(map['subDomainSetting']) unless map['subDomainSetting'].nil?)
         data.verified = map['verified']
         data.dns_record = map['dnsRecord']
         return data
@@ -369,7 +369,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::CreateWebhookOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.webhook = (Parsers::Webhook.parse(map['webhook']) unless map['webhook'].nil?)
+        data.webhook = (Webhook.parse(map['webhook']) unless map['webhook'].nil?)
         data
       end
     end
@@ -393,7 +393,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::DeleteAppOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app = (Parsers::App.parse(map['app']) unless map['app'].nil?)
+        data.app = (App.parse(map['app']) unless map['app'].nil?)
         data
       end
     end
@@ -403,7 +403,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::DeleteBackendEnvironmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backend_environment = (Parsers::BackendEnvironment.parse(map['backendEnvironment']) unless map['backendEnvironment'].nil?)
+        data.backend_environment = (BackendEnvironment.parse(map['backendEnvironment']) unless map['backendEnvironment'].nil?)
         data
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::DeleteBranchOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.branch = (Parsers::Branch.parse(map['branch']) unless map['branch'].nil?)
+        data.branch = (Branch.parse(map['branch']) unless map['branch'].nil?)
         data
       end
     end
@@ -423,7 +423,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::DeleteDomainAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_association = (Parsers::DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
+        data.domain_association = (DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
         data
       end
     end
@@ -433,7 +433,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::DeleteJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_summary = (Parsers::JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
+        data.job_summary = (JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
         data
       end
     end
@@ -459,7 +459,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::DeleteWebhookOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.webhook = (Parsers::Webhook.parse(map['webhook']) unless map['webhook'].nil?)
+        data.webhook = (Webhook.parse(map['webhook']) unless map['webhook'].nil?)
         data
       end
     end
@@ -479,7 +479,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::GetAppOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app = (Parsers::App.parse(map['app']) unless map['app'].nil?)
+        data.app = (App.parse(map['app']) unless map['app'].nil?)
         data
       end
     end
@@ -500,7 +500,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::GetBackendEnvironmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backend_environment = (Parsers::BackendEnvironment.parse(map['backendEnvironment']) unless map['backendEnvironment'].nil?)
+        data.backend_environment = (BackendEnvironment.parse(map['backendEnvironment']) unless map['backendEnvironment'].nil?)
         data
       end
     end
@@ -510,7 +510,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::GetBranchOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.branch = (Parsers::Branch.parse(map['branch']) unless map['branch'].nil?)
+        data.branch = (Branch.parse(map['branch']) unless map['branch'].nil?)
         data
       end
     end
@@ -520,7 +520,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::GetDomainAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_association = (Parsers::DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
+        data.domain_association = (DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
         data
       end
     end
@@ -530,7 +530,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::GetJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -538,8 +538,8 @@ module AWS::SDK::Amplify
     class Job
       def self.parse(map)
         data = Types::Job.new
-        data.summary = (Parsers::JobSummary.parse(map['summary']) unless map['summary'].nil?)
-        data.steps = (Parsers::Steps.parse(map['steps']) unless map['steps'].nil?)
+        data.summary = (JobSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.steps = (Steps.parse(map['steps']) unless map['steps'].nil?)
         return data
       end
     end
@@ -548,7 +548,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Step.parse(value) unless value.nil?
+          data << Step.parse(value) unless value.nil?
         end
         data
       end
@@ -565,7 +565,7 @@ module AWS::SDK::Amplify
         data.artifacts_url = map['artifactsUrl']
         data.test_artifacts_url = map['testArtifactsUrl']
         data.test_config_url = map['testConfigUrl']
-        data.screenshots = (Parsers::Screenshots.parse(map['screenshots']) unless map['screenshots'].nil?)
+        data.screenshots = (Screenshots.parse(map['screenshots']) unless map['screenshots'].nil?)
         data.status_reason = map['statusReason']
         data.context = map['context']
         return data
@@ -587,7 +587,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::GetWebhookOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.webhook = (Parsers::Webhook.parse(map['webhook']) unless map['webhook'].nil?)
+        data.webhook = (Webhook.parse(map['webhook']) unless map['webhook'].nil?)
         data
       end
     end
@@ -597,7 +597,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListAppsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.apps = (Parsers::Apps.parse(map['apps']) unless map['apps'].nil?)
+        data.apps = (Apps.parse(map['apps']) unless map['apps'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -607,7 +607,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::App.parse(value) unless value.nil?
+          data << App.parse(value) unless value.nil?
         end
         data
       end
@@ -618,7 +618,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListArtifactsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.artifacts = (Parsers::Artifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
+        data.artifacts = (Artifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -628,7 +628,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Artifact.parse(value) unless value.nil?
+          data << Artifact.parse(value) unless value.nil?
         end
         data
       end
@@ -648,7 +648,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListBackendEnvironmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backend_environments = (Parsers::BackendEnvironments.parse(map['backendEnvironments']) unless map['backendEnvironments'].nil?)
+        data.backend_environments = (BackendEnvironments.parse(map['backendEnvironments']) unless map['backendEnvironments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -658,7 +658,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackendEnvironment.parse(value) unless value.nil?
+          data << BackendEnvironment.parse(value) unless value.nil?
         end
         data
       end
@@ -669,7 +669,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListBranchesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.branches = (Parsers::Branches.parse(map['branches']) unless map['branches'].nil?)
+        data.branches = (Branches.parse(map['branches']) unless map['branches'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -679,7 +679,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Branch.parse(value) unless value.nil?
+          data << Branch.parse(value) unless value.nil?
         end
         data
       end
@@ -690,7 +690,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListDomainAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_associations = (Parsers::DomainAssociations.parse(map['domainAssociations']) unless map['domainAssociations'].nil?)
+        data.domain_associations = (DomainAssociations.parse(map['domainAssociations']) unless map['domainAssociations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -700,7 +700,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainAssociation.parse(value) unless value.nil?
+          data << DomainAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -711,7 +711,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_summaries = (Parsers::JobSummaries.parse(map['jobSummaries']) unless map['jobSummaries'].nil?)
+        data.job_summaries = (JobSummaries.parse(map['jobSummaries']) unless map['jobSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -721,7 +721,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobSummary.parse(value) unless value.nil?
+          data << JobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -732,7 +732,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -753,7 +753,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::ListWebhooksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.webhooks = (Parsers::Webhooks.parse(map['webhooks']) unless map['webhooks'].nil?)
+        data.webhooks = (Webhooks.parse(map['webhooks']) unless map['webhooks'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -763,7 +763,7 @@ module AWS::SDK::Amplify
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Webhook.parse(value) unless value.nil?
+          data << Webhook.parse(value) unless value.nil?
         end
         data
       end
@@ -774,7 +774,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::StartDeploymentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_summary = (Parsers::JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
+        data.job_summary = (JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
         data
       end
     end
@@ -784,7 +784,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::StartJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_summary = (Parsers::JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
+        data.job_summary = (JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
         data
       end
     end
@@ -794,7 +794,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::StopJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_summary = (Parsers::JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
+        data.job_summary = (JobSummary.parse(map['jobSummary']) unless map['jobSummary'].nil?)
         data
       end
     end
@@ -822,7 +822,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::UpdateAppOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app = (Parsers::App.parse(map['app']) unless map['app'].nil?)
+        data.app = (App.parse(map['app']) unless map['app'].nil?)
         data
       end
     end
@@ -832,7 +832,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::UpdateBranchOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.branch = (Parsers::Branch.parse(map['branch']) unless map['branch'].nil?)
+        data.branch = (Branch.parse(map['branch']) unless map['branch'].nil?)
         data
       end
     end
@@ -842,7 +842,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::UpdateDomainAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_association = (Parsers::DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
+        data.domain_association = (DomainAssociation.parse(map['domainAssociation']) unless map['domainAssociation'].nil?)
         data
       end
     end
@@ -852,7 +852,7 @@ module AWS::SDK::Amplify
       def self.parse(http_resp)
         data = Types::UpdateWebhookOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.webhook = (Parsers::Webhook.parse(map['webhook']) unless map['webhook'].nil?)
+        data.webhook = (Webhook.parse(map['webhook']) unless map['webhook'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Athena
   module Builders
 
@@ -18,8 +20,8 @@ module AWS::SDK::Athena
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.BatchGetNamedQuery'
         data = {}
-        data['NamedQueryIds'] = Builders::NamedQueryIdList.build(input[:named_query_ids]) unless input[:named_query_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NamedQueryIds'] = NamedQueryIdList.build(input[:named_query_ids]) unless input[:named_query_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,8 +44,8 @@ module AWS::SDK::Athena
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.BatchGetQueryExecution'
         data = {}
-        data['QueryExecutionIds'] = Builders::QueryExecutionIdList.build(input[:query_execution_ids]) unless input[:query_execution_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueryExecutionIds'] = QueryExecutionIdList.build(input[:query_execution_ids]) unless input[:query_execution_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,9 +71,9 @@ module AWS::SDK::Athena
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::Athena
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -121,7 +123,7 @@ module AWS::SDK::Athena
         data['QueryString'] = input[:query_string] unless input[:query_string].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -137,7 +139,7 @@ module AWS::SDK::Athena
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
         data['QueryStatement'] = input[:query_statement] unless input[:query_statement].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -150,10 +152,10 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.CreateWorkGroup'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Configuration'] = Builders::WorkGroupConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Configuration'] = WorkGroupConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,12 +163,12 @@ module AWS::SDK::Athena
     class WorkGroupConfiguration
       def self.build(input)
         data = {}
-        data['ResultConfiguration'] = Builders::ResultConfiguration.build(input[:result_configuration]) unless input[:result_configuration].nil?
+        data['ResultConfiguration'] = ResultConfiguration.build(input[:result_configuration]) unless input[:result_configuration].nil?
         data['EnforceWorkGroupConfiguration'] = input[:enforce_work_group_configuration] unless input[:enforce_work_group_configuration].nil?
         data['PublishCloudWatchMetricsEnabled'] = input[:publish_cloud_watch_metrics_enabled] unless input[:publish_cloud_watch_metrics_enabled].nil?
         data['BytesScannedCutoffPerQuery'] = input[:bytes_scanned_cutoff_per_query] unless input[:bytes_scanned_cutoff_per_query].nil?
         data['RequesterPaysEnabled'] = input[:requester_pays_enabled] unless input[:requester_pays_enabled].nil?
-        data['EngineVersion'] = Builders::EngineVersion.build(input[:engine_version]) unless input[:engine_version].nil?
+        data['EngineVersion'] = EngineVersion.build(input[:engine_version]) unless input[:engine_version].nil?
         data
       end
     end
@@ -186,9 +188,9 @@ module AWS::SDK::Athena
       def self.build(input)
         data = {}
         data['OutputLocation'] = input[:output_location] unless input[:output_location].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
         data['ExpectedBucketOwner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil?
-        data['AclConfiguration'] = Builders::AclConfiguration.build(input[:acl_configuration]) unless input[:acl_configuration].nil?
+        data['AclConfiguration'] = AclConfiguration.build(input[:acl_configuration]) unless input[:acl_configuration].nil?
         data
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.DeleteDataCatalog'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.DeleteNamedQuery'
         data = {}
         data['NamedQueryId'] = input[:named_query_id] unless input[:named_query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::Athena
         data = {}
         data['StatementName'] = input[:statement_name] unless input[:statement_name].nil?
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -262,7 +264,7 @@ module AWS::SDK::Athena
         data = {}
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
         data['RecursiveDeleteOption'] = input[:recursive_delete_option] unless input[:recursive_delete_option].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -275,7 +277,7 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.GetDataCatalog'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::Athena
         data = {}
         data['CatalogName'] = input[:catalog_name] unless input[:catalog_name].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.GetNamedQuery'
         data = {}
         data['NamedQueryId'] = input[:named_query_id] unless input[:named_query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -316,7 +318,7 @@ module AWS::SDK::Athena
         data = {}
         data['StatementName'] = input[:statement_name] unless input[:statement_name].nil?
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.GetQueryExecution'
         data = {}
         data['QueryExecutionId'] = input[:query_execution_id] unless input[:query_execution_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -344,7 +346,7 @@ module AWS::SDK::Athena
         data['QueryExecutionId'] = input[:query_execution_id] unless input[:query_execution_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::Athena
         data['CatalogName'] = input[:catalog_name] unless input[:catalog_name].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -372,7 +374,7 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.GetWorkGroup'
         data = {}
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -386,7 +388,7 @@ module AWS::SDK::Athena
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::Athena
         data['CatalogName'] = input[:catalog_name] unless input[:catalog_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::Athena
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -430,7 +432,7 @@ module AWS::SDK::Athena
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,7 +447,7 @@ module AWS::SDK::Athena
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -460,7 +462,7 @@ module AWS::SDK::Athena
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -477,7 +479,7 @@ module AWS::SDK::Athena
         data['Expression'] = input[:expression] unless input[:expression].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -492,7 +494,7 @@ module AWS::SDK::Athena
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -506,7 +508,7 @@ module AWS::SDK::Athena
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -520,10 +522,10 @@ module AWS::SDK::Athena
         data = {}
         data['QueryString'] = input[:query_string] unless input[:query_string].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['QueryExecutionContext'] = Builders::QueryExecutionContext.build(input[:query_execution_context]) unless input[:query_execution_context].nil?
-        data['ResultConfiguration'] = Builders::ResultConfiguration.build(input[:result_configuration]) unless input[:result_configuration].nil?
+        data['QueryExecutionContext'] = QueryExecutionContext.build(input[:query_execution_context]) unless input[:query_execution_context].nil?
+        data['ResultConfiguration'] = ResultConfiguration.build(input[:result_configuration]) unless input[:result_configuration].nil?
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -546,7 +548,7 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.StopQueryExecution'
         data = {}
         data['QueryExecutionId'] = input[:query_execution_id] unless input[:query_execution_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -559,8 +561,8 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -573,8 +575,8 @@ module AWS::SDK::Athena
         http_req.headers['X-Amz-Target'] = 'AmazonAthena.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -600,8 +602,8 @@ module AWS::SDK::Athena
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -617,7 +619,7 @@ module AWS::SDK::Athena
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['QueryString'] = input[:query_string] unless input[:query_string].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::Athena
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
         data['QueryStatement'] = input[:query_statement] unless input[:query_statement].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -647,9 +649,9 @@ module AWS::SDK::Athena
         data = {}
         data['WorkGroup'] = input[:work_group] unless input[:work_group].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ConfigurationUpdates'] = Builders::WorkGroupConfigurationUpdates.build(input[:configuration_updates]) unless input[:configuration_updates].nil?
+        data['ConfigurationUpdates'] = WorkGroupConfigurationUpdates.build(input[:configuration_updates]) unless input[:configuration_updates].nil?
         data['State'] = input[:state] unless input[:state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -658,12 +660,12 @@ module AWS::SDK::Athena
       def self.build(input)
         data = {}
         data['EnforceWorkGroupConfiguration'] = input[:enforce_work_group_configuration] unless input[:enforce_work_group_configuration].nil?
-        data['ResultConfigurationUpdates'] = Builders::ResultConfigurationUpdates.build(input[:result_configuration_updates]) unless input[:result_configuration_updates].nil?
+        data['ResultConfigurationUpdates'] = ResultConfigurationUpdates.build(input[:result_configuration_updates]) unless input[:result_configuration_updates].nil?
         data['PublishCloudWatchMetricsEnabled'] = input[:publish_cloud_watch_metrics_enabled] unless input[:publish_cloud_watch_metrics_enabled].nil?
         data['BytesScannedCutoffPerQuery'] = input[:bytes_scanned_cutoff_per_query] unless input[:bytes_scanned_cutoff_per_query].nil?
         data['RemoveBytesScannedCutoffPerQuery'] = input[:remove_bytes_scanned_cutoff_per_query] unless input[:remove_bytes_scanned_cutoff_per_query].nil?
         data['RequesterPaysEnabled'] = input[:requester_pays_enabled] unless input[:requester_pays_enabled].nil?
-        data['EngineVersion'] = Builders::EngineVersion.build(input[:engine_version]) unless input[:engine_version].nil?
+        data['EngineVersion'] = EngineVersion.build(input[:engine_version]) unless input[:engine_version].nil?
         data
       end
     end
@@ -674,11 +676,11 @@ module AWS::SDK::Athena
         data = {}
         data['OutputLocation'] = input[:output_location] unless input[:output_location].nil?
         data['RemoveOutputLocation'] = input[:remove_output_location] unless input[:remove_output_location].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
         data['RemoveEncryptionConfiguration'] = input[:remove_encryption_configuration] unless input[:remove_encryption_configuration].nil?
         data['ExpectedBucketOwner'] = input[:expected_bucket_owner] unless input[:expected_bucket_owner].nil?
         data['RemoveExpectedBucketOwner'] = input[:remove_expected_bucket_owner] unless input[:remove_expected_bucket_owner].nil?
-        data['AclConfiguration'] = Builders::AclConfiguration.build(input[:acl_configuration]) unless input[:acl_configuration].nil?
+        data['AclConfiguration'] = AclConfiguration.build(input[:acl_configuration]) unless input[:acl_configuration].nil?
         data['RemoveAclConfiguration'] = input[:remove_acl_configuration] unless input[:remove_acl_configuration].nil?
         data
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AuditManager
   module Stubs
 
@@ -36,9 +38,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['evidenceIds'] = Stubs::EvidenceIds.stub(stub[:evidence_ids]) unless stub[:evidence_ids].nil?
-        data['errors'] = Stubs::AssessmentReportEvidenceErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['evidenceIds'] = EvidenceIds.stub(stub[:evidence_ids]) unless stub[:evidence_ids].nil?
+        data['errors'] = AssessmentReportEvidenceErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,7 +58,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentReportEvidenceError.stub(element) unless element.nil?
+          data << AssessmentReportEvidenceError.stub(element) unless element.nil?
         end
         data
       end
@@ -117,9 +119,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['delegations'] = Stubs::Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
-        data['errors'] = Stubs::BatchCreateDelegationByAssessmentErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['delegations'] = Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
+        data['errors'] = BatchCreateDelegationByAssessmentErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -137,7 +139,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchCreateDelegationByAssessmentError.stub(element) unless element.nil?
+          data << BatchCreateDelegationByAssessmentError.stub(element) unless element.nil?
         end
         data
       end
@@ -158,7 +160,7 @@ module AWS::SDK::AuditManager
       def self.stub(stub)
         stub ||= Types::BatchCreateDelegationByAssessmentError.new
         data = {}
-        data['createDelegationRequest'] = Stubs::CreateDelegationRequest.stub(stub[:create_delegation_request]) unless stub[:create_delegation_request].nil?
+        data['createDelegationRequest'] = CreateDelegationRequest.stub(stub[:create_delegation_request]) unless stub[:create_delegation_request].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data
@@ -203,7 +205,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Delegation.stub(element) unless element.nil?
+          data << Delegation.stub(element) unless element.nil?
         end
         data
       end
@@ -259,8 +261,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errors'] = Stubs::BatchDeleteDelegationByAssessmentErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = BatchDeleteDelegationByAssessmentErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -278,7 +280,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDeleteDelegationByAssessmentError.stub(element) unless element.nil?
+          data << BatchDeleteDelegationByAssessmentError.stub(element) unless element.nil?
         end
         data
       end
@@ -319,9 +321,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['evidenceIds'] = Stubs::EvidenceIds.stub(stub[:evidence_ids]) unless stub[:evidence_ids].nil?
-        data['errors'] = Stubs::AssessmentReportEvidenceErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['evidenceIds'] = EvidenceIds.stub(stub[:evidence_ids]) unless stub[:evidence_ids].nil?
+        data['errors'] = AssessmentReportEvidenceErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,8 +339,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errors'] = Stubs::BatchImportEvidenceToAssessmentControlErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = BatchImportEvidenceToAssessmentControlErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchImportEvidenceToAssessmentControlError.stub(element) unless element.nil?
+          data << BatchImportEvidenceToAssessmentControlError.stub(element) unless element.nil?
         end
         data
       end
@@ -377,7 +379,7 @@ module AWS::SDK::AuditManager
       def self.stub(stub)
         stub ||= Types::BatchImportEvidenceToAssessmentControlError.new
         data = {}
-        data['manualEvidence'] = Stubs::ManualEvidence.stub(stub[:manual_evidence]) unless stub[:manual_evidence].nil?
+        data['manualEvidence'] = ManualEvidence.stub(stub[:manual_evidence]) unless stub[:manual_evidence].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data
@@ -414,8 +416,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessment'] = Stubs::Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessment'] = Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -437,10 +439,10 @@ module AWS::SDK::AuditManager
         stub ||= Types::Assessment.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['awsAccount'] = Stubs::AWSAccount.stub(stub[:aws_account]) unless stub[:aws_account].nil?
-        data['metadata'] = Stubs::AssessmentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['framework'] = Stubs::AssessmentFramework.stub(stub[:framework]) unless stub[:framework].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['awsAccount'] = AWSAccount.stub(stub[:aws_account]) unless stub[:aws_account].nil?
+        data['metadata'] = AssessmentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['framework'] = AssessmentFramework.stub(stub[:framework]) unless stub[:framework].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -483,8 +485,8 @@ module AWS::SDK::AuditManager
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['metadata'] = Stubs::FrameworkMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['controlSets'] = Stubs::AssessmentControlSets.stub(stub[:control_sets]) unless stub[:control_sets].nil?
+        data['metadata'] = FrameworkMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['controlSets'] = AssessmentControlSets.stub(stub[:control_sets]) unless stub[:control_sets].nil?
         data
       end
     end
@@ -503,7 +505,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentControlSet.stub(element) unless element.nil?
+          data << AssessmentControlSet.stub(element) unless element.nil?
         end
         data
       end
@@ -532,9 +534,9 @@ module AWS::SDK::AuditManager
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['roles'] = Stubs::Roles.stub(stub[:roles]) unless stub[:roles].nil?
-        data['controls'] = Stubs::AssessmentControls.stub(stub[:controls]) unless stub[:controls].nil?
-        data['delegations'] = Stubs::Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
+        data['roles'] = Roles.stub(stub[:roles]) unless stub[:roles].nil?
+        data['controls'] = AssessmentControls.stub(stub[:controls]) unless stub[:controls].nil?
+        data['delegations'] = Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
         data['systemEvidenceCount'] = stub[:system_evidence_count] unless stub[:system_evidence_count].nil?
         data['manualEvidenceCount'] = stub[:manual_evidence_count] unless stub[:manual_evidence_count].nil?
         data
@@ -555,7 +557,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentControl.stub(element) unless element.nil?
+          data << AssessmentControl.stub(element) unless element.nil?
         end
         data
       end
@@ -587,8 +589,8 @@ module AWS::SDK::AuditManager
         data['description'] = stub[:description] unless stub[:description].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['response'] = stub[:response] unless stub[:response].nil?
-        data['comments'] = Stubs::ControlComments.stub(stub[:comments]) unless stub[:comments].nil?
-        data['evidenceSources'] = Stubs::EvidenceSources.stub(stub[:evidence_sources]) unless stub[:evidence_sources].nil?
+        data['comments'] = ControlComments.stub(stub[:comments]) unless stub[:comments].nil?
+        data['evidenceSources'] = EvidenceSources.stub(stub[:evidence_sources]) unless stub[:evidence_sources].nil?
         data['evidenceCount'] = stub[:evidence_count] unless stub[:evidence_count].nil?
         data['assessmentReportEvidenceCount'] = stub[:assessment_report_evidence_count] unless stub[:assessment_report_evidence_count].nil?
         data
@@ -629,7 +631,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlComment.stub(element) unless element.nil?
+          data << ControlComment.stub(element) unless element.nil?
         end
         data
       end
@@ -671,7 +673,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Role.stub(element) unless element.nil?
+          data << Role.stub(element) unless element.nil?
         end
         data
       end
@@ -749,10 +751,10 @@ module AWS::SDK::AuditManager
         data['description'] = stub[:description] unless stub[:description].nil?
         data['complianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['assessmentReportsDestination'] = Stubs::AssessmentReportsDestination.stub(stub[:assessment_reports_destination]) unless stub[:assessment_reports_destination].nil?
-        data['scope'] = Stubs::Scope.stub(stub[:scope]) unless stub[:scope].nil?
-        data['roles'] = Stubs::Roles.stub(stub[:roles]) unless stub[:roles].nil?
-        data['delegations'] = Stubs::Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
+        data['assessmentReportsDestination'] = AssessmentReportsDestination.stub(stub[:assessment_reports_destination]) unless stub[:assessment_reports_destination].nil?
+        data['scope'] = Scope.stub(stub[:scope]) unless stub[:scope].nil?
+        data['roles'] = Roles.stub(stub[:roles]) unless stub[:roles].nil?
+        data['delegations'] = Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
         data
@@ -773,8 +775,8 @@ module AWS::SDK::AuditManager
       def self.stub(stub)
         stub ||= Types::Scope.new
         data = {}
-        data['awsAccounts'] = Stubs::AWSAccounts.stub(stub[:aws_accounts]) unless stub[:aws_accounts].nil?
-        data['awsServices'] = Stubs::AWSServices.stub(stub[:aws_services]) unless stub[:aws_services].nil?
+        data['awsAccounts'] = AWSAccounts.stub(stub[:aws_accounts]) unless stub[:aws_accounts].nil?
+        data['awsServices'] = AWSServices.stub(stub[:aws_services]) unless stub[:aws_services].nil?
         data
       end
     end
@@ -793,7 +795,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AWSService.stub(element) unless element.nil?
+          data << AWSService.stub(element) unless element.nil?
         end
         data
       end
@@ -831,7 +833,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AWSAccount.stub(element) unless element.nil?
+          data << AWSAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -891,8 +893,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['framework'] = Stubs::Framework.stub(stub[:framework]) unless stub[:framework].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['framework'] = Framework.stub(stub[:framework]) unless stub[:framework].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -930,12 +932,12 @@ module AWS::SDK::AuditManager
         data['description'] = stub[:description] unless stub[:description].nil?
         data['logo'] = stub[:logo] unless stub[:logo].nil?
         data['controlSources'] = stub[:control_sources] unless stub[:control_sources].nil?
-        data['controlSets'] = Stubs::ControlSets.stub(stub[:control_sets]) unless stub[:control_sets].nil?
+        data['controlSets'] = ControlSets.stub(stub[:control_sets]) unless stub[:control_sets].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['lastUpdatedBy'] = stub[:last_updated_by] unless stub[:last_updated_by].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -954,7 +956,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlSet.stub(element) unless element.nil?
+          data << ControlSet.stub(element) unless element.nil?
         end
         data
       end
@@ -977,7 +979,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['controls'] = Stubs::Controls.stub(stub[:controls]) unless stub[:controls].nil?
+        data['controls'] = Controls.stub(stub[:controls]) unless stub[:controls].nil?
         data
       end
     end
@@ -996,7 +998,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Control.stub(element) unless element.nil?
+          data << Control.stub(element) unless element.nil?
         end
         data
       end
@@ -1038,12 +1040,12 @@ module AWS::SDK::AuditManager
         data['actionPlanTitle'] = stub[:action_plan_title] unless stub[:action_plan_title].nil?
         data['actionPlanInstructions'] = stub[:action_plan_instructions] unless stub[:action_plan_instructions].nil?
         data['controlSources'] = stub[:control_sources] unless stub[:control_sources].nil?
-        data['controlMappingSources'] = Stubs::ControlMappingSources.stub(stub[:control_mapping_sources]) unless stub[:control_mapping_sources].nil?
+        data['controlMappingSources'] = ControlMappingSources.stub(stub[:control_mapping_sources]) unless stub[:control_mapping_sources].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['lastUpdatedBy'] = stub[:last_updated_by] unless stub[:last_updated_by].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1062,7 +1064,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlMappingSource.stub(element) unless element.nil?
+          data << ControlMappingSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1093,7 +1095,7 @@ module AWS::SDK::AuditManager
         data['sourceDescription'] = stub[:source_description] unless stub[:source_description].nil?
         data['sourceSetUpOption'] = stub[:source_set_up_option] unless stub[:source_set_up_option].nil?
         data['sourceType'] = stub[:source_type] unless stub[:source_type].nil?
-        data['sourceKeyword'] = Stubs::SourceKeyword.stub(stub[:source_keyword]) unless stub[:source_keyword].nil?
+        data['sourceKeyword'] = SourceKeyword.stub(stub[:source_keyword]) unless stub[:source_keyword].nil?
         data['sourceFrequency'] = stub[:source_frequency] unless stub[:source_frequency].nil?
         data['troubleshootingText'] = stub[:troubleshooting_text] unless stub[:troubleshooting_text].nil?
         data
@@ -1132,8 +1134,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessmentReport'] = Stubs::AssessmentReport.stub(stub[:assessment_report]) unless stub[:assessment_report].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentReport'] = AssessmentReport.stub(stub[:assessment_report]) unless stub[:assessment_report].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1183,8 +1185,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['control'] = Stubs::Control.stub(stub[:control]) unless stub[:control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['control'] = Control.stub(stub[:control]) unless stub[:control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1266,7 +1268,7 @@ module AWS::SDK::AuditManager
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1309,7 +1311,7 @@ module AWS::SDK::AuditManager
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1326,9 +1328,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessment'] = Stubs::Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
-        data['userRole'] = Stubs::Role.stub(stub[:user_role]) unless stub[:user_role].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessment'] = Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
+        data['userRole'] = Role.stub(stub[:user_role]) unless stub[:user_role].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1344,8 +1346,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['framework'] = Stubs::Framework.stub(stub[:framework]) unless stub[:framework].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['framework'] = Framework.stub(stub[:framework]) unless stub[:framework].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1361,8 +1363,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['preSignedUrl'] = Stubs::URL.stub(stub[:pre_signed_url]) unless stub[:pre_signed_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['preSignedUrl'] = URL.stub(stub[:pre_signed_url]) unless stub[:pre_signed_url].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1399,9 +1401,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['changeLogs'] = Stubs::ChangeLogs.stub(stub[:change_logs]) unless stub[:change_logs].nil?
+        data['changeLogs'] = ChangeLogs.stub(stub[:change_logs]) unless stub[:change_logs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1419,7 +1421,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChangeLog.stub(element) unless element.nil?
+          data << ChangeLog.stub(element) unless element.nil?
         end
         data
       end
@@ -1463,8 +1465,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['control'] = Stubs::Control.stub(stub[:control]) unless stub[:control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['control'] = Control.stub(stub[:control]) unless stub[:control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1481,9 +1483,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['delegations'] = Stubs::DelegationMetadataList.stub(stub[:delegations]) unless stub[:delegations].nil?
+        data['delegations'] = DelegationMetadataList.stub(stub[:delegations]) unless stub[:delegations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1501,7 +1503,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DelegationMetadata.stub(element) unless element.nil?
+          data << DelegationMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1549,8 +1551,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['evidence'] = Stubs::Evidence.stub(stub[:evidence]) unless stub[:evidence].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['evidence'] = Evidence.stub(stub[:evidence]) unless stub[:evidence].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1587,8 +1589,8 @@ module AWS::SDK::AuditManager
         data['eventSource'] = stub[:event_source] unless stub[:event_source].nil?
         data['eventName'] = stub[:event_name] unless stub[:event_name].nil?
         data['evidenceByType'] = stub[:evidence_by_type] unless stub[:evidence_by_type].nil?
-        data['resourcesIncluded'] = Stubs::Resources.stub(stub[:resources_included]) unless stub[:resources_included].nil?
-        data['attributes'] = Stubs::EvidenceAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['resourcesIncluded'] = Resources.stub(stub[:resources_included]) unless stub[:resources_included].nil?
+        data['attributes'] = EvidenceAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['iamId'] = stub[:iam_id] unless stub[:iam_id].nil?
         data['complianceCheck'] = stub[:compliance_check] unless stub[:compliance_check].nil?
         data['awsOrganization'] = stub[:aws_organization] unless stub[:aws_organization].nil?
@@ -1634,7 +1636,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -1673,9 +1675,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['evidence'] = Stubs::EvidenceList.stub(stub[:evidence]) unless stub[:evidence].nil?
+        data['evidence'] = EvidenceList.stub(stub[:evidence]) unless stub[:evidence].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1693,7 +1695,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Evidence.stub(element) unless element.nil?
+          data << Evidence.stub(element) unless element.nil?
         end
         data
       end
@@ -1711,8 +1713,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['evidenceFolder'] = Stubs::AssessmentEvidenceFolder.stub(stub[:evidence_folder]) unless stub[:evidence_folder].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['evidenceFolder'] = AssessmentEvidenceFolder.stub(stub[:evidence_folder]) unless stub[:evidence_folder].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1781,9 +1783,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['evidenceFolders'] = Stubs::AssessmentEvidenceFolders.stub(stub[:evidence_folders]) unless stub[:evidence_folders].nil?
+        data['evidenceFolders'] = AssessmentEvidenceFolders.stub(stub[:evidence_folders]) unless stub[:evidence_folders].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1801,7 +1803,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentEvidenceFolder.stub(element) unless element.nil?
+          data << AssessmentEvidenceFolder.stub(element) unless element.nil?
         end
         data
       end
@@ -1820,9 +1822,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['evidenceFolders'] = Stubs::AssessmentEvidenceFolders.stub(stub[:evidence_folders]) unless stub[:evidence_folders].nil?
+        data['evidenceFolders'] = AssessmentEvidenceFolders.stub(stub[:evidence_folders]) unless stub[:evidence_folders].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1838,8 +1840,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['insights'] = Stubs::Insights.stub(stub[:insights]) unless stub[:insights].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['insights'] = Insights.stub(stub[:insights]) unless stub[:insights].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1885,8 +1887,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['insights'] = Stubs::InsightsByAssessment.stub(stub[:insights]) unless stub[:insights].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['insights'] = InsightsByAssessment.stub(stub[:insights]) unless stub[:insights].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1933,7 +1935,7 @@ module AWS::SDK::AuditManager
         http_resp.headers['Content-Type'] = 'application/json'
         data['adminAccountId'] = stub[:admin_account_id] unless stub[:admin_account_id].nil?
         data['organizationId'] = stub[:organization_id] unless stub[:organization_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1949,8 +1951,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['serviceMetadata'] = Stubs::ServiceMetadataList.stub(stub[:service_metadata]) unless stub[:service_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceMetadata'] = ServiceMetadataList.stub(stub[:service_metadata]) unless stub[:service_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1968,7 +1970,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceMetadata.stub(element) unless element.nil?
+          data << ServiceMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -2010,8 +2012,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['settings'] = Stubs::Settings.stub(stub[:settings]) unless stub[:settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['settings'] = Settings.stub(stub[:settings]) unless stub[:settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2034,8 +2036,8 @@ module AWS::SDK::AuditManager
         data = {}
         data['isAwsOrgEnabled'] = stub[:is_aws_org_enabled] unless stub[:is_aws_org_enabled].nil?
         data['snsTopic'] = stub[:sns_topic] unless stub[:sns_topic].nil?
-        data['defaultAssessmentReportsDestination'] = Stubs::AssessmentReportsDestination.stub(stub[:default_assessment_reports_destination]) unless stub[:default_assessment_reports_destination].nil?
-        data['defaultProcessOwners'] = Stubs::Roles.stub(stub[:default_process_owners]) unless stub[:default_process_owners].nil?
+        data['defaultAssessmentReportsDestination'] = AssessmentReportsDestination.stub(stub[:default_assessment_reports_destination]) unless stub[:default_assessment_reports_destination].nil?
+        data['defaultProcessOwners'] = Roles.stub(stub[:default_process_owners]) unless stub[:default_process_owners].nil?
         data['kmsKey'] = stub[:kms_key] unless stub[:kms_key].nil?
         data
       end
@@ -2054,9 +2056,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['controlInsightsByAssessment'] = Stubs::ControlInsightsMetadataByAssessment.stub(stub[:control_insights_by_assessment]) unless stub[:control_insights_by_assessment].nil?
+        data['controlInsightsByAssessment'] = ControlInsightsMetadataByAssessment.stub(stub[:control_insights_by_assessment]) unless stub[:control_insights_by_assessment].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2074,7 +2076,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlInsightsMetadataByAssessmentItem.stub(element) unless element.nil?
+          data << ControlInsightsMetadataByAssessmentItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2099,7 +2101,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['evidenceInsights'] = Stubs::EvidenceInsights.stub(stub[:evidence_insights]) unless stub[:evidence_insights].nil?
+        data['evidenceInsights'] = EvidenceInsights.stub(stub[:evidence_insights]) unless stub[:evidence_insights].nil?
         data['controlSetName'] = stub[:control_set_name] unless stub[:control_set_name].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
         data
@@ -2141,9 +2143,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessmentFrameworkShareRequests'] = Stubs::AssessmentFrameworkShareRequestList.stub(stub[:assessment_framework_share_requests]) unless stub[:assessment_framework_share_requests].nil?
+        data['assessmentFrameworkShareRequests'] = AssessmentFrameworkShareRequestList.stub(stub[:assessment_framework_share_requests]) unless stub[:assessment_framework_share_requests].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2161,7 +2163,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentFrameworkShareRequest.stub(element) unless element.nil?
+          data << AssessmentFrameworkShareRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2226,9 +2228,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['frameworkMetadataList'] = Stubs::FrameworkMetadataList.stub(stub[:framework_metadata_list]) unless stub[:framework_metadata_list].nil?
+        data['frameworkMetadataList'] = FrameworkMetadataList.stub(stub[:framework_metadata_list]) unless stub[:framework_metadata_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2246,7 +2248,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentFrameworkMetadata.stub(element) unless element.nil?
+          data << AssessmentFrameworkMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -2303,9 +2305,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessmentReports'] = Stubs::AssessmentReportsMetadata.stub(stub[:assessment_reports]) unless stub[:assessment_reports].nil?
+        data['assessmentReports'] = AssessmentReportsMetadata.stub(stub[:assessment_reports]) unless stub[:assessment_reports].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2323,7 +2325,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentReportMetadata.stub(element) unless element.nil?
+          data << AssessmentReportMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -2374,9 +2376,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessmentMetadata'] = Stubs::ListAssessmentMetadata.stub(stub[:assessment_metadata]) unless stub[:assessment_metadata].nil?
+        data['assessmentMetadata'] = ListAssessmentMetadata.stub(stub[:assessment_metadata]) unless stub[:assessment_metadata].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2394,7 +2396,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentMetadataItem.stub(element) unless element.nil?
+          data << AssessmentMetadataItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2424,8 +2426,8 @@ module AWS::SDK::AuditManager
         data['id'] = stub[:id] unless stub[:id].nil?
         data['complianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['roles'] = Stubs::Roles.stub(stub[:roles]) unless stub[:roles].nil?
-        data['delegations'] = Stubs::Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
+        data['roles'] = Roles.stub(stub[:roles]) unless stub[:roles].nil?
+        data['delegations'] = Delegations.stub(stub[:delegations]) unless stub[:delegations].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
         data
@@ -2445,9 +2447,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['controlDomainInsights'] = Stubs::ControlDomainInsightsList.stub(stub[:control_domain_insights]) unless stub[:control_domain_insights].nil?
+        data['controlDomainInsights'] = ControlDomainInsightsList.stub(stub[:control_domain_insights]) unless stub[:control_domain_insights].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2465,7 +2467,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlDomainInsights.stub(element) unless element.nil?
+          data << ControlDomainInsights.stub(element) unless element.nil?
         end
         data
       end
@@ -2493,7 +2495,7 @@ module AWS::SDK::AuditManager
         data['id'] = stub[:id] unless stub[:id].nil?
         data['controlsCountByNoncompliantEvidence'] = stub[:controls_count_by_noncompliant_evidence] unless stub[:controls_count_by_noncompliant_evidence].nil?
         data['totalControlsCount'] = stub[:total_controls_count] unless stub[:total_controls_count].nil?
-        data['evidenceInsights'] = Stubs::EvidenceInsights.stub(stub[:evidence_insights]) unless stub[:evidence_insights].nil?
+        data['evidenceInsights'] = EvidenceInsights.stub(stub[:evidence_insights]) unless stub[:evidence_insights].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
         data
       end
@@ -2512,9 +2514,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['controlDomainInsights'] = Stubs::ControlDomainInsightsList.stub(stub[:control_domain_insights]) unless stub[:control_domain_insights].nil?
+        data['controlDomainInsights'] = ControlDomainInsightsList.stub(stub[:control_domain_insights]) unless stub[:control_domain_insights].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2531,9 +2533,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['controlInsightsMetadata'] = Stubs::ControlInsightsMetadata.stub(stub[:control_insights_metadata]) unless stub[:control_insights_metadata].nil?
+        data['controlInsightsMetadata'] = ControlInsightsMetadata.stub(stub[:control_insights_metadata]) unless stub[:control_insights_metadata].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2551,7 +2553,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlInsightsMetadataItem.stub(element) unless element.nil?
+          data << ControlInsightsMetadataItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2575,7 +2577,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['evidenceInsights'] = Stubs::EvidenceInsights.stub(stub[:evidence_insights]) unless stub[:evidence_insights].nil?
+        data['evidenceInsights'] = EvidenceInsights.stub(stub[:evidence_insights]) unless stub[:evidence_insights].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
         data
       end
@@ -2594,9 +2596,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['controlMetadataList'] = Stubs::ControlMetadataList.stub(stub[:control_metadata_list]) unless stub[:control_metadata_list].nil?
+        data['controlMetadataList'] = ControlMetadataList.stub(stub[:control_metadata_list]) unless stub[:control_metadata_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2614,7 +2616,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlMetadata.stub(element) unless element.nil?
+          data << ControlMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -2661,9 +2663,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['keywords'] = Stubs::Keywords.stub(stub[:keywords]) unless stub[:keywords].nil?
+        data['keywords'] = Keywords.stub(stub[:keywords]) unless stub[:keywords].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2700,9 +2702,9 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['notifications'] = Stubs::Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
+        data['notifications'] = Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2720,7 +2722,7 @@ module AWS::SDK::AuditManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Notification.stub(element) unless element.nil?
+          data << Notification.stub(element) unless element.nil?
         end
         data
       end
@@ -2770,8 +2772,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2788,7 +2790,7 @@ module AWS::SDK::AuditManager
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2807,7 +2809,7 @@ module AWS::SDK::AuditManager
         http_resp.headers['Content-Type'] = 'application/json'
         data['adminAccountId'] = stub[:admin_account_id] unless stub[:admin_account_id].nil?
         data['organizationId'] = stub[:organization_id] unless stub[:organization_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2823,8 +2825,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessmentFrameworkShareRequest'] = Stubs::AssessmentFrameworkShareRequest.stub(stub[:assessment_framework_share_request]) unless stub[:assessment_framework_share_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentFrameworkShareRequest'] = AssessmentFrameworkShareRequest.stub(stub[:assessment_framework_share_request]) unless stub[:assessment_framework_share_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2866,8 +2868,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessment'] = Stubs::Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessment'] = Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2883,8 +2885,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['control'] = Stubs::AssessmentControl.stub(stub[:control]) unless stub[:control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['control'] = AssessmentControl.stub(stub[:control]) unless stub[:control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2900,8 +2902,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['controlSet'] = Stubs::AssessmentControlSet.stub(stub[:control_set]) unless stub[:control_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['controlSet'] = AssessmentControlSet.stub(stub[:control_set]) unless stub[:control_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2917,8 +2919,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['framework'] = Stubs::Framework.stub(stub[:framework]) unless stub[:framework].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['framework'] = Framework.stub(stub[:framework]) unless stub[:framework].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2934,8 +2936,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessmentFrameworkShareRequest'] = Stubs::AssessmentFrameworkShareRequest.stub(stub[:assessment_framework_share_request]) unless stub[:assessment_framework_share_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentFrameworkShareRequest'] = AssessmentFrameworkShareRequest.stub(stub[:assessment_framework_share_request]) unless stub[:assessment_framework_share_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2951,8 +2953,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessment'] = Stubs::Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessment'] = Assessment.stub(stub[:assessment]) unless stub[:assessment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2968,8 +2970,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['control'] = Stubs::Control.stub(stub[:control]) unless stub[:control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['control'] = Control.stub(stub[:control]) unless stub[:control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2985,8 +2987,8 @@ module AWS::SDK::AuditManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['settings'] = Stubs::Settings.stub(stub[:settings]) unless stub[:settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['settings'] = Settings.stub(stub[:settings]) unless stub[:settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3010,8 +3012,8 @@ module AWS::SDK::AuditManager
         data['signatureAlgorithm'] = stub[:signature_algorithm] unless stub[:signature_algorithm].nil?
         data['signatureDateTime'] = stub[:signature_date_time] unless stub[:signature_date_time].nil?
         data['signatureKeyId'] = stub[:signature_key_id] unless stub[:signature_key_id].nil?
-        data['validationErrors'] = Stubs::ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['validationErrors'] = ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

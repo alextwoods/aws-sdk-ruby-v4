@@ -15,7 +15,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::AcceptInboundCrossClusterSearchConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cross_cluster_search_connection = (Parsers::InboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
+        data.cross_cluster_search_connection = (InboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
         data
       end
     end
@@ -23,10 +23,10 @@ module AWS::SDK::ElasticsearchService
     class InboundCrossClusterSearchConnection
       def self.parse(map)
         data = Types::InboundCrossClusterSearchConnection.new
-        data.source_domain_info = (Parsers::DomainInformation.parse(map['SourceDomainInfo']) unless map['SourceDomainInfo'].nil?)
-        data.destination_domain_info = (Parsers::DomainInformation.parse(map['DestinationDomainInfo']) unless map['DestinationDomainInfo'].nil?)
+        data.source_domain_info = (DomainInformation.parse(map['SourceDomainInfo']) unless map['SourceDomainInfo'].nil?)
+        data.destination_domain_info = (DomainInformation.parse(map['DestinationDomainInfo']) unless map['DestinationDomainInfo'].nil?)
         data.cross_cluster_search_connection_id = map['CrossClusterSearchConnectionId']
-        data.connection_status = (Parsers::InboundCrossClusterSearchConnectionStatus.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
+        data.connection_status = (InboundCrossClusterSearchConnectionStatus.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
         return data
       end
     end
@@ -124,7 +124,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::AssociatePackageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_package_details = (Parsers::DomainPackageDetails.parse(map['DomainPackageDetails']) unless map['DomainPackageDetails'].nil?)
+        data.domain_package_details = (DomainPackageDetails.parse(map['DomainPackageDetails']) unless map['DomainPackageDetails'].nil?)
         data
       end
     end
@@ -140,7 +140,7 @@ module AWS::SDK::ElasticsearchService
         data.domain_package_status = map['DomainPackageStatus']
         data.package_version = map['PackageVersion']
         data.reference_path = map['ReferencePath']
-        data.error_details = (Parsers::ErrorDetails.parse(map['ErrorDetails']) unless map['ErrorDetails'].nil?)
+        data.error_details = (ErrorDetails.parse(map['ErrorDetails']) unless map['ErrorDetails'].nil?)
         return data
       end
     end
@@ -179,7 +179,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::CancelElasticsearchServiceSoftwareUpdateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.service_software_options = (Parsers::ServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
+        data.service_software_options = (ServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
         data
       end
     end
@@ -204,7 +204,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::CreateElasticsearchDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_status = (Parsers::ElasticsearchDomainStatus.parse(map['DomainStatus']) unless map['DomainStatus'].nil?)
+        data.domain_status = (ElasticsearchDomainStatus.parse(map['DomainStatus']) unless map['DomainStatus'].nil?)
         data
       end
     end
@@ -218,25 +218,25 @@ module AWS::SDK::ElasticsearchService
         data.created = map['Created']
         data.deleted = map['Deleted']
         data.endpoint = map['Endpoint']
-        data.endpoints = (Parsers::EndpointsMap.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (EndpointsMap.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.processing = map['Processing']
         data.upgrade_processing = map['UpgradeProcessing']
         data.elasticsearch_version = map['ElasticsearchVersion']
-        data.elasticsearch_cluster_config = (Parsers::ElasticsearchClusterConfig.parse(map['ElasticsearchClusterConfig']) unless map['ElasticsearchClusterConfig'].nil?)
-        data.ebs_options = (Parsers::EBSOptions.parse(map['EBSOptions']) unless map['EBSOptions'].nil?)
+        data.elasticsearch_cluster_config = (ElasticsearchClusterConfig.parse(map['ElasticsearchClusterConfig']) unless map['ElasticsearchClusterConfig'].nil?)
+        data.ebs_options = (EBSOptions.parse(map['EBSOptions']) unless map['EBSOptions'].nil?)
         data.access_policies = map['AccessPolicies']
-        data.snapshot_options = (Parsers::SnapshotOptions.parse(map['SnapshotOptions']) unless map['SnapshotOptions'].nil?)
-        data.vpc_options = (Parsers::VPCDerivedInfo.parse(map['VPCOptions']) unless map['VPCOptions'].nil?)
-        data.cognito_options = (Parsers::CognitoOptions.parse(map['CognitoOptions']) unless map['CognitoOptions'].nil?)
-        data.encryption_at_rest_options = (Parsers::EncryptionAtRestOptions.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
-        data.node_to_node_encryption_options = (Parsers::NodeToNodeEncryptionOptions.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
-        data.advanced_options = (Parsers::AdvancedOptions.parse(map['AdvancedOptions']) unless map['AdvancedOptions'].nil?)
-        data.log_publishing_options = (Parsers::LogPublishingOptions.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
-        data.service_software_options = (Parsers::ServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
-        data.domain_endpoint_options = (Parsers::DomainEndpointOptions.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
-        data.advanced_security_options = (Parsers::AdvancedSecurityOptions.parse(map['AdvancedSecurityOptions']) unless map['AdvancedSecurityOptions'].nil?)
-        data.auto_tune_options = (Parsers::AutoTuneOptionsOutput.parse(map['AutoTuneOptions']) unless map['AutoTuneOptions'].nil?)
-        data.change_progress_details = (Parsers::ChangeProgressDetails.parse(map['ChangeProgressDetails']) unless map['ChangeProgressDetails'].nil?)
+        data.snapshot_options = (SnapshotOptions.parse(map['SnapshotOptions']) unless map['SnapshotOptions'].nil?)
+        data.vpc_options = (VPCDerivedInfo.parse(map['VPCOptions']) unless map['VPCOptions'].nil?)
+        data.cognito_options = (CognitoOptions.parse(map['CognitoOptions']) unless map['CognitoOptions'].nil?)
+        data.encryption_at_rest_options = (EncryptionAtRestOptions.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
+        data.node_to_node_encryption_options = (NodeToNodeEncryptionOptions.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
+        data.advanced_options = (AdvancedOptions.parse(map['AdvancedOptions']) unless map['AdvancedOptions'].nil?)
+        data.log_publishing_options = (LogPublishingOptions.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
+        data.service_software_options = (ServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
+        data.domain_endpoint_options = (DomainEndpointOptions.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
+        data.advanced_security_options = (AdvancedSecurityOptions.parse(map['AdvancedSecurityOptions']) unless map['AdvancedSecurityOptions'].nil?)
+        data.auto_tune_options = (AutoTuneOptionsOutput.parse(map['AutoTuneOptions']) unless map['AutoTuneOptions'].nil?)
+        data.change_progress_details = (ChangeProgressDetails.parse(map['ChangeProgressDetails']) unless map['ChangeProgressDetails'].nil?)
         return data
       end
     end
@@ -264,7 +264,7 @@ module AWS::SDK::ElasticsearchService
         data = Types::AdvancedSecurityOptions.new
         data.enabled = map['Enabled']
         data.internal_user_database_enabled = map['InternalUserDatabaseEnabled']
-        data.saml_options = (Parsers::SAMLOptionsOutput.parse(map['SAMLOptions']) unless map['SAMLOptions'].nil?)
+        data.saml_options = (SAMLOptionsOutput.parse(map['SAMLOptions']) unless map['SAMLOptions'].nil?)
         data.anonymous_auth_disable_date = Time.at(map['AnonymousAuthDisableDate'].to_i) if map['AnonymousAuthDisableDate']
         data.anonymous_auth_enabled = map['AnonymousAuthEnabled']
         return data
@@ -275,7 +275,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::SAMLOptionsOutput.new
         data.enabled = map['Enabled']
-        data.idp = (Parsers::SAMLIdp.parse(map['Idp']) unless map['Idp'].nil?)
+        data.idp = (SAMLIdp.parse(map['Idp']) unless map['Idp'].nil?)
         data.subject_key = map['SubjectKey']
         data.roles_key = map['RolesKey']
         data.session_timeout_minutes = map['SessionTimeoutMinutes']
@@ -308,7 +308,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::LogPublishingOption.parse(value) unless value.nil?
+          data[key] = LogPublishingOption.parse(value) unless value.nil?
         end
         data
       end
@@ -365,9 +365,9 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::VPCDerivedInfo.new
         data.vpc_id = map['VPCId']
-        data.subnet_ids = (Parsers::StringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.availability_zones = (Parsers::StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.security_group_ids = (Parsers::StringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (StringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.availability_zones = (StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.security_group_ids = (StringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         return data
       end
     end
@@ -408,13 +408,13 @@ module AWS::SDK::ElasticsearchService
         data.instance_count = map['InstanceCount']
         data.dedicated_master_enabled = map['DedicatedMasterEnabled']
         data.zone_awareness_enabled = map['ZoneAwarenessEnabled']
-        data.zone_awareness_config = (Parsers::ZoneAwarenessConfig.parse(map['ZoneAwarenessConfig']) unless map['ZoneAwarenessConfig'].nil?)
+        data.zone_awareness_config = (ZoneAwarenessConfig.parse(map['ZoneAwarenessConfig']) unless map['ZoneAwarenessConfig'].nil?)
         data.dedicated_master_type = map['DedicatedMasterType']
         data.dedicated_master_count = map['DedicatedMasterCount']
         data.warm_enabled = map['WarmEnabled']
         data.warm_type = map['WarmType']
         data.warm_count = map['WarmCount']
-        data.cold_storage_options = (Parsers::ColdStorageOptions.parse(map['ColdStorageOptions']) unless map['ColdStorageOptions'].nil?)
+        data.cold_storage_options = (ColdStorageOptions.parse(map['ColdStorageOptions']) unless map['ColdStorageOptions'].nil?)
         return data
       end
     end
@@ -470,10 +470,10 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::CreateOutboundCrossClusterSearchConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.source_domain_info = (Parsers::DomainInformation.parse(map['SourceDomainInfo']) unless map['SourceDomainInfo'].nil?)
-        data.destination_domain_info = (Parsers::DomainInformation.parse(map['DestinationDomainInfo']) unless map['DestinationDomainInfo'].nil?)
+        data.source_domain_info = (DomainInformation.parse(map['SourceDomainInfo']) unless map['SourceDomainInfo'].nil?)
+        data.destination_domain_info = (DomainInformation.parse(map['DestinationDomainInfo']) unless map['DestinationDomainInfo'].nil?)
         data.connection_alias = map['ConnectionAlias']
-        data.connection_status = (Parsers::OutboundCrossClusterSearchConnectionStatus.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
+        data.connection_status = (OutboundCrossClusterSearchConnectionStatus.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
         data.cross_cluster_search_connection_id = map['CrossClusterSearchConnectionId']
         data
       end
@@ -493,7 +493,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::CreatePackageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.package_details = (Parsers::PackageDetails.parse(map['PackageDetails']) unless map['PackageDetails'].nil?)
+        data.package_details = (PackageDetails.parse(map['PackageDetails']) unless map['PackageDetails'].nil?)
         data
       end
     end
@@ -509,7 +509,7 @@ module AWS::SDK::ElasticsearchService
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
         data.available_package_version = map['AvailablePackageVersion']
-        data.error_details = (Parsers::ErrorDetails.parse(map['ErrorDetails']) unless map['ErrorDetails'].nil?)
+        data.error_details = (ErrorDetails.parse(map['ErrorDetails']) unless map['ErrorDetails'].nil?)
         return data
       end
     end
@@ -519,7 +519,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DeleteElasticsearchDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_status = (Parsers::ElasticsearchDomainStatus.parse(map['DomainStatus']) unless map['DomainStatus'].nil?)
+        data.domain_status = (ElasticsearchDomainStatus.parse(map['DomainStatus']) unless map['DomainStatus'].nil?)
         data
       end
     end
@@ -538,7 +538,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DeleteInboundCrossClusterSearchConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cross_cluster_search_connection = (Parsers::InboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
+        data.cross_cluster_search_connection = (InboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
         data
       end
     end
@@ -548,7 +548,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DeleteOutboundCrossClusterSearchConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cross_cluster_search_connection = (Parsers::OutboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
+        data.cross_cluster_search_connection = (OutboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
         data
       end
     end
@@ -556,11 +556,11 @@ module AWS::SDK::ElasticsearchService
     class OutboundCrossClusterSearchConnection
       def self.parse(map)
         data = Types::OutboundCrossClusterSearchConnection.new
-        data.source_domain_info = (Parsers::DomainInformation.parse(map['SourceDomainInfo']) unless map['SourceDomainInfo'].nil?)
-        data.destination_domain_info = (Parsers::DomainInformation.parse(map['DestinationDomainInfo']) unless map['DestinationDomainInfo'].nil?)
+        data.source_domain_info = (DomainInformation.parse(map['SourceDomainInfo']) unless map['SourceDomainInfo'].nil?)
+        data.destination_domain_info = (DomainInformation.parse(map['DestinationDomainInfo']) unless map['DestinationDomainInfo'].nil?)
         data.cross_cluster_search_connection_id = map['CrossClusterSearchConnectionId']
         data.connection_alias = map['ConnectionAlias']
-        data.connection_status = (Parsers::OutboundCrossClusterSearchConnectionStatus.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
+        data.connection_status = (OutboundCrossClusterSearchConnectionStatus.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
         return data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DeletePackageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.package_details = (Parsers::PackageDetails.parse(map['PackageDetails']) unless map['PackageDetails'].nil?)
+        data.package_details = (PackageDetails.parse(map['PackageDetails']) unless map['PackageDetails'].nil?)
         data
       end
     end
@@ -580,7 +580,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeDomainAutoTunesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.auto_tunes = (Parsers::AutoTuneList.parse(map['AutoTunes']) unless map['AutoTunes'].nil?)
+        data.auto_tunes = (AutoTuneList.parse(map['AutoTunes']) unless map['AutoTunes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -590,7 +590,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AutoTune.parse(value) unless value.nil?
+          data << AutoTune.parse(value) unless value.nil?
         end
         data
       end
@@ -600,7 +600,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::AutoTune.new
         data.auto_tune_type = map['AutoTuneType']
-        data.auto_tune_details = (Parsers::AutoTuneDetails.parse(map['AutoTuneDetails']) unless map['AutoTuneDetails'].nil?)
+        data.auto_tune_details = (AutoTuneDetails.parse(map['AutoTuneDetails']) unless map['AutoTuneDetails'].nil?)
         return data
       end
     end
@@ -608,7 +608,7 @@ module AWS::SDK::ElasticsearchService
     class AutoTuneDetails
       def self.parse(map)
         data = Types::AutoTuneDetails.new
-        data.scheduled_auto_tune_details = (Parsers::ScheduledAutoTuneDetails.parse(map['ScheduledAutoTuneDetails']) unless map['ScheduledAutoTuneDetails'].nil?)
+        data.scheduled_auto_tune_details = (ScheduledAutoTuneDetails.parse(map['ScheduledAutoTuneDetails']) unless map['ScheduledAutoTuneDetails'].nil?)
         return data
       end
     end
@@ -629,7 +629,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeDomainChangeProgressOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.change_progress_status = (Parsers::ChangeProgressStatusDetails.parse(map['ChangeProgressStatus']) unless map['ChangeProgressStatus'].nil?)
+        data.change_progress_status = (ChangeProgressStatusDetails.parse(map['ChangeProgressStatus']) unless map['ChangeProgressStatus'].nil?)
         data
       end
     end
@@ -640,10 +640,10 @@ module AWS::SDK::ElasticsearchService
         data.change_id = map['ChangeId']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.status = map['Status']
-        data.pending_properties = (Parsers::StringList.parse(map['PendingProperties']) unless map['PendingProperties'].nil?)
-        data.completed_properties = (Parsers::StringList.parse(map['CompletedProperties']) unless map['CompletedProperties'].nil?)
+        data.pending_properties = (StringList.parse(map['PendingProperties']) unless map['PendingProperties'].nil?)
+        data.completed_properties = (StringList.parse(map['CompletedProperties']) unless map['CompletedProperties'].nil?)
         data.total_number_of_stages = map['TotalNumberOfStages']
-        data.change_progress_stages = (Parsers::ChangeProgressStageList.parse(map['ChangeProgressStages']) unless map['ChangeProgressStages'].nil?)
+        data.change_progress_stages = (ChangeProgressStageList.parse(map['ChangeProgressStages']) unless map['ChangeProgressStages'].nil?)
         return data
       end
     end
@@ -652,7 +652,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChangeProgressStage.parse(value) unless value.nil?
+          data << ChangeProgressStage.parse(value) unless value.nil?
         end
         data
       end
@@ -674,7 +674,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeElasticsearchDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_status = (Parsers::ElasticsearchDomainStatus.parse(map['DomainStatus']) unless map['DomainStatus'].nil?)
+        data.domain_status = (ElasticsearchDomainStatus.parse(map['DomainStatus']) unless map['DomainStatus'].nil?)
         data
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeElasticsearchDomainConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_config = (Parsers::ElasticsearchDomainConfig.parse(map['DomainConfig']) unless map['DomainConfig'].nil?)
+        data.domain_config = (ElasticsearchDomainConfig.parse(map['DomainConfig']) unless map['DomainConfig'].nil?)
         data
       end
     end
@@ -692,21 +692,21 @@ module AWS::SDK::ElasticsearchService
     class ElasticsearchDomainConfig
       def self.parse(map)
         data = Types::ElasticsearchDomainConfig.new
-        data.elasticsearch_version = (Parsers::ElasticsearchVersionStatus.parse(map['ElasticsearchVersion']) unless map['ElasticsearchVersion'].nil?)
-        data.elasticsearch_cluster_config = (Parsers::ElasticsearchClusterConfigStatus.parse(map['ElasticsearchClusterConfig']) unless map['ElasticsearchClusterConfig'].nil?)
-        data.ebs_options = (Parsers::EBSOptionsStatus.parse(map['EBSOptions']) unless map['EBSOptions'].nil?)
-        data.access_policies = (Parsers::AccessPoliciesStatus.parse(map['AccessPolicies']) unless map['AccessPolicies'].nil?)
-        data.snapshot_options = (Parsers::SnapshotOptionsStatus.parse(map['SnapshotOptions']) unless map['SnapshotOptions'].nil?)
-        data.vpc_options = (Parsers::VPCDerivedInfoStatus.parse(map['VPCOptions']) unless map['VPCOptions'].nil?)
-        data.cognito_options = (Parsers::CognitoOptionsStatus.parse(map['CognitoOptions']) unless map['CognitoOptions'].nil?)
-        data.encryption_at_rest_options = (Parsers::EncryptionAtRestOptionsStatus.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
-        data.node_to_node_encryption_options = (Parsers::NodeToNodeEncryptionOptionsStatus.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
-        data.advanced_options = (Parsers::AdvancedOptionsStatus.parse(map['AdvancedOptions']) unless map['AdvancedOptions'].nil?)
-        data.log_publishing_options = (Parsers::LogPublishingOptionsStatus.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
-        data.domain_endpoint_options = (Parsers::DomainEndpointOptionsStatus.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
-        data.advanced_security_options = (Parsers::AdvancedSecurityOptionsStatus.parse(map['AdvancedSecurityOptions']) unless map['AdvancedSecurityOptions'].nil?)
-        data.auto_tune_options = (Parsers::AutoTuneOptionsStatus.parse(map['AutoTuneOptions']) unless map['AutoTuneOptions'].nil?)
-        data.change_progress_details = (Parsers::ChangeProgressDetails.parse(map['ChangeProgressDetails']) unless map['ChangeProgressDetails'].nil?)
+        data.elasticsearch_version = (ElasticsearchVersionStatus.parse(map['ElasticsearchVersion']) unless map['ElasticsearchVersion'].nil?)
+        data.elasticsearch_cluster_config = (ElasticsearchClusterConfigStatus.parse(map['ElasticsearchClusterConfig']) unless map['ElasticsearchClusterConfig'].nil?)
+        data.ebs_options = (EBSOptionsStatus.parse(map['EBSOptions']) unless map['EBSOptions'].nil?)
+        data.access_policies = (AccessPoliciesStatus.parse(map['AccessPolicies']) unless map['AccessPolicies'].nil?)
+        data.snapshot_options = (SnapshotOptionsStatus.parse(map['SnapshotOptions']) unless map['SnapshotOptions'].nil?)
+        data.vpc_options = (VPCDerivedInfoStatus.parse(map['VPCOptions']) unless map['VPCOptions'].nil?)
+        data.cognito_options = (CognitoOptionsStatus.parse(map['CognitoOptions']) unless map['CognitoOptions'].nil?)
+        data.encryption_at_rest_options = (EncryptionAtRestOptionsStatus.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
+        data.node_to_node_encryption_options = (NodeToNodeEncryptionOptionsStatus.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
+        data.advanced_options = (AdvancedOptionsStatus.parse(map['AdvancedOptions']) unless map['AdvancedOptions'].nil?)
+        data.log_publishing_options = (LogPublishingOptionsStatus.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
+        data.domain_endpoint_options = (DomainEndpointOptionsStatus.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
+        data.advanced_security_options = (AdvancedSecurityOptionsStatus.parse(map['AdvancedSecurityOptions']) unless map['AdvancedSecurityOptions'].nil?)
+        data.auto_tune_options = (AutoTuneOptionsStatus.parse(map['AutoTuneOptions']) unless map['AutoTuneOptions'].nil?)
+        data.change_progress_details = (ChangeProgressDetails.parse(map['ChangeProgressDetails']) unless map['ChangeProgressDetails'].nil?)
         return data
       end
     end
@@ -714,8 +714,8 @@ module AWS::SDK::ElasticsearchService
     class AutoTuneOptionsStatus
       def self.parse(map)
         data = Types::AutoTuneOptionsStatus.new
-        data.options = (Parsers::AutoTuneOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::AutoTuneStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (AutoTuneOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (AutoTuneStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -738,7 +738,7 @@ module AWS::SDK::ElasticsearchService
         data = Types::AutoTuneOptions.new
         data.desired_state = map['DesiredState']
         data.rollback_on_disable = map['RollbackOnDisable']
-        data.maintenance_schedules = (Parsers::AutoTuneMaintenanceScheduleList.parse(map['MaintenanceSchedules']) unless map['MaintenanceSchedules'].nil?)
+        data.maintenance_schedules = (AutoTuneMaintenanceScheduleList.parse(map['MaintenanceSchedules']) unless map['MaintenanceSchedules'].nil?)
         return data
       end
     end
@@ -747,7 +747,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AutoTuneMaintenanceSchedule.parse(value) unless value.nil?
+          data << AutoTuneMaintenanceSchedule.parse(value) unless value.nil?
         end
         data
       end
@@ -757,7 +757,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::AutoTuneMaintenanceSchedule.new
         data.start_at = Time.at(map['StartAt'].to_i) if map['StartAt']
-        data.duration = (Parsers::Duration.parse(map['Duration']) unless map['Duration'].nil?)
+        data.duration = (Duration.parse(map['Duration']) unless map['Duration'].nil?)
         data.cron_expression_for_recurrence = map['CronExpressionForRecurrence']
         return data
       end
@@ -775,8 +775,8 @@ module AWS::SDK::ElasticsearchService
     class AdvancedSecurityOptionsStatus
       def self.parse(map)
         data = Types::AdvancedSecurityOptionsStatus.new
-        data.options = (Parsers::AdvancedSecurityOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (AdvancedSecurityOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -796,8 +796,8 @@ module AWS::SDK::ElasticsearchService
     class DomainEndpointOptionsStatus
       def self.parse(map)
         data = Types::DomainEndpointOptionsStatus.new
-        data.options = (Parsers::DomainEndpointOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (DomainEndpointOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -805,8 +805,8 @@ module AWS::SDK::ElasticsearchService
     class LogPublishingOptionsStatus
       def self.parse(map)
         data = Types::LogPublishingOptionsStatus.new
-        data.options = (Parsers::LogPublishingOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (LogPublishingOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -814,8 +814,8 @@ module AWS::SDK::ElasticsearchService
     class AdvancedOptionsStatus
       def self.parse(map)
         data = Types::AdvancedOptionsStatus.new
-        data.options = (Parsers::AdvancedOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (AdvancedOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -823,8 +823,8 @@ module AWS::SDK::ElasticsearchService
     class NodeToNodeEncryptionOptionsStatus
       def self.parse(map)
         data = Types::NodeToNodeEncryptionOptionsStatus.new
-        data.options = (Parsers::NodeToNodeEncryptionOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (NodeToNodeEncryptionOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -832,8 +832,8 @@ module AWS::SDK::ElasticsearchService
     class EncryptionAtRestOptionsStatus
       def self.parse(map)
         data = Types::EncryptionAtRestOptionsStatus.new
-        data.options = (Parsers::EncryptionAtRestOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (EncryptionAtRestOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -841,8 +841,8 @@ module AWS::SDK::ElasticsearchService
     class CognitoOptionsStatus
       def self.parse(map)
         data = Types::CognitoOptionsStatus.new
-        data.options = (Parsers::CognitoOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (CognitoOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -850,8 +850,8 @@ module AWS::SDK::ElasticsearchService
     class VPCDerivedInfoStatus
       def self.parse(map)
         data = Types::VPCDerivedInfoStatus.new
-        data.options = (Parsers::VPCDerivedInfo.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (VPCDerivedInfo.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -859,8 +859,8 @@ module AWS::SDK::ElasticsearchService
     class SnapshotOptionsStatus
       def self.parse(map)
         data = Types::SnapshotOptionsStatus.new
-        data.options = (Parsers::SnapshotOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (SnapshotOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -869,7 +869,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::AccessPoliciesStatus.new
         data.options = map['Options']
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -877,8 +877,8 @@ module AWS::SDK::ElasticsearchService
     class EBSOptionsStatus
       def self.parse(map)
         data = Types::EBSOptionsStatus.new
-        data.options = (Parsers::EBSOptions.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (EBSOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -886,8 +886,8 @@ module AWS::SDK::ElasticsearchService
     class ElasticsearchClusterConfigStatus
       def self.parse(map)
         data = Types::ElasticsearchClusterConfigStatus.new
-        data.options = (Parsers::ElasticsearchClusterConfig.parse(map['Options']) unless map['Options'].nil?)
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.options = (ElasticsearchClusterConfig.parse(map['Options']) unless map['Options'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -896,7 +896,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::ElasticsearchVersionStatus.new
         data.options = map['Options']
-        data.status = (Parsers::OptionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (OptionStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -906,7 +906,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeElasticsearchDomainsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_status_list = (Parsers::ElasticsearchDomainStatusList.parse(map['DomainStatusList']) unless map['DomainStatusList'].nil?)
+        data.domain_status_list = (ElasticsearchDomainStatusList.parse(map['DomainStatusList']) unless map['DomainStatusList'].nil?)
         data
       end
     end
@@ -915,7 +915,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ElasticsearchDomainStatus.parse(value) unless value.nil?
+          data << ElasticsearchDomainStatus.parse(value) unless value.nil?
         end
         data
       end
@@ -926,7 +926,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeElasticsearchInstanceTypeLimitsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.limits_by_role = (Parsers::LimitsByRole.parse(map['LimitsByRole']) unless map['LimitsByRole'].nil?)
+        data.limits_by_role = (LimitsByRole.parse(map['LimitsByRole']) unless map['LimitsByRole'].nil?)
         data
       end
     end
@@ -935,7 +935,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Limits.parse(value) unless value.nil?
+          data[key] = Limits.parse(value) unless value.nil?
         end
         data
       end
@@ -944,9 +944,9 @@ module AWS::SDK::ElasticsearchService
     class Limits
       def self.parse(map)
         data = Types::Limits.new
-        data.storage_types = (Parsers::StorageTypeList.parse(map['StorageTypes']) unless map['StorageTypes'].nil?)
-        data.instance_limits = (Parsers::InstanceLimits.parse(map['InstanceLimits']) unless map['InstanceLimits'].nil?)
-        data.additional_limits = (Parsers::AdditionalLimitList.parse(map['AdditionalLimits']) unless map['AdditionalLimits'].nil?)
+        data.storage_types = (StorageTypeList.parse(map['StorageTypes']) unless map['StorageTypes'].nil?)
+        data.instance_limits = (InstanceLimits.parse(map['InstanceLimits']) unless map['InstanceLimits'].nil?)
+        data.additional_limits = (AdditionalLimitList.parse(map['AdditionalLimits']) unless map['AdditionalLimits'].nil?)
         return data
       end
     end
@@ -955,7 +955,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AdditionalLimit.parse(value) unless value.nil?
+          data << AdditionalLimit.parse(value) unless value.nil?
         end
         data
       end
@@ -965,7 +965,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::AdditionalLimit.new
         data.limit_name = map['LimitName']
-        data.limit_values = (Parsers::LimitValueList.parse(map['LimitValues']) unless map['LimitValues'].nil?)
+        data.limit_values = (LimitValueList.parse(map['LimitValues']) unless map['LimitValues'].nil?)
         return data
       end
     end
@@ -983,7 +983,7 @@ module AWS::SDK::ElasticsearchService
     class InstanceLimits
       def self.parse(map)
         data = Types::InstanceLimits.new
-        data.instance_count_limits = (Parsers::InstanceCountLimits.parse(map['InstanceCountLimits']) unless map['InstanceCountLimits'].nil?)
+        data.instance_count_limits = (InstanceCountLimits.parse(map['InstanceCountLimits']) unless map['InstanceCountLimits'].nil?)
         return data
       end
     end
@@ -1001,7 +1001,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StorageType.parse(value) unless value.nil?
+          data << StorageType.parse(value) unless value.nil?
         end
         data
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::ElasticsearchService
         data = Types::StorageType.new
         data.storage_type_name = map['StorageTypeName']
         data.storage_sub_type_name = map['StorageSubTypeName']
-        data.storage_type_limits = (Parsers::StorageTypeLimitList.parse(map['StorageTypeLimits']) unless map['StorageTypeLimits'].nil?)
+        data.storage_type_limits = (StorageTypeLimitList.parse(map['StorageTypeLimits']) unless map['StorageTypeLimits'].nil?)
         return data
       end
     end
@@ -1021,7 +1021,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StorageTypeLimit.parse(value) unless value.nil?
+          data << StorageTypeLimit.parse(value) unless value.nil?
         end
         data
       end
@@ -1031,7 +1031,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::StorageTypeLimit.new
         data.limit_name = map['LimitName']
-        data.limit_values = (Parsers::LimitValueList.parse(map['LimitValues']) unless map['LimitValues'].nil?)
+        data.limit_values = (LimitValueList.parse(map['LimitValues']) unless map['LimitValues'].nil?)
         return data
       end
     end
@@ -1041,7 +1041,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeInboundCrossClusterSearchConnectionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cross_cluster_search_connections = (Parsers::InboundCrossClusterSearchConnections.parse(map['CrossClusterSearchConnections']) unless map['CrossClusterSearchConnections'].nil?)
+        data.cross_cluster_search_connections = (InboundCrossClusterSearchConnections.parse(map['CrossClusterSearchConnections']) unless map['CrossClusterSearchConnections'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1051,7 +1051,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InboundCrossClusterSearchConnection.parse(value) unless value.nil?
+          data << InboundCrossClusterSearchConnection.parse(value) unless value.nil?
         end
         data
       end
@@ -1072,7 +1072,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribeOutboundCrossClusterSearchConnectionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cross_cluster_search_connections = (Parsers::OutboundCrossClusterSearchConnections.parse(map['CrossClusterSearchConnections']) unless map['CrossClusterSearchConnections'].nil?)
+        data.cross_cluster_search_connections = (OutboundCrossClusterSearchConnections.parse(map['CrossClusterSearchConnections']) unless map['CrossClusterSearchConnections'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1082,7 +1082,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutboundCrossClusterSearchConnection.parse(value) unless value.nil?
+          data << OutboundCrossClusterSearchConnection.parse(value) unless value.nil?
         end
         data
       end
@@ -1093,7 +1093,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DescribePackagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.package_details_list = (Parsers::PackageDetailsList.parse(map['PackageDetailsList']) unless map['PackageDetailsList'].nil?)
+        data.package_details_list = (PackageDetailsList.parse(map['PackageDetailsList']) unless map['PackageDetailsList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1103,7 +1103,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageDetails.parse(value) unless value.nil?
+          data << PackageDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1115,7 +1115,7 @@ module AWS::SDK::ElasticsearchService
         data = Types::DescribeReservedElasticsearchInstanceOfferingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.reserved_elasticsearch_instance_offerings = (Parsers::ReservedElasticsearchInstanceOfferingList.parse(map['ReservedElasticsearchInstanceOfferings']) unless map['ReservedElasticsearchInstanceOfferings'].nil?)
+        data.reserved_elasticsearch_instance_offerings = (ReservedElasticsearchInstanceOfferingList.parse(map['ReservedElasticsearchInstanceOfferings']) unless map['ReservedElasticsearchInstanceOfferings'].nil?)
         data
       end
     end
@@ -1124,7 +1124,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReservedElasticsearchInstanceOffering.parse(value) unless value.nil?
+          data << ReservedElasticsearchInstanceOffering.parse(value) unless value.nil?
         end
         data
       end
@@ -1140,7 +1140,7 @@ module AWS::SDK::ElasticsearchService
         data.usage_price = Hearth::NumberHelper.deserialize(map['UsagePrice'])
         data.currency_code = map['CurrencyCode']
         data.payment_option = map['PaymentOption']
-        data.recurring_charges = (Parsers::RecurringChargeList.parse(map['RecurringCharges']) unless map['RecurringCharges'].nil?)
+        data.recurring_charges = (RecurringChargeList.parse(map['RecurringCharges']) unless map['RecurringCharges'].nil?)
         return data
       end
     end
@@ -1149,7 +1149,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecurringCharge.parse(value) unless value.nil?
+          data << RecurringCharge.parse(value) unless value.nil?
         end
         data
       end
@@ -1170,7 +1170,7 @@ module AWS::SDK::ElasticsearchService
         data = Types::DescribeReservedElasticsearchInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.reserved_elasticsearch_instances = (Parsers::ReservedElasticsearchInstanceList.parse(map['ReservedElasticsearchInstances']) unless map['ReservedElasticsearchInstances'].nil?)
+        data.reserved_elasticsearch_instances = (ReservedElasticsearchInstanceList.parse(map['ReservedElasticsearchInstances']) unless map['ReservedElasticsearchInstances'].nil?)
         data
       end
     end
@@ -1179,7 +1179,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReservedElasticsearchInstance.parse(value) unless value.nil?
+          data << ReservedElasticsearchInstance.parse(value) unless value.nil?
         end
         data
       end
@@ -1200,7 +1200,7 @@ module AWS::SDK::ElasticsearchService
         data.elasticsearch_instance_count = map['ElasticsearchInstanceCount']
         data.state = map['State']
         data.payment_option = map['PaymentOption']
-        data.recurring_charges = (Parsers::RecurringChargeList.parse(map['RecurringCharges']) unless map['RecurringCharges'].nil?)
+        data.recurring_charges = (RecurringChargeList.parse(map['RecurringCharges']) unless map['RecurringCharges'].nil?)
         return data
       end
     end
@@ -1210,7 +1210,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::DissociatePackageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_package_details = (Parsers::DomainPackageDetails.parse(map['DomainPackageDetails']) unless map['DomainPackageDetails'].nil?)
+        data.domain_package_details = (DomainPackageDetails.parse(map['DomainPackageDetails']) unless map['DomainPackageDetails'].nil?)
         data
       end
     end
@@ -1220,7 +1220,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::GetCompatibleElasticsearchVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.compatible_elasticsearch_versions = (Parsers::CompatibleElasticsearchVersionsList.parse(map['CompatibleElasticsearchVersions']) unless map['CompatibleElasticsearchVersions'].nil?)
+        data.compatible_elasticsearch_versions = (CompatibleElasticsearchVersionsList.parse(map['CompatibleElasticsearchVersions']) unless map['CompatibleElasticsearchVersions'].nil?)
         data
       end
     end
@@ -1229,7 +1229,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CompatibleVersionsMap.parse(value) unless value.nil?
+          data << CompatibleVersionsMap.parse(value) unless value.nil?
         end
         data
       end
@@ -1239,7 +1239,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(map)
         data = Types::CompatibleVersionsMap.new
         data.source_version = map['SourceVersion']
-        data.target_versions = (Parsers::ElasticsearchVersionList.parse(map['TargetVersions']) unless map['TargetVersions'].nil?)
+        data.target_versions = (ElasticsearchVersionList.parse(map['TargetVersions']) unless map['TargetVersions'].nil?)
         return data
       end
     end
@@ -1260,7 +1260,7 @@ module AWS::SDK::ElasticsearchService
         data = Types::GetPackageVersionHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.package_id = map['PackageID']
-        data.package_version_history_list = (Parsers::PackageVersionHistoryList.parse(map['PackageVersionHistoryList']) unless map['PackageVersionHistoryList'].nil?)
+        data.package_version_history_list = (PackageVersionHistoryList.parse(map['PackageVersionHistoryList']) unless map['PackageVersionHistoryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1270,7 +1270,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageVersionHistory.parse(value) unless value.nil?
+          data << PackageVersionHistory.parse(value) unless value.nil?
         end
         data
       end
@@ -1291,7 +1291,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::GetUpgradeHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.upgrade_histories = (Parsers::UpgradeHistoryList.parse(map['UpgradeHistories']) unless map['UpgradeHistories'].nil?)
+        data.upgrade_histories = (UpgradeHistoryList.parse(map['UpgradeHistories']) unless map['UpgradeHistories'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1301,7 +1301,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UpgradeHistory.parse(value) unless value.nil?
+          data << UpgradeHistory.parse(value) unless value.nil?
         end
         data
       end
@@ -1313,7 +1313,7 @@ module AWS::SDK::ElasticsearchService
         data.upgrade_name = map['UpgradeName']
         data.start_timestamp = Time.at(map['StartTimestamp'].to_i) if map['StartTimestamp']
         data.upgrade_status = map['UpgradeStatus']
-        data.steps_list = (Parsers::UpgradeStepsList.parse(map['StepsList']) unless map['StepsList'].nil?)
+        data.steps_list = (UpgradeStepsList.parse(map['StepsList']) unless map['StepsList'].nil?)
         return data
       end
     end
@@ -1322,7 +1322,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UpgradeStepItem.parse(value) unless value.nil?
+          data << UpgradeStepItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1333,7 +1333,7 @@ module AWS::SDK::ElasticsearchService
         data = Types::UpgradeStepItem.new
         data.upgrade_step = map['UpgradeStep']
         data.upgrade_step_status = map['UpgradeStepStatus']
-        data.issues = (Parsers::Issues.parse(map['Issues']) unless map['Issues'].nil?)
+        data.issues = (Issues.parse(map['Issues']) unless map['Issues'].nil?)
         data.progress_percent = Hearth::NumberHelper.deserialize(map['ProgressPercent'])
         return data
       end
@@ -1366,7 +1366,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::ListDomainNamesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_names = (Parsers::DomainInfoList.parse(map['DomainNames']) unless map['DomainNames'].nil?)
+        data.domain_names = (DomainInfoList.parse(map['DomainNames']) unless map['DomainNames'].nil?)
         data
       end
     end
@@ -1375,7 +1375,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainInfo.parse(value) unless value.nil?
+          data << DomainInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -1395,7 +1395,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::ListDomainsForPackageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_package_details_list = (Parsers::DomainPackageDetailsList.parse(map['DomainPackageDetailsList']) unless map['DomainPackageDetailsList'].nil?)
+        data.domain_package_details_list = (DomainPackageDetailsList.parse(map['DomainPackageDetailsList']) unless map['DomainPackageDetailsList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1405,7 +1405,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainPackageDetails.parse(value) unless value.nil?
+          data << DomainPackageDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1416,7 +1416,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::ListElasticsearchInstanceTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.elasticsearch_instance_types = (Parsers::ElasticsearchInstanceTypeList.parse(map['ElasticsearchInstanceTypes']) unless map['ElasticsearchInstanceTypes'].nil?)
+        data.elasticsearch_instance_types = (ElasticsearchInstanceTypeList.parse(map['ElasticsearchInstanceTypes']) unless map['ElasticsearchInstanceTypes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1437,7 +1437,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::ListElasticsearchVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.elasticsearch_versions = (Parsers::ElasticsearchVersionList.parse(map['ElasticsearchVersions']) unless map['ElasticsearchVersions'].nil?)
+        data.elasticsearch_versions = (ElasticsearchVersionList.parse(map['ElasticsearchVersions']) unless map['ElasticsearchVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1448,7 +1448,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::ListPackagesForDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_package_details_list = (Parsers::DomainPackageDetailsList.parse(map['DomainPackageDetailsList']) unless map['DomainPackageDetailsList'].nil?)
+        data.domain_package_details_list = (DomainPackageDetailsList.parse(map['DomainPackageDetailsList']) unless map['DomainPackageDetailsList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1459,7 +1459,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::ListTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -1468,7 +1468,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -1499,7 +1499,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::RejectInboundCrossClusterSearchConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cross_cluster_search_connection = (Parsers::InboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
+        data.cross_cluster_search_connection = (InboundCrossClusterSearchConnection.parse(map['CrossClusterSearchConnection']) unless map['CrossClusterSearchConnection'].nil?)
         data
       end
     end
@@ -1518,7 +1518,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::StartElasticsearchServiceSoftwareUpdateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.service_software_options = (Parsers::ServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
+        data.service_software_options = (ServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
         data
       end
     end
@@ -1528,8 +1528,8 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::UpdateElasticsearchDomainConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_config = (Parsers::ElasticsearchDomainConfig.parse(map['DomainConfig']) unless map['DomainConfig'].nil?)
-        data.dry_run_results = (Parsers::DryRunResults.parse(map['DryRunResults']) unless map['DryRunResults'].nil?)
+        data.domain_config = (ElasticsearchDomainConfig.parse(map['DomainConfig']) unless map['DomainConfig'].nil?)
+        data.dry_run_results = (DryRunResults.parse(map['DryRunResults']) unless map['DryRunResults'].nil?)
         data
       end
     end
@@ -1548,7 +1548,7 @@ module AWS::SDK::ElasticsearchService
       def self.parse(http_resp)
         data = Types::UpdatePackageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.package_details = (Parsers::PackageDetails.parse(map['PackageDetails']) unless map['PackageDetails'].nil?)
+        data.package_details = (PackageDetails.parse(map['PackageDetails']) unless map['PackageDetails'].nil?)
         data
       end
     end
@@ -1561,7 +1561,7 @@ module AWS::SDK::ElasticsearchService
         data.domain_name = map['DomainName']
         data.target_version = map['TargetVersion']
         data.perform_check_only = map['PerformCheckOnly']
-        data.change_progress_details = (Parsers::ChangeProgressDetails.parse(map['ChangeProgressDetails']) unless map['ChangeProgressDetails'].nil?)
+        data.change_progress_details = (ChangeProgressDetails.parse(map['ChangeProgressDetails']) unless map['ChangeProgressDetails'].nil?)
         data
       end
     end

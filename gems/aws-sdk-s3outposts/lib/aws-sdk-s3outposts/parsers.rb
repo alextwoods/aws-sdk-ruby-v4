@@ -84,7 +84,7 @@ module AWS::SDK::S3Outposts
       def self.parse(http_resp)
         data = Types::ListEndpointsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.endpoints = (Parsers::Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -94,7 +94,7 @@ module AWS::SDK::S3Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Endpoint.parse(value) unless value.nil?
+          data << Endpoint.parse(value) unless value.nil?
         end
         data
       end
@@ -108,7 +108,7 @@ module AWS::SDK::S3Outposts
         data.cidr_block = map['CidrBlock']
         data.status = map['Status']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.network_interfaces = (Parsers::NetworkInterfaces.parse(map['NetworkInterfaces']) unless map['NetworkInterfaces'].nil?)
+        data.network_interfaces = (NetworkInterfaces.parse(map['NetworkInterfaces']) unless map['NetworkInterfaces'].nil?)
         data.vpc_id = map['VpcId']
         data.subnet_id = map['SubnetId']
         data.security_group_id = map['SecurityGroupId']
@@ -122,7 +122,7 @@ module AWS::SDK::S3Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkInterface.parse(value) unless value.nil?
+          data << NetworkInterface.parse(value) unless value.nil?
         end
         data
       end
@@ -141,7 +141,7 @@ module AWS::SDK::S3Outposts
       def self.parse(http_resp)
         data = Types::ListSharedEndpointsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.endpoints = (Parsers::Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.next_token = map['NextToken']
         data
       end

@@ -40,7 +40,7 @@ module AWS::SDK::IoTSecureTunneling
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tunnel = (Parsers::Tunnel.parse(map['tunnel']) unless map['tunnel'].nil?)
+        data.tunnel = (Tunnel.parse(map['tunnel']) unless map['tunnel'].nil?)
         data
       end
     end
@@ -51,12 +51,12 @@ module AWS::SDK::IoTSecureTunneling
         data.tunnel_id = map['tunnelId']
         data.tunnel_arn = map['tunnelArn']
         data.status = map['status']
-        data.source_connection_state = (Parsers::ConnectionState.parse(map['sourceConnectionState']) unless map['sourceConnectionState'].nil?)
-        data.destination_connection_state = (Parsers::ConnectionState.parse(map['destinationConnectionState']) unless map['destinationConnectionState'].nil?)
+        data.source_connection_state = (ConnectionState.parse(map['sourceConnectionState']) unless map['sourceConnectionState'].nil?)
+        data.destination_connection_state = (ConnectionState.parse(map['destinationConnectionState']) unless map['destinationConnectionState'].nil?)
         data.description = map['description']
-        data.destination_config = (Parsers::DestinationConfig.parse(map['destinationConfig']) unless map['destinationConfig'].nil?)
-        data.timeout_config = (Parsers::TimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.destination_config = (DestinationConfig.parse(map['destinationConfig']) unless map['destinationConfig'].nil?)
+        data.timeout_config = (TimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         return data
@@ -66,7 +66,7 @@ module AWS::SDK::IoTSecureTunneling
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -92,7 +92,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.parse(map)
         data = Types::DestinationConfig.new
         data.thing_name = map['thingName']
-        data.services = (Parsers::ServiceList.parse(map['services']) unless map['services'].nil?)
+        data.services = (ServiceList.parse(map['services']) unless map['services'].nil?)
         return data
       end
     end
@@ -121,7 +121,7 @@ module AWS::SDK::IoTSecureTunneling
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -133,7 +133,7 @@ module AWS::SDK::IoTSecureTunneling
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tunnel_summaries = (Parsers::TunnelSummaryList.parse(map['tunnelSummaries']) unless map['tunnelSummaries'].nil?)
+        data.tunnel_summaries = (TunnelSummaryList.parse(map['tunnelSummaries']) unless map['tunnelSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -142,7 +142,7 @@ module AWS::SDK::IoTSecureTunneling
     class TunnelSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::TunnelSummary.parse(value) unless value.nil?
+          TunnelSummary.parse(value) unless value.nil?
         end
       end
     end

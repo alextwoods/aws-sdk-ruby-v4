@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::GlobalAccelerator
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointDescriptions'] = Stubs::CustomRoutingEndpointDescriptions.stub(stub[:endpoint_descriptions]) unless stub[:endpoint_descriptions].nil?
+        data['EndpointDescriptions'] = CustomRoutingEndpointDescriptions.stub(stub[:endpoint_descriptions]) unless stub[:endpoint_descriptions].nil?
         data['EndpointGroupArn'] = stub[:endpoint_group_arn] unless stub[:endpoint_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomRoutingEndpointDescription.stub(element) unless element.nil?
+          data << CustomRoutingEndpointDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -76,8 +78,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ByoipCidr'] = Stubs::ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ByoipCidr'] = ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -99,7 +101,7 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['Cidr'] = stub[:cidr] unless stub[:cidr].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Events'] = Stubs::ByoipCidrEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = ByoipCidrEvents.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ByoipCidrEvent.stub(element) unless element.nil?
+          data << ByoipCidrEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -153,7 +155,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -168,8 +170,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerator'] = Stubs::Accelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accelerator'] = Accelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -199,7 +201,7 @@ module AWS::SDK::GlobalAccelerator
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['IpAddressType'] = stub[:ip_address_type] unless stub[:ip_address_type].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['IpSets'] = Stubs::IpSets.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
+        data['IpSets'] = IpSets.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
         data['DnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
@@ -222,7 +224,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IpSet.stub(element) unless element.nil?
+          data << IpSet.stub(element) unless element.nil?
         end
         data
       end
@@ -243,7 +245,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= Types::IpSet.new
         data = {}
         data['IpFamily'] = stub[:ip_family] unless stub[:ip_family].nil?
-        data['IpAddresses'] = Stubs::IpAddresses.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
+        data['IpAddresses'] = IpAddresses.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
         data
       end
     end
@@ -278,8 +280,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerator'] = Stubs::CustomRoutingAccelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accelerator'] = CustomRoutingAccelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::GlobalAccelerator
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['IpAddressType'] = stub[:ip_address_type] unless stub[:ip_address_type].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['IpSets'] = Stubs::IpSets.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
+        data['IpSets'] = IpSets.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
         data['DnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
@@ -328,8 +330,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointGroup'] = Stubs::CustomRoutingEndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EndpointGroup'] = CustomRoutingEndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -352,8 +354,8 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['EndpointGroupArn'] = stub[:endpoint_group_arn] unless stub[:endpoint_group_arn].nil?
         data['EndpointGroupRegion'] = stub[:endpoint_group_region] unless stub[:endpoint_group_region].nil?
-        data['DestinationDescriptions'] = Stubs::CustomRoutingDestinationDescriptions.stub(stub[:destination_descriptions]) unless stub[:destination_descriptions].nil?
-        data['EndpointDescriptions'] = Stubs::CustomRoutingEndpointDescriptions.stub(stub[:endpoint_descriptions]) unless stub[:endpoint_descriptions].nil?
+        data['DestinationDescriptions'] = CustomRoutingDestinationDescriptions.stub(stub[:destination_descriptions]) unless stub[:destination_descriptions].nil?
+        data['EndpointDescriptions'] = CustomRoutingEndpointDescriptions.stub(stub[:endpoint_descriptions]) unless stub[:endpoint_descriptions].nil?
         data
       end
     end
@@ -372,7 +374,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomRoutingDestinationDescription.stub(element) unless element.nil?
+          data << CustomRoutingDestinationDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -395,7 +397,7 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['FromPort'] = stub[:from_port] unless stub[:from_port].nil?
         data['ToPort'] = stub[:to_port] unless stub[:to_port].nil?
-        data['Protocols'] = Stubs::Protocols.stub(stub[:protocols]) unless stub[:protocols].nil?
+        data['Protocols'] = Protocols.stub(stub[:protocols]) unless stub[:protocols].nil?
         data
       end
     end
@@ -430,8 +432,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listener'] = Stubs::CustomRoutingListener.stub(stub[:listener]) unless stub[:listener].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Listener'] = CustomRoutingListener.stub(stub[:listener]) unless stub[:listener].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -451,7 +453,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= Types::CustomRoutingListener.new
         data = {}
         data['ListenerArn'] = stub[:listener_arn] unless stub[:listener_arn].nil?
-        data['PortRanges'] = Stubs::PortRanges.stub(stub[:port_ranges]) unless stub[:port_ranges].nil?
+        data['PortRanges'] = PortRanges.stub(stub[:port_ranges]) unless stub[:port_ranges].nil?
         data
       end
     end
@@ -470,7 +472,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortRange.stub(element) unless element.nil?
+          data << PortRange.stub(element) unless element.nil?
         end
         data
       end
@@ -506,8 +508,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointGroup'] = Stubs::EndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EndpointGroup'] = EndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -536,14 +538,14 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['EndpointGroupArn'] = stub[:endpoint_group_arn] unless stub[:endpoint_group_arn].nil?
         data['EndpointGroupRegion'] = stub[:endpoint_group_region] unless stub[:endpoint_group_region].nil?
-        data['EndpointDescriptions'] = Stubs::EndpointDescriptions.stub(stub[:endpoint_descriptions]) unless stub[:endpoint_descriptions].nil?
+        data['EndpointDescriptions'] = EndpointDescriptions.stub(stub[:endpoint_descriptions]) unless stub[:endpoint_descriptions].nil?
         data['TrafficDialPercentage'] = Hearth::NumberHelper.serialize(stub[:traffic_dial_percentage])
         data['HealthCheckPort'] = stub[:health_check_port] unless stub[:health_check_port].nil?
         data['HealthCheckProtocol'] = stub[:health_check_protocol] unless stub[:health_check_protocol].nil?
         data['HealthCheckPath'] = stub[:health_check_path] unless stub[:health_check_path].nil?
         data['HealthCheckIntervalSeconds'] = stub[:health_check_interval_seconds] unless stub[:health_check_interval_seconds].nil?
         data['ThresholdCount'] = stub[:threshold_count] unless stub[:threshold_count].nil?
-        data['PortOverrides'] = Stubs::PortOverrides.stub(stub[:port_overrides]) unless stub[:port_overrides].nil?
+        data['PortOverrides'] = PortOverrides.stub(stub[:port_overrides]) unless stub[:port_overrides].nil?
         data
       end
     end
@@ -562,7 +564,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortOverride.stub(element) unless element.nil?
+          data << PortOverride.stub(element) unless element.nil?
         end
         data
       end
@@ -602,7 +604,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointDescription.stub(element) unless element.nil?
+          data << EndpointDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -644,8 +646,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listener'] = Stubs::Listener.stub(stub[:listener]) unless stub[:listener].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Listener'] = Listener.stub(stub[:listener]) unless stub[:listener].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -667,7 +669,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= Types::Listener.new
         data = {}
         data['ListenerArn'] = stub[:listener_arn] unless stub[:listener_arn].nil?
-        data['PortRanges'] = Stubs::PortRanges.stub(stub[:port_ranges]) unless stub[:port_ranges].nil?
+        data['PortRanges'] = PortRanges.stub(stub[:port_ranges]) unless stub[:port_ranges].nil?
         data['Protocol'] = stub[:protocol] unless stub[:protocol].nil?
         data['ClientAffinity'] = stub[:client_affinity] unless stub[:client_affinity].nil?
         data
@@ -683,7 +685,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -697,7 +699,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -711,7 +713,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -725,7 +727,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -739,7 +741,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -753,7 +755,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -767,7 +769,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -782,8 +784,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ByoipCidr'] = Stubs::ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ByoipCidr'] = ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -798,8 +800,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerator'] = Stubs::Accelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accelerator'] = Accelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -814,8 +816,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AcceleratorAttributes'] = Stubs::AcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AcceleratorAttributes'] = AcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -852,8 +854,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerator'] = Stubs::CustomRoutingAccelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accelerator'] = CustomRoutingAccelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -868,8 +870,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AcceleratorAttributes'] = Stubs::CustomRoutingAcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AcceleratorAttributes'] = CustomRoutingAcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -906,8 +908,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointGroup'] = Stubs::CustomRoutingEndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EndpointGroup'] = CustomRoutingEndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -922,8 +924,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listener'] = Stubs::CustomRoutingListener.stub(stub[:listener]) unless stub[:listener].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Listener'] = CustomRoutingListener.stub(stub[:listener]) unless stub[:listener].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -938,8 +940,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointGroup'] = Stubs::EndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EndpointGroup'] = EndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -954,8 +956,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listener'] = Stubs::Listener.stub(stub[:listener]) unless stub[:listener].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Listener'] = Listener.stub(stub[:listener]) unless stub[:listener].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -971,9 +973,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerators'] = Stubs::Accelerators.stub(stub[:accelerators]) unless stub[:accelerators].nil?
+        data['Accelerators'] = Accelerators.stub(stub[:accelerators]) unless stub[:accelerators].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -992,7 +994,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Accelerator.stub(element) unless element.nil?
+          data << Accelerator.stub(element) unless element.nil?
         end
         data
       end
@@ -1009,9 +1011,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ByoipCidrs'] = Stubs::ByoipCidrs.stub(stub[:byoip_cidrs]) unless stub[:byoip_cidrs].nil?
+        data['ByoipCidrs'] = ByoipCidrs.stub(stub[:byoip_cidrs]) unless stub[:byoip_cidrs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1030,7 +1032,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ByoipCidr.stub(element) unless element.nil?
+          data << ByoipCidr.stub(element) unless element.nil?
         end
         data
       end
@@ -1047,9 +1049,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerators'] = Stubs::CustomRoutingAccelerators.stub(stub[:accelerators]) unless stub[:accelerators].nil?
+        data['Accelerators'] = CustomRoutingAccelerators.stub(stub[:accelerators]) unless stub[:accelerators].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1068,7 +1070,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomRoutingAccelerator.stub(element) unless element.nil?
+          data << CustomRoutingAccelerator.stub(element) unless element.nil?
         end
         data
       end
@@ -1085,9 +1087,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointGroups'] = Stubs::CustomRoutingEndpointGroups.stub(stub[:endpoint_groups]) unless stub[:endpoint_groups].nil?
+        data['EndpointGroups'] = CustomRoutingEndpointGroups.stub(stub[:endpoint_groups]) unless stub[:endpoint_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1106,7 +1108,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomRoutingEndpointGroup.stub(element) unless element.nil?
+          data << CustomRoutingEndpointGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1123,9 +1125,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listeners'] = Stubs::CustomRoutingListeners.stub(stub[:listeners]) unless stub[:listeners].nil?
+        data['Listeners'] = CustomRoutingListeners.stub(stub[:listeners]) unless stub[:listeners].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1144,7 +1146,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomRoutingListener.stub(element) unless element.nil?
+          data << CustomRoutingListener.stub(element) unless element.nil?
         end
         data
       end
@@ -1161,9 +1163,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PortMappings'] = Stubs::PortMappings.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
+        data['PortMappings'] = PortMappings.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1182,7 +1184,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortMapping.stub(element) unless element.nil?
+          data << PortMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -1209,8 +1211,8 @@ module AWS::SDK::GlobalAccelerator
         data['AcceleratorPort'] = stub[:accelerator_port] unless stub[:accelerator_port].nil?
         data['EndpointGroupArn'] = stub[:endpoint_group_arn] unless stub[:endpoint_group_arn].nil?
         data['EndpointId'] = stub[:endpoint_id] unless stub[:endpoint_id].nil?
-        data['DestinationSocketAddress'] = Stubs::SocketAddress.stub(stub[:destination_socket_address]) unless stub[:destination_socket_address].nil?
-        data['Protocols'] = Stubs::CustomRoutingProtocols.stub(stub[:protocols]) unless stub[:protocols].nil?
+        data['DestinationSocketAddress'] = SocketAddress.stub(stub[:destination_socket_address]) unless stub[:destination_socket_address].nil?
+        data['Protocols'] = CustomRoutingProtocols.stub(stub[:protocols]) unless stub[:protocols].nil?
         data['DestinationTrafficState'] = stub[:destination_traffic_state] unless stub[:destination_traffic_state].nil?
         data
       end
@@ -1267,9 +1269,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DestinationPortMappings'] = Stubs::DestinationPortMappings.stub(stub[:destination_port_mappings]) unless stub[:destination_port_mappings].nil?
+        data['DestinationPortMappings'] = DestinationPortMappings.stub(stub[:destination_port_mappings]) unless stub[:destination_port_mappings].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1288,7 +1290,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DestinationPortMapping.stub(element) unless element.nil?
+          data << DestinationPortMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -1315,11 +1317,11 @@ module AWS::SDK::GlobalAccelerator
         stub ||= Types::DestinationPortMapping.new
         data = {}
         data['AcceleratorArn'] = stub[:accelerator_arn] unless stub[:accelerator_arn].nil?
-        data['AcceleratorSocketAddresses'] = Stubs::SocketAddresses.stub(stub[:accelerator_socket_addresses]) unless stub[:accelerator_socket_addresses].nil?
+        data['AcceleratorSocketAddresses'] = SocketAddresses.stub(stub[:accelerator_socket_addresses]) unless stub[:accelerator_socket_addresses].nil?
         data['EndpointGroupArn'] = stub[:endpoint_group_arn] unless stub[:endpoint_group_arn].nil?
         data['EndpointId'] = stub[:endpoint_id] unless stub[:endpoint_id].nil?
         data['EndpointGroupRegion'] = stub[:endpoint_group_region] unless stub[:endpoint_group_region].nil?
-        data['DestinationSocketAddress'] = Stubs::SocketAddress.stub(stub[:destination_socket_address]) unless stub[:destination_socket_address].nil?
+        data['DestinationSocketAddress'] = SocketAddress.stub(stub[:destination_socket_address]) unless stub[:destination_socket_address].nil?
         data['IpAddressType'] = stub[:ip_address_type] unless stub[:ip_address_type].nil?
         data['DestinationTrafficState'] = stub[:destination_traffic_state] unless stub[:destination_traffic_state].nil?
         data
@@ -1340,7 +1342,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SocketAddress.stub(element) unless element.nil?
+          data << SocketAddress.stub(element) unless element.nil?
         end
         data
       end
@@ -1357,9 +1359,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointGroups'] = Stubs::EndpointGroups.stub(stub[:endpoint_groups]) unless stub[:endpoint_groups].nil?
+        data['EndpointGroups'] = EndpointGroups.stub(stub[:endpoint_groups]) unless stub[:endpoint_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1378,7 +1380,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointGroup.stub(element) unless element.nil?
+          data << EndpointGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1395,9 +1397,9 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listeners'] = Stubs::Listeners.stub(stub[:listeners]) unless stub[:listeners].nil?
+        data['Listeners'] = Listeners.stub(stub[:listeners]) unless stub[:listeners].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1416,7 +1418,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Listener.stub(element) unless element.nil?
+          data << Listener.stub(element) unless element.nil?
         end
         data
       end
@@ -1432,8 +1434,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1452,7 +1454,7 @@ module AWS::SDK::GlobalAccelerator
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1488,8 +1490,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ByoipCidr'] = Stubs::ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ByoipCidr'] = ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1503,7 +1505,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1517,7 +1519,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1531,7 +1533,7 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1546,8 +1548,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerator'] = Stubs::Accelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accelerator'] = Accelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1562,8 +1564,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AcceleratorAttributes'] = Stubs::AcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AcceleratorAttributes'] = AcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1578,8 +1580,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Accelerator'] = Stubs::CustomRoutingAccelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accelerator'] = CustomRoutingAccelerator.stub(stub[:accelerator]) unless stub[:accelerator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1594,8 +1596,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AcceleratorAttributes'] = Stubs::CustomRoutingAcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AcceleratorAttributes'] = CustomRoutingAcceleratorAttributes.stub(stub[:accelerator_attributes]) unless stub[:accelerator_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1610,8 +1612,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listener'] = Stubs::CustomRoutingListener.stub(stub[:listener]) unless stub[:listener].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Listener'] = CustomRoutingListener.stub(stub[:listener]) unless stub[:listener].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1626,8 +1628,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointGroup'] = Stubs::EndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EndpointGroup'] = EndpointGroup.stub(stub[:endpoint_group]) unless stub[:endpoint_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1642,8 +1644,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Listener'] = Stubs::Listener.stub(stub[:listener]) unless stub[:listener].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Listener'] = Listener.stub(stub[:listener]) unless stub[:listener].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1658,8 +1660,8 @@ module AWS::SDK::GlobalAccelerator
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ByoipCidr'] = Stubs::ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ByoipCidr'] = ByoipCidr.stub(stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -15,8 +15,8 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::BatchCreateAttendeeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendees = (Parsers::AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
-        data.errors = (Parsers::BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.attendees = (AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
+        data.errors = (BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CreateAttendeeError.parse(value) unless value.nil?
+          data << CreateAttendeeError.parse(value) unless value.nil?
         end
         data
       end
@@ -45,7 +45,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Attendee.parse(value) unless value.nil?
+          data << Attendee.parse(value) unless value.nil?
         end
         data
       end
@@ -57,7 +57,7 @@ module AWS::SDK::ChimeSDKMeetings
         data.external_user_id = map['ExternalUserId']
         data.attendee_id = map['AttendeeId']
         data.join_token = map['JoinToken']
-        data.capabilities = (Parsers::AttendeeCapabilities.parse(map['Capabilities']) unless map['Capabilities'].nil?)
+        data.capabilities = (AttendeeCapabilities.parse(map['Capabilities']) unless map['Capabilities'].nil?)
         return data
       end
     end
@@ -207,7 +207,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::CreateAttendeeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendee = (Parsers::Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
+        data.attendee = (Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
         data
       end
     end
@@ -217,7 +217,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::CreateMeetingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meeting = (Parsers::Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
+        data.meeting = (Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
         data
       end
     end
@@ -229,8 +229,8 @@ module AWS::SDK::ChimeSDKMeetings
         data.meeting_host_id = map['MeetingHostId']
         data.external_meeting_id = map['ExternalMeetingId']
         data.media_region = map['MediaRegion']
-        data.media_placement = (Parsers::MediaPlacement.parse(map['MediaPlacement']) unless map['MediaPlacement'].nil?)
-        data.meeting_features = (Parsers::MeetingFeaturesConfiguration.parse(map['MeetingFeatures']) unless map['MeetingFeatures'].nil?)
+        data.media_placement = (MediaPlacement.parse(map['MediaPlacement']) unless map['MediaPlacement'].nil?)
+        data.meeting_features = (MeetingFeaturesConfiguration.parse(map['MeetingFeatures']) unless map['MeetingFeatures'].nil?)
         data.primary_meeting_id = map['PrimaryMeetingId']
         return data
       end
@@ -239,7 +239,7 @@ module AWS::SDK::ChimeSDKMeetings
     class MeetingFeaturesConfiguration
       def self.parse(map)
         data = Types::MeetingFeaturesConfiguration.new
-        data.audio = (Parsers::AudioFeatures.parse(map['Audio']) unless map['Audio'].nil?)
+        data.audio = (AudioFeatures.parse(map['Audio']) unless map['Audio'].nil?)
         return data
       end
     end
@@ -272,9 +272,9 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::CreateMeetingWithAttendeesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meeting = (Parsers::Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
-        data.attendees = (Parsers::AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
-        data.errors = (Parsers::BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.meeting = (Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
+        data.attendees = (AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
+        data.errors = (BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::GetAttendeeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendee = (Parsers::Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
+        data.attendee = (Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
         data
       end
     end
@@ -312,7 +312,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::GetMeetingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meeting = (Parsers::Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
+        data.meeting = (Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
         data
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::ListAttendeesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendees = (Parsers::AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
+        data.attendees = (AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -351,7 +351,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.parse(http_resp)
         data = Types::UpdateAttendeeCapabilitiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendee = (Parsers::Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
+        data.attendee = (Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
         data
       end
     end

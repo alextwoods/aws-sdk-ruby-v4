@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::ECRPUBLIC
   module Builders
 
@@ -20,8 +23,8 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['layerDigests'] = Builders::BatchedOperationLayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layerDigests'] = BatchedOperationLayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,8 +49,8 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageIds'] = Builders::ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageIds'] = ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,7 +59,7 @@ module AWS::SDK::ECRPUBLIC
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ImageIdentifier.build(element) unless element.nil?
+          data << ImageIdentifier.build(element) unless element.nil?
         end
         data
       end
@@ -83,8 +86,8 @@ module AWS::SDK::ECRPUBLIC
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['uploadId'] = input[:upload_id] unless input[:upload_id].nil?
-        data['layerDigests'] = Builders::LayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layerDigests'] = LayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -108,9 +111,9 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.CreateRepository'
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['catalogData'] = Builders::RepositoryCatalogDataInput.build(input[:catalog_data]) unless input[:catalog_data].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['catalogData'] = RepositoryCatalogDataInput.build(input[:catalog_data]) unless input[:catalog_data].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,7 +122,7 @@ module AWS::SDK::ECRPUBLIC
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -140,9 +143,9 @@ module AWS::SDK::ECRPUBLIC
       def self.build(input)
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['architectures'] = Builders::ArchitectureList.build(input[:architectures]) unless input[:architectures].nil?
-        data['operatingSystems'] = Builders::OperatingSystemList.build(input[:operating_systems]) unless input[:operating_systems].nil?
-        data['logoImageBlob'] = Base64::encode64(input[:logo_image_blob]).strip unless input[:logo_image_blob].nil?
+        data['architectures'] = ArchitectureList.build(input[:architectures]) unless input[:architectures].nil?
+        data['operatingSystems'] = OperatingSystemList.build(input[:operating_systems]) unless input[:operating_systems].nil?
+        data['logoImageBlob'] = ::Base64::encode64(input[:logo_image_blob]).strip unless input[:logo_image_blob].nil?
         data['aboutText'] = input[:about_text] unless input[:about_text].nil?
         data['usageText'] = input[:usage_text] unless input[:usage_text].nil?
         data
@@ -182,7 +185,7 @@ module AWS::SDK::ECRPUBLIC
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +199,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,7 +215,7 @@ module AWS::SDK::ECRPUBLIC
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -226,10 +229,10 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageIds'] = Builders::ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
+        data['imageIds'] = ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -243,7 +246,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,10 +259,10 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.DescribeRepositories'
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
-        data['repositoryNames'] = Builders::RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
+        data['repositoryNames'] = RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,7 +285,7 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.GetAuthorizationToken'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -294,7 +297,7 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.GetRegistryCatalogData'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,7 +311,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -322,7 +325,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,7 +339,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -349,7 +352,7 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.ListTagsForResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -367,7 +370,7 @@ module AWS::SDK::ECRPUBLIC
         data['imageManifestMediaType'] = input[:image_manifest_media_type] unless input[:image_manifest_media_type].nil?
         data['imageTag'] = input[:image_tag] unless input[:image_tag].nil?
         data['imageDigest'] = input[:image_digest] unless input[:image_digest].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -380,7 +383,7 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.PutRegistryCatalogData'
         data = {}
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,8 +397,8 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['catalogData'] = Builders::RepositoryCatalogDataInput.build(input[:catalog_data]) unless input[:catalog_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['catalogData'] = RepositoryCatalogDataInput.build(input[:catalog_data]) unless input[:catalog_data].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -411,7 +414,7 @@ module AWS::SDK::ECRPUBLIC
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['policyText'] = input[:policy_text] unless input[:policy_text].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -424,8 +427,8 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -438,8 +441,8 @@ module AWS::SDK::ECRPUBLIC
         http_req.headers['X-Amz-Target'] = 'SpencerFrontendService.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,8 +470,8 @@ module AWS::SDK::ECRPUBLIC
         data['uploadId'] = input[:upload_id] unless input[:upload_id].nil?
         data['partFirstByte'] = input[:part_first_byte] unless input[:part_first_byte].nil?
         data['partLastByte'] = input[:part_last_byte] unless input[:part_last_byte].nil?
-        data['layerPartBlob'] = Base64::encode64(input[:layer_part_blob]).strip unless input[:layer_part_blob].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layerPartBlob'] = ::Base64::encode64(input[:layer_part_blob]).strip unless input[:layer_part_blob].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

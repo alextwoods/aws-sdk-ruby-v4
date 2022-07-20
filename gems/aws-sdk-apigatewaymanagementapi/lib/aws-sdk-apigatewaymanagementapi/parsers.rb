@@ -52,7 +52,7 @@ module AWS::SDK::ApiGatewayManagementApi
         data = Types::GetConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.connected_at = Time.parse(map['connectedAt']) if map['connectedAt']
-        data.identity = (Parsers::Identity.parse(map['identity']) unless map['identity'].nil?)
+        data.identity = (Identity.parse(map['identity']) unless map['identity'].nil?)
         data.last_active_at = Time.parse(map['lastActiveAt']) if map['lastActiveAt']
         data
       end

@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::RDSData
   module Stubs
 
@@ -22,8 +25,8 @@ module AWS::SDK::RDSData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['updateResults'] = Stubs::UpdateResults.stub(stub[:update_results]) unless stub[:update_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['updateResults'] = UpdateResults.stub(stub[:update_results]) unless stub[:update_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +44,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpdateResult.stub(element) unless element.nil?
+          data << UpdateResult.stub(element) unless element.nil?
         end
         data
       end
@@ -60,7 +63,7 @@ module AWS::SDK::RDSData
       def self.stub(stub)
         stub ||= Types::UpdateResult.new
         data = {}
-        data['generatedFields'] = Stubs::FieldList.stub(stub[:generated_fields]) unless stub[:generated_fields].nil?
+        data['generatedFields'] = FieldList.stub(stub[:generated_fields]) unless stub[:generated_fields].nil?
         data
       end
     end
@@ -79,7 +82,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Field.stub(element) unless element.nil?
+          data << Field.stub(element) unless element.nil?
         end
         data
       end
@@ -109,9 +112,9 @@ module AWS::SDK::RDSData
         when Types::Field::StringValue
           data['stringValue'] = stub.__getobj__
         when Types::Field::BlobValue
-          data['blobValue'] = Base64::encode64(stub.__getobj__)
+          data['blobValue'] = ::Base64::encode64(stub.__getobj__)
         when Types::Field::ArrayValue
-          data['arrayValue'] = (Stubs::ArrayValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['arrayValue'] = (ArrayValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Field"
@@ -135,15 +138,15 @@ module AWS::SDK::RDSData
         data = {}
         case stub
         when Types::ArrayValue::BooleanValues
-          data['booleanValues'] = (Stubs::BooleanArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['booleanValues'] = (BooleanArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ArrayValue::LongValues
-          data['longValues'] = (Stubs::LongArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['longValues'] = (LongArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ArrayValue::DoubleValues
-          data['doubleValues'] = (Stubs::DoubleArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['doubleValues'] = (DoubleArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ArrayValue::StringValues
-          data['stringValues'] = (Stubs::StringArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['stringValues'] = (StringArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ArrayValue::ArrayValues
-          data['arrayValues'] = (Stubs::ArrayOfArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['arrayValues'] = (ArrayOfArray.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ArrayValue"
@@ -167,7 +170,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ArrayValue.stub(element) unless element.nil?
+          data << ArrayValue.stub(element) unless element.nil?
         end
         data
       end
@@ -266,7 +269,7 @@ module AWS::SDK::RDSData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['transactionId'] = stub[:transaction_id] unless stub[:transaction_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -283,7 +286,7 @@ module AWS::SDK::RDSData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['transactionStatus'] = stub[:transaction_status] unless stub[:transaction_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -299,8 +302,8 @@ module AWS::SDK::RDSData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['sqlStatementResults'] = Stubs::SqlStatementResults.stub(stub[:sql_statement_results]) unless stub[:sql_statement_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sqlStatementResults'] = SqlStatementResults.stub(stub[:sql_statement_results]) unless stub[:sql_statement_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,7 +321,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SqlStatementResult.stub(element) unless element.nil?
+          data << SqlStatementResult.stub(element) unless element.nil?
         end
         data
       end
@@ -338,7 +341,7 @@ module AWS::SDK::RDSData
       def self.stub(stub)
         stub ||= Types::SqlStatementResult.new
         data = {}
-        data['resultFrame'] = Stubs::ResultFrame.stub(stub[:result_frame]) unless stub[:result_frame].nil?
+        data['resultFrame'] = ResultFrame.stub(stub[:result_frame]) unless stub[:result_frame].nil?
         data['numberOfRecordsUpdated'] = stub[:number_of_records_updated] unless stub[:number_of_records_updated].nil?
         data
       end
@@ -358,8 +361,8 @@ module AWS::SDK::RDSData
       def self.stub(stub)
         stub ||= Types::ResultFrame.new
         data = {}
-        data['resultSetMetadata'] = Stubs::ResultSetMetadata.stub(stub[:result_set_metadata]) unless stub[:result_set_metadata].nil?
-        data['records'] = Stubs::Records.stub(stub[:records]) unless stub[:records].nil?
+        data['resultSetMetadata'] = ResultSetMetadata.stub(stub[:result_set_metadata]) unless stub[:result_set_metadata].nil?
+        data['records'] = Records.stub(stub[:records]) unless stub[:records].nil?
         data
       end
     end
@@ -378,7 +381,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Record.stub(element) unless element.nil?
+          data << Record.stub(element) unless element.nil?
         end
         data
       end
@@ -397,7 +400,7 @@ module AWS::SDK::RDSData
       def self.stub(stub)
         stub ||= Types::Record.new
         data = {}
-        data['values'] = Stubs::Row.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = Row.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -416,7 +419,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Value.stub(element) unless element.nil?
+          data << Value.stub(element) unless element.nil?
         end
         data
       end
@@ -450,11 +453,11 @@ module AWS::SDK::RDSData
         when Types::Value::StringValue
           data['stringValue'] = stub.__getobj__
         when Types::Value::BlobValue
-          data['blobValue'] = Base64::encode64(stub.__getobj__)
+          data['blobValue'] = ::Base64::encode64(stub.__getobj__)
         when Types::Value::ArrayValues
-          data['arrayValues'] = (Stubs::ArrayValueList.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['arrayValues'] = (ArrayValueList.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Value::StructValue
-          data['structValue'] = (Stubs::StructValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['structValue'] = (StructValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Value"
@@ -477,7 +480,7 @@ module AWS::SDK::RDSData
       def self.stub(stub)
         stub ||= Types::StructValue.new
         data = {}
-        data['attributes'] = Stubs::ArrayValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = ArrayValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -496,7 +499,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Value.stub(element) unless element.nil?
+          data << Value.stub(element) unless element.nil?
         end
         data
       end
@@ -517,7 +520,7 @@ module AWS::SDK::RDSData
         stub ||= Types::ResultSetMetadata.new
         data = {}
         data['columnCount'] = stub[:column_count] unless stub[:column_count].nil?
-        data['columnMetadata'] = Stubs::Metadata.stub(stub[:column_metadata]) unless stub[:column_metadata].nil?
+        data['columnMetadata'] = Metadata.stub(stub[:column_metadata]) unless stub[:column_metadata].nil?
         data
       end
     end
@@ -536,7 +539,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnMetadata.stub(element) unless element.nil?
+          data << ColumnMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -602,12 +605,12 @@ module AWS::SDK::RDSData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['records'] = Stubs::SqlRecords.stub(stub[:records]) unless stub[:records].nil?
-        data['columnMetadata'] = Stubs::Metadata.stub(stub[:column_metadata]) unless stub[:column_metadata].nil?
+        data['records'] = SqlRecords.stub(stub[:records]) unless stub[:records].nil?
+        data['columnMetadata'] = Metadata.stub(stub[:column_metadata]) unless stub[:column_metadata].nil?
         data['numberOfRecordsUpdated'] = stub[:number_of_records_updated] unless stub[:number_of_records_updated].nil?
-        data['generatedFields'] = Stubs::FieldList.stub(stub[:generated_fields]) unless stub[:generated_fields].nil?
+        data['generatedFields'] = FieldList.stub(stub[:generated_fields]) unless stub[:generated_fields].nil?
         data['formattedRecords'] = stub[:formatted_records] unless stub[:formatted_records].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,7 +628,7 @@ module AWS::SDK::RDSData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FieldList.stub(element) unless element.nil?
+          data << FieldList.stub(element) unless element.nil?
         end
         data
       end
@@ -644,7 +647,7 @@ module AWS::SDK::RDSData
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['transactionStatus'] = stub[:transaction_status] unless stub[:transaction_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

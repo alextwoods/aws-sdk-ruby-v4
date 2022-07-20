@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DAX
   module Builders
 
@@ -22,17 +24,17 @@ module AWS::SDK::DAX
         data['NodeType'] = input[:node_type] unless input[:node_type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ReplicationFactor'] = input[:replication_factor] unless input[:replication_factor].nil?
-        data['AvailabilityZones'] = Builders::AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['AvailabilityZones'] = AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIdentifierList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdentifierList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['NotificationTopicArn'] = input[:notification_topic_arn] unless input[:notification_topic_arn].nil?
         data['IamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['SSESpecification'] = Builders::SSESpecification.build(input[:sse_specification]) unless input[:sse_specification].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['SSESpecification'] = SSESpecification.build(input[:sse_specification]) unless input[:sse_specification].nil?
         data['ClusterEndpointEncryptionType'] = input[:cluster_endpoint_encryption_type] unless input[:cluster_endpoint_encryption_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::DAX
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -98,7 +100,7 @@ module AWS::SDK::DAX
         data = {}
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -112,8 +114,8 @@ module AWS::SDK::DAX
         data = {}
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['SubnetIds'] = Builders::SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,9 +140,9 @@ module AWS::SDK::DAX
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
         data['NewReplicationFactor'] = input[:new_replication_factor] unless input[:new_replication_factor].nil?
-        data['AvailabilityZones'] = Builders::AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        data['NodeIdsToRemove'] = Builders::NodeIdentifierList.build(input[:node_ids_to_remove]) unless input[:node_ids_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AvailabilityZones'] = AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['NodeIdsToRemove'] = NodeIdentifierList.build(input[:node_ids_to_remove]) unless input[:node_ids_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::DAX
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.DeleteCluster'
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::DAX
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.DeleteParameterGroup'
         data = {}
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -190,7 +192,7 @@ module AWS::SDK::DAX
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.DeleteSubnetGroup'
         data = {}
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,10 +204,10 @@ module AWS::SDK::DAX
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.DescribeClusters'
         data = {}
-        data['ClusterNames'] = Builders::ClusterNameList.build(input[:cluster_names]) unless input[:cluster_names].nil?
+        data['ClusterNames'] = ClusterNameList.build(input[:cluster_names]) unless input[:cluster_names].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -230,7 +232,7 @@ module AWS::SDK::DAX
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -249,7 +251,7 @@ module AWS::SDK::DAX
         data['Duration'] = input[:duration] unless input[:duration].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,10 +263,10 @@ module AWS::SDK::DAX
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.DescribeParameterGroups'
         data = {}
-        data['ParameterGroupNames'] = Builders::ParameterGroupNameList.build(input[:parameter_group_names]) unless input[:parameter_group_names].nil?
+        data['ParameterGroupNames'] = ParameterGroupNameList.build(input[:parameter_group_names]) unless input[:parameter_group_names].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -291,7 +293,7 @@ module AWS::SDK::DAX
         data['Source'] = input[:source] unless input[:source].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,10 +305,10 @@ module AWS::SDK::DAX
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.DescribeSubnetGroups'
         data = {}
-        data['SubnetGroupNames'] = Builders::SubnetGroupNameList.build(input[:subnet_group_names]) unless input[:subnet_group_names].nil?
+        data['SubnetGroupNames'] = SubnetGroupNameList.build(input[:subnet_group_names]) unless input[:subnet_group_names].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,8 +333,8 @@ module AWS::SDK::DAX
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
         data['NewReplicationFactor'] = input[:new_replication_factor] unless input[:new_replication_factor].nil?
-        data['AvailabilityZones'] = Builders::AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AvailabilityZones'] = AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -346,7 +348,7 @@ module AWS::SDK::DAX
         data = {}
         data['ResourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,7 +362,7 @@ module AWS::SDK::DAX
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
         data['NodeId'] = input[:node_id] unless input[:node_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -373,8 +375,8 @@ module AWS::SDK::DAX
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.TagResource'
         data = {}
         data['ResourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,8 +389,8 @@ module AWS::SDK::DAX
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.UntagResource'
         data = {}
         data['ResourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        data['TagKeys'] = Builders::KeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = KeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,8 +419,8 @@ module AWS::SDK::DAX
         data['NotificationTopicArn'] = input[:notification_topic_arn] unless input[:notification_topic_arn].nil?
         data['NotificationTopicStatus'] = input[:notification_topic_status] unless input[:notification_topic_status].nil?
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIdentifierList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityGroupIds'] = SecurityGroupIdentifierList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -431,8 +433,8 @@ module AWS::SDK::DAX
         http_req.headers['X-Amz-Target'] = 'AmazonDAXV3.UpdateParameterGroup'
         data = {}
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
-        data['ParameterNameValues'] = Builders::ParameterNameValueList.build(input[:parameter_name_values]) unless input[:parameter_name_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterNameValues'] = ParameterNameValueList.build(input[:parameter_name_values]) unless input[:parameter_name_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::DAX
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ParameterNameValue.build(element) unless element.nil?
+          data << ParameterNameValue.build(element) unless element.nil?
         end
         data
       end
@@ -467,8 +469,8 @@ module AWS::SDK::DAX
         data = {}
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['SubnetIds'] = Builders::SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -85,7 +85,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::DeleteDatasetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset = (Parsers::Dataset.parse(map['Dataset']) unless map['Dataset'].nil?)
+        data.dataset = (Dataset.parse(map['Dataset']) unless map['Dataset'].nil?)
         data
       end
     end
@@ -129,7 +129,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::DescribeDatasetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset = (Parsers::Dataset.parse(map['Dataset']) unless map['Dataset'].nil?)
+        data.dataset = (Dataset.parse(map['Dataset']) unless map['Dataset'].nil?)
         data
       end
     end
@@ -139,7 +139,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::DescribeIdentityPoolUsageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.identity_pool_usage = (Parsers::IdentityPoolUsage.parse(map['IdentityPoolUsage']) unless map['IdentityPoolUsage'].nil?)
+        data.identity_pool_usage = (IdentityPoolUsage.parse(map['IdentityPoolUsage']) unless map['IdentityPoolUsage'].nil?)
         data
       end
     end
@@ -160,7 +160,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::DescribeIdentityUsageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.identity_usage = (Parsers::IdentityUsage.parse(map['IdentityUsage']) unless map['IdentityUsage'].nil?)
+        data.identity_usage = (IdentityUsage.parse(map['IdentityUsage']) unless map['IdentityUsage'].nil?)
         data
       end
     end
@@ -196,7 +196,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::GetCognitoEventsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.events = (Parsers::Events.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (Events.parse(map['Events']) unless map['Events'].nil?)
         data
       end
     end
@@ -217,8 +217,8 @@ module AWS::SDK::CognitoSync
         data = Types::GetIdentityPoolConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.identity_pool_id = map['IdentityPoolId']
-        data.push_sync = (Parsers::PushSync.parse(map['PushSync']) unless map['PushSync'].nil?)
-        data.cognito_streams = (Parsers::CognitoStreams.parse(map['CognitoStreams']) unless map['CognitoStreams'].nil?)
+        data.push_sync = (PushSync.parse(map['PushSync']) unless map['PushSync'].nil?)
+        data.cognito_streams = (CognitoStreams.parse(map['CognitoStreams']) unless map['CognitoStreams'].nil?)
         data
       end
     end
@@ -236,7 +236,7 @@ module AWS::SDK::CognitoSync
     class PushSync
       def self.parse(map)
         data = Types::PushSync.new
-        data.application_arns = (Parsers::ApplicationArnList.parse(map['ApplicationArns']) unless map['ApplicationArns'].nil?)
+        data.application_arns = (ApplicationArnList.parse(map['ApplicationArns']) unless map['ApplicationArns'].nil?)
         data.role_arn = map['RoleArn']
         return data
       end
@@ -257,7 +257,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::ListDatasetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.datasets = (Parsers::DatasetList.parse(map['Datasets']) unless map['Datasets'].nil?)
+        data.datasets = (DatasetList.parse(map['Datasets']) unless map['Datasets'].nil?)
         data.count = map['Count']
         data.next_token = map['NextToken']
         data
@@ -268,7 +268,7 @@ module AWS::SDK::CognitoSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Dataset.parse(value) unless value.nil?
+          data << Dataset.parse(value) unless value.nil?
         end
         data
       end
@@ -279,7 +279,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::ListIdentityPoolUsageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.identity_pool_usages = (Parsers::IdentityPoolUsageList.parse(map['IdentityPoolUsages']) unless map['IdentityPoolUsages'].nil?)
+        data.identity_pool_usages = (IdentityPoolUsageList.parse(map['IdentityPoolUsages']) unless map['IdentityPoolUsages'].nil?)
         data.max_results = map['MaxResults']
         data.count = map['Count']
         data.next_token = map['NextToken']
@@ -291,7 +291,7 @@ module AWS::SDK::CognitoSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IdentityPoolUsage.parse(value) unless value.nil?
+          data << IdentityPoolUsage.parse(value) unless value.nil?
         end
         data
       end
@@ -302,12 +302,12 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::ListRecordsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.records = (Parsers::RecordList.parse(map['Records']) unless map['Records'].nil?)
+        data.records = (RecordList.parse(map['Records']) unless map['Records'].nil?)
         data.next_token = map['NextToken']
         data.count = map['Count']
         data.dataset_sync_count = map['DatasetSyncCount']
         data.last_modified_by = map['LastModifiedBy']
-        data.merged_dataset_names = (Parsers::MergedDatasetNameList.parse(map['MergedDatasetNames']) unless map['MergedDatasetNames'].nil?)
+        data.merged_dataset_names = (MergedDatasetNameList.parse(map['MergedDatasetNames']) unless map['MergedDatasetNames'].nil?)
         data.dataset_exists = map['DatasetExists']
         data.dataset_deleted_after_requested_sync_count = map['DatasetDeletedAfterRequestedSyncCount']
         data.sync_session_token = map['SyncSessionToken']
@@ -329,7 +329,7 @@ module AWS::SDK::CognitoSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Record.parse(value) unless value.nil?
+          data << Record.parse(value) unless value.nil?
         end
         data
       end
@@ -383,8 +383,8 @@ module AWS::SDK::CognitoSync
         data = Types::SetIdentityPoolConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.identity_pool_id = map['IdentityPoolId']
-        data.push_sync = (Parsers::PushSync.parse(map['PushSync']) unless map['PushSync'].nil?)
-        data.cognito_streams = (Parsers::CognitoStreams.parse(map['CognitoStreams']) unless map['CognitoStreams'].nil?)
+        data.push_sync = (PushSync.parse(map['PushSync']) unless map['PushSync'].nil?)
+        data.cognito_streams = (CognitoStreams.parse(map['CognitoStreams']) unless map['CognitoStreams'].nil?)
         data
       end
     end
@@ -422,7 +422,7 @@ module AWS::SDK::CognitoSync
       def self.parse(http_resp)
         data = Types::UpdateRecordsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.records = (Parsers::RecordList.parse(map['Records']) unless map['Records'].nil?)
+        data.records = (RecordList.parse(map['Records']) unless map['Records'].nil?)
         data
       end
     end

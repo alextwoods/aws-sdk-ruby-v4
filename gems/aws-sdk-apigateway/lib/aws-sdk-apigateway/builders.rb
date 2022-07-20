@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::APIGateway
   module Builders
 
@@ -25,10 +27,10 @@ module AWS::SDK::APIGateway
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
         data['generateDistinctId'] = input[:generate_distinct_id] unless input[:generate_distinct_id].nil?
         data['value'] = input[:value] unless input[:value].nil?
-        data['stageKeys'] = Builders::ListOfStageKeys.build(input[:stage_keys]) unless input[:stage_keys].nil?
+        data['stageKeys'] = ListOfStageKeys.build(input[:stage_keys]) unless input[:stage_keys].nil?
         data['customerId'] = input[:customer_id] unless input[:customer_id].nil?
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::APIGateway
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StageKey.build(element) unless element.nil?
+          data << StageKey.build(element) unless element.nil?
         end
         data
       end
@@ -83,14 +85,14 @@ module AWS::SDK::APIGateway
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['providerARNs'] = Builders::ListOfARNs.build(input[:provider_ar_ns]) unless input[:provider_ar_ns].nil?
+        data['providerARNs'] = ListOfARNs.build(input[:provider_ar_ns]) unless input[:provider_ar_ns].nil?
         data['authType'] = input[:auth_type] unless input[:auth_type].nil?
         data['authorizerUri'] = input[:authorizer_uri] unless input[:authorizer_uri].nil?
         data['authorizerCredentials'] = input[:authorizer_credentials] unless input[:authorizer_credentials].nil?
         data['identitySource'] = input[:identity_source] unless input[:identity_source].nil?
         data['identityValidationExpression'] = input[:identity_validation_expression] unless input[:identity_validation_expression].nil?
         data['authorizerResultTtlInSeconds'] = input[:authorizer_result_ttl_in_seconds] unless input[:authorizer_result_ttl_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::APIGateway
         data['basePath'] = input[:base_path] unless input[:base_path].nil?
         data['restApiId'] = input[:rest_api_id] unless input[:rest_api_id].nil?
         data['stage'] = input[:stage] unless input[:stage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,10 +153,10 @@ module AWS::SDK::APIGateway
         data['description'] = input[:description] unless input[:description].nil?
         data['cacheClusterEnabled'] = input[:cache_cluster_enabled] unless input[:cache_cluster_enabled].nil?
         data['cacheClusterSize'] = input[:cache_cluster_size] unless input[:cache_cluster_size].nil?
-        data['variables'] = Builders::MapOfStringToString.build(input[:variables]) unless input[:variables].nil?
-        data['canarySettings'] = Builders::DeploymentCanarySettings.build(input[:canary_settings]) unless input[:canary_settings].nil?
+        data['variables'] = MapOfStringToString.build(input[:variables]) unless input[:variables].nil?
+        data['canarySettings'] = DeploymentCanarySettings.build(input[:canary_settings]) unless input[:canary_settings].nil?
         data['tracingEnabled'] = input[:tracing_enabled] unless input[:tracing_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::APIGateway
       def self.build(input)
         data = {}
         data['percentTraffic'] = Hearth::NumberHelper.serialize(input[:percent_traffic]) unless input[:percent_traffic].nil?
-        data['stageVariableOverrides'] = Builders::MapOfStringToString.build(input[:stage_variable_overrides]) unless input[:stage_variable_overrides].nil?
+        data['stageVariableOverrides'] = MapOfStringToString.build(input[:stage_variable_overrides]) unless input[:stage_variable_overrides].nil?
         data['useStageCache'] = input[:use_stage_cache] unless input[:use_stage_cache].nil?
         data
       end
@@ -186,9 +188,9 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['location'] = Builders::DocumentationPartLocation.build(input[:location]) unless input[:location].nil?
+        data['location'] = DocumentationPartLocation.build(input[:location]) unless input[:location].nil?
         data['properties'] = input[:properties] unless input[:properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -225,7 +227,7 @@ module AWS::SDK::APIGateway
         data['documentationVersion'] = input[:documentation_version] unless input[:documentation_version].nil?
         data['stageName'] = input[:stage_name] unless input[:stage_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -247,12 +249,12 @@ module AWS::SDK::APIGateway
         data['certificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
         data['regionalCertificateName'] = input[:regional_certificate_name] unless input[:regional_certificate_name].nil?
         data['regionalCertificateArn'] = input[:regional_certificate_arn] unless input[:regional_certificate_arn].nil?
-        data['endpointConfiguration'] = Builders::EndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
         data['securityPolicy'] = input[:security_policy] unless input[:security_policy].nil?
-        data['mutualTlsAuthentication'] = Builders::MutualTlsAuthenticationInput.build(input[:mutual_tls_authentication]) unless input[:mutual_tls_authentication].nil?
+        data['mutualTlsAuthentication'] = MutualTlsAuthenticationInput.build(input[:mutual_tls_authentication]) unless input[:mutual_tls_authentication].nil?
         data['ownershipVerificationCertificateArn'] = input[:ownership_verification_certificate_arn] unless input[:ownership_verification_certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -270,8 +272,8 @@ module AWS::SDK::APIGateway
     class EndpointConfiguration
       def self.build(input)
         data = {}
-        data['types'] = Builders::ListOfEndpointType.build(input[:types]) unless input[:types].nil?
-        data['vpcEndpointIds'] = Builders::ListOfString.build(input[:vpc_endpoint_ids]) unless input[:vpc_endpoint_ids].nil?
+        data['types'] = ListOfEndpointType.build(input[:types]) unless input[:types].nil?
+        data['vpcEndpointIds'] = ListOfString.build(input[:vpc_endpoint_ids]) unless input[:vpc_endpoint_ids].nil?
         data
       end
     end
@@ -319,7 +321,7 @@ module AWS::SDK::APIGateway
         data['description'] = input[:description] unless input[:description].nil?
         data['schema'] = input[:schema] unless input[:schema].nil?
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -343,7 +345,7 @@ module AWS::SDK::APIGateway
         data['name'] = input[:name] unless input[:name].nil?
         data['validateRequestBody'] = input[:validate_request_body] unless input[:validate_request_body].nil?
         data['validateRequestParameters'] = input[:validate_request_parameters] unless input[:validate_request_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::APIGateway
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['pathPart'] = input[:path_part] unless input[:path_part].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,14 +389,14 @@ module AWS::SDK::APIGateway
         data['description'] = input[:description] unless input[:description].nil?
         data['version'] = input[:version] unless input[:version].nil?
         data['cloneFrom'] = input[:clone_from] unless input[:clone_from].nil?
-        data['binaryMediaTypes'] = Builders::ListOfString.build(input[:binary_media_types]) unless input[:binary_media_types].nil?
+        data['binaryMediaTypes'] = ListOfString.build(input[:binary_media_types]) unless input[:binary_media_types].nil?
         data['minimumCompressionSize'] = input[:minimum_compression_size] unless input[:minimum_compression_size].nil?
         data['apiKeySource'] = input[:api_key_source] unless input[:api_key_source].nil?
-        data['endpointConfiguration'] = Builders::EndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
         data['policy'] = input[:policy] unless input[:policy].nil?
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
         data['disableExecuteApiEndpoint'] = input[:disable_execute_api_endpoint] unless input[:disable_execute_api_endpoint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -420,12 +422,12 @@ module AWS::SDK::APIGateway
         data['description'] = input[:description] unless input[:description].nil?
         data['cacheClusterEnabled'] = input[:cache_cluster_enabled] unless input[:cache_cluster_enabled].nil?
         data['cacheClusterSize'] = input[:cache_cluster_size] unless input[:cache_cluster_size].nil?
-        data['variables'] = Builders::MapOfStringToString.build(input[:variables]) unless input[:variables].nil?
+        data['variables'] = MapOfStringToString.build(input[:variables]) unless input[:variables].nil?
         data['documentationVersion'] = input[:documentation_version] unless input[:documentation_version].nil?
-        data['canarySettings'] = Builders::CanarySettings.build(input[:canary_settings]) unless input[:canary_settings].nil?
+        data['canarySettings'] = CanarySettings.build(input[:canary_settings]) unless input[:canary_settings].nil?
         data['tracingEnabled'] = input[:tracing_enabled] unless input[:tracing_enabled].nil?
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -435,7 +437,7 @@ module AWS::SDK::APIGateway
         data = {}
         data['percentTraffic'] = Hearth::NumberHelper.serialize(input[:percent_traffic]) unless input[:percent_traffic].nil?
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
-        data['stageVariableOverrides'] = Builders::MapOfStringToString.build(input[:stage_variable_overrides]) unless input[:stage_variable_overrides].nil?
+        data['stageVariableOverrides'] = MapOfStringToString.build(input[:stage_variable_overrides]) unless input[:stage_variable_overrides].nil?
         data['useStageCache'] = input[:use_stage_cache] unless input[:use_stage_cache].nil?
         data
       end
@@ -453,11 +455,11 @@ module AWS::SDK::APIGateway
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['apiStages'] = Builders::ListOfApiStage.build(input[:api_stages]) unless input[:api_stages].nil?
-        data['throttle'] = Builders::ThrottleSettings.build(input[:throttle]) unless input[:throttle].nil?
-        data['quota'] = Builders::QuotaSettings.build(input[:quota]) unless input[:quota].nil?
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiStages'] = ListOfApiStage.build(input[:api_stages]) unless input[:api_stages].nil?
+        data['throttle'] = ThrottleSettings.build(input[:throttle]) unless input[:throttle].nil?
+        data['quota'] = QuotaSettings.build(input[:quota]) unless input[:quota].nil?
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -487,7 +489,7 @@ module AWS::SDK::APIGateway
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ApiStage.build(element) unless element.nil?
+          data << ApiStage.build(element) unless element.nil?
         end
         data
       end
@@ -499,7 +501,7 @@ module AWS::SDK::APIGateway
         data = {}
         data['apiId'] = input[:api_id] unless input[:api_id].nil?
         data['stage'] = input[:stage] unless input[:stage].nil?
-        data['throttle'] = Builders::MapOfApiStageThrottleSettings.build(input[:throttle]) unless input[:throttle].nil?
+        data['throttle'] = MapOfApiStageThrottleSettings.build(input[:throttle]) unless input[:throttle].nil?
         data
       end
     end
@@ -509,7 +511,7 @@ module AWS::SDK::APIGateway
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ThrottleSettings.build(value) unless value.nil?
+          data[key] = ThrottleSettings.build(value) unless value.nil?
         end
         data
       end
@@ -534,7 +536,7 @@ module AWS::SDK::APIGateway
         data = {}
         data['keyId'] = input[:key_id] unless input[:key_id].nil?
         data['keyType'] = input[:key_type] unless input[:key_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -550,9 +552,9 @@ module AWS::SDK::APIGateway
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['targetArns'] = Builders::ListOfString.build(input[:target_arns]) unless input[:target_arns].nil?
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['targetArns'] = ListOfString.build(input[:target_arns]) unless input[:target_arns].nil?
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1050,8 +1052,8 @@ module AWS::SDK::APIGateway
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1977,7 +1979,7 @@ module AWS::SDK::APIGateway
         params['failonwarnings'] = input[:fail_on_warnings].to_s unless input[:fail_on_warnings].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:body] || '')
+        http_req.body = ::StringIO.new(input[:body] || '')
       end
     end
 
@@ -1998,7 +2000,7 @@ module AWS::SDK::APIGateway
         params['failonwarnings'] = input[:fail_on_warnings].to_s unless input[:fail_on_warnings].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:body] || '')
+        http_req.body = ::StringIO.new(input[:body] || '')
       end
     end
 
@@ -2019,7 +2021,7 @@ module AWS::SDK::APIGateway
         params['failonwarnings'] = input[:fail_on_warnings].to_s unless input[:fail_on_warnings].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:body] || '')
+        http_req.body = ::StringIO.new(input[:body] || '')
       end
     end
 
@@ -2045,9 +2047,9 @@ module AWS::SDK::APIGateway
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['statusCode'] = input[:status_code] unless input[:status_code].nil?
-        data['responseParameters'] = Builders::MapOfStringToString.build(input[:response_parameters]) unless input[:response_parameters].nil?
-        data['responseTemplates'] = Builders::MapOfStringToString.build(input[:response_templates]) unless input[:response_templates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['responseParameters'] = MapOfStringToString.build(input[:response_parameters]) unless input[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.build(input[:response_templates]) unless input[:response_templates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2082,15 +2084,15 @@ module AWS::SDK::APIGateway
         data['connectionType'] = input[:connection_type] unless input[:connection_type].nil?
         data['connectionId'] = input[:connection_id] unless input[:connection_id].nil?
         data['credentials'] = input[:credentials] unless input[:credentials].nil?
-        data['requestParameters'] = Builders::MapOfStringToString.build(input[:request_parameters]) unless input[:request_parameters].nil?
-        data['requestTemplates'] = Builders::MapOfStringToString.build(input[:request_templates]) unless input[:request_templates].nil?
+        data['requestParameters'] = MapOfStringToString.build(input[:request_parameters]) unless input[:request_parameters].nil?
+        data['requestTemplates'] = MapOfStringToString.build(input[:request_templates]) unless input[:request_templates].nil?
         data['passthroughBehavior'] = input[:passthrough_behavior] unless input[:passthrough_behavior].nil?
         data['cacheNamespace'] = input[:cache_namespace] unless input[:cache_namespace].nil?
-        data['cacheKeyParameters'] = Builders::ListOfString.build(input[:cache_key_parameters]) unless input[:cache_key_parameters].nil?
+        data['cacheKeyParameters'] = ListOfString.build(input[:cache_key_parameters]) unless input[:cache_key_parameters].nil?
         data['contentHandling'] = input[:content_handling] unless input[:content_handling].nil?
         data['timeoutInMillis'] = input[:timeout_in_millis] unless input[:timeout_in_millis].nil?
-        data['tlsConfig'] = Builders::TlsConfig.build(input[:tls_config]) unless input[:tls_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tlsConfig'] = TlsConfig.build(input[:tls_config]) unless input[:tls_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2133,10 +2135,10 @@ module AWS::SDK::APIGateway
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['selectionPattern'] = input[:selection_pattern] unless input[:selection_pattern].nil?
-        data['responseParameters'] = Builders::MapOfStringToString.build(input[:response_parameters]) unless input[:response_parameters].nil?
-        data['responseTemplates'] = Builders::MapOfStringToString.build(input[:response_templates]) unless input[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.build(input[:response_parameters]) unless input[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.build(input[:response_templates]) unless input[:response_templates].nil?
         data['contentHandling'] = input[:content_handling] unless input[:content_handling].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2169,11 +2171,11 @@ module AWS::SDK::APIGateway
         data['authorizerId'] = input[:authorizer_id] unless input[:authorizer_id].nil?
         data['apiKeyRequired'] = input[:api_key_required] unless input[:api_key_required].nil?
         data['operationName'] = input[:operation_name] unless input[:operation_name].nil?
-        data['requestParameters'] = Builders::MapOfStringToBoolean.build(input[:request_parameters]) unless input[:request_parameters].nil?
-        data['requestModels'] = Builders::MapOfStringToString.build(input[:request_models]) unless input[:request_models].nil?
+        data['requestParameters'] = MapOfStringToBoolean.build(input[:request_parameters]) unless input[:request_parameters].nil?
+        data['requestModels'] = MapOfStringToString.build(input[:request_models]) unless input[:request_models].nil?
         data['requestValidatorId'] = input[:request_validator_id] unless input[:request_validator_id].nil?
-        data['authorizationScopes'] = Builders::ListOfString.build(input[:authorization_scopes]) unless input[:authorization_scopes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authorizationScopes'] = ListOfString.build(input[:authorization_scopes]) unless input[:authorization_scopes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2217,9 +2219,9 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['responseParameters'] = Builders::MapOfStringToBoolean.build(input[:response_parameters]) unless input[:response_parameters].nil?
-        data['responseModels'] = Builders::MapOfStringToString.build(input[:response_models]) unless input[:response_models].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['responseParameters'] = MapOfStringToBoolean.build(input[:response_parameters]) unless input[:response_parameters].nil?
+        data['responseModels'] = MapOfStringToString.build(input[:response_models]) unless input[:response_models].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2245,7 +2247,7 @@ module AWS::SDK::APIGateway
         params['failonwarnings'] = input[:fail_on_warnings].to_s unless input[:fail_on_warnings].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:body] || '')
+        http_req.body = ::StringIO.new(input[:body] || '')
       end
     end
 
@@ -2266,8 +2268,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2292,13 +2294,13 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['headers'] = Builders::MapOfStringToString.build(input[:headers]) unless input[:headers].nil?
-        data['multiValueHeaders'] = Builders::MapOfStringToList.build(input[:multi_value_headers]) unless input[:multi_value_headers].nil?
+        data['headers'] = MapOfStringToString.build(input[:headers]) unless input[:headers].nil?
+        data['multiValueHeaders'] = MapOfStringToList.build(input[:multi_value_headers]) unless input[:multi_value_headers].nil?
         data['pathWithQueryString'] = input[:path_with_query_string] unless input[:path_with_query_string].nil?
         data['body'] = input[:body] unless input[:body].nil?
-        data['stageVariables'] = Builders::MapOfStringToString.build(input[:stage_variables]) unless input[:stage_variables].nil?
-        data['additionalContext'] = Builders::MapOfStringToString.build(input[:additional_context]) unless input[:additional_context].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stageVariables'] = MapOfStringToString.build(input[:stage_variables]) unless input[:stage_variables].nil?
+        data['additionalContext'] = MapOfStringToString.build(input[:additional_context]) unless input[:additional_context].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2307,7 +2309,7 @@ module AWS::SDK::APIGateway
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ListOfString.build(value) unless value.nil?
+          data[key] = ListOfString.build(value) unless value.nil?
         end
         data
       end
@@ -2340,11 +2342,11 @@ module AWS::SDK::APIGateway
         data = {}
         data['pathWithQueryString'] = input[:path_with_query_string] unless input[:path_with_query_string].nil?
         data['body'] = input[:body] unless input[:body].nil?
-        data['headers'] = Builders::MapOfStringToString.build(input[:headers]) unless input[:headers].nil?
-        data['multiValueHeaders'] = Builders::MapOfStringToList.build(input[:multi_value_headers]) unless input[:multi_value_headers].nil?
+        data['headers'] = MapOfStringToString.build(input[:headers]) unless input[:headers].nil?
+        data['multiValueHeaders'] = MapOfStringToList.build(input[:multi_value_headers]) unless input[:multi_value_headers].nil?
         data['clientCertificateId'] = input[:client_certificate_id] unless input[:client_certificate_id].nil?
-        data['stageVariables'] = Builders::MapOfStringToString.build(input[:stage_variables]) unless input[:stage_variables].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stageVariables'] = MapOfStringToString.build(input[:stage_variables]) unless input[:stage_variables].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2380,8 +2382,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2390,7 +2392,7 @@ module AWS::SDK::APIGateway
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PatchOperation.build(element) unless element.nil?
+          data << PatchOperation.build(element) unless element.nil?
         end
         data
       end
@@ -2425,8 +2427,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2451,8 +2453,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2477,8 +2479,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2499,8 +2501,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2525,8 +2527,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2551,8 +2553,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2577,8 +2579,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2599,8 +2601,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2625,8 +2627,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2655,8 +2657,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2689,8 +2691,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2719,8 +2721,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2753,8 +2755,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2779,8 +2781,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2805,8 +2807,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2831,8 +2833,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2853,8 +2855,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2879,8 +2881,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2905,8 +2907,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2927,8 +2929,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2949,8 +2951,8 @@ module AWS::SDK::APIGateway
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['patchOperations'] = Builders::ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['patchOperations'] = ListOfPatchOperation.build(input[:patch_operations]) unless input[:patch_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

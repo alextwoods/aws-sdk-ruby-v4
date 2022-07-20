@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::RedshiftData
   module Stubs
 
@@ -31,7 +34,7 @@ module AWS::SDK::RedshiftData
         data['DbUser'] = stub[:db_user] unless stub[:db_user].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +50,7 @@ module AWS::SDK::RedshiftData
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -95,9 +98,9 @@ module AWS::SDK::RedshiftData
         data['ResultRows'] = stub[:result_rows] unless stub[:result_rows].nil?
         data['ResultSize'] = stub[:result_size] unless stub[:result_size].nil?
         data['RedshiftQueryId'] = stub[:redshift_query_id] unless stub[:redshift_query_id].nil?
-        data['QueryParameters'] = Stubs::SqlParametersList.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
-        data['SubStatements'] = Stubs::SubStatementList.stub(stub[:sub_statements]) unless stub[:sub_statements].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueryParameters'] = SqlParametersList.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
+        data['SubStatements'] = SubStatementList.stub(stub[:sub_statements]) unless stub[:sub_statements].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -116,7 +119,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubStatementData.stub(element) unless element.nil?
+          data << SubStatementData.stub(element) unless element.nil?
         end
         data
       end
@@ -174,7 +177,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SqlParameter.stub(element) unless element.nil?
+          data << SqlParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -213,9 +216,9 @@ module AWS::SDK::RedshiftData
       def self.stub(http_resp, stub:)
         data = {}
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['ColumnList'] = Stubs::ColumnList.stub(stub[:column_list]) unless stub[:column_list].nil?
+        data['ColumnList'] = ColumnList.stub(stub[:column_list]) unless stub[:column_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -234,7 +237,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnMetadata.stub(element) unless element.nil?
+          data << ColumnMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -303,7 +306,7 @@ module AWS::SDK::RedshiftData
         data['DbUser'] = stub[:db_user] unless stub[:db_user].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -321,11 +324,11 @@ module AWS::SDK::RedshiftData
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Records'] = Stubs::SqlRecords.stub(stub[:records]) unless stub[:records].nil?
-        data['ColumnMetadata'] = Stubs::ColumnMetadataList.stub(stub[:column_metadata]) unless stub[:column_metadata].nil?
+        data['Records'] = SqlRecords.stub(stub[:records]) unless stub[:records].nil?
+        data['ColumnMetadata'] = ColumnMetadataList.stub(stub[:column_metadata]) unless stub[:column_metadata].nil?
         data['TotalNumRows'] = stub[:total_num_rows] unless stub[:total_num_rows].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -344,7 +347,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnMetadata.stub(element) unless element.nil?
+          data << ColumnMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -364,7 +367,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FieldList.stub(element) unless element.nil?
+          data << FieldList.stub(element) unless element.nil?
         end
         data
       end
@@ -384,7 +387,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Field.stub(element) unless element.nil?
+          data << Field.stub(element) unless element.nil?
         end
         data
       end
@@ -414,7 +417,7 @@ module AWS::SDK::RedshiftData
         when Types::Field::StringValue
           data['stringValue'] = stub.__getobj__
         when Types::Field::BlobValue
-          data['blobValue'] = Base64::encode64(stub.__getobj__)
+          data['blobValue'] = ::Base64::encode64(stub.__getobj__)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Field"
@@ -435,9 +438,9 @@ module AWS::SDK::RedshiftData
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Databases'] = Stubs::DatabaseList.stub(stub[:databases]) unless stub[:databases].nil?
+        data['Databases'] = DatabaseList.stub(stub[:databases]) unless stub[:databases].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -473,9 +476,9 @@ module AWS::SDK::RedshiftData
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Schemas'] = Stubs::SchemaList.stub(stub[:schemas]) unless stub[:schemas].nil?
+        data['Schemas'] = SchemaList.stub(stub[:schemas]) unless stub[:schemas].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -511,9 +514,9 @@ module AWS::SDK::RedshiftData
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Statements'] = Stubs::StatementList.stub(stub[:statements]) unless stub[:statements].nil?
+        data['Statements'] = StatementList.stub(stub[:statements]) unless stub[:statements].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -532,7 +535,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatementData.stub(element) unless element.nil?
+          data << StatementData.stub(element) unless element.nil?
         end
         data
       end
@@ -562,13 +565,13 @@ module AWS::SDK::RedshiftData
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['QueryString'] = stub[:query_string] unless stub[:query_string].nil?
-        data['QueryStrings'] = Stubs::StatementStringList.stub(stub[:query_strings]) unless stub[:query_strings].nil?
+        data['QueryStrings'] = StatementStringList.stub(stub[:query_strings]) unless stub[:query_strings].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatementName'] = stub[:statement_name] unless stub[:statement_name].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['QueryParameters'] = Stubs::SqlParametersList.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
+        data['QueryParameters'] = SqlParametersList.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
         data['IsBatchStatement'] = stub[:is_batch_statement] unless stub[:is_batch_statement].nil?
         data
       end
@@ -605,9 +608,9 @@ module AWS::SDK::RedshiftData
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tables'] = Stubs::TableList.stub(stub[:tables]) unless stub[:tables].nil?
+        data['Tables'] = TableList.stub(stub[:tables]) unless stub[:tables].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -626,7 +629,7 @@ module AWS::SDK::RedshiftData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableMember.stub(element) unless element.nil?
+          data << TableMember.stub(element) unless element.nil?
         end
         data
       end

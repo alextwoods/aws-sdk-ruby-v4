@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Appflow
   module Builders
 
@@ -25,8 +27,8 @@ module AWS::SDK::Appflow
         data['connectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['connectorLabel'] = input[:connector_label] unless input[:connector_label].nil?
         data['connectionMode'] = input[:connection_mode] unless input[:connection_mode].nil?
-        data['connectorProfileConfig'] = Builders::ConnectorProfileConfig.build(input[:connector_profile_config]) unless input[:connector_profile_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connectorProfileConfig'] = ConnectorProfileConfig.build(input[:connector_profile_config]) unless input[:connector_profile_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,8 +36,8 @@ module AWS::SDK::Appflow
     class ConnectorProfileConfig
       def self.build(input)
         data = {}
-        data['connectorProfileProperties'] = Builders::ConnectorProfileProperties.build(input[:connector_profile_properties]) unless input[:connector_profile_properties].nil?
-        data['connectorProfileCredentials'] = Builders::ConnectorProfileCredentials.build(input[:connector_profile_credentials]) unless input[:connector_profile_credentials].nil?
+        data['connectorProfileProperties'] = ConnectorProfileProperties.build(input[:connector_profile_properties]) unless input[:connector_profile_properties].nil?
+        data['connectorProfileCredentials'] = ConnectorProfileCredentials.build(input[:connector_profile_credentials]) unless input[:connector_profile_credentials].nil?
         data
       end
     end
@@ -44,24 +46,24 @@ module AWS::SDK::Appflow
     class ConnectorProfileCredentials
       def self.build(input)
         data = {}
-        data['Amplitude'] = Builders::AmplitudeConnectorProfileCredentials.build(input[:amplitude]) unless input[:amplitude].nil?
-        data['Datadog'] = Builders::DatadogConnectorProfileCredentials.build(input[:datadog]) unless input[:datadog].nil?
-        data['Dynatrace'] = Builders::DynatraceConnectorProfileCredentials.build(input[:dynatrace]) unless input[:dynatrace].nil?
-        data['GoogleAnalytics'] = Builders::GoogleAnalyticsConnectorProfileCredentials.build(input[:google_analytics]) unless input[:google_analytics].nil?
-        data['Honeycode'] = Builders::HoneycodeConnectorProfileCredentials.build(input[:honeycode]) unless input[:honeycode].nil?
-        data['InforNexus'] = Builders::InforNexusConnectorProfileCredentials.build(input[:infor_nexus]) unless input[:infor_nexus].nil?
-        data['Marketo'] = Builders::MarketoConnectorProfileCredentials.build(input[:marketo]) unless input[:marketo].nil?
-        data['Redshift'] = Builders::RedshiftConnectorProfileCredentials.build(input[:redshift]) unless input[:redshift].nil?
-        data['Salesforce'] = Builders::SalesforceConnectorProfileCredentials.build(input[:salesforce]) unless input[:salesforce].nil?
-        data['ServiceNow'] = Builders::ServiceNowConnectorProfileCredentials.build(input[:service_now]) unless input[:service_now].nil?
-        data['Singular'] = Builders::SingularConnectorProfileCredentials.build(input[:singular]) unless input[:singular].nil?
-        data['Slack'] = Builders::SlackConnectorProfileCredentials.build(input[:slack]) unless input[:slack].nil?
-        data['Snowflake'] = Builders::SnowflakeConnectorProfileCredentials.build(input[:snowflake]) unless input[:snowflake].nil?
-        data['Trendmicro'] = Builders::TrendmicroConnectorProfileCredentials.build(input[:trendmicro]) unless input[:trendmicro].nil?
-        data['Veeva'] = Builders::VeevaConnectorProfileCredentials.build(input[:veeva]) unless input[:veeva].nil?
-        data['Zendesk'] = Builders::ZendeskConnectorProfileCredentials.build(input[:zendesk]) unless input[:zendesk].nil?
-        data['SAPOData'] = Builders::SAPODataConnectorProfileCredentials.build(input[:sapo_data]) unless input[:sapo_data].nil?
-        data['CustomConnector'] = Builders::CustomConnectorProfileCredentials.build(input[:custom_connector]) unless input[:custom_connector].nil?
+        data['Amplitude'] = AmplitudeConnectorProfileCredentials.build(input[:amplitude]) unless input[:amplitude].nil?
+        data['Datadog'] = DatadogConnectorProfileCredentials.build(input[:datadog]) unless input[:datadog].nil?
+        data['Dynatrace'] = DynatraceConnectorProfileCredentials.build(input[:dynatrace]) unless input[:dynatrace].nil?
+        data['GoogleAnalytics'] = GoogleAnalyticsConnectorProfileCredentials.build(input[:google_analytics]) unless input[:google_analytics].nil?
+        data['Honeycode'] = HoneycodeConnectorProfileCredentials.build(input[:honeycode]) unless input[:honeycode].nil?
+        data['InforNexus'] = InforNexusConnectorProfileCredentials.build(input[:infor_nexus]) unless input[:infor_nexus].nil?
+        data['Marketo'] = MarketoConnectorProfileCredentials.build(input[:marketo]) unless input[:marketo].nil?
+        data['Redshift'] = RedshiftConnectorProfileCredentials.build(input[:redshift]) unless input[:redshift].nil?
+        data['Salesforce'] = SalesforceConnectorProfileCredentials.build(input[:salesforce]) unless input[:salesforce].nil?
+        data['ServiceNow'] = ServiceNowConnectorProfileCredentials.build(input[:service_now]) unless input[:service_now].nil?
+        data['Singular'] = SingularConnectorProfileCredentials.build(input[:singular]) unless input[:singular].nil?
+        data['Slack'] = SlackConnectorProfileCredentials.build(input[:slack]) unless input[:slack].nil?
+        data['Snowflake'] = SnowflakeConnectorProfileCredentials.build(input[:snowflake]) unless input[:snowflake].nil?
+        data['Trendmicro'] = TrendmicroConnectorProfileCredentials.build(input[:trendmicro]) unless input[:trendmicro].nil?
+        data['Veeva'] = VeevaConnectorProfileCredentials.build(input[:veeva]) unless input[:veeva].nil?
+        data['Zendesk'] = ZendeskConnectorProfileCredentials.build(input[:zendesk]) unless input[:zendesk].nil?
+        data['SAPOData'] = SAPODataConnectorProfileCredentials.build(input[:sapo_data]) unless input[:sapo_data].nil?
+        data['CustomConnector'] = CustomConnectorProfileCredentials.build(input[:custom_connector]) unless input[:custom_connector].nil?
         data
       end
     end
@@ -71,10 +73,10 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['authenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        data['basic'] = Builders::BasicAuthCredentials.build(input[:basic]) unless input[:basic].nil?
-        data['oauth2'] = Builders::OAuth2Credentials.build(input[:oauth2]) unless input[:oauth2].nil?
-        data['apiKey'] = Builders::ApiKeyCredentials.build(input[:api_key]) unless input[:api_key].nil?
-        data['custom'] = Builders::CustomAuthCredentials.build(input[:custom]) unless input[:custom].nil?
+        data['basic'] = BasicAuthCredentials.build(input[:basic]) unless input[:basic].nil?
+        data['oauth2'] = OAuth2Credentials.build(input[:oauth2]) unless input[:oauth2].nil?
+        data['apiKey'] = ApiKeyCredentials.build(input[:api_key]) unless input[:api_key].nil?
+        data['custom'] = CustomAuthCredentials.build(input[:custom]) unless input[:custom].nil?
         data
       end
     end
@@ -84,7 +86,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['customAuthenticationType'] = input[:custom_authentication_type] unless input[:custom_authentication_type].nil?
-        data['credentialsMap'] = Builders::CredentialsMap.build(input[:credentials_map]) unless input[:credentials_map].nil?
+        data['credentialsMap'] = CredentialsMap.build(input[:credentials_map]) unless input[:credentials_map].nil?
         data
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::Appflow
         data['clientSecret'] = input[:client_secret] unless input[:client_secret].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
         data['refreshToken'] = input[:refresh_token] unless input[:refresh_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data
       end
     end
@@ -147,8 +149,8 @@ module AWS::SDK::Appflow
     class SAPODataConnectorProfileCredentials
       def self.build(input)
         data = {}
-        data['basicAuthCredentials'] = Builders::BasicAuthCredentials.build(input[:basic_auth_credentials]) unless input[:basic_auth_credentials].nil?
-        data['oAuthCredentials'] = Builders::OAuthCredentials.build(input[:o_auth_credentials]) unless input[:o_auth_credentials].nil?
+        data['basicAuthCredentials'] = BasicAuthCredentials.build(input[:basic_auth_credentials]) unless input[:basic_auth_credentials].nil?
+        data['oAuthCredentials'] = OAuthCredentials.build(input[:o_auth_credentials]) unless input[:o_auth_credentials].nil?
         data
       end
     end
@@ -161,7 +163,7 @@ module AWS::SDK::Appflow
         data['clientSecret'] = input[:client_secret] unless input[:client_secret].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
         data['refreshToken'] = input[:refresh_token] unless input[:refresh_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data
       end
     end
@@ -173,7 +175,7 @@ module AWS::SDK::Appflow
         data['clientId'] = input[:client_id] unless input[:client_id].nil?
         data['clientSecret'] = input[:client_secret] unless input[:client_secret].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data
       end
     end
@@ -214,7 +216,7 @@ module AWS::SDK::Appflow
         data['clientId'] = input[:client_id] unless input[:client_id].nil?
         data['clientSecret'] = input[:client_secret] unless input[:client_secret].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data
       end
     end
@@ -244,7 +246,7 @@ module AWS::SDK::Appflow
         data = {}
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
         data['refreshToken'] = input[:refresh_token] unless input[:refresh_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data['clientCredentialsArn'] = input[:client_credentials_arn] unless input[:client_credentials_arn].nil?
         data
       end
@@ -267,7 +269,7 @@ module AWS::SDK::Appflow
         data['clientId'] = input[:client_id] unless input[:client_id].nil?
         data['clientSecret'] = input[:client_secret] unless input[:client_secret].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::Appflow
         data = {}
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
         data['refreshToken'] = input[:refresh_token] unless input[:refresh_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::Appflow
         data['clientSecret'] = input[:client_secret] unless input[:client_secret].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
         data['refreshToken'] = input[:refresh_token] unless input[:refresh_token].nil?
-        data['oAuthRequest'] = Builders::ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
+        data['oAuthRequest'] = ConnectorOAuthRequest.build(input[:o_auth_request]) unless input[:o_auth_request].nil?
         data
       end
     end
@@ -341,24 +343,24 @@ module AWS::SDK::Appflow
     class ConnectorProfileProperties
       def self.build(input)
         data = {}
-        data['Amplitude'] = Builders::AmplitudeConnectorProfileProperties.build(input[:amplitude]) unless input[:amplitude].nil?
-        data['Datadog'] = Builders::DatadogConnectorProfileProperties.build(input[:datadog]) unless input[:datadog].nil?
-        data['Dynatrace'] = Builders::DynatraceConnectorProfileProperties.build(input[:dynatrace]) unless input[:dynatrace].nil?
-        data['GoogleAnalytics'] = Builders::GoogleAnalyticsConnectorProfileProperties.build(input[:google_analytics]) unless input[:google_analytics].nil?
-        data['Honeycode'] = Builders::HoneycodeConnectorProfileProperties.build(input[:honeycode]) unless input[:honeycode].nil?
-        data['InforNexus'] = Builders::InforNexusConnectorProfileProperties.build(input[:infor_nexus]) unless input[:infor_nexus].nil?
-        data['Marketo'] = Builders::MarketoConnectorProfileProperties.build(input[:marketo]) unless input[:marketo].nil?
-        data['Redshift'] = Builders::RedshiftConnectorProfileProperties.build(input[:redshift]) unless input[:redshift].nil?
-        data['Salesforce'] = Builders::SalesforceConnectorProfileProperties.build(input[:salesforce]) unless input[:salesforce].nil?
-        data['ServiceNow'] = Builders::ServiceNowConnectorProfileProperties.build(input[:service_now]) unless input[:service_now].nil?
-        data['Singular'] = Builders::SingularConnectorProfileProperties.build(input[:singular]) unless input[:singular].nil?
-        data['Slack'] = Builders::SlackConnectorProfileProperties.build(input[:slack]) unless input[:slack].nil?
-        data['Snowflake'] = Builders::SnowflakeConnectorProfileProperties.build(input[:snowflake]) unless input[:snowflake].nil?
-        data['Trendmicro'] = Builders::TrendmicroConnectorProfileProperties.build(input[:trendmicro]) unless input[:trendmicro].nil?
-        data['Veeva'] = Builders::VeevaConnectorProfileProperties.build(input[:veeva]) unless input[:veeva].nil?
-        data['Zendesk'] = Builders::ZendeskConnectorProfileProperties.build(input[:zendesk]) unless input[:zendesk].nil?
-        data['SAPOData'] = Builders::SAPODataConnectorProfileProperties.build(input[:sapo_data]) unless input[:sapo_data].nil?
-        data['CustomConnector'] = Builders::CustomConnectorProfileProperties.build(input[:custom_connector]) unless input[:custom_connector].nil?
+        data['Amplitude'] = AmplitudeConnectorProfileProperties.build(input[:amplitude]) unless input[:amplitude].nil?
+        data['Datadog'] = DatadogConnectorProfileProperties.build(input[:datadog]) unless input[:datadog].nil?
+        data['Dynatrace'] = DynatraceConnectorProfileProperties.build(input[:dynatrace]) unless input[:dynatrace].nil?
+        data['GoogleAnalytics'] = GoogleAnalyticsConnectorProfileProperties.build(input[:google_analytics]) unless input[:google_analytics].nil?
+        data['Honeycode'] = HoneycodeConnectorProfileProperties.build(input[:honeycode]) unless input[:honeycode].nil?
+        data['InforNexus'] = InforNexusConnectorProfileProperties.build(input[:infor_nexus]) unless input[:infor_nexus].nil?
+        data['Marketo'] = MarketoConnectorProfileProperties.build(input[:marketo]) unless input[:marketo].nil?
+        data['Redshift'] = RedshiftConnectorProfileProperties.build(input[:redshift]) unless input[:redshift].nil?
+        data['Salesforce'] = SalesforceConnectorProfileProperties.build(input[:salesforce]) unless input[:salesforce].nil?
+        data['ServiceNow'] = ServiceNowConnectorProfileProperties.build(input[:service_now]) unless input[:service_now].nil?
+        data['Singular'] = SingularConnectorProfileProperties.build(input[:singular]) unless input[:singular].nil?
+        data['Slack'] = SlackConnectorProfileProperties.build(input[:slack]) unless input[:slack].nil?
+        data['Snowflake'] = SnowflakeConnectorProfileProperties.build(input[:snowflake]) unless input[:snowflake].nil?
+        data['Trendmicro'] = TrendmicroConnectorProfileProperties.build(input[:trendmicro]) unless input[:trendmicro].nil?
+        data['Veeva'] = VeevaConnectorProfileProperties.build(input[:veeva]) unless input[:veeva].nil?
+        data['Zendesk'] = ZendeskConnectorProfileProperties.build(input[:zendesk]) unless input[:zendesk].nil?
+        data['SAPOData'] = SAPODataConnectorProfileProperties.build(input[:sapo_data]) unless input[:sapo_data].nil?
+        data['CustomConnector'] = CustomConnectorProfileProperties.build(input[:custom_connector]) unless input[:custom_connector].nil?
         data
       end
     end
@@ -367,8 +369,8 @@ module AWS::SDK::Appflow
     class CustomConnectorProfileProperties
       def self.build(input)
         data = {}
-        data['profileProperties'] = Builders::ProfilePropertiesMap.build(input[:profile_properties]) unless input[:profile_properties].nil?
-        data['oAuth2Properties'] = Builders::OAuth2Properties.build(input[:o_auth2_properties]) unless input[:o_auth2_properties].nil?
+        data['profileProperties'] = ProfilePropertiesMap.build(input[:profile_properties]) unless input[:profile_properties].nil?
+        data['oAuth2Properties'] = OAuth2Properties.build(input[:o_auth2_properties]) unless input[:o_auth2_properties].nil?
         data
       end
     end
@@ -379,7 +381,7 @@ module AWS::SDK::Appflow
         data = {}
         data['tokenUrl'] = input[:token_url] unless input[:token_url].nil?
         data['oAuth2GrantType'] = input[:o_auth2_grant_type] unless input[:o_auth2_grant_type].nil?
-        data['tokenUrlCustomProperties'] = Builders::TokenUrlCustomProperties.build(input[:token_url_custom_properties]) unless input[:token_url_custom_properties].nil?
+        data['tokenUrlCustomProperties'] = TokenUrlCustomProperties.build(input[:token_url_custom_properties]) unless input[:token_url_custom_properties].nil?
         data
       end
     end
@@ -416,7 +418,7 @@ module AWS::SDK::Appflow
         data['clientNumber'] = input[:client_number] unless input[:client_number].nil?
         data['logonLanguage'] = input[:logon_language] unless input[:logon_language].nil?
         data['privateLinkServiceName'] = input[:private_link_service_name] unless input[:private_link_service_name].nil?
-        data['oAuthProperties'] = Builders::OAuthProperties.build(input[:o_auth_properties]) unless input[:o_auth_properties].nil?
+        data['oAuthProperties'] = OAuthProperties.build(input[:o_auth_properties]) unless input[:o_auth_properties].nil?
         data
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::Appflow
         data = {}
         data['tokenUrl'] = input[:token_url] unless input[:token_url].nil?
         data['authCodeUrl'] = input[:auth_code_url] unless input[:auth_code_url].nil?
-        data['oAuthScopes'] = Builders::OAuthScopeList.build(input[:o_auth_scopes]) unless input[:o_auth_scopes].nil?
+        data['oAuthScopes'] = OAuthScopeList.build(input[:o_auth_scopes]) unless input[:o_auth_scopes].nil?
         data
       end
     end
@@ -605,12 +607,12 @@ module AWS::SDK::Appflow
         data['flowName'] = input[:flow_name] unless input[:flow_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['kmsArn'] = input[:kms_arn] unless input[:kms_arn].nil?
-        data['triggerConfig'] = Builders::TriggerConfig.build(input[:trigger_config]) unless input[:trigger_config].nil?
-        data['sourceFlowConfig'] = Builders::SourceFlowConfig.build(input[:source_flow_config]) unless input[:source_flow_config].nil?
-        data['destinationFlowConfigList'] = Builders::DestinationFlowConfigList.build(input[:destination_flow_config_list]) unless input[:destination_flow_config_list].nil?
-        data['tasks'] = Builders::Tasks.build(input[:tasks]) unless input[:tasks].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['triggerConfig'] = TriggerConfig.build(input[:trigger_config]) unless input[:trigger_config].nil?
+        data['sourceFlowConfig'] = SourceFlowConfig.build(input[:source_flow_config]) unless input[:source_flow_config].nil?
+        data['destinationFlowConfigList'] = DestinationFlowConfigList.build(input[:destination_flow_config_list]) unless input[:destination_flow_config_list].nil?
+        data['tasks'] = Tasks.build(input[:tasks]) unless input[:tasks].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -630,7 +632,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Task.build(element) unless element.nil?
+          data << Task.build(element) unless element.nil?
         end
         data
       end
@@ -640,11 +642,11 @@ module AWS::SDK::Appflow
     class Task
       def self.build(input)
         data = {}
-        data['sourceFields'] = Builders::SourceFields.build(input[:source_fields]) unless input[:source_fields].nil?
-        data['connectorOperator'] = Builders::ConnectorOperator.build(input[:connector_operator]) unless input[:connector_operator].nil?
+        data['sourceFields'] = SourceFields.build(input[:source_fields]) unless input[:source_fields].nil?
+        data['connectorOperator'] = ConnectorOperator.build(input[:connector_operator]) unless input[:connector_operator].nil?
         data['destinationField'] = input[:destination_field] unless input[:destination_field].nil?
         data['taskType'] = input[:task_type] unless input[:task_type].nil?
-        data['taskProperties'] = Builders::TaskPropertiesMap.build(input[:task_properties]) unless input[:task_properties].nil?
+        data['taskProperties'] = TaskPropertiesMap.build(input[:task_properties]) unless input[:task_properties].nil?
         data
       end
     end
@@ -700,7 +702,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DestinationFlowConfig.build(element) unless element.nil?
+          data << DestinationFlowConfig.build(element) unless element.nil?
         end
         data
       end
@@ -713,7 +715,7 @@ module AWS::SDK::Appflow
         data['connectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['apiVersion'] = input[:api_version] unless input[:api_version].nil?
         data['connectorProfileName'] = input[:connector_profile_name] unless input[:connector_profile_name].nil?
-        data['destinationConnectorProperties'] = Builders::DestinationConnectorProperties.build(input[:destination_connector_properties]) unless input[:destination_connector_properties].nil?
+        data['destinationConnectorProperties'] = DestinationConnectorProperties.build(input[:destination_connector_properties]) unless input[:destination_connector_properties].nil?
         data
       end
     end
@@ -722,19 +724,19 @@ module AWS::SDK::Appflow
     class DestinationConnectorProperties
       def self.build(input)
         data = {}
-        data['Redshift'] = Builders::RedshiftDestinationProperties.build(input[:redshift]) unless input[:redshift].nil?
-        data['S3'] = Builders::S3DestinationProperties.build(input[:s3]) unless input[:s3].nil?
-        data['Salesforce'] = Builders::SalesforceDestinationProperties.build(input[:salesforce]) unless input[:salesforce].nil?
-        data['Snowflake'] = Builders::SnowflakeDestinationProperties.build(input[:snowflake]) unless input[:snowflake].nil?
-        data['EventBridge'] = Builders::EventBridgeDestinationProperties.build(input[:event_bridge]) unless input[:event_bridge].nil?
-        data['LookoutMetrics'] = Builders::LookoutMetricsDestinationProperties.build(input[:lookout_metrics]) unless input[:lookout_metrics].nil?
-        data['Upsolver'] = Builders::UpsolverDestinationProperties.build(input[:upsolver]) unless input[:upsolver].nil?
-        data['Honeycode'] = Builders::HoneycodeDestinationProperties.build(input[:honeycode]) unless input[:honeycode].nil?
-        data['CustomerProfiles'] = Builders::CustomerProfilesDestinationProperties.build(input[:customer_profiles]) unless input[:customer_profiles].nil?
-        data['Zendesk'] = Builders::ZendeskDestinationProperties.build(input[:zendesk]) unless input[:zendesk].nil?
-        data['Marketo'] = Builders::MarketoDestinationProperties.build(input[:marketo]) unless input[:marketo].nil?
-        data['CustomConnector'] = Builders::CustomConnectorDestinationProperties.build(input[:custom_connector]) unless input[:custom_connector].nil?
-        data['SAPOData'] = Builders::SAPODataDestinationProperties.build(input[:sapo_data]) unless input[:sapo_data].nil?
+        data['Redshift'] = RedshiftDestinationProperties.build(input[:redshift]) unless input[:redshift].nil?
+        data['S3'] = S3DestinationProperties.build(input[:s3]) unless input[:s3].nil?
+        data['Salesforce'] = SalesforceDestinationProperties.build(input[:salesforce]) unless input[:salesforce].nil?
+        data['Snowflake'] = SnowflakeDestinationProperties.build(input[:snowflake]) unless input[:snowflake].nil?
+        data['EventBridge'] = EventBridgeDestinationProperties.build(input[:event_bridge]) unless input[:event_bridge].nil?
+        data['LookoutMetrics'] = LookoutMetricsDestinationProperties.build(input[:lookout_metrics]) unless input[:lookout_metrics].nil?
+        data['Upsolver'] = UpsolverDestinationProperties.build(input[:upsolver]) unless input[:upsolver].nil?
+        data['Honeycode'] = HoneycodeDestinationProperties.build(input[:honeycode]) unless input[:honeycode].nil?
+        data['CustomerProfiles'] = CustomerProfilesDestinationProperties.build(input[:customer_profiles]) unless input[:customer_profiles].nil?
+        data['Zendesk'] = ZendeskDestinationProperties.build(input[:zendesk]) unless input[:zendesk].nil?
+        data['Marketo'] = MarketoDestinationProperties.build(input[:marketo]) unless input[:marketo].nil?
+        data['CustomConnector'] = CustomConnectorDestinationProperties.build(input[:custom_connector]) unless input[:custom_connector].nil?
+        data['SAPOData'] = SAPODataDestinationProperties.build(input[:sapo_data]) unless input[:sapo_data].nil?
         data
       end
     end
@@ -744,9 +746,9 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['objectPath'] = input[:object_path] unless input[:object_path].nil?
-        data['successResponseHandlingConfig'] = Builders::SuccessResponseHandlingConfig.build(input[:success_response_handling_config]) unless input[:success_response_handling_config].nil?
-        data['idFieldNames'] = Builders::IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['successResponseHandlingConfig'] = SuccessResponseHandlingConfig.build(input[:success_response_handling_config]) unless input[:success_response_handling_config].nil?
+        data['idFieldNames'] = IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data['writeOperationType'] = input[:write_operation_type] unless input[:write_operation_type].nil?
         data
       end
@@ -789,10 +791,10 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['entityName'] = input[:entity_name] unless input[:entity_name].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data['writeOperationType'] = input[:write_operation_type] unless input[:write_operation_type].nil?
-        data['idFieldNames'] = Builders::IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
-        data['customProperties'] = Builders::CustomProperties.build(input[:custom_properties]) unless input[:custom_properties].nil?
+        data['idFieldNames'] = IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
+        data['customProperties'] = CustomProperties.build(input[:custom_properties]) unless input[:custom_properties].nil?
         data
       end
     end
@@ -813,7 +815,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['object'] = input[:object] unless input[:object].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data
       end
     end
@@ -823,8 +825,8 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['object'] = input[:object] unless input[:object].nil?
-        data['idFieldNames'] = Builders::IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['idFieldNames'] = IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data['writeOperationType'] = input[:write_operation_type] unless input[:write_operation_type].nil?
         data
       end
@@ -845,7 +847,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['object'] = input[:object] unless input[:object].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data
       end
     end
@@ -856,7 +858,7 @@ module AWS::SDK::Appflow
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['bucketPrefix'] = input[:bucket_prefix] unless input[:bucket_prefix].nil?
-        data['s3OutputFormatConfig'] = Builders::UpsolverS3OutputFormatConfig.build(input[:s3_output_format_config]) unless input[:s3_output_format_config].nil?
+        data['s3OutputFormatConfig'] = UpsolverS3OutputFormatConfig.build(input[:s3_output_format_config]) unless input[:s3_output_format_config].nil?
         data
       end
     end
@@ -866,8 +868,8 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['fileType'] = input[:file_type] unless input[:file_type].nil?
-        data['prefixConfig'] = Builders::PrefixConfig.build(input[:prefix_config]) unless input[:prefix_config].nil?
-        data['aggregationConfig'] = Builders::AggregationConfig.build(input[:aggregation_config]) unless input[:aggregation_config].nil?
+        data['prefixConfig'] = PrefixConfig.build(input[:prefix_config]) unless input[:prefix_config].nil?
+        data['aggregationConfig'] = AggregationConfig.build(input[:aggregation_config]) unless input[:aggregation_config].nil?
         data
       end
     end
@@ -904,7 +906,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['object'] = input[:object] unless input[:object].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data
       end
     end
@@ -916,7 +918,7 @@ module AWS::SDK::Appflow
         data['object'] = input[:object] unless input[:object].nil?
         data['intermediateBucketName'] = input[:intermediate_bucket_name] unless input[:intermediate_bucket_name].nil?
         data['bucketPrefix'] = input[:bucket_prefix] unless input[:bucket_prefix].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data
       end
     end
@@ -926,8 +928,8 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['object'] = input[:object] unless input[:object].nil?
-        data['idFieldNames'] = Builders::IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['idFieldNames'] = IdFieldNameList.build(input[:id_field_names]) unless input[:id_field_names].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data['writeOperationType'] = input[:write_operation_type] unless input[:write_operation_type].nil?
         data
       end
@@ -939,7 +941,7 @@ module AWS::SDK::Appflow
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['bucketPrefix'] = input[:bucket_prefix] unless input[:bucket_prefix].nil?
-        data['s3OutputFormatConfig'] = Builders::S3OutputFormatConfig.build(input[:s3_output_format_config]) unless input[:s3_output_format_config].nil?
+        data['s3OutputFormatConfig'] = S3OutputFormatConfig.build(input[:s3_output_format_config]) unless input[:s3_output_format_config].nil?
         data
       end
     end
@@ -949,8 +951,8 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['fileType'] = input[:file_type] unless input[:file_type].nil?
-        data['prefixConfig'] = Builders::PrefixConfig.build(input[:prefix_config]) unless input[:prefix_config].nil?
-        data['aggregationConfig'] = Builders::AggregationConfig.build(input[:aggregation_config]) unless input[:aggregation_config].nil?
+        data['prefixConfig'] = PrefixConfig.build(input[:prefix_config]) unless input[:prefix_config].nil?
+        data['aggregationConfig'] = AggregationConfig.build(input[:aggregation_config]) unless input[:aggregation_config].nil?
         data['preserveSourceDataTyping'] = input[:preserve_source_data_typing] unless input[:preserve_source_data_typing].nil?
         data
       end
@@ -963,7 +965,7 @@ module AWS::SDK::Appflow
         data['object'] = input[:object] unless input[:object].nil?
         data['intermediateBucketName'] = input[:intermediate_bucket_name] unless input[:intermediate_bucket_name].nil?
         data['bucketPrefix'] = input[:bucket_prefix] unless input[:bucket_prefix].nil?
-        data['errorHandlingConfig'] = Builders::ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.build(input[:error_handling_config]) unless input[:error_handling_config].nil?
         data
       end
     end
@@ -975,8 +977,8 @@ module AWS::SDK::Appflow
         data['connectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['apiVersion'] = input[:api_version] unless input[:api_version].nil?
         data['connectorProfileName'] = input[:connector_profile_name] unless input[:connector_profile_name].nil?
-        data['sourceConnectorProperties'] = Builders::SourceConnectorProperties.build(input[:source_connector_properties]) unless input[:source_connector_properties].nil?
-        data['incrementalPullConfig'] = Builders::IncrementalPullConfig.build(input[:incremental_pull_config]) unless input[:incremental_pull_config].nil?
+        data['sourceConnectorProperties'] = SourceConnectorProperties.build(input[:source_connector_properties]) unless input[:source_connector_properties].nil?
+        data['incrementalPullConfig'] = IncrementalPullConfig.build(input[:incremental_pull_config]) unless input[:incremental_pull_config].nil?
         data
       end
     end
@@ -994,22 +996,22 @@ module AWS::SDK::Appflow
     class SourceConnectorProperties
       def self.build(input)
         data = {}
-        data['Amplitude'] = Builders::AmplitudeSourceProperties.build(input[:amplitude]) unless input[:amplitude].nil?
-        data['Datadog'] = Builders::DatadogSourceProperties.build(input[:datadog]) unless input[:datadog].nil?
-        data['Dynatrace'] = Builders::DynatraceSourceProperties.build(input[:dynatrace]) unless input[:dynatrace].nil?
-        data['GoogleAnalytics'] = Builders::GoogleAnalyticsSourceProperties.build(input[:google_analytics]) unless input[:google_analytics].nil?
-        data['InforNexus'] = Builders::InforNexusSourceProperties.build(input[:infor_nexus]) unless input[:infor_nexus].nil?
-        data['Marketo'] = Builders::MarketoSourceProperties.build(input[:marketo]) unless input[:marketo].nil?
-        data['S3'] = Builders::S3SourceProperties.build(input[:s3]) unless input[:s3].nil?
-        data['Salesforce'] = Builders::SalesforceSourceProperties.build(input[:salesforce]) unless input[:salesforce].nil?
-        data['ServiceNow'] = Builders::ServiceNowSourceProperties.build(input[:service_now]) unless input[:service_now].nil?
-        data['Singular'] = Builders::SingularSourceProperties.build(input[:singular]) unless input[:singular].nil?
-        data['Slack'] = Builders::SlackSourceProperties.build(input[:slack]) unless input[:slack].nil?
-        data['Trendmicro'] = Builders::TrendmicroSourceProperties.build(input[:trendmicro]) unless input[:trendmicro].nil?
-        data['Veeva'] = Builders::VeevaSourceProperties.build(input[:veeva]) unless input[:veeva].nil?
-        data['Zendesk'] = Builders::ZendeskSourceProperties.build(input[:zendesk]) unless input[:zendesk].nil?
-        data['SAPOData'] = Builders::SAPODataSourceProperties.build(input[:sapo_data]) unless input[:sapo_data].nil?
-        data['CustomConnector'] = Builders::CustomConnectorSourceProperties.build(input[:custom_connector]) unless input[:custom_connector].nil?
+        data['Amplitude'] = AmplitudeSourceProperties.build(input[:amplitude]) unless input[:amplitude].nil?
+        data['Datadog'] = DatadogSourceProperties.build(input[:datadog]) unless input[:datadog].nil?
+        data['Dynatrace'] = DynatraceSourceProperties.build(input[:dynatrace]) unless input[:dynatrace].nil?
+        data['GoogleAnalytics'] = GoogleAnalyticsSourceProperties.build(input[:google_analytics]) unless input[:google_analytics].nil?
+        data['InforNexus'] = InforNexusSourceProperties.build(input[:infor_nexus]) unless input[:infor_nexus].nil?
+        data['Marketo'] = MarketoSourceProperties.build(input[:marketo]) unless input[:marketo].nil?
+        data['S3'] = S3SourceProperties.build(input[:s3]) unless input[:s3].nil?
+        data['Salesforce'] = SalesforceSourceProperties.build(input[:salesforce]) unless input[:salesforce].nil?
+        data['ServiceNow'] = ServiceNowSourceProperties.build(input[:service_now]) unless input[:service_now].nil?
+        data['Singular'] = SingularSourceProperties.build(input[:singular]) unless input[:singular].nil?
+        data['Slack'] = SlackSourceProperties.build(input[:slack]) unless input[:slack].nil?
+        data['Trendmicro'] = TrendmicroSourceProperties.build(input[:trendmicro]) unless input[:trendmicro].nil?
+        data['Veeva'] = VeevaSourceProperties.build(input[:veeva]) unless input[:veeva].nil?
+        data['Zendesk'] = ZendeskSourceProperties.build(input[:zendesk]) unless input[:zendesk].nil?
+        data['SAPOData'] = SAPODataSourceProperties.build(input[:sapo_data]) unless input[:sapo_data].nil?
+        data['CustomConnector'] = CustomConnectorSourceProperties.build(input[:custom_connector]) unless input[:custom_connector].nil?
         data
       end
     end
@@ -1019,7 +1021,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['entityName'] = input[:entity_name] unless input[:entity_name].nil?
-        data['customProperties'] = Builders::CustomProperties.build(input[:custom_properties]) unless input[:custom_properties].nil?
+        data['customProperties'] = CustomProperties.build(input[:custom_properties]) unless input[:custom_properties].nil?
         data
       end
     end
@@ -1108,7 +1110,7 @@ module AWS::SDK::Appflow
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['bucketPrefix'] = input[:bucket_prefix] unless input[:bucket_prefix].nil?
-        data['s3InputFormatConfig'] = Builders::S3InputFormatConfig.build(input[:s3_input_format_config]) unless input[:s3_input_format_config].nil?
+        data['s3InputFormatConfig'] = S3InputFormatConfig.build(input[:s3_input_format_config]) unless input[:s3_input_format_config].nil?
         data
       end
     end
@@ -1181,7 +1183,7 @@ module AWS::SDK::Appflow
       def self.build(input)
         data = {}
         data['triggerType'] = input[:trigger_type] unless input[:trigger_type].nil?
-        data['triggerProperties'] = Builders::TriggerProperties.build(input[:trigger_properties]) unless input[:trigger_properties].nil?
+        data['triggerProperties'] = TriggerProperties.build(input[:trigger_properties]) unless input[:trigger_properties].nil?
         data
       end
     end
@@ -1190,7 +1192,7 @@ module AWS::SDK::Appflow
     class TriggerProperties
       def self.build(input)
         data = {}
-        data['Scheduled'] = Builders::ScheduledTriggerProperties.build(input[:scheduled]) unless input[:scheduled].nil?
+        data['Scheduled'] = ScheduledTriggerProperties.build(input[:scheduled]) unless input[:scheduled].nil?
         data
       end
     end
@@ -1223,7 +1225,7 @@ module AWS::SDK::Appflow
         data = {}
         data['connectorProfileName'] = input[:connector_profile_name] unless input[:connector_profile_name].nil?
         data['forceDelete'] = input[:force_delete] unless input[:force_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1239,7 +1241,7 @@ module AWS::SDK::Appflow
         data = {}
         data['flowName'] = input[:flow_name] unless input[:flow_name].nil?
         data['forceDelete'] = input[:force_delete] unless input[:force_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1255,7 +1257,7 @@ module AWS::SDK::Appflow
         data = {}
         data['connectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['connectorLabel'] = input[:connector_label] unless input[:connector_label].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1273,7 +1275,7 @@ module AWS::SDK::Appflow
         data['connectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['connectorProfileName'] = input[:connector_profile_name] unless input[:connector_profile_name].nil?
         data['apiVersion'] = input[:api_version] unless input[:api_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1287,12 +1289,12 @@ module AWS::SDK::Appflow
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['connectorProfileNames'] = Builders::ConnectorProfileNameList.build(input[:connector_profile_names]) unless input[:connector_profile_names].nil?
+        data['connectorProfileNames'] = ConnectorProfileNameList.build(input[:connector_profile_names]) unless input[:connector_profile_names].nil?
         data['connectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['connectorLabel'] = input[:connector_label] unless input[:connector_label].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1317,10 +1319,10 @@ module AWS::SDK::Appflow
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['connectorTypes'] = Builders::ConnectorTypeList.build(input[:connector_types]) unless input[:connector_types].nil?
+        data['connectorTypes'] = ConnectorTypeList.build(input[:connector_types]) unless input[:connector_types].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1346,7 +1348,7 @@ module AWS::SDK::Appflow
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['flowName'] = input[:flow_name] unless input[:flow_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,7 +1365,7 @@ module AWS::SDK::Appflow
         data['flowName'] = input[:flow_name] unless input[:flow_name].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1381,7 +1383,7 @@ module AWS::SDK::Appflow
         data['connectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['entitiesPath'] = input[:entities_path] unless input[:entities_path].nil?
         data['apiVersion'] = input[:api_version] unless input[:api_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1397,7 +1399,7 @@ module AWS::SDK::Appflow
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1413,7 +1415,7 @@ module AWS::SDK::Appflow
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1447,8 +1449,8 @@ module AWS::SDK::Appflow
         data['connectorLabel'] = input[:connector_label] unless input[:connector_label].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['connectorProvisioningType'] = input[:connector_provisioning_type] unless input[:connector_provisioning_type].nil?
-        data['connectorProvisioningConfig'] = Builders::ConnectorProvisioningConfig.build(input[:connector_provisioning_config]) unless input[:connector_provisioning_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connectorProvisioningConfig'] = ConnectorProvisioningConfig.build(input[:connector_provisioning_config]) unless input[:connector_provisioning_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1456,7 +1458,7 @@ module AWS::SDK::Appflow
     class ConnectorProvisioningConfig
       def self.build(input)
         data = {}
-        data['lambda'] = Builders::LambdaConnectorProvisioningConfig.build(input[:lambda]) unless input[:lambda].nil?
+        data['lambda'] = LambdaConnectorProvisioningConfig.build(input[:lambda]) unless input[:lambda].nil?
         data
       end
     end
@@ -1481,7 +1483,7 @@ module AWS::SDK::Appflow
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['flowName'] = input[:flow_name] unless input[:flow_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1496,7 +1498,7 @@ module AWS::SDK::Appflow
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['flowName'] = input[:flow_name] unless input[:flow_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1517,8 +1519,8 @@ module AWS::SDK::Appflow
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1534,7 +1536,7 @@ module AWS::SDK::Appflow
         data = {}
         data['connectorLabel'] = input[:connector_label] unless input[:connector_label].nil?
         data['forceDelete'] = input[:force_delete] unless input[:force_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1583,8 +1585,8 @@ module AWS::SDK::Appflow
         data = {}
         data['connectorProfileName'] = input[:connector_profile_name] unless input[:connector_profile_name].nil?
         data['connectionMode'] = input[:connection_mode] unless input[:connection_mode].nil?
-        data['connectorProfileConfig'] = Builders::ConnectorProfileConfig.build(input[:connector_profile_config]) unless input[:connector_profile_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connectorProfileConfig'] = ConnectorProfileConfig.build(input[:connector_profile_config]) unless input[:connector_profile_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1600,11 +1602,11 @@ module AWS::SDK::Appflow
         data = {}
         data['flowName'] = input[:flow_name] unless input[:flow_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['triggerConfig'] = Builders::TriggerConfig.build(input[:trigger_config]) unless input[:trigger_config].nil?
-        data['sourceFlowConfig'] = Builders::SourceFlowConfig.build(input[:source_flow_config]) unless input[:source_flow_config].nil?
-        data['destinationFlowConfigList'] = Builders::DestinationFlowConfigList.build(input[:destination_flow_config_list]) unless input[:destination_flow_config_list].nil?
-        data['tasks'] = Builders::Tasks.build(input[:tasks]) unless input[:tasks].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['triggerConfig'] = TriggerConfig.build(input[:trigger_config]) unless input[:trigger_config].nil?
+        data['sourceFlowConfig'] = SourceFlowConfig.build(input[:source_flow_config]) unless input[:source_flow_config].nil?
+        data['destinationFlowConfigList'] = DestinationFlowConfigList.build(input[:destination_flow_config_list]) unless input[:destination_flow_config_list].nil?
+        data['tasks'] = Tasks.build(input[:tasks]) unless input[:tasks].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

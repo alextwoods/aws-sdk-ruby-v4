@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LicenseManager
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.AcceptGrant'
         data = {}
         data['GrantArn'] = input[:grant_arn] unless input[:grant_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseConsumptionToken'] = input[:license_consumption_token] unless input[:license_consumption_token].nil?
         data['Beneficiary'] = input[:beneficiary] unless input[:beneficiary].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,12 +48,12 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.CheckoutBorrowLicense'
         data = {}
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
-        data['Entitlements'] = Builders::EntitlementDataList.build(input[:entitlements]) unless input[:entitlements].nil?
+        data['Entitlements'] = EntitlementDataList.build(input[:entitlements]) unless input[:entitlements].nil?
         data['DigitalSignatureMethod'] = input[:digital_signature_method] unless input[:digital_signature_method].nil?
         data['NodeId'] = input[:node_id] unless input[:node_id].nil?
-        data['CheckoutMetadata'] = Builders::MetadataList.build(input[:checkout_metadata]) unless input[:checkout_metadata].nil?
+        data['CheckoutMetadata'] = MetadataList.build(input[:checkout_metadata]) unless input[:checkout_metadata].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Metadata.build(element) unless element.nil?
+          data << Metadata.build(element) unless element.nil?
         end
         data
       end
@@ -81,7 +83,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EntitlementData.build(element) unless element.nil?
+          data << EntitlementData.build(element) unless element.nil?
         end
         data
       end
@@ -109,11 +111,11 @@ module AWS::SDK::LicenseManager
         data['ProductSKU'] = input[:product_sku] unless input[:product_sku].nil?
         data['CheckoutType'] = input[:checkout_type] unless input[:checkout_type].nil?
         data['KeyFingerprint'] = input[:key_fingerprint] unless input[:key_fingerprint].nil?
-        data['Entitlements'] = Builders::EntitlementDataList.build(input[:entitlements]) unless input[:entitlements].nil?
+        data['Entitlements'] = EntitlementDataList.build(input[:entitlements]) unless input[:entitlements].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['Beneficiary'] = input[:beneficiary] unless input[:beneficiary].nil?
         data['NodeId'] = input[:node_id] unless input[:node_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,10 +130,10 @@ module AWS::SDK::LicenseManager
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['GrantName'] = input[:grant_name] unless input[:grant_name].nil?
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
-        data['Principals'] = Builders::PrincipalArnList.build(input[:principals]) unless input[:principals].nil?
+        data['Principals'] = PrincipalArnList.build(input[:principals]) unless input[:principals].nil?
         data['HomeRegion'] = input[:home_region] unless input[:home_region].nil?
-        data['AllowedOperations'] = Builders::AllowedOperationList.build(input[:allowed_operations]) unless input[:allowed_operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AllowedOperations'] = AllowedOperationList.build(input[:allowed_operations]) unless input[:allowed_operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,11 +170,11 @@ module AWS::SDK::LicenseManager
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['GrantArn'] = input[:grant_arn] unless input[:grant_arn].nil?
         data['GrantName'] = input[:grant_name] unless input[:grant_name].nil?
-        data['AllowedOperations'] = Builders::AllowedOperationList.build(input[:allowed_operations]) unless input[:allowed_operations].nil?
+        data['AllowedOperations'] = AllowedOperationList.build(input[:allowed_operations]) unless input[:allowed_operations].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['StatusReason'] = input[:status_reason] unless input[:status_reason].nil?
         data['SourceVersion'] = input[:source_version] unless input[:source_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -187,15 +189,15 @@ module AWS::SDK::LicenseManager
         data['LicenseName'] = input[:license_name] unless input[:license_name].nil?
         data['ProductName'] = input[:product_name] unless input[:product_name].nil?
         data['ProductSKU'] = input[:product_sku] unless input[:product_sku].nil?
-        data['Issuer'] = Builders::Issuer.build(input[:issuer]) unless input[:issuer].nil?
+        data['Issuer'] = Issuer.build(input[:issuer]) unless input[:issuer].nil?
         data['HomeRegion'] = input[:home_region] unless input[:home_region].nil?
-        data['Validity'] = Builders::DatetimeRange.build(input[:validity]) unless input[:validity].nil?
-        data['Entitlements'] = Builders::EntitlementList.build(input[:entitlements]) unless input[:entitlements].nil?
+        data['Validity'] = DatetimeRange.build(input[:validity]) unless input[:validity].nil?
+        data['Entitlements'] = EntitlementList.build(input[:entitlements]) unless input[:entitlements].nil?
         data['Beneficiary'] = input[:beneficiary] unless input[:beneficiary].nil?
-        data['ConsumptionConfiguration'] = Builders::ConsumptionConfiguration.build(input[:consumption_configuration]) unless input[:consumption_configuration].nil?
-        data['LicenseMetadata'] = Builders::MetadataList.build(input[:license_metadata]) unless input[:license_metadata].nil?
+        data['ConsumptionConfiguration'] = ConsumptionConfiguration.build(input[:consumption_configuration]) unless input[:consumption_configuration].nil?
+        data['LicenseMetadata'] = MetadataList.build(input[:license_metadata]) unless input[:license_metadata].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -204,8 +206,8 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = {}
         data['RenewType'] = input[:renew_type] unless input[:renew_type].nil?
-        data['ProvisionalConfiguration'] = Builders::ProvisionalConfiguration.build(input[:provisional_configuration]) unless input[:provisional_configuration].nil?
-        data['BorrowConfiguration'] = Builders::BorrowConfiguration.build(input[:borrow_configuration]) unless input[:borrow_configuration].nil?
+        data['ProvisionalConfiguration'] = ProvisionalConfiguration.build(input[:provisional_configuration]) unless input[:provisional_configuration].nil?
+        data['BorrowConfiguration'] = BorrowConfiguration.build(input[:borrow_configuration]) unless input[:borrow_configuration].nil?
         data
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Entitlement.build(element) unless element.nil?
+          data << Entitlement.build(element) unless element.nil?
         end
         data
       end
@@ -287,11 +289,11 @@ module AWS::SDK::LicenseManager
         data['LicenseCountingType'] = input[:license_counting_type] unless input[:license_counting_type].nil?
         data['LicenseCount'] = input[:license_count] unless input[:license_count].nil?
         data['LicenseCountHardLimit'] = input[:license_count_hard_limit] unless input[:license_count_hard_limit].nil?
-        data['LicenseRules'] = Builders::StringList.build(input[:license_rules]) unless input[:license_rules].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['LicenseRules'] = StringList.build(input[:license_rules]) unless input[:license_rules].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['DisassociateWhenNotFound'] = input[:disassociate_when_not_found] unless input[:disassociate_when_not_found].nil?
-        data['ProductInformationList'] = Builders::ProductInformationList.build(input[:product_information_list]) unless input[:product_information_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProductInformationList'] = ProductInformationList.build(input[:product_information_list]) unless input[:product_information_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -300,7 +302,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProductInformation.build(element) unless element.nil?
+          data << ProductInformation.build(element) unless element.nil?
         end
         data
       end
@@ -311,7 +313,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = {}
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['ProductInformationFilterList'] = Builders::ProductInformationFilterList.build(input[:product_information_filter_list]) unless input[:product_information_filter_list].nil?
+        data['ProductInformationFilterList'] = ProductInformationFilterList.build(input[:product_information_filter_list]) unless input[:product_information_filter_list].nil?
         data
       end
     end
@@ -321,7 +323,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProductInformationFilter.build(element) unless element.nil?
+          data << ProductInformationFilter.build(element) unless element.nil?
         end
         data
       end
@@ -332,7 +334,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = {}
         data['ProductInformationFilterName'] = input[:product_information_filter_name] unless input[:product_information_filter_name].nil?
-        data['ProductInformationFilterValue'] = Builders::StringList.build(input[:product_information_filter_value]) unless input[:product_information_filter_value].nil?
+        data['ProductInformationFilterValue'] = StringList.build(input[:product_information_filter_value]) unless input[:product_information_filter_value].nil?
         data['ProductInformationFilterComparator'] = input[:product_information_filter_comparator] unless input[:product_information_filter_comparator].nil?
         data
       end
@@ -354,7 +356,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -379,9 +381,9 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.CreateLicenseConversionTaskForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['SourceLicenseContext'] = Builders::LicenseConversionContext.build(input[:source_license_context]) unless input[:source_license_context].nil?
-        data['DestinationLicenseContext'] = Builders::LicenseConversionContext.build(input[:destination_license_context]) unless input[:destination_license_context].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SourceLicenseContext'] = LicenseConversionContext.build(input[:source_license_context]) unless input[:source_license_context].nil?
+        data['DestinationLicenseContext'] = LicenseConversionContext.build(input[:destination_license_context]) unless input[:destination_license_context].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,13 +405,13 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.CreateLicenseManagerReportGenerator'
         data = {}
         data['ReportGeneratorName'] = input[:report_generator_name] unless input[:report_generator_name].nil?
-        data['Type'] = Builders::ReportTypeList.build(input[:type]) unless input[:type].nil?
-        data['ReportContext'] = Builders::ReportContext.build(input[:report_context]) unless input[:report_context].nil?
-        data['ReportFrequency'] = Builders::ReportFrequency.build(input[:report_frequency]) unless input[:report_frequency].nil?
+        data['Type'] = ReportTypeList.build(input[:type]) unless input[:type].nil?
+        data['ReportContext'] = ReportContext.build(input[:report_context]) unless input[:report_context].nil?
+        data['ReportFrequency'] = ReportFrequency.build(input[:report_frequency]) unless input[:report_frequency].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::LicenseManager
     class ReportContext
       def self.build(input)
         data = {}
-        data['licenseConfigurationArns'] = Builders::ArnList.build(input[:license_configuration_arns]) unless input[:license_configuration_arns].nil?
+        data['licenseConfigurationArns'] = ArnList.build(input[:license_configuration_arns]) unless input[:license_configuration_arns].nil?
         data
       end
     end
@@ -465,16 +467,16 @@ module AWS::SDK::LicenseManager
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
         data['LicenseName'] = input[:license_name] unless input[:license_name].nil?
         data['ProductName'] = input[:product_name] unless input[:product_name].nil?
-        data['Issuer'] = Builders::Issuer.build(input[:issuer]) unless input[:issuer].nil?
+        data['Issuer'] = Issuer.build(input[:issuer]) unless input[:issuer].nil?
         data['HomeRegion'] = input[:home_region] unless input[:home_region].nil?
-        data['Validity'] = Builders::DatetimeRange.build(input[:validity]) unless input[:validity].nil?
-        data['LicenseMetadata'] = Builders::MetadataList.build(input[:license_metadata]) unless input[:license_metadata].nil?
-        data['Entitlements'] = Builders::EntitlementList.build(input[:entitlements]) unless input[:entitlements].nil?
-        data['ConsumptionConfiguration'] = Builders::ConsumptionConfiguration.build(input[:consumption_configuration]) unless input[:consumption_configuration].nil?
+        data['Validity'] = DatetimeRange.build(input[:validity]) unless input[:validity].nil?
+        data['LicenseMetadata'] = MetadataList.build(input[:license_metadata]) unless input[:license_metadata].nil?
+        data['Entitlements'] = EntitlementList.build(input[:entitlements]) unless input[:entitlements].nil?
+        data['ConsumptionConfiguration'] = ConsumptionConfiguration.build(input[:consumption_configuration]) unless input[:consumption_configuration].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['SourceVersion'] = input[:source_version] unless input[:source_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -487,11 +489,11 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.CreateToken'
         data = {}
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
-        data['RoleArns'] = Builders::ArnList.build(input[:role_arns]) unless input[:role_arns].nil?
+        data['RoleArns'] = ArnList.build(input[:role_arns]) unless input[:role_arns].nil?
         data['ExpirationInDays'] = input[:expiration_in_days] unless input[:expiration_in_days].nil?
-        data['TokenProperties'] = Builders::MaxSize3StringList.build(input[:token_properties]) unless input[:token_properties].nil?
+        data['TokenProperties'] = MaxSize3StringList.build(input[:token_properties]) unless input[:token_properties].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -517,7 +519,7 @@ module AWS::SDK::LicenseManager
         data['GrantArn'] = input[:grant_arn] unless input[:grant_arn].nil?
         data['StatusReason'] = input[:status_reason] unless input[:status_reason].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,7 +533,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
         data['SourceVersion'] = input[:source_version] unless input[:source_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -544,7 +546,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.DeleteLicenseConfiguration'
         data = {}
         data['LicenseConfigurationArn'] = input[:license_configuration_arn] unless input[:license_configuration_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -557,7 +559,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.DeleteLicenseManagerReportGenerator'
         data = {}
         data['LicenseManagerReportGeneratorArn'] = input[:license_manager_report_generator_arn] unless input[:license_manager_report_generator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,7 +572,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.DeleteToken'
         data = {}
         data['TokenId'] = input[:token_id] unless input[:token_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,7 +586,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseConsumptionToken'] = input[:license_consumption_token] unless input[:license_consumption_token].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -597,8 +599,8 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.GetAccessToken'
         data = {}
         data['Token'] = input[:token] unless input[:token].nil?
-        data['TokenProperties'] = Builders::MaxSize3StringList.build(input[:token_properties]) unless input[:token_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TokenProperties'] = MaxSize3StringList.build(input[:token_properties]) unless input[:token_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -612,7 +614,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['GrantArn'] = input[:grant_arn] unless input[:grant_arn].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -626,7 +628,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -639,7 +641,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.GetLicenseConfiguration'
         data = {}
         data['LicenseConfigurationArn'] = input[:license_configuration_arn] unless input[:license_configuration_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -652,7 +654,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.GetLicenseConversionTask'
         data = {}
         data['LicenseConversionTaskId'] = input[:license_conversion_task_id] unless input[:license_conversion_task_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -665,7 +667,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.GetLicenseManagerReportGenerator'
         data = {}
         data['LicenseManagerReportGeneratorArn'] = input[:license_manager_report_generator_arn] unless input[:license_manager_report_generator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -678,7 +680,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.GetLicenseUsage'
         data = {}
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -690,7 +692,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.GetServiceSettings'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -705,7 +707,7 @@ module AWS::SDK::LicenseManager
         data['LicenseConfigurationArn'] = input[:license_configuration_arn] unless input[:license_configuration_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -717,11 +719,11 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListDistributedGrants'
         data = {}
-        data['GrantArns'] = Builders::ArnList.build(input[:grant_arns]) unless input[:grant_arns].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['GrantArns'] = ArnList.build(input[:grant_arns]) unless input[:grant_arns].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -730,7 +732,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -741,7 +743,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -768,7 +770,7 @@ module AWS::SDK::LicenseManager
         data['LicenseConfigurationArn'] = input[:license_configuration_arn] unless input[:license_configuration_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -780,11 +782,11 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListLicenseConfigurations'
         data = {}
-        data['LicenseConfigurationArns'] = Builders::StringList.build(input[:license_configuration_arns]) unless input[:license_configuration_arns].nil?
+        data['LicenseConfigurationArns'] = StringList.build(input[:license_configuration_arns]) unless input[:license_configuration_arns].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -793,7 +795,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -809,8 +811,8 @@ module AWS::SDK::LicenseManager
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -822,10 +824,10 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListLicenseManagerReportGenerators'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,7 +842,7 @@ module AWS::SDK::LicenseManager
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::LicenseManager
         data['LicenseArn'] = input[:license_arn] unless input[:license_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -867,11 +869,11 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListLicenses'
         data = {}
-        data['LicenseArns'] = Builders::ArnList.build(input[:license_arns]) unless input[:license_arns].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['LicenseArns'] = ArnList.build(input[:license_arns]) unless input[:license_arns].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,11 +885,11 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListReceivedGrants'
         data = {}
-        data['GrantArns'] = Builders::ArnList.build(input[:grant_arns]) unless input[:grant_arns].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['GrantArns'] = ArnList.build(input[:grant_arns]) unless input[:grant_arns].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -899,11 +901,11 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListReceivedLicenses'
         data = {}
-        data['LicenseArns'] = Builders::ArnList.build(input[:license_arns]) unless input[:license_arns].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['LicenseArns'] = ArnList.build(input[:license_arns]) unless input[:license_arns].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -917,8 +919,8 @@ module AWS::SDK::LicenseManager
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::InventoryFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = InventoryFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -927,7 +929,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InventoryFilter.build(element) unless element.nil?
+          data << InventoryFilter.build(element) unless element.nil?
         end
         data
       end
@@ -953,7 +955,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -965,11 +967,11 @@ module AWS::SDK::LicenseManager
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.ListTokens'
         data = {}
-        data['TokenIds'] = Builders::StringList.build(input[:token_ids]) unless input[:token_ids].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['TokenIds'] = StringList.build(input[:token_ids]) unless input[:token_ids].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -984,8 +986,8 @@ module AWS::SDK::LicenseManager
         data['LicenseConfigurationArn'] = input[:license_configuration_arn] unless input[:license_configuration_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -998,7 +1000,7 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.RejectGrant'
         data = {}
         data['GrantArn'] = input[:grant_arn] unless input[:grant_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1011,8 +1013,8 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1025,8 +1027,8 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1051,14 +1053,14 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseConfigurationArn'] = input[:license_configuration_arn] unless input[:license_configuration_arn].nil?
         data['LicenseConfigurationStatus'] = input[:license_configuration_status] unless input[:license_configuration_status].nil?
-        data['LicenseRules'] = Builders::StringList.build(input[:license_rules]) unless input[:license_rules].nil?
+        data['LicenseRules'] = StringList.build(input[:license_rules]) unless input[:license_rules].nil?
         data['LicenseCount'] = input[:license_count] unless input[:license_count].nil?
         data['LicenseCountHardLimit'] = input[:license_count_hard_limit] unless input[:license_count_hard_limit].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ProductInformationList'] = Builders::ProductInformationList.build(input[:product_information_list]) unless input[:product_information_list].nil?
+        data['ProductInformationList'] = ProductInformationList.build(input[:product_information_list]) unless input[:product_information_list].nil?
         data['DisassociateWhenNotFound'] = input[:disassociate_when_not_found] unless input[:disassociate_when_not_found].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1072,12 +1074,12 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseManagerReportGeneratorArn'] = input[:license_manager_report_generator_arn] unless input[:license_manager_report_generator_arn].nil?
         data['ReportGeneratorName'] = input[:report_generator_name] unless input[:report_generator_name].nil?
-        data['Type'] = Builders::ReportTypeList.build(input[:type]) unless input[:type].nil?
-        data['ReportContext'] = Builders::ReportContext.build(input[:report_context]) unless input[:report_context].nil?
-        data['ReportFrequency'] = Builders::ReportFrequency.build(input[:report_frequency]) unless input[:report_frequency].nil?
+        data['Type'] = ReportTypeList.build(input[:type]) unless input[:type].nil?
+        data['ReportContext'] = ReportContext.build(input[:report_context]) unless input[:report_context].nil?
+        data['ReportFrequency'] = ReportFrequency.build(input[:report_frequency]) unless input[:report_frequency].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1090,9 +1092,9 @@ module AWS::SDK::LicenseManager
         http_req.headers['X-Amz-Target'] = 'AWSLicenseManager.UpdateLicenseSpecificationsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['AddLicenseSpecifications'] = Builders::LicenseSpecifications.build(input[:add_license_specifications]) unless input[:add_license_specifications].nil?
-        data['RemoveLicenseSpecifications'] = Builders::LicenseSpecifications.build(input[:remove_license_specifications]) unless input[:remove_license_specifications].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AddLicenseSpecifications'] = LicenseSpecifications.build(input[:add_license_specifications]) unless input[:add_license_specifications].nil?
+        data['RemoveLicenseSpecifications'] = LicenseSpecifications.build(input[:remove_license_specifications]) unless input[:remove_license_specifications].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1101,7 +1103,7 @@ module AWS::SDK::LicenseManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LicenseSpecification.build(element) unless element.nil?
+          data << LicenseSpecification.build(element) unless element.nil?
         end
         data
       end
@@ -1127,9 +1129,9 @@ module AWS::SDK::LicenseManager
         data = {}
         data['S3BucketArn'] = input[:s3_bucket_arn] unless input[:s3_bucket_arn].nil?
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
-        data['OrganizationConfiguration'] = Builders::OrganizationConfiguration.build(input[:organization_configuration]) unless input[:organization_configuration].nil?
+        data['OrganizationConfiguration'] = OrganizationConfiguration.build(input[:organization_configuration]) unless input[:organization_configuration].nil?
         data['EnableCrossAccountsDiscovery'] = input[:enable_cross_accounts_discovery] unless input[:enable_cross_accounts_discovery].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

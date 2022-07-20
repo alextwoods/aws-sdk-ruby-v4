@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppMesh
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,9 +50,9 @@ module AWS::SDK::AppMesh
         data['meshName'] = stub[:mesh_name] unless stub[:mesh_name].nil?
         data['gatewayRouteName'] = stub[:gateway_route_name] unless stub[:gateway_route_name].nil?
         data['virtualGatewayName'] = stub[:virtual_gateway_name] unless stub[:virtual_gateway_name].nil?
-        data['spec'] = Stubs::GatewayRouteSpec.stub(stub[:spec]) unless stub[:spec].nil?
-        data['metadata'] = Stubs::ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['status'] = Stubs::GatewayRouteStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['spec'] = GatewayRouteSpec.stub(stub[:spec]) unless stub[:spec].nil?
+        data['metadata'] = ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['status'] = GatewayRouteStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -120,9 +122,9 @@ module AWS::SDK::AppMesh
         stub ||= Types::GatewayRouteSpec.new
         data = {}
         data['priority'] = stub[:priority] unless stub[:priority].nil?
-        data['httpRoute'] = Stubs::HttpGatewayRoute.stub(stub[:http_route]) unless stub[:http_route].nil?
-        data['http2Route'] = Stubs::HttpGatewayRoute.stub(stub[:http2_route]) unless stub[:http2_route].nil?
-        data['grpcRoute'] = Stubs::GrpcGatewayRoute.stub(stub[:grpc_route]) unless stub[:grpc_route].nil?
+        data['httpRoute'] = HttpGatewayRoute.stub(stub[:http_route]) unless stub[:http_route].nil?
+        data['http2Route'] = HttpGatewayRoute.stub(stub[:http2_route]) unless stub[:http2_route].nil?
+        data['grpcRoute'] = GrpcGatewayRoute.stub(stub[:grpc_route]) unless stub[:grpc_route].nil?
         data
       end
     end
@@ -141,8 +143,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GrpcGatewayRoute.new
         data = {}
-        data['match'] = Stubs::GrpcGatewayRouteMatch.stub(stub[:match]) unless stub[:match].nil?
-        data['action'] = Stubs::GrpcGatewayRouteAction.stub(stub[:action]) unless stub[:action].nil?
+        data['match'] = GrpcGatewayRouteMatch.stub(stub[:match]) unless stub[:match].nil?
+        data['action'] = GrpcGatewayRouteAction.stub(stub[:action]) unless stub[:action].nil?
         data
       end
     end
@@ -161,8 +163,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GrpcGatewayRouteAction.new
         data = {}
-        data['target'] = Stubs::GatewayRouteTarget.stub(stub[:target]) unless stub[:target].nil?
-        data['rewrite'] = Stubs::GrpcGatewayRouteRewrite.stub(stub[:rewrite]) unless stub[:rewrite].nil?
+        data['target'] = GatewayRouteTarget.stub(stub[:target]) unless stub[:target].nil?
+        data['rewrite'] = GrpcGatewayRouteRewrite.stub(stub[:rewrite]) unless stub[:rewrite].nil?
         data
       end
     end
@@ -180,7 +182,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GrpcGatewayRouteRewrite.new
         data = {}
-        data['hostname'] = Stubs::GatewayRouteHostnameRewrite.stub(stub[:hostname]) unless stub[:hostname].nil?
+        data['hostname'] = GatewayRouteHostnameRewrite.stub(stub[:hostname]) unless stub[:hostname].nil?
         data
       end
     end
@@ -216,7 +218,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GatewayRouteTarget.new
         data = {}
-        data['virtualService'] = Stubs::GatewayRouteVirtualService.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
+        data['virtualService'] = GatewayRouteVirtualService.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
         data
       end
     end
@@ -255,8 +257,8 @@ module AWS::SDK::AppMesh
         stub ||= Types::GrpcGatewayRouteMatch.new
         data = {}
         data['serviceName'] = stub[:service_name] unless stub[:service_name].nil?
-        data['hostname'] = Stubs::GatewayRouteHostnameMatch.stub(stub[:hostname]) unless stub[:hostname].nil?
-        data['metadata'] = Stubs::GrpcGatewayRouteMetadataList.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['hostname'] = GatewayRouteHostnameMatch.stub(stub[:hostname]) unless stub[:hostname].nil?
+        data['metadata'] = GrpcGatewayRouteMetadataList.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GrpcGatewayRouteMetadata.stub(element) unless element.nil?
+          data << GrpcGatewayRouteMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -298,7 +300,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['invert'] = stub[:invert] unless stub[:invert].nil?
-        data['match'] = Stubs::GrpcMetadataMatchMethod.stub(stub[:match]) unless stub[:match].nil?
+        data['match'] = GrpcMetadataMatchMethod.stub(stub[:match]) unless stub[:match].nil?
         data
       end
     end
@@ -321,7 +323,7 @@ module AWS::SDK::AppMesh
         when Types::GrpcMetadataMatchMethod::Regex
           data['regex'] = stub.__getobj__
         when Types::GrpcMetadataMatchMethod::Range
-          data['range'] = (Stubs::MatchRange.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['range'] = (MatchRange.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::GrpcMetadataMatchMethod::Prefix
           data['prefix'] = stub.__getobj__
         when Types::GrpcMetadataMatchMethod::Suffix
@@ -389,8 +391,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::HttpGatewayRoute.new
         data = {}
-        data['match'] = Stubs::HttpGatewayRouteMatch.stub(stub[:match]) unless stub[:match].nil?
-        data['action'] = Stubs::HttpGatewayRouteAction.stub(stub[:action]) unless stub[:action].nil?
+        data['match'] = HttpGatewayRouteMatch.stub(stub[:match]) unless stub[:match].nil?
+        data['action'] = HttpGatewayRouteAction.stub(stub[:action]) unless stub[:action].nil?
         data
       end
     end
@@ -409,8 +411,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::HttpGatewayRouteAction.new
         data = {}
-        data['target'] = Stubs::GatewayRouteTarget.stub(stub[:target]) unless stub[:target].nil?
-        data['rewrite'] = Stubs::HttpGatewayRouteRewrite.stub(stub[:rewrite]) unless stub[:rewrite].nil?
+        data['target'] = GatewayRouteTarget.stub(stub[:target]) unless stub[:target].nil?
+        data['rewrite'] = HttpGatewayRouteRewrite.stub(stub[:rewrite]) unless stub[:rewrite].nil?
         data
       end
     end
@@ -430,9 +432,9 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::HttpGatewayRouteRewrite.new
         data = {}
-        data['prefix'] = Stubs::HttpGatewayRoutePrefixRewrite.stub(stub[:prefix]) unless stub[:prefix].nil?
-        data['path'] = Stubs::HttpGatewayRoutePathRewrite.stub(stub[:path]) unless stub[:path].nil?
-        data['hostname'] = Stubs::GatewayRouteHostnameRewrite.stub(stub[:hostname]) unless stub[:hostname].nil?
+        data['prefix'] = HttpGatewayRoutePrefixRewrite.stub(stub[:prefix]) unless stub[:prefix].nil?
+        data['path'] = HttpGatewayRoutePathRewrite.stub(stub[:path]) unless stub[:path].nil?
+        data['hostname'] = GatewayRouteHostnameRewrite.stub(stub[:hostname]) unless stub[:hostname].nil?
         data
       end
     end
@@ -494,11 +496,11 @@ module AWS::SDK::AppMesh
         stub ||= Types::HttpGatewayRouteMatch.new
         data = {}
         data['prefix'] = stub[:prefix] unless stub[:prefix].nil?
-        data['path'] = Stubs::HttpPathMatch.stub(stub[:path]) unless stub[:path].nil?
-        data['queryParameters'] = Stubs::HttpQueryParameters.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
+        data['path'] = HttpPathMatch.stub(stub[:path]) unless stub[:path].nil?
+        data['queryParameters'] = HttpQueryParameters.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
         data['method'] = stub[:member_method] unless stub[:member_method].nil?
-        data['hostname'] = Stubs::GatewayRouteHostnameMatch.stub(stub[:hostname]) unless stub[:hostname].nil?
-        data['headers'] = Stubs::HttpGatewayRouteHeaders.stub(stub[:headers]) unless stub[:headers].nil?
+        data['hostname'] = GatewayRouteHostnameMatch.stub(stub[:hostname]) unless stub[:hostname].nil?
+        data['headers'] = HttpGatewayRouteHeaders.stub(stub[:headers]) unless stub[:headers].nil?
         data
       end
     end
@@ -517,7 +519,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HttpGatewayRouteHeader.stub(element) unless element.nil?
+          data << HttpGatewayRouteHeader.stub(element) unless element.nil?
         end
         data
       end
@@ -540,7 +542,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['invert'] = stub[:invert] unless stub[:invert].nil?
-        data['match'] = Stubs::HeaderMatchMethod.stub(stub[:match]) unless stub[:match].nil?
+        data['match'] = HeaderMatchMethod.stub(stub[:match]) unless stub[:match].nil?
         data
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::AppMesh
         when Types::HeaderMatchMethod::Regex
           data['regex'] = stub.__getobj__
         when Types::HeaderMatchMethod::Range
-          data['range'] = (Stubs::MatchRange.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['range'] = (MatchRange.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::HeaderMatchMethod::Prefix
           data['prefix'] = stub.__getobj__
         when Types::HeaderMatchMethod::Suffix
@@ -591,7 +593,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HttpQueryParameter.stub(element) unless element.nil?
+          data << HttpQueryParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -612,7 +614,7 @@ module AWS::SDK::AppMesh
         stub ||= Types::HttpQueryParameter.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['match'] = Stubs::QueryParameterMatch.stub(stub[:match]) unless stub[:match].nil?
+        data['match'] = QueryParameterMatch.stub(stub[:match]) unless stub[:match].nil?
         data
       end
     end
@@ -667,8 +669,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -689,9 +691,9 @@ module AWS::SDK::AppMesh
         stub ||= Types::MeshData.new
         data = {}
         data['meshName'] = stub[:mesh_name] unless stub[:mesh_name].nil?
-        data['spec'] = Stubs::MeshSpec.stub(stub[:spec]) unless stub[:spec].nil?
-        data['metadata'] = Stubs::ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['status'] = Stubs::MeshStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['spec'] = MeshSpec.stub(stub[:spec]) unless stub[:spec].nil?
+        data['metadata'] = ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['status'] = MeshStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -728,8 +730,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::MeshSpec.new
         data = {}
-        data['egressFilter'] = Stubs::EgressFilter.stub(stub[:egress_filter]) unless stub[:egress_filter].nil?
-        data['serviceDiscovery'] = Stubs::MeshServiceDiscovery.stub(stub[:service_discovery]) unless stub[:service_discovery].nil?
+        data['egressFilter'] = EgressFilter.stub(stub[:egress_filter]) unless stub[:egress_filter].nil?
+        data['serviceDiscovery'] = MeshServiceDiscovery.stub(stub[:service_discovery]) unless stub[:service_discovery].nil?
         data
       end
     end
@@ -782,8 +784,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RouteData.stub(stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RouteData.stub(stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -808,9 +810,9 @@ module AWS::SDK::AppMesh
         data['meshName'] = stub[:mesh_name] unless stub[:mesh_name].nil?
         data['virtualRouterName'] = stub[:virtual_router_name] unless stub[:virtual_router_name].nil?
         data['routeName'] = stub[:route_name] unless stub[:route_name].nil?
-        data['spec'] = Stubs::RouteSpec.stub(stub[:spec]) unless stub[:spec].nil?
-        data['metadata'] = Stubs::ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['status'] = Stubs::RouteStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['spec'] = RouteSpec.stub(stub[:spec]) unless stub[:spec].nil?
+        data['metadata'] = ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['status'] = RouteStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -851,10 +853,10 @@ module AWS::SDK::AppMesh
         stub ||= Types::RouteSpec.new
         data = {}
         data['priority'] = stub[:priority] unless stub[:priority].nil?
-        data['httpRoute'] = Stubs::HttpRoute.stub(stub[:http_route]) unless stub[:http_route].nil?
-        data['tcpRoute'] = Stubs::TcpRoute.stub(stub[:tcp_route]) unless stub[:tcp_route].nil?
-        data['http2Route'] = Stubs::HttpRoute.stub(stub[:http2_route]) unless stub[:http2_route].nil?
-        data['grpcRoute'] = Stubs::GrpcRoute.stub(stub[:grpc_route]) unless stub[:grpc_route].nil?
+        data['httpRoute'] = HttpRoute.stub(stub[:http_route]) unless stub[:http_route].nil?
+        data['tcpRoute'] = TcpRoute.stub(stub[:tcp_route]) unless stub[:tcp_route].nil?
+        data['http2Route'] = HttpRoute.stub(stub[:http2_route]) unless stub[:http2_route].nil?
+        data['grpcRoute'] = GrpcRoute.stub(stub[:grpc_route]) unless stub[:grpc_route].nil?
         data
       end
     end
@@ -875,10 +877,10 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GrpcRoute.new
         data = {}
-        data['action'] = Stubs::GrpcRouteAction.stub(stub[:action]) unless stub[:action].nil?
-        data['match'] = Stubs::GrpcRouteMatch.stub(stub[:match]) unless stub[:match].nil?
-        data['retryPolicy'] = Stubs::GrpcRetryPolicy.stub(stub[:retry_policy]) unless stub[:retry_policy].nil?
-        data['timeout'] = Stubs::GrpcTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
+        data['action'] = GrpcRouteAction.stub(stub[:action]) unless stub[:action].nil?
+        data['match'] = GrpcRouteMatch.stub(stub[:match]) unless stub[:match].nil?
+        data['retryPolicy'] = GrpcRetryPolicy.stub(stub[:retry_policy]) unless stub[:retry_policy].nil?
+        data['timeout'] = GrpcTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
         data
       end
     end
@@ -897,8 +899,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GrpcTimeout.new
         data = {}
-        data['perRequest'] = Stubs::Duration.stub(stub[:per_request]) unless stub[:per_request].nil?
-        data['idle'] = Stubs::Duration.stub(stub[:idle]) unless stub[:idle].nil?
+        data['perRequest'] = Duration.stub(stub[:per_request]) unless stub[:per_request].nil?
+        data['idle'] = Duration.stub(stub[:idle]) unless stub[:idle].nil?
         data
       end
     end
@@ -940,11 +942,11 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GrpcRetryPolicy.new
         data = {}
-        data['perRetryTimeout'] = Stubs::Duration.stub(stub[:per_retry_timeout]) unless stub[:per_retry_timeout].nil?
+        data['perRetryTimeout'] = Duration.stub(stub[:per_retry_timeout]) unless stub[:per_retry_timeout].nil?
         data['maxRetries'] = stub[:max_retries] unless stub[:max_retries].nil?
-        data['httpRetryEvents'] = Stubs::HttpRetryPolicyEvents.stub(stub[:http_retry_events]) unless stub[:http_retry_events].nil?
-        data['tcpRetryEvents'] = Stubs::TcpRetryPolicyEvents.stub(stub[:tcp_retry_events]) unless stub[:tcp_retry_events].nil?
-        data['grpcRetryEvents'] = Stubs::GrpcRetryPolicyEvents.stub(stub[:grpc_retry_events]) unless stub[:grpc_retry_events].nil?
+        data['httpRetryEvents'] = HttpRetryPolicyEvents.stub(stub[:http_retry_events]) unless stub[:http_retry_events].nil?
+        data['tcpRetryEvents'] = TcpRetryPolicyEvents.stub(stub[:tcp_retry_events]) unless stub[:tcp_retry_events].nil?
+        data['grpcRetryEvents'] = GrpcRetryPolicyEvents.stub(stub[:grpc_retry_events]) unless stub[:grpc_retry_events].nil?
         data
       end
     end
@@ -1026,7 +1028,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['serviceName'] = stub[:service_name] unless stub[:service_name].nil?
         data['methodName'] = stub[:method_name] unless stub[:method_name].nil?
-        data['metadata'] = Stubs::GrpcRouteMetadataList.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['metadata'] = GrpcRouteMetadataList.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -1045,7 +1047,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GrpcRouteMetadata.stub(element) unless element.nil?
+          data << GrpcRouteMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1068,7 +1070,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['invert'] = stub[:invert] unless stub[:invert].nil?
-        data['match'] = Stubs::GrpcRouteMetadataMatchMethod.stub(stub[:match]) unless stub[:match].nil?
+        data['match'] = GrpcRouteMetadataMatchMethod.stub(stub[:match]) unless stub[:match].nil?
         data
       end
     end
@@ -1091,7 +1093,7 @@ module AWS::SDK::AppMesh
         when Types::GrpcRouteMetadataMatchMethod::Regex
           data['regex'] = stub.__getobj__
         when Types::GrpcRouteMetadataMatchMethod::Range
-          data['range'] = (Stubs::MatchRange.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['range'] = (MatchRange.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::GrpcRouteMetadataMatchMethod::Prefix
           data['prefix'] = stub.__getobj__
         when Types::GrpcRouteMetadataMatchMethod::Suffix
@@ -1118,7 +1120,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::GrpcRouteAction.new
         data = {}
-        data['weightedTargets'] = Stubs::WeightedTargets.stub(stub[:weighted_targets]) unless stub[:weighted_targets].nil?
+        data['weightedTargets'] = WeightedTargets.stub(stub[:weighted_targets]) unless stub[:weighted_targets].nil?
         data
       end
     end
@@ -1137,7 +1139,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WeightedTarget.stub(element) unless element.nil?
+          data << WeightedTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -1179,10 +1181,10 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::HttpRoute.new
         data = {}
-        data['match'] = Stubs::HttpRouteMatch.stub(stub[:match]) unless stub[:match].nil?
-        data['action'] = Stubs::HttpRouteAction.stub(stub[:action]) unless stub[:action].nil?
-        data['retryPolicy'] = Stubs::HttpRetryPolicy.stub(stub[:retry_policy]) unless stub[:retry_policy].nil?
-        data['timeout'] = Stubs::HttpTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
+        data['match'] = HttpRouteMatch.stub(stub[:match]) unless stub[:match].nil?
+        data['action'] = HttpRouteAction.stub(stub[:action]) unless stub[:action].nil?
+        data['retryPolicy'] = HttpRetryPolicy.stub(stub[:retry_policy]) unless stub[:retry_policy].nil?
+        data['timeout'] = HttpTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
         data
       end
     end
@@ -1201,8 +1203,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::HttpTimeout.new
         data = {}
-        data['perRequest'] = Stubs::Duration.stub(stub[:per_request]) unless stub[:per_request].nil?
-        data['idle'] = Stubs::Duration.stub(stub[:idle]) unless stub[:idle].nil?
+        data['perRequest'] = Duration.stub(stub[:per_request]) unless stub[:per_request].nil?
+        data['idle'] = Duration.stub(stub[:idle]) unless stub[:idle].nil?
         data
       end
     end
@@ -1223,10 +1225,10 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::HttpRetryPolicy.new
         data = {}
-        data['perRetryTimeout'] = Stubs::Duration.stub(stub[:per_retry_timeout]) unless stub[:per_retry_timeout].nil?
+        data['perRetryTimeout'] = Duration.stub(stub[:per_retry_timeout]) unless stub[:per_retry_timeout].nil?
         data['maxRetries'] = stub[:max_retries] unless stub[:max_retries].nil?
-        data['httpRetryEvents'] = Stubs::HttpRetryPolicyEvents.stub(stub[:http_retry_events]) unless stub[:http_retry_events].nil?
-        data['tcpRetryEvents'] = Stubs::TcpRetryPolicyEvents.stub(stub[:tcp_retry_events]) unless stub[:tcp_retry_events].nil?
+        data['httpRetryEvents'] = HttpRetryPolicyEvents.stub(stub[:http_retry_events]) unless stub[:http_retry_events].nil?
+        data['tcpRetryEvents'] = TcpRetryPolicyEvents.stub(stub[:tcp_retry_events]) unless stub[:tcp_retry_events].nil?
         data
       end
     end
@@ -1244,7 +1246,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::HttpRouteAction.new
         data = {}
-        data['weightedTargets'] = Stubs::WeightedTargets.stub(stub[:weighted_targets]) unless stub[:weighted_targets].nil?
+        data['weightedTargets'] = WeightedTargets.stub(stub[:weighted_targets]) unless stub[:weighted_targets].nil?
         data
       end
     end
@@ -1268,11 +1270,11 @@ module AWS::SDK::AppMesh
         stub ||= Types::HttpRouteMatch.new
         data = {}
         data['prefix'] = stub[:prefix] unless stub[:prefix].nil?
-        data['path'] = Stubs::HttpPathMatch.stub(stub[:path]) unless stub[:path].nil?
-        data['queryParameters'] = Stubs::HttpQueryParameters.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
+        data['path'] = HttpPathMatch.stub(stub[:path]) unless stub[:path].nil?
+        data['queryParameters'] = HttpQueryParameters.stub(stub[:query_parameters]) unless stub[:query_parameters].nil?
         data['method'] = stub[:member_method] unless stub[:member_method].nil?
         data['scheme'] = stub[:scheme] unless stub[:scheme].nil?
-        data['headers'] = Stubs::HttpRouteHeaders.stub(stub[:headers]) unless stub[:headers].nil?
+        data['headers'] = HttpRouteHeaders.stub(stub[:headers]) unless stub[:headers].nil?
         data
       end
     end
@@ -1291,7 +1293,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HttpRouteHeader.stub(element) unless element.nil?
+          data << HttpRouteHeader.stub(element) unless element.nil?
         end
         data
       end
@@ -1314,7 +1316,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['invert'] = stub[:invert] unless stub[:invert].nil?
-        data['match'] = Stubs::HeaderMatchMethod.stub(stub[:match]) unless stub[:match].nil?
+        data['match'] = HeaderMatchMethod.stub(stub[:match]) unless stub[:match].nil?
         data
       end
     end
@@ -1333,8 +1335,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::TcpRoute.new
         data = {}
-        data['action'] = Stubs::TcpRouteAction.stub(stub[:action]) unless stub[:action].nil?
-        data['timeout'] = Stubs::TcpTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
+        data['action'] = TcpRouteAction.stub(stub[:action]) unless stub[:action].nil?
+        data['timeout'] = TcpTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
         data
       end
     end
@@ -1352,7 +1354,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::TcpTimeout.new
         data = {}
-        data['idle'] = Stubs::Duration.stub(stub[:idle]) unless stub[:idle].nil?
+        data['idle'] = Duration.stub(stub[:idle]) unless stub[:idle].nil?
         data
       end
     end
@@ -1370,7 +1372,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::TcpRouteAction.new
         data = {}
-        data['weightedTargets'] = Stubs::WeightedTargets.stub(stub[:weighted_targets]) unless stub[:weighted_targets].nil?
+        data['weightedTargets'] = WeightedTargets.stub(stub[:weighted_targets]) unless stub[:weighted_targets].nil?
         data
       end
     end
@@ -1387,8 +1389,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1411,9 +1413,9 @@ module AWS::SDK::AppMesh
         data = {}
         data['meshName'] = stub[:mesh_name] unless stub[:mesh_name].nil?
         data['virtualGatewayName'] = stub[:virtual_gateway_name] unless stub[:virtual_gateway_name].nil?
-        data['spec'] = Stubs::VirtualGatewaySpec.stub(stub[:spec]) unless stub[:spec].nil?
-        data['metadata'] = Stubs::ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['status'] = Stubs::VirtualGatewayStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['spec'] = VirtualGatewaySpec.stub(stub[:spec]) unless stub[:spec].nil?
+        data['metadata'] = ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['status'] = VirtualGatewayStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1451,9 +1453,9 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewaySpec.new
         data = {}
-        data['backendDefaults'] = Stubs::VirtualGatewayBackendDefaults.stub(stub[:backend_defaults]) unless stub[:backend_defaults].nil?
-        data['listeners'] = Stubs::VirtualGatewayListeners.stub(stub[:listeners]) unless stub[:listeners].nil?
-        data['logging'] = Stubs::VirtualGatewayLogging.stub(stub[:logging]) unless stub[:logging].nil?
+        data['backendDefaults'] = VirtualGatewayBackendDefaults.stub(stub[:backend_defaults]) unless stub[:backend_defaults].nil?
+        data['listeners'] = VirtualGatewayListeners.stub(stub[:listeners]) unless stub[:listeners].nil?
+        data['logging'] = VirtualGatewayLogging.stub(stub[:logging]) unless stub[:logging].nil?
         data
       end
     end
@@ -1471,7 +1473,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewayLogging.new
         data = {}
-        data['accessLog'] = Stubs::VirtualGatewayAccessLog.stub(stub[:access_log]) unless stub[:access_log].nil?
+        data['accessLog'] = VirtualGatewayAccessLog.stub(stub[:access_log]) unless stub[:access_log].nil?
         data
       end
     end
@@ -1490,7 +1492,7 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualGatewayAccessLog::File
-          data['file'] = (Stubs::VirtualGatewayFileAccessLog.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (VirtualGatewayFileAccessLog.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayAccessLog"
@@ -1532,7 +1534,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualGatewayListener.stub(element) unless element.nil?
+          data << VirtualGatewayListener.stub(element) unless element.nil?
         end
         data
       end
@@ -1554,10 +1556,10 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewayListener.new
         data = {}
-        data['healthCheck'] = Stubs::VirtualGatewayHealthCheckPolicy.stub(stub[:health_check]) unless stub[:health_check].nil?
-        data['portMapping'] = Stubs::VirtualGatewayPortMapping.stub(stub[:port_mapping]) unless stub[:port_mapping].nil?
-        data['tls'] = Stubs::VirtualGatewayListenerTls.stub(stub[:tls]) unless stub[:tls].nil?
-        data['connectionPool'] = Stubs::VirtualGatewayConnectionPool.stub(stub[:connection_pool]) unless stub[:connection_pool].nil?
+        data['healthCheck'] = VirtualGatewayHealthCheckPolicy.stub(stub[:health_check]) unless stub[:health_check].nil?
+        data['portMapping'] = VirtualGatewayPortMapping.stub(stub[:port_mapping]) unless stub[:port_mapping].nil?
+        data['tls'] = VirtualGatewayListenerTls.stub(stub[:tls]) unless stub[:tls].nil?
+        data['connectionPool'] = VirtualGatewayConnectionPool.stub(stub[:connection_pool]) unless stub[:connection_pool].nil?
         data
       end
     end
@@ -1576,11 +1578,11 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualGatewayConnectionPool::Http
-          data['http'] = (Stubs::VirtualGatewayHttpConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['http'] = (VirtualGatewayHttpConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayConnectionPool::Http2
-          data['http2'] = (Stubs::VirtualGatewayHttp2ConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['http2'] = (VirtualGatewayHttp2ConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayConnectionPool::Grpc
-          data['grpc'] = (Stubs::VirtualGatewayGrpcConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['grpc'] = (VirtualGatewayGrpcConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayConnectionPool"
@@ -1662,8 +1664,8 @@ module AWS::SDK::AppMesh
         stub ||= Types::VirtualGatewayListenerTls.new
         data = {}
         data['mode'] = stub[:mode] unless stub[:mode].nil?
-        data['validation'] = Stubs::VirtualGatewayListenerTlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
-        data['certificate'] = Stubs::VirtualGatewayListenerTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        data['validation'] = VirtualGatewayListenerTlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
+        data['certificate'] = VirtualGatewayListenerTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
         data
       end
     end
@@ -1682,11 +1684,11 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualGatewayListenerTlsCertificate::Acm
-          data['acm'] = (Stubs::VirtualGatewayListenerTlsAcmCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['acm'] = (VirtualGatewayListenerTlsAcmCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayListenerTlsCertificate::File
-          data['file'] = (Stubs::VirtualGatewayListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (VirtualGatewayListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayListenerTlsCertificate::Sds
-          data['sds'] = (Stubs::VirtualGatewayListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (VirtualGatewayListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayListenerTlsCertificate"
@@ -1766,8 +1768,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewayListenerTlsValidationContext.new
         data = {}
-        data['trust'] = Stubs::VirtualGatewayListenerTlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
-        data['subjectAlternativeNames'] = Stubs::SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['trust'] = VirtualGatewayListenerTlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
         data
       end
     end
@@ -1785,7 +1787,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::SubjectAlternativeNames.new
         data = {}
-        data['match'] = Stubs::SubjectAlternativeNameMatchers.stub(stub[:match]) unless stub[:match].nil?
+        data['match'] = SubjectAlternativeNameMatchers.stub(stub[:match]) unless stub[:match].nil?
         data
       end
     end
@@ -1803,7 +1805,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::SubjectAlternativeNameMatchers.new
         data = {}
-        data['exact'] = Stubs::SubjectAlternativeNameList.stub(stub[:exact]) unless stub[:exact].nil?
+        data['exact'] = SubjectAlternativeNameList.stub(stub[:exact]) unless stub[:exact].nil?
         data
       end
     end
@@ -1842,9 +1844,9 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualGatewayListenerTlsValidationContextTrust::File
-          data['file'] = (Stubs::VirtualGatewayTlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (VirtualGatewayTlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayListenerTlsValidationContextTrust::Sds
-          data['sds'] = (Stubs::VirtualGatewayTlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (VirtualGatewayTlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayListenerTlsValidationContextTrust"
@@ -1953,7 +1955,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewayBackendDefaults.new
         data = {}
-        data['clientPolicy'] = Stubs::VirtualGatewayClientPolicy.stub(stub[:client_policy]) unless stub[:client_policy].nil?
+        data['clientPolicy'] = VirtualGatewayClientPolicy.stub(stub[:client_policy]) unless stub[:client_policy].nil?
         data
       end
     end
@@ -1971,7 +1973,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewayClientPolicy.new
         data = {}
-        data['tls'] = Stubs::VirtualGatewayClientPolicyTls.stub(stub[:tls]) unless stub[:tls].nil?
+        data['tls'] = VirtualGatewayClientPolicyTls.stub(stub[:tls]) unless stub[:tls].nil?
         data
       end
     end
@@ -1993,9 +1995,9 @@ module AWS::SDK::AppMesh
         stub ||= Types::VirtualGatewayClientPolicyTls.new
         data = {}
         data['enforce'] = stub[:enforce] unless stub[:enforce].nil?
-        data['ports'] = Stubs::PortSet.stub(stub[:ports]) unless stub[:ports].nil?
-        data['certificate'] = Stubs::VirtualGatewayClientTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
-        data['validation'] = Stubs::VirtualGatewayTlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
+        data['ports'] = PortSet.stub(stub[:ports]) unless stub[:ports].nil?
+        data['certificate'] = VirtualGatewayClientTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        data['validation'] = VirtualGatewayTlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
         data
       end
     end
@@ -2014,8 +2016,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewayTlsValidationContext.new
         data = {}
-        data['trust'] = Stubs::VirtualGatewayTlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
-        data['subjectAlternativeNames'] = Stubs::SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['trust'] = VirtualGatewayTlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
         data
       end
     end
@@ -2034,11 +2036,11 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualGatewayTlsValidationContextTrust::Acm
-          data['acm'] = (Stubs::VirtualGatewayTlsValidationContextAcmTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['acm'] = (VirtualGatewayTlsValidationContextAcmTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayTlsValidationContextTrust::File
-          data['file'] = (Stubs::VirtualGatewayTlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (VirtualGatewayTlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayTlsValidationContextTrust::Sds
-          data['sds'] = (Stubs::VirtualGatewayTlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (VirtualGatewayTlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayTlsValidationContextTrust"
@@ -2061,7 +2063,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualGatewayTlsValidationContextAcmTrust.new
         data = {}
-        data['certificateAuthorityArns'] = Stubs::VirtualGatewayCertificateAuthorityArns.stub(stub[:certificate_authority_arns]) unless stub[:certificate_authority_arns].nil?
+        data['certificateAuthorityArns'] = VirtualGatewayCertificateAuthorityArns.stub(stub[:certificate_authority_arns]) unless stub[:certificate_authority_arns].nil?
         data
       end
     end
@@ -2100,9 +2102,9 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualGatewayClientTlsCertificate::File
-          data['file'] = (Stubs::VirtualGatewayListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (VirtualGatewayListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualGatewayClientTlsCertificate::Sds
-          data['sds'] = (Stubs::VirtualGatewayListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (VirtualGatewayListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayClientTlsCertificate"
@@ -2144,8 +2146,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2168,9 +2170,9 @@ module AWS::SDK::AppMesh
         data = {}
         data['meshName'] = stub[:mesh_name] unless stub[:mesh_name].nil?
         data['virtualNodeName'] = stub[:virtual_node_name] unless stub[:virtual_node_name].nil?
-        data['spec'] = Stubs::VirtualNodeSpec.stub(stub[:spec]) unless stub[:spec].nil?
-        data['metadata'] = Stubs::ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['status'] = Stubs::VirtualNodeStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['spec'] = VirtualNodeSpec.stub(stub[:spec]) unless stub[:spec].nil?
+        data['metadata'] = ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['status'] = VirtualNodeStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -2210,11 +2212,11 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualNodeSpec.new
         data = {}
-        data['serviceDiscovery'] = Stubs::ServiceDiscovery.stub(stub[:service_discovery]) unless stub[:service_discovery].nil?
-        data['listeners'] = Stubs::Listeners.stub(stub[:listeners]) unless stub[:listeners].nil?
-        data['backends'] = Stubs::Backends.stub(stub[:backends]) unless stub[:backends].nil?
-        data['backendDefaults'] = Stubs::BackendDefaults.stub(stub[:backend_defaults]) unless stub[:backend_defaults].nil?
-        data['logging'] = Stubs::Logging.stub(stub[:logging]) unless stub[:logging].nil?
+        data['serviceDiscovery'] = ServiceDiscovery.stub(stub[:service_discovery]) unless stub[:service_discovery].nil?
+        data['listeners'] = Listeners.stub(stub[:listeners]) unless stub[:listeners].nil?
+        data['backends'] = Backends.stub(stub[:backends]) unless stub[:backends].nil?
+        data['backendDefaults'] = BackendDefaults.stub(stub[:backend_defaults]) unless stub[:backend_defaults].nil?
+        data['logging'] = Logging.stub(stub[:logging]) unless stub[:logging].nil?
         data
       end
     end
@@ -2232,7 +2234,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::Logging.new
         data = {}
-        data['accessLog'] = Stubs::AccessLog.stub(stub[:access_log]) unless stub[:access_log].nil?
+        data['accessLog'] = AccessLog.stub(stub[:access_log]) unless stub[:access_log].nil?
         data
       end
     end
@@ -2251,7 +2253,7 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::AccessLog::File
-          data['file'] = (Stubs::FileAccessLog.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (FileAccessLog.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::AccessLog"
@@ -2292,7 +2294,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::BackendDefaults.new
         data = {}
-        data['clientPolicy'] = Stubs::ClientPolicy.stub(stub[:client_policy]) unless stub[:client_policy].nil?
+        data['clientPolicy'] = ClientPolicy.stub(stub[:client_policy]) unless stub[:client_policy].nil?
         data
       end
     end
@@ -2310,7 +2312,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::ClientPolicy.new
         data = {}
-        data['tls'] = Stubs::ClientPolicyTls.stub(stub[:tls]) unless stub[:tls].nil?
+        data['tls'] = ClientPolicyTls.stub(stub[:tls]) unless stub[:tls].nil?
         data
       end
     end
@@ -2332,9 +2334,9 @@ module AWS::SDK::AppMesh
         stub ||= Types::ClientPolicyTls.new
         data = {}
         data['enforce'] = stub[:enforce] unless stub[:enforce].nil?
-        data['ports'] = Stubs::PortSet.stub(stub[:ports]) unless stub[:ports].nil?
-        data['certificate'] = Stubs::ClientTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
-        data['validation'] = Stubs::TlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
+        data['ports'] = PortSet.stub(stub[:ports]) unless stub[:ports].nil?
+        data['certificate'] = ClientTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        data['validation'] = TlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
         data
       end
     end
@@ -2353,8 +2355,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::TlsValidationContext.new
         data = {}
-        data['trust'] = Stubs::TlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
-        data['subjectAlternativeNames'] = Stubs::SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['trust'] = TlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
         data
       end
     end
@@ -2373,11 +2375,11 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::TlsValidationContextTrust::Acm
-          data['acm'] = (Stubs::TlsValidationContextAcmTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['acm'] = (TlsValidationContextAcmTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TlsValidationContextTrust::File
-          data['file'] = (Stubs::TlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (TlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TlsValidationContextTrust::Sds
-          data['sds'] = (Stubs::TlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (TlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::TlsValidationContextTrust"
@@ -2436,7 +2438,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::TlsValidationContextAcmTrust.new
         data = {}
-        data['certificateAuthorityArns'] = Stubs::CertificateAuthorityArns.stub(stub[:certificate_authority_arns]) unless stub[:certificate_authority_arns].nil?
+        data['certificateAuthorityArns'] = CertificateAuthorityArns.stub(stub[:certificate_authority_arns]) unless stub[:certificate_authority_arns].nil?
         data
       end
     end
@@ -2475,9 +2477,9 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::ClientTlsCertificate::File
-          data['file'] = (Stubs::ListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (ListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ClientTlsCertificate::Sds
-          data['sds'] = (Stubs::ListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (ListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ClientTlsCertificate"
@@ -2539,7 +2541,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Backend.stub(element) unless element.nil?
+          data << Backend.stub(element) unless element.nil?
         end
         data
       end
@@ -2559,7 +2561,7 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::Backend::VirtualService
-          data['virtualService'] = (Stubs::VirtualServiceBackend.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['virtualService'] = (VirtualServiceBackend.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Backend"
@@ -2584,7 +2586,7 @@ module AWS::SDK::AppMesh
         stub ||= Types::VirtualServiceBackend.new
         data = {}
         data['virtualServiceName'] = stub[:virtual_service_name] unless stub[:virtual_service_name].nil?
-        data['clientPolicy'] = Stubs::ClientPolicy.stub(stub[:client_policy]) unless stub[:client_policy].nil?
+        data['clientPolicy'] = ClientPolicy.stub(stub[:client_policy]) unless stub[:client_policy].nil?
         data
       end
     end
@@ -2603,7 +2605,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Listener.stub(element) unless element.nil?
+          data << Listener.stub(element) unless element.nil?
         end
         data
       end
@@ -2627,12 +2629,12 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::Listener.new
         data = {}
-        data['portMapping'] = Stubs::PortMapping.stub(stub[:port_mapping]) unless stub[:port_mapping].nil?
-        data['tls'] = Stubs::ListenerTls.stub(stub[:tls]) unless stub[:tls].nil?
-        data['healthCheck'] = Stubs::HealthCheckPolicy.stub(stub[:health_check]) unless stub[:health_check].nil?
-        data['timeout'] = Stubs::ListenerTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
-        data['outlierDetection'] = Stubs::OutlierDetection.stub(stub[:outlier_detection]) unless stub[:outlier_detection].nil?
-        data['connectionPool'] = Stubs::VirtualNodeConnectionPool.stub(stub[:connection_pool]) unless stub[:connection_pool].nil?
+        data['portMapping'] = PortMapping.stub(stub[:port_mapping]) unless stub[:port_mapping].nil?
+        data['tls'] = ListenerTls.stub(stub[:tls]) unless stub[:tls].nil?
+        data['healthCheck'] = HealthCheckPolicy.stub(stub[:health_check]) unless stub[:health_check].nil?
+        data['timeout'] = ListenerTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
+        data['outlierDetection'] = OutlierDetection.stub(stub[:outlier_detection]) unless stub[:outlier_detection].nil?
+        data['connectionPool'] = VirtualNodeConnectionPool.stub(stub[:connection_pool]) unless stub[:connection_pool].nil?
         data
       end
     end
@@ -2651,13 +2653,13 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualNodeConnectionPool::Tcp
-          data['tcp'] = (Stubs::VirtualNodeTcpConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['tcp'] = (VirtualNodeTcpConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualNodeConnectionPool::Http
-          data['http'] = (Stubs::VirtualNodeHttpConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['http'] = (VirtualNodeHttpConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualNodeConnectionPool::Http2
-          data['http2'] = (Stubs::VirtualNodeHttp2ConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['http2'] = (VirtualNodeHttp2ConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualNodeConnectionPool::Grpc
-          data['grpc'] = (Stubs::VirtualNodeGrpcConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['grpc'] = (VirtualNodeGrpcConnectionPool.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualNodeConnectionPool"
@@ -2758,8 +2760,8 @@ module AWS::SDK::AppMesh
         stub ||= Types::OutlierDetection.new
         data = {}
         data['maxServerErrors'] = stub[:max_server_errors] unless stub[:max_server_errors].nil?
-        data['interval'] = Stubs::Duration.stub(stub[:interval]) unless stub[:interval].nil?
-        data['baseEjectionDuration'] = Stubs::Duration.stub(stub[:base_ejection_duration]) unless stub[:base_ejection_duration].nil?
+        data['interval'] = Duration.stub(stub[:interval]) unless stub[:interval].nil?
+        data['baseEjectionDuration'] = Duration.stub(stub[:base_ejection_duration]) unless stub[:base_ejection_duration].nil?
         data['maxEjectionPercent'] = stub[:max_ejection_percent] unless stub[:max_ejection_percent].nil?
         data
       end
@@ -2779,13 +2781,13 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::ListenerTimeout::Tcp
-          data['tcp'] = (Stubs::TcpTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['tcp'] = (TcpTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ListenerTimeout::Http
-          data['http'] = (Stubs::HttpTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['http'] = (HttpTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ListenerTimeout::Http2
-          data['http2'] = (Stubs::HttpTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['http2'] = (HttpTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ListenerTimeout::Grpc
-          data['grpc'] = (Stubs::GrpcTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['grpc'] = (GrpcTimeout.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ListenerTimeout"
@@ -2841,8 +2843,8 @@ module AWS::SDK::AppMesh
         stub ||= Types::ListenerTls.new
         data = {}
         data['mode'] = stub[:mode] unless stub[:mode].nil?
-        data['certificate'] = Stubs::ListenerTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
-        data['validation'] = Stubs::ListenerTlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
+        data['certificate'] = ListenerTlsCertificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        data['validation'] = ListenerTlsValidationContext.stub(stub[:validation]) unless stub[:validation].nil?
         data
       end
     end
@@ -2861,8 +2863,8 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::ListenerTlsValidationContext.new
         data = {}
-        data['trust'] = Stubs::ListenerTlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
-        data['subjectAlternativeNames'] = Stubs::SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['trust'] = ListenerTlsValidationContextTrust.stub(stub[:member_trust]) unless stub[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
         data
       end
     end
@@ -2881,9 +2883,9 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::ListenerTlsValidationContextTrust::File
-          data['file'] = (Stubs::TlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (TlsValidationContextFileTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ListenerTlsValidationContextTrust::Sds
-          data['sds'] = (Stubs::TlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (TlsValidationContextSdsTrust.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ListenerTlsValidationContextTrust"
@@ -2907,11 +2909,11 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::ListenerTlsCertificate::Acm
-          data['acm'] = (Stubs::ListenerTlsAcmCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['acm'] = (ListenerTlsAcmCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ListenerTlsCertificate::File
-          data['file'] = (Stubs::ListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['file'] = (ListenerTlsFileCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ListenerTlsCertificate::Sds
-          data['sds'] = (Stubs::ListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sds'] = (ListenerTlsSdsCertificate.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ListenerTlsCertificate"
@@ -2973,9 +2975,9 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::ServiceDiscovery::Dns
-          data['dns'] = (Stubs::DnsServiceDiscovery.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['dns'] = (DnsServiceDiscovery.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ServiceDiscovery::AwsCloudMap
-          data['awsCloudMap'] = (Stubs::AwsCloudMapServiceDiscovery.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['awsCloudMap'] = (AwsCloudMapServiceDiscovery.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ServiceDiscovery"
@@ -3003,7 +3005,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['namespaceName'] = stub[:namespace_name] unless stub[:namespace_name].nil?
         data['serviceName'] = stub[:service_name] unless stub[:service_name].nil?
-        data['attributes'] = Stubs::AwsCloudMapInstanceAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = AwsCloudMapInstanceAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['ipPreference'] = stub[:ip_preference] unless stub[:ip_preference].nil?
         data
       end
@@ -3023,7 +3025,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCloudMapInstanceAttribute.stub(element) unless element.nil?
+          data << AwsCloudMapInstanceAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -3083,8 +3085,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3107,9 +3109,9 @@ module AWS::SDK::AppMesh
         data = {}
         data['meshName'] = stub[:mesh_name] unless stub[:mesh_name].nil?
         data['virtualRouterName'] = stub[:virtual_router_name] unless stub[:virtual_router_name].nil?
-        data['spec'] = Stubs::VirtualRouterSpec.stub(stub[:spec]) unless stub[:spec].nil?
-        data['metadata'] = Stubs::ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['status'] = Stubs::VirtualRouterStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['spec'] = VirtualRouterSpec.stub(stub[:spec]) unless stub[:spec].nil?
+        data['metadata'] = ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['status'] = VirtualRouterStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -3145,7 +3147,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualRouterSpec.new
         data = {}
-        data['listeners'] = Stubs::VirtualRouterListeners.stub(stub[:listeners]) unless stub[:listeners].nil?
+        data['listeners'] = VirtualRouterListeners.stub(stub[:listeners]) unless stub[:listeners].nil?
         data
       end
     end
@@ -3164,7 +3166,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualRouterListener.stub(element) unless element.nil?
+          data << VirtualRouterListener.stub(element) unless element.nil?
         end
         data
       end
@@ -3183,7 +3185,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualRouterListener.new
         data = {}
-        data['portMapping'] = Stubs::PortMapping.stub(stub[:port_mapping]) unless stub[:port_mapping].nil?
+        data['portMapping'] = PortMapping.stub(stub[:port_mapping]) unless stub[:port_mapping].nil?
         data
       end
     end
@@ -3200,8 +3202,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3224,9 +3226,9 @@ module AWS::SDK::AppMesh
         data = {}
         data['meshName'] = stub[:mesh_name] unless stub[:mesh_name].nil?
         data['virtualServiceName'] = stub[:virtual_service_name] unless stub[:virtual_service_name].nil?
-        data['spec'] = Stubs::VirtualServiceSpec.stub(stub[:spec]) unless stub[:spec].nil?
-        data['metadata'] = Stubs::ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['status'] = Stubs::VirtualServiceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['spec'] = VirtualServiceSpec.stub(stub[:spec]) unless stub[:spec].nil?
+        data['metadata'] = ResourceMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['status'] = VirtualServiceStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -3262,7 +3264,7 @@ module AWS::SDK::AppMesh
       def self.stub(stub)
         stub ||= Types::VirtualServiceSpec.new
         data = {}
-        data['provider'] = Stubs::VirtualServiceProvider.stub(stub[:provider]) unless stub[:provider].nil?
+        data['provider'] = VirtualServiceProvider.stub(stub[:provider]) unless stub[:provider].nil?
         data
       end
     end
@@ -3281,9 +3283,9 @@ module AWS::SDK::AppMesh
         data = {}
         case stub
         when Types::VirtualServiceProvider::VirtualNode
-          data['virtualNode'] = (Stubs::VirtualNodeServiceProvider.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['virtualNode'] = (VirtualNodeServiceProvider.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::VirtualServiceProvider::VirtualRouter
-          data['virtualRouter'] = (Stubs::VirtualRouterServiceProvider.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['virtualRouter'] = (VirtualRouterServiceProvider.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualServiceProvider"
@@ -3341,8 +3343,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3358,8 +3360,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3375,8 +3377,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RouteData.stub(stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RouteData.stub(stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3392,8 +3394,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3409,8 +3411,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3426,8 +3428,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3443,8 +3445,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3460,8 +3462,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3477,8 +3479,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3494,8 +3496,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RouteData.stub(stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RouteData.stub(stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3511,8 +3513,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3528,8 +3530,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3545,8 +3547,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3562,8 +3564,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3580,9 +3582,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['gatewayRoutes'] = Stubs::GatewayRouteList.stub(stub[:gateway_routes]) unless stub[:gateway_routes].nil?
+        data['gatewayRoutes'] = GatewayRouteList.stub(stub[:gateway_routes]) unless stub[:gateway_routes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3600,7 +3602,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GatewayRouteRef.stub(element) unless element.nil?
+          data << GatewayRouteRef.stub(element) unless element.nil?
         end
         data
       end
@@ -3653,9 +3655,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['meshes'] = Stubs::MeshList.stub(stub[:meshes]) unless stub[:meshes].nil?
+        data['meshes'] = MeshList.stub(stub[:meshes]) unless stub[:meshes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3673,7 +3675,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MeshRef.stub(element) unless element.nil?
+          data << MeshRef.stub(element) unless element.nil?
         end
         data
       end
@@ -3722,9 +3724,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['routes'] = Stubs::RouteList.stub(stub[:routes]) unless stub[:routes].nil?
+        data['routes'] = RouteList.stub(stub[:routes]) unless stub[:routes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3742,7 +3744,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RouteRef.stub(element) unless element.nil?
+          data << RouteRef.stub(element) unless element.nil?
         end
         data
       end
@@ -3795,9 +3797,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3815,7 +3817,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagRef.stub(element) unless element.nil?
+          data << TagRef.stub(element) unless element.nil?
         end
         data
       end
@@ -3854,9 +3856,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['virtualGateways'] = Stubs::VirtualGatewayList.stub(stub[:virtual_gateways]) unless stub[:virtual_gateways].nil?
+        data['virtualGateways'] = VirtualGatewayList.stub(stub[:virtual_gateways]) unless stub[:virtual_gateways].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3874,7 +3876,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualGatewayRef.stub(element) unless element.nil?
+          data << VirtualGatewayRef.stub(element) unless element.nil?
         end
         data
       end
@@ -3925,9 +3927,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['virtualNodes'] = Stubs::VirtualNodeList.stub(stub[:virtual_nodes]) unless stub[:virtual_nodes].nil?
+        data['virtualNodes'] = VirtualNodeList.stub(stub[:virtual_nodes]) unless stub[:virtual_nodes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3945,7 +3947,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualNodeRef.stub(element) unless element.nil?
+          data << VirtualNodeRef.stub(element) unless element.nil?
         end
         data
       end
@@ -3996,9 +3998,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['virtualRouters'] = Stubs::VirtualRouterList.stub(stub[:virtual_routers]) unless stub[:virtual_routers].nil?
+        data['virtualRouters'] = VirtualRouterList.stub(stub[:virtual_routers]) unless stub[:virtual_routers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4016,7 +4018,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualRouterRef.stub(element) unless element.nil?
+          data << VirtualRouterRef.stub(element) unless element.nil?
         end
         data
       end
@@ -4067,9 +4069,9 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['virtualServices'] = Stubs::VirtualServiceList.stub(stub[:virtual_services]) unless stub[:virtual_services].nil?
+        data['virtualServices'] = VirtualServiceList.stub(stub[:virtual_services]) unless stub[:virtual_services].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4087,7 +4089,7 @@ module AWS::SDK::AppMesh
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualServiceRef.stub(element) unless element.nil?
+          data << VirtualServiceRef.stub(element) unless element.nil?
         end
         data
       end
@@ -4163,8 +4165,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GatewayRouteData.stub(stub[:gateway_route]) unless stub[:gateway_route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4180,8 +4182,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MeshData.stub(stub[:mesh]) unless stub[:mesh].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4197,8 +4199,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RouteData.stub(stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RouteData.stub(stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4214,8 +4216,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualGatewayData.stub(stub[:virtual_gateway]) unless stub[:virtual_gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4231,8 +4233,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualNodeData.stub(stub[:virtual_node]) unless stub[:virtual_node].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4248,8 +4250,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualRouterData.stub(stub[:virtual_router]) unless stub[:virtual_router].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4265,8 +4267,8 @@ module AWS::SDK::AppMesh
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VirtualServiceData.stub(stub[:virtual_service]) unless stub[:virtual_service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

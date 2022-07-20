@@ -15,7 +15,7 @@ module AWS::SDK::RDSData
       def self.parse(http_resp)
         data = Types::BatchExecuteStatementOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.update_results = (Parsers::UpdateResults.parse(map['updateResults']) unless map['updateResults'].nil?)
+        data.update_results = (UpdateResults.parse(map['updateResults']) unless map['updateResults'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UpdateResult.parse(value) unless value.nil?
+          data << UpdateResult.parse(value) unless value.nil?
         end
         data
       end
@@ -33,7 +33,7 @@ module AWS::SDK::RDSData
     class UpdateResult
       def self.parse(map)
         data = Types::UpdateResult.new
-        data.generated_fields = (Parsers::FieldList.parse(map['generatedFields']) unless map['generatedFields'].nil?)
+        data.generated_fields = (FieldList.parse(map['generatedFields']) unless map['generatedFields'].nil?)
         return data
       end
     end
@@ -42,7 +42,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Field.parse(value) unless value.nil?
+          data << Field.parse(value) unless value.nil?
         end
         data
       end
@@ -71,7 +71,7 @@ module AWS::SDK::RDSData
           value = Base64::decode64(value) unless value.nil?
           Types::Field::BlobValue.new(value) if value
         when 'arrayValue'
-          value = (Parsers::ArrayValue.parse(value) unless value.nil?)
+          value = (ArrayValue.parse(value) unless value.nil?)
           Types::Field::ArrayValue.new(value) if value
         else
           Types::Field::Unknown.new({name: key, value: value})
@@ -84,19 +84,19 @@ module AWS::SDK::RDSData
         key, value = map.flatten
         case key
         when 'booleanValues'
-          value = (Parsers::BooleanArray.parse(value) unless value.nil?)
+          value = (BooleanArray.parse(value) unless value.nil?)
           Types::ArrayValue::BooleanValues.new(value) if value
         when 'longValues'
-          value = (Parsers::LongArray.parse(value) unless value.nil?)
+          value = (LongArray.parse(value) unless value.nil?)
           Types::ArrayValue::LongValues.new(value) if value
         when 'doubleValues'
-          value = (Parsers::DoubleArray.parse(value) unless value.nil?)
+          value = (DoubleArray.parse(value) unless value.nil?)
           Types::ArrayValue::DoubleValues.new(value) if value
         when 'stringValues'
-          value = (Parsers::StringArray.parse(value) unless value.nil?)
+          value = (StringArray.parse(value) unless value.nil?)
           Types::ArrayValue::StringValues.new(value) if value
         when 'arrayValues'
-          value = (Parsers::ArrayOfArray.parse(value) unless value.nil?)
+          value = (ArrayOfArray.parse(value) unless value.nil?)
           Types::ArrayValue::ArrayValues.new(value) if value
         else
           Types::ArrayValue::Unknown.new({name: key, value: value})
@@ -108,7 +108,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ArrayValue.parse(value) unless value.nil?
+          data << ArrayValue.parse(value) unless value.nil?
         end
         data
       end
@@ -248,7 +248,7 @@ module AWS::SDK::RDSData
       def self.parse(http_resp)
         data = Types::ExecuteSqlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sql_statement_results = (Parsers::SqlStatementResults.parse(map['sqlStatementResults']) unless map['sqlStatementResults'].nil?)
+        data.sql_statement_results = (SqlStatementResults.parse(map['sqlStatementResults']) unless map['sqlStatementResults'].nil?)
         data
       end
     end
@@ -257,7 +257,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SqlStatementResult.parse(value) unless value.nil?
+          data << SqlStatementResult.parse(value) unless value.nil?
         end
         data
       end
@@ -266,7 +266,7 @@ module AWS::SDK::RDSData
     class SqlStatementResult
       def self.parse(map)
         data = Types::SqlStatementResult.new
-        data.result_frame = (Parsers::ResultFrame.parse(map['resultFrame']) unless map['resultFrame'].nil?)
+        data.result_frame = (ResultFrame.parse(map['resultFrame']) unless map['resultFrame'].nil?)
         data.number_of_records_updated = map['numberOfRecordsUpdated']
         return data
       end
@@ -275,8 +275,8 @@ module AWS::SDK::RDSData
     class ResultFrame
       def self.parse(map)
         data = Types::ResultFrame.new
-        data.result_set_metadata = (Parsers::ResultSetMetadata.parse(map['resultSetMetadata']) unless map['resultSetMetadata'].nil?)
-        data.records = (Parsers::Records.parse(map['records']) unless map['records'].nil?)
+        data.result_set_metadata = (ResultSetMetadata.parse(map['resultSetMetadata']) unless map['resultSetMetadata'].nil?)
+        data.records = (Records.parse(map['records']) unless map['records'].nil?)
         return data
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Record.parse(value) unless value.nil?
+          data << Record.parse(value) unless value.nil?
         end
         data
       end
@@ -294,7 +294,7 @@ module AWS::SDK::RDSData
     class Record
       def self.parse(map)
         data = Types::Record.new
-        data.values = (Parsers::Row.parse(map['values']) unless map['values'].nil?)
+        data.values = (Row.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -303,7 +303,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Value.parse(value) unless value.nil?
+          data << Value.parse(value) unless value.nil?
         end
         data
       end
@@ -338,10 +338,10 @@ module AWS::SDK::RDSData
           value = Base64::decode64(value) unless value.nil?
           Types::Value::BlobValue.new(value) if value
         when 'arrayValues'
-          value = (Parsers::ArrayValueList.parse(value) unless value.nil?)
+          value = (ArrayValueList.parse(value) unless value.nil?)
           Types::Value::ArrayValues.new(value) if value
         when 'structValue'
-          value = (Parsers::StructValue.parse(value) unless value.nil?)
+          value = (StructValue.parse(value) unless value.nil?)
           Types::Value::StructValue.new(value) if value
         else
           Types::Value::Unknown.new({name: key, value: value})
@@ -352,7 +352,7 @@ module AWS::SDK::RDSData
     class StructValue
       def self.parse(map)
         data = Types::StructValue.new
-        data.attributes = (Parsers::ArrayValueList.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (ArrayValueList.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Value.parse(value) unless value.nil?
+          data << Value.parse(value) unless value.nil?
         end
         data
       end
@@ -371,7 +371,7 @@ module AWS::SDK::RDSData
       def self.parse(map)
         data = Types::ResultSetMetadata.new
         data.column_count = map['columnCount']
-        data.column_metadata = (Parsers::Metadata.parse(map['columnMetadata']) unless map['columnMetadata'].nil?)
+        data.column_metadata = (Metadata.parse(map['columnMetadata']) unless map['columnMetadata'].nil?)
         return data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnMetadata.parse(value) unless value.nil?
+          data << ColumnMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -412,10 +412,10 @@ module AWS::SDK::RDSData
       def self.parse(http_resp)
         data = Types::ExecuteStatementOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.records = (Parsers::SqlRecords.parse(map['records']) unless map['records'].nil?)
-        data.column_metadata = (Parsers::Metadata.parse(map['columnMetadata']) unless map['columnMetadata'].nil?)
+        data.records = (SqlRecords.parse(map['records']) unless map['records'].nil?)
+        data.column_metadata = (Metadata.parse(map['columnMetadata']) unless map['columnMetadata'].nil?)
         data.number_of_records_updated = map['numberOfRecordsUpdated']
-        data.generated_fields = (Parsers::FieldList.parse(map['generatedFields']) unless map['generatedFields'].nil?)
+        data.generated_fields = (FieldList.parse(map['generatedFields']) unless map['generatedFields'].nil?)
         data.formatted_records = map['formattedRecords']
         data
       end
@@ -425,7 +425,7 @@ module AWS::SDK::RDSData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FieldList.parse(value) unless value.nil?
+          data << FieldList.parse(value) unless value.nil?
         end
         data
       end

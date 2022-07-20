@@ -17,7 +17,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.shared_directory = (Parsers::SharedDirectory.parse(map['SharedDirectory']) unless map['SharedDirectory'].nil?)
+        data.shared_directory = (SharedDirectory.parse(map['SharedDirectory']) unless map['SharedDirectory'].nil?)
         data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.computer = (Parsers::Computer.parse(map['Computer']) unless map['Computer'].nil?)
+        data.computer = (Computer.parse(map['Computer']) unless map['Computer'].nil?)
         data
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::DirectoryService
         data = Types::Computer.new
         data.computer_id = map['ComputerId']
         data.computer_name = map['ComputerName']
-        data.computer_attributes = (Parsers::Attributes.parse(map['ComputerAttributes']) unless map['ComputerAttributes'].nil?)
+        data.computer_attributes = (Attributes.parse(map['ComputerAttributes']) unless map['ComputerAttributes'].nil?)
         return data
       end
     end
@@ -327,7 +327,7 @@ module AWS::SDK::DirectoryService
     class Attributes
       def self.parse(list)
         list.map do |value|
-          Parsers::Attribute.parse(value) unless value.nil?
+          Attribute.parse(value) unless value.nil?
         end
       end
     end
@@ -563,7 +563,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificate = (Parsers::Certificate.parse(map['Certificate']) unless map['Certificate'].nil?)
+        data.certificate = (Certificate.parse(map['Certificate']) unless map['Certificate'].nil?)
         data
       end
     end
@@ -578,7 +578,7 @@ module AWS::SDK::DirectoryService
         data.registered_date_time = Time.at(map['RegisteredDateTime'].to_i) if map['RegisteredDateTime']
         data.expiry_date_time = Time.at(map['ExpiryDateTime'].to_i) if map['ExpiryDateTime']
         data.type = map['Type']
-        data.client_cert_auth_settings = (Parsers::ClientCertAuthSettings.parse(map['ClientCertAuthSettings']) unless map['ClientCertAuthSettings'].nil?)
+        data.client_cert_auth_settings = (ClientCertAuthSettings.parse(map['ClientCertAuthSettings']) unless map['ClientCertAuthSettings'].nil?)
         return data
       end
     end
@@ -598,7 +598,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.client_authentication_settings_info = (Parsers::ClientAuthenticationSettingsInfo.parse(map['ClientAuthenticationSettingsInfo']) unless map['ClientAuthenticationSettingsInfo'].nil?)
+        data.client_authentication_settings_info = (ClientAuthenticationSettingsInfo.parse(map['ClientAuthenticationSettingsInfo']) unless map['ClientAuthenticationSettingsInfo'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -607,7 +607,7 @@ module AWS::SDK::DirectoryService
     class ClientAuthenticationSettingsInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::ClientAuthenticationSettingInfo.parse(value) unless value.nil?
+          ClientAuthenticationSettingInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -629,7 +629,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conditional_forwarders = (Parsers::ConditionalForwarders.parse(map['ConditionalForwarders']) unless map['ConditionalForwarders'].nil?)
+        data.conditional_forwarders = (ConditionalForwarders.parse(map['ConditionalForwarders']) unless map['ConditionalForwarders'].nil?)
         data
       end
     end
@@ -637,7 +637,7 @@ module AWS::SDK::DirectoryService
     class ConditionalForwarders
       def self.parse(list)
         list.map do |value|
-          Parsers::ConditionalForwarder.parse(value) unless value.nil?
+          ConditionalForwarder.parse(value) unless value.nil?
         end
       end
     end
@@ -646,7 +646,7 @@ module AWS::SDK::DirectoryService
       def self.parse(map)
         data = Types::ConditionalForwarder.new
         data.remote_domain_name = map['RemoteDomainName']
-        data.dns_ip_addrs = (Parsers::DnsIpAddrs.parse(map['DnsIpAddrs']) unless map['DnsIpAddrs'].nil?)
+        data.dns_ip_addrs = (DnsIpAddrs.parse(map['DnsIpAddrs']) unless map['DnsIpAddrs'].nil?)
         data.replication_scope = map['ReplicationScope']
         return data
       end
@@ -667,7 +667,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.directory_descriptions = (Parsers::DirectoryDescriptions.parse(map['DirectoryDescriptions']) unless map['DirectoryDescriptions'].nil?)
+        data.directory_descriptions = (DirectoryDescriptions.parse(map['DirectoryDescriptions']) unless map['DirectoryDescriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -676,7 +676,7 @@ module AWS::SDK::DirectoryService
     class DirectoryDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::DirectoryDescription.parse(value) unless value.nil?
+          DirectoryDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -692,7 +692,7 @@ module AWS::SDK::DirectoryService
         data.alias = map['Alias']
         data.access_url = map['AccessUrl']
         data.description = map['Description']
-        data.dns_ip_addrs = (Parsers::DnsIpAddrs.parse(map['DnsIpAddrs']) unless map['DnsIpAddrs'].nil?)
+        data.dns_ip_addrs = (DnsIpAddrs.parse(map['DnsIpAddrs']) unless map['DnsIpAddrs'].nil?)
         data.stage = map['Stage']
         data.share_status = map['ShareStatus']
         data.share_method = map['ShareMethod']
@@ -700,15 +700,15 @@ module AWS::SDK::DirectoryService
         data.launch_time = Time.at(map['LaunchTime'].to_i) if map['LaunchTime']
         data.stage_last_updated_date_time = Time.at(map['StageLastUpdatedDateTime'].to_i) if map['StageLastUpdatedDateTime']
         data.type = map['Type']
-        data.vpc_settings = (Parsers::DirectoryVpcSettingsDescription.parse(map['VpcSettings']) unless map['VpcSettings'].nil?)
-        data.connect_settings = (Parsers::DirectoryConnectSettingsDescription.parse(map['ConnectSettings']) unless map['ConnectSettings'].nil?)
-        data.radius_settings = (Parsers::RadiusSettings.parse(map['RadiusSettings']) unless map['RadiusSettings'].nil?)
+        data.vpc_settings = (DirectoryVpcSettingsDescription.parse(map['VpcSettings']) unless map['VpcSettings'].nil?)
+        data.connect_settings = (DirectoryConnectSettingsDescription.parse(map['ConnectSettings']) unless map['ConnectSettings'].nil?)
+        data.radius_settings = (RadiusSettings.parse(map['RadiusSettings']) unless map['RadiusSettings'].nil?)
         data.radius_status = map['RadiusStatus']
         data.stage_reason = map['StageReason']
         data.sso_enabled = map['SsoEnabled']
         data.desired_number_of_domain_controllers = map['DesiredNumberOfDomainControllers']
-        data.owner_directory_description = (Parsers::OwnerDirectoryDescription.parse(map['OwnerDirectoryDescription']) unless map['OwnerDirectoryDescription'].nil?)
-        data.regions_info = (Parsers::RegionsInfo.parse(map['RegionsInfo']) unless map['RegionsInfo'].nil?)
+        data.owner_directory_description = (OwnerDirectoryDescription.parse(map['OwnerDirectoryDescription']) unless map['OwnerDirectoryDescription'].nil?)
+        data.regions_info = (RegionsInfo.parse(map['RegionsInfo']) unless map['RegionsInfo'].nil?)
         return data
       end
     end
@@ -717,7 +717,7 @@ module AWS::SDK::DirectoryService
       def self.parse(map)
         data = Types::RegionsInfo.new
         data.primary_region = map['PrimaryRegion']
-        data.additional_regions = (Parsers::AdditionalRegions.parse(map['AdditionalRegions']) unless map['AdditionalRegions'].nil?)
+        data.additional_regions = (AdditionalRegions.parse(map['AdditionalRegions']) unless map['AdditionalRegions'].nil?)
         return data
       end
     end
@@ -735,9 +735,9 @@ module AWS::SDK::DirectoryService
         data = Types::OwnerDirectoryDescription.new
         data.directory_id = map['DirectoryId']
         data.account_id = map['AccountId']
-        data.dns_ip_addrs = (Parsers::DnsIpAddrs.parse(map['DnsIpAddrs']) unless map['DnsIpAddrs'].nil?)
-        data.vpc_settings = (Parsers::DirectoryVpcSettingsDescription.parse(map['VpcSettings']) unless map['VpcSettings'].nil?)
-        data.radius_settings = (Parsers::RadiusSettings.parse(map['RadiusSettings']) unless map['RadiusSettings'].nil?)
+        data.dns_ip_addrs = (DnsIpAddrs.parse(map['DnsIpAddrs']) unless map['DnsIpAddrs'].nil?)
+        data.vpc_settings = (DirectoryVpcSettingsDescription.parse(map['VpcSettings']) unless map['VpcSettings'].nil?)
+        data.radius_settings = (RadiusSettings.parse(map['RadiusSettings']) unless map['RadiusSettings'].nil?)
         data.radius_status = map['RadiusStatus']
         return data
       end
@@ -746,7 +746,7 @@ module AWS::SDK::DirectoryService
     class RadiusSettings
       def self.parse(map)
         data = Types::RadiusSettings.new
-        data.radius_servers = (Parsers::Servers.parse(map['RadiusServers']) unless map['RadiusServers'].nil?)
+        data.radius_servers = (Servers.parse(map['RadiusServers']) unless map['RadiusServers'].nil?)
         data.radius_port = map['RadiusPort']
         data.radius_timeout = map['RadiusTimeout']
         data.radius_retries = map['RadiusRetries']
@@ -770,9 +770,9 @@ module AWS::SDK::DirectoryService
       def self.parse(map)
         data = Types::DirectoryVpcSettingsDescription.new
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.security_group_id = map['SecurityGroupId']
-        data.availability_zones = (Parsers::AvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.availability_zones = (AvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
         return data
       end
     end
@@ -797,11 +797,11 @@ module AWS::SDK::DirectoryService
       def self.parse(map)
         data = Types::DirectoryConnectSettingsDescription.new
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.customer_user_name = map['CustomerUserName']
         data.security_group_id = map['SecurityGroupId']
-        data.availability_zones = (Parsers::AvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.connect_ips = (Parsers::IpAddrs.parse(map['ConnectIps']) unless map['ConnectIps'].nil?)
+        data.availability_zones = (AvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.connect_ips = (IpAddrs.parse(map['ConnectIps']) unless map['ConnectIps'].nil?)
         return data
       end
     end
@@ -834,7 +834,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain_controllers = (Parsers::DomainControllers.parse(map['DomainControllers']) unless map['DomainControllers'].nil?)
+        data.domain_controllers = (DomainControllers.parse(map['DomainControllers']) unless map['DomainControllers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -843,7 +843,7 @@ module AWS::SDK::DirectoryService
     class DomainControllers
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainController.parse(value) unless value.nil?
+          DomainController.parse(value) unless value.nil?
         end
       end
     end
@@ -872,7 +872,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_topics = (Parsers::EventTopics.parse(map['EventTopics']) unless map['EventTopics'].nil?)
+        data.event_topics = (EventTopics.parse(map['EventTopics']) unless map['EventTopics'].nil?)
         data
       end
     end
@@ -880,7 +880,7 @@ module AWS::SDK::DirectoryService
     class EventTopics
       def self.parse(list)
         list.map do |value|
-          Parsers::EventTopic.parse(value) unless value.nil?
+          EventTopic.parse(value) unless value.nil?
         end
       end
     end
@@ -904,7 +904,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ldaps_settings_info = (Parsers::LDAPSSettingsInfo.parse(map['LDAPSSettingsInfo']) unless map['LDAPSSettingsInfo'].nil?)
+        data.ldaps_settings_info = (LDAPSSettingsInfo.parse(map['LDAPSSettingsInfo']) unless map['LDAPSSettingsInfo'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -913,7 +913,7 @@ module AWS::SDK::DirectoryService
     class LDAPSSettingsInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::LDAPSSettingInfo.parse(value) unless value.nil?
+          LDAPSSettingInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -935,7 +935,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.regions_description = (Parsers::RegionsDescription.parse(map['RegionsDescription']) unless map['RegionsDescription'].nil?)
+        data.regions_description = (RegionsDescription.parse(map['RegionsDescription']) unless map['RegionsDescription'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -944,7 +944,7 @@ module AWS::SDK::DirectoryService
     class RegionsDescription
       def self.parse(list)
         list.map do |value|
-          Parsers::RegionDescription.parse(value) unless value.nil?
+          RegionDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -956,7 +956,7 @@ module AWS::SDK::DirectoryService
         data.region_name = map['RegionName']
         data.region_type = map['RegionType']
         data.status = map['Status']
-        data.vpc_settings = (Parsers::DirectoryVpcSettings.parse(map['VpcSettings']) unless map['VpcSettings'].nil?)
+        data.vpc_settings = (DirectoryVpcSettings.parse(map['VpcSettings']) unless map['VpcSettings'].nil?)
         data.desired_number_of_domain_controllers = map['DesiredNumberOfDomainControllers']
         data.launch_time = Time.at(map['LaunchTime'].to_i) if map['LaunchTime']
         data.status_last_updated_date_time = Time.at(map['StatusLastUpdatedDateTime'].to_i) if map['StatusLastUpdatedDateTime']
@@ -969,7 +969,7 @@ module AWS::SDK::DirectoryService
       def self.parse(map)
         data = Types::DirectoryVpcSettings.new
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         return data
       end
     end
@@ -981,7 +981,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.shared_directories = (Parsers::SharedDirectories.parse(map['SharedDirectories']) unless map['SharedDirectories'].nil?)
+        data.shared_directories = (SharedDirectories.parse(map['SharedDirectories']) unless map['SharedDirectories'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -990,7 +990,7 @@ module AWS::SDK::DirectoryService
     class SharedDirectories
       def self.parse(list)
         list.map do |value|
-          Parsers::SharedDirectory.parse(value) unless value.nil?
+          SharedDirectory.parse(value) unless value.nil?
         end
       end
     end
@@ -1002,7 +1002,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshots = (Parsers::Snapshots.parse(map['Snapshots']) unless map['Snapshots'].nil?)
+        data.snapshots = (Snapshots.parse(map['Snapshots']) unless map['Snapshots'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1011,7 +1011,7 @@ module AWS::SDK::DirectoryService
     class Snapshots
       def self.parse(list)
         list.map do |value|
-          Parsers::Snapshot.parse(value) unless value.nil?
+          Snapshot.parse(value) unless value.nil?
         end
       end
     end
@@ -1036,7 +1036,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trusts = (Parsers::Trusts.parse(map['Trusts']) unless map['Trusts'].nil?)
+        data.trusts = (Trusts.parse(map['Trusts']) unless map['Trusts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1045,7 +1045,7 @@ module AWS::SDK::DirectoryService
     class Trusts
       def self.parse(list)
         list.map do |value|
-          Parsers::Trust.parse(value) unless value.nil?
+          Trust.parse(value) unless value.nil?
         end
       end
     end
@@ -1202,7 +1202,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.directory_limits = (Parsers::DirectoryLimits.parse(map['DirectoryLimits']) unless map['DirectoryLimits'].nil?)
+        data.directory_limits = (DirectoryLimits.parse(map['DirectoryLimits']) unless map['DirectoryLimits'].nil?)
         data
       end
     end
@@ -1230,7 +1230,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshot_limits = (Parsers::SnapshotLimits.parse(map['SnapshotLimits']) unless map['SnapshotLimits'].nil?)
+        data.snapshot_limits = (SnapshotLimits.parse(map['SnapshotLimits']) unless map['SnapshotLimits'].nil?)
         data
       end
     end
@@ -1253,7 +1253,7 @@ module AWS::SDK::DirectoryService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.certificates_info = (Parsers::CertificatesInfo.parse(map['CertificatesInfo']) unless map['CertificatesInfo'].nil?)
+        data.certificates_info = (CertificatesInfo.parse(map['CertificatesInfo']) unless map['CertificatesInfo'].nil?)
         data
       end
     end
@@ -1261,7 +1261,7 @@ module AWS::SDK::DirectoryService
     class CertificatesInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::CertificateInfo.parse(value) unless value.nil?
+          CertificateInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1285,7 +1285,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ip_routes_info = (Parsers::IpRoutesInfo.parse(map['IpRoutesInfo']) unless map['IpRoutesInfo'].nil?)
+        data.ip_routes_info = (IpRoutesInfo.parse(map['IpRoutesInfo']) unless map['IpRoutesInfo'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1294,7 +1294,7 @@ module AWS::SDK::DirectoryService
     class IpRoutesInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::IpRouteInfo.parse(value) unless value.nil?
+          IpRouteInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1319,7 +1319,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.log_subscriptions = (Parsers::LogSubscriptions.parse(map['LogSubscriptions']) unless map['LogSubscriptions'].nil?)
+        data.log_subscriptions = (LogSubscriptions.parse(map['LogSubscriptions']) unless map['LogSubscriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1328,7 +1328,7 @@ module AWS::SDK::DirectoryService
     class LogSubscriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::LogSubscription.parse(value) unless value.nil?
+          LogSubscription.parse(value) unless value.nil?
         end
       end
     end
@@ -1350,7 +1350,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schema_extensions_info = (Parsers::SchemaExtensionsInfo.parse(map['SchemaExtensionsInfo']) unless map['SchemaExtensionsInfo'].nil?)
+        data.schema_extensions_info = (SchemaExtensionsInfo.parse(map['SchemaExtensionsInfo']) unless map['SchemaExtensionsInfo'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1359,7 +1359,7 @@ module AWS::SDK::DirectoryService
     class SchemaExtensionsInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaExtensionInfo.parse(value) unless value.nil?
+          SchemaExtensionInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1385,7 +1385,7 @@ module AWS::SDK::DirectoryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1394,7 +1394,7 @@ module AWS::SDK::DirectoryService
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

@@ -18,7 +18,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -141,7 +141,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -319,7 +319,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -335,7 +335,7 @@ module AWS::SDK::Route53
         xml = xml.at('Error')
         xml.at('messages') do |node|
           children = node.children('Message')
-          data.messages = Parsers::ErrorMessages.parse(children)
+          data.messages = ErrorMessages.parse(children)
         end
         xml.at('message') do |node|
           data.message = (node.text || '')
@@ -404,7 +404,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Collection') do |node|
-          data.collection = Parsers::CidrCollection.parse(node)
+          data.collection = CidrCollection.parse(node)
         end
         data
       end
@@ -453,7 +453,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('HealthCheck') do |node|
-          data.health_check = Parsers::HealthCheck.parse(node)
+          data.health_check = HealthCheck.parse(node)
         end
         data
       end
@@ -469,16 +469,16 @@ module AWS::SDK::Route53
           data.caller_reference = (node.text || '')
         end
         xml.at('LinkedService') do |node|
-          data.linked_service = Parsers::LinkedService.parse(node)
+          data.linked_service = LinkedService.parse(node)
         end
         xml.at('HealthCheckConfig') do |node|
-          data.health_check_config = Parsers::HealthCheckConfig.parse(node)
+          data.health_check_config = HealthCheckConfig.parse(node)
         end
         xml.at('HealthCheckVersion') do |node|
           data.health_check_version = node.text&.to_i
         end
         xml.at('CloudWatchAlarmConfiguration') do |node|
-          data.cloud_watch_alarm_configuration = Parsers::CloudWatchAlarmConfiguration.parse(node)
+          data.cloud_watch_alarm_configuration = CloudWatchAlarmConfiguration.parse(node)
         end
         return data
       end
@@ -510,7 +510,7 @@ module AWS::SDK::Route53
         end
         xml.at('Dimensions') do |node|
           children = node.children('Dimension')
-          data.dimensions = Parsers::DimensionList.parse(children)
+          data.dimensions = DimensionList.parse(children)
         end
         return data
       end
@@ -520,7 +520,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Dimension.parse(node)
+          data << Dimension.parse(node)
         end
         data
       end
@@ -580,17 +580,17 @@ module AWS::SDK::Route53
         end
         xml.at('ChildHealthChecks') do |node|
           children = node.children('ChildHealthCheck')
-          data.child_health_checks = Parsers::ChildHealthCheckList.parse(children)
+          data.child_health_checks = ChildHealthCheckList.parse(children)
         end
         xml.at('EnableSNI') do |node|
           data.enable_sni = (node.text == 'true')
         end
         xml.at('Regions') do |node|
           children = node.children('Region')
-          data.regions = Parsers::HealthCheckRegionList.parse(children)
+          data.regions = HealthCheckRegionList.parse(children)
         end
         xml.at('AlarmIdentifier') do |node|
-          data.alarm_identifier = Parsers::AlarmIdentifier.parse(node)
+          data.alarm_identifier = AlarmIdentifier.parse(node)
         end
         xml.at('InsufficientDataHealthStatus') do |node|
           data.insufficient_data_health_status = (node.text || '')
@@ -687,16 +687,16 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('HostedZone') do |node|
-          data.hosted_zone = Parsers::HostedZone.parse(node)
+          data.hosted_zone = HostedZone.parse(node)
         end
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         xml.at('DelegationSet') do |node|
-          data.delegation_set = Parsers::DelegationSet.parse(node)
+          data.delegation_set = DelegationSet.parse(node)
         end
         xml.at('VPC') do |node|
-          data.vpc = Parsers::VPC.parse(node)
+          data.vpc = VPC.parse(node)
         end
         data
       end
@@ -726,7 +726,7 @@ module AWS::SDK::Route53
         end
         xml.at('NameServers') do |node|
           children = node.children('NameServer')
-          data.name_servers = Parsers::DelegationSetNameServers.parse(children)
+          data.name_servers = DelegationSetNameServers.parse(children)
         end
         return data
       end
@@ -755,13 +755,13 @@ module AWS::SDK::Route53
           data.caller_reference = (node.text || '')
         end
         xml.at('Config') do |node|
-          data.config = Parsers::HostedZoneConfig.parse(node)
+          data.config = HostedZoneConfig.parse(node)
         end
         xml.at('ResourceRecordSetCount') do |node|
           data.resource_record_set_count = node.text&.to_i
         end
         xml.at('LinkedService') do |node|
-          data.linked_service = Parsers::LinkedService.parse(node)
+          data.linked_service = LinkedService.parse(node)
         end
         return data
       end
@@ -879,10 +879,10 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         xml.at('KeySigningKey') do |node|
-          data.key_signing_key = Parsers::KeySigningKey.parse(node)
+          data.key_signing_key = KeySigningKey.parse(node)
         end
         data
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('QueryLoggingConfig') do |node|
-          data.query_logging_config = Parsers::QueryLoggingConfig.parse(node)
+          data.query_logging_config = QueryLoggingConfig.parse(node)
         end
         data
       end
@@ -1088,7 +1088,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('DelegationSet') do |node|
-          data.delegation_set = Parsers::DelegationSet.parse(node)
+          data.delegation_set = DelegationSet.parse(node)
         end
         data
       end
@@ -1148,7 +1148,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicy') do |node|
-          data.traffic_policy = Parsers::TrafficPolicy.parse(node)
+          data.traffic_policy = TrafficPolicy.parse(node)
         end
         data
       end
@@ -1233,7 +1233,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicyInstance') do |node|
-          data.traffic_policy_instance = Parsers::TrafficPolicyInstance.parse(node)
+          data.traffic_policy_instance = TrafficPolicyInstance.parse(node)
         end
         data
       end
@@ -1327,7 +1327,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicy') do |node|
-          data.traffic_policy = Parsers::TrafficPolicy.parse(node)
+          data.traffic_policy = TrafficPolicy.parse(node)
         end
         data
       end
@@ -1359,7 +1359,7 @@ module AWS::SDK::Route53
           data.hosted_zone_id = (node.text || '')
         end
         xml.at('VPC') do |node|
-          data.vpc = Parsers::VPC.parse(node)
+          data.vpc = VPC.parse(node)
         end
         data
       end
@@ -1388,7 +1388,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -1484,7 +1484,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -1513,7 +1513,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -1657,7 +1657,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -1686,7 +1686,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -1730,7 +1730,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -1774,7 +1774,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Limit') do |node|
-          data.limit = Parsers::AccountLimit.parse(node)
+          data.limit = AccountLimit.parse(node)
         end
         xml.at('Count') do |node|
           data.count = node.text&.to_i
@@ -1804,7 +1804,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ChangeInfo') do |node|
-          data.change_info = Parsers::ChangeInfo.parse(node)
+          data.change_info = ChangeInfo.parse(node)
         end
         data
       end
@@ -1834,7 +1834,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('CheckerIpRanges') do |node|
           children = node.children('member')
-          data.checker_ip_ranges = Parsers::CheckerIpRanges.parse(children)
+          data.checker_ip_ranges = CheckerIpRanges.parse(children)
         end
         data
       end
@@ -1858,11 +1858,11 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Status') do |node|
-          data.status = Parsers::DNSSECStatus.parse(node)
+          data.status = DNSSECStatus.parse(node)
         end
         xml.at('KeySigningKeys') do |node|
           children = node.children('member')
-          data.key_signing_keys = Parsers::KeySigningKeys.parse(children)
+          data.key_signing_keys = KeySigningKeys.parse(children)
         end
         data
       end
@@ -1872,7 +1872,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::KeySigningKey.parse(node)
+          data << KeySigningKey.parse(node)
         end
         data
       end
@@ -1899,7 +1899,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('GeoLocationDetails') do |node|
-          data.geo_location_details = Parsers::GeoLocationDetails.parse(node)
+          data.geo_location_details = GeoLocationDetails.parse(node)
         end
         data
       end
@@ -1953,7 +1953,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('HealthCheck') do |node|
-          data.health_check = Parsers::HealthCheck.parse(node)
+          data.health_check = HealthCheck.parse(node)
         end
         data
       end
@@ -1997,7 +1997,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('HealthCheckObservations') do |node|
           children = node.children('HealthCheckObservation')
-          data.health_check_observations = Parsers::HealthCheckObservations.parse(children)
+          data.health_check_observations = HealthCheckObservations.parse(children)
         end
         data
       end
@@ -2007,7 +2007,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HealthCheckObservation.parse(node)
+          data << HealthCheckObservation.parse(node)
         end
         data
       end
@@ -2023,7 +2023,7 @@ module AWS::SDK::Route53
           data.ip_address = (node.text || '')
         end
         xml.at('StatusReport') do |node|
-          data.status_report = Parsers::StatusReport.parse(node)
+          data.status_report = StatusReport.parse(node)
         end
         return data
       end
@@ -2051,7 +2051,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('HealthCheckObservations') do |node|
           children = node.children('HealthCheckObservation')
-          data.health_check_observations = Parsers::HealthCheckObservations.parse(children)
+          data.health_check_observations = HealthCheckObservations.parse(children)
         end
         data
       end
@@ -2065,14 +2065,14 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('HostedZone') do |node|
-          data.hosted_zone = Parsers::HostedZone.parse(node)
+          data.hosted_zone = HostedZone.parse(node)
         end
         xml.at('DelegationSet') do |node|
-          data.delegation_set = Parsers::DelegationSet.parse(node)
+          data.delegation_set = DelegationSet.parse(node)
         end
         xml.at('VPCs') do |node|
           children = node.children('VPC')
-          data.vp_cs = Parsers::VPCs.parse(children)
+          data.vp_cs = VPCs.parse(children)
         end
         data
       end
@@ -2082,7 +2082,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VPC.parse(node)
+          data << VPC.parse(node)
         end
         data
       end
@@ -2110,7 +2110,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Limit') do |node|
-          data.limit = Parsers::HostedZoneLimit.parse(node)
+          data.limit = HostedZoneLimit.parse(node)
         end
         xml.at('Count') do |node|
           data.count = node.text&.to_i
@@ -2155,7 +2155,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('QueryLoggingConfig') do |node|
-          data.query_logging_config = Parsers::QueryLoggingConfig.parse(node)
+          data.query_logging_config = QueryLoggingConfig.parse(node)
         end
         data
       end
@@ -2169,7 +2169,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('DelegationSet') do |node|
-          data.delegation_set = Parsers::DelegationSet.parse(node)
+          data.delegation_set = DelegationSet.parse(node)
         end
         data
       end
@@ -2183,7 +2183,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Limit') do |node|
-          data.limit = Parsers::ReusableDelegationSetLimit.parse(node)
+          data.limit = ReusableDelegationSetLimit.parse(node)
         end
         xml.at('Count') do |node|
           data.count = node.text&.to_i
@@ -2213,7 +2213,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicy') do |node|
-          data.traffic_policy = Parsers::TrafficPolicy.parse(node)
+          data.traffic_policy = TrafficPolicy.parse(node)
         end
         data
       end
@@ -2227,7 +2227,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicyInstance') do |node|
-          data.traffic_policy_instance = Parsers::TrafficPolicyInstance.parse(node)
+          data.traffic_policy_instance = TrafficPolicyInstance.parse(node)
         end
         data
       end
@@ -2259,7 +2259,7 @@ module AWS::SDK::Route53
         end
         xml.at('CidrBlocks') do |node|
           children = node.children('member')
-          data.cidr_blocks = Parsers::CidrBlockSummaries.parse(children)
+          data.cidr_blocks = CidrBlockSummaries.parse(children)
         end
         data
       end
@@ -2269,7 +2269,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CidrBlockSummary.parse(node)
+          data << CidrBlockSummary.parse(node)
         end
         data
       end
@@ -2315,7 +2315,7 @@ module AWS::SDK::Route53
         end
         xml.at('CidrCollections') do |node|
           children = node.children('member')
-          data.cidr_collections = Parsers::CollectionSummaries.parse(children)
+          data.cidr_collections = CollectionSummaries.parse(children)
         end
         data
       end
@@ -2325,7 +2325,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CollectionSummary.parse(node)
+          data << CollectionSummary.parse(node)
         end
         data
       end
@@ -2362,7 +2362,7 @@ module AWS::SDK::Route53
         end
         xml.at('CidrLocations') do |node|
           children = node.children('member')
-          data.cidr_locations = Parsers::LocationSummaries.parse(children)
+          data.cidr_locations = LocationSummaries.parse(children)
         end
         data
       end
@@ -2372,7 +2372,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocationSummary.parse(node)
+          data << LocationSummary.parse(node)
         end
         data
       end
@@ -2397,7 +2397,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('GeoLocationDetailsList') do |node|
           children = node.children('GeoLocationDetails')
-          data.geo_location_details_list = Parsers::GeoLocationDetailsList.parse(children)
+          data.geo_location_details_list = GeoLocationDetailsList.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2422,7 +2422,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GeoLocationDetails.parse(node)
+          data << GeoLocationDetails.parse(node)
         end
         data
       end
@@ -2437,7 +2437,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('HealthChecks') do |node|
           children = node.children('HealthCheck')
-          data.health_checks = Parsers::HealthChecks.parse(children)
+          data.health_checks = HealthChecks.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -2459,7 +2459,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HealthCheck.parse(node)
+          data << HealthCheck.parse(node)
         end
         data
       end
@@ -2474,7 +2474,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('HostedZones') do |node|
           children = node.children('HostedZone')
-          data.hosted_zones = Parsers::HostedZones.parse(children)
+          data.hosted_zones = HostedZones.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -2496,7 +2496,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HostedZone.parse(node)
+          data << HostedZone.parse(node)
         end
         data
       end
@@ -2511,7 +2511,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('HostedZones') do |node|
           children = node.children('HostedZone')
-          data.hosted_zones = Parsers::HostedZones.parse(children)
+          data.hosted_zones = HostedZones.parse(children)
         end
         xml.at('DNSName') do |node|
           data.dns_name = (node.text || '')
@@ -2544,7 +2544,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('HostedZoneSummaries') do |node|
           children = node.children('HostedZoneSummary')
-          data.hosted_zone_summaries = Parsers::HostedZoneSummaries.parse(children)
+          data.hosted_zone_summaries = HostedZoneSummaries.parse(children)
         end
         xml.at('MaxItems') do |node|
           data.max_items = node.text&.to_i
@@ -2560,7 +2560,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HostedZoneSummary.parse(node)
+          data << HostedZoneSummary.parse(node)
         end
         data
       end
@@ -2576,7 +2576,7 @@ module AWS::SDK::Route53
           data.name = (node.text || '')
         end
         xml.at('Owner') do |node|
-          data.owner = Parsers::HostedZoneOwner.parse(node)
+          data.owner = HostedZoneOwner.parse(node)
         end
         return data
       end
@@ -2619,7 +2619,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('QueryLoggingConfigs') do |node|
           children = node.children('QueryLoggingConfig')
-          data.query_logging_configs = Parsers::QueryLoggingConfigs.parse(children)
+          data.query_logging_configs = QueryLoggingConfigs.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2632,7 +2632,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::QueryLoggingConfig.parse(node)
+          data << QueryLoggingConfig.parse(node)
         end
         data
       end
@@ -2647,7 +2647,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('ResourceRecordSets') do |node|
           children = node.children('ResourceRecordSet')
-          data.resource_record_sets = Parsers::ResourceRecordSets.parse(children)
+          data.resource_record_sets = ResourceRecordSets.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2672,7 +2672,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResourceRecordSet.parse(node)
+          data << ResourceRecordSet.parse(node)
         end
         data
       end
@@ -2697,7 +2697,7 @@ module AWS::SDK::Route53
           data.region = (node.text || '')
         end
         xml.at('GeoLocation') do |node|
-          data.geo_location = Parsers::GeoLocation.parse(node)
+          data.geo_location = GeoLocation.parse(node)
         end
         xml.at('Failover') do |node|
           data.failover = (node.text || '')
@@ -2710,10 +2710,10 @@ module AWS::SDK::Route53
         end
         xml.at('ResourceRecords') do |node|
           children = node.children('ResourceRecord')
-          data.resource_records = Parsers::ResourceRecords.parse(children)
+          data.resource_records = ResourceRecords.parse(children)
         end
         xml.at('AliasTarget') do |node|
-          data.alias_target = Parsers::AliasTarget.parse(node)
+          data.alias_target = AliasTarget.parse(node)
         end
         xml.at('HealthCheckId') do |node|
           data.health_check_id = (node.text || '')
@@ -2722,7 +2722,7 @@ module AWS::SDK::Route53
           data.traffic_policy_instance_id = (node.text || '')
         end
         xml.at('CidrRoutingConfig') do |node|
-          data.cidr_routing_config = Parsers::CidrRoutingConfig.parse(node)
+          data.cidr_routing_config = CidrRoutingConfig.parse(node)
         end
         return data
       end
@@ -2761,7 +2761,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResourceRecord.parse(node)
+          data << ResourceRecord.parse(node)
         end
         data
       end
@@ -2802,7 +2802,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('DelegationSets') do |node|
           children = node.children('DelegationSet')
-          data.delegation_sets = Parsers::DelegationSets.parse(children)
+          data.delegation_sets = DelegationSets.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -2824,7 +2824,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DelegationSet.parse(node)
+          data << DelegationSet.parse(node)
         end
         data
       end
@@ -2838,7 +2838,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ResourceTagSet') do |node|
-          data.resource_tag_set = Parsers::ResourceTagSet.parse(node)
+          data.resource_tag_set = ResourceTagSet.parse(node)
         end
         data
       end
@@ -2855,7 +2855,7 @@ module AWS::SDK::Route53
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2865,7 +2865,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -2893,7 +2893,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('ResourceTagSets') do |node|
           children = node.children('ResourceTagSet')
-          data.resource_tag_sets = Parsers::ResourceTagSetList.parse(children)
+          data.resource_tag_sets = ResourceTagSetList.parse(children)
         end
         data
       end
@@ -2903,7 +2903,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResourceTagSet.parse(node)
+          data << ResourceTagSet.parse(node)
         end
         data
       end
@@ -2918,7 +2918,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicySummaries') do |node|
           children = node.children('TrafficPolicySummary')
-          data.traffic_policy_summaries = Parsers::TrafficPolicySummaries.parse(children)
+          data.traffic_policy_summaries = TrafficPolicySummaries.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2937,7 +2937,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrafficPolicySummary.parse(node)
+          data << TrafficPolicySummary.parse(node)
         end
         data
       end
@@ -2974,7 +2974,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicyInstances') do |node|
           children = node.children('TrafficPolicyInstance')
-          data.traffic_policy_instances = Parsers::TrafficPolicyInstances.parse(children)
+          data.traffic_policy_instances = TrafficPolicyInstances.parse(children)
         end
         xml.at('HostedZoneIdMarker') do |node|
           data.hosted_zone_id_marker = (node.text || '')
@@ -2999,7 +2999,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrafficPolicyInstance.parse(node)
+          data << TrafficPolicyInstance.parse(node)
         end
         data
       end
@@ -3014,7 +3014,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicyInstances') do |node|
           children = node.children('TrafficPolicyInstance')
-          data.traffic_policy_instances = Parsers::TrafficPolicyInstances.parse(children)
+          data.traffic_policy_instances = TrafficPolicyInstances.parse(children)
         end
         xml.at('TrafficPolicyInstanceNameMarker') do |node|
           data.traffic_policy_instance_name_marker = (node.text || '')
@@ -3041,7 +3041,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicyInstances') do |node|
           children = node.children('TrafficPolicyInstance')
-          data.traffic_policy_instances = Parsers::TrafficPolicyInstances.parse(children)
+          data.traffic_policy_instances = TrafficPolicyInstances.parse(children)
         end
         xml.at('HostedZoneIdMarker') do |node|
           data.hosted_zone_id_marker = (node.text || '')
@@ -3071,7 +3071,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicies') do |node|
           children = node.children('TrafficPolicy')
-          data.traffic_policies = Parsers::TrafficPolicies.parse(children)
+          data.traffic_policies = TrafficPolicies.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3090,7 +3090,7 @@ module AWS::SDK::Route53
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrafficPolicy.parse(node)
+          data << TrafficPolicy.parse(node)
         end
         data
       end
@@ -3111,7 +3111,7 @@ module AWS::SDK::Route53
         end
         xml.at('VPCs') do |node|
           children = node.children('VPC')
-          data.vp_cs = Parsers::VPCs.parse(children)
+          data.vp_cs = VPCs.parse(children)
         end
         data
       end
@@ -3135,7 +3135,7 @@ module AWS::SDK::Route53
         end
         xml.at('RecordData') do |node|
           children = node.children('RecordDataEntry')
-          data.record_data = Parsers::RecordData.parse(children)
+          data.record_data = RecordData.parse(children)
         end
         xml.at('ResponseCode') do |node|
           data.response_code = (node.text || '')
@@ -3165,7 +3165,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('HealthCheck') do |node|
-          data.health_check = Parsers::HealthCheck.parse(node)
+          data.health_check = HealthCheck.parse(node)
         end
         data
       end
@@ -3194,7 +3194,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('HostedZone') do |node|
-          data.hosted_zone = Parsers::HostedZone.parse(node)
+          data.hosted_zone = HostedZone.parse(node)
         end
         data
       end
@@ -3208,7 +3208,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicy') do |node|
-          data.traffic_policy = Parsers::TrafficPolicy.parse(node)
+          data.traffic_policy = TrafficPolicy.parse(node)
         end
         data
       end
@@ -3222,7 +3222,7 @@ module AWS::SDK::Route53
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('TrafficPolicyInstance') do |node|
-          data.traffic_policy_instance = Parsers::TrafficPolicyInstance.parse(node)
+          data.traffic_policy_instance = TrafficPolicyInstance.parse(node)
         end
         data
       end

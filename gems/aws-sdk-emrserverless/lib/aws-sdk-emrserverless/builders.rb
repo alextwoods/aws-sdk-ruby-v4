@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EMRServerless
   module Builders
 
@@ -45,13 +47,13 @@ module AWS::SDK::EMRServerless
         data['releaseLabel'] = input[:release_label] unless input[:release_label].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['initialCapacity'] = Builders::InitialCapacityConfigMap.build(input[:initial_capacity]) unless input[:initial_capacity].nil?
-        data['maximumCapacity'] = Builders::MaximumAllowedResources.build(input[:maximum_capacity]) unless input[:maximum_capacity].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['autoStartConfiguration'] = Builders::AutoStartConfig.build(input[:auto_start_configuration]) unless input[:auto_start_configuration].nil?
-        data['autoStopConfiguration'] = Builders::AutoStopConfig.build(input[:auto_stop_configuration]) unless input[:auto_stop_configuration].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['initialCapacity'] = InitialCapacityConfigMap.build(input[:initial_capacity]) unless input[:initial_capacity].nil?
+        data['maximumCapacity'] = MaximumAllowedResources.build(input[:maximum_capacity]) unless input[:maximum_capacity].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['autoStartConfiguration'] = AutoStartConfig.build(input[:auto_start_configuration]) unless input[:auto_start_configuration].nil?
+        data['autoStopConfiguration'] = AutoStopConfig.build(input[:auto_stop_configuration]) unless input[:auto_stop_configuration].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,8 +61,8 @@ module AWS::SDK::EMRServerless
     class NetworkConfiguration
       def self.build(input)
         data = {}
-        data['subnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['securityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -133,7 +135,7 @@ module AWS::SDK::EMRServerless
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::InitialCapacityConfig.build(value) unless value.nil?
+          data[key] = InitialCapacityConfig.build(value) unless value.nil?
         end
         data
       end
@@ -144,7 +146,7 @@ module AWS::SDK::EMRServerless
       def self.build(input)
         data = {}
         data['workerCount'] = input[:worker_count] unless input[:worker_count].nil?
-        data['workerConfiguration'] = Builders::WorkerResourceConfig.build(input[:worker_configuration]) unless input[:worker_configuration].nil?
+        data['workerConfiguration'] = WorkerResourceConfig.build(input[:worker_configuration]) unless input[:worker_configuration].nil?
         data
       end
     end
@@ -333,12 +335,12 @@ module AWS::SDK::EMRServerless
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['executionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
-        data['jobDriver'] = Builders::JobDriver.build(input[:job_driver]) unless input[:job_driver].nil?
-        data['configurationOverrides'] = Builders::ConfigurationOverrides.build(input[:configuration_overrides]) unless input[:configuration_overrides].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['jobDriver'] = JobDriver.build(input[:job_driver]) unless input[:job_driver].nil?
+        data['configurationOverrides'] = ConfigurationOverrides.build(input[:configuration_overrides]) unless input[:configuration_overrides].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['executionTimeoutMinutes'] = input[:execution_timeout_minutes] unless input[:execution_timeout_minutes].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -346,8 +348,8 @@ module AWS::SDK::EMRServerless
     class ConfigurationOverrides
       def self.build(input)
         data = {}
-        data['applicationConfiguration'] = Builders::ConfigurationList.build(input[:application_configuration]) unless input[:application_configuration].nil?
-        data['monitoringConfiguration'] = Builders::MonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
+        data['applicationConfiguration'] = ConfigurationList.build(input[:application_configuration]) unless input[:application_configuration].nil?
+        data['monitoringConfiguration'] = MonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
         data
       end
     end
@@ -356,8 +358,8 @@ module AWS::SDK::EMRServerless
     class MonitoringConfiguration
       def self.build(input)
         data = {}
-        data['s3MonitoringConfiguration'] = Builders::S3MonitoringConfiguration.build(input[:s3_monitoring_configuration]) unless input[:s3_monitoring_configuration].nil?
-        data['managedPersistenceMonitoringConfiguration'] = Builders::ManagedPersistenceMonitoringConfiguration.build(input[:managed_persistence_monitoring_configuration]) unless input[:managed_persistence_monitoring_configuration].nil?
+        data['s3MonitoringConfiguration'] = S3MonitoringConfiguration.build(input[:s3_monitoring_configuration]) unless input[:s3_monitoring_configuration].nil?
+        data['managedPersistenceMonitoringConfiguration'] = ManagedPersistenceMonitoringConfiguration.build(input[:managed_persistence_monitoring_configuration]) unless input[:managed_persistence_monitoring_configuration].nil?
         data
       end
     end
@@ -387,7 +389,7 @@ module AWS::SDK::EMRServerless
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Configuration.build(element) unless element.nil?
+          data << Configuration.build(element) unless element.nil?
         end
         data
       end
@@ -398,8 +400,8 @@ module AWS::SDK::EMRServerless
       def self.build(input)
         data = {}
         data['classification'] = input[:classification] unless input[:classification].nil?
-        data['properties'] = Builders::SensitivePropertiesMap.build(input[:properties]) unless input[:properties].nil?
-        data['configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['properties'] = SensitivePropertiesMap.build(input[:properties]) unless input[:properties].nil?
+        data['configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
         data
       end
     end
@@ -421,9 +423,9 @@ module AWS::SDK::EMRServerless
         data = {}
         case input
         when Types::JobDriver::SparkSubmit
-          data['sparkSubmit'] = (Builders::SparkSubmit.build(input) unless input.nil?)
+          data['sparkSubmit'] = (SparkSubmit.build(input) unless input.nil?)
         when Types::JobDriver::Hive
-          data['hive'] = (Builders::Hive.build(input) unless input.nil?)
+          data['hive'] = (Hive.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::JobDriver"
@@ -449,7 +451,7 @@ module AWS::SDK::EMRServerless
       def self.build(input)
         data = {}
         data['entryPoint'] = input[:entry_point] unless input[:entry_point].nil?
-        data['entryPointArguments'] = Builders::EntryPointArguments.build(input[:entry_point_arguments]) unless input[:entry_point_arguments].nil?
+        data['entryPointArguments'] = EntryPointArguments.build(input[:entry_point_arguments]) unless input[:entry_point_arguments].nil?
         data['sparkSubmitParameters'] = input[:spark_submit_parameters] unless input[:spark_submit_parameters].nil?
         data
       end
@@ -500,8 +502,8 @@ module AWS::SDK::EMRServerless
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -556,12 +558,12 @@ module AWS::SDK::EMRServerless
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['initialCapacity'] = Builders::InitialCapacityConfigMap.build(input[:initial_capacity]) unless input[:initial_capacity].nil?
-        data['maximumCapacity'] = Builders::MaximumAllowedResources.build(input[:maximum_capacity]) unless input[:maximum_capacity].nil?
-        data['autoStartConfiguration'] = Builders::AutoStartConfig.build(input[:auto_start_configuration]) unless input[:auto_start_configuration].nil?
-        data['autoStopConfiguration'] = Builders::AutoStopConfig.build(input[:auto_stop_configuration]) unless input[:auto_stop_configuration].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['initialCapacity'] = InitialCapacityConfigMap.build(input[:initial_capacity]) unless input[:initial_capacity].nil?
+        data['maximumCapacity'] = MaximumAllowedResources.build(input[:maximum_capacity]) unless input[:maximum_capacity].nil?
+        data['autoStartConfiguration'] = AutoStartConfig.build(input[:auto_start_configuration]) unless input[:auto_start_configuration].nil?
+        data['autoStopConfiguration'] = AutoStopConfig.build(input[:auto_stop_configuration]) unless input[:auto_stop_configuration].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

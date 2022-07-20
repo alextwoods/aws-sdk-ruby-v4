@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Wisdom
   module Builders
 
@@ -24,9 +26,9 @@ module AWS::SDK::Wisdom
         data['name'] = input[:name] unless input[:name].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['serverSideEncryptionConfiguration'] = Builders::ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['serverSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -68,10 +70,10 @@ module AWS::SDK::Wisdom
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['associationType'] = input[:association_type] unless input[:association_type].nil?
-        data['association'] = Builders::AssistantAssociationInputData.build(input[:association]) unless input[:association].nil?
+        data['association'] = AssistantAssociationInputData.build(input[:association]) unless input[:association].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -111,11 +113,11 @@ module AWS::SDK::Wisdom
         data['name'] = input[:name] unless input[:name].nil?
         data['title'] = input[:title] unless input[:title].nil?
         data['overrideLinkOutUri'] = input[:override_link_out_uri] unless input[:override_link_out_uri].nil?
-        data['metadata'] = Builders::ContentMetadata.build(input[:metadata]) unless input[:metadata].nil?
+        data['metadata'] = ContentMetadata.build(input[:metadata]) unless input[:metadata].nil?
         data['uploadId'] = input[:upload_id] unless input[:upload_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,12 +145,12 @@ module AWS::SDK::Wisdom
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['knowledgeBaseType'] = input[:knowledge_base_type] unless input[:knowledge_base_type].nil?
-        data['sourceConfiguration'] = Builders::SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
-        data['renderingConfiguration'] = Builders::RenderingConfiguration.build(input[:rendering_configuration]) unless input[:rendering_configuration].nil?
-        data['serverSideEncryptionConfiguration'] = Builders::ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
+        data['sourceConfiguration'] = SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
+        data['renderingConfiguration'] = RenderingConfiguration.build(input[:rendering_configuration]) unless input[:rendering_configuration].nil?
+        data['serverSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -167,7 +169,7 @@ module AWS::SDK::Wisdom
         data = {}
         case input
         when Types::SourceConfiguration::AppIntegrations
-          data['appIntegrations'] = (Builders::AppIntegrationsConfiguration.build(input) unless input.nil?)
+          data['appIntegrations'] = (AppIntegrationsConfiguration.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::SourceConfiguration"
@@ -182,7 +184,7 @@ module AWS::SDK::Wisdom
       def self.build(input)
         data = {}
         data['appIntegrationArn'] = input[:app_integration_arn] unless input[:app_integration_arn].nil?
-        data['objectFields'] = Builders::ObjectFieldsList.build(input[:object_fields]) unless input[:object_fields].nil?
+        data['objectFields'] = ObjectFieldsList.build(input[:object_fields]) unless input[:object_fields].nil?
         data
       end
     end
@@ -218,8 +220,8 @@ module AWS::SDK::Wisdom
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -540,8 +542,8 @@ module AWS::SDK::Wisdom
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['recommendationIds'] = Builders::RecommendationIdList.build(input[:recommendation_ids]) unless input[:recommendation_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationIds'] = RecommendationIdList.build(input[:recommendation_ids]) unless input[:recommendation_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -576,7 +578,7 @@ module AWS::SDK::Wisdom
         data['queryText'] = input[:query_text] unless input[:query_text].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -616,8 +618,8 @@ module AWS::SDK::Wisdom
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['searchExpression'] = Builders::SearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['searchExpression'] = SearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,7 +627,7 @@ module AWS::SDK::Wisdom
     class SearchExpression
       def self.build(input)
         data = {}
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data
       end
     end
@@ -635,7 +637,7 @@ module AWS::SDK::Wisdom
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -671,8 +673,8 @@ module AWS::SDK::Wisdom
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['searchExpression'] = Builders::SearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['searchExpression'] = SearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::Wisdom
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -715,8 +717,8 @@ module AWS::SDK::Wisdom
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -778,9 +780,9 @@ module AWS::SDK::Wisdom
         data['title'] = input[:title] unless input[:title].nil?
         data['overrideLinkOutUri'] = input[:override_link_out_uri] unless input[:override_link_out_uri].nil?
         data['removeOverrideLinkOutUri'] = input[:remove_override_link_out_uri] unless input[:remove_override_link_out_uri].nil?
-        data['metadata'] = Builders::ContentMetadata.build(input[:metadata]) unless input[:metadata].nil?
+        data['metadata'] = ContentMetadata.build(input[:metadata]) unless input[:metadata].nil?
         data['uploadId'] = input[:upload_id] unless input[:upload_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -802,7 +804,7 @@ module AWS::SDK::Wisdom
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['templateUri'] = input[:template_uri] unless input[:template_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

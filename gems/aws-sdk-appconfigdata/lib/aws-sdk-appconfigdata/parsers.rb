@@ -30,7 +30,7 @@ module AWS::SDK::AppConfigData
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.details = (Parsers::BadRequestDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.details = (BadRequestDetails.parse(map['Details']) unless map['Details'].nil?)
         data
       end
     end
@@ -40,7 +40,7 @@ module AWS::SDK::AppConfigData
         key, value = map.flatten
         case key
         when 'InvalidParameters'
-          value = (Parsers::InvalidParameterMap.parse(value) unless value.nil?)
+          value = (InvalidParameterMap.parse(value) unless value.nil?)
           Types::BadRequestDetails::InvalidParameters.new(value) if value
         else
           Types::BadRequestDetails::Unknown.new({name: key, value: value})
@@ -52,7 +52,7 @@ module AWS::SDK::AppConfigData
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::InvalidParameterDetail.parse(value) unless value.nil?
+          data[key] = InvalidParameterDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -83,7 +83,7 @@ module AWS::SDK::AppConfigData
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.resource_type = map['ResourceType']
-        data.referenced_by = (Parsers::StringMap.parse(map['ReferencedBy']) unless map['ReferencedBy'].nil?)
+        data.referenced_by = (StringMap.parse(map['ReferencedBy']) unless map['ReferencedBy'].nil?)
         data
       end
     end

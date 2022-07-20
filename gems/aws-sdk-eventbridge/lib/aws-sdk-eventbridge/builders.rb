@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EventBridge
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.ActivateEventSource'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.CancelReplay'
         data = {}
         data['ReplayName'] = input[:replay_name] unless input[:replay_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::EventBridge
         data['InvocationEndpoint'] = input[:invocation_endpoint] unless input[:invocation_endpoint].nil?
         data['HttpMethod'] = input[:http_method] unless input[:http_method].nil?
         data['InvocationRateLimitPerSecond'] = input[:invocation_rate_limit_per_second] unless input[:invocation_rate_limit_per_second].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::EventBridge
         data['Description'] = input[:description] unless input[:description].nil?
         data['EventPattern'] = input[:event_pattern] unless input[:event_pattern].nil?
         data['RetentionDays'] = input[:retention_days] unless input[:retention_days].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,8 +84,8 @@ module AWS::SDK::EventBridge
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['AuthorizationType'] = input[:authorization_type] unless input[:authorization_type].nil?
-        data['AuthParameters'] = Builders::CreateConnectionAuthRequestParameters.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AuthParameters'] = CreateConnectionAuthRequestParameters.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,10 +93,10 @@ module AWS::SDK::EventBridge
     class CreateConnectionAuthRequestParameters
       def self.build(input)
         data = {}
-        data['BasicAuthParameters'] = Builders::CreateConnectionBasicAuthRequestParameters.build(input[:basic_auth_parameters]) unless input[:basic_auth_parameters].nil?
-        data['OAuthParameters'] = Builders::CreateConnectionOAuthRequestParameters.build(input[:o_auth_parameters]) unless input[:o_auth_parameters].nil?
-        data['ApiKeyAuthParameters'] = Builders::CreateConnectionApiKeyAuthRequestParameters.build(input[:api_key_auth_parameters]) unless input[:api_key_auth_parameters].nil?
-        data['InvocationHttpParameters'] = Builders::ConnectionHttpParameters.build(input[:invocation_http_parameters]) unless input[:invocation_http_parameters].nil?
+        data['BasicAuthParameters'] = CreateConnectionBasicAuthRequestParameters.build(input[:basic_auth_parameters]) unless input[:basic_auth_parameters].nil?
+        data['OAuthParameters'] = CreateConnectionOAuthRequestParameters.build(input[:o_auth_parameters]) unless input[:o_auth_parameters].nil?
+        data['ApiKeyAuthParameters'] = CreateConnectionApiKeyAuthRequestParameters.build(input[:api_key_auth_parameters]) unless input[:api_key_auth_parameters].nil?
+        data['InvocationHttpParameters'] = ConnectionHttpParameters.build(input[:invocation_http_parameters]) unless input[:invocation_http_parameters].nil?
         data
       end
     end
@@ -103,9 +105,9 @@ module AWS::SDK::EventBridge
     class ConnectionHttpParameters
       def self.build(input)
         data = {}
-        data['HeaderParameters'] = Builders::ConnectionHeaderParametersList.build(input[:header_parameters]) unless input[:header_parameters].nil?
-        data['QueryStringParameters'] = Builders::ConnectionQueryStringParametersList.build(input[:query_string_parameters]) unless input[:query_string_parameters].nil?
-        data['BodyParameters'] = Builders::ConnectionBodyParametersList.build(input[:body_parameters]) unless input[:body_parameters].nil?
+        data['HeaderParameters'] = ConnectionHeaderParametersList.build(input[:header_parameters]) unless input[:header_parameters].nil?
+        data['QueryStringParameters'] = ConnectionQueryStringParametersList.build(input[:query_string_parameters]) unless input[:query_string_parameters].nil?
+        data['BodyParameters'] = ConnectionBodyParametersList.build(input[:body_parameters]) unless input[:body_parameters].nil?
         data
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConnectionBodyParameter.build(element) unless element.nil?
+          data << ConnectionBodyParameter.build(element) unless element.nil?
         end
         data
       end
@@ -137,7 +139,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConnectionQueryStringParameter.build(element) unless element.nil?
+          data << ConnectionQueryStringParameter.build(element) unless element.nil?
         end
         data
       end
@@ -159,7 +161,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConnectionHeaderParameter.build(element) unless element.nil?
+          data << ConnectionHeaderParameter.build(element) unless element.nil?
         end
         data
       end
@@ -190,10 +192,10 @@ module AWS::SDK::EventBridge
     class CreateConnectionOAuthRequestParameters
       def self.build(input)
         data = {}
-        data['ClientParameters'] = Builders::CreateConnectionOAuthClientRequestParameters.build(input[:client_parameters]) unless input[:client_parameters].nil?
+        data['ClientParameters'] = CreateConnectionOAuthClientRequestParameters.build(input[:client_parameters]) unless input[:client_parameters].nil?
         data['AuthorizationEndpoint'] = input[:authorization_endpoint] unless input[:authorization_endpoint].nil?
         data['HttpMethod'] = input[:http_method] unless input[:http_method].nil?
-        data['OAuthHttpParameters'] = Builders::ConnectionHttpParameters.build(input[:o_auth_http_parameters]) unless input[:o_auth_http_parameters].nil?
+        data['OAuthHttpParameters'] = ConnectionHttpParameters.build(input[:o_auth_http_parameters]) unless input[:o_auth_http_parameters].nil?
         data
       end
     end
@@ -228,11 +230,11 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RoutingConfig'] = Builders::RoutingConfig.build(input[:routing_config]) unless input[:routing_config].nil?
-        data['ReplicationConfig'] = Builders::ReplicationConfig.build(input[:replication_config]) unless input[:replication_config].nil?
-        data['EventBuses'] = Builders::EndpointEventBusList.build(input[:event_buses]) unless input[:event_buses].nil?
+        data['RoutingConfig'] = RoutingConfig.build(input[:routing_config]) unless input[:routing_config].nil?
+        data['ReplicationConfig'] = ReplicationConfig.build(input[:replication_config]) unless input[:replication_config].nil?
+        data['EventBuses'] = EndpointEventBusList.build(input[:event_buses]) unless input[:event_buses].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EndpointEventBus.build(element) unless element.nil?
+          data << EndpointEventBus.build(element) unless element.nil?
         end
         data
       end
@@ -269,7 +271,7 @@ module AWS::SDK::EventBridge
     class RoutingConfig
       def self.build(input)
         data = {}
-        data['FailoverConfig'] = Builders::FailoverConfig.build(input[:failover_config]) unless input[:failover_config].nil?
+        data['FailoverConfig'] = FailoverConfig.build(input[:failover_config]) unless input[:failover_config].nil?
         data
       end
     end
@@ -278,8 +280,8 @@ module AWS::SDK::EventBridge
     class FailoverConfig
       def self.build(input)
         data = {}
-        data['Primary'] = Builders::Primary.build(input[:primary]) unless input[:primary].nil?
-        data['Secondary'] = Builders::Secondary.build(input[:secondary]) unless input[:secondary].nil?
+        data['Primary'] = Primary.build(input[:primary]) unless input[:primary].nil?
+        data['Secondary'] = Secondary.build(input[:secondary]) unless input[:secondary].nil?
         data
       end
     end
@@ -312,8 +314,8 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['EventSourceName'] = input[:event_source_name] unless input[:event_source_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -348,7 +350,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Account'] = input[:account] unless input[:account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,7 +363,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DeactivateEventSource'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,7 +376,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DeauthorizeConnection'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,7 +389,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DeleteApiDestination'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -400,7 +402,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DeleteArchive'
         data = {}
         data['ArchiveName'] = input[:archive_name] unless input[:archive_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,7 +415,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DeleteConnection'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DeleteEndpoint'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -439,7 +441,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DeleteEventBus'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -453,7 +455,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Account'] = input[:account] unless input[:account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -468,7 +470,7 @@ module AWS::SDK::EventBridge
         data['Name'] = input[:name] unless input[:name].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
         data['Force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -481,7 +483,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DescribeApiDestination'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,7 +496,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DescribeArchive'
         data = {}
         data['ArchiveName'] = input[:archive_name] unless input[:archive_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -507,7 +509,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DescribeConnection'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -521,7 +523,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['HomeRegion'] = input[:home_region] unless input[:home_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -534,7 +536,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DescribeEventBus'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -547,7 +549,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DescribeEventSource'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DescribePartnerEventSource'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -573,7 +575,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.DescribeReplay'
         data = {}
         data['ReplayName'] = input[:replay_name] unless input[:replay_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -587,7 +589,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -601,7 +603,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,7 +617,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,7 +633,7 @@ module AWS::SDK::EventBridge
         data['ConnectionArn'] = input[:connection_arn] unless input[:connection_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -648,7 +650,7 @@ module AWS::SDK::EventBridge
         data['State'] = input[:state] unless input[:state].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +666,7 @@ module AWS::SDK::EventBridge
         data['ConnectionState'] = input[:connection_state] unless input[:connection_state].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -680,7 +682,7 @@ module AWS::SDK::EventBridge
         data['HomeRegion'] = input[:home_region] unless input[:home_region].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -695,7 +697,7 @@ module AWS::SDK::EventBridge
         data['NamePrefix'] = input[:name_prefix] unless input[:name_prefix].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -710,7 +712,7 @@ module AWS::SDK::EventBridge
         data['NamePrefix'] = input[:name_prefix] unless input[:name_prefix].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -725,7 +727,7 @@ module AWS::SDK::EventBridge
         data['EventSourceName'] = input[:event_source_name] unless input[:event_source_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -740,7 +742,7 @@ module AWS::SDK::EventBridge
         data['NamePrefix'] = input[:name_prefix] unless input[:name_prefix].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -757,7 +759,7 @@ module AWS::SDK::EventBridge
         data['EventSourceArn'] = input[:event_source_arn] unless input[:event_source_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -773,7 +775,7 @@ module AWS::SDK::EventBridge
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -789,7 +791,7 @@ module AWS::SDK::EventBridge
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -802,7 +804,7 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -818,7 +820,7 @@ module AWS::SDK::EventBridge
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -830,9 +832,9 @@ module AWS::SDK::EventBridge
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSEvents.PutEvents'
         data = {}
-        data['Entries'] = Builders::PutEventsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
+        data['Entries'] = PutEventsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
         data['EndpointId'] = input[:endpoint_id] unless input[:endpoint_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PutEventsRequestEntry.build(element) unless element.nil?
+          data << PutEventsRequestEntry.build(element) unless element.nil?
         end
         data
       end
@@ -853,7 +855,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Time'] = Hearth::TimeHelper.to_epoch_seconds(input[:time]).to_i unless input[:time].nil?
         data['Source'] = input[:source] unless input[:source].nil?
-        data['Resources'] = Builders::EventResourceList.build(input[:resources]) unless input[:resources].nil?
+        data['Resources'] = EventResourceList.build(input[:resources]) unless input[:resources].nil?
         data['DetailType'] = input[:detail_type] unless input[:detail_type].nil?
         data['Detail'] = input[:detail] unless input[:detail].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
@@ -881,8 +883,8 @@ module AWS::SDK::EventBridge
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSEvents.PutPartnerEvents'
         data = {}
-        data['Entries'] = Builders::PutPartnerEventsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entries'] = PutPartnerEventsRequestEntryList.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -891,7 +893,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PutPartnerEventsRequestEntry.build(element) unless element.nil?
+          data << PutPartnerEventsRequestEntry.build(element) unless element.nil?
         end
         data
       end
@@ -903,7 +905,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['Time'] = Hearth::TimeHelper.to_epoch_seconds(input[:time]).to_i unless input[:time].nil?
         data['Source'] = input[:source] unless input[:source].nil?
-        data['Resources'] = Builders::EventResourceList.build(input[:resources]) unless input[:resources].nil?
+        data['Resources'] = EventResourceList.build(input[:resources]) unless input[:resources].nil?
         data['DetailType'] = input[:detail_type] unless input[:detail_type].nil?
         data['Detail'] = input[:detail] unless input[:detail].nil?
         data
@@ -922,9 +924,9 @@ module AWS::SDK::EventBridge
         data['Action'] = input[:action] unless input[:action].nil?
         data['Principal'] = input[:principal] unless input[:principal].nil?
         data['StatementId'] = input[:statement_id] unless input[:statement_id].nil?
-        data['Condition'] = Builders::Condition.build(input[:condition]) unless input[:condition].nil?
+        data['Condition'] = Condition.build(input[:condition]) unless input[:condition].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -953,9 +955,9 @@ module AWS::SDK::EventBridge
         data['State'] = input[:state] unless input[:state].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -969,8 +971,8 @@ module AWS::SDK::EventBridge
         data = {}
         data['Rule'] = input[:rule] unless input[:rule].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
-        data['Targets'] = Builders::TargetList.build(input[:targets]) unless input[:targets].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Targets'] = TargetList.build(input[:targets]) unless input[:targets].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -979,7 +981,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Target.build(element) unless element.nil?
+          data << Target.build(element) unless element.nil?
         end
         data
       end
@@ -994,17 +996,17 @@ module AWS::SDK::EventBridge
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Input'] = input[:input] unless input[:input].nil?
         data['InputPath'] = input[:input_path] unless input[:input_path].nil?
-        data['InputTransformer'] = Builders::InputTransformer.build(input[:input_transformer]) unless input[:input_transformer].nil?
-        data['KinesisParameters'] = Builders::KinesisParameters.build(input[:kinesis_parameters]) unless input[:kinesis_parameters].nil?
-        data['RunCommandParameters'] = Builders::RunCommandParameters.build(input[:run_command_parameters]) unless input[:run_command_parameters].nil?
-        data['EcsParameters'] = Builders::EcsParameters.build(input[:ecs_parameters]) unless input[:ecs_parameters].nil?
-        data['BatchParameters'] = Builders::BatchParameters.build(input[:batch_parameters]) unless input[:batch_parameters].nil?
-        data['SqsParameters'] = Builders::SqsParameters.build(input[:sqs_parameters]) unless input[:sqs_parameters].nil?
-        data['HttpParameters'] = Builders::HttpParameters.build(input[:http_parameters]) unless input[:http_parameters].nil?
-        data['RedshiftDataParameters'] = Builders::RedshiftDataParameters.build(input[:redshift_data_parameters]) unless input[:redshift_data_parameters].nil?
-        data['SageMakerPipelineParameters'] = Builders::SageMakerPipelineParameters.build(input[:sage_maker_pipeline_parameters]) unless input[:sage_maker_pipeline_parameters].nil?
-        data['DeadLetterConfig'] = Builders::DeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
-        data['RetryPolicy'] = Builders::RetryPolicy.build(input[:retry_policy]) unless input[:retry_policy].nil?
+        data['InputTransformer'] = InputTransformer.build(input[:input_transformer]) unless input[:input_transformer].nil?
+        data['KinesisParameters'] = KinesisParameters.build(input[:kinesis_parameters]) unless input[:kinesis_parameters].nil?
+        data['RunCommandParameters'] = RunCommandParameters.build(input[:run_command_parameters]) unless input[:run_command_parameters].nil?
+        data['EcsParameters'] = EcsParameters.build(input[:ecs_parameters]) unless input[:ecs_parameters].nil?
+        data['BatchParameters'] = BatchParameters.build(input[:batch_parameters]) unless input[:batch_parameters].nil?
+        data['SqsParameters'] = SqsParameters.build(input[:sqs_parameters]) unless input[:sqs_parameters].nil?
+        data['HttpParameters'] = HttpParameters.build(input[:http_parameters]) unless input[:http_parameters].nil?
+        data['RedshiftDataParameters'] = RedshiftDataParameters.build(input[:redshift_data_parameters]) unless input[:redshift_data_parameters].nil?
+        data['SageMakerPipelineParameters'] = SageMakerPipelineParameters.build(input[:sage_maker_pipeline_parameters]) unless input[:sage_maker_pipeline_parameters].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
+        data['RetryPolicy'] = RetryPolicy.build(input[:retry_policy]) unless input[:retry_policy].nil?
         data
       end
     end
@@ -1032,7 +1034,7 @@ module AWS::SDK::EventBridge
     class SageMakerPipelineParameters
       def self.build(input)
         data = {}
-        data['PipelineParameterList'] = Builders::SageMakerPipelineParameterList.build(input[:pipeline_parameter_list]) unless input[:pipeline_parameter_list].nil?
+        data['PipelineParameterList'] = SageMakerPipelineParameterList.build(input[:pipeline_parameter_list]) unless input[:pipeline_parameter_list].nil?
         data
       end
     end
@@ -1042,7 +1044,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SageMakerPipelineParameter.build(element) unless element.nil?
+          data << SageMakerPipelineParameter.build(element) unless element.nil?
         end
         data
       end
@@ -1076,9 +1078,9 @@ module AWS::SDK::EventBridge
     class HttpParameters
       def self.build(input)
         data = {}
-        data['PathParameterValues'] = Builders::PathParameterList.build(input[:path_parameter_values]) unless input[:path_parameter_values].nil?
-        data['HeaderParameters'] = Builders::HeaderParametersMap.build(input[:header_parameters]) unless input[:header_parameters].nil?
-        data['QueryStringParameters'] = Builders::QueryStringParametersMap.build(input[:query_string_parameters]) unless input[:query_string_parameters].nil?
+        data['PathParameterValues'] = PathParameterList.build(input[:path_parameter_values]) unless input[:path_parameter_values].nil?
+        data['HeaderParameters'] = HeaderParametersMap.build(input[:header_parameters]) unless input[:header_parameters].nil?
+        data['QueryStringParameters'] = QueryStringParametersMap.build(input[:query_string_parameters]) unless input[:query_string_parameters].nil?
         data
       end
     end
@@ -1131,8 +1133,8 @@ module AWS::SDK::EventBridge
         data = {}
         data['JobDefinition'] = input[:job_definition] unless input[:job_definition].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['ArrayProperties'] = Builders::BatchArrayProperties.build(input[:array_properties]) unless input[:array_properties].nil?
-        data['RetryStrategy'] = Builders::BatchRetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
+        data['ArrayProperties'] = BatchArrayProperties.build(input[:array_properties]) unless input[:array_properties].nil?
+        data['RetryStrategy'] = BatchRetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
         data
       end
     end
@@ -1162,17 +1164,17 @@ module AWS::SDK::EventBridge
         data['TaskDefinitionArn'] = input[:task_definition_arn] unless input[:task_definition_arn].nil?
         data['TaskCount'] = input[:task_count] unless input[:task_count].nil?
         data['LaunchType'] = input[:launch_type] unless input[:launch_type].nil?
-        data['NetworkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['NetworkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
         data['PlatformVersion'] = input[:platform_version] unless input[:platform_version].nil?
         data['Group'] = input[:group] unless input[:group].nil?
-        data['CapacityProviderStrategy'] = Builders::CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
+        data['CapacityProviderStrategy'] = CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
         data['EnableECSManagedTags'] = input[:enable_ecs_managed_tags] unless input[:enable_ecs_managed_tags].nil?
         data['EnableExecuteCommand'] = input[:enable_execute_command] unless input[:enable_execute_command].nil?
-        data['PlacementConstraints'] = Builders::PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
-        data['PlacementStrategy'] = Builders::PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
+        data['PlacementConstraints'] = PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
+        data['PlacementStrategy'] = PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
         data['PropagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
         data['ReferenceId'] = input[:reference_id] unless input[:reference_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -1182,7 +1184,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlacementStrategy.build(element) unless element.nil?
+          data << PlacementStrategy.build(element) unless element.nil?
         end
         data
       end
@@ -1203,7 +1205,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlacementConstraint.build(element) unless element.nil?
+          data << PlacementConstraint.build(element) unless element.nil?
         end
         data
       end
@@ -1224,7 +1226,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CapacityProviderStrategyItem.build(element) unless element.nil?
+          data << CapacityProviderStrategyItem.build(element) unless element.nil?
         end
         data
       end
@@ -1245,7 +1247,7 @@ module AWS::SDK::EventBridge
     class NetworkConfiguration
       def self.build(input)
         data = {}
-        data['awsvpcConfiguration'] = Builders::AwsVpcConfiguration.build(input[:awsvpc_configuration]) unless input[:awsvpc_configuration].nil?
+        data['awsvpcConfiguration'] = AwsVpcConfiguration.build(input[:awsvpc_configuration]) unless input[:awsvpc_configuration].nil?
         data
       end
     end
@@ -1254,8 +1256,8 @@ module AWS::SDK::EventBridge
     class AwsVpcConfiguration
       def self.build(input)
         data = {}
-        data['Subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['SecurityGroups'] = Builders::StringList.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['Subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroups'] = StringList.build(input[:security_groups]) unless input[:security_groups].nil?
         data['AssignPublicIp'] = input[:assign_public_ip] unless input[:assign_public_ip].nil?
         data
       end
@@ -1276,7 +1278,7 @@ module AWS::SDK::EventBridge
     class RunCommandParameters
       def self.build(input)
         data = {}
-        data['RunCommandTargets'] = Builders::RunCommandTargets.build(input[:run_command_targets]) unless input[:run_command_targets].nil?
+        data['RunCommandTargets'] = RunCommandTargets.build(input[:run_command_targets]) unless input[:run_command_targets].nil?
         data
       end
     end
@@ -1286,7 +1288,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RunCommandTarget.build(element) unless element.nil?
+          data << RunCommandTarget.build(element) unless element.nil?
         end
         data
       end
@@ -1297,7 +1299,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::RunCommandTargetValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = RunCommandTargetValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1326,7 +1328,7 @@ module AWS::SDK::EventBridge
     class InputTransformer
       def self.build(input)
         data = {}
-        data['InputPathsMap'] = Builders::TransformerPaths.build(input[:input_paths_map]) unless input[:input_paths_map].nil?
+        data['InputPathsMap'] = TransformerPaths.build(input[:input_paths_map]) unless input[:input_paths_map].nil?
         data['InputTemplate'] = input[:input_template] unless input[:input_template].nil?
         data
       end
@@ -1354,7 +1356,7 @@ module AWS::SDK::EventBridge
         data['StatementId'] = input[:statement_id] unless input[:statement_id].nil?
         data['RemoveAllPermissions'] = input[:remove_all_permissions] unless input[:remove_all_permissions].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1368,9 +1370,9 @@ module AWS::SDK::EventBridge
         data = {}
         data['Rule'] = input[:rule] unless input[:rule].nil?
         data['EventBusName'] = input[:event_bus_name] unless input[:event_bus_name].nil?
-        data['Ids'] = Builders::TargetIdList.build(input[:ids]) unless input[:ids].nil?
+        data['Ids'] = TargetIdList.build(input[:ids]) unless input[:ids].nil?
         data['Force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1398,8 +1400,8 @@ module AWS::SDK::EventBridge
         data['EventSourceArn'] = input[:event_source_arn] unless input[:event_source_arn].nil?
         data['EventStartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:event_start_time]).to_i unless input[:event_start_time].nil?
         data['EventEndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:event_end_time]).to_i unless input[:event_end_time].nil?
-        data['Destination'] = Builders::ReplayDestination.build(input[:destination]) unless input[:destination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Destination'] = ReplayDestination.build(input[:destination]) unless input[:destination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1408,7 +1410,7 @@ module AWS::SDK::EventBridge
       def self.build(input)
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['FilterArns'] = Builders::ReplayDestinationFilters.build(input[:filter_arns]) unless input[:filter_arns].nil?
+        data['FilterArns'] = ReplayDestinationFilters.build(input[:filter_arns]) unless input[:filter_arns].nil?
         data
       end
     end
@@ -1433,8 +1435,8 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1448,7 +1450,7 @@ module AWS::SDK::EventBridge
         data = {}
         data['EventPattern'] = input[:event_pattern] unless input[:event_pattern].nil?
         data['Event'] = input[:event] unless input[:event].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1461,8 +1463,8 @@ module AWS::SDK::EventBridge
         http_req.headers['X-Amz-Target'] = 'AWSEvents.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1491,7 +1493,7 @@ module AWS::SDK::EventBridge
         data['InvocationEndpoint'] = input[:invocation_endpoint] unless input[:invocation_endpoint].nil?
         data['HttpMethod'] = input[:http_method] unless input[:http_method].nil?
         data['InvocationRateLimitPerSecond'] = input[:invocation_rate_limit_per_second] unless input[:invocation_rate_limit_per_second].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1507,7 +1509,7 @@ module AWS::SDK::EventBridge
         data['Description'] = input[:description] unless input[:description].nil?
         data['EventPattern'] = input[:event_pattern] unless input[:event_pattern].nil?
         data['RetentionDays'] = input[:retention_days] unless input[:retention_days].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1522,8 +1524,8 @@ module AWS::SDK::EventBridge
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['AuthorizationType'] = input[:authorization_type] unless input[:authorization_type].nil?
-        data['AuthParameters'] = Builders::UpdateConnectionAuthRequestParameters.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AuthParameters'] = UpdateConnectionAuthRequestParameters.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1531,10 +1533,10 @@ module AWS::SDK::EventBridge
     class UpdateConnectionAuthRequestParameters
       def self.build(input)
         data = {}
-        data['BasicAuthParameters'] = Builders::UpdateConnectionBasicAuthRequestParameters.build(input[:basic_auth_parameters]) unless input[:basic_auth_parameters].nil?
-        data['OAuthParameters'] = Builders::UpdateConnectionOAuthRequestParameters.build(input[:o_auth_parameters]) unless input[:o_auth_parameters].nil?
-        data['ApiKeyAuthParameters'] = Builders::UpdateConnectionApiKeyAuthRequestParameters.build(input[:api_key_auth_parameters]) unless input[:api_key_auth_parameters].nil?
-        data['InvocationHttpParameters'] = Builders::ConnectionHttpParameters.build(input[:invocation_http_parameters]) unless input[:invocation_http_parameters].nil?
+        data['BasicAuthParameters'] = UpdateConnectionBasicAuthRequestParameters.build(input[:basic_auth_parameters]) unless input[:basic_auth_parameters].nil?
+        data['OAuthParameters'] = UpdateConnectionOAuthRequestParameters.build(input[:o_auth_parameters]) unless input[:o_auth_parameters].nil?
+        data['ApiKeyAuthParameters'] = UpdateConnectionApiKeyAuthRequestParameters.build(input[:api_key_auth_parameters]) unless input[:api_key_auth_parameters].nil?
+        data['InvocationHttpParameters'] = ConnectionHttpParameters.build(input[:invocation_http_parameters]) unless input[:invocation_http_parameters].nil?
         data
       end
     end
@@ -1553,10 +1555,10 @@ module AWS::SDK::EventBridge
     class UpdateConnectionOAuthRequestParameters
       def self.build(input)
         data = {}
-        data['ClientParameters'] = Builders::UpdateConnectionOAuthClientRequestParameters.build(input[:client_parameters]) unless input[:client_parameters].nil?
+        data['ClientParameters'] = UpdateConnectionOAuthClientRequestParameters.build(input[:client_parameters]) unless input[:client_parameters].nil?
         data['AuthorizationEndpoint'] = input[:authorization_endpoint] unless input[:authorization_endpoint].nil?
         data['HttpMethod'] = input[:http_method] unless input[:http_method].nil?
-        data['OAuthHttpParameters'] = Builders::ConnectionHttpParameters.build(input[:o_auth_http_parameters]) unless input[:o_auth_http_parameters].nil?
+        data['OAuthHttpParameters'] = ConnectionHttpParameters.build(input[:o_auth_http_parameters]) unless input[:o_auth_http_parameters].nil?
         data
       end
     end
@@ -1591,11 +1593,11 @@ module AWS::SDK::EventBridge
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RoutingConfig'] = Builders::RoutingConfig.build(input[:routing_config]) unless input[:routing_config].nil?
-        data['ReplicationConfig'] = Builders::ReplicationConfig.build(input[:replication_config]) unless input[:replication_config].nil?
-        data['EventBuses'] = Builders::EndpointEventBusList.build(input[:event_buses]) unless input[:event_buses].nil?
+        data['RoutingConfig'] = RoutingConfig.build(input[:routing_config]) unless input[:routing_config].nil?
+        data['ReplicationConfig'] = ReplicationConfig.build(input[:replication_config]) unless input[:replication_config].nil?
+        data['EventBuses'] = EndpointEventBusList.build(input[:event_buses]) unless input[:event_buses].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -72,7 +72,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('ApplySecurityGroupsToLoadBalancerResult')
         xml.at('SecurityGroups') do |node|
           children = node.children('member')
-          data.security_groups = Parsers::SecurityGroups.parse(children)
+          data.security_groups = SecurityGroups.parse(children)
         end
         data
       end
@@ -125,7 +125,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('AttachLoadBalancerToSubnetsResult')
         xml.at('Subnets') do |node|
           children = node.children('member')
-          data.subnets = Parsers::Subnets.parse(children)
+          data.subnets = Subnets.parse(children)
         end
         data
       end
@@ -177,7 +177,7 @@ module AWS::SDK::ElasticLoadBalancing
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ConfigureHealthCheckResult')
         xml.at('HealthCheck') do |node|
-          data.health_check = Parsers::HealthCheck.parse(node)
+          data.health_check = HealthCheck.parse(node)
         end
         data
       end
@@ -445,7 +445,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DeregisterInstancesFromLoadBalancerResult')
         xml.at('Instances') do |node|
           children = node.children('member')
-          data.instances = Parsers::Instances.parse(children)
+          data.instances = Instances.parse(children)
         end
         data
       end
@@ -455,7 +455,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Instance.parse(node)
+          data << Instance.parse(node)
         end
         data
       end
@@ -494,7 +494,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DescribeAccountLimitsResult')
         xml.at('Limits') do |node|
           children = node.children('member')
-          data.limits = Parsers::Limits.parse(children)
+          data.limits = Limits.parse(children)
         end
         xml.at('NextMarker') do |node|
           data.next_marker = (node.text || '')
@@ -507,7 +507,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Limit.parse(node)
+          data << Limit.parse(node)
         end
         data
       end
@@ -535,7 +535,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DescribeInstanceHealthResult')
         xml.at('InstanceStates') do |node|
           children = node.children('member')
-          data.instance_states = Parsers::InstanceStates.parse(children)
+          data.instance_states = InstanceStates.parse(children)
         end
         data
       end
@@ -545,7 +545,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceState.parse(node)
+          data << InstanceState.parse(node)
         end
         data
       end
@@ -578,7 +578,7 @@ module AWS::SDK::ElasticLoadBalancing
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeLoadBalancerAttributesResult')
         xml.at('LoadBalancerAttributes') do |node|
-          data.load_balancer_attributes = Parsers::LoadBalancerAttributes.parse(node)
+          data.load_balancer_attributes = LoadBalancerAttributes.parse(node)
         end
         data
       end
@@ -588,20 +588,20 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = Types::LoadBalancerAttributes.new
         xml.at('CrossZoneLoadBalancing') do |node|
-          data.cross_zone_load_balancing = Parsers::CrossZoneLoadBalancing.parse(node)
+          data.cross_zone_load_balancing = CrossZoneLoadBalancing.parse(node)
         end
         xml.at('AccessLog') do |node|
-          data.access_log = Parsers::AccessLog.parse(node)
+          data.access_log = AccessLog.parse(node)
         end
         xml.at('ConnectionDraining') do |node|
-          data.connection_draining = Parsers::ConnectionDraining.parse(node)
+          data.connection_draining = ConnectionDraining.parse(node)
         end
         xml.at('ConnectionSettings') do |node|
-          data.connection_settings = Parsers::ConnectionSettings.parse(node)
+          data.connection_settings = ConnectionSettings.parse(node)
         end
         xml.at('AdditionalAttributes') do |node|
           children = node.children('member')
-          data.additional_attributes = Parsers::AdditionalAttributes.parse(children)
+          data.additional_attributes = AdditionalAttributes.parse(children)
         end
         return data
       end
@@ -611,7 +611,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AdditionalAttribute.parse(node)
+          data << AdditionalAttribute.parse(node)
         end
         data
       end
@@ -705,7 +705,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DescribeLoadBalancerPoliciesResult')
         xml.at('PolicyDescriptions') do |node|
           children = node.children('member')
-          data.policy_descriptions = Parsers::PolicyDescriptions.parse(children)
+          data.policy_descriptions = PolicyDescriptions.parse(children)
         end
         data
       end
@@ -715,7 +715,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyDescription.parse(node)
+          data << PolicyDescription.parse(node)
         end
         data
       end
@@ -732,7 +732,7 @@ module AWS::SDK::ElasticLoadBalancing
         end
         xml.at('PolicyAttributeDescriptions') do |node|
           children = node.children('member')
-          data.policy_attribute_descriptions = Parsers::PolicyAttributeDescriptions.parse(children)
+          data.policy_attribute_descriptions = PolicyAttributeDescriptions.parse(children)
         end
         return data
       end
@@ -742,7 +742,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyAttributeDescription.parse(node)
+          data << PolicyAttributeDescription.parse(node)
         end
         data
       end
@@ -784,7 +784,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DescribeLoadBalancerPolicyTypesResult')
         xml.at('PolicyTypeDescriptions') do |node|
           children = node.children('member')
-          data.policy_type_descriptions = Parsers::PolicyTypeDescriptions.parse(children)
+          data.policy_type_descriptions = PolicyTypeDescriptions.parse(children)
         end
         data
       end
@@ -794,7 +794,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyTypeDescription.parse(node)
+          data << PolicyTypeDescription.parse(node)
         end
         data
       end
@@ -811,7 +811,7 @@ module AWS::SDK::ElasticLoadBalancing
         end
         xml.at('PolicyAttributeTypeDescriptions') do |node|
           children = node.children('member')
-          data.policy_attribute_type_descriptions = Parsers::PolicyAttributeTypeDescriptions.parse(children)
+          data.policy_attribute_type_descriptions = PolicyAttributeTypeDescriptions.parse(children)
         end
         return data
       end
@@ -821,7 +821,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyAttributeTypeDescription.parse(node)
+          data << PolicyAttributeTypeDescription.parse(node)
         end
         data
       end
@@ -858,7 +858,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DescribeLoadBalancersResult')
         xml.at('LoadBalancerDescriptions') do |node|
           children = node.children('member')
-          data.load_balancer_descriptions = Parsers::LoadBalancerDescriptions.parse(children)
+          data.load_balancer_descriptions = LoadBalancerDescriptions.parse(children)
         end
         xml.at('NextMarker') do |node|
           data.next_marker = (node.text || '')
@@ -871,7 +871,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LoadBalancerDescription.parse(node)
+          data << LoadBalancerDescription.parse(node)
         end
         data
       end
@@ -894,39 +894,39 @@ module AWS::SDK::ElasticLoadBalancing
         end
         xml.at('ListenerDescriptions') do |node|
           children = node.children('member')
-          data.listener_descriptions = Parsers::ListenerDescriptions.parse(children)
+          data.listener_descriptions = ListenerDescriptions.parse(children)
         end
         xml.at('Policies') do |node|
-          data.policies = Parsers::Policies.parse(node)
+          data.policies = Policies.parse(node)
         end
         xml.at('BackendServerDescriptions') do |node|
           children = node.children('member')
-          data.backend_server_descriptions = Parsers::BackendServerDescriptions.parse(children)
+          data.backend_server_descriptions = BackendServerDescriptions.parse(children)
         end
         xml.at('AvailabilityZones') do |node|
           children = node.children('member')
-          data.availability_zones = Parsers::AvailabilityZones.parse(children)
+          data.availability_zones = AvailabilityZones.parse(children)
         end
         xml.at('Subnets') do |node|
           children = node.children('member')
-          data.subnets = Parsers::Subnets.parse(children)
+          data.subnets = Subnets.parse(children)
         end
         xml.at('VPCId') do |node|
           data.vpc_id = (node.text || '')
         end
         xml.at('Instances') do |node|
           children = node.children('member')
-          data.instances = Parsers::Instances.parse(children)
+          data.instances = Instances.parse(children)
         end
         xml.at('HealthCheck') do |node|
-          data.health_check = Parsers::HealthCheck.parse(node)
+          data.health_check = HealthCheck.parse(node)
         end
         xml.at('SourceSecurityGroup') do |node|
-          data.source_security_group = Parsers::SourceSecurityGroup.parse(node)
+          data.source_security_group = SourceSecurityGroup.parse(node)
         end
         xml.at('SecurityGroups') do |node|
           children = node.children('member')
-          data.security_groups = Parsers::SecurityGroups.parse(children)
+          data.security_groups = SecurityGroups.parse(children)
         end
         xml.at('CreatedTime') do |node|
           data.created_time = Time.parse(node.text) if node.text
@@ -965,7 +965,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::BackendServerDescription.parse(node)
+          data << BackendServerDescription.parse(node)
         end
         data
       end
@@ -979,7 +979,7 @@ module AWS::SDK::ElasticLoadBalancing
         end
         xml.at('PolicyNames') do |node|
           children = node.children('member')
-          data.policy_names = Parsers::PolicyNames.parse(children)
+          data.policy_names = PolicyNames.parse(children)
         end
         return data
       end
@@ -1000,15 +1000,15 @@ module AWS::SDK::ElasticLoadBalancing
         data = Types::Policies.new
         xml.at('AppCookieStickinessPolicies') do |node|
           children = node.children('member')
-          data.app_cookie_stickiness_policies = Parsers::AppCookieStickinessPolicies.parse(children)
+          data.app_cookie_stickiness_policies = AppCookieStickinessPolicies.parse(children)
         end
         xml.at('LBCookieStickinessPolicies') do |node|
           children = node.children('member')
-          data.lb_cookie_stickiness_policies = Parsers::LBCookieStickinessPolicies.parse(children)
+          data.lb_cookie_stickiness_policies = LBCookieStickinessPolicies.parse(children)
         end
         xml.at('OtherPolicies') do |node|
           children = node.children('member')
-          data.other_policies = Parsers::PolicyNames.parse(children)
+          data.other_policies = PolicyNames.parse(children)
         end
         return data
       end
@@ -1018,7 +1018,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LBCookieStickinessPolicy.parse(node)
+          data << LBCookieStickinessPolicy.parse(node)
         end
         data
       end
@@ -1041,7 +1041,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AppCookieStickinessPolicy.parse(node)
+          data << AppCookieStickinessPolicy.parse(node)
         end
         data
       end
@@ -1064,7 +1064,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ListenerDescription.parse(node)
+          data << ListenerDescription.parse(node)
         end
         data
       end
@@ -1074,11 +1074,11 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = Types::ListenerDescription.new
         xml.at('Listener') do |node|
-          data.listener = Parsers::Listener.parse(node)
+          data.listener = Listener.parse(node)
         end
         xml.at('PolicyNames') do |node|
           children = node.children('member')
-          data.policy_names = Parsers::PolicyNames.parse(children)
+          data.policy_names = PolicyNames.parse(children)
         end
         return data
       end
@@ -1129,7 +1129,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DescribeTagsResult')
         xml.at('TagDescriptions') do |node|
           children = node.children('member')
-          data.tag_descriptions = Parsers::TagDescriptions.parse(children)
+          data.tag_descriptions = TagDescriptions.parse(children)
         end
         data
       end
@@ -1139,7 +1139,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TagDescription.parse(node)
+          data << TagDescription.parse(node)
         end
         data
       end
@@ -1153,7 +1153,7 @@ module AWS::SDK::ElasticLoadBalancing
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -1163,7 +1163,7 @@ module AWS::SDK::ElasticLoadBalancing
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -1191,7 +1191,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DetachLoadBalancerFromSubnetsResult')
         xml.at('Subnets') do |node|
           children = node.children('member')
-          data.subnets = Parsers::Subnets.parse(children)
+          data.subnets = Subnets.parse(children)
         end
         data
       end
@@ -1206,7 +1206,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('DisableAvailabilityZonesForLoadBalancerResult')
         xml.at('AvailabilityZones') do |node|
           children = node.children('member')
-          data.availability_zones = Parsers::AvailabilityZones.parse(children)
+          data.availability_zones = AvailabilityZones.parse(children)
         end
         data
       end
@@ -1221,7 +1221,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('EnableAvailabilityZonesForLoadBalancerResult')
         xml.at('AvailabilityZones') do |node|
           children = node.children('member')
-          data.availability_zones = Parsers::AvailabilityZones.parse(children)
+          data.availability_zones = AvailabilityZones.parse(children)
         end
         data
       end
@@ -1238,7 +1238,7 @@ module AWS::SDK::ElasticLoadBalancing
           data.load_balancer_name = (node.text || '')
         end
         xml.at('LoadBalancerAttributes') do |node|
-          data.load_balancer_attributes = Parsers::LoadBalancerAttributes.parse(node)
+          data.load_balancer_attributes = LoadBalancerAttributes.parse(node)
         end
         data
       end
@@ -1253,7 +1253,7 @@ module AWS::SDK::ElasticLoadBalancing
         xml = Hearth::XML.parse(body).at('RegisterInstancesWithLoadBalancerResult')
         xml.at('Instances') do |node|
           children = node.children('member')
-          data.instances = Parsers::Instances.parse(children)
+          data.instances = Instances.parse(children)
         end
         data
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Kendra
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedEntityList'] = Stubs::AssociateEntitiesToExperienceFailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedEntityList'] = AssociateEntitiesToExperienceFailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -40,7 +42,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedEntity.stub(element) unless element.nil?
+          data << FailedEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -76,8 +78,8 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedEntityList'] = Stubs::FailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedEntityList'] = FailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -96,7 +98,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedEntity.stub(element) unless element.nil?
+          data << FailedEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -112,8 +114,8 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedDocuments'] = Stubs::BatchDeleteDocumentResponseFailedDocuments.stub(stub[:failed_documents]) unless stub[:failed_documents].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedDocuments'] = BatchDeleteDocumentResponseFailedDocuments.stub(stub[:failed_documents]) unless stub[:failed_documents].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -132,7 +134,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDeleteDocumentResponseFailedDocument.stub(element) unless element.nil?
+          data << BatchDeleteDocumentResponseFailedDocument.stub(element) unless element.nil?
         end
         data
       end
@@ -171,9 +173,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::BatchGetDocumentStatusResponseErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        data['DocumentStatusList'] = Stubs::DocumentStatusList.stub(stub[:document_status_list]) unless stub[:document_status_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = BatchGetDocumentStatusResponseErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        data['DocumentStatusList'] = DocumentStatusList.stub(stub[:document_status_list]) unless stub[:document_status_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -192,7 +194,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Status.stub(element) unless element.nil?
+          data << Status.stub(element) unless element.nil?
         end
         data
       end
@@ -236,7 +238,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetDocumentStatusResponseError.stub(element) unless element.nil?
+          data << BatchGetDocumentStatusResponseError.stub(element) unless element.nil?
         end
         data
       end
@@ -274,8 +276,8 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedDocuments'] = Stubs::BatchPutDocumentResponseFailedDocuments.stub(stub[:failed_documents]) unless stub[:failed_documents].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedDocuments'] = BatchPutDocumentResponseFailedDocuments.stub(stub[:failed_documents]) unless stub[:failed_documents].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutDocumentResponseFailedDocument.stub(element) unless element.nil?
+          data << BatchPutDocumentResponseFailedDocument.stub(element) unless element.nil?
         end
         data
       end
@@ -331,7 +333,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -363,7 +365,7 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -379,7 +381,7 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -395,7 +397,7 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -411,7 +413,7 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -441,7 +443,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -469,7 +471,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -483,7 +485,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -497,7 +499,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -511,7 +513,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -557,7 +559,7 @@ module AWS::SDK::Kendra
         data['IndexId'] = stub[:index_id] unless stub[:index_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Configuration'] = Stubs::DataSourceConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = DataSourceConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
@@ -566,8 +568,8 @@ module AWS::SDK::Kendra
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
-        data['CustomDocumentEnrichmentConfiguration'] = Stubs::CustomDocumentEnrichmentConfiguration.stub(stub[:custom_document_enrichment_configuration]) unless stub[:custom_document_enrichment_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomDocumentEnrichmentConfiguration'] = CustomDocumentEnrichmentConfiguration.stub(stub[:custom_document_enrichment_configuration]) unless stub[:custom_document_enrichment_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -588,9 +590,9 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::CustomDocumentEnrichmentConfiguration.new
         data = {}
-        data['InlineConfigurations'] = Stubs::InlineCustomDocumentEnrichmentConfigurationList.stub(stub[:inline_configurations]) unless stub[:inline_configurations].nil?
-        data['PreExtractionHookConfiguration'] = Stubs::HookConfiguration.stub(stub[:pre_extraction_hook_configuration]) unless stub[:pre_extraction_hook_configuration].nil?
-        data['PostExtractionHookConfiguration'] = Stubs::HookConfiguration.stub(stub[:post_extraction_hook_configuration]) unless stub[:post_extraction_hook_configuration].nil?
+        data['InlineConfigurations'] = InlineCustomDocumentEnrichmentConfigurationList.stub(stub[:inline_configurations]) unless stub[:inline_configurations].nil?
+        data['PreExtractionHookConfiguration'] = HookConfiguration.stub(stub[:pre_extraction_hook_configuration]) unless stub[:pre_extraction_hook_configuration].nil?
+        data['PostExtractionHookConfiguration'] = HookConfiguration.stub(stub[:post_extraction_hook_configuration]) unless stub[:post_extraction_hook_configuration].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data
       end
@@ -611,7 +613,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::HookConfiguration.new
         data = {}
-        data['InvocationCondition'] = Stubs::DocumentAttributeCondition.stub(stub[:invocation_condition]) unless stub[:invocation_condition].nil?
+        data['InvocationCondition'] = DocumentAttributeCondition.stub(stub[:invocation_condition]) unless stub[:invocation_condition].nil?
         data['LambdaArn'] = stub[:lambda_arn] unless stub[:lambda_arn].nil?
         data['S3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
         data
@@ -635,7 +637,7 @@ module AWS::SDK::Kendra
         data = {}
         data['ConditionDocumentAttributeKey'] = stub[:condition_document_attribute_key] unless stub[:condition_document_attribute_key].nil?
         data['Operator'] = stub[:operator] unless stub[:operator].nil?
-        data['ConditionOnValue'] = Stubs::DocumentAttributeValue.stub(stub[:condition_on_value]) unless stub[:condition_on_value].nil?
+        data['ConditionOnValue'] = DocumentAttributeValue.stub(stub[:condition_on_value]) unless stub[:condition_on_value].nil?
         data
       end
     end
@@ -657,7 +659,7 @@ module AWS::SDK::Kendra
         stub ||= Types::DocumentAttributeValue.new
         data = {}
         data['StringValue'] = stub[:string_value] unless stub[:string_value].nil?
-        data['StringListValue'] = Stubs::DocumentAttributeStringListValue.stub(stub[:string_list_value]) unless stub[:string_list_value].nil?
+        data['StringListValue'] = DocumentAttributeStringListValue.stub(stub[:string_list_value]) unless stub[:string_list_value].nil?
         data['LongValue'] = stub[:long_value] unless stub[:long_value].nil?
         data['DateValue'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_value]).to_i unless stub[:date_value].nil?
         data
@@ -698,7 +700,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InlineCustomDocumentEnrichmentConfiguration.stub(element) unless element.nil?
+          data << InlineCustomDocumentEnrichmentConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -719,8 +721,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::InlineCustomDocumentEnrichmentConfiguration.new
         data = {}
-        data['Condition'] = Stubs::DocumentAttributeCondition.stub(stub[:condition]) unless stub[:condition].nil?
-        data['Target'] = Stubs::DocumentAttributeTarget.stub(stub[:target]) unless stub[:target].nil?
+        data['Condition'] = DocumentAttributeCondition.stub(stub[:condition]) unless stub[:condition].nil?
+        data['Target'] = DocumentAttributeTarget.stub(stub[:target]) unless stub[:target].nil?
         data['DocumentContentDeletion'] = stub[:document_content_deletion] unless stub[:document_content_deletion].nil?
         data
       end
@@ -743,7 +745,7 @@ module AWS::SDK::Kendra
         data = {}
         data['TargetDocumentAttributeKey'] = stub[:target_document_attribute_key] unless stub[:target_document_attribute_key].nil?
         data['TargetDocumentAttributeValueDeletion'] = stub[:target_document_attribute_value_deletion] unless stub[:target_document_attribute_value_deletion].nil?
-        data['TargetDocumentAttributeValue'] = Stubs::DocumentAttributeValue.stub(stub[:target_document_attribute_value]) unless stub[:target_document_attribute_value].nil?
+        data['TargetDocumentAttributeValue'] = DocumentAttributeValue.stub(stub[:target_document_attribute_value]) unless stub[:target_document_attribute_value].nil?
         data
       end
     end
@@ -776,22 +778,22 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::DataSourceConfiguration.new
         data = {}
-        data['S3Configuration'] = Stubs::S3DataSourceConfiguration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
-        data['SharePointConfiguration'] = Stubs::SharePointConfiguration.stub(stub[:share_point_configuration]) unless stub[:share_point_configuration].nil?
-        data['DatabaseConfiguration'] = Stubs::DatabaseConfiguration.stub(stub[:database_configuration]) unless stub[:database_configuration].nil?
-        data['SalesforceConfiguration'] = Stubs::SalesforceConfiguration.stub(stub[:salesforce_configuration]) unless stub[:salesforce_configuration].nil?
-        data['OneDriveConfiguration'] = Stubs::OneDriveConfiguration.stub(stub[:one_drive_configuration]) unless stub[:one_drive_configuration].nil?
-        data['ServiceNowConfiguration'] = Stubs::ServiceNowConfiguration.stub(stub[:service_now_configuration]) unless stub[:service_now_configuration].nil?
-        data['ConfluenceConfiguration'] = Stubs::ConfluenceConfiguration.stub(stub[:confluence_configuration]) unless stub[:confluence_configuration].nil?
-        data['GoogleDriveConfiguration'] = Stubs::GoogleDriveConfiguration.stub(stub[:google_drive_configuration]) unless stub[:google_drive_configuration].nil?
-        data['WebCrawlerConfiguration'] = Stubs::WebCrawlerConfiguration.stub(stub[:web_crawler_configuration]) unless stub[:web_crawler_configuration].nil?
-        data['WorkDocsConfiguration'] = Stubs::WorkDocsConfiguration.stub(stub[:work_docs_configuration]) unless stub[:work_docs_configuration].nil?
-        data['FsxConfiguration'] = Stubs::FsxConfiguration.stub(stub[:fsx_configuration]) unless stub[:fsx_configuration].nil?
-        data['SlackConfiguration'] = Stubs::SlackConfiguration.stub(stub[:slack_configuration]) unless stub[:slack_configuration].nil?
-        data['BoxConfiguration'] = Stubs::BoxConfiguration.stub(stub[:box_configuration]) unless stub[:box_configuration].nil?
-        data['QuipConfiguration'] = Stubs::QuipConfiguration.stub(stub[:quip_configuration]) unless stub[:quip_configuration].nil?
-        data['JiraConfiguration'] = Stubs::JiraConfiguration.stub(stub[:jira_configuration]) unless stub[:jira_configuration].nil?
-        data['GitHubConfiguration'] = Stubs::GitHubConfiguration.stub(stub[:git_hub_configuration]) unless stub[:git_hub_configuration].nil?
+        data['S3Configuration'] = S3DataSourceConfiguration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
+        data['SharePointConfiguration'] = SharePointConfiguration.stub(stub[:share_point_configuration]) unless stub[:share_point_configuration].nil?
+        data['DatabaseConfiguration'] = DatabaseConfiguration.stub(stub[:database_configuration]) unless stub[:database_configuration].nil?
+        data['SalesforceConfiguration'] = SalesforceConfiguration.stub(stub[:salesforce_configuration]) unless stub[:salesforce_configuration].nil?
+        data['OneDriveConfiguration'] = OneDriveConfiguration.stub(stub[:one_drive_configuration]) unless stub[:one_drive_configuration].nil?
+        data['ServiceNowConfiguration'] = ServiceNowConfiguration.stub(stub[:service_now_configuration]) unless stub[:service_now_configuration].nil?
+        data['ConfluenceConfiguration'] = ConfluenceConfiguration.stub(stub[:confluence_configuration]) unless stub[:confluence_configuration].nil?
+        data['GoogleDriveConfiguration'] = GoogleDriveConfiguration.stub(stub[:google_drive_configuration]) unless stub[:google_drive_configuration].nil?
+        data['WebCrawlerConfiguration'] = WebCrawlerConfiguration.stub(stub[:web_crawler_configuration]) unless stub[:web_crawler_configuration].nil?
+        data['WorkDocsConfiguration'] = WorkDocsConfiguration.stub(stub[:work_docs_configuration]) unless stub[:work_docs_configuration].nil?
+        data['FsxConfiguration'] = FsxConfiguration.stub(stub[:fsx_configuration]) unless stub[:fsx_configuration].nil?
+        data['SlackConfiguration'] = SlackConfiguration.stub(stub[:slack_configuration]) unless stub[:slack_configuration].nil?
+        data['BoxConfiguration'] = BoxConfiguration.stub(stub[:box_configuration]) unless stub[:box_configuration].nil?
+        data['QuipConfiguration'] = QuipConfiguration.stub(stub[:quip_configuration]) unless stub[:quip_configuration].nil?
+        data['JiraConfiguration'] = JiraConfiguration.stub(stub[:jira_configuration]) unless stub[:jira_configuration].nil?
+        data['GitHubConfiguration'] = GitHubConfiguration.stub(stub[:git_hub_configuration]) unless stub[:git_hub_configuration].nil?
         data
       end
     end
@@ -830,28 +832,28 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::GitHubConfiguration.new
         data = {}
-        data['SaaSConfiguration'] = Stubs::SaaSConfiguration.stub(stub[:saa_s_configuration]) unless stub[:saa_s_configuration].nil?
-        data['OnPremiseConfiguration'] = Stubs::OnPremiseConfiguration.stub(stub[:on_premise_configuration]) unless stub[:on_premise_configuration].nil?
+        data['SaaSConfiguration'] = SaaSConfiguration.stub(stub[:saa_s_configuration]) unless stub[:saa_s_configuration].nil?
+        data['OnPremiseConfiguration'] = OnPremiseConfiguration.stub(stub[:on_premise_configuration]) unless stub[:on_premise_configuration].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
         data['UseChangeLog'] = stub[:use_change_log] unless stub[:use_change_log].nil?
-        data['GitHubDocumentCrawlProperties'] = Stubs::GitHubDocumentCrawlProperties.stub(stub[:git_hub_document_crawl_properties]) unless stub[:git_hub_document_crawl_properties].nil?
-        data['RepositoryFilter'] = Stubs::RepositoryNames.stub(stub[:repository_filter]) unless stub[:repository_filter].nil?
-        data['InclusionFolderNamePatterns'] = Stubs::StringList.stub(stub[:inclusion_folder_name_patterns]) unless stub[:inclusion_folder_name_patterns].nil?
-        data['InclusionFileTypePatterns'] = Stubs::StringList.stub(stub[:inclusion_file_type_patterns]) unless stub[:inclusion_file_type_patterns].nil?
-        data['InclusionFileNamePatterns'] = Stubs::StringList.stub(stub[:inclusion_file_name_patterns]) unless stub[:inclusion_file_name_patterns].nil?
-        data['ExclusionFolderNamePatterns'] = Stubs::StringList.stub(stub[:exclusion_folder_name_patterns]) unless stub[:exclusion_folder_name_patterns].nil?
-        data['ExclusionFileTypePatterns'] = Stubs::StringList.stub(stub[:exclusion_file_type_patterns]) unless stub[:exclusion_file_type_patterns].nil?
-        data['ExclusionFileNamePatterns'] = Stubs::StringList.stub(stub[:exclusion_file_name_patterns]) unless stub[:exclusion_file_name_patterns].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
-        data['GitHubRepositoryConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_repository_configuration_field_mappings]) unless stub[:git_hub_repository_configuration_field_mappings].nil?
-        data['GitHubCommitConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_commit_configuration_field_mappings]) unless stub[:git_hub_commit_configuration_field_mappings].nil?
-        data['GitHubIssueDocumentConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_issue_document_configuration_field_mappings]) unless stub[:git_hub_issue_document_configuration_field_mappings].nil?
-        data['GitHubIssueCommentConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_issue_comment_configuration_field_mappings]) unless stub[:git_hub_issue_comment_configuration_field_mappings].nil?
-        data['GitHubIssueAttachmentConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_issue_attachment_configuration_field_mappings]) unless stub[:git_hub_issue_attachment_configuration_field_mappings].nil?
-        data['GitHubPullRequestCommentConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_pull_request_comment_configuration_field_mappings]) unless stub[:git_hub_pull_request_comment_configuration_field_mappings].nil?
-        data['GitHubPullRequestDocumentConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_pull_request_document_configuration_field_mappings]) unless stub[:git_hub_pull_request_document_configuration_field_mappings].nil?
-        data['GitHubPullRequestDocumentAttachmentConfigurationFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:git_hub_pull_request_document_attachment_configuration_field_mappings]) unless stub[:git_hub_pull_request_document_attachment_configuration_field_mappings].nil?
+        data['GitHubDocumentCrawlProperties'] = GitHubDocumentCrawlProperties.stub(stub[:git_hub_document_crawl_properties]) unless stub[:git_hub_document_crawl_properties].nil?
+        data['RepositoryFilter'] = RepositoryNames.stub(stub[:repository_filter]) unless stub[:repository_filter].nil?
+        data['InclusionFolderNamePatterns'] = StringList.stub(stub[:inclusion_folder_name_patterns]) unless stub[:inclusion_folder_name_patterns].nil?
+        data['InclusionFileTypePatterns'] = StringList.stub(stub[:inclusion_file_type_patterns]) unless stub[:inclusion_file_type_patterns].nil?
+        data['InclusionFileNamePatterns'] = StringList.stub(stub[:inclusion_file_name_patterns]) unless stub[:inclusion_file_name_patterns].nil?
+        data['ExclusionFolderNamePatterns'] = StringList.stub(stub[:exclusion_folder_name_patterns]) unless stub[:exclusion_folder_name_patterns].nil?
+        data['ExclusionFileTypePatterns'] = StringList.stub(stub[:exclusion_file_type_patterns]) unless stub[:exclusion_file_type_patterns].nil?
+        data['ExclusionFileNamePatterns'] = StringList.stub(stub[:exclusion_file_name_patterns]) unless stub[:exclusion_file_name_patterns].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['GitHubRepositoryConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_repository_configuration_field_mappings]) unless stub[:git_hub_repository_configuration_field_mappings].nil?
+        data['GitHubCommitConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_commit_configuration_field_mappings]) unless stub[:git_hub_commit_configuration_field_mappings].nil?
+        data['GitHubIssueDocumentConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_issue_document_configuration_field_mappings]) unless stub[:git_hub_issue_document_configuration_field_mappings].nil?
+        data['GitHubIssueCommentConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_issue_comment_configuration_field_mappings]) unless stub[:git_hub_issue_comment_configuration_field_mappings].nil?
+        data['GitHubIssueAttachmentConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_issue_attachment_configuration_field_mappings]) unless stub[:git_hub_issue_attachment_configuration_field_mappings].nil?
+        data['GitHubPullRequestCommentConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_pull_request_comment_configuration_field_mappings]) unless stub[:git_hub_pull_request_comment_configuration_field_mappings].nil?
+        data['GitHubPullRequestDocumentConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_pull_request_document_configuration_field_mappings]) unless stub[:git_hub_pull_request_document_configuration_field_mappings].nil?
+        data['GitHubPullRequestDocumentAttachmentConfigurationFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:git_hub_pull_request_document_attachment_configuration_field_mappings]) unless stub[:git_hub_pull_request_document_attachment_configuration_field_mappings].nil?
         data
       end
     end
@@ -870,7 +872,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSourceToIndexFieldMapping.stub(element) unless element.nil?
+          data << DataSourceToIndexFieldMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -912,8 +914,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::DataSourceVpcConfiguration.new
         data = {}
-        data['SubnetIds'] = Stubs::SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -1045,7 +1047,7 @@ module AWS::SDK::Kendra
         data = {}
         data['HostUrl'] = stub[:host_url] unless stub[:host_url].nil?
         data['OrganizationName'] = stub[:organization_name] unless stub[:organization_name].nil?
-        data['SslCertificateS3Path'] = Stubs::S3Path.stub(stub[:ssl_certificate_s3_path]) unless stub[:ssl_certificate_s3_path].nil?
+        data['SslCertificateS3Path'] = S3Path.stub(stub[:ssl_certificate_s3_path]) unless stub[:ssl_certificate_s3_path].nil?
         data
       end
     end
@@ -1120,18 +1122,18 @@ module AWS::SDK::Kendra
         data['JiraAccountUrl'] = stub[:jira_account_url] unless stub[:jira_account_url].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
         data['UseChangeLog'] = stub[:use_change_log] unless stub[:use_change_log].nil?
-        data['Project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        data['IssueType'] = Stubs::IssueType.stub(stub[:issue_type]) unless stub[:issue_type].nil?
-        data['Status'] = Stubs::JiraStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['IssueSubEntityFilter'] = Stubs::IssueSubEntityFilter.stub(stub[:issue_sub_entity_filter]) unless stub[:issue_sub_entity_filter].nil?
-        data['AttachmentFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:attachment_field_mappings]) unless stub[:attachment_field_mappings].nil?
-        data['CommentFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:comment_field_mappings]) unless stub[:comment_field_mappings].nil?
-        data['IssueFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:issue_field_mappings]) unless stub[:issue_field_mappings].nil?
-        data['ProjectFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:project_field_mappings]) unless stub[:project_field_mappings].nil?
-        data['WorkLogFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:work_log_field_mappings]) unless stub[:work_log_field_mappings].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['Project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        data['IssueType'] = IssueType.stub(stub[:issue_type]) unless stub[:issue_type].nil?
+        data['Status'] = JiraStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['IssueSubEntityFilter'] = IssueSubEntityFilter.stub(stub[:issue_sub_entity_filter]) unless stub[:issue_sub_entity_filter].nil?
+        data['AttachmentFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:attachment_field_mappings]) unless stub[:attachment_field_mappings].nil?
+        data['CommentFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:comment_field_mappings]) unless stub[:comment_field_mappings].nil?
+        data['IssueFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:issue_field_mappings]) unless stub[:issue_field_mappings].nil?
+        data['ProjectFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:project_field_mappings]) unless stub[:project_field_mappings].nil?
+        data['WorkLogFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:work_log_field_mappings]) unless stub[:work_log_field_mappings].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
         data
       end
     end
@@ -1265,13 +1267,13 @@ module AWS::SDK::Kendra
         data['CrawlFileComments'] = stub[:crawl_file_comments] unless stub[:crawl_file_comments].nil?
         data['CrawlChatRooms'] = stub[:crawl_chat_rooms] unless stub[:crawl_chat_rooms].nil?
         data['CrawlAttachments'] = stub[:crawl_attachments] unless stub[:crawl_attachments].nil?
-        data['FolderIds'] = Stubs::FolderIdList.stub(stub[:folder_ids]) unless stub[:folder_ids].nil?
-        data['ThreadFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:thread_field_mappings]) unless stub[:thread_field_mappings].nil?
-        data['MessageFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:message_field_mappings]) unless stub[:message_field_mappings].nil?
-        data['AttachmentFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:attachment_field_mappings]) unless stub[:attachment_field_mappings].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['FolderIds'] = FolderIdList.stub(stub[:folder_ids]) unless stub[:folder_ids].nil?
+        data['ThreadFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:thread_field_mappings]) unless stub[:thread_field_mappings].nil?
+        data['MessageFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:message_field_mappings]) unless stub[:message_field_mappings].nil?
+        data['AttachmentFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:attachment_field_mappings]) unless stub[:attachment_field_mappings].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
         data
       end
     end
@@ -1327,13 +1329,13 @@ module AWS::SDK::Kendra
         data['CrawlComments'] = stub[:crawl_comments] unless stub[:crawl_comments].nil?
         data['CrawlTasks'] = stub[:crawl_tasks] unless stub[:crawl_tasks].nil?
         data['CrawlWebLinks'] = stub[:crawl_web_links] unless stub[:crawl_web_links].nil?
-        data['FileFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:file_field_mappings]) unless stub[:file_field_mappings].nil?
-        data['TaskFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:task_field_mappings]) unless stub[:task_field_mappings].nil?
-        data['CommentFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:comment_field_mappings]) unless stub[:comment_field_mappings].nil?
-        data['WebLinkFieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:web_link_field_mappings]) unless stub[:web_link_field_mappings].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['FileFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:file_field_mappings]) unless stub[:file_field_mappings].nil?
+        data['TaskFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:task_field_mappings]) unless stub[:task_field_mappings].nil?
+        data['CommentFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:comment_field_mappings]) unless stub[:comment_field_mappings].nil?
+        data['WebLinkFieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:web_link_field_mappings]) unless stub[:web_link_field_mappings].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
         data
       end
     end
@@ -1366,18 +1368,18 @@ module AWS::SDK::Kendra
         data = {}
         data['TeamId'] = stub[:team_id] unless stub[:team_id].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
-        data['SlackEntityList'] = Stubs::SlackEntityList.stub(stub[:slack_entity_list]) unless stub[:slack_entity_list].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['SlackEntityList'] = SlackEntityList.stub(stub[:slack_entity_list]) unless stub[:slack_entity_list].nil?
         data['UseChangeLog'] = stub[:use_change_log] unless stub[:use_change_log].nil?
         data['CrawlBotMessage'] = stub[:crawl_bot_message] unless stub[:crawl_bot_message].nil?
         data['ExcludeArchived'] = stub[:exclude_archived] unless stub[:exclude_archived].nil?
         data['SinceCrawlDate'] = stub[:since_crawl_date] unless stub[:since_crawl_date].nil?
         data['LookBackPeriod'] = stub[:look_back_period] unless stub[:look_back_period].nil?
-        data['PrivateChannelFilter'] = Stubs::PrivateChannelFilter.stub(stub[:private_channel_filter]) unless stub[:private_channel_filter].nil?
-        data['PublicChannelFilter'] = Stubs::PublicChannelFilter.stub(stub[:public_channel_filter]) unless stub[:public_channel_filter].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['PrivateChannelFilter'] = PrivateChannelFilter.stub(stub[:private_channel_filter]) unless stub[:private_channel_filter].nil?
+        data['PublicChannelFilter'] = PublicChannelFilter.stub(stub[:public_channel_filter]) unless stub[:public_channel_filter].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -1463,11 +1465,11 @@ module AWS::SDK::Kendra
         data = {}
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['FileSystemType'] = stub[:file_system_type] unless stub[:file_system_type].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -1493,9 +1495,9 @@ module AWS::SDK::Kendra
         data['OrganizationId'] = stub[:organization_id] unless stub[:organization_id].nil?
         data['CrawlComments'] = stub[:crawl_comments] unless stub[:crawl_comments].nil?
         data['UseChangeLog'] = stub[:use_change_log] unless stub[:use_change_log].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -1521,15 +1523,15 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::WebCrawlerConfiguration.new
         data = {}
-        data['Urls'] = Stubs::Urls.stub(stub[:urls]) unless stub[:urls].nil?
+        data['Urls'] = Urls.stub(stub[:urls]) unless stub[:urls].nil?
         data['CrawlDepth'] = stub[:crawl_depth] unless stub[:crawl_depth].nil?
         data['MaxLinksPerPage'] = stub[:max_links_per_page] unless stub[:max_links_per_page].nil?
         data['MaxContentSizePerPageInMegaBytes'] = Hearth::NumberHelper.serialize(stub[:max_content_size_per_page_in_mega_bytes])
         data['MaxUrlsPerMinuteCrawlRate'] = stub[:max_urls_per_minute_crawl_rate] unless stub[:max_urls_per_minute_crawl_rate].nil?
-        data['UrlInclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:url_inclusion_patterns]) unless stub[:url_inclusion_patterns].nil?
-        data['UrlExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:url_exclusion_patterns]) unless stub[:url_exclusion_patterns].nil?
-        data['ProxyConfiguration'] = Stubs::ProxyConfiguration.stub(stub[:proxy_configuration]) unless stub[:proxy_configuration].nil?
-        data['AuthenticationConfiguration'] = Stubs::AuthenticationConfiguration.stub(stub[:authentication_configuration]) unless stub[:authentication_configuration].nil?
+        data['UrlInclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:url_inclusion_patterns]) unless stub[:url_inclusion_patterns].nil?
+        data['UrlExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:url_exclusion_patterns]) unless stub[:url_exclusion_patterns].nil?
+        data['ProxyConfiguration'] = ProxyConfiguration.stub(stub[:proxy_configuration]) unless stub[:proxy_configuration].nil?
+        data['AuthenticationConfiguration'] = AuthenticationConfiguration.stub(stub[:authentication_configuration]) unless stub[:authentication_configuration].nil?
         data
       end
     end
@@ -1547,7 +1549,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::AuthenticationConfiguration.new
         data = {}
-        data['BasicAuthentication'] = Stubs::BasicAuthenticationConfigurationList.stub(stub[:basic_authentication]) unless stub[:basic_authentication].nil?
+        data['BasicAuthentication'] = BasicAuthenticationConfigurationList.stub(stub[:basic_authentication]) unless stub[:basic_authentication].nil?
         data
       end
     end
@@ -1566,7 +1568,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BasicAuthenticationConfiguration.stub(element) unless element.nil?
+          data << BasicAuthenticationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1630,8 +1632,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::Urls.new
         data = {}
-        data['SeedUrlConfiguration'] = Stubs::SeedUrlConfiguration.stub(stub[:seed_url_configuration]) unless stub[:seed_url_configuration].nil?
-        data['SiteMapsConfiguration'] = Stubs::SiteMapsConfiguration.stub(stub[:site_maps_configuration]) unless stub[:site_maps_configuration].nil?
+        data['SeedUrlConfiguration'] = SeedUrlConfiguration.stub(stub[:seed_url_configuration]) unless stub[:seed_url_configuration].nil?
+        data['SiteMapsConfiguration'] = SiteMapsConfiguration.stub(stub[:site_maps_configuration]) unless stub[:site_maps_configuration].nil?
         data
       end
     end
@@ -1649,7 +1651,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::SiteMapsConfiguration.new
         data = {}
-        data['SiteMaps'] = Stubs::SiteMapsList.stub(stub[:site_maps]) unless stub[:site_maps].nil?
+        data['SiteMaps'] = SiteMapsList.stub(stub[:site_maps]) unless stub[:site_maps].nil?
         data
       end
     end
@@ -1688,7 +1690,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::SeedUrlConfiguration.new
         data = {}
-        data['SeedUrls'] = Stubs::SeedUrlList.stub(stub[:seed_urls]) unless stub[:seed_urls].nil?
+        data['SeedUrls'] = SeedUrlList.stub(stub[:seed_urls]) unless stub[:seed_urls].nil?
         data['WebCrawlerMode'] = stub[:web_crawler_mode] unless stub[:web_crawler_mode].nil?
         data
       end
@@ -1734,12 +1736,12 @@ module AWS::SDK::Kendra
         stub ||= Types::GoogleDriveConfiguration.new
         data = {}
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
-        data['ExcludeMimeTypes'] = Stubs::ExcludeMimeTypesList.stub(stub[:exclude_mime_types]) unless stub[:exclude_mime_types].nil?
-        data['ExcludeUserAccounts'] = Stubs::ExcludeUserAccountsList.stub(stub[:exclude_user_accounts]) unless stub[:exclude_user_accounts].nil?
-        data['ExcludeSharedDrives'] = Stubs::ExcludeSharedDrivesList.stub(stub[:exclude_shared_drives]) unless stub[:exclude_shared_drives].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['ExcludeMimeTypes'] = ExcludeMimeTypesList.stub(stub[:exclude_mime_types]) unless stub[:exclude_mime_types].nil?
+        data['ExcludeUserAccounts'] = ExcludeUserAccountsList.stub(stub[:exclude_user_accounts]) unless stub[:exclude_user_accounts].nil?
+        data['ExcludeSharedDrives'] = ExcludeSharedDrivesList.stub(stub[:exclude_shared_drives]) unless stub[:exclude_shared_drives].nil?
         data
       end
     end
@@ -1829,13 +1831,13 @@ module AWS::SDK::Kendra
         data['ServerUrl'] = stub[:server_url] unless stub[:server_url].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['SpaceConfiguration'] = Stubs::ConfluenceSpaceConfiguration.stub(stub[:space_configuration]) unless stub[:space_configuration].nil?
-        data['PageConfiguration'] = Stubs::ConfluencePageConfiguration.stub(stub[:page_configuration]) unless stub[:page_configuration].nil?
-        data['BlogConfiguration'] = Stubs::ConfluenceBlogConfiguration.stub(stub[:blog_configuration]) unless stub[:blog_configuration].nil?
-        data['AttachmentConfiguration'] = Stubs::ConfluenceAttachmentConfiguration.stub(stub[:attachment_configuration]) unless stub[:attachment_configuration].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['SpaceConfiguration'] = ConfluenceSpaceConfiguration.stub(stub[:space_configuration]) unless stub[:space_configuration].nil?
+        data['PageConfiguration'] = ConfluencePageConfiguration.stub(stub[:page_configuration]) unless stub[:page_configuration].nil?
+        data['BlogConfiguration'] = ConfluenceBlogConfiguration.stub(stub[:blog_configuration]) unless stub[:blog_configuration].nil?
+        data['AttachmentConfiguration'] = ConfluenceAttachmentConfiguration.stub(stub[:attachment_configuration]) unless stub[:attachment_configuration].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
         data
       end
     end
@@ -1855,7 +1857,7 @@ module AWS::SDK::Kendra
         stub ||= Types::ConfluenceAttachmentConfiguration.new
         data = {}
         data['CrawlAttachments'] = stub[:crawl_attachments] unless stub[:crawl_attachments].nil?
-        data['AttachmentFieldMappings'] = Stubs::ConfluenceAttachmentFieldMappingsList.stub(stub[:attachment_field_mappings]) unless stub[:attachment_field_mappings].nil?
+        data['AttachmentFieldMappings'] = ConfluenceAttachmentFieldMappingsList.stub(stub[:attachment_field_mappings]) unless stub[:attachment_field_mappings].nil?
         data
       end
     end
@@ -1874,7 +1876,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfluenceAttachmentToIndexFieldMapping.stub(element) unless element.nil?
+          data << ConfluenceAttachmentToIndexFieldMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -1915,7 +1917,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::ConfluenceBlogConfiguration.new
         data = {}
-        data['BlogFieldMappings'] = Stubs::ConfluenceBlogFieldMappingsList.stub(stub[:blog_field_mappings]) unless stub[:blog_field_mappings].nil?
+        data['BlogFieldMappings'] = ConfluenceBlogFieldMappingsList.stub(stub[:blog_field_mappings]) unless stub[:blog_field_mappings].nil?
         data
       end
     end
@@ -1934,7 +1936,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfluenceBlogToIndexFieldMapping.stub(element) unless element.nil?
+          data << ConfluenceBlogToIndexFieldMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -1975,7 +1977,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::ConfluencePageConfiguration.new
         data = {}
-        data['PageFieldMappings'] = Stubs::ConfluencePageFieldMappingsList.stub(stub[:page_field_mappings]) unless stub[:page_field_mappings].nil?
+        data['PageFieldMappings'] = ConfluencePageFieldMappingsList.stub(stub[:page_field_mappings]) unless stub[:page_field_mappings].nil?
         data
       end
     end
@@ -1994,7 +1996,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfluencePageToIndexFieldMapping.stub(element) unless element.nil?
+          data << ConfluencePageToIndexFieldMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -2041,9 +2043,9 @@ module AWS::SDK::Kendra
         data = {}
         data['CrawlPersonalSpaces'] = stub[:crawl_personal_spaces] unless stub[:crawl_personal_spaces].nil?
         data['CrawlArchivedSpaces'] = stub[:crawl_archived_spaces] unless stub[:crawl_archived_spaces].nil?
-        data['IncludeSpaces'] = Stubs::ConfluenceSpaceList.stub(stub[:include_spaces]) unless stub[:include_spaces].nil?
-        data['ExcludeSpaces'] = Stubs::ConfluenceSpaceList.stub(stub[:exclude_spaces]) unless stub[:exclude_spaces].nil?
-        data['SpaceFieldMappings'] = Stubs::ConfluenceSpaceFieldMappingsList.stub(stub[:space_field_mappings]) unless stub[:space_field_mappings].nil?
+        data['IncludeSpaces'] = ConfluenceSpaceList.stub(stub[:include_spaces]) unless stub[:include_spaces].nil?
+        data['ExcludeSpaces'] = ConfluenceSpaceList.stub(stub[:exclude_spaces]) unless stub[:exclude_spaces].nil?
+        data['SpaceFieldMappings'] = ConfluenceSpaceFieldMappingsList.stub(stub[:space_field_mappings]) unless stub[:space_field_mappings].nil?
         data
       end
     end
@@ -2062,7 +2064,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfluenceSpaceToIndexFieldMapping.stub(element) unless element.nil?
+          data << ConfluenceSpaceToIndexFieldMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -2131,8 +2133,8 @@ module AWS::SDK::Kendra
         data['HostUrl'] = stub[:host_url] unless stub[:host_url].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
         data['ServiceNowBuildVersion'] = stub[:service_now_build_version] unless stub[:service_now_build_version].nil?
-        data['KnowledgeArticleConfiguration'] = Stubs::ServiceNowKnowledgeArticleConfiguration.stub(stub[:knowledge_article_configuration]) unless stub[:knowledge_article_configuration].nil?
-        data['ServiceCatalogConfiguration'] = Stubs::ServiceNowServiceCatalogConfiguration.stub(stub[:service_catalog_configuration]) unless stub[:service_catalog_configuration].nil?
+        data['KnowledgeArticleConfiguration'] = ServiceNowKnowledgeArticleConfiguration.stub(stub[:knowledge_article_configuration]) unless stub[:knowledge_article_configuration].nil?
+        data['ServiceCatalogConfiguration'] = ServiceNowServiceCatalogConfiguration.stub(stub[:service_catalog_configuration]) unless stub[:service_catalog_configuration].nil?
         data['AuthenticationType'] = stub[:authentication_type] unless stub[:authentication_type].nil?
         data
       end
@@ -2157,11 +2159,11 @@ module AWS::SDK::Kendra
         stub ||= Types::ServiceNowServiceCatalogConfiguration.new
         data = {}
         data['CrawlAttachments'] = stub[:crawl_attachments] unless stub[:crawl_attachments].nil?
-        data['IncludeAttachmentFilePatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:include_attachment_file_patterns]) unless stub[:include_attachment_file_patterns].nil?
-        data['ExcludeAttachmentFilePatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclude_attachment_file_patterns]) unless stub[:exclude_attachment_file_patterns].nil?
+        data['IncludeAttachmentFilePatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:include_attachment_file_patterns]) unless stub[:include_attachment_file_patterns].nil?
+        data['ExcludeAttachmentFilePatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclude_attachment_file_patterns]) unless stub[:exclude_attachment_file_patterns].nil?
         data['DocumentDataFieldName'] = stub[:document_data_field_name] unless stub[:document_data_field_name].nil?
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -2186,11 +2188,11 @@ module AWS::SDK::Kendra
         stub ||= Types::ServiceNowKnowledgeArticleConfiguration.new
         data = {}
         data['CrawlAttachments'] = stub[:crawl_attachments] unless stub[:crawl_attachments].nil?
-        data['IncludeAttachmentFilePatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:include_attachment_file_patterns]) unless stub[:include_attachment_file_patterns].nil?
-        data['ExcludeAttachmentFilePatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclude_attachment_file_patterns]) unless stub[:exclude_attachment_file_patterns].nil?
+        data['IncludeAttachmentFilePatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:include_attachment_file_patterns]) unless stub[:include_attachment_file_patterns].nil?
+        data['ExcludeAttachmentFilePatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclude_attachment_file_patterns]) unless stub[:exclude_attachment_file_patterns].nil?
         data['DocumentDataFieldName'] = stub[:document_data_field_name] unless stub[:document_data_field_name].nil?
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data['FilterQuery'] = stub[:filter_query] unless stub[:filter_query].nil?
         data
       end
@@ -2217,10 +2219,10 @@ module AWS::SDK::Kendra
         data = {}
         data['TenantDomain'] = stub[:tenant_domain] unless stub[:tenant_domain].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        data['OneDriveUsers'] = Stubs::OneDriveUsers.stub(stub[:one_drive_users]) unless stub[:one_drive_users].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['OneDriveUsers'] = OneDriveUsers.stub(stub[:one_drive_users]) unless stub[:one_drive_users].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data['DisableLocalGroups'] = stub[:disable_local_groups] unless stub[:disable_local_groups].nil?
         data
       end
@@ -2240,8 +2242,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::OneDriveUsers.new
         data = {}
-        data['OneDriveUserList'] = Stubs::OneDriveUserList.stub(stub[:one_drive_user_list]) unless stub[:one_drive_user_list].nil?
-        data['OneDriveUserS3Path'] = Stubs::S3Path.stub(stub[:one_drive_user_s3_path]) unless stub[:one_drive_user_s3_path].nil?
+        data['OneDriveUserList'] = OneDriveUserList.stub(stub[:one_drive_user_list]) unless stub[:one_drive_user_list].nil?
+        data['OneDriveUserS3Path'] = S3Path.stub(stub[:one_drive_user_s3_path]) unless stub[:one_drive_user_s3_path].nil?
         data
       end
     end
@@ -2289,13 +2291,13 @@ module AWS::SDK::Kendra
         data = {}
         data['ServerUrl'] = stub[:server_url] unless stub[:server_url].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        data['StandardObjectConfigurations'] = Stubs::SalesforceStandardObjectConfigurationList.stub(stub[:standard_object_configurations]) unless stub[:standard_object_configurations].nil?
-        data['KnowledgeArticleConfiguration'] = Stubs::SalesforceKnowledgeArticleConfiguration.stub(stub[:knowledge_article_configuration]) unless stub[:knowledge_article_configuration].nil?
-        data['ChatterFeedConfiguration'] = Stubs::SalesforceChatterFeedConfiguration.stub(stub[:chatter_feed_configuration]) unless stub[:chatter_feed_configuration].nil?
+        data['StandardObjectConfigurations'] = SalesforceStandardObjectConfigurationList.stub(stub[:standard_object_configurations]) unless stub[:standard_object_configurations].nil?
+        data['KnowledgeArticleConfiguration'] = SalesforceKnowledgeArticleConfiguration.stub(stub[:knowledge_article_configuration]) unless stub[:knowledge_article_configuration].nil?
+        data['ChatterFeedConfiguration'] = SalesforceChatterFeedConfiguration.stub(stub[:chatter_feed_configuration]) unless stub[:chatter_feed_configuration].nil?
         data['CrawlAttachments'] = stub[:crawl_attachments] unless stub[:crawl_attachments].nil?
-        data['StandardObjectAttachmentConfiguration'] = Stubs::SalesforceStandardObjectAttachmentConfiguration.stub(stub[:standard_object_attachment_configuration]) unless stub[:standard_object_attachment_configuration].nil?
-        data['IncludeAttachmentFilePatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:include_attachment_file_patterns]) unless stub[:include_attachment_file_patterns].nil?
-        data['ExcludeAttachmentFilePatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclude_attachment_file_patterns]) unless stub[:exclude_attachment_file_patterns].nil?
+        data['StandardObjectAttachmentConfiguration'] = SalesforceStandardObjectAttachmentConfiguration.stub(stub[:standard_object_attachment_configuration]) unless stub[:standard_object_attachment_configuration].nil?
+        data['IncludeAttachmentFilePatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:include_attachment_file_patterns]) unless stub[:include_attachment_file_patterns].nil?
+        data['ExcludeAttachmentFilePatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclude_attachment_file_patterns]) unless stub[:exclude_attachment_file_patterns].nil?
         data
       end
     end
@@ -2315,7 +2317,7 @@ module AWS::SDK::Kendra
         stub ||= Types::SalesforceStandardObjectAttachmentConfiguration.new
         data = {}
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -2338,8 +2340,8 @@ module AWS::SDK::Kendra
         data = {}
         data['DocumentDataFieldName'] = stub[:document_data_field_name] unless stub[:document_data_field_name].nil?
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
-        data['IncludeFilterTypes'] = Stubs::SalesforceChatterFeedIncludeFilterTypes.stub(stub[:include_filter_types]) unless stub[:include_filter_types].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['IncludeFilterTypes'] = SalesforceChatterFeedIncludeFilterTypes.stub(stub[:include_filter_types]) unless stub[:include_filter_types].nil?
         data
       end
     end
@@ -2379,9 +2381,9 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::SalesforceKnowledgeArticleConfiguration.new
         data = {}
-        data['IncludedStates'] = Stubs::SalesforceKnowledgeArticleStateList.stub(stub[:included_states]) unless stub[:included_states].nil?
-        data['StandardKnowledgeArticleTypeConfiguration'] = Stubs::SalesforceStandardKnowledgeArticleTypeConfiguration.stub(stub[:standard_knowledge_article_type_configuration]) unless stub[:standard_knowledge_article_type_configuration].nil?
-        data['CustomKnowledgeArticleTypeConfigurations'] = Stubs::SalesforceCustomKnowledgeArticleTypeConfigurationList.stub(stub[:custom_knowledge_article_type_configurations]) unless stub[:custom_knowledge_article_type_configurations].nil?
+        data['IncludedStates'] = SalesforceKnowledgeArticleStateList.stub(stub[:included_states]) unless stub[:included_states].nil?
+        data['StandardKnowledgeArticleTypeConfiguration'] = SalesforceStandardKnowledgeArticleTypeConfiguration.stub(stub[:standard_knowledge_article_type_configuration]) unless stub[:standard_knowledge_article_type_configuration].nil?
+        data['CustomKnowledgeArticleTypeConfigurations'] = SalesforceCustomKnowledgeArticleTypeConfigurationList.stub(stub[:custom_knowledge_article_type_configurations]) unless stub[:custom_knowledge_article_type_configurations].nil?
         data
       end
     end
@@ -2400,7 +2402,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SalesforceCustomKnowledgeArticleTypeConfiguration.stub(element) unless element.nil?
+          data << SalesforceCustomKnowledgeArticleTypeConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -2425,7 +2427,7 @@ module AWS::SDK::Kendra
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DocumentDataFieldName'] = stub[:document_data_field_name] unless stub[:document_data_field_name].nil?
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -2447,7 +2449,7 @@ module AWS::SDK::Kendra
         data = {}
         data['DocumentDataFieldName'] = stub[:document_data_field_name] unless stub[:document_data_field_name].nil?
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -2486,7 +2488,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SalesforceStandardObjectConfiguration.stub(element) unless element.nil?
+          data << SalesforceStandardObjectConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -2511,7 +2513,7 @@ module AWS::SDK::Kendra
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DocumentDataFieldName'] = stub[:document_data_field_name] unless stub[:document_data_field_name].nil?
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data
       end
     end
@@ -2535,11 +2537,11 @@ module AWS::SDK::Kendra
         stub ||= Types::DatabaseConfiguration.new
         data = {}
         data['DatabaseEngineType'] = stub[:database_engine_type] unless stub[:database_engine_type].nil?
-        data['ConnectionConfiguration'] = Stubs::ConnectionConfiguration.stub(stub[:connection_configuration]) unless stub[:connection_configuration].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
-        data['ColumnConfiguration'] = Stubs::ColumnConfiguration.stub(stub[:column_configuration]) unless stub[:column_configuration].nil?
-        data['AclConfiguration'] = Stubs::AclConfiguration.stub(stub[:acl_configuration]) unless stub[:acl_configuration].nil?
-        data['SqlConfiguration'] = Stubs::SqlConfiguration.stub(stub[:sql_configuration]) unless stub[:sql_configuration].nil?
+        data['ConnectionConfiguration'] = ConnectionConfiguration.stub(stub[:connection_configuration]) unless stub[:connection_configuration].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['ColumnConfiguration'] = ColumnConfiguration.stub(stub[:column_configuration]) unless stub[:column_configuration].nil?
+        data['AclConfiguration'] = AclConfiguration.stub(stub[:acl_configuration]) unless stub[:acl_configuration].nil?
+        data['SqlConfiguration'] = SqlConfiguration.stub(stub[:sql_configuration]) unless stub[:sql_configuration].nil?
         data
       end
     end
@@ -2600,8 +2602,8 @@ module AWS::SDK::Kendra
         data['DocumentIdColumnName'] = stub[:document_id_column_name] unless stub[:document_id_column_name].nil?
         data['DocumentDataColumnName'] = stub[:document_data_column_name] unless stub[:document_data_column_name].nil?
         data['DocumentTitleColumnName'] = stub[:document_title_column_name] unless stub[:document_title_column_name].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
-        data['ChangeDetectingColumns'] = Stubs::ChangeDetectingColumns.stub(stub[:change_detecting_columns]) unless stub[:change_detecting_columns].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['ChangeDetectingColumns'] = ChangeDetectingColumns.stub(stub[:change_detecting_columns]) unless stub[:change_detecting_columns].nil?
         data
       end
     end
@@ -2677,17 +2679,17 @@ module AWS::SDK::Kendra
         stub ||= Types::SharePointConfiguration.new
         data = {}
         data['SharePointVersion'] = stub[:share_point_version] unless stub[:share_point_version].nil?
-        data['Urls'] = Stubs::SharePointUrlList.stub(stub[:urls]) unless stub[:urls].nil?
+        data['Urls'] = SharePointUrlList.stub(stub[:urls]) unless stub[:urls].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
         data['CrawlAttachments'] = stub[:crawl_attachments] unless stub[:crawl_attachments].nil?
         data['UseChangeLog'] = stub[:use_change_log] unless stub[:use_change_log].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['VpcConfiguration'] = Stubs::DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
-        data['FieldMappings'] = Stubs::DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['VpcConfiguration'] = DataSourceVpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['FieldMappings'] = DataSourceToIndexFieldMappingList.stub(stub[:field_mappings]) unless stub[:field_mappings].nil?
         data['DocumentTitleFieldName'] = stub[:document_title_field_name] unless stub[:document_title_field_name].nil?
         data['DisableLocalGroups'] = stub[:disable_local_groups] unless stub[:disable_local_groups].nil?
-        data['SslCertificateS3Path'] = Stubs::S3Path.stub(stub[:ssl_certificate_s3_path]) unless stub[:ssl_certificate_s3_path].nil?
+        data['SslCertificateS3Path'] = S3Path.stub(stub[:ssl_certificate_s3_path]) unless stub[:ssl_certificate_s3_path].nil?
         data
       end
     end
@@ -2731,11 +2733,11 @@ module AWS::SDK::Kendra
         stub ||= Types::S3DataSourceConfiguration.new
         data = {}
         data['BucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
-        data['InclusionPrefixes'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_prefixes]) unless stub[:inclusion_prefixes].nil?
-        data['InclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
-        data['ExclusionPatterns'] = Stubs::DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
-        data['DocumentsMetadataConfiguration'] = Stubs::DocumentsMetadataConfiguration.stub(stub[:documents_metadata_configuration]) unless stub[:documents_metadata_configuration].nil?
-        data['AccessControlListConfiguration'] = Stubs::AccessControlListConfiguration.stub(stub[:access_control_list_configuration]) unless stub[:access_control_list_configuration].nil?
+        data['InclusionPrefixes'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_prefixes]) unless stub[:inclusion_prefixes].nil?
+        data['InclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:inclusion_patterns]) unless stub[:inclusion_patterns].nil?
+        data['ExclusionPatterns'] = DataSourceInclusionsExclusionsStrings.stub(stub[:exclusion_patterns]) unless stub[:exclusion_patterns].nil?
+        data['DocumentsMetadataConfiguration'] = DocumentsMetadataConfiguration.stub(stub[:documents_metadata_configuration]) unless stub[:documents_metadata_configuration].nil?
+        data['AccessControlListConfiguration'] = AccessControlListConfiguration.stub(stub[:access_control_list_configuration]) unless stub[:access_control_list_configuration].nil?
         data
       end
     end
@@ -2799,15 +2801,15 @@ module AWS::SDK::Kendra
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['IndexId'] = stub[:index_id] unless stub[:index_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Endpoints'] = Stubs::ExperienceEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
-        data['Configuration'] = Stubs::ExperienceConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Endpoints'] = ExperienceEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Configuration'] = ExperienceConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2826,8 +2828,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::ExperienceConfiguration.new
         data = {}
-        data['ContentSourceConfiguration'] = Stubs::ContentSourceConfiguration.stub(stub[:content_source_configuration]) unless stub[:content_source_configuration].nil?
-        data['UserIdentityConfiguration'] = Stubs::UserIdentityConfiguration.stub(stub[:user_identity_configuration]) unless stub[:user_identity_configuration].nil?
+        data['ContentSourceConfiguration'] = ContentSourceConfiguration.stub(stub[:content_source_configuration]) unless stub[:content_source_configuration].nil?
+        data['UserIdentityConfiguration'] = UserIdentityConfiguration.stub(stub[:user_identity_configuration]) unless stub[:user_identity_configuration].nil?
         data
       end
     end
@@ -2865,8 +2867,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::ContentSourceConfiguration.new
         data = {}
-        data['DataSourceIds'] = Stubs::DataSourceIdList.stub(stub[:data_source_ids]) unless stub[:data_source_ids].nil?
-        data['FaqIds'] = Stubs::FaqIdsList.stub(stub[:faq_ids]) unless stub[:faq_ids].nil?
+        data['DataSourceIds'] = DataSourceIdList.stub(stub[:data_source_ids]) unless stub[:data_source_ids].nil?
+        data['FaqIds'] = FaqIdsList.stub(stub[:faq_ids]) unless stub[:faq_ids].nil?
         data['DirectPutContent'] = stub[:direct_put_content] unless stub[:direct_put_content].nil?
         data
       end
@@ -2926,7 +2928,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperienceEndpoint.stub(element) unless element.nil?
+          data << ExperienceEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -2979,13 +2981,13 @@ module AWS::SDK::Kendra
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['S3Path'] = Stubs::S3Path.stub(stub[:s3_path]) unless stub[:s3_path].nil?
+        data['S3Path'] = S3Path.stub(stub[:s3_path]) unless stub[:s3_path].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['FileFormat'] = stub[:file_format] unless stub[:file_format].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3019,19 +3021,19 @@ module AWS::SDK::Kendra
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Edition'] = stub[:edition] unless stub[:edition].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['ServerSideEncryptionConfiguration'] = Stubs::ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['ServerSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['DocumentMetadataConfigurations'] = Stubs::DocumentMetadataConfigurationList.stub(stub[:document_metadata_configurations]) unless stub[:document_metadata_configurations].nil?
-        data['IndexStatistics'] = Stubs::IndexStatistics.stub(stub[:index_statistics]) unless stub[:index_statistics].nil?
+        data['DocumentMetadataConfigurations'] = DocumentMetadataConfigurationList.stub(stub[:document_metadata_configurations]) unless stub[:document_metadata_configurations].nil?
+        data['IndexStatistics'] = IndexStatistics.stub(stub[:index_statistics]) unless stub[:index_statistics].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['CapacityUnits'] = Stubs::CapacityUnitsConfiguration.stub(stub[:capacity_units]) unless stub[:capacity_units].nil?
-        data['UserTokenConfigurations'] = Stubs::UserTokenConfigurationList.stub(stub[:user_token_configurations]) unless stub[:user_token_configurations].nil?
+        data['CapacityUnits'] = CapacityUnitsConfiguration.stub(stub[:capacity_units]) unless stub[:capacity_units].nil?
+        data['UserTokenConfigurations'] = UserTokenConfigurationList.stub(stub[:user_token_configurations]) unless stub[:user_token_configurations].nil?
         data['UserContextPolicy'] = stub[:user_context_policy] unless stub[:user_context_policy].nil?
-        data['UserGroupResolutionConfiguration'] = Stubs::UserGroupResolutionConfiguration.stub(stub[:user_group_resolution_configuration]) unless stub[:user_group_resolution_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserGroupResolutionConfiguration'] = UserGroupResolutionConfiguration.stub(stub[:user_group_resolution_configuration]) unless stub[:user_group_resolution_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3068,7 +3070,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserTokenConfiguration.stub(element) unless element.nil?
+          data << UserTokenConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -3088,8 +3090,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::UserTokenConfiguration.new
         data = {}
-        data['JwtTokenTypeConfiguration'] = Stubs::JwtTokenTypeConfiguration.stub(stub[:jwt_token_type_configuration]) unless stub[:jwt_token_type_configuration].nil?
-        data['JsonTokenTypeConfiguration'] = Stubs::JsonTokenTypeConfiguration.stub(stub[:json_token_type_configuration]) unless stub[:json_token_type_configuration].nil?
+        data['JwtTokenTypeConfiguration'] = JwtTokenTypeConfiguration.stub(stub[:jwt_token_type_configuration]) unless stub[:jwt_token_type_configuration].nil?
+        data['JsonTokenTypeConfiguration'] = JsonTokenTypeConfiguration.stub(stub[:json_token_type_configuration]) unless stub[:json_token_type_configuration].nil?
         data
       end
     end
@@ -3178,8 +3180,8 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::IndexStatistics.new
         data = {}
-        data['FaqStatistics'] = Stubs::FaqStatistics.stub(stub[:faq_statistics]) unless stub[:faq_statistics].nil?
-        data['TextDocumentStatistics'] = Stubs::TextDocumentStatistics.stub(stub[:text_document_statistics]) unless stub[:text_document_statistics].nil?
+        data['FaqStatistics'] = FaqStatistics.stub(stub[:faq_statistics]) unless stub[:faq_statistics].nil?
+        data['TextDocumentStatistics'] = TextDocumentStatistics.stub(stub[:text_document_statistics]) unless stub[:text_document_statistics].nil?
         data
       end
     end
@@ -3236,7 +3238,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentMetadataConfiguration.stub(element) unless element.nil?
+          data << DocumentMetadataConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -3260,8 +3262,8 @@ module AWS::SDK::Kendra
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Relevance'] = Stubs::Relevance.stub(stub[:relevance]) unless stub[:relevance].nil?
-        data['Search'] = Stubs::Search.stub(stub[:search]) unless stub[:search].nil?
+        data['Relevance'] = Relevance.stub(stub[:relevance]) unless stub[:relevance].nil?
+        data['Search'] = Search.stub(stub[:search]) unless stub[:search].nil?
         data
       end
     end
@@ -3311,7 +3313,7 @@ module AWS::SDK::Kendra
         data['Importance'] = stub[:importance] unless stub[:importance].nil?
         data['Duration'] = stub[:duration] unless stub[:duration].nil?
         data['RankOrder'] = stub[:rank_order] unless stub[:rank_order].nil?
-        data['ValueImportanceMap'] = Stubs::ValueImportanceMap.stub(stub[:value_importance_map]) unless stub[:value_importance_map].nil?
+        data['ValueImportanceMap'] = ValueImportanceMap.stub(stub[:value_importance_map]) unless stub[:value_importance_map].nil?
         data
       end
     end
@@ -3370,8 +3372,8 @@ module AWS::SDK::Kendra
         data['IndexId'] = stub[:index_id] unless stub[:index_id].nil?
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
-        data['GroupOrderingIdSummaries'] = Stubs::GroupOrderingIdSummaries.stub(stub[:group_ordering_id_summaries]) unless stub[:group_ordering_id_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupOrderingIdSummaries'] = GroupOrderingIdSummaries.stub(stub[:group_ordering_id_summaries]) unless stub[:group_ordering_id_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3390,7 +3392,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupOrderingIdSummary.stub(element) unless element.nil?
+          data << GroupOrderingIdSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3451,11 +3453,11 @@ module AWS::SDK::Kendra
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['SourceS3Path'] = Stubs::S3Path.stub(stub[:source_s3_path]) unless stub[:source_s3_path].nil?
+        data['SourceS3Path'] = S3Path.stub(stub[:source_s3_path]) unless stub[:source_s3_path].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
         data['FileSizeBytes'] = stub[:file_size_bytes] unless stub[:file_size_bytes].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3487,7 +3489,7 @@ module AWS::SDK::Kendra
         data['LastSuggestionsBuildTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_suggestions_build_time]).to_i unless stub[:last_suggestions_build_time].nil?
         data['LastClearTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_clear_time]).to_i unless stub[:last_clear_time].nil?
         data['TotalSuggestionsCount'] = stub[:total_suggestions_count] unless stub[:total_suggestions_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3523,11 +3525,11 @@ module AWS::SDK::Kendra
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['SourceS3Path'] = Stubs::S3Path.stub(stub[:source_s3_path]) unless stub[:source_s3_path].nil?
+        data['SourceS3Path'] = S3Path.stub(stub[:source_s3_path]) unless stub[:source_s3_path].nil?
         data['FileSizeBytes'] = stub[:file_size_bytes] unless stub[:file_size_bytes].nil?
         data['TermCount'] = stub[:term_count] unless stub[:term_count].nil?
         data['SynonymRuleCount'] = stub[:synonym_rule_count] unless stub[:synonym_rule_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3542,8 +3544,8 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedEntityList'] = Stubs::FailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedEntityList'] = FailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3558,8 +3560,8 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedEntityList'] = Stubs::FailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedEntityList'] = FailedEntityList.stub(stub[:failed_entity_list]) unless stub[:failed_entity_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3576,8 +3578,8 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['QuerySuggestionsId'] = stub[:query_suggestions_id] unless stub[:query_suggestions_id].nil?
-        data['Suggestions'] = Stubs::SuggestionList.stub(stub[:suggestions]) unless stub[:suggestions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Suggestions'] = SuggestionList.stub(stub[:suggestions]) unless stub[:suggestions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3596,7 +3598,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Suggestion.stub(element) unless element.nil?
+          data << Suggestion.stub(element) unless element.nil?
         end
         data
       end
@@ -3617,7 +3619,7 @@ module AWS::SDK::Kendra
         stub ||= Types::Suggestion.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Value'] = Stubs::SuggestionValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = SuggestionValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -3635,7 +3637,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::SuggestionValue.new
         data = {}
-        data['Text'] = Stubs::SuggestionTextWithHighlights.stub(stub[:text]) unless stub[:text].nil?
+        data['Text'] = SuggestionTextWithHighlights.stub(stub[:text]) unless stub[:text].nil?
         data
       end
     end
@@ -3655,7 +3657,7 @@ module AWS::SDK::Kendra
         stub ||= Types::SuggestionTextWithHighlights.new
         data = {}
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['Highlights'] = Stubs::SuggestionHighlightList.stub(stub[:highlights]) unless stub[:highlights].nil?
+        data['Highlights'] = SuggestionHighlightList.stub(stub[:highlights]) unless stub[:highlights].nil?
         data
       end
     end
@@ -3674,7 +3676,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SuggestionHighlight.stub(element) unless element.nil?
+          data << SuggestionHighlight.stub(element) unless element.nil?
         end
         data
       end
@@ -3713,11 +3715,11 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SnapShotTimeFilter'] = Stubs::TimeRange.stub(stub[:snap_shot_time_filter]) unless stub[:snap_shot_time_filter].nil?
-        data['SnapshotsDataHeader'] = Stubs::SnapshotsDataHeaderFields.stub(stub[:snapshots_data_header]) unless stub[:snapshots_data_header].nil?
-        data['SnapshotsData'] = Stubs::SnapshotsDataRecords.stub(stub[:snapshots_data]) unless stub[:snapshots_data].nil?
+        data['SnapShotTimeFilter'] = TimeRange.stub(stub[:snap_shot_time_filter]) unless stub[:snap_shot_time_filter].nil?
+        data['SnapshotsDataHeader'] = SnapshotsDataHeaderFields.stub(stub[:snapshots_data_header]) unless stub[:snapshots_data_header].nil?
+        data['SnapshotsData'] = SnapshotsDataRecords.stub(stub[:snapshots_data]) unless stub[:snapshots_data].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3736,7 +3738,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SnapshotsDataRecord.stub(element) unless element.nil?
+          data << SnapshotsDataRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -3813,9 +3815,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['History'] = Stubs::DataSourceSyncJobHistoryList.stub(stub[:history]) unless stub[:history].nil?
+        data['History'] = DataSourceSyncJobHistoryList.stub(stub[:history]) unless stub[:history].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3834,7 +3836,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSourceSyncJob.stub(element) unless element.nil?
+          data << DataSourceSyncJob.stub(element) unless element.nil?
         end
         data
       end
@@ -3867,7 +3869,7 @@ module AWS::SDK::Kendra
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['DataSourceErrorCode'] = stub[:data_source_error_code] unless stub[:data_source_error_code].nil?
-        data['Metrics'] = Stubs::DataSourceSyncJobMetrics.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Metrics'] = DataSourceSyncJobMetrics.stub(stub[:metrics]) unless stub[:metrics].nil?
         data
       end
     end
@@ -3909,9 +3911,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SummaryItems'] = Stubs::DataSourceSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
+        data['SummaryItems'] = DataSourceSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3930,7 +3932,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSourceSummary.stub(element) unless element.nil?
+          data << DataSourceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3977,9 +3979,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SummaryItems'] = Stubs::PersonasSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
+        data['SummaryItems'] = PersonasSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3998,7 +4000,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PersonasSummary.stub(element) unless element.nil?
+          data << PersonasSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4039,9 +4041,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SummaryItems'] = Stubs::ExperienceEntitiesSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
+        data['SummaryItems'] = ExperienceEntitiesSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4060,7 +4062,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperienceEntitiesSummary.stub(element) unless element.nil?
+          data << ExperienceEntitiesSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4083,7 +4085,7 @@ module AWS::SDK::Kendra
         data = {}
         data['EntityId'] = stub[:entity_id] unless stub[:entity_id].nil?
         data['EntityType'] = stub[:entity_type] unless stub[:entity_type].nil?
-        data['DisplayData'] = Stubs::EntityDisplayData.stub(stub[:display_data]) unless stub[:display_data].nil?
+        data['DisplayData'] = EntityDisplayData.stub(stub[:display_data]) unless stub[:display_data].nil?
         data
       end
     end
@@ -4125,9 +4127,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SummaryItems'] = Stubs::ExperiencesSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
+        data['SummaryItems'] = ExperiencesSummaryList.stub(stub[:summary_items]) unless stub[:summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4146,7 +4148,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperiencesSummary.stub(element) unless element.nil?
+          data << ExperiencesSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4173,7 +4175,7 @@ module AWS::SDK::Kendra
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Endpoints'] = Stubs::ExperienceEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = ExperienceEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data
       end
     end
@@ -4190,8 +4192,8 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FaqSummaryItems'] = Stubs::FaqSummaryItems.stub(stub[:faq_summary_items]) unless stub[:faq_summary_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FaqSummaryItems'] = FaqSummaryItems.stub(stub[:faq_summary_items]) unless stub[:faq_summary_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4210,7 +4212,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaqSummary.stub(element) unless element.nil?
+          data << FaqSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4257,9 +4259,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GroupsSummaries'] = Stubs::ListOfGroupSummaries.stub(stub[:groups_summaries]) unless stub[:groups_summaries].nil?
+        data['GroupsSummaries'] = ListOfGroupSummaries.stub(stub[:groups_summaries]) unless stub[:groups_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4278,7 +4280,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupSummary.stub(element) unless element.nil?
+          data << GroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4315,9 +4317,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IndexConfigurationSummaryItems'] = Stubs::IndexConfigurationSummaryList.stub(stub[:index_configuration_summary_items]) unless stub[:index_configuration_summary_items].nil?
+        data['IndexConfigurationSummaryItems'] = IndexConfigurationSummaryList.stub(stub[:index_configuration_summary_items]) unless stub[:index_configuration_summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4336,7 +4338,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IndexConfigurationSummary.stub(element) unless element.nil?
+          data << IndexConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4381,9 +4383,9 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BlockListSummaryItems'] = Stubs::QuerySuggestionsBlockListSummaryItems.stub(stub[:block_list_summary_items]) unless stub[:block_list_summary_items].nil?
+        data['BlockListSummaryItems'] = QuerySuggestionsBlockListSummaryItems.stub(stub[:block_list_summary_items]) unless stub[:block_list_summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4402,7 +4404,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QuerySuggestionsBlockListSummary.stub(element) unless element.nil?
+          data << QuerySuggestionsBlockListSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4446,8 +4448,8 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4466,7 +4468,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -4504,8 +4506,8 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ThesaurusSummaryItems'] = Stubs::ThesaurusSummaryItems.stub(stub[:thesaurus_summary_items]) unless stub[:thesaurus_summary_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ThesaurusSummaryItems'] = ThesaurusSummaryItems.stub(stub[:thesaurus_summary_items]) unless stub[:thesaurus_summary_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4524,7 +4526,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThesaurusSummary.stub(element) unless element.nil?
+          data << ThesaurusSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4565,7 +4567,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4586,12 +4588,12 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['QueryId'] = stub[:query_id] unless stub[:query_id].nil?
-        data['ResultItems'] = Stubs::QueryResultItemList.stub(stub[:result_items]) unless stub[:result_items].nil?
-        data['FacetResults'] = Stubs::FacetResultList.stub(stub[:facet_results]) unless stub[:facet_results].nil?
+        data['ResultItems'] = QueryResultItemList.stub(stub[:result_items]) unless stub[:result_items].nil?
+        data['FacetResults'] = FacetResultList.stub(stub[:facet_results]) unless stub[:facet_results].nil?
         data['TotalNumberOfResults'] = stub[:total_number_of_results] unless stub[:total_number_of_results].nil?
-        data['Warnings'] = Stubs::WarningList.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['SpellCorrectedQueries'] = Stubs::SpellCorrectedQueryList.stub(stub[:spell_corrected_queries]) unless stub[:spell_corrected_queries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Warnings'] = WarningList.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['SpellCorrectedQueries'] = SpellCorrectedQueryList.stub(stub[:spell_corrected_queries]) unless stub[:spell_corrected_queries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4610,7 +4612,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SpellCorrectedQuery.stub(element) unless element.nil?
+          data << SpellCorrectedQuery.stub(element) unless element.nil?
         end
         data
       end
@@ -4631,7 +4633,7 @@ module AWS::SDK::Kendra
         stub ||= Types::SpellCorrectedQuery.new
         data = {}
         data['SuggestedQueryText'] = stub[:suggested_query_text] unless stub[:suggested_query_text].nil?
-        data['Corrections'] = Stubs::CorrectionList.stub(stub[:corrections]) unless stub[:corrections].nil?
+        data['Corrections'] = CorrectionList.stub(stub[:corrections]) unless stub[:corrections].nil?
         data
       end
     end
@@ -4650,7 +4652,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Correction.stub(element) unless element.nil?
+          data << Correction.stub(element) unless element.nil?
         end
         data
       end
@@ -4694,7 +4696,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Warning.stub(element) unless element.nil?
+          data << Warning.stub(element) unless element.nil?
         end
         data
       end
@@ -4734,7 +4736,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FacetResult.stub(element) unless element.nil?
+          data << FacetResult.stub(element) unless element.nil?
         end
         data
       end
@@ -4757,7 +4759,7 @@ module AWS::SDK::Kendra
         data = {}
         data['DocumentAttributeKey'] = stub[:document_attribute_key] unless stub[:document_attribute_key].nil?
         data['DocumentAttributeValueType'] = stub[:document_attribute_value_type] unless stub[:document_attribute_value_type].nil?
-        data['DocumentAttributeValueCountPairs'] = Stubs::DocumentAttributeValueCountPairList.stub(stub[:document_attribute_value_count_pairs]) unless stub[:document_attribute_value_count_pairs].nil?
+        data['DocumentAttributeValueCountPairs'] = DocumentAttributeValueCountPairList.stub(stub[:document_attribute_value_count_pairs]) unless stub[:document_attribute_value_count_pairs].nil?
         data
       end
     end
@@ -4776,7 +4778,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentAttributeValueCountPair.stub(element) unless element.nil?
+          data << DocumentAttributeValueCountPair.stub(element) unless element.nil?
         end
         data
       end
@@ -4797,9 +4799,9 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::DocumentAttributeValueCountPair.new
         data = {}
-        data['DocumentAttributeValue'] = Stubs::DocumentAttributeValue.stub(stub[:document_attribute_value]) unless stub[:document_attribute_value].nil?
+        data['DocumentAttributeValue'] = DocumentAttributeValue.stub(stub[:document_attribute_value]) unless stub[:document_attribute_value].nil?
         data['Count'] = stub[:count] unless stub[:count].nil?
-        data['FacetResults'] = Stubs::FacetResultList.stub(stub[:facet_results]) unless stub[:facet_results].nil?
+        data['FacetResults'] = FacetResultList.stub(stub[:facet_results]) unless stub[:facet_results].nil?
         data
       end
     end
@@ -4818,7 +4820,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueryResultItem.stub(element) unless element.nil?
+          data << QueryResultItem.stub(element) unless element.nil?
         end
         data
       end
@@ -4848,13 +4850,13 @@ module AWS::SDK::Kendra
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['AdditionalAttributes'] = Stubs::AdditionalResultAttributeList.stub(stub[:additional_attributes]) unless stub[:additional_attributes].nil?
+        data['AdditionalAttributes'] = AdditionalResultAttributeList.stub(stub[:additional_attributes]) unless stub[:additional_attributes].nil?
         data['DocumentId'] = stub[:document_id] unless stub[:document_id].nil?
-        data['DocumentTitle'] = Stubs::TextWithHighlights.stub(stub[:document_title]) unless stub[:document_title].nil?
-        data['DocumentExcerpt'] = Stubs::TextWithHighlights.stub(stub[:document_excerpt]) unless stub[:document_excerpt].nil?
+        data['DocumentTitle'] = TextWithHighlights.stub(stub[:document_title]) unless stub[:document_title].nil?
+        data['DocumentExcerpt'] = TextWithHighlights.stub(stub[:document_excerpt]) unless stub[:document_excerpt].nil?
         data['DocumentURI'] = stub[:document_uri] unless stub[:document_uri].nil?
-        data['DocumentAttributes'] = Stubs::DocumentAttributeList.stub(stub[:document_attributes]) unless stub[:document_attributes].nil?
-        data['ScoreAttributes'] = Stubs::ScoreAttributes.stub(stub[:score_attributes]) unless stub[:score_attributes].nil?
+        data['DocumentAttributes'] = DocumentAttributeList.stub(stub[:document_attributes]) unless stub[:document_attributes].nil?
+        data['ScoreAttributes'] = ScoreAttributes.stub(stub[:score_attributes]) unless stub[:score_attributes].nil?
         data['FeedbackToken'] = stub[:feedback_token] unless stub[:feedback_token].nil?
         data
       end
@@ -4892,7 +4894,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentAttribute.stub(element) unless element.nil?
+          data << DocumentAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -4913,7 +4915,7 @@ module AWS::SDK::Kendra
         stub ||= Types::DocumentAttribute.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Value'] = Stubs::DocumentAttributeValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = DocumentAttributeValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -4933,7 +4935,7 @@ module AWS::SDK::Kendra
         stub ||= Types::TextWithHighlights.new
         data = {}
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['Highlights'] = Stubs::HighlightList.stub(stub[:highlights]) unless stub[:highlights].nil?
+        data['Highlights'] = HighlightList.stub(stub[:highlights]) unless stub[:highlights].nil?
         data
       end
     end
@@ -4952,7 +4954,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Highlight.stub(element) unless element.nil?
+          data << Highlight.stub(element) unless element.nil?
         end
         data
       end
@@ -4996,7 +4998,7 @@ module AWS::SDK::Kendra
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdditionalResultAttribute.stub(element) unless element.nil?
+          data << AdditionalResultAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -5019,7 +5021,7 @@ module AWS::SDK::Kendra
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
         data['ValueType'] = stub[:value_type] unless stub[:value_type].nil?
-        data['Value'] = Stubs::AdditionalResultAttributeValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = AdditionalResultAttributeValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -5037,7 +5039,7 @@ module AWS::SDK::Kendra
       def self.stub(stub)
         stub ||= Types::AdditionalResultAttributeValue.new
         data = {}
-        data['TextWithHighlightsValue'] = Stubs::TextWithHighlights.stub(stub[:text_with_highlights_value]) unless stub[:text_with_highlights_value].nil?
+        data['TextWithHighlightsValue'] = TextWithHighlights.stub(stub[:text_with_highlights_value]) unless stub[:text_with_highlights_value].nil?
         data
       end
     end
@@ -5053,7 +5055,7 @@ module AWS::SDK::Kendra
       def self.stub(http_resp, stub:)
         data = {}
         data['ExecutionId'] = stub[:execution_id] unless stub[:execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5067,7 +5069,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5081,7 +5083,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5095,7 +5097,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5109,7 +5111,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5123,7 +5125,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5137,7 +5139,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5151,7 +5153,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5165,7 +5167,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5179,7 +5181,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5193,7 +5195,7 @@ module AWS::SDK::Kendra
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

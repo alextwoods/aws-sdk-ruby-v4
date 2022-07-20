@@ -167,20 +167,20 @@ module AWS::SDK::Braket
         data.role_arn = map['roleArn']
         data.failure_reason = map['failureReason']
         data.job_name = map['jobName']
-        data.hyper_parameters = (Parsers::HyperParameters.parse(map['hyperParameters']) unless map['hyperParameters'].nil?)
-        data.input_data_config = (Parsers::InputConfigList.parse(map['inputDataConfig']) unless map['inputDataConfig'].nil?)
-        data.output_data_config = (Parsers::JobOutputDataConfig.parse(map['outputDataConfig']) unless map['outputDataConfig'].nil?)
-        data.stopping_condition = (Parsers::JobStoppingCondition.parse(map['stoppingCondition']) unless map['stoppingCondition'].nil?)
-        data.checkpoint_config = (Parsers::JobCheckpointConfig.parse(map['checkpointConfig']) unless map['checkpointConfig'].nil?)
-        data.algorithm_specification = (Parsers::AlgorithmSpecification.parse(map['algorithmSpecification']) unless map['algorithmSpecification'].nil?)
-        data.instance_config = (Parsers::InstanceConfig.parse(map['instanceConfig']) unless map['instanceConfig'].nil?)
+        data.hyper_parameters = (HyperParameters.parse(map['hyperParameters']) unless map['hyperParameters'].nil?)
+        data.input_data_config = (InputConfigList.parse(map['inputDataConfig']) unless map['inputDataConfig'].nil?)
+        data.output_data_config = (JobOutputDataConfig.parse(map['outputDataConfig']) unless map['outputDataConfig'].nil?)
+        data.stopping_condition = (JobStoppingCondition.parse(map['stoppingCondition']) unless map['stoppingCondition'].nil?)
+        data.checkpoint_config = (JobCheckpointConfig.parse(map['checkpointConfig']) unless map['checkpointConfig'].nil?)
+        data.algorithm_specification = (AlgorithmSpecification.parse(map['algorithmSpecification']) unless map['algorithmSpecification'].nil?)
+        data.instance_config = (InstanceConfig.parse(map['instanceConfig']) unless map['instanceConfig'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.started_at = Time.parse(map['startedAt']) if map['startedAt']
         data.ended_at = Time.parse(map['endedAt']) if map['endedAt']
         data.billable_duration = map['billableDuration']
-        data.device_config = (Parsers::DeviceConfig.parse(map['deviceConfig']) unless map['deviceConfig'].nil?)
-        data.events = (Parsers::JobEvents.parse(map['events']) unless map['events'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.device_config = (DeviceConfig.parse(map['deviceConfig']) unless map['deviceConfig'].nil?)
+        data.events = (JobEvents.parse(map['events']) unless map['events'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -199,7 +199,7 @@ module AWS::SDK::Braket
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobEventDetails.parse(value) unless value.nil?
+          data << JobEventDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -236,8 +236,8 @@ module AWS::SDK::Braket
     class AlgorithmSpecification
       def self.parse(map)
         data = Types::AlgorithmSpecification.new
-        data.script_mode_config = (Parsers::ScriptModeConfig.parse(map['scriptModeConfig']) unless map['scriptModeConfig'].nil?)
-        data.container_image = (Parsers::ContainerImage.parse(map['containerImage']) unless map['containerImage'].nil?)
+        data.script_mode_config = (ScriptModeConfig.parse(map['scriptModeConfig']) unless map['scriptModeConfig'].nil?)
+        data.container_image = (ContainerImage.parse(map['containerImage']) unless map['containerImage'].nil?)
         return data
       end
     end
@@ -290,7 +290,7 @@ module AWS::SDK::Braket
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputFileConfig.parse(value) unless value.nil?
+          data << InputFileConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -301,7 +301,7 @@ module AWS::SDK::Braket
         data = Types::InputFileConfig.new
         data.channel_name = map['channelName']
         data.content_type = map['contentType']
-        data.data_source = (Parsers::DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
+        data.data_source = (DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
         return data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::Braket
     class DataSource
       def self.parse(map)
         data = Types::DataSource.new
-        data.s3_data_source = (Parsers::S3DataSource.parse(map['s3DataSource']) unless map['s3DataSource'].nil?)
+        data.s3_data_source = (S3DataSource.parse(map['s3DataSource']) unless map['s3DataSource'].nil?)
         return data
       end
     end
@@ -347,7 +347,7 @@ module AWS::SDK::Braket
         data.output_s3_directory = map['outputS3Directory']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.ended_at = Time.parse(map['endedAt']) if map['endedAt']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.job_arn = map['jobArn']
         data
       end
@@ -358,7 +358,7 @@ module AWS::SDK::Braket
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -368,7 +368,7 @@ module AWS::SDK::Braket
       def self.parse(http_resp)
         data = Types::SearchDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.devices = (Parsers::DeviceSummaryList.parse(map['devices']) unless map['devices'].nil?)
+        data.devices = (DeviceSummaryList.parse(map['devices']) unless map['devices'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -378,7 +378,7 @@ module AWS::SDK::Braket
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceSummary.parse(value) unless value.nil?
+          data << DeviceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -401,7 +401,7 @@ module AWS::SDK::Braket
       def self.parse(http_resp)
         data = Types::SearchJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::JobSummaryList.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (JobSummaryList.parse(map['jobs']) unless map['jobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -411,7 +411,7 @@ module AWS::SDK::Braket
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobSummary.parse(value) unless value.nil?
+          data << JobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -427,7 +427,7 @@ module AWS::SDK::Braket
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.started_at = Time.parse(map['startedAt']) if map['startedAt']
         data.ended_at = Time.parse(map['endedAt']) if map['endedAt']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::Braket
       def self.parse(http_resp)
         data = Types::SearchQuantumTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.quantum_tasks = (Parsers::QuantumTaskSummaryList.parse(map['quantumTasks']) unless map['quantumTasks'].nil?)
+        data.quantum_tasks = (QuantumTaskSummaryList.parse(map['quantumTasks']) unless map['quantumTasks'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -447,7 +447,7 @@ module AWS::SDK::Braket
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::QuantumTaskSummary.parse(value) unless value.nil?
+          data << QuantumTaskSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -464,7 +464,7 @@ module AWS::SDK::Braket
         data.output_s3_directory = map['outputS3Directory']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.ended_at = Time.parse(map['endedAt']) if map['endedAt']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end

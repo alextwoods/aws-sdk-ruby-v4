@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Firehose
   module Builders
 
@@ -20,17 +23,17 @@ module AWS::SDK::Firehose
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
         data['DeliveryStreamType'] = input[:delivery_stream_type] unless input[:delivery_stream_type].nil?
-        data['KinesisStreamSourceConfiguration'] = Builders::KinesisStreamSourceConfiguration.build(input[:kinesis_stream_source_configuration]) unless input[:kinesis_stream_source_configuration].nil?
-        data['DeliveryStreamEncryptionConfigurationInput'] = Builders::DeliveryStreamEncryptionConfigurationInput.build(input[:delivery_stream_encryption_configuration_input]) unless input[:delivery_stream_encryption_configuration_input].nil?
-        data['S3DestinationConfiguration'] = Builders::S3DestinationConfiguration.build(input[:s3_destination_configuration]) unless input[:s3_destination_configuration].nil?
-        data['ExtendedS3DestinationConfiguration'] = Builders::ExtendedS3DestinationConfiguration.build(input[:extended_s3_destination_configuration]) unless input[:extended_s3_destination_configuration].nil?
-        data['RedshiftDestinationConfiguration'] = Builders::RedshiftDestinationConfiguration.build(input[:redshift_destination_configuration]) unless input[:redshift_destination_configuration].nil?
-        data['ElasticsearchDestinationConfiguration'] = Builders::ElasticsearchDestinationConfiguration.build(input[:elasticsearch_destination_configuration]) unless input[:elasticsearch_destination_configuration].nil?
-        data['AmazonopensearchserviceDestinationConfiguration'] = Builders::AmazonopensearchserviceDestinationConfiguration.build(input[:amazonopensearchservice_destination_configuration]) unless input[:amazonopensearchservice_destination_configuration].nil?
-        data['SplunkDestinationConfiguration'] = Builders::SplunkDestinationConfiguration.build(input[:splunk_destination_configuration]) unless input[:splunk_destination_configuration].nil?
-        data['HttpEndpointDestinationConfiguration'] = Builders::HttpEndpointDestinationConfiguration.build(input[:http_endpoint_destination_configuration]) unless input[:http_endpoint_destination_configuration].nil?
-        data['Tags'] = Builders::TagDeliveryStreamInputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KinesisStreamSourceConfiguration'] = KinesisStreamSourceConfiguration.build(input[:kinesis_stream_source_configuration]) unless input[:kinesis_stream_source_configuration].nil?
+        data['DeliveryStreamEncryptionConfigurationInput'] = DeliveryStreamEncryptionConfigurationInput.build(input[:delivery_stream_encryption_configuration_input]) unless input[:delivery_stream_encryption_configuration_input].nil?
+        data['S3DestinationConfiguration'] = S3DestinationConfiguration.build(input[:s3_destination_configuration]) unless input[:s3_destination_configuration].nil?
+        data['ExtendedS3DestinationConfiguration'] = ExtendedS3DestinationConfiguration.build(input[:extended_s3_destination_configuration]) unless input[:extended_s3_destination_configuration].nil?
+        data['RedshiftDestinationConfiguration'] = RedshiftDestinationConfiguration.build(input[:redshift_destination_configuration]) unless input[:redshift_destination_configuration].nil?
+        data['ElasticsearchDestinationConfiguration'] = ElasticsearchDestinationConfiguration.build(input[:elasticsearch_destination_configuration]) unless input[:elasticsearch_destination_configuration].nil?
+        data['AmazonopensearchserviceDestinationConfiguration'] = AmazonopensearchserviceDestinationConfiguration.build(input[:amazonopensearchservice_destination_configuration]) unless input[:amazonopensearchservice_destination_configuration].nil?
+        data['SplunkDestinationConfiguration'] = SplunkDestinationConfiguration.build(input[:splunk_destination_configuration]) unless input[:splunk_destination_configuration].nil?
+        data['HttpEndpointDestinationConfiguration'] = HttpEndpointDestinationConfiguration.build(input[:http_endpoint_destination_configuration]) unless input[:http_endpoint_destination_configuration].nil?
+        data['Tags'] = TagDeliveryStreamInputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -39,7 +42,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -59,15 +62,15 @@ module AWS::SDK::Firehose
     class HttpEndpointDestinationConfiguration
       def self.build(input)
         data = {}
-        data['EndpointConfiguration'] = Builders::HttpEndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
-        data['BufferingHints'] = Builders::HttpEndpointBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
-        data['RequestConfiguration'] = Builders::HttpEndpointRequestConfiguration.build(input[:request_configuration]) unless input[:request_configuration].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['EndpointConfiguration'] = HttpEndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
+        data['BufferingHints'] = HttpEndpointBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['RequestConfiguration'] = HttpEndpointRequestConfiguration.build(input[:request_configuration]) unless input[:request_configuration].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
-        data['RetryOptions'] = Builders::HttpEndpointRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['RetryOptions'] = HttpEndpointRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3Configuration'] = Builders::S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['S3Configuration'] = S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
         data
       end
     end
@@ -80,10 +83,10 @@ module AWS::SDK::Firehose
         data['BucketARN'] = input[:bucket_arn] unless input[:bucket_arn].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
         data['ErrorOutputPrefix'] = input[:error_output_prefix] unless input[:error_output_prefix].nil?
-        data['BufferingHints'] = Builders::BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['BufferingHints'] = BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
         data['CompressionFormat'] = input[:compression_format] unless input[:compression_format].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -104,7 +107,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = {}
         data['NoEncryptionConfig'] = input[:no_encryption_config] unless input[:no_encryption_config].nil?
-        data['KMSEncryptionConfig'] = Builders::KMSEncryptionConfig.build(input[:kms_encryption_config]) unless input[:kms_encryption_config].nil?
+        data['KMSEncryptionConfig'] = KMSEncryptionConfig.build(input[:kms_encryption_config]) unless input[:kms_encryption_config].nil?
         data
       end
     end
@@ -142,7 +145,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['Processors'] = Builders::ProcessorList.build(input[:processors]) unless input[:processors].nil?
+        data['Processors'] = ProcessorList.build(input[:processors]) unless input[:processors].nil?
         data
       end
     end
@@ -152,7 +155,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Processor.build(element) unless element.nil?
+          data << Processor.build(element) unless element.nil?
         end
         data
       end
@@ -163,7 +166,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Parameters'] = Builders::ProcessorParameterList.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = ProcessorParameterList.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -173,7 +176,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProcessorParameter.build(element) unless element.nil?
+          data << ProcessorParameter.build(element) unless element.nil?
         end
         data
       end
@@ -194,7 +197,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = {}
         data['ContentEncoding'] = input[:content_encoding] unless input[:content_encoding].nil?
-        data['CommonAttributes'] = Builders::HttpEndpointCommonAttributesList.build(input[:common_attributes]) unless input[:common_attributes].nil?
+        data['CommonAttributes'] = HttpEndpointCommonAttributesList.build(input[:common_attributes]) unless input[:common_attributes].nil?
         data
       end
     end
@@ -204,7 +207,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HttpEndpointCommonAttribute.build(element) unless element.nil?
+          data << HttpEndpointCommonAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -249,11 +252,11 @@ module AWS::SDK::Firehose
         data['HECEndpointType'] = input[:hec_endpoint_type] unless input[:hec_endpoint_type].nil?
         data['HECToken'] = input[:hec_token] unless input[:hec_token].nil?
         data['HECAcknowledgmentTimeoutInSeconds'] = input[:hec_acknowledgment_timeout_in_seconds] unless input[:hec_acknowledgment_timeout_in_seconds].nil?
-        data['RetryOptions'] = Builders::SplunkRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['RetryOptions'] = SplunkRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3Configuration'] = Builders::S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['S3Configuration'] = S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -277,13 +280,13 @@ module AWS::SDK::Firehose
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['TypeName'] = input[:type_name] unless input[:type_name].nil?
         data['IndexRotationPeriod'] = input[:index_rotation_period] unless input[:index_rotation_period].nil?
-        data['BufferingHints'] = Builders::AmazonopensearchserviceBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
-        data['RetryOptions'] = Builders::AmazonopensearchserviceRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['BufferingHints'] = AmazonopensearchserviceBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['RetryOptions'] = AmazonopensearchserviceRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3Configuration'] = Builders::S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
-        data['VpcConfiguration'] = Builders::VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
+        data['S3Configuration'] = S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['VpcConfiguration'] = VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
         data
       end
     end
@@ -292,9 +295,9 @@ module AWS::SDK::Firehose
     class VpcConfiguration
       def self.build(input)
         data = {}
-        data['SubnetIds'] = Builders::SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -350,13 +353,13 @@ module AWS::SDK::Firehose
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['TypeName'] = input[:type_name] unless input[:type_name].nil?
         data['IndexRotationPeriod'] = input[:index_rotation_period] unless input[:index_rotation_period].nil?
-        data['BufferingHints'] = Builders::ElasticsearchBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
-        data['RetryOptions'] = Builders::ElasticsearchRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['BufferingHints'] = ElasticsearchBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['RetryOptions'] = ElasticsearchRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3Configuration'] = Builders::S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
-        data['VpcConfiguration'] = Builders::VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
+        data['S3Configuration'] = S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['VpcConfiguration'] = VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
         data
       end
     end
@@ -386,15 +389,15 @@ module AWS::SDK::Firehose
         data = {}
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
         data['ClusterJDBCURL'] = input[:cluster_jdbcurl] unless input[:cluster_jdbcurl].nil?
-        data['CopyCommand'] = Builders::CopyCommand.build(input[:copy_command]) unless input[:copy_command].nil?
+        data['CopyCommand'] = CopyCommand.build(input[:copy_command]) unless input[:copy_command].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['RetryOptions'] = Builders::RedshiftRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
-        data['S3Configuration'] = Builders::S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['RetryOptions'] = RedshiftRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['S3Configuration'] = S3DestinationConfiguration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3BackupConfiguration'] = Builders::S3DestinationConfiguration.build(input[:s3_backup_configuration]) unless input[:s3_backup_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['S3BackupConfiguration'] = S3DestinationConfiguration.build(input[:s3_backup_configuration]) unless input[:s3_backup_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -427,15 +430,15 @@ module AWS::SDK::Firehose
         data['BucketARN'] = input[:bucket_arn] unless input[:bucket_arn].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
         data['ErrorOutputPrefix'] = input[:error_output_prefix] unless input[:error_output_prefix].nil?
-        data['BufferingHints'] = Builders::BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['BufferingHints'] = BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
         data['CompressionFormat'] = input[:compression_format] unless input[:compression_format].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3BackupConfiguration'] = Builders::S3DestinationConfiguration.build(input[:s3_backup_configuration]) unless input[:s3_backup_configuration].nil?
-        data['DataFormatConversionConfiguration'] = Builders::DataFormatConversionConfiguration.build(input[:data_format_conversion_configuration]) unless input[:data_format_conversion_configuration].nil?
-        data['DynamicPartitioningConfiguration'] = Builders::DynamicPartitioningConfiguration.build(input[:dynamic_partitioning_configuration]) unless input[:dynamic_partitioning_configuration].nil?
+        data['S3BackupConfiguration'] = S3DestinationConfiguration.build(input[:s3_backup_configuration]) unless input[:s3_backup_configuration].nil?
+        data['DataFormatConversionConfiguration'] = DataFormatConversionConfiguration.build(input[:data_format_conversion_configuration]) unless input[:data_format_conversion_configuration].nil?
+        data['DynamicPartitioningConfiguration'] = DynamicPartitioningConfiguration.build(input[:dynamic_partitioning_configuration]) unless input[:dynamic_partitioning_configuration].nil?
         data
       end
     end
@@ -444,7 +447,7 @@ module AWS::SDK::Firehose
     class DynamicPartitioningConfiguration
       def self.build(input)
         data = {}
-        data['RetryOptions'] = Builders::RetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['RetryOptions'] = RetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data
       end
@@ -463,9 +466,9 @@ module AWS::SDK::Firehose
     class DataFormatConversionConfiguration
       def self.build(input)
         data = {}
-        data['SchemaConfiguration'] = Builders::SchemaConfiguration.build(input[:schema_configuration]) unless input[:schema_configuration].nil?
-        data['InputFormatConfiguration'] = Builders::InputFormatConfiguration.build(input[:input_format_configuration]) unless input[:input_format_configuration].nil?
-        data['OutputFormatConfiguration'] = Builders::OutputFormatConfiguration.build(input[:output_format_configuration]) unless input[:output_format_configuration].nil?
+        data['SchemaConfiguration'] = SchemaConfiguration.build(input[:schema_configuration]) unless input[:schema_configuration].nil?
+        data['InputFormatConfiguration'] = InputFormatConfiguration.build(input[:input_format_configuration]) unless input[:input_format_configuration].nil?
+        data['OutputFormatConfiguration'] = OutputFormatConfiguration.build(input[:output_format_configuration]) unless input[:output_format_configuration].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data
       end
@@ -475,7 +478,7 @@ module AWS::SDK::Firehose
     class OutputFormatConfiguration
       def self.build(input)
         data = {}
-        data['Serializer'] = Builders::Serializer.build(input[:serializer]) unless input[:serializer].nil?
+        data['Serializer'] = Serializer.build(input[:serializer]) unless input[:serializer].nil?
         data
       end
     end
@@ -484,8 +487,8 @@ module AWS::SDK::Firehose
     class Serializer
       def self.build(input)
         data = {}
-        data['ParquetSerDe'] = Builders::ParquetSerDe.build(input[:parquet_ser_de]) unless input[:parquet_ser_de].nil?
-        data['OrcSerDe'] = Builders::OrcSerDe.build(input[:orc_ser_de]) unless input[:orc_ser_de].nil?
+        data['ParquetSerDe'] = ParquetSerDe.build(input[:parquet_ser_de]) unless input[:parquet_ser_de].nil?
+        data['OrcSerDe'] = OrcSerDe.build(input[:orc_ser_de]) unless input[:orc_ser_de].nil?
         data
       end
     end
@@ -500,7 +503,7 @@ module AWS::SDK::Firehose
         data['EnablePadding'] = input[:enable_padding] unless input[:enable_padding].nil?
         data['PaddingTolerance'] = Hearth::NumberHelper.serialize(input[:padding_tolerance]) unless input[:padding_tolerance].nil?
         data['Compression'] = input[:compression] unless input[:compression].nil?
-        data['BloomFilterColumns'] = Builders::ListOfNonEmptyStringsWithoutWhitespace.build(input[:bloom_filter_columns]) unless input[:bloom_filter_columns].nil?
+        data['BloomFilterColumns'] = ListOfNonEmptyStringsWithoutWhitespace.build(input[:bloom_filter_columns]) unless input[:bloom_filter_columns].nil?
         data['BloomFilterFalsePositiveProbability'] = Hearth::NumberHelper.serialize(input[:bloom_filter_false_positive_probability]) unless input[:bloom_filter_false_positive_probability].nil?
         data['DictionaryKeyThreshold'] = Hearth::NumberHelper.serialize(input[:dictionary_key_threshold]) unless input[:dictionary_key_threshold].nil?
         data['FormatVersion'] = input[:format_version] unless input[:format_version].nil?
@@ -537,7 +540,7 @@ module AWS::SDK::Firehose
     class InputFormatConfiguration
       def self.build(input)
         data = {}
-        data['Deserializer'] = Builders::Deserializer.build(input[:deserializer]) unless input[:deserializer].nil?
+        data['Deserializer'] = Deserializer.build(input[:deserializer]) unless input[:deserializer].nil?
         data
       end
     end
@@ -546,8 +549,8 @@ module AWS::SDK::Firehose
     class Deserializer
       def self.build(input)
         data = {}
-        data['OpenXJsonSerDe'] = Builders::OpenXJsonSerDe.build(input[:open_x_json_ser_de]) unless input[:open_x_json_ser_de].nil?
-        data['HiveJsonSerDe'] = Builders::HiveJsonSerDe.build(input[:hive_json_ser_de]) unless input[:hive_json_ser_de].nil?
+        data['OpenXJsonSerDe'] = OpenXJsonSerDe.build(input[:open_x_json_ser_de]) unless input[:open_x_json_ser_de].nil?
+        data['HiveJsonSerDe'] = HiveJsonSerDe.build(input[:hive_json_ser_de]) unless input[:hive_json_ser_de].nil?
         data
       end
     end
@@ -556,7 +559,7 @@ module AWS::SDK::Firehose
     class HiveJsonSerDe
       def self.build(input)
         data = {}
-        data['TimestampFormats'] = Builders::ListOfNonEmptyStrings.build(input[:timestamp_formats]) unless input[:timestamp_formats].nil?
+        data['TimestampFormats'] = ListOfNonEmptyStrings.build(input[:timestamp_formats]) unless input[:timestamp_formats].nil?
         data
       end
     end
@@ -578,7 +581,7 @@ module AWS::SDK::Firehose
         data = {}
         data['ConvertDotsInJsonKeysToUnderscores'] = input[:convert_dots_in_json_keys_to_underscores] unless input[:convert_dots_in_json_keys_to_underscores].nil?
         data['CaseInsensitive'] = input[:case_insensitive] unless input[:case_insensitive].nil?
-        data['ColumnToJsonKeyMappings'] = Builders::ColumnToJsonKeyMappings.build(input[:column_to_json_key_mappings]) unless input[:column_to_json_key_mappings].nil?
+        data['ColumnToJsonKeyMappings'] = ColumnToJsonKeyMappings.build(input[:column_to_json_key_mappings]) unless input[:column_to_json_key_mappings].nil?
         data
       end
     end
@@ -638,7 +641,7 @@ module AWS::SDK::Firehose
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
         data['AllowForceDelete'] = input[:allow_force_delete] unless input[:allow_force_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -653,7 +656,7 @@ module AWS::SDK::Firehose
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ExclusiveStartDestinationId'] = input[:exclusive_start_destination_id] unless input[:exclusive_start_destination_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -668,7 +671,7 @@ module AWS::SDK::Firehose
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['DeliveryStreamType'] = input[:delivery_stream_type] unless input[:delivery_stream_type].nil?
         data['ExclusiveStartDeliveryStreamName'] = input[:exclusive_start_delivery_stream_name] unless input[:exclusive_start_delivery_stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -683,7 +686,7 @@ module AWS::SDK::Firehose
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
         data['ExclusiveStartTagKey'] = input[:exclusive_start_tag_key] unless input[:exclusive_start_tag_key].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -696,8 +699,8 @@ module AWS::SDK::Firehose
         http_req.headers['X-Amz-Target'] = 'Firehose_20150804.PutRecord'
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
-        data['Record'] = Builders::Record.build(input[:record]) unless input[:record].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Record'] = Record.build(input[:record]) unless input[:record].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -705,7 +708,7 @@ module AWS::SDK::Firehose
     class Record
       def self.build(input)
         data = {}
-        data['Data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        data['Data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
         data
       end
     end
@@ -719,8 +722,8 @@ module AWS::SDK::Firehose
         http_req.headers['X-Amz-Target'] = 'Firehose_20150804.PutRecordBatch'
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
-        data['Records'] = Builders::PutRecordBatchRequestEntryList.build(input[:records]) unless input[:records].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Records'] = PutRecordBatchRequestEntryList.build(input[:records]) unless input[:records].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -729,7 +732,7 @@ module AWS::SDK::Firehose
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Record.build(element) unless element.nil?
+          data << Record.build(element) unless element.nil?
         end
         data
       end
@@ -744,8 +747,8 @@ module AWS::SDK::Firehose
         http_req.headers['X-Amz-Target'] = 'Firehose_20150804.StartDeliveryStreamEncryption'
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
-        data['DeliveryStreamEncryptionConfigurationInput'] = Builders::DeliveryStreamEncryptionConfigurationInput.build(input[:delivery_stream_encryption_configuration_input]) unless input[:delivery_stream_encryption_configuration_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryStreamEncryptionConfigurationInput'] = DeliveryStreamEncryptionConfigurationInput.build(input[:delivery_stream_encryption_configuration_input]) unless input[:delivery_stream_encryption_configuration_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -758,7 +761,7 @@ module AWS::SDK::Firehose
         http_req.headers['X-Amz-Target'] = 'Firehose_20150804.StopDeliveryStreamEncryption'
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -771,8 +774,8 @@ module AWS::SDK::Firehose
         http_req.headers['X-Amz-Target'] = 'Firehose_20150804.TagDeliveryStream'
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
-        data['Tags'] = Builders::TagDeliveryStreamInputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagDeliveryStreamInputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -785,8 +788,8 @@ module AWS::SDK::Firehose
         http_req.headers['X-Amz-Target'] = 'Firehose_20150804.UntagDeliveryStream'
         data = {}
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -812,14 +815,14 @@ module AWS::SDK::Firehose
         data['DeliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
         data['CurrentDeliveryStreamVersionId'] = input[:current_delivery_stream_version_id] unless input[:current_delivery_stream_version_id].nil?
         data['DestinationId'] = input[:destination_id] unless input[:destination_id].nil?
-        data['S3DestinationUpdate'] = Builders::S3DestinationUpdate.build(input[:s3_destination_update]) unless input[:s3_destination_update].nil?
-        data['ExtendedS3DestinationUpdate'] = Builders::ExtendedS3DestinationUpdate.build(input[:extended_s3_destination_update]) unless input[:extended_s3_destination_update].nil?
-        data['RedshiftDestinationUpdate'] = Builders::RedshiftDestinationUpdate.build(input[:redshift_destination_update]) unless input[:redshift_destination_update].nil?
-        data['ElasticsearchDestinationUpdate'] = Builders::ElasticsearchDestinationUpdate.build(input[:elasticsearch_destination_update]) unless input[:elasticsearch_destination_update].nil?
-        data['AmazonopensearchserviceDestinationUpdate'] = Builders::AmazonopensearchserviceDestinationUpdate.build(input[:amazonopensearchservice_destination_update]) unless input[:amazonopensearchservice_destination_update].nil?
-        data['SplunkDestinationUpdate'] = Builders::SplunkDestinationUpdate.build(input[:splunk_destination_update]) unless input[:splunk_destination_update].nil?
-        data['HttpEndpointDestinationUpdate'] = Builders::HttpEndpointDestinationUpdate.build(input[:http_endpoint_destination_update]) unless input[:http_endpoint_destination_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['S3DestinationUpdate'] = S3DestinationUpdate.build(input[:s3_destination_update]) unless input[:s3_destination_update].nil?
+        data['ExtendedS3DestinationUpdate'] = ExtendedS3DestinationUpdate.build(input[:extended_s3_destination_update]) unless input[:extended_s3_destination_update].nil?
+        data['RedshiftDestinationUpdate'] = RedshiftDestinationUpdate.build(input[:redshift_destination_update]) unless input[:redshift_destination_update].nil?
+        data['ElasticsearchDestinationUpdate'] = ElasticsearchDestinationUpdate.build(input[:elasticsearch_destination_update]) unless input[:elasticsearch_destination_update].nil?
+        data['AmazonopensearchserviceDestinationUpdate'] = AmazonopensearchserviceDestinationUpdate.build(input[:amazonopensearchservice_destination_update]) unless input[:amazonopensearchservice_destination_update].nil?
+        data['SplunkDestinationUpdate'] = SplunkDestinationUpdate.build(input[:splunk_destination_update]) unless input[:splunk_destination_update].nil?
+        data['HttpEndpointDestinationUpdate'] = HttpEndpointDestinationUpdate.build(input[:http_endpoint_destination_update]) unless input[:http_endpoint_destination_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -827,15 +830,15 @@ module AWS::SDK::Firehose
     class HttpEndpointDestinationUpdate
       def self.build(input)
         data = {}
-        data['EndpointConfiguration'] = Builders::HttpEndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
-        data['BufferingHints'] = Builders::HttpEndpointBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
-        data['RequestConfiguration'] = Builders::HttpEndpointRequestConfiguration.build(input[:request_configuration]) unless input[:request_configuration].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['EndpointConfiguration'] = HttpEndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
+        data['BufferingHints'] = HttpEndpointBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['RequestConfiguration'] = HttpEndpointRequestConfiguration.build(input[:request_configuration]) unless input[:request_configuration].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
-        data['RetryOptions'] = Builders::HttpEndpointRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['RetryOptions'] = HttpEndpointRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3Update'] = Builders::S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
+        data['S3Update'] = S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
         data
       end
     end
@@ -848,10 +851,10 @@ module AWS::SDK::Firehose
         data['BucketARN'] = input[:bucket_arn] unless input[:bucket_arn].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
         data['ErrorOutputPrefix'] = input[:error_output_prefix] unless input[:error_output_prefix].nil?
-        data['BufferingHints'] = Builders::BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['BufferingHints'] = BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
         data['CompressionFormat'] = input[:compression_format] unless input[:compression_format].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -864,11 +867,11 @@ module AWS::SDK::Firehose
         data['HECEndpointType'] = input[:hec_endpoint_type] unless input[:hec_endpoint_type].nil?
         data['HECToken'] = input[:hec_token] unless input[:hec_token].nil?
         data['HECAcknowledgmentTimeoutInSeconds'] = input[:hec_acknowledgment_timeout_in_seconds] unless input[:hec_acknowledgment_timeout_in_seconds].nil?
-        data['RetryOptions'] = Builders::SplunkRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['RetryOptions'] = SplunkRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3Update'] = Builders::S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['S3Update'] = S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -883,11 +886,11 @@ module AWS::SDK::Firehose
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['TypeName'] = input[:type_name] unless input[:type_name].nil?
         data['IndexRotationPeriod'] = input[:index_rotation_period] unless input[:index_rotation_period].nil?
-        data['BufferingHints'] = Builders::AmazonopensearchserviceBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
-        data['RetryOptions'] = Builders::AmazonopensearchserviceRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
-        data['S3Update'] = Builders::S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['BufferingHints'] = AmazonopensearchserviceBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['RetryOptions'] = AmazonopensearchserviceRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['S3Update'] = S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -902,11 +905,11 @@ module AWS::SDK::Firehose
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['TypeName'] = input[:type_name] unless input[:type_name].nil?
         data['IndexRotationPeriod'] = input[:index_rotation_period] unless input[:index_rotation_period].nil?
-        data['BufferingHints'] = Builders::ElasticsearchBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
-        data['RetryOptions'] = Builders::ElasticsearchRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
-        data['S3Update'] = Builders::S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['BufferingHints'] = ElasticsearchBufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['RetryOptions'] = ElasticsearchRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['S3Update'] = S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -917,15 +920,15 @@ module AWS::SDK::Firehose
         data = {}
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
         data['ClusterJDBCURL'] = input[:cluster_jdbcurl] unless input[:cluster_jdbcurl].nil?
-        data['CopyCommand'] = Builders::CopyCommand.build(input[:copy_command]) unless input[:copy_command].nil?
+        data['CopyCommand'] = CopyCommand.build(input[:copy_command]) unless input[:copy_command].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['RetryOptions'] = Builders::RedshiftRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
-        data['S3Update'] = Builders::S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['RetryOptions'] = RedshiftRetryOptions.build(input[:retry_options]) unless input[:retry_options].nil?
+        data['S3Update'] = S3DestinationUpdate.build(input[:s3_update]) unless input[:s3_update].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3BackupUpdate'] = Builders::S3DestinationUpdate.build(input[:s3_backup_update]) unless input[:s3_backup_update].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['S3BackupUpdate'] = S3DestinationUpdate.build(input[:s3_backup_update]) unless input[:s3_backup_update].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -938,15 +941,15 @@ module AWS::SDK::Firehose
         data['BucketARN'] = input[:bucket_arn] unless input[:bucket_arn].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
         data['ErrorOutputPrefix'] = input[:error_output_prefix] unless input[:error_output_prefix].nil?
-        data['BufferingHints'] = Builders::BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
+        data['BufferingHints'] = BufferingHints.build(input[:buffering_hints]) unless input[:buffering_hints].nil?
         data['CompressionFormat'] = input[:compression_format] unless input[:compression_format].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
-        data['ProcessingConfiguration'] = Builders::ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.build(input[:processing_configuration]) unless input[:processing_configuration].nil?
         data['S3BackupMode'] = input[:s3_backup_mode] unless input[:s3_backup_mode].nil?
-        data['S3BackupUpdate'] = Builders::S3DestinationUpdate.build(input[:s3_backup_update]) unless input[:s3_backup_update].nil?
-        data['DataFormatConversionConfiguration'] = Builders::DataFormatConversionConfiguration.build(input[:data_format_conversion_configuration]) unless input[:data_format_conversion_configuration].nil?
-        data['DynamicPartitioningConfiguration'] = Builders::DynamicPartitioningConfiguration.build(input[:dynamic_partitioning_configuration]) unless input[:dynamic_partitioning_configuration].nil?
+        data['S3BackupUpdate'] = S3DestinationUpdate.build(input[:s3_backup_update]) unless input[:s3_backup_update].nil?
+        data['DataFormatConversionConfiguration'] = DataFormatConversionConfiguration.build(input[:data_format_conversion_configuration]) unless input[:data_format_conversion_configuration].nil?
+        data['DynamicPartitioningConfiguration'] = DynamicPartitioningConfiguration.build(input[:dynamic_partitioning_configuration]) unless input[:dynamic_partitioning_configuration].nil?
         data
       end
     end

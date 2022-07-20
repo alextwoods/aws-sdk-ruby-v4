@@ -15,7 +15,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::AddLFTagsToResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.failures = (Parsers::LFTagErrors.parse(map['Failures']) unless map['Failures'].nil?)
+        data.failures = (LFTagErrors.parse(map['Failures']) unless map['Failures'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LFTagError.parse(value) unless value.nil?
+          data << LFTagError.parse(value) unless value.nil?
         end
         data
       end
@@ -33,8 +33,8 @@ module AWS::SDK::LakeFormation
     class LFTagError
       def self.parse(map)
         data = Types::LFTagError.new
-        data.lf_tag = (Parsers::LFTagPair.parse(map['LFTag']) unless map['LFTag'].nil?)
-        data.error = (Parsers::ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
+        data.lf_tag = (LFTagPair.parse(map['LFTag']) unless map['LFTag'].nil?)
+        data.error = (ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -53,7 +53,7 @@ module AWS::SDK::LakeFormation
         data = Types::LFTagPair.new
         data.catalog_id = map['CatalogId']
         data.tag_key = map['TagKey']
-        data.tag_values = (Parsers::TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
         return data
       end
     end
@@ -133,7 +133,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::BatchGrantPermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.failures = (Parsers::BatchPermissionsFailureList.parse(map['Failures']) unless map['Failures'].nil?)
+        data.failures = (BatchPermissionsFailureList.parse(map['Failures']) unless map['Failures'].nil?)
         data
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPermissionsFailureEntry.parse(value) unless value.nil?
+          data << BatchPermissionsFailureEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -151,8 +151,8 @@ module AWS::SDK::LakeFormation
     class BatchPermissionsFailureEntry
       def self.parse(map)
         data = Types::BatchPermissionsFailureEntry.new
-        data.request_entry = (Parsers::BatchPermissionsRequestEntry.parse(map['RequestEntry']) unless map['RequestEntry'].nil?)
-        data.error = (Parsers::ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
+        data.request_entry = (BatchPermissionsRequestEntry.parse(map['RequestEntry']) unless map['RequestEntry'].nil?)
+        data.error = (ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -161,10 +161,10 @@ module AWS::SDK::LakeFormation
       def self.parse(map)
         data = Types::BatchPermissionsRequestEntry.new
         data.id = map['Id']
-        data.principal = (Parsers::DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
-        data.resource = (Parsers::Resource.parse(map['Resource']) unless map['Resource'].nil?)
-        data.permissions = (Parsers::PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
-        data.permissions_with_grant_option = (Parsers::PermissionList.parse(map['PermissionsWithGrantOption']) unless map['PermissionsWithGrantOption'].nil?)
+        data.principal = (DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
+        data.resource = (Resource.parse(map['Resource']) unless map['Resource'].nil?)
+        data.permissions = (PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions_with_grant_option = (PermissionList.parse(map['PermissionsWithGrantOption']) unless map['PermissionsWithGrantOption'].nil?)
         return data
       end
     end
@@ -182,14 +182,14 @@ module AWS::SDK::LakeFormation
     class Resource
       def self.parse(map)
         data = Types::Resource.new
-        data.catalog = (Parsers::CatalogResource.parse(map['Catalog']) unless map['Catalog'].nil?)
-        data.database = (Parsers::DatabaseResource.parse(map['Database']) unless map['Database'].nil?)
-        data.table = (Parsers::TableResource.parse(map['Table']) unless map['Table'].nil?)
-        data.table_with_columns = (Parsers::TableWithColumnsResource.parse(map['TableWithColumns']) unless map['TableWithColumns'].nil?)
-        data.data_location = (Parsers::DataLocationResource.parse(map['DataLocation']) unless map['DataLocation'].nil?)
-        data.data_cells_filter = (Parsers::DataCellsFilterResource.parse(map['DataCellsFilter']) unless map['DataCellsFilter'].nil?)
-        data.lf_tag = (Parsers::LFTagKeyResource.parse(map['LFTag']) unless map['LFTag'].nil?)
-        data.lf_tag_policy = (Parsers::LFTagPolicyResource.parse(map['LFTagPolicy']) unless map['LFTagPolicy'].nil?)
+        data.catalog = (CatalogResource.parse(map['Catalog']) unless map['Catalog'].nil?)
+        data.database = (DatabaseResource.parse(map['Database']) unless map['Database'].nil?)
+        data.table = (TableResource.parse(map['Table']) unless map['Table'].nil?)
+        data.table_with_columns = (TableWithColumnsResource.parse(map['TableWithColumns']) unless map['TableWithColumns'].nil?)
+        data.data_location = (DataLocationResource.parse(map['DataLocation']) unless map['DataLocation'].nil?)
+        data.data_cells_filter = (DataCellsFilterResource.parse(map['DataCellsFilter']) unless map['DataCellsFilter'].nil?)
+        data.lf_tag = (LFTagKeyResource.parse(map['LFTag']) unless map['LFTag'].nil?)
+        data.lf_tag_policy = (LFTagPolicyResource.parse(map['LFTagPolicy']) unless map['LFTagPolicy'].nil?)
         return data
       end
     end
@@ -199,7 +199,7 @@ module AWS::SDK::LakeFormation
         data = Types::LFTagPolicyResource.new
         data.catalog_id = map['CatalogId']
         data.resource_type = map['ResourceType']
-        data.expression = (Parsers::Expression.parse(map['Expression']) unless map['Expression'].nil?)
+        data.expression = (Expression.parse(map['Expression']) unless map['Expression'].nil?)
         return data
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LFTag.parse(value) unless value.nil?
+          data << LFTag.parse(value) unless value.nil?
         end
         data
       end
@@ -218,7 +218,7 @@ module AWS::SDK::LakeFormation
       def self.parse(map)
         data = Types::LFTag.new
         data.tag_key = map['TagKey']
-        data.tag_values = (Parsers::TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
         return data
       end
     end
@@ -228,7 +228,7 @@ module AWS::SDK::LakeFormation
         data = Types::LFTagKeyResource.new
         data.catalog_id = map['CatalogId']
         data.tag_key = map['TagKey']
-        data.tag_values = (Parsers::TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
         return data
       end
     end
@@ -259,8 +259,8 @@ module AWS::SDK::LakeFormation
         data.catalog_id = map['CatalogId']
         data.database_name = map['DatabaseName']
         data.name = map['Name']
-        data.column_names = (Parsers::ColumnNames.parse(map['ColumnNames']) unless map['ColumnNames'].nil?)
-        data.column_wildcard = (Parsers::ColumnWildcard.parse(map['ColumnWildcard']) unless map['ColumnWildcard'].nil?)
+        data.column_names = (ColumnNames.parse(map['ColumnNames']) unless map['ColumnNames'].nil?)
+        data.column_wildcard = (ColumnWildcard.parse(map['ColumnWildcard']) unless map['ColumnWildcard'].nil?)
         return data
       end
     end
@@ -268,7 +268,7 @@ module AWS::SDK::LakeFormation
     class ColumnWildcard
       def self.parse(map)
         data = Types::ColumnWildcard.new
-        data.excluded_column_names = (Parsers::ColumnNames.parse(map['ExcludedColumnNames']) unless map['ExcludedColumnNames'].nil?)
+        data.excluded_column_names = (ColumnNames.parse(map['ExcludedColumnNames']) unless map['ExcludedColumnNames'].nil?)
         return data
       end
     end
@@ -289,7 +289,7 @@ module AWS::SDK::LakeFormation
         data.catalog_id = map['CatalogId']
         data.database_name = map['DatabaseName']
         data.name = map['Name']
-        data.table_wildcard = (Parsers::TableWildcard.parse(map['TableWildcard']) unless map['TableWildcard'].nil?)
+        data.table_wildcard = (TableWildcard.parse(map['TableWildcard']) unless map['TableWildcard'].nil?)
         return data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::BatchRevokePermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.failures = (Parsers::BatchPermissionsFailureList.parse(map['Failures']) unless map['Failures'].nil?)
+        data.failures = (BatchPermissionsFailureList.parse(map['Failures']) unless map['Failures'].nil?)
         data
       end
     end
@@ -473,7 +473,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::DescribeResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_info = (Parsers::ResourceInfo.parse(map['ResourceInfo']) unless map['ResourceInfo'].nil?)
+        data.resource_info = (ResourceInfo.parse(map['ResourceInfo']) unless map['ResourceInfo'].nil?)
         data
       end
     end
@@ -493,7 +493,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::DescribeTransactionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transaction_description = (Parsers::TransactionDescription.parse(map['TransactionDescription']) unless map['TransactionDescription'].nil?)
+        data.transaction_description = (TransactionDescription.parse(map['TransactionDescription']) unless map['TransactionDescription'].nil?)
         data
       end
     end
@@ -523,7 +523,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::GetDataLakeSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_lake_settings = (Parsers::DataLakeSettings.parse(map['DataLakeSettings']) unless map['DataLakeSettings'].nil?)
+        data.data_lake_settings = (DataLakeSettings.parse(map['DataLakeSettings']) unless map['DataLakeSettings'].nil?)
         data
       end
     end
@@ -531,13 +531,13 @@ module AWS::SDK::LakeFormation
     class DataLakeSettings
       def self.parse(map)
         data = Types::DataLakeSettings.new
-        data.data_lake_admins = (Parsers::DataLakePrincipalList.parse(map['DataLakeAdmins']) unless map['DataLakeAdmins'].nil?)
-        data.create_database_default_permissions = (Parsers::PrincipalPermissionsList.parse(map['CreateDatabaseDefaultPermissions']) unless map['CreateDatabaseDefaultPermissions'].nil?)
-        data.create_table_default_permissions = (Parsers::PrincipalPermissionsList.parse(map['CreateTableDefaultPermissions']) unless map['CreateTableDefaultPermissions'].nil?)
-        data.trusted_resource_owners = (Parsers::TrustedResourceOwners.parse(map['TrustedResourceOwners']) unless map['TrustedResourceOwners'].nil?)
+        data.data_lake_admins = (DataLakePrincipalList.parse(map['DataLakeAdmins']) unless map['DataLakeAdmins'].nil?)
+        data.create_database_default_permissions = (PrincipalPermissionsList.parse(map['CreateDatabaseDefaultPermissions']) unless map['CreateDatabaseDefaultPermissions'].nil?)
+        data.create_table_default_permissions = (PrincipalPermissionsList.parse(map['CreateTableDefaultPermissions']) unless map['CreateTableDefaultPermissions'].nil?)
+        data.trusted_resource_owners = (TrustedResourceOwners.parse(map['TrustedResourceOwners']) unless map['TrustedResourceOwners'].nil?)
         data.allow_external_data_filtering = map['AllowExternalDataFiltering']
-        data.external_data_filtering_allow_list = (Parsers::DataLakePrincipalList.parse(map['ExternalDataFilteringAllowList']) unless map['ExternalDataFilteringAllowList'].nil?)
-        data.authorized_session_tag_value_list = (Parsers::AuthorizedSessionTagValueList.parse(map['AuthorizedSessionTagValueList']) unless map['AuthorizedSessionTagValueList'].nil?)
+        data.external_data_filtering_allow_list = (DataLakePrincipalList.parse(map['ExternalDataFilteringAllowList']) unless map['ExternalDataFilteringAllowList'].nil?)
+        data.authorized_session_tag_value_list = (AuthorizedSessionTagValueList.parse(map['AuthorizedSessionTagValueList']) unless map['AuthorizedSessionTagValueList'].nil?)
         return data
       end
     end
@@ -556,7 +556,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataLakePrincipal.parse(value) unless value.nil?
+          data << DataLakePrincipal.parse(value) unless value.nil?
         end
         data
       end
@@ -576,7 +576,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PrincipalPermissions.parse(value) unless value.nil?
+          data << PrincipalPermissions.parse(value) unless value.nil?
         end
         data
       end
@@ -585,8 +585,8 @@ module AWS::SDK::LakeFormation
     class PrincipalPermissions
       def self.parse(map)
         data = Types::PrincipalPermissions.new
-        data.principal = (Parsers::DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
-        data.permissions = (Parsers::PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.principal = (DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
+        data.permissions = (PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         return data
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::GetEffectivePermissionsForPathOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.permissions = (Parsers::PrincipalResourcePermissionsList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (PrincipalResourcePermissionsList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -606,7 +606,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PrincipalResourcePermissions.parse(value) unless value.nil?
+          data << PrincipalResourcePermissions.parse(value) unless value.nil?
         end
         data
       end
@@ -615,11 +615,11 @@ module AWS::SDK::LakeFormation
     class PrincipalResourcePermissions
       def self.parse(map)
         data = Types::PrincipalResourcePermissions.new
-        data.principal = (Parsers::DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
-        data.resource = (Parsers::Resource.parse(map['Resource']) unless map['Resource'].nil?)
-        data.permissions = (Parsers::PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
-        data.permissions_with_grant_option = (Parsers::PermissionList.parse(map['PermissionsWithGrantOption']) unless map['PermissionsWithGrantOption'].nil?)
-        data.additional_details = (Parsers::DetailsMap.parse(map['AdditionalDetails']) unless map['AdditionalDetails'].nil?)
+        data.principal = (DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
+        data.resource = (Resource.parse(map['Resource']) unless map['Resource'].nil?)
+        data.permissions = (PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions_with_grant_option = (PermissionList.parse(map['PermissionsWithGrantOption']) unless map['PermissionsWithGrantOption'].nil?)
+        data.additional_details = (DetailsMap.parse(map['AdditionalDetails']) unless map['AdditionalDetails'].nil?)
         return data
       end
     end
@@ -627,7 +627,7 @@ module AWS::SDK::LakeFormation
     class DetailsMap
       def self.parse(map)
         data = Types::DetailsMap.new
-        data.resource_share = (Parsers::ResourceShareList.parse(map['ResourceShare']) unless map['ResourceShare'].nil?)
+        data.resource_share = (ResourceShareList.parse(map['ResourceShare']) unless map['ResourceShare'].nil?)
         return data
       end
     end
@@ -649,7 +649,7 @@ module AWS::SDK::LakeFormation
         map = Hearth::JSON.load(http_resp.body)
         data.catalog_id = map['CatalogId']
         data.tag_key = map['TagKey']
-        data.tag_values = (Parsers::TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (TagValueList.parse(map['TagValues']) unless map['TagValues'].nil?)
         data
       end
     end
@@ -670,8 +670,8 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::GetQueryStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution_statistics = (Parsers::ExecutionStatistics.parse(map['ExecutionStatistics']) unless map['ExecutionStatistics'].nil?)
-        data.planning_statistics = (Parsers::PlanningStatistics.parse(map['PlanningStatistics']) unless map['PlanningStatistics'].nil?)
+        data.execution_statistics = (ExecutionStatistics.parse(map['ExecutionStatistics']) unless map['ExecutionStatistics'].nil?)
+        data.planning_statistics = (PlanningStatistics.parse(map['PlanningStatistics']) unless map['PlanningStatistics'].nil?)
         data.query_submission_time = Time.parse(map['QuerySubmissionTime']) if map['QuerySubmissionTime']
         data
       end
@@ -733,9 +733,9 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::GetResourceLFTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lf_tag_on_database = (Parsers::LFTagsList.parse(map['LFTagOnDatabase']) unless map['LFTagOnDatabase'].nil?)
-        data.lf_tags_on_table = (Parsers::LFTagsList.parse(map['LFTagsOnTable']) unless map['LFTagsOnTable'].nil?)
-        data.lf_tags_on_columns = (Parsers::ColumnLFTagsList.parse(map['LFTagsOnColumns']) unless map['LFTagsOnColumns'].nil?)
+        data.lf_tag_on_database = (LFTagsList.parse(map['LFTagOnDatabase']) unless map['LFTagOnDatabase'].nil?)
+        data.lf_tags_on_table = (LFTagsList.parse(map['LFTagsOnTable']) unless map['LFTagsOnTable'].nil?)
+        data.lf_tags_on_columns = (ColumnLFTagsList.parse(map['LFTagsOnColumns']) unless map['LFTagsOnColumns'].nil?)
         data
       end
     end
@@ -744,7 +744,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnLFTag.parse(value) unless value.nil?
+          data << ColumnLFTag.parse(value) unless value.nil?
         end
         data
       end
@@ -754,7 +754,7 @@ module AWS::SDK::LakeFormation
       def self.parse(map)
         data = Types::ColumnLFTag.new
         data.name = map['Name']
-        data.lf_tags = (Parsers::LFTagsList.parse(map['LFTags']) unless map['LFTags'].nil?)
+        data.lf_tags = (LFTagsList.parse(map['LFTags']) unless map['LFTags'].nil?)
         return data
       end
     end
@@ -763,7 +763,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LFTagPair.parse(value) unless value.nil?
+          data << LFTagPair.parse(value) unless value.nil?
         end
         data
       end
@@ -784,7 +784,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::GetTableObjectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.objects = (Parsers::PartitionedTableObjectsList.parse(map['Objects']) unless map['Objects'].nil?)
+        data.objects = (PartitionedTableObjectsList.parse(map['Objects']) unless map['Objects'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -794,7 +794,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PartitionObjects.parse(value) unless value.nil?
+          data << PartitionObjects.parse(value) unless value.nil?
         end
         data
       end
@@ -803,8 +803,8 @@ module AWS::SDK::LakeFormation
     class PartitionObjects
       def self.parse(map)
         data = Types::PartitionObjects.new
-        data.partition_values = (Parsers::PartitionValuesList.parse(map['PartitionValues']) unless map['PartitionValues'].nil?)
-        data.objects = (Parsers::TableObjectList.parse(map['Objects']) unless map['Objects'].nil?)
+        data.partition_values = (PartitionValuesList.parse(map['PartitionValues']) unless map['PartitionValues'].nil?)
+        data.objects = (TableObjectList.parse(map['Objects']) unless map['Objects'].nil?)
         return data
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TableObject.parse(value) unless value.nil?
+          data << TableObject.parse(value) unless value.nil?
         end
         data
       end
@@ -891,7 +891,7 @@ module AWS::SDK::LakeFormation
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
         data.query_id = map['QueryId']
-        data.work_unit_ranges = (Parsers::WorkUnitRangeList.parse(map['WorkUnitRanges']) unless map['WorkUnitRanges'].nil?)
+        data.work_unit_ranges = (WorkUnitRangeList.parse(map['WorkUnitRanges']) unless map['WorkUnitRanges'].nil?)
         data
       end
     end
@@ -900,7 +900,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkUnitRange.parse(value) unless value.nil?
+          data << WorkUnitRange.parse(value) unless value.nil?
         end
         data
       end
@@ -940,7 +940,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::ListDataCellsFilterOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_cells_filters = (Parsers::DataCellsFilterList.parse(map['DataCellsFilters']) unless map['DataCellsFilters'].nil?)
+        data.data_cells_filters = (DataCellsFilterList.parse(map['DataCellsFilters']) unless map['DataCellsFilters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -950,7 +950,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataCellsFilter.parse(value) unless value.nil?
+          data << DataCellsFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -963,9 +963,9 @@ module AWS::SDK::LakeFormation
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
         data.name = map['Name']
-        data.row_filter = (Parsers::RowFilter.parse(map['RowFilter']) unless map['RowFilter'].nil?)
-        data.column_names = (Parsers::ColumnNames.parse(map['ColumnNames']) unless map['ColumnNames'].nil?)
-        data.column_wildcard = (Parsers::ColumnWildcard.parse(map['ColumnWildcard']) unless map['ColumnWildcard'].nil?)
+        data.row_filter = (RowFilter.parse(map['RowFilter']) unless map['RowFilter'].nil?)
+        data.column_names = (ColumnNames.parse(map['ColumnNames']) unless map['ColumnNames'].nil?)
+        data.column_wildcard = (ColumnWildcard.parse(map['ColumnWildcard']) unless map['ColumnWildcard'].nil?)
         return data
       end
     end
@@ -974,7 +974,7 @@ module AWS::SDK::LakeFormation
       def self.parse(map)
         data = Types::RowFilter.new
         data.filter_expression = map['FilterExpression']
-        data.all_rows_wildcard = (Parsers::AllRowsWildcard.parse(map['AllRowsWildcard']) unless map['AllRowsWildcard'].nil?)
+        data.all_rows_wildcard = (AllRowsWildcard.parse(map['AllRowsWildcard']) unless map['AllRowsWildcard'].nil?)
         return data
       end
     end
@@ -991,7 +991,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::ListLFTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lf_tags = (Parsers::LFTagsList.parse(map['LFTags']) unless map['LFTags'].nil?)
+        data.lf_tags = (LFTagsList.parse(map['LFTags']) unless map['LFTags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1002,7 +1002,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::ListPermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.principal_resource_permissions = (Parsers::PrincipalResourcePermissionsList.parse(map['PrincipalResourcePermissions']) unless map['PrincipalResourcePermissions'].nil?)
+        data.principal_resource_permissions = (PrincipalResourcePermissionsList.parse(map['PrincipalResourcePermissions']) unless map['PrincipalResourcePermissions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1013,7 +1013,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::ListResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_info_list = (Parsers::ResourceInfoList.parse(map['ResourceInfoList']) unless map['ResourceInfoList'].nil?)
+        data.resource_info_list = (ResourceInfoList.parse(map['ResourceInfoList']) unless map['ResourceInfoList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1023,7 +1023,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceInfo.parse(value) unless value.nil?
+          data << ResourceInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -1034,7 +1034,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::ListTableStorageOptimizersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.storage_optimizer_list = (Parsers::StorageOptimizerList.parse(map['StorageOptimizerList']) unless map['StorageOptimizerList'].nil?)
+        data.storage_optimizer_list = (StorageOptimizerList.parse(map['StorageOptimizerList']) unless map['StorageOptimizerList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1044,7 +1044,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StorageOptimizer.parse(value) unless value.nil?
+          data << StorageOptimizer.parse(value) unless value.nil?
         end
         data
       end
@@ -1054,7 +1054,7 @@ module AWS::SDK::LakeFormation
       def self.parse(map)
         data = Types::StorageOptimizer.new
         data.storage_optimizer_type = map['StorageOptimizerType']
-        data.config = (Parsers::StorageOptimizerConfig.parse(map['Config']) unless map['Config'].nil?)
+        data.config = (StorageOptimizerConfig.parse(map['Config']) unless map['Config'].nil?)
         data.error_message = map['ErrorMessage']
         data.warnings = map['Warnings']
         data.last_run_details = map['LastRunDetails']
@@ -1077,7 +1077,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::ListTransactionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transactions = (Parsers::TransactionDescriptionList.parse(map['Transactions']) unless map['Transactions'].nil?)
+        data.transactions = (TransactionDescriptionList.parse(map['Transactions']) unless map['Transactions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1087,7 +1087,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TransactionDescription.parse(value) unless value.nil?
+          data << TransactionDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -1116,7 +1116,7 @@ module AWS::SDK::LakeFormation
       def self.parse(http_resp)
         data = Types::RemoveLFTagsFromResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.failures = (Parsers::LFTagErrors.parse(map['Failures']) unless map['Failures'].nil?)
+        data.failures = (LFTagErrors.parse(map['Failures']) unless map['Failures'].nil?)
         data
       end
     end
@@ -1136,7 +1136,7 @@ module AWS::SDK::LakeFormation
         data = Types::SearchDatabasesByLFTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.database_list = (Parsers::DatabaseLFTagsList.parse(map['DatabaseList']) unless map['DatabaseList'].nil?)
+        data.database_list = (DatabaseLFTagsList.parse(map['DatabaseList']) unless map['DatabaseList'].nil?)
         data
       end
     end
@@ -1145,7 +1145,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TaggedDatabase.parse(value) unless value.nil?
+          data << TaggedDatabase.parse(value) unless value.nil?
         end
         data
       end
@@ -1154,8 +1154,8 @@ module AWS::SDK::LakeFormation
     class TaggedDatabase
       def self.parse(map)
         data = Types::TaggedDatabase.new
-        data.database = (Parsers::DatabaseResource.parse(map['Database']) unless map['Database'].nil?)
-        data.lf_tags = (Parsers::LFTagsList.parse(map['LFTags']) unless map['LFTags'].nil?)
+        data.database = (DatabaseResource.parse(map['Database']) unless map['Database'].nil?)
+        data.lf_tags = (LFTagsList.parse(map['LFTags']) unless map['LFTags'].nil?)
         return data
       end
     end
@@ -1166,7 +1166,7 @@ module AWS::SDK::LakeFormation
         data = Types::SearchTablesByLFTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.table_list = (Parsers::TableLFTagsList.parse(map['TableList']) unless map['TableList'].nil?)
+        data.table_list = (TableLFTagsList.parse(map['TableList']) unless map['TableList'].nil?)
         data
       end
     end
@@ -1175,7 +1175,7 @@ module AWS::SDK::LakeFormation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TaggedTable.parse(value) unless value.nil?
+          data << TaggedTable.parse(value) unless value.nil?
         end
         data
       end
@@ -1184,10 +1184,10 @@ module AWS::SDK::LakeFormation
     class TaggedTable
       def self.parse(map)
         data = Types::TaggedTable.new
-        data.table = (Parsers::TableResource.parse(map['Table']) unless map['Table'].nil?)
-        data.lf_tag_on_database = (Parsers::LFTagsList.parse(map['LFTagOnDatabase']) unless map['LFTagOnDatabase'].nil?)
-        data.lf_tags_on_table = (Parsers::LFTagsList.parse(map['LFTagsOnTable']) unless map['LFTagsOnTable'].nil?)
-        data.lf_tags_on_columns = (Parsers::ColumnLFTagsList.parse(map['LFTagsOnColumns']) unless map['LFTagsOnColumns'].nil?)
+        data.table = (TableResource.parse(map['Table']) unless map['Table'].nil?)
+        data.lf_tag_on_database = (LFTagsList.parse(map['LFTagOnDatabase']) unless map['LFTagOnDatabase'].nil?)
+        data.lf_tags_on_table = (LFTagsList.parse(map['LFTagsOnTable']) unless map['LFTagsOnTable'].nil?)
+        data.lf_tags_on_columns = (ColumnLFTagsList.parse(map['LFTagsOnColumns']) unless map['LFTagsOnColumns'].nil?)
         return data
       end
     end

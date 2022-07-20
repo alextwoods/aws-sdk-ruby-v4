@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AutoScaling
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('AttachInstancesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('AttachLoadBalancerTargetGroupsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -59,7 +61,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('AttachLoadBalancersResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -77,9 +79,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('BatchDeleteScheduledActionResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('BatchDeleteScheduledActionResult')
-        xml << Hearth::XML::Node.new('FailedScheduledActions', Stubs::FailedScheduledUpdateGroupActionRequests.stub('member', stub[:failed_scheduled_actions])) unless stub[:failed_scheduled_actions].nil?
+        xml << Hearth::XML::Node.new('FailedScheduledActions', FailedScheduledUpdateGroupActionRequests.stub('member', stub[:failed_scheduled_actions])) unless stub[:failed_scheduled_actions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -97,7 +99,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::FailedScheduledUpdateGroupActionRequest.stub(node_name, element) unless element.nil?
+          xml << FailedScheduledUpdateGroupActionRequest.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -138,9 +140,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('BatchPutScheduledUpdateGroupActionResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('BatchPutScheduledUpdateGroupActionResult')
-        xml << Hearth::XML::Node.new('FailedScheduledUpdateGroupActions', Stubs::FailedScheduledUpdateGroupActionRequests.stub('member', stub[:failed_scheduled_update_group_actions])) unless stub[:failed_scheduled_update_group_actions].nil?
+        xml << Hearth::XML::Node.new('FailedScheduledUpdateGroupActions', FailedScheduledUpdateGroupActionRequests.stub('member', stub[:failed_scheduled_update_group_actions])) unless stub[:failed_scheduled_update_group_actions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -160,7 +162,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new('CancelInstanceRefreshResult')
         xml << Hearth::XML::Node.new('InstanceRefreshId', stub[:instance_refresh_id].to_s) unless stub[:instance_refresh_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -178,7 +180,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('CompleteLifecycleActionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -196,7 +198,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('CreateAutoScalingGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -214,7 +216,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('CreateLaunchConfigurationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -232,7 +234,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('CreateOrUpdateTagsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -250,7 +252,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeleteAutoScalingGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -268,7 +270,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeleteLaunchConfigurationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -286,7 +288,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeleteLifecycleHookResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -304,7 +306,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeleteNotificationConfigurationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -322,7 +324,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeletePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -340,7 +342,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeleteScheduledActionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -358,7 +360,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeleteTagsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -376,7 +378,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DeleteWarmPoolResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -402,7 +404,7 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('NumberOfAutoScalingGroups', stub[:number_of_auto_scaling_groups].to_s) unless stub[:number_of_auto_scaling_groups].nil?
         xml << Hearth::XML::Node.new('NumberOfLaunchConfigurations', stub[:number_of_launch_configurations].to_s) unless stub[:number_of_launch_configurations].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -420,9 +422,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeAdjustmentTypesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeAdjustmentTypesResult')
-        xml << Hearth::XML::Node.new('AdjustmentTypes', Stubs::AdjustmentTypes.stub('member', stub[:adjustment_types])) unless stub[:adjustment_types].nil?
+        xml << Hearth::XML::Node.new('AdjustmentTypes', AdjustmentTypes.stub('member', stub[:adjustment_types])) unless stub[:adjustment_types].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -440,7 +442,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AdjustmentType.stub(node_name, element) unless element.nil?
+          xml << AdjustmentType.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -478,10 +480,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeAutoScalingGroupsResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeAutoScalingGroupsResult')
-        xml << Hearth::XML::Node.new('AutoScalingGroups', Stubs::AutoScalingGroups.stub('member', stub[:auto_scaling_groups])) unless stub[:auto_scaling_groups].nil?
+        xml << Hearth::XML::Node.new('AutoScalingGroups', AutoScalingGroups.stub('member', stub[:auto_scaling_groups])) unless stub[:auto_scaling_groups].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AutoScalingGroup.stub(node_name, element) unless element.nil?
+          xml << AutoScalingGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -553,32 +555,32 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('AutoScalingGroupName', stub[:auto_scaling_group_name].to_s) unless stub[:auto_scaling_group_name].nil?
         xml << Hearth::XML::Node.new('AutoScalingGroupARN', stub[:auto_scaling_group_arn].to_s) unless stub[:auto_scaling_group_arn].nil?
         xml << Hearth::XML::Node.new('LaunchConfigurationName', stub[:launch_configuration_name].to_s) unless stub[:launch_configuration_name].nil?
-        xml << Stubs::LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
-        xml << Stubs::MixedInstancesPolicy.stub('MixedInstancesPolicy', stub[:mixed_instances_policy]) unless stub[:mixed_instances_policy].nil?
+        xml << LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << MixedInstancesPolicy.stub('MixedInstancesPolicy', stub[:mixed_instances_policy]) unless stub[:mixed_instances_policy].nil?
         xml << Hearth::XML::Node.new('MinSize', stub[:min_size].to_s) unless stub[:min_size].nil?
         xml << Hearth::XML::Node.new('MaxSize', stub[:max_size].to_s) unless stub[:max_size].nil?
         xml << Hearth::XML::Node.new('DesiredCapacity', stub[:desired_capacity].to_s) unless stub[:desired_capacity].nil?
         xml << Hearth::XML::Node.new('PredictedCapacity', stub[:predicted_capacity].to_s) unless stub[:predicted_capacity].nil?
         xml << Hearth::XML::Node.new('DefaultCooldown', stub[:default_cooldown].to_s) unless stub[:default_cooldown].nil?
-        xml << Hearth::XML::Node.new('AvailabilityZones', Stubs::AvailabilityZones.stub('member', stub[:availability_zones])) unless stub[:availability_zones].nil?
-        xml << Hearth::XML::Node.new('LoadBalancerNames', Stubs::LoadBalancerNames.stub('member', stub[:load_balancer_names])) unless stub[:load_balancer_names].nil?
-        xml << Hearth::XML::Node.new('TargetGroupARNs', Stubs::TargetGroupARNs.stub('member', stub[:target_group_ar_ns])) unless stub[:target_group_ar_ns].nil?
+        xml << Hearth::XML::Node.new('AvailabilityZones', AvailabilityZones.stub('member', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('LoadBalancerNames', LoadBalancerNames.stub('member', stub[:load_balancer_names])) unless stub[:load_balancer_names].nil?
+        xml << Hearth::XML::Node.new('TargetGroupARNs', TargetGroupARNs.stub('member', stub[:target_group_ar_ns])) unless stub[:target_group_ar_ns].nil?
         xml << Hearth::XML::Node.new('HealthCheckType', stub[:health_check_type].to_s) unless stub[:health_check_type].nil?
         xml << Hearth::XML::Node.new('HealthCheckGracePeriod', stub[:health_check_grace_period].to_s) unless stub[:health_check_grace_period].nil?
-        xml << Hearth::XML::Node.new('Instances', Stubs::Instances.stub('member', stub[:instances])) unless stub[:instances].nil?
+        xml << Hearth::XML::Node.new('Instances', Instances.stub('member', stub[:instances])) unless stub[:instances].nil?
         xml << Hearth::XML::Node.new('CreatedTime', Hearth::TimeHelper.to_date_time(stub[:created_time])) unless stub[:created_time].nil?
-        xml << Hearth::XML::Node.new('SuspendedProcesses', Stubs::SuspendedProcesses.stub('member', stub[:suspended_processes])) unless stub[:suspended_processes].nil?
+        xml << Hearth::XML::Node.new('SuspendedProcesses', SuspendedProcesses.stub('member', stub[:suspended_processes])) unless stub[:suspended_processes].nil?
         xml << Hearth::XML::Node.new('PlacementGroup', stub[:placement_group].to_s) unless stub[:placement_group].nil?
         xml << Hearth::XML::Node.new('VPCZoneIdentifier', stub[:vpc_zone_identifier].to_s) unless stub[:vpc_zone_identifier].nil?
-        xml << Hearth::XML::Node.new('EnabledMetrics', Stubs::EnabledMetrics.stub('member', stub[:enabled_metrics])) unless stub[:enabled_metrics].nil?
+        xml << Hearth::XML::Node.new('EnabledMetrics', EnabledMetrics.stub('member', stub[:enabled_metrics])) unless stub[:enabled_metrics].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagDescriptionList.stub('member', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('TerminationPolicies', Stubs::TerminationPolicies.stub('member', stub[:termination_policies])) unless stub[:termination_policies].nil?
+        xml << Hearth::XML::Node.new('Tags', TagDescriptionList.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('TerminationPolicies', TerminationPolicies.stub('member', stub[:termination_policies])) unless stub[:termination_policies].nil?
         xml << Hearth::XML::Node.new('NewInstancesProtectedFromScaleIn', stub[:new_instances_protected_from_scale_in].to_s) unless stub[:new_instances_protected_from_scale_in].nil?
         xml << Hearth::XML::Node.new('ServiceLinkedRoleARN', stub[:service_linked_role_arn].to_s) unless stub[:service_linked_role_arn].nil?
         xml << Hearth::XML::Node.new('MaxInstanceLifetime', stub[:max_instance_lifetime].to_s) unless stub[:max_instance_lifetime].nil?
         xml << Hearth::XML::Node.new('CapacityRebalance', stub[:capacity_rebalance].to_s) unless stub[:capacity_rebalance].nil?
-        xml << Stubs::WarmPoolConfiguration.stub('WarmPoolConfiguration', stub[:warm_pool_configuration]) unless stub[:warm_pool_configuration].nil?
+        xml << WarmPoolConfiguration.stub('WarmPoolConfiguration', stub[:warm_pool_configuration]) unless stub[:warm_pool_configuration].nil?
         xml << Hearth::XML::Node.new('WarmPoolSize', stub[:warm_pool_size].to_s) unless stub[:warm_pool_size].nil?
         xml << Hearth::XML::Node.new('Context', stub[:context].to_s) unless stub[:context].nil?
         xml << Hearth::XML::Node.new('DesiredCapacityType', stub[:desired_capacity_type].to_s) unless stub[:desired_capacity_type].nil?
@@ -608,7 +610,7 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('MinSize', stub[:min_size].to_s) unless stub[:min_size].nil?
         xml << Hearth::XML::Node.new('PoolState', stub[:pool_state].to_s) unless stub[:pool_state].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::InstanceReusePolicy.stub('InstanceReusePolicy', stub[:instance_reuse_policy]) unless stub[:instance_reuse_policy].nil?
+        xml << InstanceReusePolicy.stub('InstanceReusePolicy', stub[:instance_reuse_policy]) unless stub[:instance_reuse_policy].nil?
         xml
       end
     end
@@ -663,7 +665,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TagDescription.stub(node_name, element) unless element.nil?
+          xml << TagDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -708,7 +710,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EnabledMetric.stub(node_name, element) unless element.nil?
+          xml << EnabledMetric.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -747,7 +749,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SuspendedProcess.stub(node_name, element) unless element.nil?
+          xml << SuspendedProcess.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -786,7 +788,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Instance.stub(node_name, element) unless element.nil?
+          xml << Instance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -819,7 +821,7 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('LifecycleState', stub[:lifecycle_state].to_s) unless stub[:lifecycle_state].nil?
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
         xml << Hearth::XML::Node.new('LaunchConfigurationName', stub[:launch_configuration_name].to_s) unless stub[:launch_configuration_name].nil?
-        xml << Stubs::LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
         xml << Hearth::XML::Node.new('ProtectedFromScaleIn', stub[:protected_from_scale_in].to_s) unless stub[:protected_from_scale_in].nil?
         xml << Hearth::XML::Node.new('WeightedCapacity', stub[:weighted_capacity].to_s) unless stub[:weighted_capacity].nil?
         xml
@@ -919,8 +921,8 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::MixedInstancesPolicy.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LaunchTemplate.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
-        xml << Stubs::InstancesDistribution.stub('InstancesDistribution', stub[:instances_distribution]) unless stub[:instances_distribution].nil?
+        xml << LaunchTemplate.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << InstancesDistribution.stub('InstancesDistribution', stub[:instances_distribution]) unless stub[:instances_distribution].nil?
         xml
       end
     end
@@ -967,8 +969,8 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::LaunchTemplate.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LaunchTemplateSpecification.stub('LaunchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
-        xml << Hearth::XML::Node.new('Overrides', Stubs::Overrides.stub('member', stub[:overrides])) unless stub[:overrides].nil?
+        xml << LaunchTemplateSpecification.stub('LaunchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
+        xml << Hearth::XML::Node.new('Overrides', Overrides.stub('member', stub[:overrides])) unless stub[:overrides].nil?
         xml
       end
     end
@@ -986,7 +988,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateOverrides.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateOverrides.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1010,8 +1012,8 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('InstanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('WeightedCapacity', stub[:weighted_capacity].to_s) unless stub[:weighted_capacity].nil?
-        xml << Stubs::LaunchTemplateSpecification.stub('LaunchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
-        xml << Stubs::InstanceRequirements.stub('InstanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
+        xml << LaunchTemplateSpecification.stub('LaunchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
+        xml << InstanceRequirements.stub('InstanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
         xml
       end
     end
@@ -1049,27 +1051,27 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::InstanceRequirements.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::VCpuCountRequest.stub('VCpuCount', stub[:v_cpu_count]) unless stub[:v_cpu_count].nil?
-        xml << Stubs::MemoryMiBRequest.stub('MemoryMiB', stub[:memory_mi_b]) unless stub[:memory_mi_b].nil?
-        xml << Hearth::XML::Node.new('CpuManufacturers', Stubs::CpuManufacturers.stub('member', stub[:cpu_manufacturers])) unless stub[:cpu_manufacturers].nil?
-        xml << Stubs::MemoryGiBPerVCpuRequest.stub('MemoryGiBPerVCpu', stub[:memory_gi_b_per_v_cpu]) unless stub[:memory_gi_b_per_v_cpu].nil?
-        xml << Hearth::XML::Node.new('ExcludedInstanceTypes', Stubs::ExcludedInstanceTypes.stub('member', stub[:excluded_instance_types])) unless stub[:excluded_instance_types].nil?
-        xml << Hearth::XML::Node.new('InstanceGenerations', Stubs::InstanceGenerations.stub('member', stub[:instance_generations])) unless stub[:instance_generations].nil?
+        xml << VCpuCountRequest.stub('VCpuCount', stub[:v_cpu_count]) unless stub[:v_cpu_count].nil?
+        xml << MemoryMiBRequest.stub('MemoryMiB', stub[:memory_mi_b]) unless stub[:memory_mi_b].nil?
+        xml << Hearth::XML::Node.new('CpuManufacturers', CpuManufacturers.stub('member', stub[:cpu_manufacturers])) unless stub[:cpu_manufacturers].nil?
+        xml << MemoryGiBPerVCpuRequest.stub('MemoryGiBPerVCpu', stub[:memory_gi_b_per_v_cpu]) unless stub[:memory_gi_b_per_v_cpu].nil?
+        xml << Hearth::XML::Node.new('ExcludedInstanceTypes', ExcludedInstanceTypes.stub('member', stub[:excluded_instance_types])) unless stub[:excluded_instance_types].nil?
+        xml << Hearth::XML::Node.new('InstanceGenerations', InstanceGenerations.stub('member', stub[:instance_generations])) unless stub[:instance_generations].nil?
         xml << Hearth::XML::Node.new('SpotMaxPricePercentageOverLowestPrice', stub[:spot_max_price_percentage_over_lowest_price].to_s) unless stub[:spot_max_price_percentage_over_lowest_price].nil?
         xml << Hearth::XML::Node.new('OnDemandMaxPricePercentageOverLowestPrice', stub[:on_demand_max_price_percentage_over_lowest_price].to_s) unless stub[:on_demand_max_price_percentage_over_lowest_price].nil?
         xml << Hearth::XML::Node.new('BareMetal', stub[:bare_metal].to_s) unless stub[:bare_metal].nil?
         xml << Hearth::XML::Node.new('BurstablePerformance', stub[:burstable_performance].to_s) unless stub[:burstable_performance].nil?
         xml << Hearth::XML::Node.new('RequireHibernateSupport', stub[:require_hibernate_support].to_s) unless stub[:require_hibernate_support].nil?
-        xml << Stubs::NetworkInterfaceCountRequest.stub('NetworkInterfaceCount', stub[:network_interface_count]) unless stub[:network_interface_count].nil?
+        xml << NetworkInterfaceCountRequest.stub('NetworkInterfaceCount', stub[:network_interface_count]) unless stub[:network_interface_count].nil?
         xml << Hearth::XML::Node.new('LocalStorage', stub[:local_storage].to_s) unless stub[:local_storage].nil?
-        xml << Hearth::XML::Node.new('LocalStorageTypes', Stubs::LocalStorageTypes.stub('member', stub[:local_storage_types])) unless stub[:local_storage_types].nil?
-        xml << Stubs::TotalLocalStorageGBRequest.stub('TotalLocalStorageGB', stub[:total_local_storage_gb]) unless stub[:total_local_storage_gb].nil?
-        xml << Stubs::BaselineEbsBandwidthMbpsRequest.stub('BaselineEbsBandwidthMbps', stub[:baseline_ebs_bandwidth_mbps]) unless stub[:baseline_ebs_bandwidth_mbps].nil?
-        xml << Hearth::XML::Node.new('AcceleratorTypes', Stubs::AcceleratorTypes.stub('member', stub[:accelerator_types])) unless stub[:accelerator_types].nil?
-        xml << Stubs::AcceleratorCountRequest.stub('AcceleratorCount', stub[:accelerator_count]) unless stub[:accelerator_count].nil?
-        xml << Hearth::XML::Node.new('AcceleratorManufacturers', Stubs::AcceleratorManufacturers.stub('member', stub[:accelerator_manufacturers])) unless stub[:accelerator_manufacturers].nil?
-        xml << Hearth::XML::Node.new('AcceleratorNames', Stubs::AcceleratorNames.stub('member', stub[:accelerator_names])) unless stub[:accelerator_names].nil?
-        xml << Stubs::AcceleratorTotalMemoryMiBRequest.stub('AcceleratorTotalMemoryMiB', stub[:accelerator_total_memory_mi_b]) unless stub[:accelerator_total_memory_mi_b].nil?
+        xml << Hearth::XML::Node.new('LocalStorageTypes', LocalStorageTypes.stub('member', stub[:local_storage_types])) unless stub[:local_storage_types].nil?
+        xml << TotalLocalStorageGBRequest.stub('TotalLocalStorageGB', stub[:total_local_storage_gb]) unless stub[:total_local_storage_gb].nil?
+        xml << BaselineEbsBandwidthMbpsRequest.stub('BaselineEbsBandwidthMbps', stub[:baseline_ebs_bandwidth_mbps]) unless stub[:baseline_ebs_bandwidth_mbps].nil?
+        xml << Hearth::XML::Node.new('AcceleratorTypes', AcceleratorTypes.stub('member', stub[:accelerator_types])) unless stub[:accelerator_types].nil?
+        xml << AcceleratorCountRequest.stub('AcceleratorCount', stub[:accelerator_count]) unless stub[:accelerator_count].nil?
+        xml << Hearth::XML::Node.new('AcceleratorManufacturers', AcceleratorManufacturers.stub('member', stub[:accelerator_manufacturers])) unless stub[:accelerator_manufacturers].nil?
+        xml << Hearth::XML::Node.new('AcceleratorNames', AcceleratorNames.stub('member', stub[:accelerator_names])) unless stub[:accelerator_names].nil?
+        xml << AcceleratorTotalMemoryMiBRequest.stub('AcceleratorTotalMemoryMiB', stub[:accelerator_total_memory_mi_b]) unless stub[:accelerator_total_memory_mi_b].nil?
         xml
       end
     end
@@ -1381,10 +1383,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeAutoScalingInstancesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeAutoScalingInstancesResult')
-        xml << Hearth::XML::Node.new('AutoScalingInstances', Stubs::AutoScalingInstances.stub('member', stub[:auto_scaling_instances])) unless stub[:auto_scaling_instances].nil?
+        xml << Hearth::XML::Node.new('AutoScalingInstances', AutoScalingInstances.stub('member', stub[:auto_scaling_instances])) unless stub[:auto_scaling_instances].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1402,7 +1404,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AutoScalingInstanceDetails.stub(node_name, element) unless element.nil?
+          xml << AutoScalingInstanceDetails.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1437,7 +1439,7 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('LifecycleState', stub[:lifecycle_state].to_s) unless stub[:lifecycle_state].nil?
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
         xml << Hearth::XML::Node.new('LaunchConfigurationName', stub[:launch_configuration_name].to_s) unless stub[:launch_configuration_name].nil?
-        xml << Stubs::LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
         xml << Hearth::XML::Node.new('ProtectedFromScaleIn', stub[:protected_from_scale_in].to_s) unless stub[:protected_from_scale_in].nil?
         xml << Hearth::XML::Node.new('WeightedCapacity', stub[:weighted_capacity].to_s) unless stub[:weighted_capacity].nil?
         xml
@@ -1457,9 +1459,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeAutoScalingNotificationTypesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeAutoScalingNotificationTypesResult')
-        xml << Hearth::XML::Node.new('AutoScalingNotificationTypes', Stubs::AutoScalingNotificationTypes.stub('member', stub[:auto_scaling_notification_types])) unless stub[:auto_scaling_notification_types].nil?
+        xml << Hearth::XML::Node.new('AutoScalingNotificationTypes', AutoScalingNotificationTypes.stub('member', stub[:auto_scaling_notification_types])) unless stub[:auto_scaling_notification_types].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1497,10 +1499,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeInstanceRefreshesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeInstanceRefreshesResult')
-        xml << Hearth::XML::Node.new('InstanceRefreshes', Stubs::InstanceRefreshes.stub('member', stub[:instance_refreshes])) unless stub[:instance_refreshes].nil?
+        xml << Hearth::XML::Node.new('InstanceRefreshes', InstanceRefreshes.stub('member', stub[:instance_refreshes])) unless stub[:instance_refreshes].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1518,7 +1520,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceRefresh.stub(node_name, element) unless element.nil?
+          xml << InstanceRefresh.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1555,9 +1557,9 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('EndTime', Hearth::TimeHelper.to_date_time(stub[:end_time])) unless stub[:end_time].nil?
         xml << Hearth::XML::Node.new('PercentageComplete', stub[:percentage_complete].to_s) unless stub[:percentage_complete].nil?
         xml << Hearth::XML::Node.new('InstancesToUpdate', stub[:instances_to_update].to_s) unless stub[:instances_to_update].nil?
-        xml << Stubs::InstanceRefreshProgressDetails.stub('ProgressDetails', stub[:progress_details]) unless stub[:progress_details].nil?
-        xml << Stubs::RefreshPreferences.stub('Preferences', stub[:preferences]) unless stub[:preferences].nil?
-        xml << Stubs::DesiredConfiguration.stub('DesiredConfiguration', stub[:desired_configuration]) unless stub[:desired_configuration].nil?
+        xml << InstanceRefreshProgressDetails.stub('ProgressDetails', stub[:progress_details]) unless stub[:progress_details].nil?
+        xml << RefreshPreferences.stub('Preferences', stub[:preferences]) unless stub[:preferences].nil?
+        xml << DesiredConfiguration.stub('DesiredConfiguration', stub[:desired_configuration]) unless stub[:desired_configuration].nil?
         xml
       end
     end
@@ -1576,8 +1578,8 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::DesiredConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
-        xml << Stubs::MixedInstancesPolicy.stub('MixedInstancesPolicy', stub[:mixed_instances_policy]) unless stub[:mixed_instances_policy].nil?
+        xml << LaunchTemplateSpecification.stub('LaunchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << MixedInstancesPolicy.stub('MixedInstancesPolicy', stub[:mixed_instances_policy]) unless stub[:mixed_instances_policy].nil?
         xml
       end
     end
@@ -1601,7 +1603,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('MinHealthyPercentage', stub[:min_healthy_percentage].to_s) unless stub[:min_healthy_percentage].nil?
         xml << Hearth::XML::Node.new('InstanceWarmup', stub[:instance_warmup].to_s) unless stub[:instance_warmup].nil?
-        xml << Hearth::XML::Node.new('CheckpointPercentages', Stubs::CheckpointPercentages.stub('member', stub[:checkpoint_percentages])) unless stub[:checkpoint_percentages].nil?
+        xml << Hearth::XML::Node.new('CheckpointPercentages', CheckpointPercentages.stub('member', stub[:checkpoint_percentages])) unless stub[:checkpoint_percentages].nil?
         xml << Hearth::XML::Node.new('CheckpointDelay', stub[:checkpoint_delay].to_s) unless stub[:checkpoint_delay].nil?
         xml << Hearth::XML::Node.new('SkipMatching', stub[:skip_matching].to_s) unless stub[:skip_matching].nil?
         xml
@@ -1641,8 +1643,8 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::InstanceRefreshProgressDetails.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::InstanceRefreshLivePoolProgress.stub('LivePoolProgress', stub[:live_pool_progress]) unless stub[:live_pool_progress].nil?
-        xml << Stubs::InstanceRefreshWarmPoolProgress.stub('WarmPoolProgress', stub[:warm_pool_progress]) unless stub[:warm_pool_progress].nil?
+        xml << InstanceRefreshLivePoolProgress.stub('LivePoolProgress', stub[:live_pool_progress]) unless stub[:live_pool_progress].nil?
+        xml << InstanceRefreshWarmPoolProgress.stub('WarmPoolProgress', stub[:warm_pool_progress]) unless stub[:warm_pool_progress].nil?
         xml
       end
     end
@@ -1701,10 +1703,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeLaunchConfigurationsResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeLaunchConfigurationsResult')
-        xml << Hearth::XML::Node.new('LaunchConfigurations', Stubs::LaunchConfigurations.stub('member', stub[:launch_configurations])) unless stub[:launch_configurations].nil?
+        xml << Hearth::XML::Node.new('LaunchConfigurations', LaunchConfigurations.stub('member', stub[:launch_configurations])) unless stub[:launch_configurations].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1722,7 +1724,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchConfiguration.stub(node_name, element) unless element.nil?
+          xml << LaunchConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1764,22 +1766,22 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('LaunchConfigurationARN', stub[:launch_configuration_arn].to_s) unless stub[:launch_configuration_arn].nil?
         xml << Hearth::XML::Node.new('ImageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('KeyName', stub[:key_name].to_s) unless stub[:key_name].nil?
-        xml << Hearth::XML::Node.new('SecurityGroups', Stubs::SecurityGroups.stub('member', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << Hearth::XML::Node.new('SecurityGroups', SecurityGroups.stub('member', stub[:security_groups])) unless stub[:security_groups].nil?
         xml << Hearth::XML::Node.new('ClassicLinkVPCId', stub[:classic_link_vpc_id].to_s) unless stub[:classic_link_vpc_id].nil?
-        xml << Hearth::XML::Node.new('ClassicLinkVPCSecurityGroups', Stubs::ClassicLinkVPCSecurityGroups.stub('member', stub[:classic_link_vpc_security_groups])) unless stub[:classic_link_vpc_security_groups].nil?
+        xml << Hearth::XML::Node.new('ClassicLinkVPCSecurityGroups', ClassicLinkVPCSecurityGroups.stub('member', stub[:classic_link_vpc_security_groups])) unless stub[:classic_link_vpc_security_groups].nil?
         xml << Hearth::XML::Node.new('UserData', stub[:user_data].to_s) unless stub[:user_data].nil?
         xml << Hearth::XML::Node.new('InstanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('KernelId', stub[:kernel_id].to_s) unless stub[:kernel_id].nil?
         xml << Hearth::XML::Node.new('RamdiskId', stub[:ramdisk_id].to_s) unless stub[:ramdisk_id].nil?
-        xml << Hearth::XML::Node.new('BlockDeviceMappings', Stubs::BlockDeviceMappings.stub('member', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
-        xml << Stubs::InstanceMonitoring.stub('InstanceMonitoring', stub[:instance_monitoring]) unless stub[:instance_monitoring].nil?
+        xml << Hearth::XML::Node.new('BlockDeviceMappings', BlockDeviceMappings.stub('member', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << InstanceMonitoring.stub('InstanceMonitoring', stub[:instance_monitoring]) unless stub[:instance_monitoring].nil?
         xml << Hearth::XML::Node.new('SpotPrice', stub[:spot_price].to_s) unless stub[:spot_price].nil?
         xml << Hearth::XML::Node.new('IamInstanceProfile', stub[:iam_instance_profile].to_s) unless stub[:iam_instance_profile].nil?
         xml << Hearth::XML::Node.new('CreatedTime', Hearth::TimeHelper.to_date_time(stub[:created_time])) unless stub[:created_time].nil?
         xml << Hearth::XML::Node.new('EbsOptimized', stub[:ebs_optimized].to_s) unless stub[:ebs_optimized].nil?
         xml << Hearth::XML::Node.new('AssociatePublicIpAddress', stub[:associate_public_ip_address].to_s) unless stub[:associate_public_ip_address].nil?
         xml << Hearth::XML::Node.new('PlacementTenancy', stub[:placement_tenancy].to_s) unless stub[:placement_tenancy].nil?
-        xml << Stubs::InstanceMetadataOptions.stub('MetadataOptions', stub[:metadata_options]) unless stub[:metadata_options].nil?
+        xml << InstanceMetadataOptions.stub('MetadataOptions', stub[:metadata_options]) unless stub[:metadata_options].nil?
         xml
       end
     end
@@ -1837,7 +1839,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::BlockDeviceMapping.stub(node_name, element) unless element.nil?
+          xml << BlockDeviceMapping.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1861,7 +1863,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('VirtualName', stub[:virtual_name].to_s) unless stub[:virtual_name].nil?
         xml << Hearth::XML::Node.new('DeviceName', stub[:device_name].to_s) unless stub[:device_name].nil?
-        xml << Stubs::Ebs.stub('Ebs', stub[:ebs]) unless stub[:ebs].nil?
+        xml << Ebs.stub('Ebs', stub[:ebs]) unless stub[:ebs].nil?
         xml << Hearth::XML::Node.new('NoDevice', stub[:no_device].to_s) unless stub[:no_device].nil?
         xml
       end
@@ -1948,9 +1950,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeLifecycleHookTypesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeLifecycleHookTypesResult')
-        xml << Hearth::XML::Node.new('LifecycleHookTypes', Stubs::AutoScalingNotificationTypes.stub('member', stub[:lifecycle_hook_types])) unless stub[:lifecycle_hook_types].nil?
+        xml << Hearth::XML::Node.new('LifecycleHookTypes', AutoScalingNotificationTypes.stub('member', stub[:lifecycle_hook_types])) unless stub[:lifecycle_hook_types].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1968,9 +1970,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeLifecycleHooksResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeLifecycleHooksResult')
-        xml << Hearth::XML::Node.new('LifecycleHooks', Stubs::LifecycleHooks.stub('member', stub[:lifecycle_hooks])) unless stub[:lifecycle_hooks].nil?
+        xml << Hearth::XML::Node.new('LifecycleHooks', LifecycleHooks.stub('member', stub[:lifecycle_hooks])) unless stub[:lifecycle_hooks].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1988,7 +1990,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LifecycleHook.stub(node_name, element) unless element.nil?
+          xml << LifecycleHook.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2042,10 +2044,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeLoadBalancerTargetGroupsResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeLoadBalancerTargetGroupsResult')
-        xml << Hearth::XML::Node.new('LoadBalancerTargetGroups', Stubs::LoadBalancerTargetGroupStates.stub('member', stub[:load_balancer_target_groups])) unless stub[:load_balancer_target_groups].nil?
+        xml << Hearth::XML::Node.new('LoadBalancerTargetGroups', LoadBalancerTargetGroupStates.stub('member', stub[:load_balancer_target_groups])) unless stub[:load_balancer_target_groups].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2063,7 +2065,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadBalancerTargetGroupState.stub(node_name, element) unless element.nil?
+          xml << LoadBalancerTargetGroupState.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2103,10 +2105,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeLoadBalancersResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeLoadBalancersResult')
-        xml << Hearth::XML::Node.new('LoadBalancers', Stubs::LoadBalancerStates.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
+        xml << Hearth::XML::Node.new('LoadBalancers', LoadBalancerStates.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2124,7 +2126,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadBalancerState.stub(node_name, element) unless element.nil?
+          xml << LoadBalancerState.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2164,10 +2166,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeMetricCollectionTypesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeMetricCollectionTypesResult')
-        xml << Hearth::XML::Node.new('Metrics', Stubs::MetricCollectionTypes.stub('member', stub[:metrics])) unless stub[:metrics].nil?
-        xml << Hearth::XML::Node.new('Granularities', Stubs::MetricGranularityTypes.stub('member', stub[:granularities])) unless stub[:granularities].nil?
+        xml << Hearth::XML::Node.new('Metrics', MetricCollectionTypes.stub('member', stub[:metrics])) unless stub[:metrics].nil?
+        xml << Hearth::XML::Node.new('Granularities', MetricGranularityTypes.stub('member', stub[:granularities])) unless stub[:granularities].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2185,7 +2187,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricGranularityType.stub(node_name, element) unless element.nil?
+          xml << MetricGranularityType.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2222,7 +2224,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricCollectionType.stub(node_name, element) unless element.nil?
+          xml << MetricCollectionType.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2260,10 +2262,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeNotificationConfigurationsResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeNotificationConfigurationsResult')
-        xml << Hearth::XML::Node.new('NotificationConfigurations', Stubs::NotificationConfigurations.stub('member', stub[:notification_configurations])) unless stub[:notification_configurations].nil?
+        xml << Hearth::XML::Node.new('NotificationConfigurations', NotificationConfigurations.stub('member', stub[:notification_configurations])) unless stub[:notification_configurations].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2281,7 +2283,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::NotificationConfiguration.stub(node_name, element) unless element.nil?
+          xml << NotificationConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2323,10 +2325,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribePoliciesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribePoliciesResult')
-        xml << Hearth::XML::Node.new('ScalingPolicies', Stubs::ScalingPolicies.stub('member', stub[:scaling_policies])) unless stub[:scaling_policies].nil?
+        xml << Hearth::XML::Node.new('ScalingPolicies', ScalingPolicies.stub('member', stub[:scaling_policies])) unless stub[:scaling_policies].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2344,7 +2346,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ScalingPolicy.stub(node_name, element) unless element.nil?
+          xml << ScalingPolicy.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2387,13 +2389,13 @@ module AWS::SDK::AutoScaling
         xml << Hearth::XML::Node.new('MinAdjustmentMagnitude', stub[:min_adjustment_magnitude].to_s) unless stub[:min_adjustment_magnitude].nil?
         xml << Hearth::XML::Node.new('ScalingAdjustment', stub[:scaling_adjustment].to_s) unless stub[:scaling_adjustment].nil?
         xml << Hearth::XML::Node.new('Cooldown', stub[:cooldown].to_s) unless stub[:cooldown].nil?
-        xml << Hearth::XML::Node.new('StepAdjustments', Stubs::StepAdjustments.stub('member', stub[:step_adjustments])) unless stub[:step_adjustments].nil?
+        xml << Hearth::XML::Node.new('StepAdjustments', StepAdjustments.stub('member', stub[:step_adjustments])) unless stub[:step_adjustments].nil?
         xml << Hearth::XML::Node.new('MetricAggregationType', stub[:metric_aggregation_type].to_s) unless stub[:metric_aggregation_type].nil?
         xml << Hearth::XML::Node.new('EstimatedInstanceWarmup', stub[:estimated_instance_warmup].to_s) unless stub[:estimated_instance_warmup].nil?
-        xml << Hearth::XML::Node.new('Alarms', Stubs::Alarms.stub('member', stub[:alarms])) unless stub[:alarms].nil?
-        xml << Stubs::TargetTrackingConfiguration.stub('TargetTrackingConfiguration', stub[:target_tracking_configuration]) unless stub[:target_tracking_configuration].nil?
+        xml << Hearth::XML::Node.new('Alarms', Alarms.stub('member', stub[:alarms])) unless stub[:alarms].nil?
+        xml << TargetTrackingConfiguration.stub('TargetTrackingConfiguration', stub[:target_tracking_configuration]) unless stub[:target_tracking_configuration].nil?
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
-        xml << Stubs::PredictiveScalingConfiguration.stub('PredictiveScalingConfiguration', stub[:predictive_scaling_configuration]) unless stub[:predictive_scaling_configuration].nil?
+        xml << PredictiveScalingConfiguration.stub('PredictiveScalingConfiguration', stub[:predictive_scaling_configuration]) unless stub[:predictive_scaling_configuration].nil?
         xml
       end
     end
@@ -2415,7 +2417,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::PredictiveScalingConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('MetricSpecifications', Stubs::PredictiveScalingMetricSpecifications.stub('member', stub[:metric_specifications])) unless stub[:metric_specifications].nil?
+        xml << Hearth::XML::Node.new('MetricSpecifications', PredictiveScalingMetricSpecifications.stub('member', stub[:metric_specifications])) unless stub[:metric_specifications].nil?
         xml << Hearth::XML::Node.new('Mode', stub[:mode].to_s) unless stub[:mode].nil?
         xml << Hearth::XML::Node.new('SchedulingBufferTime', stub[:scheduling_buffer_time].to_s) unless stub[:scheduling_buffer_time].nil?
         xml << Hearth::XML::Node.new('MaxCapacityBreachBehavior', stub[:max_capacity_breach_behavior].to_s) unless stub[:max_capacity_breach_behavior].nil?
@@ -2437,7 +2439,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PredictiveScalingMetricSpecification.stub(node_name, element) unless element.nil?
+          xml << PredictiveScalingMetricSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2463,12 +2465,12 @@ module AWS::SDK::AutoScaling
         stub ||= Types::PredictiveScalingMetricSpecification.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('TargetValue', Hearth::NumberHelper.serialize(stub[:target_value]).to_s) unless stub[:target_value].nil?
-        xml << Stubs::PredictiveScalingPredefinedMetricPair.stub('PredefinedMetricPairSpecification', stub[:predefined_metric_pair_specification]) unless stub[:predefined_metric_pair_specification].nil?
-        xml << Stubs::PredictiveScalingPredefinedScalingMetric.stub('PredefinedScalingMetricSpecification', stub[:predefined_scaling_metric_specification]) unless stub[:predefined_scaling_metric_specification].nil?
-        xml << Stubs::PredictiveScalingPredefinedLoadMetric.stub('PredefinedLoadMetricSpecification', stub[:predefined_load_metric_specification]) unless stub[:predefined_load_metric_specification].nil?
-        xml << Stubs::PredictiveScalingCustomizedScalingMetric.stub('CustomizedScalingMetricSpecification', stub[:customized_scaling_metric_specification]) unless stub[:customized_scaling_metric_specification].nil?
-        xml << Stubs::PredictiveScalingCustomizedLoadMetric.stub('CustomizedLoadMetricSpecification', stub[:customized_load_metric_specification]) unless stub[:customized_load_metric_specification].nil?
-        xml << Stubs::PredictiveScalingCustomizedCapacityMetric.stub('CustomizedCapacityMetricSpecification', stub[:customized_capacity_metric_specification]) unless stub[:customized_capacity_metric_specification].nil?
+        xml << PredictiveScalingPredefinedMetricPair.stub('PredefinedMetricPairSpecification', stub[:predefined_metric_pair_specification]) unless stub[:predefined_metric_pair_specification].nil?
+        xml << PredictiveScalingPredefinedScalingMetric.stub('PredefinedScalingMetricSpecification', stub[:predefined_scaling_metric_specification]) unless stub[:predefined_scaling_metric_specification].nil?
+        xml << PredictiveScalingPredefinedLoadMetric.stub('PredefinedLoadMetricSpecification', stub[:predefined_load_metric_specification]) unless stub[:predefined_load_metric_specification].nil?
+        xml << PredictiveScalingCustomizedScalingMetric.stub('CustomizedScalingMetricSpecification', stub[:customized_scaling_metric_specification]) unless stub[:customized_scaling_metric_specification].nil?
+        xml << PredictiveScalingCustomizedLoadMetric.stub('CustomizedLoadMetricSpecification', stub[:customized_load_metric_specification]) unless stub[:customized_load_metric_specification].nil?
+        xml << PredictiveScalingCustomizedCapacityMetric.stub('CustomizedCapacityMetricSpecification', stub[:customized_capacity_metric_specification]) unless stub[:customized_capacity_metric_specification].nil?
         xml
       end
     end
@@ -2486,7 +2488,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::PredictiveScalingCustomizedCapacityMetric.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('MetricDataQueries', Stubs::MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
+        xml << Hearth::XML::Node.new('MetricDataQueries', MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
         xml
       end
     end
@@ -2504,7 +2506,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricDataQuery.stub(node_name, element) unless element.nil?
+          xml << MetricDataQuery.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2529,7 +2531,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Expression', stub[:expression].to_s) unless stub[:expression].nil?
-        xml << Stubs::MetricStat.stub('MetricStat', stub[:metric_stat]) unless stub[:metric_stat].nil?
+        xml << MetricStat.stub('MetricStat', stub[:metric_stat]) unless stub[:metric_stat].nil?
         xml << Hearth::XML::Node.new('Label', stub[:label].to_s) unless stub[:label].nil?
         xml << Hearth::XML::Node.new('ReturnData', stub[:return_data].to_s) unless stub[:return_data].nil?
         xml
@@ -2551,7 +2553,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::MetricStat.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Metric.stub('Metric', stub[:metric]) unless stub[:metric].nil?
+        xml << Metric.stub('Metric', stub[:metric]) unless stub[:metric].nil?
         xml << Hearth::XML::Node.new('Stat', stub[:stat].to_s) unless stub[:stat].nil?
         xml << Hearth::XML::Node.new('Unit', stub[:unit].to_s) unless stub[:unit].nil?
         xml
@@ -2575,7 +2577,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Namespace', stub[:namespace].to_s) unless stub[:namespace].nil?
         xml << Hearth::XML::Node.new('MetricName', stub[:metric_name].to_s) unless stub[:metric_name].nil?
-        xml << Hearth::XML::Node.new('Dimensions', Stubs::MetricDimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
+        xml << Hearth::XML::Node.new('Dimensions', MetricDimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
         xml
       end
     end
@@ -2593,7 +2595,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricDimension.stub(node_name, element) unless element.nil?
+          xml << MetricDimension.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2632,7 +2634,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::PredictiveScalingCustomizedLoadMetric.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('MetricDataQueries', Stubs::MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
+        xml << Hearth::XML::Node.new('MetricDataQueries', MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
         xml
       end
     end
@@ -2650,7 +2652,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::PredictiveScalingCustomizedScalingMetric.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('MetricDataQueries', Stubs::MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
+        xml << Hearth::XML::Node.new('MetricDataQueries', MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
         xml
       end
     end
@@ -2731,8 +2733,8 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::TargetTrackingConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::PredefinedMetricSpecification.stub('PredefinedMetricSpecification', stub[:predefined_metric_specification]) unless stub[:predefined_metric_specification].nil?
-        xml << Stubs::CustomizedMetricSpecification.stub('CustomizedMetricSpecification', stub[:customized_metric_specification]) unless stub[:customized_metric_specification].nil?
+        xml << PredefinedMetricSpecification.stub('PredefinedMetricSpecification', stub[:predefined_metric_specification]) unless stub[:predefined_metric_specification].nil?
+        xml << CustomizedMetricSpecification.stub('CustomizedMetricSpecification', stub[:customized_metric_specification]) unless stub[:customized_metric_specification].nil?
         xml << Hearth::XML::Node.new('TargetValue', Hearth::NumberHelper.serialize(stub[:target_value]).to_s) unless stub[:target_value].nil?
         xml << Hearth::XML::Node.new('DisableScaleIn', stub[:disable_scale_in].to_s) unless stub[:disable_scale_in].nil?
         xml
@@ -2758,7 +2760,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('MetricName', stub[:metric_name].to_s) unless stub[:metric_name].nil?
         xml << Hearth::XML::Node.new('Namespace', stub[:namespace].to_s) unless stub[:namespace].nil?
-        xml << Hearth::XML::Node.new('Dimensions', Stubs::MetricDimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
+        xml << Hearth::XML::Node.new('Dimensions', MetricDimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
         xml << Hearth::XML::Node.new('Statistic', stub[:statistic].to_s) unless stub[:statistic].nil?
         xml << Hearth::XML::Node.new('Unit', stub[:unit].to_s) unless stub[:unit].nil?
         xml
@@ -2798,7 +2800,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Alarm.stub(node_name, element) unless element.nil?
+          xml << Alarm.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2837,7 +2839,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StepAdjustment.stub(node_name, element) unless element.nil?
+          xml << StepAdjustment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2879,10 +2881,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeScalingActivitiesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeScalingActivitiesResult')
-        xml << Hearth::XML::Node.new('Activities', Stubs::Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
+        xml << Hearth::XML::Node.new('Activities', Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2900,7 +2902,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Activity.stub(node_name, element) unless element.nil?
+          xml << Activity.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2959,9 +2961,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeScalingProcessTypesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeScalingProcessTypesResult')
-        xml << Hearth::XML::Node.new('Processes', Stubs::Processes.stub('member', stub[:processes])) unless stub[:processes].nil?
+        xml << Hearth::XML::Node.new('Processes', Processes.stub('member', stub[:processes])) unless stub[:processes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2979,7 +2981,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ProcessType.stub(node_name, element) unless element.nil?
+          xml << ProcessType.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3017,10 +3019,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeScheduledActionsResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeScheduledActionsResult')
-        xml << Hearth::XML::Node.new('ScheduledUpdateGroupActions', Stubs::ScheduledUpdateGroupActions.stub('member', stub[:scheduled_update_group_actions])) unless stub[:scheduled_update_group_actions].nil?
+        xml << Hearth::XML::Node.new('ScheduledUpdateGroupActions', ScheduledUpdateGroupActions.stub('member', stub[:scheduled_update_group_actions])) unless stub[:scheduled_update_group_actions].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3038,7 +3040,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ScheduledUpdateGroupAction.stub(node_name, element) unless element.nil?
+          xml << ScheduledUpdateGroupAction.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3096,10 +3098,10 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeTagsResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagDescriptionList.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagDescriptionList.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3117,9 +3119,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeTerminationPolicyTypesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeTerminationPolicyTypesResult')
-        xml << Hearth::XML::Node.new('TerminationPolicyTypes', Stubs::TerminationPolicies.stub('member', stub[:termination_policy_types])) unless stub[:termination_policy_types].nil?
+        xml << Hearth::XML::Node.new('TerminationPolicyTypes', TerminationPolicies.stub('member', stub[:termination_policy_types])) unless stub[:termination_policy_types].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3139,11 +3141,11 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DescribeWarmPoolResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DescribeWarmPoolResult')
-        xml << Stubs::WarmPoolConfiguration.stub('WarmPoolConfiguration', stub[:warm_pool_configuration]) unless stub[:warm_pool_configuration].nil?
-        xml << Hearth::XML::Node.new('Instances', Stubs::Instances.stub('member', stub[:instances])) unless stub[:instances].nil?
+        xml << WarmPoolConfiguration.stub('WarmPoolConfiguration', stub[:warm_pool_configuration]) unless stub[:warm_pool_configuration].nil?
+        xml << Hearth::XML::Node.new('Instances', Instances.stub('member', stub[:instances])) unless stub[:instances].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3161,9 +3163,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('DetachInstancesResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DetachInstancesResult')
-        xml << Hearth::XML::Node.new('Activities', Stubs::Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
+        xml << Hearth::XML::Node.new('Activities', Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3181,7 +3183,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DetachLoadBalancerTargetGroupsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3199,7 +3201,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DetachLoadBalancersResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3217,7 +3219,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('DisableMetricsCollectionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3235,7 +3237,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('EnableMetricsCollectionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3253,9 +3255,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('EnterStandbyResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('EnterStandbyResult')
-        xml << Hearth::XML::Node.new('Activities', Stubs::Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
+        xml << Hearth::XML::Node.new('Activities', Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3273,7 +3275,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('ExecutePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3291,9 +3293,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('ExitStandbyResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('ExitStandbyResult')
-        xml << Hearth::XML::Node.new('Activities', Stubs::Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
+        xml << Hearth::XML::Node.new('Activities', Activities.stub('member', stub[:activities])) unless stub[:activities].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3313,11 +3315,11 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('GetPredictiveScalingForecastResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('GetPredictiveScalingForecastResult')
-        xml << Hearth::XML::Node.new('LoadForecast', Stubs::LoadForecasts.stub('member', stub[:load_forecast])) unless stub[:load_forecast].nil?
-        xml << Stubs::CapacityForecast.stub('CapacityForecast', stub[:capacity_forecast]) unless stub[:capacity_forecast].nil?
+        xml << Hearth::XML::Node.new('LoadForecast', LoadForecasts.stub('member', stub[:load_forecast])) unless stub[:load_forecast].nil?
+        xml << CapacityForecast.stub('CapacityForecast', stub[:capacity_forecast]) unless stub[:capacity_forecast].nil?
         xml << Hearth::XML::Node.new('UpdateTime', Hearth::TimeHelper.to_date_time(stub[:update_time])) unless stub[:update_time].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3336,8 +3338,8 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::CapacityForecast.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Timestamps', Stubs::PredictiveScalingForecastTimestamps.stub('member', stub[:timestamps])) unless stub[:timestamps].nil?
-        xml << Hearth::XML::Node.new('Values', Stubs::PredictiveScalingForecastValues.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Timestamps', PredictiveScalingForecastTimestamps.stub('member', stub[:timestamps])) unless stub[:timestamps].nil?
+        xml << Hearth::XML::Node.new('Values', PredictiveScalingForecastValues.stub('member', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -3393,7 +3395,7 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadForecast.stub(node_name, element) unless element.nil?
+          xml << LoadForecast.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3414,9 +3416,9 @@ module AWS::SDK::AutoScaling
       def self.stub(node_name, stub)
         stub ||= Types::LoadForecast.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Timestamps', Stubs::PredictiveScalingForecastTimestamps.stub('member', stub[:timestamps])) unless stub[:timestamps].nil?
-        xml << Hearth::XML::Node.new('Values', Stubs::PredictiveScalingForecastValues.stub('member', stub[:values])) unless stub[:values].nil?
-        xml << Stubs::PredictiveScalingMetricSpecification.stub('MetricSpecification', stub[:metric_specification]) unless stub[:metric_specification].nil?
+        xml << Hearth::XML::Node.new('Timestamps', PredictiveScalingForecastTimestamps.stub('member', stub[:timestamps])) unless stub[:timestamps].nil?
+        xml << Hearth::XML::Node.new('Values', PredictiveScalingForecastValues.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << PredictiveScalingMetricSpecification.stub('MetricSpecification', stub[:metric_specification]) unless stub[:metric_specification].nil?
         xml
       end
     end
@@ -3434,7 +3436,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('PutLifecycleHookResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3452,7 +3454,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('PutNotificationConfigurationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3472,9 +3474,9 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('PutScalingPolicyResult')
         xml << Hearth::XML::Node.new('PolicyARN', stub[:policy_arn].to_s) unless stub[:policy_arn].nil?
-        xml << Hearth::XML::Node.new('Alarms', Stubs::Alarms.stub('member', stub[:alarms])) unless stub[:alarms].nil?
+        xml << Hearth::XML::Node.new('Alarms', Alarms.stub('member', stub[:alarms])) unless stub[:alarms].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3492,7 +3494,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('PutScheduledUpdateGroupActionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3510,7 +3512,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('PutWarmPoolResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3528,7 +3530,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('RecordLifecycleActionHeartbeatResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3546,7 +3548,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('ResumeProcessesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3564,7 +3566,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('SetDesiredCapacityResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3582,7 +3584,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('SetInstanceHealthResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3600,7 +3602,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('SetInstanceProtectionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3620,7 +3622,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML::Node.new('StartInstanceRefreshResult')
         xml << Hearth::XML::Node.new('InstanceRefreshId', stub[:instance_refresh_id].to_s) unless stub[:instance_refresh_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3638,7 +3640,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('SuspendProcessesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3656,9 +3658,9 @@ module AWS::SDK::AutoScaling
         response = Hearth::XML::Node.new('TerminateInstanceInAutoScalingGroupResponse')
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('TerminateInstanceInAutoScalingGroupResult')
-        xml << Stubs::Activity.stub('Activity', stub[:activity]) unless stub[:activity].nil?
+        xml << Activity.stub('Activity', stub[:activity]) unless stub[:activity].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3676,7 +3678,7 @@ module AWS::SDK::AutoScaling
         response.attributes['xmlns'] = 'http://autoscaling.amazonaws.com/doc/2011-01-01/'
         xml = Hearth::XML::Node.new('UpdateAutoScalingGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

@@ -152,12 +152,12 @@ module AWS::SDK::LicenseManager
         map = Hearth::JSON.load(body)
         data.license_arn = map['LicenseArn']
         data.license_consumption_token = map['LicenseConsumptionToken']
-        data.entitlements_allowed = (Parsers::EntitlementDataList.parse(map['EntitlementsAllowed']) unless map['EntitlementsAllowed'].nil?)
+        data.entitlements_allowed = (EntitlementDataList.parse(map['EntitlementsAllowed']) unless map['EntitlementsAllowed'].nil?)
         data.node_id = map['NodeId']
         data.signed_token = map['SignedToken']
         data.issued_at = map['IssuedAt']
         data.expiration = map['Expiration']
-        data.checkout_metadata = (Parsers::MetadataList.parse(map['CheckoutMetadata']) unless map['CheckoutMetadata'].nil?)
+        data.checkout_metadata = (MetadataList.parse(map['CheckoutMetadata']) unless map['CheckoutMetadata'].nil?)
         data
       end
     end
@@ -165,7 +165,7 @@ module AWS::SDK::LicenseManager
     class MetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::Metadata.parse(value) unless value.nil?
+          Metadata.parse(value) unless value.nil?
         end
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::LicenseManager
     class EntitlementDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntitlementData.parse(value) unless value.nil?
+          EntitlementData.parse(value) unless value.nil?
         end
       end
     end
@@ -255,7 +255,7 @@ module AWS::SDK::LicenseManager
         map = Hearth::JSON.load(body)
         data.checkout_type = map['CheckoutType']
         data.license_consumption_token = map['LicenseConsumptionToken']
-        data.entitlements_allowed = (Parsers::EntitlementDataList.parse(map['EntitlementsAllowed']) unless map['EntitlementsAllowed'].nil?)
+        data.entitlements_allowed = (EntitlementDataList.parse(map['EntitlementsAllowed']) unless map['EntitlementsAllowed'].nil?)
         data.signed_token = map['SignedToken']
         data.node_id = map['NodeId']
         data.issued_at = map['IssuedAt']
@@ -463,7 +463,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.grant = (Parsers::Grant.parse(map['Grant']) unless map['Grant'].nil?)
+        data.grant = (Grant.parse(map['Grant']) unless map['Grant'].nil?)
         data
       end
     end
@@ -480,7 +480,7 @@ module AWS::SDK::LicenseManager
         data.grant_status = map['GrantStatus']
         data.status_reason = map['StatusReason']
         data.version = map['Version']
-        data.granted_operations = (Parsers::AllowedOperationList.parse(map['GrantedOperations']) unless map['GrantedOperations'].nil?)
+        data.granted_operations = (AllowedOperationList.parse(map['GrantedOperations']) unless map['GrantedOperations'].nil?)
         return data
       end
     end
@@ -500,7 +500,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license = (Parsers::License.parse(map['License']) unless map['License'].nil?)
+        data.license = (License.parse(map['License']) unless map['License'].nil?)
         data
       end
     end
@@ -512,14 +512,14 @@ module AWS::SDK::LicenseManager
         data.license_name = map['LicenseName']
         data.product_name = map['ProductName']
         data.product_sku = map['ProductSKU']
-        data.issuer = (Parsers::IssuerDetails.parse(map['Issuer']) unless map['Issuer'].nil?)
+        data.issuer = (IssuerDetails.parse(map['Issuer']) unless map['Issuer'].nil?)
         data.home_region = map['HomeRegion']
         data.status = map['Status']
-        data.validity = (Parsers::DatetimeRange.parse(map['Validity']) unless map['Validity'].nil?)
+        data.validity = (DatetimeRange.parse(map['Validity']) unless map['Validity'].nil?)
         data.beneficiary = map['Beneficiary']
-        data.entitlements = (Parsers::EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
-        data.consumption_configuration = (Parsers::ConsumptionConfiguration.parse(map['ConsumptionConfiguration']) unless map['ConsumptionConfiguration'].nil?)
-        data.license_metadata = (Parsers::MetadataList.parse(map['LicenseMetadata']) unless map['LicenseMetadata'].nil?)
+        data.entitlements = (EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
+        data.consumption_configuration = (ConsumptionConfiguration.parse(map['ConsumptionConfiguration']) unless map['ConsumptionConfiguration'].nil?)
+        data.license_metadata = (MetadataList.parse(map['LicenseMetadata']) unless map['LicenseMetadata'].nil?)
         data.create_time = map['CreateTime']
         data.version = map['Version']
         return data
@@ -530,8 +530,8 @@ module AWS::SDK::LicenseManager
       def self.parse(map)
         data = Types::ConsumptionConfiguration.new
         data.renew_type = map['RenewType']
-        data.provisional_configuration = (Parsers::ProvisionalConfiguration.parse(map['ProvisionalConfiguration']) unless map['ProvisionalConfiguration'].nil?)
-        data.borrow_configuration = (Parsers::BorrowConfiguration.parse(map['BorrowConfiguration']) unless map['BorrowConfiguration'].nil?)
+        data.provisional_configuration = (ProvisionalConfiguration.parse(map['ProvisionalConfiguration']) unless map['ProvisionalConfiguration'].nil?)
+        data.borrow_configuration = (BorrowConfiguration.parse(map['BorrowConfiguration']) unless map['BorrowConfiguration'].nil?)
         return data
       end
     end
@@ -556,7 +556,7 @@ module AWS::SDK::LicenseManager
     class EntitlementList
       def self.parse(list)
         list.map do |value|
-          Parsers::Entitlement.parse(value) unless value.nil?
+          Entitlement.parse(value) unless value.nil?
         end
       end
     end
@@ -605,17 +605,17 @@ module AWS::SDK::LicenseManager
         data.name = map['Name']
         data.description = map['Description']
         data.license_counting_type = map['LicenseCountingType']
-        data.license_rules = (Parsers::StringList.parse(map['LicenseRules']) unless map['LicenseRules'].nil?)
+        data.license_rules = (StringList.parse(map['LicenseRules']) unless map['LicenseRules'].nil?)
         data.license_count = map['LicenseCount']
         data.license_count_hard_limit = map['LicenseCountHardLimit']
         data.consumed_licenses = map['ConsumedLicenses']
         data.status = map['Status']
         data.owner_account_id = map['OwnerAccountId']
-        data.consumed_license_summary_list = (Parsers::ConsumedLicenseSummaryList.parse(map['ConsumedLicenseSummaryList']) unless map['ConsumedLicenseSummaryList'].nil?)
-        data.managed_resource_summary_list = (Parsers::ManagedResourceSummaryList.parse(map['ManagedResourceSummaryList']) unless map['ManagedResourceSummaryList'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.product_information_list = (Parsers::ProductInformationList.parse(map['ProductInformationList']) unless map['ProductInformationList'].nil?)
-        data.automated_discovery_information = (Parsers::AutomatedDiscoveryInformation.parse(map['AutomatedDiscoveryInformation']) unless map['AutomatedDiscoveryInformation'].nil?)
+        data.consumed_license_summary_list = (ConsumedLicenseSummaryList.parse(map['ConsumedLicenseSummaryList']) unless map['ConsumedLicenseSummaryList'].nil?)
+        data.managed_resource_summary_list = (ManagedResourceSummaryList.parse(map['ManagedResourceSummaryList']) unless map['ManagedResourceSummaryList'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.product_information_list = (ProductInformationList.parse(map['ProductInformationList']) unless map['ProductInformationList'].nil?)
+        data.automated_discovery_information = (AutomatedDiscoveryInformation.parse(map['AutomatedDiscoveryInformation']) unless map['AutomatedDiscoveryInformation'].nil?)
         data.disassociate_when_not_found = map['DisassociateWhenNotFound']
         data
       end
@@ -632,7 +632,7 @@ module AWS::SDK::LicenseManager
     class ProductInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductInformation.parse(value) unless value.nil?
+          ProductInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -641,7 +641,7 @@ module AWS::SDK::LicenseManager
       def self.parse(map)
         data = Types::ProductInformation.new
         data.resource_type = map['ResourceType']
-        data.product_information_filter_list = (Parsers::ProductInformationFilterList.parse(map['ProductInformationFilterList']) unless map['ProductInformationFilterList'].nil?)
+        data.product_information_filter_list = (ProductInformationFilterList.parse(map['ProductInformationFilterList']) unless map['ProductInformationFilterList'].nil?)
         return data
       end
     end
@@ -649,7 +649,7 @@ module AWS::SDK::LicenseManager
     class ProductInformationFilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductInformationFilter.parse(value) unless value.nil?
+          ProductInformationFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -658,7 +658,7 @@ module AWS::SDK::LicenseManager
       def self.parse(map)
         data = Types::ProductInformationFilter.new
         data.product_information_filter_name = map['ProductInformationFilterName']
-        data.product_information_filter_value = (Parsers::StringList.parse(map['ProductInformationFilterValue']) unless map['ProductInformationFilterValue'].nil?)
+        data.product_information_filter_value = (StringList.parse(map['ProductInformationFilterValue']) unless map['ProductInformationFilterValue'].nil?)
         data.product_information_filter_comparator = map['ProductInformationFilterComparator']
         return data
       end
@@ -675,7 +675,7 @@ module AWS::SDK::LicenseManager
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -692,7 +692,7 @@ module AWS::SDK::LicenseManager
     class ManagedResourceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ManagedResourceSummary.parse(value) unless value.nil?
+          ManagedResourceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -709,7 +709,7 @@ module AWS::SDK::LicenseManager
     class ConsumedLicenseSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConsumedLicenseSummary.parse(value) unless value.nil?
+          ConsumedLicenseSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -732,8 +732,8 @@ module AWS::SDK::LicenseManager
         map = Hearth::JSON.load(body)
         data.license_conversion_task_id = map['LicenseConversionTaskId']
         data.resource_arn = map['ResourceArn']
-        data.source_license_context = (Parsers::LicenseConversionContext.parse(map['SourceLicenseContext']) unless map['SourceLicenseContext'].nil?)
-        data.destination_license_context = (Parsers::LicenseConversionContext.parse(map['DestinationLicenseContext']) unless map['DestinationLicenseContext'].nil?)
+        data.source_license_context = (LicenseConversionContext.parse(map['SourceLicenseContext']) unless map['SourceLicenseContext'].nil?)
+        data.destination_license_context = (LicenseConversionContext.parse(map['DestinationLicenseContext']) unless map['DestinationLicenseContext'].nil?)
         data.status_message = map['StatusMessage']
         data.status = map['Status']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
@@ -758,7 +758,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.report_generator = (Parsers::ReportGenerator.parse(map['ReportGenerator']) unless map['ReportGenerator'].nil?)
+        data.report_generator = (ReportGenerator.parse(map['ReportGenerator']) unless map['ReportGenerator'].nil?)
         data
       end
     end
@@ -767,18 +767,18 @@ module AWS::SDK::LicenseManager
       def self.parse(map)
         data = Types::ReportGenerator.new
         data.report_generator_name = map['ReportGeneratorName']
-        data.report_type = (Parsers::ReportTypeList.parse(map['ReportType']) unless map['ReportType'].nil?)
-        data.report_context = (Parsers::ReportContext.parse(map['ReportContext']) unless map['ReportContext'].nil?)
-        data.report_frequency = (Parsers::ReportFrequency.parse(map['ReportFrequency']) unless map['ReportFrequency'].nil?)
+        data.report_type = (ReportTypeList.parse(map['ReportType']) unless map['ReportType'].nil?)
+        data.report_context = (ReportContext.parse(map['ReportContext']) unless map['ReportContext'].nil?)
+        data.report_frequency = (ReportFrequency.parse(map['ReportFrequency']) unless map['ReportFrequency'].nil?)
         data.license_manager_report_generator_arn = map['LicenseManagerReportGeneratorArn']
         data.last_run_status = map['LastRunStatus']
         data.last_run_failure_reason = map['LastRunFailureReason']
         data.last_report_generation_time = map['LastReportGenerationTime']
         data.report_creator_account = map['ReportCreatorAccount']
         data.description = map['Description']
-        data.s3_location = (Parsers::S3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
         data.create_time = map['CreateTime']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -804,7 +804,7 @@ module AWS::SDK::LicenseManager
     class ReportContext
       def self.parse(map)
         data = Types::ReportContext.new
-        data.license_configuration_arns = (Parsers::ArnList.parse(map['licenseConfigurationArns']) unless map['licenseConfigurationArns'].nil?)
+        data.license_configuration_arns = (ArnList.parse(map['licenseConfigurationArns']) unless map['licenseConfigurationArns'].nil?)
         return data
       end
     end
@@ -832,7 +832,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license_usage = (Parsers::LicenseUsage.parse(map['LicenseUsage']) unless map['LicenseUsage'].nil?)
+        data.license_usage = (LicenseUsage.parse(map['LicenseUsage']) unless map['LicenseUsage'].nil?)
         data
       end
     end
@@ -840,7 +840,7 @@ module AWS::SDK::LicenseManager
     class LicenseUsage
       def self.parse(map)
         data = Types::LicenseUsage.new
-        data.entitlement_usages = (Parsers::EntitlementUsageList.parse(map['EntitlementUsages']) unless map['EntitlementUsages'].nil?)
+        data.entitlement_usages = (EntitlementUsageList.parse(map['EntitlementUsages']) unless map['EntitlementUsages'].nil?)
         return data
       end
     end
@@ -848,7 +848,7 @@ module AWS::SDK::LicenseManager
     class EntitlementUsageList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntitlementUsage.parse(value) unless value.nil?
+          EntitlementUsage.parse(value) unless value.nil?
         end
       end
     end
@@ -873,7 +873,7 @@ module AWS::SDK::LicenseManager
         map = Hearth::JSON.load(body)
         data.s3_bucket_arn = map['S3BucketArn']
         data.sns_topic_arn = map['SnsTopicArn']
-        data.organization_configuration = (Parsers::OrganizationConfiguration.parse(map['OrganizationConfiguration']) unless map['OrganizationConfiguration'].nil?)
+        data.organization_configuration = (OrganizationConfiguration.parse(map['OrganizationConfiguration']) unless map['OrganizationConfiguration'].nil?)
         data.enable_cross_accounts_discovery = map['EnableCrossAccountsDiscovery']
         data.license_manager_resource_share_arn = map['LicenseManagerResourceShareArn']
         data
@@ -895,7 +895,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license_configuration_associations = (Parsers::LicenseConfigurationAssociations.parse(map['LicenseConfigurationAssociations']) unless map['LicenseConfigurationAssociations'].nil?)
+        data.license_configuration_associations = (LicenseConfigurationAssociations.parse(map['LicenseConfigurationAssociations']) unless map['LicenseConfigurationAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -904,7 +904,7 @@ module AWS::SDK::LicenseManager
     class LicenseConfigurationAssociations
       def self.parse(list)
         list.map do |value|
-          Parsers::LicenseConfigurationAssociation.parse(value) unless value.nil?
+          LicenseConfigurationAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -940,7 +940,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.grants = (Parsers::GrantList.parse(map['Grants']) unless map['Grants'].nil?)
+        data.grants = (GrantList.parse(map['Grants']) unless map['Grants'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -949,7 +949,7 @@ module AWS::SDK::LicenseManager
     class GrantList
       def self.parse(list)
         list.map do |value|
-          Parsers::Grant.parse(value) unless value.nil?
+          Grant.parse(value) unless value.nil?
         end
       end
     end
@@ -961,7 +961,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license_operation_failure_list = (Parsers::LicenseOperationFailureList.parse(map['LicenseOperationFailureList']) unless map['LicenseOperationFailureList'].nil?)
+        data.license_operation_failure_list = (LicenseOperationFailureList.parse(map['LicenseOperationFailureList']) unless map['LicenseOperationFailureList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -970,7 +970,7 @@ module AWS::SDK::LicenseManager
     class LicenseOperationFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::LicenseOperationFailure.parse(value) unless value.nil?
+          LicenseOperationFailure.parse(value) unless value.nil?
         end
       end
     end
@@ -985,7 +985,7 @@ module AWS::SDK::LicenseManager
         data.operation_name = map['OperationName']
         data.resource_owner_id = map['ResourceOwnerId']
         data.operation_requested_by = map['OperationRequestedBy']
-        data.metadata_list = (Parsers::MetadataList.parse(map['MetadataList']) unless map['MetadataList'].nil?)
+        data.metadata_list = (MetadataList.parse(map['MetadataList']) unless map['MetadataList'].nil?)
         return data
       end
     end
@@ -997,7 +997,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license_configurations = (Parsers::LicenseConfigurations.parse(map['LicenseConfigurations']) unless map['LicenseConfigurations'].nil?)
+        data.license_configurations = (LicenseConfigurations.parse(map['LicenseConfigurations']) unless map['LicenseConfigurations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1006,7 +1006,7 @@ module AWS::SDK::LicenseManager
     class LicenseConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::LicenseConfiguration.parse(value) unless value.nil?
+          LicenseConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1019,17 +1019,17 @@ module AWS::SDK::LicenseManager
         data.name = map['Name']
         data.description = map['Description']
         data.license_counting_type = map['LicenseCountingType']
-        data.license_rules = (Parsers::StringList.parse(map['LicenseRules']) unless map['LicenseRules'].nil?)
+        data.license_rules = (StringList.parse(map['LicenseRules']) unless map['LicenseRules'].nil?)
         data.license_count = map['LicenseCount']
         data.license_count_hard_limit = map['LicenseCountHardLimit']
         data.disassociate_when_not_found = map['DisassociateWhenNotFound']
         data.consumed_licenses = map['ConsumedLicenses']
         data.status = map['Status']
         data.owner_account_id = map['OwnerAccountId']
-        data.consumed_license_summary_list = (Parsers::ConsumedLicenseSummaryList.parse(map['ConsumedLicenseSummaryList']) unless map['ConsumedLicenseSummaryList'].nil?)
-        data.managed_resource_summary_list = (Parsers::ManagedResourceSummaryList.parse(map['ManagedResourceSummaryList']) unless map['ManagedResourceSummaryList'].nil?)
-        data.product_information_list = (Parsers::ProductInformationList.parse(map['ProductInformationList']) unless map['ProductInformationList'].nil?)
-        data.automated_discovery_information = (Parsers::AutomatedDiscoveryInformation.parse(map['AutomatedDiscoveryInformation']) unless map['AutomatedDiscoveryInformation'].nil?)
+        data.consumed_license_summary_list = (ConsumedLicenseSummaryList.parse(map['ConsumedLicenseSummaryList']) unless map['ConsumedLicenseSummaryList'].nil?)
+        data.managed_resource_summary_list = (ManagedResourceSummaryList.parse(map['ManagedResourceSummaryList']) unless map['ManagedResourceSummaryList'].nil?)
+        data.product_information_list = (ProductInformationList.parse(map['ProductInformationList']) unless map['ProductInformationList'].nil?)
+        data.automated_discovery_information = (AutomatedDiscoveryInformation.parse(map['AutomatedDiscoveryInformation']) unless map['AutomatedDiscoveryInformation'].nil?)
         return data
       end
     end
@@ -1041,7 +1041,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license_conversion_tasks = (Parsers::LicenseConversionTasks.parse(map['LicenseConversionTasks']) unless map['LicenseConversionTasks'].nil?)
+        data.license_conversion_tasks = (LicenseConversionTasks.parse(map['LicenseConversionTasks']) unless map['LicenseConversionTasks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1050,7 +1050,7 @@ module AWS::SDK::LicenseManager
     class LicenseConversionTasks
       def self.parse(list)
         list.map do |value|
-          Parsers::LicenseConversionTask.parse(value) unless value.nil?
+          LicenseConversionTask.parse(value) unless value.nil?
         end
       end
     end
@@ -1060,8 +1060,8 @@ module AWS::SDK::LicenseManager
         data = Types::LicenseConversionTask.new
         data.license_conversion_task_id = map['LicenseConversionTaskId']
         data.resource_arn = map['ResourceArn']
-        data.source_license_context = (Parsers::LicenseConversionContext.parse(map['SourceLicenseContext']) unless map['SourceLicenseContext'].nil?)
-        data.destination_license_context = (Parsers::LicenseConversionContext.parse(map['DestinationLicenseContext']) unless map['DestinationLicenseContext'].nil?)
+        data.source_license_context = (LicenseConversionContext.parse(map['SourceLicenseContext']) unless map['SourceLicenseContext'].nil?)
+        data.destination_license_context = (LicenseConversionContext.parse(map['DestinationLicenseContext']) unless map['DestinationLicenseContext'].nil?)
         data.status = map['Status']
         data.status_message = map['StatusMessage']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
@@ -1078,7 +1078,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.report_generators = (Parsers::ReportGeneratorList.parse(map['ReportGenerators']) unless map['ReportGenerators'].nil?)
+        data.report_generators = (ReportGeneratorList.parse(map['ReportGenerators']) unless map['ReportGenerators'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1087,7 +1087,7 @@ module AWS::SDK::LicenseManager
     class ReportGeneratorList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReportGenerator.parse(value) unless value.nil?
+          ReportGenerator.parse(value) unless value.nil?
         end
       end
     end
@@ -1099,7 +1099,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license_specifications = (Parsers::LicenseSpecifications.parse(map['LicenseSpecifications']) unless map['LicenseSpecifications'].nil?)
+        data.license_specifications = (LicenseSpecifications.parse(map['LicenseSpecifications']) unless map['LicenseSpecifications'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1108,7 +1108,7 @@ module AWS::SDK::LicenseManager
     class LicenseSpecifications
       def self.parse(list)
         list.map do |value|
-          Parsers::LicenseSpecification.parse(value) unless value.nil?
+          LicenseSpecification.parse(value) unless value.nil?
         end
       end
     end
@@ -1129,7 +1129,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.licenses = (Parsers::LicenseList.parse(map['Licenses']) unless map['Licenses'].nil?)
+        data.licenses = (LicenseList.parse(map['Licenses']) unless map['Licenses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1138,7 +1138,7 @@ module AWS::SDK::LicenseManager
     class LicenseList
       def self.parse(list)
         list.map do |value|
-          Parsers::License.parse(value) unless value.nil?
+          License.parse(value) unless value.nil?
         end
       end
     end
@@ -1150,7 +1150,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.licenses = (Parsers::LicenseList.parse(map['Licenses']) unless map['Licenses'].nil?)
+        data.licenses = (LicenseList.parse(map['Licenses']) unless map['Licenses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1163,7 +1163,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.grants = (Parsers::GrantList.parse(map['Grants']) unless map['Grants'].nil?)
+        data.grants = (GrantList.parse(map['Grants']) unless map['Grants'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1176,7 +1176,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.licenses = (Parsers::GrantedLicenseList.parse(map['Licenses']) unless map['Licenses'].nil?)
+        data.licenses = (GrantedLicenseList.parse(map['Licenses']) unless map['Licenses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1185,7 +1185,7 @@ module AWS::SDK::LicenseManager
     class GrantedLicenseList
       def self.parse(list)
         list.map do |value|
-          Parsers::GrantedLicense.parse(value) unless value.nil?
+          GrantedLicense.parse(value) unless value.nil?
         end
       end
     end
@@ -1197,17 +1197,17 @@ module AWS::SDK::LicenseManager
         data.license_name = map['LicenseName']
         data.product_name = map['ProductName']
         data.product_sku = map['ProductSKU']
-        data.issuer = (Parsers::IssuerDetails.parse(map['Issuer']) unless map['Issuer'].nil?)
+        data.issuer = (IssuerDetails.parse(map['Issuer']) unless map['Issuer'].nil?)
         data.home_region = map['HomeRegion']
         data.status = map['Status']
-        data.validity = (Parsers::DatetimeRange.parse(map['Validity']) unless map['Validity'].nil?)
+        data.validity = (DatetimeRange.parse(map['Validity']) unless map['Validity'].nil?)
         data.beneficiary = map['Beneficiary']
-        data.entitlements = (Parsers::EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
-        data.consumption_configuration = (Parsers::ConsumptionConfiguration.parse(map['ConsumptionConfiguration']) unless map['ConsumptionConfiguration'].nil?)
-        data.license_metadata = (Parsers::MetadataList.parse(map['LicenseMetadata']) unless map['LicenseMetadata'].nil?)
+        data.entitlements = (EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
+        data.consumption_configuration = (ConsumptionConfiguration.parse(map['ConsumptionConfiguration']) unless map['ConsumptionConfiguration'].nil?)
+        data.license_metadata = (MetadataList.parse(map['LicenseMetadata']) unless map['LicenseMetadata'].nil?)
         data.create_time = map['CreateTime']
         data.version = map['Version']
-        data.received_metadata = (Parsers::ReceivedMetadata.parse(map['ReceivedMetadata']) unless map['ReceivedMetadata'].nil?)
+        data.received_metadata = (ReceivedMetadata.parse(map['ReceivedMetadata']) unless map['ReceivedMetadata'].nil?)
         return data
       end
     end
@@ -1217,7 +1217,7 @@ module AWS::SDK::LicenseManager
         data = Types::ReceivedMetadata.new
         data.received_status = map['ReceivedStatus']
         data.received_status_reason = map['ReceivedStatusReason']
-        data.allowed_operations = (Parsers::AllowedOperationList.parse(map['AllowedOperations']) unless map['AllowedOperations'].nil?)
+        data.allowed_operations = (AllowedOperationList.parse(map['AllowedOperations']) unless map['AllowedOperations'].nil?)
         return data
       end
     end
@@ -1229,7 +1229,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_inventory_list = (Parsers::ResourceInventoryList.parse(map['ResourceInventoryList']) unless map['ResourceInventoryList'].nil?)
+        data.resource_inventory_list = (ResourceInventoryList.parse(map['ResourceInventoryList']) unless map['ResourceInventoryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1238,7 +1238,7 @@ module AWS::SDK::LicenseManager
     class ResourceInventoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceInventory.parse(value) unless value.nil?
+          ResourceInventory.parse(value) unless value.nil?
         end
       end
     end
@@ -1276,7 +1276,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1288,7 +1288,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tokens = (Parsers::TokenList.parse(map['Tokens']) unless map['Tokens'].nil?)
+        data.tokens = (TokenList.parse(map['Tokens']) unless map['Tokens'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1297,7 +1297,7 @@ module AWS::SDK::LicenseManager
     class TokenList
       def self.parse(list)
         list.map do |value|
-          Parsers::TokenData.parse(value) unless value.nil?
+          TokenData.parse(value) unless value.nil?
         end
       end
     end
@@ -1309,8 +1309,8 @@ module AWS::SDK::LicenseManager
         data.token_type = map['TokenType']
         data.license_arn = map['LicenseArn']
         data.expiration_time = map['ExpirationTime']
-        data.token_properties = (Parsers::MaxSize3StringList.parse(map['TokenProperties']) unless map['TokenProperties'].nil?)
-        data.role_arns = (Parsers::ArnList.parse(map['RoleArns']) unless map['RoleArns'].nil?)
+        data.token_properties = (MaxSize3StringList.parse(map['TokenProperties']) unless map['TokenProperties'].nil?)
+        data.role_arns = (ArnList.parse(map['RoleArns']) unless map['RoleArns'].nil?)
         data.status = map['Status']
         return data
       end
@@ -1331,7 +1331,7 @@ module AWS::SDK::LicenseManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.license_configuration_usage_list = (Parsers::LicenseConfigurationUsageList.parse(map['LicenseConfigurationUsageList']) unless map['LicenseConfigurationUsageList'].nil?)
+        data.license_configuration_usage_list = (LicenseConfigurationUsageList.parse(map['LicenseConfigurationUsageList']) unless map['LicenseConfigurationUsageList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1340,7 +1340,7 @@ module AWS::SDK::LicenseManager
     class LicenseConfigurationUsageList
       def self.parse(list)
         list.map do |value|
-          Parsers::LicenseConfigurationUsage.parse(value) unless value.nil?
+          LicenseConfigurationUsage.parse(value) unless value.nil?
         end
       end
     end

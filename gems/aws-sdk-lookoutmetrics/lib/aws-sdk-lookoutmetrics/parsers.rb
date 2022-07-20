@@ -80,7 +80,7 @@ module AWS::SDK::LookoutMetrics
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -89,7 +89,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -189,7 +189,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::DescribeAlertOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alert = (Parsers::Alert.parse(map['Alert']) unless map['Alert'].nil?)
+        data.alert = (Alert.parse(map['Alert']) unless map['Alert'].nil?)
         data
       end
     end
@@ -197,7 +197,7 @@ module AWS::SDK::LookoutMetrics
     class Alert
       def self.parse(map)
         data = Types::Alert.new
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         data.alert_description = map['AlertDescription']
         data.alert_arn = map['AlertArn']
         data.anomaly_detector_arn = map['AnomalyDetectorArn']
@@ -214,8 +214,8 @@ module AWS::SDK::LookoutMetrics
     class Action
       def self.parse(map)
         data = Types::Action.new
-        data.sns_configuration = (Parsers::SNSConfiguration.parse(map['SNSConfiguration']) unless map['SNSConfiguration'].nil?)
-        data.lambda_configuration = (Parsers::LambdaConfiguration.parse(map['LambdaConfiguration']) unless map['LambdaConfiguration'].nil?)
+        data.sns_configuration = (SNSConfiguration.parse(map['SNSConfiguration']) unless map['SNSConfiguration'].nil?)
+        data.lambda_configuration = (LambdaConfiguration.parse(map['LambdaConfiguration']) unless map['LambdaConfiguration'].nil?)
         return data
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::DescribeAnomalyDetectionExecutionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.execution_list = (Parsers::ExecutionList.parse(map['ExecutionList']) unless map['ExecutionList'].nil?)
+        data.execution_list = (ExecutionList.parse(map['ExecutionList']) unless map['ExecutionList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -254,7 +254,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExecutionStatus.parse(value) unless value.nil?
+          data << ExecutionStatus.parse(value) unless value.nil?
         end
         data
       end
@@ -278,7 +278,7 @@ module AWS::SDK::LookoutMetrics
         data.anomaly_detector_arn = map['AnomalyDetectorArn']
         data.anomaly_detector_name = map['AnomalyDetectorName']
         data.anomaly_detector_description = map['AnomalyDetectorDescription']
-        data.anomaly_detector_config = (Parsers::AnomalyDetectorConfigSummary.parse(map['AnomalyDetectorConfig']) unless map['AnomalyDetectorConfig'].nil?)
+        data.anomaly_detector_config = (AnomalyDetectorConfigSummary.parse(map['AnomalyDetectorConfig']) unless map['AnomalyDetectorConfig'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
         data.status = map['Status']
@@ -309,12 +309,12 @@ module AWS::SDK::LookoutMetrics
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
         data.offset = map['Offset']
-        data.metric_list = (Parsers::MetricList.parse(map['MetricList']) unless map['MetricList'].nil?)
-        data.timestamp_column = (Parsers::TimestampColumn.parse(map['TimestampColumn']) unless map['TimestampColumn'].nil?)
-        data.dimension_list = (Parsers::DimensionList.parse(map['DimensionList']) unless map['DimensionList'].nil?)
+        data.metric_list = (MetricList.parse(map['MetricList']) unless map['MetricList'].nil?)
+        data.timestamp_column = (TimestampColumn.parse(map['TimestampColumn']) unless map['TimestampColumn'].nil?)
+        data.dimension_list = (DimensionList.parse(map['DimensionList']) unless map['DimensionList'].nil?)
         data.metric_set_frequency = map['MetricSetFrequency']
         data.timezone = map['Timezone']
-        data.metric_source = (Parsers::MetricSource.parse(map['MetricSource']) unless map['MetricSource'].nil?)
+        data.metric_source = (MetricSource.parse(map['MetricSource']) unless map['MetricSource'].nil?)
         data
       end
     end
@@ -322,12 +322,12 @@ module AWS::SDK::LookoutMetrics
     class MetricSource
       def self.parse(map)
         data = Types::MetricSource.new
-        data.s3_source_config = (Parsers::S3SourceConfig.parse(map['S3SourceConfig']) unless map['S3SourceConfig'].nil?)
-        data.app_flow_config = (Parsers::AppFlowConfig.parse(map['AppFlowConfig']) unless map['AppFlowConfig'].nil?)
-        data.cloud_watch_config = (Parsers::CloudWatchConfig.parse(map['CloudWatchConfig']) unless map['CloudWatchConfig'].nil?)
-        data.rds_source_config = (Parsers::RDSSourceConfig.parse(map['RDSSourceConfig']) unless map['RDSSourceConfig'].nil?)
-        data.redshift_source_config = (Parsers::RedshiftSourceConfig.parse(map['RedshiftSourceConfig']) unless map['RedshiftSourceConfig'].nil?)
-        data.athena_source_config = (Parsers::AthenaSourceConfig.parse(map['AthenaSourceConfig']) unless map['AthenaSourceConfig'].nil?)
+        data.s3_source_config = (S3SourceConfig.parse(map['S3SourceConfig']) unless map['S3SourceConfig'].nil?)
+        data.app_flow_config = (AppFlowConfig.parse(map['AppFlowConfig']) unless map['AppFlowConfig'].nil?)
+        data.cloud_watch_config = (CloudWatchConfig.parse(map['CloudWatchConfig']) unless map['CloudWatchConfig'].nil?)
+        data.rds_source_config = (RDSSourceConfig.parse(map['RDSSourceConfig']) unless map['RDSSourceConfig'].nil?)
+        data.redshift_source_config = (RedshiftSourceConfig.parse(map['RedshiftSourceConfig']) unless map['RedshiftSourceConfig'].nil?)
+        data.athena_source_config = (AthenaSourceConfig.parse(map['AthenaSourceConfig']) unless map['AthenaSourceConfig'].nil?)
         return data
       end
     end
@@ -341,7 +341,7 @@ module AWS::SDK::LookoutMetrics
         data.table_name = map['TableName']
         data.work_group_name = map['WorkGroupName']
         data.s3_results_path = map['S3ResultsPath']
-        data.back_test_configuration = (Parsers::BackTestConfiguration.parse(map['BackTestConfiguration']) unless map['BackTestConfiguration'].nil?)
+        data.back_test_configuration = (BackTestConfiguration.parse(map['BackTestConfiguration']) unless map['BackTestConfiguration'].nil?)
         return data
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::LookoutMetrics
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
         data.role_arn = map['RoleArn']
-        data.vpc_configuration = (Parsers::VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.vpc_configuration = (VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         return data
       end
     end
@@ -372,8 +372,8 @@ module AWS::SDK::LookoutMetrics
     class VpcConfiguration
       def self.parse(map)
         data = Types::VpcConfiguration.new
-        data.subnet_id_list = (Parsers::SubnetIdList.parse(map['SubnetIdList']) unless map['SubnetIdList'].nil?)
-        data.security_group_id_list = (Parsers::SecurityGroupIdList.parse(map['SecurityGroupIdList']) unless map['SecurityGroupIdList'].nil?)
+        data.subnet_id_list = (SubnetIdList.parse(map['SubnetIdList']) unless map['SubnetIdList'].nil?)
+        data.security_group_id_list = (SecurityGroupIdList.parse(map['SecurityGroupIdList']) unless map['SecurityGroupIdList'].nil?)
         return data
       end
     end
@@ -408,7 +408,7 @@ module AWS::SDK::LookoutMetrics
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
         data.role_arn = map['RoleArn']
-        data.vpc_configuration = (Parsers::VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.vpc_configuration = (VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         return data
       end
     end
@@ -417,7 +417,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(map)
         data = Types::CloudWatchConfig.new
         data.role_arn = map['RoleArn']
-        data.back_test_configuration = (Parsers::BackTestConfiguration.parse(map['BackTestConfiguration']) unless map['BackTestConfiguration'].nil?)
+        data.back_test_configuration = (BackTestConfiguration.parse(map['BackTestConfiguration']) unless map['BackTestConfiguration'].nil?)
         return data
       end
     end
@@ -435,9 +435,9 @@ module AWS::SDK::LookoutMetrics
       def self.parse(map)
         data = Types::S3SourceConfig.new
         data.role_arn = map['RoleArn']
-        data.templated_path_list = (Parsers::TemplatedPathList.parse(map['TemplatedPathList']) unless map['TemplatedPathList'].nil?)
-        data.historical_data_path_list = (Parsers::HistoricalDataPathList.parse(map['HistoricalDataPathList']) unless map['HistoricalDataPathList'].nil?)
-        data.file_format_descriptor = (Parsers::FileFormatDescriptor.parse(map['FileFormatDescriptor']) unless map['FileFormatDescriptor'].nil?)
+        data.templated_path_list = (TemplatedPathList.parse(map['TemplatedPathList']) unless map['TemplatedPathList'].nil?)
+        data.historical_data_path_list = (HistoricalDataPathList.parse(map['HistoricalDataPathList']) unless map['HistoricalDataPathList'].nil?)
+        data.file_format_descriptor = (FileFormatDescriptor.parse(map['FileFormatDescriptor']) unless map['FileFormatDescriptor'].nil?)
         return data
       end
     end
@@ -445,8 +445,8 @@ module AWS::SDK::LookoutMetrics
     class FileFormatDescriptor
       def self.parse(map)
         data = Types::FileFormatDescriptor.new
-        data.csv_format_descriptor = (Parsers::CsvFormatDescriptor.parse(map['CsvFormatDescriptor']) unless map['CsvFormatDescriptor'].nil?)
-        data.json_format_descriptor = (Parsers::JsonFormatDescriptor.parse(map['JsonFormatDescriptor']) unless map['JsonFormatDescriptor'].nil?)
+        data.csv_format_descriptor = (CsvFormatDescriptor.parse(map['CsvFormatDescriptor']) unless map['CsvFormatDescriptor'].nil?)
+        data.json_format_descriptor = (JsonFormatDescriptor.parse(map['JsonFormatDescriptor']) unless map['JsonFormatDescriptor'].nil?)
         return data
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::LookoutMetrics
         data.charset = map['Charset']
         data.contains_header = map['ContainsHeader']
         data.delimiter = map['Delimiter']
-        data.header_list = (Parsers::HeaderList.parse(map['HeaderList']) unless map['HeaderList'].nil?)
+        data.header_list = (HeaderList.parse(map['HeaderList']) unless map['HeaderList'].nil?)
         data.quote_symbol = map['QuoteSymbol']
         return data
       end
@@ -526,7 +526,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Metric.parse(value) unless value.nil?
+          data << Metric.parse(value) unless value.nil?
         end
         data
       end
@@ -547,7 +547,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::DetectMetricSetConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detected_metric_set_config = (Parsers::DetectedMetricSetConfig.parse(map['DetectedMetricSetConfig']) unless map['DetectedMetricSetConfig'].nil?)
+        data.detected_metric_set_config = (DetectedMetricSetConfig.parse(map['DetectedMetricSetConfig']) unless map['DetectedMetricSetConfig'].nil?)
         data
       end
     end
@@ -555,9 +555,9 @@ module AWS::SDK::LookoutMetrics
     class DetectedMetricSetConfig
       def self.parse(map)
         data = Types::DetectedMetricSetConfig.new
-        data.offset = (Parsers::DetectedField.parse(map['Offset']) unless map['Offset'].nil?)
-        data.metric_set_frequency = (Parsers::DetectedField.parse(map['MetricSetFrequency']) unless map['MetricSetFrequency'].nil?)
-        data.metric_source = (Parsers::DetectedMetricSource.parse(map['MetricSource']) unless map['MetricSource'].nil?)
+        data.offset = (DetectedField.parse(map['Offset']) unless map['Offset'].nil?)
+        data.metric_set_frequency = (DetectedField.parse(map['MetricSetFrequency']) unless map['MetricSetFrequency'].nil?)
+        data.metric_source = (DetectedMetricSource.parse(map['MetricSource']) unless map['MetricSource'].nil?)
         return data
       end
     end
@@ -565,7 +565,7 @@ module AWS::SDK::LookoutMetrics
     class DetectedMetricSource
       def self.parse(map)
         data = Types::DetectedMetricSource.new
-        data.s3_source_config = (Parsers::DetectedS3SourceConfig.parse(map['S3SourceConfig']) unless map['S3SourceConfig'].nil?)
+        data.s3_source_config = (DetectedS3SourceConfig.parse(map['S3SourceConfig']) unless map['S3SourceConfig'].nil?)
         return data
       end
     end
@@ -573,7 +573,7 @@ module AWS::SDK::LookoutMetrics
     class DetectedS3SourceConfig
       def self.parse(map)
         data = Types::DetectedS3SourceConfig.new
-        data.file_format_descriptor = (Parsers::DetectedFileFormatDescriptor.parse(map['FileFormatDescriptor']) unless map['FileFormatDescriptor'].nil?)
+        data.file_format_descriptor = (DetectedFileFormatDescriptor.parse(map['FileFormatDescriptor']) unless map['FileFormatDescriptor'].nil?)
         return data
       end
     end
@@ -581,8 +581,8 @@ module AWS::SDK::LookoutMetrics
     class DetectedFileFormatDescriptor
       def self.parse(map)
         data = Types::DetectedFileFormatDescriptor.new
-        data.csv_format_descriptor = (Parsers::DetectedCsvFormatDescriptor.parse(map['CsvFormatDescriptor']) unless map['CsvFormatDescriptor'].nil?)
-        data.json_format_descriptor = (Parsers::DetectedJsonFormatDescriptor.parse(map['JsonFormatDescriptor']) unless map['JsonFormatDescriptor'].nil?)
+        data.csv_format_descriptor = (DetectedCsvFormatDescriptor.parse(map['CsvFormatDescriptor']) unless map['CsvFormatDescriptor'].nil?)
+        data.json_format_descriptor = (DetectedJsonFormatDescriptor.parse(map['JsonFormatDescriptor']) unless map['JsonFormatDescriptor'].nil?)
         return data
       end
     end
@@ -590,8 +590,8 @@ module AWS::SDK::LookoutMetrics
     class DetectedJsonFormatDescriptor
       def self.parse(map)
         data = Types::DetectedJsonFormatDescriptor.new
-        data.file_compression = (Parsers::DetectedField.parse(map['FileCompression']) unless map['FileCompression'].nil?)
-        data.charset = (Parsers::DetectedField.parse(map['Charset']) unless map['Charset'].nil?)
+        data.file_compression = (DetectedField.parse(map['FileCompression']) unless map['FileCompression'].nil?)
+        data.charset = (DetectedField.parse(map['Charset']) unless map['Charset'].nil?)
         return data
       end
     end
@@ -599,7 +599,7 @@ module AWS::SDK::LookoutMetrics
     class DetectedField
       def self.parse(map)
         data = Types::DetectedField.new
-        data.value = (Parsers::AttributeValue.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (AttributeValue.parse(map['Value']) unless map['Value'].nil?)
         data.confidence = map['Confidence']
         data.message = map['Message']
         return data
@@ -612,9 +612,9 @@ module AWS::SDK::LookoutMetrics
         data.s = map['S']
         data.n = map['N']
         data.b = map['B']
-        data.ss = (Parsers::StringListAttributeValue.parse(map['SS']) unless map['SS'].nil?)
-        data.ns = (Parsers::NumberListAttributeValue.parse(map['NS']) unless map['NS'].nil?)
-        data.bs = (Parsers::BinaryListAttributeValue.parse(map['BS']) unless map['BS'].nil?)
+        data.ss = (StringListAttributeValue.parse(map['SS']) unless map['SS'].nil?)
+        data.ns = (NumberListAttributeValue.parse(map['NS']) unless map['NS'].nil?)
+        data.bs = (BinaryListAttributeValue.parse(map['BS']) unless map['BS'].nil?)
         return data
       end
     end
@@ -652,12 +652,12 @@ module AWS::SDK::LookoutMetrics
     class DetectedCsvFormatDescriptor
       def self.parse(map)
         data = Types::DetectedCsvFormatDescriptor.new
-        data.file_compression = (Parsers::DetectedField.parse(map['FileCompression']) unless map['FileCompression'].nil?)
-        data.charset = (Parsers::DetectedField.parse(map['Charset']) unless map['Charset'].nil?)
-        data.contains_header = (Parsers::DetectedField.parse(map['ContainsHeader']) unless map['ContainsHeader'].nil?)
-        data.delimiter = (Parsers::DetectedField.parse(map['Delimiter']) unless map['Delimiter'].nil?)
-        data.header_list = (Parsers::DetectedField.parse(map['HeaderList']) unless map['HeaderList'].nil?)
-        data.quote_symbol = (Parsers::DetectedField.parse(map['QuoteSymbol']) unless map['QuoteSymbol'].nil?)
+        data.file_compression = (DetectedField.parse(map['FileCompression']) unless map['FileCompression'].nil?)
+        data.charset = (DetectedField.parse(map['Charset']) unless map['Charset'].nil?)
+        data.contains_header = (DetectedField.parse(map['ContainsHeader']) unless map['ContainsHeader'].nil?)
+        data.delimiter = (DetectedField.parse(map['Delimiter']) unless map['Delimiter'].nil?)
+        data.header_list = (DetectedField.parse(map['HeaderList']) unless map['HeaderList'].nil?)
+        data.quote_symbol = (DetectedField.parse(map['QuoteSymbol']) unless map['QuoteSymbol'].nil?)
         return data
       end
     end
@@ -667,7 +667,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::GetAnomalyGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.anomaly_group = (Parsers::AnomalyGroup.parse(map['AnomalyGroup']) unless map['AnomalyGroup'].nil?)
+        data.anomaly_group = (AnomalyGroup.parse(map['AnomalyGroup']) unless map['AnomalyGroup'].nil?)
         data
       end
     end
@@ -680,7 +680,7 @@ module AWS::SDK::LookoutMetrics
         data.anomaly_group_id = map['AnomalyGroupId']
         data.anomaly_group_score = Hearth::NumberHelper.deserialize(map['AnomalyGroupScore'])
         data.primary_metric_name = map['PrimaryMetricName']
-        data.metric_level_impact_list = (Parsers::MetricLevelImpactList.parse(map['MetricLevelImpactList']) unless map['MetricLevelImpactList'].nil?)
+        data.metric_level_impact_list = (MetricLevelImpactList.parse(map['MetricLevelImpactList']) unless map['MetricLevelImpactList'].nil?)
         return data
       end
     end
@@ -689,7 +689,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MetricLevelImpact.parse(value) unless value.nil?
+          data << MetricLevelImpact.parse(value) unless value.nil?
         end
         data
       end
@@ -700,7 +700,7 @@ module AWS::SDK::LookoutMetrics
         data = Types::MetricLevelImpact.new
         data.metric_name = map['MetricName']
         data.num_time_series = map['NumTimeSeries']
-        data.contribution_matrix = (Parsers::ContributionMatrix.parse(map['ContributionMatrix']) unless map['ContributionMatrix'].nil?)
+        data.contribution_matrix = (ContributionMatrix.parse(map['ContributionMatrix']) unless map['ContributionMatrix'].nil?)
         return data
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::LookoutMetrics
     class ContributionMatrix
       def self.parse(map)
         data = Types::ContributionMatrix.new
-        data.dimension_contribution_list = (Parsers::DimensionContributionList.parse(map['DimensionContributionList']) unless map['DimensionContributionList'].nil?)
+        data.dimension_contribution_list = (DimensionContributionList.parse(map['DimensionContributionList']) unless map['DimensionContributionList'].nil?)
         return data
       end
     end
@@ -717,7 +717,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DimensionContribution.parse(value) unless value.nil?
+          data << DimensionContribution.parse(value) unless value.nil?
         end
         data
       end
@@ -727,7 +727,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(map)
         data = Types::DimensionContribution.new
         data.dimension_name = map['DimensionName']
-        data.dimension_value_contribution_list = (Parsers::DimensionValueContributionList.parse(map['DimensionValueContributionList']) unless map['DimensionValueContributionList'].nil?)
+        data.dimension_value_contribution_list = (DimensionValueContributionList.parse(map['DimensionValueContributionList']) unless map['DimensionValueContributionList'].nil?)
         return data
       end
     end
@@ -736,7 +736,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DimensionValueContribution.parse(value) unless value.nil?
+          data << DimensionValueContribution.parse(value) unless value.nil?
         end
         data
       end
@@ -756,7 +756,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::GetFeedbackOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.anomaly_group_time_series_feedback = (Parsers::TimeSeriesFeedbackList.parse(map['AnomalyGroupTimeSeriesFeedback']) unless map['AnomalyGroupTimeSeriesFeedback'].nil?)
+        data.anomaly_group_time_series_feedback = (TimeSeriesFeedbackList.parse(map['AnomalyGroupTimeSeriesFeedback']) unless map['AnomalyGroupTimeSeriesFeedback'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -766,7 +766,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimeSeriesFeedback.parse(value) unless value.nil?
+          data << TimeSeriesFeedback.parse(value) unless value.nil?
         end
         data
       end
@@ -786,8 +786,8 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::GetSampleDataOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.header_values = (Parsers::HeaderValueList.parse(map['HeaderValues']) unless map['HeaderValues'].nil?)
-        data.sample_rows = (Parsers::SampleRows.parse(map['SampleRows']) unless map['SampleRows'].nil?)
+        data.header_values = (HeaderValueList.parse(map['HeaderValues']) unless map['HeaderValues'].nil?)
+        data.sample_rows = (SampleRows.parse(map['SampleRows']) unless map['SampleRows'].nil?)
         data
       end
     end
@@ -796,7 +796,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SampleRow.parse(value) unless value.nil?
+          data << SampleRow.parse(value) unless value.nil?
         end
         data
       end
@@ -827,7 +827,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::ListAlertsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alert_summary_list = (Parsers::AlertSummaryList.parse(map['AlertSummaryList']) unless map['AlertSummaryList'].nil?)
+        data.alert_summary_list = (AlertSummaryList.parse(map['AlertSummaryList']) unless map['AlertSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -837,7 +837,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlertSummary.parse(value) unless value.nil?
+          data << AlertSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -854,7 +854,7 @@ module AWS::SDK::LookoutMetrics
         data.alert_status = map['AlertStatus']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -874,7 +874,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::ListAnomalyDetectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.anomaly_detector_summary_list = (Parsers::AnomalyDetectorSummaryList.parse(map['AnomalyDetectorSummaryList']) unless map['AnomalyDetectorSummaryList'].nil?)
+        data.anomaly_detector_summary_list = (AnomalyDetectorSummaryList.parse(map['AnomalyDetectorSummaryList']) unless map['AnomalyDetectorSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -884,7 +884,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnomalyDetectorSummary.parse(value) unless value.nil?
+          data << AnomalyDetectorSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -899,7 +899,7 @@ module AWS::SDK::LookoutMetrics
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
         data.status = map['Status']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -909,7 +909,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::ListAnomalyGroupRelatedMetricsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.inter_metric_impact_list = (Parsers::InterMetricImpactList.parse(map['InterMetricImpactList']) unless map['InterMetricImpactList'].nil?)
+        data.inter_metric_impact_list = (InterMetricImpactList.parse(map['InterMetricImpactList']) unless map['InterMetricImpactList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -919,7 +919,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InterMetricImpactDetails.parse(value) unless value.nil?
+          data << InterMetricImpactDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -941,8 +941,8 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::ListAnomalyGroupSummariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.anomaly_group_summary_list = (Parsers::AnomalyGroupSummaryList.parse(map['AnomalyGroupSummaryList']) unless map['AnomalyGroupSummaryList'].nil?)
-        data.anomaly_group_statistics = (Parsers::AnomalyGroupStatistics.parse(map['AnomalyGroupStatistics']) unless map['AnomalyGroupStatistics'].nil?)
+        data.anomaly_group_summary_list = (AnomalyGroupSummaryList.parse(map['AnomalyGroupSummaryList']) unless map['AnomalyGroupSummaryList'].nil?)
+        data.anomaly_group_statistics = (AnomalyGroupStatistics.parse(map['AnomalyGroupStatistics']) unless map['AnomalyGroupStatistics'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -953,7 +953,7 @@ module AWS::SDK::LookoutMetrics
         data = Types::AnomalyGroupStatistics.new
         data.evaluation_start_date = map['EvaluationStartDate']
         data.total_count = map['TotalCount']
-        data.itemized_metric_stats_list = (Parsers::ItemizedMetricStatsList.parse(map['ItemizedMetricStatsList']) unless map['ItemizedMetricStatsList'].nil?)
+        data.itemized_metric_stats_list = (ItemizedMetricStatsList.parse(map['ItemizedMetricStatsList']) unless map['ItemizedMetricStatsList'].nil?)
         return data
       end
     end
@@ -962,7 +962,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ItemizedMetricStats.parse(value) unless value.nil?
+          data << ItemizedMetricStats.parse(value) unless value.nil?
         end
         data
       end
@@ -981,7 +981,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnomalyGroupSummary.parse(value) unless value.nil?
+          data << AnomalyGroupSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1006,9 +1006,9 @@ module AWS::SDK::LookoutMetrics
         map = Hearth::JSON.load(http_resp.body)
         data.anomaly_group_id = map['AnomalyGroupId']
         data.metric_name = map['MetricName']
-        data.timestamp_list = (Parsers::TimestampList.parse(map['TimestampList']) unless map['TimestampList'].nil?)
+        data.timestamp_list = (TimestampList.parse(map['TimestampList']) unless map['TimestampList'].nil?)
         data.next_token = map['NextToken']
-        data.time_series_list = (Parsers::TimeSeriesList.parse(map['TimeSeriesList']) unless map['TimeSeriesList'].nil?)
+        data.time_series_list = (TimeSeriesList.parse(map['TimeSeriesList']) unless map['TimeSeriesList'].nil?)
         data
       end
     end
@@ -1017,7 +1017,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimeSeries.parse(value) unless value.nil?
+          data << TimeSeries.parse(value) unless value.nil?
         end
         data
       end
@@ -1027,8 +1027,8 @@ module AWS::SDK::LookoutMetrics
       def self.parse(map)
         data = Types::TimeSeries.new
         data.time_series_id = map['TimeSeriesId']
-        data.dimension_list = (Parsers::DimensionNameValueList.parse(map['DimensionList']) unless map['DimensionList'].nil?)
-        data.metric_value_list = (Parsers::MetricValueList.parse(map['MetricValueList']) unless map['MetricValueList'].nil?)
+        data.dimension_list = (DimensionNameValueList.parse(map['DimensionList']) unless map['DimensionList'].nil?)
+        data.metric_value_list = (MetricValueList.parse(map['MetricValueList']) unless map['MetricValueList'].nil?)
         return data
       end
     end
@@ -1047,7 +1047,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DimensionNameValue.parse(value) unless value.nil?
+          data << DimensionNameValue.parse(value) unless value.nil?
         end
         data
       end
@@ -1077,7 +1077,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::ListMetricSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.metric_set_summary_list = (Parsers::MetricSetSummaryList.parse(map['MetricSetSummaryList']) unless map['MetricSetSummaryList'].nil?)
+        data.metric_set_summary_list = (MetricSetSummaryList.parse(map['MetricSetSummaryList']) unless map['MetricSetSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1087,7 +1087,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MetricSetSummary.parse(value) unless value.nil?
+          data << MetricSetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1102,7 +1102,7 @@ module AWS::SDK::LookoutMetrics
         data.metric_set_name = map['MetricSetName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1112,7 +1112,7 @@ module AWS::SDK::LookoutMetrics
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AlexaForBusiness
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.ApproveSkill'
         data = {}
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['ContactArn'] = input[:contact_arn] unless input[:contact_arn].nil?
         data['AddressBookArn'] = input[:address_book_arn] unless input[:address_book_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -47,7 +49,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
         data['NetworkProfileArn'] = input[:network_profile_arn] unless input[:network_profile_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,7 +77,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['SkillGroupArn'] = input[:skill_group_arn] unless input[:skill_group_arn].nil?
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -89,7 +91,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['SkillGroupArn'] = input[:skill_group_arn] unless input[:skill_group_arn].nil?
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -102,7 +104,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.AssociateSkillWithUsers'
         data = {}
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,8 +119,8 @@ module AWS::SDK::AlexaForBusiness
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,7 +129,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -155,11 +157,11 @@ module AWS::SDK::AlexaForBusiness
         data['S3BucketName'] = input[:s3_bucket_name] unless input[:s3_bucket_name].nil?
         data['S3KeyPrefix'] = input[:s3_key_prefix] unless input[:s3_key_prefix].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        data['ContentRange'] = Builders::BusinessReportContentRange.build(input[:content_range]) unless input[:content_range].nil?
-        data['Recurrence'] = Builders::BusinessReportRecurrence.build(input[:recurrence]) unless input[:recurrence].nil?
+        data['ContentRange'] = BusinessReportContentRange.build(input[:content_range]) unless input[:content_range].nil?
+        data['Recurrence'] = BusinessReportRecurrence.build(input[:recurrence]) unless input[:recurrence].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,12 +193,12 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['ConferenceProviderName'] = input[:conference_provider_name] unless input[:conference_provider_name].nil?
         data['ConferenceProviderType'] = input[:conference_provider_type] unless input[:conference_provider_type].nil?
-        data['IPDialIn'] = Builders::IPDialIn.build(input[:ip_dial_in]) unless input[:ip_dial_in].nil?
-        data['PSTNDialIn'] = Builders::PSTNDialIn.build(input[:pstn_dial_in]) unless input[:pstn_dial_in].nil?
-        data['MeetingSetting'] = Builders::MeetingSetting.build(input[:meeting_setting]) unless input[:meeting_setting].nil?
+        data['IPDialIn'] = IPDialIn.build(input[:ip_dial_in]) unless input[:ip_dial_in].nil?
+        data['PSTNDialIn'] = PSTNDialIn.build(input[:pstn_dial_in]) unless input[:pstn_dial_in].nil?
+        data['MeetingSetting'] = MeetingSetting.build(input[:meeting_setting]) unless input[:meeting_setting].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -243,11 +245,11 @@ module AWS::SDK::AlexaForBusiness
         data['FirstName'] = input[:first_name] unless input[:first_name].nil?
         data['LastName'] = input[:last_name] unless input[:last_name].nil?
         data['PhoneNumber'] = input[:phone_number] unless input[:phone_number].nil?
-        data['PhoneNumbers'] = Builders::PhoneNumberList.build(input[:phone_numbers]) unless input[:phone_numbers].nil?
-        data['SipAddresses'] = Builders::SipAddressList.build(input[:sip_addresses]) unless input[:sip_addresses].nil?
+        data['PhoneNumbers'] = PhoneNumberList.build(input[:phone_numbers]) unless input[:phone_numbers].nil?
+        data['SipAddresses'] = SipAddressList.build(input[:sip_addresses]) unless input[:sip_addresses].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,7 +258,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SipAddress.build(element) unless element.nil?
+          data << SipAddress.build(element) unless element.nil?
         end
         data
       end
@@ -277,7 +279,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PhoneNumber.build(element) unless element.nil?
+          data << PhoneNumber.build(element) unless element.nil?
         end
         data
       end
@@ -304,8 +306,8 @@ module AWS::SDK::AlexaForBusiness
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,10 +327,10 @@ module AWS::SDK::AlexaForBusiness
         data['CurrentPassword'] = input[:current_password] unless input[:current_password].nil?
         data['NextPassword'] = input[:next_password] unless input[:next_password].nil?
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['TrustAnchors'] = Builders::TrustAnchorList.build(input[:trust_anchors]) unless input[:trust_anchors].nil?
+        data['TrustAnchors'] = TrustAnchorList.build(input[:trust_anchors]) unless input[:trust_anchors].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -363,9 +365,9 @@ module AWS::SDK::AlexaForBusiness
         data['MaxVolumeLimit'] = input[:max_volume_limit] unless input[:max_volume_limit].nil?
         data['PSTNEnabled'] = input[:pstn_enabled] unless input[:pstn_enabled].nil?
         data['DataRetentionOptIn'] = input[:data_retention_opt_in] unless input[:data_retention_opt_in].nil?
-        data['MeetingRoomConfiguration'] = Builders::CreateMeetingRoomConfiguration.build(input[:meeting_room_configuration]) unless input[:meeting_room_configuration].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MeetingRoomConfiguration'] = CreateMeetingRoomConfiguration.build(input[:meeting_room_configuration]) unless input[:meeting_room_configuration].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,9 +376,9 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = {}
         data['RoomUtilizationMetricsEnabled'] = input[:room_utilization_metrics_enabled] unless input[:room_utilization_metrics_enabled].nil?
-        data['EndOfMeetingReminder'] = Builders::CreateEndOfMeetingReminder.build(input[:end_of_meeting_reminder]) unless input[:end_of_meeting_reminder].nil?
-        data['InstantBooking'] = Builders::CreateInstantBooking.build(input[:instant_booking]) unless input[:instant_booking].nil?
-        data['RequireCheckIn'] = Builders::CreateRequireCheckIn.build(input[:require_check_in]) unless input[:require_check_in].nil?
+        data['EndOfMeetingReminder'] = CreateEndOfMeetingReminder.build(input[:end_of_meeting_reminder]) unless input[:end_of_meeting_reminder].nil?
+        data['InstantBooking'] = CreateInstantBooking.build(input[:instant_booking]) unless input[:instant_booking].nil?
+        data['RequireCheckIn'] = CreateRequireCheckIn.build(input[:require_check_in]) unless input[:require_check_in].nil?
         data
       end
     end
@@ -405,7 +407,7 @@ module AWS::SDK::AlexaForBusiness
     class CreateEndOfMeetingReminder
       def self.build(input)
         data = {}
-        data['ReminderAtMinutes'] = Builders::EndOfMeetingReminderMinutesList.build(input[:reminder_at_minutes]) unless input[:reminder_at_minutes].nil?
+        data['ReminderAtMinutes'] = EndOfMeetingReminderMinutesList.build(input[:reminder_at_minutes]) unless input[:reminder_at_minutes].nil?
         data['ReminderType'] = input[:reminder_type] unless input[:reminder_type].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data
@@ -436,8 +438,8 @@ module AWS::SDK::AlexaForBusiness
         data['ProfileArn'] = input[:profile_arn] unless input[:profile_arn].nil?
         data['ProviderCalendarId'] = input[:provider_calendar_id] unless input[:provider_calendar_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,8 +454,8 @@ module AWS::SDK::AlexaForBusiness
         data['SkillGroupName'] = input[:skill_group_name] unless input[:skill_group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,8 +472,8 @@ module AWS::SDK::AlexaForBusiness
         data['LastName'] = input[:last_name] unless input[:last_name].nil?
         data['Email'] = input[:email] unless input[:email].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -484,7 +486,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteAddressBook'
         data = {}
         data['AddressBookArn'] = input[:address_book_arn] unless input[:address_book_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -497,7 +499,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteBusinessReportSchedule'
         data = {}
         data['ScheduleArn'] = input[:schedule_arn] unless input[:schedule_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,7 +512,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteConferenceProvider'
         data = {}
         data['ConferenceProviderArn'] = input[:conference_provider_arn] unless input[:conference_provider_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -523,7 +525,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteContact'
         data = {}
         data['ContactArn'] = input[:contact_arn] unless input[:contact_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -536,7 +538,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteDevice'
         data = {}
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -550,7 +552,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
         data['DeviceUsageType'] = input[:device_usage_type] unless input[:device_usage_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -563,7 +565,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteGatewayGroup'
         data = {}
         data['GatewayGroupArn'] = input[:gateway_group_arn] unless input[:gateway_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -576,7 +578,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteNetworkProfile'
         data = {}
         data['NetworkProfileArn'] = input[:network_profile_arn] unless input[:network_profile_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteProfile'
         data = {}
         data['ProfileArn'] = input[:profile_arn] unless input[:profile_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteRoom'
         data = {}
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -617,7 +619,7 @@ module AWS::SDK::AlexaForBusiness
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
         data['ParameterKey'] = input[:parameter_key] unless input[:parameter_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,7 +633,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -644,7 +646,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DeleteSkillGroup'
         data = {}
         data['SkillGroupArn'] = input[:skill_group_arn] unless input[:skill_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -658,7 +660,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['UserArn'] = input[:user_arn] unless input[:user_arn].nil?
         data['EnrollmentId'] = input[:enrollment_id] unless input[:enrollment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -672,7 +674,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['ContactArn'] = input[:contact_arn] unless input[:contact_arn].nil?
         data['AddressBookArn'] = input[:address_book_arn] unless input[:address_book_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -685,7 +687,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DisassociateDeviceFromRoom'
         data = {}
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -699,7 +701,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['SkillGroupArn'] = input[:skill_group_arn] unless input[:skill_group_arn].nil?
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -712,7 +714,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.DisassociateSkillFromUsers'
         data = {}
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -726,7 +728,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['SkillGroupArn'] = input[:skill_group_arn] unless input[:skill_group_arn].nil?
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -739,7 +741,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.ForgetSmartHomeAppliances'
         data = {}
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -752,7 +754,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetAddressBook'
         data = {}
         data['AddressBookArn'] = input[:address_book_arn] unless input[:address_book_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -764,7 +766,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetConferencePreference'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetConferenceProvider'
         data = {}
         data['ConferenceProviderArn'] = input[:conference_provider_arn] unless input[:conference_provider_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -790,7 +792,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetContact'
         data = {}
         data['ContactArn'] = input[:contact_arn] unless input[:contact_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -803,7 +805,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetDevice'
         data = {}
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -816,7 +818,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetGateway'
         data = {}
         data['GatewayArn'] = input[:gateway_arn] unless input[:gateway_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -829,7 +831,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetGatewayGroup'
         data = {}
         data['GatewayGroupArn'] = input[:gateway_group_arn] unless input[:gateway_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetInvitationConfiguration'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -854,7 +856,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetNetworkProfile'
         data = {}
         data['NetworkProfileArn'] = input[:network_profile_arn] unless input[:network_profile_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -867,7 +869,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetProfile'
         data = {}
         data['ProfileArn'] = input[:profile_arn] unless input[:profile_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -880,7 +882,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetRoom'
         data = {}
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -895,7 +897,7 @@ module AWS::SDK::AlexaForBusiness
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
         data['ParameterKey'] = input[:parameter_key] unless input[:parameter_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -908,7 +910,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.GetSkillGroup'
         data = {}
         data['SkillGroupArn'] = input[:skill_group_arn] unless input[:skill_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,7 +924,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -936,7 +938,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -952,7 +954,7 @@ module AWS::SDK::AlexaForBusiness
         data['EventType'] = input[:event_type] unless input[:event_type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -966,7 +968,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -981,7 +983,7 @@ module AWS::SDK::AlexaForBusiness
         data['GatewayGroupArn'] = input[:gateway_group_arn] unless input[:gateway_group_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -998,7 +1000,7 @@ module AWS::SDK::AlexaForBusiness
         data['SkillType'] = input[:skill_type] unless input[:skill_type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1012,7 +1014,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1027,7 +1029,7 @@ module AWS::SDK::AlexaForBusiness
         data['CategoryId'] = input[:category_id] unless input[:category_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1042,7 +1044,7 @@ module AWS::SDK::AlexaForBusiness
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1057,7 +1059,7 @@ module AWS::SDK::AlexaForBusiness
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1069,8 +1071,8 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.PutConferencePreference'
         data = {}
-        data['ConferencePreference'] = Builders::ConferencePreference.build(input[:conference_preference]) unless input[:conference_preference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConferencePreference'] = ConferencePreference.build(input[:conference_preference]) unless input[:conference_preference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1093,8 +1095,8 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['OrganizationName'] = input[:organization_name] unless input[:organization_name].nil?
         data['ContactEmail'] = input[:contact_email] unless input[:contact_email].nil?
-        data['PrivateSkillIds'] = Builders::ShortSkillIdList.build(input[:private_skill_ids]) unless input[:private_skill_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PrivateSkillIds'] = ShortSkillIdList.build(input[:private_skill_ids]) unless input[:private_skill_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,8 +1121,8 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        data['RoomSkillParameter'] = Builders::RoomSkillParameter.build(input[:room_skill_parameter]) unless input[:room_skill_parameter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoomSkillParameter'] = RoomSkillParameter.build(input[:room_skill_parameter]) unless input[:room_skill_parameter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1142,10 +1144,10 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.PutSkillAuthorization'
         data = {}
-        data['AuthorizationResult'] = Builders::AuthorizationResult.build(input[:authorization_result]) unless input[:authorization_result].nil?
+        data['AuthorizationResult'] = AuthorizationResult.build(input[:authorization_result]) unless input[:authorization_result].nil?
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1174,8 +1176,8 @@ module AWS::SDK::AlexaForBusiness
         data['DeviceSerialNumber'] = input[:device_serial_number] unless input[:device_serial_number].nil?
         data['AmazonId'] = input[:amazon_id] unless input[:amazon_id].nil?
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,7 +1190,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.RejectSkill'
         data = {}
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1202,7 +1204,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['SkillId'] = input[:skill_id] unless input[:skill_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1216,7 +1218,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['UserArn'] = input[:user_arn] unless input[:user_arn].nil?
         data['EnrollmentId'] = input[:enrollment_id] unless input[:enrollment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1228,11 +1230,11 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.SearchAddressBooks'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1241,7 +1243,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Sort.build(element) unless element.nil?
+          data << Sort.build(element) unless element.nil?
         end
         data
       end
@@ -1262,7 +1264,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -1273,7 +1275,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1297,11 +1299,11 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.SearchContacts'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1315,9 +1317,9 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1331,9 +1333,9 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1347,9 +1349,9 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,9 +1365,9 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1379,9 +1381,9 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1395,9 +1397,9 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortList.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1409,11 +1411,11 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.SendAnnouncement'
         data = {}
-        data['RoomFilters'] = Builders::FilterList.build(input[:room_filters]) unless input[:room_filters].nil?
-        data['Content'] = Builders::Content.build(input[:content]) unless input[:content].nil?
+        data['RoomFilters'] = FilterList.build(input[:room_filters]) unless input[:room_filters].nil?
+        data['Content'] = Content.build(input[:content]) unless input[:content].nil?
         data['TimeToLiveInSeconds'] = input[:time_to_live_in_seconds] unless input[:time_to_live_in_seconds].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1421,9 +1423,9 @@ module AWS::SDK::AlexaForBusiness
     class Content
       def self.build(input)
         data = {}
-        data['TextList'] = Builders::TextList.build(input[:text_list]) unless input[:text_list].nil?
-        data['SsmlList'] = Builders::SsmlList.build(input[:ssml_list]) unless input[:ssml_list].nil?
-        data['AudioList'] = Builders::AudioList.build(input[:audio_list]) unless input[:audio_list].nil?
+        data['TextList'] = TextList.build(input[:text_list]) unless input[:text_list].nil?
+        data['SsmlList'] = SsmlList.build(input[:ssml_list]) unless input[:ssml_list].nil?
+        data['AudioList'] = AudioList.build(input[:audio_list]) unless input[:audio_list].nil?
         data
       end
     end
@@ -1433,7 +1435,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Audio.build(element) unless element.nil?
+          data << Audio.build(element) unless element.nil?
         end
         data
       end
@@ -1454,7 +1456,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Ssml.build(element) unless element.nil?
+          data << Ssml.build(element) unless element.nil?
         end
         data
       end
@@ -1475,7 +1477,7 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Text.build(element) unless element.nil?
+          data << Text.build(element) unless element.nil?
         end
         data
       end
@@ -1500,7 +1502,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.SendInvitation'
         data = {}
         data['UserArn'] = input[:user_arn] unless input[:user_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1514,8 +1516,8 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
-        data['Features'] = Builders::Features.build(input[:features]) unless input[:features].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Features'] = Features.build(input[:features]) unless input[:features].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1539,7 +1541,7 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.StartSmartHomeApplianceDiscovery'
         data = {}
         data['RoomArn'] = input[:room_arn] unless input[:room_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1552,8 +1554,8 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.TagResource'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1566,8 +1568,8 @@ module AWS::SDK::AlexaForBusiness
         http_req.headers['X-Amz-Target'] = 'AlexaForBusiness.UntagResource'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1593,7 +1595,7 @@ module AWS::SDK::AlexaForBusiness
         data['AddressBookArn'] = input[:address_book_arn] unless input[:address_book_arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1610,8 +1612,8 @@ module AWS::SDK::AlexaForBusiness
         data['S3KeyPrefix'] = input[:s3_key_prefix] unless input[:s3_key_prefix].nil?
         data['Format'] = input[:format] unless input[:format].nil?
         data['ScheduleName'] = input[:schedule_name] unless input[:schedule_name].nil?
-        data['Recurrence'] = Builders::BusinessReportRecurrence.build(input[:recurrence]) unless input[:recurrence].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Recurrence'] = BusinessReportRecurrence.build(input[:recurrence]) unless input[:recurrence].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1625,10 +1627,10 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['ConferenceProviderArn'] = input[:conference_provider_arn] unless input[:conference_provider_arn].nil?
         data['ConferenceProviderType'] = input[:conference_provider_type] unless input[:conference_provider_type].nil?
-        data['IPDialIn'] = Builders::IPDialIn.build(input[:ip_dial_in]) unless input[:ip_dial_in].nil?
-        data['PSTNDialIn'] = Builders::PSTNDialIn.build(input[:pstn_dial_in]) unless input[:pstn_dial_in].nil?
-        data['MeetingSetting'] = Builders::MeetingSetting.build(input[:meeting_setting]) unless input[:meeting_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IPDialIn'] = IPDialIn.build(input[:ip_dial_in]) unless input[:ip_dial_in].nil?
+        data['PSTNDialIn'] = PSTNDialIn.build(input[:pstn_dial_in]) unless input[:pstn_dial_in].nil?
+        data['MeetingSetting'] = MeetingSetting.build(input[:meeting_setting]) unless input[:meeting_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1645,9 +1647,9 @@ module AWS::SDK::AlexaForBusiness
         data['FirstName'] = input[:first_name] unless input[:first_name].nil?
         data['LastName'] = input[:last_name] unless input[:last_name].nil?
         data['PhoneNumber'] = input[:phone_number] unless input[:phone_number].nil?
-        data['PhoneNumbers'] = Builders::PhoneNumberList.build(input[:phone_numbers]) unless input[:phone_numbers].nil?
-        data['SipAddresses'] = Builders::SipAddressList.build(input[:sip_addresses]) unless input[:sip_addresses].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PhoneNumbers'] = PhoneNumberList.build(input[:phone_numbers]) unless input[:phone_numbers].nil?
+        data['SipAddresses'] = SipAddressList.build(input[:sip_addresses]) unless input[:sip_addresses].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1661,7 +1663,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['DeviceArn'] = input[:device_arn] unless input[:device_arn].nil?
         data['DeviceName'] = input[:device_name] unless input[:device_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1677,7 +1679,7 @@ module AWS::SDK::AlexaForBusiness
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['SoftwareVersion'] = input[:software_version] unless input[:software_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1692,7 +1694,7 @@ module AWS::SDK::AlexaForBusiness
         data['GatewayGroupArn'] = input[:gateway_group_arn] unless input[:gateway_group_arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1710,8 +1712,8 @@ module AWS::SDK::AlexaForBusiness
         data['CurrentPassword'] = input[:current_password] unless input[:current_password].nil?
         data['NextPassword'] = input[:next_password] unless input[:next_password].nil?
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['TrustAnchors'] = Builders::TrustAnchorList.build(input[:trust_anchors]) unless input[:trust_anchors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TrustAnchors'] = TrustAnchorList.build(input[:trust_anchors]) unless input[:trust_anchors].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1736,8 +1738,8 @@ module AWS::SDK::AlexaForBusiness
         data['MaxVolumeLimit'] = input[:max_volume_limit] unless input[:max_volume_limit].nil?
         data['PSTNEnabled'] = input[:pstn_enabled] unless input[:pstn_enabled].nil?
         data['DataRetentionOptIn'] = input[:data_retention_opt_in] unless input[:data_retention_opt_in].nil?
-        data['MeetingRoomConfiguration'] = Builders::UpdateMeetingRoomConfiguration.build(input[:meeting_room_configuration]) unless input[:meeting_room_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MeetingRoomConfiguration'] = UpdateMeetingRoomConfiguration.build(input[:meeting_room_configuration]) unless input[:meeting_room_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1746,9 +1748,9 @@ module AWS::SDK::AlexaForBusiness
       def self.build(input)
         data = {}
         data['RoomUtilizationMetricsEnabled'] = input[:room_utilization_metrics_enabled] unless input[:room_utilization_metrics_enabled].nil?
-        data['EndOfMeetingReminder'] = Builders::UpdateEndOfMeetingReminder.build(input[:end_of_meeting_reminder]) unless input[:end_of_meeting_reminder].nil?
-        data['InstantBooking'] = Builders::UpdateInstantBooking.build(input[:instant_booking]) unless input[:instant_booking].nil?
-        data['RequireCheckIn'] = Builders::UpdateRequireCheckIn.build(input[:require_check_in]) unless input[:require_check_in].nil?
+        data['EndOfMeetingReminder'] = UpdateEndOfMeetingReminder.build(input[:end_of_meeting_reminder]) unless input[:end_of_meeting_reminder].nil?
+        data['InstantBooking'] = UpdateInstantBooking.build(input[:instant_booking]) unless input[:instant_booking].nil?
+        data['RequireCheckIn'] = UpdateRequireCheckIn.build(input[:require_check_in]) unless input[:require_check_in].nil?
         data
       end
     end
@@ -1777,7 +1779,7 @@ module AWS::SDK::AlexaForBusiness
     class UpdateEndOfMeetingReminder
       def self.build(input)
         data = {}
-        data['ReminderAtMinutes'] = Builders::EndOfMeetingReminderMinutesList.build(input[:reminder_at_minutes]) unless input[:reminder_at_minutes].nil?
+        data['ReminderAtMinutes'] = EndOfMeetingReminderMinutesList.build(input[:reminder_at_minutes]) unless input[:reminder_at_minutes].nil?
         data['ReminderType'] = input[:reminder_type] unless input[:reminder_type].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data
@@ -1797,7 +1799,7 @@ module AWS::SDK::AlexaForBusiness
         data['Description'] = input[:description] unless input[:description].nil?
         data['ProviderCalendarId'] = input[:provider_calendar_id] unless input[:provider_calendar_id].nil?
         data['ProfileArn'] = input[:profile_arn] unless input[:profile_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1812,7 +1814,7 @@ module AWS::SDK::AlexaForBusiness
         data['SkillGroupArn'] = input[:skill_group_arn] unless input[:skill_group_arn].nil?
         data['SkillGroupName'] = input[:skill_group_name] unless input[:skill_group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

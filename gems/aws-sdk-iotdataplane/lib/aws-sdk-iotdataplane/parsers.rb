@@ -128,7 +128,7 @@ module AWS::SDK::IoTDataPlane
       def self.parse(http_resp)
         data = Types::ListNamedShadowsForThingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.results = (Parsers::NamedShadowList.parse(map['results']) unless map['results'].nil?)
+        data.results = (NamedShadowList.parse(map['results']) unless map['results'].nil?)
         data.next_token = map['nextToken']
         data.timestamp = map['timestamp']
         data
@@ -150,7 +150,7 @@ module AWS::SDK::IoTDataPlane
       def self.parse(http_resp)
         data = Types::ListRetainedMessagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.retained_topics = (Parsers::RetainedMessageList.parse(map['retainedTopics']) unless map['retainedTopics'].nil?)
+        data.retained_topics = (RetainedMessageList.parse(map['retainedTopics']) unless map['retainedTopics'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -160,7 +160,7 @@ module AWS::SDK::IoTDataPlane
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RetainedMessageSummary.parse(value) unless value.nil?
+          data << RetainedMessageSummary.parse(value) unless value.nil?
         end
         data
       end

@@ -44,7 +44,7 @@ module AWS::SDK::SSMContacts
         map = Hearth::JSON.load(body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -52,7 +52,7 @@ module AWS::SDK::SSMContacts
     class ValidationExceptionFieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          ValidationExceptionField.parse(value) unless value.nil?
         end
       end
     end
@@ -271,7 +271,7 @@ module AWS::SDK::SSMContacts
         data.alias = map['Alias']
         data.display_name = map['DisplayName']
         data.type = map['Type']
-        data.plan = (Parsers::Plan.parse(map['Plan']) unless map['Plan'].nil?)
+        data.plan = (Plan.parse(map['Plan']) unless map['Plan'].nil?)
         data
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::SSMContacts
     class Plan
       def self.parse(map)
         data = Types::Plan.new
-        data.stages = (Parsers::StagesList.parse(map['Stages']) unless map['Stages'].nil?)
+        data.stages = (StagesList.parse(map['Stages']) unless map['Stages'].nil?)
         return data
       end
     end
@@ -287,7 +287,7 @@ module AWS::SDK::SSMContacts
     class StagesList
       def self.parse(list)
         list.map do |value|
-          Parsers::Stage.parse(value) unless value.nil?
+          Stage.parse(value) unless value.nil?
         end
       end
     end
@@ -296,7 +296,7 @@ module AWS::SDK::SSMContacts
       def self.parse(map)
         data = Types::Stage.new
         data.duration_in_minutes = map['DurationInMinutes']
-        data.targets = (Parsers::TargetsList.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (TargetsList.parse(map['Targets']) unless map['Targets'].nil?)
         return data
       end
     end
@@ -304,7 +304,7 @@ module AWS::SDK::SSMContacts
     class TargetsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Target.parse(value) unless value.nil?
+          Target.parse(value) unless value.nil?
         end
       end
     end
@@ -312,8 +312,8 @@ module AWS::SDK::SSMContacts
     class Target
       def self.parse(map)
         data = Types::Target.new
-        data.channel_target_info = (Parsers::ChannelTargetInfo.parse(map['ChannelTargetInfo']) unless map['ChannelTargetInfo'].nil?)
-        data.contact_target_info = (Parsers::ContactTargetInfo.parse(map['ContactTargetInfo']) unless map['ContactTargetInfo'].nil?)
+        data.channel_target_info = (ChannelTargetInfo.parse(map['ChannelTargetInfo']) unless map['ChannelTargetInfo'].nil?)
+        data.contact_target_info = (ContactTargetInfo.parse(map['ContactTargetInfo']) unless map['ContactTargetInfo'].nil?)
         return data
       end
     end
@@ -347,7 +347,7 @@ module AWS::SDK::SSMContacts
         data.contact_channel_arn = map['ContactChannelArn']
         data.name = map['Name']
         data.type = map['Type']
-        data.delivery_address = (Parsers::ContactChannelAddress.parse(map['DeliveryAddress']) unless map['DeliveryAddress'].nil?)
+        data.delivery_address = (ContactChannelAddress.parse(map['DeliveryAddress']) unless map['DeliveryAddress'].nil?)
         data.activation_status = map['ActivationStatus']
         data
       end
@@ -382,7 +382,7 @@ module AWS::SDK::SSMContacts
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.contact_channels = (Parsers::ContactChannelList.parse(map['ContactChannels']) unless map['ContactChannels'].nil?)
+        data.contact_channels = (ContactChannelList.parse(map['ContactChannels']) unless map['ContactChannels'].nil?)
         data
       end
     end
@@ -390,7 +390,7 @@ module AWS::SDK::SSMContacts
     class ContactChannelList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContactChannel.parse(value) unless value.nil?
+          ContactChannel.parse(value) unless value.nil?
         end
       end
     end
@@ -402,7 +402,7 @@ module AWS::SDK::SSMContacts
         data.contact_arn = map['ContactArn']
         data.name = map['Name']
         data.type = map['Type']
-        data.delivery_address = (Parsers::ContactChannelAddress.parse(map['DeliveryAddress']) unless map['DeliveryAddress'].nil?)
+        data.delivery_address = (ContactChannelAddress.parse(map['DeliveryAddress']) unless map['DeliveryAddress'].nil?)
         data.activation_status = map['ActivationStatus']
         return data
       end
@@ -416,7 +416,7 @@ module AWS::SDK::SSMContacts
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.contacts = (Parsers::ContactsList.parse(map['Contacts']) unless map['Contacts'].nil?)
+        data.contacts = (ContactsList.parse(map['Contacts']) unless map['Contacts'].nil?)
         data
       end
     end
@@ -424,7 +424,7 @@ module AWS::SDK::SSMContacts
     class ContactsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Contact.parse(value) unless value.nil?
+          Contact.parse(value) unless value.nil?
         end
       end
     end
@@ -448,7 +448,7 @@ module AWS::SDK::SSMContacts
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.engagements = (Parsers::EngagementsList.parse(map['Engagements']) unless map['Engagements'].nil?)
+        data.engagements = (EngagementsList.parse(map['Engagements']) unless map['Engagements'].nil?)
         data
       end
     end
@@ -456,7 +456,7 @@ module AWS::SDK::SSMContacts
     class EngagementsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Engagement.parse(value) unless value.nil?
+          Engagement.parse(value) unless value.nil?
         end
       end
     end
@@ -482,7 +482,7 @@ module AWS::SDK::SSMContacts
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.receipts = (Parsers::ReceiptsList.parse(map['Receipts']) unless map['Receipts'].nil?)
+        data.receipts = (ReceiptsList.parse(map['Receipts']) unless map['Receipts'].nil?)
         data
       end
     end
@@ -490,7 +490,7 @@ module AWS::SDK::SSMContacts
     class ReceiptsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Receipt.parse(value) unless value.nil?
+          Receipt.parse(value) unless value.nil?
         end
       end
     end
@@ -514,7 +514,7 @@ module AWS::SDK::SSMContacts
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.pages = (Parsers::PagesList.parse(map['Pages']) unless map['Pages'].nil?)
+        data.pages = (PagesList.parse(map['Pages']) unless map['Pages'].nil?)
         data
       end
     end
@@ -522,7 +522,7 @@ module AWS::SDK::SSMContacts
     class PagesList
       def self.parse(list)
         list.map do |value|
-          Parsers::Page.parse(value) unless value.nil?
+          Page.parse(value) unless value.nil?
         end
       end
     end
@@ -550,7 +550,7 @@ module AWS::SDK::SSMContacts
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.pages = (Parsers::PagesList.parse(map['Pages']) unless map['Pages'].nil?)
+        data.pages = (PagesList.parse(map['Pages']) unless map['Pages'].nil?)
         data
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::SSMContacts
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagsList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagsList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::SSMContacts
     class TagsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

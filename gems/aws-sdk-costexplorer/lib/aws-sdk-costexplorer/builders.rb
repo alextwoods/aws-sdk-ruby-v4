@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CostExplorer
   module Builders
 
@@ -18,9 +20,9 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.CreateAnomalyMonitor'
         data = {}
-        data['AnomalyMonitor'] = Builders::AnomalyMonitor.build(input[:anomaly_monitor]) unless input[:anomaly_monitor].nil?
-        data['ResourceTags'] = Builders::ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnomalyMonitor'] = AnomalyMonitor.build(input[:anomaly_monitor]) unless input[:anomaly_monitor].nil?
+        data['ResourceTags'] = ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceTag.build(element) unless element.nil?
+          data << ResourceTag.build(element) unless element.nil?
         end
         data
       end
@@ -56,7 +58,7 @@ module AWS::SDK::CostExplorer
         data['LastEvaluatedDate'] = input[:last_evaluated_date] unless input[:last_evaluated_date].nil?
         data['MonitorType'] = input[:monitor_type] unless input[:monitor_type].nil?
         data['MonitorDimension'] = input[:monitor_dimension] unless input[:monitor_dimension].nil?
-        data['MonitorSpecification'] = Builders::Expression.build(input[:monitor_specification]) unless input[:monitor_specification].nil?
+        data['MonitorSpecification'] = Expression.build(input[:monitor_specification]) unless input[:monitor_specification].nil?
         data['DimensionalValueCount'] = input[:dimensional_value_count] unless input[:dimensional_value_count].nil?
         data
       end
@@ -66,12 +68,12 @@ module AWS::SDK::CostExplorer
     class Expression
       def self.build(input)
         data = {}
-        data['Or'] = Builders::Expressions.build(input[:or]) unless input[:or].nil?
-        data['And'] = Builders::Expressions.build(input[:and]) unless input[:and].nil?
-        data['Not'] = Builders::Expression.build(input[:not]) unless input[:not].nil?
-        data['Dimensions'] = Builders::DimensionValues.build(input[:dimensions]) unless input[:dimensions].nil?
-        data['Tags'] = Builders::TagValues.build(input[:tags]) unless input[:tags].nil?
-        data['CostCategories'] = Builders::CostCategoryValues.build(input[:cost_categories]) unless input[:cost_categories].nil?
+        data['Or'] = Expressions.build(input[:or]) unless input[:or].nil?
+        data['And'] = Expressions.build(input[:and]) unless input[:and].nil?
+        data['Not'] = Expression.build(input[:not]) unless input[:not].nil?
+        data['Dimensions'] = DimensionValues.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Tags'] = TagValues.build(input[:tags]) unless input[:tags].nil?
+        data['CostCategories'] = CostCategoryValues.build(input[:cost_categories]) unless input[:cost_categories].nil?
         data
       end
     end
@@ -81,8 +83,8 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::Values.build(input[:values]) unless input[:values].nil?
-        data['MatchOptions'] = Builders::MatchOptions.build(input[:match_options]) unless input[:match_options].nil?
+        data['Values'] = Values.build(input[:values]) unless input[:values].nil?
+        data['MatchOptions'] = MatchOptions.build(input[:match_options]) unless input[:match_options].nil?
         data
       end
     end
@@ -114,8 +116,8 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::Values.build(input[:values]) unless input[:values].nil?
-        data['MatchOptions'] = Builders::MatchOptions.build(input[:match_options]) unless input[:match_options].nil?
+        data['Values'] = Values.build(input[:values]) unless input[:values].nil?
+        data['MatchOptions'] = MatchOptions.build(input[:match_options]) unless input[:match_options].nil?
         data
       end
     end
@@ -125,8 +127,8 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::Values.build(input[:values]) unless input[:values].nil?
-        data['MatchOptions'] = Builders::MatchOptions.build(input[:match_options]) unless input[:match_options].nil?
+        data['Values'] = Values.build(input[:values]) unless input[:values].nil?
+        data['MatchOptions'] = MatchOptions.build(input[:match_options]) unless input[:match_options].nil?
         data
       end
     end
@@ -136,7 +138,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Expression.build(element) unless element.nil?
+          data << Expression.build(element) unless element.nil?
         end
         data
       end
@@ -150,9 +152,9 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.CreateAnomalySubscription'
         data = {}
-        data['AnomalySubscription'] = Builders::AnomalySubscription.build(input[:anomaly_subscription]) unless input[:anomaly_subscription].nil?
-        data['ResourceTags'] = Builders::ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnomalySubscription'] = AnomalySubscription.build(input[:anomaly_subscription]) unless input[:anomaly_subscription].nil?
+        data['ResourceTags'] = ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,8 +164,8 @@ module AWS::SDK::CostExplorer
         data = {}
         data['SubscriptionArn'] = input[:subscription_arn] unless input[:subscription_arn].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        data['MonitorArnList'] = Builders::MonitorArnList.build(input[:monitor_arn_list]) unless input[:monitor_arn_list].nil?
-        data['Subscribers'] = Builders::Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
+        data['MonitorArnList'] = MonitorArnList.build(input[:monitor_arn_list]) unless input[:monitor_arn_list].nil?
+        data['Subscribers'] = Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
         data['Threshold'] = Hearth::NumberHelper.serialize(input[:threshold]) unless input[:threshold].nil?
         data['Frequency'] = input[:frequency] unless input[:frequency].nil?
         data['SubscriptionName'] = input[:subscription_name] unless input[:subscription_name].nil?
@@ -176,7 +178,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Subscriber.build(element) unless element.nil?
+          data << Subscriber.build(element) unless element.nil?
         end
         data
       end
@@ -214,11 +216,11 @@ module AWS::SDK::CostExplorer
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RuleVersion'] = input[:rule_version] unless input[:rule_version].nil?
-        data['Rules'] = Builders::CostCategoryRulesList.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = CostCategoryRulesList.build(input[:rules]) unless input[:rules].nil?
         data['DefaultValue'] = input[:default_value] unless input[:default_value].nil?
-        data['SplitChargeRules'] = Builders::CostCategorySplitChargeRulesList.build(input[:split_charge_rules]) unless input[:split_charge_rules].nil?
-        data['ResourceTags'] = Builders::ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SplitChargeRules'] = CostCategorySplitChargeRulesList.build(input[:split_charge_rules]) unless input[:split_charge_rules].nil?
+        data['ResourceTags'] = ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -227,7 +229,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CostCategorySplitChargeRule.build(element) unless element.nil?
+          data << CostCategorySplitChargeRule.build(element) unless element.nil?
         end
         data
       end
@@ -238,9 +240,9 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = {}
         data['Source'] = input[:source] unless input[:source].nil?
-        data['Targets'] = Builders::CostCategorySplitChargeRuleTargetsList.build(input[:targets]) unless input[:targets].nil?
+        data['Targets'] = CostCategorySplitChargeRuleTargetsList.build(input[:targets]) unless input[:targets].nil?
         data['Method'] = input[:member_method] unless input[:member_method].nil?
-        data['Parameters'] = Builders::CostCategorySplitChargeRuleParametersList.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = CostCategorySplitChargeRuleParametersList.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -250,7 +252,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CostCategorySplitChargeRuleParameter.build(element) unless element.nil?
+          data << CostCategorySplitChargeRuleParameter.build(element) unless element.nil?
         end
         data
       end
@@ -261,7 +263,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Values'] = Builders::CostCategorySplitChargeRuleParameterValuesList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = CostCategorySplitChargeRuleParameterValuesList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -293,7 +295,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CostCategoryRule.build(element) unless element.nil?
+          data << CostCategoryRule.build(element) unless element.nil?
         end
         data
       end
@@ -304,8 +306,8 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = {}
         data['Value'] = input[:value] unless input[:value].nil?
-        data['Rule'] = Builders::Expression.build(input[:rule]) unless input[:rule].nil?
-        data['InheritedValue'] = Builders::CostCategoryInheritedValueDimension.build(input[:inherited_value]) unless input[:inherited_value].nil?
+        data['Rule'] = Expression.build(input[:rule]) unless input[:rule].nil?
+        data['InheritedValue'] = CostCategoryInheritedValueDimension.build(input[:inherited_value]) unless input[:inherited_value].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -330,7 +332,7 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.DeleteAnomalyMonitor'
         data = {}
         data['MonitorArn'] = input[:monitor_arn] unless input[:monitor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -343,7 +345,7 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.DeleteAnomalySubscription'
         data = {}
         data['SubscriptionArn'] = input[:subscription_arn] unless input[:subscription_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.DeleteCostCategoryDefinition'
         data = {}
         data['CostCategoryArn'] = input[:cost_category_arn] unless input[:cost_category_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -370,7 +372,7 @@ module AWS::SDK::CostExplorer
         data = {}
         data['CostCategoryArn'] = input[:cost_category_arn] unless input[:cost_category_arn].nil?
         data['EffectiveOn'] = input[:effective_on] unless input[:effective_on].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -383,12 +385,12 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetAnomalies'
         data = {}
         data['MonitorArn'] = input[:monitor_arn] unless input[:monitor_arn].nil?
-        data['DateInterval'] = Builders::AnomalyDateInterval.build(input[:date_interval]) unless input[:date_interval].nil?
+        data['DateInterval'] = AnomalyDateInterval.build(input[:date_interval]) unless input[:date_interval].nil?
         data['Feedback'] = input[:feedback] unless input[:feedback].nil?
-        data['TotalImpact'] = Builders::TotalImpactFilter.build(input[:total_impact]) unless input[:total_impact].nil?
+        data['TotalImpact'] = TotalImpactFilter.build(input[:total_impact]) unless input[:total_impact].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -421,10 +423,10 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetAnomalyMonitors'
         data = {}
-        data['MonitorArnList'] = Builders::Values.build(input[:monitor_arn_list]) unless input[:monitor_arn_list].nil?
+        data['MonitorArnList'] = Values.build(input[:monitor_arn_list]) unless input[:monitor_arn_list].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -436,11 +438,11 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetAnomalySubscriptions'
         data = {}
-        data['SubscriptionArnList'] = Builders::Values.build(input[:subscription_arn_list]) unless input[:subscription_arn_list].nil?
+        data['SubscriptionArnList'] = Values.build(input[:subscription_arn_list]) unless input[:subscription_arn_list].nil?
         data['MonitorArn'] = input[:monitor_arn] unless input[:monitor_arn].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,13 +454,13 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetCostAndUsage'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['Metrics'] = Builders::MetricNames.build(input[:metrics]) unless input[:metrics].nil?
-        data['GroupBy'] = Builders::GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Metrics'] = MetricNames.build(input[:metrics]) unless input[:metrics].nil?
+        data['GroupBy'] = GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GroupDefinition.build(element) unless element.nil?
+          data << GroupDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -512,13 +514,13 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetCostAndUsageWithResources'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['Metrics'] = Builders::MetricNames.build(input[:metrics]) unless input[:metrics].nil?
-        data['GroupBy'] = Builders::GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Metrics'] = MetricNames.build(input[:metrics]) unless input[:metrics].nil?
+        data['GroupBy'] = GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,13 +533,13 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetCostCategories'
         data = {}
         data['SearchString'] = input[:search_string] unless input[:search_string].nil?
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['CostCategoryName'] = input[:cost_category_name] unless input[:cost_category_name].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['SortBy'] = Builders::SortDefinitions.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['SortBy'] = SortDefinitions.build(input[:sort_by]) unless input[:sort_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -546,7 +548,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SortDefinition.build(element) unless element.nil?
+          data << SortDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -570,12 +572,12 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetCostForecast'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['Metric'] = input[:metric] unless input[:metric].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
         data['PredictionIntervalLevel'] = input[:prediction_interval_level] unless input[:prediction_interval_level].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -588,14 +590,14 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetDimensionValues'
         data = {}
         data['SearchString'] = input[:search_string] unless input[:search_string].nil?
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['Dimension'] = input[:dimension] unless input[:dimension].nil?
         data['Context'] = input[:context] unless input[:context].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['SortBy'] = Builders::SortDefinitions.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['SortBy'] = SortDefinitions.build(input[:sort_by]) unless input[:sort_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,15 +609,15 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetReservationCoverage'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
-        data['GroupBy'] = Builders::GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['GroupBy'] = GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['Metrics'] = Builders::MetricNames.build(input[:metrics]) unless input[:metrics].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Metrics'] = MetricNames.build(input[:metrics]) unless input[:metrics].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        data['SortBy'] = Builders::SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['SortBy'] = SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -629,15 +631,15 @@ module AWS::SDK::CostExplorer
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['Service'] = input[:service] unless input[:service].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
         data['AccountScope'] = input[:account_scope] unless input[:account_scope].nil?
         data['LookbackPeriodInDays'] = input[:lookback_period_in_days] unless input[:lookback_period_in_days].nil?
         data['TermInYears'] = input[:term_in_years] unless input[:term_in_years].nil?
         data['PaymentOption'] = input[:payment_option] unless input[:payment_option].nil?
-        data['ServiceSpecification'] = Builders::ServiceSpecification.build(input[:service_specification]) unless input[:service_specification].nil?
+        data['ServiceSpecification'] = ServiceSpecification.build(input[:service_specification]) unless input[:service_specification].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -645,7 +647,7 @@ module AWS::SDK::CostExplorer
     class ServiceSpecification
       def self.build(input)
         data = {}
-        data['EC2Specification'] = Builders::EC2Specification.build(input[:ec2_specification]) unless input[:ec2_specification].nil?
+        data['EC2Specification'] = EC2Specification.build(input[:ec2_specification]) unless input[:ec2_specification].nil?
         data
       end
     end
@@ -667,14 +669,14 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetReservationUtilization'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
-        data['GroupBy'] = Builders::GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['GroupBy'] = GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['SortBy'] = Builders::SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['SortBy'] = SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,12 +688,12 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetRightsizingRecommendation'
         data = {}
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['Configuration'] = Builders::RightsizingRecommendationConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Configuration'] = RightsizingRecommendationConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['Service'] = input[:service] unless input[:service].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -713,15 +715,15 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetSavingsPlansCoverage'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
-        data['GroupBy'] = Builders::GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['GroupBy'] = GroupDefinitions.build(input[:group_by]) unless input[:group_by].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['Metrics'] = Builders::MetricNames.build(input[:metrics]) unless input[:metrics].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Metrics'] = MetricNames.build(input[:metrics]) unless input[:metrics].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['SortBy'] = Builders::SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SortBy'] = SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -740,8 +742,8 @@ module AWS::SDK::CostExplorer
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['LookbackPeriodInDays'] = input[:lookback_period_in_days] unless input[:lookback_period_in_days].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -753,11 +755,11 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetSavingsPlansUtilization'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['SortBy'] = Builders::SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['SortBy'] = SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -769,13 +771,13 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetSavingsPlansUtilizationDetails'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['DataType'] = Builders::SavingsPlansDataTypes.build(input[:data_type]) unless input[:data_type].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['DataType'] = SavingsPlansDataTypes.build(input[:data_type]) unless input[:data_type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['SortBy'] = Builders::SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SortBy'] = SortDefinition.build(input[:sort_by]) unless input[:sort_by].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -799,13 +801,13 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetTags'
         data = {}
         data['SearchString'] = input[:search_string] unless input[:search_string].nil?
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
-        data['SortBy'] = Builders::SortDefinitions.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
+        data['SortBy'] = SortDefinitions.build(input[:sort_by]) unless input[:sort_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -817,12 +819,12 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.GetUsageForecast'
         data = {}
-        data['TimePeriod'] = Builders::DateInterval.build(input[:time_period]) unless input[:time_period].nil?
+        data['TimePeriod'] = DateInterval.build(input[:time_period]) unless input[:time_period].nil?
         data['Metric'] = input[:metric] unless input[:metric].nil?
         data['Granularity'] = input[:granularity] unless input[:granularity].nil?
-        data['Filter'] = Builders::Expression.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = Expression.build(input[:filter]) unless input[:filter].nil?
         data['PredictionIntervalLevel'] = input[:prediction_interval_level] unless input[:prediction_interval_level].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -835,11 +837,11 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.ListCostAllocationTags'
         data = {}
         data['Status'] = input[:status] unless input[:status].nil?
-        data['TagKeys'] = Builders::CostAllocationTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        data['TagKeys'] = CostAllocationTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -865,7 +867,7 @@ module AWS::SDK::CostExplorer
         data['EffectiveOn'] = input[:effective_on] unless input[:effective_on].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -878,7 +880,7 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -892,7 +894,7 @@ module AWS::SDK::CostExplorer
         data = {}
         data['AnomalyId'] = input[:anomaly_id] unless input[:anomaly_id].nil?
         data['Feedback'] = input[:feedback] unless input[:feedback].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -905,8 +907,8 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['ResourceTags'] = Builders::ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTags'] = ResourceTagList.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -919,8 +921,8 @@ module AWS::SDK::CostExplorer
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['ResourceTagKeys'] = Builders::ResourceTagKeyList.build(input[:resource_tag_keys]) unless input[:resource_tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTagKeys'] = ResourceTagKeyList.build(input[:resource_tag_keys]) unless input[:resource_tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -945,7 +947,7 @@ module AWS::SDK::CostExplorer
         data = {}
         data['MonitorArn'] = input[:monitor_arn] unless input[:monitor_arn].nil?
         data['MonitorName'] = input[:monitor_name] unless input[:monitor_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -960,10 +962,10 @@ module AWS::SDK::CostExplorer
         data['SubscriptionArn'] = input[:subscription_arn] unless input[:subscription_arn].nil?
         data['Threshold'] = Hearth::NumberHelper.serialize(input[:threshold]) unless input[:threshold].nil?
         data['Frequency'] = input[:frequency] unless input[:frequency].nil?
-        data['MonitorArnList'] = Builders::MonitorArnList.build(input[:monitor_arn_list]) unless input[:monitor_arn_list].nil?
-        data['Subscribers'] = Builders::Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
+        data['MonitorArnList'] = MonitorArnList.build(input[:monitor_arn_list]) unless input[:monitor_arn_list].nil?
+        data['Subscribers'] = Subscribers.build(input[:subscribers]) unless input[:subscribers].nil?
         data['SubscriptionName'] = input[:subscription_name] unless input[:subscription_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -975,8 +977,8 @@ module AWS::SDK::CostExplorer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSInsightsIndexService.UpdateCostAllocationTagsStatus'
         data = {}
-        data['CostAllocationTagsStatus'] = Builders::CostAllocationTagStatusList.build(input[:cost_allocation_tags_status]) unless input[:cost_allocation_tags_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CostAllocationTagsStatus'] = CostAllocationTagStatusList.build(input[:cost_allocation_tags_status]) unless input[:cost_allocation_tags_status].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -985,7 +987,7 @@ module AWS::SDK::CostExplorer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CostAllocationTagStatusEntry.build(element) unless element.nil?
+          data << CostAllocationTagStatusEntry.build(element) unless element.nil?
         end
         data
       end
@@ -1011,10 +1013,10 @@ module AWS::SDK::CostExplorer
         data = {}
         data['CostCategoryArn'] = input[:cost_category_arn] unless input[:cost_category_arn].nil?
         data['RuleVersion'] = input[:rule_version] unless input[:rule_version].nil?
-        data['Rules'] = Builders::CostCategoryRulesList.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = CostCategoryRulesList.build(input[:rules]) unless input[:rules].nil?
         data['DefaultValue'] = input[:default_value] unless input[:default_value].nil?
-        data['SplitChargeRules'] = Builders::CostCategorySplitChargeRulesList.build(input[:split_charge_rules]) unless input[:split_charge_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SplitChargeRules'] = CostCategorySplitChargeRulesList.build(input[:split_charge_rules]) unless input[:split_charge_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

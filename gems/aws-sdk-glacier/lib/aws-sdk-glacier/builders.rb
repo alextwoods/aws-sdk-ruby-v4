@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Glacier
   module Builders
 
@@ -80,8 +82,8 @@ module AWS::SDK::Glacier
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,8 +431,8 @@ module AWS::SDK::Glacier
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::JobParameters.build(input[:job_parameters]) unless input[:job_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JobParameters.build(input[:job_parameters]) unless input[:job_parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,9 +447,9 @@ module AWS::SDK::Glacier
         data['SNSTopic'] = input[:sns_topic] unless input[:sns_topic].nil?
         data['RetrievalByteRange'] = input[:retrieval_byte_range] unless input[:retrieval_byte_range].nil?
         data['Tier'] = input[:tier] unless input[:tier].nil?
-        data['InventoryRetrievalParameters'] = Builders::InventoryRetrievalJobInput.build(input[:inventory_retrieval_parameters]) unless input[:inventory_retrieval_parameters].nil?
-        data['SelectParameters'] = Builders::SelectParameters.build(input[:select_parameters]) unless input[:select_parameters].nil?
-        data['OutputLocation'] = Builders::OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
+        data['InventoryRetrievalParameters'] = InventoryRetrievalJobInput.build(input[:inventory_retrieval_parameters]) unless input[:inventory_retrieval_parameters].nil?
+        data['SelectParameters'] = SelectParameters.build(input[:select_parameters]) unless input[:select_parameters].nil?
+        data['OutputLocation'] = OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
         data
       end
     end
@@ -456,7 +458,7 @@ module AWS::SDK::Glacier
     class OutputLocation
       def self.build(input)
         data = {}
-        data['S3'] = Builders::S3Location.build(input[:s3]) unless input[:s3].nil?
+        data['S3'] = S3Location.build(input[:s3]) unless input[:s3].nil?
         data
       end
     end
@@ -467,11 +469,11 @@ module AWS::SDK::Glacier
         data = {}
         data['BucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['Encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['Encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data['CannedACL'] = input[:canned_acl] unless input[:canned_acl].nil?
-        data['AccessControlList'] = Builders::AccessControlPolicyList.build(input[:access_control_list]) unless input[:access_control_list].nil?
-        data['Tagging'] = Builders::Hashmap.build(input[:tagging]) unless input[:tagging].nil?
-        data['UserMetadata'] = Builders::Hashmap.build(input[:user_metadata]) unless input[:user_metadata].nil?
+        data['AccessControlList'] = AccessControlPolicyList.build(input[:access_control_list]) unless input[:access_control_list].nil?
+        data['Tagging'] = Hashmap.build(input[:tagging]) unless input[:tagging].nil?
+        data['UserMetadata'] = Hashmap.build(input[:user_metadata]) unless input[:user_metadata].nil?
         data['StorageClass'] = input[:storage_class] unless input[:storage_class].nil?
         data
       end
@@ -493,7 +495,7 @@ module AWS::SDK::Glacier
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Grant.build(element) unless element.nil?
+          data << Grant.build(element) unless element.nil?
         end
         data
       end
@@ -503,7 +505,7 @@ module AWS::SDK::Glacier
     class Grant
       def self.build(input)
         data = {}
-        data['Grantee'] = Builders::Grantee.build(input[:grantee]) unless input[:grantee].nil?
+        data['Grantee'] = Grantee.build(input[:grantee]) unless input[:grantee].nil?
         data['Permission'] = input[:permission] unless input[:permission].nil?
         data
       end
@@ -537,10 +539,10 @@ module AWS::SDK::Glacier
     class SelectParameters
       def self.build(input)
         data = {}
-        data['InputSerialization'] = Builders::InputSerialization.build(input[:input_serialization]) unless input[:input_serialization].nil?
+        data['InputSerialization'] = InputSerialization.build(input[:input_serialization]) unless input[:input_serialization].nil?
         data['ExpressionType'] = input[:expression_type] unless input[:expression_type].nil?
         data['Expression'] = input[:expression] unless input[:expression].nil?
-        data['OutputSerialization'] = Builders::OutputSerialization.build(input[:output_serialization]) unless input[:output_serialization].nil?
+        data['OutputSerialization'] = OutputSerialization.build(input[:output_serialization]) unless input[:output_serialization].nil?
         data
       end
     end
@@ -549,7 +551,7 @@ module AWS::SDK::Glacier
     class OutputSerialization
       def self.build(input)
         data = {}
-        data['csv'] = Builders::CSVOutput.build(input[:csv]) unless input[:csv].nil?
+        data['csv'] = CSVOutput.build(input[:csv]) unless input[:csv].nil?
         data
       end
     end
@@ -571,7 +573,7 @@ module AWS::SDK::Glacier
     class InputSerialization
       def self.build(input)
         data = {}
-        data['csv'] = Builders::CSVInput.build(input[:csv]) unless input[:csv].nil?
+        data['csv'] = CSVInput.build(input[:csv]) unless input[:csv].nil?
         data
       end
     end
@@ -645,8 +647,8 @@ module AWS::SDK::Glacier
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::VaultLockPolicy.build(input[:policy]) unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VaultLockPolicy.build(input[:policy]) unless input[:policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -832,8 +834,8 @@ module AWS::SDK::Glacier
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -865,8 +867,8 @@ module AWS::SDK::Glacier
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Policy'] = Builders::DataRetrievalPolicy.build(input[:policy]) unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policy'] = DataRetrievalPolicy.build(input[:policy]) unless input[:policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -874,7 +876,7 @@ module AWS::SDK::Glacier
     class DataRetrievalPolicy
       def self.build(input)
         data = {}
-        data['Rules'] = Builders::DataRetrievalRulesList.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = DataRetrievalRulesList.build(input[:rules]) unless input[:rules].nil?
         data
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::Glacier
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataRetrievalRule.build(element) unless element.nil?
+          data << DataRetrievalRule.build(element) unless element.nil?
         end
         data
       end
@@ -920,8 +922,8 @@ module AWS::SDK::Glacier
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::VaultAccessPolicy.build(input[:policy]) unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VaultAccessPolicy.build(input[:policy]) unless input[:policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,8 +956,8 @@ module AWS::SDK::Glacier
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::VaultNotificationConfig.build(input[:vault_notification_config]) unless input[:vault_notification_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VaultNotificationConfig.build(input[:vault_notification_config]) unless input[:vault_notification_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -964,7 +966,7 @@ module AWS::SDK::Glacier
       def self.build(input)
         data = {}
         data['SNSTopic'] = input[:sns_topic] unless input[:sns_topic].nil?
-        data['Events'] = Builders::NotificationEventList.build(input[:events]) unless input[:events].nil?
+        data['Events'] = NotificationEventList.build(input[:events]) unless input[:events].nil?
         data
       end
     end

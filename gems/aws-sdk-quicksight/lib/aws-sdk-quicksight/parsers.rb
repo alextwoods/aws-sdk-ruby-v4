@@ -100,7 +100,7 @@ module AWS::SDK::QuickSight
         data.arn = map['Arn']
         data.aws_account_id = map['AwsAccountId']
         data.namespace = map['Namespace']
-        data.account_customization = (Parsers::AccountCustomization.parse(map['AccountCustomization']) unless map['AccountCustomization'].nil?)
+        data.account_customization = (AccountCustomization.parse(map['AccountCustomization']) unless map['AccountCustomization'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -238,7 +238,7 @@ module AWS::SDK::QuickSight
         data = Types::CreateFolderMembershipOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.status = map['Status']
-        data.folder_member = (Parsers::FolderMember.parse(map['FolderMember']) unless map['FolderMember'].nil?)
+        data.folder_member = (FolderMember.parse(map['FolderMember']) unless map['FolderMember'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -259,7 +259,7 @@ module AWS::SDK::QuickSight
         data = Types::CreateGroupOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -293,7 +293,7 @@ module AWS::SDK::QuickSight
         data = Types::CreateGroupMembershipOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group_member = (Parsers::GroupMember.parse(map['GroupMember']) unless map['GroupMember'].nil?)
+        data.group_member = (GroupMember.parse(map['GroupMember']) unless map['GroupMember'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -318,7 +318,7 @@ module AWS::SDK::QuickSight
         data.assignment_id = map['AssignmentId']
         data.assignment_status = map['AssignmentStatus']
         data.policy_arn = map['PolicyArn']
-        data.identities = (Parsers::IdentityMap.parse(map['Identities']) unless map['Identities'].nil?)
+        data.identities = (IdentityMap.parse(map['Identities']) unless map['Identities'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -328,7 +328,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::IdentityNameList.parse(value) unless value.nil?
+          data[key] = IdentityNameList.parse(value) unless value.nil?
         end
         data
       end
@@ -406,7 +406,7 @@ module AWS::SDK::QuickSight
         data = Types::CreateTemplateAliasOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.template_alias = (Parsers::TemplateAlias.parse(map['TemplateAlias']) unless map['TemplateAlias'].nil?)
+        data.template_alias = (TemplateAlias.parse(map['TemplateAlias']) unless map['TemplateAlias'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -443,7 +443,7 @@ module AWS::SDK::QuickSight
         data = Types::CreateThemeAliasOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.theme_alias = (Parsers::ThemeAlias.parse(map['ThemeAlias']) unless map['ThemeAlias'].nil?)
+        data.theme_alias = (ThemeAlias.parse(map['ThemeAlias']) unless map['ThemeAlias'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -677,7 +677,7 @@ module AWS::SDK::QuickSight
         data.arn = map['Arn']
         data.aws_account_id = map['AwsAccountId']
         data.namespace = map['Namespace']
-        data.account_customization = (Parsers::AccountCustomization.parse(map['AccountCustomization']) unless map['AccountCustomization'].nil?)
+        data.account_customization = (AccountCustomization.parse(map['AccountCustomization']) unless map['AccountCustomization'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -689,7 +689,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeAccountSettingsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.account_settings = (Parsers::AccountSettings.parse(map['AccountSettings']) unless map['AccountSettings'].nil?)
+        data.account_settings = (AccountSettings.parse(map['AccountSettings']) unless map['AccountSettings'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -713,7 +713,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeAnalysisOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.analysis = (Parsers::Analysis.parse(map['Analysis']) unless map['Analysis'].nil?)
+        data.analysis = (Analysis.parse(map['Analysis']) unless map['Analysis'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -726,12 +726,12 @@ module AWS::SDK::QuickSight
         data.arn = map['Arn']
         data.name = map['Name']
         data.status = map['Status']
-        data.errors = (Parsers::AnalysisErrorList.parse(map['Errors']) unless map['Errors'].nil?)
-        data.data_set_arns = (Parsers::DataSetArnsList.parse(map['DataSetArns']) unless map['DataSetArns'].nil?)
+        data.errors = (AnalysisErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.data_set_arns = (DataSetArnsList.parse(map['DataSetArns']) unless map['DataSetArns'].nil?)
         data.theme_arn = map['ThemeArn']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
-        data.sheets = (Parsers::SheetList.parse(map['Sheets']) unless map['Sheets'].nil?)
+        data.sheets = (SheetList.parse(map['Sheets']) unless map['Sheets'].nil?)
         return data
       end
     end
@@ -740,7 +740,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Sheet.parse(value) unless value.nil?
+          data << Sheet.parse(value) unless value.nil?
         end
         data
       end
@@ -769,7 +769,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnalysisError.parse(value) unless value.nil?
+          data << AnalysisError.parse(value) unless value.nil?
         end
         data
       end
@@ -792,7 +792,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.analysis_id = map['AnalysisId']
         data.analysis_arn = map['AnalysisArn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -802,7 +802,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourcePermission.parse(value) unless value.nil?
+          data << ResourcePermission.parse(value) unless value.nil?
         end
         data
       end
@@ -812,7 +812,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::ResourcePermission.new
         data.principal = map['Principal']
-        data.actions = (Parsers::ActionList.parse(map['Actions']) unless map['Actions'].nil?)
+        data.actions = (ActionList.parse(map['Actions']) unless map['Actions'].nil?)
         return data
       end
     end
@@ -833,7 +833,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeDashboardOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.dashboard = (Parsers::Dashboard.parse(map['Dashboard']) unless map['Dashboard'].nil?)
+        data.dashboard = (Dashboard.parse(map['Dashboard']) unless map['Dashboard'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -845,7 +845,7 @@ module AWS::SDK::QuickSight
         data.dashboard_id = map['DashboardId']
         data.arn = map['Arn']
         data.name = map['Name']
-        data.version = (Parsers::DashboardVersion.parse(map['Version']) unless map['Version'].nil?)
+        data.version = (DashboardVersion.parse(map['Version']) unless map['Version'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_published_time = Time.at(map['LastPublishedTime'].to_i) if map['LastPublishedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
@@ -857,15 +857,15 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::DashboardVersion.new
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.errors = (Parsers::DashboardErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (DashboardErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data.version_number = map['VersionNumber']
         data.status = map['Status']
         data.arn = map['Arn']
         data.source_entity_arn = map['SourceEntityArn']
-        data.data_set_arns = (Parsers::DataSetArnsList.parse(map['DataSetArns']) unless map['DataSetArns'].nil?)
+        data.data_set_arns = (DataSetArnsList.parse(map['DataSetArns']) unless map['DataSetArns'].nil?)
         data.description = map['Description']
         data.theme_arn = map['ThemeArn']
-        data.sheets = (Parsers::SheetList.parse(map['Sheets']) unless map['Sheets'].nil?)
+        data.sheets = (SheetList.parse(map['Sheets']) unless map['Sheets'].nil?)
         return data
       end
     end
@@ -874,7 +874,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DashboardError.parse(value) unless value.nil?
+          data << DashboardError.parse(value) unless value.nil?
         end
         data
       end
@@ -897,9 +897,9 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.dashboard_id = map['DashboardId']
         data.dashboard_arn = map['DashboardArn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
-        data.link_sharing_configuration = (Parsers::LinkSharingConfiguration.parse(map['LinkSharingConfiguration']) unless map['LinkSharingConfiguration'].nil?)
+        data.link_sharing_configuration = (LinkSharingConfiguration.parse(map['LinkSharingConfiguration']) unless map['LinkSharingConfiguration'].nil?)
         data
       end
     end
@@ -907,7 +907,7 @@ module AWS::SDK::QuickSight
     class LinkSharingConfiguration
       def self.parse(map)
         data = Types::LinkSharingConfiguration.new
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         return data
       end
     end
@@ -918,7 +918,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeDataSetOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.data_set = (Parsers::DataSet.parse(map['DataSet']) unless map['DataSet'].nil?)
+        data.data_set = (DataSet.parse(map['DataSet']) unless map['DataSet'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -932,17 +932,17 @@ module AWS::SDK::QuickSight
         data.name = map['Name']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
-        data.physical_table_map = (Parsers::PhysicalTableMap.parse(map['PhysicalTableMap']) unless map['PhysicalTableMap'].nil?)
-        data.logical_table_map = (Parsers::LogicalTableMap.parse(map['LogicalTableMap']) unless map['LogicalTableMap'].nil?)
-        data.output_columns = (Parsers::OutputColumnList.parse(map['OutputColumns']) unless map['OutputColumns'].nil?)
+        data.physical_table_map = (PhysicalTableMap.parse(map['PhysicalTableMap']) unless map['PhysicalTableMap'].nil?)
+        data.logical_table_map = (LogicalTableMap.parse(map['LogicalTableMap']) unless map['LogicalTableMap'].nil?)
+        data.output_columns = (OutputColumnList.parse(map['OutputColumns']) unless map['OutputColumns'].nil?)
         data.import_mode = map['ImportMode']
         data.consumed_spice_capacity_in_bytes = map['ConsumedSpiceCapacityInBytes']
-        data.column_groups = (Parsers::ColumnGroupList.parse(map['ColumnGroups']) unless map['ColumnGroups'].nil?)
-        data.field_folders = (Parsers::FieldFolderMap.parse(map['FieldFolders']) unless map['FieldFolders'].nil?)
-        data.row_level_permission_data_set = (Parsers::RowLevelPermissionDataSet.parse(map['RowLevelPermissionDataSet']) unless map['RowLevelPermissionDataSet'].nil?)
-        data.row_level_permission_tag_configuration = (Parsers::RowLevelPermissionTagConfiguration.parse(map['RowLevelPermissionTagConfiguration']) unless map['RowLevelPermissionTagConfiguration'].nil?)
-        data.column_level_permission_rules = (Parsers::ColumnLevelPermissionRuleList.parse(map['ColumnLevelPermissionRules']) unless map['ColumnLevelPermissionRules'].nil?)
-        data.data_set_usage_configuration = (Parsers::DataSetUsageConfiguration.parse(map['DataSetUsageConfiguration']) unless map['DataSetUsageConfiguration'].nil?)
+        data.column_groups = (ColumnGroupList.parse(map['ColumnGroups']) unless map['ColumnGroups'].nil?)
+        data.field_folders = (FieldFolderMap.parse(map['FieldFolders']) unless map['FieldFolders'].nil?)
+        data.row_level_permission_data_set = (RowLevelPermissionDataSet.parse(map['RowLevelPermissionDataSet']) unless map['RowLevelPermissionDataSet'].nil?)
+        data.row_level_permission_tag_configuration = (RowLevelPermissionTagConfiguration.parse(map['RowLevelPermissionTagConfiguration']) unless map['RowLevelPermissionTagConfiguration'].nil?)
+        data.column_level_permission_rules = (ColumnLevelPermissionRuleList.parse(map['ColumnLevelPermissionRules']) unless map['ColumnLevelPermissionRules'].nil?)
+        data.data_set_usage_configuration = (DataSetUsageConfiguration.parse(map['DataSetUsageConfiguration']) unless map['DataSetUsageConfiguration'].nil?)
         return data
       end
     end
@@ -960,7 +960,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnLevelPermissionRule.parse(value) unless value.nil?
+          data << ColumnLevelPermissionRule.parse(value) unless value.nil?
         end
         data
       end
@@ -969,8 +969,8 @@ module AWS::SDK::QuickSight
     class ColumnLevelPermissionRule
       def self.parse(map)
         data = Types::ColumnLevelPermissionRule.new
-        data.principals = (Parsers::PrincipalList.parse(map['Principals']) unless map['Principals'].nil?)
-        data.column_names = (Parsers::ColumnNameList.parse(map['ColumnNames']) unless map['ColumnNames'].nil?)
+        data.principals = (PrincipalList.parse(map['Principals']) unless map['Principals'].nil?)
+        data.column_names = (ColumnNameList.parse(map['ColumnNames']) unless map['ColumnNames'].nil?)
         return data
       end
     end
@@ -999,7 +999,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::RowLevelPermissionTagConfiguration.new
         data.status = map['Status']
-        data.tag_rules = (Parsers::RowLevelPermissionTagRuleList.parse(map['TagRules']) unless map['TagRules'].nil?)
+        data.tag_rules = (RowLevelPermissionTagRuleList.parse(map['TagRules']) unless map['TagRules'].nil?)
         return data
       end
     end
@@ -1008,7 +1008,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RowLevelPermissionTagRule.parse(value) unless value.nil?
+          data << RowLevelPermissionTagRule.parse(value) unless value.nil?
         end
         data
       end
@@ -1041,7 +1041,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FieldFolder.parse(value) unless value.nil?
+          data[key] = FieldFolder.parse(value) unless value.nil?
         end
         data
       end
@@ -1051,7 +1051,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::FieldFolder.new
         data.description = map['description']
-        data.columns = (Parsers::FolderColumnList.parse(map['columns']) unless map['columns'].nil?)
+        data.columns = (FolderColumnList.parse(map['columns']) unless map['columns'].nil?)
         return data
       end
     end
@@ -1070,7 +1070,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnGroup.parse(value) unless value.nil?
+          data << ColumnGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -1079,7 +1079,7 @@ module AWS::SDK::QuickSight
     class ColumnGroup
       def self.parse(map)
         data = Types::ColumnGroup.new
-        data.geo_spatial_column_group = (Parsers::GeoSpatialColumnGroup.parse(map['GeoSpatialColumnGroup']) unless map['GeoSpatialColumnGroup'].nil?)
+        data.geo_spatial_column_group = (GeoSpatialColumnGroup.parse(map['GeoSpatialColumnGroup']) unless map['GeoSpatialColumnGroup'].nil?)
         return data
       end
     end
@@ -1089,7 +1089,7 @@ module AWS::SDK::QuickSight
         data = Types::GeoSpatialColumnGroup.new
         data.name = map['Name']
         data.country_code = map['CountryCode']
-        data.columns = (Parsers::ColumnList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.columns = (ColumnList.parse(map['Columns']) unless map['Columns'].nil?)
         return data
       end
     end
@@ -1108,7 +1108,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutputColumn.parse(value) unless value.nil?
+          data << OutputColumn.parse(value) unless value.nil?
         end
         data
       end
@@ -1128,7 +1128,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::LogicalTable.parse(value) unless value.nil?
+          data[key] = LogicalTable.parse(value) unless value.nil?
         end
         data
       end
@@ -1138,8 +1138,8 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::LogicalTable.new
         data.alias = map['Alias']
-        data.data_transforms = (Parsers::TransformOperationList.parse(map['DataTransforms']) unless map['DataTransforms'].nil?)
-        data.source = (Parsers::LogicalTableSource.parse(map['Source']) unless map['Source'].nil?)
+        data.data_transforms = (TransformOperationList.parse(map['DataTransforms']) unless map['DataTransforms'].nil?)
+        data.source = (LogicalTableSource.parse(map['Source']) unless map['Source'].nil?)
         return data
       end
     end
@@ -1147,7 +1147,7 @@ module AWS::SDK::QuickSight
     class LogicalTableSource
       def self.parse(map)
         data = Types::LogicalTableSource.new
-        data.join_instruction = (Parsers::JoinInstruction.parse(map['JoinInstruction']) unless map['JoinInstruction'].nil?)
+        data.join_instruction = (JoinInstruction.parse(map['JoinInstruction']) unless map['JoinInstruction'].nil?)
         data.physical_table_id = map['PhysicalTableId']
         data.data_set_arn = map['DataSetArn']
         return data
@@ -1159,8 +1159,8 @@ module AWS::SDK::QuickSight
         data = Types::JoinInstruction.new
         data.left_operand = map['LeftOperand']
         data.right_operand = map['RightOperand']
-        data.left_join_key_properties = (Parsers::JoinKeyProperties.parse(map['LeftJoinKeyProperties']) unless map['LeftJoinKeyProperties'].nil?)
-        data.right_join_key_properties = (Parsers::JoinKeyProperties.parse(map['RightJoinKeyProperties']) unless map['RightJoinKeyProperties'].nil?)
+        data.left_join_key_properties = (JoinKeyProperties.parse(map['LeftJoinKeyProperties']) unless map['LeftJoinKeyProperties'].nil?)
+        data.right_join_key_properties = (JoinKeyProperties.parse(map['RightJoinKeyProperties']) unless map['RightJoinKeyProperties'].nil?)
         data.type = map['Type']
         data.on_clause = map['OnClause']
         return data
@@ -1179,7 +1179,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TransformOperation.parse(value) unless value.nil?
+          data << TransformOperation.parse(value) unless value.nil?
         end
         data
       end
@@ -1190,25 +1190,25 @@ module AWS::SDK::QuickSight
         key, value = map.flatten
         case key
         when 'ProjectOperation'
-          value = (Parsers::ProjectOperation.parse(value) unless value.nil?)
+          value = (ProjectOperation.parse(value) unless value.nil?)
           Types::TransformOperation::ProjectOperation.new(value) if value
         when 'FilterOperation'
-          value = (Parsers::FilterOperation.parse(value) unless value.nil?)
+          value = (FilterOperation.parse(value) unless value.nil?)
           Types::TransformOperation::FilterOperation.new(value) if value
         when 'CreateColumnsOperation'
-          value = (Parsers::CreateColumnsOperation.parse(value) unless value.nil?)
+          value = (CreateColumnsOperation.parse(value) unless value.nil?)
           Types::TransformOperation::CreateColumnsOperation.new(value) if value
         when 'RenameColumnOperation'
-          value = (Parsers::RenameColumnOperation.parse(value) unless value.nil?)
+          value = (RenameColumnOperation.parse(value) unless value.nil?)
           Types::TransformOperation::RenameColumnOperation.new(value) if value
         when 'CastColumnTypeOperation'
-          value = (Parsers::CastColumnTypeOperation.parse(value) unless value.nil?)
+          value = (CastColumnTypeOperation.parse(value) unless value.nil?)
           Types::TransformOperation::CastColumnTypeOperation.new(value) if value
         when 'TagColumnOperation'
-          value = (Parsers::TagColumnOperation.parse(value) unless value.nil?)
+          value = (TagColumnOperation.parse(value) unless value.nil?)
           Types::TransformOperation::TagColumnOperation.new(value) if value
         when 'UntagColumnOperation'
-          value = (Parsers::UntagColumnOperation.parse(value) unless value.nil?)
+          value = (UntagColumnOperation.parse(value) unless value.nil?)
           Types::TransformOperation::UntagColumnOperation.new(value) if value
         else
           Types::TransformOperation::Unknown.new({name: key, value: value})
@@ -1220,7 +1220,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::UntagColumnOperation.new
         data.column_name = map['ColumnName']
-        data.tag_names = (Parsers::ColumnTagNames.parse(map['TagNames']) unless map['TagNames'].nil?)
+        data.tag_names = (ColumnTagNames.parse(map['TagNames']) unless map['TagNames'].nil?)
         return data
       end
     end
@@ -1239,7 +1239,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::TagColumnOperation.new
         data.column_name = map['ColumnName']
-        data.tags = (Parsers::ColumnTagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (ColumnTagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1248,7 +1248,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnTag.parse(value) unless value.nil?
+          data << ColumnTag.parse(value) unless value.nil?
         end
         data
       end
@@ -1258,7 +1258,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::ColumnTag.new
         data.column_geographic_role = map['ColumnGeographicRole']
-        data.column_description = (Parsers::ColumnDescription.parse(map['ColumnDescription']) unless map['ColumnDescription'].nil?)
+        data.column_description = (ColumnDescription.parse(map['ColumnDescription']) unless map['ColumnDescription'].nil?)
         return data
       end
     end
@@ -1293,7 +1293,7 @@ module AWS::SDK::QuickSight
     class CreateColumnsOperation
       def self.parse(map)
         data = Types::CreateColumnsOperation.new
-        data.columns = (Parsers::CalculatedColumnList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.columns = (CalculatedColumnList.parse(map['Columns']) unless map['Columns'].nil?)
         return data
       end
     end
@@ -1302,7 +1302,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CalculatedColumn.parse(value) unless value.nil?
+          data << CalculatedColumn.parse(value) unless value.nil?
         end
         data
       end
@@ -1329,7 +1329,7 @@ module AWS::SDK::QuickSight
     class ProjectOperation
       def self.parse(map)
         data = Types::ProjectOperation.new
-        data.projected_columns = (Parsers::ProjectedColumnList.parse(map['ProjectedColumns']) unless map['ProjectedColumns'].nil?)
+        data.projected_columns = (ProjectedColumnList.parse(map['ProjectedColumns']) unless map['ProjectedColumns'].nil?)
         return data
       end
     end
@@ -1348,7 +1348,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::PhysicalTable.parse(value) unless value.nil?
+          data[key] = PhysicalTable.parse(value) unless value.nil?
         end
         data
       end
@@ -1359,13 +1359,13 @@ module AWS::SDK::QuickSight
         key, value = map.flatten
         case key
         when 'RelationalTable'
-          value = (Parsers::RelationalTable.parse(value) unless value.nil?)
+          value = (RelationalTable.parse(value) unless value.nil?)
           Types::PhysicalTable::RelationalTable.new(value) if value
         when 'CustomSql'
-          value = (Parsers::CustomSql.parse(value) unless value.nil?)
+          value = (CustomSql.parse(value) unless value.nil?)
           Types::PhysicalTable::CustomSql.new(value) if value
         when 'S3Source'
-          value = (Parsers::S3Source.parse(value) unless value.nil?)
+          value = (S3Source.parse(value) unless value.nil?)
           Types::PhysicalTable::S3Source.new(value) if value
         else
           Types::PhysicalTable::Unknown.new({name: key, value: value})
@@ -1377,8 +1377,8 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::S3Source.new
         data.data_source_arn = map['DataSourceArn']
-        data.upload_settings = (Parsers::UploadSettings.parse(map['UploadSettings']) unless map['UploadSettings'].nil?)
-        data.input_columns = (Parsers::InputColumnList.parse(map['InputColumns']) unless map['InputColumns'].nil?)
+        data.upload_settings = (UploadSettings.parse(map['UploadSettings']) unless map['UploadSettings'].nil?)
+        data.input_columns = (InputColumnList.parse(map['InputColumns']) unless map['InputColumns'].nil?)
         return data
       end
     end
@@ -1387,7 +1387,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputColumn.parse(value) unless value.nil?
+          data << InputColumn.parse(value) unless value.nil?
         end
         data
       end
@@ -1420,7 +1420,7 @@ module AWS::SDK::QuickSight
         data.data_source_arn = map['DataSourceArn']
         data.name = map['Name']
         data.sql_query = map['SqlQuery']
-        data.columns = (Parsers::InputColumnList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.columns = (InputColumnList.parse(map['Columns']) unless map['Columns'].nil?)
         return data
       end
     end
@@ -1432,7 +1432,7 @@ module AWS::SDK::QuickSight
         data.catalog = map['Catalog']
         data.schema = map['Schema']
         data.name = map['Name']
-        data.input_columns = (Parsers::InputColumnList.parse(map['InputColumns']) unless map['InputColumns'].nil?)
+        data.input_columns = (InputColumnList.parse(map['InputColumns']) unless map['InputColumns'].nil?)
         return data
       end
     end
@@ -1445,7 +1445,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.data_set_arn = map['DataSetArn']
         data.data_set_id = map['DataSetId']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1457,7 +1457,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeDataSourceOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.data_source = (Parsers::DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.data_source = (DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1473,11 +1473,11 @@ module AWS::SDK::QuickSight
         data.status = map['Status']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
-        data.data_source_parameters = (Parsers::DataSourceParameters.parse(map['DataSourceParameters']) unless map['DataSourceParameters'].nil?)
-        data.alternate_data_source_parameters = (Parsers::DataSourceParametersList.parse(map['AlternateDataSourceParameters']) unless map['AlternateDataSourceParameters'].nil?)
-        data.vpc_connection_properties = (Parsers::VpcConnectionProperties.parse(map['VpcConnectionProperties']) unless map['VpcConnectionProperties'].nil?)
-        data.ssl_properties = (Parsers::SslProperties.parse(map['SslProperties']) unless map['SslProperties'].nil?)
-        data.error_info = (Parsers::DataSourceErrorInfo.parse(map['ErrorInfo']) unless map['ErrorInfo'].nil?)
+        data.data_source_parameters = (DataSourceParameters.parse(map['DataSourceParameters']) unless map['DataSourceParameters'].nil?)
+        data.alternate_data_source_parameters = (DataSourceParametersList.parse(map['AlternateDataSourceParameters']) unless map['AlternateDataSourceParameters'].nil?)
+        data.vpc_connection_properties = (VpcConnectionProperties.parse(map['VpcConnectionProperties']) unless map['VpcConnectionProperties'].nil?)
+        data.ssl_properties = (SslProperties.parse(map['SslProperties']) unless map['SslProperties'].nil?)
+        data.error_info = (DataSourceErrorInfo.parse(map['ErrorInfo']) unless map['ErrorInfo'].nil?)
         return data
       end
     end
@@ -1511,7 +1511,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSourceParameters.parse(value) unless value.nil?
+          data << DataSourceParameters.parse(value) unless value.nil?
         end
         data
       end
@@ -1522,70 +1522,70 @@ module AWS::SDK::QuickSight
         key, value = map.flatten
         case key
         when 'AmazonElasticsearchParameters'
-          value = (Parsers::AmazonElasticsearchParameters.parse(value) unless value.nil?)
+          value = (AmazonElasticsearchParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::AmazonElasticsearchParameters.new(value) if value
         when 'AthenaParameters'
-          value = (Parsers::AthenaParameters.parse(value) unless value.nil?)
+          value = (AthenaParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::AthenaParameters.new(value) if value
         when 'AuroraParameters'
-          value = (Parsers::AuroraParameters.parse(value) unless value.nil?)
+          value = (AuroraParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::AuroraParameters.new(value) if value
         when 'AuroraPostgreSqlParameters'
-          value = (Parsers::AuroraPostgreSqlParameters.parse(value) unless value.nil?)
+          value = (AuroraPostgreSqlParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::AuroraPostgreSqlParameters.new(value) if value
         when 'AwsIotAnalyticsParameters'
-          value = (Parsers::AwsIotAnalyticsParameters.parse(value) unless value.nil?)
+          value = (AwsIotAnalyticsParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::AwsIotAnalyticsParameters.new(value) if value
         when 'JiraParameters'
-          value = (Parsers::JiraParameters.parse(value) unless value.nil?)
+          value = (JiraParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::JiraParameters.new(value) if value
         when 'MariaDbParameters'
-          value = (Parsers::MariaDbParameters.parse(value) unless value.nil?)
+          value = (MariaDbParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::MariaDbParameters.new(value) if value
         when 'MySqlParameters'
-          value = (Parsers::MySqlParameters.parse(value) unless value.nil?)
+          value = (MySqlParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::MySqlParameters.new(value) if value
         when 'OracleParameters'
-          value = (Parsers::OracleParameters.parse(value) unless value.nil?)
+          value = (OracleParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::OracleParameters.new(value) if value
         when 'PostgreSqlParameters'
-          value = (Parsers::PostgreSqlParameters.parse(value) unless value.nil?)
+          value = (PostgreSqlParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::PostgreSqlParameters.new(value) if value
         when 'PrestoParameters'
-          value = (Parsers::PrestoParameters.parse(value) unless value.nil?)
+          value = (PrestoParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::PrestoParameters.new(value) if value
         when 'RdsParameters'
-          value = (Parsers::RdsParameters.parse(value) unless value.nil?)
+          value = (RdsParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::RdsParameters.new(value) if value
         when 'RedshiftParameters'
-          value = (Parsers::RedshiftParameters.parse(value) unless value.nil?)
+          value = (RedshiftParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::RedshiftParameters.new(value) if value
         when 'S3Parameters'
-          value = (Parsers::S3Parameters.parse(value) unless value.nil?)
+          value = (S3Parameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::S3Parameters.new(value) if value
         when 'ServiceNowParameters'
-          value = (Parsers::ServiceNowParameters.parse(value) unless value.nil?)
+          value = (ServiceNowParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::ServiceNowParameters.new(value) if value
         when 'SnowflakeParameters'
-          value = (Parsers::SnowflakeParameters.parse(value) unless value.nil?)
+          value = (SnowflakeParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::SnowflakeParameters.new(value) if value
         when 'SparkParameters'
-          value = (Parsers::SparkParameters.parse(value) unless value.nil?)
+          value = (SparkParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::SparkParameters.new(value) if value
         when 'SqlServerParameters'
-          value = (Parsers::SqlServerParameters.parse(value) unless value.nil?)
+          value = (SqlServerParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::SqlServerParameters.new(value) if value
         when 'TeradataParameters'
-          value = (Parsers::TeradataParameters.parse(value) unless value.nil?)
+          value = (TeradataParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::TeradataParameters.new(value) if value
         when 'TwitterParameters'
-          value = (Parsers::TwitterParameters.parse(value) unless value.nil?)
+          value = (TwitterParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::TwitterParameters.new(value) if value
         when 'AmazonOpenSearchParameters'
-          value = (Parsers::AmazonOpenSearchParameters.parse(value) unless value.nil?)
+          value = (AmazonOpenSearchParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::AmazonOpenSearchParameters.new(value) if value
         when 'ExasolParameters'
-          value = (Parsers::ExasolParameters.parse(value) unless value.nil?)
+          value = (ExasolParameters.parse(value) unless value.nil?)
           Types::DataSourceParameters::ExasolParameters.new(value) if value
         else
           Types::DataSourceParameters::Unknown.new({name: key, value: value})
@@ -1669,7 +1669,7 @@ module AWS::SDK::QuickSight
     class S3Parameters
       def self.parse(map)
         data = Types::S3Parameters.new
-        data.manifest_file_location = (Parsers::ManifestFileLocation.parse(map['ManifestFileLocation']) unless map['ManifestFileLocation'].nil?)
+        data.manifest_file_location = (ManifestFileLocation.parse(map['ManifestFileLocation']) unless map['ManifestFileLocation'].nil?)
         return data
       end
     end
@@ -1813,7 +1813,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.data_source_arn = map['DataSourceArn']
         data.data_source_id = map['DataSourceId']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1825,7 +1825,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeFolderOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.folder = (Parsers::Folder.parse(map['Folder']) unless map['Folder'].nil?)
+        data.folder = (Folder.parse(map['Folder']) unless map['Folder'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1838,7 +1838,7 @@ module AWS::SDK::QuickSight
         data.arn = map['Arn']
         data.name = map['Name']
         data.folder_type = map['FolderType']
-        data.folder_path = (Parsers::Path.parse(map['FolderPath']) unless map['FolderPath'].nil?)
+        data.folder_path = (Path.parse(map['FolderPath']) unless map['FolderPath'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         return data
@@ -1863,7 +1863,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.folder_id = map['FolderId']
         data.arn = map['Arn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1877,7 +1877,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.folder_id = map['FolderId']
         data.arn = map['Arn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1889,7 +1889,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeGroupOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1901,7 +1901,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeGroupMembershipOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group_member = (Parsers::GroupMember.parse(map['GroupMember']) unless map['GroupMember'].nil?)
+        data.group_member = (GroupMember.parse(map['GroupMember']) unless map['GroupMember'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1913,7 +1913,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeIAMPolicyAssignmentOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.iam_policy_assignment = (Parsers::IAMPolicyAssignment.parse(map['IAMPolicyAssignment']) unless map['IAMPolicyAssignment'].nil?)
+        data.iam_policy_assignment = (IAMPolicyAssignment.parse(map['IAMPolicyAssignment']) unless map['IAMPolicyAssignment'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1926,7 +1926,7 @@ module AWS::SDK::QuickSight
         data.assignment_id = map['AssignmentId']
         data.assignment_name = map['AssignmentName']
         data.policy_arn = map['PolicyArn']
-        data.identities = (Parsers::IdentityMap.parse(map['Identities']) unless map['Identities'].nil?)
+        data.identities = (IdentityMap.parse(map['Identities']) unless map['Identities'].nil?)
         data.assignment_status = map['AssignmentStatus']
         return data
       end
@@ -1949,7 +1949,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeIngestionOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.ingestion = (Parsers::Ingestion.parse(map['Ingestion']) unless map['Ingestion'].nil?)
+        data.ingestion = (Ingestion.parse(map['Ingestion']) unless map['Ingestion'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -1961,9 +1961,9 @@ module AWS::SDK::QuickSight
         data.arn = map['Arn']
         data.ingestion_id = map['IngestionId']
         data.ingestion_status = map['IngestionStatus']
-        data.error_info = (Parsers::ErrorInfo.parse(map['ErrorInfo']) unless map['ErrorInfo'].nil?)
-        data.row_info = (Parsers::RowInfo.parse(map['RowInfo']) unless map['RowInfo'].nil?)
-        data.queue_info = (Parsers::QueueInfo.parse(map['QueueInfo']) unless map['QueueInfo'].nil?)
+        data.error_info = (ErrorInfo.parse(map['ErrorInfo']) unless map['ErrorInfo'].nil?)
+        data.row_info = (RowInfo.parse(map['RowInfo']) unless map['RowInfo'].nil?)
+        data.queue_info = (QueueInfo.parse(map['QueueInfo']) unless map['QueueInfo'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.ingestion_time_in_seconds = map['IngestionTimeInSeconds']
         data.ingestion_size_in_bytes = map['IngestionSizeInBytes']
@@ -2008,7 +2008,7 @@ module AWS::SDK::QuickSight
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
         data.aws_account_id = map['AwsAccountId']
-        data.ip_restriction_rule_map = (Parsers::IpRestrictionRuleMap.parse(map['IpRestrictionRuleMap']) unless map['IpRestrictionRuleMap'].nil?)
+        data.ip_restriction_rule_map = (IpRestrictionRuleMap.parse(map['IpRestrictionRuleMap']) unless map['IpRestrictionRuleMap'].nil?)
         data.enabled = map['Enabled']
         data.request_id = map['RequestId']
         data
@@ -2031,7 +2031,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeNamespaceOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.namespace = (Parsers::NamespaceInfoV2.parse(map['Namespace']) unless map['Namespace'].nil?)
+        data.namespace = (NamespaceInfoV2.parse(map['Namespace']) unless map['Namespace'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2045,7 +2045,7 @@ module AWS::SDK::QuickSight
         data.capacity_region = map['CapacityRegion']
         data.creation_status = map['CreationStatus']
         data.identity_store = map['IdentityStore']
-        data.namespace_error = (Parsers::NamespaceError.parse(map['NamespaceError']) unless map['NamespaceError'].nil?)
+        data.namespace_error = (NamespaceError.parse(map['NamespaceError']) unless map['NamespaceError'].nil?)
         return data
       end
     end
@@ -2065,7 +2065,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeTemplateOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.template = (Parsers::Template.parse(map['Template']) unless map['Template'].nil?)
+        data.template = (Template.parse(map['Template']) unless map['Template'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2076,7 +2076,7 @@ module AWS::SDK::QuickSight
         data = Types::Template.new
         data.arn = map['Arn']
         data.name = map['Name']
-        data.version = (Parsers::TemplateVersion.parse(map['Version']) unless map['Version'].nil?)
+        data.version = (TemplateVersion.parse(map['Version']) unless map['Version'].nil?)
         data.template_id = map['TemplateId']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
@@ -2088,14 +2088,14 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::TemplateVersion.new
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.errors = (Parsers::TemplateErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (TemplateErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data.version_number = map['VersionNumber']
         data.status = map['Status']
-        data.data_set_configurations = (Parsers::DataSetConfigurationList.parse(map['DataSetConfigurations']) unless map['DataSetConfigurations'].nil?)
+        data.data_set_configurations = (DataSetConfigurationList.parse(map['DataSetConfigurations']) unless map['DataSetConfigurations'].nil?)
         data.description = map['Description']
         data.source_entity_arn = map['SourceEntityArn']
         data.theme_arn = map['ThemeArn']
-        data.sheets = (Parsers::SheetList.parse(map['Sheets']) unless map['Sheets'].nil?)
+        data.sheets = (SheetList.parse(map['Sheets']) unless map['Sheets'].nil?)
         return data
       end
     end
@@ -2104,7 +2104,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSetConfiguration.parse(value) unless value.nil?
+          data << DataSetConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -2114,8 +2114,8 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::DataSetConfiguration.new
         data.placeholder = map['Placeholder']
-        data.data_set_schema = (Parsers::DataSetSchema.parse(map['DataSetSchema']) unless map['DataSetSchema'].nil?)
-        data.column_group_schema_list = (Parsers::ColumnGroupSchemaList.parse(map['ColumnGroupSchemaList']) unless map['ColumnGroupSchemaList'].nil?)
+        data.data_set_schema = (DataSetSchema.parse(map['DataSetSchema']) unless map['DataSetSchema'].nil?)
+        data.column_group_schema_list = (ColumnGroupSchemaList.parse(map['ColumnGroupSchemaList']) unless map['ColumnGroupSchemaList'].nil?)
         return data
       end
     end
@@ -2124,7 +2124,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnGroupSchema.parse(value) unless value.nil?
+          data << ColumnGroupSchema.parse(value) unless value.nil?
         end
         data
       end
@@ -2134,7 +2134,7 @@ module AWS::SDK::QuickSight
       def self.parse(map)
         data = Types::ColumnGroupSchema.new
         data.name = map['Name']
-        data.column_group_column_schema_list = (Parsers::ColumnGroupColumnSchemaList.parse(map['ColumnGroupColumnSchemaList']) unless map['ColumnGroupColumnSchemaList'].nil?)
+        data.column_group_column_schema_list = (ColumnGroupColumnSchemaList.parse(map['ColumnGroupColumnSchemaList']) unless map['ColumnGroupColumnSchemaList'].nil?)
         return data
       end
     end
@@ -2143,7 +2143,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnGroupColumnSchema.parse(value) unless value.nil?
+          data << ColumnGroupColumnSchema.parse(value) unless value.nil?
         end
         data
       end
@@ -2160,7 +2160,7 @@ module AWS::SDK::QuickSight
     class DataSetSchema
       def self.parse(map)
         data = Types::DataSetSchema.new
-        data.column_schema_list = (Parsers::ColumnSchemaList.parse(map['ColumnSchemaList']) unless map['ColumnSchemaList'].nil?)
+        data.column_schema_list = (ColumnSchemaList.parse(map['ColumnSchemaList']) unless map['ColumnSchemaList'].nil?)
         return data
       end
     end
@@ -2169,7 +2169,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnSchema.parse(value) unless value.nil?
+          data << ColumnSchema.parse(value) unless value.nil?
         end
         data
       end
@@ -2189,7 +2189,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TemplateError.parse(value) unless value.nil?
+          data << TemplateError.parse(value) unless value.nil?
         end
         data
       end
@@ -2210,7 +2210,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeTemplateAliasOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.template_alias = (Parsers::TemplateAlias.parse(map['TemplateAlias']) unless map['TemplateAlias'].nil?)
+        data.template_alias = (TemplateAlias.parse(map['TemplateAlias']) unless map['TemplateAlias'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2224,7 +2224,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.template_id = map['TemplateId']
         data.template_arn = map['TemplateArn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2236,7 +2236,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeThemeOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.theme = (Parsers::Theme.parse(map['Theme']) unless map['Theme'].nil?)
+        data.theme = (Theme.parse(map['Theme']) unless map['Theme'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2248,7 +2248,7 @@ module AWS::SDK::QuickSight
         data.arn = map['Arn']
         data.name = map['Name']
         data.theme_id = map['ThemeId']
-        data.version = (Parsers::ThemeVersion.parse(map['Version']) unless map['Version'].nil?)
+        data.version = (ThemeVersion.parse(map['Version']) unless map['Version'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.type = map['Type']
@@ -2264,8 +2264,8 @@ module AWS::SDK::QuickSight
         data.description = map['Description']
         data.base_theme_id = map['BaseThemeId']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.configuration = (Parsers::ThemeConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
-        data.errors = (Parsers::ThemeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.configuration = (ThemeConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.errors = (ThemeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data.status = map['Status']
         return data
       end
@@ -2275,7 +2275,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThemeError.parse(value) unless value.nil?
+          data << ThemeError.parse(value) unless value.nil?
         end
         data
       end
@@ -2293,9 +2293,9 @@ module AWS::SDK::QuickSight
     class ThemeConfiguration
       def self.parse(map)
         data = Types::ThemeConfiguration.new
-        data.data_color_palette = (Parsers::DataColorPalette.parse(map['DataColorPalette']) unless map['DataColorPalette'].nil?)
-        data.ui_color_palette = (Parsers::UIColorPalette.parse(map['UIColorPalette']) unless map['UIColorPalette'].nil?)
-        data.sheet = (Parsers::SheetStyle.parse(map['Sheet']) unless map['Sheet'].nil?)
+        data.data_color_palette = (DataColorPalette.parse(map['DataColorPalette']) unless map['DataColorPalette'].nil?)
+        data.ui_color_palette = (UIColorPalette.parse(map['UIColorPalette']) unless map['UIColorPalette'].nil?)
+        data.sheet = (SheetStyle.parse(map['Sheet']) unless map['Sheet'].nil?)
         return data
       end
     end
@@ -2303,8 +2303,8 @@ module AWS::SDK::QuickSight
     class SheetStyle
       def self.parse(map)
         data = Types::SheetStyle.new
-        data.tile = (Parsers::TileStyle.parse(map['Tile']) unless map['Tile'].nil?)
-        data.tile_layout = (Parsers::TileLayoutStyle.parse(map['TileLayout']) unless map['TileLayout'].nil?)
+        data.tile = (TileStyle.parse(map['Tile']) unless map['Tile'].nil?)
+        data.tile_layout = (TileLayoutStyle.parse(map['TileLayout']) unless map['TileLayout'].nil?)
         return data
       end
     end
@@ -2312,8 +2312,8 @@ module AWS::SDK::QuickSight
     class TileLayoutStyle
       def self.parse(map)
         data = Types::TileLayoutStyle.new
-        data.gutter = (Parsers::GutterStyle.parse(map['Gutter']) unless map['Gutter'].nil?)
-        data.margin = (Parsers::MarginStyle.parse(map['Margin']) unless map['Margin'].nil?)
+        data.gutter = (GutterStyle.parse(map['Gutter']) unless map['Gutter'].nil?)
+        data.margin = (MarginStyle.parse(map['Margin']) unless map['Margin'].nil?)
         return data
       end
     end
@@ -2337,7 +2337,7 @@ module AWS::SDK::QuickSight
     class TileStyle
       def self.parse(map)
         data = Types::TileStyle.new
-        data.border = (Parsers::BorderStyle.parse(map['Border']) unless map['Border'].nil?)
+        data.border = (BorderStyle.parse(map['Border']) unless map['Border'].nil?)
         return data
       end
     end
@@ -2376,8 +2376,8 @@ module AWS::SDK::QuickSight
     class DataColorPalette
       def self.parse(map)
         data = Types::DataColorPalette.new
-        data.colors = (Parsers::ColorList.parse(map['Colors']) unless map['Colors'].nil?)
-        data.min_max_gradient = (Parsers::ColorList.parse(map['MinMaxGradient']) unless map['MinMaxGradient'].nil?)
+        data.colors = (ColorList.parse(map['Colors']) unless map['Colors'].nil?)
+        data.min_max_gradient = (ColorList.parse(map['MinMaxGradient']) unless map['MinMaxGradient'].nil?)
         data.empty_fill_color = map['EmptyFillColor']
         return data
       end
@@ -2399,7 +2399,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeThemeAliasOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.theme_alias = (Parsers::ThemeAlias.parse(map['ThemeAlias']) unless map['ThemeAlias'].nil?)
+        data.theme_alias = (ThemeAlias.parse(map['ThemeAlias']) unless map['ThemeAlias'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2413,7 +2413,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.theme_id = map['ThemeId']
         data.theme_arn = map['ThemeArn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2425,7 +2425,7 @@ module AWS::SDK::QuickSight
         data = Types::DescribeUserOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2558,7 +2558,7 @@ module AWS::SDK::QuickSight
         data = Types::ListAnalysesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.analysis_summary_list = (Parsers::AnalysisSummaryList.parse(map['AnalysisSummaryList']) unless map['AnalysisSummaryList'].nil?)
+        data.analysis_summary_list = (AnalysisSummaryList.parse(map['AnalysisSummaryList']) unless map['AnalysisSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2569,7 +2569,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnalysisSummary.parse(value) unless value.nil?
+          data << AnalysisSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2594,7 +2594,7 @@ module AWS::SDK::QuickSight
         data = Types::ListDashboardVersionsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.dashboard_version_summary_list = (Parsers::DashboardVersionSummaryList.parse(map['DashboardVersionSummaryList']) unless map['DashboardVersionSummaryList'].nil?)
+        data.dashboard_version_summary_list = (DashboardVersionSummaryList.parse(map['DashboardVersionSummaryList']) unless map['DashboardVersionSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2605,7 +2605,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DashboardVersionSummary.parse(value) unless value.nil?
+          data << DashboardVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2630,7 +2630,7 @@ module AWS::SDK::QuickSight
         data = Types::ListDashboardsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.dashboard_summary_list = (Parsers::DashboardSummaryList.parse(map['DashboardSummaryList']) unless map['DashboardSummaryList'].nil?)
+        data.dashboard_summary_list = (DashboardSummaryList.parse(map['DashboardSummaryList']) unless map['DashboardSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2641,7 +2641,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DashboardSummary.parse(value) unless value.nil?
+          data << DashboardSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2667,7 +2667,7 @@ module AWS::SDK::QuickSight
         data = Types::ListDataSetsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.data_set_summaries = (Parsers::DataSetSummaryList.parse(map['DataSetSummaries']) unless map['DataSetSummaries'].nil?)
+        data.data_set_summaries = (DataSetSummaryList.parse(map['DataSetSummaries']) unless map['DataSetSummaries'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2678,7 +2678,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSetSummary.parse(value) unless value.nil?
+          data << DataSetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2693,7 +2693,7 @@ module AWS::SDK::QuickSight
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.import_mode = map['ImportMode']
-        data.row_level_permission_data_set = (Parsers::RowLevelPermissionDataSet.parse(map['RowLevelPermissionDataSet']) unless map['RowLevelPermissionDataSet'].nil?)
+        data.row_level_permission_data_set = (RowLevelPermissionDataSet.parse(map['RowLevelPermissionDataSet']) unless map['RowLevelPermissionDataSet'].nil?)
         data.row_level_permission_tag_configuration_applied = map['RowLevelPermissionTagConfigurationApplied']
         data.column_level_permission_rules_applied = map['ColumnLevelPermissionRulesApplied']
         return data
@@ -2706,7 +2706,7 @@ module AWS::SDK::QuickSight
         data = Types::ListDataSourcesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.data_sources = (Parsers::DataSourceList.parse(map['DataSources']) unless map['DataSources'].nil?)
+        data.data_sources = (DataSourceList.parse(map['DataSources']) unless map['DataSources'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2717,7 +2717,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSource.parse(value) unless value.nil?
+          data << DataSource.parse(value) unless value.nil?
         end
         data
       end
@@ -2729,7 +2729,7 @@ module AWS::SDK::QuickSight
         data = Types::ListFolderMembersOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.folder_member_list = (Parsers::FolderMemberList.parse(map['FolderMemberList']) unless map['FolderMemberList'].nil?)
+        data.folder_member_list = (FolderMemberList.parse(map['FolderMemberList']) unless map['FolderMemberList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2740,7 +2740,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MemberIdArnPair.parse(value) unless value.nil?
+          data << MemberIdArnPair.parse(value) unless value.nil?
         end
         data
       end
@@ -2761,7 +2761,7 @@ module AWS::SDK::QuickSight
         data = Types::ListFoldersOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.folder_summary_list = (Parsers::FolderSummaryList.parse(map['FolderSummaryList']) unless map['FolderSummaryList'].nil?)
+        data.folder_summary_list = (FolderSummaryList.parse(map['FolderSummaryList']) unless map['FolderSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2772,7 +2772,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FolderSummary.parse(value) unless value.nil?
+          data << FolderSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2797,7 +2797,7 @@ module AWS::SDK::QuickSight
         data = Types::ListGroupMembershipsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group_member_list = (Parsers::GroupMemberList.parse(map['GroupMemberList']) unless map['GroupMemberList'].nil?)
+        data.group_member_list = (GroupMemberList.parse(map['GroupMemberList']) unless map['GroupMemberList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2808,7 +2808,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupMember.parse(value) unless value.nil?
+          data << GroupMember.parse(value) unless value.nil?
         end
         data
       end
@@ -2820,7 +2820,7 @@ module AWS::SDK::QuickSight
         data = Types::ListGroupsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group_list = (Parsers::GroupList.parse(map['GroupList']) unless map['GroupList'].nil?)
+        data.group_list = (GroupList.parse(map['GroupList']) unless map['GroupList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2831,7 +2831,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Group.parse(value) unless value.nil?
+          data << Group.parse(value) unless value.nil?
         end
         data
       end
@@ -2843,7 +2843,7 @@ module AWS::SDK::QuickSight
         data = Types::ListIAMPolicyAssignmentsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.iam_policy_assignments = (Parsers::IAMPolicyAssignmentSummaryList.parse(map['IAMPolicyAssignments']) unless map['IAMPolicyAssignments'].nil?)
+        data.iam_policy_assignments = (IAMPolicyAssignmentSummaryList.parse(map['IAMPolicyAssignments']) unless map['IAMPolicyAssignments'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2854,7 +2854,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IAMPolicyAssignmentSummary.parse(value) unless value.nil?
+          data << IAMPolicyAssignmentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2875,7 +2875,7 @@ module AWS::SDK::QuickSight
         data = Types::ListIAMPolicyAssignmentsForUserOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.active_assignments = (Parsers::ActiveIAMPolicyAssignmentList.parse(map['ActiveAssignments']) unless map['ActiveAssignments'].nil?)
+        data.active_assignments = (ActiveIAMPolicyAssignmentList.parse(map['ActiveAssignments']) unless map['ActiveAssignments'].nil?)
         data.request_id = map['RequestId']
         data.next_token = map['NextToken']
         data
@@ -2886,7 +2886,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActiveIAMPolicyAssignment.parse(value) unless value.nil?
+          data << ActiveIAMPolicyAssignment.parse(value) unless value.nil?
         end
         data
       end
@@ -2907,7 +2907,7 @@ module AWS::SDK::QuickSight
         data = Types::ListIngestionsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.ingestions = (Parsers::Ingestions.parse(map['Ingestions']) unless map['Ingestions'].nil?)
+        data.ingestions = (Ingestions.parse(map['Ingestions']) unless map['Ingestions'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2918,7 +2918,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Ingestion.parse(value) unless value.nil?
+          data << Ingestion.parse(value) unless value.nil?
         end
         data
       end
@@ -2930,7 +2930,7 @@ module AWS::SDK::QuickSight
         data = Types::ListNamespacesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.namespaces = (Parsers::Namespaces.parse(map['Namespaces']) unless map['Namespaces'].nil?)
+        data.namespaces = (Namespaces.parse(map['Namespaces']) unless map['Namespaces'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -2941,7 +2941,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NamespaceInfoV2.parse(value) unless value.nil?
+          data << NamespaceInfoV2.parse(value) unless value.nil?
         end
         data
       end
@@ -2953,7 +2953,7 @@ module AWS::SDK::QuickSight
         data = Types::ListTagsForResourceOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -2963,7 +2963,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -2984,7 +2984,7 @@ module AWS::SDK::QuickSight
         data = Types::ListTemplateAliasesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.template_alias_list = (Parsers::TemplateAliasList.parse(map['TemplateAliasList']) unless map['TemplateAliasList'].nil?)
+        data.template_alias_list = (TemplateAliasList.parse(map['TemplateAliasList']) unless map['TemplateAliasList'].nil?)
         data.request_id = map['RequestId']
         data.next_token = map['NextToken']
         data
@@ -2995,7 +2995,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TemplateAlias.parse(value) unless value.nil?
+          data << TemplateAlias.parse(value) unless value.nil?
         end
         data
       end
@@ -3007,7 +3007,7 @@ module AWS::SDK::QuickSight
         data = Types::ListTemplateVersionsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.template_version_summary_list = (Parsers::TemplateVersionSummaryList.parse(map['TemplateVersionSummaryList']) unless map['TemplateVersionSummaryList'].nil?)
+        data.template_version_summary_list = (TemplateVersionSummaryList.parse(map['TemplateVersionSummaryList']) unless map['TemplateVersionSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3018,7 +3018,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TemplateVersionSummary.parse(value) unless value.nil?
+          data << TemplateVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -3042,7 +3042,7 @@ module AWS::SDK::QuickSight
         data = Types::ListTemplatesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.template_summary_list = (Parsers::TemplateSummaryList.parse(map['TemplateSummaryList']) unless map['TemplateSummaryList'].nil?)
+        data.template_summary_list = (TemplateSummaryList.parse(map['TemplateSummaryList']) unless map['TemplateSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3053,7 +3053,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TemplateSummary.parse(value) unless value.nil?
+          data << TemplateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -3078,7 +3078,7 @@ module AWS::SDK::QuickSight
         data = Types::ListThemeAliasesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.theme_alias_list = (Parsers::ThemeAliasList.parse(map['ThemeAliasList']) unless map['ThemeAliasList'].nil?)
+        data.theme_alias_list = (ThemeAliasList.parse(map['ThemeAliasList']) unless map['ThemeAliasList'].nil?)
         data.request_id = map['RequestId']
         data.next_token = map['NextToken']
         data
@@ -3089,7 +3089,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThemeAlias.parse(value) unless value.nil?
+          data << ThemeAlias.parse(value) unless value.nil?
         end
         data
       end
@@ -3101,7 +3101,7 @@ module AWS::SDK::QuickSight
         data = Types::ListThemeVersionsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.theme_version_summary_list = (Parsers::ThemeVersionSummaryList.parse(map['ThemeVersionSummaryList']) unless map['ThemeVersionSummaryList'].nil?)
+        data.theme_version_summary_list = (ThemeVersionSummaryList.parse(map['ThemeVersionSummaryList']) unless map['ThemeVersionSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3112,7 +3112,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThemeVersionSummary.parse(value) unless value.nil?
+          data << ThemeVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -3136,7 +3136,7 @@ module AWS::SDK::QuickSight
         data = Types::ListThemesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.theme_summary_list = (Parsers::ThemeSummaryList.parse(map['ThemeSummaryList']) unless map['ThemeSummaryList'].nil?)
+        data.theme_summary_list = (ThemeSummaryList.parse(map['ThemeSummaryList']) unless map['ThemeSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3147,7 +3147,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThemeSummary.parse(value) unless value.nil?
+          data << ThemeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -3172,7 +3172,7 @@ module AWS::SDK::QuickSight
         data = Types::ListUserGroupsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group_list = (Parsers::GroupList.parse(map['GroupList']) unless map['GroupList'].nil?)
+        data.group_list = (GroupList.parse(map['GroupList']) unless map['GroupList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3185,7 +3185,7 @@ module AWS::SDK::QuickSight
         data = Types::ListUsersOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.user_list = (Parsers::UserList.parse(map['UserList']) unless map['UserList'].nil?)
+        data.user_list = (UserList.parse(map['UserList']) unless map['UserList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3196,7 +3196,7 @@ module AWS::SDK::QuickSight
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::User.parse(value) unless value.nil?
+          data << User.parse(value) unless value.nil?
         end
         data
       end
@@ -3208,7 +3208,7 @@ module AWS::SDK::QuickSight
         data = Types::RegisterUserOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data.user_invitation_url = map['UserInvitationUrl']
         data.request_id = map['RequestId']
         data
@@ -3234,7 +3234,7 @@ module AWS::SDK::QuickSight
         data = Types::SearchAnalysesOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.analysis_summary_list = (Parsers::AnalysisSummaryList.parse(map['AnalysisSummaryList']) unless map['AnalysisSummaryList'].nil?)
+        data.analysis_summary_list = (AnalysisSummaryList.parse(map['AnalysisSummaryList']) unless map['AnalysisSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3247,7 +3247,7 @@ module AWS::SDK::QuickSight
         data = Types::SearchDashboardsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.dashboard_summary_list = (Parsers::DashboardSummaryList.parse(map['DashboardSummaryList']) unless map['DashboardSummaryList'].nil?)
+        data.dashboard_summary_list = (DashboardSummaryList.parse(map['DashboardSummaryList']) unless map['DashboardSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3260,7 +3260,7 @@ module AWS::SDK::QuickSight
         data = Types::SearchFoldersOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.folder_summary_list = (Parsers::FolderSummaryList.parse(map['FolderSummaryList']) unless map['FolderSummaryList'].nil?)
+        data.folder_summary_list = (FolderSummaryList.parse(map['FolderSummaryList']) unless map['FolderSummaryList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3273,7 +3273,7 @@ module AWS::SDK::QuickSight
         data = Types::SearchGroupsOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group_list = (Parsers::GroupList.parse(map['GroupList']) unless map['GroupList'].nil?)
+        data.group_list = (GroupList.parse(map['GroupList']) unless map['GroupList'].nil?)
         data.next_token = map['NextToken']
         data.request_id = map['RequestId']
         data
@@ -3311,7 +3311,7 @@ module AWS::SDK::QuickSight
         data.arn = map['Arn']
         data.aws_account_id = map['AwsAccountId']
         data.namespace = map['Namespace']
-        data.account_customization = (Parsers::AccountCustomization.parse(map['AccountCustomization']) unless map['AccountCustomization'].nil?)
+        data.account_customization = (AccountCustomization.parse(map['AccountCustomization']) unless map['AccountCustomization'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3350,7 +3350,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.analysis_arn = map['AnalysisArn']
         data.analysis_id = map['AnalysisId']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3379,9 +3379,9 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.dashboard_arn = map['DashboardArn']
         data.dashboard_id = map['DashboardId']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
-        data.link_sharing_configuration = (Parsers::LinkSharingConfiguration.parse(map['LinkSharingConfiguration']) unless map['LinkSharingConfiguration'].nil?)
+        data.link_sharing_configuration = (LinkSharingConfiguration.parse(map['LinkSharingConfiguration']) unless map['LinkSharingConfiguration'].nil?)
         data
       end
     end
@@ -3475,7 +3475,7 @@ module AWS::SDK::QuickSight
         data.status = map['Status']
         data.arn = map['Arn']
         data.folder_id = map['FolderId']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3487,7 +3487,7 @@ module AWS::SDK::QuickSight
         data = Types::UpdateGroupOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3502,7 +3502,7 @@ module AWS::SDK::QuickSight
         data.assignment_name = map['AssignmentName']
         data.assignment_id = map['AssignmentId']
         data.policy_arn = map['PolicyArn']
-        data.identities = (Parsers::IdentityMap.parse(map['Identities']) unless map['Identities'].nil?)
+        data.identities = (IdentityMap.parse(map['Identities']) unless map['Identities'].nil?)
         data.assignment_status = map['AssignmentStatus']
         data.request_id = map['RequestId']
         data
@@ -3553,7 +3553,7 @@ module AWS::SDK::QuickSight
         data = Types::UpdateTemplateAliasOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.template_alias = (Parsers::TemplateAlias.parse(map['TemplateAlias']) unless map['TemplateAlias'].nil?)
+        data.template_alias = (TemplateAlias.parse(map['TemplateAlias']) unless map['TemplateAlias'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3567,7 +3567,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.template_id = map['TemplateId']
         data.template_arn = map['TemplateArn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3594,7 +3594,7 @@ module AWS::SDK::QuickSight
         data = Types::UpdateThemeAliasOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.theme_alias = (Parsers::ThemeAlias.parse(map['ThemeAlias']) unless map['ThemeAlias'].nil?)
+        data.theme_alias = (ThemeAlias.parse(map['ThemeAlias']) unless map['ThemeAlias'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3608,7 +3608,7 @@ module AWS::SDK::QuickSight
         map = Hearth::JSON.load(http_resp.body)
         data.theme_id = map['ThemeId']
         data.theme_arn = map['ThemeArn']
-        data.permissions = (Parsers::ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (ResourcePermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.request_id = map['RequestId']
         data
       end
@@ -3620,7 +3620,7 @@ module AWS::SDK::QuickSight
         data = Types::UpdateUserOutput.new
         data.status = http_resp.status
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data.request_id = map['RequestId']
         data
       end

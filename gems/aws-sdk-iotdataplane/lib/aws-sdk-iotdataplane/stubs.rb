@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::IoTDataPlane
   module Stubs
 
@@ -22,7 +25,7 @@ module AWS::SDK::IoTDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:payload] || '')
+        http_resp.body = ::StringIO.new(stub[:payload] || '')
       end
     end
 
@@ -42,10 +45,10 @@ module AWS::SDK::IoTDataPlane
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['topic'] = stub[:topic] unless stub[:topic].nil?
-        data['payload'] = Base64::encode64(stub[:payload]) unless stub[:payload].nil?
+        data['payload'] = ::Base64::encode64(stub[:payload]) unless stub[:payload].nil?
         data['qos'] = stub[:qos] unless stub[:qos].nil?
         data['lastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +64,7 @@ module AWS::SDK::IoTDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:payload] || '')
+        http_resp.body = ::StringIO.new(stub[:payload] || '')
       end
     end
 
@@ -79,10 +82,10 @@ module AWS::SDK::IoTDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['results'] = Stubs::NamedShadowList.stub(stub[:results]) unless stub[:results].nil?
+        data['results'] = NamedShadowList.stub(stub[:results]) unless stub[:results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,9 +122,9 @@ module AWS::SDK::IoTDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['retainedTopics'] = Stubs::RetainedMessageList.stub(stub[:retained_topics]) unless stub[:retained_topics].nil?
+        data['retainedTopics'] = RetainedMessageList.stub(stub[:retained_topics]) unless stub[:retained_topics].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -139,7 +142,7 @@ module AWS::SDK::IoTDataPlane
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RetainedMessageSummary.stub(element) unless element.nil?
+          data << RetainedMessageSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -194,7 +197,7 @@ module AWS::SDK::IoTDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:payload] || '')
+        http_resp.body = ::StringIO.new(stub[:payload] || '')
       end
     end
   end

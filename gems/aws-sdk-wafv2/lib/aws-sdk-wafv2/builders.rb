@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::WAFV2
   module Builders
 
@@ -20,7 +23,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['WebACLArn'] = input[:web_acl_arn] unless input[:web_acl_arn].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,8 +36,8 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.CheckCapacity'
         data = {}
         data['Scope'] = input[:scope] unless input[:scope].nil?
-        data['Rules'] = Builders::Rules.build(input[:rules]) unless input[:rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = Rules.build(input[:rules]) unless input[:rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +46,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Rule.build(element) unless element.nil?
+          data << Rule.build(element) unless element.nil?
         end
         data
       end
@@ -55,12 +58,12 @@ module AWS::SDK::WAFV2
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Priority'] = input[:priority] unless input[:priority].nil?
-        data['Statement'] = Builders::Statement.build(input[:statement]) unless input[:statement].nil?
-        data['Action'] = Builders::RuleAction.build(input[:action]) unless input[:action].nil?
-        data['OverrideAction'] = Builders::OverrideAction.build(input[:override_action]) unless input[:override_action].nil?
-        data['RuleLabels'] = Builders::Labels.build(input[:rule_labels]) unless input[:rule_labels].nil?
-        data['VisibilityConfig'] = Builders::VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
-        data['CaptchaConfig'] = Builders::CaptchaConfig.build(input[:captcha_config]) unless input[:captcha_config].nil?
+        data['Statement'] = Statement.build(input[:statement]) unless input[:statement].nil?
+        data['Action'] = RuleAction.build(input[:action]) unless input[:action].nil?
+        data['OverrideAction'] = OverrideAction.build(input[:override_action]) unless input[:override_action].nil?
+        data['RuleLabels'] = Labels.build(input[:rule_labels]) unless input[:rule_labels].nil?
+        data['VisibilityConfig'] = VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
+        data['CaptchaConfig'] = CaptchaConfig.build(input[:captcha_config]) unless input[:captcha_config].nil?
         data
       end
     end
@@ -69,7 +72,7 @@ module AWS::SDK::WAFV2
     class CaptchaConfig
       def self.build(input)
         data = {}
-        data['ImmunityTimeProperty'] = Builders::ImmunityTimeProperty.build(input[:immunity_time_property]) unless input[:immunity_time_property].nil?
+        data['ImmunityTimeProperty'] = ImmunityTimeProperty.build(input[:immunity_time_property]) unless input[:immunity_time_property].nil?
         data
       end
     end
@@ -99,7 +102,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Label.build(element) unless element.nil?
+          data << Label.build(element) unless element.nil?
         end
         data
       end
@@ -118,8 +121,8 @@ module AWS::SDK::WAFV2
     class OverrideAction
       def self.build(input)
         data = {}
-        data['Count'] = Builders::CountAction.build(input[:count]) unless input[:count].nil?
-        data['None'] = Builders::NoneAction.build(input[:none]) unless input[:none].nil?
+        data['Count'] = CountAction.build(input[:count]) unless input[:count].nil?
+        data['None'] = NoneAction.build(input[:none]) unless input[:none].nil?
         data
       end
     end
@@ -136,7 +139,7 @@ module AWS::SDK::WAFV2
     class CountAction
       def self.build(input)
         data = {}
-        data['CustomRequestHandling'] = Builders::CustomRequestHandling.build(input[:custom_request_handling]) unless input[:custom_request_handling].nil?
+        data['CustomRequestHandling'] = CustomRequestHandling.build(input[:custom_request_handling]) unless input[:custom_request_handling].nil?
         data
       end
     end
@@ -145,7 +148,7 @@ module AWS::SDK::WAFV2
     class CustomRequestHandling
       def self.build(input)
         data = {}
-        data['InsertHeaders'] = Builders::CustomHTTPHeaders.build(input[:insert_headers]) unless input[:insert_headers].nil?
+        data['InsertHeaders'] = CustomHTTPHeaders.build(input[:insert_headers]) unless input[:insert_headers].nil?
         data
       end
     end
@@ -155,7 +158,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomHTTPHeader.build(element) unless element.nil?
+          data << CustomHTTPHeader.build(element) unless element.nil?
         end
         data
       end
@@ -175,10 +178,10 @@ module AWS::SDK::WAFV2
     class RuleAction
       def self.build(input)
         data = {}
-        data['Block'] = Builders::BlockAction.build(input[:block]) unless input[:block].nil?
-        data['Allow'] = Builders::AllowAction.build(input[:allow]) unless input[:allow].nil?
-        data['Count'] = Builders::CountAction.build(input[:count]) unless input[:count].nil?
-        data['Captcha'] = Builders::CaptchaAction.build(input[:captcha]) unless input[:captcha].nil?
+        data['Block'] = BlockAction.build(input[:block]) unless input[:block].nil?
+        data['Allow'] = AllowAction.build(input[:allow]) unless input[:allow].nil?
+        data['Count'] = CountAction.build(input[:count]) unless input[:count].nil?
+        data['Captcha'] = CaptchaAction.build(input[:captcha]) unless input[:captcha].nil?
         data
       end
     end
@@ -187,7 +190,7 @@ module AWS::SDK::WAFV2
     class CaptchaAction
       def self.build(input)
         data = {}
-        data['CustomRequestHandling'] = Builders::CustomRequestHandling.build(input[:custom_request_handling]) unless input[:custom_request_handling].nil?
+        data['CustomRequestHandling'] = CustomRequestHandling.build(input[:custom_request_handling]) unless input[:custom_request_handling].nil?
         data
       end
     end
@@ -196,7 +199,7 @@ module AWS::SDK::WAFV2
     class AllowAction
       def self.build(input)
         data = {}
-        data['CustomRequestHandling'] = Builders::CustomRequestHandling.build(input[:custom_request_handling]) unless input[:custom_request_handling].nil?
+        data['CustomRequestHandling'] = CustomRequestHandling.build(input[:custom_request_handling]) unless input[:custom_request_handling].nil?
         data
       end
     end
@@ -205,7 +208,7 @@ module AWS::SDK::WAFV2
     class BlockAction
       def self.build(input)
         data = {}
-        data['CustomResponse'] = Builders::CustomResponse.build(input[:custom_response]) unless input[:custom_response].nil?
+        data['CustomResponse'] = CustomResponse.build(input[:custom_response]) unless input[:custom_response].nil?
         data
       end
     end
@@ -216,7 +219,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['ResponseCode'] = input[:response_code] unless input[:response_code].nil?
         data['CustomResponseBodyKey'] = input[:custom_response_body_key] unless input[:custom_response_body_key].nil?
-        data['ResponseHeaders'] = Builders::CustomHTTPHeaders.build(input[:response_headers]) unless input[:response_headers].nil?
+        data['ResponseHeaders'] = CustomHTTPHeaders.build(input[:response_headers]) unless input[:response_headers].nil?
         data
       end
     end
@@ -225,21 +228,21 @@ module AWS::SDK::WAFV2
     class Statement
       def self.build(input)
         data = {}
-        data['ByteMatchStatement'] = Builders::ByteMatchStatement.build(input[:byte_match_statement]) unless input[:byte_match_statement].nil?
-        data['SqliMatchStatement'] = Builders::SqliMatchStatement.build(input[:sqli_match_statement]) unless input[:sqli_match_statement].nil?
-        data['XssMatchStatement'] = Builders::XssMatchStatement.build(input[:xss_match_statement]) unless input[:xss_match_statement].nil?
-        data['SizeConstraintStatement'] = Builders::SizeConstraintStatement.build(input[:size_constraint_statement]) unless input[:size_constraint_statement].nil?
-        data['GeoMatchStatement'] = Builders::GeoMatchStatement.build(input[:geo_match_statement]) unless input[:geo_match_statement].nil?
-        data['RuleGroupReferenceStatement'] = Builders::RuleGroupReferenceStatement.build(input[:rule_group_reference_statement]) unless input[:rule_group_reference_statement].nil?
-        data['IPSetReferenceStatement'] = Builders::IPSetReferenceStatement.build(input[:ip_set_reference_statement]) unless input[:ip_set_reference_statement].nil?
-        data['RegexPatternSetReferenceStatement'] = Builders::RegexPatternSetReferenceStatement.build(input[:regex_pattern_set_reference_statement]) unless input[:regex_pattern_set_reference_statement].nil?
-        data['RateBasedStatement'] = Builders::RateBasedStatement.build(input[:rate_based_statement]) unless input[:rate_based_statement].nil?
-        data['AndStatement'] = Builders::AndStatement.build(input[:and_statement]) unless input[:and_statement].nil?
-        data['OrStatement'] = Builders::OrStatement.build(input[:or_statement]) unless input[:or_statement].nil?
-        data['NotStatement'] = Builders::NotStatement.build(input[:not_statement]) unless input[:not_statement].nil?
-        data['ManagedRuleGroupStatement'] = Builders::ManagedRuleGroupStatement.build(input[:managed_rule_group_statement]) unless input[:managed_rule_group_statement].nil?
-        data['LabelMatchStatement'] = Builders::LabelMatchStatement.build(input[:label_match_statement]) unless input[:label_match_statement].nil?
-        data['RegexMatchStatement'] = Builders::RegexMatchStatement.build(input[:regex_match_statement]) unless input[:regex_match_statement].nil?
+        data['ByteMatchStatement'] = ByteMatchStatement.build(input[:byte_match_statement]) unless input[:byte_match_statement].nil?
+        data['SqliMatchStatement'] = SqliMatchStatement.build(input[:sqli_match_statement]) unless input[:sqli_match_statement].nil?
+        data['XssMatchStatement'] = XssMatchStatement.build(input[:xss_match_statement]) unless input[:xss_match_statement].nil?
+        data['SizeConstraintStatement'] = SizeConstraintStatement.build(input[:size_constraint_statement]) unless input[:size_constraint_statement].nil?
+        data['GeoMatchStatement'] = GeoMatchStatement.build(input[:geo_match_statement]) unless input[:geo_match_statement].nil?
+        data['RuleGroupReferenceStatement'] = RuleGroupReferenceStatement.build(input[:rule_group_reference_statement]) unless input[:rule_group_reference_statement].nil?
+        data['IPSetReferenceStatement'] = IPSetReferenceStatement.build(input[:ip_set_reference_statement]) unless input[:ip_set_reference_statement].nil?
+        data['RegexPatternSetReferenceStatement'] = RegexPatternSetReferenceStatement.build(input[:regex_pattern_set_reference_statement]) unless input[:regex_pattern_set_reference_statement].nil?
+        data['RateBasedStatement'] = RateBasedStatement.build(input[:rate_based_statement]) unless input[:rate_based_statement].nil?
+        data['AndStatement'] = AndStatement.build(input[:and_statement]) unless input[:and_statement].nil?
+        data['OrStatement'] = OrStatement.build(input[:or_statement]) unless input[:or_statement].nil?
+        data['NotStatement'] = NotStatement.build(input[:not_statement]) unless input[:not_statement].nil?
+        data['ManagedRuleGroupStatement'] = ManagedRuleGroupStatement.build(input[:managed_rule_group_statement]) unless input[:managed_rule_group_statement].nil?
+        data['LabelMatchStatement'] = LabelMatchStatement.build(input[:label_match_statement]) unless input[:label_match_statement].nil?
+        data['RegexMatchStatement'] = RegexMatchStatement.build(input[:regex_match_statement]) unless input[:regex_match_statement].nil?
         data
       end
     end
@@ -249,8 +252,8 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = {}
         data['RegexString'] = input[:regex_string] unless input[:regex_string].nil?
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
-        data['TextTransformations'] = Builders::TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
         data
       end
     end
@@ -260,7 +263,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TextTransformation.build(element) unless element.nil?
+          data << TextTransformation.build(element) unless element.nil?
         end
         data
       end
@@ -280,16 +283,16 @@ module AWS::SDK::WAFV2
     class FieldToMatch
       def self.build(input)
         data = {}
-        data['SingleHeader'] = Builders::SingleHeader.build(input[:single_header]) unless input[:single_header].nil?
-        data['SingleQueryArgument'] = Builders::SingleQueryArgument.build(input[:single_query_argument]) unless input[:single_query_argument].nil?
-        data['AllQueryArguments'] = Builders::AllQueryArguments.build(input[:all_query_arguments]) unless input[:all_query_arguments].nil?
-        data['UriPath'] = Builders::UriPath.build(input[:uri_path]) unless input[:uri_path].nil?
-        data['QueryString'] = Builders::QueryString.build(input[:query_string]) unless input[:query_string].nil?
-        data['Body'] = Builders::Body.build(input[:body]) unless input[:body].nil?
-        data['Method'] = Builders::Method.build(input[:member_method]) unless input[:member_method].nil?
-        data['JsonBody'] = Builders::JsonBody.build(input[:json_body]) unless input[:json_body].nil?
-        data['Headers'] = Builders::Headers.build(input[:headers]) unless input[:headers].nil?
-        data['Cookies'] = Builders::Cookies.build(input[:cookies]) unless input[:cookies].nil?
+        data['SingleHeader'] = SingleHeader.build(input[:single_header]) unless input[:single_header].nil?
+        data['SingleQueryArgument'] = SingleQueryArgument.build(input[:single_query_argument]) unless input[:single_query_argument].nil?
+        data['AllQueryArguments'] = AllQueryArguments.build(input[:all_query_arguments]) unless input[:all_query_arguments].nil?
+        data['UriPath'] = UriPath.build(input[:uri_path]) unless input[:uri_path].nil?
+        data['QueryString'] = QueryString.build(input[:query_string]) unless input[:query_string].nil?
+        data['Body'] = Body.build(input[:body]) unless input[:body].nil?
+        data['Method'] = Method.build(input[:member_method]) unless input[:member_method].nil?
+        data['JsonBody'] = JsonBody.build(input[:json_body]) unless input[:json_body].nil?
+        data['Headers'] = Headers.build(input[:headers]) unless input[:headers].nil?
+        data['Cookies'] = Cookies.build(input[:cookies]) unless input[:cookies].nil?
         data
       end
     end
@@ -298,7 +301,7 @@ module AWS::SDK::WAFV2
     class Cookies
       def self.build(input)
         data = {}
-        data['MatchPattern'] = Builders::CookieMatchPattern.build(input[:match_pattern]) unless input[:match_pattern].nil?
+        data['MatchPattern'] = CookieMatchPattern.build(input[:match_pattern]) unless input[:match_pattern].nil?
         data['MatchScope'] = input[:match_scope] unless input[:match_scope].nil?
         data['OversizeHandling'] = input[:oversize_handling] unless input[:oversize_handling].nil?
         data
@@ -309,9 +312,9 @@ module AWS::SDK::WAFV2
     class CookieMatchPattern
       def self.build(input)
         data = {}
-        data['All'] = Builders::All.build(input[:all]) unless input[:all].nil?
-        data['IncludedCookies'] = Builders::CookieNames.build(input[:included_cookies]) unless input[:included_cookies].nil?
-        data['ExcludedCookies'] = Builders::CookieNames.build(input[:excluded_cookies]) unless input[:excluded_cookies].nil?
+        data['All'] = All.build(input[:all]) unless input[:all].nil?
+        data['IncludedCookies'] = CookieNames.build(input[:included_cookies]) unless input[:included_cookies].nil?
+        data['ExcludedCookies'] = CookieNames.build(input[:excluded_cookies]) unless input[:excluded_cookies].nil?
         data
       end
     end
@@ -339,7 +342,7 @@ module AWS::SDK::WAFV2
     class Headers
       def self.build(input)
         data = {}
-        data['MatchPattern'] = Builders::HeaderMatchPattern.build(input[:match_pattern]) unless input[:match_pattern].nil?
+        data['MatchPattern'] = HeaderMatchPattern.build(input[:match_pattern]) unless input[:match_pattern].nil?
         data['MatchScope'] = input[:match_scope] unless input[:match_scope].nil?
         data['OversizeHandling'] = input[:oversize_handling] unless input[:oversize_handling].nil?
         data
@@ -350,9 +353,9 @@ module AWS::SDK::WAFV2
     class HeaderMatchPattern
       def self.build(input)
         data = {}
-        data['All'] = Builders::All.build(input[:all]) unless input[:all].nil?
-        data['IncludedHeaders'] = Builders::HeaderNames.build(input[:included_headers]) unless input[:included_headers].nil?
-        data['ExcludedHeaders'] = Builders::HeaderNames.build(input[:excluded_headers]) unless input[:excluded_headers].nil?
+        data['All'] = All.build(input[:all]) unless input[:all].nil?
+        data['IncludedHeaders'] = HeaderNames.build(input[:included_headers]) unless input[:included_headers].nil?
+        data['ExcludedHeaders'] = HeaderNames.build(input[:excluded_headers]) unless input[:excluded_headers].nil?
         data
       end
     end
@@ -372,7 +375,7 @@ module AWS::SDK::WAFV2
     class JsonBody
       def self.build(input)
         data = {}
-        data['MatchPattern'] = Builders::JsonMatchPattern.build(input[:match_pattern]) unless input[:match_pattern].nil?
+        data['MatchPattern'] = JsonMatchPattern.build(input[:match_pattern]) unless input[:match_pattern].nil?
         data['MatchScope'] = input[:match_scope] unless input[:match_scope].nil?
         data['InvalidFallbackBehavior'] = input[:invalid_fallback_behavior] unless input[:invalid_fallback_behavior].nil?
         data['OversizeHandling'] = input[:oversize_handling] unless input[:oversize_handling].nil?
@@ -384,8 +387,8 @@ module AWS::SDK::WAFV2
     class JsonMatchPattern
       def self.build(input)
         data = {}
-        data['All'] = Builders::All.build(input[:all]) unless input[:all].nil?
-        data['IncludedPaths'] = Builders::JsonPointerPaths.build(input[:included_paths]) unless input[:included_paths].nil?
+        data['All'] = All.build(input[:all]) unless input[:all].nil?
+        data['IncludedPaths'] = JsonPointerPaths.build(input[:included_paths]) unless input[:included_paths].nil?
         data
       end
     end
@@ -477,9 +480,9 @@ module AWS::SDK::WAFV2
         data['VendorName'] = input[:vendor_name] unless input[:vendor_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['ExcludedRules'] = Builders::ExcludedRules.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
-        data['ScopeDownStatement'] = Builders::Statement.build(input[:scope_down_statement]) unless input[:scope_down_statement].nil?
-        data['ManagedRuleGroupConfigs'] = Builders::ManagedRuleGroupConfigs.build(input[:managed_rule_group_configs]) unless input[:managed_rule_group_configs].nil?
+        data['ExcludedRules'] = ExcludedRules.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
+        data['ScopeDownStatement'] = Statement.build(input[:scope_down_statement]) unless input[:scope_down_statement].nil?
+        data['ManagedRuleGroupConfigs'] = ManagedRuleGroupConfigs.build(input[:managed_rule_group_configs]) unless input[:managed_rule_group_configs].nil?
         data
       end
     end
@@ -489,7 +492,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ManagedRuleGroupConfig.build(element) unless element.nil?
+          data << ManagedRuleGroupConfig.build(element) unless element.nil?
         end
         data
       end
@@ -501,8 +504,8 @@ module AWS::SDK::WAFV2
         data = {}
         data['LoginPath'] = input[:login_path] unless input[:login_path].nil?
         data['PayloadType'] = input[:payload_type] unless input[:payload_type].nil?
-        data['UsernameField'] = Builders::UsernameField.build(input[:username_field]) unless input[:username_field].nil?
-        data['PasswordField'] = Builders::PasswordField.build(input[:password_field]) unless input[:password_field].nil?
+        data['UsernameField'] = UsernameField.build(input[:username_field]) unless input[:username_field].nil?
+        data['PasswordField'] = PasswordField.build(input[:password_field]) unless input[:password_field].nil?
         data
       end
     end
@@ -530,7 +533,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ExcludedRule.build(element) unless element.nil?
+          data << ExcludedRule.build(element) unless element.nil?
         end
         data
       end
@@ -549,7 +552,7 @@ module AWS::SDK::WAFV2
     class NotStatement
       def self.build(input)
         data = {}
-        data['Statement'] = Builders::Statement.build(input[:statement]) unless input[:statement].nil?
+        data['Statement'] = Statement.build(input[:statement]) unless input[:statement].nil?
         data
       end
     end
@@ -558,7 +561,7 @@ module AWS::SDK::WAFV2
     class OrStatement
       def self.build(input)
         data = {}
-        data['Statements'] = Builders::Statements.build(input[:statements]) unless input[:statements].nil?
+        data['Statements'] = Statements.build(input[:statements]) unless input[:statements].nil?
         data
       end
     end
@@ -568,7 +571,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Statement.build(element) unless element.nil?
+          data << Statement.build(element) unless element.nil?
         end
         data
       end
@@ -578,7 +581,7 @@ module AWS::SDK::WAFV2
     class AndStatement
       def self.build(input)
         data = {}
-        data['Statements'] = Builders::Statements.build(input[:statements]) unless input[:statements].nil?
+        data['Statements'] = Statements.build(input[:statements]) unless input[:statements].nil?
         data
       end
     end
@@ -589,8 +592,8 @@ module AWS::SDK::WAFV2
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['AggregateKeyType'] = input[:aggregate_key_type] unless input[:aggregate_key_type].nil?
-        data['ScopeDownStatement'] = Builders::Statement.build(input[:scope_down_statement]) unless input[:scope_down_statement].nil?
-        data['ForwardedIPConfig'] = Builders::ForwardedIPConfig.build(input[:forwarded_ip_config]) unless input[:forwarded_ip_config].nil?
+        data['ScopeDownStatement'] = Statement.build(input[:scope_down_statement]) unless input[:scope_down_statement].nil?
+        data['ForwardedIPConfig'] = ForwardedIPConfig.build(input[:forwarded_ip_config]) unless input[:forwarded_ip_config].nil?
         data
       end
     end
@@ -610,8 +613,8 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = {}
         data['ARN'] = input[:arn] unless input[:arn].nil?
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
-        data['TextTransformations'] = Builders::TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
         data
       end
     end
@@ -621,7 +624,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = {}
         data['ARN'] = input[:arn] unless input[:arn].nil?
-        data['IPSetForwardedIPConfig'] = Builders::IPSetForwardedIPConfig.build(input[:ip_set_forwarded_ip_config]) unless input[:ip_set_forwarded_ip_config].nil?
+        data['IPSetForwardedIPConfig'] = IPSetForwardedIPConfig.build(input[:ip_set_forwarded_ip_config]) unless input[:ip_set_forwarded_ip_config].nil?
         data
       end
     end
@@ -642,7 +645,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = {}
         data['ARN'] = input[:arn] unless input[:arn].nil?
-        data['ExcludedRules'] = Builders::ExcludedRules.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
+        data['ExcludedRules'] = ExcludedRules.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
         data
       end
     end
@@ -651,8 +654,8 @@ module AWS::SDK::WAFV2
     class GeoMatchStatement
       def self.build(input)
         data = {}
-        data['CountryCodes'] = Builders::CountryCodes.build(input[:country_codes]) unless input[:country_codes].nil?
-        data['ForwardedIPConfig'] = Builders::ForwardedIPConfig.build(input[:forwarded_ip_config]) unless input[:forwarded_ip_config].nil?
+        data['CountryCodes'] = CountryCodes.build(input[:country_codes]) unless input[:country_codes].nil?
+        data['ForwardedIPConfig'] = ForwardedIPConfig.build(input[:forwarded_ip_config]) unless input[:forwarded_ip_config].nil?
         data
       end
     end
@@ -672,10 +675,10 @@ module AWS::SDK::WAFV2
     class SizeConstraintStatement
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
         data['ComparisonOperator'] = input[:comparison_operator] unless input[:comparison_operator].nil?
         data['Size'] = input[:size] unless input[:size].nil?
-        data['TextTransformations'] = Builders::TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
+        data['TextTransformations'] = TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
         data
       end
     end
@@ -684,8 +687,8 @@ module AWS::SDK::WAFV2
     class XssMatchStatement
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
-        data['TextTransformations'] = Builders::TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
         data
       end
     end
@@ -694,8 +697,8 @@ module AWS::SDK::WAFV2
     class SqliMatchStatement
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
-        data['TextTransformations'] = Builders::TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
         data
       end
     end
@@ -704,9 +707,9 @@ module AWS::SDK::WAFV2
     class ByteMatchStatement
       def self.build(input)
         data = {}
-        data['SearchString'] = Base64::encode64(input[:search_string]).strip unless input[:search_string].nil?
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
-        data['TextTransformations'] = Builders::TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
+        data['SearchString'] = ::Base64::encode64(input[:search_string]).strip unless input[:search_string].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.build(input[:text_transformations]) unless input[:text_transformations].nil?
         data['PositionalConstraint'] = input[:positional_constraint] unless input[:positional_constraint].nil?
         data
       end
@@ -724,9 +727,9 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['IPAddressVersion'] = input[:ip_address_version] unless input[:ip_address_version].nil?
-        data['Addresses'] = Builders::IPAddresses.build(input[:addresses]) unless input[:addresses].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Addresses'] = IPAddresses.build(input[:addresses]) unless input[:addresses].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -735,7 +738,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -773,9 +776,9 @@ module AWS::SDK::WAFV2
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RegularExpressionList'] = Builders::RegularExpressionList.build(input[:regular_expression_list]) unless input[:regular_expression_list].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegularExpressionList'] = RegularExpressionList.build(input[:regular_expression_list]) unless input[:regular_expression_list].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,7 +787,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Regex.build(element) unless element.nil?
+          data << Regex.build(element) unless element.nil?
         end
         data
       end
@@ -811,11 +814,11 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Capacity'] = input[:capacity] unless input[:capacity].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Rules'] = Builders::Rules.build(input[:rules]) unless input[:rules].nil?
-        data['VisibilityConfig'] = Builders::VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['CustomResponseBodies'] = Builders::CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = Rules.build(input[:rules]) unless input[:rules].nil?
+        data['VisibilityConfig'] = VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['CustomResponseBodies'] = CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,7 +827,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::CustomResponseBody.build(value) unless value.nil?
+          data[key] = CustomResponseBody.build(value) unless value.nil?
         end
         data
       end
@@ -850,14 +853,14 @@ module AWS::SDK::WAFV2
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
-        data['DefaultAction'] = Builders::DefaultAction.build(input[:default_action]) unless input[:default_action].nil?
+        data['DefaultAction'] = DefaultAction.build(input[:default_action]) unless input[:default_action].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Rules'] = Builders::Rules.build(input[:rules]) unless input[:rules].nil?
-        data['VisibilityConfig'] = Builders::VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['CustomResponseBodies'] = Builders::CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
-        data['CaptchaConfig'] = Builders::CaptchaConfig.build(input[:captcha_config]) unless input[:captcha_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = Rules.build(input[:rules]) unless input[:rules].nil?
+        data['VisibilityConfig'] = VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['CustomResponseBodies'] = CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
+        data['CaptchaConfig'] = CaptchaConfig.build(input[:captcha_config]) unless input[:captcha_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -865,8 +868,8 @@ module AWS::SDK::WAFV2
     class DefaultAction
       def self.build(input)
         data = {}
-        data['Block'] = Builders::BlockAction.build(input[:block]) unless input[:block].nil?
-        data['Allow'] = Builders::AllowAction.build(input[:allow]) unless input[:allow].nil?
+        data['Block'] = BlockAction.build(input[:block]) unless input[:block].nil?
+        data['Allow'] = AllowAction.build(input[:allow]) unless input[:allow].nil?
         data
       end
     end
@@ -881,7 +884,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['WebACLArn'] = input[:web_acl_arn] unless input[:web_acl_arn].nil?
         data['WebACLLockToken'] = input[:web_acl_lock_token] unless input[:web_acl_lock_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -897,7 +900,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -910,7 +913,7 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.DeleteLoggingConfiguration'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -923,7 +926,7 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.DeletePermissionPolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -939,7 +942,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -955,7 +958,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -971,7 +974,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -987,7 +990,7 @@ module AWS::SDK::WAFV2
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['VersionName'] = input[:version_name] unless input[:version_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1000,7 +1003,7 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.DisassociateWebACL'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1014,7 +1017,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['Platform'] = input[:platform] unless input[:platform].nil?
         data['ReleaseVersion'] = input[:release_version] unless input[:release_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1029,7 +1032,7 @@ module AWS::SDK::WAFV2
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1042,7 +1045,7 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.GetLoggingConfiguration'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1057,7 +1060,7 @@ module AWS::SDK::WAFV2
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1071,7 +1074,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['Platform'] = input[:platform] unless input[:platform].nil?
         data['ReleaseVersion'] = input[:release_version] unless input[:release_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1084,7 +1087,7 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.GetPermissionPolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1101,7 +1104,7 @@ module AWS::SDK::WAFV2
         data['WebACLId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
         data['RuleGroupRuleName'] = input[:rule_group_rule_name] unless input[:rule_group_rule_name].nil?
         data['RuleName'] = input[:rule_name] unless input[:rule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1116,7 +1119,7 @@ module AWS::SDK::WAFV2
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1132,7 +1135,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['ARN'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1147,9 +1150,9 @@ module AWS::SDK::WAFV2
         data['WebAclArn'] = input[:web_acl_arn] unless input[:web_acl_arn].nil?
         data['RuleMetricName'] = input[:rule_metric_name] unless input[:rule_metric_name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
-        data['TimeWindow'] = Builders::TimeWindow.build(input[:time_window]) unless input[:time_window].nil?
+        data['TimeWindow'] = TimeWindow.build(input[:time_window]) unless input[:time_window].nil?
         data['MaxItems'] = input[:max_items] unless input[:max_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1174,7 +1177,7 @@ module AWS::SDK::WAFV2
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1187,7 +1190,7 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.GetWebACLForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1204,7 +1207,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1219,7 +1222,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1234,7 +1237,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1249,7 +1252,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1264,7 +1267,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1279,7 +1282,7 @@ module AWS::SDK::WAFV2
         data['Platform'] = input[:platform] unless input[:platform].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1294,7 +1297,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1308,7 +1311,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['WebACLArn'] = input[:web_acl_arn] unless input[:web_acl_arn].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1323,7 +1326,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1338,7 +1341,7 @@ module AWS::SDK::WAFV2
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1353,7 +1356,7 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1365,8 +1368,8 @@ module AWS::SDK::WAFV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.PutLoggingConfiguration'
         data = {}
-        data['LoggingConfiguration'] = Builders::LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1375,10 +1378,10 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['LogDestinationConfigs'] = Builders::LogDestinationConfigs.build(input[:log_destination_configs]) unless input[:log_destination_configs].nil?
-        data['RedactedFields'] = Builders::RedactedFields.build(input[:redacted_fields]) unless input[:redacted_fields].nil?
+        data['LogDestinationConfigs'] = LogDestinationConfigs.build(input[:log_destination_configs]) unless input[:log_destination_configs].nil?
+        data['RedactedFields'] = RedactedFields.build(input[:redacted_fields]) unless input[:redacted_fields].nil?
         data['ManagedByFirewallManager'] = input[:managed_by_firewall_manager] unless input[:managed_by_firewall_manager].nil?
-        data['LoggingFilter'] = Builders::LoggingFilter.build(input[:logging_filter]) unless input[:logging_filter].nil?
+        data['LoggingFilter'] = LoggingFilter.build(input[:logging_filter]) unless input[:logging_filter].nil?
         data
       end
     end
@@ -1387,7 +1390,7 @@ module AWS::SDK::WAFV2
     class LoggingFilter
       def self.build(input)
         data = {}
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['DefaultBehavior'] = input[:default_behavior] unless input[:default_behavior].nil?
         data
       end
@@ -1398,7 +1401,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -1410,7 +1413,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['Behavior'] = input[:behavior] unless input[:behavior].nil?
         data['Requirement'] = input[:requirement] unless input[:requirement].nil?
-        data['Conditions'] = Builders::Conditions.build(input[:conditions]) unless input[:conditions].nil?
+        data['Conditions'] = Conditions.build(input[:conditions]) unless input[:conditions].nil?
         data
       end
     end
@@ -1420,7 +1423,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Condition.build(element) unless element.nil?
+          data << Condition.build(element) unless element.nil?
         end
         data
       end
@@ -1430,8 +1433,8 @@ module AWS::SDK::WAFV2
     class Condition
       def self.build(input)
         data = {}
-        data['ActionCondition'] = Builders::ActionCondition.build(input[:action_condition]) unless input[:action_condition].nil?
-        data['LabelNameCondition'] = Builders::LabelNameCondition.build(input[:label_name_condition]) unless input[:label_name_condition].nil?
+        data['ActionCondition'] = ActionCondition.build(input[:action_condition]) unless input[:action_condition].nil?
+        data['LabelNameCondition'] = LabelNameCondition.build(input[:label_name_condition]) unless input[:label_name_condition].nil?
         data
       end
     end
@@ -1459,7 +1462,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FieldToMatch.build(element) unless element.nil?
+          data << FieldToMatch.build(element) unless element.nil?
         end
         data
       end
@@ -1489,8 +1492,8 @@ module AWS::SDK::WAFV2
         data['Id'] = input[:id] unless input[:id].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
         data['RecommendedVersion'] = input[:recommended_version] unless input[:recommended_version].nil?
-        data['VersionsToPublish'] = Builders::VersionsToPublish.build(input[:versions_to_publish]) unless input[:versions_to_publish].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VersionsToPublish'] = VersionsToPublish.build(input[:versions_to_publish]) unless input[:versions_to_publish].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1499,7 +1502,7 @@ module AWS::SDK::WAFV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::VersionToPublish.build(value) unless value.nil?
+          data[key] = VersionToPublish.build(value) unless value.nil?
         end
         data
       end
@@ -1525,7 +1528,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1538,8 +1541,8 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1552,8 +1555,8 @@ module AWS::SDK::WAFV2
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20190729.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1580,9 +1583,9 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Addresses'] = Builders::IPAddresses.build(input[:addresses]) unless input[:addresses].nil?
+        data['Addresses'] = IPAddresses.build(input[:addresses]) unless input[:addresses].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1600,7 +1603,7 @@ module AWS::SDK::WAFV2
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
         data['VersionToExpire'] = input[:version_to_expire] unless input[:version_to_expire].nil?
         data['ExpiryTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:expiry_timestamp]).to_i unless input[:expiry_timestamp].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1616,9 +1619,9 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RegularExpressionList'] = Builders::RegularExpressionList.build(input[:regular_expression_list]) unless input[:regular_expression_list].nil?
+        data['RegularExpressionList'] = RegularExpressionList.build(input[:regular_expression_list]) unless input[:regular_expression_list].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1634,11 +1637,11 @@ module AWS::SDK::WAFV2
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Rules'] = Builders::Rules.build(input[:rules]) unless input[:rules].nil?
-        data['VisibilityConfig'] = Builders::VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
+        data['Rules'] = Rules.build(input[:rules]) unless input[:rules].nil?
+        data['VisibilityConfig'] = VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        data['CustomResponseBodies'] = Builders::CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomResponseBodies'] = CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1653,14 +1656,14 @@ module AWS::SDK::WAFV2
         data['Name'] = input[:name] unless input[:name].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        data['DefaultAction'] = Builders::DefaultAction.build(input[:default_action]) unless input[:default_action].nil?
+        data['DefaultAction'] = DefaultAction.build(input[:default_action]) unless input[:default_action].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Rules'] = Builders::Rules.build(input[:rules]) unless input[:rules].nil?
-        data['VisibilityConfig'] = Builders::VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
+        data['Rules'] = Rules.build(input[:rules]) unless input[:rules].nil?
+        data['VisibilityConfig'] = VisibilityConfig.build(input[:visibility_config]) unless input[:visibility_config].nil?
         data['LockToken'] = input[:lock_token] unless input[:lock_token].nil?
-        data['CustomResponseBodies'] = Builders::CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
-        data['CaptchaConfig'] = Builders::CaptchaConfig.build(input[:captcha_config]) unless input[:captcha_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomResponseBodies'] = CustomResponseBodies.build(input[:custom_response_bodies]) unless input[:custom_response_bodies].nil?
+        data['CaptchaConfig'] = CaptchaConfig.build(input[:captcha_config]) unless input[:captcha_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

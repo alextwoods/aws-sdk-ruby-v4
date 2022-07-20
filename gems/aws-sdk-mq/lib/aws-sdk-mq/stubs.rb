@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Mq
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::Mq
         http_resp.headers['Content-Type'] = 'application/json'
         data['brokerArn'] = stub[:broker_arn] unless stub[:broker_arn].nil?
         data['brokerId'] = stub[:broker_id] unless stub[:broker_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,9 +52,9 @@ module AWS::SDK::Mq
         data['authenticationStrategy'] = stub[:authentication_strategy] unless stub[:authentication_strategy].nil?
         data['created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::Mq
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['brokerId'] = stub[:broker_id] unless stub[:broker_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -187,36 +189,36 @@ module AWS::SDK::Mq
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['actionsRequired'] = Stubs::List____listOfActionRequired.stub(stub[:actions_required]) unless stub[:actions_required].nil?
+        data['actionsRequired'] = List____listOfActionRequired.stub(stub[:actions_required]) unless stub[:actions_required].nil?
         data['authenticationStrategy'] = stub[:authentication_strategy] unless stub[:authentication_strategy].nil?
         data['autoMinorVersionUpgrade'] = stub[:auto_minor_version_upgrade] unless stub[:auto_minor_version_upgrade].nil?
         data['brokerArn'] = stub[:broker_arn] unless stub[:broker_arn].nil?
         data['brokerId'] = stub[:broker_id] unless stub[:broker_id].nil?
-        data['brokerInstances'] = Stubs::List____listOfBrokerInstance.stub(stub[:broker_instances]) unless stub[:broker_instances].nil?
+        data['brokerInstances'] = List____listOfBrokerInstance.stub(stub[:broker_instances]) unless stub[:broker_instances].nil?
         data['brokerName'] = stub[:broker_name] unless stub[:broker_name].nil?
         data['brokerState'] = stub[:broker_state] unless stub[:broker_state].nil?
-        data['configurations'] = Stubs::Configurations.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['configurations'] = Configurations.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['deploymentMode'] = stub[:deployment_mode] unless stub[:deployment_mode].nil?
-        data['encryptionOptions'] = Stubs::EncryptionOptions.stub(stub[:encryption_options]) unless stub[:encryption_options].nil?
+        data['encryptionOptions'] = EncryptionOptions.stub(stub[:encryption_options]) unless stub[:encryption_options].nil?
         data['engineType'] = stub[:engine_type] unless stub[:engine_type].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['hostInstanceType'] = stub[:host_instance_type] unless stub[:host_instance_type].nil?
-        data['ldapServerMetadata'] = Stubs::LdapServerMetadataOutput.stub(stub[:ldap_server_metadata]) unless stub[:ldap_server_metadata].nil?
-        data['logs'] = Stubs::LogsSummary.stub(stub[:logs]) unless stub[:logs].nil?
-        data['maintenanceWindowStartTime'] = Stubs::WeeklyStartTime.stub(stub[:maintenance_window_start_time]) unless stub[:maintenance_window_start_time].nil?
+        data['ldapServerMetadata'] = LdapServerMetadataOutput.stub(stub[:ldap_server_metadata]) unless stub[:ldap_server_metadata].nil?
+        data['logs'] = LogsSummary.stub(stub[:logs]) unless stub[:logs].nil?
+        data['maintenanceWindowStartTime'] = WeeklyStartTime.stub(stub[:maintenance_window_start_time]) unless stub[:maintenance_window_start_time].nil?
         data['pendingAuthenticationStrategy'] = stub[:pending_authentication_strategy] unless stub[:pending_authentication_strategy].nil?
         data['pendingEngineVersion'] = stub[:pending_engine_version] unless stub[:pending_engine_version].nil?
         data['pendingHostInstanceType'] = stub[:pending_host_instance_type] unless stub[:pending_host_instance_type].nil?
-        data['pendingLdapServerMetadata'] = Stubs::LdapServerMetadataOutput.stub(stub[:pending_ldap_server_metadata]) unless stub[:pending_ldap_server_metadata].nil?
-        data['pendingSecurityGroups'] = Stubs::List____listOf__string.stub(stub[:pending_security_groups]) unless stub[:pending_security_groups].nil?
+        data['pendingLdapServerMetadata'] = LdapServerMetadataOutput.stub(stub[:pending_ldap_server_metadata]) unless stub[:pending_ldap_server_metadata].nil?
+        data['pendingSecurityGroups'] = List____listOf__string.stub(stub[:pending_security_groups]) unless stub[:pending_security_groups].nil?
         data['publiclyAccessible'] = stub[:publicly_accessible] unless stub[:publicly_accessible].nil?
-        data['securityGroups'] = Stubs::List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['securityGroups'] = List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['storageType'] = stub[:storage_type] unless stub[:storage_type].nil?
-        data['subnetIds'] = Stubs::List____listOf__string.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        data['users'] = Stubs::List____listOfUserSummary.stub(stub[:users]) unless stub[:users].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['subnetIds'] = List____listOf__string.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['users'] = List____listOfUserSummary.stub(stub[:users]) unless stub[:users].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserSummary.stub(element) unless element.nil?
+          data << UserSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -322,7 +324,7 @@ module AWS::SDK::Mq
       def self.stub(stub)
         stub ||= Types::LdapServerMetadataOutput.new
         data = {}
-        data['hosts'] = Stubs::List____listOf__string.stub(stub[:hosts]) unless stub[:hosts].nil?
+        data['hosts'] = List____listOf__string.stub(stub[:hosts]) unless stub[:hosts].nil?
         data['roleBase'] = stub[:role_base] unless stub[:role_base].nil?
         data['roleName'] = stub[:role_name] unless stub[:role_name].nil?
         data['roleSearchMatching'] = stub[:role_search_matching] unless stub[:role_search_matching].nil?
@@ -379,7 +381,7 @@ module AWS::SDK::Mq
         data['auditLogGroup'] = stub[:audit_log_group] unless stub[:audit_log_group].nil?
         data['general'] = stub[:general] unless stub[:general].nil?
         data['generalLogGroup'] = stub[:general_log_group] unless stub[:general_log_group].nil?
-        data['pending'] = Stubs::PendingLogs.stub(stub[:pending]) unless stub[:pending].nil?
+        data['pending'] = PendingLogs.stub(stub[:pending]) unless stub[:pending].nil?
         data
       end
     end
@@ -439,9 +441,9 @@ module AWS::SDK::Mq
       def self.stub(stub)
         stub ||= Types::Configurations.new
         data = {}
-        data['current'] = Stubs::ConfigurationId.stub(stub[:current]) unless stub[:current].nil?
-        data['history'] = Stubs::List____listOfConfigurationId.stub(stub[:history]) unless stub[:history].nil?
-        data['pending'] = Stubs::ConfigurationId.stub(stub[:pending]) unless stub[:pending].nil?
+        data['current'] = ConfigurationId.stub(stub[:current]) unless stub[:current].nil?
+        data['history'] = List____listOfConfigurationId.stub(stub[:history]) unless stub[:history].nil?
+        data['pending'] = ConfigurationId.stub(stub[:pending]) unless stub[:pending].nil?
         data
       end
     end
@@ -480,7 +482,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationId.stub(element) unless element.nil?
+          data << ConfigurationId.stub(element) unless element.nil?
         end
         data
       end
@@ -500,7 +502,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BrokerInstance.stub(element) unless element.nil?
+          data << BrokerInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -522,7 +524,7 @@ module AWS::SDK::Mq
         stub ||= Types::BrokerInstance.new
         data = {}
         data['consoleURL'] = stub[:console_url] unless stub[:console_url].nil?
-        data['endpoints'] = Stubs::List____listOf__string.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['endpoints'] = List____listOf__string.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['ipAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data
       end
@@ -542,7 +544,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionRequired.stub(element) unless element.nil?
+          data << ActionRequired.stub(element) unless element.nil?
         end
         data
       end
@@ -582,10 +584,10 @@ module AWS::SDK::Mq
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['brokerEngineTypes'] = Stubs::List____listOfBrokerEngineType.stub(stub[:broker_engine_types]) unless stub[:broker_engine_types].nil?
+        data['brokerEngineTypes'] = List____listOfBrokerEngineType.stub(stub[:broker_engine_types]) unless stub[:broker_engine_types].nil?
         data['maxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -603,7 +605,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BrokerEngineType.stub(element) unless element.nil?
+          data << BrokerEngineType.stub(element) unless element.nil?
         end
         data
       end
@@ -624,7 +626,7 @@ module AWS::SDK::Mq
         stub ||= Types::BrokerEngineType.new
         data = {}
         data['engineType'] = stub[:engine_type] unless stub[:engine_type].nil?
-        data['engineVersions'] = Stubs::List____listOfEngineVersion.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
+        data['engineVersions'] = List____listOfEngineVersion.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
         data
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EngineVersion.stub(element) unless element.nil?
+          data << EngineVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -681,10 +683,10 @@ module AWS::SDK::Mq
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['brokerInstanceOptions'] = Stubs::List____listOfBrokerInstanceOption.stub(stub[:broker_instance_options]) unless stub[:broker_instance_options].nil?
+        data['brokerInstanceOptions'] = List____listOfBrokerInstanceOption.stub(stub[:broker_instance_options]) unless stub[:broker_instance_options].nil?
         data['maxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -702,7 +704,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BrokerInstanceOption.stub(element) unless element.nil?
+          data << BrokerInstanceOption.stub(element) unless element.nil?
         end
         data
       end
@@ -726,12 +728,12 @@ module AWS::SDK::Mq
       def self.stub(stub)
         stub ||= Types::BrokerInstanceOption.new
         data = {}
-        data['availabilityZones'] = Stubs::List____listOfAvailabilityZone.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['availabilityZones'] = List____listOfAvailabilityZone.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data['engineType'] = stub[:engine_type] unless stub[:engine_type].nil?
         data['hostInstanceType'] = stub[:host_instance_type] unless stub[:host_instance_type].nil?
         data['storageType'] = stub[:storage_type] unless stub[:storage_type].nil?
-        data['supportedDeploymentModes'] = Stubs::List____listOfDeploymentMode.stub(stub[:supported_deployment_modes]) unless stub[:supported_deployment_modes].nil?
-        data['supportedEngineVersions'] = Stubs::List____listOf__string.stub(stub[:supported_engine_versions]) unless stub[:supported_engine_versions].nil?
+        data['supportedDeploymentModes'] = List____listOfDeploymentMode.stub(stub[:supported_deployment_modes]) unless stub[:supported_deployment_modes].nil?
+        data['supportedEngineVersions'] = List____listOf__string.stub(stub[:supported_engine_versions]) unless stub[:supported_engine_versions].nil?
         data
       end
     end
@@ -770,7 +772,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AvailabilityZone.stub(element) unless element.nil?
+          data << AvailabilityZone.stub(element) unless element.nil?
         end
         data
       end
@@ -822,10 +824,10 @@ module AWS::SDK::Mq
         data['engineType'] = stub[:engine_type] unless stub[:engine_type].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -848,7 +850,7 @@ module AWS::SDK::Mq
         data['created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['data'] = stub[:data] unless stub[:data].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -870,10 +872,10 @@ module AWS::SDK::Mq
         http_resp.headers['Content-Type'] = 'application/json'
         data['brokerId'] = stub[:broker_id] unless stub[:broker_id].nil?
         data['consoleAccess'] = stub[:console_access] unless stub[:console_access].nil?
-        data['groups'] = Stubs::List____listOf__string.stub(stub[:groups]) unless stub[:groups].nil?
-        data['pending'] = Stubs::UserPendingChanges.stub(stub[:pending]) unless stub[:pending].nil?
+        data['groups'] = List____listOf__string.stub(stub[:groups]) unless stub[:groups].nil?
+        data['pending'] = UserPendingChanges.stub(stub[:pending]) unless stub[:pending].nil?
         data['username'] = stub[:username] unless stub[:username].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -893,7 +895,7 @@ module AWS::SDK::Mq
         stub ||= Types::UserPendingChanges.new
         data = {}
         data['consoleAccess'] = stub[:console_access] unless stub[:console_access].nil?
-        data['groups'] = Stubs::List____listOf__string.stub(stub[:groups]) unless stub[:groups].nil?
+        data['groups'] = List____listOf__string.stub(stub[:groups]) unless stub[:groups].nil?
         data['pendingChange'] = stub[:pending_change] unless stub[:pending_change].nil?
         data
       end
@@ -912,9 +914,9 @@ module AWS::SDK::Mq
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['brokerSummaries'] = Stubs::List____listOfBrokerSummary.stub(stub[:broker_summaries]) unless stub[:broker_summaries].nil?
+        data['brokerSummaries'] = List____listOfBrokerSummary.stub(stub[:broker_summaries]) unless stub[:broker_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -932,7 +934,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BrokerSummary.stub(element) unless element.nil?
+          data << BrokerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -988,8 +990,8 @@ module AWS::SDK::Mq
         data['configurationId'] = stub[:configuration_id] unless stub[:configuration_id].nil?
         data['maxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['revisions'] = Stubs::List____listOfConfigurationRevision.stub(stub[:revisions]) unless stub[:revisions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['revisions'] = List____listOfConfigurationRevision.stub(stub[:revisions]) unless stub[:revisions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1007,7 +1009,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationRevision.stub(element) unless element.nil?
+          data << ConfigurationRevision.stub(element) unless element.nil?
         end
         data
       end
@@ -1027,10 +1029,10 @@ module AWS::SDK::Mq
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['configurations'] = Stubs::List____listOfConfiguration.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['configurations'] = List____listOfConfiguration.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['maxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1048,7 +1050,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Configuration.stub(element) unless element.nil?
+          data << Configuration.stub(element) unless element.nil?
         end
         data
       end
@@ -1083,9 +1085,9 @@ module AWS::SDK::Mq
         data['engineType'] = stub[:engine_type] unless stub[:engine_type].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1102,8 +1104,8 @@ module AWS::SDK::Mq
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1125,8 +1127,8 @@ module AWS::SDK::Mq
         data['brokerId'] = stub[:broker_id] unless stub[:broker_id].nil?
         data['maxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['users'] = Stubs::List____listOfUserSummary.stub(stub[:users]) unless stub[:users].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['users'] = List____listOfUserSummary.stub(stub[:users]) unless stub[:users].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1167,14 +1169,14 @@ module AWS::SDK::Mq
         data['authenticationStrategy'] = stub[:authentication_strategy] unless stub[:authentication_strategy].nil?
         data['autoMinorVersionUpgrade'] = stub[:auto_minor_version_upgrade] unless stub[:auto_minor_version_upgrade].nil?
         data['brokerId'] = stub[:broker_id] unless stub[:broker_id].nil?
-        data['configuration'] = Stubs::ConfigurationId.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['configuration'] = ConfigurationId.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['hostInstanceType'] = stub[:host_instance_type] unless stub[:host_instance_type].nil?
-        data['ldapServerMetadata'] = Stubs::LdapServerMetadataOutput.stub(stub[:ldap_server_metadata]) unless stub[:ldap_server_metadata].nil?
-        data['logs'] = Stubs::Logs.stub(stub[:logs]) unless stub[:logs].nil?
-        data['maintenanceWindowStartTime'] = Stubs::WeeklyStartTime.stub(stub[:maintenance_window_start_time]) unless stub[:maintenance_window_start_time].nil?
-        data['securityGroups'] = Stubs::List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ldapServerMetadata'] = LdapServerMetadataOutput.stub(stub[:ldap_server_metadata]) unless stub[:ldap_server_metadata].nil?
+        data['logs'] = Logs.stub(stub[:logs]) unless stub[:logs].nil?
+        data['maintenanceWindowStartTime'] = WeeklyStartTime.stub(stub[:maintenance_window_start_time]) unless stub[:maintenance_window_start_time].nil?
+        data['securityGroups'] = List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1218,10 +1220,10 @@ module AWS::SDK::Mq
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['warnings'] = Stubs::List____listOfSanitizationWarning.stub(stub[:warnings]) unless stub[:warnings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['warnings'] = List____listOfSanitizationWarning.stub(stub[:warnings]) unless stub[:warnings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1239,7 +1241,7 @@ module AWS::SDK::Mq
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SanitizationWarning.stub(element) unless element.nil?
+          data << SanitizationWarning.stub(element) unless element.nil?
         end
         data
       end

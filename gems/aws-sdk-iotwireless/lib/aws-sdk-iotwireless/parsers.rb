@@ -15,7 +15,7 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::AssociateAwsAccountWithPartnerAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sidewalk = (Parsers::SidewalkAccountInfo.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.sidewalk = (SidewalkAccountInfo.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data.arn = map['Arn']
         data
       end
@@ -453,7 +453,7 @@ module AWS::SDK::IoTWireless
         data.arn = map['Arn']
         data.name = map['Name']
         data.id = map['Id']
-        data.lo_ra_wan = (Parsers::LoRaWANDeviceProfile.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANDeviceProfile.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data
       end
     end
@@ -474,7 +474,7 @@ module AWS::SDK::IoTWireless
         data.rx_dr_offset1 = map['RxDrOffset1']
         data.rx_data_rate2 = map['RxDataRate2']
         data.rx_freq2 = map['RxFreq2']
-        data.factory_preset_freqs_list = (Parsers::FactoryPresetFreqsList.parse(map['FactoryPresetFreqsList']) unless map['FactoryPresetFreqsList'].nil?)
+        data.factory_preset_freqs_list = (FactoryPresetFreqsList.parse(map['FactoryPresetFreqsList']) unless map['FactoryPresetFreqsList'].nil?)
         data.max_eirp = map['MaxEirp']
         data.max_duty_cycle = map['MaxDutyCycle']
         data.rf_region = map['RfRegion']
@@ -499,10 +499,10 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::GetEventConfigurationByResourceTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device_registration_state = (Parsers::DeviceRegistrationStateResourceTypeEventConfiguration.parse(map['DeviceRegistrationState']) unless map['DeviceRegistrationState'].nil?)
-        data.proximity = (Parsers::ProximityResourceTypeEventConfiguration.parse(map['Proximity']) unless map['Proximity'].nil?)
-        data.join = (Parsers::JoinResourceTypeEventConfiguration.parse(map['Join']) unless map['Join'].nil?)
-        data.connection_status = (Parsers::ConnectionStatusResourceTypeEventConfiguration.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
+        data.device_registration_state = (DeviceRegistrationStateResourceTypeEventConfiguration.parse(map['DeviceRegistrationState']) unless map['DeviceRegistrationState'].nil?)
+        data.proximity = (ProximityResourceTypeEventConfiguration.parse(map['Proximity']) unless map['Proximity'].nil?)
+        data.join = (JoinResourceTypeEventConfiguration.parse(map['Join']) unless map['Join'].nil?)
+        data.connection_status = (ConnectionStatusResourceTypeEventConfiguration.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
         data
       end
     end
@@ -510,7 +510,7 @@ module AWS::SDK::IoTWireless
     class ConnectionStatusResourceTypeEventConfiguration
       def self.parse(map)
         data = Types::ConnectionStatusResourceTypeEventConfiguration.new
-        data.lo_ra_wan = (Parsers::LoRaWANConnectionStatusResourceTypeEventConfiguration.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANConnectionStatusResourceTypeEventConfiguration.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         return data
       end
     end
@@ -526,7 +526,7 @@ module AWS::SDK::IoTWireless
     class JoinResourceTypeEventConfiguration
       def self.parse(map)
         data = Types::JoinResourceTypeEventConfiguration.new
-        data.lo_ra_wan = (Parsers::LoRaWANJoinResourceTypeEventConfiguration.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANJoinResourceTypeEventConfiguration.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         return data
       end
     end
@@ -542,7 +542,7 @@ module AWS::SDK::IoTWireless
     class ProximityResourceTypeEventConfiguration
       def self.parse(map)
         data = Types::ProximityResourceTypeEventConfiguration.new
-        data.sidewalk = (Parsers::SidewalkResourceTypeEventConfiguration.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.sidewalk = (SidewalkResourceTypeEventConfiguration.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         return data
       end
     end
@@ -558,7 +558,7 @@ module AWS::SDK::IoTWireless
     class DeviceRegistrationStateResourceTypeEventConfiguration
       def self.parse(map)
         data = Types::DeviceRegistrationStateResourceTypeEventConfiguration.new
-        data.sidewalk = (Parsers::SidewalkResourceTypeEventConfiguration.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.sidewalk = (SidewalkResourceTypeEventConfiguration.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         return data
       end
     end
@@ -573,7 +573,7 @@ module AWS::SDK::IoTWireless
         data.status = map['Status']
         data.name = map['Name']
         data.description = map['Description']
-        data.lo_ra_wan = (Parsers::LoRaWANFuotaTaskGetInfo.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANFuotaTaskGetInfo.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data.firmware_update_image = map['FirmwareUpdateImage']
         data.firmware_update_role = map['FirmwareUpdateRole']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
@@ -596,8 +596,8 @@ module AWS::SDK::IoTWireless
         data = Types::GetLogLevelsByResourceTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.default_log_level = map['DefaultLogLevel']
-        data.wireless_gateway_log_options = (Parsers::WirelessGatewayLogOptionList.parse(map['WirelessGatewayLogOptions']) unless map['WirelessGatewayLogOptions'].nil?)
-        data.wireless_device_log_options = (Parsers::WirelessDeviceLogOptionList.parse(map['WirelessDeviceLogOptions']) unless map['WirelessDeviceLogOptions'].nil?)
+        data.wireless_gateway_log_options = (WirelessGatewayLogOptionList.parse(map['WirelessGatewayLogOptions']) unless map['WirelessGatewayLogOptions'].nil?)
+        data.wireless_device_log_options = (WirelessDeviceLogOptionList.parse(map['WirelessDeviceLogOptions']) unless map['WirelessDeviceLogOptions'].nil?)
         data
       end
     end
@@ -606,7 +606,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WirelessDeviceLogOption.parse(value) unless value.nil?
+          data << WirelessDeviceLogOption.parse(value) unless value.nil?
         end
         data
       end
@@ -617,7 +617,7 @@ module AWS::SDK::IoTWireless
         data = Types::WirelessDeviceLogOption.new
         data.type = map['Type']
         data.log_level = map['LogLevel']
-        data.events = (Parsers::WirelessDeviceEventLogOptionList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (WirelessDeviceEventLogOptionList.parse(map['Events']) unless map['Events'].nil?)
         return data
       end
     end
@@ -626,7 +626,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WirelessDeviceEventLogOption.parse(value) unless value.nil?
+          data << WirelessDeviceEventLogOption.parse(value) unless value.nil?
         end
         data
       end
@@ -645,7 +645,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WirelessGatewayLogOption.parse(value) unless value.nil?
+          data << WirelessGatewayLogOption.parse(value) unless value.nil?
         end
         data
       end
@@ -656,7 +656,7 @@ module AWS::SDK::IoTWireless
         data = Types::WirelessGatewayLogOption.new
         data.type = map['Type']
         data.log_level = map['LogLevel']
-        data.events = (Parsers::WirelessGatewayEventLogOptionList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (WirelessGatewayEventLogOptionList.parse(map['Events']) unless map['Events'].nil?)
         return data
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WirelessGatewayEventLogOption.parse(value) unless value.nil?
+          data << WirelessGatewayEventLogOption.parse(value) unless value.nil?
         end
         data
       end
@@ -690,7 +690,7 @@ module AWS::SDK::IoTWireless
         data.name = map['Name']
         data.description = map['Description']
         data.status = map['Status']
-        data.lo_ra_wan = (Parsers::LoRaWANMulticastGet.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANMulticastGet.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data
       end
@@ -712,7 +712,7 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::GetMulticastGroupSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lo_ra_wan = (Parsers::LoRaWANMulticastSession.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANMulticastSession.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data
       end
     end
@@ -733,9 +733,9 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::GetNetworkAnalyzerConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.trace_content = (Parsers::TraceContent.parse(map['TraceContent']) unless map['TraceContent'].nil?)
-        data.wireless_devices = (Parsers::WirelessDeviceList.parse(map['WirelessDevices']) unless map['WirelessDevices'].nil?)
-        data.wireless_gateways = (Parsers::WirelessGatewayList.parse(map['WirelessGateways']) unless map['WirelessGateways'].nil?)
+        data.trace_content = (TraceContent.parse(map['TraceContent']) unless map['TraceContent'].nil?)
+        data.wireless_devices = (WirelessDeviceList.parse(map['WirelessDevices']) unless map['WirelessDevices'].nil?)
+        data.wireless_gateways = (WirelessGatewayList.parse(map['WirelessGateways']) unless map['WirelessGateways'].nil?)
         data.description = map['Description']
         data.arn = map['Arn']
         data.name = map['Name']
@@ -777,7 +777,7 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::GetPartnerAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sidewalk = (Parsers::SidewalkAccountInfoWithFingerprint.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.sidewalk = (SidewalkAccountInfoWithFingerprint.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data.account_linked = map['AccountLinked']
         data
       end
@@ -798,10 +798,10 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::GetResourceEventConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device_registration_state = (Parsers::DeviceRegistrationStateEventConfiguration.parse(map['DeviceRegistrationState']) unless map['DeviceRegistrationState'].nil?)
-        data.proximity = (Parsers::ProximityEventConfiguration.parse(map['Proximity']) unless map['Proximity'].nil?)
-        data.join = (Parsers::JoinEventConfiguration.parse(map['Join']) unless map['Join'].nil?)
-        data.connection_status = (Parsers::ConnectionStatusEventConfiguration.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
+        data.device_registration_state = (DeviceRegistrationStateEventConfiguration.parse(map['DeviceRegistrationState']) unless map['DeviceRegistrationState'].nil?)
+        data.proximity = (ProximityEventConfiguration.parse(map['Proximity']) unless map['Proximity'].nil?)
+        data.join = (JoinEventConfiguration.parse(map['Join']) unless map['Join'].nil?)
+        data.connection_status = (ConnectionStatusEventConfiguration.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
         data
       end
     end
@@ -809,7 +809,7 @@ module AWS::SDK::IoTWireless
     class ConnectionStatusEventConfiguration
       def self.parse(map)
         data = Types::ConnectionStatusEventConfiguration.new
-        data.lo_ra_wan = (Parsers::LoRaWANConnectionStatusEventNotificationConfigurations.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANConnectionStatusEventNotificationConfigurations.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data.wireless_gateway_id_event_topic = map['WirelessGatewayIdEventTopic']
         return data
       end
@@ -826,7 +826,7 @@ module AWS::SDK::IoTWireless
     class JoinEventConfiguration
       def self.parse(map)
         data = Types::JoinEventConfiguration.new
-        data.lo_ra_wan = (Parsers::LoRaWANJoinEventNotificationConfigurations.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANJoinEventNotificationConfigurations.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data.wireless_device_id_event_topic = map['WirelessDeviceIdEventTopic']
         return data
       end
@@ -843,7 +843,7 @@ module AWS::SDK::IoTWireless
     class ProximityEventConfiguration
       def self.parse(map)
         data = Types::ProximityEventConfiguration.new
-        data.sidewalk = (Parsers::SidewalkEventNotificationConfigurations.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.sidewalk = (SidewalkEventNotificationConfigurations.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data.wireless_device_id_event_topic = map['WirelessDeviceIdEventTopic']
         return data
       end
@@ -860,7 +860,7 @@ module AWS::SDK::IoTWireless
     class DeviceRegistrationStateEventConfiguration
       def self.parse(map)
         data = Types::DeviceRegistrationStateEventConfiguration.new
-        data.sidewalk = (Parsers::SidewalkEventNotificationConfigurations.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.sidewalk = (SidewalkEventNotificationConfigurations.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data.wireless_device_id_event_topic = map['WirelessDeviceIdEventTopic']
         return data
       end
@@ -896,7 +896,7 @@ module AWS::SDK::IoTWireless
         data.arn = map['Arn']
         data.name = map['Name']
         data.id = map['Id']
-        data.lo_ra_wan = (Parsers::LoRaWANGetServiceProfileInfo.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANGetServiceProfileInfo.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data
       end
     end
@@ -940,8 +940,8 @@ module AWS::SDK::IoTWireless
         data.arn = map['Arn']
         data.thing_name = map['ThingName']
         data.thing_arn = map['ThingArn']
-        data.lo_ra_wan = (Parsers::LoRaWANDevice.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
-        data.sidewalk = (Parsers::SidewalkDevice.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.lo_ra_wan = (LoRaWANDevice.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.sidewalk = (SidewalkDevice.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data
       end
     end
@@ -952,7 +952,7 @@ module AWS::SDK::IoTWireless
         data.amazon_id = map['AmazonId']
         data.sidewalk_id = map['SidewalkId']
         data.sidewalk_manufacturing_sn = map['SidewalkManufacturingSn']
-        data.device_certificates = (Parsers::DeviceCertificateList.parse(map['DeviceCertificates']) unless map['DeviceCertificates'].nil?)
+        data.device_certificates = (DeviceCertificateList.parse(map['DeviceCertificates']) unless map['DeviceCertificates'].nil?)
         return data
       end
     end
@@ -961,7 +961,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CertificateList.parse(value) unless value.nil?
+          data << CertificateList.parse(value) unless value.nil?
         end
         data
       end
@@ -982,11 +982,11 @@ module AWS::SDK::IoTWireless
         data.dev_eui = map['DevEui']
         data.device_profile_id = map['DeviceProfileId']
         data.service_profile_id = map['ServiceProfileId']
-        data.otaa_v1_1 = (Parsers::OtaaV1_1.parse(map['OtaaV1_1']) unless map['OtaaV1_1'].nil?)
-        data.otaa_v1_0_x = (Parsers::OtaaV1_0_x.parse(map['OtaaV1_0_x']) unless map['OtaaV1_0_x'].nil?)
-        data.abp_v1_1 = (Parsers::AbpV1_1.parse(map['AbpV1_1']) unless map['AbpV1_1'].nil?)
-        data.abp_v1_0_x = (Parsers::AbpV1_0_x.parse(map['AbpV1_0_x']) unless map['AbpV1_0_x'].nil?)
-        data.f_ports = (Parsers::FPorts.parse(map['FPorts']) unless map['FPorts'].nil?)
+        data.otaa_v1_1 = (OtaaV1_1.parse(map['OtaaV1_1']) unless map['OtaaV1_1'].nil?)
+        data.otaa_v1_0_x = (OtaaV1_0_x.parse(map['OtaaV1_0_x']) unless map['OtaaV1_0_x'].nil?)
+        data.abp_v1_1 = (AbpV1_1.parse(map['AbpV1_1']) unless map['AbpV1_1'].nil?)
+        data.abp_v1_0_x = (AbpV1_0_x.parse(map['AbpV1_0_x']) unless map['AbpV1_0_x'].nil?)
+        data.f_ports = (FPorts.parse(map['FPorts']) unless map['FPorts'].nil?)
         return data
       end
     end
@@ -1005,7 +1005,7 @@ module AWS::SDK::IoTWireless
       def self.parse(map)
         data = Types::AbpV1_0_x.new
         data.dev_addr = map['DevAddr']
-        data.session_keys = (Parsers::SessionKeysAbpV1_0_x.parse(map['SessionKeys']) unless map['SessionKeys'].nil?)
+        data.session_keys = (SessionKeysAbpV1_0_x.parse(map['SessionKeys']) unless map['SessionKeys'].nil?)
         data.f_cnt_start = map['FCntStart']
         return data
       end
@@ -1024,7 +1024,7 @@ module AWS::SDK::IoTWireless
       def self.parse(map)
         data = Types::AbpV1_1.new
         data.dev_addr = map['DevAddr']
-        data.session_keys = (Parsers::SessionKeysAbpV1_1.parse(map['SessionKeys']) unless map['SessionKeys'].nil?)
+        data.session_keys = (SessionKeysAbpV1_1.parse(map['SessionKeys']) unless map['SessionKeys'].nil?)
         data.f_cnt_start = map['FCntStart']
         return data
       end
@@ -1068,8 +1068,8 @@ module AWS::SDK::IoTWireless
         map = Hearth::JSON.load(http_resp.body)
         data.wireless_device_id = map['WirelessDeviceId']
         data.last_uplink_received_at = map['LastUplinkReceivedAt']
-        data.lo_ra_wan = (Parsers::LoRaWANDeviceMetadata.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
-        data.sidewalk = (Parsers::SidewalkDeviceMetadata.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.lo_ra_wan = (LoRaWANDeviceMetadata.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.sidewalk = (SidewalkDeviceMetadata.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data
       end
     end
@@ -1093,7 +1093,7 @@ module AWS::SDK::IoTWireless
         data.data_rate = map['DataRate']
         data.frequency = map['Frequency']
         data.timestamp = map['Timestamp']
-        data.gateways = (Parsers::LoRaWANGatewayMetadataList.parse(map['Gateways']) unless map['Gateways'].nil?)
+        data.gateways = (LoRaWANGatewayMetadataList.parse(map['Gateways']) unless map['Gateways'].nil?)
         return data
       end
     end
@@ -1102,7 +1102,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LoRaWANGatewayMetadata.parse(value) unless value.nil?
+          data << LoRaWANGatewayMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1126,7 +1126,7 @@ module AWS::SDK::IoTWireless
         data.name = map['Name']
         data.id = map['Id']
         data.description = map['Description']
-        data.lo_ra_wan = (Parsers::LoRaWANGateway.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANGateway.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data.arn = map['Arn']
         data.thing_name = map['ThingName']
         data.thing_arn = map['ThingArn']
@@ -1139,9 +1139,9 @@ module AWS::SDK::IoTWireless
         data = Types::LoRaWANGateway.new
         data.gateway_eui = map['GatewayEui']
         data.rf_region = map['RfRegion']
-        data.join_eui_filters = (Parsers::JoinEuiFilters.parse(map['JoinEuiFilters']) unless map['JoinEuiFilters'].nil?)
-        data.net_id_filters = (Parsers::NetIdFilters.parse(map['NetIdFilters']) unless map['NetIdFilters'].nil?)
-        data.sub_bands = (Parsers::SubBands.parse(map['SubBands']) unless map['SubBands'].nil?)
+        data.join_eui_filters = (JoinEuiFilters.parse(map['JoinEuiFilters']) unless map['JoinEuiFilters'].nil?)
+        data.net_id_filters = (NetIdFilters.parse(map['NetIdFilters']) unless map['NetIdFilters'].nil?)
+        data.sub_bands = (SubBands.parse(map['SubBands']) unless map['SubBands'].nil?)
         return data
       end
     end
@@ -1170,7 +1170,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JoinEuiRange.parse(value) unless value.nil?
+          data << JoinEuiRange.parse(value) unless value.nil?
         end
         data
       end
@@ -1202,7 +1202,7 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::GetWirelessGatewayFirmwareInformationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lo_ra_wan = (Parsers::LoRaWANGatewayCurrentVersion.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANGatewayCurrentVersion.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data
       end
     end
@@ -1210,7 +1210,7 @@ module AWS::SDK::IoTWireless
     class LoRaWANGatewayCurrentVersion
       def self.parse(map)
         data = Types::LoRaWANGatewayCurrentVersion.new
-        data.current_version = (Parsers::LoRaWANGatewayVersion.parse(map['CurrentVersion']) unless map['CurrentVersion'].nil?)
+        data.current_version = (LoRaWANGatewayVersion.parse(map['CurrentVersion']) unless map['CurrentVersion'].nil?)
         return data
       end
     end
@@ -1258,7 +1258,7 @@ module AWS::SDK::IoTWireless
         map = Hearth::JSON.load(http_resp.body)
         data.auto_create_tasks = map['AutoCreateTasks']
         data.name = map['Name']
-        data.update = (Parsers::UpdateWirelessGatewayTaskCreate.parse(map['Update']) unless map['Update'].nil?)
+        data.update = (UpdateWirelessGatewayTaskCreate.parse(map['Update']) unless map['Update'].nil?)
         data.arn = map['Arn']
         data
       end
@@ -1269,7 +1269,7 @@ module AWS::SDK::IoTWireless
         data = Types::UpdateWirelessGatewayTaskCreate.new
         data.update_data_source = map['UpdateDataSource']
         data.update_data_role = map['UpdateDataRole']
-        data.lo_ra_wan = (Parsers::LoRaWANUpdateGatewayTaskCreate.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANUpdateGatewayTaskCreate.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         return data
       end
     end
@@ -1279,8 +1279,8 @@ module AWS::SDK::IoTWireless
         data = Types::LoRaWANUpdateGatewayTaskCreate.new
         data.update_signature = map['UpdateSignature']
         data.sig_key_crc = map['SigKeyCrc']
-        data.current_version = (Parsers::LoRaWANGatewayVersion.parse(map['CurrentVersion']) unless map['CurrentVersion'].nil?)
-        data.update_version = (Parsers::LoRaWANGatewayVersion.parse(map['UpdateVersion']) unless map['UpdateVersion'].nil?)
+        data.current_version = (LoRaWANGatewayVersion.parse(map['CurrentVersion']) unless map['CurrentVersion'].nil?)
+        data.update_version = (LoRaWANGatewayVersion.parse(map['UpdateVersion']) unless map['UpdateVersion'].nil?)
         return data
       end
     end
@@ -1291,7 +1291,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListDestinationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.destination_list = (Parsers::DestinationList.parse(map['DestinationList']) unless map['DestinationList'].nil?)
+        data.destination_list = (DestinationList.parse(map['DestinationList']) unless map['DestinationList'].nil?)
         data
       end
     end
@@ -1300,7 +1300,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Destinations.parse(value) unless value.nil?
+          data << Destinations.parse(value) unless value.nil?
         end
         data
       end
@@ -1325,7 +1325,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListDeviceProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.device_profile_list = (Parsers::DeviceProfileList.parse(map['DeviceProfileList']) unless map['DeviceProfileList'].nil?)
+        data.device_profile_list = (DeviceProfileList.parse(map['DeviceProfileList']) unless map['DeviceProfileList'].nil?)
         data
       end
     end
@@ -1334,7 +1334,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceProfile.parse(value) unless value.nil?
+          data << DeviceProfile.parse(value) unless value.nil?
         end
         data
       end
@@ -1356,7 +1356,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListEventConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.event_configurations_list = (Parsers::EventConfigurationsList.parse(map['EventConfigurationsList']) unless map['EventConfigurationsList'].nil?)
+        data.event_configurations_list = (EventConfigurationsList.parse(map['EventConfigurationsList']) unless map['EventConfigurationsList'].nil?)
         data
       end
     end
@@ -1365,7 +1365,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventConfigurationItem.parse(value) unless value.nil?
+          data << EventConfigurationItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1377,7 +1377,7 @@ module AWS::SDK::IoTWireless
         data.identifier = map['Identifier']
         data.identifier_type = map['IdentifierType']
         data.partner_type = map['PartnerType']
-        data.events = (Parsers::EventNotificationItemConfigurations.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventNotificationItemConfigurations.parse(map['Events']) unless map['Events'].nil?)
         return data
       end
     end
@@ -1385,10 +1385,10 @@ module AWS::SDK::IoTWireless
     class EventNotificationItemConfigurations
       def self.parse(map)
         data = Types::EventNotificationItemConfigurations.new
-        data.device_registration_state = (Parsers::DeviceRegistrationStateEventConfiguration.parse(map['DeviceRegistrationState']) unless map['DeviceRegistrationState'].nil?)
-        data.proximity = (Parsers::ProximityEventConfiguration.parse(map['Proximity']) unless map['Proximity'].nil?)
-        data.join = (Parsers::JoinEventConfiguration.parse(map['Join']) unless map['Join'].nil?)
-        data.connection_status = (Parsers::ConnectionStatusEventConfiguration.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
+        data.device_registration_state = (DeviceRegistrationStateEventConfiguration.parse(map['DeviceRegistrationState']) unless map['DeviceRegistrationState'].nil?)
+        data.proximity = (ProximityEventConfiguration.parse(map['Proximity']) unless map['Proximity'].nil?)
+        data.join = (JoinEventConfiguration.parse(map['Join']) unless map['Join'].nil?)
+        data.connection_status = (ConnectionStatusEventConfiguration.parse(map['ConnectionStatus']) unless map['ConnectionStatus'].nil?)
         return data
       end
     end
@@ -1399,7 +1399,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListFuotaTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.fuota_task_list = (Parsers::FuotaTaskList.parse(map['FuotaTaskList']) unless map['FuotaTaskList'].nil?)
+        data.fuota_task_list = (FuotaTaskList.parse(map['FuotaTaskList']) unless map['FuotaTaskList'].nil?)
         data
       end
     end
@@ -1408,7 +1408,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FuotaTask.parse(value) unless value.nil?
+          data << FuotaTask.parse(value) unless value.nil?
         end
         data
       end
@@ -1430,7 +1430,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListMulticastGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.multicast_group_list = (Parsers::MulticastGroupList.parse(map['MulticastGroupList']) unless map['MulticastGroupList'].nil?)
+        data.multicast_group_list = (MulticastGroupList.parse(map['MulticastGroupList']) unless map['MulticastGroupList'].nil?)
         data
       end
     end
@@ -1439,7 +1439,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MulticastGroup.parse(value) unless value.nil?
+          data << MulticastGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -1461,7 +1461,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListMulticastGroupsByFuotaTaskOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.multicast_group_list = (Parsers::MulticastGroupListByFuotaTask.parse(map['MulticastGroupList']) unless map['MulticastGroupList'].nil?)
+        data.multicast_group_list = (MulticastGroupListByFuotaTask.parse(map['MulticastGroupList']) unless map['MulticastGroupList'].nil?)
         data
       end
     end
@@ -1470,7 +1470,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MulticastGroupByFuotaTask.parse(value) unless value.nil?
+          data << MulticastGroupByFuotaTask.parse(value) unless value.nil?
         end
         data
       end
@@ -1490,7 +1490,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListNetworkAnalyzerConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.network_analyzer_configuration_list = (Parsers::NetworkAnalyzerConfigurationList.parse(map['NetworkAnalyzerConfigurationList']) unless map['NetworkAnalyzerConfigurationList'].nil?)
+        data.network_analyzer_configuration_list = (NetworkAnalyzerConfigurationList.parse(map['NetworkAnalyzerConfigurationList']) unless map['NetworkAnalyzerConfigurationList'].nil?)
         data
       end
     end
@@ -1499,7 +1499,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkAnalyzerConfigurations.parse(value) unless value.nil?
+          data << NetworkAnalyzerConfigurations.parse(value) unless value.nil?
         end
         data
       end
@@ -1520,7 +1520,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListPartnerAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.sidewalk = (Parsers::SidewalkAccountList.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.sidewalk = (SidewalkAccountList.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data
       end
     end
@@ -1529,7 +1529,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SidewalkAccountInfoWithFingerprint.parse(value) unless value.nil?
+          data << SidewalkAccountInfoWithFingerprint.parse(value) unless value.nil?
         end
         data
       end
@@ -1541,7 +1541,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListQueuedMessagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.downlink_queue_messages_list = (Parsers::DownlinkQueueMessagesList.parse(map['DownlinkQueueMessagesList']) unless map['DownlinkQueueMessagesList'].nil?)
+        data.downlink_queue_messages_list = (DownlinkQueueMessagesList.parse(map['DownlinkQueueMessagesList']) unless map['DownlinkQueueMessagesList'].nil?)
         data
       end
     end
@@ -1550,7 +1550,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DownlinkQueueMessage.parse(value) unless value.nil?
+          data << DownlinkQueueMessage.parse(value) unless value.nil?
         end
         data
       end
@@ -1562,7 +1562,7 @@ module AWS::SDK::IoTWireless
         data.message_id = map['MessageId']
         data.transmit_mode = map['TransmitMode']
         data.received_at = map['ReceivedAt']
-        data.lo_ra_wan = (Parsers::LoRaWANSendDataToDevice.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANSendDataToDevice.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         return data
       end
     end
@@ -1581,7 +1581,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListServiceProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.service_profile_list = (Parsers::ServiceProfileList.parse(map['ServiceProfileList']) unless map['ServiceProfileList'].nil?)
+        data.service_profile_list = (ServiceProfileList.parse(map['ServiceProfileList']) unless map['ServiceProfileList'].nil?)
         data
       end
     end
@@ -1590,7 +1590,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServiceProfile.parse(value) unless value.nil?
+          data << ServiceProfile.parse(value) unless value.nil?
         end
         data
       end
@@ -1611,7 +1611,7 @@ module AWS::SDK::IoTWireless
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1620,7 +1620,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -1641,7 +1641,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListWirelessDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.wireless_device_list = (Parsers::WirelessDeviceStatisticsList.parse(map['WirelessDeviceList']) unless map['WirelessDeviceList'].nil?)
+        data.wireless_device_list = (WirelessDeviceStatisticsList.parse(map['WirelessDeviceList']) unless map['WirelessDeviceList'].nil?)
         data
       end
     end
@@ -1650,7 +1650,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WirelessDeviceStatistics.parse(value) unless value.nil?
+          data << WirelessDeviceStatistics.parse(value) unless value.nil?
         end
         data
       end
@@ -1665,8 +1665,8 @@ module AWS::SDK::IoTWireless
         data.name = map['Name']
         data.destination_name = map['DestinationName']
         data.last_uplink_received_at = map['LastUplinkReceivedAt']
-        data.lo_ra_wan = (Parsers::LoRaWANListDevice.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
-        data.sidewalk = (Parsers::SidewalkListDevice.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
+        data.lo_ra_wan = (LoRaWANListDevice.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.sidewalk = (SidewalkListDevice.parse(map['Sidewalk']) unless map['Sidewalk'].nil?)
         data.fuota_device_status = map['FuotaDeviceStatus']
         data.multicast_device_status = map['MulticastDeviceStatus']
         data.mc_group_id = map['McGroupId']
@@ -1680,7 +1680,7 @@ module AWS::SDK::IoTWireless
         data.amazon_id = map['AmazonId']
         data.sidewalk_id = map['SidewalkId']
         data.sidewalk_manufacturing_sn = map['SidewalkManufacturingSn']
-        data.device_certificates = (Parsers::DeviceCertificateList.parse(map['DeviceCertificates']) unless map['DeviceCertificates'].nil?)
+        data.device_certificates = (DeviceCertificateList.parse(map['DeviceCertificates']) unless map['DeviceCertificates'].nil?)
         return data
       end
     end
@@ -1699,7 +1699,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListWirelessGatewayTaskDefinitionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.task_definitions = (Parsers::WirelessGatewayTaskDefinitionList.parse(map['TaskDefinitions']) unless map['TaskDefinitions'].nil?)
+        data.task_definitions = (WirelessGatewayTaskDefinitionList.parse(map['TaskDefinitions']) unless map['TaskDefinitions'].nil?)
         data
       end
     end
@@ -1708,7 +1708,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UpdateWirelessGatewayTaskEntry.parse(value) unless value.nil?
+          data << UpdateWirelessGatewayTaskEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -1718,7 +1718,7 @@ module AWS::SDK::IoTWireless
       def self.parse(map)
         data = Types::UpdateWirelessGatewayTaskEntry.new
         data.id = map['Id']
-        data.lo_ra_wan = (Parsers::LoRaWANUpdateGatewayTaskEntry.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANUpdateGatewayTaskEntry.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data.arn = map['Arn']
         return data
       end
@@ -1727,8 +1727,8 @@ module AWS::SDK::IoTWireless
     class LoRaWANUpdateGatewayTaskEntry
       def self.parse(map)
         data = Types::LoRaWANUpdateGatewayTaskEntry.new
-        data.current_version = (Parsers::LoRaWANGatewayVersion.parse(map['CurrentVersion']) unless map['CurrentVersion'].nil?)
-        data.update_version = (Parsers::LoRaWANGatewayVersion.parse(map['UpdateVersion']) unless map['UpdateVersion'].nil?)
+        data.current_version = (LoRaWANGatewayVersion.parse(map['CurrentVersion']) unless map['CurrentVersion'].nil?)
+        data.update_version = (LoRaWANGatewayVersion.parse(map['UpdateVersion']) unless map['UpdateVersion'].nil?)
         return data
       end
     end
@@ -1739,7 +1739,7 @@ module AWS::SDK::IoTWireless
         data = Types::ListWirelessGatewaysOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.wireless_gateway_list = (Parsers::WirelessGatewayStatisticsList.parse(map['WirelessGatewayList']) unless map['WirelessGatewayList'].nil?)
+        data.wireless_gateway_list = (WirelessGatewayStatisticsList.parse(map['WirelessGatewayList']) unless map['WirelessGatewayList'].nil?)
         data
       end
     end
@@ -1748,7 +1748,7 @@ module AWS::SDK::IoTWireless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WirelessGatewayStatistics.parse(value) unless value.nil?
+          data << WirelessGatewayStatistics.parse(value) unless value.nil?
         end
         data
       end
@@ -1761,7 +1761,7 @@ module AWS::SDK::IoTWireless
         data.id = map['Id']
         data.name = map['Name']
         data.description = map['Description']
-        data.lo_ra_wan = (Parsers::LoRaWANGateway.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
+        data.lo_ra_wan = (LoRaWANGateway.parse(map['LoRaWAN']) unless map['LoRaWAN'].nil?)
         data.last_uplink_received_at = map['LastUplinkReceivedAt']
         return data
       end

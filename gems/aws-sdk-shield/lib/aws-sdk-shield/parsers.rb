@@ -67,7 +67,7 @@ module AWS::SDK::Shield
         map = Hearth::JSON.load(body)
         data.message = map['message']
         data.reason = map['reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
         data
       end
     end
@@ -75,7 +75,7 @@ module AWS::SDK::Shield
     class ValidationExceptionFieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          ValidationExceptionField.parse(value) unless value.nil?
         end
       end
     end
@@ -283,7 +283,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attack = (Parsers::AttackDetail.parse(map['Attack']) unless map['Attack'].nil?)
+        data.attack = (AttackDetail.parse(map['Attack']) unless map['Attack'].nil?)
         data
       end
     end
@@ -293,12 +293,12 @@ module AWS::SDK::Shield
         data = Types::AttackDetail.new
         data.attack_id = map['AttackId']
         data.resource_arn = map['ResourceArn']
-        data.sub_resources = (Parsers::SubResourceSummaryList.parse(map['SubResources']) unless map['SubResources'].nil?)
+        data.sub_resources = (SubResourceSummaryList.parse(map['SubResources']) unless map['SubResources'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.attack_counters = (Parsers::SummarizedCounterList.parse(map['AttackCounters']) unless map['AttackCounters'].nil?)
-        data.attack_properties = (Parsers::AttackProperties.parse(map['AttackProperties']) unless map['AttackProperties'].nil?)
-        data.mitigations = (Parsers::MitigationList.parse(map['Mitigations']) unless map['Mitigations'].nil?)
+        data.attack_counters = (SummarizedCounterList.parse(map['AttackCounters']) unless map['AttackCounters'].nil?)
+        data.attack_properties = (AttackProperties.parse(map['AttackProperties']) unless map['AttackProperties'].nil?)
+        data.mitigations = (MitigationList.parse(map['Mitigations']) unless map['Mitigations'].nil?)
         return data
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::Shield
     class MitigationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Mitigation.parse(value) unless value.nil?
+          Mitigation.parse(value) unless value.nil?
         end
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::Shield
     class AttackProperties
       def self.parse(list)
         list.map do |value|
-          Parsers::AttackProperty.parse(value) unless value.nil?
+          AttackProperty.parse(value) unless value.nil?
         end
       end
     end
@@ -332,7 +332,7 @@ module AWS::SDK::Shield
         data = Types::AttackProperty.new
         data.attack_layer = map['AttackLayer']
         data.attack_property_identifier = map['AttackPropertyIdentifier']
-        data.top_contributors = (Parsers::TopContributors.parse(map['TopContributors']) unless map['TopContributors'].nil?)
+        data.top_contributors = (TopContributors.parse(map['TopContributors']) unless map['TopContributors'].nil?)
         data.unit = map['Unit']
         data.total = map['Total']
         return data
@@ -342,7 +342,7 @@ module AWS::SDK::Shield
     class TopContributors
       def self.parse(list)
         list.map do |value|
-          Parsers::Contributor.parse(value) unless value.nil?
+          Contributor.parse(value) unless value.nil?
         end
       end
     end
@@ -359,7 +359,7 @@ module AWS::SDK::Shield
     class SummarizedCounterList
       def self.parse(list)
         list.map do |value|
-          Parsers::SummarizedCounter.parse(value) unless value.nil?
+          SummarizedCounter.parse(value) unless value.nil?
         end
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::Shield
     class SubResourceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::SubResourceSummary.parse(value) unless value.nil?
+          SubResourceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -390,8 +390,8 @@ module AWS::SDK::Shield
         data = Types::SubResourceSummary.new
         data.type = map['Type']
         data.id = map['Id']
-        data.attack_vectors = (Parsers::SummarizedAttackVectorList.parse(map['AttackVectors']) unless map['AttackVectors'].nil?)
-        data.counters = (Parsers::SummarizedCounterList.parse(map['Counters']) unless map['Counters'].nil?)
+        data.attack_vectors = (SummarizedAttackVectorList.parse(map['AttackVectors']) unless map['AttackVectors'].nil?)
+        data.counters = (SummarizedCounterList.parse(map['Counters']) unless map['Counters'].nil?)
         return data
       end
     end
@@ -399,7 +399,7 @@ module AWS::SDK::Shield
     class SummarizedAttackVectorList
       def self.parse(list)
         list.map do |value|
-          Parsers::SummarizedAttackVector.parse(value) unless value.nil?
+          SummarizedAttackVector.parse(value) unless value.nil?
         end
       end
     end
@@ -408,7 +408,7 @@ module AWS::SDK::Shield
       def self.parse(map)
         data = Types::SummarizedAttackVector.new
         data.vector_type = map['VectorType']
-        data.vector_counters = (Parsers::SummarizedCounterList.parse(map['VectorCounters']) unless map['VectorCounters'].nil?)
+        data.vector_counters = (SummarizedCounterList.parse(map['VectorCounters']) unless map['VectorCounters'].nil?)
         return data
       end
     end
@@ -432,8 +432,8 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.time_range = (Parsers::TimeRange.parse(map['TimeRange']) unless map['TimeRange'].nil?)
-        data.data_items = (Parsers::AttackStatisticsDataList.parse(map['DataItems']) unless map['DataItems'].nil?)
+        data.time_range = (TimeRange.parse(map['TimeRange']) unless map['TimeRange'].nil?)
+        data.data_items = (AttackStatisticsDataList.parse(map['DataItems']) unless map['DataItems'].nil?)
         data
       end
     end
@@ -441,7 +441,7 @@ module AWS::SDK::Shield
     class AttackStatisticsDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::AttackStatisticsDataItem.parse(value) unless value.nil?
+          AttackStatisticsDataItem.parse(value) unless value.nil?
         end
       end
     end
@@ -449,7 +449,7 @@ module AWS::SDK::Shield
     class AttackStatisticsDataItem
       def self.parse(map)
         data = Types::AttackStatisticsDataItem.new
-        data.attack_volume = (Parsers::AttackVolume.parse(map['AttackVolume']) unless map['AttackVolume'].nil?)
+        data.attack_volume = (AttackVolume.parse(map['AttackVolume']) unless map['AttackVolume'].nil?)
         data.attack_count = map['AttackCount']
         return data
       end
@@ -458,9 +458,9 @@ module AWS::SDK::Shield
     class AttackVolume
       def self.parse(map)
         data = Types::AttackVolume.new
-        data.bits_per_second = (Parsers::AttackVolumeStatistics.parse(map['BitsPerSecond']) unless map['BitsPerSecond'].nil?)
-        data.packets_per_second = (Parsers::AttackVolumeStatistics.parse(map['PacketsPerSecond']) unless map['PacketsPerSecond'].nil?)
-        data.requests_per_second = (Parsers::AttackVolumeStatistics.parse(map['RequestsPerSecond']) unless map['RequestsPerSecond'].nil?)
+        data.bits_per_second = (AttackVolumeStatistics.parse(map['BitsPerSecond']) unless map['BitsPerSecond'].nil?)
+        data.packets_per_second = (AttackVolumeStatistics.parse(map['PacketsPerSecond']) unless map['PacketsPerSecond'].nil?)
+        data.requests_per_second = (AttackVolumeStatistics.parse(map['RequestsPerSecond']) unless map['RequestsPerSecond'].nil?)
         return data
       end
     end
@@ -490,7 +490,7 @@ module AWS::SDK::Shield
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.role_arn = map['RoleArn']
-        data.log_bucket_list = (Parsers::LogBucketList.parse(map['LogBucketList']) unless map['LogBucketList'].nil?)
+        data.log_bucket_list = (LogBucketList.parse(map['LogBucketList']) unless map['LogBucketList'].nil?)
         data
       end
     end
@@ -510,7 +510,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.emergency_contact_list = (Parsers::EmergencyContactList.parse(map['EmergencyContactList']) unless map['EmergencyContactList'].nil?)
+        data.emergency_contact_list = (EmergencyContactList.parse(map['EmergencyContactList']) unless map['EmergencyContactList'].nil?)
         data
       end
     end
@@ -518,7 +518,7 @@ module AWS::SDK::Shield
     class EmergencyContactList
       def self.parse(list)
         list.map do |value|
-          Parsers::EmergencyContact.parse(value) unless value.nil?
+          EmergencyContact.parse(value) unless value.nil?
         end
       end
     end
@@ -540,7 +540,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.protection = (Parsers::Protection.parse(map['Protection']) unless map['Protection'].nil?)
+        data.protection = (Protection.parse(map['Protection']) unless map['Protection'].nil?)
         data
       end
     end
@@ -551,9 +551,9 @@ module AWS::SDK::Shield
         data.id = map['Id']
         data.name = map['Name']
         data.resource_arn = map['ResourceArn']
-        data.health_check_ids = (Parsers::HealthCheckIds.parse(map['HealthCheckIds']) unless map['HealthCheckIds'].nil?)
+        data.health_check_ids = (HealthCheckIds.parse(map['HealthCheckIds']) unless map['HealthCheckIds'].nil?)
         data.protection_arn = map['ProtectionArn']
-        data.application_layer_automatic_response_configuration = (Parsers::ApplicationLayerAutomaticResponseConfiguration.parse(map['ApplicationLayerAutomaticResponseConfiguration']) unless map['ApplicationLayerAutomaticResponseConfiguration'].nil?)
+        data.application_layer_automatic_response_configuration = (ApplicationLayerAutomaticResponseConfiguration.parse(map['ApplicationLayerAutomaticResponseConfiguration']) unless map['ApplicationLayerAutomaticResponseConfiguration'].nil?)
         return data
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::Shield
       def self.parse(map)
         data = Types::ApplicationLayerAutomaticResponseConfiguration.new
         data.status = map['Status']
-        data.action = (Parsers::ResponseAction.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (ResponseAction.parse(map['Action']) unless map['Action'].nil?)
         return data
       end
     end
@@ -570,8 +570,8 @@ module AWS::SDK::Shield
     class ResponseAction
       def self.parse(map)
         data = Types::ResponseAction.new
-        data.block = (Parsers::BlockAction.parse(map['Block']) unless map['Block'].nil?)
-        data.count = (Parsers::CountAction.parse(map['Count']) unless map['Count'].nil?)
+        data.block = (BlockAction.parse(map['Block']) unless map['Block'].nil?)
+        data.count = (CountAction.parse(map['Count']) unless map['Count'].nil?)
         return data
       end
     end
@@ -605,7 +605,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.protection_group = (Parsers::ProtectionGroup.parse(map['ProtectionGroup']) unless map['ProtectionGroup'].nil?)
+        data.protection_group = (ProtectionGroup.parse(map['ProtectionGroup']) unless map['ProtectionGroup'].nil?)
         data
       end
     end
@@ -617,7 +617,7 @@ module AWS::SDK::Shield
         data.aggregation = map['Aggregation']
         data.pattern = map['Pattern']
         data.resource_type = map['ResourceType']
-        data.members = (Parsers::ProtectionGroupMembers.parse(map['Members']) unless map['Members'].nil?)
+        data.members = (ProtectionGroupMembers.parse(map['Members']) unless map['Members'].nil?)
         data.protection_group_arn = map['ProtectionGroupArn']
         return data
       end
@@ -638,7 +638,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subscription = (Parsers::Subscription.parse(map['Subscription']) unless map['Subscription'].nil?)
+        data.subscription = (Subscription.parse(map['Subscription']) unless map['Subscription'].nil?)
         data
       end
     end
@@ -650,9 +650,9 @@ module AWS::SDK::Shield
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.time_commitment_in_seconds = map['TimeCommitmentInSeconds']
         data.auto_renew = map['AutoRenew']
-        data.limits = (Parsers::Limits.parse(map['Limits']) unless map['Limits'].nil?)
+        data.limits = (Limits.parse(map['Limits']) unless map['Limits'].nil?)
         data.proactive_engagement_status = map['ProactiveEngagementStatus']
-        data.subscription_limits = (Parsers::SubscriptionLimits.parse(map['SubscriptionLimits']) unless map['SubscriptionLimits'].nil?)
+        data.subscription_limits = (SubscriptionLimits.parse(map['SubscriptionLimits']) unless map['SubscriptionLimits'].nil?)
         data.subscription_arn = map['SubscriptionArn']
         return data
       end
@@ -661,8 +661,8 @@ module AWS::SDK::Shield
     class SubscriptionLimits
       def self.parse(map)
         data = Types::SubscriptionLimits.new
-        data.protection_limits = (Parsers::ProtectionLimits.parse(map['ProtectionLimits']) unless map['ProtectionLimits'].nil?)
-        data.protection_group_limits = (Parsers::ProtectionGroupLimits.parse(map['ProtectionGroupLimits']) unless map['ProtectionGroupLimits'].nil?)
+        data.protection_limits = (ProtectionLimits.parse(map['ProtectionLimits']) unless map['ProtectionLimits'].nil?)
+        data.protection_group_limits = (ProtectionGroupLimits.parse(map['ProtectionGroupLimits']) unless map['ProtectionGroupLimits'].nil?)
         return data
       end
     end
@@ -671,7 +671,7 @@ module AWS::SDK::Shield
       def self.parse(map)
         data = Types::ProtectionGroupLimits.new
         data.max_protection_groups = map['MaxProtectionGroups']
-        data.pattern_type_limits = (Parsers::ProtectionGroupPatternTypeLimits.parse(map['PatternTypeLimits']) unless map['PatternTypeLimits'].nil?)
+        data.pattern_type_limits = (ProtectionGroupPatternTypeLimits.parse(map['PatternTypeLimits']) unless map['PatternTypeLimits'].nil?)
         return data
       end
     end
@@ -679,7 +679,7 @@ module AWS::SDK::Shield
     class ProtectionGroupPatternTypeLimits
       def self.parse(map)
         data = Types::ProtectionGroupPatternTypeLimits.new
-        data.arbitrary_pattern_limits = (Parsers::ProtectionGroupArbitraryPatternLimits.parse(map['ArbitraryPatternLimits']) unless map['ArbitraryPatternLimits'].nil?)
+        data.arbitrary_pattern_limits = (ProtectionGroupArbitraryPatternLimits.parse(map['ArbitraryPatternLimits']) unless map['ArbitraryPatternLimits'].nil?)
         return data
       end
     end
@@ -695,7 +695,7 @@ module AWS::SDK::Shield
     class ProtectionLimits
       def self.parse(map)
         data = Types::ProtectionLimits.new
-        data.protected_resource_type_limits = (Parsers::Limits.parse(map['ProtectedResourceTypeLimits']) unless map['ProtectedResourceTypeLimits'].nil?)
+        data.protected_resource_type_limits = (Limits.parse(map['ProtectedResourceTypeLimits']) unless map['ProtectedResourceTypeLimits'].nil?)
         return data
       end
     end
@@ -703,7 +703,7 @@ module AWS::SDK::Shield
     class Limits
       def self.parse(list)
         list.map do |value|
-          Parsers::Limit.parse(value) unless value.nil?
+          Limit.parse(value) unless value.nil?
         end
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attack_summaries = (Parsers::AttackSummaries.parse(map['AttackSummaries']) unless map['AttackSummaries'].nil?)
+        data.attack_summaries = (AttackSummaries.parse(map['AttackSummaries']) unless map['AttackSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -822,7 +822,7 @@ module AWS::SDK::Shield
     class AttackSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::AttackSummary.parse(value) unless value.nil?
+          AttackSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -834,7 +834,7 @@ module AWS::SDK::Shield
         data.resource_arn = map['ResourceArn']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.attack_vectors = (Parsers::AttackVectorDescriptionList.parse(map['AttackVectors']) unless map['AttackVectors'].nil?)
+        data.attack_vectors = (AttackVectorDescriptionList.parse(map['AttackVectors']) unless map['AttackVectors'].nil?)
         return data
       end
     end
@@ -842,7 +842,7 @@ module AWS::SDK::Shield
     class AttackVectorDescriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::AttackVectorDescription.parse(value) unless value.nil?
+          AttackVectorDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -862,7 +862,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.protection_groups = (Parsers::ProtectionGroups.parse(map['ProtectionGroups']) unless map['ProtectionGroups'].nil?)
+        data.protection_groups = (ProtectionGroups.parse(map['ProtectionGroups']) unless map['ProtectionGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -871,7 +871,7 @@ module AWS::SDK::Shield
     class ProtectionGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::ProtectionGroup.parse(value) unless value.nil?
+          ProtectionGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -895,7 +895,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.protections = (Parsers::Protections.parse(map['Protections']) unless map['Protections'].nil?)
+        data.protections = (Protections.parse(map['Protections']) unless map['Protections'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -904,7 +904,7 @@ module AWS::SDK::Shield
     class Protections
       def self.parse(list)
         list.map do |value|
-          Parsers::Protection.parse(value) unless value.nil?
+          Protection.parse(value) unless value.nil?
         end
       end
     end
@@ -916,7 +916,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_arns = (Parsers::ResourceArnList.parse(map['ResourceArns']) unless map['ResourceArns'].nil?)
+        data.resource_arns = (ResourceArnList.parse(map['ResourceArns']) unless map['ResourceArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -937,7 +937,7 @@ module AWS::SDK::Shield
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -945,7 +945,7 @@ module AWS::SDK::Shield
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

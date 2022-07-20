@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Amplify
   module Builders
 
@@ -27,19 +29,19 @@ module AWS::SDK::Amplify
         data['iamServiceRoleArn'] = input[:iam_service_role_arn] unless input[:iam_service_role_arn].nil?
         data['oauthToken'] = input[:oauth_token] unless input[:oauth_token].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data['enableBranchAutoBuild'] = input[:enable_branch_auto_build] unless input[:enable_branch_auto_build].nil?
         data['enableBranchAutoDeletion'] = input[:enable_branch_auto_deletion] unless input[:enable_branch_auto_deletion].nil?
         data['enableBasicAuth'] = input[:enable_basic_auth] unless input[:enable_basic_auth].nil?
         data['basicAuthCredentials'] = input[:basic_auth_credentials] unless input[:basic_auth_credentials].nil?
-        data['customRules'] = Builders::CustomRules.build(input[:custom_rules]) unless input[:custom_rules].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['customRules'] = CustomRules.build(input[:custom_rules]) unless input[:custom_rules].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['buildSpec'] = input[:build_spec] unless input[:build_spec].nil?
         data['customHeaders'] = input[:custom_headers] unless input[:custom_headers].nil?
         data['enableAutoBranchCreation'] = input[:enable_auto_branch_creation] unless input[:enable_auto_branch_creation].nil?
-        data['autoBranchCreationPatterns'] = Builders::AutoBranchCreationPatterns.build(input[:auto_branch_creation_patterns]) unless input[:auto_branch_creation_patterns].nil?
-        data['autoBranchCreationConfig'] = Builders::AutoBranchCreationConfig.build(input[:auto_branch_creation_config]) unless input[:auto_branch_creation_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['autoBranchCreationPatterns'] = AutoBranchCreationPatterns.build(input[:auto_branch_creation_patterns]) unless input[:auto_branch_creation_patterns].nil?
+        data['autoBranchCreationConfig'] = AutoBranchCreationConfig.build(input[:auto_branch_creation_config]) unless input[:auto_branch_creation_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::Amplify
         data['stage'] = input[:stage] unless input[:stage].nil?
         data['framework'] = input[:framework] unless input[:framework].nil?
         data['enableAutoBuild'] = input[:enable_auto_build] unless input[:enable_auto_build].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data['basicAuthCredentials'] = input[:basic_auth_credentials] unless input[:basic_auth_credentials].nil?
         data['enableBasicAuth'] = input[:enable_basic_auth] unless input[:enable_basic_auth].nil?
         data['enablePerformanceMode'] = input[:enable_performance_mode] unless input[:enable_performance_mode].nil?
@@ -99,7 +101,7 @@ module AWS::SDK::Amplify
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomRule.build(element) unless element.nil?
+          data << CustomRule.build(element) unless element.nil?
         end
         data
       end
@@ -137,7 +139,7 @@ module AWS::SDK::Amplify
         data['environmentName'] = input[:environment_name] unless input[:environment_name].nil?
         data['stackName'] = input[:stack_name] unless input[:stack_name].nil?
         data['deploymentArtifacts'] = input[:deployment_artifacts] unless input[:deployment_artifacts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,18 +166,18 @@ module AWS::SDK::Amplify
         data['framework'] = input[:framework] unless input[:framework].nil?
         data['enableNotification'] = input[:enable_notification] unless input[:enable_notification].nil?
         data['enableAutoBuild'] = input[:enable_auto_build] unless input[:enable_auto_build].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data['basicAuthCredentials'] = input[:basic_auth_credentials] unless input[:basic_auth_credentials].nil?
         data['enableBasicAuth'] = input[:enable_basic_auth] unless input[:enable_basic_auth].nil?
         data['enablePerformanceMode'] = input[:enable_performance_mode] unless input[:enable_performance_mode].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['buildSpec'] = input[:build_spec] unless input[:build_spec].nil?
         data['ttl'] = input[:ttl] unless input[:ttl].nil?
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
         data['enablePullRequestPreview'] = input[:enable_pull_request_preview] unless input[:enable_pull_request_preview].nil?
         data['pullRequestEnvironmentName'] = input[:pull_request_environment_name] unless input[:pull_request_environment_name].nil?
         data['backendEnvironmentArn'] = input[:backend_environment_arn] unless input[:backend_environment_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -200,8 +202,8 @@ module AWS::SDK::Amplify
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['fileMap'] = Builders::FileMap.build(input[:file_map]) unless input[:file_map].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['fileMap'] = FileMap.build(input[:file_map]) unless input[:file_map].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,10 +237,10 @@ module AWS::SDK::Amplify
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['enableAutoSubDomain'] = input[:enable_auto_sub_domain] unless input[:enable_auto_sub_domain].nil?
-        data['subDomainSettings'] = Builders::SubDomainSettings.build(input[:sub_domain_settings]) unless input[:sub_domain_settings].nil?
-        data['autoSubDomainCreationPatterns'] = Builders::AutoSubDomainCreationPatterns.build(input[:auto_sub_domain_creation_patterns]) unless input[:auto_sub_domain_creation_patterns].nil?
+        data['subDomainSettings'] = SubDomainSettings.build(input[:sub_domain_settings]) unless input[:sub_domain_settings].nil?
+        data['autoSubDomainCreationPatterns'] = AutoSubDomainCreationPatterns.build(input[:auto_sub_domain_creation_patterns]) unless input[:auto_sub_domain_creation_patterns].nil?
         data['autoSubDomainIAMRole'] = input[:auto_sub_domain_iam_role] unless input[:auto_sub_domain_iam_role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::Amplify
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SubDomainSetting.build(element) unless element.nil?
+          data << SubDomainSetting.build(element) unless element.nil?
         end
         data
       end
@@ -293,7 +295,7 @@ module AWS::SDK::Amplify
         data = {}
         data['branchName'] = input[:branch_name] unless input[:branch_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -439,7 +441,7 @@ module AWS::SDK::Amplify
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -761,7 +763,7 @@ module AWS::SDK::Amplify
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['sourceUrl'] = input[:source_url] unless input[:source_url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -792,7 +794,7 @@ module AWS::SDK::Amplify
         data['commitId'] = input[:commit_id] unless input[:commit_id].nil?
         data['commitMessage'] = input[:commit_message] unless input[:commit_message].nil?
         data['commitTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:commit_time]).to_i unless input[:commit_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -838,8 +840,8 @@ module AWS::SDK::Amplify
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -897,21 +899,21 @@ module AWS::SDK::Amplify
         data['description'] = input[:description] unless input[:description].nil?
         data['platform'] = input[:platform] unless input[:platform].nil?
         data['iamServiceRoleArn'] = input[:iam_service_role_arn] unless input[:iam_service_role_arn].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data['enableBranchAutoBuild'] = input[:enable_branch_auto_build] unless input[:enable_branch_auto_build].nil?
         data['enableBranchAutoDeletion'] = input[:enable_branch_auto_deletion] unless input[:enable_branch_auto_deletion].nil?
         data['enableBasicAuth'] = input[:enable_basic_auth] unless input[:enable_basic_auth].nil?
         data['basicAuthCredentials'] = input[:basic_auth_credentials] unless input[:basic_auth_credentials].nil?
-        data['customRules'] = Builders::CustomRules.build(input[:custom_rules]) unless input[:custom_rules].nil?
+        data['customRules'] = CustomRules.build(input[:custom_rules]) unless input[:custom_rules].nil?
         data['buildSpec'] = input[:build_spec] unless input[:build_spec].nil?
         data['customHeaders'] = input[:custom_headers] unless input[:custom_headers].nil?
         data['enableAutoBranchCreation'] = input[:enable_auto_branch_creation] unless input[:enable_auto_branch_creation].nil?
-        data['autoBranchCreationPatterns'] = Builders::AutoBranchCreationPatterns.build(input[:auto_branch_creation_patterns]) unless input[:auto_branch_creation_patterns].nil?
-        data['autoBranchCreationConfig'] = Builders::AutoBranchCreationConfig.build(input[:auto_branch_creation_config]) unless input[:auto_branch_creation_config].nil?
+        data['autoBranchCreationPatterns'] = AutoBranchCreationPatterns.build(input[:auto_branch_creation_patterns]) unless input[:auto_branch_creation_patterns].nil?
+        data['autoBranchCreationConfig'] = AutoBranchCreationConfig.build(input[:auto_branch_creation_config]) unless input[:auto_branch_creation_config].nil?
         data['repository'] = input[:repository] unless input[:repository].nil?
         data['oauthToken'] = input[:oauth_token] unless input[:oauth_token].nil?
         data['accessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -941,7 +943,7 @@ module AWS::SDK::Amplify
         data['stage'] = input[:stage] unless input[:stage].nil?
         data['enableNotification'] = input[:enable_notification] unless input[:enable_notification].nil?
         data['enableAutoBuild'] = input[:enable_auto_build] unless input[:enable_auto_build].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data['basicAuthCredentials'] = input[:basic_auth_credentials] unless input[:basic_auth_credentials].nil?
         data['enableBasicAuth'] = input[:enable_basic_auth] unless input[:enable_basic_auth].nil?
         data['enablePerformanceMode'] = input[:enable_performance_mode] unless input[:enable_performance_mode].nil?
@@ -951,7 +953,7 @@ module AWS::SDK::Amplify
         data['enablePullRequestPreview'] = input[:enable_pull_request_preview] unless input[:enable_pull_request_preview].nil?
         data['pullRequestEnvironmentName'] = input[:pull_request_environment_name] unless input[:pull_request_environment_name].nil?
         data['backendEnvironmentArn'] = input[:backend_environment_arn] unless input[:backend_environment_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -977,10 +979,10 @@ module AWS::SDK::Amplify
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['enableAutoSubDomain'] = input[:enable_auto_sub_domain] unless input[:enable_auto_sub_domain].nil?
-        data['subDomainSettings'] = Builders::SubDomainSettings.build(input[:sub_domain_settings]) unless input[:sub_domain_settings].nil?
-        data['autoSubDomainCreationPatterns'] = Builders::AutoSubDomainCreationPatterns.build(input[:auto_sub_domain_creation_patterns]) unless input[:auto_sub_domain_creation_patterns].nil?
+        data['subDomainSettings'] = SubDomainSettings.build(input[:sub_domain_settings]) unless input[:sub_domain_settings].nil?
+        data['autoSubDomainCreationPatterns'] = AutoSubDomainCreationPatterns.build(input[:auto_sub_domain_creation_patterns]) unless input[:auto_sub_domain_creation_patterns].nil?
         data['autoSubDomainIAMRole'] = input[:auto_sub_domain_iam_role] unless input[:auto_sub_domain_iam_role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1003,7 +1005,7 @@ module AWS::SDK::Amplify
         data = {}
         data['branchName'] = input[:branch_name] unless input[:branch_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

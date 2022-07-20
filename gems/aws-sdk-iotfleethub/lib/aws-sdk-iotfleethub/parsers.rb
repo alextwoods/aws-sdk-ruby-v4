@@ -96,7 +96,7 @@ module AWS::SDK::IoTFleetHub
         data.role_arn = map['roleArn']
         data.sso_client_id = map['ssoClientId']
         data.error_message = map['errorMessage']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -116,7 +116,7 @@ module AWS::SDK::IoTFleetHub
       def self.parse(http_resp)
         data = Types::ListApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application_summaries = (Parsers::ApplicationSummaries.parse(map['applicationSummaries']) unless map['applicationSummaries'].nil?)
+        data.application_summaries = (ApplicationSummaries.parse(map['applicationSummaries']) unless map['applicationSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -126,7 +126,7 @@ module AWS::SDK::IoTFleetHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationSummary.parse(value) unless value.nil?
+          data << ApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -151,7 +151,7 @@ module AWS::SDK::IoTFleetHub
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

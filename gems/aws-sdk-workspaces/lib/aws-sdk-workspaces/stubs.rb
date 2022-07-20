@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkSpaces
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['ConnectionIdentifier'] = stub[:connection_identifier] unless stub[:connection_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,7 +37,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -65,7 +67,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['AddInId'] = stub[:add_in_id] unless stub[:add_in_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -97,7 +99,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['AliasId'] = stub[:alias_id] unless stub[:alias_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -113,7 +115,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -143,7 +145,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -158,8 +160,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WorkspaceBundle'] = Stubs::WorkspaceBundle.stub(stub[:workspace_bundle]) unless stub[:workspace_bundle].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkspaceBundle'] = WorkspaceBundle.stub(stub[:workspace_bundle]) unless stub[:workspace_bundle].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -191,9 +193,9 @@ module AWS::SDK::WorkSpaces
         data['Owner'] = stub[:owner] unless stub[:owner].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
-        data['RootStorage'] = Stubs::RootStorage.stub(stub[:root_storage]) unless stub[:root_storage].nil?
-        data['UserStorage'] = Stubs::UserStorage.stub(stub[:user_storage]) unless stub[:user_storage].nil?
-        data['ComputeType'] = Stubs::ComputeType.stub(stub[:compute_type]) unless stub[:compute_type].nil?
+        data['RootStorage'] = RootStorage.stub(stub[:root_storage]) unless stub[:root_storage].nil?
+        data['UserStorage'] = UserStorage.stub(stub[:user_storage]) unless stub[:user_storage].nil?
+        data['ComputeType'] = ComputeType.stub(stub[:compute_type]) unless stub[:compute_type].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data
@@ -265,9 +267,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedRequests'] = Stubs::FailedCreateWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        data['PendingRequests'] = Stubs::WorkspaceList.stub(stub[:pending_requests]) unless stub[:pending_requests].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedRequests'] = FailedCreateWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        data['PendingRequests'] = WorkspaceList.stub(stub[:pending_requests]) unless stub[:pending_requests].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -286,7 +288,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Workspace.stub(element) unless element.nil?
+          data << Workspace.stub(element) unless element.nil?
         end
         data
       end
@@ -332,8 +334,8 @@ module AWS::SDK::WorkSpaces
         data['VolumeEncryptionKey'] = stub[:volume_encryption_key] unless stub[:volume_encryption_key].nil?
         data['UserVolumeEncryptionEnabled'] = stub[:user_volume_encryption_enabled] unless stub[:user_volume_encryption_enabled].nil?
         data['RootVolumeEncryptionEnabled'] = stub[:root_volume_encryption_enabled] unless stub[:root_volume_encryption_enabled].nil?
-        data['WorkspaceProperties'] = Stubs::WorkspaceProperties.stub(stub[:workspace_properties]) unless stub[:workspace_properties].nil?
-        data['ModificationStates'] = Stubs::ModificationStateList.stub(stub[:modification_states]) unless stub[:modification_states].nil?
+        data['WorkspaceProperties'] = WorkspaceProperties.stub(stub[:workspace_properties]) unless stub[:workspace_properties].nil?
+        data['ModificationStates'] = ModificationStateList.stub(stub[:modification_states]) unless stub[:modification_states].nil?
         data
       end
     end
@@ -352,7 +354,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModificationState.stub(element) unless element.nil?
+          data << ModificationState.stub(element) unless element.nil?
         end
         data
       end
@@ -418,7 +420,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedCreateWorkspaceRequest.stub(element) unless element.nil?
+          data << FailedCreateWorkspaceRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -439,7 +441,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(stub)
         stub ||= Types::FailedCreateWorkspaceRequest.new
         data = {}
-        data['WorkspaceRequest'] = Stubs::WorkspaceRequest.stub(stub[:workspace_request]) unless stub[:workspace_request].nil?
+        data['WorkspaceRequest'] = WorkspaceRequest.stub(stub[:workspace_request]) unless stub[:workspace_request].nil?
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data
@@ -472,8 +474,8 @@ module AWS::SDK::WorkSpaces
         data['VolumeEncryptionKey'] = stub[:volume_encryption_key] unless stub[:volume_encryption_key].nil?
         data['UserVolumeEncryptionEnabled'] = stub[:user_volume_encryption_enabled] unless stub[:user_volume_encryption_enabled].nil?
         data['RootVolumeEncryptionEnabled'] = stub[:root_volume_encryption_enabled] unless stub[:root_volume_encryption_enabled].nil?
-        data['WorkspaceProperties'] = Stubs::WorkspaceProperties.stub(stub[:workspace_properties]) unless stub[:workspace_properties].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['WorkspaceProperties'] = WorkspaceProperties.stub(stub[:workspace_properties]) unless stub[:workspace_properties].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -492,7 +494,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -527,7 +529,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -541,7 +543,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -555,7 +557,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -569,7 +571,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -583,7 +585,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -597,7 +599,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -625,7 +627,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['DedicatedTenancySupport'] = stub[:dedicated_tenancy_support] unless stub[:dedicated_tenancy_support].nil?
         data['DedicatedTenancyManagementCidrRange'] = stub[:dedicated_tenancy_management_cidr_range] unless stub[:dedicated_tenancy_management_cidr_range].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -659,9 +661,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountModifications'] = Stubs::AccountModificationList.stub(stub[:account_modifications]) unless stub[:account_modifications].nil?
+        data['AccountModifications'] = AccountModificationList.stub(stub[:account_modifications]) unless stub[:account_modifications].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -680,7 +682,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountModification.stub(element) unless element.nil?
+          data << AccountModification.stub(element) unless element.nil?
         end
         data
       end
@@ -729,13 +731,13 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeviceTypeWindows'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_windows]) unless stub[:device_type_windows].nil?
-        data['DeviceTypeOsx'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_osx]) unless stub[:device_type_osx].nil?
-        data['DeviceTypeAndroid'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_android]) unless stub[:device_type_android].nil?
-        data['DeviceTypeIos'] = Stubs::IosClientBrandingAttributes.stub(stub[:device_type_ios]) unless stub[:device_type_ios].nil?
-        data['DeviceTypeLinux'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_linux]) unless stub[:device_type_linux].nil?
-        data['DeviceTypeWeb'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_web]) unless stub[:device_type_web].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceTypeWindows'] = DefaultClientBrandingAttributes.stub(stub[:device_type_windows]) unless stub[:device_type_windows].nil?
+        data['DeviceTypeOsx'] = DefaultClientBrandingAttributes.stub(stub[:device_type_osx]) unless stub[:device_type_osx].nil?
+        data['DeviceTypeAndroid'] = DefaultClientBrandingAttributes.stub(stub[:device_type_android]) unless stub[:device_type_android].nil?
+        data['DeviceTypeIos'] = IosClientBrandingAttributes.stub(stub[:device_type_ios]) unless stub[:device_type_ios].nil?
+        data['DeviceTypeLinux'] = DefaultClientBrandingAttributes.stub(stub[:device_type_linux]) unless stub[:device_type_linux].nil?
+        data['DeviceTypeWeb'] = DefaultClientBrandingAttributes.stub(stub[:device_type_web]) unless stub[:device_type_web].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -761,7 +763,7 @@ module AWS::SDK::WorkSpaces
         data['SupportEmail'] = stub[:support_email] unless stub[:support_email].nil?
         data['SupportLink'] = stub[:support_link] unless stub[:support_link].nil?
         data['ForgotPasswordLink'] = stub[:forgot_password_link] unless stub[:forgot_password_link].nil?
-        data['LoginMessage'] = Stubs::LoginMessage.stub(stub[:login_message]) unless stub[:login_message].nil?
+        data['LoginMessage'] = LoginMessage.stub(stub[:login_message]) unless stub[:login_message].nil?
         data
       end
     end
@@ -811,7 +813,7 @@ module AWS::SDK::WorkSpaces
         data['SupportEmail'] = stub[:support_email] unless stub[:support_email].nil?
         data['SupportLink'] = stub[:support_link] unless stub[:support_link].nil?
         data['ForgotPasswordLink'] = stub[:forgot_password_link] unless stub[:forgot_password_link].nil?
-        data['LoginMessage'] = Stubs::LoginMessage.stub(stub[:login_message]) unless stub[:login_message].nil?
+        data['LoginMessage'] = LoginMessage.stub(stub[:login_message]) unless stub[:login_message].nil?
         data
       end
     end
@@ -826,8 +828,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ClientPropertiesList'] = Stubs::ClientPropertiesList.stub(stub[:client_properties_list]) unless stub[:client_properties_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClientPropertiesList'] = ClientPropertiesList.stub(stub[:client_properties_list]) unless stub[:client_properties_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -846,7 +848,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClientPropertiesResult.stub(element) unless element.nil?
+          data << ClientPropertiesResult.stub(element) unless element.nil?
         end
         data
       end
@@ -867,7 +869,7 @@ module AWS::SDK::WorkSpaces
         stub ||= Types::ClientPropertiesResult.new
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
-        data['ClientProperties'] = Stubs::ClientProperties.stub(stub[:client_properties]) unless stub[:client_properties].nil?
+        data['ClientProperties'] = ClientProperties.stub(stub[:client_properties]) unless stub[:client_properties].nil?
         data
       end
     end
@@ -901,9 +903,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AddIns'] = Stubs::ConnectClientAddInList.stub(stub[:add_ins]) unless stub[:add_ins].nil?
+        data['AddIns'] = ConnectClientAddInList.stub(stub[:add_ins]) unless stub[:add_ins].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -922,7 +924,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectClientAddIn.stub(element) unless element.nil?
+          data << ConnectClientAddIn.stub(element) unless element.nil?
         end
         data
       end
@@ -965,9 +967,9 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['AliasId'] = stub[:alias_id] unless stub[:alias_id].nil?
-        data['ConnectionAliasPermissions'] = Stubs::ConnectionAliasPermissions.stub(stub[:connection_alias_permissions]) unless stub[:connection_alias_permissions].nil?
+        data['ConnectionAliasPermissions'] = ConnectionAliasPermissions.stub(stub[:connection_alias_permissions]) unless stub[:connection_alias_permissions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -986,7 +988,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectionAliasPermission.stub(element) unless element.nil?
+          data << ConnectionAliasPermission.stub(element) unless element.nil?
         end
         data
       end
@@ -1023,9 +1025,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConnectionAliases'] = Stubs::ConnectionAliasList.stub(stub[:connection_aliases]) unless stub[:connection_aliases].nil?
+        data['ConnectionAliases'] = ConnectionAliasList.stub(stub[:connection_aliases]) unless stub[:connection_aliases].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1044,7 +1046,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectionAlias.stub(element) unless element.nil?
+          data << ConnectionAlias.stub(element) unless element.nil?
         end
         data
       end
@@ -1071,7 +1073,7 @@ module AWS::SDK::WorkSpaces
         data['AliasId'] = stub[:alias_id] unless stub[:alias_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
-        data['Associations'] = Stubs::ConnectionAliasAssociationList.stub(stub[:associations]) unless stub[:associations].nil?
+        data['Associations'] = ConnectionAliasAssociationList.stub(stub[:associations]) unless stub[:associations].nil?
         data
       end
     end
@@ -1090,7 +1092,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectionAliasAssociation.stub(element) unless element.nil?
+          data << ConnectionAliasAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1131,9 +1133,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Result'] = Stubs::WorkspacesIpGroupsList.stub(stub[:result]) unless stub[:result].nil?
+        data['Result'] = WorkspacesIpGroupsList.stub(stub[:result]) unless stub[:result].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1152,7 +1154,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspacesIpGroup.stub(element) unless element.nil?
+          data << WorkspacesIpGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1177,7 +1179,7 @@ module AWS::SDK::WorkSpaces
         data['groupId'] = stub[:group_id] unless stub[:group_id].nil?
         data['groupName'] = stub[:group_name] unless stub[:group_name].nil?
         data['groupDesc'] = stub[:group_desc] unless stub[:group_desc].nil?
-        data['userRules'] = Stubs::IpRuleList.stub(stub[:user_rules]) unless stub[:user_rules].nil?
+        data['userRules'] = IpRuleList.stub(stub[:user_rules]) unless stub[:user_rules].nil?
         data
       end
     end
@@ -1196,7 +1198,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IpRuleItem.stub(element) unless element.nil?
+          data << IpRuleItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1232,8 +1234,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1249,9 +1251,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Bundles'] = Stubs::BundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
+        data['Bundles'] = BundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1270,7 +1272,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspaceBundle.stub(element) unless element.nil?
+          data << WorkspaceBundle.stub(element) unless element.nil?
         end
         data
       end
@@ -1287,9 +1289,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Directories'] = Stubs::DirectoryList.stub(stub[:directories]) unless stub[:directories].nil?
+        data['Directories'] = DirectoryList.stub(stub[:directories]) unless stub[:directories].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1308,7 +1310,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspaceDirectory.stub(element) unless element.nil?
+          data << WorkspaceDirectory.stub(element) unless element.nil?
         end
         data
       end
@@ -1346,18 +1348,18 @@ module AWS::SDK::WorkSpaces
         data['Alias'] = stub[:alias] unless stub[:alias].nil?
         data['DirectoryName'] = stub[:directory_name] unless stub[:directory_name].nil?
         data['RegistrationCode'] = stub[:registration_code] unless stub[:registration_code].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['DnsIpAddresses'] = Stubs::DnsIpAddresses.stub(stub[:dns_ip_addresses]) unless stub[:dns_ip_addresses].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['DnsIpAddresses'] = DnsIpAddresses.stub(stub[:dns_ip_addresses]) unless stub[:dns_ip_addresses].nil?
         data['CustomerUserName'] = stub[:customer_user_name] unless stub[:customer_user_name].nil?
         data['IamRoleId'] = stub[:iam_role_id] unless stub[:iam_role_id].nil?
         data['DirectoryType'] = stub[:directory_type] unless stub[:directory_type].nil?
         data['WorkspaceSecurityGroupId'] = stub[:workspace_security_group_id] unless stub[:workspace_security_group_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['WorkspaceCreationProperties'] = Stubs::DefaultWorkspaceCreationProperties.stub(stub[:workspace_creation_properties]) unless stub[:workspace_creation_properties].nil?
-        data['ipGroupIds'] = Stubs::IpGroupIdList.stub(stub[:ip_group_ids]) unless stub[:ip_group_ids].nil?
-        data['WorkspaceAccessProperties'] = Stubs::WorkspaceAccessProperties.stub(stub[:workspace_access_properties]) unless stub[:workspace_access_properties].nil?
+        data['WorkspaceCreationProperties'] = DefaultWorkspaceCreationProperties.stub(stub[:workspace_creation_properties]) unless stub[:workspace_creation_properties].nil?
+        data['ipGroupIds'] = IpGroupIdList.stub(stub[:ip_group_ids]) unless stub[:ip_group_ids].nil?
+        data['WorkspaceAccessProperties'] = WorkspaceAccessProperties.stub(stub[:workspace_access_properties]) unless stub[:workspace_access_properties].nil?
         data['Tenancy'] = stub[:tenancy] unless stub[:tenancy].nil?
-        data['SelfservicePermissions'] = Stubs::SelfservicePermissions.stub(stub[:selfservice_permissions]) unless stub[:selfservice_permissions].nil?
+        data['SelfservicePermissions'] = SelfservicePermissions.stub(stub[:selfservice_permissions]) unless stub[:selfservice_permissions].nil?
         data
       end
     end
@@ -1521,9 +1523,9 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
-        data['ImagePermissions'] = Stubs::ImagePermissions.stub(stub[:image_permissions]) unless stub[:image_permissions].nil?
+        data['ImagePermissions'] = ImagePermissions.stub(stub[:image_permissions]) unless stub[:image_permissions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1542,7 +1544,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImagePermission.stub(element) unless element.nil?
+          data << ImagePermission.stub(element) unless element.nil?
         end
         data
       end
@@ -1577,9 +1579,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Images'] = Stubs::WorkspaceImageList.stub(stub[:images]) unless stub[:images].nil?
+        data['Images'] = WorkspaceImageList.stub(stub[:images]) unless stub[:images].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1598,7 +1600,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspaceImage.stub(element) unless element.nil?
+          data << WorkspaceImage.stub(element) unless element.nil?
         end
         data
       end
@@ -1630,14 +1632,14 @@ module AWS::SDK::WorkSpaces
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['OperatingSystem'] = Stubs::OperatingSystem.stub(stub[:operating_system]) unless stub[:operating_system].nil?
+        data['OperatingSystem'] = OperatingSystem.stub(stub[:operating_system]) unless stub[:operating_system].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['RequiredTenancy'] = stub[:required_tenancy] unless stub[:required_tenancy].nil?
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['Created'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created]).to_i unless stub[:created].nil?
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
-        data['Updates'] = Stubs::UpdateResult.stub(stub[:updates]) unless stub[:updates].nil?
+        data['Updates'] = UpdateResult.stub(stub[:updates]) unless stub[:updates].nil?
         data
       end
     end
@@ -1691,9 +1693,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RebuildSnapshots'] = Stubs::SnapshotList.stub(stub[:rebuild_snapshots]) unless stub[:rebuild_snapshots].nil?
-        data['RestoreSnapshots'] = Stubs::SnapshotList.stub(stub[:restore_snapshots]) unless stub[:restore_snapshots].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RebuildSnapshots'] = SnapshotList.stub(stub[:rebuild_snapshots]) unless stub[:rebuild_snapshots].nil?
+        data['RestoreSnapshots'] = SnapshotList.stub(stub[:restore_snapshots]) unless stub[:restore_snapshots].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1712,7 +1714,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Snapshot.stub(element) unless element.nil?
+          data << Snapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -1747,9 +1749,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workspaces'] = Stubs::WorkspaceList.stub(stub[:workspaces]) unless stub[:workspaces].nil?
+        data['Workspaces'] = WorkspaceList.stub(stub[:workspaces]) unless stub[:workspaces].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1765,9 +1767,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WorkspacesConnectionStatus'] = Stubs::WorkspaceConnectionStatusList.stub(stub[:workspaces_connection_status]) unless stub[:workspaces_connection_status].nil?
+        data['WorkspacesConnectionStatus'] = WorkspaceConnectionStatusList.stub(stub[:workspaces_connection_status]) unless stub[:workspaces_connection_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1786,7 +1788,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspaceConnectionStatus.stub(element) unless element.nil?
+          data << WorkspaceConnectionStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1825,7 +1827,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1839,7 +1841,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1859,13 +1861,13 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeviceTypeWindows'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_windows]) unless stub[:device_type_windows].nil?
-        data['DeviceTypeOsx'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_osx]) unless stub[:device_type_osx].nil?
-        data['DeviceTypeAndroid'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_android]) unless stub[:device_type_android].nil?
-        data['DeviceTypeIos'] = Stubs::IosClientBrandingAttributes.stub(stub[:device_type_ios]) unless stub[:device_type_ios].nil?
-        data['DeviceTypeLinux'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_linux]) unless stub[:device_type_linux].nil?
-        data['DeviceTypeWeb'] = Stubs::DefaultClientBrandingAttributes.stub(stub[:device_type_web]) unless stub[:device_type_web].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceTypeWindows'] = DefaultClientBrandingAttributes.stub(stub[:device_type_windows]) unless stub[:device_type_windows].nil?
+        data['DeviceTypeOsx'] = DefaultClientBrandingAttributes.stub(stub[:device_type_osx]) unless stub[:device_type_osx].nil?
+        data['DeviceTypeAndroid'] = DefaultClientBrandingAttributes.stub(stub[:device_type_android]) unless stub[:device_type_android].nil?
+        data['DeviceTypeIos'] = IosClientBrandingAttributes.stub(stub[:device_type_ios]) unless stub[:device_type_ios].nil?
+        data['DeviceTypeLinux'] = DefaultClientBrandingAttributes.stub(stub[:device_type_linux]) unless stub[:device_type_linux].nil?
+        data['DeviceTypeWeb'] = DefaultClientBrandingAttributes.stub(stub[:device_type_web]) unless stub[:device_type_web].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1881,7 +1883,7 @@ module AWS::SDK::WorkSpaces
       def self.stub(http_resp, stub:)
         data = {}
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1897,9 +1899,9 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ManagementCidrRanges'] = Stubs::DedicatedTenancyCidrRangeList.stub(stub[:management_cidr_ranges]) unless stub[:management_cidr_ranges].nil?
+        data['ManagementCidrRanges'] = DedicatedTenancyCidrRangeList.stub(stub[:management_cidr_ranges]) unless stub[:management_cidr_ranges].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1937,7 +1939,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['SourceWorkspaceId'] = stub[:source_workspace_id] unless stub[:source_workspace_id].nil?
         data['TargetWorkspaceId'] = stub[:target_workspace_id] unless stub[:target_workspace_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1951,7 +1953,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1965,7 +1967,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1979,7 +1981,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1993,7 +1995,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2007,7 +2009,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2021,7 +2023,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2035,7 +2037,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2050,8 +2052,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedRequests'] = Stubs::FailedRebootWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedRequests'] = FailedRebootWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2070,7 +2072,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedWorkspaceChangeRequest.stub(element) unless element.nil?
+          data << FailedWorkspaceChangeRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2108,8 +2110,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedRequests'] = Stubs::FailedRebuildWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedRequests'] = FailedRebuildWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2128,7 +2130,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedWorkspaceChangeRequest.stub(element) unless element.nil?
+          data << FailedWorkspaceChangeRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2143,7 +2145,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2157,7 +2159,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2171,7 +2173,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2186,8 +2188,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedRequests'] = Stubs::FailedStartWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedRequests'] = FailedStartWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2206,7 +2208,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedWorkspaceChangeRequest.stub(element) unless element.nil?
+          data << FailedWorkspaceChangeRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2222,8 +2224,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedRequests'] = Stubs::FailedStopWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedRequests'] = FailedStopWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2242,7 +2244,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedWorkspaceChangeRequest.stub(element) unless element.nil?
+          data << FailedWorkspaceChangeRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2258,8 +2260,8 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedRequests'] = Stubs::FailedTerminateWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedRequests'] = FailedTerminateWorkspaceRequests.stub(stub[:failed_requests]) unless stub[:failed_requests].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2278,7 +2280,7 @@ module AWS::SDK::WorkSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedWorkspaceChangeRequest.stub(element) unless element.nil?
+          data << FailedWorkspaceChangeRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2293,7 +2295,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2307,7 +2309,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2321,7 +2323,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2335,7 +2337,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2349,7 +2351,7 @@ module AWS::SDK::WorkSpaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

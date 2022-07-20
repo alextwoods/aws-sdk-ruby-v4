@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ECR
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['layers'] = Stubs::LayerList.stub(stub[:layers]) unless stub[:layers].nil?
-        data['failures'] = Stubs::LayerFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layers'] = LayerList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['failures'] = LayerFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LayerFailure.stub(element) unless element.nil?
+          data << LayerFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -84,7 +86,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Layer.stub(element) unless element.nil?
+          data << Layer.stub(element) unless element.nil?
         end
         data
       end
@@ -125,9 +127,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['imageIds'] = Stubs::ImageIdentifierList.stub(stub[:image_ids]) unless stub[:image_ids].nil?
-        data['failures'] = Stubs::ImageFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageIds'] = ImageIdentifierList.stub(stub[:image_ids]) unless stub[:image_ids].nil?
+        data['failures'] = ImageFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -146,7 +148,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageFailure.stub(element) unless element.nil?
+          data << ImageFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -167,7 +169,7 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::ImageFailure.new
         data = {}
-        data['imageId'] = Stubs::ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
+        data['imageId'] = ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data
@@ -208,7 +210,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageIdentifier.stub(element) unless element.nil?
+          data << ImageIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -225,9 +227,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['images'] = Stubs::ImageList.stub(stub[:images]) unless stub[:images].nil?
-        data['failures'] = Stubs::ImageFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['images'] = ImageList.stub(stub[:images]) unless stub[:images].nil?
+        data['failures'] = ImageFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -246,7 +248,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Image.stub(element) unless element.nil?
+          data << Image.stub(element) unless element.nil?
         end
         data
       end
@@ -271,7 +273,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['imageId'] = Stubs::ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
+        data['imageId'] = ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
         data['imageManifest'] = stub[:image_manifest] unless stub[:image_manifest].nil?
         data['imageManifestMediaType'] = stub[:image_manifest_media_type] unless stub[:image_manifest_media_type].nil?
         data
@@ -289,9 +291,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['scanningConfigurations'] = Stubs::RepositoryScanningConfigurationList.stub(stub[:scanning_configurations]) unless stub[:scanning_configurations].nil?
-        data['failures'] = Stubs::RepositoryScanningConfigurationFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scanningConfigurations'] = RepositoryScanningConfigurationList.stub(stub[:scanning_configurations]) unless stub[:scanning_configurations].nil?
+        data['failures'] = RepositoryScanningConfigurationFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -310,7 +312,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryScanningConfigurationFailure.stub(element) unless element.nil?
+          data << RepositoryScanningConfigurationFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -352,7 +354,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryScanningConfiguration.stub(element) unless element.nil?
+          data << RepositoryScanningConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -379,7 +381,7 @@ module AWS::SDK::ECR
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['scanOnPush'] = stub[:scan_on_push] unless stub[:scan_on_push].nil?
         data['scanFrequency'] = stub[:scan_frequency] unless stub[:scan_frequency].nil?
-        data['appliedScanFilters'] = Stubs::ScanningRepositoryFilterList.stub(stub[:applied_scan_filters]) unless stub[:applied_scan_filters].nil?
+        data['appliedScanFilters'] = ScanningRepositoryFilterList.stub(stub[:applied_scan_filters]) unless stub[:applied_scan_filters].nil?
         data
       end
     end
@@ -398,7 +400,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScanningRepositoryFilter.stub(element) unless element.nil?
+          data << ScanningRepositoryFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -441,7 +443,7 @@ module AWS::SDK::ECR
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
         data['layerDigest'] = stub[:layer_digest] unless stub[:layer_digest].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::ECR
         data['upstreamRegistryUrl'] = stub[:upstream_registry_url] unless stub[:upstream_registry_url].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -478,8 +480,8 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repository'] = Stubs::Repository.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = Repository.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -510,8 +512,8 @@ module AWS::SDK::ECR
         data['repositoryUri'] = stub[:repository_uri] unless stub[:repository_uri].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['imageTagMutability'] = stub[:image_tag_mutability] unless stub[:image_tag_mutability].nil?
-        data['imageScanningConfiguration'] = Stubs::ImageScanningConfiguration.stub(stub[:image_scanning_configuration]) unless stub[:image_scanning_configuration].nil?
-        data['encryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['imageScanningConfiguration'] = ImageScanningConfiguration.stub(stub[:image_scanning_configuration]) unless stub[:image_scanning_configuration].nil?
+        data['encryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
         data
       end
     end
@@ -571,7 +573,7 @@ module AWS::SDK::ECR
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['lifecyclePolicyText'] = stub[:lifecycle_policy_text] unless stub[:lifecycle_policy_text].nil?
         data['lastEvaluatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_evaluated_at]).to_i unless stub[:last_evaluated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -593,7 +595,7 @@ module AWS::SDK::ECR
         data['upstreamRegistryUrl'] = stub[:upstream_registry_url] unless stub[:upstream_registry_url].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -626,8 +628,8 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repository'] = Stubs::Repository.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = Repository.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -647,7 +649,7 @@ module AWS::SDK::ECR
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -665,9 +667,9 @@ module AWS::SDK::ECR
       def self.stub(http_resp, stub:)
         data = {}
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['imageId'] = Stubs::ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
-        data['replicationStatuses'] = Stubs::ImageReplicationStatusList.stub(stub[:replication_statuses]) unless stub[:replication_statuses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageId'] = ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
+        data['replicationStatuses'] = ImageReplicationStatusList.stub(stub[:replication_statuses]) unless stub[:replication_statuses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -686,7 +688,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageReplicationStatus.stub(element) unless element.nil?
+          data << ImageReplicationStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -733,11 +735,11 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['imageId'] = Stubs::ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
-        data['imageScanStatus'] = Stubs::ImageScanStatus.stub(stub[:image_scan_status]) unless stub[:image_scan_status].nil?
-        data['imageScanFindings'] = Stubs::ImageScanFindings.stub(stub[:image_scan_findings]) unless stub[:image_scan_findings].nil?
+        data['imageId'] = ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
+        data['imageScanStatus'] = ImageScanStatus.stub(stub[:image_scan_status]) unless stub[:image_scan_status].nil?
+        data['imageScanFindings'] = ImageScanFindings.stub(stub[:image_scan_findings]) unless stub[:image_scan_findings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -761,9 +763,9 @@ module AWS::SDK::ECR
         data = {}
         data['imageScanCompletedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:image_scan_completed_at]).to_i unless stub[:image_scan_completed_at].nil?
         data['vulnerabilitySourceUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:vulnerability_source_updated_at]).to_i unless stub[:vulnerability_source_updated_at].nil?
-        data['findingSeverityCounts'] = Stubs::FindingSeverityCounts.stub(stub[:finding_severity_counts]) unless stub[:finding_severity_counts].nil?
-        data['findings'] = Stubs::ImageScanFindingList.stub(stub[:findings]) unless stub[:findings].nil?
-        data['enhancedFindings'] = Stubs::EnhancedImageScanFindingList.stub(stub[:enhanced_findings]) unless stub[:enhanced_findings].nil?
+        data['findingSeverityCounts'] = FindingSeverityCounts.stub(stub[:finding_severity_counts]) unless stub[:finding_severity_counts].nil?
+        data['findings'] = ImageScanFindingList.stub(stub[:findings]) unless stub[:findings].nil?
+        data['enhancedFindings'] = EnhancedImageScanFindingList.stub(stub[:enhanced_findings]) unless stub[:enhanced_findings].nil?
         data
       end
     end
@@ -782,7 +784,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnhancedImageScanFinding.stub(element) unless element.nil?
+          data << EnhancedImageScanFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -820,11 +822,11 @@ module AWS::SDK::ECR
         data['findingArn'] = stub[:finding_arn] unless stub[:finding_arn].nil?
         data['firstObservedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:first_observed_at]).to_i unless stub[:first_observed_at].nil?
         data['lastObservedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_observed_at]).to_i unless stub[:last_observed_at].nil?
-        data['packageVulnerabilityDetails'] = Stubs::PackageVulnerabilityDetails.stub(stub[:package_vulnerability_details]) unless stub[:package_vulnerability_details].nil?
-        data['remediation'] = Stubs::Remediation.stub(stub[:remediation]) unless stub[:remediation].nil?
-        data['resources'] = Stubs::ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['packageVulnerabilityDetails'] = PackageVulnerabilityDetails.stub(stub[:package_vulnerability_details]) unless stub[:package_vulnerability_details].nil?
+        data['remediation'] = Remediation.stub(stub[:remediation]) unless stub[:remediation].nil?
+        data['resources'] = ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
         data['score'] = Hearth::NumberHelper.serialize(stub[:score])
-        data['scoreDetails'] = Stubs::ScoreDetails.stub(stub[:score_details]) unless stub[:score_details].nil?
+        data['scoreDetails'] = ScoreDetails.stub(stub[:score_details]) unless stub[:score_details].nil?
         data['severity'] = stub[:severity] unless stub[:severity].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['title'] = stub[:title] unless stub[:title].nil?
@@ -847,7 +849,7 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::ScoreDetails.new
         data = {}
-        data['cvss'] = Stubs::CvssScoreDetails.stub(stub[:cvss]) unless stub[:cvss].nil?
+        data['cvss'] = CvssScoreDetails.stub(stub[:cvss]) unless stub[:cvss].nil?
         data
       end
     end
@@ -869,7 +871,7 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::CvssScoreDetails.new
         data = {}
-        data['adjustments'] = Stubs::CvssScoreAdjustmentList.stub(stub[:adjustments]) unless stub[:adjustments].nil?
+        data['adjustments'] = CvssScoreAdjustmentList.stub(stub[:adjustments]) unless stub[:adjustments].nil?
         data['score'] = Hearth::NumberHelper.serialize(stub[:score])
         data['scoreSource'] = stub[:score_source] unless stub[:score_source].nil?
         data['scoringVector'] = stub[:scoring_vector] unless stub[:scoring_vector].nil?
@@ -892,7 +894,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CvssScoreAdjustment.stub(element) unless element.nil?
+          data << CvssScoreAdjustment.stub(element) unless element.nil?
         end
         data
       end
@@ -932,7 +934,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -954,9 +956,9 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::Resource.new
         data = {}
-        data['details'] = Stubs::ResourceDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['details'] = ResourceDetails.stub(stub[:details]) unless stub[:details].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -995,7 +997,7 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::ResourceDetails.new
         data = {}
-        data['awsEcrContainerImage'] = Stubs::AwsEcrContainerImageDetails.stub(stub[:aws_ecr_container_image]) unless stub[:aws_ecr_container_image].nil?
+        data['awsEcrContainerImage'] = AwsEcrContainerImageDetails.stub(stub[:aws_ecr_container_image]) unless stub[:aws_ecr_container_image].nil?
         data
       end
     end
@@ -1023,7 +1025,7 @@ module AWS::SDK::ECR
         data['architecture'] = stub[:architecture] unless stub[:architecture].nil?
         data['author'] = stub[:author] unless stub[:author].nil?
         data['imageHash'] = stub[:image_hash] unless stub[:image_hash].nil?
-        data['imageTags'] = Stubs::ImageTagsList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
+        data['imageTags'] = ImageTagsList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data['pushedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:pushed_at]).to_i unless stub[:pushed_at].nil?
         data['registry'] = stub[:registry] unless stub[:registry].nil?
@@ -1065,7 +1067,7 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::Remediation.new
         data = {}
-        data['recommendation'] = Stubs::Recommendation.stub(stub[:recommendation]) unless stub[:recommendation].nil?
+        data['recommendation'] = Recommendation.stub(stub[:recommendation]) unless stub[:recommendation].nil?
         data
       end
     end
@@ -1112,16 +1114,16 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::PackageVulnerabilityDetails.new
         data = {}
-        data['cvss'] = Stubs::CvssScoreList.stub(stub[:cvss]) unless stub[:cvss].nil?
-        data['referenceUrls'] = Stubs::ReferenceUrlsList.stub(stub[:reference_urls]) unless stub[:reference_urls].nil?
-        data['relatedVulnerabilities'] = Stubs::RelatedVulnerabilitiesList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
+        data['cvss'] = CvssScoreList.stub(stub[:cvss]) unless stub[:cvss].nil?
+        data['referenceUrls'] = ReferenceUrlsList.stub(stub[:reference_urls]) unless stub[:reference_urls].nil?
+        data['relatedVulnerabilities'] = RelatedVulnerabilitiesList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
         data['source'] = stub[:source] unless stub[:source].nil?
         data['sourceUrl'] = stub[:source_url] unless stub[:source_url].nil?
         data['vendorCreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:vendor_created_at]).to_i unless stub[:vendor_created_at].nil?
         data['vendorSeverity'] = stub[:vendor_severity] unless stub[:vendor_severity].nil?
         data['vendorUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:vendor_updated_at]).to_i unless stub[:vendor_updated_at].nil?
         data['vulnerabilityId'] = stub[:vulnerability_id] unless stub[:vulnerability_id].nil?
-        data['vulnerablePackages'] = Stubs::VulnerablePackagesList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
+        data['vulnerablePackages'] = VulnerablePackagesList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
         data
       end
     end
@@ -1140,7 +1142,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VulnerablePackage.stub(element) unless element.nil?
+          data << VulnerablePackage.stub(element) unless element.nil?
         end
         data
       end
@@ -1232,7 +1234,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CvssScore.stub(element) unless element.nil?
+          data << CvssScore.stub(element) unless element.nil?
         end
         data
       end
@@ -1276,7 +1278,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageScanFinding.stub(element) unless element.nil?
+          data << ImageScanFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -1303,7 +1305,7 @@ module AWS::SDK::ECR
         data['description'] = stub[:description] unless stub[:description].nil?
         data['uri'] = stub[:uri] unless stub[:uri].nil?
         data['severity'] = stub[:severity] unless stub[:severity].nil?
-        data['attributes'] = Stubs::AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -1322,7 +1324,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -1399,9 +1401,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['imageDetails'] = Stubs::ImageDetailList.stub(stub[:image_details]) unless stub[:image_details].nil?
+        data['imageDetails'] = ImageDetailList.stub(stub[:image_details]) unless stub[:image_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1420,7 +1422,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageDetail.stub(element) unless element.nil?
+          data << ImageDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1452,11 +1454,11 @@ module AWS::SDK::ECR
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['imageDigest'] = stub[:image_digest] unless stub[:image_digest].nil?
-        data['imageTags'] = Stubs::ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
+        data['imageTags'] = ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
         data['imageSizeInBytes'] = stub[:image_size_in_bytes] unless stub[:image_size_in_bytes].nil?
         data['imagePushedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:image_pushed_at]).to_i unless stub[:image_pushed_at].nil?
-        data['imageScanStatus'] = Stubs::ImageScanStatus.stub(stub[:image_scan_status]) unless stub[:image_scan_status].nil?
-        data['imageScanFindingsSummary'] = Stubs::ImageScanFindingsSummary.stub(stub[:image_scan_findings_summary]) unless stub[:image_scan_findings_summary].nil?
+        data['imageScanStatus'] = ImageScanStatus.stub(stub[:image_scan_status]) unless stub[:image_scan_status].nil?
+        data['imageScanFindingsSummary'] = ImageScanFindingsSummary.stub(stub[:image_scan_findings_summary]) unless stub[:image_scan_findings_summary].nil?
         data['imageManifestMediaType'] = stub[:image_manifest_media_type] unless stub[:image_manifest_media_type].nil?
         data['artifactMediaType'] = stub[:artifact_media_type] unless stub[:artifact_media_type].nil?
         data['lastRecordedPullTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_recorded_pull_time]).to_i unless stub[:last_recorded_pull_time].nil?
@@ -1481,7 +1483,7 @@ module AWS::SDK::ECR
         data = {}
         data['imageScanCompletedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:image_scan_completed_at]).to_i unless stub[:image_scan_completed_at].nil?
         data['vulnerabilitySourceUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:vulnerability_source_updated_at]).to_i unless stub[:vulnerability_source_updated_at].nil?
-        data['findingSeverityCounts'] = Stubs::FindingSeverityCounts.stub(stub[:finding_severity_counts]) unless stub[:finding_severity_counts].nil?
+        data['findingSeverityCounts'] = FindingSeverityCounts.stub(stub[:finding_severity_counts]) unless stub[:finding_severity_counts].nil?
         data
       end
     end
@@ -1517,9 +1519,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullThroughCacheRules'] = Stubs::PullThroughCacheRuleList.stub(stub[:pull_through_cache_rules]) unless stub[:pull_through_cache_rules].nil?
+        data['pullThroughCacheRules'] = PullThroughCacheRuleList.stub(stub[:pull_through_cache_rules]) unless stub[:pull_through_cache_rules].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1538,7 +1540,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PullThroughCacheRule.stub(element) unless element.nil?
+          data << PullThroughCacheRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1580,8 +1582,8 @@ module AWS::SDK::ECR
       def self.stub(http_resp, stub:)
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
-        data['replicationConfiguration'] = Stubs::ReplicationConfiguration.stub(stub[:replication_configuration]) unless stub[:replication_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['replicationConfiguration'] = ReplicationConfiguration.stub(stub[:replication_configuration]) unless stub[:replication_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1599,7 +1601,7 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::ReplicationConfiguration.new
         data = {}
-        data['rules'] = Stubs::ReplicationRuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['rules'] = ReplicationRuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -1618,7 +1620,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationRule.stub(element) unless element.nil?
+          data << ReplicationRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1638,8 +1640,8 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::ReplicationRule.new
         data = {}
-        data['destinations'] = Stubs::ReplicationDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['repositoryFilters'] = Stubs::RepositoryFilterList.stub(stub[:repository_filters]) unless stub[:repository_filters].nil?
+        data['destinations'] = ReplicationDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['repositoryFilters'] = RepositoryFilterList.stub(stub[:repository_filters]) unless stub[:repository_filters].nil?
         data
       end
     end
@@ -1658,7 +1660,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryFilter.stub(element) unless element.nil?
+          data << RepositoryFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -1698,7 +1700,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationDestination.stub(element) unless element.nil?
+          data << ReplicationDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -1735,9 +1737,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repositories'] = Stubs::RepositoryList.stub(stub[:repositories]) unless stub[:repositories].nil?
+        data['repositories'] = RepositoryList.stub(stub[:repositories]) unless stub[:repositories].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1756,7 +1758,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Repository.stub(element) unless element.nil?
+          data << Repository.stub(element) unless element.nil?
         end
         data
       end
@@ -1772,8 +1774,8 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['authorizationData'] = Stubs::AuthorizationDataList.stub(stub[:authorization_data]) unless stub[:authorization_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authorizationData'] = AuthorizationDataList.stub(stub[:authorization_data]) unless stub[:authorization_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1792,7 +1794,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuthorizationData.stub(element) unless element.nil?
+          data << AuthorizationData.stub(element) unless element.nil?
         end
         data
       end
@@ -1833,7 +1835,7 @@ module AWS::SDK::ECR
         data = {}
         data['downloadUrl'] = stub[:download_url] unless stub[:download_url].nil?
         data['layerDigest'] = stub[:layer_digest] unless stub[:layer_digest].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1855,7 +1857,7 @@ module AWS::SDK::ECR
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['lifecyclePolicyText'] = stub[:lifecycle_policy_text] unless stub[:lifecycle_policy_text].nil?
         data['lastEvaluatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_evaluated_at]).to_i unless stub[:last_evaluated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1881,9 +1883,9 @@ module AWS::SDK::ECR
         data['lifecyclePolicyText'] = stub[:lifecycle_policy_text] unless stub[:lifecycle_policy_text].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['previewResults'] = Stubs::LifecyclePolicyPreviewResultList.stub(stub[:preview_results]) unless stub[:preview_results].nil?
-        data['summary'] = Stubs::LifecyclePolicyPreviewSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['previewResults'] = LifecyclePolicyPreviewResultList.stub(stub[:preview_results]) unless stub[:preview_results].nil?
+        data['summary'] = LifecyclePolicyPreviewSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1920,7 +1922,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LifecyclePolicyPreviewResult.stub(element) unless element.nil?
+          data << LifecyclePolicyPreviewResult.stub(element) unless element.nil?
         end
         data
       end
@@ -1943,10 +1945,10 @@ module AWS::SDK::ECR
       def self.stub(stub)
         stub ||= Types::LifecyclePolicyPreviewResult.new
         data = {}
-        data['imageTags'] = Stubs::ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
+        data['imageTags'] = ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
         data['imageDigest'] = stub[:image_digest] unless stub[:image_digest].nil?
         data['imagePushedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:image_pushed_at]).to_i unless stub[:image_pushed_at].nil?
-        data['action'] = Stubs::LifecyclePolicyRuleAction.stub(stub[:action]) unless stub[:action].nil?
+        data['action'] = LifecyclePolicyRuleAction.stub(stub[:action]) unless stub[:action].nil?
         data['appliedRulePriority'] = stub[:applied_rule_priority] unless stub[:applied_rule_priority].nil?
         data
       end
@@ -1983,7 +1985,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2000,8 +2002,8 @@ module AWS::SDK::ECR
       def self.stub(http_resp, stub:)
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
-        data['scanningConfiguration'] = Stubs::RegistryScanningConfiguration.stub(stub[:scanning_configuration]) unless stub[:scanning_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scanningConfiguration'] = RegistryScanningConfiguration.stub(stub[:scanning_configuration]) unless stub[:scanning_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2021,7 +2023,7 @@ module AWS::SDK::ECR
         stub ||= Types::RegistryScanningConfiguration.new
         data = {}
         data['scanType'] = stub[:scan_type] unless stub[:scan_type].nil?
-        data['rules'] = Stubs::RegistryScanningRuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['rules'] = RegistryScanningRuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -2040,7 +2042,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegistryScanningRule.stub(element) unless element.nil?
+          data << RegistryScanningRule.stub(element) unless element.nil?
         end
         data
       end
@@ -2061,7 +2063,7 @@ module AWS::SDK::ECR
         stub ||= Types::RegistryScanningRule.new
         data = {}
         data['scanFrequency'] = stub[:scan_frequency] unless stub[:scan_frequency].nil?
-        data['repositoryFilters'] = Stubs::ScanningRepositoryFilterList.stub(stub[:repository_filters]) unless stub[:repository_filters].nil?
+        data['repositoryFilters'] = ScanningRepositoryFilterList.stub(stub[:repository_filters]) unless stub[:repository_filters].nil?
         data
       end
     end
@@ -2081,7 +2083,7 @@ module AWS::SDK::ECR
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2099,7 +2101,7 @@ module AWS::SDK::ECR
         data = {}
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
         data['partSize'] = stub[:part_size] unless stub[:part_size].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2115,9 +2117,9 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['imageIds'] = Stubs::ImageIdentifierList.stub(stub[:image_ids]) unless stub[:image_ids].nil?
+        data['imageIds'] = ImageIdentifierList.stub(stub[:image_ids]) unless stub[:image_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2132,8 +2134,8 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2152,7 +2154,7 @@ module AWS::SDK::ECR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2188,8 +2190,8 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['image'] = Stubs::Image.stub(stub[:image]) unless stub[:image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['image'] = Image.stub(stub[:image]) unless stub[:image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2208,8 +2210,8 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['imageScanningConfiguration'] = Stubs::ImageScanningConfiguration.stub(stub[:image_scanning_configuration]) unless stub[:image_scanning_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageScanningConfiguration'] = ImageScanningConfiguration.stub(stub[:image_scanning_configuration]) unless stub[:image_scanning_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2229,7 +2231,7 @@ module AWS::SDK::ECR
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['imageTagMutability'] = stub[:image_tag_mutability] unless stub[:image_tag_mutability].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2249,7 +2251,7 @@ module AWS::SDK::ECR
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['lifecyclePolicyText'] = stub[:lifecycle_policy_text] unless stub[:lifecycle_policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2267,7 +2269,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2282,8 +2284,8 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['registryScanningConfiguration'] = Stubs::RegistryScanningConfiguration.stub(stub[:registry_scanning_configuration]) unless stub[:registry_scanning_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['registryScanningConfiguration'] = RegistryScanningConfiguration.stub(stub[:registry_scanning_configuration]) unless stub[:registry_scanning_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2298,8 +2300,8 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['replicationConfiguration'] = Stubs::ReplicationConfiguration.stub(stub[:replication_configuration]) unless stub[:replication_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['replicationConfiguration'] = ReplicationConfiguration.stub(stub[:replication_configuration]) unless stub[:replication_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2319,7 +2321,7 @@ module AWS::SDK::ECR
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2339,9 +2341,9 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['imageId'] = Stubs::ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
-        data['imageScanStatus'] = Stubs::ImageScanStatus.stub(stub[:image_scan_status]) unless stub[:image_scan_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageId'] = ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
+        data['imageScanStatus'] = ImageScanStatus.stub(stub[:image_scan_status]) unless stub[:image_scan_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2363,7 +2365,7 @@ module AWS::SDK::ECR
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['lifecyclePolicyText'] = stub[:lifecycle_policy_text] unless stub[:lifecycle_policy_text].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2377,7 +2379,7 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2391,7 +2393,7 @@ module AWS::SDK::ECR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2413,7 +2415,7 @@ module AWS::SDK::ECR
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
         data['lastByteReceived'] = stub[:last_byte_received] unless stub[:last_byte_received].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

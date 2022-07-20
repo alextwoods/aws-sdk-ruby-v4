@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ResourceGroupsTaggingAPI
   module Builders
 
@@ -18,7 +20,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ResourceGroupsTaggingAPI_20170126.DescribeReportCreation'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,14 +32,14 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ResourceGroupsTaggingAPI_20170126.GetComplianceSummary'
         data = {}
-        data['TargetIdFilters'] = Builders::TargetIdFilterList.build(input[:target_id_filters]) unless input[:target_id_filters].nil?
-        data['RegionFilters'] = Builders::RegionFilterList.build(input[:region_filters]) unless input[:region_filters].nil?
-        data['ResourceTypeFilters'] = Builders::ResourceTypeFilterList.build(input[:resource_type_filters]) unless input[:resource_type_filters].nil?
-        data['TagKeyFilters'] = Builders::TagKeyFilterList.build(input[:tag_key_filters]) unless input[:tag_key_filters].nil?
-        data['GroupBy'] = Builders::GroupBy.build(input[:group_by]) unless input[:group_by].nil?
+        data['TargetIdFilters'] = TargetIdFilterList.build(input[:target_id_filters]) unless input[:target_id_filters].nil?
+        data['RegionFilters'] = RegionFilterList.build(input[:region_filters]) unless input[:region_filters].nil?
+        data['ResourceTypeFilters'] = ResourceTypeFilterList.build(input[:resource_type_filters]) unless input[:resource_type_filters].nil?
+        data['TagKeyFilters'] = TagKeyFilterList.build(input[:tag_key_filters]) unless input[:tag_key_filters].nil?
+        data['GroupBy'] = GroupBy.build(input[:group_by]) unless input[:group_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,14 +107,14 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         http_req.headers['X-Amz-Target'] = 'ResourceGroupsTaggingAPI_20170126.GetResources'
         data = {}
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
-        data['TagFilters'] = Builders::TagFilterList.build(input[:tag_filters]) unless input[:tag_filters].nil?
+        data['TagFilters'] = TagFilterList.build(input[:tag_filters]) unless input[:tag_filters].nil?
         data['ResourcesPerPage'] = input[:resources_per_page] unless input[:resources_per_page].nil?
         data['TagsPerPage'] = input[:tags_per_page] unless input[:tags_per_page].nil?
-        data['ResourceTypeFilters'] = Builders::ResourceTypeFilterList.build(input[:resource_type_filters]) unless input[:resource_type_filters].nil?
+        data['ResourceTypeFilters'] = ResourceTypeFilterList.build(input[:resource_type_filters]) unless input[:resource_type_filters].nil?
         data['IncludeComplianceDetails'] = input[:include_compliance_details] unless input[:include_compliance_details].nil?
         data['ExcludeCompliantResources'] = input[:exclude_compliant_resources] unless input[:exclude_compliant_resources].nil?
-        data['ResourceARNList'] = Builders::ResourceARNListForGet.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceARNList'] = ResourceARNListForGet.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagFilter.build(element) unless element.nil?
+          data << TagFilter.build(element) unless element.nil?
         end
         data
       end
@@ -143,7 +145,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::TagValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = TagValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -168,7 +170,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         http_req.headers['X-Amz-Target'] = 'ResourceGroupsTaggingAPI_20170126.GetTagKeys'
         data = {}
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         data = {}
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
         data['Key'] = input[:key] unless input[:key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -195,7 +197,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         http_req.headers['X-Amz-Target'] = 'ResourceGroupsTaggingAPI_20170126.StartReportCreation'
         data = {}
         data['S3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -207,9 +209,9 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ResourceGroupsTaggingAPI_20170126.TagResources'
         data = {}
-        data['ResourceARNList'] = Builders::ResourceARNListForTagUntag.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceARNList'] = ResourceARNListForTagUntag.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -243,9 +245,9 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ResourceGroupsTaggingAPI_20170126.UntagResources'
         data = {}
-        data['ResourceARNList'] = Builders::ResourceARNListForTagUntag.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
-        data['TagKeys'] = Builders::TagKeyListForUntag.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceARNList'] = ResourceARNListForTagUntag.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
+        data['TagKeys'] = TagKeyListForUntag.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

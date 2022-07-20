@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoT1ClickProjects
   module Stubs
 
@@ -87,8 +89,8 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['placement'] = Stubs::PlacementDescription.stub(stub[:placement]) unless stub[:placement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['placement'] = PlacementDescription.stub(stub[:placement]) unless stub[:placement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -111,7 +113,7 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
         data['placementName'] = stub[:placement_name] unless stub[:placement_name].nil?
-        data['attributes'] = Stubs::PlacementAttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = PlacementAttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['updatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_date]).to_i unless stub[:updated_date].nil?
         data
@@ -150,8 +152,8 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['project'] = Stubs::ProjectDescription.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = ProjectDescription.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,8 +181,8 @@ module AWS::SDK::IoT1ClickProjects
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['updatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_date]).to_i unless stub[:updated_date].nil?
-        data['placementTemplate'] = Stubs::PlacementTemplate.stub(stub[:placement_template]) unless stub[:placement_template].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['placementTemplate'] = PlacementTemplate.stub(stub[:placement_template]) unless stub[:placement_template].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -219,8 +221,8 @@ module AWS::SDK::IoT1ClickProjects
       def self.stub(stub)
         stub ||= Types::PlacementTemplate.new
         data = {}
-        data['defaultAttributes'] = Stubs::DefaultPlacementAttributeMap.stub(stub[:default_attributes]) unless stub[:default_attributes].nil?
-        data['deviceTemplates'] = Stubs::DeviceTemplateMap.stub(stub[:device_templates]) unless stub[:device_templates].nil?
+        data['defaultAttributes'] = DefaultPlacementAttributeMap.stub(stub[:default_attributes]) unless stub[:default_attributes].nil?
+        data['deviceTemplates'] = DeviceTemplateMap.stub(stub[:device_templates]) unless stub[:device_templates].nil?
         data
       end
     end
@@ -239,7 +241,7 @@ module AWS::SDK::IoT1ClickProjects
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::DeviceTemplate.stub(value) unless value.nil?
+          data[key] = DeviceTemplate.stub(value) unless value.nil?
         end
         data
       end
@@ -260,7 +262,7 @@ module AWS::SDK::IoT1ClickProjects
         stub ||= Types::DeviceTemplate.new
         data = {}
         data['deviceType'] = stub[:device_type] unless stub[:device_type].nil?
-        data['callbackOverrides'] = Stubs::DeviceCallbackOverrideMap.stub(stub[:callback_overrides]) unless stub[:callback_overrides].nil?
+        data['callbackOverrides'] = DeviceCallbackOverrideMap.stub(stub[:callback_overrides]) unless stub[:callback_overrides].nil?
         data
       end
     end
@@ -330,8 +332,8 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['devices'] = Stubs::DeviceMap.stub(stub[:devices]) unless stub[:devices].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['devices'] = DeviceMap.stub(stub[:devices]) unless stub[:devices].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -368,9 +370,9 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['placements'] = Stubs::PlacementSummaryList.stub(stub[:placements]) unless stub[:placements].nil?
+        data['placements'] = PlacementSummaryList.stub(stub[:placements]) unless stub[:placements].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::IoT1ClickProjects
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlacementSummary.stub(element) unless element.nil?
+          data << PlacementSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -431,9 +433,9 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['projects'] = Stubs::ProjectSummaryList.stub(stub[:projects]) unless stub[:projects].nil?
+        data['projects'] = ProjectSummaryList.stub(stub[:projects]) unless stub[:projects].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -451,7 +453,7 @@ module AWS::SDK::IoT1ClickProjects
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSummary.stub(element) unless element.nil?
+          data << ProjectSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -478,7 +480,7 @@ module AWS::SDK::IoT1ClickProjects
         data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['updatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_date]).to_i unless stub[:updated_date].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -495,8 +497,8 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

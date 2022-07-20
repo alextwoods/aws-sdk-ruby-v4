@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DynamoDBStreams
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::DynamoDBStreams
         data['StreamArn'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ExclusiveStartShardId'] = input[:exclusive_start_shard_id] unless input[:exclusive_start_shard_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::DynamoDBStreams
         data = {}
         data['ShardIterator'] = input[:shard_iterator] unless input[:shard_iterator].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,7 +53,7 @@ module AWS::SDK::DynamoDBStreams
         data['ShardId'] = input[:shard_id] unless input[:shard_id].nil?
         data['ShardIteratorType'] = input[:shard_iterator_type] unless input[:shard_iterator_type].nil?
         data['SequenceNumber'] = input[:sequence_number] unless input[:sequence_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::DynamoDBStreams
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ExclusiveStartStreamArn'] = input[:exclusive_start_stream_arn] unless input[:exclusive_start_stream_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

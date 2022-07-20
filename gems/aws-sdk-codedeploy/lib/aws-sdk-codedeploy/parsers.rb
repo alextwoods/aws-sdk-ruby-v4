@@ -114,7 +114,7 @@ module AWS::SDK::CodeDeploy
         map = Hearth::JSON.load(body)
         data.application_name = map['applicationName']
         data.error_message = map['errorMessage']
-        data.revisions = (Parsers::RevisionInfoList.parse(map['revisions']) unless map['revisions'].nil?)
+        data.revisions = (RevisionInfoList.parse(map['revisions']) unless map['revisions'].nil?)
         data
       end
     end
@@ -122,7 +122,7 @@ module AWS::SDK::CodeDeploy
     class RevisionInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::RevisionInfo.parse(value) unless value.nil?
+          RevisionInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -130,8 +130,8 @@ module AWS::SDK::CodeDeploy
     class RevisionInfo
       def self.parse(map)
         data = Types::RevisionInfo.new
-        data.revision_location = (Parsers::RevisionLocation.parse(map['revisionLocation']) unless map['revisionLocation'].nil?)
-        data.generic_revision_info = (Parsers::GenericRevisionInfo.parse(map['genericRevisionInfo']) unless map['genericRevisionInfo'].nil?)
+        data.revision_location = (RevisionLocation.parse(map['revisionLocation']) unless map['revisionLocation'].nil?)
+        data.generic_revision_info = (GenericRevisionInfo.parse(map['genericRevisionInfo']) unless map['genericRevisionInfo'].nil?)
         return data
       end
     end
@@ -140,7 +140,7 @@ module AWS::SDK::CodeDeploy
       def self.parse(map)
         data = Types::GenericRevisionInfo.new
         data.description = map['description']
-        data.deployment_groups = (Parsers::DeploymentGroupsList.parse(map['deploymentGroups']) unless map['deploymentGroups'].nil?)
+        data.deployment_groups = (DeploymentGroupsList.parse(map['deploymentGroups']) unless map['deploymentGroups'].nil?)
         data.first_used_time = Time.at(map['firstUsedTime'].to_i) if map['firstUsedTime']
         data.last_used_time = Time.at(map['lastUsedTime'].to_i) if map['lastUsedTime']
         data.register_time = Time.at(map['registerTime'].to_i) if map['registerTime']
@@ -160,10 +160,10 @@ module AWS::SDK::CodeDeploy
       def self.parse(map)
         data = Types::RevisionLocation.new
         data.revision_type = map['revisionType']
-        data.s3_location = (Parsers::S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
-        data.git_hub_location = (Parsers::GitHubLocation.parse(map['gitHubLocation']) unless map['gitHubLocation'].nil?)
-        data.string = (Parsers::RawString.parse(map['string']) unless map['string'].nil?)
-        data.app_spec_content = (Parsers::AppSpecContent.parse(map['appSpecContent']) unless map['appSpecContent'].nil?)
+        data.s3_location = (S3Location.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.git_hub_location = (GitHubLocation.parse(map['gitHubLocation']) unless map['gitHubLocation'].nil?)
+        data.string = (RawString.parse(map['string']) unless map['string'].nil?)
+        data.app_spec_content = (AppSpecContent.parse(map['appSpecContent']) unless map['appSpecContent'].nil?)
         return data
       end
     end
@@ -286,7 +286,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.applications_info = (Parsers::ApplicationsInfoList.parse(map['applicationsInfo']) unless map['applicationsInfo'].nil?)
+        data.applications_info = (ApplicationsInfoList.parse(map['applicationsInfo']) unless map['applicationsInfo'].nil?)
         data
       end
     end
@@ -294,7 +294,7 @@ module AWS::SDK::CodeDeploy
     class ApplicationsInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::ApplicationInfo.parse(value) unless value.nil?
+          ApplicationInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployment_groups_info = (Parsers::DeploymentGroupInfoList.parse(map['deploymentGroupsInfo']) unless map['deploymentGroupsInfo'].nil?)
+        data.deployment_groups_info = (DeploymentGroupInfoList.parse(map['deploymentGroupsInfo']) unless map['deploymentGroupsInfo'].nil?)
         data.error_message = map['errorMessage']
         data
       end
@@ -328,7 +328,7 @@ module AWS::SDK::CodeDeploy
     class DeploymentGroupInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeploymentGroupInfo.parse(value) unless value.nil?
+          DeploymentGroupInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -340,24 +340,24 @@ module AWS::SDK::CodeDeploy
         data.deployment_group_id = map['deploymentGroupId']
         data.deployment_group_name = map['deploymentGroupName']
         data.deployment_config_name = map['deploymentConfigName']
-        data.ec2_tag_filters = (Parsers::EC2TagFilterList.parse(map['ec2TagFilters']) unless map['ec2TagFilters'].nil?)
-        data.on_premises_instance_tag_filters = (Parsers::TagFilterList.parse(map['onPremisesInstanceTagFilters']) unless map['onPremisesInstanceTagFilters'].nil?)
-        data.auto_scaling_groups = (Parsers::AutoScalingGroupList.parse(map['autoScalingGroups']) unless map['autoScalingGroups'].nil?)
+        data.ec2_tag_filters = (EC2TagFilterList.parse(map['ec2TagFilters']) unless map['ec2TagFilters'].nil?)
+        data.on_premises_instance_tag_filters = (TagFilterList.parse(map['onPremisesInstanceTagFilters']) unless map['onPremisesInstanceTagFilters'].nil?)
+        data.auto_scaling_groups = (AutoScalingGroupList.parse(map['autoScalingGroups']) unless map['autoScalingGroups'].nil?)
         data.service_role_arn = map['serviceRoleArn']
-        data.target_revision = (Parsers::RevisionLocation.parse(map['targetRevision']) unless map['targetRevision'].nil?)
-        data.trigger_configurations = (Parsers::TriggerConfigList.parse(map['triggerConfigurations']) unless map['triggerConfigurations'].nil?)
-        data.alarm_configuration = (Parsers::AlarmConfiguration.parse(map['alarmConfiguration']) unless map['alarmConfiguration'].nil?)
-        data.auto_rollback_configuration = (Parsers::AutoRollbackConfiguration.parse(map['autoRollbackConfiguration']) unless map['autoRollbackConfiguration'].nil?)
-        data.deployment_style = (Parsers::DeploymentStyle.parse(map['deploymentStyle']) unless map['deploymentStyle'].nil?)
+        data.target_revision = (RevisionLocation.parse(map['targetRevision']) unless map['targetRevision'].nil?)
+        data.trigger_configurations = (TriggerConfigList.parse(map['triggerConfigurations']) unless map['triggerConfigurations'].nil?)
+        data.alarm_configuration = (AlarmConfiguration.parse(map['alarmConfiguration']) unless map['alarmConfiguration'].nil?)
+        data.auto_rollback_configuration = (AutoRollbackConfiguration.parse(map['autoRollbackConfiguration']) unless map['autoRollbackConfiguration'].nil?)
+        data.deployment_style = (DeploymentStyle.parse(map['deploymentStyle']) unless map['deploymentStyle'].nil?)
         data.outdated_instances_strategy = map['outdatedInstancesStrategy']
-        data.blue_green_deployment_configuration = (Parsers::BlueGreenDeploymentConfiguration.parse(map['blueGreenDeploymentConfiguration']) unless map['blueGreenDeploymentConfiguration'].nil?)
-        data.load_balancer_info = (Parsers::LoadBalancerInfo.parse(map['loadBalancerInfo']) unless map['loadBalancerInfo'].nil?)
-        data.last_successful_deployment = (Parsers::LastDeploymentInfo.parse(map['lastSuccessfulDeployment']) unless map['lastSuccessfulDeployment'].nil?)
-        data.last_attempted_deployment = (Parsers::LastDeploymentInfo.parse(map['lastAttemptedDeployment']) unless map['lastAttemptedDeployment'].nil?)
-        data.ec2_tag_set = (Parsers::EC2TagSet.parse(map['ec2TagSet']) unless map['ec2TagSet'].nil?)
-        data.on_premises_tag_set = (Parsers::OnPremisesTagSet.parse(map['onPremisesTagSet']) unless map['onPremisesTagSet'].nil?)
+        data.blue_green_deployment_configuration = (BlueGreenDeploymentConfiguration.parse(map['blueGreenDeploymentConfiguration']) unless map['blueGreenDeploymentConfiguration'].nil?)
+        data.load_balancer_info = (LoadBalancerInfo.parse(map['loadBalancerInfo']) unless map['loadBalancerInfo'].nil?)
+        data.last_successful_deployment = (LastDeploymentInfo.parse(map['lastSuccessfulDeployment']) unless map['lastSuccessfulDeployment'].nil?)
+        data.last_attempted_deployment = (LastDeploymentInfo.parse(map['lastAttemptedDeployment']) unless map['lastAttemptedDeployment'].nil?)
+        data.ec2_tag_set = (EC2TagSet.parse(map['ec2TagSet']) unless map['ec2TagSet'].nil?)
+        data.on_premises_tag_set = (OnPremisesTagSet.parse(map['onPremisesTagSet']) unless map['onPremisesTagSet'].nil?)
         data.compute_platform = map['computePlatform']
-        data.ecs_services = (Parsers::ECSServiceList.parse(map['ecsServices']) unless map['ecsServices'].nil?)
+        data.ecs_services = (ECSServiceList.parse(map['ecsServices']) unless map['ecsServices'].nil?)
         return data
       end
     end
@@ -365,7 +365,7 @@ module AWS::SDK::CodeDeploy
     class ECSServiceList
       def self.parse(list)
         list.map do |value|
-          Parsers::ECSService.parse(value) unless value.nil?
+          ECSService.parse(value) unless value.nil?
         end
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::CodeDeploy
     class OnPremisesTagSet
       def self.parse(map)
         data = Types::OnPremisesTagSet.new
-        data.on_premises_tag_set_list = (Parsers::OnPremisesTagSetList.parse(map['onPremisesTagSetList']) unless map['onPremisesTagSetList'].nil?)
+        data.on_premises_tag_set_list = (OnPremisesTagSetList.parse(map['onPremisesTagSetList']) unless map['onPremisesTagSetList'].nil?)
         return data
       end
     end
@@ -390,7 +390,7 @@ module AWS::SDK::CodeDeploy
     class OnPremisesTagSetList
       def self.parse(list)
         list.map do |value|
-          Parsers::TagFilterList.parse(value) unless value.nil?
+          TagFilterList.parse(value) unless value.nil?
         end
       end
     end
@@ -398,7 +398,7 @@ module AWS::SDK::CodeDeploy
     class TagFilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::TagFilter.parse(value) unless value.nil?
+          TagFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -416,7 +416,7 @@ module AWS::SDK::CodeDeploy
     class EC2TagSet
       def self.parse(map)
         data = Types::EC2TagSet.new
-        data.ec2_tag_set_list = (Parsers::EC2TagSetList.parse(map['ec2TagSetList']) unless map['ec2TagSetList'].nil?)
+        data.ec2_tag_set_list = (EC2TagSetList.parse(map['ec2TagSetList']) unless map['ec2TagSetList'].nil?)
         return data
       end
     end
@@ -424,7 +424,7 @@ module AWS::SDK::CodeDeploy
     class EC2TagSetList
       def self.parse(list)
         list.map do |value|
-          Parsers::EC2TagFilterList.parse(value) unless value.nil?
+          EC2TagFilterList.parse(value) unless value.nil?
         end
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::CodeDeploy
     class EC2TagFilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::EC2TagFilter.parse(value) unless value.nil?
+          EC2TagFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -461,9 +461,9 @@ module AWS::SDK::CodeDeploy
     class LoadBalancerInfo
       def self.parse(map)
         data = Types::LoadBalancerInfo.new
-        data.elb_info_list = (Parsers::ELBInfoList.parse(map['elbInfoList']) unless map['elbInfoList'].nil?)
-        data.target_group_info_list = (Parsers::TargetGroupInfoList.parse(map['targetGroupInfoList']) unless map['targetGroupInfoList'].nil?)
-        data.target_group_pair_info_list = (Parsers::TargetGroupPairInfoList.parse(map['targetGroupPairInfoList']) unless map['targetGroupPairInfoList'].nil?)
+        data.elb_info_list = (ELBInfoList.parse(map['elbInfoList']) unless map['elbInfoList'].nil?)
+        data.target_group_info_list = (TargetGroupInfoList.parse(map['targetGroupInfoList']) unless map['targetGroupInfoList'].nil?)
+        data.target_group_pair_info_list = (TargetGroupPairInfoList.parse(map['targetGroupPairInfoList']) unless map['targetGroupPairInfoList'].nil?)
         return data
       end
     end
@@ -471,7 +471,7 @@ module AWS::SDK::CodeDeploy
     class TargetGroupPairInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetGroupPairInfo.parse(value) unless value.nil?
+          TargetGroupPairInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -479,9 +479,9 @@ module AWS::SDK::CodeDeploy
     class TargetGroupPairInfo
       def self.parse(map)
         data = Types::TargetGroupPairInfo.new
-        data.target_groups = (Parsers::TargetGroupInfoList.parse(map['targetGroups']) unless map['targetGroups'].nil?)
-        data.prod_traffic_route = (Parsers::TrafficRoute.parse(map['prodTrafficRoute']) unless map['prodTrafficRoute'].nil?)
-        data.test_traffic_route = (Parsers::TrafficRoute.parse(map['testTrafficRoute']) unless map['testTrafficRoute'].nil?)
+        data.target_groups = (TargetGroupInfoList.parse(map['targetGroups']) unless map['targetGroups'].nil?)
+        data.prod_traffic_route = (TrafficRoute.parse(map['prodTrafficRoute']) unless map['prodTrafficRoute'].nil?)
+        data.test_traffic_route = (TrafficRoute.parse(map['testTrafficRoute']) unless map['testTrafficRoute'].nil?)
         return data
       end
     end
@@ -489,7 +489,7 @@ module AWS::SDK::CodeDeploy
     class TrafficRoute
       def self.parse(map)
         data = Types::TrafficRoute.new
-        data.listener_arns = (Parsers::ListenerArnList.parse(map['listenerArns']) unless map['listenerArns'].nil?)
+        data.listener_arns = (ListenerArnList.parse(map['listenerArns']) unless map['listenerArns'].nil?)
         return data
       end
     end
@@ -505,7 +505,7 @@ module AWS::SDK::CodeDeploy
     class TargetGroupInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetGroupInfo.parse(value) unless value.nil?
+          TargetGroupInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -521,7 +521,7 @@ module AWS::SDK::CodeDeploy
     class ELBInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::ELBInfo.parse(value) unless value.nil?
+          ELBInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -537,9 +537,9 @@ module AWS::SDK::CodeDeploy
     class BlueGreenDeploymentConfiguration
       def self.parse(map)
         data = Types::BlueGreenDeploymentConfiguration.new
-        data.terminate_blue_instances_on_deployment_success = (Parsers::BlueInstanceTerminationOption.parse(map['terminateBlueInstancesOnDeploymentSuccess']) unless map['terminateBlueInstancesOnDeploymentSuccess'].nil?)
-        data.deployment_ready_option = (Parsers::DeploymentReadyOption.parse(map['deploymentReadyOption']) unless map['deploymentReadyOption'].nil?)
-        data.green_fleet_provisioning_option = (Parsers::GreenFleetProvisioningOption.parse(map['greenFleetProvisioningOption']) unless map['greenFleetProvisioningOption'].nil?)
+        data.terminate_blue_instances_on_deployment_success = (BlueInstanceTerminationOption.parse(map['terminateBlueInstancesOnDeploymentSuccess']) unless map['terminateBlueInstancesOnDeploymentSuccess'].nil?)
+        data.deployment_ready_option = (DeploymentReadyOption.parse(map['deploymentReadyOption']) unless map['deploymentReadyOption'].nil?)
+        data.green_fleet_provisioning_option = (GreenFleetProvisioningOption.parse(map['greenFleetProvisioningOption']) unless map['greenFleetProvisioningOption'].nil?)
         return data
       end
     end
@@ -583,7 +583,7 @@ module AWS::SDK::CodeDeploy
       def self.parse(map)
         data = Types::AutoRollbackConfiguration.new
         data.enabled = map['enabled']
-        data.events = (Parsers::AutoRollbackEventsList.parse(map['events']) unless map['events'].nil?)
+        data.events = (AutoRollbackEventsList.parse(map['events']) unless map['events'].nil?)
         return data
       end
     end
@@ -601,7 +601,7 @@ module AWS::SDK::CodeDeploy
         data = Types::AlarmConfiguration.new
         data.enabled = map['enabled']
         data.ignore_poll_alarm_failure = map['ignorePollAlarmFailure']
-        data.alarms = (Parsers::AlarmList.parse(map['alarms']) unless map['alarms'].nil?)
+        data.alarms = (AlarmList.parse(map['alarms']) unless map['alarms'].nil?)
         return data
       end
     end
@@ -609,7 +609,7 @@ module AWS::SDK::CodeDeploy
     class AlarmList
       def self.parse(list)
         list.map do |value|
-          Parsers::Alarm.parse(value) unless value.nil?
+          Alarm.parse(value) unless value.nil?
         end
       end
     end
@@ -625,7 +625,7 @@ module AWS::SDK::CodeDeploy
     class TriggerConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::TriggerConfig.parse(value) unless value.nil?
+          TriggerConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -635,7 +635,7 @@ module AWS::SDK::CodeDeploy
         data = Types::TriggerConfig.new
         data.trigger_name = map['triggerName']
         data.trigger_target_arn = map['triggerTargetArn']
-        data.trigger_events = (Parsers::TriggerEventTypeList.parse(map['triggerEvents']) unless map['triggerEvents'].nil?)
+        data.trigger_events = (TriggerEventTypeList.parse(map['triggerEvents']) unless map['triggerEvents'].nil?)
         return data
       end
     end
@@ -651,7 +651,7 @@ module AWS::SDK::CodeDeploy
     class AutoScalingGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoScalingGroup.parse(value) unless value.nil?
+          AutoScalingGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instances_summary = (Parsers::InstanceSummaryList.parse(map['instancesSummary']) unless map['instancesSummary'].nil?)
+        data.instances_summary = (InstanceSummaryList.parse(map['instancesSummary']) unless map['instancesSummary'].nil?)
         data.error_message = map['errorMessage']
         data
       end
@@ -717,7 +717,7 @@ module AWS::SDK::CodeDeploy
     class InstanceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceSummary.parse(value) unless value.nil?
+          InstanceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -729,7 +729,7 @@ module AWS::SDK::CodeDeploy
         data.instance_id = map['instanceId']
         data.status = map['status']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.lifecycle_events = (Parsers::LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
+        data.lifecycle_events = (LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
         data.instance_type = map['instanceType']
         return data
       end
@@ -738,7 +738,7 @@ module AWS::SDK::CodeDeploy
     class LifecycleEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::LifecycleEvent.parse(value) unless value.nil?
+          LifecycleEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -747,7 +747,7 @@ module AWS::SDK::CodeDeploy
       def self.parse(map)
         data = Types::LifecycleEvent.new
         data.lifecycle_event_name = map['lifecycleEventName']
-        data.diagnostics = (Parsers::Diagnostics.parse(map['diagnostics']) unless map['diagnostics'].nil?)
+        data.diagnostics = (Diagnostics.parse(map['diagnostics']) unless map['diagnostics'].nil?)
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
         data.status = map['status']
@@ -833,7 +833,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployment_targets = (Parsers::DeploymentTargetList.parse(map['deploymentTargets']) unless map['deploymentTargets'].nil?)
+        data.deployment_targets = (DeploymentTargetList.parse(map['deploymentTargets']) unless map['deploymentTargets'].nil?)
         data
       end
     end
@@ -841,7 +841,7 @@ module AWS::SDK::CodeDeploy
     class DeploymentTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeploymentTarget.parse(value) unless value.nil?
+          DeploymentTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -850,10 +850,10 @@ module AWS::SDK::CodeDeploy
       def self.parse(map)
         data = Types::DeploymentTarget.new
         data.deployment_target_type = map['deploymentTargetType']
-        data.instance_target = (Parsers::InstanceTarget.parse(map['instanceTarget']) unless map['instanceTarget'].nil?)
-        data.lambda_target = (Parsers::LambdaTarget.parse(map['lambdaTarget']) unless map['lambdaTarget'].nil?)
-        data.ecs_target = (Parsers::ECSTarget.parse(map['ecsTarget']) unless map['ecsTarget'].nil?)
-        data.cloud_formation_target = (Parsers::CloudFormationTarget.parse(map['cloudFormationTarget']) unless map['cloudFormationTarget'].nil?)
+        data.instance_target = (InstanceTarget.parse(map['instanceTarget']) unless map['instanceTarget'].nil?)
+        data.lambda_target = (LambdaTarget.parse(map['lambdaTarget']) unless map['lambdaTarget'].nil?)
+        data.ecs_target = (ECSTarget.parse(map['ecsTarget']) unless map['ecsTarget'].nil?)
+        data.cloud_formation_target = (CloudFormationTarget.parse(map['cloudFormationTarget']) unless map['cloudFormationTarget'].nil?)
         return data
       end
     end
@@ -864,7 +864,7 @@ module AWS::SDK::CodeDeploy
         data.deployment_id = map['deploymentId']
         data.target_id = map['targetId']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.lifecycle_events = (Parsers::LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
+        data.lifecycle_events = (LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
         data.status = map['status']
         data.resource_type = map['resourceType']
         data.target_version_weight = Hearth::NumberHelper.deserialize(map['targetVersionWeight'])
@@ -879,9 +879,9 @@ module AWS::SDK::CodeDeploy
         data.target_id = map['targetId']
         data.target_arn = map['targetArn']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.lifecycle_events = (Parsers::LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
+        data.lifecycle_events = (LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
         data.status = map['status']
-        data.task_sets_info = (Parsers::ECSTaskSetList.parse(map['taskSetsInfo']) unless map['taskSetsInfo'].nil?)
+        data.task_sets_info = (ECSTaskSetList.parse(map['taskSetsInfo']) unless map['taskSetsInfo'].nil?)
         return data
       end
     end
@@ -889,7 +889,7 @@ module AWS::SDK::CodeDeploy
     class ECSTaskSetList
       def self.parse(list)
         list.map do |value|
-          Parsers::ECSTaskSet.parse(value) unless value.nil?
+          ECSTaskSet.parse(value) unless value.nil?
         end
       end
     end
@@ -903,7 +903,7 @@ module AWS::SDK::CodeDeploy
         data.running_count = map['runningCount']
         data.status = map['status']
         data.traffic_weight = Hearth::NumberHelper.deserialize(map['trafficWeight'])
-        data.target_group = (Parsers::TargetGroupInfo.parse(map['targetGroup']) unless map['targetGroup'].nil?)
+        data.target_group = (TargetGroupInfo.parse(map['targetGroup']) unless map['targetGroup'].nil?)
         data.task_set_label = map['taskSetLabel']
         return data
       end
@@ -917,8 +917,8 @@ module AWS::SDK::CodeDeploy
         data.target_arn = map['targetArn']
         data.status = map['status']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.lifecycle_events = (Parsers::LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
-        data.lambda_function_info = (Parsers::LambdaFunctionInfo.parse(map['lambdaFunctionInfo']) unless map['lambdaFunctionInfo'].nil?)
+        data.lifecycle_events = (LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
+        data.lambda_function_info = (LambdaFunctionInfo.parse(map['lambdaFunctionInfo']) unless map['lambdaFunctionInfo'].nil?)
         return data
       end
     end
@@ -943,7 +943,7 @@ module AWS::SDK::CodeDeploy
         data.target_arn = map['targetArn']
         data.status = map['status']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.lifecycle_events = (Parsers::LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
+        data.lifecycle_events = (LifecycleEventList.parse(map['lifecycleEvents']) unless map['lifecycleEvents'].nil?)
         data.instance_label = map['instanceLabel']
         return data
       end
@@ -1028,7 +1028,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployments_info = (Parsers::DeploymentsInfoList.parse(map['deploymentsInfo']) unless map['deploymentsInfo'].nil?)
+        data.deployments_info = (DeploymentsInfoList.parse(map['deploymentsInfo']) unless map['deploymentsInfo'].nil?)
         data
       end
     end
@@ -1036,7 +1036,7 @@ module AWS::SDK::CodeDeploy
     class DeploymentsInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeploymentInfo.parse(value) unless value.nil?
+          DeploymentInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1048,31 +1048,31 @@ module AWS::SDK::CodeDeploy
         data.deployment_group_name = map['deploymentGroupName']
         data.deployment_config_name = map['deploymentConfigName']
         data.deployment_id = map['deploymentId']
-        data.previous_revision = (Parsers::RevisionLocation.parse(map['previousRevision']) unless map['previousRevision'].nil?)
-        data.revision = (Parsers::RevisionLocation.parse(map['revision']) unless map['revision'].nil?)
+        data.previous_revision = (RevisionLocation.parse(map['previousRevision']) unless map['previousRevision'].nil?)
+        data.revision = (RevisionLocation.parse(map['revision']) unless map['revision'].nil?)
         data.status = map['status']
-        data.error_information = (Parsers::ErrorInformation.parse(map['errorInformation']) unless map['errorInformation'].nil?)
+        data.error_information = (ErrorInformation.parse(map['errorInformation']) unless map['errorInformation'].nil?)
         data.create_time = Time.at(map['createTime'].to_i) if map['createTime']
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.complete_time = Time.at(map['completeTime'].to_i) if map['completeTime']
-        data.deployment_overview = (Parsers::DeploymentOverview.parse(map['deploymentOverview']) unless map['deploymentOverview'].nil?)
+        data.deployment_overview = (DeploymentOverview.parse(map['deploymentOverview']) unless map['deploymentOverview'].nil?)
         data.description = map['description']
         data.creator = map['creator']
         data.ignore_application_stop_failures = map['ignoreApplicationStopFailures']
-        data.auto_rollback_configuration = (Parsers::AutoRollbackConfiguration.parse(map['autoRollbackConfiguration']) unless map['autoRollbackConfiguration'].nil?)
+        data.auto_rollback_configuration = (AutoRollbackConfiguration.parse(map['autoRollbackConfiguration']) unless map['autoRollbackConfiguration'].nil?)
         data.update_outdated_instances_only = map['updateOutdatedInstancesOnly']
-        data.rollback_info = (Parsers::RollbackInfo.parse(map['rollbackInfo']) unless map['rollbackInfo'].nil?)
-        data.deployment_style = (Parsers::DeploymentStyle.parse(map['deploymentStyle']) unless map['deploymentStyle'].nil?)
-        data.target_instances = (Parsers::TargetInstances.parse(map['targetInstances']) unless map['targetInstances'].nil?)
+        data.rollback_info = (RollbackInfo.parse(map['rollbackInfo']) unless map['rollbackInfo'].nil?)
+        data.deployment_style = (DeploymentStyle.parse(map['deploymentStyle']) unless map['deploymentStyle'].nil?)
+        data.target_instances = (TargetInstances.parse(map['targetInstances']) unless map['targetInstances'].nil?)
         data.instance_termination_wait_time_started = map['instanceTerminationWaitTimeStarted']
-        data.blue_green_deployment_configuration = (Parsers::BlueGreenDeploymentConfiguration.parse(map['blueGreenDeploymentConfiguration']) unless map['blueGreenDeploymentConfiguration'].nil?)
-        data.load_balancer_info = (Parsers::LoadBalancerInfo.parse(map['loadBalancerInfo']) unless map['loadBalancerInfo'].nil?)
+        data.blue_green_deployment_configuration = (BlueGreenDeploymentConfiguration.parse(map['blueGreenDeploymentConfiguration']) unless map['blueGreenDeploymentConfiguration'].nil?)
+        data.load_balancer_info = (LoadBalancerInfo.parse(map['loadBalancerInfo']) unless map['loadBalancerInfo'].nil?)
         data.additional_deployment_status_info = map['additionalDeploymentStatusInfo']
         data.file_exists_behavior = map['fileExistsBehavior']
-        data.deployment_status_messages = (Parsers::DeploymentStatusMessageList.parse(map['deploymentStatusMessages']) unless map['deploymentStatusMessages'].nil?)
+        data.deployment_status_messages = (DeploymentStatusMessageList.parse(map['deploymentStatusMessages']) unless map['deploymentStatusMessages'].nil?)
         data.compute_platform = map['computePlatform']
         data.external_id = map['externalId']
-        data.related_deployments = (Parsers::RelatedDeployments.parse(map['relatedDeployments']) unless map['relatedDeployments'].nil?)
+        data.related_deployments = (RelatedDeployments.parse(map['relatedDeployments']) unless map['relatedDeployments'].nil?)
         return data
       end
     end
@@ -1081,7 +1081,7 @@ module AWS::SDK::CodeDeploy
       def self.parse(map)
         data = Types::RelatedDeployments.new
         data.auto_update_outdated_instances_root_deployment_id = map['autoUpdateOutdatedInstancesRootDeploymentId']
-        data.auto_update_outdated_instances_deployment_ids = (Parsers::DeploymentsList.parse(map['autoUpdateOutdatedInstancesDeploymentIds']) unless map['autoUpdateOutdatedInstancesDeploymentIds'].nil?)
+        data.auto_update_outdated_instances_deployment_ids = (DeploymentsList.parse(map['autoUpdateOutdatedInstancesDeploymentIds']) unless map['autoUpdateOutdatedInstancesDeploymentIds'].nil?)
         return data
       end
     end
@@ -1105,9 +1105,9 @@ module AWS::SDK::CodeDeploy
     class TargetInstances
       def self.parse(map)
         data = Types::TargetInstances.new
-        data.tag_filters = (Parsers::EC2TagFilterList.parse(map['tagFilters']) unless map['tagFilters'].nil?)
-        data.auto_scaling_groups = (Parsers::AutoScalingGroupNameList.parse(map['autoScalingGroups']) unless map['autoScalingGroups'].nil?)
-        data.ec2_tag_set = (Parsers::EC2TagSet.parse(map['ec2TagSet']) unless map['ec2TagSet'].nil?)
+        data.tag_filters = (EC2TagFilterList.parse(map['tagFilters']) unless map['tagFilters'].nil?)
+        data.auto_scaling_groups = (AutoScalingGroupNameList.parse(map['autoScalingGroups']) unless map['autoScalingGroups'].nil?)
+        data.ec2_tag_set = (EC2TagSet.parse(map['ec2TagSet']) unless map['ec2TagSet'].nil?)
         return data
       end
     end
@@ -1159,7 +1159,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_infos = (Parsers::InstanceInfoList.parse(map['instanceInfos']) unless map['instanceInfos'].nil?)
+        data.instance_infos = (InstanceInfoList.parse(map['instanceInfos']) unless map['instanceInfos'].nil?)
         data
       end
     end
@@ -1167,7 +1167,7 @@ module AWS::SDK::CodeDeploy
     class InstanceInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceInfo.parse(value) unless value.nil?
+          InstanceInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1181,7 +1181,7 @@ module AWS::SDK::CodeDeploy
         data.instance_arn = map['instanceArn']
         data.register_time = Time.at(map['registerTime'].to_i) if map['registerTime']
         data.deregister_time = Time.at(map['deregisterTime'].to_i) if map['deregisterTime']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1189,7 +1189,7 @@ module AWS::SDK::CodeDeploy
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1867,7 +1867,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hooks_not_cleaned_up = (Parsers::AutoScalingGroupList.parse(map['hooksNotCleanedUp']) unless map['hooksNotCleanedUp'].nil?)
+        data.hooks_not_cleaned_up = (AutoScalingGroupList.parse(map['hooksNotCleanedUp']) unless map['hooksNotCleanedUp'].nil?)
         data
       end
     end
@@ -1973,7 +1973,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application = (Parsers::ApplicationInfo.parse(map['application']) unless map['application'].nil?)
+        data.application = (ApplicationInfo.parse(map['application']) unless map['application'].nil?)
         data
       end
     end
@@ -1986,8 +1986,8 @@ module AWS::SDK::CodeDeploy
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.application_name = map['applicationName']
-        data.revision = (Parsers::RevisionLocation.parse(map['revision']) unless map['revision'].nil?)
-        data.revision_info = (Parsers::GenericRevisionInfo.parse(map['revisionInfo']) unless map['revisionInfo'].nil?)
+        data.revision = (RevisionLocation.parse(map['revision']) unless map['revision'].nil?)
+        data.revision_info = (GenericRevisionInfo.parse(map['revisionInfo']) unless map['revisionInfo'].nil?)
         data
       end
     end
@@ -1999,7 +1999,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployment_info = (Parsers::DeploymentInfo.parse(map['deploymentInfo']) unless map['deploymentInfo'].nil?)
+        data.deployment_info = (DeploymentInfo.parse(map['deploymentInfo']) unless map['deploymentInfo'].nil?)
         data
       end
     end
@@ -2011,7 +2011,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployment_config_info = (Parsers::DeploymentConfigInfo.parse(map['deploymentConfigInfo']) unless map['deploymentConfigInfo'].nil?)
+        data.deployment_config_info = (DeploymentConfigInfo.parse(map['deploymentConfigInfo']) unless map['deploymentConfigInfo'].nil?)
         data
       end
     end
@@ -2021,10 +2021,10 @@ module AWS::SDK::CodeDeploy
         data = Types::DeploymentConfigInfo.new
         data.deployment_config_id = map['deploymentConfigId']
         data.deployment_config_name = map['deploymentConfigName']
-        data.minimum_healthy_hosts = (Parsers::MinimumHealthyHosts.parse(map['minimumHealthyHosts']) unless map['minimumHealthyHosts'].nil?)
+        data.minimum_healthy_hosts = (MinimumHealthyHosts.parse(map['minimumHealthyHosts']) unless map['minimumHealthyHosts'].nil?)
         data.create_time = Time.at(map['createTime'].to_i) if map['createTime']
         data.compute_platform = map['computePlatform']
-        data.traffic_routing_config = (Parsers::TrafficRoutingConfig.parse(map['trafficRoutingConfig']) unless map['trafficRoutingConfig'].nil?)
+        data.traffic_routing_config = (TrafficRoutingConfig.parse(map['trafficRoutingConfig']) unless map['trafficRoutingConfig'].nil?)
         return data
       end
     end
@@ -2033,8 +2033,8 @@ module AWS::SDK::CodeDeploy
       def self.parse(map)
         data = Types::TrafficRoutingConfig.new
         data.type = map['type']
-        data.time_based_canary = (Parsers::TimeBasedCanary.parse(map['timeBasedCanary']) unless map['timeBasedCanary'].nil?)
-        data.time_based_linear = (Parsers::TimeBasedLinear.parse(map['timeBasedLinear']) unless map['timeBasedLinear'].nil?)
+        data.time_based_canary = (TimeBasedCanary.parse(map['timeBasedCanary']) unless map['timeBasedCanary'].nil?)
+        data.time_based_linear = (TimeBasedLinear.parse(map['timeBasedLinear']) unless map['timeBasedLinear'].nil?)
         return data
       end
     end
@@ -2073,7 +2073,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployment_group_info = (Parsers::DeploymentGroupInfo.parse(map['deploymentGroupInfo']) unless map['deploymentGroupInfo'].nil?)
+        data.deployment_group_info = (DeploymentGroupInfo.parse(map['deploymentGroupInfo']) unless map['deploymentGroupInfo'].nil?)
         data
       end
     end
@@ -2085,7 +2085,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_summary = (Parsers::InstanceSummary.parse(map['instanceSummary']) unless map['instanceSummary'].nil?)
+        data.instance_summary = (InstanceSummary.parse(map['instanceSummary']) unless map['instanceSummary'].nil?)
         data
       end
     end
@@ -2097,7 +2097,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployment_target = (Parsers::DeploymentTarget.parse(map['deploymentTarget']) unless map['deploymentTarget'].nil?)
+        data.deployment_target = (DeploymentTarget.parse(map['deploymentTarget']) unless map['deploymentTarget'].nil?)
         data
       end
     end
@@ -2109,7 +2109,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_info = (Parsers::InstanceInfo.parse(map['instanceInfo']) unless map['instanceInfo'].nil?)
+        data.instance_info = (InstanceInfo.parse(map['instanceInfo']) unless map['instanceInfo'].nil?)
         data
       end
     end
@@ -2121,7 +2121,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.revisions = (Parsers::RevisionLocationList.parse(map['revisions']) unless map['revisions'].nil?)
+        data.revisions = (RevisionLocationList.parse(map['revisions']) unless map['revisions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2130,7 +2130,7 @@ module AWS::SDK::CodeDeploy
     class RevisionLocationList
       def self.parse(list)
         list.map do |value|
-          Parsers::RevisionLocation.parse(value) unless value.nil?
+          RevisionLocation.parse(value) unless value.nil?
         end
       end
     end
@@ -2226,7 +2226,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.applications = (Parsers::ApplicationsList.parse(map['applications']) unless map['applications'].nil?)
+        data.applications = (ApplicationsList.parse(map['applications']) unless map['applications'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2247,7 +2247,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployment_configs_list = (Parsers::DeploymentConfigsList.parse(map['deploymentConfigsList']) unless map['deploymentConfigsList'].nil?)
+        data.deployment_configs_list = (DeploymentConfigsList.parse(map['deploymentConfigsList']) unless map['deploymentConfigsList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2269,7 +2269,7 @@ module AWS::SDK::CodeDeploy
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.application_name = map['applicationName']
-        data.deployment_groups = (Parsers::DeploymentGroupsList.parse(map['deploymentGroups']) unless map['deploymentGroups'].nil?)
+        data.deployment_groups = (DeploymentGroupsList.parse(map['deploymentGroups']) unless map['deploymentGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2282,7 +2282,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instances_list = (Parsers::InstancesList.parse(map['instancesList']) unless map['instancesList'].nil?)
+        data.instances_list = (InstancesList.parse(map['instancesList']) unless map['instancesList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2351,7 +2351,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.target_ids = (Parsers::TargetIdList.parse(map['targetIds']) unless map['targetIds'].nil?)
+        data.target_ids = (TargetIdList.parse(map['targetIds']) unless map['targetIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2372,7 +2372,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployments = (Parsers::DeploymentsList.parse(map['deployments']) unless map['deployments'].nil?)
+        data.deployments = (DeploymentsList.parse(map['deployments']) unless map['deployments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2409,7 +2409,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.token_name_list = (Parsers::GitHubAccountTokenNameList.parse(map['tokenNameList']) unless map['tokenNameList'].nil?)
+        data.token_name_list = (GitHubAccountTokenNameList.parse(map['tokenNameList']) unless map['tokenNameList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2430,7 +2430,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_names = (Parsers::InstanceNameList.parse(map['instanceNames']) unless map['instanceNames'].nil?)
+        data.instance_names = (InstanceNameList.parse(map['instanceNames']) unless map['instanceNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2475,7 +2475,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2758,7 +2758,7 @@ module AWS::SDK::CodeDeploy
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hooks_not_cleaned_up = (Parsers::AutoScalingGroupList.parse(map['hooksNotCleanedUp']) unless map['hooksNotCleanedUp'].nil?)
+        data.hooks_not_cleaned_up = (AutoScalingGroupList.parse(map['hooksNotCleanedUp']) unless map['hooksNotCleanedUp'].nil?)
         data
       end
     end

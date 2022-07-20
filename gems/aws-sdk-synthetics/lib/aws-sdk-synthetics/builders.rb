@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Synthetics
   module Builders
 
@@ -21,18 +24,18 @@ module AWS::SDK::Synthetics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Code'] = Builders::CanaryCodeInput.build(input[:code]) unless input[:code].nil?
+        data['Code'] = CanaryCodeInput.build(input[:code]) unless input[:code].nil?
         data['ArtifactS3Location'] = input[:artifact_s3_location] unless input[:artifact_s3_location].nil?
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
-        data['Schedule'] = Builders::CanaryScheduleInput.build(input[:schedule]) unless input[:schedule].nil?
-        data['RunConfig'] = Builders::CanaryRunConfigInput.build(input[:run_config]) unless input[:run_config].nil?
+        data['Schedule'] = CanaryScheduleInput.build(input[:schedule]) unless input[:schedule].nil?
+        data['RunConfig'] = CanaryRunConfigInput.build(input[:run_config]) unless input[:run_config].nil?
         data['SuccessRetentionPeriodInDays'] = input[:success_retention_period_in_days] unless input[:success_retention_period_in_days].nil?
         data['FailureRetentionPeriodInDays'] = input[:failure_retention_period_in_days] unless input[:failure_retention_period_in_days].nil?
         data['RuntimeVersion'] = input[:runtime_version] unless input[:runtime_version].nil?
-        data['VpcConfig'] = Builders::VpcConfigInput.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['ArtifactConfig'] = Builders::ArtifactConfigInput.build(input[:artifact_config]) unless input[:artifact_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfigInput.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['ArtifactConfig'] = ArtifactConfigInput.build(input[:artifact_config]) unless input[:artifact_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +43,7 @@ module AWS::SDK::Synthetics
     class ArtifactConfigInput
       def self.build(input)
         data = {}
-        data['S3Encryption'] = Builders::S3EncryptionConfig.build(input[:s3_encryption]) unless input[:s3_encryption].nil?
+        data['S3Encryption'] = S3EncryptionConfig.build(input[:s3_encryption]) unless input[:s3_encryption].nil?
         data
       end
     end
@@ -70,8 +73,8 @@ module AWS::SDK::Synthetics
     class VpcConfigInput
       def self.build(input)
         data = {}
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -105,7 +108,7 @@ module AWS::SDK::Synthetics
         data['TimeoutInSeconds'] = input[:timeout_in_seconds] unless input[:timeout_in_seconds].nil?
         data['MemoryInMB'] = input[:memory_in_mb] unless input[:memory_in_mb].nil?
         data['ActiveTracing'] = input[:active_tracing] unless input[:active_tracing].nil?
-        data['EnvironmentVariables'] = Builders::EnvironmentVariablesMap.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['EnvironmentVariables'] = EnvironmentVariablesMap.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data
       end
     end
@@ -138,7 +141,7 @@ module AWS::SDK::Synthetics
         data['S3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
         data['S3Key'] = input[:s3_key] unless input[:s3_key].nil?
         data['S3Version'] = input[:s3_version] unless input[:s3_version].nil?
-        data['ZipFile'] = Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
+        data['ZipFile'] = ::Base64::encode64(input[:zip_file]).strip unless input[:zip_file].nil?
         data['Handler'] = input[:handler] unless input[:handler].nil?
         data
       end
@@ -174,8 +177,8 @@ module AWS::SDK::Synthetics
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Names'] = Builders::DescribeCanariesNameFilter.build(input[:names]) unless input[:names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Names'] = DescribeCanariesNameFilter.build(input[:names]) unless input[:names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,8 +205,8 @@ module AWS::SDK::Synthetics
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Names'] = Builders::DescribeCanariesLastRunNameFilter.build(input[:names]) unless input[:names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Names'] = DescribeCanariesLastRunNameFilter.build(input[:names]) unless input[:names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -230,7 +233,7 @@ module AWS::SDK::Synthetics
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -270,7 +273,7 @@ module AWS::SDK::Synthetics
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,8 +345,8 @@ module AWS::SDK::Synthetics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -397,18 +400,18 @@ module AWS::SDK::Synthetics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Code'] = Builders::CanaryCodeInput.build(input[:code]) unless input[:code].nil?
+        data['Code'] = CanaryCodeInput.build(input[:code]) unless input[:code].nil?
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['RuntimeVersion'] = input[:runtime_version] unless input[:runtime_version].nil?
-        data['Schedule'] = Builders::CanaryScheduleInput.build(input[:schedule]) unless input[:schedule].nil?
-        data['RunConfig'] = Builders::CanaryRunConfigInput.build(input[:run_config]) unless input[:run_config].nil?
+        data['Schedule'] = CanaryScheduleInput.build(input[:schedule]) unless input[:schedule].nil?
+        data['RunConfig'] = CanaryRunConfigInput.build(input[:run_config]) unless input[:run_config].nil?
         data['SuccessRetentionPeriodInDays'] = input[:success_retention_period_in_days] unless input[:success_retention_period_in_days].nil?
         data['FailureRetentionPeriodInDays'] = input[:failure_retention_period_in_days] unless input[:failure_retention_period_in_days].nil?
-        data['VpcConfig'] = Builders::VpcConfigInput.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['VisualReference'] = Builders::VisualReferenceInput.build(input[:visual_reference]) unless input[:visual_reference].nil?
+        data['VpcConfig'] = VpcConfigInput.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VisualReference'] = VisualReferenceInput.build(input[:visual_reference]) unless input[:visual_reference].nil?
         data['ArtifactS3Location'] = input[:artifact_s3_location] unless input[:artifact_s3_location].nil?
-        data['ArtifactConfig'] = Builders::ArtifactConfigInput.build(input[:artifact_config]) unless input[:artifact_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ArtifactConfig'] = ArtifactConfigInput.build(input[:artifact_config]) unless input[:artifact_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -416,7 +419,7 @@ module AWS::SDK::Synthetics
     class VisualReferenceInput
       def self.build(input)
         data = {}
-        data['BaseScreenshots'] = Builders::BaseScreenshots.build(input[:base_screenshots]) unless input[:base_screenshots].nil?
+        data['BaseScreenshots'] = BaseScreenshots.build(input[:base_screenshots]) unless input[:base_screenshots].nil?
         data['BaseCanaryRunId'] = input[:base_canary_run_id] unless input[:base_canary_run_id].nil?
         data
       end
@@ -427,7 +430,7 @@ module AWS::SDK::Synthetics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BaseScreenshot.build(element) unless element.nil?
+          data << BaseScreenshot.build(element) unless element.nil?
         end
         data
       end
@@ -438,7 +441,7 @@ module AWS::SDK::Synthetics
       def self.build(input)
         data = {}
         data['ScreenshotName'] = input[:screenshot_name] unless input[:screenshot_name].nil?
-        data['IgnoreCoordinates'] = Builders::BaseScreenshotIgnoreCoordinates.build(input[:ignore_coordinates]) unless input[:ignore_coordinates].nil?
+        data['IgnoreCoordinates'] = BaseScreenshotIgnoreCoordinates.build(input[:ignore_coordinates]) unless input[:ignore_coordinates].nil?
         data
       end
     end

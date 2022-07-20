@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Forecast
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['PredictorArn'] = stub[:predictor_arn] unless stub[:predictor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['DatasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['DatasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['DatasetImportJobArn'] = stub[:dataset_import_job_arn] unless stub[:dataset_import_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['ExplainabilityArn'] = stub[:explainability_arn] unless stub[:explainability_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['ExplainabilityExportArn'] = stub[:explainability_export_arn] unless stub[:explainability_export_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['ForecastArn'] = stub[:forecast_arn] unless stub[:forecast_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -133,7 +135,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['ForecastExportJobArn'] = stub[:forecast_export_job_arn] unless stub[:forecast_export_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -149,7 +151,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['MonitorArn'] = stub[:monitor_arn] unless stub[:monitor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -165,7 +167,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['PredictorArn'] = stub[:predictor_arn] unless stub[:predictor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['PredictorBacktestExportJobArn'] = stub[:predictor_backtest_export_job_arn] unless stub[:predictor_backtest_export_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -223,7 +225,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -237,7 +239,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -251,7 +253,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -265,7 +267,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -279,7 +281,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -293,7 +295,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -307,7 +309,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -321,7 +323,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -335,7 +337,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -371,23 +373,23 @@ module AWS::SDK::Forecast
         data['PredictorArn'] = stub[:predictor_arn] unless stub[:predictor_arn].nil?
         data['PredictorName'] = stub[:predictor_name] unless stub[:predictor_name].nil?
         data['ForecastHorizon'] = stub[:forecast_horizon] unless stub[:forecast_horizon].nil?
-        data['ForecastTypes'] = Stubs::ForecastTypes.stub(stub[:forecast_types]) unless stub[:forecast_types].nil?
+        data['ForecastTypes'] = ForecastTypes.stub(stub[:forecast_types]) unless stub[:forecast_types].nil?
         data['ForecastFrequency'] = stub[:forecast_frequency] unless stub[:forecast_frequency].nil?
-        data['ForecastDimensions'] = Stubs::ForecastDimensions.stub(stub[:forecast_dimensions]) unless stub[:forecast_dimensions].nil?
-        data['DatasetImportJobArns'] = Stubs::ArnList.stub(stub[:dataset_import_job_arns]) unless stub[:dataset_import_job_arns].nil?
-        data['DataConfig'] = Stubs::DataConfig.stub(stub[:data_config]) unless stub[:data_config].nil?
-        data['EncryptionConfig'] = Stubs::EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
-        data['ReferencePredictorSummary'] = Stubs::ReferencePredictorSummary.stub(stub[:reference_predictor_summary]) unless stub[:reference_predictor_summary].nil?
+        data['ForecastDimensions'] = ForecastDimensions.stub(stub[:forecast_dimensions]) unless stub[:forecast_dimensions].nil?
+        data['DatasetImportJobArns'] = ArnList.stub(stub[:dataset_import_job_arns]) unless stub[:dataset_import_job_arns].nil?
+        data['DataConfig'] = DataConfig.stub(stub[:data_config]) unless stub[:data_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        data['ReferencePredictorSummary'] = ReferencePredictorSummary.stub(stub[:reference_predictor_summary]) unless stub[:reference_predictor_summary].nil?
         data['EstimatedTimeRemainingInMinutes'] = stub[:estimated_time_remaining_in_minutes] unless stub[:estimated_time_remaining_in_minutes].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['OptimizationMetric'] = stub[:optimization_metric] unless stub[:optimization_metric].nil?
-        data['ExplainabilityInfo'] = Stubs::ExplainabilityInfo.stub(stub[:explainability_info]) unless stub[:explainability_info].nil?
-        data['MonitorInfo'] = Stubs::MonitorInfo.stub(stub[:monitor_info]) unless stub[:monitor_info].nil?
-        data['TimeAlignmentBoundary'] = Stubs::TimeAlignmentBoundary.stub(stub[:time_alignment_boundary]) unless stub[:time_alignment_boundary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExplainabilityInfo'] = ExplainabilityInfo.stub(stub[:explainability_info]) unless stub[:explainability_info].nil?
+        data['MonitorInfo'] = MonitorInfo.stub(stub[:monitor_info]) unless stub[:monitor_info].nil?
+        data['TimeAlignmentBoundary'] = TimeAlignmentBoundary.stub(stub[:time_alignment_boundary]) unless stub[:time_alignment_boundary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -512,8 +514,8 @@ module AWS::SDK::Forecast
         stub ||= Types::DataConfig.new
         data = {}
         data['DatasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
-        data['AttributeConfigs'] = Stubs::AttributeConfigs.stub(stub[:attribute_configs]) unless stub[:attribute_configs].nil?
-        data['AdditionalDatasets'] = Stubs::AdditionalDatasets.stub(stub[:additional_datasets]) unless stub[:additional_datasets].nil?
+        data['AttributeConfigs'] = AttributeConfigs.stub(stub[:attribute_configs]) unless stub[:attribute_configs].nil?
+        data['AdditionalDatasets'] = AdditionalDatasets.stub(stub[:additional_datasets]) unless stub[:additional_datasets].nil?
         data
       end
     end
@@ -532,7 +534,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdditionalDataset.stub(element) unless element.nil?
+          data << AdditionalDataset.stub(element) unless element.nil?
         end
         data
       end
@@ -553,7 +555,7 @@ module AWS::SDK::Forecast
         stub ||= Types::AdditionalDataset.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Configuration'] = Stubs::Configuration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = Configuration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data
       end
     end
@@ -572,7 +574,7 @@ module AWS::SDK::Forecast
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Values.stub(value) unless value.nil?
+          data[key] = Values.stub(value) unless value.nil?
         end
         data
       end
@@ -612,7 +614,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeConfig.stub(element) unless element.nil?
+          data << AttributeConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -633,7 +635,7 @@ module AWS::SDK::Forecast
         stub ||= Types::AttributeConfig.new
         data = {}
         data['AttributeName'] = stub[:attribute_name] unless stub[:attribute_name].nil?
-        data['Transformations'] = Stubs::Transformations.stub(stub[:transformations]) unless stub[:transformations].nil?
+        data['Transformations'] = Transformations.stub(stub[:transformations]) unless stub[:transformations].nil?
         data
       end
     end
@@ -742,12 +744,12 @@ module AWS::SDK::Forecast
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
         data['DatasetType'] = stub[:dataset_type] unless stub[:dataset_type].nil?
         data['DataFrequency'] = stub[:data_frequency] unless stub[:data_frequency].nil?
-        data['Schema'] = Stubs::Schema.stub(stub[:schema]) unless stub[:schema].nil?
-        data['EncryptionConfig'] = Stubs::EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        data['Schema'] = Schema.stub(stub[:schema]) unless stub[:schema].nil?
+        data['EncryptionConfig'] = EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -765,7 +767,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::Schema.new
         data = {}
-        data['Attributes'] = Stubs::SchemaAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = SchemaAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -784,7 +786,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaAttribute.stub(element) unless element.nil?
+          data << SchemaAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -828,12 +830,12 @@ module AWS::SDK::Forecast
         data = {}
         data['DatasetGroupName'] = stub[:dataset_group_name] unless stub[:dataset_group_name].nil?
         data['DatasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
-        data['DatasetArns'] = Stubs::ArnList.stub(stub[:dataset_arns]) unless stub[:dataset_arns].nil?
+        data['DatasetArns'] = ArnList.stub(stub[:dataset_arns]) unless stub[:dataset_arns].nil?
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -870,16 +872,16 @@ module AWS::SDK::Forecast
         data['TimeZone'] = stub[:time_zone] unless stub[:time_zone].nil?
         data['UseGeolocationForTimeZone'] = stub[:use_geolocation_for_time_zone] unless stub[:use_geolocation_for_time_zone].nil?
         data['GeolocationFormat'] = stub[:geolocation_format] unless stub[:geolocation_format].nil?
-        data['DataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['DataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data['EstimatedTimeRemainingInMinutes'] = stub[:estimated_time_remaining_in_minutes] unless stub[:estimated_time_remaining_in_minutes].nil?
-        data['FieldStatistics'] = Stubs::FieldStatistics.stub(stub[:field_statistics]) unless stub[:field_statistics].nil?
+        data['FieldStatistics'] = FieldStatistics.stub(stub[:field_statistics]) unless stub[:field_statistics].nil?
         data['DataSize'] = Hearth::NumberHelper.serialize(stub[:data_size])
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -898,7 +900,7 @@ module AWS::SDK::Forecast
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Statistics.stub(value) unless value.nil?
+          data[key] = Statistics.stub(value) unless value.nil?
         end
         data
       end
@@ -957,7 +959,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::DataSource.new
         data = {}
-        data['S3Config'] = Stubs::S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
+        data['S3Config'] = S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
         data
       end
     end
@@ -1010,10 +1012,10 @@ module AWS::SDK::Forecast
         data['ExplainabilityArn'] = stub[:explainability_arn] unless stub[:explainability_arn].nil?
         data['ExplainabilityName'] = stub[:explainability_name] unless stub[:explainability_name].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['ExplainabilityConfig'] = Stubs::ExplainabilityConfig.stub(stub[:explainability_config]) unless stub[:explainability_config].nil?
+        data['ExplainabilityConfig'] = ExplainabilityConfig.stub(stub[:explainability_config]) unless stub[:explainability_config].nil?
         data['EnableVisualization'] = stub[:enable_visualization] unless stub[:enable_visualization].nil?
-        data['DataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
-        data['Schema'] = Stubs::Schema.stub(stub[:schema]) unless stub[:schema].nil?
+        data['DataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['Schema'] = Schema.stub(stub[:schema]) unless stub[:schema].nil?
         data['StartDateTime'] = stub[:start_date_time] unless stub[:start_date_time].nil?
         data['EndDateTime'] = stub[:end_date_time] unless stub[:end_date_time].nil?
         data['EstimatedTimeRemainingInMinutes'] = stub[:estimated_time_remaining_in_minutes] unless stub[:estimated_time_remaining_in_minutes].nil?
@@ -1021,7 +1023,7 @@ module AWS::SDK::Forecast
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1067,13 +1069,13 @@ module AWS::SDK::Forecast
         data['ExplainabilityExportArn'] = stub[:explainability_export_arn] unless stub[:explainability_export_arn].nil?
         data['ExplainabilityExportName'] = stub[:explainability_export_name] unless stub[:explainability_export_name].nil?
         data['ExplainabilityArn'] = stub[:explainability_arn] unless stub[:explainability_arn].nil?
-        data['Destination'] = Stubs::DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Destination'] = DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1091,7 +1093,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::DataDestination.new
         data = {}
-        data['S3Config'] = Stubs::S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
+        data['S3Config'] = S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
         data
       end
     end
@@ -1118,7 +1120,7 @@ module AWS::SDK::Forecast
         data = {}
         data['ForecastArn'] = stub[:forecast_arn] unless stub[:forecast_arn].nil?
         data['ForecastName'] = stub[:forecast_name] unless stub[:forecast_name].nil?
-        data['ForecastTypes'] = Stubs::ForecastTypes.stub(stub[:forecast_types]) unless stub[:forecast_types].nil?
+        data['ForecastTypes'] = ForecastTypes.stub(stub[:forecast_types]) unless stub[:forecast_types].nil?
         data['PredictorArn'] = stub[:predictor_arn] unless stub[:predictor_arn].nil?
         data['DatasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
         data['EstimatedTimeRemainingInMinutes'] = stub[:estimated_time_remaining_in_minutes] unless stub[:estimated_time_remaining_in_minutes].nil?
@@ -1126,8 +1128,8 @@ module AWS::SDK::Forecast
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
-        data['TimeSeriesSelector'] = Stubs::TimeSeriesSelector.stub(stub[:time_series_selector]) unless stub[:time_series_selector].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeSeriesSelector'] = TimeSeriesSelector.stub(stub[:time_series_selector]) unless stub[:time_series_selector].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1145,7 +1147,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::TimeSeriesSelector.new
         data = {}
-        data['TimeSeriesIdentifiers'] = Stubs::TimeSeriesIdentifiers.stub(stub[:time_series_identifiers]) unless stub[:time_series_identifiers].nil?
+        data['TimeSeriesIdentifiers'] = TimeSeriesIdentifiers.stub(stub[:time_series_identifiers]) unless stub[:time_series_identifiers].nil?
         data
       end
     end
@@ -1165,8 +1167,8 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::TimeSeriesIdentifiers.new
         data = {}
-        data['DataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
-        data['Schema'] = Stubs::Schema.stub(stub[:schema]) unless stub[:schema].nil?
+        data['DataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['Schema'] = Schema.stub(stub[:schema]) unless stub[:schema].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
         data
       end
@@ -1193,13 +1195,13 @@ module AWS::SDK::Forecast
         data['ForecastExportJobArn'] = stub[:forecast_export_job_arn] unless stub[:forecast_export_job_arn].nil?
         data['ForecastExportJobName'] = stub[:forecast_export_job_name] unless stub[:forecast_export_job_name].nil?
         data['ForecastArn'] = stub[:forecast_arn] unless stub[:forecast_arn].nil?
-        data['Destination'] = Stubs::DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Destination'] = DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1230,12 +1232,12 @@ module AWS::SDK::Forecast
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['LastEvaluationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_evaluation_time]).to_i unless stub[:last_evaluation_time].nil?
         data['LastEvaluationState'] = stub[:last_evaluation_state] unless stub[:last_evaluation_state].nil?
-        data['Baseline'] = Stubs::Baseline.stub(stub[:baseline]) unless stub[:baseline].nil?
+        data['Baseline'] = Baseline.stub(stub[:baseline]) unless stub[:baseline].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['EstimatedEvaluationTimeRemainingInMinutes'] = stub[:estimated_evaluation_time_remaining_in_minutes] unless stub[:estimated_evaluation_time_remaining_in_minutes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1253,7 +1255,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::Baseline.new
         data = {}
-        data['PredictorBaseline'] = Stubs::PredictorBaseline.stub(stub[:predictor_baseline]) unless stub[:predictor_baseline].nil?
+        data['PredictorBaseline'] = PredictorBaseline.stub(stub[:predictor_baseline]) unless stub[:predictor_baseline].nil?
         data
       end
     end
@@ -1271,7 +1273,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::PredictorBaseline.new
         data = {}
-        data['BaselineMetrics'] = Stubs::BaselineMetrics.stub(stub[:baseline_metrics]) unless stub[:baseline_metrics].nil?
+        data['BaselineMetrics'] = BaselineMetrics.stub(stub[:baseline_metrics]) unless stub[:baseline_metrics].nil?
         data
       end
     end
@@ -1290,7 +1292,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BaselineMetric.stub(element) unless element.nil?
+          data << BaselineMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -1352,28 +1354,28 @@ module AWS::SDK::Forecast
         data['PredictorArn'] = stub[:predictor_arn] unless stub[:predictor_arn].nil?
         data['PredictorName'] = stub[:predictor_name] unless stub[:predictor_name].nil?
         data['AlgorithmArn'] = stub[:algorithm_arn] unless stub[:algorithm_arn].nil?
-        data['AutoMLAlgorithmArns'] = Stubs::ArnList.stub(stub[:auto_ml_algorithm_arns]) unless stub[:auto_ml_algorithm_arns].nil?
+        data['AutoMLAlgorithmArns'] = ArnList.stub(stub[:auto_ml_algorithm_arns]) unless stub[:auto_ml_algorithm_arns].nil?
         data['ForecastHorizon'] = stub[:forecast_horizon] unless stub[:forecast_horizon].nil?
-        data['ForecastTypes'] = Stubs::ForecastTypes.stub(stub[:forecast_types]) unless stub[:forecast_types].nil?
+        data['ForecastTypes'] = ForecastTypes.stub(stub[:forecast_types]) unless stub[:forecast_types].nil?
         data['PerformAutoML'] = stub[:perform_auto_ml] unless stub[:perform_auto_ml].nil?
         data['AutoMLOverrideStrategy'] = stub[:auto_ml_override_strategy] unless stub[:auto_ml_override_strategy].nil?
         data['PerformHPO'] = stub[:perform_hpo] unless stub[:perform_hpo].nil?
-        data['TrainingParameters'] = Stubs::TrainingParameters.stub(stub[:training_parameters]) unless stub[:training_parameters].nil?
-        data['EvaluationParameters'] = Stubs::EvaluationParameters.stub(stub[:evaluation_parameters]) unless stub[:evaluation_parameters].nil?
-        data['HPOConfig'] = Stubs::HyperParameterTuningJobConfig.stub(stub[:hpo_config]) unless stub[:hpo_config].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['FeaturizationConfig'] = Stubs::FeaturizationConfig.stub(stub[:featurization_config]) unless stub[:featurization_config].nil?
-        data['EncryptionConfig'] = Stubs::EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
-        data['PredictorExecutionDetails'] = Stubs::PredictorExecutionDetails.stub(stub[:predictor_execution_details]) unless stub[:predictor_execution_details].nil?
+        data['TrainingParameters'] = TrainingParameters.stub(stub[:training_parameters]) unless stub[:training_parameters].nil?
+        data['EvaluationParameters'] = EvaluationParameters.stub(stub[:evaluation_parameters]) unless stub[:evaluation_parameters].nil?
+        data['HPOConfig'] = HyperParameterTuningJobConfig.stub(stub[:hpo_config]) unless stub[:hpo_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['FeaturizationConfig'] = FeaturizationConfig.stub(stub[:featurization_config]) unless stub[:featurization_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        data['PredictorExecutionDetails'] = PredictorExecutionDetails.stub(stub[:predictor_execution_details]) unless stub[:predictor_execution_details].nil?
         data['EstimatedTimeRemainingInMinutes'] = stub[:estimated_time_remaining_in_minutes] unless stub[:estimated_time_remaining_in_minutes].nil?
         data['IsAutoPredictor'] = stub[:is_auto_predictor] unless stub[:is_auto_predictor].nil?
-        data['DatasetImportJobArns'] = Stubs::ArnList.stub(stub[:dataset_import_job_arns]) unless stub[:dataset_import_job_arns].nil?
+        data['DatasetImportJobArns'] = ArnList.stub(stub[:dataset_import_job_arns]) unless stub[:dataset_import_job_arns].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['OptimizationMetric'] = stub[:optimization_metric] unless stub[:optimization_metric].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1391,7 +1393,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::PredictorExecutionDetails.new
         data = {}
-        data['PredictorExecutions'] = Stubs::PredictorExecutions.stub(stub[:predictor_executions]) unless stub[:predictor_executions].nil?
+        data['PredictorExecutions'] = PredictorExecutions.stub(stub[:predictor_executions]) unless stub[:predictor_executions].nil?
         data
       end
     end
@@ -1410,7 +1412,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PredictorExecution.stub(element) unless element.nil?
+          data << PredictorExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -1431,7 +1433,7 @@ module AWS::SDK::Forecast
         stub ||= Types::PredictorExecution.new
         data = {}
         data['AlgorithmArn'] = stub[:algorithm_arn] unless stub[:algorithm_arn].nil?
-        data['TestWindows'] = Stubs::TestWindowDetails.stub(stub[:test_windows]) unless stub[:test_windows].nil?
+        data['TestWindows'] = TestWindowDetails.stub(stub[:test_windows]) unless stub[:test_windows].nil?
         data
       end
     end
@@ -1450,7 +1452,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestWindowSummary.stub(element) unless element.nil?
+          data << TestWindowSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1496,8 +1498,8 @@ module AWS::SDK::Forecast
         stub ||= Types::FeaturizationConfig.new
         data = {}
         data['ForecastFrequency'] = stub[:forecast_frequency] unless stub[:forecast_frequency].nil?
-        data['ForecastDimensions'] = Stubs::ForecastDimensions.stub(stub[:forecast_dimensions]) unless stub[:forecast_dimensions].nil?
-        data['Featurizations'] = Stubs::Featurizations.stub(stub[:featurizations]) unless stub[:featurizations].nil?
+        data['ForecastDimensions'] = ForecastDimensions.stub(stub[:forecast_dimensions]) unless stub[:forecast_dimensions].nil?
+        data['Featurizations'] = Featurizations.stub(stub[:featurizations]) unless stub[:featurizations].nil?
         data
       end
     end
@@ -1516,7 +1518,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Featurization.stub(element) unless element.nil?
+          data << Featurization.stub(element) unless element.nil?
         end
         data
       end
@@ -1537,7 +1539,7 @@ module AWS::SDK::Forecast
         stub ||= Types::Featurization.new
         data = {}
         data['AttributeName'] = stub[:attribute_name] unless stub[:attribute_name].nil?
-        data['FeaturizationPipeline'] = Stubs::FeaturizationPipeline.stub(stub[:featurization_pipeline]) unless stub[:featurization_pipeline].nil?
+        data['FeaturizationPipeline'] = FeaturizationPipeline.stub(stub[:featurization_pipeline]) unless stub[:featurization_pipeline].nil?
         data
       end
     end
@@ -1556,7 +1558,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FeaturizationMethod.stub(element) unless element.nil?
+          data << FeaturizationMethod.stub(element) unless element.nil?
         end
         data
       end
@@ -1577,7 +1579,7 @@ module AWS::SDK::Forecast
         stub ||= Types::FeaturizationMethod.new
         data = {}
         data['FeaturizationMethodName'] = stub[:featurization_method_name] unless stub[:featurization_method_name].nil?
-        data['FeaturizationMethodParameters'] = Stubs::FeaturizationMethodParameters.stub(stub[:featurization_method_parameters]) unless stub[:featurization_method_parameters].nil?
+        data['FeaturizationMethodParameters'] = FeaturizationMethodParameters.stub(stub[:featurization_method_parameters]) unless stub[:featurization_method_parameters].nil?
         data
       end
     end
@@ -1617,7 +1619,7 @@ module AWS::SDK::Forecast
         stub ||= Types::InputDataConfig.new
         data = {}
         data['DatasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
-        data['SupplementaryFeatures'] = Stubs::SupplementaryFeatures.stub(stub[:supplementary_features]) unless stub[:supplementary_features].nil?
+        data['SupplementaryFeatures'] = SupplementaryFeatures.stub(stub[:supplementary_features]) unless stub[:supplementary_features].nil?
         data
       end
     end
@@ -1636,7 +1638,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SupplementaryFeature.stub(element) unless element.nil?
+          data << SupplementaryFeature.stub(element) unless element.nil?
         end
         data
       end
@@ -1675,7 +1677,7 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::HyperParameterTuningJobConfig.new
         data = {}
-        data['ParameterRanges'] = Stubs::ParameterRanges.stub(stub[:parameter_ranges]) unless stub[:parameter_ranges].nil?
+        data['ParameterRanges'] = ParameterRanges.stub(stub[:parameter_ranges]) unless stub[:parameter_ranges].nil?
         data
       end
     end
@@ -1695,9 +1697,9 @@ module AWS::SDK::Forecast
       def self.stub(stub)
         stub ||= Types::ParameterRanges.new
         data = {}
-        data['CategoricalParameterRanges'] = Stubs::CategoricalParameterRanges.stub(stub[:categorical_parameter_ranges]) unless stub[:categorical_parameter_ranges].nil?
-        data['ContinuousParameterRanges'] = Stubs::ContinuousParameterRanges.stub(stub[:continuous_parameter_ranges]) unless stub[:continuous_parameter_ranges].nil?
-        data['IntegerParameterRanges'] = Stubs::IntegerParameterRanges.stub(stub[:integer_parameter_ranges]) unless stub[:integer_parameter_ranges].nil?
+        data['CategoricalParameterRanges'] = CategoricalParameterRanges.stub(stub[:categorical_parameter_ranges]) unless stub[:categorical_parameter_ranges].nil?
+        data['ContinuousParameterRanges'] = ContinuousParameterRanges.stub(stub[:continuous_parameter_ranges]) unless stub[:continuous_parameter_ranges].nil?
+        data['IntegerParameterRanges'] = IntegerParameterRanges.stub(stub[:integer_parameter_ranges]) unless stub[:integer_parameter_ranges].nil?
         data
       end
     end
@@ -1716,7 +1718,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IntegerParameterRange.stub(element) unless element.nil?
+          data << IntegerParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1760,7 +1762,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContinuousParameterRange.stub(element) unless element.nil?
+          data << ContinuousParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1804,7 +1806,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CategoricalParameterRange.stub(element) unless element.nil?
+          data << CategoricalParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1825,7 +1827,7 @@ module AWS::SDK::Forecast
         stub ||= Types::CategoricalParameterRange.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Values'] = Stubs::Values.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = Values.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1891,13 +1893,13 @@ module AWS::SDK::Forecast
         data['PredictorBacktestExportJobArn'] = stub[:predictor_backtest_export_job_arn] unless stub[:predictor_backtest_export_job_arn].nil?
         data['PredictorBacktestExportJobName'] = stub[:predictor_backtest_export_job_name] unless stub[:predictor_backtest_export_job_name].nil?
         data['PredictorArn'] = stub[:predictor_arn] unless stub[:predictor_arn].nil?
-        data['Destination'] = Stubs::DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Destination'] = DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1915,11 +1917,11 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PredictorEvaluationResults'] = Stubs::PredictorEvaluationResults.stub(stub[:predictor_evaluation_results]) unless stub[:predictor_evaluation_results].nil?
+        data['PredictorEvaluationResults'] = PredictorEvaluationResults.stub(stub[:predictor_evaluation_results]) unless stub[:predictor_evaluation_results].nil?
         data['IsAutoPredictor'] = stub[:is_auto_predictor] unless stub[:is_auto_predictor].nil?
         data['AutoMLOverrideStrategy'] = stub[:auto_ml_override_strategy] unless stub[:auto_ml_override_strategy].nil?
         data['OptimizationMetric'] = stub[:optimization_metric] unless stub[:optimization_metric].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1938,7 +1940,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluationResult.stub(element) unless element.nil?
+          data << EvaluationResult.stub(element) unless element.nil?
         end
         data
       end
@@ -1959,7 +1961,7 @@ module AWS::SDK::Forecast
         stub ||= Types::EvaluationResult.new
         data = {}
         data['AlgorithmArn'] = stub[:algorithm_arn] unless stub[:algorithm_arn].nil?
-        data['TestWindows'] = Stubs::TestWindows.stub(stub[:test_windows]) unless stub[:test_windows].nil?
+        data['TestWindows'] = TestWindows.stub(stub[:test_windows]) unless stub[:test_windows].nil?
         data
       end
     end
@@ -1978,7 +1980,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WindowSummary.stub(element) unless element.nil?
+          data << WindowSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2005,7 +2007,7 @@ module AWS::SDK::Forecast
         data['TestWindowEnd'] = Hearth::TimeHelper.to_epoch_seconds(stub[:test_window_end]).to_i unless stub[:test_window_end].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
         data['EvaluationType'] = stub[:evaluation_type] unless stub[:evaluation_type].nil?
-        data['Metrics'] = Stubs::Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Metrics'] = Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
         data
       end
     end
@@ -2027,8 +2029,8 @@ module AWS::SDK::Forecast
         stub ||= Types::Metrics.new
         data = {}
         data['RMSE'] = Hearth::NumberHelper.serialize(stub[:rmse])
-        data['WeightedQuantileLosses'] = Stubs::WeightedQuantileLosses.stub(stub[:weighted_quantile_losses]) unless stub[:weighted_quantile_losses].nil?
-        data['ErrorMetrics'] = Stubs::ErrorMetrics.stub(stub[:error_metrics]) unless stub[:error_metrics].nil?
+        data['WeightedQuantileLosses'] = WeightedQuantileLosses.stub(stub[:weighted_quantile_losses]) unless stub[:weighted_quantile_losses].nil?
+        data['ErrorMetrics'] = ErrorMetrics.stub(stub[:error_metrics]) unless stub[:error_metrics].nil?
         data['AverageWeightedQuantileLoss'] = Hearth::NumberHelper.serialize(stub[:average_weighted_quantile_loss])
         data
       end
@@ -2048,7 +2050,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ErrorMetric.stub(element) unless element.nil?
+          data << ErrorMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -2094,7 +2096,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WeightedQuantileLoss.stub(element) unless element.nil?
+          data << WeightedQuantileLoss.stub(element) unless element.nil?
         end
         data
       end
@@ -2131,9 +2133,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatasetGroups'] = Stubs::DatasetGroups.stub(stub[:dataset_groups]) unless stub[:dataset_groups].nil?
+        data['DatasetGroups'] = DatasetGroups.stub(stub[:dataset_groups]) unless stub[:dataset_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2152,7 +2154,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetGroupSummary.stub(element) unless element.nil?
+          data << DatasetGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2193,9 +2195,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatasetImportJobs'] = Stubs::DatasetImportJobs.stub(stub[:dataset_import_jobs]) unless stub[:dataset_import_jobs].nil?
+        data['DatasetImportJobs'] = DatasetImportJobs.stub(stub[:dataset_import_jobs]) unless stub[:dataset_import_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2214,7 +2216,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetImportJobSummary.stub(element) unless element.nil?
+          data << DatasetImportJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2241,7 +2243,7 @@ module AWS::SDK::Forecast
         data = {}
         data['DatasetImportJobArn'] = stub[:dataset_import_job_arn] unless stub[:dataset_import_job_arn].nil?
         data['DatasetImportJobName'] = stub[:dataset_import_job_name] unless stub[:dataset_import_job_name].nil?
-        data['DataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['DataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -2261,9 +2263,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Datasets'] = Stubs::Datasets.stub(stub[:datasets]) unless stub[:datasets].nil?
+        data['Datasets'] = Datasets.stub(stub[:datasets]) unless stub[:datasets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2282,7 +2284,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetSummary.stub(element) unless element.nil?
+          data << DatasetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2327,9 +2329,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Explainabilities'] = Stubs::Explainabilities.stub(stub[:explainabilities]) unless stub[:explainabilities].nil?
+        data['Explainabilities'] = Explainabilities.stub(stub[:explainabilities]) unless stub[:explainabilities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2348,7 +2350,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExplainabilitySummary.stub(element) unless element.nil?
+          data << ExplainabilitySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2377,7 +2379,7 @@ module AWS::SDK::Forecast
         data['ExplainabilityArn'] = stub[:explainability_arn] unless stub[:explainability_arn].nil?
         data['ExplainabilityName'] = stub[:explainability_name] unless stub[:explainability_name].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['ExplainabilityConfig'] = Stubs::ExplainabilityConfig.stub(stub[:explainability_config]) unless stub[:explainability_config].nil?
+        data['ExplainabilityConfig'] = ExplainabilityConfig.stub(stub[:explainability_config]) unless stub[:explainability_config].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -2397,9 +2399,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExplainabilityExports'] = Stubs::ExplainabilityExports.stub(stub[:explainability_exports]) unless stub[:explainability_exports].nil?
+        data['ExplainabilityExports'] = ExplainabilityExports.stub(stub[:explainability_exports]) unless stub[:explainability_exports].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2418,7 +2420,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExplainabilityExportSummary.stub(element) unless element.nil?
+          data << ExplainabilityExportSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2445,7 +2447,7 @@ module AWS::SDK::Forecast
         data = {}
         data['ExplainabilityExportArn'] = stub[:explainability_export_arn] unless stub[:explainability_export_arn].nil?
         data['ExplainabilityExportName'] = stub[:explainability_export_name] unless stub[:explainability_export_name].nil?
-        data['Destination'] = Stubs::DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Destination'] = DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -2465,9 +2467,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ForecastExportJobs'] = Stubs::ForecastExportJobs.stub(stub[:forecast_export_jobs]) unless stub[:forecast_export_jobs].nil?
+        data['ForecastExportJobs'] = ForecastExportJobs.stub(stub[:forecast_export_jobs]) unless stub[:forecast_export_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2486,7 +2488,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ForecastExportJobSummary.stub(element) unless element.nil?
+          data << ForecastExportJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2513,7 +2515,7 @@ module AWS::SDK::Forecast
         data = {}
         data['ForecastExportJobArn'] = stub[:forecast_export_job_arn] unless stub[:forecast_export_job_arn].nil?
         data['ForecastExportJobName'] = stub[:forecast_export_job_name] unless stub[:forecast_export_job_name].nil?
-        data['Destination'] = Stubs::DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Destination'] = DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -2533,9 +2535,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Forecasts'] = Stubs::Forecasts.stub(stub[:forecasts]) unless stub[:forecasts].nil?
+        data['Forecasts'] = Forecasts.stub(stub[:forecasts]) unless stub[:forecasts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2554,7 +2556,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ForecastSummary.stub(element) unless element.nil?
+          data << ForecastSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2606,8 +2608,8 @@ module AWS::SDK::Forecast
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['PredictorMonitorEvaluations'] = Stubs::PredictorMonitorEvaluations.stub(stub[:predictor_monitor_evaluations]) unless stub[:predictor_monitor_evaluations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PredictorMonitorEvaluations'] = PredictorMonitorEvaluations.stub(stub[:predictor_monitor_evaluations]) unless stub[:predictor_monitor_evaluations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2626,7 +2628,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PredictorMonitorEvaluation.stub(element) unless element.nil?
+          data << PredictorMonitorEvaluation.stub(element) unless element.nil?
         end
         data
       end
@@ -2661,9 +2663,9 @@ module AWS::SDK::Forecast
         data['EvaluationState'] = stub[:evaluation_state] unless stub[:evaluation_state].nil?
         data['WindowStartDatetime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:window_start_datetime]).to_i unless stub[:window_start_datetime].nil?
         data['WindowEndDatetime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:window_end_datetime]).to_i unless stub[:window_end_datetime].nil?
-        data['PredictorEvent'] = Stubs::PredictorEvent.stub(stub[:predictor_event]) unless stub[:predictor_event].nil?
-        data['MonitorDataSource'] = Stubs::MonitorDataSource.stub(stub[:monitor_data_source]) unless stub[:monitor_data_source].nil?
-        data['MetricResults'] = Stubs::MetricResults.stub(stub[:metric_results]) unless stub[:metric_results].nil?
+        data['PredictorEvent'] = PredictorEvent.stub(stub[:predictor_event]) unless stub[:predictor_event].nil?
+        data['MonitorDataSource'] = MonitorDataSource.stub(stub[:monitor_data_source]) unless stub[:monitor_data_source].nil?
+        data['MetricResults'] = MetricResults.stub(stub[:metric_results]) unless stub[:metric_results].nil?
         data['NumItemsEvaluated'] = stub[:num_items_evaluated] unless stub[:num_items_evaluated].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data
@@ -2684,7 +2686,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricResult.stub(element) unless element.nil?
+          data << MetricResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2763,9 +2765,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Monitors'] = Stubs::Monitors.stub(stub[:monitors]) unless stub[:monitors].nil?
+        data['Monitors'] = Monitors.stub(stub[:monitors]) unless stub[:monitors].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2784,7 +2786,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MonitorSummary.stub(element) unless element.nil?
+          data << MonitorSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2829,9 +2831,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PredictorBacktestExportJobs'] = Stubs::PredictorBacktestExportJobs.stub(stub[:predictor_backtest_export_jobs]) unless stub[:predictor_backtest_export_jobs].nil?
+        data['PredictorBacktestExportJobs'] = PredictorBacktestExportJobs.stub(stub[:predictor_backtest_export_jobs]) unless stub[:predictor_backtest_export_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2850,7 +2852,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PredictorBacktestExportJobSummary.stub(element) unless element.nil?
+          data << PredictorBacktestExportJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2877,7 +2879,7 @@ module AWS::SDK::Forecast
         data = {}
         data['PredictorBacktestExportJobArn'] = stub[:predictor_backtest_export_job_arn] unless stub[:predictor_backtest_export_job_arn].nil?
         data['PredictorBacktestExportJobName'] = stub[:predictor_backtest_export_job_name] unless stub[:predictor_backtest_export_job_name].nil?
-        data['Destination'] = Stubs::DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Destination'] = DataDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -2897,9 +2899,9 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Predictors'] = Stubs::Predictors.stub(stub[:predictors]) unless stub[:predictors].nil?
+        data['Predictors'] = Predictors.stub(stub[:predictors]) unless stub[:predictors].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2918,7 +2920,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PredictorSummary.stub(element) unless element.nil?
+          data << PredictorSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2949,7 +2951,7 @@ module AWS::SDK::Forecast
         data['PredictorName'] = stub[:predictor_name] unless stub[:predictor_name].nil?
         data['DatasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
         data['IsAutoPredictor'] = stub[:is_auto_predictor] unless stub[:is_auto_predictor].nil?
-        data['ReferencePredictorSummary'] = Stubs::ReferencePredictorSummary.stub(stub[:reference_predictor_summary]) unless stub[:reference_predictor_summary].nil?
+        data['ReferencePredictorSummary'] = ReferencePredictorSummary.stub(stub[:reference_predictor_summary]) unless stub[:reference_predictor_summary].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -2968,8 +2970,8 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2988,7 +2990,7 @@ module AWS::SDK::Forecast
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -3023,7 +3025,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3037,7 +3039,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3051,7 +3053,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3065,7 +3067,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3079,7 +3081,7 @@ module AWS::SDK::Forecast
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

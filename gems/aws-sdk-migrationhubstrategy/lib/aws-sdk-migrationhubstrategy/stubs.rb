@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHubStrategy
   module Stubs
 
@@ -25,11 +27,11 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applicationComponentDetail'] = Stubs::ApplicationComponentDetail.stub(stub[:application_component_detail]) unless stub[:application_component_detail].nil?
-        data['associatedApplications'] = Stubs::AssociatedApplications.stub(stub[:associated_applications]) unless stub[:associated_applications].nil?
+        data['applicationComponentDetail'] = ApplicationComponentDetail.stub(stub[:application_component_detail]) unless stub[:application_component_detail].nil?
+        data['associatedApplications'] = AssociatedApplications.stub(stub[:associated_applications]) unless stub[:associated_applications].nil?
         data['moreApplicationResource'] = stub[:more_application_resource] unless stub[:more_application_resource].nil?
-        data['associatedServerIds'] = Stubs::AssociatedServerIDs.stub(stub[:associated_server_ids]) unless stub[:associated_server_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['associatedServerIds'] = AssociatedServerIDs.stub(stub[:associated_server_ids]) unless stub[:associated_server_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociatedApplication.stub(element) unless element.nil?
+          data << AssociatedApplication.stub(element) unless element.nil?
         end
         data
       end
@@ -126,16 +128,16 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['recommendationSet'] = Stubs::RecommendationSet.stub(stub[:recommendation_set]) unless stub[:recommendation_set].nil?
+        data['recommendationSet'] = RecommendationSet.stub(stub[:recommendation_set]) unless stub[:recommendation_set].nil?
         data['analysisStatus'] = stub[:analysis_status] unless stub[:analysis_status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['listAntipatternSeveritySummary'] = Stubs::ListAntipatternSeveritySummary.stub(stub[:list_antipattern_severity_summary]) unless stub[:list_antipattern_severity_summary].nil?
-        data['databaseConfigDetail'] = Stubs::DatabaseConfigDetail.stub(stub[:database_config_detail]) unless stub[:database_config_detail].nil?
-        data['sourceCodeRepositories'] = Stubs::SourceCodeRepositories.stub(stub[:source_code_repositories]) unless stub[:source_code_repositories].nil?
+        data['listAntipatternSeveritySummary'] = ListAntipatternSeveritySummary.stub(stub[:list_antipattern_severity_summary]) unless stub[:list_antipattern_severity_summary].nil?
+        data['databaseConfigDetail'] = DatabaseConfigDetail.stub(stub[:database_config_detail]) unless stub[:database_config_detail].nil?
+        data['sourceCodeRepositories'] = SourceCodeRepositories.stub(stub[:source_code_repositories]) unless stub[:source_code_repositories].nil?
         data['appType'] = stub[:app_type] unless stub[:app_type].nil?
         data['resourceSubType'] = stub[:resource_sub_type] unless stub[:resource_sub_type].nil?
         data['inclusionStatus'] = stub[:inclusion_status] unless stub[:inclusion_status].nil?
-        data['antipatternReportS3Object'] = Stubs::S3Object.stub(stub[:antipattern_report_s3_object]) unless stub[:antipattern_report_s3_object].nil?
+        data['antipatternReportS3Object'] = S3Object.stub(stub[:antipattern_report_s3_object]) unless stub[:antipattern_report_s3_object].nil?
         data['antipatternReportStatus'] = stub[:antipattern_report_status] unless stub[:antipattern_report_status].nil?
         data['antipatternReportStatusMessage'] = stub[:antipattern_report_status_message] unless stub[:antipattern_report_status_message].nil?
         data['osVersion'] = stub[:os_version] unless stub[:os_version].nil?
@@ -181,7 +183,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceCodeRepository.stub(element) unless element.nil?
+          data << SourceCodeRepository.stub(element) unless element.nil?
         end
         data
       end
@@ -241,7 +243,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AntipatternSeveritySummary.stub(element) unless element.nil?
+          data << AntipatternSeveritySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -282,7 +284,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::RecommendationSet.new
         data = {}
-        data['transformationTool'] = Stubs::TransformationTool.stub(stub[:transformation_tool]) unless stub[:transformation_tool].nil?
+        data['transformationTool'] = TransformationTool.stub(stub[:transformation_tool]) unless stub[:transformation_tool].nil?
         data['targetDestination'] = stub[:target_destination] unless stub[:target_destination].nil?
         data['strategy'] = stub[:strategy] unless stub[:strategy].nil?
         data
@@ -323,8 +325,8 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applicationComponentStrategies'] = Stubs::ApplicationComponentStrategies.stub(stub[:application_component_strategies]) unless stub[:application_component_strategies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['applicationComponentStrategies'] = ApplicationComponentStrategies.stub(stub[:application_component_strategies]) unless stub[:application_component_strategies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationComponentStrategy.stub(element) unless element.nil?
+          data << ApplicationComponentStrategy.stub(element) unless element.nil?
         end
         data
       end
@@ -363,7 +365,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::ApplicationComponentStrategy.new
         data = {}
-        data['recommendation'] = Stubs::RecommendationSet.stub(stub[:recommendation]) unless stub[:recommendation].nil?
+        data['recommendation'] = RecommendationSet.stub(stub[:recommendation]) unless stub[:recommendation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['isPreferred'] = stub[:is_preferred] unless stub[:is_preferred].nil?
         data
@@ -384,8 +386,8 @@ module AWS::SDK::MigrationHubStrategy
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['dataCollectionDetails'] = Stubs::DataCollectionDetails.stub(stub[:data_collection_details]) unless stub[:data_collection_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataCollectionDetails'] = DataCollectionDetails.stub(stub[:data_collection_details]) unless stub[:data_collection_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +454,7 @@ module AWS::SDK::MigrationHubStrategy
         data['numberOfRecordsSuccess'] = stub[:number_of_records_success] unless stub[:number_of_records_success].nil?
         data['numberOfRecordsFailed'] = stub[:number_of_records_failed] unless stub[:number_of_records_failed].nil?
         data['importName'] = stub[:import_name] unless stub[:import_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,10 +472,10 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['prioritizeBusinessGoals'] = Stubs::PrioritizeBusinessGoals.stub(stub[:prioritize_business_goals]) unless stub[:prioritize_business_goals].nil?
-        data['applicationPreferences'] = Stubs::ApplicationPreferences.stub(stub[:application_preferences]) unless stub[:application_preferences].nil?
-        data['databasePreferences'] = Stubs::DatabasePreferences.stub(stub[:database_preferences]) unless stub[:database_preferences].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['prioritizeBusinessGoals'] = PrioritizeBusinessGoals.stub(stub[:prioritize_business_goals]) unless stub[:prioritize_business_goals].nil?
+        data['applicationPreferences'] = ApplicationPreferences.stub(stub[:application_preferences]) unless stub[:application_preferences].nil?
+        data['databasePreferences'] = DatabasePreferences.stub(stub[:database_preferences]) unless stub[:database_preferences].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -492,7 +494,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= Types::DatabasePreferences.new
         data = {}
         data['databaseManagementPreference'] = stub[:database_management_preference] unless stub[:database_management_preference].nil?
-        data['databaseMigrationPreference'] = Stubs::DatabaseMigrationPreference.stub(stub[:database_migration_preference]) unless stub[:database_migration_preference].nil?
+        data['databaseMigrationPreference'] = DatabaseMigrationPreference.stub(stub[:database_migration_preference]) unless stub[:database_migration_preference].nil?
         data
       end
     end
@@ -511,11 +513,11 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         case stub
         when Types::DatabaseMigrationPreference::Heterogeneous
-          data['heterogeneous'] = (Stubs::Heterogeneous.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['heterogeneous'] = (Heterogeneous.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DatabaseMigrationPreference::Homogeneous
-          data['homogeneous'] = (Stubs::Homogeneous.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['homogeneous'] = (Homogeneous.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DatabaseMigrationPreference::NoPreference
-          data['noPreference'] = (Stubs::NoDatabaseMigrationPreference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['noPreference'] = (NoDatabaseMigrationPreference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DatabaseMigrationPreference"
@@ -538,7 +540,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::NoDatabaseMigrationPreference.new
         data = {}
-        data['targetDatabaseEngine'] = Stubs::TargetDatabaseEngines.stub(stub[:target_database_engine]) unless stub[:target_database_engine].nil?
+        data['targetDatabaseEngine'] = TargetDatabaseEngines.stub(stub[:target_database_engine]) unless stub[:target_database_engine].nil?
         data
       end
     end
@@ -576,7 +578,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::Homogeneous.new
         data = {}
-        data['targetDatabaseEngine'] = Stubs::HomogeneousTargetDatabaseEngines.stub(stub[:target_database_engine]) unless stub[:target_database_engine].nil?
+        data['targetDatabaseEngine'] = HomogeneousTargetDatabaseEngines.stub(stub[:target_database_engine]) unless stub[:target_database_engine].nil?
         data
       end
     end
@@ -614,7 +616,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::Heterogeneous.new
         data = {}
-        data['targetDatabaseEngine'] = Stubs::HeterogeneousTargetDatabaseEngines.stub(stub[:target_database_engine]) unless stub[:target_database_engine].nil?
+        data['targetDatabaseEngine'] = HeterogeneousTargetDatabaseEngines.stub(stub[:target_database_engine]) unless stub[:target_database_engine].nil?
         data
       end
     end
@@ -652,7 +654,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::ApplicationPreferences.new
         data = {}
-        data['managementPreference'] = Stubs::ManagementPreference.stub(stub[:management_preference]) unless stub[:management_preference].nil?
+        data['managementPreference'] = ManagementPreference.stub(stub[:management_preference]) unless stub[:management_preference].nil?
         data
       end
     end
@@ -671,11 +673,11 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         case stub
         when Types::ManagementPreference::AwsManagedResources
-          data['awsManagedResources'] = (Stubs::AwsManagedResources.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['awsManagedResources'] = (AwsManagedResources.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ManagementPreference::SelfManageResources
-          data['selfManageResources'] = (Stubs::SelfManageResources.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['selfManageResources'] = (SelfManageResources.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ManagementPreference::NoPreference
-          data['noPreference'] = (Stubs::NoManagementPreference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['noPreference'] = (NoManagementPreference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ManagementPreference"
@@ -698,7 +700,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::NoManagementPreference.new
         data = {}
-        data['targetDestination'] = Stubs::NoPreferenceTargetDestinations.stub(stub[:target_destination]) unless stub[:target_destination].nil?
+        data['targetDestination'] = NoPreferenceTargetDestinations.stub(stub[:target_destination]) unless stub[:target_destination].nil?
         data
       end
     end
@@ -736,7 +738,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::SelfManageResources.new
         data = {}
-        data['targetDestination'] = Stubs::SelfManageTargetDestinations.stub(stub[:target_destination]) unless stub[:target_destination].nil?
+        data['targetDestination'] = SelfManageTargetDestinations.stub(stub[:target_destination]) unless stub[:target_destination].nil?
         data
       end
     end
@@ -774,7 +776,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::AwsManagedResources.new
         data = {}
-        data['targetDestination'] = Stubs::AwsManagedTargetDestinations.stub(stub[:target_destination]) unless stub[:target_destination].nil?
+        data['targetDestination'] = AwsManagedTargetDestinations.stub(stub[:target_destination]) unless stub[:target_destination].nil?
         data
       end
     end
@@ -812,7 +814,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::PrioritizeBusinessGoals.new
         data = {}
-        data['businessGoals'] = Stubs::BusinessGoals.stub(stub[:business_goals]) unless stub[:business_goals].nil?
+        data['businessGoals'] = BusinessGoals.stub(stub[:business_goals]) unless stub[:business_goals].nil?
         data
       end
     end
@@ -853,8 +855,8 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessmentSummary'] = Stubs::AssessmentSummary.stub(stub[:assessment_summary]) unless stub[:assessment_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentSummary'] = AssessmentSummary.stub(stub[:assessment_summary]) unless stub[:assessment_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -879,12 +881,12 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::AssessmentSummary.new
         data = {}
-        data['listServerStrategySummary'] = Stubs::ListStrategySummary.stub(stub[:list_server_strategy_summary]) unless stub[:list_server_strategy_summary].nil?
-        data['listApplicationComponentStrategySummary'] = Stubs::ListStrategySummary.stub(stub[:list_application_component_strategy_summary]) unless stub[:list_application_component_strategy_summary].nil?
-        data['listAntipatternSeveritySummary'] = Stubs::ListAntipatternSeveritySummary.stub(stub[:list_antipattern_severity_summary]) unless stub[:list_antipattern_severity_summary].nil?
-        data['listApplicationComponentSummary'] = Stubs::ListApplicationComponentSummary.stub(stub[:list_application_component_summary]) unless stub[:list_application_component_summary].nil?
-        data['listServerSummary'] = Stubs::ListServerSummary.stub(stub[:list_server_summary]) unless stub[:list_server_summary].nil?
-        data['antipatternReportS3Object'] = Stubs::S3Object.stub(stub[:antipattern_report_s3_object]) unless stub[:antipattern_report_s3_object].nil?
+        data['listServerStrategySummary'] = ListStrategySummary.stub(stub[:list_server_strategy_summary]) unless stub[:list_server_strategy_summary].nil?
+        data['listApplicationComponentStrategySummary'] = ListStrategySummary.stub(stub[:list_application_component_strategy_summary]) unless stub[:list_application_component_strategy_summary].nil?
+        data['listAntipatternSeveritySummary'] = ListAntipatternSeveritySummary.stub(stub[:list_antipattern_severity_summary]) unless stub[:list_antipattern_severity_summary].nil?
+        data['listApplicationComponentSummary'] = ListApplicationComponentSummary.stub(stub[:list_application_component_summary]) unless stub[:list_application_component_summary].nil?
+        data['listServerSummary'] = ListServerSummary.stub(stub[:list_server_summary]) unless stub[:list_server_summary].nil?
+        data['antipatternReportS3Object'] = S3Object.stub(stub[:antipattern_report_s3_object]) unless stub[:antipattern_report_s3_object].nil?
         data['antipatternReportStatus'] = stub[:antipattern_report_status] unless stub[:antipattern_report_status].nil?
         data['antipatternReportStatusMessage'] = stub[:antipattern_report_status_message] unless stub[:antipattern_report_status_message].nil?
         data['lastAnalyzedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_analyzed_timestamp]).to_i unless stub[:last_analyzed_timestamp].nil?
@@ -906,7 +908,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerSummary.stub(element) unless element.nil?
+          data << ServerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -946,7 +948,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationComponentSummary.stub(element) unless element.nil?
+          data << ApplicationComponentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -986,7 +988,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StrategySummary.stub(element) unless element.nil?
+          data << StrategySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1026,8 +1028,8 @@ module AWS::SDK::MigrationHubStrategy
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['recommendationReportDetails'] = Stubs::RecommendationReportDetails.stub(stub[:recommendation_report_details]) unless stub[:recommendation_report_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationReportDetails'] = RecommendationReportDetails.stub(stub[:recommendation_report_details]) unless stub[:recommendation_report_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1054,7 +1056,7 @@ module AWS::SDK::MigrationHubStrategy
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['completionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_time]).to_i unless stub[:completion_time].nil?
         data['s3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
-        data['s3Keys'] = Stubs::S3Keys.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
+        data['s3Keys'] = S3Keys.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
         data
       end
     end
@@ -1094,9 +1096,9 @@ module AWS::SDK::MigrationHubStrategy
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['serverDetail'] = Stubs::ServerDetail.stub(stub[:server_detail]) unless stub[:server_detail].nil?
-        data['associatedApplications'] = Stubs::AssociatedApplications.stub(stub[:associated_applications]) unless stub[:associated_applications].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serverDetail'] = ServerDetail.stub(stub[:server_detail]) unless stub[:server_detail].nil?
+        data['associatedApplications'] = AssociatedApplications.stub(stub[:associated_applications]) unless stub[:associated_applications].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1127,13 +1129,13 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['recommendationSet'] = Stubs::RecommendationSet.stub(stub[:recommendation_set]) unless stub[:recommendation_set].nil?
+        data['recommendationSet'] = RecommendationSet.stub(stub[:recommendation_set]) unless stub[:recommendation_set].nil?
         data['dataCollectionStatus'] = stub[:data_collection_status] unless stub[:data_collection_status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['listAntipatternSeveritySummary'] = Stubs::ListAntipatternSeveritySummary.stub(stub[:list_antipattern_severity_summary]) unless stub[:list_antipattern_severity_summary].nil?
-        data['systemInfo'] = Stubs::SystemInfo.stub(stub[:system_info]) unless stub[:system_info].nil?
-        data['applicationComponentStrategySummary'] = Stubs::ListStrategySummary.stub(stub[:application_component_strategy_summary]) unless stub[:application_component_strategy_summary].nil?
-        data['antipatternReportS3Object'] = Stubs::S3Object.stub(stub[:antipattern_report_s3_object]) unless stub[:antipattern_report_s3_object].nil?
+        data['listAntipatternSeveritySummary'] = ListAntipatternSeveritySummary.stub(stub[:list_antipattern_severity_summary]) unless stub[:list_antipattern_severity_summary].nil?
+        data['systemInfo'] = SystemInfo.stub(stub[:system_info]) unless stub[:system_info].nil?
+        data['applicationComponentStrategySummary'] = ListStrategySummary.stub(stub[:application_component_strategy_summary]) unless stub[:application_component_strategy_summary].nil?
+        data['antipatternReportS3Object'] = S3Object.stub(stub[:antipattern_report_s3_object]) unless stub[:antipattern_report_s3_object].nil?
         data['antipatternReportStatus'] = stub[:antipattern_report_status] unless stub[:antipattern_report_status].nil?
         data['antipatternReportStatusMessage'] = stub[:antipattern_report_status_message] unless stub[:antipattern_report_status_message].nil?
         data['serverType'] = stub[:server_type] unless stub[:server_type].nil?
@@ -1158,9 +1160,9 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::SystemInfo.new
         data = {}
-        data['osInfo'] = Stubs::OSInfo.stub(stub[:os_info]) unless stub[:os_info].nil?
+        data['osInfo'] = OSInfo.stub(stub[:os_info]) unless stub[:os_info].nil?
         data['fileSystemType'] = stub[:file_system_type] unless stub[:file_system_type].nil?
-        data['networkInfoList'] = Stubs::NetworkInfoList.stub(stub[:network_info_list]) unless stub[:network_info_list].nil?
+        data['networkInfoList'] = NetworkInfoList.stub(stub[:network_info_list]) unless stub[:network_info_list].nil?
         data['cpuArchitecture'] = stub[:cpu_architecture] unless stub[:cpu_architecture].nil?
         data
       end
@@ -1180,7 +1182,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInfo.stub(element) unless element.nil?
+          data << NetworkInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1242,8 +1244,8 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['serverStrategies'] = Stubs::ServerStrategies.stub(stub[:server_strategies]) unless stub[:server_strategies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serverStrategies'] = ServerStrategies.stub(stub[:server_strategies]) unless stub[:server_strategies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1261,7 +1263,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerStrategy.stub(element) unless element.nil?
+          data << ServerStrategy.stub(element) unless element.nil?
         end
         data
       end
@@ -1283,7 +1285,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.stub(stub)
         stub ||= Types::ServerStrategy.new
         data = {}
-        data['recommendation'] = Stubs::RecommendationSet.stub(stub[:recommendation]) unless stub[:recommendation].nil?
+        data['recommendation'] = RecommendationSet.stub(stub[:recommendation]) unless stub[:recommendation].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['numberOfApplicationComponents'] = stub[:number_of_application_components] unless stub[:number_of_application_components].nil?
         data['isPreferred'] = stub[:is_preferred] unless stub[:is_preferred].nil?
@@ -1304,9 +1306,9 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applicationComponentInfos'] = Stubs::ApplicationComponentDetails.stub(stub[:application_component_infos]) unless stub[:application_component_infos].nil?
+        data['applicationComponentInfos'] = ApplicationComponentDetails.stub(stub[:application_component_infos]) unless stub[:application_component_infos].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1324,7 +1326,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationComponentDetail.stub(element) unless element.nil?
+          data << ApplicationComponentDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1343,9 +1345,9 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Collectors'] = Stubs::Collectors.stub(stub[:collectors]) unless stub[:collectors].nil?
+        data['Collectors'] = Collectors.stub(stub[:collectors]) unless stub[:collectors].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,7 +1365,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Collector.stub(element) unless element.nil?
+          data << Collector.stub(element) unless element.nil?
         end
         data
       end
@@ -1412,9 +1414,9 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['taskInfos'] = Stubs::ListImportFileTaskInformation.stub(stub[:task_infos]) unless stub[:task_infos].nil?
+        data['taskInfos'] = ListImportFileTaskInformation.stub(stub[:task_infos]) unless stub[:task_infos].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1432,7 +1434,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImportFileTaskInformation.stub(element) unless element.nil?
+          data << ImportFileTaskInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -1489,9 +1491,9 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['serverInfos'] = Stubs::ServerDetails.stub(stub[:server_infos]) unless stub[:server_infos].nil?
+        data['serverInfos'] = ServerDetails.stub(stub[:server_infos]) unless stub[:server_infos].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1509,7 +1511,7 @@ module AWS::SDK::MigrationHubStrategy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerDetail.stub(element) unless element.nil?
+          data << ServerDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1541,7 +1543,7 @@ module AWS::SDK::MigrationHubStrategy
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['assessmentId'] = stub[:assessment_id] unless stub[:assessment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1558,7 +1560,7 @@ module AWS::SDK::MigrationHubStrategy
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1575,7 +1577,7 @@ module AWS::SDK::MigrationHubStrategy
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

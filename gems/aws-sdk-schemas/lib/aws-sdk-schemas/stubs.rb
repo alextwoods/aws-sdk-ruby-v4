@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Schemas
   module Stubs
 
@@ -34,8 +36,8 @@ module AWS::SDK::Schemas
         data['SourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['CrossAccount'] = stub[:cross_account] unless stub[:cross_account].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -77,8 +79,8 @@ module AWS::SDK::Schemas
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RegistryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,10 +108,10 @@ module AWS::SDK::Schemas
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['VersionCreatedDate'] = Hearth::TimeHelper.to_date_time(stub[:version_created_date]) unless stub[:version_created_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -197,7 +199,7 @@ module AWS::SDK::Schemas
         data['LastModified'] = Hearth::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -225,8 +227,8 @@ module AWS::SDK::Schemas
         data['SourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['CrossAccount'] = stub[:cross_account] unless stub[:cross_account].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,8 +250,8 @@ module AWS::SDK::Schemas
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RegistryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -279,10 +281,10 @@ module AWS::SDK::Schemas
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['VersionCreatedDate'] = Hearth::TimeHelper.to_date_time(stub[:version_created_date]) unless stub[:version_created_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::Schemas
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,7 +325,7 @@ module AWS::SDK::Schemas
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:body] || '')
+        http_resp.body = ::StringIO.new(stub[:body] || '')
       end
     end
 
@@ -340,7 +342,7 @@ module AWS::SDK::Schemas
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Content'] = stub[:content] unless stub[:content].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::Schemas
         http_resp.headers['Content-Type'] = 'application/json'
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -376,9 +378,9 @@ module AWS::SDK::Schemas
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Discoverers'] = Stubs::List____listOfDiscovererSummary.stub(stub[:discoverers]) unless stub[:discoverers].nil?
+        data['Discoverers'] = List____listOfDiscovererSummary.stub(stub[:discoverers]) unless stub[:discoverers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -396,7 +398,7 @@ module AWS::SDK::Schemas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DiscovererSummary.stub(element) unless element.nil?
+          data << DiscovererSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -425,7 +427,7 @@ module AWS::SDK::Schemas
         data['SourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['CrossAccount'] = stub[:cross_account] unless stub[:cross_account].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -444,8 +446,8 @@ module AWS::SDK::Schemas
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Registries'] = Stubs::List____listOfRegistrySummary.stub(stub[:registries]) unless stub[:registries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Registries'] = List____listOfRegistrySummary.stub(stub[:registries]) unless stub[:registries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -463,7 +465,7 @@ module AWS::SDK::Schemas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegistrySummary.stub(element) unless element.nil?
+          data << RegistrySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -486,7 +488,7 @@ module AWS::SDK::Schemas
         data = {}
         data['RegistryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -505,8 +507,8 @@ module AWS::SDK::Schemas
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['SchemaVersions'] = Stubs::List____listOfSchemaVersionSummary.stub(stub[:schema_versions]) unless stub[:schema_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SchemaVersions'] = List____listOfSchemaVersionSummary.stub(stub[:schema_versions]) unless stub[:schema_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -524,7 +526,7 @@ module AWS::SDK::Schemas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaVersionSummary.stub(element) unless element.nil?
+          data << SchemaVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -568,8 +570,8 @@ module AWS::SDK::Schemas
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Schemas'] = Stubs::List____listOfSchemaSummary.stub(stub[:schemas]) unless stub[:schemas].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Schemas'] = List____listOfSchemaSummary.stub(stub[:schemas]) unless stub[:schemas].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -587,7 +589,7 @@ module AWS::SDK::Schemas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaSummary.stub(element) unless element.nil?
+          data << SchemaSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -613,7 +615,7 @@ module AWS::SDK::Schemas
         data['LastModified'] = Hearth::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['VersionCount'] = stub[:version_count] unless stub[:version_count].nil?
         data
       end
@@ -631,8 +633,8 @@ module AWS::SDK::Schemas
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::Schemas
         data['LastModified'] = Hearth::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -674,7 +676,7 @@ module AWS::SDK::Schemas
         http_resp.headers['Content-Type'] = 'application/json'
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -692,8 +694,8 @@ module AWS::SDK::Schemas
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Schemas'] = Stubs::List____listOfSearchSchemaSummary.stub(stub[:schemas]) unless stub[:schemas].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Schemas'] = List____listOfSearchSchemaSummary.stub(stub[:schemas]) unless stub[:schemas].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -711,7 +713,7 @@ module AWS::SDK::Schemas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SearchSchemaSummary.stub(element) unless element.nil?
+          data << SearchSchemaSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -736,7 +738,7 @@ module AWS::SDK::Schemas
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
-        data['SchemaVersions'] = Stubs::List____listOfSearchSchemaVersionSummary.stub(stub[:schema_versions]) unless stub[:schema_versions].nil?
+        data['SchemaVersions'] = List____listOfSearchSchemaVersionSummary.stub(stub[:schema_versions]) unless stub[:schema_versions].nil?
         data
       end
     end
@@ -755,7 +757,7 @@ module AWS::SDK::Schemas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SearchSchemaVersionSummary.stub(element) unless element.nil?
+          data << SearchSchemaVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -798,7 +800,7 @@ module AWS::SDK::Schemas
         http_resp.headers['Content-Type'] = 'application/json'
         data['DiscovererId'] = stub[:discoverer_id] unless stub[:discoverer_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -817,7 +819,7 @@ module AWS::SDK::Schemas
         http_resp.headers['Content-Type'] = 'application/json'
         data['DiscovererId'] = stub[:discoverer_id] unless stub[:discoverer_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -871,8 +873,8 @@ module AWS::SDK::Schemas
         data['SourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['CrossAccount'] = stub[:cross_account] unless stub[:cross_account].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -894,8 +896,8 @@ module AWS::SDK::Schemas
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RegistryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -923,10 +925,10 @@ module AWS::SDK::Schemas
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['VersionCreatedDate'] = Hearth::TimeHelper.to_date_time(stub[:version_created_date]) unless stub[:version_created_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

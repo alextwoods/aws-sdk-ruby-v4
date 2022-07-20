@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeStar
   module Builders
 
@@ -23,7 +25,7 @@ module AWS::SDK::CodeStar
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
         data['projectRole'] = input[:project_role] unless input[:project_role].nil?
         data['remoteAccessAllowed'] = input[:remote_access_allowed] unless input[:remote_access_allowed].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -39,10 +41,10 @@ module AWS::SDK::CodeStar
         data['id'] = input[:id] unless input[:id].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['sourceCode'] = Builders::SourceCode.build(input[:source_code]) unless input[:source_code].nil?
-        data['toolchain'] = Builders::Toolchain.build(input[:toolchain]) unless input[:toolchain].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceCode'] = SourceCode.build(input[:source_code]) unless input[:source_code].nil?
+        data['toolchain'] = Toolchain.build(input[:toolchain]) unless input[:toolchain].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,9 +63,9 @@ module AWS::SDK::CodeStar
     class Toolchain
       def self.build(input)
         data = {}
-        data['source'] = Builders::ToolchainSource.build(input[:source]) unless input[:source].nil?
+        data['source'] = ToolchainSource.build(input[:source]) unless input[:source].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['stackParameters'] = Builders::TemplateParameterMap.build(input[:stack_parameters]) unless input[:stack_parameters].nil?
+        data['stackParameters'] = TemplateParameterMap.build(input[:stack_parameters]) unless input[:stack_parameters].nil?
         data
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::CodeStar
     class ToolchainSource
       def self.build(input)
         data = {}
-        data['s3'] = Builders::S3Location.build(input[:s3]) unless input[:s3].nil?
+        data['s3'] = S3Location.build(input[:s3]) unless input[:s3].nil?
         data
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::CodeStar
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Code.build(element) unless element.nil?
+          data << Code.build(element) unless element.nil?
         end
         data
       end
@@ -113,8 +115,8 @@ module AWS::SDK::CodeStar
     class Code
       def self.build(input)
         data = {}
-        data['source'] = Builders::CodeSource.build(input[:source]) unless input[:source].nil?
-        data['destination'] = Builders::CodeDestination.build(input[:destination]) unless input[:destination].nil?
+        data['source'] = CodeSource.build(input[:source]) unless input[:source].nil?
+        data['destination'] = CodeDestination.build(input[:destination]) unless input[:destination].nil?
         data
       end
     end
@@ -123,8 +125,8 @@ module AWS::SDK::CodeStar
     class CodeDestination
       def self.build(input)
         data = {}
-        data['codeCommit'] = Builders::CodeCommitCodeDestination.build(input[:code_commit]) unless input[:code_commit].nil?
-        data['gitHub'] = Builders::GitHubCodeDestination.build(input[:git_hub]) unless input[:git_hub].nil?
+        data['codeCommit'] = CodeCommitCodeDestination.build(input[:code_commit]) unless input[:code_commit].nil?
+        data['gitHub'] = GitHubCodeDestination.build(input[:git_hub]) unless input[:git_hub].nil?
         data
       end
     end
@@ -157,7 +159,7 @@ module AWS::SDK::CodeStar
     class CodeSource
       def self.build(input)
         data = {}
-        data['s3'] = Builders::S3Location.build(input[:s3]) unless input[:s3].nil?
+        data['s3'] = S3Location.build(input[:s3]) unless input[:s3].nil?
         data
       end
     end
@@ -174,7 +176,7 @@ module AWS::SDK::CodeStar
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
         data['emailAddress'] = input[:email_address] unless input[:email_address].nil?
         data['sshPublicKey'] = input[:ssh_public_key] unless input[:ssh_public_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -189,7 +191,7 @@ module AWS::SDK::CodeStar
         data['id'] = input[:id] unless input[:id].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['deleteStack'] = input[:delete_stack] unless input[:delete_stack].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,7 +204,7 @@ module AWS::SDK::CodeStar
         http_req.headers['X-Amz-Target'] = 'CodeStar_20170419.DeleteUserProfile'
         data = {}
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::CodeStar
         http_req.headers['X-Amz-Target'] = 'CodeStar_20170419.DescribeProject'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -228,7 +230,7 @@ module AWS::SDK::CodeStar
         http_req.headers['X-Amz-Target'] = 'CodeStar_20170419.DescribeUserProfile'
         data = {}
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -242,7 +244,7 @@ module AWS::SDK::CodeStar
         data = {}
         data['projectId'] = input[:project_id] unless input[:project_id].nil?
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,7 +258,7 @@ module AWS::SDK::CodeStar
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,7 +273,7 @@ module AWS::SDK::CodeStar
         data['projectId'] = input[:project_id] unless input[:project_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -286,7 +288,7 @@ module AWS::SDK::CodeStar
         data['id'] = input[:id] unless input[:id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,7 +303,7 @@ module AWS::SDK::CodeStar
         data['projectId'] = input[:project_id] unless input[:project_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::CodeStar
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,8 +330,8 @@ module AWS::SDK::CodeStar
         http_req.headers['X-Amz-Target'] = 'CodeStar_20170419.TagProject'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,8 +344,8 @@ module AWS::SDK::CodeStar
         http_req.headers['X-Amz-Target'] = 'CodeStar_20170419.UntagProject'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        data['tags'] = Builders::TagKeys.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagKeys.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::CodeStar
         data['id'] = input[:id] unless input[:id].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,7 +387,7 @@ module AWS::SDK::CodeStar
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
         data['projectRole'] = input[:project_role] unless input[:project_role].nil?
         data['remoteAccessAllowed'] = input[:remote_access_allowed] unless input[:remote_access_allowed].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::CodeStar
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
         data['emailAddress'] = input[:email_address] unless input[:email_address].nil?
         data['sshPublicKey'] = input[:ssh_public_key] unless input[:ssh_public_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

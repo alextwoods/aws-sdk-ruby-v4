@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Account
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::Account
         data = {}
         data['AlternateContactType'] = input[:alternate_contact_type] unless input[:alternate_contact_type].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::Account
         data = {}
         data['AlternateContactType'] = input[:alternate_contact_type] unless input[:alternate_contact_type].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::Account
         data['PhoneNumber'] = input[:phone_number] unless input[:phone_number].nil?
         data['AlternateContactType'] = input[:alternate_contact_type] unless input[:alternate_contact_type].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

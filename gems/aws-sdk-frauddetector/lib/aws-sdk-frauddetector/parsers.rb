@@ -17,7 +17,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::BatchCreateVariableErrorList.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchCreateVariableErrorList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::FraudDetector
     class BatchCreateVariableErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchCreateVariableError.parse(value) unless value.nil?
+          BatchCreateVariableError.parse(value) unless value.nil?
         end
       end
     end
@@ -95,8 +95,8 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.variables = (Parsers::VariableList.parse(map['variables']) unless map['variables'].nil?)
-        data.errors = (Parsers::BatchGetVariableErrorList.parse(map['errors']) unless map['errors'].nil?)
+        data.variables = (VariableList.parse(map['variables']) unless map['variables'].nil?)
+        data.errors = (BatchGetVariableErrorList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -104,7 +104,7 @@ module AWS::SDK::FraudDetector
     class BatchGetVariableErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchGetVariableError.parse(value) unless value.nil?
+          BatchGetVariableError.parse(value) unless value.nil?
         end
       end
     end
@@ -122,7 +122,7 @@ module AWS::SDK::FraudDetector
     class VariableList
       def self.parse(list)
         list.map do |value|
-          Parsers::Variable.parse(value) unless value.nil?
+          Variable.parse(value) unless value.nil?
         end
       end
     end
@@ -246,7 +246,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule = (Parsers::Rule.parse(map['rule']) unless map['rule'].nil?)
+        data.rule = (Rule.parse(map['rule']) unless map['rule'].nil?)
         data
       end
     end
@@ -459,7 +459,7 @@ module AWS::SDK::FraudDetector
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.detector_id = map['detectorId']
-        data.detector_version_summaries = (Parsers::DetectorVersionSummaryList.parse(map['detectorVersionSummaries']) unless map['detectorVersionSummaries'].nil?)
+        data.detector_version_summaries = (DetectorVersionSummaryList.parse(map['detectorVersionSummaries']) unless map['detectorVersionSummaries'].nil?)
         data.next_token = map['nextToken']
         data.arn = map['arn']
         data
@@ -469,7 +469,7 @@ module AWS::SDK::FraudDetector
     class DetectorVersionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::DetectorVersionSummary.parse(value) unless value.nil?
+          DetectorVersionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -492,7 +492,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.model_version_details = (Parsers::ModelVersionDetailList.parse(map['modelVersionDetails']) unless map['modelVersionDetails'].nil?)
+        data.model_version_details = (ModelVersionDetailList.parse(map['modelVersionDetails']) unless map['modelVersionDetails'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -501,7 +501,7 @@ module AWS::SDK::FraudDetector
     class ModelVersionDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelVersionDetail.parse(value) unless value.nil?
+          ModelVersionDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -514,10 +514,10 @@ module AWS::SDK::FraudDetector
         data.model_version_number = map['modelVersionNumber']
         data.status = map['status']
         data.training_data_source = map['trainingDataSource']
-        data.training_data_schema = (Parsers::TrainingDataSchema.parse(map['trainingDataSchema']) unless map['trainingDataSchema'].nil?)
-        data.external_events_detail = (Parsers::ExternalEventsDetail.parse(map['externalEventsDetail']) unless map['externalEventsDetail'].nil?)
-        data.ingested_events_detail = (Parsers::IngestedEventsDetail.parse(map['ingestedEventsDetail']) unless map['ingestedEventsDetail'].nil?)
-        data.training_result = (Parsers::TrainingResult.parse(map['trainingResult']) unless map['trainingResult'].nil?)
+        data.training_data_schema = (TrainingDataSchema.parse(map['trainingDataSchema']) unless map['trainingDataSchema'].nil?)
+        data.external_events_detail = (ExternalEventsDetail.parse(map['externalEventsDetail']) unless map['externalEventsDetail'].nil?)
+        data.ingested_events_detail = (IngestedEventsDetail.parse(map['ingestedEventsDetail']) unless map['ingestedEventsDetail'].nil?)
+        data.training_result = (TrainingResult.parse(map['trainingResult']) unless map['trainingResult'].nil?)
         data.last_updated_time = map['lastUpdatedTime']
         data.created_time = map['createdTime']
         data.arn = map['arn']
@@ -528,9 +528,9 @@ module AWS::SDK::FraudDetector
     class TrainingResult
       def self.parse(map)
         data = Types::TrainingResult.new
-        data.data_validation_metrics = (Parsers::DataValidationMetrics.parse(map['dataValidationMetrics']) unless map['dataValidationMetrics'].nil?)
-        data.training_metrics = (Parsers::TrainingMetrics.parse(map['trainingMetrics']) unless map['trainingMetrics'].nil?)
-        data.variable_importance_metrics = (Parsers::VariableImportanceMetrics.parse(map['variableImportanceMetrics']) unless map['variableImportanceMetrics'].nil?)
+        data.data_validation_metrics = (DataValidationMetrics.parse(map['dataValidationMetrics']) unless map['dataValidationMetrics'].nil?)
+        data.training_metrics = (TrainingMetrics.parse(map['trainingMetrics']) unless map['trainingMetrics'].nil?)
+        data.variable_importance_metrics = (VariableImportanceMetrics.parse(map['variableImportanceMetrics']) unless map['variableImportanceMetrics'].nil?)
         return data
       end
     end
@@ -538,7 +538,7 @@ module AWS::SDK::FraudDetector
     class VariableImportanceMetrics
       def self.parse(map)
         data = Types::VariableImportanceMetrics.new
-        data.log_odds_metrics = (Parsers::ListOfLogOddsMetrics.parse(map['logOddsMetrics']) unless map['logOddsMetrics'].nil?)
+        data.log_odds_metrics = (ListOfLogOddsMetrics.parse(map['logOddsMetrics']) unless map['logOddsMetrics'].nil?)
         return data
       end
     end
@@ -546,7 +546,7 @@ module AWS::SDK::FraudDetector
     class ListOfLogOddsMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::LogOddsMetric.parse(value) unless value.nil?
+          LogOddsMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -565,7 +565,7 @@ module AWS::SDK::FraudDetector
       def self.parse(map)
         data = Types::TrainingMetrics.new
         data.auc = Hearth::NumberHelper.deserialize(map['auc'])
-        data.metric_data_points = (Parsers::MetricDataPointsList.parse(map['metricDataPoints']) unless map['metricDataPoints'].nil?)
+        data.metric_data_points = (MetricDataPointsList.parse(map['metricDataPoints']) unless map['metricDataPoints'].nil?)
         return data
       end
     end
@@ -573,7 +573,7 @@ module AWS::SDK::FraudDetector
     class MetricDataPointsList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDataPoint.parse(value) unless value.nil?
+          MetricDataPoint.parse(value) unless value.nil?
         end
       end
     end
@@ -592,8 +592,8 @@ module AWS::SDK::FraudDetector
     class DataValidationMetrics
       def self.parse(map)
         data = Types::DataValidationMetrics.new
-        data.file_level_messages = (Parsers::FileValidationMessageList.parse(map['fileLevelMessages']) unless map['fileLevelMessages'].nil?)
-        data.field_level_messages = (Parsers::FieldValidationMessageList.parse(map['fieldLevelMessages']) unless map['fieldLevelMessages'].nil?)
+        data.file_level_messages = (FileValidationMessageList.parse(map['fileLevelMessages']) unless map['fileLevelMessages'].nil?)
+        data.field_level_messages = (FieldValidationMessageList.parse(map['fieldLevelMessages']) unless map['fieldLevelMessages'].nil?)
         return data
       end
     end
@@ -601,7 +601,7 @@ module AWS::SDK::FraudDetector
     class FieldValidationMessageList
       def self.parse(list)
         list.map do |value|
-          Parsers::FieldValidationMessage.parse(value) unless value.nil?
+          FieldValidationMessage.parse(value) unless value.nil?
         end
       end
     end
@@ -621,7 +621,7 @@ module AWS::SDK::FraudDetector
     class FileValidationMessageList
       def self.parse(list)
         list.map do |value|
-          Parsers::FileValidationMessage.parse(value) unless value.nil?
+          FileValidationMessage.parse(value) unless value.nil?
         end
       end
     end
@@ -639,7 +639,7 @@ module AWS::SDK::FraudDetector
     class IngestedEventsDetail
       def self.parse(map)
         data = Types::IngestedEventsDetail.new
-        data.ingested_events_time_window = (Parsers::IngestedEventsTimeWindow.parse(map['ingestedEventsTimeWindow']) unless map['ingestedEventsTimeWindow'].nil?)
+        data.ingested_events_time_window = (IngestedEventsTimeWindow.parse(map['ingestedEventsTimeWindow']) unless map['ingestedEventsTimeWindow'].nil?)
         return data
       end
     end
@@ -665,8 +665,8 @@ module AWS::SDK::FraudDetector
     class TrainingDataSchema
       def self.parse(map)
         data = Types::TrainingDataSchema.new
-        data.model_variables = (Parsers::ListOfStrings.parse(map['modelVariables']) unless map['modelVariables'].nil?)
-        data.label_schema = (Parsers::LabelSchema.parse(map['labelSchema']) unless map['labelSchema'].nil?)
+        data.model_variables = (ListOfStrings.parse(map['modelVariables']) unless map['modelVariables'].nil?)
+        data.label_schema = (LabelSchema.parse(map['labelSchema']) unless map['labelSchema'].nil?)
         return data
       end
     end
@@ -674,7 +674,7 @@ module AWS::SDK::FraudDetector
     class LabelSchema
       def self.parse(map)
         data = Types::LabelSchema.new
-        data.label_mapper = (Parsers::LabelMapper.parse(map['labelMapper']) unless map['labelMapper'].nil?)
+        data.label_mapper = (LabelMapper.parse(map['labelMapper']) unless map['labelMapper'].nil?)
         data.unlabeled_events_treatment = map['unlabeledEventsTreatment']
         return data
       end
@@ -684,7 +684,7 @@ module AWS::SDK::FraudDetector
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::NonEmptyListOfStrings.parse(value) unless value.nil?
+          data[key] = NonEmptyListOfStrings.parse(value) unless value.nil?
         end
         data
       end
@@ -713,7 +713,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.batch_imports = (Parsers::BatchImportList.parse(map['batchImports']) unless map['batchImports'].nil?)
+        data.batch_imports = (BatchImportList.parse(map['batchImports']) unless map['batchImports'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -722,7 +722,7 @@ module AWS::SDK::FraudDetector
     class BatchImportList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchImport.parse(value) unless value.nil?
+          BatchImport.parse(value) unless value.nil?
         end
       end
     end
@@ -754,7 +754,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.batch_predictions = (Parsers::BatchPredictionList.parse(map['batchPredictions']) unless map['batchPredictions'].nil?)
+        data.batch_predictions = (BatchPredictionList.parse(map['batchPredictions']) unless map['batchPredictions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -763,7 +763,7 @@ module AWS::SDK::FraudDetector
     class BatchPredictionList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchPrediction.parse(value) unless value.nil?
+          BatchPrediction.parse(value) unless value.nil?
         end
       end
     end
@@ -813,9 +813,9 @@ module AWS::SDK::FraudDetector
         data.detector_id = map['detectorId']
         data.detector_version_id = map['detectorVersionId']
         data.description = map['description']
-        data.external_model_endpoints = (Parsers::ListOfStrings.parse(map['externalModelEndpoints']) unless map['externalModelEndpoints'].nil?)
-        data.model_versions = (Parsers::ListOfModelVersions.parse(map['modelVersions']) unless map['modelVersions'].nil?)
-        data.rules = (Parsers::RuleList.parse(map['rules']) unless map['rules'].nil?)
+        data.external_model_endpoints = (ListOfStrings.parse(map['externalModelEndpoints']) unless map['externalModelEndpoints'].nil?)
+        data.model_versions = (ListOfModelVersions.parse(map['modelVersions']) unless map['modelVersions'].nil?)
+        data.rules = (RuleList.parse(map['rules']) unless map['rules'].nil?)
         data.status = map['status']
         data.last_updated_time = map['lastUpdatedTime']
         data.created_time = map['createdTime']
@@ -828,7 +828,7 @@ module AWS::SDK::FraudDetector
     class RuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::Rule.parse(value) unless value.nil?
+          Rule.parse(value) unless value.nil?
         end
       end
     end
@@ -836,7 +836,7 @@ module AWS::SDK::FraudDetector
     class ListOfModelVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelVersion.parse(value) unless value.nil?
+          ModelVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -859,7 +859,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.detectors = (Parsers::DetectorList.parse(map['detectors']) unless map['detectors'].nil?)
+        data.detectors = (DetectorList.parse(map['detectors']) unless map['detectors'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -868,7 +868,7 @@ module AWS::SDK::FraudDetector
     class DetectorList
       def self.parse(list)
         list.map do |value|
-          Parsers::Detector.parse(value) unless value.nil?
+          Detector.parse(value) unless value.nil?
         end
       end
     end
@@ -893,7 +893,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entity_types = (Parsers::EntityTypeList.parse(map['entityTypes']) unless map['entityTypes'].nil?)
+        data.entity_types = (EntityTypeList.parse(map['entityTypes']) unless map['entityTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -902,7 +902,7 @@ module AWS::SDK::FraudDetector
     class EntityTypeList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityType.parse(value) unless value.nil?
+          EntityType.parse(value) unless value.nil?
         end
       end
     end
@@ -926,7 +926,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event = (Parsers::Event.parse(map['event']) unless map['event'].nil?)
+        data.event = (Event.parse(map['event']) unless map['event'].nil?)
         data
       end
     end
@@ -937,10 +937,10 @@ module AWS::SDK::FraudDetector
         data.event_id = map['eventId']
         data.event_type_name = map['eventTypeName']
         data.event_timestamp = map['eventTimestamp']
-        data.event_variables = (Parsers::EventAttributeMap.parse(map['eventVariables']) unless map['eventVariables'].nil?)
+        data.event_variables = (EventAttributeMap.parse(map['eventVariables']) unless map['eventVariables'].nil?)
         data.current_label = map['currentLabel']
         data.label_timestamp = map['labelTimestamp']
-        data.entities = (Parsers::ListOfEntities.parse(map['entities']) unless map['entities'].nil?)
+        data.entities = (ListOfEntities.parse(map['entities']) unless map['entities'].nil?)
         return data
       end
     end
@@ -948,7 +948,7 @@ module AWS::SDK::FraudDetector
     class ListOfEntities
       def self.parse(list)
         list.map do |value|
-          Parsers::Entity.parse(value) unless value.nil?
+          Entity.parse(value) unless value.nil?
         end
       end
     end
@@ -979,9 +979,9 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.model_scores = (Parsers::ListOfModelScores.parse(map['modelScores']) unless map['modelScores'].nil?)
-        data.rule_results = (Parsers::ListOfRuleResults.parse(map['ruleResults']) unless map['ruleResults'].nil?)
-        data.external_model_outputs = (Parsers::ListOfExternalModelOutputs.parse(map['externalModelOutputs']) unless map['externalModelOutputs'].nil?)
+        data.model_scores = (ListOfModelScores.parse(map['modelScores']) unless map['modelScores'].nil?)
+        data.rule_results = (ListOfRuleResults.parse(map['ruleResults']) unless map['ruleResults'].nil?)
+        data.external_model_outputs = (ListOfExternalModelOutputs.parse(map['externalModelOutputs']) unless map['externalModelOutputs'].nil?)
         data
       end
     end
@@ -989,7 +989,7 @@ module AWS::SDK::FraudDetector
     class ListOfExternalModelOutputs
       def self.parse(list)
         list.map do |value|
-          Parsers::ExternalModelOutputs.parse(value) unless value.nil?
+          ExternalModelOutputs.parse(value) unless value.nil?
         end
       end
     end
@@ -997,8 +997,8 @@ module AWS::SDK::FraudDetector
     class ExternalModelOutputs
       def self.parse(map)
         data = Types::ExternalModelOutputs.new
-        data.external_model = (Parsers::ExternalModelSummary.parse(map['externalModel']) unless map['externalModel'].nil?)
-        data.outputs = (Parsers::ExternalModelPredictionMap.parse(map['outputs']) unless map['outputs'].nil?)
+        data.external_model = (ExternalModelSummary.parse(map['externalModel']) unless map['externalModel'].nil?)
+        data.outputs = (ExternalModelPredictionMap.parse(map['outputs']) unless map['outputs'].nil?)
         return data
       end
     end
@@ -1025,7 +1025,7 @@ module AWS::SDK::FraudDetector
     class ListOfRuleResults
       def self.parse(list)
         list.map do |value|
-          Parsers::RuleResult.parse(value) unless value.nil?
+          RuleResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::FraudDetector
       def self.parse(map)
         data = Types::RuleResult.new
         data.rule_id = map['ruleId']
-        data.outcomes = (Parsers::ListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
+        data.outcomes = (ListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
         return data
       end
     end
@@ -1042,7 +1042,7 @@ module AWS::SDK::FraudDetector
     class ListOfModelScores
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelScores.parse(value) unless value.nil?
+          ModelScores.parse(value) unless value.nil?
         end
       end
     end
@@ -1050,8 +1050,8 @@ module AWS::SDK::FraudDetector
     class ModelScores
       def self.parse(map)
         data = Types::ModelScores.new
-        data.model_version = (Parsers::ModelVersion.parse(map['modelVersion']) unless map['modelVersion'].nil?)
-        data.scores = (Parsers::ModelPredictionMap.parse(map['scores']) unless map['scores'].nil?)
+        data.model_version = (ModelVersion.parse(map['modelVersion']) unless map['modelVersion'].nil?)
+        data.scores = (ModelPredictionMap.parse(map['scores']) unless map['scores'].nil?)
         return data
       end
     end
@@ -1093,12 +1093,12 @@ module AWS::SDK::FraudDetector
         data.detector_id = map['detectorId']
         data.detector_version_id = map['detectorVersionId']
         data.detector_version_status = map['detectorVersionStatus']
-        data.event_variables = (Parsers::ListOfEventVariableSummaries.parse(map['eventVariables']) unless map['eventVariables'].nil?)
-        data.rules = (Parsers::EvaluatedRuleList.parse(map['rules']) unless map['rules'].nil?)
+        data.event_variables = (ListOfEventVariableSummaries.parse(map['eventVariables']) unless map['eventVariables'].nil?)
+        data.rules = (EvaluatedRuleList.parse(map['rules']) unless map['rules'].nil?)
         data.rule_execution_mode = map['ruleExecutionMode']
-        data.outcomes = (Parsers::ListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
-        data.evaluated_model_versions = (Parsers::ListOfEvaluatedModelVersions.parse(map['evaluatedModelVersions']) unless map['evaluatedModelVersions'].nil?)
-        data.evaluated_external_models = (Parsers::ListOfEvaluatedExternalModels.parse(map['evaluatedExternalModels']) unless map['evaluatedExternalModels'].nil?)
+        data.outcomes = (ListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
+        data.evaluated_model_versions = (ListOfEvaluatedModelVersions.parse(map['evaluatedModelVersions']) unless map['evaluatedModelVersions'].nil?)
+        data.evaluated_external_models = (ListOfEvaluatedExternalModels.parse(map['evaluatedExternalModels']) unless map['evaluatedExternalModels'].nil?)
         data.prediction_timestamp = map['predictionTimestamp']
         data
       end
@@ -1107,7 +1107,7 @@ module AWS::SDK::FraudDetector
     class ListOfEvaluatedExternalModels
       def self.parse(list)
         list.map do |value|
-          Parsers::EvaluatedExternalModel.parse(value) unless value.nil?
+          EvaluatedExternalModel.parse(value) unless value.nil?
         end
       end
     end
@@ -1117,8 +1117,8 @@ module AWS::SDK::FraudDetector
         data = Types::EvaluatedExternalModel.new
         data.model_endpoint = map['modelEndpoint']
         data.use_event_variables = map['useEventVariables']
-        data.input_variables = (Parsers::MapOfStrings.parse(map['inputVariables']) unless map['inputVariables'].nil?)
-        data.output_variables = (Parsers::MapOfStrings.parse(map['outputVariables']) unless map['outputVariables'].nil?)
+        data.input_variables = (MapOfStrings.parse(map['inputVariables']) unless map['inputVariables'].nil?)
+        data.output_variables = (MapOfStrings.parse(map['outputVariables']) unless map['outputVariables'].nil?)
         return data
       end
     end
@@ -1136,7 +1136,7 @@ module AWS::SDK::FraudDetector
     class ListOfEvaluatedModelVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::EvaluatedModelVersion.parse(value) unless value.nil?
+          EvaluatedModelVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -1147,7 +1147,7 @@ module AWS::SDK::FraudDetector
         data.model_id = map['modelId']
         data.model_version = map['modelVersion']
         data.model_type = map['modelType']
-        data.evaluations = (Parsers::ListOfModelVersionEvaluations.parse(map['evaluations']) unless map['evaluations'].nil?)
+        data.evaluations = (ListOfModelVersionEvaluations.parse(map['evaluations']) unless map['evaluations'].nil?)
         return data
       end
     end
@@ -1155,7 +1155,7 @@ module AWS::SDK::FraudDetector
     class ListOfModelVersionEvaluations
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelVersionEvaluation.parse(value) unless value.nil?
+          ModelVersionEvaluation.parse(value) unless value.nil?
         end
       end
     end
@@ -1165,7 +1165,7 @@ module AWS::SDK::FraudDetector
         data = Types::ModelVersionEvaluation.new
         data.output_variable_name = map['outputVariableName']
         data.evaluation_score = map['evaluationScore']
-        data.prediction_explanations = (Parsers::PredictionExplanations.parse(map['predictionExplanations']) unless map['predictionExplanations'].nil?)
+        data.prediction_explanations = (PredictionExplanations.parse(map['predictionExplanations']) unless map['predictionExplanations'].nil?)
         return data
       end
     end
@@ -1173,7 +1173,7 @@ module AWS::SDK::FraudDetector
     class PredictionExplanations
       def self.parse(map)
         data = Types::PredictionExplanations.new
-        data.variable_impact_explanations = (Parsers::ListOfVariableImpactExplanations.parse(map['variableImpactExplanations']) unless map['variableImpactExplanations'].nil?)
+        data.variable_impact_explanations = (ListOfVariableImpactExplanations.parse(map['variableImpactExplanations']) unless map['variableImpactExplanations'].nil?)
         return data
       end
     end
@@ -1181,7 +1181,7 @@ module AWS::SDK::FraudDetector
     class ListOfVariableImpactExplanations
       def self.parse(list)
         list.map do |value|
-          Parsers::VariableImpactExplanation.parse(value) unless value.nil?
+          VariableImpactExplanation.parse(value) unless value.nil?
         end
       end
     end
@@ -1199,7 +1199,7 @@ module AWS::SDK::FraudDetector
     class EvaluatedRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::EvaluatedRule.parse(value) unless value.nil?
+          EvaluatedRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1211,7 +1211,7 @@ module AWS::SDK::FraudDetector
         data.rule_version = map['ruleVersion']
         data.expression = map['expression']
         data.expression_with_values = map['expressionWithValues']
-        data.outcomes = (Parsers::ListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
+        data.outcomes = (ListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
         data.evaluated = map['evaluated']
         data.matched = map['matched']
         return data
@@ -1221,7 +1221,7 @@ module AWS::SDK::FraudDetector
     class ListOfEventVariableSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::EventVariableSummary.parse(value) unless value.nil?
+          EventVariableSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1243,7 +1243,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_types = (Parsers::EventTypeList.parse(map['eventTypes']) unless map['eventTypes'].nil?)
+        data.event_types = (EventTypeList.parse(map['eventTypes']) unless map['eventTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1252,7 +1252,7 @@ module AWS::SDK::FraudDetector
     class EventTypeList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventType.parse(value) unless value.nil?
+          EventType.parse(value) unless value.nil?
         end
       end
     end
@@ -1262,11 +1262,11 @@ module AWS::SDK::FraudDetector
         data = Types::EventType.new
         data.name = map['name']
         data.description = map['description']
-        data.event_variables = (Parsers::ListOfStrings.parse(map['eventVariables']) unless map['eventVariables'].nil?)
-        data.labels = (Parsers::ListOfStrings.parse(map['labels']) unless map['labels'].nil?)
-        data.entity_types = (Parsers::NonEmptyListOfStrings.parse(map['entityTypes']) unless map['entityTypes'].nil?)
+        data.event_variables = (ListOfStrings.parse(map['eventVariables']) unless map['eventVariables'].nil?)
+        data.labels = (ListOfStrings.parse(map['labels']) unless map['labels'].nil?)
+        data.entity_types = (NonEmptyListOfStrings.parse(map['entityTypes']) unless map['entityTypes'].nil?)
         data.event_ingestion = map['eventIngestion']
-        data.ingested_event_statistics = (Parsers::IngestedEventStatistics.parse(map['ingestedEventStatistics']) unless map['ingestedEventStatistics'].nil?)
+        data.ingested_event_statistics = (IngestedEventStatistics.parse(map['ingestedEventStatistics']) unless map['ingestedEventStatistics'].nil?)
         data.last_updated_time = map['lastUpdatedTime']
         data.created_time = map['createdTime']
         data.arn = map['arn']
@@ -1293,7 +1293,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.external_models = (Parsers::ExternalModelList.parse(map['externalModels']) unless map['externalModels'].nil?)
+        data.external_models = (ExternalModelList.parse(map['externalModels']) unless map['externalModels'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1302,7 +1302,7 @@ module AWS::SDK::FraudDetector
     class ExternalModelList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExternalModel.parse(value) unless value.nil?
+          ExternalModel.parse(value) unless value.nil?
         end
       end
     end
@@ -1313,8 +1313,8 @@ module AWS::SDK::FraudDetector
         data.model_endpoint = map['modelEndpoint']
         data.model_source = map['modelSource']
         data.invoke_model_endpoint_role_arn = map['invokeModelEndpointRoleArn']
-        data.input_configuration = (Parsers::ModelInputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
-        data.output_configuration = (Parsers::ModelOutputConfiguration.parse(map['outputConfiguration']) unless map['outputConfiguration'].nil?)
+        data.input_configuration = (ModelInputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
+        data.output_configuration = (ModelOutputConfiguration.parse(map['outputConfiguration']) unless map['outputConfiguration'].nil?)
         data.model_endpoint_status = map['modelEndpointStatus']
         data.last_updated_time = map['lastUpdatedTime']
         data.created_time = map['createdTime']
@@ -1327,8 +1327,8 @@ module AWS::SDK::FraudDetector
       def self.parse(map)
         data = Types::ModelOutputConfiguration.new
         data.format = map['format']
-        data.json_key_to_variable_map = (Parsers::JsonKeyToVariableMap.parse(map['jsonKeyToVariableMap']) unless map['jsonKeyToVariableMap'].nil?)
-        data.csv_index_to_variable_map = (Parsers::CsvIndexToVariableMap.parse(map['csvIndexToVariableMap']) unless map['csvIndexToVariableMap'].nil?)
+        data.json_key_to_variable_map = (JsonKeyToVariableMap.parse(map['jsonKeyToVariableMap']) unless map['jsonKeyToVariableMap'].nil?)
+        data.csv_index_to_variable_map = (CsvIndexToVariableMap.parse(map['csvIndexToVariableMap']) unless map['csvIndexToVariableMap'].nil?)
         return data
       end
     end
@@ -1372,7 +1372,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.kms_key = (Parsers::KMSKey.parse(map['kmsKey']) unless map['kmsKey'].nil?)
+        data.kms_key = (KMSKey.parse(map['kmsKey']) unless map['kmsKey'].nil?)
         data
       end
     end
@@ -1392,7 +1392,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.labels = (Parsers::LabelList.parse(map['labels']) unless map['labels'].nil?)
+        data.labels = (LabelList.parse(map['labels']) unless map['labels'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1401,7 +1401,7 @@ module AWS::SDK::FraudDetector
     class LabelList
       def self.parse(list)
         list.map do |value|
-          Parsers::Label.parse(value) unless value.nil?
+          Label.parse(value) unless value.nil?
         end
       end
     end
@@ -1429,9 +1429,9 @@ module AWS::SDK::FraudDetector
         data.model_type = map['modelType']
         data.model_version_number = map['modelVersionNumber']
         data.training_data_source = map['trainingDataSource']
-        data.training_data_schema = (Parsers::TrainingDataSchema.parse(map['trainingDataSchema']) unless map['trainingDataSchema'].nil?)
-        data.external_events_detail = (Parsers::ExternalEventsDetail.parse(map['externalEventsDetail']) unless map['externalEventsDetail'].nil?)
-        data.ingested_events_detail = (Parsers::IngestedEventsDetail.parse(map['ingestedEventsDetail']) unless map['ingestedEventsDetail'].nil?)
+        data.training_data_schema = (TrainingDataSchema.parse(map['trainingDataSchema']) unless map['trainingDataSchema'].nil?)
+        data.external_events_detail = (ExternalEventsDetail.parse(map['externalEventsDetail']) unless map['externalEventsDetail'].nil?)
+        data.ingested_events_detail = (IngestedEventsDetail.parse(map['ingestedEventsDetail']) unless map['ingestedEventsDetail'].nil?)
         data.status = map['status']
         data.arn = map['arn']
         data
@@ -1446,7 +1446,7 @@ module AWS::SDK::FraudDetector
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.models = (Parsers::ModelList.parse(map['models']) unless map['models'].nil?)
+        data.models = (ModelList.parse(map['models']) unless map['models'].nil?)
         data
       end
     end
@@ -1454,7 +1454,7 @@ module AWS::SDK::FraudDetector
     class ModelList
       def self.parse(list)
         list.map do |value|
-          Parsers::Model.parse(value) unless value.nil?
+          Model.parse(value) unless value.nil?
         end
       end
     end
@@ -1480,7 +1480,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.outcomes = (Parsers::OutcomeList.parse(map['outcomes']) unless map['outcomes'].nil?)
+        data.outcomes = (OutcomeList.parse(map['outcomes']) unless map['outcomes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1489,7 +1489,7 @@ module AWS::SDK::FraudDetector
     class OutcomeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Outcome.parse(value) unless value.nil?
+          Outcome.parse(value) unless value.nil?
         end
       end
     end
@@ -1513,7 +1513,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule_details = (Parsers::RuleDetailList.parse(map['ruleDetails']) unless map['ruleDetails'].nil?)
+        data.rule_details = (RuleDetailList.parse(map['ruleDetails']) unless map['ruleDetails'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1522,7 +1522,7 @@ module AWS::SDK::FraudDetector
     class RuleDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::RuleDetail.parse(value) unless value.nil?
+          RuleDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1536,7 +1536,7 @@ module AWS::SDK::FraudDetector
         data.rule_version = map['ruleVersion']
         data.expression = map['expression']
         data.language = map['language']
-        data.outcomes = (Parsers::NonEmptyListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
+        data.outcomes = (NonEmptyListOfStrings.parse(map['outcomes']) unless map['outcomes'].nil?)
         data.last_updated_time = map['lastUpdatedTime']
         data.created_time = map['createdTime']
         data.arn = map['arn']
@@ -1551,7 +1551,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.variables = (Parsers::VariableList.parse(map['variables']) unless map['variables'].nil?)
+        data.variables = (VariableList.parse(map['variables']) unless map['variables'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1564,7 +1564,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_prediction_summaries = (Parsers::ListOfEventPredictionSummaries.parse(map['eventPredictionSummaries']) unless map['eventPredictionSummaries'].nil?)
+        data.event_prediction_summaries = (ListOfEventPredictionSummaries.parse(map['eventPredictionSummaries']) unless map['eventPredictionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1573,7 +1573,7 @@ module AWS::SDK::FraudDetector
     class ListOfEventPredictionSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::EventPredictionSummary.parse(value) unless value.nil?
+          EventPredictionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1598,7 +1598,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1607,7 +1607,7 @@ module AWS::SDK::FraudDetector
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1830,7 +1830,7 @@ module AWS::SDK::FraudDetector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule = (Parsers::Rule.parse(map['rule']) unless map['rule'].nil?)
+        data.rule = (Rule.parse(map['rule']) unless map['rule'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTTwinMaker
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::IoTTwinMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entries'] = Builders::Entries.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entries'] = Entries.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PropertyValueEntry.build(element) unless element.nil?
+          data << PropertyValueEntry.build(element) unless element.nil?
         end
         data
       end
@@ -47,8 +49,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyValueEntry
       def self.build(input)
         data = {}
-        data['entityPropertyReference'] = Builders::EntityPropertyReference.build(input[:entity_property_reference]) unless input[:entity_property_reference].nil?
-        data['propertyValues'] = Builders::PropertyValues.build(input[:property_values]) unless input[:property_values].nil?
+        data['entityPropertyReference'] = EntityPropertyReference.build(input[:entity_property_reference]) unless input[:entity_property_reference].nil?
+        data['propertyValues'] = PropertyValues.build(input[:property_values]) unless input[:property_values].nil?
         data
       end
     end
@@ -58,7 +60,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PropertyValue.build(element) unless element.nil?
+          data << PropertyValue.build(element) unless element.nil?
         end
         data
       end
@@ -69,7 +71,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         data['timestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:timestamp]).to_i unless input[:timestamp].nil?
-        data['value'] = Builders::DataValue.build(input[:value]) unless input[:value].nil?
+        data['value'] = DataValue.build(input[:value]) unless input[:value].nil?
         data['time'] = input[:time] unless input[:time].nil?
         data
       end
@@ -84,9 +86,9 @@ module AWS::SDK::IoTTwinMaker
         data['integerValue'] = input[:integer_value] unless input[:integer_value].nil?
         data['longValue'] = input[:long_value] unless input[:long_value].nil?
         data['stringValue'] = input[:string_value] unless input[:string_value].nil?
-        data['listValue'] = Builders::DataValueList.build(input[:list_value]) unless input[:list_value].nil?
-        data['mapValue'] = Builders::DataValueMap.build(input[:map_value]) unless input[:map_value].nil?
-        data['relationshipValue'] = Builders::RelationshipValue.build(input[:relationship_value]) unless input[:relationship_value].nil?
+        data['listValue'] = DataValueList.build(input[:list_value]) unless input[:list_value].nil?
+        data['mapValue'] = DataValueMap.build(input[:map_value]) unless input[:map_value].nil?
+        data['relationshipValue'] = RelationshipValue.build(input[:relationship_value]) unless input[:relationship_value].nil?
         data['expression'] = input[:expression] unless input[:expression].nil?
         data
       end
@@ -107,7 +109,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::DataValue.build(value) unless value.nil?
+          data[key] = DataValue.build(value) unless value.nil?
         end
         data
       end
@@ -118,7 +120,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataValue.build(element) unless element.nil?
+          data << DataValue.build(element) unless element.nil?
         end
         data
       end
@@ -129,7 +131,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
-        data['externalIdProperty'] = Builders::ExternalIdProperty.build(input[:external_id_property]) unless input[:external_id_property].nil?
+        data['externalIdProperty'] = ExternalIdProperty.build(input[:external_id_property]) unless input[:external_id_property].nil?
         data['entityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['propertyName'] = input[:property_name] unless input[:property_name].nil?
         data
@@ -170,11 +172,11 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['isSingleton'] = input[:is_singleton] unless input[:is_singleton].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['propertyDefinitions'] = Builders::PropertyDefinitionsRequest.build(input[:property_definitions]) unless input[:property_definitions].nil?
-        data['extendsFrom'] = Builders::ExtendsFrom.build(input[:extends_from]) unless input[:extends_from].nil?
-        data['functions'] = Builders::FunctionsRequest.build(input[:functions]) unless input[:functions].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['propertyDefinitions'] = PropertyDefinitionsRequest.build(input[:property_definitions]) unless input[:property_definitions].nil?
+        data['extendsFrom'] = ExtendsFrom.build(input[:extends_from]) unless input[:extends_from].nil?
+        data['functions'] = FunctionsRequest.build(input[:functions]) unless input[:functions].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::FunctionRequest.build(value) unless value.nil?
+          data[key] = FunctionRequest.build(value) unless value.nil?
         end
         data
       end
@@ -204,9 +206,9 @@ module AWS::SDK::IoTTwinMaker
     class FunctionRequest
       def self.build(input)
         data = {}
-        data['requiredProperties'] = Builders::RequiredProperties.build(input[:required_properties]).to_a unless input[:required_properties].nil?
+        data['requiredProperties'] = RequiredProperties.build(input[:required_properties]) unless input[:required_properties].nil?
         data['scope'] = input[:scope] unless input[:scope].nil?
-        data['implementedBy'] = Builders::DataConnector.build(input[:implemented_by]) unless input[:implemented_by].nil?
+        data['implementedBy'] = DataConnector.build(input[:implemented_by]) unless input[:implemented_by].nil?
         data
       end
     end
@@ -215,7 +217,7 @@ module AWS::SDK::IoTTwinMaker
     class DataConnector
       def self.build(input)
         data = {}
-        data['lambda'] = Builders::LambdaFunction.build(input[:lambda]) unless input[:lambda].nil?
+        data['lambda'] = LambdaFunction.build(input[:lambda]) unless input[:lambda].nil?
         data['isNative'] = input[:is_native] unless input[:is_native].nil?
         data
       end
@@ -257,7 +259,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::PropertyDefinitionRequest.build(value) unless value.nil?
+          data[key] = PropertyDefinitionRequest.build(value) unless value.nil?
         end
         data
       end
@@ -267,13 +269,13 @@ module AWS::SDK::IoTTwinMaker
     class PropertyDefinitionRequest
       def self.build(input)
         data = {}
-        data['dataType'] = Builders::DataType.build(input[:data_type]) unless input[:data_type].nil?
+        data['dataType'] = DataType.build(input[:data_type]) unless input[:data_type].nil?
         data['isRequiredInEntity'] = input[:is_required_in_entity] unless input[:is_required_in_entity].nil?
         data['isExternalId'] = input[:is_external_id] unless input[:is_external_id].nil?
         data['isStoredExternally'] = input[:is_stored_externally] unless input[:is_stored_externally].nil?
         data['isTimeSeries'] = input[:is_time_series] unless input[:is_time_series].nil?
-        data['defaultValue'] = Builders::DataValue.build(input[:default_value]) unless input[:default_value].nil?
-        data['configuration'] = Builders::Configuration.build(input[:configuration]) unless input[:configuration].nil?
+        data['defaultValue'] = DataValue.build(input[:default_value]) unless input[:default_value].nil?
+        data['configuration'] = Configuration.build(input[:configuration]) unless input[:configuration].nil?
         data
       end
     end
@@ -294,10 +296,10 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
-        data['nestedType'] = Builders::DataType.build(input[:nested_type]) unless input[:nested_type].nil?
-        data['allowedValues'] = Builders::DataValueList.build(input[:allowed_values]) unless input[:allowed_values].nil?
+        data['nestedType'] = DataType.build(input[:nested_type]) unless input[:nested_type].nil?
+        data['allowedValues'] = DataValueList.build(input[:allowed_values]) unless input[:allowed_values].nil?
         data['unitOfMeasure'] = input[:unit_of_measure] unless input[:unit_of_measure].nil?
-        data['relationship'] = Builders::Relationship.build(input[:relationship]) unless input[:relationship].nil?
+        data['relationship'] = Relationship.build(input[:relationship]) unless input[:relationship].nil?
         data
       end
     end
@@ -332,10 +334,10 @@ module AWS::SDK::IoTTwinMaker
         data['entityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['entityName'] = input[:entity_name] unless input[:entity_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['components'] = Builders::ComponentsMapRequest.build(input[:components]) unless input[:components].nil?
+        data['components'] = ComponentsMapRequest.build(input[:components]) unless input[:components].nil?
         data['parentEntityId'] = input[:parent_entity_id] unless input[:parent_entity_id].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -344,7 +346,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentRequest.build(value) unless value.nil?
+          data[key] = ComponentRequest.build(value) unless value.nil?
         end
         data
       end
@@ -356,7 +358,7 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
         data['componentTypeId'] = input[:component_type_id] unless input[:component_type_id].nil?
-        data['properties'] = Builders::PropertyRequests.build(input[:properties]) unless input[:properties].nil?
+        data['properties'] = PropertyRequests.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -366,7 +368,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::PropertyRequest.build(value) unless value.nil?
+          data[key] = PropertyRequest.build(value) unless value.nil?
         end
         data
       end
@@ -376,8 +378,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyRequest
       def self.build(input)
         data = {}
-        data['definition'] = Builders::PropertyDefinitionRequest.build(input[:definition]) unless input[:definition].nil?
-        data['value'] = Builders::DataValue.build(input[:value]) unless input[:value].nil?
+        data['definition'] = PropertyDefinitionRequest.build(input[:definition]) unless input[:definition].nil?
+        data['value'] = DataValue.build(input[:value]) unless input[:value].nil?
         data['updateType'] = input[:update_type] unless input[:update_type].nil?
         data
       end
@@ -403,9 +405,9 @@ module AWS::SDK::IoTTwinMaker
         data['sceneId'] = input[:scene_id] unless input[:scene_id].nil?
         data['contentLocation'] = input[:content_location] unless input[:content_location].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['capabilities'] = Builders::SceneCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capabilities'] = SceneCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -440,8 +442,8 @@ module AWS::SDK::IoTTwinMaker
         data['description'] = input[:description] unless input[:description].nil?
         data['s3Location'] = input[:s3_location] unless input[:s3_location].nil?
         data['role'] = input[:role] unless input[:role].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -588,8 +590,8 @@ module AWS::SDK::IoTTwinMaker
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
         data['componentTypeId'] = input[:component_type_id] unless input[:component_type_id].nil?
         data['entityId'] = input[:entity_id] unless input[:entity_id].nil?
-        data['selectedProperties'] = Builders::SelectedPropertyList.build(input[:selected_properties]) unless input[:selected_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['selectedProperties'] = SelectedPropertyList.build(input[:selected_properties]) unless input[:selected_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -624,17 +626,17 @@ module AWS::SDK::IoTTwinMaker
         data['entityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
         data['componentTypeId'] = input[:component_type_id] unless input[:component_type_id].nil?
-        data['selectedProperties'] = Builders::SelectedPropertyList.build(input[:selected_properties]) unless input[:selected_properties].nil?
-        data['propertyFilters'] = Builders::PropertyFilters.build(input[:property_filters]) unless input[:property_filters].nil?
+        data['selectedProperties'] = SelectedPropertyList.build(input[:selected_properties]) unless input[:selected_properties].nil?
+        data['propertyFilters'] = PropertyFilters.build(input[:property_filters]) unless input[:property_filters].nil?
         data['startDateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_date_time]).to_i unless input[:start_date_time].nil?
         data['endDateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_date_time]).to_i unless input[:end_date_time].nil?
-        data['interpolation'] = Builders::InterpolationParameters.build(input[:interpolation]) unless input[:interpolation].nil?
+        data['interpolation'] = InterpolationParameters.build(input[:interpolation]) unless input[:interpolation].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['orderByTime'] = input[:order_by_time] unless input[:order_by_time].nil?
         data['startTime'] = input[:start_time] unless input[:start_time].nil?
         data['endTime'] = input[:end_time] unless input[:end_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -653,7 +655,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PropertyFilter.build(element) unless element.nil?
+          data << PropertyFilter.build(element) unless element.nil?
         end
         data
       end
@@ -665,7 +667,7 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['propertyName'] = input[:property_name] unless input[:property_name].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
-        data['value'] = Builders::DataValue.build(input[:value]) unless input[:value].nil?
+        data['value'] = DataValue.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -725,10 +727,10 @@ module AWS::SDK::IoTTwinMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::ListComponentTypesFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = ListComponentTypesFilters.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -737,7 +739,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ListComponentTypesFilter.build(element) unless element.nil?
+          data << ListComponentTypesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -780,10 +782,10 @@ module AWS::SDK::IoTTwinMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::ListEntitiesFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = ListEntitiesFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -792,7 +794,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ListEntitiesFilter.build(element) unless element.nil?
+          data << ListEntitiesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -837,7 +839,7 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -854,7 +856,7 @@ module AWS::SDK::IoTTwinMaker
         data['resourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -870,7 +872,7 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -885,8 +887,8 @@ module AWS::SDK::IoTTwinMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -940,10 +942,10 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['isSingleton'] = input[:is_singleton] unless input[:is_singleton].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['propertyDefinitions'] = Builders::PropertyDefinitionsRequest.build(input[:property_definitions]) unless input[:property_definitions].nil?
-        data['extendsFrom'] = Builders::ExtendsFrom.build(input[:extends_from]) unless input[:extends_from].nil?
-        data['functions'] = Builders::FunctionsRequest.build(input[:functions]) unless input[:functions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['propertyDefinitions'] = PropertyDefinitionsRequest.build(input[:property_definitions]) unless input[:property_definitions].nil?
+        data['extendsFrom'] = ExtendsFrom.build(input[:extends_from]) unless input[:extends_from].nil?
+        data['functions'] = FunctionsRequest.build(input[:functions]) unless input[:functions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -970,9 +972,9 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['entityName'] = input[:entity_name] unless input[:entity_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['componentUpdates'] = Builders::ComponentUpdatesMapRequest.build(input[:component_updates]) unless input[:component_updates].nil?
-        data['parentEntityUpdate'] = Builders::ParentEntityUpdateRequest.build(input[:parent_entity_update]) unless input[:parent_entity_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['componentUpdates'] = ComponentUpdatesMapRequest.build(input[:component_updates]) unless input[:component_updates].nil?
+        data['parentEntityUpdate'] = ParentEntityUpdateRequest.build(input[:parent_entity_update]) unless input[:parent_entity_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -991,7 +993,7 @@ module AWS::SDK::IoTTwinMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentUpdateRequest.build(value) unless value.nil?
+          data[key] = ComponentUpdateRequest.build(value) unless value.nil?
         end
         data
       end
@@ -1004,7 +1006,7 @@ module AWS::SDK::IoTTwinMaker
         data['updateType'] = input[:update_type] unless input[:update_type].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['componentTypeId'] = input[:component_type_id] unless input[:component_type_id].nil?
-        data['propertyUpdates'] = Builders::PropertyRequests.build(input[:property_updates]) unless input[:property_updates].nil?
+        data['propertyUpdates'] = PropertyRequests.build(input[:property_updates]) unless input[:property_updates].nil?
         data
       end
     end
@@ -1032,8 +1034,8 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['contentLocation'] = input[:content_location] unless input[:content_location].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['capabilities'] = Builders::SceneCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capabilities'] = SceneCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1056,7 +1058,7 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
         data['role'] = input[:role] unless input[:role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

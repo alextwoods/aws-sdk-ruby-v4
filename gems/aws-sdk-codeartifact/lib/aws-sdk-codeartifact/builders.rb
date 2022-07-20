@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Codeartifact
   module Builders
 
@@ -41,11 +43,11 @@ module AWS::SDK::Codeartifact
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['versions'] = Builders::PackageVersionList.build(input[:versions]) unless input[:versions].nil?
-        data['versionRevisions'] = Builders::PackageVersionRevisionMap.build(input[:version_revisions]) unless input[:version_revisions].nil?
+        data['versions'] = PackageVersionList.build(input[:versions]) unless input[:versions].nil?
+        data['versionRevisions'] = PackageVersionRevisionMap.build(input[:version_revisions]) unless input[:version_revisions].nil?
         data['allowOverwrite'] = input[:allow_overwrite] unless input[:allow_overwrite].nil?
         data['includeFromUpstream'] = input[:include_from_upstream] unless input[:include_from_upstream].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,8 +85,8 @@ module AWS::SDK::Codeartifact
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['encryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::Codeartifact
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -123,9 +125,9 @@ module AWS::SDK::Codeartifact
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['upstreams'] = Builders::UpstreamRepositoryList.build(input[:upstreams]) unless input[:upstreams].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['upstreams'] = UpstreamRepositoryList.build(input[:upstreams]) unless input[:upstreams].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -134,7 +136,7 @@ module AWS::SDK::Codeartifact
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpstreamRepository.build(element) unless element.nil?
+          data << UpstreamRepository.build(element) unless element.nil?
         end
         data
       end
@@ -190,9 +192,9 @@ module AWS::SDK::Codeartifact
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['versions'] = Builders::PackageVersionList.build(input[:versions]) unless input[:versions].nil?
+        data['versions'] = PackageVersionList.build(input[:versions]) unless input[:versions].nil?
         data['expectedStatus'] = input[:expected_status] unless input[:expected_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,10 +297,10 @@ module AWS::SDK::Codeartifact
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['versions'] = Builders::PackageVersionList.build(input[:versions]) unless input[:versions].nil?
-        data['versionRevisions'] = Builders::PackageVersionRevisionMap.build(input[:version_revisions]) unless input[:version_revisions].nil?
+        data['versions'] = PackageVersionList.build(input[:versions]) unless input[:versions].nil?
+        data['versionRevisions'] = PackageVersionRevisionMap.build(input[:version_revisions]) unless input[:version_revisions].nil?
         data['expectedStatus'] = input[:expected_status] unless input[:expected_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -402,7 +404,7 @@ module AWS::SDK::Codeartifact
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -535,7 +537,7 @@ module AWS::SDK::Codeartifact
         data['domainOwner'] = input[:domain_owner] unless input[:domain_owner].nil?
         data['policyRevision'] = input[:policy_revision] unless input[:policy_revision].nil?
         data['policyDocument'] = input[:policy_document] unless input[:policy_document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -554,7 +556,7 @@ module AWS::SDK::Codeartifact
         data = {}
         data['policyRevision'] = input[:policy_revision] unless input[:policy_revision].nil?
         data['policyDocument'] = input[:policy_document] unless input[:policy_document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -569,8 +571,8 @@ module AWS::SDK::Codeartifact
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -585,8 +587,8 @@ module AWS::SDK::Codeartifact
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -617,11 +619,11 @@ module AWS::SDK::Codeartifact
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['versions'] = Builders::PackageVersionList.build(input[:versions]) unless input[:versions].nil?
-        data['versionRevisions'] = Builders::PackageVersionRevisionMap.build(input[:version_revisions]) unless input[:version_revisions].nil?
+        data['versions'] = PackageVersionList.build(input[:versions]) unless input[:versions].nil?
+        data['versionRevisions'] = PackageVersionRevisionMap.build(input[:version_revisions]) unless input[:version_revisions].nil?
         data['expectedStatus'] = input[:expected_status] unless input[:expected_status].nil?
         data['targetStatus'] = input[:target_status] unless input[:target_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -639,8 +641,8 @@ module AWS::SDK::Codeartifact
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['upstreams'] = Builders::UpstreamRepositoryList.build(input[:upstreams]) unless input[:upstreams].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['upstreams'] = UpstreamRepositoryList.build(input[:upstreams]) unless input[:upstreams].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

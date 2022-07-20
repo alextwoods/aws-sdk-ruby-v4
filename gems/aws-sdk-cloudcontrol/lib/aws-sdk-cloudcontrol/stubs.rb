@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudControl
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::CloudControl
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProgressEvent'] = Stubs::ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProgressEvent'] = ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -72,8 +74,8 @@ module AWS::SDK::CloudControl
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProgressEvent'] = Stubs::ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProgressEvent'] = ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -88,8 +90,8 @@ module AWS::SDK::CloudControl
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProgressEvent'] = Stubs::ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProgressEvent'] = ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -106,8 +108,8 @@ module AWS::SDK::CloudControl
       def self.stub(http_resp, stub:)
         data = {}
         data['TypeName'] = stub[:type_name] unless stub[:type_name].nil?
-        data['ResourceDescription'] = Stubs::ResourceDescription.stub(stub[:resource_description]) unless stub[:resource_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceDescription'] = ResourceDescription.stub(stub[:resource_description]) unless stub[:resource_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -142,8 +144,8 @@ module AWS::SDK::CloudControl
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProgressEvent'] = Stubs::ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProgressEvent'] = ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -159,9 +161,9 @@ module AWS::SDK::CloudControl
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceRequestStatusSummaries'] = Stubs::ResourceRequestStatusSummaries.stub(stub[:resource_request_status_summaries]) unless stub[:resource_request_status_summaries].nil?
+        data['ResourceRequestStatusSummaries'] = ResourceRequestStatusSummaries.stub(stub[:resource_request_status_summaries]) unless stub[:resource_request_status_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -180,7 +182,7 @@ module AWS::SDK::CloudControl
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProgressEvent.stub(element) unless element.nil?
+          data << ProgressEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -199,9 +201,9 @@ module AWS::SDK::CloudControl
       def self.stub(http_resp, stub:)
         data = {}
         data['TypeName'] = stub[:type_name] unless stub[:type_name].nil?
-        data['ResourceDescriptions'] = Stubs::ResourceDescriptions.stub(stub[:resource_descriptions]) unless stub[:resource_descriptions].nil?
+        data['ResourceDescriptions'] = ResourceDescriptions.stub(stub[:resource_descriptions]) unless stub[:resource_descriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -220,7 +222,7 @@ module AWS::SDK::CloudControl
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceDescription.stub(element) unless element.nil?
+          data << ResourceDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -236,8 +238,8 @@ module AWS::SDK::CloudControl
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProgressEvent'] = Stubs::ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProgressEvent'] = ProgressEvent.stub(stub[:progress_event]) unless stub[:progress_event].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

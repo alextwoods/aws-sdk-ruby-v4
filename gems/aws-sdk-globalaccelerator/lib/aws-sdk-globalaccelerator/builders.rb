@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::GlobalAccelerator
   module Builders
 
@@ -18,9 +20,9 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.AddCustomRoutingEndpoints'
         data = {}
-        data['EndpointConfigurations'] = Builders::CustomRoutingEndpointConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
+        data['EndpointConfigurations'] = CustomRoutingEndpointConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::GlobalAccelerator
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomRoutingEndpointConfiguration.build(element) unless element.nil?
+          data << CustomRoutingEndpointConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -53,7 +55,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.AdvertiseByoipCidr'
         data = {}
         data['Cidr'] = input[:cidr] unless input[:cidr].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,10 +69,10 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
         data['EndpointId'] = input[:endpoint_id] unless input[:endpoint_id].nil?
-        data['DestinationAddresses'] = Builders::DestinationAddresses.build(input[:destination_addresses]) unless input[:destination_addresses].nil?
-        data['DestinationPorts'] = Builders::DestinationPorts.build(input[:destination_ports]) unless input[:destination_ports].nil?
+        data['DestinationAddresses'] = DestinationAddresses.build(input[:destination_addresses]) unless input[:destination_addresses].nil?
+        data['DestinationPorts'] = DestinationPorts.build(input[:destination_ports]) unless input[:destination_ports].nil?
         data['AllowAllTrafficToEndpoint'] = input[:allow_all_traffic_to_endpoint] unless input[:allow_all_traffic_to_endpoint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,11 +108,11 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['IpAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
-        data['IpAddresses'] = Builders::IpAddresses.build(input[:ip_addresses]) unless input[:ip_addresses].nil?
+        data['IpAddresses'] = IpAddresses.build(input[:ip_addresses]) unless input[:ip_addresses].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::GlobalAccelerator
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -156,11 +158,11 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['IpAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
-        data['IpAddresses'] = Builders::IpAddresses.build(input[:ip_addresses]) unless input[:ip_addresses].nil?
+        data['IpAddresses'] = IpAddresses.build(input[:ip_addresses]) unless input[:ip_addresses].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,9 +176,9 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
         data['EndpointGroupRegion'] = input[:endpoint_group_region] unless input[:endpoint_group_region].nil?
-        data['DestinationConfigurations'] = Builders::CustomRoutingDestinationConfigurations.build(input[:destination_configurations]) unless input[:destination_configurations].nil?
+        data['DestinationConfigurations'] = CustomRoutingDestinationConfigurations.build(input[:destination_configurations]) unless input[:destination_configurations].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::GlobalAccelerator
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomRoutingDestinationConfiguration.build(element) unless element.nil?
+          data << CustomRoutingDestinationConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -197,7 +199,7 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['FromPort'] = input[:from_port] unless input[:from_port].nil?
         data['ToPort'] = input[:to_port] unless input[:to_port].nil?
-        data['Protocols'] = Builders::CustomRoutingProtocols.build(input[:protocols]) unless input[:protocols].nil?
+        data['Protocols'] = CustomRoutingProtocols.build(input[:protocols]) unless input[:protocols].nil?
         data
       end
     end
@@ -222,9 +224,9 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.CreateCustomRoutingListener'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        data['PortRanges'] = Builders::PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
+        data['PortRanges'] = PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::GlobalAccelerator
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortRange.build(element) unless element.nil?
+          data << PortRange.build(element) unless element.nil?
         end
         data
       end
@@ -259,7 +261,7 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
         data['EndpointGroupRegion'] = input[:endpoint_group_region] unless input[:endpoint_group_region].nil?
-        data['EndpointConfigurations'] = Builders::EndpointConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
+        data['EndpointConfigurations'] = EndpointConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
         data['TrafficDialPercentage'] = Hearth::NumberHelper.serialize(input[:traffic_dial_percentage]) unless input[:traffic_dial_percentage].nil?
         data['HealthCheckPort'] = input[:health_check_port] unless input[:health_check_port].nil?
         data['HealthCheckProtocol'] = input[:health_check_protocol] unless input[:health_check_protocol].nil?
@@ -267,8 +269,8 @@ module AWS::SDK::GlobalAccelerator
         data['HealthCheckIntervalSeconds'] = input[:health_check_interval_seconds] unless input[:health_check_interval_seconds].nil?
         data['ThresholdCount'] = input[:threshold_count] unless input[:threshold_count].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        data['PortOverrides'] = Builders::PortOverrides.build(input[:port_overrides]) unless input[:port_overrides].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PortOverrides'] = PortOverrides.build(input[:port_overrides]) unless input[:port_overrides].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::GlobalAccelerator
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortOverride.build(element) unless element.nil?
+          data << PortOverride.build(element) unless element.nil?
         end
         data
       end
@@ -298,7 +300,7 @@ module AWS::SDK::GlobalAccelerator
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EndpointConfiguration.build(element) unless element.nil?
+          data << EndpointConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -324,11 +326,11 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.CreateListener'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        data['PortRanges'] = Builders::PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
+        data['PortRanges'] = PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
         data['Protocol'] = input[:protocol] unless input[:protocol].nil?
         data['ClientAffinity'] = input[:client_affinity] unless input[:client_affinity].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -341,7 +343,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DeleteAccelerator'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -354,7 +356,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DeleteCustomRoutingAccelerator'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -367,7 +369,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DeleteCustomRoutingEndpointGroup'
         data = {}
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DeleteCustomRoutingListener'
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -393,7 +395,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DeleteEndpointGroup'
         data = {}
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DeleteListener'
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -420,10 +422,10 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
         data['EndpointId'] = input[:endpoint_id] unless input[:endpoint_id].nil?
-        data['DestinationAddresses'] = Builders::DestinationAddresses.build(input[:destination_addresses]) unless input[:destination_addresses].nil?
-        data['DestinationPorts'] = Builders::DestinationPorts.build(input[:destination_ports]) unless input[:destination_ports].nil?
+        data['DestinationAddresses'] = DestinationAddresses.build(input[:destination_addresses]) unless input[:destination_addresses].nil?
+        data['DestinationPorts'] = DestinationPorts.build(input[:destination_ports]) unless input[:destination_ports].nil?
         data['DenyAllTrafficToEndpoint'] = input[:deny_all_traffic_to_endpoint] unless input[:deny_all_traffic_to_endpoint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -436,7 +438,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DeprovisionByoipCidr'
         data = {}
         data['Cidr'] = input[:cidr] unless input[:cidr].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -449,7 +451,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeAccelerator'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeAcceleratorAttributes'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeCustomRoutingAccelerator'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -488,7 +490,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeCustomRoutingAcceleratorAttributes'
         data = {}
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -501,7 +503,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeCustomRoutingEndpointGroup'
         data = {}
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -514,7 +516,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeCustomRoutingListener'
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeEndpointGroup'
         data = {}
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -540,7 +542,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.DescribeListener'
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -554,7 +556,7 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -568,7 +570,7 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -582,7 +584,7 @@ module AWS::SDK::GlobalAccelerator
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -597,7 +599,7 @@ module AWS::SDK::GlobalAccelerator
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -612,7 +614,7 @@ module AWS::SDK::GlobalAccelerator
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -628,7 +630,7 @@ module AWS::SDK::GlobalAccelerator
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -644,7 +646,7 @@ module AWS::SDK::GlobalAccelerator
         data['DestinationAddress'] = input[:destination_address] unless input[:destination_address].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -659,7 +661,7 @@ module AWS::SDK::GlobalAccelerator
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -674,7 +676,7 @@ module AWS::SDK::GlobalAccelerator
         data['AcceleratorArn'] = input[:accelerator_arn] unless input[:accelerator_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,7 +689,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -700,8 +702,8 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.ProvisionByoipCidr'
         data = {}
         data['Cidr'] = input[:cidr] unless input[:cidr].nil?
-        data['CidrAuthorizationContext'] = Builders::CidrAuthorizationContext.build(input[:cidr_authorization_context]) unless input[:cidr_authorization_context].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CidrAuthorizationContext'] = CidrAuthorizationContext.build(input[:cidr_authorization_context]) unless input[:cidr_authorization_context].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -723,9 +725,9 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.RemoveCustomRoutingEndpoints'
         data = {}
-        data['EndpointIds'] = Builders::EndpointIds.build(input[:endpoint_ids]) unless input[:endpoint_ids].nil?
+        data['EndpointIds'] = EndpointIds.build(input[:endpoint_ids]) unless input[:endpoint_ids].nil?
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -749,8 +751,8 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -763,8 +765,8 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -791,7 +793,7 @@ module AWS::SDK::GlobalAccelerator
         data['Name'] = input[:name] unless input[:name].nil?
         data['IpAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -807,7 +809,7 @@ module AWS::SDK::GlobalAccelerator
         data['FlowLogsEnabled'] = input[:flow_logs_enabled] unless input[:flow_logs_enabled].nil?
         data['FlowLogsS3Bucket'] = input[:flow_logs_s3_bucket] unless input[:flow_logs_s3_bucket].nil?
         data['FlowLogsS3Prefix'] = input[:flow_logs_s3_prefix] unless input[:flow_logs_s3_prefix].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -823,7 +825,7 @@ module AWS::SDK::GlobalAccelerator
         data['Name'] = input[:name] unless input[:name].nil?
         data['IpAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -839,7 +841,7 @@ module AWS::SDK::GlobalAccelerator
         data['FlowLogsEnabled'] = input[:flow_logs_enabled] unless input[:flow_logs_enabled].nil?
         data['FlowLogsS3Bucket'] = input[:flow_logs_s3_bucket] unless input[:flow_logs_s3_bucket].nil?
         data['FlowLogsS3Prefix'] = input[:flow_logs_s3_prefix] unless input[:flow_logs_s3_prefix].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -852,8 +854,8 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.UpdateCustomRoutingListener'
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
-        data['PortRanges'] = Builders::PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PortRanges'] = PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -866,15 +868,15 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.UpdateEndpointGroup'
         data = {}
         data['EndpointGroupArn'] = input[:endpoint_group_arn] unless input[:endpoint_group_arn].nil?
-        data['EndpointConfigurations'] = Builders::EndpointConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
+        data['EndpointConfigurations'] = EndpointConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
         data['TrafficDialPercentage'] = Hearth::NumberHelper.serialize(input[:traffic_dial_percentage]) unless input[:traffic_dial_percentage].nil?
         data['HealthCheckPort'] = input[:health_check_port] unless input[:health_check_port].nil?
         data['HealthCheckProtocol'] = input[:health_check_protocol] unless input[:health_check_protocol].nil?
         data['HealthCheckPath'] = input[:health_check_path] unless input[:health_check_path].nil?
         data['HealthCheckIntervalSeconds'] = input[:health_check_interval_seconds] unless input[:health_check_interval_seconds].nil?
         data['ThresholdCount'] = input[:threshold_count] unless input[:threshold_count].nil?
-        data['PortOverrides'] = Builders::PortOverrides.build(input[:port_overrides]) unless input[:port_overrides].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PortOverrides'] = PortOverrides.build(input[:port_overrides]) unless input[:port_overrides].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -887,10 +889,10 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.UpdateListener'
         data = {}
         data['ListenerArn'] = input[:listener_arn] unless input[:listener_arn].nil?
-        data['PortRanges'] = Builders::PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
+        data['PortRanges'] = PortRanges.build(input[:port_ranges]) unless input[:port_ranges].nil?
         data['Protocol'] = input[:protocol] unless input[:protocol].nil?
         data['ClientAffinity'] = input[:client_affinity] unless input[:client_affinity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -903,7 +905,7 @@ module AWS::SDK::GlobalAccelerator
         http_req.headers['X-Amz-Target'] = 'GlobalAccelerator_V20180706.WithdrawByoipCidr'
         data = {}
         data['Cidr'] = input[:cidr] unless input[:cidr].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

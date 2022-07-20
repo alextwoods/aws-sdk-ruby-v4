@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkDocs
   module Stubs
 
@@ -35,8 +37,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -81,7 +83,7 @@ module AWS::SDK::WorkDocs
         data['ModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_timestamp]).to_i unless stub[:modified_timestamp].nil?
         data['TimeZoneId'] = stub[:time_zone_id] unless stub[:time_zone_id].nil?
         data['Locale'] = stub[:locale] unless stub[:locale].nil?
-        data['Storage'] = Stubs::UserStorageMetadata.stub(stub[:storage]) unless stub[:storage].nil?
+        data['Storage'] = UserStorageMetadata.stub(stub[:storage]) unless stub[:storage].nil?
         data
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::WorkDocs
         stub ||= Types::UserStorageMetadata.new
         data = {}
         data['StorageUtilizedInBytes'] = stub[:storage_utilized_in_bytes] unless stub[:storage_utilized_in_bytes].nil?
-        data['StorageRule'] = Stubs::StorageRuleType.stub(stub[:storage_rule]) unless stub[:storage_rule].nil?
+        data['StorageRule'] = StorageRuleType.stub(stub[:storage_rule]) unless stub[:storage_rule].nil?
         data
       end
     end
@@ -138,8 +140,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ShareResults'] = Stubs::ShareResultsList.stub(stub[:share_results]) unless stub[:share_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ShareResults'] = ShareResultsList.stub(stub[:share_results]) unless stub[:share_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ShareResult.stub(element) unless element.nil?
+          data << ShareResult.stub(element) unless element.nil?
         end
         data
       end
@@ -203,8 +205,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::WorkDocs
         data['ParentId'] = stub[:parent_id] unless stub[:parent_id].nil?
         data['ThreadId'] = stub[:thread_id] unless stub[:thread_id].nil?
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['Contributor'] = Stubs::User.stub(stub[:contributor]) unless stub[:contributor].nil?
+        data['Contributor'] = User.stub(stub[:contributor]) unless stub[:contributor].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Visibility'] = stub[:visibility] unless stub[:visibility].nil?
@@ -267,8 +269,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Metadata'] = Stubs::FolderMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Metadata'] = FolderMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,7 +305,7 @@ module AWS::SDK::WorkDocs
         data['ModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_timestamp]).to_i unless stub[:modified_timestamp].nil?
         data['ResourceState'] = stub[:resource_state] unless stub[:resource_state].nil?
         data['Signature'] = stub[:signature] unless stub[:signature].nil?
-        data['Labels'] = Stubs::SharedLabels.stub(stub[:labels]) unless stub[:labels].nil?
+        data['Labels'] = SharedLabels.stub(stub[:labels]) unless stub[:labels].nil?
         data['Size'] = stub[:size] unless stub[:size].nil?
         data['LatestVersionSize'] = stub[:latest_version_size] unless stub[:latest_version_size].nil?
         data
@@ -355,8 +357,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Subscription'] = Stubs::Subscription.stub(stub[:subscription]) unless stub[:subscription].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Subscription'] = Subscription.stub(stub[:subscription]) unless stub[:subscription].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,8 +396,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -529,9 +531,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UserActivities'] = Stubs::UserActivities.stub(stub[:user_activities]) unless stub[:user_activities].nil?
+        data['UserActivities'] = UserActivities.stub(stub[:user_activities]) unless stub[:user_activities].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -549,7 +551,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Activity.stub(element) unless element.nil?
+          data << Activity.stub(element) unless element.nil?
         end
         data
       end
@@ -580,11 +582,11 @@ module AWS::SDK::WorkDocs
         data['TimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:time_stamp]).to_i unless stub[:time_stamp].nil?
         data['IsIndirectActivity'] = stub[:is_indirect_activity] unless stub[:is_indirect_activity].nil?
         data['OrganizationId'] = stub[:organization_id] unless stub[:organization_id].nil?
-        data['Initiator'] = Stubs::UserMetadata.stub(stub[:initiator]) unless stub[:initiator].nil?
-        data['Participants'] = Stubs::Participants.stub(stub[:participants]) unless stub[:participants].nil?
-        data['ResourceMetadata'] = Stubs::ResourceMetadata.stub(stub[:resource_metadata]) unless stub[:resource_metadata].nil?
-        data['OriginalParent'] = Stubs::ResourceMetadata.stub(stub[:original_parent]) unless stub[:original_parent].nil?
-        data['CommentMetadata'] = Stubs::CommentMetadata.stub(stub[:comment_metadata]) unless stub[:comment_metadata].nil?
+        data['Initiator'] = UserMetadata.stub(stub[:initiator]) unless stub[:initiator].nil?
+        data['Participants'] = Participants.stub(stub[:participants]) unless stub[:participants].nil?
+        data['ResourceMetadata'] = ResourceMetadata.stub(stub[:resource_metadata]) unless stub[:resource_metadata].nil?
+        data['OriginalParent'] = ResourceMetadata.stub(stub[:original_parent]) unless stub[:original_parent].nil?
+        data['CommentMetadata'] = CommentMetadata.stub(stub[:comment_metadata]) unless stub[:comment_metadata].nil?
         data
       end
     end
@@ -607,7 +609,7 @@ module AWS::SDK::WorkDocs
         stub ||= Types::CommentMetadata.new
         data = {}
         data['CommentId'] = stub[:comment_id] unless stub[:comment_id].nil?
-        data['Contributor'] = Stubs::User.stub(stub[:contributor]) unless stub[:contributor].nil?
+        data['Contributor'] = User.stub(stub[:contributor]) unless stub[:contributor].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['CommentStatus'] = stub[:comment_status] unless stub[:comment_status].nil?
         data['RecipientId'] = stub[:recipient_id] unless stub[:recipient_id].nil?
@@ -639,7 +641,7 @@ module AWS::SDK::WorkDocs
         data['OriginalName'] = stub[:original_name] unless stub[:original_name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['Owner'] = Stubs::UserMetadata.stub(stub[:owner]) unless stub[:owner].nil?
+        data['Owner'] = UserMetadata.stub(stub[:owner]) unless stub[:owner].nil?
         data['ParentId'] = stub[:parent_id] unless stub[:parent_id].nil?
         data
       end
@@ -685,8 +687,8 @@ module AWS::SDK::WorkDocs
       def self.stub(stub)
         stub ||= Types::Participants.new
         data = {}
-        data['Users'] = Stubs::UserMetadataList.stub(stub[:users]) unless stub[:users].nil?
-        data['Groups'] = Stubs::GroupMetadataList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Users'] = UserMetadataList.stub(stub[:users]) unless stub[:users].nil?
+        data['Groups'] = GroupMetadataList.stub(stub[:groups]) unless stub[:groups].nil?
         data
       end
     end
@@ -705,7 +707,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupMetadata.stub(element) unless element.nil?
+          data << GroupMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -745,7 +747,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserMetadata.stub(element) unless element.nil?
+          data << UserMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -764,9 +766,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Comments'] = Stubs::CommentList.stub(stub[:comments]) unless stub[:comments].nil?
+        data['Comments'] = CommentList.stub(stub[:comments]) unless stub[:comments].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Comment.stub(element) unless element.nil?
+          data << Comment.stub(element) unless element.nil?
         end
         data
       end
@@ -803,9 +805,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DocumentVersions'] = Stubs::DocumentVersionMetadataList.stub(stub[:document_versions]) unless stub[:document_versions].nil?
+        data['DocumentVersions'] = DocumentVersionMetadataList.stub(stub[:document_versions]) unless stub[:document_versions].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -823,7 +825,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentVersionMetadata.stub(element) unless element.nil?
+          data << DocumentVersionMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -865,8 +867,8 @@ module AWS::SDK::WorkDocs
         data['ContentCreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:content_created_timestamp]).to_i unless stub[:content_created_timestamp].nil?
         data['ContentModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:content_modified_timestamp]).to_i unless stub[:content_modified_timestamp].nil?
         data['CreatorId'] = stub[:creator_id] unless stub[:creator_id].nil?
-        data['Thumbnail'] = Stubs::DocumentThumbnailUrlMap.stub(stub[:thumbnail]) unless stub[:thumbnail].nil?
-        data['Source'] = Stubs::DocumentSourceUrlMap.stub(stub[:source]) unless stub[:source].nil?
+        data['Thumbnail'] = DocumentThumbnailUrlMap.stub(stub[:thumbnail]) unless stub[:thumbnail].nil?
+        data['Source'] = DocumentSourceUrlMap.stub(stub[:source]) unless stub[:source].nil?
         data
       end
     end
@@ -925,10 +927,10 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Folders'] = Stubs::FolderMetadataList.stub(stub[:folders]) unless stub[:folders].nil?
-        data['Documents'] = Stubs::DocumentMetadataList.stub(stub[:documents]) unless stub[:documents].nil?
+        data['Folders'] = FolderMetadataList.stub(stub[:folders]) unless stub[:folders].nil?
+        data['Documents'] = DocumentMetadataList.stub(stub[:documents]) unless stub[:documents].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -946,7 +948,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentMetadata.stub(element) unless element.nil?
+          data << DocumentMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -977,9 +979,9 @@ module AWS::SDK::WorkDocs
         data['ParentFolderId'] = stub[:parent_folder_id] unless stub[:parent_folder_id].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['ModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_timestamp]).to_i unless stub[:modified_timestamp].nil?
-        data['LatestVersionMetadata'] = Stubs::DocumentVersionMetadata.stub(stub[:latest_version_metadata]) unless stub[:latest_version_metadata].nil?
+        data['LatestVersionMetadata'] = DocumentVersionMetadata.stub(stub[:latest_version_metadata]) unless stub[:latest_version_metadata].nil?
         data['ResourceState'] = stub[:resource_state] unless stub[:resource_state].nil?
-        data['Labels'] = Stubs::SharedLabels.stub(stub[:labels]) unless stub[:labels].nil?
+        data['Labels'] = SharedLabels.stub(stub[:labels]) unless stub[:labels].nil?
         data
       end
     end
@@ -998,7 +1000,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FolderMetadata.stub(element) unless element.nil?
+          data << FolderMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1017,9 +1019,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Groups'] = Stubs::GroupMetadataList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = GroupMetadataList.stub(stub[:groups]) unless stub[:groups].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1036,9 +1038,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Subscriptions'] = Stubs::SubscriptionList.stub(stub[:subscriptions]) unless stub[:subscriptions].nil?
+        data['Subscriptions'] = SubscriptionList.stub(stub[:subscriptions]) unless stub[:subscriptions].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1056,7 +1058,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subscription.stub(element) unless element.nil?
+          data << Subscription.stub(element) unless element.nil?
         end
         data
       end
@@ -1075,9 +1077,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Principals'] = Stubs::PrincipalList.stub(stub[:principals]) unless stub[:principals].nil?
+        data['Principals'] = PrincipalList.stub(stub[:principals]) unless stub[:principals].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Principal.stub(element) unless element.nil?
+          data << Principal.stub(element) unless element.nil?
         end
         data
       end
@@ -1118,7 +1120,7 @@ module AWS::SDK::WorkDocs
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Roles'] = Stubs::PermissionInfoList.stub(stub[:roles]) unless stub[:roles].nil?
+        data['Roles'] = PermissionInfoList.stub(stub[:roles]) unless stub[:roles].nil?
         data
       end
     end
@@ -1137,7 +1139,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PermissionInfo.stub(element) unless element.nil?
+          data << PermissionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1176,9 +1178,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Folders'] = Stubs::FolderMetadataList.stub(stub[:folders]) unless stub[:folders].nil?
+        data['Folders'] = FolderMetadataList.stub(stub[:folders]) unless stub[:folders].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1196,10 +1198,10 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Users'] = Stubs::OrganizationUserList.stub(stub[:users]) unless stub[:users].nil?
+        data['Users'] = OrganizationUserList.stub(stub[:users]) unless stub[:users].nil?
         data['TotalNumberOfUsers'] = stub[:total_number_of_users] unless stub[:total_number_of_users].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1217,7 +1219,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end
@@ -1235,8 +1237,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1253,9 +1255,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Metadata'] = Stubs::DocumentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['CustomMetadata'] = Stubs::CustomMetadataMap.stub(stub[:custom_metadata]) unless stub[:custom_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Metadata'] = DocumentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['CustomMetadata'] = CustomMetadataMap.stub(stub[:custom_metadata]) unless stub[:custom_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1291,8 +1293,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Path'] = Stubs::ResourcePath.stub(stub[:path]) unless stub[:path].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Path'] = ResourcePath.stub(stub[:path]) unless stub[:path].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1309,7 +1311,7 @@ module AWS::SDK::WorkDocs
       def self.stub(stub)
         stub ||= Types::ResourcePath.new
         data = {}
-        data['Components'] = Stubs::ResourcePathComponentList.stub(stub[:components]) unless stub[:components].nil?
+        data['Components'] = ResourcePathComponentList.stub(stub[:components]) unless stub[:components].nil?
         data
       end
     end
@@ -1328,7 +1330,7 @@ module AWS::SDK::WorkDocs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourcePathComponent.stub(element) unless element.nil?
+          data << ResourcePathComponent.stub(element) unless element.nil?
         end
         data
       end
@@ -1367,9 +1369,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Metadata'] = Stubs::DocumentVersionMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['CustomMetadata'] = Stubs::CustomMetadataMap.stub(stub[:custom_metadata]) unless stub[:custom_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Metadata'] = DocumentVersionMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['CustomMetadata'] = CustomMetadataMap.stub(stub[:custom_metadata]) unless stub[:custom_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1386,9 +1388,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Metadata'] = Stubs::FolderMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['CustomMetadata'] = Stubs::CustomMetadataMap.stub(stub[:custom_metadata]) unless stub[:custom_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Metadata'] = FolderMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['CustomMetadata'] = CustomMetadataMap.stub(stub[:custom_metadata]) unless stub[:custom_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1404,8 +1406,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Path'] = Stubs::ResourcePath.stub(stub[:path]) unless stub[:path].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Path'] = ResourcePath.stub(stub[:path]) unless stub[:path].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1423,10 +1425,10 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Folders'] = Stubs::FolderMetadataList.stub(stub[:folders]) unless stub[:folders].nil?
-        data['Documents'] = Stubs::DocumentMetadataList.stub(stub[:documents]) unless stub[:documents].nil?
+        data['Folders'] = FolderMetadataList.stub(stub[:folders]) unless stub[:folders].nil?
+        data['Documents'] = DocumentMetadataList.stub(stub[:documents]) unless stub[:documents].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1443,9 +1445,9 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Metadata'] = Stubs::DocumentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['UploadMetadata'] = Stubs::UploadMetadata.stub(stub[:upload_metadata]) unless stub[:upload_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Metadata'] = DocumentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['UploadMetadata'] = UploadMetadata.stub(stub[:upload_metadata]) unless stub[:upload_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1464,7 +1466,7 @@ module AWS::SDK::WorkDocs
         stub ||= Types::UploadMetadata.new
         data = {}
         data['UploadUrl'] = stub[:upload_url] unless stub[:upload_url].nil?
-        data['SignedHeaders'] = Stubs::SignedHeaderMap.stub(stub[:signed_headers]) unless stub[:signed_headers].nil?
+        data['SignedHeaders'] = SignedHeaderMap.stub(stub[:signed_headers]) unless stub[:signed_headers].nil?
         data
       end
     end
@@ -1566,8 +1568,8 @@ module AWS::SDK::WorkDocs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

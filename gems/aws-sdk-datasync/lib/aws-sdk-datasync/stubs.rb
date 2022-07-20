@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DataSync
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,7 +37,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['AgentArn'] = stub[:agent_arn] unless stub[:agent_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -51,7 +53,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -99,7 +101,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -131,7 +133,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -147,7 +149,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -163,7 +165,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['TaskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -223,7 +225,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -237,7 +239,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -264,8 +266,8 @@ module AWS::SDK::DataSync
         data['LastConnectionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_connection_time]).to_i unless stub[:last_connection_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['EndpointType'] = stub[:endpoint_type] unless stub[:endpoint_type].nil?
-        data['PrivateLinkConfig'] = Stubs::PrivateLinkConfig.stub(stub[:private_link_config]) unless stub[:private_link_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PrivateLinkConfig'] = PrivateLinkConfig.stub(stub[:private_link_config]) unless stub[:private_link_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -288,8 +290,8 @@ module AWS::SDK::DataSync
         data = {}
         data['VpcEndpointId'] = stub[:vpc_endpoint_id] unless stub[:vpc_endpoint_id].nil?
         data['PrivateLinkEndpoint'] = stub[:private_link_endpoint] unless stub[:private_link_endpoint].nil?
-        data['SubnetArns'] = Stubs::PLSubnetArnList.stub(stub[:subnet_arns]) unless stub[:subnet_arns].nil?
-        data['SecurityGroupArns'] = Stubs::PLSecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
+        data['SubnetArns'] = PLSubnetArnList.stub(stub[:subnet_arns]) unless stub[:subnet_arns].nil?
+        data['SecurityGroupArns'] = PLSecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
         data
       end
     end
@@ -352,12 +354,12 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['Ec2Config'] = Stubs::Ec2Config.stub(stub[:ec2_config]) unless stub[:ec2_config].nil?
+        data['Ec2Config'] = Ec2Config.stub(stub[:ec2_config]) unless stub[:ec2_config].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['AccessPointArn'] = stub[:access_point_arn] unless stub[:access_point_arn].nil?
         data['FileSystemAccessRoleArn'] = stub[:file_system_access_role_arn] unless stub[:file_system_access_role_arn].nil?
         data['InTransitEncryption'] = stub[:in_transit_encryption] unless stub[:in_transit_encryption].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -377,7 +379,7 @@ module AWS::SDK::DataSync
         stub ||= Types::Ec2Config.new
         data = {}
         data['SubnetArn'] = stub[:subnet_arn] unless stub[:subnet_arn].nil?
-        data['SecurityGroupArns'] = Stubs::Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
         data
       end
     end
@@ -417,9 +419,9 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['SecurityGroupArns'] = Stubs::Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -440,10 +442,10 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['SecurityGroupArns'] = Stubs::Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
-        data['Protocol'] = Stubs::FsxProtocol.stub(stub[:protocol]) unless stub[:protocol].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
+        data['Protocol'] = FsxProtocol.stub(stub[:protocol]) unless stub[:protocol].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -461,7 +463,7 @@ module AWS::SDK::DataSync
       def self.stub(stub)
         stub ||= Types::FsxProtocol.new
         data = {}
-        data['NFS'] = Stubs::FsxProtocolNfs.stub(stub[:nfs]) unless stub[:nfs].nil?
+        data['NFS'] = FsxProtocolNfs.stub(stub[:nfs]) unless stub[:nfs].nil?
         data
       end
     end
@@ -479,7 +481,7 @@ module AWS::SDK::DataSync
       def self.stub(stub)
         stub ||= Types::FsxProtocolNfs.new
         data = {}
-        data['MountOptions'] = Stubs::NfsMountOptions.stub(stub[:mount_options]) unless stub[:mount_options].nil?
+        data['MountOptions'] = NfsMountOptions.stub(stub[:mount_options]) unless stub[:mount_options].nil?
         data
       end
     end
@@ -519,11 +521,11 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['SecurityGroupArns'] = Stubs::Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.stub(stub[:security_group_arns]) unless stub[:security_group_arns].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['User'] = stub[:user] unless stub[:user].nil?
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -551,17 +553,17 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['NameNodes'] = Stubs::HdfsNameNodeList.stub(stub[:name_nodes]) unless stub[:name_nodes].nil?
+        data['NameNodes'] = HdfsNameNodeList.stub(stub[:name_nodes]) unless stub[:name_nodes].nil?
         data['BlockSize'] = stub[:block_size] unless stub[:block_size].nil?
         data['ReplicationFactor'] = stub[:replication_factor] unless stub[:replication_factor].nil?
         data['KmsKeyProviderUri'] = stub[:kms_key_provider_uri] unless stub[:kms_key_provider_uri].nil?
-        data['QopConfiguration'] = Stubs::QopConfiguration.stub(stub[:qop_configuration]) unless stub[:qop_configuration].nil?
+        data['QopConfiguration'] = QopConfiguration.stub(stub[:qop_configuration]) unless stub[:qop_configuration].nil?
         data['AuthenticationType'] = stub[:authentication_type] unless stub[:authentication_type].nil?
         data['SimpleUser'] = stub[:simple_user] unless stub[:simple_user].nil?
         data['KerberosPrincipal'] = stub[:kerberos_principal] unless stub[:kerberos_principal].nil?
-        data['AgentArns'] = Stubs::AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
+        data['AgentArns'] = AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -620,7 +622,7 @@ module AWS::SDK::DataSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HdfsNameNode.stub(element) unless element.nil?
+          data << HdfsNameNode.stub(element) unless element.nil?
         end
         data
       end
@@ -662,10 +664,10 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['OnPremConfig'] = Stubs::OnPremConfig.stub(stub[:on_prem_config]) unless stub[:on_prem_config].nil?
-        data['MountOptions'] = Stubs::NfsMountOptions.stub(stub[:mount_options]) unless stub[:mount_options].nil?
+        data['OnPremConfig'] = OnPremConfig.stub(stub[:on_prem_config]) unless stub[:on_prem_config].nil?
+        data['MountOptions'] = NfsMountOptions.stub(stub[:mount_options]) unless stub[:mount_options].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -683,7 +685,7 @@ module AWS::SDK::DataSync
       def self.stub(stub)
         stub ||= Types::OnPremConfig.new
         data = {}
-        data['AgentArns'] = Stubs::AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
+        data['AgentArns'] = AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
         data
       end
     end
@@ -709,9 +711,9 @@ module AWS::SDK::DataSync
         data['AccessKey'] = stub[:access_key] unless stub[:access_key].nil?
         data['ServerPort'] = stub[:server_port] unless stub[:server_port].nil?
         data['ServerProtocol'] = stub[:server_protocol] unless stub[:server_protocol].nil?
-        data['AgentArns'] = Stubs::AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
+        data['AgentArns'] = AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -734,10 +736,10 @@ module AWS::SDK::DataSync
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
         data['S3StorageClass'] = stub[:s3_storage_class] unless stub[:s3_storage_class].nil?
-        data['S3Config'] = Stubs::S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
-        data['AgentArns'] = Stubs::AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
+        data['S3Config'] = S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
+        data['AgentArns'] = AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -778,12 +780,12 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['AgentArns'] = Stubs::AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
+        data['AgentArns'] = AgentArnList.stub(stub[:agent_arns]) unless stub[:agent_arns].nil?
         data['User'] = stub[:user] unless stub[:user].nil?
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
-        data['MountOptions'] = Stubs::SmbMountOptions.stub(stub[:mount_options]) unless stub[:mount_options].nil?
+        data['MountOptions'] = SmbMountOptions.stub(stub[:mount_options]) unless stub[:mount_options].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -838,16 +840,16 @@ module AWS::SDK::DataSync
         data['SourceLocationArn'] = stub[:source_location_arn] unless stub[:source_location_arn].nil?
         data['DestinationLocationArn'] = stub[:destination_location_arn] unless stub[:destination_location_arn].nil?
         data['CloudWatchLogGroupArn'] = stub[:cloud_watch_log_group_arn] unless stub[:cloud_watch_log_group_arn].nil?
-        data['SourceNetworkInterfaceArns'] = Stubs::SourceNetworkInterfaceArns.stub(stub[:source_network_interface_arns]) unless stub[:source_network_interface_arns].nil?
-        data['DestinationNetworkInterfaceArns'] = Stubs::DestinationNetworkInterfaceArns.stub(stub[:destination_network_interface_arns]) unless stub[:destination_network_interface_arns].nil?
-        data['Options'] = Stubs::Options.stub(stub[:options]) unless stub[:options].nil?
-        data['Excludes'] = Stubs::FilterList.stub(stub[:excludes]) unless stub[:excludes].nil?
-        data['Schedule'] = Stubs::TaskSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['SourceNetworkInterfaceArns'] = SourceNetworkInterfaceArns.stub(stub[:source_network_interface_arns]) unless stub[:source_network_interface_arns].nil?
+        data['DestinationNetworkInterfaceArns'] = DestinationNetworkInterfaceArns.stub(stub[:destination_network_interface_arns]) unless stub[:destination_network_interface_arns].nil?
+        data['Options'] = Options.stub(stub[:options]) unless stub[:options].nil?
+        data['Excludes'] = FilterList.stub(stub[:excludes]) unless stub[:excludes].nil?
+        data['Schedule'] = TaskSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['ErrorDetail'] = stub[:error_detail] unless stub[:error_detail].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['Includes'] = Stubs::FilterList.stub(stub[:includes]) unless stub[:includes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Includes'] = FilterList.stub(stub[:includes]) unless stub[:includes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -866,7 +868,7 @@ module AWS::SDK::DataSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FilterRule.stub(element) unless element.nil?
+          data << FilterRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1019,17 +1021,17 @@ module AWS::SDK::DataSync
         data = {}
         data['TaskExecutionArn'] = stub[:task_execution_arn] unless stub[:task_execution_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Options'] = Stubs::Options.stub(stub[:options]) unless stub[:options].nil?
-        data['Excludes'] = Stubs::FilterList.stub(stub[:excludes]) unless stub[:excludes].nil?
-        data['Includes'] = Stubs::FilterList.stub(stub[:includes]) unless stub[:includes].nil?
+        data['Options'] = Options.stub(stub[:options]) unless stub[:options].nil?
+        data['Excludes'] = FilterList.stub(stub[:excludes]) unless stub[:excludes].nil?
+        data['Includes'] = FilterList.stub(stub[:includes]) unless stub[:includes].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EstimatedFilesToTransfer'] = stub[:estimated_files_to_transfer] unless stub[:estimated_files_to_transfer].nil?
         data['EstimatedBytesToTransfer'] = stub[:estimated_bytes_to_transfer] unless stub[:estimated_bytes_to_transfer].nil?
         data['FilesTransferred'] = stub[:files_transferred] unless stub[:files_transferred].nil?
         data['BytesWritten'] = stub[:bytes_written] unless stub[:bytes_written].nil?
         data['BytesTransferred'] = stub[:bytes_transferred] unless stub[:bytes_transferred].nil?
-        data['Result'] = Stubs::TaskExecutionResultDetail.stub(stub[:result]) unless stub[:result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Result'] = TaskExecutionResultDetail.stub(stub[:result]) unless stub[:result].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1079,9 +1081,9 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Agents'] = Stubs::AgentList.stub(stub[:agents]) unless stub[:agents].nil?
+        data['Agents'] = AgentList.stub(stub[:agents]) unless stub[:agents].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1100,7 +1102,7 @@ module AWS::SDK::DataSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentListEntry.stub(element) unless element.nil?
+          data << AgentListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1139,9 +1141,9 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Locations'] = Stubs::LocationList.stub(stub[:locations]) unless stub[:locations].nil?
+        data['Locations'] = LocationList.stub(stub[:locations]) unless stub[:locations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1160,7 +1162,7 @@ module AWS::SDK::DataSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LocationListEntry.stub(element) unless element.nil?
+          data << LocationListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1197,9 +1199,9 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::OutputTagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = OutputTagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1218,7 +1220,7 @@ module AWS::SDK::DataSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagListEntry.stub(element) unless element.nil?
+          data << TagListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1255,9 +1257,9 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TaskExecutions'] = Stubs::TaskExecutionList.stub(stub[:task_executions]) unless stub[:task_executions].nil?
+        data['TaskExecutions'] = TaskExecutionList.stub(stub[:task_executions]) unless stub[:task_executions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1276,7 +1278,7 @@ module AWS::SDK::DataSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskExecutionListEntry.stub(element) unless element.nil?
+          data << TaskExecutionListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1313,9 +1315,9 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tasks'] = Stubs::TaskList.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['Tasks'] = TaskList.stub(stub[:tasks]) unless stub[:tasks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1334,7 +1336,7 @@ module AWS::SDK::DataSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskListEntry.stub(element) unless element.nil?
+          data << TaskListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1373,7 +1375,7 @@ module AWS::SDK::DataSync
       def self.stub(http_resp, stub:)
         data = {}
         data['TaskExecutionArn'] = stub[:task_execution_arn] unless stub[:task_execution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1387,7 +1389,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1401,7 +1403,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1415,7 +1417,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1429,7 +1431,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1443,7 +1445,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1457,7 +1459,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1471,7 +1473,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1485,7 +1487,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1499,7 +1501,7 @@ module AWS::SDK::DataSync
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

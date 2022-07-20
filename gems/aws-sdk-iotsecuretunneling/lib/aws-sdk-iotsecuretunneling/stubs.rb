@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTSecureTunneling
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::IoTSecureTunneling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -34,8 +36,8 @@ module AWS::SDK::IoTSecureTunneling
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tunnel'] = Stubs::Tunnel.stub(stub[:tunnel]) unless stub[:tunnel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tunnel'] = Tunnel.stub(stub[:tunnel]) unless stub[:tunnel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -66,12 +68,12 @@ module AWS::SDK::IoTSecureTunneling
         data['tunnelId'] = stub[:tunnel_id] unless stub[:tunnel_id].nil?
         data['tunnelArn'] = stub[:tunnel_arn] unless stub[:tunnel_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['sourceConnectionState'] = Stubs::ConnectionState.stub(stub[:source_connection_state]) unless stub[:source_connection_state].nil?
-        data['destinationConnectionState'] = Stubs::ConnectionState.stub(stub[:destination_connection_state]) unless stub[:destination_connection_state].nil?
+        data['sourceConnectionState'] = ConnectionState.stub(stub[:source_connection_state]) unless stub[:source_connection_state].nil?
+        data['destinationConnectionState'] = ConnectionState.stub(stub[:destination_connection_state]) unless stub[:destination_connection_state].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['destinationConfig'] = Stubs::DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
-        data['timeoutConfig'] = Stubs::TimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['destinationConfig'] = DestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['timeoutConfig'] = TimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data
@@ -92,7 +94,7 @@ module AWS::SDK::IoTSecureTunneling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -151,7 +153,7 @@ module AWS::SDK::IoTSecureTunneling
         stub ||= Types::DestinationConfig.new
         data = {}
         data['thingName'] = stub[:thing_name] unless stub[:thing_name].nil?
-        data['services'] = Stubs::ServiceList.stub(stub[:services]) unless stub[:services].nil?
+        data['services'] = ServiceList.stub(stub[:services]) unless stub[:services].nil?
         data
       end
     end
@@ -206,8 +208,8 @@ module AWS::SDK::IoTSecureTunneling
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -223,9 +225,9 @@ module AWS::SDK::IoTSecureTunneling
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tunnelSummaries'] = Stubs::TunnelSummaryList.stub(stub[:tunnel_summaries]) unless stub[:tunnel_summaries].nil?
+        data['tunnelSummaries'] = TunnelSummaryList.stub(stub[:tunnel_summaries]) unless stub[:tunnel_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -244,7 +246,7 @@ module AWS::SDK::IoTSecureTunneling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TunnelSummary.stub(element) unless element.nil?
+          data << TunnelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -295,7 +297,7 @@ module AWS::SDK::IoTSecureTunneling
         data['tunnelArn'] = stub[:tunnel_arn] unless stub[:tunnel_arn].nil?
         data['sourceAccessToken'] = stub[:source_access_token] unless stub[:source_access_token].nil?
         data['destinationAccessToken'] = stub[:destination_access_token] unless stub[:destination_access_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -315,7 +317,7 @@ module AWS::SDK::IoTSecureTunneling
         data['tunnelArn'] = stub[:tunnel_arn] unless stub[:tunnel_arn].nil?
         data['sourceAccessToken'] = stub[:source_access_token] unless stub[:source_access_token].nil?
         data['destinationAccessToken'] = stub[:destination_access_token] unless stub[:destination_access_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::IoTSecureTunneling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -343,7 +345,7 @@ module AWS::SDK::IoTSecureTunneling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

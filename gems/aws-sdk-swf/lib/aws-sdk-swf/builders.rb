@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SWF
   module Builders
 
@@ -19,13 +21,13 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.CountClosedWorkflowExecutions'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['startTimeFilter'] = Builders::ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
-        data['closeTimeFilter'] = Builders::ExecutionTimeFilter.build(input[:close_time_filter]) unless input[:close_time_filter].nil?
-        data['executionFilter'] = Builders::WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
-        data['typeFilter'] = Builders::WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
-        data['tagFilter'] = Builders::TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
-        data['closeStatusFilter'] = Builders::CloseStatusFilter.build(input[:close_status_filter]) unless input[:close_status_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['startTimeFilter'] = ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
+        data['closeTimeFilter'] = ExecutionTimeFilter.build(input[:close_time_filter]) unless input[:close_time_filter].nil?
+        data['executionFilter'] = WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
+        data['typeFilter'] = WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
+        data['tagFilter'] = TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
+        data['closeStatusFilter'] = CloseStatusFilter.build(input[:close_status_filter]) unless input[:close_status_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,11 +87,11 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.CountOpenWorkflowExecutions'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['startTimeFilter'] = Builders::ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
-        data['typeFilter'] = Builders::WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
-        data['tagFilter'] = Builders::TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
-        data['executionFilter'] = Builders::WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['startTimeFilter'] = ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
+        data['typeFilter'] = WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
+        data['tagFilter'] = TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
+        data['executionFilter'] = WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -102,8 +104,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.CountPendingActivityTasks'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,8 +127,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.CountPendingDecisionTasks'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -139,8 +141,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.DeprecateActivityType'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['activityType'] = Builders::ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['activityType'] = ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.DeprecateDomain'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,8 +178,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.DeprecateWorkflowType'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['workflowType'] = Builders::WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workflowType'] = WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -200,8 +202,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.DescribeActivityType'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['activityType'] = Builders::ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['activityType'] = ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -214,7 +216,7 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.DescribeDomain'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -227,8 +229,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.DescribeWorkflowExecution'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['execution'] = Builders::WorkflowExecution.build(input[:execution]) unless input[:execution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['execution'] = WorkflowExecution.build(input[:execution]) unless input[:execution].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -251,8 +253,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.DescribeWorkflowType'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['workflowType'] = Builders::WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workflowType'] = WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -265,11 +267,11 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.GetWorkflowExecutionHistory'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['execution'] = Builders::WorkflowExecution.build(input[:execution]) unless input[:execution].nil?
+        data['execution'] = WorkflowExecution.build(input[:execution]) unless input[:execution].nil?
         data['nextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['maximumPageSize'] = input[:maximum_page_size] unless input[:maximum_page_size].nil?
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -287,7 +289,7 @@ module AWS::SDK::SWF
         data['nextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['maximumPageSize'] = input[:maximum_page_size] unless input[:maximum_page_size].nil?
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -300,16 +302,16 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.ListClosedWorkflowExecutions'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['startTimeFilter'] = Builders::ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
-        data['closeTimeFilter'] = Builders::ExecutionTimeFilter.build(input[:close_time_filter]) unless input[:close_time_filter].nil?
-        data['executionFilter'] = Builders::WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
-        data['closeStatusFilter'] = Builders::CloseStatusFilter.build(input[:close_status_filter]) unless input[:close_status_filter].nil?
-        data['typeFilter'] = Builders::WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
-        data['tagFilter'] = Builders::TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
+        data['startTimeFilter'] = ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
+        data['closeTimeFilter'] = ExecutionTimeFilter.build(input[:close_time_filter]) unless input[:close_time_filter].nil?
+        data['executionFilter'] = WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
+        data['closeStatusFilter'] = CloseStatusFilter.build(input[:close_status_filter]) unless input[:close_status_filter].nil?
+        data['typeFilter'] = WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
+        data['tagFilter'] = TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
         data['nextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['maximumPageSize'] = input[:maximum_page_size] unless input[:maximum_page_size].nil?
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,7 +327,7 @@ module AWS::SDK::SWF
         data['registrationStatus'] = input[:registration_status] unless input[:registration_status].nil?
         data['maximumPageSize'] = input[:maximum_page_size] unless input[:maximum_page_size].nil?
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -338,14 +340,14 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.ListOpenWorkflowExecutions'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['startTimeFilter'] = Builders::ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
-        data['typeFilter'] = Builders::WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
-        data['tagFilter'] = Builders::TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
+        data['startTimeFilter'] = ExecutionTimeFilter.build(input[:start_time_filter]) unless input[:start_time_filter].nil?
+        data['typeFilter'] = WorkflowTypeFilter.build(input[:type_filter]) unless input[:type_filter].nil?
+        data['tagFilter'] = TagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
         data['nextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['maximumPageSize'] = input[:maximum_page_size] unless input[:maximum_page_size].nil?
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
-        data['executionFilter'] = Builders::WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['executionFilter'] = WorkflowExecutionFilter.build(input[:execution_filter]) unless input[:execution_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -358,7 +360,7 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.ListTagsForResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -376,7 +378,7 @@ module AWS::SDK::SWF
         data['nextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['maximumPageSize'] = input[:maximum_page_size] unless input[:maximum_page_size].nil?
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -389,9 +391,9 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.PollForActivityTask'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
         data['identity'] = input[:identity] unless input[:identity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -404,12 +406,12 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.PollForDecisionTask'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
         data['identity'] = input[:identity] unless input[:identity].nil?
         data['nextPageToken'] = input[:next_page_token] unless input[:next_page_token].nil?
         data['maximumPageSize'] = input[:maximum_page_size] unless input[:maximum_page_size].nil?
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -423,7 +425,7 @@ module AWS::SDK::SWF
         data = {}
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
         data['details'] = input[:details] unless input[:details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,11 +443,11 @@ module AWS::SDK::SWF
         data['description'] = input[:description] unless input[:description].nil?
         data['defaultTaskStartToCloseTimeout'] = input[:default_task_start_to_close_timeout] unless input[:default_task_start_to_close_timeout].nil?
         data['defaultTaskHeartbeatTimeout'] = input[:default_task_heartbeat_timeout] unless input[:default_task_heartbeat_timeout].nil?
-        data['defaultTaskList'] = Builders::TaskList.build(input[:default_task_list]) unless input[:default_task_list].nil?
+        data['defaultTaskList'] = TaskList.build(input[:default_task_list]) unless input[:default_task_list].nil?
         data['defaultTaskPriority'] = input[:default_task_priority] unless input[:default_task_priority].nil?
         data['defaultTaskScheduleToStartTimeout'] = input[:default_task_schedule_to_start_timeout] unless input[:default_task_schedule_to_start_timeout].nil?
         data['defaultTaskScheduleToCloseTimeout'] = input[:default_task_schedule_to_close_timeout] unless input[:default_task_schedule_to_close_timeout].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -460,8 +462,8 @@ module AWS::SDK::SWF
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['workflowExecutionRetentionPeriodInDays'] = input[:workflow_execution_retention_period_in_days] unless input[:workflow_execution_retention_period_in_days].nil?
-        data['tags'] = Builders::ResourceTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = ResourceTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::SWF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceTag.build(element) unless element.nil?
+          data << ResourceTag.build(element) unless element.nil?
         end
         data
       end
@@ -500,11 +502,11 @@ module AWS::SDK::SWF
         data['description'] = input[:description] unless input[:description].nil?
         data['defaultTaskStartToCloseTimeout'] = input[:default_task_start_to_close_timeout] unless input[:default_task_start_to_close_timeout].nil?
         data['defaultExecutionStartToCloseTimeout'] = input[:default_execution_start_to_close_timeout] unless input[:default_execution_start_to_close_timeout].nil?
-        data['defaultTaskList'] = Builders::TaskList.build(input[:default_task_list]) unless input[:default_task_list].nil?
+        data['defaultTaskList'] = TaskList.build(input[:default_task_list]) unless input[:default_task_list].nil?
         data['defaultTaskPriority'] = input[:default_task_priority] unless input[:default_task_priority].nil?
         data['defaultChildPolicy'] = input[:default_child_policy] unless input[:default_child_policy].nil?
         data['defaultLambdaRole'] = input[:default_lambda_role] unless input[:default_lambda_role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -519,7 +521,7 @@ module AWS::SDK::SWF
         data['domain'] = input[:domain] unless input[:domain].nil?
         data['workflowId'] = input[:workflow_id] unless input[:workflow_id].nil?
         data['runId'] = input[:run_id] unless input[:run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -533,7 +535,7 @@ module AWS::SDK::SWF
         data = {}
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
         data['details'] = input[:details] unless input[:details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -547,7 +549,7 @@ module AWS::SDK::SWF
         data = {}
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
         data['result'] = input[:result] unless input[:result].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -562,7 +564,7 @@ module AWS::SDK::SWF
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
         data['details'] = input[:details] unless input[:details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,9 +577,9 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.RespondDecisionTaskCompleted'
         data = {}
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
-        data['decisions'] = Builders::DecisionList.build(input[:decisions]) unless input[:decisions].nil?
+        data['decisions'] = DecisionList.build(input[:decisions]) unless input[:decisions].nil?
         data['executionContext'] = input[:execution_context] unless input[:execution_context].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -586,7 +588,7 @@ module AWS::SDK::SWF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Decision.build(element) unless element.nil?
+          data << Decision.build(element) unless element.nil?
         end
         data
       end
@@ -597,19 +599,19 @@ module AWS::SDK::SWF
       def self.build(input)
         data = {}
         data['decisionType'] = input[:decision_type] unless input[:decision_type].nil?
-        data['scheduleActivityTaskDecisionAttributes'] = Builders::ScheduleActivityTaskDecisionAttributes.build(input[:schedule_activity_task_decision_attributes]) unless input[:schedule_activity_task_decision_attributes].nil?
-        data['requestCancelActivityTaskDecisionAttributes'] = Builders::RequestCancelActivityTaskDecisionAttributes.build(input[:request_cancel_activity_task_decision_attributes]) unless input[:request_cancel_activity_task_decision_attributes].nil?
-        data['completeWorkflowExecutionDecisionAttributes'] = Builders::CompleteWorkflowExecutionDecisionAttributes.build(input[:complete_workflow_execution_decision_attributes]) unless input[:complete_workflow_execution_decision_attributes].nil?
-        data['failWorkflowExecutionDecisionAttributes'] = Builders::FailWorkflowExecutionDecisionAttributes.build(input[:fail_workflow_execution_decision_attributes]) unless input[:fail_workflow_execution_decision_attributes].nil?
-        data['cancelWorkflowExecutionDecisionAttributes'] = Builders::CancelWorkflowExecutionDecisionAttributes.build(input[:cancel_workflow_execution_decision_attributes]) unless input[:cancel_workflow_execution_decision_attributes].nil?
-        data['continueAsNewWorkflowExecutionDecisionAttributes'] = Builders::ContinueAsNewWorkflowExecutionDecisionAttributes.build(input[:continue_as_new_workflow_execution_decision_attributes]) unless input[:continue_as_new_workflow_execution_decision_attributes].nil?
-        data['recordMarkerDecisionAttributes'] = Builders::RecordMarkerDecisionAttributes.build(input[:record_marker_decision_attributes]) unless input[:record_marker_decision_attributes].nil?
-        data['startTimerDecisionAttributes'] = Builders::StartTimerDecisionAttributes.build(input[:start_timer_decision_attributes]) unless input[:start_timer_decision_attributes].nil?
-        data['cancelTimerDecisionAttributes'] = Builders::CancelTimerDecisionAttributes.build(input[:cancel_timer_decision_attributes]) unless input[:cancel_timer_decision_attributes].nil?
-        data['signalExternalWorkflowExecutionDecisionAttributes'] = Builders::SignalExternalWorkflowExecutionDecisionAttributes.build(input[:signal_external_workflow_execution_decision_attributes]) unless input[:signal_external_workflow_execution_decision_attributes].nil?
-        data['requestCancelExternalWorkflowExecutionDecisionAttributes'] = Builders::RequestCancelExternalWorkflowExecutionDecisionAttributes.build(input[:request_cancel_external_workflow_execution_decision_attributes]) unless input[:request_cancel_external_workflow_execution_decision_attributes].nil?
-        data['startChildWorkflowExecutionDecisionAttributes'] = Builders::StartChildWorkflowExecutionDecisionAttributes.build(input[:start_child_workflow_execution_decision_attributes]) unless input[:start_child_workflow_execution_decision_attributes].nil?
-        data['scheduleLambdaFunctionDecisionAttributes'] = Builders::ScheduleLambdaFunctionDecisionAttributes.build(input[:schedule_lambda_function_decision_attributes]) unless input[:schedule_lambda_function_decision_attributes].nil?
+        data['scheduleActivityTaskDecisionAttributes'] = ScheduleActivityTaskDecisionAttributes.build(input[:schedule_activity_task_decision_attributes]) unless input[:schedule_activity_task_decision_attributes].nil?
+        data['requestCancelActivityTaskDecisionAttributes'] = RequestCancelActivityTaskDecisionAttributes.build(input[:request_cancel_activity_task_decision_attributes]) unless input[:request_cancel_activity_task_decision_attributes].nil?
+        data['completeWorkflowExecutionDecisionAttributes'] = CompleteWorkflowExecutionDecisionAttributes.build(input[:complete_workflow_execution_decision_attributes]) unless input[:complete_workflow_execution_decision_attributes].nil?
+        data['failWorkflowExecutionDecisionAttributes'] = FailWorkflowExecutionDecisionAttributes.build(input[:fail_workflow_execution_decision_attributes]) unless input[:fail_workflow_execution_decision_attributes].nil?
+        data['cancelWorkflowExecutionDecisionAttributes'] = CancelWorkflowExecutionDecisionAttributes.build(input[:cancel_workflow_execution_decision_attributes]) unless input[:cancel_workflow_execution_decision_attributes].nil?
+        data['continueAsNewWorkflowExecutionDecisionAttributes'] = ContinueAsNewWorkflowExecutionDecisionAttributes.build(input[:continue_as_new_workflow_execution_decision_attributes]) unless input[:continue_as_new_workflow_execution_decision_attributes].nil?
+        data['recordMarkerDecisionAttributes'] = RecordMarkerDecisionAttributes.build(input[:record_marker_decision_attributes]) unless input[:record_marker_decision_attributes].nil?
+        data['startTimerDecisionAttributes'] = StartTimerDecisionAttributes.build(input[:start_timer_decision_attributes]) unless input[:start_timer_decision_attributes].nil?
+        data['cancelTimerDecisionAttributes'] = CancelTimerDecisionAttributes.build(input[:cancel_timer_decision_attributes]) unless input[:cancel_timer_decision_attributes].nil?
+        data['signalExternalWorkflowExecutionDecisionAttributes'] = SignalExternalWorkflowExecutionDecisionAttributes.build(input[:signal_external_workflow_execution_decision_attributes]) unless input[:signal_external_workflow_execution_decision_attributes].nil?
+        data['requestCancelExternalWorkflowExecutionDecisionAttributes'] = RequestCancelExternalWorkflowExecutionDecisionAttributes.build(input[:request_cancel_external_workflow_execution_decision_attributes]) unless input[:request_cancel_external_workflow_execution_decision_attributes].nil?
+        data['startChildWorkflowExecutionDecisionAttributes'] = StartChildWorkflowExecutionDecisionAttributes.build(input[:start_child_workflow_execution_decision_attributes]) unless input[:start_child_workflow_execution_decision_attributes].nil?
+        data['scheduleLambdaFunctionDecisionAttributes'] = ScheduleLambdaFunctionDecisionAttributes.build(input[:schedule_lambda_function_decision_attributes]) unless input[:schedule_lambda_function_decision_attributes].nil?
         data
       end
     end
@@ -631,16 +633,16 @@ module AWS::SDK::SWF
     class StartChildWorkflowExecutionDecisionAttributes
       def self.build(input)
         data = {}
-        data['workflowType'] = Builders::WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
+        data['workflowType'] = WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
         data['workflowId'] = input[:workflow_id] unless input[:workflow_id].nil?
         data['control'] = input[:control] unless input[:control].nil?
         data['input'] = input[:input] unless input[:input].nil?
         data['executionStartToCloseTimeout'] = input[:execution_start_to_close_timeout] unless input[:execution_start_to_close_timeout].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
         data['taskPriority'] = input[:task_priority] unless input[:task_priority].nil?
         data['taskStartToCloseTimeout'] = input[:task_start_to_close_timeout] unless input[:task_start_to_close_timeout].nil?
         data['childPolicy'] = input[:child_policy] unless input[:child_policy].nil?
-        data['tagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        data['tagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
         data['lambdaRole'] = input[:lambda_role] unless input[:lambda_role].nil?
         data
       end
@@ -717,11 +719,11 @@ module AWS::SDK::SWF
         data = {}
         data['input'] = input[:input] unless input[:input].nil?
         data['executionStartToCloseTimeout'] = input[:execution_start_to_close_timeout] unless input[:execution_start_to_close_timeout].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
         data['taskPriority'] = input[:task_priority] unless input[:task_priority].nil?
         data['taskStartToCloseTimeout'] = input[:task_start_to_close_timeout] unless input[:task_start_to_close_timeout].nil?
         data['childPolicy'] = input[:child_policy] unless input[:child_policy].nil?
-        data['tagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        data['tagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
         data['workflowTypeVersion'] = input[:workflow_type_version] unless input[:workflow_type_version].nil?
         data['lambdaRole'] = input[:lambda_role] unless input[:lambda_role].nil?
         data
@@ -769,12 +771,12 @@ module AWS::SDK::SWF
     class ScheduleActivityTaskDecisionAttributes
       def self.build(input)
         data = {}
-        data['activityType'] = Builders::ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
+        data['activityType'] = ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
         data['activityId'] = input[:activity_id] unless input[:activity_id].nil?
         data['control'] = input[:control] unless input[:control].nil?
         data['input'] = input[:input] unless input[:input].nil?
         data['scheduleToCloseTimeout'] = input[:schedule_to_close_timeout] unless input[:schedule_to_close_timeout].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
         data['taskPriority'] = input[:task_priority] unless input[:task_priority].nil?
         data['scheduleToStartTimeout'] = input[:schedule_to_start_timeout] unless input[:schedule_to_start_timeout].nil?
         data['startToCloseTimeout'] = input[:start_to_close_timeout] unless input[:start_to_close_timeout].nil?
@@ -796,7 +798,7 @@ module AWS::SDK::SWF
         data['runId'] = input[:run_id] unless input[:run_id].nil?
         data['signalName'] = input[:signal_name] unless input[:signal_name].nil?
         data['input'] = input[:input] unless input[:input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -810,16 +812,16 @@ module AWS::SDK::SWF
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
         data['workflowId'] = input[:workflow_id] unless input[:workflow_id].nil?
-        data['workflowType'] = Builders::WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
-        data['taskList'] = Builders::TaskList.build(input[:task_list]) unless input[:task_list].nil?
+        data['workflowType'] = WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
+        data['taskList'] = TaskList.build(input[:task_list]) unless input[:task_list].nil?
         data['taskPriority'] = input[:task_priority] unless input[:task_priority].nil?
         data['input'] = input[:input] unless input[:input].nil?
         data['executionStartToCloseTimeout'] = input[:execution_start_to_close_timeout] unless input[:execution_start_to_close_timeout].nil?
-        data['tagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        data['tagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
         data['taskStartToCloseTimeout'] = input[:task_start_to_close_timeout] unless input[:task_start_to_close_timeout].nil?
         data['childPolicy'] = input[:child_policy] unless input[:child_policy].nil?
         data['lambdaRole'] = input[:lambda_role] unless input[:lambda_role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -832,8 +834,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::ResourceTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = ResourceTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -851,7 +853,7 @@ module AWS::SDK::SWF
         data['reason'] = input[:reason] unless input[:reason].nil?
         data['details'] = input[:details] unless input[:details].nil?
         data['childPolicy'] = input[:child_policy] unless input[:child_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -864,8 +866,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.UndeprecateActivityType'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['activityType'] = Builders::ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['activityType'] = ActivityType.build(input[:activity_type]) unless input[:activity_type].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -878,7 +880,7 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.UndeprecateDomain'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -891,8 +893,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.UndeprecateWorkflowType'
         data = {}
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['workflowType'] = Builders::WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workflowType'] = WorkflowType.build(input[:workflow_type]) unless input[:workflow_type].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -905,8 +907,8 @@ module AWS::SDK::SWF
         http_req.headers['X-Amz-Target'] = 'SimpleWorkflowService.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::ResourceTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = ResourceTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

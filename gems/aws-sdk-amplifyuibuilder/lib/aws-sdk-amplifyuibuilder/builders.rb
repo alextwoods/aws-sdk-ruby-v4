@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AmplifyUIBuilder
   module Builders
 
@@ -31,8 +33,8 @@ module AWS::SDK::AmplifyUIBuilder
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::CreateComponentData.build(input[:component_to_create]) unless input[:component_to_create].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateComponentData.build(input[:component_to_create]) unless input[:component_to_create].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,14 +45,14 @@ module AWS::SDK::AmplifyUIBuilder
         data['name'] = input[:name] unless input[:name].nil?
         data['sourceId'] = input[:source_id] unless input[:source_id].nil?
         data['componentType'] = input[:component_type] unless input[:component_type].nil?
-        data['properties'] = Builders::ComponentProperties.build(input[:properties]) unless input[:properties].nil?
-        data['children'] = Builders::ComponentChildList.build(input[:children]) unless input[:children].nil?
-        data['variants'] = Builders::ComponentVariants.build(input[:variants]) unless input[:variants].nil?
-        data['overrides'] = Builders::ComponentOverrides.build(input[:overrides]) unless input[:overrides].nil?
-        data['bindingProperties'] = Builders::ComponentBindingProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
-        data['collectionProperties'] = Builders::ComponentCollectionProperties.build(input[:collection_properties]) unless input[:collection_properties].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['events'] = Builders::ComponentEvents.build(input[:events]) unless input[:events].nil?
+        data['properties'] = ComponentProperties.build(input[:properties]) unless input[:properties].nil?
+        data['children'] = ComponentChildList.build(input[:children]) unless input[:children].nil?
+        data['variants'] = ComponentVariants.build(input[:variants]) unless input[:variants].nil?
+        data['overrides'] = ComponentOverrides.build(input[:overrides]) unless input[:overrides].nil?
+        data['bindingProperties'] = ComponentBindingProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
+        data['collectionProperties'] = ComponentCollectionProperties.build(input[:collection_properties]) unless input[:collection_properties].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['events'] = ComponentEvents.build(input[:events]) unless input[:events].nil?
         data['schemaVersion'] = input[:schema_version] unless input[:schema_version].nil?
         data
       end
@@ -61,7 +63,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentEvent.build(value) unless value.nil?
+          data[key] = ComponentEvent.build(value) unless value.nil?
         end
         data
       end
@@ -72,7 +74,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         data['action'] = input[:action] unless input[:action].nil?
-        data['parameters'] = Builders::ActionParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['parameters'] = ActionParameters.build(input[:parameters]) unless input[:parameters].nil?
         data['bindingEvent'] = input[:binding_event] unless input[:binding_event].nil?
         data
       end
@@ -82,15 +84,15 @@ module AWS::SDK::AmplifyUIBuilder
     class ActionParameters
       def self.build(input)
         data = {}
-        data['type'] = Builders::ComponentProperty.build(input[:type]) unless input[:type].nil?
-        data['url'] = Builders::ComponentProperty.build(input[:url]) unless input[:url].nil?
-        data['anchor'] = Builders::ComponentProperty.build(input[:anchor]) unless input[:anchor].nil?
-        data['target'] = Builders::ComponentProperty.build(input[:target]) unless input[:target].nil?
-        data['global'] = Builders::ComponentProperty.build(input[:global]) unless input[:global].nil?
+        data['type'] = ComponentProperty.build(input[:type]) unless input[:type].nil?
+        data['url'] = ComponentProperty.build(input[:url]) unless input[:url].nil?
+        data['anchor'] = ComponentProperty.build(input[:anchor]) unless input[:anchor].nil?
+        data['target'] = ComponentProperty.build(input[:target]) unless input[:target].nil?
+        data['global'] = ComponentProperty.build(input[:global]) unless input[:global].nil?
         data['model'] = input[:model] unless input[:model].nil?
-        data['id'] = Builders::ComponentProperty.build(input[:id]) unless input[:id].nil?
-        data['fields'] = Builders::ComponentProperties.build(input[:fields]) unless input[:fields].nil?
-        data['state'] = Builders::MutationActionSetStateParameter.build(input[:state]) unless input[:state].nil?
+        data['id'] = ComponentProperty.build(input[:id]) unless input[:id].nil?
+        data['fields'] = ComponentProperties.build(input[:fields]) unless input[:fields].nil?
+        data['state'] = MutationActionSetStateParameter.build(input[:state]) unless input[:state].nil?
         data
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
         data['property'] = input[:property] unless input[:property].nil?
-        data['set'] = Builders::ComponentProperty.build(input[:set]) unless input[:set].nil?
+        data['set'] = ComponentProperty.build(input[:set]) unless input[:set].nil?
         data
       end
     end
@@ -111,15 +113,15 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         data['value'] = input[:value] unless input[:value].nil?
-        data['bindingProperties'] = Builders::ComponentPropertyBindingProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
-        data['collectionBindingProperties'] = Builders::ComponentPropertyBindingProperties.build(input[:collection_binding_properties]) unless input[:collection_binding_properties].nil?
+        data['bindingProperties'] = ComponentPropertyBindingProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
+        data['collectionBindingProperties'] = ComponentPropertyBindingProperties.build(input[:collection_binding_properties]) unless input[:collection_binding_properties].nil?
         data['defaultValue'] = input[:default_value] unless input[:default_value].nil?
         data['model'] = input[:model] unless input[:model].nil?
-        data['bindings'] = Builders::FormBindings.build(input[:bindings]) unless input[:bindings].nil?
+        data['bindings'] = FormBindings.build(input[:bindings]) unless input[:bindings].nil?
         data['event'] = input[:event] unless input[:event].nil?
         data['userAttribute'] = input[:user_attribute] unless input[:user_attribute].nil?
-        data['concat'] = Builders::ComponentPropertyList.build(input[:concat]) unless input[:concat].nil?
-        data['condition'] = Builders::ComponentConditionProperty.build(input[:condition]) unless input[:condition].nil?
+        data['concat'] = ComponentPropertyList.build(input[:concat]) unless input[:concat].nil?
+        data['condition'] = ComponentConditionProperty.build(input[:condition]) unless input[:condition].nil?
         data['configured'] = input[:configured] unless input[:configured].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['importedValue'] = input[:imported_value] unless input[:imported_value].nil?
@@ -137,8 +139,8 @@ module AWS::SDK::AmplifyUIBuilder
         data['field'] = input[:field] unless input[:field].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data['operand'] = input[:operand] unless input[:operand].nil?
-        data['then'] = Builders::ComponentProperty.build(input[:member_then]) unless input[:member_then].nil?
-        data['else'] = Builders::ComponentProperty.build(input[:else]) unless input[:else].nil?
+        data['then'] = ComponentProperty.build(input[:member_then]) unless input[:member_then].nil?
+        data['else'] = ComponentProperty.build(input[:else]) unless input[:else].nil?
         data['operandType'] = input[:operand_type] unless input[:operand_type].nil?
         data
       end
@@ -149,7 +151,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComponentProperty.build(element) unless element.nil?
+          data << ComponentProperty.build(element) unless element.nil?
         end
         data
       end
@@ -160,7 +162,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::FormBindingElement.build(value) unless value.nil?
+          data[key] = FormBindingElement.build(value) unless value.nil?
         end
         data
       end
@@ -191,7 +193,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentProperty.build(value) unless value.nil?
+          data[key] = ComponentProperty.build(value) unless value.nil?
         end
         data
       end
@@ -213,7 +215,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentDataConfiguration.build(value) unless value.nil?
+          data[key] = ComponentDataConfiguration.build(value) unless value.nil?
         end
         data
       end
@@ -224,9 +226,9 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         data['model'] = input[:model] unless input[:model].nil?
-        data['sort'] = Builders::SortPropertyList.build(input[:sort]) unless input[:sort].nil?
-        data['predicate'] = Builders::Predicate.build(input[:predicate]) unless input[:predicate].nil?
-        data['identifiers'] = Builders::IdentifierList.build(input[:identifiers]) unless input[:identifiers].nil?
+        data['sort'] = SortPropertyList.build(input[:sort]) unless input[:sort].nil?
+        data['predicate'] = Predicate.build(input[:predicate]) unless input[:predicate].nil?
+        data['identifiers'] = IdentifierList.build(input[:identifiers]) unless input[:identifiers].nil?
         data
       end
     end
@@ -246,8 +248,8 @@ module AWS::SDK::AmplifyUIBuilder
     class Predicate
       def self.build(input)
         data = {}
-        data['or'] = Builders::PredicateList.build(input[:or]) unless input[:or].nil?
-        data['and'] = Builders::PredicateList.build(input[:and]) unless input[:and].nil?
+        data['or'] = PredicateList.build(input[:or]) unless input[:or].nil?
+        data['and'] = PredicateList.build(input[:and]) unless input[:and].nil?
         data['field'] = input[:field] unless input[:field].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data['operand'] = input[:operand] unless input[:operand].nil?
@@ -260,7 +262,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Predicate.build(element) unless element.nil?
+          data << Predicate.build(element) unless element.nil?
         end
         data
       end
@@ -271,7 +273,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SortProperty.build(element) unless element.nil?
+          data << SortProperty.build(element) unless element.nil?
         end
         data
       end
@@ -292,7 +294,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentBindingPropertiesValue.build(value) unless value.nil?
+          data[key] = ComponentBindingPropertiesValue.build(value) unless value.nil?
         end
         data
       end
@@ -303,7 +305,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
-        data['bindingProperties'] = Builders::ComponentBindingPropertiesValueProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
+        data['bindingProperties'] = ComponentBindingPropertiesValueProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
         data['defaultValue'] = input[:default_value] unless input[:default_value].nil?
         data
       end
@@ -315,7 +317,7 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         data['model'] = input[:model] unless input[:model].nil?
         data['field'] = input[:field] unless input[:field].nil?
-        data['predicates'] = Builders::PredicateList.build(input[:predicates]) unless input[:predicates].nil?
+        data['predicates'] = PredicateList.build(input[:predicates]) unless input[:predicates].nil?
         data['userAttribute'] = input[:user_attribute] unless input[:user_attribute].nil?
         data['bucket'] = input[:bucket] unless input[:bucket].nil?
         data['key'] = input[:key] unless input[:key].nil?
@@ -329,7 +331,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentOverridesValue.build(value) unless value.nil?
+          data[key] = ComponentOverridesValue.build(value) unless value.nil?
         end
         data
       end
@@ -351,7 +353,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComponentVariant.build(element) unless element.nil?
+          data << ComponentVariant.build(element) unless element.nil?
         end
         data
       end
@@ -361,8 +363,8 @@ module AWS::SDK::AmplifyUIBuilder
     class ComponentVariant
       def self.build(input)
         data = {}
-        data['variantValues'] = Builders::ComponentVariantValues.build(input[:variant_values]) unless input[:variant_values].nil?
-        data['overrides'] = Builders::ComponentOverrides.build(input[:overrides]) unless input[:overrides].nil?
+        data['variantValues'] = ComponentVariantValues.build(input[:variant_values]) unless input[:variant_values].nil?
+        data['overrides'] = ComponentOverrides.build(input[:overrides]) unless input[:overrides].nil?
         data
       end
     end
@@ -383,7 +385,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComponentChild.build(element) unless element.nil?
+          data << ComponentChild.build(element) unless element.nil?
         end
         data
       end
@@ -395,9 +397,9 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         data['componentType'] = input[:component_type] unless input[:component_type].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['properties'] = Builders::ComponentProperties.build(input[:properties]) unless input[:properties].nil?
-        data['children'] = Builders::ComponentChildList.build(input[:children]) unless input[:children].nil?
-        data['events'] = Builders::ComponentEvents.build(input[:events]) unless input[:events].nil?
+        data['properties'] = ComponentProperties.build(input[:properties]) unless input[:properties].nil?
+        data['children'] = ComponentChildList.build(input[:children]) unless input[:children].nil?
+        data['events'] = ComponentEvents.build(input[:events]) unless input[:events].nil?
         data['sourceId'] = input[:source_id] unless input[:source_id].nil?
         data
       end
@@ -424,8 +426,8 @@ module AWS::SDK::AmplifyUIBuilder
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::CreateThemeData.build(input[:theme_to_create]) unless input[:theme_to_create].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateThemeData.build(input[:theme_to_create]) unless input[:theme_to_create].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -434,9 +436,9 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::ThemeValuesList.build(input[:values]) unless input[:values].nil?
-        data['overrides'] = Builders::ThemeValuesList.build(input[:overrides]) unless input[:overrides].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['values'] = ThemeValuesList.build(input[:values]) unless input[:values].nil?
+        data['overrides'] = ThemeValuesList.build(input[:overrides]) unless input[:overrides].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -446,7 +448,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ThemeValues.build(element) unless element.nil?
+          data << ThemeValues.build(element) unless element.nil?
         end
         data
       end
@@ -457,7 +459,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         data['key'] = input[:key] unless input[:key].nil?
-        data['value'] = Builders::ThemeValue.build(input[:value]) unless input[:value].nil?
+        data['value'] = ThemeValue.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -467,7 +469,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.build(input)
         data = {}
         data['value'] = input[:value] unless input[:value].nil?
-        data['children'] = Builders::ThemeValuesList.build(input[:children]) unless input[:children].nil?
+        data['children'] = ThemeValuesList.build(input[:children]) unless input[:children].nil?
         data
       end
     end
@@ -538,8 +540,8 @@ module AWS::SDK::AmplifyUIBuilder
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::ExchangeCodeForTokenRequestBody.build(input[:request]) unless input[:request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ExchangeCodeForTokenRequestBody.build(input[:request]) unless input[:request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,8 +711,8 @@ module AWS::SDK::AmplifyUIBuilder
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::RefreshTokenRequestBody.build(input[:refresh_token_body]) unless input[:refresh_token_body].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RefreshTokenRequestBody.build(input[:refresh_token_body]) unless input[:refresh_token_body].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -748,8 +750,8 @@ module AWS::SDK::AmplifyUIBuilder
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::UpdateComponentData.build(input[:updated_component]) unless input[:updated_component].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = UpdateComponentData.build(input[:updated_component]) unless input[:updated_component].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -761,13 +763,13 @@ module AWS::SDK::AmplifyUIBuilder
         data['name'] = input[:name] unless input[:name].nil?
         data['sourceId'] = input[:source_id] unless input[:source_id].nil?
         data['componentType'] = input[:component_type] unless input[:component_type].nil?
-        data['properties'] = Builders::ComponentProperties.build(input[:properties]) unless input[:properties].nil?
-        data['children'] = Builders::ComponentChildList.build(input[:children]) unless input[:children].nil?
-        data['variants'] = Builders::ComponentVariants.build(input[:variants]) unless input[:variants].nil?
-        data['overrides'] = Builders::ComponentOverrides.build(input[:overrides]) unless input[:overrides].nil?
-        data['bindingProperties'] = Builders::ComponentBindingProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
-        data['collectionProperties'] = Builders::ComponentCollectionProperties.build(input[:collection_properties]) unless input[:collection_properties].nil?
-        data['events'] = Builders::ComponentEvents.build(input[:events]) unless input[:events].nil?
+        data['properties'] = ComponentProperties.build(input[:properties]) unless input[:properties].nil?
+        data['children'] = ComponentChildList.build(input[:children]) unless input[:children].nil?
+        data['variants'] = ComponentVariants.build(input[:variants]) unless input[:variants].nil?
+        data['overrides'] = ComponentOverrides.build(input[:overrides]) unless input[:overrides].nil?
+        data['bindingProperties'] = ComponentBindingProperties.build(input[:binding_properties]) unless input[:binding_properties].nil?
+        data['collectionProperties'] = ComponentCollectionProperties.build(input[:collection_properties]) unless input[:collection_properties].nil?
+        data['events'] = ComponentEvents.build(input[:events]) unless input[:events].nil?
         data['schemaVersion'] = input[:schema_version] unless input[:schema_version].nil?
         data
       end
@@ -798,8 +800,8 @@ module AWS::SDK::AmplifyUIBuilder
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::UpdateThemeData.build(input[:updated_theme]) unless input[:updated_theme].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = UpdateThemeData.build(input[:updated_theme]) unless input[:updated_theme].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -809,8 +811,8 @@ module AWS::SDK::AmplifyUIBuilder
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::ThemeValuesList.build(input[:values]) unless input[:values].nil?
-        data['overrides'] = Builders::ThemeValuesList.build(input[:overrides]) unless input[:overrides].nil?
+        data['values'] = ThemeValuesList.build(input[:values]) unless input[:values].nil?
+        data['overrides'] = ThemeValuesList.build(input[:overrides]) unless input[:overrides].nil?
         data
       end
     end

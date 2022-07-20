@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::GuardDuty
   module Builders
 
@@ -29,7 +31,7 @@ module AWS::SDK::GuardDuty
         data = {}
         data['masterId'] = input[:master_id] unless input[:master_id].nil?
         data['invitationId'] = input[:invitation_id] unless input[:invitation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,8 +52,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingIds'] = Builders::FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingIds'] = FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -79,9 +81,9 @@ module AWS::SDK::GuardDuty
         data['enable'] = input[:enable] unless input[:enable].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['findingPublishingFrequency'] = input[:finding_publishing_frequency] unless input[:finding_publishing_frequency].nil?
-        data['dataSources'] = Builders::DataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSources'] = DataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,8 +102,8 @@ module AWS::SDK::GuardDuty
     class DataSourceConfigurations
       def self.build(input)
         data = {}
-        data['s3Logs'] = Builders::S3LogsConfiguration.build(input[:s3_logs]) unless input[:s3_logs].nil?
-        data['kubernetes'] = Builders::KubernetesConfiguration.build(input[:kubernetes]) unless input[:kubernetes].nil?
+        data['s3Logs'] = S3LogsConfiguration.build(input[:s3_logs]) unless input[:s3_logs].nil?
+        data['kubernetes'] = KubernetesConfiguration.build(input[:kubernetes]) unless input[:kubernetes].nil?
         data
       end
     end
@@ -110,7 +112,7 @@ module AWS::SDK::GuardDuty
     class KubernetesConfiguration
       def self.build(input)
         data = {}
-        data['auditLogs'] = Builders::KubernetesAuditLogsConfiguration.build(input[:audit_logs]) unless input[:audit_logs].nil?
+        data['auditLogs'] = KubernetesAuditLogsConfiguration.build(input[:audit_logs]) unless input[:audit_logs].nil?
         data
       end
     end
@@ -154,10 +156,10 @@ module AWS::SDK::GuardDuty
         data['description'] = input[:description] unless input[:description].nil?
         data['action'] = input[:action] unless input[:action].nil?
         data['rank'] = input[:rank] unless input[:rank].nil?
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +167,7 @@ module AWS::SDK::GuardDuty
     class FindingCriteria
       def self.build(input)
         data = {}
-        data['criterion'] = Builders::Criterion.build(input[:criterion]) unless input[:criterion].nil?
+        data['criterion'] = Criterion.build(input[:criterion]) unless input[:criterion].nil?
         data
       end
     end
@@ -175,7 +177,7 @@ module AWS::SDK::GuardDuty
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Condition.build(value) unless value.nil?
+          data[key] = Condition.build(value) unless value.nil?
         end
         data
       end
@@ -185,14 +187,14 @@ module AWS::SDK::GuardDuty
     class Condition
       def self.build(input)
         data = {}
-        data['eq'] = Builders::Eq.build(input[:eq]) unless input[:eq].nil?
-        data['neq'] = Builders::Neq.build(input[:neq]) unless input[:neq].nil?
+        data['eq'] = Eq.build(input[:eq]) unless input[:eq].nil?
+        data['neq'] = Neq.build(input[:neq]) unless input[:neq].nil?
         data['gt'] = input[:gt] unless input[:gt].nil?
         data['gte'] = input[:gte] unless input[:gte].nil?
         data['lt'] = input[:lt] unless input[:lt].nil?
         data['lte'] = input[:lte] unless input[:lte].nil?
-        data['equals'] = Builders::Equals.build(input[:equals]) unless input[:equals].nil?
-        data['notEquals'] = Builders::NotEquals.build(input[:not_equals]) unless input[:not_equals].nil?
+        data['equals'] = Equals.build(input[:equals]) unless input[:equals].nil?
+        data['notEquals'] = NotEquals.build(input[:not_equals]) unless input[:not_equals].nil?
         data['greaterThan'] = input[:greater_than] unless input[:greater_than].nil?
         data['greaterThanOrEqual'] = input[:greater_than_or_equal] unless input[:greater_than_or_equal].nil?
         data['lessThan'] = input[:less_than] unless input[:less_than].nil?
@@ -267,8 +269,8 @@ module AWS::SDK::GuardDuty
         data['location'] = input[:location] unless input[:location].nil?
         data['activate'] = input[:activate] unless input[:activate].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,8 +291,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountDetails'] = Builders::AccountDetails.build(input[:account_details]) unless input[:account_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountDetails'] = AccountDetails.build(input[:account_details]) unless input[:account_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -299,7 +301,7 @@ module AWS::SDK::GuardDuty
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AccountDetail.build(element) unless element.nil?
+          data << AccountDetail.build(element) unless element.nil?
         end
         data
       end
@@ -333,9 +335,9 @@ module AWS::SDK::GuardDuty
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['destinationType'] = input[:destination_type] unless input[:destination_type].nil?
-        data['destinationProperties'] = Builders::DestinationProperties.build(input[:destination_properties]) unless input[:destination_properties].nil?
+        data['destinationProperties'] = DestinationProperties.build(input[:destination_properties]) unless input[:destination_properties].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,8 +368,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingTypes'] = Builders::FindingTypes.build(input[:finding_types]) unless input[:finding_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingTypes'] = FindingTypes.build(input[:finding_types]) unless input[:finding_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -404,8 +406,8 @@ module AWS::SDK::GuardDuty
         data['location'] = input[:location] unless input[:location].nil?
         data['activate'] = input[:activate] unless input[:activate].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -419,8 +421,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -504,8 +506,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -526,8 +528,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -622,7 +624,7 @@ module AWS::SDK::GuardDuty
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['adminAccountId'] = input[:admin_account_id] unless input[:admin_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -660,8 +662,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::GuardDuty
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['adminAccountId'] = input[:admin_account_id] unless input[:admin_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -735,9 +737,9 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingIds'] = Builders::FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
-        data['sortCriteria'] = Builders::SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingIds'] = FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
+        data['sortCriteria'] = SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -768,9 +770,9 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingStatisticTypes'] = Builders::FindingStatisticTypes.build(input[:finding_statistic_types]) unless input[:finding_statistic_types].nil?
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingStatisticTypes'] = FindingStatisticTypes.build(input[:finding_statistic_types]) unless input[:finding_statistic_types].nil?
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -850,8 +852,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -872,8 +874,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -916,11 +918,11 @@ module AWS::SDK::GuardDuty
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['usageStatisticsType'] = input[:usage_statistic_type] unless input[:usage_statistic_type].nil?
-        data['usageCriteria'] = Builders::UsageCriteria.build(input[:usage_criteria]) unless input[:usage_criteria].nil?
+        data['usageCriteria'] = UsageCriteria.build(input[:usage_criteria]) unless input[:usage_criteria].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -928,9 +930,9 @@ module AWS::SDK::GuardDuty
     class UsageCriteria
       def self.build(input)
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['dataSources'] = Builders::DataSourceList.build(input[:data_sources]) unless input[:data_sources].nil?
-        data['resources'] = Builders::ResourceList.build(input[:resources]) unless input[:resources].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['dataSources'] = DataSourceList.build(input[:data_sources]) unless input[:data_sources].nil?
+        data['resources'] = ResourceList.build(input[:resources]) unless input[:resources].nil?
         data
       end
     end
@@ -974,10 +976,10 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
         data['disableEmailNotification'] = input[:disable_email_notification] unless input[:disable_email_notification].nil?
         data['message'] = input[:message] unless input[:message].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1029,11 +1031,11 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
-        data['sortCriteria'] = Builders::SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        data['sortCriteria'] = SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1172,8 +1174,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1194,8 +1196,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1216,8 +1218,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1238,8 +1240,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingIds'] = Builders::FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingIds'] = FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1295,8 +1297,8 @@ module AWS::SDK::GuardDuty
         data = {}
         data['enable'] = input[:enable] unless input[:enable].nil?
         data['findingPublishingFrequency'] = input[:finding_publishing_frequency] unless input[:finding_publishing_frequency].nil?
-        data['dataSources'] = Builders::DataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSources'] = DataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1324,8 +1326,8 @@ module AWS::SDK::GuardDuty
         data['description'] = input[:description] unless input[:description].nil?
         data['action'] = input[:action] unless input[:action].nil?
         data['rank'] = input[:rank] unless input[:rank].nil?
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1346,10 +1348,10 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingIds'] = Builders::FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
+        data['findingIds'] = FindingIds.build(input[:finding_ids]) unless input[:finding_ids].nil?
         data['feedback'] = input[:feedback] unless input[:feedback].nil?
         data['comments'] = input[:comments] unless input[:comments].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1377,7 +1379,7 @@ module AWS::SDK::GuardDuty
         data['name'] = input[:name] unless input[:name].nil?
         data['location'] = input[:location] unless input[:location].nil?
         data['activate'] = input[:activate] unless input[:activate].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1398,9 +1400,9 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['dataSources'] = Builders::DataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['dataSources'] = DataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1422,8 +1424,8 @@ module AWS::SDK::GuardDuty
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['autoEnable'] = input[:auto_enable] unless input[:auto_enable].nil?
-        data['dataSources'] = Builders::OrganizationDataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSources'] = OrganizationDataSourceConfigurations.build(input[:data_sources]) unless input[:data_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1431,8 +1433,8 @@ module AWS::SDK::GuardDuty
     class OrganizationDataSourceConfigurations
       def self.build(input)
         data = {}
-        data['s3Logs'] = Builders::OrganizationS3LogsConfiguration.build(input[:s3_logs]) unless input[:s3_logs].nil?
-        data['kubernetes'] = Builders::OrganizationKubernetesConfiguration.build(input[:kubernetes]) unless input[:kubernetes].nil?
+        data['s3Logs'] = OrganizationS3LogsConfiguration.build(input[:s3_logs]) unless input[:s3_logs].nil?
+        data['kubernetes'] = OrganizationKubernetesConfiguration.build(input[:kubernetes]) unless input[:kubernetes].nil?
         data
       end
     end
@@ -1441,7 +1443,7 @@ module AWS::SDK::GuardDuty
     class OrganizationKubernetesConfiguration
       def self.build(input)
         data = {}
-        data['auditLogs'] = Builders::OrganizationKubernetesAuditLogsConfiguration.build(input[:audit_logs]) unless input[:audit_logs].nil?
+        data['auditLogs'] = OrganizationKubernetesAuditLogsConfiguration.build(input[:audit_logs]) unless input[:audit_logs].nil?
         data
       end
     end
@@ -1485,8 +1487,8 @@ module AWS::SDK::GuardDuty
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['destinationProperties'] = Builders::DestinationProperties.build(input[:destination_properties]) unless input[:destination_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinationProperties'] = DestinationProperties.build(input[:destination_properties]) unless input[:destination_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1514,7 +1516,7 @@ module AWS::SDK::GuardDuty
         data['name'] = input[:name] unless input[:name].nil?
         data['location'] = input[:location] unless input[:location].nil?
         data['activate'] = input[:activate] unless input[:activate].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

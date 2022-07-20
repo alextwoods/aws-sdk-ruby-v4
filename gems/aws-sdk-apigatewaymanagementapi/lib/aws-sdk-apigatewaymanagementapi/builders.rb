@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApiGatewayManagementApi
   module Builders
 
@@ -59,7 +61,7 @@ module AWS::SDK::ApiGatewayManagementApi
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:data] || '')
+        http_req.body = ::StringIO.new(input[:data] || '')
       end
     end
   end

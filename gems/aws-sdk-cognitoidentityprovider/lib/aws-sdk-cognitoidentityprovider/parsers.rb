@@ -194,7 +194,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user = (Parsers::UserType.parse(map['User']) unless map['User'].nil?)
+        data.user = (UserType.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -203,12 +203,12 @@ module AWS::SDK::CognitoIdentityProvider
       def self.parse(map)
         data = Types::UserType.new
         data.username = map['Username']
-        data.attributes = (Parsers::AttributeListType.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeListType.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.user_create_date = Time.at(map['UserCreateDate'].to_i) if map['UserCreateDate']
         data.user_last_modified_date = Time.at(map['UserLastModifiedDate'].to_i) if map['UserLastModifiedDate']
         data.enabled = map['Enabled']
         data.user_status = map['UserStatus']
-        data.mfa_options = (Parsers::MFAOptionListType.parse(map['MFAOptions']) unless map['MFAOptions'].nil?)
+        data.mfa_options = (MFAOptionListType.parse(map['MFAOptions']) unless map['MFAOptions'].nil?)
         return data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::CognitoIdentityProvider
     class MFAOptionListType
       def self.parse(list)
         list.map do |value|
-          Parsers::MFAOptionType.parse(value) unless value.nil?
+          MFAOptionType.parse(value) unless value.nil?
         end
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AttributeListType
       def self.parse(list)
         list.map do |value|
-          Parsers::AttributeType.parse(value) unless value.nil?
+          AttributeType.parse(value) unless value.nil?
         end
       end
     end
@@ -428,7 +428,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device = (Parsers::DeviceType.parse(map['Device']) unless map['Device'].nil?)
+        data.device = (DeviceType.parse(map['Device']) unless map['Device'].nil?)
         data
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.parse(map)
         data = Types::DeviceType.new
         data.device_key = map['DeviceKey']
-        data.device_attributes = (Parsers::AttributeListType.parse(map['DeviceAttributes']) unless map['DeviceAttributes'].nil?)
+        data.device_attributes = (AttributeListType.parse(map['DeviceAttributes']) unless map['DeviceAttributes'].nil?)
         data.device_create_date = Time.at(map['DeviceCreateDate'].to_i) if map['DeviceCreateDate']
         data.device_last_modified_date = Time.at(map['DeviceLastModifiedDate'].to_i) if map['DeviceLastModifiedDate']
         data.device_last_authenticated_date = Time.at(map['DeviceLastAuthenticatedDate'].to_i) if map['DeviceLastAuthenticatedDate']
@@ -453,14 +453,14 @@ module AWS::SDK::CognitoIdentityProvider
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.username = map['Username']
-        data.user_attributes = (Parsers::AttributeListType.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
+        data.user_attributes = (AttributeListType.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
         data.user_create_date = Time.at(map['UserCreateDate'].to_i) if map['UserCreateDate']
         data.user_last_modified_date = Time.at(map['UserLastModifiedDate'].to_i) if map['UserLastModifiedDate']
         data.enabled = map['Enabled']
         data.user_status = map['UserStatus']
-        data.mfa_options = (Parsers::MFAOptionListType.parse(map['MFAOptions']) unless map['MFAOptions'].nil?)
+        data.mfa_options = (MFAOptionListType.parse(map['MFAOptions']) unless map['MFAOptions'].nil?)
         data.preferred_mfa_setting = map['PreferredMfaSetting']
-        data.user_mfa_setting_list = (Parsers::UserMFASettingListType.parse(map['UserMFASettingList']) unless map['UserMFASettingList'].nil?)
+        data.user_mfa_setting_list = (UserMFASettingListType.parse(map['UserMFASettingList']) unless map['UserMFASettingList'].nil?)
         data
       end
     end
@@ -482,8 +482,8 @@ module AWS::SDK::CognitoIdentityProvider
         map = Hearth::JSON.load(body)
         data.challenge_name = map['ChallengeName']
         data.session = map['Session']
-        data.challenge_parameters = (Parsers::ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
-        data.authentication_result = (Parsers::AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
+        data.challenge_parameters = (ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
+        data.authentication_result = (AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
         data
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::CognitoIdentityProvider
         data.token_type = map['TokenType']
         data.refresh_token = map['RefreshToken']
         data.id_token = map['IdToken']
-        data.new_device_metadata = (Parsers::NewDeviceMetadataType.parse(map['NewDeviceMetadata']) unless map['NewDeviceMetadata'].nil?)
+        data.new_device_metadata = (NewDeviceMetadataType.parse(map['NewDeviceMetadata']) unless map['NewDeviceMetadata'].nil?)
         return data
       end
     end
@@ -574,7 +574,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.devices = (Parsers::DeviceListType.parse(map['Devices']) unless map['Devices'].nil?)
+        data.devices = (DeviceListType.parse(map['Devices']) unless map['Devices'].nil?)
         data.pagination_token = map['PaginationToken']
         data
       end
@@ -583,7 +583,7 @@ module AWS::SDK::CognitoIdentityProvider
     class DeviceListType
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceType.parse(value) unless value.nil?
+          DeviceType.parse(value) unless value.nil?
         end
       end
     end
@@ -595,7 +595,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.groups = (Parsers::GroupListType.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (GroupListType.parse(map['Groups']) unless map['Groups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -604,7 +604,7 @@ module AWS::SDK::CognitoIdentityProvider
     class GroupListType
       def self.parse(list)
         list.map do |value|
-          Parsers::GroupType.parse(value) unless value.nil?
+          GroupType.parse(value) unless value.nil?
         end
       end
     end
@@ -630,7 +630,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.auth_events = (Parsers::AuthEventsType.parse(map['AuthEvents']) unless map['AuthEvents'].nil?)
+        data.auth_events = (AuthEventsType.parse(map['AuthEvents']) unless map['AuthEvents'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -639,7 +639,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AuthEventsType
       def self.parse(list)
         list.map do |value|
-          Parsers::AuthEventType.parse(value) unless value.nil?
+          AuthEventType.parse(value) unless value.nil?
         end
       end
     end
@@ -651,10 +651,10 @@ module AWS::SDK::CognitoIdentityProvider
         data.event_type = map['EventType']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.event_response = map['EventResponse']
-        data.event_risk = (Parsers::EventRiskType.parse(map['EventRisk']) unless map['EventRisk'].nil?)
-        data.challenge_responses = (Parsers::ChallengeResponseListType.parse(map['ChallengeResponses']) unless map['ChallengeResponses'].nil?)
-        data.event_context_data = (Parsers::EventContextDataType.parse(map['EventContextData']) unless map['EventContextData'].nil?)
-        data.event_feedback = (Parsers::EventFeedbackType.parse(map['EventFeedback']) unless map['EventFeedback'].nil?)
+        data.event_risk = (EventRiskType.parse(map['EventRisk']) unless map['EventRisk'].nil?)
+        data.challenge_responses = (ChallengeResponseListType.parse(map['ChallengeResponses']) unless map['ChallengeResponses'].nil?)
+        data.event_context_data = (EventContextDataType.parse(map['EventContextData']) unless map['EventContextData'].nil?)
+        data.event_feedback = (EventFeedbackType.parse(map['EventFeedback']) unless map['EventFeedback'].nil?)
         return data
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ChallengeResponseListType
       def self.parse(list)
         list.map do |value|
-          Parsers::ChallengeResponseType.parse(value) unless value.nil?
+          ChallengeResponseType.parse(value) unless value.nil?
         end
       end
     end
@@ -763,8 +763,8 @@ module AWS::SDK::CognitoIdentityProvider
         map = Hearth::JSON.load(body)
         data.challenge_name = map['ChallengeName']
         data.session = map['Session']
-        data.challenge_parameters = (Parsers::ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
-        data.authentication_result = (Parsers::AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
+        data.challenge_parameters = (ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
+        data.authentication_result = (AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
         data
       end
     end
@@ -959,7 +959,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.group = (Parsers::GroupType.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (GroupType.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -983,7 +983,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.identity_provider = (Parsers::IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
+        data.identity_provider = (IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
         data
       end
     end
@@ -994,9 +994,9 @@ module AWS::SDK::CognitoIdentityProvider
         data.user_pool_id = map['UserPoolId']
         data.provider_name = map['ProviderName']
         data.provider_type = map['ProviderType']
-        data.provider_details = (Parsers::ProviderDetailsType.parse(map['ProviderDetails']) unless map['ProviderDetails'].nil?)
-        data.attribute_mapping = (Parsers::AttributeMappingType.parse(map['AttributeMapping']) unless map['AttributeMapping'].nil?)
-        data.idp_identifiers = (Parsers::IdpIdentifiersListType.parse(map['IdpIdentifiers']) unless map['IdpIdentifiers'].nil?)
+        data.provider_details = (ProviderDetailsType.parse(map['ProviderDetails']) unless map['ProviderDetails'].nil?)
+        data.attribute_mapping = (AttributeMappingType.parse(map['AttributeMapping']) unless map['AttributeMapping'].nil?)
+        data.idp_identifiers = (IdpIdentifiersListType.parse(map['IdpIdentifiers']) unless map['IdpIdentifiers'].nil?)
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         return data
@@ -1050,7 +1050,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_server = (Parsers::ResourceServerType.parse(map['ResourceServer']) unless map['ResourceServer'].nil?)
+        data.resource_server = (ResourceServerType.parse(map['ResourceServer']) unless map['ResourceServer'].nil?)
         data
       end
     end
@@ -1061,7 +1061,7 @@ module AWS::SDK::CognitoIdentityProvider
         data.user_pool_id = map['UserPoolId']
         data.identifier = map['Identifier']
         data.name = map['Name']
-        data.scopes = (Parsers::ResourceServerScopeListType.parse(map['Scopes']) unless map['Scopes'].nil?)
+        data.scopes = (ResourceServerScopeListType.parse(map['Scopes']) unless map['Scopes'].nil?)
         return data
       end
     end
@@ -1069,7 +1069,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ResourceServerScopeListType
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceServerScopeType.parse(value) unless value.nil?
+          ResourceServerScopeType.parse(value) unless value.nil?
         end
       end
     end
@@ -1090,7 +1090,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_import_job = (Parsers::UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
+        data.user_import_job = (UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
         data
       end
     end
@@ -1122,7 +1122,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_pool = (Parsers::UserPoolType.parse(map['UserPool']) unless map['UserPool'].nil?)
+        data.user_pool = (UserPoolType.parse(map['UserPool']) unless map['UserPool'].nil?)
         data
       end
     end
@@ -1132,36 +1132,36 @@ module AWS::SDK::CognitoIdentityProvider
         data = Types::UserPoolType.new
         data.id = map['Id']
         data.name = map['Name']
-        data.policies = (Parsers::UserPoolPolicyType.parse(map['Policies']) unless map['Policies'].nil?)
-        data.lambda_config = (Parsers::LambdaConfigType.parse(map['LambdaConfig']) unless map['LambdaConfig'].nil?)
+        data.policies = (UserPoolPolicyType.parse(map['Policies']) unless map['Policies'].nil?)
+        data.lambda_config = (LambdaConfigType.parse(map['LambdaConfig']) unless map['LambdaConfig'].nil?)
         data.status = map['Status']
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
-        data.schema_attributes = (Parsers::SchemaAttributesListType.parse(map['SchemaAttributes']) unless map['SchemaAttributes'].nil?)
-        data.auto_verified_attributes = (Parsers::VerifiedAttributesListType.parse(map['AutoVerifiedAttributes']) unless map['AutoVerifiedAttributes'].nil?)
-        data.alias_attributes = (Parsers::AliasAttributesListType.parse(map['AliasAttributes']) unless map['AliasAttributes'].nil?)
-        data.username_attributes = (Parsers::UsernameAttributesListType.parse(map['UsernameAttributes']) unless map['UsernameAttributes'].nil?)
+        data.schema_attributes = (SchemaAttributesListType.parse(map['SchemaAttributes']) unless map['SchemaAttributes'].nil?)
+        data.auto_verified_attributes = (VerifiedAttributesListType.parse(map['AutoVerifiedAttributes']) unless map['AutoVerifiedAttributes'].nil?)
+        data.alias_attributes = (AliasAttributesListType.parse(map['AliasAttributes']) unless map['AliasAttributes'].nil?)
+        data.username_attributes = (UsernameAttributesListType.parse(map['UsernameAttributes']) unless map['UsernameAttributes'].nil?)
         data.sms_verification_message = map['SmsVerificationMessage']
         data.email_verification_message = map['EmailVerificationMessage']
         data.email_verification_subject = map['EmailVerificationSubject']
-        data.verification_message_template = (Parsers::VerificationMessageTemplateType.parse(map['VerificationMessageTemplate']) unless map['VerificationMessageTemplate'].nil?)
+        data.verification_message_template = (VerificationMessageTemplateType.parse(map['VerificationMessageTemplate']) unless map['VerificationMessageTemplate'].nil?)
         data.sms_authentication_message = map['SmsAuthenticationMessage']
-        data.user_attribute_update_settings = (Parsers::UserAttributeUpdateSettingsType.parse(map['UserAttributeUpdateSettings']) unless map['UserAttributeUpdateSettings'].nil?)
+        data.user_attribute_update_settings = (UserAttributeUpdateSettingsType.parse(map['UserAttributeUpdateSettings']) unless map['UserAttributeUpdateSettings'].nil?)
         data.mfa_configuration = map['MfaConfiguration']
-        data.device_configuration = (Parsers::DeviceConfigurationType.parse(map['DeviceConfiguration']) unless map['DeviceConfiguration'].nil?)
+        data.device_configuration = (DeviceConfigurationType.parse(map['DeviceConfiguration']) unless map['DeviceConfiguration'].nil?)
         data.estimated_number_of_users = map['EstimatedNumberOfUsers']
-        data.email_configuration = (Parsers::EmailConfigurationType.parse(map['EmailConfiguration']) unless map['EmailConfiguration'].nil?)
-        data.sms_configuration = (Parsers::SmsConfigurationType.parse(map['SmsConfiguration']) unless map['SmsConfiguration'].nil?)
-        data.user_pool_tags = (Parsers::UserPoolTagsType.parse(map['UserPoolTags']) unless map['UserPoolTags'].nil?)
+        data.email_configuration = (EmailConfigurationType.parse(map['EmailConfiguration']) unless map['EmailConfiguration'].nil?)
+        data.sms_configuration = (SmsConfigurationType.parse(map['SmsConfiguration']) unless map['SmsConfiguration'].nil?)
+        data.user_pool_tags = (UserPoolTagsType.parse(map['UserPoolTags']) unless map['UserPoolTags'].nil?)
         data.sms_configuration_failure = map['SmsConfigurationFailure']
         data.email_configuration_failure = map['EmailConfigurationFailure']
         data.domain = map['Domain']
         data.custom_domain = map['CustomDomain']
-        data.admin_create_user_config = (Parsers::AdminCreateUserConfigType.parse(map['AdminCreateUserConfig']) unless map['AdminCreateUserConfig'].nil?)
-        data.user_pool_add_ons = (Parsers::UserPoolAddOnsType.parse(map['UserPoolAddOns']) unless map['UserPoolAddOns'].nil?)
-        data.username_configuration = (Parsers::UsernameConfigurationType.parse(map['UsernameConfiguration']) unless map['UsernameConfiguration'].nil?)
+        data.admin_create_user_config = (AdminCreateUserConfigType.parse(map['AdminCreateUserConfig']) unless map['AdminCreateUserConfig'].nil?)
+        data.user_pool_add_ons = (UserPoolAddOnsType.parse(map['UserPoolAddOns']) unless map['UserPoolAddOns'].nil?)
+        data.username_configuration = (UsernameConfigurationType.parse(map['UsernameConfiguration']) unless map['UsernameConfiguration'].nil?)
         data.arn = map['Arn']
-        data.account_recovery_setting = (Parsers::AccountRecoverySettingType.parse(map['AccountRecoverySetting']) unless map['AccountRecoverySetting'].nil?)
+        data.account_recovery_setting = (AccountRecoverySettingType.parse(map['AccountRecoverySetting']) unless map['AccountRecoverySetting'].nil?)
         return data
       end
     end
@@ -1169,7 +1169,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AccountRecoverySettingType
       def self.parse(map)
         data = Types::AccountRecoverySettingType.new
-        data.recovery_mechanisms = (Parsers::RecoveryMechanismsType.parse(map['RecoveryMechanisms']) unless map['RecoveryMechanisms'].nil?)
+        data.recovery_mechanisms = (RecoveryMechanismsType.parse(map['RecoveryMechanisms']) unless map['RecoveryMechanisms'].nil?)
         return data
       end
     end
@@ -1177,7 +1177,7 @@ module AWS::SDK::CognitoIdentityProvider
     class RecoveryMechanismsType
       def self.parse(list)
         list.map do |value|
-          Parsers::RecoveryOptionType.parse(value) unless value.nil?
+          RecoveryOptionType.parse(value) unless value.nil?
         end
       end
     end
@@ -1212,7 +1212,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = Types::AdminCreateUserConfigType.new
         data.allow_admin_create_user_only = map['AllowAdminCreateUserOnly']
         data.unused_account_validity_days = map['UnusedAccountValidityDays']
-        data.invite_message_template = (Parsers::MessageTemplateType.parse(map['InviteMessageTemplate']) unless map['InviteMessageTemplate'].nil?)
+        data.invite_message_template = (MessageTemplateType.parse(map['InviteMessageTemplate']) unless map['InviteMessageTemplate'].nil?)
         return data
       end
     end
@@ -1271,7 +1271,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserAttributeUpdateSettingsType
       def self.parse(map)
         data = Types::UserAttributeUpdateSettingsType.new
-        data.attributes_require_verification_before_update = (Parsers::AttributesRequireVerificationBeforeUpdateType.parse(map['AttributesRequireVerificationBeforeUpdate']) unless map['AttributesRequireVerificationBeforeUpdate'].nil?)
+        data.attributes_require_verification_before_update = (AttributesRequireVerificationBeforeUpdateType.parse(map['AttributesRequireVerificationBeforeUpdate']) unless map['AttributesRequireVerificationBeforeUpdate'].nil?)
         return data
       end
     end
@@ -1324,7 +1324,7 @@ module AWS::SDK::CognitoIdentityProvider
     class SchemaAttributesListType
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaAttributeType.parse(value) unless value.nil?
+          SchemaAttributeType.parse(value) unless value.nil?
         end
       end
     end
@@ -1337,8 +1337,8 @@ module AWS::SDK::CognitoIdentityProvider
         data.developer_only_attribute = map['DeveloperOnlyAttribute']
         data.mutable = map['Mutable']
         data.required = map['Required']
-        data.number_attribute_constraints = (Parsers::NumberAttributeConstraintsType.parse(map['NumberAttributeConstraints']) unless map['NumberAttributeConstraints'].nil?)
-        data.string_attribute_constraints = (Parsers::StringAttributeConstraintsType.parse(map['StringAttributeConstraints']) unless map['StringAttributeConstraints'].nil?)
+        data.number_attribute_constraints = (NumberAttributeConstraintsType.parse(map['NumberAttributeConstraints']) unless map['NumberAttributeConstraints'].nil?)
+        data.string_attribute_constraints = (StringAttributeConstraintsType.parse(map['StringAttributeConstraints']) unless map['StringAttributeConstraints'].nil?)
         return data
       end
     end
@@ -1374,8 +1374,8 @@ module AWS::SDK::CognitoIdentityProvider
         data.verify_auth_challenge_response = map['VerifyAuthChallengeResponse']
         data.pre_token_generation = map['PreTokenGeneration']
         data.user_migration = map['UserMigration']
-        data.custom_sms_sender = (Parsers::CustomSMSLambdaVersionConfigType.parse(map['CustomSMSSender']) unless map['CustomSMSSender'].nil?)
-        data.custom_email_sender = (Parsers::CustomEmailLambdaVersionConfigType.parse(map['CustomEmailSender']) unless map['CustomEmailSender'].nil?)
+        data.custom_sms_sender = (CustomSMSLambdaVersionConfigType.parse(map['CustomSMSSender']) unless map['CustomSMSSender'].nil?)
+        data.custom_email_sender = (CustomEmailLambdaVersionConfigType.parse(map['CustomEmailSender']) unless map['CustomEmailSender'].nil?)
         data.kms_key_id = map['KMSKeyID']
         return data
       end
@@ -1402,7 +1402,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserPoolPolicyType
       def self.parse(map)
         data = Types::UserPoolPolicyType.new
-        data.password_policy = (Parsers::PasswordPolicyType.parse(map['PasswordPolicy']) unless map['PasswordPolicy'].nil?)
+        data.password_policy = (PasswordPolicyType.parse(map['PasswordPolicy']) unless map['PasswordPolicy'].nil?)
         return data
       end
     end
@@ -1439,7 +1439,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_pool_client = (Parsers::UserPoolClientType.parse(map['UserPoolClient']) unless map['UserPoolClient'].nil?)
+        data.user_pool_client = (UserPoolClientType.parse(map['UserPoolClient']) unless map['UserPoolClient'].nil?)
         data
       end
     end
@@ -1456,18 +1456,18 @@ module AWS::SDK::CognitoIdentityProvider
         data.refresh_token_validity = map['RefreshTokenValidity']
         data.access_token_validity = map['AccessTokenValidity']
         data.id_token_validity = map['IdTokenValidity']
-        data.token_validity_units = (Parsers::TokenValidityUnitsType.parse(map['TokenValidityUnits']) unless map['TokenValidityUnits'].nil?)
-        data.read_attributes = (Parsers::ClientPermissionListType.parse(map['ReadAttributes']) unless map['ReadAttributes'].nil?)
-        data.write_attributes = (Parsers::ClientPermissionListType.parse(map['WriteAttributes']) unless map['WriteAttributes'].nil?)
-        data.explicit_auth_flows = (Parsers::ExplicitAuthFlowsListType.parse(map['ExplicitAuthFlows']) unless map['ExplicitAuthFlows'].nil?)
-        data.supported_identity_providers = (Parsers::SupportedIdentityProvidersListType.parse(map['SupportedIdentityProviders']) unless map['SupportedIdentityProviders'].nil?)
-        data.callback_ur_ls = (Parsers::CallbackURLsListType.parse(map['CallbackURLs']) unless map['CallbackURLs'].nil?)
-        data.logout_ur_ls = (Parsers::LogoutURLsListType.parse(map['LogoutURLs']) unless map['LogoutURLs'].nil?)
+        data.token_validity_units = (TokenValidityUnitsType.parse(map['TokenValidityUnits']) unless map['TokenValidityUnits'].nil?)
+        data.read_attributes = (ClientPermissionListType.parse(map['ReadAttributes']) unless map['ReadAttributes'].nil?)
+        data.write_attributes = (ClientPermissionListType.parse(map['WriteAttributes']) unless map['WriteAttributes'].nil?)
+        data.explicit_auth_flows = (ExplicitAuthFlowsListType.parse(map['ExplicitAuthFlows']) unless map['ExplicitAuthFlows'].nil?)
+        data.supported_identity_providers = (SupportedIdentityProvidersListType.parse(map['SupportedIdentityProviders']) unless map['SupportedIdentityProviders'].nil?)
+        data.callback_ur_ls = (CallbackURLsListType.parse(map['CallbackURLs']) unless map['CallbackURLs'].nil?)
+        data.logout_ur_ls = (LogoutURLsListType.parse(map['LogoutURLs']) unless map['LogoutURLs'].nil?)
         data.default_redirect_uri = map['DefaultRedirectURI']
-        data.allowed_o_auth_flows = (Parsers::OAuthFlowsType.parse(map['AllowedOAuthFlows']) unless map['AllowedOAuthFlows'].nil?)
-        data.allowed_o_auth_scopes = (Parsers::ScopeListType.parse(map['AllowedOAuthScopes']) unless map['AllowedOAuthScopes'].nil?)
+        data.allowed_o_auth_flows = (OAuthFlowsType.parse(map['AllowedOAuthFlows']) unless map['AllowedOAuthFlows'].nil?)
+        data.allowed_o_auth_scopes = (ScopeListType.parse(map['AllowedOAuthScopes']) unless map['AllowedOAuthScopes'].nil?)
         data.allowed_o_auth_flows_user_pool_client = map['AllowedOAuthFlowsUserPoolClient']
-        data.analytics_configuration = (Parsers::AnalyticsConfigurationType.parse(map['AnalyticsConfiguration']) unless map['AnalyticsConfiguration'].nil?)
+        data.analytics_configuration = (AnalyticsConfigurationType.parse(map['AnalyticsConfiguration']) unless map['AnalyticsConfiguration'].nil?)
         data.prevent_user_existence_errors = map['PreventUserExistenceErrors']
         data.enable_token_revocation = map['EnableTokenRevocation']
         data.enable_propagate_additional_user_context_data = map['EnablePropagateAdditionalUserContextData']
@@ -1696,7 +1696,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.identity_provider = (Parsers::IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
+        data.identity_provider = (IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
         data
       end
     end
@@ -1708,7 +1708,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_server = (Parsers::ResourceServerType.parse(map['ResourceServer']) unless map['ResourceServer'].nil?)
+        data.resource_server = (ResourceServerType.parse(map['ResourceServer']) unless map['ResourceServer'].nil?)
         data
       end
     end
@@ -1720,7 +1720,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.risk_configuration = (Parsers::RiskConfigurationType.parse(map['RiskConfiguration']) unless map['RiskConfiguration'].nil?)
+        data.risk_configuration = (RiskConfigurationType.parse(map['RiskConfiguration']) unless map['RiskConfiguration'].nil?)
         data
       end
     end
@@ -1730,9 +1730,9 @@ module AWS::SDK::CognitoIdentityProvider
         data = Types::RiskConfigurationType.new
         data.user_pool_id = map['UserPoolId']
         data.client_id = map['ClientId']
-        data.compromised_credentials_risk_configuration = (Parsers::CompromisedCredentialsRiskConfigurationType.parse(map['CompromisedCredentialsRiskConfiguration']) unless map['CompromisedCredentialsRiskConfiguration'].nil?)
-        data.account_takeover_risk_configuration = (Parsers::AccountTakeoverRiskConfigurationType.parse(map['AccountTakeoverRiskConfiguration']) unless map['AccountTakeoverRiskConfiguration'].nil?)
-        data.risk_exception_configuration = (Parsers::RiskExceptionConfigurationType.parse(map['RiskExceptionConfiguration']) unless map['RiskExceptionConfiguration'].nil?)
+        data.compromised_credentials_risk_configuration = (CompromisedCredentialsRiskConfigurationType.parse(map['CompromisedCredentialsRiskConfiguration']) unless map['CompromisedCredentialsRiskConfiguration'].nil?)
+        data.account_takeover_risk_configuration = (AccountTakeoverRiskConfigurationType.parse(map['AccountTakeoverRiskConfiguration']) unless map['AccountTakeoverRiskConfiguration'].nil?)
+        data.risk_exception_configuration = (RiskExceptionConfigurationType.parse(map['RiskExceptionConfiguration']) unless map['RiskExceptionConfiguration'].nil?)
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         return data
       end
@@ -1741,8 +1741,8 @@ module AWS::SDK::CognitoIdentityProvider
     class RiskExceptionConfigurationType
       def self.parse(map)
         data = Types::RiskExceptionConfigurationType.new
-        data.blocked_ip_range_list = (Parsers::BlockedIPRangeListType.parse(map['BlockedIPRangeList']) unless map['BlockedIPRangeList'].nil?)
-        data.skipped_ip_range_list = (Parsers::SkippedIPRangeListType.parse(map['SkippedIPRangeList']) unless map['SkippedIPRangeList'].nil?)
+        data.blocked_ip_range_list = (BlockedIPRangeListType.parse(map['BlockedIPRangeList']) unless map['BlockedIPRangeList'].nil?)
+        data.skipped_ip_range_list = (SkippedIPRangeListType.parse(map['SkippedIPRangeList']) unless map['SkippedIPRangeList'].nil?)
         return data
       end
     end
@@ -1766,8 +1766,8 @@ module AWS::SDK::CognitoIdentityProvider
     class AccountTakeoverRiskConfigurationType
       def self.parse(map)
         data = Types::AccountTakeoverRiskConfigurationType.new
-        data.notify_configuration = (Parsers::NotifyConfigurationType.parse(map['NotifyConfiguration']) unless map['NotifyConfiguration'].nil?)
-        data.actions = (Parsers::AccountTakeoverActionsType.parse(map['Actions']) unless map['Actions'].nil?)
+        data.notify_configuration = (NotifyConfigurationType.parse(map['NotifyConfiguration']) unless map['NotifyConfiguration'].nil?)
+        data.actions = (AccountTakeoverActionsType.parse(map['Actions']) unless map['Actions'].nil?)
         return data
       end
     end
@@ -1775,9 +1775,9 @@ module AWS::SDK::CognitoIdentityProvider
     class AccountTakeoverActionsType
       def self.parse(map)
         data = Types::AccountTakeoverActionsType.new
-        data.low_action = (Parsers::AccountTakeoverActionType.parse(map['LowAction']) unless map['LowAction'].nil?)
-        data.medium_action = (Parsers::AccountTakeoverActionType.parse(map['MediumAction']) unless map['MediumAction'].nil?)
-        data.high_action = (Parsers::AccountTakeoverActionType.parse(map['HighAction']) unless map['HighAction'].nil?)
+        data.low_action = (AccountTakeoverActionType.parse(map['LowAction']) unless map['LowAction'].nil?)
+        data.medium_action = (AccountTakeoverActionType.parse(map['MediumAction']) unless map['MediumAction'].nil?)
+        data.high_action = (AccountTakeoverActionType.parse(map['HighAction']) unless map['HighAction'].nil?)
         return data
       end
     end
@@ -1797,9 +1797,9 @@ module AWS::SDK::CognitoIdentityProvider
         data.from = map['From']
         data.reply_to = map['ReplyTo']
         data.source_arn = map['SourceArn']
-        data.block_email = (Parsers::NotifyEmailType.parse(map['BlockEmail']) unless map['BlockEmail'].nil?)
-        data.no_action_email = (Parsers::NotifyEmailType.parse(map['NoActionEmail']) unless map['NoActionEmail'].nil?)
-        data.mfa_email = (Parsers::NotifyEmailType.parse(map['MfaEmail']) unless map['MfaEmail'].nil?)
+        data.block_email = (NotifyEmailType.parse(map['BlockEmail']) unless map['BlockEmail'].nil?)
+        data.no_action_email = (NotifyEmailType.parse(map['NoActionEmail']) unless map['NoActionEmail'].nil?)
+        data.mfa_email = (NotifyEmailType.parse(map['MfaEmail']) unless map['MfaEmail'].nil?)
         return data
       end
     end
@@ -1817,8 +1817,8 @@ module AWS::SDK::CognitoIdentityProvider
     class CompromisedCredentialsRiskConfigurationType
       def self.parse(map)
         data = Types::CompromisedCredentialsRiskConfigurationType.new
-        data.event_filter = (Parsers::EventFiltersType.parse(map['EventFilter']) unless map['EventFilter'].nil?)
-        data.actions = (Parsers::CompromisedCredentialsActionsType.parse(map['Actions']) unless map['Actions'].nil?)
+        data.event_filter = (EventFiltersType.parse(map['EventFilter']) unless map['EventFilter'].nil?)
+        data.actions = (CompromisedCredentialsActionsType.parse(map['Actions']) unless map['Actions'].nil?)
         return data
       end
     end
@@ -1846,7 +1846,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_import_job = (Parsers::UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
+        data.user_import_job = (UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
         data
       end
     end
@@ -1858,7 +1858,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_pool = (Parsers::UserPoolType.parse(map['UserPool']) unless map['UserPool'].nil?)
+        data.user_pool = (UserPoolType.parse(map['UserPool']) unless map['UserPool'].nil?)
         data
       end
     end
@@ -1870,7 +1870,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_pool_client = (Parsers::UserPoolClientType.parse(map['UserPoolClient']) unless map['UserPoolClient'].nil?)
+        data.user_pool_client = (UserPoolClientType.parse(map['UserPoolClient']) unless map['UserPoolClient'].nil?)
         data
       end
     end
@@ -1882,7 +1882,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain_description = (Parsers::DomainDescriptionType.parse(map['DomainDescription']) unless map['DomainDescription'].nil?)
+        data.domain_description = (DomainDescriptionType.parse(map['DomainDescription']) unless map['DomainDescription'].nil?)
         data
       end
     end
@@ -1897,7 +1897,7 @@ module AWS::SDK::CognitoIdentityProvider
         data.cloud_front_distribution = map['CloudFrontDistribution']
         data.version = map['Version']
         data.status = map['Status']
-        data.custom_domain_config = (Parsers::CustomDomainConfigType.parse(map['CustomDomainConfig']) unless map['CustomDomainConfig'].nil?)
+        data.custom_domain_config = (CustomDomainConfigType.parse(map['CustomDomainConfig']) unless map['CustomDomainConfig'].nil?)
         return data
       end
     end
@@ -1928,7 +1928,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.code_delivery_details = (Parsers::CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
+        data.code_delivery_details = (CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
         data
       end
     end
@@ -1951,7 +1951,7 @@ module AWS::SDK::CognitoIdentityProvider
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.user_pool_id = map['UserPoolId']
-        data.csv_header = (Parsers::ListOfStringTypes.parse(map['CSVHeader']) unless map['CSVHeader'].nil?)
+        data.csv_header = (ListOfStringTypes.parse(map['CSVHeader']) unless map['CSVHeader'].nil?)
         data
       end
     end
@@ -1971,7 +1971,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device = (Parsers::DeviceType.parse(map['Device']) unless map['Device'].nil?)
+        data.device = (DeviceType.parse(map['Device']) unless map['Device'].nil?)
         data
       end
     end
@@ -1983,7 +1983,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.group = (Parsers::GroupType.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (GroupType.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -1995,7 +1995,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.identity_provider = (Parsers::IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
+        data.identity_provider = (IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
         data
       end
     end
@@ -2019,7 +2019,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ui_customization = (Parsers::UICustomizationType.parse(map['UICustomization']) unless map['UICustomization'].nil?)
+        data.ui_customization = (UICustomizationType.parse(map['UICustomization']) unless map['UICustomization'].nil?)
         data
       end
     end
@@ -2046,10 +2046,10 @@ module AWS::SDK::CognitoIdentityProvider
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.username = map['Username']
-        data.user_attributes = (Parsers::AttributeListType.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
-        data.mfa_options = (Parsers::MFAOptionListType.parse(map['MFAOptions']) unless map['MFAOptions'].nil?)
+        data.user_attributes = (AttributeListType.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
+        data.mfa_options = (MFAOptionListType.parse(map['MFAOptions']) unless map['MFAOptions'].nil?)
         data.preferred_mfa_setting = map['PreferredMfaSetting']
-        data.user_mfa_setting_list = (Parsers::UserMFASettingListType.parse(map['UserMFASettingList']) unless map['UserMFASettingList'].nil?)
+        data.user_mfa_setting_list = (UserMFASettingListType.parse(map['UserMFASettingList']) unless map['UserMFASettingList'].nil?)
         data
       end
     end
@@ -2061,7 +2061,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.code_delivery_details = (Parsers::CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
+        data.code_delivery_details = (CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
         data
       end
     end
@@ -2073,8 +2073,8 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sms_mfa_configuration = (Parsers::SmsMfaConfigType.parse(map['SmsMfaConfiguration']) unless map['SmsMfaConfiguration'].nil?)
-        data.software_token_mfa_configuration = (Parsers::SoftwareTokenMfaConfigType.parse(map['SoftwareTokenMfaConfiguration']) unless map['SoftwareTokenMfaConfiguration'].nil?)
+        data.sms_mfa_configuration = (SmsMfaConfigType.parse(map['SmsMfaConfiguration']) unless map['SmsMfaConfiguration'].nil?)
+        data.software_token_mfa_configuration = (SoftwareTokenMfaConfigType.parse(map['SoftwareTokenMfaConfiguration']) unless map['SoftwareTokenMfaConfiguration'].nil?)
         data.mfa_configuration = map['MfaConfiguration']
         data
       end
@@ -2092,7 +2092,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.parse(map)
         data = Types::SmsMfaConfigType.new
         data.sms_authentication_message = map['SmsAuthenticationMessage']
-        data.sms_configuration = (Parsers::SmsConfigurationType.parse(map['SmsConfiguration']) unless map['SmsConfiguration'].nil?)
+        data.sms_configuration = (SmsConfigurationType.parse(map['SmsConfiguration']) unless map['SmsConfiguration'].nil?)
         return data
       end
     end
@@ -2117,8 +2117,8 @@ module AWS::SDK::CognitoIdentityProvider
         map = Hearth::JSON.load(body)
         data.challenge_name = map['ChallengeName']
         data.session = map['Session']
-        data.challenge_parameters = (Parsers::ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
-        data.authentication_result = (Parsers::AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
+        data.challenge_parameters = (ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
+        data.authentication_result = (AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
         data
       end
     end
@@ -2130,7 +2130,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.devices = (Parsers::DeviceListType.parse(map['Devices']) unless map['Devices'].nil?)
+        data.devices = (DeviceListType.parse(map['Devices']) unless map['Devices'].nil?)
         data.pagination_token = map['PaginationToken']
         data
       end
@@ -2143,7 +2143,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.groups = (Parsers::GroupListType.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (GroupListType.parse(map['Groups']) unless map['Groups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2156,7 +2156,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.providers = (Parsers::ProvidersListType.parse(map['Providers']) unless map['Providers'].nil?)
+        data.providers = (ProvidersListType.parse(map['Providers']) unless map['Providers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2165,7 +2165,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ProvidersListType
       def self.parse(list)
         list.map do |value|
-          Parsers::ProviderDescription.parse(value) unless value.nil?
+          ProviderDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -2188,7 +2188,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_servers = (Parsers::ResourceServersListType.parse(map['ResourceServers']) unless map['ResourceServers'].nil?)
+        data.resource_servers = (ResourceServersListType.parse(map['ResourceServers']) unless map['ResourceServers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2197,7 +2197,7 @@ module AWS::SDK::CognitoIdentityProvider
     class ResourceServersListType
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceServerType.parse(value) unless value.nil?
+          ResourceServerType.parse(value) unless value.nil?
         end
       end
     end
@@ -2209,7 +2209,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::UserPoolTagsType.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (UserPoolTagsType.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2221,7 +2221,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_import_jobs = (Parsers::UserImportJobsListType.parse(map['UserImportJobs']) unless map['UserImportJobs'].nil?)
+        data.user_import_jobs = (UserImportJobsListType.parse(map['UserImportJobs']) unless map['UserImportJobs'].nil?)
         data.pagination_token = map['PaginationToken']
         data
       end
@@ -2230,7 +2230,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserImportJobsListType
       def self.parse(list)
         list.map do |value|
-          Parsers::UserImportJobType.parse(value) unless value.nil?
+          UserImportJobType.parse(value) unless value.nil?
         end
       end
     end
@@ -2242,7 +2242,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_pool_clients = (Parsers::UserPoolClientListType.parse(map['UserPoolClients']) unless map['UserPoolClients'].nil?)
+        data.user_pool_clients = (UserPoolClientListType.parse(map['UserPoolClients']) unless map['UserPoolClients'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2251,7 +2251,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserPoolClientListType
       def self.parse(list)
         list.map do |value|
-          Parsers::UserPoolClientDescription.parse(value) unless value.nil?
+          UserPoolClientDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -2273,7 +2273,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_pools = (Parsers::UserPoolListType.parse(map['UserPools']) unless map['UserPools'].nil?)
+        data.user_pools = (UserPoolListType.parse(map['UserPools']) unless map['UserPools'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2282,7 +2282,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserPoolListType
       def self.parse(list)
         list.map do |value|
-          Parsers::UserPoolDescriptionType.parse(value) unless value.nil?
+          UserPoolDescriptionType.parse(value) unless value.nil?
         end
       end
     end
@@ -2292,7 +2292,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = Types::UserPoolDescriptionType.new
         data.id = map['Id']
         data.name = map['Name']
-        data.lambda_config = (Parsers::LambdaConfigType.parse(map['LambdaConfig']) unless map['LambdaConfig'].nil?)
+        data.lambda_config = (LambdaConfigType.parse(map['LambdaConfig']) unless map['LambdaConfig'].nil?)
         data.status = map['Status']
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
@@ -2307,7 +2307,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.users = (Parsers::UsersListType.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (UsersListType.parse(map['Users']) unless map['Users'].nil?)
         data.pagination_token = map['PaginationToken']
         data
       end
@@ -2316,7 +2316,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UsersListType
       def self.parse(list)
         list.map do |value|
-          Parsers::UserType.parse(value) unless value.nil?
+          UserType.parse(value) unless value.nil?
         end
       end
     end
@@ -2328,7 +2328,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.users = (Parsers::UsersListType.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (UsersListType.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2341,7 +2341,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.code_delivery_details = (Parsers::CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
+        data.code_delivery_details = (CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
         data
       end
     end
@@ -2355,8 +2355,8 @@ module AWS::SDK::CognitoIdentityProvider
         map = Hearth::JSON.load(body)
         data.challenge_name = map['ChallengeName']
         data.session = map['Session']
-        data.challenge_parameters = (Parsers::ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
-        data.authentication_result = (Parsers::AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
+        data.challenge_parameters = (ChallengeParametersType.parse(map['ChallengeParameters']) unless map['ChallengeParameters'].nil?)
+        data.authentication_result = (AuthenticationResultType.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
         data
       end
     end
@@ -2415,7 +2415,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.risk_configuration = (Parsers::RiskConfigurationType.parse(map['RiskConfiguration']) unless map['RiskConfiguration'].nil?)
+        data.risk_configuration = (RiskConfigurationType.parse(map['RiskConfiguration']) unless map['RiskConfiguration'].nil?)
         data
       end
     end
@@ -2427,7 +2427,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ui_customization = (Parsers::UICustomizationType.parse(map['UICustomization']) unless map['UICustomization'].nil?)
+        data.ui_customization = (UICustomizationType.parse(map['UICustomization']) unless map['UICustomization'].nil?)
         data
       end
     end
@@ -2450,8 +2450,8 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sms_mfa_configuration = (Parsers::SmsMfaConfigType.parse(map['SmsMfaConfiguration']) unless map['SmsMfaConfiguration'].nil?)
-        data.software_token_mfa_configuration = (Parsers::SoftwareTokenMfaConfigType.parse(map['SoftwareTokenMfaConfiguration']) unless map['SoftwareTokenMfaConfiguration'].nil?)
+        data.sms_mfa_configuration = (SmsMfaConfigType.parse(map['SmsMfaConfiguration']) unless map['SmsMfaConfiguration'].nil?)
+        data.software_token_mfa_configuration = (SoftwareTokenMfaConfigType.parse(map['SoftwareTokenMfaConfiguration']) unless map['SoftwareTokenMfaConfiguration'].nil?)
         data.mfa_configuration = map['MfaConfiguration']
         data
       end
@@ -2476,7 +2476,7 @@ module AWS::SDK::CognitoIdentityProvider
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.user_confirmed = map['UserConfirmed']
-        data.code_delivery_details = (Parsers::CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
+        data.code_delivery_details = (CodeDeliveryDetailsType.parse(map['CodeDeliveryDetails']) unless map['CodeDeliveryDetails'].nil?)
         data.user_sub = map['UserSub']
         data
       end
@@ -2489,7 +2489,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_import_job = (Parsers::UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
+        data.user_import_job = (UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
         data
       end
     end
@@ -2501,7 +2501,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_import_job = (Parsers::UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
+        data.user_import_job = (UserImportJobType.parse(map['UserImportJob']) unless map['UserImportJob'].nil?)
         data
       end
     end
@@ -2557,7 +2557,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.group = (Parsers::GroupType.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (GroupType.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -2569,7 +2569,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.identity_provider = (Parsers::IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
+        data.identity_provider = (IdentityProviderType.parse(map['IdentityProvider']) unless map['IdentityProvider'].nil?)
         data
       end
     end
@@ -2581,7 +2581,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_server = (Parsers::ResourceServerType.parse(map['ResourceServer']) unless map['ResourceServer'].nil?)
+        data.resource_server = (ResourceServerType.parse(map['ResourceServer']) unless map['ResourceServer'].nil?)
         data
       end
     end
@@ -2593,7 +2593,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.code_delivery_details_list = (Parsers::CodeDeliveryDetailsListType.parse(map['CodeDeliveryDetailsList']) unless map['CodeDeliveryDetailsList'].nil?)
+        data.code_delivery_details_list = (CodeDeliveryDetailsListType.parse(map['CodeDeliveryDetailsList']) unless map['CodeDeliveryDetailsList'].nil?)
         data
       end
     end
@@ -2601,7 +2601,7 @@ module AWS::SDK::CognitoIdentityProvider
     class CodeDeliveryDetailsListType
       def self.parse(list)
         list.map do |value|
-          Parsers::CodeDeliveryDetailsType.parse(value) unless value.nil?
+          CodeDeliveryDetailsType.parse(value) unless value.nil?
         end
       end
     end
@@ -2624,7 +2624,7 @@ module AWS::SDK::CognitoIdentityProvider
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_pool_client = (Parsers::UserPoolClientType.parse(map['UserPoolClient']) unless map['UserPoolClient'].nil?)
+        data.user_pool_client = (UserPoolClientType.parse(map['UserPoolClient']) unless map['UserPoolClient'].nil?)
         data
       end
     end

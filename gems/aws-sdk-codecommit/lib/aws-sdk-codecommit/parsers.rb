@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::CodeCommit
   module Parsers
 
@@ -172,8 +174,8 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.associated_repository_names = (Parsers::RepositoryNameList.parse(map['associatedRepositoryNames']) unless map['associatedRepositoryNames'].nil?)
-        data.errors = (Parsers::BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.parse(map['errors']) unless map['errors'].nil?)
+        data.associated_repository_names = (RepositoryNameList.parse(map['associatedRepositoryNames']) unless map['associatedRepositoryNames'].nil?)
+        data.errors = (BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::CodeCommit
     class BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchAssociateApprovalRuleTemplateWithRepositoriesError.parse(value) unless value.nil?
+          BatchAssociateApprovalRuleTemplateWithRepositoriesError.parse(value) unless value.nil?
         end
       end
     end
@@ -235,9 +237,9 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conflicts = (Parsers::Conflicts.parse(map['conflicts']) unless map['conflicts'].nil?)
+        data.conflicts = (Conflicts.parse(map['conflicts']) unless map['conflicts'].nil?)
         data.next_token = map['nextToken']
-        data.errors = (Parsers::BatchDescribeMergeConflictsErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchDescribeMergeConflictsErrors.parse(map['errors']) unless map['errors'].nil?)
         data.destination_commit_id = map['destinationCommitId']
         data.source_commit_id = map['sourceCommitId']
         data.base_commit_id = map['baseCommitId']
@@ -248,7 +250,7 @@ module AWS::SDK::CodeCommit
     class BatchDescribeMergeConflictsErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDescribeMergeConflictsError.parse(value) unless value.nil?
+          BatchDescribeMergeConflictsError.parse(value) unless value.nil?
         end
       end
     end
@@ -266,7 +268,7 @@ module AWS::SDK::CodeCommit
     class Conflicts
       def self.parse(list)
         list.map do |value|
-          Parsers::Conflict.parse(value) unless value.nil?
+          Conflict.parse(value) unless value.nil?
         end
       end
     end
@@ -274,8 +276,8 @@ module AWS::SDK::CodeCommit
     class Conflict
       def self.parse(map)
         data = Types::Conflict.new
-        data.conflict_metadata = (Parsers::ConflictMetadata.parse(map['conflictMetadata']) unless map['conflictMetadata'].nil?)
-        data.merge_hunks = (Parsers::MergeHunks.parse(map['mergeHunks']) unless map['mergeHunks'].nil?)
+        data.conflict_metadata = (ConflictMetadata.parse(map['conflictMetadata']) unless map['conflictMetadata'].nil?)
+        data.merge_hunks = (MergeHunks.parse(map['mergeHunks']) unless map['mergeHunks'].nil?)
         return data
       end
     end
@@ -283,7 +285,7 @@ module AWS::SDK::CodeCommit
     class MergeHunks
       def self.parse(list)
         list.map do |value|
-          Parsers::MergeHunk.parse(value) unless value.nil?
+          MergeHunk.parse(value) unless value.nil?
         end
       end
     end
@@ -292,9 +294,9 @@ module AWS::SDK::CodeCommit
       def self.parse(map)
         data = Types::MergeHunk.new
         data.is_conflict = map['isConflict']
-        data.source = (Parsers::MergeHunkDetail.parse(map['source']) unless map['source'].nil?)
-        data.destination = (Parsers::MergeHunkDetail.parse(map['destination']) unless map['destination'].nil?)
-        data.base = (Parsers::MergeHunkDetail.parse(map['base']) unless map['base'].nil?)
+        data.source = (MergeHunkDetail.parse(map['source']) unless map['source'].nil?)
+        data.destination = (MergeHunkDetail.parse(map['destination']) unless map['destination'].nil?)
+        data.base = (MergeHunkDetail.parse(map['base']) unless map['base'].nil?)
         return data
       end
     end
@@ -313,15 +315,15 @@ module AWS::SDK::CodeCommit
       def self.parse(map)
         data = Types::ConflictMetadata.new
         data.file_path = map['filePath']
-        data.file_sizes = (Parsers::FileSizes.parse(map['fileSizes']) unless map['fileSizes'].nil?)
-        data.file_modes = (Parsers::FileModes.parse(map['fileModes']) unless map['fileModes'].nil?)
-        data.object_types = (Parsers::ObjectTypes.parse(map['objectTypes']) unless map['objectTypes'].nil?)
+        data.file_sizes = (FileSizes.parse(map['fileSizes']) unless map['fileSizes'].nil?)
+        data.file_modes = (FileModes.parse(map['fileModes']) unless map['fileModes'].nil?)
+        data.object_types = (ObjectTypes.parse(map['objectTypes']) unless map['objectTypes'].nil?)
         data.number_of_conflicts = map['numberOfConflicts']
-        data.is_binary_file = (Parsers::IsBinaryFile.parse(map['isBinaryFile']) unless map['isBinaryFile'].nil?)
+        data.is_binary_file = (IsBinaryFile.parse(map['isBinaryFile']) unless map['isBinaryFile'].nil?)
         data.content_conflict = map['contentConflict']
         data.file_mode_conflict = map['fileModeConflict']
         data.object_type_conflict = map['objectTypeConflict']
-        data.merge_operations = (Parsers::MergeOperations.parse(map['mergeOperations']) unless map['mergeOperations'].nil?)
+        data.merge_operations = (MergeOperations.parse(map['mergeOperations']) unless map['mergeOperations'].nil?)
         return data
       end
     end
@@ -538,8 +540,8 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.disassociated_repository_names = (Parsers::RepositoryNameList.parse(map['disassociatedRepositoryNames']) unless map['disassociatedRepositoryNames'].nil?)
-        data.errors = (Parsers::BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.parse(map['errors']) unless map['errors'].nil?)
+        data.disassociated_repository_names = (RepositoryNameList.parse(map['disassociatedRepositoryNames']) unless map['disassociatedRepositoryNames'].nil?)
+        data.errors = (BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -547,7 +549,7 @@ module AWS::SDK::CodeCommit
     class BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDisassociateApprovalRuleTemplateFromRepositoriesError.parse(value) unless value.nil?
+          BatchDisassociateApprovalRuleTemplateFromRepositoriesError.parse(value) unless value.nil?
         end
       end
     end
@@ -569,8 +571,8 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.commits = (Parsers::CommitObjectsList.parse(map['commits']) unless map['commits'].nil?)
-        data.errors = (Parsers::BatchGetCommitsErrorsList.parse(map['errors']) unless map['errors'].nil?)
+        data.commits = (CommitObjectsList.parse(map['commits']) unless map['commits'].nil?)
+        data.errors = (BatchGetCommitsErrorsList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -578,7 +580,7 @@ module AWS::SDK::CodeCommit
     class BatchGetCommitsErrorsList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchGetCommitsError.parse(value) unless value.nil?
+          BatchGetCommitsError.parse(value) unless value.nil?
         end
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::CodeCommit
     class CommitObjectsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Commit.parse(value) unless value.nil?
+          Commit.parse(value) unless value.nil?
         end
       end
     end
@@ -606,10 +608,10 @@ module AWS::SDK::CodeCommit
         data = Types::Commit.new
         data.commit_id = map['commitId']
         data.tree_id = map['treeId']
-        data.parents = (Parsers::ParentList.parse(map['parents']) unless map['parents'].nil?)
+        data.parents = (ParentList.parse(map['parents']) unless map['parents'].nil?)
         data.message = map['message']
-        data.author = (Parsers::UserInfo.parse(map['author']) unless map['author'].nil?)
-        data.committer = (Parsers::UserInfo.parse(map['committer']) unless map['committer'].nil?)
+        data.author = (UserInfo.parse(map['author']) unless map['author'].nil?)
+        data.committer = (UserInfo.parse(map['committer']) unless map['committer'].nil?)
         data.additional_data = map['additionalData']
         return data
       end
@@ -664,8 +666,8 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repositories = (Parsers::RepositoryMetadataList.parse(map['repositories']) unless map['repositories'].nil?)
-        data.repositories_not_found = (Parsers::RepositoryNotFoundList.parse(map['repositoriesNotFound']) unless map['repositoriesNotFound'].nil?)
+        data.repositories = (RepositoryMetadataList.parse(map['repositories']) unless map['repositories'].nil?)
+        data.repositories_not_found = (RepositoryNotFoundList.parse(map['repositoriesNotFound']) unless map['repositoriesNotFound'].nil?)
         data
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::CodeCommit
     class RepositoryMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositoryMetadata.parse(value) unless value.nil?
+          RepositoryMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -710,7 +712,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule_template = (Parsers::ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
+        data.approval_rule_template = (ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
         data
       end
     end
@@ -870,9 +872,9 @@ module AWS::SDK::CodeCommit
         map = Hearth::JSON.load(body)
         data.commit_id = map['commitId']
         data.tree_id = map['treeId']
-        data.files_added = (Parsers::FilesMetadata.parse(map['filesAdded']) unless map['filesAdded'].nil?)
-        data.files_updated = (Parsers::FilesMetadata.parse(map['filesUpdated']) unless map['filesUpdated'].nil?)
-        data.files_deleted = (Parsers::FilesMetadata.parse(map['filesDeleted']) unless map['filesDeleted'].nil?)
+        data.files_added = (FilesMetadata.parse(map['filesAdded']) unless map['filesAdded'].nil?)
+        data.files_updated = (FilesMetadata.parse(map['filesUpdated']) unless map['filesUpdated'].nil?)
+        data.files_deleted = (FilesMetadata.parse(map['filesDeleted']) unless map['filesDeleted'].nil?)
         data
       end
     end
@@ -880,7 +882,7 @@ module AWS::SDK::CodeCommit
     class FilesMetadata
       def self.parse(list)
         list.map do |value|
-          Parsers::FileMetadata.parse(value) unless value.nil?
+          FileMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -1238,7 +1240,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end
@@ -1253,10 +1255,10 @@ module AWS::SDK::CodeCommit
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.pull_request_status = map['pullRequestStatus']
         data.author_arn = map['authorArn']
-        data.pull_request_targets = (Parsers::PullRequestTargetList.parse(map['pullRequestTargets']) unless map['pullRequestTargets'].nil?)
+        data.pull_request_targets = (PullRequestTargetList.parse(map['pullRequestTargets']) unless map['pullRequestTargets'].nil?)
         data.client_request_token = map['clientRequestToken']
         data.revision_id = map['revisionId']
-        data.approval_rules = (Parsers::ApprovalRulesList.parse(map['approvalRules']) unless map['approvalRules'].nil?)
+        data.approval_rules = (ApprovalRulesList.parse(map['approvalRules']) unless map['approvalRules'].nil?)
         return data
       end
     end
@@ -1264,7 +1266,7 @@ module AWS::SDK::CodeCommit
     class ApprovalRulesList
       def self.parse(list)
         list.map do |value|
-          Parsers::ApprovalRule.parse(value) unless value.nil?
+          ApprovalRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1279,7 +1281,7 @@ module AWS::SDK::CodeCommit
         data.last_modified_date = Time.at(map['lastModifiedDate'].to_i) if map['lastModifiedDate']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
         data.last_modified_user = map['lastModifiedUser']
-        data.origin_approval_rule_template = (Parsers::OriginApprovalRuleTemplate.parse(map['originApprovalRuleTemplate']) unless map['originApprovalRuleTemplate'].nil?)
+        data.origin_approval_rule_template = (OriginApprovalRuleTemplate.parse(map['originApprovalRuleTemplate']) unless map['originApprovalRuleTemplate'].nil?)
         return data
       end
     end
@@ -1296,7 +1298,7 @@ module AWS::SDK::CodeCommit
     class PullRequestTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::PullRequestTarget.parse(value) unless value.nil?
+          PullRequestTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -1310,7 +1312,7 @@ module AWS::SDK::CodeCommit
         data.destination_commit = map['destinationCommit']
         data.source_commit = map['sourceCommit']
         data.merge_base = map['mergeBase']
-        data.merge_metadata = (Parsers::MergeMetadata.parse(map['mergeMetadata']) unless map['mergeMetadata'].nil?)
+        data.merge_metadata = (MergeMetadata.parse(map['mergeMetadata']) unless map['mergeMetadata'].nil?)
         return data
       end
     end
@@ -1537,7 +1539,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule = (Parsers::ApprovalRule.parse(map['approvalRule']) unless map['approvalRule'].nil?)
+        data.approval_rule = (ApprovalRule.parse(map['approvalRule']) unless map['approvalRule'].nil?)
         data
       end
     end
@@ -1669,7 +1671,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository_metadata = (Parsers::RepositoryMetadata.parse(map['repositoryMetadata']) unless map['repositoryMetadata'].nil?)
+        data.repository_metadata = (RepositoryMetadata.parse(map['repositoryMetadata']) unless map['repositoryMetadata'].nil?)
         data
       end
     end
@@ -1910,7 +1912,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deleted_branch = (Parsers::BranchInfo.parse(map['deletedBranch']) unless map['deletedBranch'].nil?)
+        data.deleted_branch = (BranchInfo.parse(map['deletedBranch']) unless map['deletedBranch'].nil?)
         data
       end
     end
@@ -1943,7 +1945,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comment = (Parsers::Comment.parse(map['comment']) unless map['comment'].nil?)
+        data.comment = (Comment.parse(map['comment']) unless map['comment'].nil?)
         data
       end
     end
@@ -1959,8 +1961,8 @@ module AWS::SDK::CodeCommit
         data.author_arn = map['authorArn']
         data.deleted = map['deleted']
         data.client_request_token = map['clientRequestToken']
-        data.caller_reactions = (Parsers::CallerReactions.parse(map['callerReactions']) unless map['callerReactions'].nil?)
-        data.reaction_counts = (Parsers::ReactionCountsMap.parse(map['reactionCounts']) unless map['reactionCounts'].nil?)
+        data.caller_reactions = (CallerReactions.parse(map['callerReactions']) unless map['callerReactions'].nil?)
+        data.reaction_counts = (ReactionCountsMap.parse(map['reactionCounts']) unless map['reactionCounts'].nil?)
         return data
       end
     end
@@ -2089,8 +2091,8 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conflict_metadata = (Parsers::ConflictMetadata.parse(map['conflictMetadata']) unless map['conflictMetadata'].nil?)
-        data.merge_hunks = (Parsers::MergeHunks.parse(map['mergeHunks']) unless map['mergeHunks'].nil?)
+        data.conflict_metadata = (ConflictMetadata.parse(map['conflictMetadata']) unless map['conflictMetadata'].nil?)
+        data.merge_hunks = (MergeHunks.parse(map['mergeHunks']) unless map['mergeHunks'].nil?)
         data.next_token = map['nextToken']
         data.destination_commit_id = map['destinationCommitId']
         data.source_commit_id = map['sourceCommitId']
@@ -2106,7 +2108,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request_events = (Parsers::PullRequestEventList.parse(map['pullRequestEvents']) unless map['pullRequestEvents'].nil?)
+        data.pull_request_events = (PullRequestEventList.parse(map['pullRequestEvents']) unless map['pullRequestEvents'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2115,7 +2117,7 @@ module AWS::SDK::CodeCommit
     class PullRequestEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::PullRequestEvent.parse(value) unless value.nil?
+          PullRequestEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -2127,13 +2129,13 @@ module AWS::SDK::CodeCommit
         data.event_date = Time.at(map['eventDate'].to_i) if map['eventDate']
         data.pull_request_event_type = map['pullRequestEventType']
         data.actor_arn = map['actorArn']
-        data.pull_request_created_event_metadata = (Parsers::PullRequestCreatedEventMetadata.parse(map['pullRequestCreatedEventMetadata']) unless map['pullRequestCreatedEventMetadata'].nil?)
-        data.pull_request_status_changed_event_metadata = (Parsers::PullRequestStatusChangedEventMetadata.parse(map['pullRequestStatusChangedEventMetadata']) unless map['pullRequestStatusChangedEventMetadata'].nil?)
-        data.pull_request_source_reference_updated_event_metadata = (Parsers::PullRequestSourceReferenceUpdatedEventMetadata.parse(map['pullRequestSourceReferenceUpdatedEventMetadata']) unless map['pullRequestSourceReferenceUpdatedEventMetadata'].nil?)
-        data.pull_request_merged_state_changed_event_metadata = (Parsers::PullRequestMergedStateChangedEventMetadata.parse(map['pullRequestMergedStateChangedEventMetadata']) unless map['pullRequestMergedStateChangedEventMetadata'].nil?)
-        data.approval_rule_event_metadata = (Parsers::ApprovalRuleEventMetadata.parse(map['approvalRuleEventMetadata']) unless map['approvalRuleEventMetadata'].nil?)
-        data.approval_state_changed_event_metadata = (Parsers::ApprovalStateChangedEventMetadata.parse(map['approvalStateChangedEventMetadata']) unless map['approvalStateChangedEventMetadata'].nil?)
-        data.approval_rule_overridden_event_metadata = (Parsers::ApprovalRuleOverriddenEventMetadata.parse(map['approvalRuleOverriddenEventMetadata']) unless map['approvalRuleOverriddenEventMetadata'].nil?)
+        data.pull_request_created_event_metadata = (PullRequestCreatedEventMetadata.parse(map['pullRequestCreatedEventMetadata']) unless map['pullRequestCreatedEventMetadata'].nil?)
+        data.pull_request_status_changed_event_metadata = (PullRequestStatusChangedEventMetadata.parse(map['pullRequestStatusChangedEventMetadata']) unless map['pullRequestStatusChangedEventMetadata'].nil?)
+        data.pull_request_source_reference_updated_event_metadata = (PullRequestSourceReferenceUpdatedEventMetadata.parse(map['pullRequestSourceReferenceUpdatedEventMetadata']) unless map['pullRequestSourceReferenceUpdatedEventMetadata'].nil?)
+        data.pull_request_merged_state_changed_event_metadata = (PullRequestMergedStateChangedEventMetadata.parse(map['pullRequestMergedStateChangedEventMetadata']) unless map['pullRequestMergedStateChangedEventMetadata'].nil?)
+        data.approval_rule_event_metadata = (ApprovalRuleEventMetadata.parse(map['approvalRuleEventMetadata']) unless map['approvalRuleEventMetadata'].nil?)
+        data.approval_state_changed_event_metadata = (ApprovalStateChangedEventMetadata.parse(map['approvalStateChangedEventMetadata']) unless map['approvalStateChangedEventMetadata'].nil?)
+        data.approval_rule_overridden_event_metadata = (ApprovalRuleOverriddenEventMetadata.parse(map['approvalRuleOverriddenEventMetadata']) unless map['approvalRuleOverriddenEventMetadata'].nil?)
         return data
       end
     end
@@ -2171,7 +2173,7 @@ module AWS::SDK::CodeCommit
         data = Types::PullRequestMergedStateChangedEventMetadata.new
         data.repository_name = map['repositoryName']
         data.destination_reference = map['destinationReference']
-        data.merge_metadata = (Parsers::MergeMetadata.parse(map['mergeMetadata']) unless map['mergeMetadata'].nil?)
+        data.merge_metadata = (MergeMetadata.parse(map['mergeMetadata']) unless map['mergeMetadata'].nil?)
         return data
       end
     end
@@ -2272,7 +2274,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.evaluation = (Parsers::Evaluation.parse(map['evaluation']) unless map['evaluation'].nil?)
+        data.evaluation = (Evaluation.parse(map['evaluation']) unless map['evaluation'].nil?)
         data
       end
     end
@@ -2282,8 +2284,8 @@ module AWS::SDK::CodeCommit
         data = Types::Evaluation.new
         data.approved = map['approved']
         data.overridden = map['overridden']
-        data.approval_rules_satisfied = (Parsers::ApprovalRulesSatisfiedList.parse(map['approvalRulesSatisfied']) unless map['approvalRulesSatisfied'].nil?)
-        data.approval_rules_not_satisfied = (Parsers::ApprovalRulesNotSatisfiedList.parse(map['approvalRulesNotSatisfied']) unless map['approvalRulesNotSatisfied'].nil?)
+        data.approval_rules_satisfied = (ApprovalRulesSatisfiedList.parse(map['approvalRulesSatisfied']) unless map['approvalRulesSatisfied'].nil?)
+        data.approval_rules_not_satisfied = (ApprovalRulesNotSatisfiedList.parse(map['approvalRulesNotSatisfied']) unless map['approvalRulesNotSatisfied'].nil?)
         return data
       end
     end
@@ -2347,7 +2349,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule_template = (Parsers::ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
+        data.approval_rule_template = (ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
         data
       end
     end
@@ -2359,7 +2361,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.content = Base64::decode64(map['content']) unless map['content'].nil?
+        data.content = ::Base64::decode64(map['content']) unless map['content'].nil?
         data
       end
     end
@@ -2419,7 +2421,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.branch = (Parsers::BranchInfo.parse(map['branch']) unless map['branch'].nil?)
+        data.branch = (BranchInfo.parse(map['branch']) unless map['branch'].nil?)
         data
       end
     end
@@ -2431,7 +2433,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comment = (Parsers::Comment.parse(map['comment']) unless map['comment'].nil?)
+        data.comment = (Comment.parse(map['comment']) unless map['comment'].nil?)
         data
       end
     end
@@ -2443,7 +2445,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.reactions_for_comment = (Parsers::ReactionsForCommentList.parse(map['reactionsForComment']) unless map['reactionsForComment'].nil?)
+        data.reactions_for_comment = (ReactionsForCommentList.parse(map['reactionsForComment']) unless map['reactionsForComment'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2452,7 +2454,7 @@ module AWS::SDK::CodeCommit
     class ReactionsForCommentList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReactionForComment.parse(value) unless value.nil?
+          ReactionForComment.parse(value) unless value.nil?
         end
       end
     end
@@ -2460,8 +2462,8 @@ module AWS::SDK::CodeCommit
     class ReactionForComment
       def self.parse(map)
         data = Types::ReactionForComment.new
-        data.reaction = (Parsers::ReactionValueFormats.parse(map['reaction']) unless map['reaction'].nil?)
-        data.reaction_users = (Parsers::ReactionUsersList.parse(map['reactionUsers']) unless map['reactionUsers'].nil?)
+        data.reaction = (ReactionValueFormats.parse(map['reaction']) unless map['reaction'].nil?)
+        data.reaction_users = (ReactionUsersList.parse(map['reactionUsers']) unless map['reactionUsers'].nil?)
         data.reactions_from_deleted_users_count = map['reactionsFromDeletedUsersCount']
         return data
       end
@@ -2504,7 +2506,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comments_for_compared_commit_data = (Parsers::CommentsForComparedCommitData.parse(map['commentsForComparedCommitData']) unless map['commentsForComparedCommitData'].nil?)
+        data.comments_for_compared_commit_data = (CommentsForComparedCommitData.parse(map['commentsForComparedCommitData']) unless map['commentsForComparedCommitData'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2513,7 +2515,7 @@ module AWS::SDK::CodeCommit
     class CommentsForComparedCommitData
       def self.parse(list)
         list.map do |value|
-          Parsers::CommentsForComparedCommit.parse(value) unless value.nil?
+          CommentsForComparedCommit.parse(value) unless value.nil?
         end
       end
     end
@@ -2526,8 +2528,8 @@ module AWS::SDK::CodeCommit
         data.after_commit_id = map['afterCommitId']
         data.before_blob_id = map['beforeBlobId']
         data.after_blob_id = map['afterBlobId']
-        data.location = (Parsers::Location.parse(map['location']) unless map['location'].nil?)
-        data.comments = (Parsers::Comments.parse(map['comments']) unless map['comments'].nil?)
+        data.location = (Location.parse(map['location']) unless map['location'].nil?)
+        data.comments = (Comments.parse(map['comments']) unless map['comments'].nil?)
         return data
       end
     end
@@ -2535,7 +2537,7 @@ module AWS::SDK::CodeCommit
     class Comments
       def self.parse(list)
         list.map do |value|
-          Parsers::Comment.parse(value) unless value.nil?
+          Comment.parse(value) unless value.nil?
         end
       end
     end
@@ -2557,7 +2559,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comments_for_pull_request_data = (Parsers::CommentsForPullRequestData.parse(map['commentsForPullRequestData']) unless map['commentsForPullRequestData'].nil?)
+        data.comments_for_pull_request_data = (CommentsForPullRequestData.parse(map['commentsForPullRequestData']) unless map['commentsForPullRequestData'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2566,7 +2568,7 @@ module AWS::SDK::CodeCommit
     class CommentsForPullRequestData
       def self.parse(list)
         list.map do |value|
-          Parsers::CommentsForPullRequest.parse(value) unless value.nil?
+          CommentsForPullRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -2580,8 +2582,8 @@ module AWS::SDK::CodeCommit
         data.after_commit_id = map['afterCommitId']
         data.before_blob_id = map['beforeBlobId']
         data.after_blob_id = map['afterBlobId']
-        data.location = (Parsers::Location.parse(map['location']) unless map['location'].nil?)
-        data.comments = (Parsers::Comments.parse(map['comments']) unless map['comments'].nil?)
+        data.location = (Location.parse(map['location']) unless map['location'].nil?)
+        data.comments = (Comments.parse(map['comments']) unless map['comments'].nil?)
         return data
       end
     end
@@ -2605,7 +2607,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.commit = (Parsers::Commit.parse(map['commit']) unless map['commit'].nil?)
+        data.commit = (Commit.parse(map['commit']) unless map['commit'].nil?)
         data
       end
     end
@@ -2629,7 +2631,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.differences = (Parsers::DifferenceList.parse(map['differences']) unless map['differences'].nil?)
+        data.differences = (DifferenceList.parse(map['differences']) unless map['differences'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2638,7 +2640,7 @@ module AWS::SDK::CodeCommit
     class DifferenceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Difference.parse(value) unless value.nil?
+          Difference.parse(value) unless value.nil?
         end
       end
     end
@@ -2646,8 +2648,8 @@ module AWS::SDK::CodeCommit
     class Difference
       def self.parse(map)
         data = Types::Difference.new
-        data.before_blob = (Parsers::BlobMetadata.parse(map['beforeBlob']) unless map['beforeBlob'].nil?)
-        data.after_blob = (Parsers::BlobMetadata.parse(map['afterBlob']) unless map['afterBlob'].nil?)
+        data.before_blob = (BlobMetadata.parse(map['beforeBlob']) unless map['beforeBlob'].nil?)
+        data.after_blob = (BlobMetadata.parse(map['afterBlob']) unless map['afterBlob'].nil?)
         data.change_type = map['changeType']
         return data
       end
@@ -2687,7 +2689,7 @@ module AWS::SDK::CodeCommit
         data.file_path = map['filePath']
         data.file_mode = map['fileMode']
         data.file_size = map['fileSize']
-        data.file_content = Base64::decode64(map['fileContent']) unless map['fileContent'].nil?
+        data.file_content = ::Base64::decode64(map['fileContent']) unless map['fileContent'].nil?
         data
       end
     end
@@ -2702,10 +2704,10 @@ module AWS::SDK::CodeCommit
         data.commit_id = map['commitId']
         data.folder_path = map['folderPath']
         data.tree_id = map['treeId']
-        data.sub_folders = (Parsers::FolderList.parse(map['subFolders']) unless map['subFolders'].nil?)
-        data.files = (Parsers::FileList.parse(map['files']) unless map['files'].nil?)
-        data.symbolic_links = (Parsers::SymbolicLinkList.parse(map['symbolicLinks']) unless map['symbolicLinks'].nil?)
-        data.sub_modules = (Parsers::SubModuleList.parse(map['subModules']) unless map['subModules'].nil?)
+        data.sub_folders = (FolderList.parse(map['subFolders']) unless map['subFolders'].nil?)
+        data.files = (FileList.parse(map['files']) unless map['files'].nil?)
+        data.symbolic_links = (SymbolicLinkList.parse(map['symbolicLinks']) unless map['symbolicLinks'].nil?)
+        data.sub_modules = (SubModuleList.parse(map['subModules']) unless map['subModules'].nil?)
         data
       end
     end
@@ -2713,7 +2715,7 @@ module AWS::SDK::CodeCommit
     class SubModuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::SubModule.parse(value) unless value.nil?
+          SubModule.parse(value) unless value.nil?
         end
       end
     end
@@ -2731,7 +2733,7 @@ module AWS::SDK::CodeCommit
     class SymbolicLinkList
       def self.parse(list)
         list.map do |value|
-          Parsers::SymbolicLink.parse(value) unless value.nil?
+          SymbolicLink.parse(value) unless value.nil?
         end
       end
     end
@@ -2750,7 +2752,7 @@ module AWS::SDK::CodeCommit
     class FileList
       def self.parse(list)
         list.map do |value|
-          Parsers::File.parse(value) unless value.nil?
+          File.parse(value) unless value.nil?
         end
       end
     end
@@ -2769,7 +2771,7 @@ module AWS::SDK::CodeCommit
     class FolderList
       def self.parse(list)
         list.map do |value|
-          Parsers::Folder.parse(value) unless value.nil?
+          Folder.parse(value) unless value.nil?
         end
       end
     end
@@ -2822,7 +2824,7 @@ module AWS::SDK::CodeCommit
         data.destination_commit_id = map['destinationCommitId']
         data.source_commit_id = map['sourceCommitId']
         data.base_commit_id = map['baseCommitId']
-        data.conflict_metadata_list = (Parsers::ConflictMetadataList.parse(map['conflictMetadataList']) unless map['conflictMetadataList'].nil?)
+        data.conflict_metadata_list = (ConflictMetadataList.parse(map['conflictMetadataList']) unless map['conflictMetadataList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2831,7 +2833,7 @@ module AWS::SDK::CodeCommit
     class ConflictMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConflictMetadata.parse(value) unless value.nil?
+          ConflictMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -2867,7 +2869,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.merge_options = (Parsers::MergeOptions.parse(map['mergeOptions']) unless map['mergeOptions'].nil?)
+        data.merge_options = (MergeOptions.parse(map['mergeOptions']) unless map['mergeOptions'].nil?)
         data.source_commit_id = map['sourceCommitId']
         data.destination_commit_id = map['destinationCommitId']
         data.base_commit_id = map['baseCommitId']
@@ -2890,7 +2892,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end
@@ -2902,7 +2904,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approvals = (Parsers::ApprovalList.parse(map['approvals']) unless map['approvals'].nil?)
+        data.approvals = (ApprovalList.parse(map['approvals']) unless map['approvals'].nil?)
         data
       end
     end
@@ -2910,7 +2912,7 @@ module AWS::SDK::CodeCommit
     class ApprovalList
       def self.parse(list)
         list.map do |value|
-          Parsers::Approval.parse(value) unless value.nil?
+          Approval.parse(value) unless value.nil?
         end
       end
     end
@@ -2944,7 +2946,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository_metadata = (Parsers::RepositoryMetadata.parse(map['repositoryMetadata']) unless map['repositoryMetadata'].nil?)
+        data.repository_metadata = (RepositoryMetadata.parse(map['repositoryMetadata']) unless map['repositoryMetadata'].nil?)
         data
       end
     end
@@ -2957,7 +2959,7 @@ module AWS::SDK::CodeCommit
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.configuration_id = map['configurationId']
-        data.triggers = (Parsers::RepositoryTriggersList.parse(map['triggers']) unless map['triggers'].nil?)
+        data.triggers = (RepositoryTriggersList.parse(map['triggers']) unless map['triggers'].nil?)
         data
       end
     end
@@ -2965,7 +2967,7 @@ module AWS::SDK::CodeCommit
     class RepositoryTriggersList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositoryTrigger.parse(value) unless value.nil?
+          RepositoryTrigger.parse(value) unless value.nil?
         end
       end
     end
@@ -2976,8 +2978,8 @@ module AWS::SDK::CodeCommit
         data.name = map['name']
         data.destination_arn = map['destinationArn']
         data.custom_data = map['customData']
-        data.branches = (Parsers::BranchNameList.parse(map['branches']) unless map['branches'].nil?)
-        data.events = (Parsers::RepositoryTriggerEventList.parse(map['events']) unless map['events'].nil?)
+        data.branches = (BranchNameList.parse(map['branches']) unless map['branches'].nil?)
+        data.events = (RepositoryTriggerEventList.parse(map['events']) unless map['events'].nil?)
         return data
       end
     end
@@ -3005,7 +3007,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule_template_names = (Parsers::ApprovalRuleTemplateNameList.parse(map['approvalRuleTemplateNames']) unless map['approvalRuleTemplateNames'].nil?)
+        data.approval_rule_template_names = (ApprovalRuleTemplateNameList.parse(map['approvalRuleTemplateNames']) unless map['approvalRuleTemplateNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3026,7 +3028,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule_template_names = (Parsers::ApprovalRuleTemplateNameList.parse(map['approvalRuleTemplateNames']) unless map['approvalRuleTemplateNames'].nil?)
+        data.approval_rule_template_names = (ApprovalRuleTemplateNameList.parse(map['approvalRuleTemplateNames']) unless map['approvalRuleTemplateNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3039,7 +3041,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.branches = (Parsers::BranchNameList.parse(map['branches']) unless map['branches'].nil?)
+        data.branches = (BranchNameList.parse(map['branches']) unless map['branches'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3052,7 +3054,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request_ids = (Parsers::PullRequestIdList.parse(map['pullRequestIds']) unless map['pullRequestIds'].nil?)
+        data.pull_request_ids = (PullRequestIdList.parse(map['pullRequestIds']) unless map['pullRequestIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3109,7 +3111,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repositories = (Parsers::RepositoryNameIdPairList.parse(map['repositories']) unless map['repositories'].nil?)
+        data.repositories = (RepositoryNameIdPairList.parse(map['repositories']) unless map['repositories'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3118,7 +3120,7 @@ module AWS::SDK::CodeCommit
     class RepositoryNameIdPairList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositoryNameIdPair.parse(value) unless value.nil?
+          RepositoryNameIdPair.parse(value) unless value.nil?
         end
       end
     end
@@ -3163,7 +3165,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository_names = (Parsers::RepositoryNameList.parse(map['repositoryNames']) unless map['repositoryNames'].nil?)
+        data.repository_names = (RepositoryNameList.parse(map['repositoryNames']) unless map['repositoryNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3176,7 +3178,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -3274,7 +3276,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end
@@ -3310,7 +3312,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end
@@ -3322,7 +3324,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end
@@ -3386,8 +3388,8 @@ module AWS::SDK::CodeCommit
         data.after_commit_id = map['afterCommitId']
         data.before_blob_id = map['beforeBlobId']
         data.after_blob_id = map['afterBlobId']
-        data.location = (Parsers::Location.parse(map['location']) unless map['location'].nil?)
-        data.comment = (Parsers::Comment.parse(map['comment']) unless map['comment'].nil?)
+        data.location = (Location.parse(map['location']) unless map['location'].nil?)
+        data.comment = (Comment.parse(map['comment']) unless map['comment'].nil?)
         data
       end
     end
@@ -3477,8 +3479,8 @@ module AWS::SDK::CodeCommit
         data.after_commit_id = map['afterCommitId']
         data.before_blob_id = map['beforeBlobId']
         data.after_blob_id = map['afterBlobId']
-        data.location = (Parsers::Location.parse(map['location']) unless map['location'].nil?)
-        data.comment = (Parsers::Comment.parse(map['comment']) unless map['comment'].nil?)
+        data.location = (Location.parse(map['location']) unless map['location'].nil?)
+        data.comment = (Comment.parse(map['comment']) unless map['comment'].nil?)
         data
       end
     end
@@ -3490,7 +3492,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comment = (Parsers::Comment.parse(map['comment']) unless map['comment'].nil?)
+        data.comment = (Comment.parse(map['comment']) unless map['comment'].nil?)
         data
       end
     end
@@ -3778,8 +3780,8 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.successful_executions = (Parsers::RepositoryTriggerNameList.parse(map['successfulExecutions']) unless map['successfulExecutions'].nil?)
-        data.failed_executions = (Parsers::RepositoryTriggerExecutionFailureList.parse(map['failedExecutions']) unless map['failedExecutions'].nil?)
+        data.successful_executions = (RepositoryTriggerNameList.parse(map['successfulExecutions']) unless map['successfulExecutions'].nil?)
+        data.failed_executions = (RepositoryTriggerExecutionFailureList.parse(map['failedExecutions']) unless map['failedExecutions'].nil?)
         data
       end
     end
@@ -3787,7 +3789,7 @@ module AWS::SDK::CodeCommit
     class RepositoryTriggerExecutionFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositoryTriggerExecutionFailure.parse(value) unless value.nil?
+          RepositoryTriggerExecutionFailure.parse(value) unless value.nil?
         end
       end
     end
@@ -3851,7 +3853,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule_template = (Parsers::ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
+        data.approval_rule_template = (ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
         data
       end
     end
@@ -3875,7 +3877,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule_template = (Parsers::ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
+        data.approval_rule_template = (ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
         data
       end
     end
@@ -3887,7 +3889,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule_template = (Parsers::ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
+        data.approval_rule_template = (ApprovalRuleTemplate.parse(map['approvalRuleTemplate']) unless map['approvalRuleTemplate'].nil?)
         data
       end
     end
@@ -3899,7 +3901,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comment = (Parsers::Comment.parse(map['comment']) unless map['comment'].nil?)
+        data.comment = (Comment.parse(map['comment']) unless map['comment'].nil?)
         data
       end
     end
@@ -3934,7 +3936,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.approval_rule = (Parsers::ApprovalRule.parse(map['approvalRule']) unless map['approvalRule'].nil?)
+        data.approval_rule = (ApprovalRule.parse(map['approvalRule']) unless map['approvalRule'].nil?)
         data
       end
     end
@@ -4029,7 +4031,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end
@@ -4041,7 +4043,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end
@@ -4077,7 +4079,7 @@ module AWS::SDK::CodeCommit
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pull_request = (Parsers::PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
+        data.pull_request = (PullRequest.parse(map['pullRequest']) unless map['pullRequest'].nil?)
         data
       end
     end

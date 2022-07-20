@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::OpenSearch
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connection'] = Stubs::InboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = InboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,10 +45,10 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::InboundConnection.new
         data = {}
-        data['LocalDomainInfo'] = Stubs::DomainInformationContainer.stub(stub[:local_domain_info]) unless stub[:local_domain_info].nil?
-        data['RemoteDomainInfo'] = Stubs::DomainInformationContainer.stub(stub[:remote_domain_info]) unless stub[:remote_domain_info].nil?
+        data['LocalDomainInfo'] = DomainInformationContainer.stub(stub[:local_domain_info]) unless stub[:local_domain_info].nil?
+        data['RemoteDomainInfo'] = DomainInformationContainer.stub(stub[:remote_domain_info]) unless stub[:remote_domain_info].nil?
         data['ConnectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
-        data['ConnectionStatus'] = Stubs::InboundConnectionStatus.stub(stub[:connection_status]) unless stub[:connection_status].nil?
+        data['ConnectionStatus'] = InboundConnectionStatus.stub(stub[:connection_status]) unless stub[:connection_status].nil?
         data
       end
     end
@@ -84,7 +86,7 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::DomainInformationContainer.new
         data = {}
-        data['AWSDomainInformation'] = Stubs::AWSDomainInformation.stub(stub[:aws_domain_information]) unless stub[:aws_domain_information].nil?
+        data['AWSDomainInformation'] = AWSDomainInformation.stub(stub[:aws_domain_information]) unless stub[:aws_domain_information].nil?
         data
       end
     end
@@ -136,8 +138,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainPackageDetails'] = Stubs::DomainPackageDetails.stub(stub[:domain_package_details]) unless stub[:domain_package_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainPackageDetails'] = DomainPackageDetails.stub(stub[:domain_package_details]) unless stub[:domain_package_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -170,7 +172,7 @@ module AWS::SDK::OpenSearch
         data['DomainPackageStatus'] = stub[:domain_package_status] unless stub[:domain_package_status].nil?
         data['PackageVersion'] = stub[:package_version] unless stub[:package_version].nil?
         data['ReferencePath'] = stub[:reference_path] unless stub[:reference_path].nil?
-        data['ErrorDetails'] = Stubs::ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
+        data['ErrorDetails'] = ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
         data
       end
     end
@@ -207,8 +209,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ServiceSoftwareOptions'] = Stubs::ServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceSoftwareOptions'] = ServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,8 +258,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainStatus'] = Stubs::DomainStatus.stub(stub[:domain_status]) unless stub[:domain_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainStatus'] = DomainStatus.stub(stub[:domain_status]) unless stub[:domain_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -304,25 +306,25 @@ module AWS::SDK::OpenSearch
         data['Created'] = stub[:created] unless stub[:created].nil?
         data['Deleted'] = stub[:deleted] unless stub[:deleted].nil?
         data['Endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
-        data['Endpoints'] = Stubs::EndpointsMap.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = EndpointsMap.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['Processing'] = stub[:processing] unless stub[:processing].nil?
         data['UpgradeProcessing'] = stub[:upgrade_processing] unless stub[:upgrade_processing].nil?
         data['EngineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
-        data['ClusterConfig'] = Stubs::ClusterConfig.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
-        data['EBSOptions'] = Stubs::EBSOptions.stub(stub[:ebs_options]) unless stub[:ebs_options].nil?
+        data['ClusterConfig'] = ClusterConfig.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
+        data['EBSOptions'] = EBSOptions.stub(stub[:ebs_options]) unless stub[:ebs_options].nil?
         data['AccessPolicies'] = stub[:access_policies] unless stub[:access_policies].nil?
-        data['SnapshotOptions'] = Stubs::SnapshotOptions.stub(stub[:snapshot_options]) unless stub[:snapshot_options].nil?
-        data['VPCOptions'] = Stubs::VPCDerivedInfo.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
-        data['CognitoOptions'] = Stubs::CognitoOptions.stub(stub[:cognito_options]) unless stub[:cognito_options].nil?
-        data['EncryptionAtRestOptions'] = Stubs::EncryptionAtRestOptions.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Stubs::NodeToNodeEncryptionOptions.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
-        data['AdvancedOptions'] = Stubs::AdvancedOptions.stub(stub[:advanced_options]) unless stub[:advanced_options].nil?
-        data['LogPublishingOptions'] = Stubs::LogPublishingOptions.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
-        data['ServiceSoftwareOptions'] = Stubs::ServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
-        data['DomainEndpointOptions'] = Stubs::DomainEndpointOptions.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
-        data['AdvancedSecurityOptions'] = Stubs::AdvancedSecurityOptions.stub(stub[:advanced_security_options]) unless stub[:advanced_security_options].nil?
-        data['AutoTuneOptions'] = Stubs::AutoTuneOptionsOutput.stub(stub[:auto_tune_options]) unless stub[:auto_tune_options].nil?
-        data['ChangeProgressDetails'] = Stubs::ChangeProgressDetails.stub(stub[:change_progress_details]) unless stub[:change_progress_details].nil?
+        data['SnapshotOptions'] = SnapshotOptions.stub(stub[:snapshot_options]) unless stub[:snapshot_options].nil?
+        data['VPCOptions'] = VPCDerivedInfo.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
+        data['CognitoOptions'] = CognitoOptions.stub(stub[:cognito_options]) unless stub[:cognito_options].nil?
+        data['EncryptionAtRestOptions'] = EncryptionAtRestOptions.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
+        data['NodeToNodeEncryptionOptions'] = NodeToNodeEncryptionOptions.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
+        data['AdvancedOptions'] = AdvancedOptions.stub(stub[:advanced_options]) unless stub[:advanced_options].nil?
+        data['LogPublishingOptions'] = LogPublishingOptions.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
+        data['ServiceSoftwareOptions'] = ServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
+        data['DomainEndpointOptions'] = DomainEndpointOptions.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
+        data['AdvancedSecurityOptions'] = AdvancedSecurityOptions.stub(stub[:advanced_security_options]) unless stub[:advanced_security_options].nil?
+        data['AutoTuneOptions'] = AutoTuneOptionsOutput.stub(stub[:auto_tune_options]) unless stub[:auto_tune_options].nil?
+        data['ChangeProgressDetails'] = ChangeProgressDetails.stub(stub[:change_progress_details]) unless stub[:change_progress_details].nil?
         data
       end
     end
@@ -386,7 +388,7 @@ module AWS::SDK::OpenSearch
         data = {}
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['InternalUserDatabaseEnabled'] = stub[:internal_user_database_enabled] unless stub[:internal_user_database_enabled].nil?
-        data['SAMLOptions'] = Stubs::SAMLOptionsOutput.stub(stub[:saml_options]) unless stub[:saml_options].nil?
+        data['SAMLOptions'] = SAMLOptionsOutput.stub(stub[:saml_options]) unless stub[:saml_options].nil?
         data['AnonymousAuthDisableDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:anonymous_auth_disable_date]).to_i unless stub[:anonymous_auth_disable_date].nil?
         data['AnonymousAuthEnabled'] = stub[:anonymous_auth_enabled] unless stub[:anonymous_auth_enabled].nil?
         data
@@ -411,7 +413,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::SAMLOptionsOutput.new
         data = {}
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['Idp'] = Stubs::SAMLIdp.stub(stub[:idp]) unless stub[:idp].nil?
+        data['Idp'] = SAMLIdp.stub(stub[:idp]) unless stub[:idp].nil?
         data['SubjectKey'] = stub[:subject_key] unless stub[:subject_key].nil?
         data['RolesKey'] = stub[:roles_key] unless stub[:roles_key].nil?
         data['SessionTimeoutMinutes'] = stub[:session_timeout_minutes] unless stub[:session_timeout_minutes].nil?
@@ -479,7 +481,7 @@ module AWS::SDK::OpenSearch
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::LogPublishingOption.stub(value) unless value.nil?
+          data[key] = LogPublishingOption.stub(value) unless value.nil?
         end
         data
       end
@@ -604,9 +606,9 @@ module AWS::SDK::OpenSearch
         stub ||= Types::VPCDerivedInfo.new
         data = {}
         data['VPCId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::StringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['AvailabilityZones'] = Stubs::StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['SecurityGroupIds'] = Stubs::StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = StringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['AvailabilityZones'] = StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['SecurityGroupIds'] = StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -700,13 +702,13 @@ module AWS::SDK::OpenSearch
         data['InstanceCount'] = stub[:instance_count] unless stub[:instance_count].nil?
         data['DedicatedMasterEnabled'] = stub[:dedicated_master_enabled] unless stub[:dedicated_master_enabled].nil?
         data['ZoneAwarenessEnabled'] = stub[:zone_awareness_enabled] unless stub[:zone_awareness_enabled].nil?
-        data['ZoneAwarenessConfig'] = Stubs::ZoneAwarenessConfig.stub(stub[:zone_awareness_config]) unless stub[:zone_awareness_config].nil?
+        data['ZoneAwarenessConfig'] = ZoneAwarenessConfig.stub(stub[:zone_awareness_config]) unless stub[:zone_awareness_config].nil?
         data['DedicatedMasterType'] = stub[:dedicated_master_type] unless stub[:dedicated_master_type].nil?
         data['DedicatedMasterCount'] = stub[:dedicated_master_count] unless stub[:dedicated_master_count].nil?
         data['WarmEnabled'] = stub[:warm_enabled] unless stub[:warm_enabled].nil?
         data['WarmType'] = stub[:warm_type] unless stub[:warm_type].nil?
         data['WarmCount'] = stub[:warm_count] unless stub[:warm_count].nil?
-        data['ColdStorageOptions'] = Stubs::ColdStorageOptions.stub(stub[:cold_storage_options]) unless stub[:cold_storage_options].nil?
+        data['ColdStorageOptions'] = ColdStorageOptions.stub(stub[:cold_storage_options]) unless stub[:cold_storage_options].nil?
         data
       end
     end
@@ -783,12 +785,12 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LocalDomainInfo'] = Stubs::DomainInformationContainer.stub(stub[:local_domain_info]) unless stub[:local_domain_info].nil?
-        data['RemoteDomainInfo'] = Stubs::DomainInformationContainer.stub(stub[:remote_domain_info]) unless stub[:remote_domain_info].nil?
+        data['LocalDomainInfo'] = DomainInformationContainer.stub(stub[:local_domain_info]) unless stub[:local_domain_info].nil?
+        data['RemoteDomainInfo'] = DomainInformationContainer.stub(stub[:remote_domain_info]) unless stub[:remote_domain_info].nil?
         data['ConnectionAlias'] = stub[:connection_alias] unless stub[:connection_alias].nil?
-        data['ConnectionStatus'] = Stubs::OutboundConnectionStatus.stub(stub[:connection_status]) unless stub[:connection_status].nil?
+        data['ConnectionStatus'] = OutboundConnectionStatus.stub(stub[:connection_status]) unless stub[:connection_status].nil?
         data['ConnectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,8 +826,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PackageDetails'] = Stubs::PackageDetails.stub(stub[:package_details]) unless stub[:package_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PackageDetails'] = PackageDetails.stub(stub[:package_details]) unless stub[:package_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -858,7 +860,7 @@ module AWS::SDK::OpenSearch
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['AvailablePackageVersion'] = stub[:available_package_version] unless stub[:available_package_version].nil?
-        data['ErrorDetails'] = Stubs::ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
+        data['ErrorDetails'] = ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
         data
       end
     end
@@ -875,8 +877,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainStatus'] = Stubs::DomainStatus.stub(stub[:domain_status]) unless stub[:domain_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainStatus'] = DomainStatus.stub(stub[:domain_status]) unless stub[:domain_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -892,8 +894,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connection'] = Stubs::InboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = InboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -909,8 +911,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connection'] = Stubs::OutboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = OutboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -931,11 +933,11 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::OutboundConnection.new
         data = {}
-        data['LocalDomainInfo'] = Stubs::DomainInformationContainer.stub(stub[:local_domain_info]) unless stub[:local_domain_info].nil?
-        data['RemoteDomainInfo'] = Stubs::DomainInformationContainer.stub(stub[:remote_domain_info]) unless stub[:remote_domain_info].nil?
+        data['LocalDomainInfo'] = DomainInformationContainer.stub(stub[:local_domain_info]) unless stub[:local_domain_info].nil?
+        data['RemoteDomainInfo'] = DomainInformationContainer.stub(stub[:remote_domain_info]) unless stub[:remote_domain_info].nil?
         data['ConnectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
         data['ConnectionAlias'] = stub[:connection_alias] unless stub[:connection_alias].nil?
-        data['ConnectionStatus'] = Stubs::OutboundConnectionStatus.stub(stub[:connection_status]) unless stub[:connection_status].nil?
+        data['ConnectionStatus'] = OutboundConnectionStatus.stub(stub[:connection_status]) unless stub[:connection_status].nil?
         data
       end
     end
@@ -952,8 +954,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PackageDetails'] = Stubs::PackageDetails.stub(stub[:package_details]) unless stub[:package_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PackageDetails'] = PackageDetails.stub(stub[:package_details]) unless stub[:package_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -969,8 +971,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainStatus'] = Stubs::DomainStatus.stub(stub[:domain_status]) unless stub[:domain_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainStatus'] = DomainStatus.stub(stub[:domain_status]) unless stub[:domain_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -987,9 +989,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AutoTunes'] = Stubs::AutoTuneList.stub(stub[:auto_tunes]) unless stub[:auto_tunes].nil?
+        data['AutoTunes'] = AutoTuneList.stub(stub[:auto_tunes]) unless stub[:auto_tunes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1007,7 +1009,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoTune.stub(element) unless element.nil?
+          data << AutoTune.stub(element) unless element.nil?
         end
         data
       end
@@ -1028,7 +1030,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::AutoTune.new
         data = {}
         data['AutoTuneType'] = stub[:auto_tune_type] unless stub[:auto_tune_type].nil?
-        data['AutoTuneDetails'] = Stubs::AutoTuneDetails.stub(stub[:auto_tune_details]) unless stub[:auto_tune_details].nil?
+        data['AutoTuneDetails'] = AutoTuneDetails.stub(stub[:auto_tune_details]) unless stub[:auto_tune_details].nil?
         data
       end
     end
@@ -1046,7 +1048,7 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::AutoTuneDetails.new
         data = {}
-        data['ScheduledAutoTuneDetails'] = Stubs::ScheduledAutoTuneDetails.stub(stub[:scheduled_auto_tune_details]) unless stub[:scheduled_auto_tune_details].nil?
+        data['ScheduledAutoTuneDetails'] = ScheduledAutoTuneDetails.stub(stub[:scheduled_auto_tune_details]) unless stub[:scheduled_auto_tune_details].nil?
         data
       end
     end
@@ -1087,8 +1089,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChangeProgressStatus'] = Stubs::ChangeProgressStatusDetails.stub(stub[:change_progress_status]) unless stub[:change_progress_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChangeProgressStatus'] = ChangeProgressStatusDetails.stub(stub[:change_progress_status]) unless stub[:change_progress_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1114,10 +1116,10 @@ module AWS::SDK::OpenSearch
         data['ChangeId'] = stub[:change_id] unless stub[:change_id].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['PendingProperties'] = Stubs::StringList.stub(stub[:pending_properties]) unless stub[:pending_properties].nil?
-        data['CompletedProperties'] = Stubs::StringList.stub(stub[:completed_properties]) unless stub[:completed_properties].nil?
+        data['PendingProperties'] = StringList.stub(stub[:pending_properties]) unless stub[:pending_properties].nil?
+        data['CompletedProperties'] = StringList.stub(stub[:completed_properties]) unless stub[:completed_properties].nil?
         data['TotalNumberOfStages'] = stub[:total_number_of_stages] unless stub[:total_number_of_stages].nil?
-        data['ChangeProgressStages'] = Stubs::ChangeProgressStageList.stub(stub[:change_progress_stages]) unless stub[:change_progress_stages].nil?
+        data['ChangeProgressStages'] = ChangeProgressStageList.stub(stub[:change_progress_stages]) unless stub[:change_progress_stages].nil?
         data
       end
     end
@@ -1136,7 +1138,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChangeProgressStage.stub(element) unless element.nil?
+          data << ChangeProgressStage.stub(element) unless element.nil?
         end
         data
       end
@@ -1178,8 +1180,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainConfig'] = Stubs::DomainConfig.stub(stub[:domain_config]) unless stub[:domain_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainConfig'] = DomainConfig.stub(stub[:domain_config]) unless stub[:domain_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1210,21 +1212,21 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::DomainConfig.new
         data = {}
-        data['EngineVersion'] = Stubs::VersionStatus.stub(stub[:engine_version]) unless stub[:engine_version].nil?
-        data['ClusterConfig'] = Stubs::ClusterConfigStatus.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
-        data['EBSOptions'] = Stubs::EBSOptionsStatus.stub(stub[:ebs_options]) unless stub[:ebs_options].nil?
-        data['AccessPolicies'] = Stubs::AccessPoliciesStatus.stub(stub[:access_policies]) unless stub[:access_policies].nil?
-        data['SnapshotOptions'] = Stubs::SnapshotOptionsStatus.stub(stub[:snapshot_options]) unless stub[:snapshot_options].nil?
-        data['VPCOptions'] = Stubs::VPCDerivedInfoStatus.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
-        data['CognitoOptions'] = Stubs::CognitoOptionsStatus.stub(stub[:cognito_options]) unless stub[:cognito_options].nil?
-        data['EncryptionAtRestOptions'] = Stubs::EncryptionAtRestOptionsStatus.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Stubs::NodeToNodeEncryptionOptionsStatus.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
-        data['AdvancedOptions'] = Stubs::AdvancedOptionsStatus.stub(stub[:advanced_options]) unless stub[:advanced_options].nil?
-        data['LogPublishingOptions'] = Stubs::LogPublishingOptionsStatus.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
-        data['DomainEndpointOptions'] = Stubs::DomainEndpointOptionsStatus.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
-        data['AdvancedSecurityOptions'] = Stubs::AdvancedSecurityOptionsStatus.stub(stub[:advanced_security_options]) unless stub[:advanced_security_options].nil?
-        data['AutoTuneOptions'] = Stubs::AutoTuneOptionsStatus.stub(stub[:auto_tune_options]) unless stub[:auto_tune_options].nil?
-        data['ChangeProgressDetails'] = Stubs::ChangeProgressDetails.stub(stub[:change_progress_details]) unless stub[:change_progress_details].nil?
+        data['EngineVersion'] = VersionStatus.stub(stub[:engine_version]) unless stub[:engine_version].nil?
+        data['ClusterConfig'] = ClusterConfigStatus.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
+        data['EBSOptions'] = EBSOptionsStatus.stub(stub[:ebs_options]) unless stub[:ebs_options].nil?
+        data['AccessPolicies'] = AccessPoliciesStatus.stub(stub[:access_policies]) unless stub[:access_policies].nil?
+        data['SnapshotOptions'] = SnapshotOptionsStatus.stub(stub[:snapshot_options]) unless stub[:snapshot_options].nil?
+        data['VPCOptions'] = VPCDerivedInfoStatus.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
+        data['CognitoOptions'] = CognitoOptionsStatus.stub(stub[:cognito_options]) unless stub[:cognito_options].nil?
+        data['EncryptionAtRestOptions'] = EncryptionAtRestOptionsStatus.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
+        data['NodeToNodeEncryptionOptions'] = NodeToNodeEncryptionOptionsStatus.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
+        data['AdvancedOptions'] = AdvancedOptionsStatus.stub(stub[:advanced_options]) unless stub[:advanced_options].nil?
+        data['LogPublishingOptions'] = LogPublishingOptionsStatus.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
+        data['DomainEndpointOptions'] = DomainEndpointOptionsStatus.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
+        data['AdvancedSecurityOptions'] = AdvancedSecurityOptionsStatus.stub(stub[:advanced_security_options]) unless stub[:advanced_security_options].nil?
+        data['AutoTuneOptions'] = AutoTuneOptionsStatus.stub(stub[:auto_tune_options]) unless stub[:auto_tune_options].nil?
+        data['ChangeProgressDetails'] = ChangeProgressDetails.stub(stub[:change_progress_details]) unless stub[:change_progress_details].nil?
         data
       end
     end
@@ -1243,8 +1245,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::AutoTuneOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::AutoTuneOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::AutoTuneStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = AutoTuneOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = AutoTuneStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1294,7 +1296,7 @@ module AWS::SDK::OpenSearch
         data = {}
         data['DesiredState'] = stub[:desired_state] unless stub[:desired_state].nil?
         data['RollbackOnDisable'] = stub[:rollback_on_disable] unless stub[:rollback_on_disable].nil?
-        data['MaintenanceSchedules'] = Stubs::AutoTuneMaintenanceScheduleList.stub(stub[:maintenance_schedules]) unless stub[:maintenance_schedules].nil?
+        data['MaintenanceSchedules'] = AutoTuneMaintenanceScheduleList.stub(stub[:maintenance_schedules]) unless stub[:maintenance_schedules].nil?
         data
       end
     end
@@ -1313,7 +1315,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoTuneMaintenanceSchedule.stub(element) unless element.nil?
+          data << AutoTuneMaintenanceSchedule.stub(element) unless element.nil?
         end
         data
       end
@@ -1335,7 +1337,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::AutoTuneMaintenanceSchedule.new
         data = {}
         data['StartAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_at]).to_i unless stub[:start_at].nil?
-        data['Duration'] = Stubs::Duration.stub(stub[:duration]) unless stub[:duration].nil?
+        data['Duration'] = Duration.stub(stub[:duration]) unless stub[:duration].nil?
         data['CronExpressionForRecurrence'] = stub[:cron_expression_for_recurrence] unless stub[:cron_expression_for_recurrence].nil?
         data
       end
@@ -1375,8 +1377,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::AdvancedSecurityOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::AdvancedSecurityOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = AdvancedSecurityOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1421,8 +1423,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::DomainEndpointOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::DomainEndpointOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = DomainEndpointOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1441,8 +1443,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::LogPublishingOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::LogPublishingOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = LogPublishingOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1461,8 +1463,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::AdvancedOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::AdvancedOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = AdvancedOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1481,8 +1483,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::NodeToNodeEncryptionOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::NodeToNodeEncryptionOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = NodeToNodeEncryptionOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1501,8 +1503,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::EncryptionAtRestOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::EncryptionAtRestOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = EncryptionAtRestOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1521,8 +1523,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::CognitoOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::CognitoOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = CognitoOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1541,8 +1543,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::VPCDerivedInfoStatus.new
         data = {}
-        data['Options'] = Stubs::VPCDerivedInfo.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = VPCDerivedInfo.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1561,8 +1563,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::SnapshotOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::SnapshotOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = SnapshotOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1582,7 +1584,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::AccessPoliciesStatus.new
         data = {}
         data['Options'] = stub[:options] unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1601,8 +1603,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::EBSOptionsStatus.new
         data = {}
-        data['Options'] = Stubs::EBSOptions.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = EBSOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1621,8 +1623,8 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::ClusterConfigStatus.new
         data = {}
-        data['Options'] = Stubs::ClusterConfig.stub(stub[:options]) unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Options'] = ClusterConfig.stub(stub[:options]) unless stub[:options].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1642,7 +1644,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::VersionStatus.new
         data = {}
         data['Options'] = stub[:options] unless stub[:options].nil?
-        data['Status'] = Stubs::OptionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = OptionStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1659,8 +1661,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainStatusList'] = Stubs::DomainStatusList.stub(stub[:domain_status_list]) unless stub[:domain_status_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainStatusList'] = DomainStatusList.stub(stub[:domain_status_list]) unless stub[:domain_status_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1678,7 +1680,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainStatus.stub(element) unless element.nil?
+          data << DomainStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1697,9 +1699,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connections'] = Stubs::InboundConnections.stub(stub[:connections]) unless stub[:connections].nil?
+        data['Connections'] = InboundConnections.stub(stub[:connections]) unless stub[:connections].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1717,7 +1719,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InboundConnection.stub(element) unless element.nil?
+          data << InboundConnection.stub(element) unless element.nil?
         end
         data
       end
@@ -1735,8 +1737,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LimitsByRole'] = Stubs::LimitsByRole.stub(stub[:limits_by_role]) unless stub[:limits_by_role].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LimitsByRole'] = LimitsByRole.stub(stub[:limits_by_role]) unless stub[:limits_by_role].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1754,7 +1756,7 @@ module AWS::SDK::OpenSearch
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Limits.stub(value) unless value.nil?
+          data[key] = Limits.stub(value) unless value.nil?
         end
         data
       end
@@ -1775,9 +1777,9 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::Limits.new
         data = {}
-        data['StorageTypes'] = Stubs::StorageTypeList.stub(stub[:storage_types]) unless stub[:storage_types].nil?
-        data['InstanceLimits'] = Stubs::InstanceLimits.stub(stub[:instance_limits]) unless stub[:instance_limits].nil?
-        data['AdditionalLimits'] = Stubs::AdditionalLimitList.stub(stub[:additional_limits]) unless stub[:additional_limits].nil?
+        data['StorageTypes'] = StorageTypeList.stub(stub[:storage_types]) unless stub[:storage_types].nil?
+        data['InstanceLimits'] = InstanceLimits.stub(stub[:instance_limits]) unless stub[:instance_limits].nil?
+        data['AdditionalLimits'] = AdditionalLimitList.stub(stub[:additional_limits]) unless stub[:additional_limits].nil?
         data
       end
     end
@@ -1796,7 +1798,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdditionalLimit.stub(element) unless element.nil?
+          data << AdditionalLimit.stub(element) unless element.nil?
         end
         data
       end
@@ -1817,7 +1819,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::AdditionalLimit.new
         data = {}
         data['LimitName'] = stub[:limit_name] unless stub[:limit_name].nil?
-        data['LimitValues'] = Stubs::LimitValueList.stub(stub[:limit_values]) unless stub[:limit_values].nil?
+        data['LimitValues'] = LimitValueList.stub(stub[:limit_values]) unless stub[:limit_values].nil?
         data
       end
     end
@@ -1855,7 +1857,7 @@ module AWS::SDK::OpenSearch
       def self.stub(stub)
         stub ||= Types::InstanceLimits.new
         data = {}
-        data['InstanceCountLimits'] = Stubs::InstanceCountLimits.stub(stub[:instance_count_limits]) unless stub[:instance_count_limits].nil?
+        data['InstanceCountLimits'] = InstanceCountLimits.stub(stub[:instance_count_limits]) unless stub[:instance_count_limits].nil?
         data
       end
     end
@@ -1894,7 +1896,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StorageType.stub(element) unless element.nil?
+          data << StorageType.stub(element) unless element.nil?
         end
         data
       end
@@ -1917,7 +1919,7 @@ module AWS::SDK::OpenSearch
         data = {}
         data['StorageTypeName'] = stub[:storage_type_name] unless stub[:storage_type_name].nil?
         data['StorageSubTypeName'] = stub[:storage_sub_type_name] unless stub[:storage_sub_type_name].nil?
-        data['StorageTypeLimits'] = Stubs::StorageTypeLimitList.stub(stub[:storage_type_limits]) unless stub[:storage_type_limits].nil?
+        data['StorageTypeLimits'] = StorageTypeLimitList.stub(stub[:storage_type_limits]) unless stub[:storage_type_limits].nil?
         data
       end
     end
@@ -1936,7 +1938,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StorageTypeLimit.stub(element) unless element.nil?
+          data << StorageTypeLimit.stub(element) unless element.nil?
         end
         data
       end
@@ -1957,7 +1959,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::StorageTypeLimit.new
         data = {}
         data['LimitName'] = stub[:limit_name] unless stub[:limit_name].nil?
-        data['LimitValues'] = Stubs::LimitValueList.stub(stub[:limit_values]) unless stub[:limit_values].nil?
+        data['LimitValues'] = LimitValueList.stub(stub[:limit_values]) unless stub[:limit_values].nil?
         data
       end
     end
@@ -1975,9 +1977,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connections'] = Stubs::OutboundConnections.stub(stub[:connections]) unless stub[:connections].nil?
+        data['Connections'] = OutboundConnections.stub(stub[:connections]) unless stub[:connections].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1995,7 +1997,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutboundConnection.stub(element) unless element.nil?
+          data << OutboundConnection.stub(element) unless element.nil?
         end
         data
       end
@@ -2014,9 +2016,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PackageDetailsList'] = Stubs::PackageDetailsList.stub(stub[:package_details_list]) unless stub[:package_details_list].nil?
+        data['PackageDetailsList'] = PackageDetailsList.stub(stub[:package_details_list]) unless stub[:package_details_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2034,7 +2036,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageDetails.stub(element) unless element.nil?
+          data << PackageDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2054,8 +2056,8 @@ module AWS::SDK::OpenSearch
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ReservedInstanceOfferings'] = Stubs::ReservedInstanceOfferingList.stub(stub[:reserved_instance_offerings]) unless stub[:reserved_instance_offerings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReservedInstanceOfferings'] = ReservedInstanceOfferingList.stub(stub[:reserved_instance_offerings]) unless stub[:reserved_instance_offerings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2073,7 +2075,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReservedInstanceOffering.stub(element) unless element.nil?
+          data << ReservedInstanceOffering.stub(element) unless element.nil?
         end
         data
       end
@@ -2106,7 +2108,7 @@ module AWS::SDK::OpenSearch
         data['UsagePrice'] = Hearth::NumberHelper.serialize(stub[:usage_price])
         data['CurrencyCode'] = stub[:currency_code] unless stub[:currency_code].nil?
         data['PaymentOption'] = stub[:payment_option] unless stub[:payment_option].nil?
-        data['RecurringCharges'] = Stubs::RecurringChargeList.stub(stub[:recurring_charges]) unless stub[:recurring_charges].nil?
+        data['RecurringCharges'] = RecurringChargeList.stub(stub[:recurring_charges]) unless stub[:recurring_charges].nil?
         data
       end
     end
@@ -2125,7 +2127,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecurringCharge.stub(element) unless element.nil?
+          data << RecurringCharge.stub(element) unless element.nil?
         end
         data
       end
@@ -2165,8 +2167,8 @@ module AWS::SDK::OpenSearch
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ReservedInstances'] = Stubs::ReservedInstanceList.stub(stub[:reserved_instances]) unless stub[:reserved_instances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReservedInstances'] = ReservedInstanceList.stub(stub[:reserved_instances]) unless stub[:reserved_instances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2184,7 +2186,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReservedInstance.stub(element) unless element.nil?
+          data << ReservedInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -2229,7 +2231,7 @@ module AWS::SDK::OpenSearch
         data['InstanceCount'] = stub[:instance_count] unless stub[:instance_count].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['PaymentOption'] = stub[:payment_option] unless stub[:payment_option].nil?
-        data['RecurringCharges'] = Stubs::RecurringChargeList.stub(stub[:recurring_charges]) unless stub[:recurring_charges].nil?
+        data['RecurringCharges'] = RecurringChargeList.stub(stub[:recurring_charges]) unless stub[:recurring_charges].nil?
         data
       end
     end
@@ -2246,8 +2248,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainPackageDetails'] = Stubs::DomainPackageDetails.stub(stub[:domain_package_details]) unless stub[:domain_package_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainPackageDetails'] = DomainPackageDetails.stub(stub[:domain_package_details]) unless stub[:domain_package_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2263,8 +2265,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CompatibleVersions'] = Stubs::CompatibleVersionsList.stub(stub[:compatible_versions]) unless stub[:compatible_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CompatibleVersions'] = CompatibleVersionsList.stub(stub[:compatible_versions]) unless stub[:compatible_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2282,7 +2284,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CompatibleVersionsMap.stub(element) unless element.nil?
+          data << CompatibleVersionsMap.stub(element) unless element.nil?
         end
         data
       end
@@ -2303,7 +2305,7 @@ module AWS::SDK::OpenSearch
         stub ||= Types::CompatibleVersionsMap.new
         data = {}
         data['SourceVersion'] = stub[:source_version] unless stub[:source_version].nil?
-        data['TargetVersions'] = Stubs::VersionList.stub(stub[:target_versions]) unless stub[:target_versions].nil?
+        data['TargetVersions'] = VersionList.stub(stub[:target_versions]) unless stub[:target_versions].nil?
         data
       end
     end
@@ -2343,9 +2345,9 @@ module AWS::SDK::OpenSearch
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['PackageID'] = stub[:package_id] unless stub[:package_id].nil?
-        data['PackageVersionHistoryList'] = Stubs::PackageVersionHistoryList.stub(stub[:package_version_history_list]) unless stub[:package_version_history_list].nil?
+        data['PackageVersionHistoryList'] = PackageVersionHistoryList.stub(stub[:package_version_history_list]) unless stub[:package_version_history_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2363,7 +2365,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageVersionHistory.stub(element) unless element.nil?
+          data << PackageVersionHistory.stub(element) unless element.nil?
         end
         data
       end
@@ -2404,9 +2406,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UpgradeHistories'] = Stubs::UpgradeHistoryList.stub(stub[:upgrade_histories]) unless stub[:upgrade_histories].nil?
+        data['UpgradeHistories'] = UpgradeHistoryList.stub(stub[:upgrade_histories]) unless stub[:upgrade_histories].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2424,7 +2426,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpgradeHistory.stub(element) unless element.nil?
+          data << UpgradeHistory.stub(element) unless element.nil?
         end
         data
       end
@@ -2449,7 +2451,7 @@ module AWS::SDK::OpenSearch
         data['UpgradeName'] = stub[:upgrade_name] unless stub[:upgrade_name].nil?
         data['StartTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_timestamp]).to_i unless stub[:start_timestamp].nil?
         data['UpgradeStatus'] = stub[:upgrade_status] unless stub[:upgrade_status].nil?
-        data['StepsList'] = Stubs::UpgradeStepsList.stub(stub[:steps_list]) unless stub[:steps_list].nil?
+        data['StepsList'] = UpgradeStepsList.stub(stub[:steps_list]) unless stub[:steps_list].nil?
         data
       end
     end
@@ -2468,7 +2470,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpgradeStepItem.stub(element) unless element.nil?
+          data << UpgradeStepItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2492,7 +2494,7 @@ module AWS::SDK::OpenSearch
         data = {}
         data['UpgradeStep'] = stub[:upgrade_step] unless stub[:upgrade_step].nil?
         data['UpgradeStepStatus'] = stub[:upgrade_step_status] unless stub[:upgrade_step_status].nil?
-        data['Issues'] = Stubs::Issues.stub(stub[:issues]) unless stub[:issues].nil?
+        data['Issues'] = Issues.stub(stub[:issues]) unless stub[:issues].nil?
         data['ProgressPercent'] = Hearth::NumberHelper.serialize(stub[:progress_percent])
         data
       end
@@ -2535,7 +2537,7 @@ module AWS::SDK::OpenSearch
         data['UpgradeStep'] = stub[:upgrade_step] unless stub[:upgrade_step].nil?
         data['StepStatus'] = stub[:step_status] unless stub[:step_status].nil?
         data['UpgradeName'] = stub[:upgrade_name] unless stub[:upgrade_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2551,8 +2553,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainNames'] = Stubs::DomainInfoList.stub(stub[:domain_names]) unless stub[:domain_names].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainNames'] = DomainInfoList.stub(stub[:domain_names]) unless stub[:domain_names].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2570,7 +2572,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainInfo.stub(element) unless element.nil?
+          data << DomainInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2609,9 +2611,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainPackageDetailsList'] = Stubs::DomainPackageDetailsList.stub(stub[:domain_package_details_list]) unless stub[:domain_package_details_list].nil?
+        data['DomainPackageDetailsList'] = DomainPackageDetailsList.stub(stub[:domain_package_details_list]) unless stub[:domain_package_details_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2629,7 +2631,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainPackageDetails.stub(element) unless element.nil?
+          data << DomainPackageDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2648,9 +2650,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InstanceTypeDetails'] = Stubs::InstanceTypeDetailsList.stub(stub[:instance_type_details]) unless stub[:instance_type_details].nil?
+        data['InstanceTypeDetails'] = InstanceTypeDetailsList.stub(stub[:instance_type_details]) unless stub[:instance_type_details].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2668,7 +2670,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceTypeDetails.stub(element) unless element.nil?
+          data << InstanceTypeDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2699,7 +2701,7 @@ module AWS::SDK::OpenSearch
         data['AppLogsEnabled'] = stub[:app_logs_enabled] unless stub[:app_logs_enabled].nil?
         data['AdvancedSecurityEnabled'] = stub[:advanced_security_enabled] unless stub[:advanced_security_enabled].nil?
         data['WarmEnabled'] = stub[:warm_enabled] unless stub[:warm_enabled].nil?
-        data['InstanceRole'] = Stubs::InstanceRoleList.stub(stub[:instance_role]) unless stub[:instance_role].nil?
+        data['InstanceRole'] = InstanceRoleList.stub(stub[:instance_role]) unless stub[:instance_role].nil?
         data
       end
     end
@@ -2737,9 +2739,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainPackageDetailsList'] = Stubs::DomainPackageDetailsList.stub(stub[:domain_package_details_list]) unless stub[:domain_package_details_list].nil?
+        data['DomainPackageDetailsList'] = DomainPackageDetailsList.stub(stub[:domain_package_details_list]) unless stub[:domain_package_details_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2755,8 +2757,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2774,7 +2776,7 @@ module AWS::SDK::OpenSearch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2813,9 +2815,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Versions'] = Stubs::VersionList.stub(stub[:versions]) unless stub[:versions].nil?
+        data['Versions'] = VersionList.stub(stub[:versions]) unless stub[:versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2834,7 +2836,7 @@ module AWS::SDK::OpenSearch
         http_resp.headers['Content-Type'] = 'application/json'
         data['ReservedInstanceId'] = stub[:reserved_instance_id] unless stub[:reserved_instance_id].nil?
         data['ReservationName'] = stub[:reservation_name] unless stub[:reservation_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2850,8 +2852,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connection'] = Stubs::InboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = InboundConnection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2880,8 +2882,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ServiceSoftwareOptions'] = Stubs::ServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceSoftwareOptions'] = ServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2898,9 +2900,9 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainConfig'] = Stubs::DomainConfig.stub(stub[:domain_config]) unless stub[:domain_config].nil?
-        data['DryRunResults'] = Stubs::DryRunResults.stub(stub[:dry_run_results]) unless stub[:dry_run_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainConfig'] = DomainConfig.stub(stub[:domain_config]) unless stub[:domain_config].nil?
+        data['DryRunResults'] = DryRunResults.stub(stub[:dry_run_results]) unless stub[:dry_run_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2936,8 +2938,8 @@ module AWS::SDK::OpenSearch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PackageDetails'] = Stubs::PackageDetails.stub(stub[:package_details]) unless stub[:package_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PackageDetails'] = PackageDetails.stub(stub[:package_details]) unless stub[:package_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2962,9 +2964,9 @@ module AWS::SDK::OpenSearch
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['TargetVersion'] = stub[:target_version] unless stub[:target_version].nil?
         data['PerformCheckOnly'] = stub[:perform_check_only] unless stub[:perform_check_only].nil?
-        data['AdvancedOptions'] = Stubs::AdvancedOptions.stub(stub[:advanced_options]) unless stub[:advanced_options].nil?
-        data['ChangeProgressDetails'] = Stubs::ChangeProgressDetails.stub(stub[:change_progress_details]) unless stub[:change_progress_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdvancedOptions'] = AdvancedOptions.stub(stub[:advanced_options]) unless stub[:advanced_options].nil?
+        data['ChangeProgressDetails'] = ChangeProgressDetails.stub(stub[:change_progress_details]) unless stub[:change_progress_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

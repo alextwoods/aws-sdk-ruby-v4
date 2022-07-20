@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Glue
   module Stubs
 
@@ -20,8 +23,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::PartitionErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = PartitionErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -40,7 +43,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartitionError.stub(element) unless element.nil?
+          data << PartitionError.stub(element) unless element.nil?
         end
         data
       end
@@ -60,8 +63,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::PartitionError.new
         data = {}
-        data['PartitionValues'] = Stubs::ValueStringList.stub(stub[:partition_values]) unless stub[:partition_values].nil?
-        data['ErrorDetail'] = Stubs::ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
+        data['PartitionValues'] = ValueStringList.stub(stub[:partition_values]) unless stub[:partition_values].nil?
+        data['ErrorDetail'] = ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
         data
       end
     end
@@ -117,9 +120,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Succeeded'] = Stubs::NameStringList.stub(stub[:succeeded]) unless stub[:succeeded].nil?
-        data['Errors'] = Stubs::ErrorByName.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Succeeded'] = NameStringList.stub(stub[:succeeded]) unless stub[:succeeded].nil?
+        data['Errors'] = ErrorByName.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -138,7 +141,7 @@ module AWS::SDK::Glue
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ErrorDetail.stub(value) unless value.nil?
+          data[key] = ErrorDetail.stub(value) unless value.nil?
         end
         data
       end
@@ -174,8 +177,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::PartitionErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = PartitionErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -190,8 +193,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::TableErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = TableErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -210,7 +213,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableError.stub(element) unless element.nil?
+          data << TableError.stub(element) unless element.nil?
         end
         data
       end
@@ -231,7 +234,7 @@ module AWS::SDK::Glue
         stub ||= Types::TableError.new
         data = {}
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['ErrorDetail'] = Stubs::ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
+        data['ErrorDetail'] = ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
         data
       end
     end
@@ -246,8 +249,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::TableVersionErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = TableVersionErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -266,7 +269,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableVersionError.stub(element) unless element.nil?
+          data << TableVersionError.stub(element) unless element.nil?
         end
         data
       end
@@ -289,7 +292,7 @@ module AWS::SDK::Glue
         data = {}
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['ErrorDetail'] = Stubs::ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
+        data['ErrorDetail'] = ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
         data
       end
     end
@@ -305,9 +308,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Blueprints'] = Stubs::Blueprints.stub(stub[:blueprints]) unless stub[:blueprints].nil?
-        data['MissingBlueprints'] = Stubs::BlueprintNames.stub(stub[:missing_blueprints]) unless stub[:missing_blueprints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Blueprints'] = Blueprints.stub(stub[:blueprints]) unless stub[:blueprints].nil?
+        data['MissingBlueprints'] = BlueprintNames.stub(stub[:missing_blueprints]) unless stub[:missing_blueprints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -346,7 +349,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Blueprint.stub(element) unless element.nil?
+          data << Blueprint.stub(element) unless element.nil?
         end
         data
       end
@@ -383,7 +386,7 @@ module AWS::SDK::Glue
         data['BlueprintServiceLocation'] = stub[:blueprint_service_location] unless stub[:blueprint_service_location].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['LastActiveDefinition'] = Stubs::LastActiveDefinition.stub(stub[:last_active_definition]) unless stub[:last_active_definition].nil?
+        data['LastActiveDefinition'] = LastActiveDefinition.stub(stub[:last_active_definition]) unless stub[:last_active_definition].nil?
         data
       end
     end
@@ -425,9 +428,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Crawlers'] = Stubs::CrawlerList.stub(stub[:crawlers]) unless stub[:crawlers].nil?
-        data['CrawlersNotFound'] = Stubs::CrawlerNameList.stub(stub[:crawlers_not_found]) unless stub[:crawlers_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Crawlers'] = CrawlerList.stub(stub[:crawlers]) unless stub[:crawlers].nil?
+        data['CrawlersNotFound'] = CrawlerNameList.stub(stub[:crawlers_not_found]) unless stub[:crawlers_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -466,7 +469,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Crawler.stub(element) unless element.nil?
+          data << Crawler.stub(element) unless element.nil?
         end
         data
       end
@@ -506,24 +509,24 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
-        data['Targets'] = Stubs::CrawlerTargets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = CrawlerTargets.stub(stub[:targets]) unless stub[:targets].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Classifiers'] = Stubs::ClassifierNameList.stub(stub[:classifiers]) unless stub[:classifiers].nil?
-        data['RecrawlPolicy'] = Stubs::RecrawlPolicy.stub(stub[:recrawl_policy]) unless stub[:recrawl_policy].nil?
-        data['SchemaChangePolicy'] = Stubs::SchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
-        data['LineageConfiguration'] = Stubs::LineageConfiguration.stub(stub[:lineage_configuration]) unless stub[:lineage_configuration].nil?
+        data['Classifiers'] = ClassifierNameList.stub(stub[:classifiers]) unless stub[:classifiers].nil?
+        data['RecrawlPolicy'] = RecrawlPolicy.stub(stub[:recrawl_policy]) unless stub[:recrawl_policy].nil?
+        data['SchemaChangePolicy'] = SchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
+        data['LineageConfiguration'] = LineageConfiguration.stub(stub[:lineage_configuration]) unless stub[:lineage_configuration].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['TablePrefix'] = stub[:table_prefix] unless stub[:table_prefix].nil?
-        data['Schedule'] = Stubs::Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['Schedule'] = Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['CrawlElapsedTime'] = stub[:crawl_elapsed_time] unless stub[:crawl_elapsed_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
-        data['LastCrawl'] = Stubs::LastCrawlInfo.stub(stub[:last_crawl]) unless stub[:last_crawl].nil?
+        data['LastCrawl'] = LastCrawlInfo.stub(stub[:last_crawl]) unless stub[:last_crawl].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['Configuration'] = stub[:configuration] unless stub[:configuration].nil?
         data['CrawlerSecurityConfiguration'] = stub[:crawler_security_configuration] unless stub[:crawler_security_configuration].nil?
-        data['LakeFormationConfiguration'] = Stubs::LakeFormationConfiguration.stub(stub[:lake_formation_configuration]) unless stub[:lake_formation_configuration].nil?
+        data['LakeFormationConfiguration'] = LakeFormationConfiguration.stub(stub[:lake_formation_configuration]) unless stub[:lake_formation_configuration].nil?
         data
       end
     end
@@ -690,12 +693,12 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::CrawlerTargets.new
         data = {}
-        data['S3Targets'] = Stubs::S3TargetList.stub(stub[:s3_targets]) unless stub[:s3_targets].nil?
-        data['JdbcTargets'] = Stubs::JdbcTargetList.stub(stub[:jdbc_targets]) unless stub[:jdbc_targets].nil?
-        data['MongoDBTargets'] = Stubs::MongoDBTargetList.stub(stub[:mongo_db_targets]) unless stub[:mongo_db_targets].nil?
-        data['DynamoDBTargets'] = Stubs::DynamoDBTargetList.stub(stub[:dynamo_db_targets]) unless stub[:dynamo_db_targets].nil?
-        data['CatalogTargets'] = Stubs::CatalogTargetList.stub(stub[:catalog_targets]) unless stub[:catalog_targets].nil?
-        data['DeltaTargets'] = Stubs::DeltaTargetList.stub(stub[:delta_targets]) unless stub[:delta_targets].nil?
+        data['S3Targets'] = S3TargetList.stub(stub[:s3_targets]) unless stub[:s3_targets].nil?
+        data['JdbcTargets'] = JdbcTargetList.stub(stub[:jdbc_targets]) unless stub[:jdbc_targets].nil?
+        data['MongoDBTargets'] = MongoDBTargetList.stub(stub[:mongo_db_targets]) unless stub[:mongo_db_targets].nil?
+        data['DynamoDBTargets'] = DynamoDBTargetList.stub(stub[:dynamo_db_targets]) unless stub[:dynamo_db_targets].nil?
+        data['CatalogTargets'] = CatalogTargetList.stub(stub[:catalog_targets]) unless stub[:catalog_targets].nil?
+        data['DeltaTargets'] = DeltaTargetList.stub(stub[:delta_targets]) unless stub[:delta_targets].nil?
         data
       end
     end
@@ -714,7 +717,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeltaTarget.stub(element) unless element.nil?
+          data << DeltaTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -735,7 +738,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::DeltaTarget.new
         data = {}
-        data['DeltaTables'] = Stubs::PathList.stub(stub[:delta_tables]) unless stub[:delta_tables].nil?
+        data['DeltaTables'] = PathList.stub(stub[:delta_tables]) unless stub[:delta_tables].nil?
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data['WriteManifest'] = stub[:write_manifest] unless stub[:write_manifest].nil?
         data
@@ -776,7 +779,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CatalogTarget.stub(element) unless element.nil?
+          data << CatalogTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -798,7 +801,7 @@ module AWS::SDK::Glue
         stub ||= Types::CatalogTarget.new
         data = {}
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
-        data['Tables'] = Stubs::CatalogTablesList.stub(stub[:tables]) unless stub[:tables].nil?
+        data['Tables'] = CatalogTablesList.stub(stub[:tables]) unless stub[:tables].nil?
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data
       end
@@ -838,7 +841,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DynamoDBTarget.stub(element) unless element.nil?
+          data << DynamoDBTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -880,7 +883,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MongoDBTarget.stub(element) unless element.nil?
+          data << MongoDBTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -922,7 +925,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JdbcTarget.stub(element) unless element.nil?
+          data << JdbcTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -945,7 +948,7 @@ module AWS::SDK::Glue
         data = {}
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['Exclusions'] = Stubs::PathList.stub(stub[:exclusions]) unless stub[:exclusions].nil?
+        data['Exclusions'] = PathList.stub(stub[:exclusions]) unless stub[:exclusions].nil?
         data
       end
     end
@@ -964,7 +967,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3Target.stub(element) unless element.nil?
+          data << S3Target.stub(element) unless element.nil?
         end
         data
       end
@@ -989,7 +992,7 @@ module AWS::SDK::Glue
         stub ||= Types::S3Target.new
         data = {}
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['Exclusions'] = Stubs::PathList.stub(stub[:exclusions]) unless stub[:exclusions].nil?
+        data['Exclusions'] = PathList.stub(stub[:exclusions]) unless stub[:exclusions].nil?
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data['SampleSize'] = stub[:sample_size] unless stub[:sample_size].nil?
         data['EventQueueArn'] = stub[:event_queue_arn] unless stub[:event_queue_arn].nil?
@@ -1009,9 +1012,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CustomEntityTypes'] = Stubs::CustomEntityTypes.stub(stub[:custom_entity_types]) unless stub[:custom_entity_types].nil?
-        data['CustomEntityTypesNotFound'] = Stubs::CustomEntityTypeNames.stub(stub[:custom_entity_types_not_found]) unless stub[:custom_entity_types_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomEntityTypes'] = CustomEntityTypes.stub(stub[:custom_entity_types]) unless stub[:custom_entity_types].nil?
+        data['CustomEntityTypesNotFound'] = CustomEntityTypeNames.stub(stub[:custom_entity_types_not_found]) unless stub[:custom_entity_types_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1050,7 +1053,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomEntityType.stub(element) unless element.nil?
+          data << CustomEntityType.stub(element) unless element.nil?
         end
         data
       end
@@ -1073,7 +1076,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['RegexString'] = stub[:regex_string] unless stub[:regex_string].nil?
-        data['ContextWords'] = Stubs::ContextWords.stub(stub[:context_words]) unless stub[:context_words].nil?
+        data['ContextWords'] = ContextWords.stub(stub[:context_words]) unless stub[:context_words].nil?
         data
       end
     end
@@ -1109,9 +1112,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DevEndpoints'] = Stubs::DevEndpointList.stub(stub[:dev_endpoints]) unless stub[:dev_endpoints].nil?
-        data['DevEndpointsNotFound'] = Stubs::DevEndpointNames.stub(stub[:dev_endpoints_not_found]) unless stub[:dev_endpoints_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DevEndpoints'] = DevEndpointList.stub(stub[:dev_endpoints]) unless stub[:dev_endpoints].nil?
+        data['DevEndpointsNotFound'] = DevEndpointNames.stub(stub[:dev_endpoints_not_found]) unless stub[:dev_endpoints_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1150,7 +1153,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DevEndpoint.stub(element) unless element.nil?
+          data << DevEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -1195,7 +1198,7 @@ module AWS::SDK::Glue
         data = {}
         data['EndpointName'] = stub[:endpoint_name] unless stub[:endpoint_name].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['SecurityGroupIds'] = Stubs::StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SecurityGroupIds'] = StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['YarnEndpointAddress'] = stub[:yarn_endpoint_address] unless stub[:yarn_endpoint_address].nil?
         data['PrivateAddress'] = stub[:private_address] unless stub[:private_address].nil?
@@ -1215,9 +1218,9 @@ module AWS::SDK::Glue
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_timestamp]).to_i unless stub[:last_modified_timestamp].nil?
         data['PublicKey'] = stub[:public_key] unless stub[:public_key].nil?
-        data['PublicKeys'] = Stubs::PublicKeysList.stub(stub[:public_keys]) unless stub[:public_keys].nil?
+        data['PublicKeys'] = PublicKeysList.stub(stub[:public_keys]) unless stub[:public_keys].nil?
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
-        data['Arguments'] = Stubs::MapValue.stub(stub[:arguments]) unless stub[:arguments].nil?
+        data['Arguments'] = MapValue.stub(stub[:arguments]) unless stub[:arguments].nil?
         data
       end
     end
@@ -1293,9 +1296,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Jobs'] = Stubs::JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
-        data['JobsNotFound'] = Stubs::JobNameList.stub(stub[:jobs_not_found]) unless stub[:jobs_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Jobs'] = JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['JobsNotFound'] = JobNameList.stub(stub[:jobs_not_found]) unless stub[:jobs_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1334,7 +1337,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Job.stub(element) unless element.nil?
+          data << Job.stub(element) unless element.nil?
         end
         data
       end
@@ -1379,11 +1382,11 @@ module AWS::SDK::Glue
         data['Role'] = stub[:role] unless stub[:role].nil?
         data['CreatedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_on]).to_i unless stub[:created_on].nil?
         data['LastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
-        data['ExecutionProperty'] = Stubs::ExecutionProperty.stub(stub[:execution_property]) unless stub[:execution_property].nil?
-        data['Command'] = Stubs::JobCommand.stub(stub[:command]) unless stub[:command].nil?
-        data['DefaultArguments'] = Stubs::GenericMap.stub(stub[:default_arguments]) unless stub[:default_arguments].nil?
-        data['NonOverridableArguments'] = Stubs::GenericMap.stub(stub[:non_overridable_arguments]) unless stub[:non_overridable_arguments].nil?
-        data['Connections'] = Stubs::ConnectionsList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['ExecutionProperty'] = ExecutionProperty.stub(stub[:execution_property]) unless stub[:execution_property].nil?
+        data['Command'] = JobCommand.stub(stub[:command]) unless stub[:command].nil?
+        data['DefaultArguments'] = GenericMap.stub(stub[:default_arguments]) unless stub[:default_arguments].nil?
+        data['NonOverridableArguments'] = GenericMap.stub(stub[:non_overridable_arguments]) unless stub[:non_overridable_arguments].nil?
+        data['Connections'] = ConnectionsList.stub(stub[:connections]) unless stub[:connections].nil?
         data['MaxRetries'] = stub[:max_retries] unless stub[:max_retries].nil?
         data['AllocatedCapacity'] = stub[:allocated_capacity] unless stub[:allocated_capacity].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
@@ -1391,9 +1394,9 @@ module AWS::SDK::Glue
         data['WorkerType'] = stub[:worker_type] unless stub[:worker_type].nil?
         data['NumberOfWorkers'] = stub[:number_of_workers] unless stub[:number_of_workers].nil?
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
-        data['NotificationProperty'] = Stubs::NotificationProperty.stub(stub[:notification_property]) unless stub[:notification_property].nil?
+        data['NotificationProperty'] = NotificationProperty.stub(stub[:notification_property]) unless stub[:notification_property].nil?
         data['GlueVersion'] = stub[:glue_version] unless stub[:glue_version].nil?
-        data['CodeGenConfigurationNodes'] = Stubs::CodeGenConfigurationNodes.stub(stub[:code_gen_configuration_nodes]) unless stub[:code_gen_configuration_nodes].nil?
+        data['CodeGenConfigurationNodes'] = CodeGenConfigurationNodes.stub(stub[:code_gen_configuration_nodes]) unless stub[:code_gen_configuration_nodes].nil?
         data
       end
     end
@@ -1412,7 +1415,7 @@ module AWS::SDK::Glue
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::CodeGenConfigurationNode.stub(value) unless value.nil?
+          data[key] = CodeGenConfigurationNode.stub(value) unless value.nil?
         end
         data
       end
@@ -1480,56 +1483,56 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::CodeGenConfigurationNode.new
         data = {}
-        data['AthenaConnectorSource'] = Stubs::AthenaConnectorSource.stub(stub[:athena_connector_source]) unless stub[:athena_connector_source].nil?
-        data['JDBCConnectorSource'] = Stubs::JDBCConnectorSource.stub(stub[:jdbc_connector_source]) unless stub[:jdbc_connector_source].nil?
-        data['SparkConnectorSource'] = Stubs::SparkConnectorSource.stub(stub[:spark_connector_source]) unless stub[:spark_connector_source].nil?
-        data['CatalogSource'] = Stubs::CatalogSource.stub(stub[:catalog_source]) unless stub[:catalog_source].nil?
-        data['RedshiftSource'] = Stubs::RedshiftSource.stub(stub[:redshift_source]) unless stub[:redshift_source].nil?
-        data['S3CatalogSource'] = Stubs::S3CatalogSource.stub(stub[:s3_catalog_source]) unless stub[:s3_catalog_source].nil?
-        data['S3CsvSource'] = Stubs::S3CsvSource.stub(stub[:s3_csv_source]) unless stub[:s3_csv_source].nil?
-        data['S3JsonSource'] = Stubs::S3JsonSource.stub(stub[:s3_json_source]) unless stub[:s3_json_source].nil?
-        data['S3ParquetSource'] = Stubs::S3ParquetSource.stub(stub[:s3_parquet_source]) unless stub[:s3_parquet_source].nil?
-        data['RelationalCatalogSource'] = Stubs::RelationalCatalogSource.stub(stub[:relational_catalog_source]) unless stub[:relational_catalog_source].nil?
-        data['DynamoDBCatalogSource'] = Stubs::DynamoDBCatalogSource.stub(stub[:dynamo_db_catalog_source]) unless stub[:dynamo_db_catalog_source].nil?
-        data['JDBCConnectorTarget'] = Stubs::JDBCConnectorTarget.stub(stub[:jdbc_connector_target]) unless stub[:jdbc_connector_target].nil?
-        data['SparkConnectorTarget'] = Stubs::SparkConnectorTarget.stub(stub[:spark_connector_target]) unless stub[:spark_connector_target].nil?
-        data['CatalogTarget'] = Stubs::BasicCatalogTarget.stub(stub[:catalog_target]) unless stub[:catalog_target].nil?
-        data['RedshiftTarget'] = Stubs::RedshiftTarget.stub(stub[:redshift_target]) unless stub[:redshift_target].nil?
-        data['S3CatalogTarget'] = Stubs::S3CatalogTarget.stub(stub[:s3_catalog_target]) unless stub[:s3_catalog_target].nil?
-        data['S3GlueParquetTarget'] = Stubs::S3GlueParquetTarget.stub(stub[:s3_glue_parquet_target]) unless stub[:s3_glue_parquet_target].nil?
-        data['S3DirectTarget'] = Stubs::S3DirectTarget.stub(stub[:s3_direct_target]) unless stub[:s3_direct_target].nil?
-        data['ApplyMapping'] = Stubs::ApplyMapping.stub(stub[:apply_mapping]) unless stub[:apply_mapping].nil?
-        data['SelectFields'] = Stubs::SelectFields.stub(stub[:select_fields]) unless stub[:select_fields].nil?
-        data['DropFields'] = Stubs::DropFields.stub(stub[:drop_fields]) unless stub[:drop_fields].nil?
-        data['RenameField'] = Stubs::RenameField.stub(stub[:rename_field]) unless stub[:rename_field].nil?
-        data['Spigot'] = Stubs::Spigot.stub(stub[:spigot]) unless stub[:spigot].nil?
-        data['Join'] = Stubs::Join.stub(stub[:join]) unless stub[:join].nil?
-        data['SplitFields'] = Stubs::SplitFields.stub(stub[:split_fields]) unless stub[:split_fields].nil?
-        data['SelectFromCollection'] = Stubs::SelectFromCollection.stub(stub[:select_from_collection]) unless stub[:select_from_collection].nil?
-        data['FillMissingValues'] = Stubs::FillMissingValues.stub(stub[:fill_missing_values]) unless stub[:fill_missing_values].nil?
-        data['Filter'] = Stubs::Filter.stub(stub[:filter]) unless stub[:filter].nil?
-        data['CustomCode'] = Stubs::CustomCode.stub(stub[:custom_code]) unless stub[:custom_code].nil?
-        data['SparkSQL'] = Stubs::SparkSQL.stub(stub[:spark_sql]) unless stub[:spark_sql].nil?
-        data['DirectKinesisSource'] = Stubs::DirectKinesisSource.stub(stub[:direct_kinesis_source]) unless stub[:direct_kinesis_source].nil?
-        data['DirectKafkaSource'] = Stubs::DirectKafkaSource.stub(stub[:direct_kafka_source]) unless stub[:direct_kafka_source].nil?
-        data['CatalogKinesisSource'] = Stubs::CatalogKinesisSource.stub(stub[:catalog_kinesis_source]) unless stub[:catalog_kinesis_source].nil?
-        data['CatalogKafkaSource'] = Stubs::CatalogKafkaSource.stub(stub[:catalog_kafka_source]) unless stub[:catalog_kafka_source].nil?
-        data['DropNullFields'] = Stubs::DropNullFields.stub(stub[:drop_null_fields]) unless stub[:drop_null_fields].nil?
-        data['Merge'] = Stubs::Merge.stub(stub[:merge]) unless stub[:merge].nil?
-        data['Union'] = Stubs::Union.stub(stub[:union]) unless stub[:union].nil?
-        data['PIIDetection'] = Stubs::PIIDetection.stub(stub[:pii_detection]) unless stub[:pii_detection].nil?
-        data['Aggregate'] = Stubs::Aggregate.stub(stub[:aggregate]) unless stub[:aggregate].nil?
-        data['DropDuplicates'] = Stubs::DropDuplicates.stub(stub[:drop_duplicates]) unless stub[:drop_duplicates].nil?
-        data['GovernedCatalogTarget'] = Stubs::GovernedCatalogTarget.stub(stub[:governed_catalog_target]) unless stub[:governed_catalog_target].nil?
-        data['GovernedCatalogSource'] = Stubs::GovernedCatalogSource.stub(stub[:governed_catalog_source]) unless stub[:governed_catalog_source].nil?
-        data['MicrosoftSQLServerCatalogSource'] = Stubs::MicrosoftSQLServerCatalogSource.stub(stub[:microsoft_sql_server_catalog_source]) unless stub[:microsoft_sql_server_catalog_source].nil?
-        data['MySQLCatalogSource'] = Stubs::MySQLCatalogSource.stub(stub[:my_sql_catalog_source]) unless stub[:my_sql_catalog_source].nil?
-        data['OracleSQLCatalogSource'] = Stubs::OracleSQLCatalogSource.stub(stub[:oracle_sql_catalog_source]) unless stub[:oracle_sql_catalog_source].nil?
-        data['PostgreSQLCatalogSource'] = Stubs::PostgreSQLCatalogSource.stub(stub[:postgre_sql_catalog_source]) unless stub[:postgre_sql_catalog_source].nil?
-        data['MicrosoftSQLServerCatalogTarget'] = Stubs::MicrosoftSQLServerCatalogTarget.stub(stub[:microsoft_sql_server_catalog_target]) unless stub[:microsoft_sql_server_catalog_target].nil?
-        data['MySQLCatalogTarget'] = Stubs::MySQLCatalogTarget.stub(stub[:my_sql_catalog_target]) unless stub[:my_sql_catalog_target].nil?
-        data['OracleSQLCatalogTarget'] = Stubs::OracleSQLCatalogTarget.stub(stub[:oracle_sql_catalog_target]) unless stub[:oracle_sql_catalog_target].nil?
-        data['PostgreSQLCatalogTarget'] = Stubs::PostgreSQLCatalogTarget.stub(stub[:postgre_sql_catalog_target]) unless stub[:postgre_sql_catalog_target].nil?
+        data['AthenaConnectorSource'] = AthenaConnectorSource.stub(stub[:athena_connector_source]) unless stub[:athena_connector_source].nil?
+        data['JDBCConnectorSource'] = JDBCConnectorSource.stub(stub[:jdbc_connector_source]) unless stub[:jdbc_connector_source].nil?
+        data['SparkConnectorSource'] = SparkConnectorSource.stub(stub[:spark_connector_source]) unless stub[:spark_connector_source].nil?
+        data['CatalogSource'] = CatalogSource.stub(stub[:catalog_source]) unless stub[:catalog_source].nil?
+        data['RedshiftSource'] = RedshiftSource.stub(stub[:redshift_source]) unless stub[:redshift_source].nil?
+        data['S3CatalogSource'] = S3CatalogSource.stub(stub[:s3_catalog_source]) unless stub[:s3_catalog_source].nil?
+        data['S3CsvSource'] = S3CsvSource.stub(stub[:s3_csv_source]) unless stub[:s3_csv_source].nil?
+        data['S3JsonSource'] = S3JsonSource.stub(stub[:s3_json_source]) unless stub[:s3_json_source].nil?
+        data['S3ParquetSource'] = S3ParquetSource.stub(stub[:s3_parquet_source]) unless stub[:s3_parquet_source].nil?
+        data['RelationalCatalogSource'] = RelationalCatalogSource.stub(stub[:relational_catalog_source]) unless stub[:relational_catalog_source].nil?
+        data['DynamoDBCatalogSource'] = DynamoDBCatalogSource.stub(stub[:dynamo_db_catalog_source]) unless stub[:dynamo_db_catalog_source].nil?
+        data['JDBCConnectorTarget'] = JDBCConnectorTarget.stub(stub[:jdbc_connector_target]) unless stub[:jdbc_connector_target].nil?
+        data['SparkConnectorTarget'] = SparkConnectorTarget.stub(stub[:spark_connector_target]) unless stub[:spark_connector_target].nil?
+        data['CatalogTarget'] = BasicCatalogTarget.stub(stub[:catalog_target]) unless stub[:catalog_target].nil?
+        data['RedshiftTarget'] = RedshiftTarget.stub(stub[:redshift_target]) unless stub[:redshift_target].nil?
+        data['S3CatalogTarget'] = S3CatalogTarget.stub(stub[:s3_catalog_target]) unless stub[:s3_catalog_target].nil?
+        data['S3GlueParquetTarget'] = S3GlueParquetTarget.stub(stub[:s3_glue_parquet_target]) unless stub[:s3_glue_parquet_target].nil?
+        data['S3DirectTarget'] = S3DirectTarget.stub(stub[:s3_direct_target]) unless stub[:s3_direct_target].nil?
+        data['ApplyMapping'] = ApplyMapping.stub(stub[:apply_mapping]) unless stub[:apply_mapping].nil?
+        data['SelectFields'] = SelectFields.stub(stub[:select_fields]) unless stub[:select_fields].nil?
+        data['DropFields'] = DropFields.stub(stub[:drop_fields]) unless stub[:drop_fields].nil?
+        data['RenameField'] = RenameField.stub(stub[:rename_field]) unless stub[:rename_field].nil?
+        data['Spigot'] = Spigot.stub(stub[:spigot]) unless stub[:spigot].nil?
+        data['Join'] = Join.stub(stub[:join]) unless stub[:join].nil?
+        data['SplitFields'] = SplitFields.stub(stub[:split_fields]) unless stub[:split_fields].nil?
+        data['SelectFromCollection'] = SelectFromCollection.stub(stub[:select_from_collection]) unless stub[:select_from_collection].nil?
+        data['FillMissingValues'] = FillMissingValues.stub(stub[:fill_missing_values]) unless stub[:fill_missing_values].nil?
+        data['Filter'] = Filter.stub(stub[:filter]) unless stub[:filter].nil?
+        data['CustomCode'] = CustomCode.stub(stub[:custom_code]) unless stub[:custom_code].nil?
+        data['SparkSQL'] = SparkSQL.stub(stub[:spark_sql]) unless stub[:spark_sql].nil?
+        data['DirectKinesisSource'] = DirectKinesisSource.stub(stub[:direct_kinesis_source]) unless stub[:direct_kinesis_source].nil?
+        data['DirectKafkaSource'] = DirectKafkaSource.stub(stub[:direct_kafka_source]) unless stub[:direct_kafka_source].nil?
+        data['CatalogKinesisSource'] = CatalogKinesisSource.stub(stub[:catalog_kinesis_source]) unless stub[:catalog_kinesis_source].nil?
+        data['CatalogKafkaSource'] = CatalogKafkaSource.stub(stub[:catalog_kafka_source]) unless stub[:catalog_kafka_source].nil?
+        data['DropNullFields'] = DropNullFields.stub(stub[:drop_null_fields]) unless stub[:drop_null_fields].nil?
+        data['Merge'] = Merge.stub(stub[:merge]) unless stub[:merge].nil?
+        data['Union'] = Union.stub(stub[:union]) unless stub[:union].nil?
+        data['PIIDetection'] = PIIDetection.stub(stub[:pii_detection]) unless stub[:pii_detection].nil?
+        data['Aggregate'] = Aggregate.stub(stub[:aggregate]) unless stub[:aggregate].nil?
+        data['DropDuplicates'] = DropDuplicates.stub(stub[:drop_duplicates]) unless stub[:drop_duplicates].nil?
+        data['GovernedCatalogTarget'] = GovernedCatalogTarget.stub(stub[:governed_catalog_target]) unless stub[:governed_catalog_target].nil?
+        data['GovernedCatalogSource'] = GovernedCatalogSource.stub(stub[:governed_catalog_source]) unless stub[:governed_catalog_source].nil?
+        data['MicrosoftSQLServerCatalogSource'] = MicrosoftSQLServerCatalogSource.stub(stub[:microsoft_sql_server_catalog_source]) unless stub[:microsoft_sql_server_catalog_source].nil?
+        data['MySQLCatalogSource'] = MySQLCatalogSource.stub(stub[:my_sql_catalog_source]) unless stub[:my_sql_catalog_source].nil?
+        data['OracleSQLCatalogSource'] = OracleSQLCatalogSource.stub(stub[:oracle_sql_catalog_source]) unless stub[:oracle_sql_catalog_source].nil?
+        data['PostgreSQLCatalogSource'] = PostgreSQLCatalogSource.stub(stub[:postgre_sql_catalog_source]) unless stub[:postgre_sql_catalog_source].nil?
+        data['MicrosoftSQLServerCatalogTarget'] = MicrosoftSQLServerCatalogTarget.stub(stub[:microsoft_sql_server_catalog_target]) unless stub[:microsoft_sql_server_catalog_target].nil?
+        data['MySQLCatalogTarget'] = MySQLCatalogTarget.stub(stub[:my_sql_catalog_target]) unless stub[:my_sql_catalog_target].nil?
+        data['OracleSQLCatalogTarget'] = OracleSQLCatalogTarget.stub(stub[:oracle_sql_catalog_target]) unless stub[:oracle_sql_catalog_target].nil?
+        data['PostgreSQLCatalogTarget'] = PostgreSQLCatalogTarget.stub(stub[:postgre_sql_catalog_target]) unless stub[:postgre_sql_catalog_target].nil?
         data
       end
     end
@@ -1551,7 +1554,7 @@ module AWS::SDK::Glue
         stub ||= Types::PostgreSQLCatalogTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data
@@ -1595,7 +1598,7 @@ module AWS::SDK::Glue
         stub ||= Types::OracleSQLCatalogTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data
@@ -1619,7 +1622,7 @@ module AWS::SDK::Glue
         stub ||= Types::MySQLCatalogTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data
@@ -1643,7 +1646,7 @@ module AWS::SDK::Glue
         stub ||= Types::MicrosoftSQLServerCatalogTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data
@@ -1759,7 +1762,7 @@ module AWS::SDK::Glue
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data['PartitionPredicate'] = stub[:partition_predicate] unless stub[:partition_predicate].nil?
-        data['AdditionalOptions'] = Stubs::S3SourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['AdditionalOptions'] = S3SourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
         data
       end
     end
@@ -1803,11 +1806,11 @@ module AWS::SDK::Glue
         stub ||= Types::GovernedCatalogTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['PartitionKeys'] = Stubs::GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
-        data['SchemaChangePolicy'] = Stubs::CatalogSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = CatalogSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
         data
       end
     end
@@ -1846,7 +1849,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnclosedInStringProperties.stub(element) unless element.nil?
+          data << EnclosedInStringProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -1888,8 +1891,8 @@ module AWS::SDK::Glue
         stub ||= Types::DropDuplicates.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Columns'] = Stubs::LimitedPathList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Columns'] = LimitedPathList.stub(stub[:columns]) unless stub[:columns].nil?
         data
       end
     end
@@ -1908,7 +1911,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LimitedStringList.stub(element) unless element.nil?
+          data << LimitedStringList.stub(element) unless element.nil?
         end
         data
       end
@@ -1951,9 +1954,9 @@ module AWS::SDK::Glue
         stub ||= Types::Aggregate.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Groups'] = Stubs::GlueStudioPathList.stub(stub[:groups]) unless stub[:groups].nil?
-        data['Aggs'] = Stubs::AggregateOperations.stub(stub[:aggs]) unless stub[:aggs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Groups'] = GlueStudioPathList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Aggs'] = AggregateOperations.stub(stub[:aggs]) unless stub[:aggs].nil?
         data
       end
     end
@@ -1972,7 +1975,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregateOperation.stub(element) unless element.nil?
+          data << AggregateOperation.stub(element) unless element.nil?
         end
         data
       end
@@ -1992,7 +1995,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::AggregateOperation.new
         data = {}
-        data['Column'] = Stubs::EnclosedInStringProperties.stub(stub[:column]) unless stub[:column].nil?
+        data['Column'] = EnclosedInStringProperties.stub(stub[:column]) unless stub[:column].nil?
         data['AggFunc'] = stub[:agg_func] unless stub[:agg_func].nil?
         data
       end
@@ -2019,9 +2022,9 @@ module AWS::SDK::Glue
         stub ||= Types::PIIDetection.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['PiiType'] = stub[:pii_type] unless stub[:pii_type].nil?
-        data['EntityTypesToDetect'] = Stubs::EnclosedInStringProperties.stub(stub[:entity_types_to_detect]) unless stub[:entity_types_to_detect].nil?
+        data['EntityTypesToDetect'] = EnclosedInStringProperties.stub(stub[:entity_types_to_detect]) unless stub[:entity_types_to_detect].nil?
         data['OutputColumnName'] = stub[:output_column_name] unless stub[:output_column_name].nil?
         data['SampleFraction'] = Hearth::NumberHelper.serialize(stub[:sample_fraction])
         data['ThresholdFraction'] = Hearth::NumberHelper.serialize(stub[:threshold_fraction])
@@ -2046,7 +2049,7 @@ module AWS::SDK::Glue
         stub ||= Types::Union.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::TwoInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = TwoInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['UnionType'] = stub[:union_type] unless stub[:union_type].nil?
         data
       end
@@ -2089,9 +2092,9 @@ module AWS::SDK::Glue
         stub ||= Types::Merge.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::TwoInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = TwoInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Source'] = stub[:source] unless stub[:source].nil?
-        data['PrimaryKeys'] = Stubs::GlueStudioPathList.stub(stub[:primary_keys]) unless stub[:primary_keys].nil?
+        data['PrimaryKeys'] = GlueStudioPathList.stub(stub[:primary_keys]) unless stub[:primary_keys].nil?
         data
       end
     end
@@ -2113,9 +2116,9 @@ module AWS::SDK::Glue
         stub ||= Types::DropNullFields.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['NullCheckBoxList'] = Stubs::NullCheckBoxList.stub(stub[:null_check_box_list]) unless stub[:null_check_box_list].nil?
-        data['NullTextList'] = Stubs::NullValueFields.stub(stub[:null_text_list]) unless stub[:null_text_list].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['NullCheckBoxList'] = NullCheckBoxList.stub(stub[:null_check_box_list]) unless stub[:null_check_box_list].nil?
+        data['NullTextList'] = NullValueFields.stub(stub[:null_text_list]) unless stub[:null_text_list].nil?
         data
       end
     end
@@ -2134,7 +2137,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NullValueField.stub(element) unless element.nil?
+          data << NullValueField.stub(element) unless element.nil?
         end
         data
       end
@@ -2155,7 +2158,7 @@ module AWS::SDK::Glue
         stub ||= Types::NullValueField.new
         data = {}
         data['Value'] = stub[:value] unless stub[:value].nil?
-        data['Datatype'] = Stubs::Datatype.stub(stub[:datatype]) unless stub[:datatype].nil?
+        data['Datatype'] = Datatype.stub(stub[:datatype]) unless stub[:datatype].nil?
         data
       end
     end
@@ -2226,8 +2229,8 @@ module AWS::SDK::Glue
         data['DetectSchema'] = stub[:detect_schema] unless stub[:detect_schema].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
-        data['StreamingOptions'] = Stubs::KafkaStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
-        data['DataPreviewOptions'] = Stubs::StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
+        data['StreamingOptions'] = KafkaStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
         data
       end
     end
@@ -2322,8 +2325,8 @@ module AWS::SDK::Glue
         data['DetectSchema'] = stub[:detect_schema] unless stub[:detect_schema].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
-        data['StreamingOptions'] = Stubs::KinesisStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
-        data['DataPreviewOptions'] = Stubs::StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
+        data['StreamingOptions'] = KinesisStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
         data
       end
     end
@@ -2398,10 +2401,10 @@ module AWS::SDK::Glue
         stub ||= Types::DirectKafkaSource.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['StreamingOptions'] = Stubs::KafkaStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
+        data['StreamingOptions'] = KafkaStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
         data['WindowSize'] = stub[:window_size] unless stub[:window_size].nil?
         data['DetectSchema'] = stub[:detect_schema] unless stub[:detect_schema].nil?
-        data['DataPreviewOptions'] = Stubs::StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
         data
       end
     end
@@ -2426,8 +2429,8 @@ module AWS::SDK::Glue
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['WindowSize'] = stub[:window_size] unless stub[:window_size].nil?
         data['DetectSchema'] = stub[:detect_schema] unless stub[:detect_schema].nil?
-        data['StreamingOptions'] = Stubs::KinesisStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
-        data['DataPreviewOptions'] = Stubs::StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
+        data['StreamingOptions'] = KinesisStreamingSourceOptions.stub(stub[:streaming_options]) unless stub[:streaming_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.stub(stub[:data_preview_options]) unless stub[:data_preview_options].nil?
         data
       end
     end
@@ -2450,10 +2453,10 @@ module AWS::SDK::Glue
         stub ||= Types::SparkSQL.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::ManyInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = ManyInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['SqlQuery'] = stub[:sql_query] unless stub[:sql_query].nil?
-        data['SqlAliases'] = Stubs::SqlAliases.stub(stub[:sql_aliases]) unless stub[:sql_aliases].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['SqlAliases'] = SqlAliases.stub(stub[:sql_aliases]) unless stub[:sql_aliases].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -2472,7 +2475,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlueSchema.stub(element) unless element.nil?
+          data << GlueSchema.stub(element) unless element.nil?
         end
         data
       end
@@ -2491,7 +2494,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::GlueSchema.new
         data = {}
-        data['Columns'] = Stubs::GlueStudioSchemaColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Columns'] = GlueStudioSchemaColumnList.stub(stub[:columns]) unless stub[:columns].nil?
         data
       end
     end
@@ -2510,7 +2513,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlueStudioSchemaColumn.stub(element) unless element.nil?
+          data << GlueStudioSchemaColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -2550,7 +2553,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SqlAlias.stub(element) unless element.nil?
+          data << SqlAlias.stub(element) unless element.nil?
         end
         data
       end
@@ -2614,10 +2617,10 @@ module AWS::SDK::Glue
         stub ||= Types::CustomCode.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::ManyInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = ManyInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Code'] = stub[:code] unless stub[:code].nil?
         data['ClassName'] = stub[:class_name] unless stub[:class_name].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -2639,9 +2642,9 @@ module AWS::SDK::Glue
         stub ||= Types::Filter.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['LogicalOperator'] = stub[:logical_operator] unless stub[:logical_operator].nil?
-        data['Filters'] = Stubs::FilterExpressions.stub(stub[:filters]) unless stub[:filters].nil?
+        data['Filters'] = FilterExpressions.stub(stub[:filters]) unless stub[:filters].nil?
         data
       end
     end
@@ -2660,7 +2663,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FilterExpression.stub(element) unless element.nil?
+          data << FilterExpression.stub(element) unless element.nil?
         end
         data
       end
@@ -2683,7 +2686,7 @@ module AWS::SDK::Glue
         data = {}
         data['Operation'] = stub[:operation] unless stub[:operation].nil?
         data['Negated'] = stub[:negated] unless stub[:negated].nil?
-        data['Values'] = Stubs::FilterValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = FilterValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -2702,7 +2705,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FilterValue.stub(element) unless element.nil?
+          data << FilterValue.stub(element) unless element.nil?
         end
         data
       end
@@ -2723,7 +2726,7 @@ module AWS::SDK::Glue
         stub ||= Types::FilterValue.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Value'] = Stubs::EnclosedInStringProperties.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = EnclosedInStringProperties.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -2745,7 +2748,7 @@ module AWS::SDK::Glue
         stub ||= Types::FillMissingValues.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['ImputedPath'] = stub[:imputed_path] unless stub[:imputed_path].nil?
         data['FilledPath'] = stub[:filled_path] unless stub[:filled_path].nil?
         data
@@ -2768,7 +2771,7 @@ module AWS::SDK::Glue
         stub ||= Types::SelectFromCollection.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Index'] = stub[:index] unless stub[:index].nil?
         data
       end
@@ -2790,8 +2793,8 @@ module AWS::SDK::Glue
         stub ||= Types::SplitFields.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Paths'] = Stubs::GlueStudioPathList.stub(stub[:paths]) unless stub[:paths].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Paths'] = GlueStudioPathList.stub(stub[:paths]) unless stub[:paths].nil?
         data
       end
     end
@@ -2813,9 +2816,9 @@ module AWS::SDK::Glue
         stub ||= Types::Join.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::TwoInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = TwoInputs.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['JoinType'] = stub[:join_type] unless stub[:join_type].nil?
-        data['Columns'] = Stubs::JoinColumns.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Columns'] = JoinColumns.stub(stub[:columns]) unless stub[:columns].nil?
         data
       end
     end
@@ -2834,7 +2837,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JoinColumn.stub(element) unless element.nil?
+          data << JoinColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -2855,7 +2858,7 @@ module AWS::SDK::Glue
         stub ||= Types::JoinColumn.new
         data = {}
         data['From'] = stub[:from] unless stub[:from].nil?
-        data['Keys'] = Stubs::GlueStudioPathList.stub(stub[:keys]) unless stub[:keys].nil?
+        data['Keys'] = GlueStudioPathList.stub(stub[:keys]) unless stub[:keys].nil?
         data
       end
     end
@@ -2878,7 +2881,7 @@ module AWS::SDK::Glue
         stub ||= Types::Spigot.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
         data['Topk'] = stub[:topk] unless stub[:topk].nil?
         data['Prob'] = Hearth::NumberHelper.serialize(stub[:prob])
@@ -2903,9 +2906,9 @@ module AWS::SDK::Glue
         stub ||= Types::RenameField.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['SourcePath'] = Stubs::EnclosedInStringProperties.stub(stub[:source_path]) unless stub[:source_path].nil?
-        data['TargetPath'] = Stubs::EnclosedInStringProperties.stub(stub[:target_path]) unless stub[:target_path].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['SourcePath'] = EnclosedInStringProperties.stub(stub[:source_path]) unless stub[:source_path].nil?
+        data['TargetPath'] = EnclosedInStringProperties.stub(stub[:target_path]) unless stub[:target_path].nil?
         data
       end
     end
@@ -2926,8 +2929,8 @@ module AWS::SDK::Glue
         stub ||= Types::DropFields.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Paths'] = Stubs::GlueStudioPathList.stub(stub[:paths]) unless stub[:paths].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Paths'] = GlueStudioPathList.stub(stub[:paths]) unless stub[:paths].nil?
         data
       end
     end
@@ -2948,8 +2951,8 @@ module AWS::SDK::Glue
         stub ||= Types::SelectFields.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Paths'] = Stubs::GlueStudioPathList.stub(stub[:paths]) unless stub[:paths].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Paths'] = GlueStudioPathList.stub(stub[:paths]) unless stub[:paths].nil?
         data
       end
     end
@@ -2970,8 +2973,8 @@ module AWS::SDK::Glue
         stub ||= Types::ApplyMapping.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Mapping'] = Stubs::Mappings.stub(stub[:mapping]) unless stub[:mapping].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Mapping'] = Mappings.stub(stub[:mapping]) unless stub[:mapping].nil?
         data
       end
     end
@@ -2990,7 +2993,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Mapping.stub(element) unless element.nil?
+          data << Mapping.stub(element) unless element.nil?
         end
         data
       end
@@ -3015,11 +3018,11 @@ module AWS::SDK::Glue
         stub ||= Types::Mapping.new
         data = {}
         data['ToKey'] = stub[:to_key] unless stub[:to_key].nil?
-        data['FromPath'] = Stubs::EnclosedInStringProperties.stub(stub[:from_path]) unless stub[:from_path].nil?
+        data['FromPath'] = EnclosedInStringProperties.stub(stub[:from_path]) unless stub[:from_path].nil?
         data['FromType'] = stub[:from_type] unless stub[:from_type].nil?
         data['ToType'] = stub[:to_type] unless stub[:to_type].nil?
         data['Dropped'] = stub[:dropped] unless stub[:dropped].nil?
-        data['Children'] = Stubs::Mappings.stub(stub[:children]) unless stub[:children].nil?
+        data['Children'] = Mappings.stub(stub[:children]) unless stub[:children].nil?
         data
       end
     end
@@ -3044,12 +3047,12 @@ module AWS::SDK::Glue
         stub ||= Types::S3DirectTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['PartitionKeys'] = Stubs::GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
         data['Compression'] = stub[:compression] unless stub[:compression].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        data['SchemaChangePolicy'] = Stubs::DirectSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = DirectSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
         data
       end
     end
@@ -3097,11 +3100,11 @@ module AWS::SDK::Glue
         stub ||= Types::S3GlueParquetTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['PartitionKeys'] = Stubs::GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
         data['Compression'] = stub[:compression] unless stub[:compression].nil?
-        data['SchemaChangePolicy'] = Stubs::DirectSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = DirectSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
         data
       end
     end
@@ -3125,11 +3128,11 @@ module AWS::SDK::Glue
         stub ||= Types::S3CatalogTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['PartitionKeys'] = Stubs::GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
-        data['SchemaChangePolicy'] = Stubs::CatalogSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = CatalogSchemaChangePolicy.stub(stub[:schema_change_policy]) unless stub[:schema_change_policy].nil?
         data
       end
     end
@@ -3154,12 +3157,12 @@ module AWS::SDK::Glue
         stub ||= Types::RedshiftTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data['RedshiftTmpDir'] = stub[:redshift_tmp_dir] unless stub[:redshift_tmp_dir].nil?
         data['TmpDirIAMRole'] = stub[:tmp_dir_iam_role] unless stub[:tmp_dir_iam_role].nil?
-        data['UpsertRedshiftOptions'] = Stubs::UpsertRedshiftTargetOptions.stub(stub[:upsert_redshift_options]) unless stub[:upsert_redshift_options].nil?
+        data['UpsertRedshiftOptions'] = UpsertRedshiftTargetOptions.stub(stub[:upsert_redshift_options]) unless stub[:upsert_redshift_options].nil?
         data
       end
     end
@@ -3181,7 +3184,7 @@ module AWS::SDK::Glue
         data = {}
         data['TableLocation'] = stub[:table_location] unless stub[:table_location].nil?
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
-        data['UpsertKeys'] = Stubs::EnclosedInStringPropertiesMinOne.stub(stub[:upsert_keys]) unless stub[:upsert_keys].nil?
+        data['UpsertKeys'] = EnclosedInStringPropertiesMinOne.stub(stub[:upsert_keys]) unless stub[:upsert_keys].nil?
         data
       end
     end
@@ -3223,7 +3226,7 @@ module AWS::SDK::Glue
         stub ||= Types::BasicCatalogTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data
@@ -3250,12 +3253,12 @@ module AWS::SDK::Glue
         stub ||= Types::SparkConnectorTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data['ConnectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['ConnectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
-        data['AdditionalOptions'] = Stubs::AdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['AdditionalOptions'] = AdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3301,13 +3304,13 @@ module AWS::SDK::Glue
         stub ||= Types::JDBCConnectorTarget.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Inputs'] = Stubs::OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Inputs'] = OneInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data['ConnectionTable'] = stub[:connection_table] unless stub[:connection_table].nil?
         data['ConnectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['ConnectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
-        data['AdditionalOptions'] = Stubs::AdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['AdditionalOptions'] = AdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3380,16 +3383,16 @@ module AWS::SDK::Glue
         stub ||= Types::S3ParquetSource.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Paths'] = Stubs::EnclosedInStringProperties.stub(stub[:paths]) unless stub[:paths].nil?
+        data['Paths'] = EnclosedInStringProperties.stub(stub[:paths]) unless stub[:paths].nil?
         data['CompressionType'] = stub[:compression_type] unless stub[:compression_type].nil?
-        data['Exclusions'] = Stubs::EnclosedInStringProperties.stub(stub[:exclusions]) unless stub[:exclusions].nil?
+        data['Exclusions'] = EnclosedInStringProperties.stub(stub[:exclusions]) unless stub[:exclusions].nil?
         data['GroupSize'] = stub[:group_size] unless stub[:group_size].nil?
         data['GroupFiles'] = stub[:group_files] unless stub[:group_files].nil?
         data['Recurse'] = stub[:recurse] unless stub[:recurse].nil?
         data['MaxBand'] = stub[:max_band] unless stub[:max_band].nil?
         data['MaxFilesInBand'] = stub[:max_files_in_band] unless stub[:max_files_in_band].nil?
-        data['AdditionalOptions'] = Stubs::S3DirectSourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['AdditionalOptions'] = S3DirectSourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3444,18 +3447,18 @@ module AWS::SDK::Glue
         stub ||= Types::S3JsonSource.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Paths'] = Stubs::EnclosedInStringProperties.stub(stub[:paths]) unless stub[:paths].nil?
+        data['Paths'] = EnclosedInStringProperties.stub(stub[:paths]) unless stub[:paths].nil?
         data['CompressionType'] = stub[:compression_type] unless stub[:compression_type].nil?
-        data['Exclusions'] = Stubs::EnclosedInStringProperties.stub(stub[:exclusions]) unless stub[:exclusions].nil?
+        data['Exclusions'] = EnclosedInStringProperties.stub(stub[:exclusions]) unless stub[:exclusions].nil?
         data['GroupSize'] = stub[:group_size] unless stub[:group_size].nil?
         data['GroupFiles'] = stub[:group_files] unless stub[:group_files].nil?
         data['Recurse'] = stub[:recurse] unless stub[:recurse].nil?
         data['MaxBand'] = stub[:max_band] unless stub[:max_band].nil?
         data['MaxFilesInBand'] = stub[:max_files_in_band] unless stub[:max_files_in_band].nil?
-        data['AdditionalOptions'] = Stubs::S3DirectSourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['AdditionalOptions'] = S3DirectSourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
         data['JsonPath'] = stub[:json_path] unless stub[:json_path].nil?
         data['Multiline'] = stub[:multiline] unless stub[:multiline].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3492,15 +3495,15 @@ module AWS::SDK::Glue
         stub ||= Types::S3CsvSource.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Paths'] = Stubs::EnclosedInStringProperties.stub(stub[:paths]) unless stub[:paths].nil?
+        data['Paths'] = EnclosedInStringProperties.stub(stub[:paths]) unless stub[:paths].nil?
         data['CompressionType'] = stub[:compression_type] unless stub[:compression_type].nil?
-        data['Exclusions'] = Stubs::EnclosedInStringProperties.stub(stub[:exclusions]) unless stub[:exclusions].nil?
+        data['Exclusions'] = EnclosedInStringProperties.stub(stub[:exclusions]) unless stub[:exclusions].nil?
         data['GroupSize'] = stub[:group_size] unless stub[:group_size].nil?
         data['GroupFiles'] = stub[:group_files] unless stub[:group_files].nil?
         data['Recurse'] = stub[:recurse] unless stub[:recurse].nil?
         data['MaxBand'] = stub[:max_band] unless stub[:max_band].nil?
         data['MaxFilesInBand'] = stub[:max_files_in_band] unless stub[:max_files_in_band].nil?
-        data['AdditionalOptions'] = Stubs::S3DirectSourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['AdditionalOptions'] = S3DirectSourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
         data['Separator'] = stub[:separator] unless stub[:separator].nil?
         data['Escaper'] = stub[:escaper] unless stub[:escaper].nil?
         data['QuoteChar'] = stub[:quote_char] unless stub[:quote_char].nil?
@@ -3509,7 +3512,7 @@ module AWS::SDK::Glue
         data['WriteHeader'] = stub[:write_header] unless stub[:write_header].nil?
         data['SkipFirst'] = stub[:skip_first] unless stub[:skip_first].nil?
         data['OptimizePerformance'] = stub[:optimize_performance] unless stub[:optimize_performance].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3535,7 +3538,7 @@ module AWS::SDK::Glue
         data['Database'] = stub[:database] unless stub[:database].nil?
         data['Table'] = stub[:table] unless stub[:table].nil?
         data['PartitionPredicate'] = stub[:partition_predicate] unless stub[:partition_predicate].nil?
-        data['AdditionalOptions'] = Stubs::S3SourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['AdditionalOptions'] = S3SourceAdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
         data
       end
     end
@@ -3610,8 +3613,8 @@ module AWS::SDK::Glue
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data['ConnectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['ConnectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
-        data['AdditionalOptions'] = Stubs::AdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['AdditionalOptions'] = AdditionalOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3640,10 +3643,10 @@ module AWS::SDK::Glue
         data['ConnectionName'] = stub[:connection_name] unless stub[:connection_name].nil?
         data['ConnectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['ConnectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
-        data['AdditionalOptions'] = Stubs::JDBCConnectorOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
+        data['AdditionalOptions'] = JDBCConnectorOptions.stub(stub[:additional_options]) unless stub[:additional_options].nil?
         data['ConnectionTable'] = stub[:connection_table] unless stub[:connection_table].nil?
         data['Query'] = stub[:query] unless stub[:query].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3673,9 +3676,9 @@ module AWS::SDK::Glue
         data['LowerBound'] = stub[:lower_bound] unless stub[:lower_bound].nil?
         data['UpperBound'] = stub[:upper_bound] unless stub[:upper_bound].nil?
         data['NumPartitions'] = stub[:num_partitions] unless stub[:num_partitions].nil?
-        data['JobBookmarkKeys'] = Stubs::EnclosedInStringProperties.stub(stub[:job_bookmark_keys]) unless stub[:job_bookmark_keys].nil?
+        data['JobBookmarkKeys'] = EnclosedInStringProperties.stub(stub[:job_bookmark_keys]) unless stub[:job_bookmark_keys].nil?
         data['JobBookmarkKeysSortOrder'] = stub[:job_bookmark_keys_sort_order] unless stub[:job_bookmark_keys_sort_order].nil?
-        data['DataTypeMapping'] = Stubs::JDBCDataTypeMapping.stub(stub[:data_type_mapping]) unless stub[:data_type_mapping].nil?
+        data['DataTypeMapping'] = JDBCDataTypeMapping.stub(stub[:data_type_mapping]) unless stub[:data_type_mapping].nil?
         data
       end
     end
@@ -3725,7 +3728,7 @@ module AWS::SDK::Glue
         data['ConnectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
         data['ConnectionTable'] = stub[:connection_table] unless stub[:connection_table].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
-        data['OutputSchemas'] = Stubs::GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.stub(stub[:output_schemas]) unless stub[:output_schemas].nil?
         data
       end
     end
@@ -3761,7 +3764,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::ConnectionsList.new
         data = {}
-        data['Connections'] = Stubs::OrchestrationStringList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['Connections'] = OrchestrationStringList.stub(stub[:connections]) unless stub[:connections].nil?
         data
       end
     end
@@ -3857,9 +3860,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Partitions'] = Stubs::PartitionList.stub(stub[:partitions]) unless stub[:partitions].nil?
-        data['UnprocessedKeys'] = Stubs::BatchGetPartitionValueList.stub(stub[:unprocessed_keys]) unless stub[:unprocessed_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Partitions'] = PartitionList.stub(stub[:partitions]) unless stub[:partitions].nil?
+        data['UnprocessedKeys'] = BatchGetPartitionValueList.stub(stub[:unprocessed_keys]) unless stub[:unprocessed_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3878,7 +3881,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartitionValueList.stub(element) unless element.nil?
+          data << PartitionValueList.stub(element) unless element.nil?
         end
         data
       end
@@ -3897,7 +3900,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::PartitionValueList.new
         data = {}
-        data['Values'] = Stubs::ValueStringList.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = ValueStringList.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -3916,7 +3919,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Partition.stub(element) unless element.nil?
+          data << Partition.stub(element) unless element.nil?
         end
         data
       end
@@ -3943,13 +3946,13 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::Partition.new
         data = {}
-        data['Values'] = Stubs::ValueStringList.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = ValueStringList.stub(stub[:values]) unless stub[:values].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastAccessTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_access_time]).to_i unless stub[:last_access_time].nil?
-        data['StorageDescriptor'] = Stubs::StorageDescriptor.stub(stub[:storage_descriptor]) unless stub[:storage_descriptor].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['StorageDescriptor'] = StorageDescriptor.stub(stub[:storage_descriptor]) unless stub[:storage_descriptor].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['LastAnalyzedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_analyzed_time]).to_i unless stub[:last_analyzed_time].nil?
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data
@@ -4002,20 +4005,20 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::StorageDescriptor.new
         data = {}
-        data['Columns'] = Stubs::ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Columns'] = ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
         data['Location'] = stub[:location] unless stub[:location].nil?
-        data['AdditionalLocations'] = Stubs::LocationStringList.stub(stub[:additional_locations]) unless stub[:additional_locations].nil?
+        data['AdditionalLocations'] = LocationStringList.stub(stub[:additional_locations]) unless stub[:additional_locations].nil?
         data['InputFormat'] = stub[:input_format] unless stub[:input_format].nil?
         data['OutputFormat'] = stub[:output_format] unless stub[:output_format].nil?
         data['Compressed'] = stub[:compressed] unless stub[:compressed].nil?
         data['NumberOfBuckets'] = stub[:number_of_buckets] unless stub[:number_of_buckets].nil?
-        data['SerdeInfo'] = Stubs::SerDeInfo.stub(stub[:serde_info]) unless stub[:serde_info].nil?
-        data['BucketColumns'] = Stubs::NameStringList.stub(stub[:bucket_columns]) unless stub[:bucket_columns].nil?
-        data['SortColumns'] = Stubs::OrderList.stub(stub[:sort_columns]) unless stub[:sort_columns].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['SkewedInfo'] = Stubs::SkewedInfo.stub(stub[:skewed_info]) unless stub[:skewed_info].nil?
+        data['SerdeInfo'] = SerDeInfo.stub(stub[:serde_info]) unless stub[:serde_info].nil?
+        data['BucketColumns'] = NameStringList.stub(stub[:bucket_columns]) unless stub[:bucket_columns].nil?
+        data['SortColumns'] = OrderList.stub(stub[:sort_columns]) unless stub[:sort_columns].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['SkewedInfo'] = SkewedInfo.stub(stub[:skewed_info]) unless stub[:skewed_info].nil?
         data['StoredAsSubDirectories'] = stub[:stored_as_sub_directories] unless stub[:stored_as_sub_directories].nil?
-        data['SchemaReference'] = Stubs::SchemaReference.stub(stub[:schema_reference]) unless stub[:schema_reference].nil?
+        data['SchemaReference'] = SchemaReference.stub(stub[:schema_reference]) unless stub[:schema_reference].nil?
         data
       end
     end
@@ -4035,7 +4038,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::SchemaReference.new
         data = {}
-        data['SchemaId'] = Stubs::SchemaId.stub(stub[:schema_id]) unless stub[:schema_id].nil?
+        data['SchemaId'] = SchemaId.stub(stub[:schema_id]) unless stub[:schema_id].nil?
         data['SchemaVersionId'] = stub[:schema_version_id] unless stub[:schema_version_id].nil?
         data['SchemaVersionNumber'] = stub[:schema_version_number] unless stub[:schema_version_number].nil?
         data
@@ -4079,9 +4082,9 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::SkewedInfo.new
         data = {}
-        data['SkewedColumnNames'] = Stubs::NameStringList.stub(stub[:skewed_column_names]) unless stub[:skewed_column_names].nil?
-        data['SkewedColumnValues'] = Stubs::ColumnValueStringList.stub(stub[:skewed_column_values]) unless stub[:skewed_column_values].nil?
-        data['SkewedColumnValueLocationMaps'] = Stubs::LocationMap.stub(stub[:skewed_column_value_location_maps]) unless stub[:skewed_column_value_location_maps].nil?
+        data['SkewedColumnNames'] = NameStringList.stub(stub[:skewed_column_names]) unless stub[:skewed_column_names].nil?
+        data['SkewedColumnValues'] = ColumnValueStringList.stub(stub[:skewed_column_values]) unless stub[:skewed_column_values].nil?
+        data['SkewedColumnValueLocationMaps'] = LocationMap.stub(stub[:skewed_column_value_location_maps]) unless stub[:skewed_column_value_location_maps].nil?
         data
       end
     end
@@ -4140,7 +4143,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Order.stub(element) unless element.nil?
+          data << Order.stub(element) unless element.nil?
         end
         data
       end
@@ -4183,7 +4186,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['SerializationLibrary'] = stub[:serialization_library] unless stub[:serialization_library].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -4222,7 +4225,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Column.stub(element) unless element.nil?
+          data << Column.stub(element) unless element.nil?
         end
         data
       end
@@ -4247,7 +4250,7 @@ module AWS::SDK::Glue
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Comment'] = stub[:comment] unless stub[:comment].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -4263,9 +4266,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Triggers'] = Stubs::TriggerList.stub(stub[:triggers]) unless stub[:triggers].nil?
-        data['TriggersNotFound'] = Stubs::TriggerNameList.stub(stub[:triggers_not_found]) unless stub[:triggers_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Triggers'] = TriggerList.stub(stub[:triggers]) unless stub[:triggers].nil?
+        data['TriggersNotFound'] = TriggerNameList.stub(stub[:triggers_not_found]) unless stub[:triggers_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4304,7 +4307,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Trigger.stub(element) unless element.nil?
+          data << Trigger.stub(element) unless element.nil?
         end
         data
       end
@@ -4339,9 +4342,9 @@ module AWS::SDK::Glue
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Schedule'] = stub[:schedule] unless stub[:schedule].nil?
-        data['Actions'] = Stubs::ActionList.stub(stub[:actions]) unless stub[:actions].nil?
-        data['Predicate'] = Stubs::Predicate.stub(stub[:predicate]) unless stub[:predicate].nil?
-        data['EventBatchingCondition'] = Stubs::EventBatchingCondition.stub(stub[:event_batching_condition]) unless stub[:event_batching_condition].nil?
+        data['Actions'] = ActionList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['Predicate'] = Predicate.stub(stub[:predicate]) unless stub[:predicate].nil?
+        data['EventBatchingCondition'] = EventBatchingCondition.stub(stub[:event_batching_condition]) unless stub[:event_batching_condition].nil?
         data
       end
     end
@@ -4381,7 +4384,7 @@ module AWS::SDK::Glue
         stub ||= Types::Predicate.new
         data = {}
         data['Logical'] = stub[:logical] unless stub[:logical].nil?
-        data['Conditions'] = Stubs::ConditionList.stub(stub[:conditions]) unless stub[:conditions].nil?
+        data['Conditions'] = ConditionList.stub(stub[:conditions]) unless stub[:conditions].nil?
         data
       end
     end
@@ -4400,7 +4403,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Condition.stub(element) unless element.nil?
+          data << Condition.stub(element) unless element.nil?
         end
         data
       end
@@ -4446,7 +4449,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Action.stub(element) unless element.nil?
+          data << Action.stub(element) unless element.nil?
         end
         data
       end
@@ -4471,10 +4474,10 @@ module AWS::SDK::Glue
         stub ||= Types::Action.new
         data = {}
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
-        data['Arguments'] = Stubs::GenericMap.stub(stub[:arguments]) unless stub[:arguments].nil?
+        data['Arguments'] = GenericMap.stub(stub[:arguments]) unless stub[:arguments].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
-        data['NotificationProperty'] = Stubs::NotificationProperty.stub(stub[:notification_property]) unless stub[:notification_property].nil?
+        data['NotificationProperty'] = NotificationProperty.stub(stub[:notification_property]) unless stub[:notification_property].nil?
         data['CrawlerName'] = stub[:crawler_name] unless stub[:crawler_name].nil?
         data
       end
@@ -4491,9 +4494,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workflows'] = Stubs::Workflows.stub(stub[:workflows]) unless stub[:workflows].nil?
-        data['MissingWorkflows'] = Stubs::WorkflowNames.stub(stub[:missing_workflows]) unless stub[:missing_workflows].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workflows'] = Workflows.stub(stub[:workflows]) unless stub[:workflows].nil?
+        data['MissingWorkflows'] = WorkflowNames.stub(stub[:missing_workflows]) unless stub[:missing_workflows].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4532,7 +4535,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Workflow.stub(element) unless element.nil?
+          data << Workflow.stub(element) unless element.nil?
         end
         data
       end
@@ -4561,13 +4564,13 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['DefaultRunProperties'] = Stubs::WorkflowRunProperties.stub(stub[:default_run_properties]) unless stub[:default_run_properties].nil?
+        data['DefaultRunProperties'] = WorkflowRunProperties.stub(stub[:default_run_properties]) unless stub[:default_run_properties].nil?
         data['CreatedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_on]).to_i unless stub[:created_on].nil?
         data['LastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
-        data['LastRun'] = Stubs::WorkflowRun.stub(stub[:last_run]) unless stub[:last_run].nil?
-        data['Graph'] = Stubs::WorkflowGraph.stub(stub[:graph]) unless stub[:graph].nil?
+        data['LastRun'] = WorkflowRun.stub(stub[:last_run]) unless stub[:last_run].nil?
+        data['Graph'] = WorkflowGraph.stub(stub[:graph]) unless stub[:graph].nil?
         data['MaxConcurrentRuns'] = stub[:max_concurrent_runs] unless stub[:max_concurrent_runs].nil?
-        data['BlueprintDetails'] = Stubs::BlueprintDetails.stub(stub[:blueprint_details]) unless stub[:blueprint_details].nil?
+        data['BlueprintDetails'] = BlueprintDetails.stub(stub[:blueprint_details]) unless stub[:blueprint_details].nil?
         data
       end
     end
@@ -4606,8 +4609,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::WorkflowGraph.new
         data = {}
-        data['Nodes'] = Stubs::NodeList.stub(stub[:nodes]) unless stub[:nodes].nil?
-        data['Edges'] = Stubs::EdgeList.stub(stub[:edges]) unless stub[:edges].nil?
+        data['Nodes'] = NodeList.stub(stub[:nodes]) unless stub[:nodes].nil?
+        data['Edges'] = EdgeList.stub(stub[:edges]) unless stub[:edges].nil?
         data
       end
     end
@@ -4626,7 +4629,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Edge.stub(element) unless element.nil?
+          data << Edge.stub(element) unless element.nil?
         end
         data
       end
@@ -4666,7 +4669,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Node.stub(element) unless element.nil?
+          data << Node.stub(element) unless element.nil?
         end
         data
       end
@@ -4693,9 +4696,9 @@ module AWS::SDK::Glue
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['UniqueId'] = stub[:unique_id] unless stub[:unique_id].nil?
-        data['TriggerDetails'] = Stubs::TriggerNodeDetails.stub(stub[:trigger_details]) unless stub[:trigger_details].nil?
-        data['JobDetails'] = Stubs::JobNodeDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
-        data['CrawlerDetails'] = Stubs::CrawlerNodeDetails.stub(stub[:crawler_details]) unless stub[:crawler_details].nil?
+        data['TriggerDetails'] = TriggerNodeDetails.stub(stub[:trigger_details]) unless stub[:trigger_details].nil?
+        data['JobDetails'] = JobNodeDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
+        data['CrawlerDetails'] = CrawlerNodeDetails.stub(stub[:crawler_details]) unless stub[:crawler_details].nil?
         data
       end
     end
@@ -4713,7 +4716,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::CrawlerNodeDetails.new
         data = {}
-        data['Crawls'] = Stubs::CrawlList.stub(stub[:crawls]) unless stub[:crawls].nil?
+        data['Crawls'] = CrawlList.stub(stub[:crawls]) unless stub[:crawls].nil?
         data
       end
     end
@@ -4732,7 +4735,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Crawl.stub(element) unless element.nil?
+          data << Crawl.stub(element) unless element.nil?
         end
         data
       end
@@ -4779,7 +4782,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::JobNodeDetails.new
         data = {}
-        data['JobRuns'] = Stubs::JobRunList.stub(stub[:job_runs]) unless stub[:job_runs].nil?
+        data['JobRuns'] = JobRunList.stub(stub[:job_runs]) unless stub[:job_runs].nil?
         data
       end
     end
@@ -4798,7 +4801,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobRun.stub(element) unless element.nil?
+          data << JobRun.stub(element) unless element.nil?
         end
         data
       end
@@ -4848,9 +4851,9 @@ module AWS::SDK::Glue
         data['LastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
         data['CompletedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_on]).to_i unless stub[:completed_on].nil?
         data['JobRunState'] = stub[:job_run_state] unless stub[:job_run_state].nil?
-        data['Arguments'] = Stubs::GenericMap.stub(stub[:arguments]) unless stub[:arguments].nil?
+        data['Arguments'] = GenericMap.stub(stub[:arguments]) unless stub[:arguments].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['PredecessorRuns'] = Stubs::PredecessorList.stub(stub[:predecessor_runs]) unless stub[:predecessor_runs].nil?
+        data['PredecessorRuns'] = PredecessorList.stub(stub[:predecessor_runs]) unless stub[:predecessor_runs].nil?
         data['AllocatedCapacity'] = stub[:allocated_capacity] unless stub[:allocated_capacity].nil?
         data['ExecutionTime'] = stub[:execution_time] unless stub[:execution_time].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
@@ -4859,7 +4862,7 @@ module AWS::SDK::Glue
         data['NumberOfWorkers'] = stub[:number_of_workers] unless stub[:number_of_workers].nil?
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
         data['LogGroupName'] = stub[:log_group_name] unless stub[:log_group_name].nil?
-        data['NotificationProperty'] = Stubs::NotificationProperty.stub(stub[:notification_property]) unless stub[:notification_property].nil?
+        data['NotificationProperty'] = NotificationProperty.stub(stub[:notification_property]) unless stub[:notification_property].nil?
         data['GlueVersion'] = stub[:glue_version] unless stub[:glue_version].nil?
         data['DPUSeconds'] = Hearth::NumberHelper.serialize(stub[:dpu_seconds])
         data
@@ -4880,7 +4883,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Predecessor.stub(element) unless element.nil?
+          data << Predecessor.stub(element) unless element.nil?
         end
         data
       end
@@ -4919,7 +4922,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::TriggerNodeDetails.new
         data = {}
-        data['Trigger'] = Stubs::Trigger.stub(stub[:trigger]) unless stub[:trigger].nil?
+        data['Trigger'] = Trigger.stub(stub[:trigger]) unless stub[:trigger].nil?
         data
       end
     end
@@ -4950,14 +4953,14 @@ module AWS::SDK::Glue
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['WorkflowRunId'] = stub[:workflow_run_id] unless stub[:workflow_run_id].nil?
         data['PreviousRunId'] = stub[:previous_run_id] unless stub[:previous_run_id].nil?
-        data['WorkflowRunProperties'] = Stubs::WorkflowRunProperties.stub(stub[:workflow_run_properties]) unless stub[:workflow_run_properties].nil?
+        data['WorkflowRunProperties'] = WorkflowRunProperties.stub(stub[:workflow_run_properties]) unless stub[:workflow_run_properties].nil?
         data['StartedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_on]).to_i unless stub[:started_on].nil?
         data['CompletedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_on]).to_i unless stub[:completed_on].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['Statistics'] = Stubs::WorkflowRunStatistics.stub(stub[:statistics]) unless stub[:statistics].nil?
-        data['Graph'] = Stubs::WorkflowGraph.stub(stub[:graph]) unless stub[:graph].nil?
-        data['StartingEventBatchCondition'] = Stubs::StartingEventBatchCondition.stub(stub[:starting_event_batch_condition]) unless stub[:starting_event_batch_condition].nil?
+        data['Statistics'] = WorkflowRunStatistics.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['Graph'] = WorkflowGraph.stub(stub[:graph]) unless stub[:graph].nil?
+        data['StartingEventBatchCondition'] = StartingEventBatchCondition.stub(stub[:starting_event_batch_condition]) unless stub[:starting_event_batch_condition].nil?
         data
       end
     end
@@ -5041,9 +5044,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SuccessfulSubmissions'] = Stubs::BatchStopJobRunSuccessfulSubmissionList.stub(stub[:successful_submissions]) unless stub[:successful_submissions].nil?
-        data['Errors'] = Stubs::BatchStopJobRunErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuccessfulSubmissions'] = BatchStopJobRunSuccessfulSubmissionList.stub(stub[:successful_submissions]) unless stub[:successful_submissions].nil?
+        data['Errors'] = BatchStopJobRunErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5062,7 +5065,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchStopJobRunError.stub(element) unless element.nil?
+          data << BatchStopJobRunError.stub(element) unless element.nil?
         end
         data
       end
@@ -5085,7 +5088,7 @@ module AWS::SDK::Glue
         data = {}
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
         data['JobRunId'] = stub[:job_run_id] unless stub[:job_run_id].nil?
-        data['ErrorDetail'] = Stubs::ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
+        data['ErrorDetail'] = ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
         data
       end
     end
@@ -5104,7 +5107,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchStopJobRunSuccessfulSubmission.stub(element) unless element.nil?
+          data << BatchStopJobRunSuccessfulSubmission.stub(element) unless element.nil?
         end
         data
       end
@@ -5140,8 +5143,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::BatchUpdatePartitionFailureList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = BatchUpdatePartitionFailureList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5160,7 +5163,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchUpdatePartitionFailureEntry.stub(element) unless element.nil?
+          data << BatchUpdatePartitionFailureEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -5180,8 +5183,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::BatchUpdatePartitionFailureEntry.new
         data = {}
-        data['PartitionValueList'] = Stubs::BoundedPartitionValueList.stub(stub[:partition_value_list]) unless stub[:partition_value_list].nil?
-        data['ErrorDetail'] = Stubs::ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
+        data['PartitionValueList'] = BoundedPartitionValueList.stub(stub[:partition_value_list]) unless stub[:partition_value_list].nil?
+        data['ErrorDetail'] = ErrorDetail.stub(stub[:error_detail]) unless stub[:error_detail].nil?
         data
       end
     end
@@ -5221,7 +5224,7 @@ module AWS::SDK::Glue
         data['TransformId'] = stub[:transform_id] unless stub[:transform_id].nil?
         data['TaskRunId'] = stub[:task_run_id] unless stub[:task_run_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5235,7 +5238,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5253,7 +5256,7 @@ module AWS::SDK::Glue
         data = {}
         data['Valid'] = stub[:valid] unless stub[:valid].nil?
         data['Error'] = stub[:error] unless stub[:error].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5269,7 +5272,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5283,7 +5286,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5297,7 +5300,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5311,7 +5314,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5327,7 +5330,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5341,7 +5344,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5376,7 +5379,7 @@ module AWS::SDK::Glue
         data = {}
         data['EndpointName'] = stub[:endpoint_name] unless stub[:endpoint_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['SecurityGroupIds'] = Stubs::StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SecurityGroupIds'] = StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['YarnEndpointAddress'] = stub[:yarn_endpoint_address] unless stub[:yarn_endpoint_address].nil?
@@ -5392,8 +5395,8 @@ module AWS::SDK::Glue
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        data['Arguments'] = Stubs::MapValue.stub(stub[:arguments]) unless stub[:arguments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Arguments'] = MapValue.stub(stub[:arguments]) unless stub[:arguments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5409,7 +5412,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5425,7 +5428,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['TransformId'] = stub[:transform_id] unless stub[:transform_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5439,7 +5442,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5453,7 +5456,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5474,8 +5477,8 @@ module AWS::SDK::Glue
         data['RegistryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5534,10 +5537,10 @@ module AWS::SDK::Glue
         data['LatestSchemaVersion'] = stub[:latest_schema_version] unless stub[:latest_schema_version].nil?
         data['NextSchemaVersion'] = stub[:next_schema_version] unless stub[:next_schema_version].nil?
         data['SchemaStatus'] = stub[:schema_status] unless stub[:schema_status].nil?
-        data['Tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['SchemaVersionId'] = stub[:schema_version_id] unless stub[:schema_version_id].nil?
         data['SchemaVersionStatus'] = stub[:schema_version_status] unless stub[:schema_version_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5555,7 +5558,7 @@ module AWS::SDK::Glue
         data = {}
         data['PythonScript'] = stub[:python_script] unless stub[:python_script].nil?
         data['ScalaCode'] = stub[:scala_code] unless stub[:scala_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5573,7 +5576,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5588,8 +5591,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Session'] = Stubs::Session.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Session'] = Session.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5625,9 +5628,9 @@ module AWS::SDK::Glue
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
-        data['Command'] = Stubs::SessionCommand.stub(stub[:command]) unless stub[:command].nil?
-        data['DefaultArguments'] = Stubs::OrchestrationArgumentsMap.stub(stub[:default_arguments]) unless stub[:default_arguments].nil?
-        data['Connections'] = Stubs::ConnectionsList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['Command'] = SessionCommand.stub(stub[:command]) unless stub[:command].nil?
+        data['DefaultArguments'] = OrchestrationArgumentsMap.stub(stub[:default_arguments]) unless stub[:default_arguments].nil?
+        data['Connections'] = ConnectionsList.stub(stub[:connections]) unless stub[:connections].nil?
         data['Progress'] = Hearth::NumberHelper.serialize(stub[:progress])
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(stub[:max_capacity])
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
@@ -5685,7 +5688,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5701,7 +5704,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5715,7 +5718,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5731,7 +5734,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5747,7 +5750,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5761,7 +5764,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5775,7 +5778,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5789,7 +5792,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5803,7 +5806,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5817,7 +5820,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5833,7 +5836,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5847,7 +5850,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5861,7 +5864,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5877,7 +5880,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5893,7 +5896,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['TransformId'] = stub[:transform_id] unless stub[:transform_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5907,7 +5910,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5921,7 +5924,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5941,7 +5944,7 @@ module AWS::SDK::Glue
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
         data['RegistryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5955,7 +5958,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5975,7 +5978,7 @@ module AWS::SDK::Glue
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5990,8 +5993,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SchemaVersionErrors'] = Stubs::SchemaVersionErrorList.stub(stub[:schema_version_errors]) unless stub[:schema_version_errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SchemaVersionErrors'] = SchemaVersionErrorList.stub(stub[:schema_version_errors]) unless stub[:schema_version_errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6010,7 +6013,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaVersionErrorItem.stub(element) unless element.nil?
+          data << SchemaVersionErrorItem.stub(element) unless element.nil?
         end
         data
       end
@@ -6031,7 +6034,7 @@ module AWS::SDK::Glue
         stub ||= Types::SchemaVersionErrorItem.new
         data = {}
         data['VersionNumber'] = stub[:version_number] unless stub[:version_number].nil?
-        data['ErrorDetails'] = Stubs::ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
+        data['ErrorDetails'] = ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
         data
       end
     end
@@ -6065,7 +6068,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6081,7 +6084,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6095,7 +6098,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6109,7 +6112,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6125,7 +6128,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6139,7 +6142,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6155,7 +6158,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6170,8 +6173,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Blueprint'] = Stubs::Blueprint.stub(stub[:blueprint]) unless stub[:blueprint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Blueprint'] = Blueprint.stub(stub[:blueprint]) unless stub[:blueprint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6186,8 +6189,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BlueprintRun'] = Stubs::BlueprintRun.stub(stub[:blueprint_run]) unless stub[:blueprint_run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BlueprintRun'] = BlueprintRun.stub(stub[:blueprint_run]) unless stub[:blueprint_run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6239,9 +6242,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BlueprintRuns'] = Stubs::BlueprintRuns.stub(stub[:blueprint_runs]) unless stub[:blueprint_runs].nil?
+        data['BlueprintRuns'] = BlueprintRuns.stub(stub[:blueprint_runs]) unless stub[:blueprint_runs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6260,7 +6263,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BlueprintRun.stub(element) unless element.nil?
+          data << BlueprintRun.stub(element) unless element.nil?
         end
         data
       end
@@ -6276,8 +6279,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImportStatus'] = Stubs::CatalogImportStatus.stub(stub[:import_status]) unless stub[:import_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImportStatus'] = CatalogImportStatus.stub(stub[:import_status]) unless stub[:import_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6314,8 +6317,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Classifier'] = Stubs::Classifier.stub(stub[:classifier]) unless stub[:classifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Classifier'] = Classifier.stub(stub[:classifier]) unless stub[:classifier].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6336,10 +6339,10 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::Classifier.new
         data = {}
-        data['GrokClassifier'] = Stubs::GrokClassifier.stub(stub[:grok_classifier]) unless stub[:grok_classifier].nil?
-        data['XMLClassifier'] = Stubs::XMLClassifier.stub(stub[:xml_classifier]) unless stub[:xml_classifier].nil?
-        data['JsonClassifier'] = Stubs::JsonClassifier.stub(stub[:json_classifier]) unless stub[:json_classifier].nil?
-        data['CsvClassifier'] = Stubs::CsvClassifier.stub(stub[:csv_classifier]) unless stub[:csv_classifier].nil?
+        data['GrokClassifier'] = GrokClassifier.stub(stub[:grok_classifier]) unless stub[:grok_classifier].nil?
+        data['XMLClassifier'] = XMLClassifier.stub(stub[:xml_classifier]) unless stub[:xml_classifier].nil?
+        data['JsonClassifier'] = JsonClassifier.stub(stub[:json_classifier]) unless stub[:json_classifier].nil?
+        data['CsvClassifier'] = CsvClassifier.stub(stub[:csv_classifier]) unless stub[:csv_classifier].nil?
         data
       end
     end
@@ -6373,7 +6376,7 @@ module AWS::SDK::Glue
         data['Delimiter'] = stub[:delimiter] unless stub[:delimiter].nil?
         data['QuoteSymbol'] = stub[:quote_symbol] unless stub[:quote_symbol].nil?
         data['ContainsHeader'] = stub[:contains_header] unless stub[:contains_header].nil?
-        data['Header'] = Stubs::CsvHeader.stub(stub[:header]) unless stub[:header].nil?
+        data['Header'] = CsvHeader.stub(stub[:header]) unless stub[:header].nil?
         data['DisableValueTrimming'] = stub[:disable_value_trimming] unless stub[:disable_value_trimming].nil?
         data['AllowSingleColumn'] = stub[:allow_single_column] unless stub[:allow_single_column].nil?
         data
@@ -6495,9 +6498,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Classifiers'] = Stubs::ClassifierList.stub(stub[:classifiers]) unless stub[:classifiers].nil?
+        data['Classifiers'] = ClassifierList.stub(stub[:classifiers]) unless stub[:classifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6516,7 +6519,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Classifier.stub(element) unless element.nil?
+          data << Classifier.stub(element) unless element.nil?
         end
         data
       end
@@ -6533,9 +6536,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ColumnStatisticsList'] = Stubs::ColumnStatisticsList.stub(stub[:column_statistics_list]) unless stub[:column_statistics_list].nil?
-        data['Errors'] = Stubs::ColumnErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ColumnStatisticsList'] = ColumnStatisticsList.stub(stub[:column_statistics_list]) unless stub[:column_statistics_list].nil?
+        data['Errors'] = ColumnErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6554,7 +6557,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnError.stub(element) unless element.nil?
+          data << ColumnError.stub(element) unless element.nil?
         end
         data
       end
@@ -6575,7 +6578,7 @@ module AWS::SDK::Glue
         stub ||= Types::ColumnError.new
         data = {}
         data['ColumnName'] = stub[:column_name] unless stub[:column_name].nil?
-        data['Error'] = Stubs::ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -6594,7 +6597,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnStatistics.stub(element) unless element.nil?
+          data << ColumnStatistics.stub(element) unless element.nil?
         end
         data
       end
@@ -6619,7 +6622,7 @@ module AWS::SDK::Glue
         data['ColumnName'] = stub[:column_name] unless stub[:column_name].nil?
         data['ColumnType'] = stub[:column_type] unless stub[:column_type].nil?
         data['AnalyzedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:analyzed_time]).to_i unless stub[:analyzed_time].nil?
-        data['StatisticsData'] = Stubs::ColumnStatisticsData.stub(stub[:statistics_data]) unless stub[:statistics_data].nil?
+        data['StatisticsData'] = ColumnStatisticsData.stub(stub[:statistics_data]) unless stub[:statistics_data].nil?
         data
       end
     end
@@ -6645,13 +6648,13 @@ module AWS::SDK::Glue
         stub ||= Types::ColumnStatisticsData.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['BooleanColumnStatisticsData'] = Stubs::BooleanColumnStatisticsData.stub(stub[:boolean_column_statistics_data]) unless stub[:boolean_column_statistics_data].nil?
-        data['DateColumnStatisticsData'] = Stubs::DateColumnStatisticsData.stub(stub[:date_column_statistics_data]) unless stub[:date_column_statistics_data].nil?
-        data['DecimalColumnStatisticsData'] = Stubs::DecimalColumnStatisticsData.stub(stub[:decimal_column_statistics_data]) unless stub[:decimal_column_statistics_data].nil?
-        data['DoubleColumnStatisticsData'] = Stubs::DoubleColumnStatisticsData.stub(stub[:double_column_statistics_data]) unless stub[:double_column_statistics_data].nil?
-        data['LongColumnStatisticsData'] = Stubs::LongColumnStatisticsData.stub(stub[:long_column_statistics_data]) unless stub[:long_column_statistics_data].nil?
-        data['StringColumnStatisticsData'] = Stubs::StringColumnStatisticsData.stub(stub[:string_column_statistics_data]) unless stub[:string_column_statistics_data].nil?
-        data['BinaryColumnStatisticsData'] = Stubs::BinaryColumnStatisticsData.stub(stub[:binary_column_statistics_data]) unless stub[:binary_column_statistics_data].nil?
+        data['BooleanColumnStatisticsData'] = BooleanColumnStatisticsData.stub(stub[:boolean_column_statistics_data]) unless stub[:boolean_column_statistics_data].nil?
+        data['DateColumnStatisticsData'] = DateColumnStatisticsData.stub(stub[:date_column_statistics_data]) unless stub[:date_column_statistics_data].nil?
+        data['DecimalColumnStatisticsData'] = DecimalColumnStatisticsData.stub(stub[:decimal_column_statistics_data]) unless stub[:decimal_column_statistics_data].nil?
+        data['DoubleColumnStatisticsData'] = DoubleColumnStatisticsData.stub(stub[:double_column_statistics_data]) unless stub[:double_column_statistics_data].nil?
+        data['LongColumnStatisticsData'] = LongColumnStatisticsData.stub(stub[:long_column_statistics_data]) unless stub[:long_column_statistics_data].nil?
+        data['StringColumnStatisticsData'] = StringColumnStatisticsData.stub(stub[:string_column_statistics_data]) unless stub[:string_column_statistics_data].nil?
+        data['BinaryColumnStatisticsData'] = BinaryColumnStatisticsData.stub(stub[:binary_column_statistics_data]) unless stub[:binary_column_statistics_data].nil?
         data
       end
     end
@@ -6766,8 +6769,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::DecimalColumnStatisticsData.new
         data = {}
-        data['MinimumValue'] = Stubs::DecimalNumber.stub(stub[:minimum_value]) unless stub[:minimum_value].nil?
-        data['MaximumValue'] = Stubs::DecimalNumber.stub(stub[:maximum_value]) unless stub[:maximum_value].nil?
+        data['MinimumValue'] = DecimalNumber.stub(stub[:minimum_value]) unless stub[:minimum_value].nil?
+        data['MaximumValue'] = DecimalNumber.stub(stub[:maximum_value]) unless stub[:maximum_value].nil?
         data['NumberOfNulls'] = stub[:number_of_nulls] unless stub[:number_of_nulls].nil?
         data['NumberOfDistinctValues'] = stub[:number_of_distinct_values] unless stub[:number_of_distinct_values].nil?
         data
@@ -6788,7 +6791,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::DecimalNumber.new
         data = {}
-        data['UnscaledValue'] = Base64::encode64(stub[:unscaled_value]) unless stub[:unscaled_value].nil?
+        data['UnscaledValue'] = ::Base64::encode64(stub[:unscaled_value]) unless stub[:unscaled_value].nil?
         data['Scale'] = stub[:scale] unless stub[:scale].nil?
         data
       end
@@ -6851,9 +6854,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ColumnStatisticsList'] = Stubs::ColumnStatisticsList.stub(stub[:column_statistics_list]) unless stub[:column_statistics_list].nil?
-        data['Errors'] = Stubs::ColumnErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ColumnStatisticsList'] = ColumnStatisticsList.stub(stub[:column_statistics_list]) unless stub[:column_statistics_list].nil?
+        data['Errors'] = ColumnErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6868,8 +6871,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6898,9 +6901,9 @@ module AWS::SDK::Glue
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ConnectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
-        data['MatchCriteria'] = Stubs::MatchCriteria.stub(stub[:match_criteria]) unless stub[:match_criteria].nil?
-        data['ConnectionProperties'] = Stubs::ConnectionProperties.stub(stub[:connection_properties]) unless stub[:connection_properties].nil?
-        data['PhysicalConnectionRequirements'] = Stubs::PhysicalConnectionRequirements.stub(stub[:physical_connection_requirements]) unless stub[:physical_connection_requirements].nil?
+        data['MatchCriteria'] = MatchCriteria.stub(stub[:match_criteria]) unless stub[:match_criteria].nil?
+        data['ConnectionProperties'] = ConnectionProperties.stub(stub[:connection_properties]) unless stub[:connection_properties].nil?
+        data['PhysicalConnectionRequirements'] = PhysicalConnectionRequirements.stub(stub[:physical_connection_requirements]) unless stub[:physical_connection_requirements].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['LastUpdatedBy'] = stub[:last_updated_by] unless stub[:last_updated_by].nil?
@@ -6924,7 +6927,7 @@ module AWS::SDK::Glue
         stub ||= Types::PhysicalConnectionRequirements.new
         data = {}
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
-        data['SecurityGroupIdList'] = Stubs::SecurityGroupIdList.stub(stub[:security_group_id_list]) unless stub[:security_group_id_list].nil?
+        data['SecurityGroupIdList'] = SecurityGroupIdList.stub(stub[:security_group_id_list]) unless stub[:security_group_id_list].nil?
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data
       end
@@ -7001,9 +7004,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConnectionList'] = Stubs::ConnectionList.stub(stub[:connection_list]) unless stub[:connection_list].nil?
+        data['ConnectionList'] = ConnectionList.stub(stub[:connection_list]) unless stub[:connection_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7022,7 +7025,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connection.stub(element) unless element.nil?
+          data << Connection.stub(element) unless element.nil?
         end
         data
       end
@@ -7038,8 +7041,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Crawler'] = Stubs::Crawler.stub(stub[:crawler]) unless stub[:crawler].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Crawler'] = Crawler.stub(stub[:crawler]) unless stub[:crawler].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7055,9 +7058,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CrawlerMetricsList'] = Stubs::CrawlerMetricsList.stub(stub[:crawler_metrics_list]) unless stub[:crawler_metrics_list].nil?
+        data['CrawlerMetricsList'] = CrawlerMetricsList.stub(stub[:crawler_metrics_list]) unless stub[:crawler_metrics_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7076,7 +7079,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CrawlerMetrics.stub(element) unless element.nil?
+          data << CrawlerMetrics.stub(element) unless element.nil?
         end
         data
       end
@@ -7125,9 +7128,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Crawlers'] = Stubs::CrawlerList.stub(stub[:crawlers]) unless stub[:crawlers].nil?
+        data['Crawlers'] = CrawlerList.stub(stub[:crawlers]) unless stub[:crawlers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7146,8 +7149,8 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['RegexString'] = stub[:regex_string] unless stub[:regex_string].nil?
-        data['ContextWords'] = Stubs::ContextWords.stub(stub[:context_words]) unless stub[:context_words].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ContextWords'] = ContextWords.stub(stub[:context_words]) unless stub[:context_words].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7162,8 +7165,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DataCatalogEncryptionSettings'] = Stubs::DataCatalogEncryptionSettings.stub(stub[:data_catalog_encryption_settings]) unless stub[:data_catalog_encryption_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataCatalogEncryptionSettings'] = DataCatalogEncryptionSettings.stub(stub[:data_catalog_encryption_settings]) unless stub[:data_catalog_encryption_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7182,8 +7185,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::DataCatalogEncryptionSettings.new
         data = {}
-        data['EncryptionAtRest'] = Stubs::EncryptionAtRest.stub(stub[:encryption_at_rest]) unless stub[:encryption_at_rest].nil?
-        data['ConnectionPasswordEncryption'] = Stubs::ConnectionPasswordEncryption.stub(stub[:connection_password_encryption]) unless stub[:connection_password_encryption].nil?
+        data['EncryptionAtRest'] = EncryptionAtRest.stub(stub[:encryption_at_rest]) unless stub[:encryption_at_rest].nil?
+        data['ConnectionPasswordEncryption'] = ConnectionPasswordEncryption.stub(stub[:connection_password_encryption]) unless stub[:connection_password_encryption].nil?
         data
       end
     end
@@ -7238,8 +7241,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Database'] = Stubs::Database.stub(stub[:database]) unless stub[:database].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Database'] = Database.stub(stub[:database]) unless stub[:database].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7267,10 +7270,10 @@ module AWS::SDK::Glue
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
-        data['CreateTableDefaultPermissions'] = Stubs::PrincipalPermissionsList.stub(stub[:create_table_default_permissions]) unless stub[:create_table_default_permissions].nil?
-        data['TargetDatabase'] = Stubs::DatabaseIdentifier.stub(stub[:target_database]) unless stub[:target_database].nil?
+        data['CreateTableDefaultPermissions'] = PrincipalPermissionsList.stub(stub[:create_table_default_permissions]) unless stub[:create_table_default_permissions].nil?
+        data['TargetDatabase'] = DatabaseIdentifier.stub(stub[:target_database]) unless stub[:target_database].nil?
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data
       end
@@ -7310,7 +7313,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PrincipalPermissions.stub(element) unless element.nil?
+          data << PrincipalPermissions.stub(element) unless element.nil?
         end
         data
       end
@@ -7330,8 +7333,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::PrincipalPermissions.new
         data = {}
-        data['Principal'] = Stubs::DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
-        data['Permissions'] = Stubs::PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Principal'] = DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
+        data['Permissions'] = PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data
       end
     end
@@ -7385,9 +7388,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatabaseList'] = Stubs::DatabaseList.stub(stub[:database_list]) unless stub[:database_list].nil?
+        data['DatabaseList'] = DatabaseList.stub(stub[:database_list]) unless stub[:database_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7406,7 +7409,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Database.stub(element) unless element.nil?
+          data << Database.stub(element) unless element.nil?
         end
         data
       end
@@ -7423,9 +7426,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DagNodes'] = Stubs::DagNodes.stub(stub[:dag_nodes]) unless stub[:dag_nodes].nil?
-        data['DagEdges'] = Stubs::DagEdges.stub(stub[:dag_edges]) unless stub[:dag_edges].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DagNodes'] = DagNodes.stub(stub[:dag_nodes]) unless stub[:dag_nodes].nil?
+        data['DagEdges'] = DagEdges.stub(stub[:dag_edges]) unless stub[:dag_edges].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7444,7 +7447,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CodeGenEdge.stub(element) unless element.nil?
+          data << CodeGenEdge.stub(element) unless element.nil?
         end
         data
       end
@@ -7486,7 +7489,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CodeGenNode.stub(element) unless element.nil?
+          data << CodeGenNode.stub(element) unless element.nil?
         end
         data
       end
@@ -7510,7 +7513,7 @@ module AWS::SDK::Glue
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['NodeType'] = stub[:node_type] unless stub[:node_type].nil?
-        data['Args'] = Stubs::CodeGenNodeArgs.stub(stub[:args]) unless stub[:args].nil?
+        data['Args'] = CodeGenNodeArgs.stub(stub[:args]) unless stub[:args].nil?
         data['LineNumber'] = stub[:line_number] unless stub[:line_number].nil?
         data
       end
@@ -7530,7 +7533,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CodeGenNodeArg.stub(element) unless element.nil?
+          data << CodeGenNodeArg.stub(element) unless element.nil?
         end
         data
       end
@@ -7568,8 +7571,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DevEndpoint'] = Stubs::DevEndpoint.stub(stub[:dev_endpoint]) unless stub[:dev_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DevEndpoint'] = DevEndpoint.stub(stub[:dev_endpoint]) unless stub[:dev_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7585,9 +7588,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DevEndpoints'] = Stubs::DevEndpointList.stub(stub[:dev_endpoints]) unless stub[:dev_endpoints].nil?
+        data['DevEndpoints'] = DevEndpointList.stub(stub[:dev_endpoints]) unless stub[:dev_endpoints].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7602,8 +7605,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7618,8 +7621,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobBookmarkEntry'] = Stubs::JobBookmarkEntry.stub(stub[:job_bookmark_entry]) unless stub[:job_bookmark_entry].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobBookmarkEntry'] = JobBookmarkEntry.stub(stub[:job_bookmark_entry]) unless stub[:job_bookmark_entry].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7664,8 +7667,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobRun'] = Stubs::JobRun.stub(stub[:job_run]) unless stub[:job_run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobRun'] = JobRun.stub(stub[:job_run]) unless stub[:job_run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7681,9 +7684,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobRuns'] = Stubs::JobRunList.stub(stub[:job_runs]) unless stub[:job_runs].nil?
+        data['JobRuns'] = JobRunList.stub(stub[:job_runs]) unless stub[:job_runs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7699,9 +7702,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Jobs'] = Stubs::JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['Jobs'] = JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7729,13 +7732,13 @@ module AWS::SDK::Glue
         data['TaskRunId'] = stub[:task_run_id] unless stub[:task_run_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['LogGroupName'] = stub[:log_group_name] unless stub[:log_group_name].nil?
-        data['Properties'] = Stubs::TaskRunProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = TaskRunProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data['ErrorString'] = stub[:error_string] unless stub[:error_string].nil?
         data['StartedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_on]).to_i unless stub[:started_on].nil?
         data['LastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
         data['CompletedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_on]).to_i unless stub[:completed_on].nil?
         data['ExecutionTime'] = stub[:execution_time] unless stub[:execution_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7758,10 +7761,10 @@ module AWS::SDK::Glue
         stub ||= Types::TaskRunProperties.new
         data = {}
         data['TaskType'] = stub[:task_type] unless stub[:task_type].nil?
-        data['ImportLabelsTaskRunProperties'] = Stubs::ImportLabelsTaskRunProperties.stub(stub[:import_labels_task_run_properties]) unless stub[:import_labels_task_run_properties].nil?
-        data['ExportLabelsTaskRunProperties'] = Stubs::ExportLabelsTaskRunProperties.stub(stub[:export_labels_task_run_properties]) unless stub[:export_labels_task_run_properties].nil?
-        data['LabelingSetGenerationTaskRunProperties'] = Stubs::LabelingSetGenerationTaskRunProperties.stub(stub[:labeling_set_generation_task_run_properties]) unless stub[:labeling_set_generation_task_run_properties].nil?
-        data['FindMatchesTaskRunProperties'] = Stubs::FindMatchesTaskRunProperties.stub(stub[:find_matches_task_run_properties]) unless stub[:find_matches_task_run_properties].nil?
+        data['ImportLabelsTaskRunProperties'] = ImportLabelsTaskRunProperties.stub(stub[:import_labels_task_run_properties]) unless stub[:import_labels_task_run_properties].nil?
+        data['ExportLabelsTaskRunProperties'] = ExportLabelsTaskRunProperties.stub(stub[:export_labels_task_run_properties]) unless stub[:export_labels_task_run_properties].nil?
+        data['LabelingSetGenerationTaskRunProperties'] = LabelingSetGenerationTaskRunProperties.stub(stub[:labeling_set_generation_task_run_properties]) unless stub[:labeling_set_generation_task_run_properties].nil?
+        data['FindMatchesTaskRunProperties'] = FindMatchesTaskRunProperties.stub(stub[:find_matches_task_run_properties]) unless stub[:find_matches_task_run_properties].nil?
         data
       end
     end
@@ -7855,9 +7858,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TaskRuns'] = Stubs::TaskRunList.stub(stub[:task_runs]) unless stub[:task_runs].nil?
+        data['TaskRuns'] = TaskRunList.stub(stub[:task_runs]) unless stub[:task_runs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7876,7 +7879,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskRun.stub(element) unless element.nil?
+          data << TaskRun.stub(element) unless element.nil?
         end
         data
       end
@@ -7908,7 +7911,7 @@ module AWS::SDK::Glue
         data['TaskRunId'] = stub[:task_run_id] unless stub[:task_run_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['LogGroupName'] = stub[:log_group_name] unless stub[:log_group_name].nil?
-        data['Properties'] = Stubs::TaskRunProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = TaskRunProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data['ErrorString'] = stub[:error_string] unless stub[:error_string].nil?
         data['StartedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_on]).to_i unless stub[:started_on].nil?
         data['LastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
@@ -7952,11 +7955,11 @@ module AWS::SDK::Glue
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_on]).to_i unless stub[:created_on].nil?
         data['LastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
-        data['InputRecordTables'] = Stubs::GlueTables.stub(stub[:input_record_tables]) unless stub[:input_record_tables].nil?
-        data['Parameters'] = Stubs::TransformParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['EvaluationMetrics'] = Stubs::EvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
+        data['InputRecordTables'] = GlueTables.stub(stub[:input_record_tables]) unless stub[:input_record_tables].nil?
+        data['Parameters'] = TransformParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['EvaluationMetrics'] = EvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
         data['LabelCount'] = stub[:label_count] unless stub[:label_count].nil?
-        data['Schema'] = Stubs::TransformSchema.stub(stub[:schema]) unless stub[:schema].nil?
+        data['Schema'] = TransformSchema.stub(stub[:schema]) unless stub[:schema].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
         data['GlueVersion'] = stub[:glue_version] unless stub[:glue_version].nil?
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(stub[:max_capacity])
@@ -7964,8 +7967,8 @@ module AWS::SDK::Glue
         data['NumberOfWorkers'] = stub[:number_of_workers] unless stub[:number_of_workers].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
         data['MaxRetries'] = stub[:max_retries] unless stub[:max_retries].nil?
-        data['TransformEncryption'] = Stubs::TransformEncryption.stub(stub[:transform_encryption]) unless stub[:transform_encryption].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TransformEncryption'] = TransformEncryption.stub(stub[:transform_encryption]) unless stub[:transform_encryption].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7984,7 +7987,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::TransformEncryption.new
         data = {}
-        data['MlUserDataEncryption'] = Stubs::MLUserDataEncryption.stub(stub[:ml_user_data_encryption]) unless stub[:ml_user_data_encryption].nil?
+        data['MlUserDataEncryption'] = MLUserDataEncryption.stub(stub[:ml_user_data_encryption]) unless stub[:ml_user_data_encryption].nil?
         data['TaskRunSecurityConfigurationName'] = stub[:task_run_security_configuration_name] unless stub[:task_run_security_configuration_name].nil?
         data
       end
@@ -8024,7 +8027,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaColumn.stub(element) unless element.nil?
+          data << SchemaColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -8065,7 +8068,7 @@ module AWS::SDK::Glue
         stub ||= Types::EvaluationMetrics.new
         data = {}
         data['TransformType'] = stub[:transform_type] unless stub[:transform_type].nil?
-        data['FindMatchesMetrics'] = Stubs::FindMatchesMetrics.stub(stub[:find_matches_metrics]) unless stub[:find_matches_metrics].nil?
+        data['FindMatchesMetrics'] = FindMatchesMetrics.stub(stub[:find_matches_metrics]) unless stub[:find_matches_metrics].nil?
         data
       end
     end
@@ -8092,8 +8095,8 @@ module AWS::SDK::Glue
         data['Precision'] = Hearth::NumberHelper.serialize(stub[:precision])
         data['Recall'] = Hearth::NumberHelper.serialize(stub[:recall])
         data['F1'] = Hearth::NumberHelper.serialize(stub[:f1])
-        data['ConfusionMatrix'] = Stubs::ConfusionMatrix.stub(stub[:confusion_matrix]) unless stub[:confusion_matrix].nil?
-        data['ColumnImportances'] = Stubs::ColumnImportanceList.stub(stub[:column_importances]) unless stub[:column_importances].nil?
+        data['ConfusionMatrix'] = ConfusionMatrix.stub(stub[:confusion_matrix]) unless stub[:confusion_matrix].nil?
+        data['ColumnImportances'] = ColumnImportanceList.stub(stub[:column_importances]) unless stub[:column_importances].nil?
         data
       end
     end
@@ -8112,7 +8115,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnImportance.stub(element) unless element.nil?
+          data << ColumnImportance.stub(element) unless element.nil?
         end
         data
       end
@@ -8177,7 +8180,7 @@ module AWS::SDK::Glue
         stub ||= Types::TransformParameters.new
         data = {}
         data['TransformType'] = stub[:transform_type] unless stub[:transform_type].nil?
-        data['FindMatchesParameters'] = Stubs::FindMatchesParameters.stub(stub[:find_matches_parameters]) unless stub[:find_matches_parameters].nil?
+        data['FindMatchesParameters'] = FindMatchesParameters.stub(stub[:find_matches_parameters]) unless stub[:find_matches_parameters].nil?
         data
       end
     end
@@ -8220,7 +8223,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlueTable.stub(element) unless element.nil?
+          data << GlueTable.stub(element) unless element.nil?
         end
         data
       end
@@ -8261,9 +8264,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Transforms'] = Stubs::TransformList.stub(stub[:transforms]) unless stub[:transforms].nil?
+        data['Transforms'] = TransformList.stub(stub[:transforms]) unless stub[:transforms].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8282,7 +8285,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MLTransform.stub(element) unless element.nil?
+          data << MLTransform.stub(element) unless element.nil?
         end
         data
       end
@@ -8325,11 +8328,11 @@ module AWS::SDK::Glue
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_on]).to_i unless stub[:created_on].nil?
         data['LastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
-        data['InputRecordTables'] = Stubs::GlueTables.stub(stub[:input_record_tables]) unless stub[:input_record_tables].nil?
-        data['Parameters'] = Stubs::TransformParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['EvaluationMetrics'] = Stubs::EvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
+        data['InputRecordTables'] = GlueTables.stub(stub[:input_record_tables]) unless stub[:input_record_tables].nil?
+        data['Parameters'] = TransformParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['EvaluationMetrics'] = EvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
         data['LabelCount'] = stub[:label_count] unless stub[:label_count].nil?
-        data['Schema'] = Stubs::TransformSchema.stub(stub[:schema]) unless stub[:schema].nil?
+        data['Schema'] = TransformSchema.stub(stub[:schema]) unless stub[:schema].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
         data['GlueVersion'] = stub[:glue_version] unless stub[:glue_version].nil?
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(stub[:max_capacity])
@@ -8337,7 +8340,7 @@ module AWS::SDK::Glue
         data['NumberOfWorkers'] = stub[:number_of_workers] unless stub[:number_of_workers].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
         data['MaxRetries'] = stub[:max_retries] unless stub[:max_retries].nil?
-        data['TransformEncryption'] = Stubs::TransformEncryption.stub(stub[:transform_encryption]) unless stub[:transform_encryption].nil?
+        data['TransformEncryption'] = TransformEncryption.stub(stub[:transform_encryption]) unless stub[:transform_encryption].nil?
         data
       end
     end
@@ -8352,8 +8355,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Mapping'] = Stubs::MappingList.stub(stub[:mapping]) unless stub[:mapping].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Mapping'] = MappingList.stub(stub[:mapping]) unless stub[:mapping].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8372,7 +8375,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MappingEntry.stub(element) unless element.nil?
+          data << MappingEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -8416,8 +8419,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Partition'] = Stubs::Partition.stub(stub[:partition]) unless stub[:partition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Partition'] = Partition.stub(stub[:partition]) unless stub[:partition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8433,9 +8436,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PartitionIndexDescriptorList'] = Stubs::PartitionIndexDescriptorList.stub(stub[:partition_index_descriptor_list]) unless stub[:partition_index_descriptor_list].nil?
+        data['PartitionIndexDescriptorList'] = PartitionIndexDescriptorList.stub(stub[:partition_index_descriptor_list]) unless stub[:partition_index_descriptor_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8454,7 +8457,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartitionIndexDescriptor.stub(element) unless element.nil?
+          data << PartitionIndexDescriptor.stub(element) unless element.nil?
         end
         data
       end
@@ -8477,9 +8480,9 @@ module AWS::SDK::Glue
         stub ||= Types::PartitionIndexDescriptor.new
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['Keys'] = Stubs::KeySchemaElementList.stub(stub[:keys]) unless stub[:keys].nil?
+        data['Keys'] = KeySchemaElementList.stub(stub[:keys]) unless stub[:keys].nil?
         data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
-        data['BackfillErrors'] = Stubs::BackfillErrors.stub(stub[:backfill_errors]) unless stub[:backfill_errors].nil?
+        data['BackfillErrors'] = BackfillErrors.stub(stub[:backfill_errors]) unless stub[:backfill_errors].nil?
         data
       end
     end
@@ -8498,7 +8501,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackfillError.stub(element) unless element.nil?
+          data << BackfillError.stub(element) unless element.nil?
         end
         data
       end
@@ -8519,7 +8522,7 @@ module AWS::SDK::Glue
         stub ||= Types::BackfillError.new
         data = {}
         data['Code'] = stub[:code] unless stub[:code].nil?
-        data['Partitions'] = Stubs::BackfillErroredPartitionsList.stub(stub[:partitions]) unless stub[:partitions].nil?
+        data['Partitions'] = BackfillErroredPartitionsList.stub(stub[:partitions]) unless stub[:partitions].nil?
         data
       end
     end
@@ -8538,7 +8541,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartitionValueList.stub(element) unless element.nil?
+          data << PartitionValueList.stub(element) unless element.nil?
         end
         data
       end
@@ -8558,7 +8561,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeySchemaElement.stub(element) unless element.nil?
+          data << KeySchemaElement.stub(element) unless element.nil?
         end
         data
       end
@@ -8595,9 +8598,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Partitions'] = Stubs::PartitionList.stub(stub[:partitions]) unless stub[:partitions].nil?
+        data['Partitions'] = PartitionList.stub(stub[:partitions]) unless stub[:partitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8615,7 +8618,7 @@ module AWS::SDK::Glue
         data = {}
         data['PythonScript'] = stub[:python_script] unless stub[:python_script].nil?
         data['ScalaCode'] = stub[:scala_code] unless stub[:scala_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8641,7 +8644,7 @@ module AWS::SDK::Glue
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['UpdatedTime'] = stub[:updated_time] unless stub[:updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8657,9 +8660,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GetResourcePoliciesResponseList'] = Stubs::GetResourcePoliciesResponseList.stub(stub[:get_resource_policies_response_list]) unless stub[:get_resource_policies_response_list].nil?
+        data['GetResourcePoliciesResponseList'] = GetResourcePoliciesResponseList.stub(stub[:get_resource_policies_response_list]) unless stub[:get_resource_policies_response_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8678,7 +8681,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GluePolicy.stub(element) unless element.nil?
+          data << GluePolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -8725,7 +8728,7 @@ module AWS::SDK::Glue
         data['PolicyHash'] = stub[:policy_hash] unless stub[:policy_hash].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_time]).to_i unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8765,7 +8768,7 @@ module AWS::SDK::Glue
         data['SchemaStatus'] = stub[:schema_status] unless stub[:schema_status].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['UpdatedTime'] = stub[:updated_time] unless stub[:updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8789,7 +8792,7 @@ module AWS::SDK::Glue
         data['DataFormat'] = stub[:data_format] unless stub[:data_format].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8817,7 +8820,7 @@ module AWS::SDK::Glue
         data['VersionNumber'] = stub[:version_number] unless stub[:version_number].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8833,7 +8836,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Diff'] = stub[:diff] unless stub[:diff].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8848,8 +8851,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SecurityConfiguration'] = Stubs::SecurityConfiguration.stub(stub[:security_configuration]) unless stub[:security_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityConfiguration'] = SecurityConfiguration.stub(stub[:security_configuration]) unless stub[:security_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8871,7 +8874,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['CreatedTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time_stamp]).to_i unless stub[:created_time_stamp].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
         data
       end
     end
@@ -8891,9 +8894,9 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::EncryptionConfiguration.new
         data = {}
-        data['S3Encryption'] = Stubs::S3EncryptionList.stub(stub[:s3_encryption]) unless stub[:s3_encryption].nil?
-        data['CloudWatchEncryption'] = Stubs::CloudWatchEncryption.stub(stub[:cloud_watch_encryption]) unless stub[:cloud_watch_encryption].nil?
-        data['JobBookmarksEncryption'] = Stubs::JobBookmarksEncryption.stub(stub[:job_bookmarks_encryption]) unless stub[:job_bookmarks_encryption].nil?
+        data['S3Encryption'] = S3EncryptionList.stub(stub[:s3_encryption]) unless stub[:s3_encryption].nil?
+        data['CloudWatchEncryption'] = CloudWatchEncryption.stub(stub[:cloud_watch_encryption]) unless stub[:cloud_watch_encryption].nil?
+        data['JobBookmarksEncryption'] = JobBookmarksEncryption.stub(stub[:job_bookmarks_encryption]) unless stub[:job_bookmarks_encryption].nil?
         data
       end
     end
@@ -8952,7 +8955,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3Encryption.stub(element) unless element.nil?
+          data << S3Encryption.stub(element) unless element.nil?
         end
         data
       end
@@ -8989,9 +8992,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SecurityConfigurations'] = Stubs::SecurityConfigurationList.stub(stub[:security_configurations]) unless stub[:security_configurations].nil?
+        data['SecurityConfigurations'] = SecurityConfigurationList.stub(stub[:security_configurations]) unless stub[:security_configurations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9010,7 +9013,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityConfiguration.stub(element) unless element.nil?
+          data << SecurityConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -9026,8 +9029,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Session'] = Stubs::Session.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Session'] = Session.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9042,8 +9045,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Statement'] = Stubs::Statement.stub(stub[:statement]) unless stub[:statement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Statement'] = Statement.stub(stub[:statement]) unless stub[:statement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9070,7 +9073,7 @@ module AWS::SDK::Glue
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Code'] = stub[:code] unless stub[:code].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Output'] = Stubs::StatementOutput.stub(stub[:output]) unless stub[:output].nil?
+        data['Output'] = StatementOutput.stub(stub[:output]) unless stub[:output].nil?
         data['Progress'] = Hearth::NumberHelper.serialize(stub[:progress])
         data['StartedOn'] = stub[:started_on] unless stub[:started_on].nil?
         data['CompletedOn'] = stub[:completed_on] unless stub[:completed_on].nil?
@@ -9096,12 +9099,12 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::StatementOutput.new
         data = {}
-        data['Data'] = Stubs::StatementOutputData.stub(stub[:data]) unless stub[:data].nil?
+        data['Data'] = StatementOutputData.stub(stub[:data]) unless stub[:data].nil?
         data['ExecutionCount'] = stub[:execution_count] unless stub[:execution_count].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ErrorName'] = stub[:error_name] unless stub[:error_name].nil?
         data['ErrorValue'] = stub[:error_value] unless stub[:error_value].nil?
-        data['Traceback'] = Stubs::OrchestrationStringList.stub(stub[:traceback]) unless stub[:traceback].nil?
+        data['Traceback'] = OrchestrationStringList.stub(stub[:traceback]) unless stub[:traceback].nil?
         data
       end
     end
@@ -9134,8 +9137,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Table'] = Stubs::Table.stub(stub[:table]) unless stub[:table].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Table'] = Table.stub(stub[:table]) unless stub[:table].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9181,15 +9184,15 @@ module AWS::SDK::Glue
         data['LastAccessTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_access_time]).to_i unless stub[:last_access_time].nil?
         data['LastAnalyzedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_analyzed_time]).to_i unless stub[:last_analyzed_time].nil?
         data['Retention'] = stub[:retention] unless stub[:retention].nil?
-        data['StorageDescriptor'] = Stubs::StorageDescriptor.stub(stub[:storage_descriptor]) unless stub[:storage_descriptor].nil?
-        data['PartitionKeys'] = Stubs::ColumnList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['StorageDescriptor'] = StorageDescriptor.stub(stub[:storage_descriptor]) unless stub[:storage_descriptor].nil?
+        data['PartitionKeys'] = ColumnList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
         data['ViewOriginalText'] = stub[:view_original_text] unless stub[:view_original_text].nil?
         data['ViewExpandedText'] = stub[:view_expanded_text] unless stub[:view_expanded_text].nil?
         data['TableType'] = stub[:table_type] unless stub[:table_type].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['IsRegisteredWithLakeFormation'] = stub[:is_registered_with_lake_formation] unless stub[:is_registered_with_lake_formation].nil?
-        data['TargetTable'] = Stubs::TableIdentifier.stub(stub[:target_table]) unless stub[:target_table].nil?
+        data['TargetTable'] = TableIdentifier.stub(stub[:target_table]) unless stub[:target_table].nil?
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
         data
@@ -9228,8 +9231,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableVersion'] = Stubs::TableVersion.stub(stub[:table_version]) unless stub[:table_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableVersion'] = TableVersion.stub(stub[:table_version]) unless stub[:table_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9248,7 +9251,7 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::TableVersion.new
         data = {}
-        data['Table'] = Stubs::Table.stub(stub[:table]) unless stub[:table].nil?
+        data['Table'] = Table.stub(stub[:table]) unless stub[:table].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
         data
       end
@@ -9265,9 +9268,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableVersions'] = Stubs::GetTableVersionsList.stub(stub[:table_versions]) unless stub[:table_versions].nil?
+        data['TableVersions'] = GetTableVersionsList.stub(stub[:table_versions]) unless stub[:table_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9286,7 +9289,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableVersion.stub(element) unless element.nil?
+          data << TableVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -9303,9 +9306,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableList'] = Stubs::TableList.stub(stub[:table_list]) unless stub[:table_list].nil?
+        data['TableList'] = TableList.stub(stub[:table_list]) unless stub[:table_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9324,7 +9327,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Table.stub(element) unless element.nil?
+          data << Table.stub(element) unless element.nil?
         end
         data
       end
@@ -9340,8 +9343,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9356,8 +9359,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Trigger'] = Stubs::Trigger.stub(stub[:trigger]) unless stub[:trigger].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Trigger'] = Trigger.stub(stub[:trigger]) unless stub[:trigger].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9373,9 +9376,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Triggers'] = Stubs::TriggerList.stub(stub[:triggers]) unless stub[:triggers].nil?
+        data['Triggers'] = TriggerList.stub(stub[:triggers]) unless stub[:triggers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9392,10 +9395,10 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Partition'] = Stubs::Partition.stub(stub[:partition]) unless stub[:partition].nil?
-        data['AuthorizedColumns'] = Stubs::NameStringList.stub(stub[:authorized_columns]) unless stub[:authorized_columns].nil?
+        data['Partition'] = Partition.stub(stub[:partition]) unless stub[:partition].nil?
+        data['AuthorizedColumns'] = NameStringList.stub(stub[:authorized_columns]) unless stub[:authorized_columns].nil?
         data['IsRegisteredWithLakeFormation'] = stub[:is_registered_with_lake_formation] unless stub[:is_registered_with_lake_formation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9411,9 +9414,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UnfilteredPartitions'] = Stubs::UnfilteredPartitionList.stub(stub[:unfiltered_partitions]) unless stub[:unfiltered_partitions].nil?
+        data['UnfilteredPartitions'] = UnfilteredPartitionList.stub(stub[:unfiltered_partitions]) unless stub[:unfiltered_partitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9432,7 +9435,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnfilteredPartition.stub(element) unless element.nil?
+          data << UnfilteredPartition.stub(element) unless element.nil?
         end
         data
       end
@@ -9453,8 +9456,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::UnfilteredPartition.new
         data = {}
-        data['Partition'] = Stubs::Partition.stub(stub[:partition]) unless stub[:partition].nil?
-        data['AuthorizedColumns'] = Stubs::NameStringList.stub(stub[:authorized_columns]) unless stub[:authorized_columns].nil?
+        data['Partition'] = Partition.stub(stub[:partition]) unless stub[:partition].nil?
+        data['AuthorizedColumns'] = NameStringList.stub(stub[:authorized_columns]) unless stub[:authorized_columns].nil?
         data['IsRegisteredWithLakeFormation'] = stub[:is_registered_with_lake_formation] unless stub[:is_registered_with_lake_formation].nil?
         data
       end
@@ -9473,11 +9476,11 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Table'] = Stubs::Table.stub(stub[:table]) unless stub[:table].nil?
-        data['AuthorizedColumns'] = Stubs::NameStringList.stub(stub[:authorized_columns]) unless stub[:authorized_columns].nil?
+        data['Table'] = Table.stub(stub[:table]) unless stub[:table].nil?
+        data['AuthorizedColumns'] = NameStringList.stub(stub[:authorized_columns]) unless stub[:authorized_columns].nil?
         data['IsRegisteredWithLakeFormation'] = stub[:is_registered_with_lake_formation] unless stub[:is_registered_with_lake_formation].nil?
-        data['CellFilters'] = Stubs::ColumnRowFilterList.stub(stub[:cell_filters]) unless stub[:cell_filters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CellFilters'] = ColumnRowFilterList.stub(stub[:cell_filters]) unless stub[:cell_filters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9496,7 +9499,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnRowFilter.stub(element) unless element.nil?
+          data << ColumnRowFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -9532,8 +9535,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UserDefinedFunction'] = Stubs::UserDefinedFunction.stub(stub[:user_defined_function]) unless stub[:user_defined_function].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserDefinedFunction'] = UserDefinedFunction.stub(stub[:user_defined_function]) unless stub[:user_defined_function].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9564,7 +9567,7 @@ module AWS::SDK::Glue
         data['OwnerName'] = stub[:owner_name] unless stub[:owner_name].nil?
         data['OwnerType'] = stub[:owner_type] unless stub[:owner_type].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
-        data['ResourceUris'] = Stubs::ResourceUriList.stub(stub[:resource_uris]) unless stub[:resource_uris].nil?
+        data['ResourceUris'] = ResourceUriList.stub(stub[:resource_uris]) unless stub[:resource_uris].nil?
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data
       end
@@ -9584,7 +9587,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceUri.stub(element) unless element.nil?
+          data << ResourceUri.stub(element) unless element.nil?
         end
         data
       end
@@ -9621,9 +9624,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UserDefinedFunctions'] = Stubs::UserDefinedFunctionList.stub(stub[:user_defined_functions]) unless stub[:user_defined_functions].nil?
+        data['UserDefinedFunctions'] = UserDefinedFunctionList.stub(stub[:user_defined_functions]) unless stub[:user_defined_functions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9642,7 +9645,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserDefinedFunction.stub(element) unless element.nil?
+          data << UserDefinedFunction.stub(element) unless element.nil?
         end
         data
       end
@@ -9658,8 +9661,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workflow'] = Stubs::Workflow.stub(stub[:workflow]) unless stub[:workflow].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workflow'] = Workflow.stub(stub[:workflow]) unless stub[:workflow].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9674,8 +9677,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Run'] = Stubs::WorkflowRun.stub(stub[:run]) unless stub[:run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Run'] = WorkflowRun.stub(stub[:run]) unless stub[:run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9690,8 +9693,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RunProperties'] = Stubs::WorkflowRunProperties.stub(stub[:run_properties]) unless stub[:run_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RunProperties'] = WorkflowRunProperties.stub(stub[:run_properties]) unless stub[:run_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9707,9 +9710,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Runs'] = Stubs::WorkflowRuns.stub(stub[:runs]) unless stub[:runs].nil?
+        data['Runs'] = WorkflowRuns.stub(stub[:runs]) unless stub[:runs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9728,7 +9731,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkflowRun.stub(element) unless element.nil?
+          data << WorkflowRun.stub(element) unless element.nil?
         end
         data
       end
@@ -9743,7 +9746,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9759,9 +9762,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Blueprints'] = Stubs::BlueprintNames.stub(stub[:blueprints]) unless stub[:blueprints].nil?
+        data['Blueprints'] = BlueprintNames.stub(stub[:blueprints]) unless stub[:blueprints].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9777,9 +9780,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CrawlerNames'] = Stubs::CrawlerNameList.stub(stub[:crawler_names]) unless stub[:crawler_names].nil?
+        data['CrawlerNames'] = CrawlerNameList.stub(stub[:crawler_names]) unless stub[:crawler_names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9795,9 +9798,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CustomEntityTypes'] = Stubs::CustomEntityTypes.stub(stub[:custom_entity_types]) unless stub[:custom_entity_types].nil?
+        data['CustomEntityTypes'] = CustomEntityTypes.stub(stub[:custom_entity_types]) unless stub[:custom_entity_types].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9813,9 +9816,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DevEndpointNames'] = Stubs::DevEndpointNameList.stub(stub[:dev_endpoint_names]) unless stub[:dev_endpoint_names].nil?
+        data['DevEndpointNames'] = DevEndpointNameList.stub(stub[:dev_endpoint_names]) unless stub[:dev_endpoint_names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9851,9 +9854,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobNames'] = Stubs::JobNameList.stub(stub[:job_names]) unless stub[:job_names].nil?
+        data['JobNames'] = JobNameList.stub(stub[:job_names]) unless stub[:job_names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9869,9 +9872,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TransformIds'] = Stubs::TransformIdList.stub(stub[:transform_ids]) unless stub[:transform_ids].nil?
+        data['TransformIds'] = TransformIdList.stub(stub[:transform_ids]) unless stub[:transform_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9907,9 +9910,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Registries'] = Stubs::RegistryListDefinition.stub(stub[:registries]) unless stub[:registries].nil?
+        data['Registries'] = RegistryListDefinition.stub(stub[:registries]) unless stub[:registries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9928,7 +9931,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegistryListItem.stub(element) unless element.nil?
+          data << RegistryListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -9973,9 +9976,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Schemas'] = Stubs::SchemaVersionList.stub(stub[:schemas]) unless stub[:schemas].nil?
+        data['Schemas'] = SchemaVersionList.stub(stub[:schemas]) unless stub[:schemas].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9994,7 +9997,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaVersionListItem.stub(element) unless element.nil?
+          data << SchemaVersionListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -10037,9 +10040,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Schemas'] = Stubs::SchemaListDefinition.stub(stub[:schemas]) unless stub[:schemas].nil?
+        data['Schemas'] = SchemaListDefinition.stub(stub[:schemas]) unless stub[:schemas].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10058,7 +10061,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaListItem.stub(element) unless element.nil?
+          data << SchemaListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -10106,10 +10109,10 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Ids'] = Stubs::SessionIdList.stub(stub[:ids]) unless stub[:ids].nil?
-        data['Sessions'] = Stubs::SessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
+        data['Ids'] = SessionIdList.stub(stub[:ids]) unless stub[:ids].nil?
+        data['Sessions'] = SessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10128,7 +10131,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Session.stub(element) unless element.nil?
+          data << Session.stub(element) unless element.nil?
         end
         data
       end
@@ -10165,9 +10168,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Statements'] = Stubs::StatementList.stub(stub[:statements]) unless stub[:statements].nil?
+        data['Statements'] = StatementList.stub(stub[:statements]) unless stub[:statements].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10186,7 +10189,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Statement.stub(element) unless element.nil?
+          data << Statement.stub(element) unless element.nil?
         end
         data
       end
@@ -10203,9 +10206,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TriggerNames'] = Stubs::TriggerNameList.stub(stub[:trigger_names]) unless stub[:trigger_names].nil?
+        data['TriggerNames'] = TriggerNameList.stub(stub[:trigger_names]) unless stub[:trigger_names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10221,9 +10224,9 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workflows'] = Stubs::WorkflowNames.stub(stub[:workflows]) unless stub[:workflows].nil?
+        data['Workflows'] = WorkflowNames.stub(stub[:workflows]) unless stub[:workflows].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10237,7 +10240,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10253,7 +10256,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['PolicyHash'] = stub[:policy_hash] unless stub[:policy_hash].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10283,7 +10286,7 @@ module AWS::SDK::Glue
         data['SchemaVersionId'] = stub[:schema_version_id] unless stub[:schema_version_id].nil?
         data['MetadataKey'] = stub[:metadata_key] unless stub[:metadata_key].nil?
         data['MetadataValue'] = stub[:metadata_value] unless stub[:metadata_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10297,7 +10300,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10314,10 +10317,10 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MetadataInfoMap'] = Stubs::MetadataInfoMap.stub(stub[:metadata_info_map]) unless stub[:metadata_info_map].nil?
+        data['MetadataInfoMap'] = MetadataInfoMap.stub(stub[:metadata_info_map]) unless stub[:metadata_info_map].nil?
         data['SchemaVersionId'] = stub[:schema_version_id] unless stub[:schema_version_id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10336,7 +10339,7 @@ module AWS::SDK::Glue
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MetadataInfo.stub(value) unless value.nil?
+          data[key] = MetadataInfo.stub(value) unless value.nil?
         end
         data
       end
@@ -10359,7 +10362,7 @@ module AWS::SDK::Glue
         data = {}
         data['MetadataValue'] = stub[:metadata_value] unless stub[:metadata_value].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
-        data['OtherMetadataValueList'] = Stubs::OtherMetadataValueList.stub(stub[:other_metadata_value_list]) unless stub[:other_metadata_value_list].nil?
+        data['OtherMetadataValueList'] = OtherMetadataValueList.stub(stub[:other_metadata_value_list]) unless stub[:other_metadata_value_list].nil?
         data
       end
     end
@@ -10378,7 +10381,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OtherMetadataValueListItem.stub(element) unless element.nil?
+          data << OtherMetadataValueListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -10419,7 +10422,7 @@ module AWS::SDK::Glue
         data['SchemaVersionId'] = stub[:schema_version_id] unless stub[:schema_version_id].nil?
         data['VersionNumber'] = stub[:version_number] unless stub[:version_number].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10449,7 +10452,7 @@ module AWS::SDK::Glue
         data['SchemaVersionId'] = stub[:schema_version_id] unless stub[:schema_version_id].nil?
         data['MetadataKey'] = stub[:metadata_key] unless stub[:metadata_key].nil?
         data['MetadataValue'] = stub[:metadata_value] unless stub[:metadata_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10464,8 +10467,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobBookmarkEntry'] = Stubs::JobBookmarkEntry.stub(stub[:job_bookmark_entry]) unless stub[:job_bookmark_entry].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobBookmarkEntry'] = JobBookmarkEntry.stub(stub[:job_bookmark_entry]) unless stub[:job_bookmark_entry].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10482,8 +10485,8 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['RunId'] = stub[:run_id] unless stub[:run_id].nil?
-        data['NodeIds'] = Stubs::NodeIdList.stub(stub[:node_ids]) unless stub[:node_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NodeIds'] = NodeIdList.stub(stub[:node_ids]) unless stub[:node_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10519,7 +10522,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10536,8 +10539,8 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['TableList'] = Stubs::TableList.stub(stub[:table_list]) unless stub[:table_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableList'] = TableList.stub(stub[:table_list]) unless stub[:table_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10553,7 +10556,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['RunId'] = stub[:run_id] unless stub[:run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10567,7 +10570,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10581,7 +10584,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10597,7 +10600,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['TaskRunId'] = stub[:task_run_id] unless stub[:task_run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10613,7 +10616,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['TaskRunId'] = stub[:task_run_id] unless stub[:task_run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10629,7 +10632,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['JobRunId'] = stub[:job_run_id] unless stub[:job_run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10645,7 +10648,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['TaskRunId'] = stub[:task_run_id] unless stub[:task_run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10661,7 +10664,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['TaskRunId'] = stub[:task_run_id] unless stub[:task_run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10677,7 +10680,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10693,7 +10696,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['RunId'] = stub[:run_id] unless stub[:run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10707,7 +10710,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10721,7 +10724,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10737,7 +10740,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10753,7 +10756,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10767,7 +10770,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10781,7 +10784,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10795,7 +10798,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10811,7 +10814,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10825,7 +10828,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10840,8 +10843,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::ColumnStatisticsErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = ColumnStatisticsErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10860,7 +10863,7 @@ module AWS::SDK::Glue
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnStatisticsError.stub(element) unless element.nil?
+          data << ColumnStatisticsError.stub(element) unless element.nil?
         end
         data
       end
@@ -10880,8 +10883,8 @@ module AWS::SDK::Glue
       def self.stub(stub)
         stub ||= Types::ColumnStatisticsError.new
         data = {}
-        data['ColumnStatistics'] = Stubs::ColumnStatistics.stub(stub[:column_statistics]) unless stub[:column_statistics].nil?
-        data['Error'] = Stubs::ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
+        data['ColumnStatistics'] = ColumnStatistics.stub(stub[:column_statistics]) unless stub[:column_statistics].nil?
+        data['Error'] = ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -10896,8 +10899,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::ColumnStatisticsErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = ColumnStatisticsErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10911,7 +10914,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10925,7 +10928,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10939,7 +10942,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10953,7 +10956,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10967,7 +10970,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10983,7 +10986,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10999,7 +11002,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['TransformId'] = stub[:transform_id] unless stub[:transform_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11013,7 +11016,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11031,7 +11034,7 @@ module AWS::SDK::Glue
         data = {}
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
         data['RegistryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11051,7 +11054,7 @@ module AWS::SDK::Glue
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
         data['RegistryName'] = stub[:registry_name] unless stub[:registry_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11065,7 +11068,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11080,8 +11083,8 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Trigger'] = Stubs::Trigger.stub(stub[:trigger]) unless stub[:trigger].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Trigger'] = Trigger.stub(stub[:trigger]) unless stub[:trigger].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11095,7 +11098,7 @@ module AWS::SDK::Glue
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11111,7 +11114,7 @@ module AWS::SDK::Glue
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

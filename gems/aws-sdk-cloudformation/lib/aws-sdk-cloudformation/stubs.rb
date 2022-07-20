@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudFormation
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('ActivateTypeResult')
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -45,11 +47,11 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('BatchDescribeTypeConfigurationsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('BatchDescribeTypeConfigurationsResult')
-        xml << Hearth::XML::Node.new('Errors', Stubs::BatchDescribeTypeConfigurationsErrors.stub('member', stub[:errors])) unless stub[:errors].nil?
-        xml << Hearth::XML::Node.new('UnprocessedTypeConfigurations', Stubs::UnprocessedTypeConfigurations.stub('member', stub[:unprocessed_type_configurations])) unless stub[:unprocessed_type_configurations].nil?
-        xml << Hearth::XML::Node.new('TypeConfigurations', Stubs::TypeConfigurationDetailsList.stub('member', stub[:type_configurations])) unless stub[:type_configurations].nil?
+        xml << Hearth::XML::Node.new('Errors', BatchDescribeTypeConfigurationsErrors.stub('member', stub[:errors])) unless stub[:errors].nil?
+        xml << Hearth::XML::Node.new('UnprocessedTypeConfigurations', UnprocessedTypeConfigurations.stub('member', stub[:unprocessed_type_configurations])) unless stub[:unprocessed_type_configurations].nil?
+        xml << Hearth::XML::Node.new('TypeConfigurations', TypeConfigurationDetailsList.stub('member', stub[:type_configurations])) unless stub[:type_configurations].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TypeConfigurationDetails.stub(node_name, element) unless element.nil?
+          xml << TypeConfigurationDetails.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -116,7 +118,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TypeConfigurationIdentifier.stub(node_name, element) unless element.nil?
+          xml << TypeConfigurationIdentifier.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -161,7 +163,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::BatchDescribeTypeConfigurationsError.stub(node_name, element) unless element.nil?
+          xml << BatchDescribeTypeConfigurationsError.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -184,7 +186,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ErrorCode', stub[:error_code].to_s) unless stub[:error_code].nil?
         xml << Hearth::XML::Node.new('ErrorMessage', stub[:error_message].to_s) unless stub[:error_message].nil?
-        xml << Stubs::TypeConfigurationIdentifier.stub('TypeConfigurationIdentifier', stub[:type_configuration_identifier]) unless stub[:type_configuration_identifier].nil?
+        xml << TypeConfigurationIdentifier.stub('TypeConfigurationIdentifier', stub[:type_configuration_identifier]) unless stub[:type_configuration_identifier].nil?
         xml
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('CancelUpdateStackResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -220,7 +222,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ContinueUpdateRollbackResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -242,7 +244,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('CreateStackResult')
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -282,7 +284,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('CreateStackInstancesResult')
         xml << Hearth::XML::Node.new('OperationId', stub[:operation_id].to_s) unless stub[:operation_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -302,7 +304,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('CreateStackSetResult')
         xml << Hearth::XML::Node.new('StackSetId', stub[:stack_set_id].to_s) unless stub[:stack_set_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -320,7 +322,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DeactivateTypeResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -338,7 +340,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DeleteChangeSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -356,7 +358,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DeleteStackResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -376,7 +378,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('DeleteStackInstancesResult')
         xml << Hearth::XML::Node.new('OperationId', stub[:operation_id].to_s) unless stub[:operation_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -394,7 +396,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DeleteStackSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -412,7 +414,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DeregisterTypeResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -431,10 +433,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeAccountLimitsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeAccountLimitsResult')
-        xml << Hearth::XML::Node.new('AccountLimits', Stubs::AccountLimitList.stub('member', stub[:account_limits])) unless stub[:account_limits].nil?
+        xml << Hearth::XML::Node.new('AccountLimits', AccountLimitList.stub('member', stub[:account_limits])) unless stub[:account_limits].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -452,7 +454,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AccountLimit.stub(node_name, element) unless element.nil?
+          xml << AccountLimit.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -514,22 +516,22 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         xml << Hearth::XML::Node.new('StackName', stub[:stack_name].to_s) unless stub[:stack_name].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('Parameters', Stubs::Parameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', Parameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
         xml << Hearth::XML::Node.new('CreationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
         xml << Hearth::XML::Node.new('ExecutionStatus', stub[:execution_status].to_s) unless stub[:execution_status].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('StatusReason', stub[:status_reason].to_s) unless stub[:status_reason].nil?
-        xml << Hearth::XML::Node.new('NotificationARNs', Stubs::NotificationARNs.stub('member', stub[:notification_ar_ns])) unless stub[:notification_ar_ns].nil?
-        xml << Stubs::RollbackConfiguration.stub('RollbackConfiguration', stub[:rollback_configuration]) unless stub[:rollback_configuration].nil?
-        xml << Hearth::XML::Node.new('Capabilities', Stubs::Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::Tags.stub('member', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('Changes', Stubs::Changes.stub('member', stub[:changes])) unless stub[:changes].nil?
+        xml << Hearth::XML::Node.new('NotificationARNs', NotificationARNs.stub('member', stub[:notification_ar_ns])) unless stub[:notification_ar_ns].nil?
+        xml << RollbackConfiguration.stub('RollbackConfiguration', stub[:rollback_configuration]) unless stub[:rollback_configuration].nil?
+        xml << Hearth::XML::Node.new('Capabilities', Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
+        xml << Hearth::XML::Node.new('Tags', Tags.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Changes', Changes.stub('member', stub[:changes])) unless stub[:changes].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('IncludeNestedStacks', stub[:include_nested_stacks].to_s) unless stub[:include_nested_stacks].nil?
         xml << Hearth::XML::Node.new('ParentChangeSetId', stub[:parent_change_set_id].to_s) unless stub[:parent_change_set_id].nil?
         xml << Hearth::XML::Node.new('RootChangeSetId', stub[:root_change_set_id].to_s) unless stub[:root_change_set_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -547,7 +549,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Change.stub(node_name, element) unless element.nil?
+          xml << Change.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -570,7 +572,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('HookInvocationCount', stub[:hook_invocation_count].to_s) unless stub[:hook_invocation_count].nil?
-        xml << Stubs::ResourceChange.stub('ResourceChange', stub[:resource_change]) unless stub[:resource_change].nil?
+        xml << ResourceChange.stub('ResourceChange', stub[:resource_change]) unless stub[:resource_change].nil?
         xml
       end
     end
@@ -601,10 +603,10 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('PhysicalResourceId', stub[:physical_resource_id].to_s) unless stub[:physical_resource_id].nil?
         xml << Hearth::XML::Node.new('ResourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
         xml << Hearth::XML::Node.new('Replacement', stub[:replacement].to_s) unless stub[:replacement].nil?
-        xml << Hearth::XML::Node.new('Scope', Stubs::Scope.stub('member', stub[:scope])) unless stub[:scope].nil?
-        xml << Hearth::XML::Node.new('Details', Stubs::ResourceChangeDetails.stub('member', stub[:details])) unless stub[:details].nil?
+        xml << Hearth::XML::Node.new('Scope', Scope.stub('member', stub[:scope])) unless stub[:scope].nil?
+        xml << Hearth::XML::Node.new('Details', ResourceChangeDetails.stub('member', stub[:details])) unless stub[:details].nil?
         xml << Hearth::XML::Node.new('ChangeSetId', stub[:change_set_id].to_s) unless stub[:change_set_id].nil?
-        xml << Stubs::ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
+        xml << ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
         xml
       end
     end
@@ -642,7 +644,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ResourceChangeDetail.stub(node_name, element) unless element.nil?
+          xml << ResourceChangeDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -664,7 +666,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         stub ||= Types::ResourceChangeDetail.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ResourceTargetDefinition.stub('Target', stub[:target]) unless stub[:target].nil?
+        xml << ResourceTargetDefinition.stub('Target', stub[:target]) unless stub[:target].nil?
         xml << Hearth::XML::Node.new('Evaluation', stub[:evaluation].to_s) unless stub[:evaluation].nil?
         xml << Hearth::XML::Node.new('ChangeSource', stub[:change_source].to_s) unless stub[:change_source].nil?
         xml << Hearth::XML::Node.new('CausingEntity', stub[:causing_entity].to_s) unless stub[:causing_entity].nil?
@@ -726,7 +728,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -785,7 +787,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         stub ||= Types::RollbackConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('RollbackTriggers', Stubs::RollbackTriggers.stub('member', stub[:rollback_triggers])) unless stub[:rollback_triggers].nil?
+        xml << Hearth::XML::Node.new('RollbackTriggers', RollbackTriggers.stub('member', stub[:rollback_triggers])) unless stub[:rollback_triggers].nil?
         xml << Hearth::XML::Node.new('MonitoringTimeInMinutes', stub[:monitoring_time_in_minutes].to_s) unless stub[:monitoring_time_in_minutes].nil?
         xml
       end
@@ -804,7 +806,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RollbackTrigger.stub(node_name, element) unless element.nil?
+          xml << RollbackTrigger.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -862,7 +864,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Parameter.stub(node_name, element) unless element.nil?
+          xml << Parameter.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -913,13 +915,13 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('DescribeChangeSetHooksResult')
         xml << Hearth::XML::Node.new('ChangeSetId', stub[:change_set_id].to_s) unless stub[:change_set_id].nil?
         xml << Hearth::XML::Node.new('ChangeSetName', stub[:change_set_name].to_s) unless stub[:change_set_name].nil?
-        xml << Hearth::XML::Node.new('Hooks', Stubs::ChangeSetHooks.stub('member', stub[:hooks])) unless stub[:hooks].nil?
+        xml << Hearth::XML::Node.new('Hooks', ChangeSetHooks.stub('member', stub[:hooks])) unless stub[:hooks].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         xml << Hearth::XML::Node.new('StackName', stub[:stack_name].to_s) unless stub[:stack_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -937,7 +939,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ChangeSetHook.stub(node_name, element) unless element.nil?
+          xml << ChangeSetHook.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -966,7 +968,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('TypeName', stub[:type_name].to_s) unless stub[:type_name].nil?
         xml << Hearth::XML::Node.new('TypeVersionId', stub[:type_version_id].to_s) unless stub[:type_version_id].nil?
         xml << Hearth::XML::Node.new('TypeConfigurationVersionId', stub[:type_configuration_version_id].to_s) unless stub[:type_configuration_version_id].nil?
-        xml << Stubs::ChangeSetHookTargetDetails.stub('TargetDetails', stub[:target_details]) unless stub[:target_details].nil?
+        xml << ChangeSetHookTargetDetails.stub('TargetDetails', stub[:target_details]) unless stub[:target_details].nil?
         xml
       end
     end
@@ -986,7 +988,7 @@ module AWS::SDK::CloudFormation
         stub ||= Types::ChangeSetHookTargetDetails.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('TargetType', stub[:target_type].to_s) unless stub[:target_type].nil?
-        xml << Stubs::ChangeSetHookResourceTargetDetails.stub('ResourceTargetDetails', stub[:resource_target_details]) unless stub[:resource_target_details].nil?
+        xml << ChangeSetHookResourceTargetDetails.stub('ResourceTargetDetails', stub[:resource_target_details]) unless stub[:resource_target_details].nil?
         xml
       end
     end
@@ -1034,7 +1036,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('IdentityProvider', stub[:identity_provider].to_s) unless stub[:identity_provider].nil?
         xml << Hearth::XML::Node.new('PublisherProfile', stub[:publisher_profile].to_s) unless stub[:publisher_profile].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1066,7 +1068,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('DriftedStackResourceCount', stub[:drifted_stack_resource_count].to_s) unless stub[:drifted_stack_resource_count].nil?
         xml << Hearth::XML::Node.new('Timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1085,10 +1087,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStackEventsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStackEventsResult')
-        xml << Hearth::XML::Node.new('StackEvents', Stubs::StackEvents.stub('member', stub[:stack_events])) unless stub[:stack_events].nil?
+        xml << Hearth::XML::Node.new('StackEvents', StackEvents.stub('member', stub[:stack_events])) unless stub[:stack_events].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1106,7 +1108,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackEvent.stub(node_name, element) unless element.nil?
+          xml << StackEvent.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1173,9 +1175,9 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStackInstanceResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStackInstanceResult')
-        xml << Stubs::StackInstance.stub('StackInstance', stub[:stack_instance]) unless stub[:stack_instance].nil?
+        xml << StackInstance.stub('StackInstance', stub[:stack_instance]) unless stub[:stack_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1207,9 +1209,9 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('Region', stub[:region].to_s) unless stub[:region].nil?
         xml << Hearth::XML::Node.new('Account', stub[:account].to_s) unless stub[:account].nil?
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
-        xml << Hearth::XML::Node.new('ParameterOverrides', Stubs::Parameters.stub('member', stub[:parameter_overrides])) unless stub[:parameter_overrides].nil?
+        xml << Hearth::XML::Node.new('ParameterOverrides', Parameters.stub('member', stub[:parameter_overrides])) unless stub[:parameter_overrides].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::StackInstanceComprehensiveStatus.stub('StackInstanceStatus', stub[:stack_instance_status]) unless stub[:stack_instance_status].nil?
+        xml << StackInstanceComprehensiveStatus.stub('StackInstanceStatus', stub[:stack_instance_status]) unless stub[:stack_instance_status].nil?
         xml << Hearth::XML::Node.new('StatusReason', stub[:status_reason].to_s) unless stub[:status_reason].nil?
         xml << Hearth::XML::Node.new('OrganizationalUnitId', stub[:organizational_unit_id].to_s) unless stub[:organizational_unit_id].nil?
         xml << Hearth::XML::Node.new('DriftStatus', stub[:drift_status].to_s) unless stub[:drift_status].nil?
@@ -1249,9 +1251,9 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStackResourceResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStackResourceResult')
-        xml << Stubs::StackResourceDetail.stub('StackResourceDetail', stub[:stack_resource_detail]) unless stub[:stack_resource_detail].nil?
+        xml << StackResourceDetail.stub('StackResourceDetail', stub[:stack_resource_detail]) unless stub[:stack_resource_detail].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1290,8 +1292,8 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('ResourceStatusReason', stub[:resource_status_reason].to_s) unless stub[:resource_status_reason].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('Metadata', stub[:metadata].to_s) unless stub[:metadata].nil?
-        xml << Stubs::StackResourceDriftInformation.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
-        xml << Stubs::ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
+        xml << StackResourceDriftInformation.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
+        xml << ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
         xml
       end
     end
@@ -1330,10 +1332,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStackResourceDriftsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStackResourceDriftsResult')
-        xml << Hearth::XML::Node.new('StackResourceDrifts', Stubs::StackResourceDrifts.stub('member', stub[:stack_resource_drifts])) unless stub[:stack_resource_drifts].nil?
+        xml << Hearth::XML::Node.new('StackResourceDrifts', StackResourceDrifts.stub('member', stub[:stack_resource_drifts])) unless stub[:stack_resource_drifts].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1351,7 +1353,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackResourceDrift.stub(node_name, element) unless element.nil?
+          xml << StackResourceDrift.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1383,14 +1385,14 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         xml << Hearth::XML::Node.new('LogicalResourceId', stub[:logical_resource_id].to_s) unless stub[:logical_resource_id].nil?
         xml << Hearth::XML::Node.new('PhysicalResourceId', stub[:physical_resource_id].to_s) unless stub[:physical_resource_id].nil?
-        xml << Hearth::XML::Node.new('PhysicalResourceIdContext', Stubs::PhysicalResourceIdContext.stub('member', stub[:physical_resource_id_context])) unless stub[:physical_resource_id_context].nil?
+        xml << Hearth::XML::Node.new('PhysicalResourceIdContext', PhysicalResourceIdContext.stub('member', stub[:physical_resource_id_context])) unless stub[:physical_resource_id_context].nil?
         xml << Hearth::XML::Node.new('ResourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
         xml << Hearth::XML::Node.new('ExpectedProperties', stub[:expected_properties].to_s) unless stub[:expected_properties].nil?
         xml << Hearth::XML::Node.new('ActualProperties', stub[:actual_properties].to_s) unless stub[:actual_properties].nil?
-        xml << Hearth::XML::Node.new('PropertyDifferences', Stubs::PropertyDifferences.stub('member', stub[:property_differences])) unless stub[:property_differences].nil?
+        xml << Hearth::XML::Node.new('PropertyDifferences', PropertyDifferences.stub('member', stub[:property_differences])) unless stub[:property_differences].nil?
         xml << Hearth::XML::Node.new('StackResourceDriftStatus', stub[:stack_resource_drift_status].to_s) unless stub[:stack_resource_drift_status].nil?
         xml << Hearth::XML::Node.new('Timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
-        xml << Stubs::ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
+        xml << ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
         xml
       end
     end
@@ -1408,7 +1410,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PropertyDifference.stub(node_name, element) unless element.nil?
+          xml << PropertyDifference.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1451,7 +1453,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PhysicalResourceIdContextKeyValuePair.stub(node_name, element) unless element.nil?
+          xml << PhysicalResourceIdContextKeyValuePair.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1490,9 +1492,9 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStackResourcesResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStackResourcesResult')
-        xml << Hearth::XML::Node.new('StackResources', Stubs::StackResources.stub('member', stub[:stack_resources])) unless stub[:stack_resources].nil?
+        xml << Hearth::XML::Node.new('StackResources', StackResources.stub('member', stub[:stack_resources])) unless stub[:stack_resources].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1510,7 +1512,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackResource.stub(node_name, element) unless element.nil?
+          xml << StackResource.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1548,8 +1550,8 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('ResourceStatus', stub[:resource_status].to_s) unless stub[:resource_status].nil?
         xml << Hearth::XML::Node.new('ResourceStatusReason', stub[:resource_status_reason].to_s) unless stub[:resource_status_reason].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Stubs::StackResourceDriftInformation.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
-        xml << Stubs::ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
+        xml << StackResourceDriftInformation.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
+        xml << ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
         xml
       end
     end
@@ -1567,9 +1569,9 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStackSetResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStackSetResult')
-        xml << Stubs::StackSet.stub('StackSet', stub[:stack_set]) unless stub[:stack_set].nil?
+        xml << StackSet.stub('StackSet', stub[:stack_set]) unless stub[:stack_set].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1607,17 +1609,17 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('TemplateBody', stub[:template_body].to_s) unless stub[:template_body].nil?
-        xml << Hearth::XML::Node.new('Parameters', Stubs::Parameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
-        xml << Hearth::XML::Node.new('Capabilities', Stubs::Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::Tags.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Parameters', Parameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Capabilities', Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
+        xml << Hearth::XML::Node.new('Tags', Tags.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('StackSetARN', stub[:stack_set_arn].to_s) unless stub[:stack_set_arn].nil?
         xml << Hearth::XML::Node.new('AdministrationRoleARN', stub[:administration_role_arn].to_s) unless stub[:administration_role_arn].nil?
         xml << Hearth::XML::Node.new('ExecutionRoleName', stub[:execution_role_name].to_s) unless stub[:execution_role_name].nil?
-        xml << Stubs::StackSetDriftDetectionDetails.stub('StackSetDriftDetectionDetails', stub[:stack_set_drift_detection_details]) unless stub[:stack_set_drift_detection_details].nil?
-        xml << Stubs::AutoDeployment.stub('AutoDeployment', stub[:auto_deployment]) unless stub[:auto_deployment].nil?
+        xml << StackSetDriftDetectionDetails.stub('StackSetDriftDetectionDetails', stub[:stack_set_drift_detection_details]) unless stub[:stack_set_drift_detection_details].nil?
+        xml << AutoDeployment.stub('AutoDeployment', stub[:auto_deployment]) unless stub[:auto_deployment].nil?
         xml << Hearth::XML::Node.new('PermissionModel', stub[:permission_model].to_s) unless stub[:permission_model].nil?
-        xml << Hearth::XML::Node.new('OrganizationalUnitIds', Stubs::OrganizationalUnitIdList.stub('member', stub[:organizational_unit_ids])) unless stub[:organizational_unit_ids].nil?
-        xml << Stubs::ManagedExecution.stub('ManagedExecution', stub[:managed_execution]) unless stub[:managed_execution].nil?
+        xml << Hearth::XML::Node.new('OrganizationalUnitIds', OrganizationalUnitIdList.stub('member', stub[:organizational_unit_ids])) unless stub[:organizational_unit_ids].nil?
+        xml << ManagedExecution.stub('ManagedExecution', stub[:managed_execution]) unless stub[:managed_execution].nil?
         xml
       end
     end
@@ -1724,9 +1726,9 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStackSetOperationResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStackSetOperationResult')
-        xml << Stubs::StackSetOperation.stub('StackSetOperation', stub[:stack_set_operation]) unless stub[:stack_set_operation].nil?
+        xml << StackSetOperation.stub('StackSetOperation', stub[:stack_set_operation]) unless stub[:stack_set_operation].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1760,14 +1762,14 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('StackSetId', stub[:stack_set_id].to_s) unless stub[:stack_set_id].nil?
         xml << Hearth::XML::Node.new('Action', stub[:action].to_s) unless stub[:action].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::StackSetOperationPreferences.stub('OperationPreferences', stub[:operation_preferences]) unless stub[:operation_preferences].nil?
+        xml << StackSetOperationPreferences.stub('OperationPreferences', stub[:operation_preferences]) unless stub[:operation_preferences].nil?
         xml << Hearth::XML::Node.new('RetainStacks', stub[:retain_stacks].to_s) unless stub[:retain_stacks].nil?
         xml << Hearth::XML::Node.new('AdministrationRoleARN', stub[:administration_role_arn].to_s) unless stub[:administration_role_arn].nil?
         xml << Hearth::XML::Node.new('ExecutionRoleName', stub[:execution_role_name].to_s) unless stub[:execution_role_name].nil?
         xml << Hearth::XML::Node.new('CreationTimestamp', Hearth::TimeHelper.to_date_time(stub[:creation_timestamp])) unless stub[:creation_timestamp].nil?
         xml << Hearth::XML::Node.new('EndTimestamp', Hearth::TimeHelper.to_date_time(stub[:end_timestamp])) unless stub[:end_timestamp].nil?
-        xml << Stubs::DeploymentTargets.stub('DeploymentTargets', stub[:deployment_targets]) unless stub[:deployment_targets].nil?
-        xml << Stubs::StackSetDriftDetectionDetails.stub('StackSetDriftDetectionDetails', stub[:stack_set_drift_detection_details]) unless stub[:stack_set_drift_detection_details].nil?
+        xml << DeploymentTargets.stub('DeploymentTargets', stub[:deployment_targets]) unless stub[:deployment_targets].nil?
+        xml << StackSetDriftDetectionDetails.stub('StackSetDriftDetectionDetails', stub[:stack_set_drift_detection_details]) unless stub[:stack_set_drift_detection_details].nil?
         xml << Hearth::XML::Node.new('StatusReason', stub[:status_reason].to_s) unless stub[:status_reason].nil?
         xml
       end
@@ -1788,9 +1790,9 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         stub ||= Types::DeploymentTargets.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Accounts', Stubs::AccountList.stub('member', stub[:accounts])) unless stub[:accounts].nil?
+        xml << Hearth::XML::Node.new('Accounts', AccountList.stub('member', stub[:accounts])) unless stub[:accounts].nil?
         xml << Hearth::XML::Node.new('AccountsUrl', stub[:accounts_url].to_s) unless stub[:accounts_url].nil?
-        xml << Hearth::XML::Node.new('OrganizationalUnitIds', Stubs::OrganizationalUnitIdList.stub('member', stub[:organizational_unit_ids])) unless stub[:organizational_unit_ids].nil?
+        xml << Hearth::XML::Node.new('OrganizationalUnitIds', OrganizationalUnitIdList.stub('member', stub[:organizational_unit_ids])) unless stub[:organizational_unit_ids].nil?
         xml
       end
     end
@@ -1833,7 +1835,7 @@ module AWS::SDK::CloudFormation
         stub ||= Types::StackSetOperationPreferences.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('RegionConcurrencyType', stub[:region_concurrency_type].to_s) unless stub[:region_concurrency_type].nil?
-        xml << Hearth::XML::Node.new('RegionOrder', Stubs::RegionList.stub('member', stub[:region_order])) unless stub[:region_order].nil?
+        xml << Hearth::XML::Node.new('RegionOrder', RegionList.stub('member', stub[:region_order])) unless stub[:region_order].nil?
         xml << Hearth::XML::Node.new('FailureToleranceCount', stub[:failure_tolerance_count].to_s) unless stub[:failure_tolerance_count].nil?
         xml << Hearth::XML::Node.new('FailureTolerancePercentage', stub[:failure_tolerance_percentage].to_s) unless stub[:failure_tolerance_percentage].nil?
         xml << Hearth::XML::Node.new('MaxConcurrentCount', stub[:max_concurrent_count].to_s) unless stub[:max_concurrent_count].nil?
@@ -1875,10 +1877,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DescribeStacksResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DescribeStacksResult')
-        xml << Hearth::XML::Node.new('Stacks', Stubs::Stacks.stub('member', stub[:stacks])) unless stub[:stacks].nil?
+        xml << Hearth::XML::Node.new('Stacks', Stacks.stub('member', stub[:stacks])) unless stub[:stacks].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1896,7 +1898,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Stack.stub(node_name, element) unless element.nil?
+          xml << Stack.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1940,24 +1942,24 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('StackName', stub[:stack_name].to_s) unless stub[:stack_name].nil?
         xml << Hearth::XML::Node.new('ChangeSetId', stub[:change_set_id].to_s) unless stub[:change_set_id].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('Parameters', Stubs::Parameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', Parameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
         xml << Hearth::XML::Node.new('CreationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
         xml << Hearth::XML::Node.new('DeletionTime', Hearth::TimeHelper.to_date_time(stub[:deletion_time])) unless stub[:deletion_time].nil?
         xml << Hearth::XML::Node.new('LastUpdatedTime', Hearth::TimeHelper.to_date_time(stub[:last_updated_time])) unless stub[:last_updated_time].nil?
-        xml << Stubs::RollbackConfiguration.stub('RollbackConfiguration', stub[:rollback_configuration]) unless stub[:rollback_configuration].nil?
+        xml << RollbackConfiguration.stub('RollbackConfiguration', stub[:rollback_configuration]) unless stub[:rollback_configuration].nil?
         xml << Hearth::XML::Node.new('StackStatus', stub[:stack_status].to_s) unless stub[:stack_status].nil?
         xml << Hearth::XML::Node.new('StackStatusReason', stub[:stack_status_reason].to_s) unless stub[:stack_status_reason].nil?
         xml << Hearth::XML::Node.new('DisableRollback', stub[:disable_rollback].to_s) unless stub[:disable_rollback].nil?
-        xml << Hearth::XML::Node.new('NotificationARNs', Stubs::NotificationARNs.stub('member', stub[:notification_ar_ns])) unless stub[:notification_ar_ns].nil?
+        xml << Hearth::XML::Node.new('NotificationARNs', NotificationARNs.stub('member', stub[:notification_ar_ns])) unless stub[:notification_ar_ns].nil?
         xml << Hearth::XML::Node.new('TimeoutInMinutes', stub[:timeout_in_minutes].to_s) unless stub[:timeout_in_minutes].nil?
-        xml << Hearth::XML::Node.new('Capabilities', Stubs::Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
-        xml << Hearth::XML::Node.new('Outputs', Stubs::Outputs.stub('member', stub[:outputs])) unless stub[:outputs].nil?
+        xml << Hearth::XML::Node.new('Capabilities', Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
+        xml << Hearth::XML::Node.new('Outputs', Outputs.stub('member', stub[:outputs])) unless stub[:outputs].nil?
         xml << Hearth::XML::Node.new('RoleARN', stub[:role_arn].to_s) unless stub[:role_arn].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::Tags.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', Tags.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('EnableTerminationProtection', stub[:enable_termination_protection].to_s) unless stub[:enable_termination_protection].nil?
         xml << Hearth::XML::Node.new('ParentId', stub[:parent_id].to_s) unless stub[:parent_id].nil?
         xml << Hearth::XML::Node.new('RootId', stub[:root_id].to_s) unless stub[:root_id].nil?
-        xml << Stubs::StackDriftInformation.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
+        xml << StackDriftInformation.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
         xml
       end
     end
@@ -1995,7 +1997,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Output.stub(node_name, element) unless element.nil?
+          xml << Output.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2075,8 +2077,8 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('Schema', stub[:schema].to_s) unless stub[:schema].nil?
         xml << Hearth::XML::Node.new('ProvisioningType', stub[:provisioning_type].to_s) unless stub[:provisioning_type].nil?
         xml << Hearth::XML::Node.new('DeprecatedStatus', stub[:deprecated_status].to_s) unless stub[:deprecated_status].nil?
-        xml << Stubs::LoggingConfig.stub('LoggingConfig', stub[:logging_config]) unless stub[:logging_config].nil?
-        xml << Hearth::XML::Node.new('RequiredActivatedTypes', Stubs::RequiredActivatedTypes.stub('member', stub[:required_activated_types])) unless stub[:required_activated_types].nil?
+        xml << LoggingConfig.stub('LoggingConfig', stub[:logging_config]) unless stub[:logging_config].nil?
+        xml << Hearth::XML::Node.new('RequiredActivatedTypes', RequiredActivatedTypes.stub('member', stub[:required_activated_types])) unless stub[:required_activated_types].nil?
         xml << Hearth::XML::Node.new('ExecutionRoleArn', stub[:execution_role_arn].to_s) unless stub[:execution_role_arn].nil?
         xml << Hearth::XML::Node.new('Visibility', stub[:visibility].to_s) unless stub[:visibility].nil?
         xml << Hearth::XML::Node.new('SourceUrl', stub[:source_url].to_s) unless stub[:source_url].nil?
@@ -2092,7 +2094,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('IsActivated', stub[:is_activated].to_s) unless stub[:is_activated].nil?
         xml << Hearth::XML::Node.new('AutoUpdate', stub[:auto_update].to_s) unless stub[:auto_update].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2110,7 +2112,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RequiredActivatedType.stub(node_name, element) unless element.nil?
+          xml << RequiredActivatedType.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2135,7 +2137,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('TypeNameAlias', stub[:type_name_alias].to_s) unless stub[:type_name_alias].nil?
         xml << Hearth::XML::Node.new('OriginalTypeName', stub[:original_type_name].to_s) unless stub[:original_type_name].nil?
         xml << Hearth::XML::Node.new('PublisherId', stub[:publisher_id].to_s) unless stub[:publisher_id].nil?
-        xml << Hearth::XML::Node.new('SupportedMajorVersions', Stubs::SupportedMajorVersions.stub('member', stub[:supported_major_versions])) unless stub[:supported_major_versions].nil?
+        xml << Hearth::XML::Node.new('SupportedMajorVersions', SupportedMajorVersions.stub('member', stub[:supported_major_versions])) unless stub[:supported_major_versions].nil?
         xml
       end
     end
@@ -2200,7 +2202,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('TypeArn', stub[:type_arn].to_s) unless stub[:type_arn].nil?
         xml << Hearth::XML::Node.new('TypeVersionArn', stub[:type_version_arn].to_s) unless stub[:type_version_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2220,7 +2222,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('DetectStackDriftResult')
         xml << Hearth::XML::Node.new('StackDriftDetectionId', stub[:stack_drift_detection_id].to_s) unless stub[:stack_drift_detection_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2238,9 +2240,9 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('DetectStackResourceDriftResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('DetectStackResourceDriftResult')
-        xml << Stubs::StackResourceDrift.stub('StackResourceDrift', stub[:stack_resource_drift]) unless stub[:stack_resource_drift].nil?
+        xml << StackResourceDrift.stub('StackResourceDrift', stub[:stack_resource_drift]) unless stub[:stack_resource_drift].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2260,7 +2262,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('DetectStackSetDriftResult')
         xml << Hearth::XML::Node.new('OperationId', stub[:operation_id].to_s) unless stub[:operation_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2280,7 +2282,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('EstimateTemplateCostResult')
         xml << Hearth::XML::Node.new('Url', stub[:url].to_s) unless stub[:url].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2298,7 +2300,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ExecuteChangeSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2318,7 +2320,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('GetStackPolicyResult')
         xml << Hearth::XML::Node.new('StackPolicyBody', stub[:stack_policy_body].to_s) unless stub[:stack_policy_body].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2338,9 +2340,9 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('GetTemplateResult')
         xml << Hearth::XML::Node.new('TemplateBody', stub[:template_body].to_s) unless stub[:template_body].nil?
-        xml << Hearth::XML::Node.new('StagesAvailable', Stubs::StageList.stub('member', stub[:stages_available])) unless stub[:stages_available].nil?
+        xml << Hearth::XML::Node.new('StagesAvailable', StageList.stub('member', stub[:stages_available])) unless stub[:stages_available].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2385,17 +2387,17 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('GetTemplateSummaryResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('GetTemplateSummaryResult')
-        xml << Hearth::XML::Node.new('Parameters', Stubs::ParameterDeclarations.stub('member', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', ParameterDeclarations.stub('member', stub[:parameters])) unless stub[:parameters].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('Capabilities', Stubs::Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
+        xml << Hearth::XML::Node.new('Capabilities', Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
         xml << Hearth::XML::Node.new('CapabilitiesReason', stub[:capabilities_reason].to_s) unless stub[:capabilities_reason].nil?
-        xml << Hearth::XML::Node.new('ResourceTypes', Stubs::ResourceTypes.stub('member', stub[:resource_types])) unless stub[:resource_types].nil?
+        xml << Hearth::XML::Node.new('ResourceTypes', ResourceTypes.stub('member', stub[:resource_types])) unless stub[:resource_types].nil?
         xml << Hearth::XML::Node.new('Version', stub[:version].to_s) unless stub[:version].nil?
         xml << Hearth::XML::Node.new('Metadata', stub[:metadata].to_s) unless stub[:metadata].nil?
-        xml << Hearth::XML::Node.new('DeclaredTransforms', Stubs::TransformsList.stub('member', stub[:declared_transforms])) unless stub[:declared_transforms].nil?
-        xml << Hearth::XML::Node.new('ResourceIdentifierSummaries', Stubs::ResourceIdentifierSummaries.stub('member', stub[:resource_identifier_summaries])) unless stub[:resource_identifier_summaries].nil?
+        xml << Hearth::XML::Node.new('DeclaredTransforms', TransformsList.stub('member', stub[:declared_transforms])) unless stub[:declared_transforms].nil?
+        xml << Hearth::XML::Node.new('ResourceIdentifierSummaries', ResourceIdentifierSummaries.stub('member', stub[:resource_identifier_summaries])) unless stub[:resource_identifier_summaries].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2413,7 +2415,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ResourceIdentifierSummary.stub(node_name, element) unless element.nil?
+          xml << ResourceIdentifierSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2435,8 +2437,8 @@ module AWS::SDK::CloudFormation
         stub ||= Types::ResourceIdentifierSummary.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ResourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Hearth::XML::Node.new('LogicalResourceIds', Stubs::LogicalResourceIds.stub('member', stub[:logical_resource_ids])) unless stub[:logical_resource_ids].nil?
-        xml << Hearth::XML::Node.new('ResourceIdentifiers', Stubs::ResourceIdentifiers.stub('member', stub[:resource_identifiers])) unless stub[:resource_identifiers].nil?
+        xml << Hearth::XML::Node.new('LogicalResourceIds', LogicalResourceIds.stub('member', stub[:logical_resource_ids])) unless stub[:logical_resource_ids].nil?
+        xml << Hearth::XML::Node.new('ResourceIdentifiers', ResourceIdentifiers.stub('member', stub[:resource_identifiers])) unless stub[:resource_identifiers].nil?
         xml
       end
     end
@@ -2530,7 +2532,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ParameterDeclaration.stub(node_name, element) unless element.nil?
+          xml << ParameterDeclaration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2559,7 +2561,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('ParameterType', stub[:parameter_type].to_s) unless stub[:parameter_type].nil?
         xml << Hearth::XML::Node.new('NoEcho', stub[:no_echo].to_s) unless stub[:no_echo].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Stubs::ParameterConstraints.stub('ParameterConstraints', stub[:parameter_constraints]) unless stub[:parameter_constraints].nil?
+        xml << ParameterConstraints.stub('ParameterConstraints', stub[:parameter_constraints]) unless stub[:parameter_constraints].nil?
         xml
       end
     end
@@ -2577,7 +2579,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         stub ||= Types::ParameterConstraints.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('AllowedValues', Stubs::AllowedValues.stub('member', stub[:allowed_values])) unless stub[:allowed_values].nil?
+        xml << Hearth::XML::Node.new('AllowedValues', AllowedValues.stub('member', stub[:allowed_values])) unless stub[:allowed_values].nil?
         xml
       end
     end
@@ -2616,7 +2618,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('ImportStacksToStackSetResult')
         xml << Hearth::XML::Node.new('OperationId', stub[:operation_id].to_s) unless stub[:operation_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2635,10 +2637,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListChangeSetsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListChangeSetsResult')
-        xml << Hearth::XML::Node.new('Summaries', Stubs::ChangeSetSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
+        xml << Hearth::XML::Node.new('Summaries', ChangeSetSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2656,7 +2658,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ChangeSetSummary.stub(node_name, element) unless element.nil?
+          xml << ChangeSetSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2716,10 +2718,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListExportsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListExportsResult')
-        xml << Hearth::XML::Node.new('Exports', Stubs::Exports.stub('member', stub[:exports])) unless stub[:exports].nil?
+        xml << Hearth::XML::Node.new('Exports', Exports.stub('member', stub[:exports])) unless stub[:exports].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2737,7 +2739,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Export.stub(node_name, element) unless element.nil?
+          xml << Export.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2779,10 +2781,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListImportsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListImportsResult')
-        xml << Hearth::XML::Node.new('Imports', Stubs::Imports.stub('member', stub[:imports])) unless stub[:imports].nil?
+        xml << Hearth::XML::Node.new('Imports', Imports.stub('member', stub[:imports])) unless stub[:imports].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2820,10 +2822,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListStackInstancesResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListStackInstancesResult')
-        xml << Hearth::XML::Node.new('Summaries', Stubs::StackInstanceSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
+        xml << Hearth::XML::Node.new('Summaries', StackInstanceSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2841,7 +2843,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackInstanceSummary.stub(node_name, element) unless element.nil?
+          xml << StackInstanceSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2875,7 +2877,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('StatusReason', stub[:status_reason].to_s) unless stub[:status_reason].nil?
-        xml << Stubs::StackInstanceComprehensiveStatus.stub('StackInstanceStatus', stub[:stack_instance_status]) unless stub[:stack_instance_status].nil?
+        xml << StackInstanceComprehensiveStatus.stub('StackInstanceStatus', stub[:stack_instance_status]) unless stub[:stack_instance_status].nil?
         xml << Hearth::XML::Node.new('OrganizationalUnitId', stub[:organizational_unit_id].to_s) unless stub[:organizational_unit_id].nil?
         xml << Hearth::XML::Node.new('DriftStatus', stub[:drift_status].to_s) unless stub[:drift_status].nil?
         xml << Hearth::XML::Node.new('LastDriftCheckTimestamp', Hearth::TimeHelper.to_date_time(stub[:last_drift_check_timestamp])) unless stub[:last_drift_check_timestamp].nil?
@@ -2897,10 +2899,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListStackResourcesResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListStackResourcesResult')
-        xml << Hearth::XML::Node.new('StackResourceSummaries', Stubs::StackResourceSummaries.stub('member', stub[:stack_resource_summaries])) unless stub[:stack_resource_summaries].nil?
+        xml << Hearth::XML::Node.new('StackResourceSummaries', StackResourceSummaries.stub('member', stub[:stack_resource_summaries])) unless stub[:stack_resource_summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2918,7 +2920,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackResourceSummary.stub(node_name, element) unless element.nil?
+          xml << StackResourceSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2950,8 +2952,8 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('LastUpdatedTimestamp', Hearth::TimeHelper.to_date_time(stub[:last_updated_timestamp])) unless stub[:last_updated_timestamp].nil?
         xml << Hearth::XML::Node.new('ResourceStatus', stub[:resource_status].to_s) unless stub[:resource_status].nil?
         xml << Hearth::XML::Node.new('ResourceStatusReason', stub[:resource_status_reason].to_s) unless stub[:resource_status_reason].nil?
-        xml << Stubs::StackResourceDriftInformationSummary.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
-        xml << Stubs::ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
+        xml << StackResourceDriftInformationSummary.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
+        xml << ModuleInfo.stub('ModuleInfo', stub[:module_info]) unless stub[:module_info].nil?
         xml
       end
     end
@@ -2990,10 +2992,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListStackSetOperationResultsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListStackSetOperationResultsResult')
-        xml << Hearth::XML::Node.new('Summaries', Stubs::StackSetOperationResultSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
+        xml << Hearth::XML::Node.new('Summaries', StackSetOperationResultSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3011,7 +3013,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackSetOperationResultSummary.stub(node_name, element) unless element.nil?
+          xml << StackSetOperationResultSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3039,7 +3041,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('Region', stub[:region].to_s) unless stub[:region].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('StatusReason', stub[:status_reason].to_s) unless stub[:status_reason].nil?
-        xml << Stubs::AccountGateResult.stub('AccountGateResult', stub[:account_gate_result]) unless stub[:account_gate_result].nil?
+        xml << AccountGateResult.stub('AccountGateResult', stub[:account_gate_result]) unless stub[:account_gate_result].nil?
         xml << Hearth::XML::Node.new('OrganizationalUnitId', stub[:organizational_unit_id].to_s) unless stub[:organizational_unit_id].nil?
         xml
       end
@@ -3079,10 +3081,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListStackSetOperationsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListStackSetOperationsResult')
-        xml << Hearth::XML::Node.new('Summaries', Stubs::StackSetOperationSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
+        xml << Hearth::XML::Node.new('Summaries', StackSetOperationSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3100,7 +3102,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackSetOperationSummary.stub(node_name, element) unless element.nil?
+          xml << StackSetOperationSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3148,10 +3150,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListStackSetsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListStackSetsResult')
-        xml << Hearth::XML::Node.new('Summaries', Stubs::StackSetSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
+        xml << Hearth::XML::Node.new('Summaries', StackSetSummaries.stub('member', stub[:summaries])) unless stub[:summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3169,7 +3171,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackSetSummary.stub(node_name, element) unless element.nil?
+          xml << StackSetSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3200,11 +3202,11 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('StackSetId', stub[:stack_set_id].to_s) unless stub[:stack_set_id].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::AutoDeployment.stub('AutoDeployment', stub[:auto_deployment]) unless stub[:auto_deployment].nil?
+        xml << AutoDeployment.stub('AutoDeployment', stub[:auto_deployment]) unless stub[:auto_deployment].nil?
         xml << Hearth::XML::Node.new('PermissionModel', stub[:permission_model].to_s) unless stub[:permission_model].nil?
         xml << Hearth::XML::Node.new('DriftStatus', stub[:drift_status].to_s) unless stub[:drift_status].nil?
         xml << Hearth::XML::Node.new('LastDriftCheckTimestamp', Hearth::TimeHelper.to_date_time(stub[:last_drift_check_timestamp])) unless stub[:last_drift_check_timestamp].nil?
-        xml << Stubs::ManagedExecution.stub('ManagedExecution', stub[:managed_execution]) unless stub[:managed_execution].nil?
+        xml << ManagedExecution.stub('ManagedExecution', stub[:managed_execution]) unless stub[:managed_execution].nil?
         xml
       end
     end
@@ -3223,10 +3225,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListStacksResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListStacksResult')
-        xml << Hearth::XML::Node.new('StackSummaries', Stubs::StackSummaries.stub('member', stub[:stack_summaries])) unless stub[:stack_summaries].nil?
+        xml << Hearth::XML::Node.new('StackSummaries', StackSummaries.stub('member', stub[:stack_summaries])) unless stub[:stack_summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3244,7 +3246,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::StackSummary.stub(node_name, element) unless element.nil?
+          xml << StackSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3283,7 +3285,7 @@ module AWS::SDK::CloudFormation
         xml << Hearth::XML::Node.new('StackStatusReason', stub[:stack_status_reason].to_s) unless stub[:stack_status_reason].nil?
         xml << Hearth::XML::Node.new('ParentId', stub[:parent_id].to_s) unless stub[:parent_id].nil?
         xml << Hearth::XML::Node.new('RootId', stub[:root_id].to_s) unless stub[:root_id].nil?
-        xml << Stubs::StackDriftInformationSummary.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
+        xml << StackDriftInformationSummary.stub('DriftInformation', stub[:drift_information]) unless stub[:drift_information].nil?
         xml
       end
     end
@@ -3322,10 +3324,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListTypeRegistrationsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListTypeRegistrationsResult')
-        xml << Hearth::XML::Node.new('RegistrationTokenList', Stubs::RegistrationTokenList.stub('member', stub[:registration_token_list])) unless stub[:registration_token_list].nil?
+        xml << Hearth::XML::Node.new('RegistrationTokenList', RegistrationTokenList.stub('member', stub[:registration_token_list])) unless stub[:registration_token_list].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3363,10 +3365,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListTypeVersionsResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListTypeVersionsResult')
-        xml << Hearth::XML::Node.new('TypeVersionSummaries', Stubs::TypeVersionSummaries.stub('member', stub[:type_version_summaries])) unless stub[:type_version_summaries].nil?
+        xml << Hearth::XML::Node.new('TypeVersionSummaries', TypeVersionSummaries.stub('member', stub[:type_version_summaries])) unless stub[:type_version_summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3384,7 +3386,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TypeVersionSummary.stub(node_name, element) unless element.nil?
+          xml << TypeVersionSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3436,10 +3438,10 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ListTypesResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ListTypesResult')
-        xml << Hearth::XML::Node.new('TypeSummaries', Stubs::TypeSummaries.stub('member', stub[:type_summaries])) unless stub[:type_summaries].nil?
+        xml << Hearth::XML::Node.new('TypeSummaries', TypeSummaries.stub('member', stub[:type_summaries])) unless stub[:type_summaries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3457,7 +3459,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TypeSummary.stub(node_name, element) unless element.nil?
+          xml << TypeSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3520,7 +3522,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('PublishTypeResult')
         xml << Hearth::XML::Node.new('PublicTypeArn', stub[:public_type_arn].to_s) unless stub[:public_type_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3538,7 +3540,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('RecordHandlerProgressResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3558,7 +3560,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('RegisterPublisherResult')
         xml << Hearth::XML::Node.new('PublisherId', stub[:publisher_id].to_s) unless stub[:publisher_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3578,7 +3580,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('RegisterTypeResult')
         xml << Hearth::XML::Node.new('RegistrationToken', stub[:registration_token].to_s) unless stub[:registration_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3598,7 +3600,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('RollbackStackResult')
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3616,7 +3618,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('SetStackPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3636,7 +3638,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('SetTypeConfigurationResult')
         xml << Hearth::XML::Node.new('ConfigurationArn', stub[:configuration_arn].to_s) unless stub[:configuration_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3654,7 +3656,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('SetTypeDefaultVersionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3672,7 +3674,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('SignalResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3690,7 +3692,7 @@ module AWS::SDK::CloudFormation
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('StopStackSetOperationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3710,7 +3712,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('TestTypeResult')
         xml << Hearth::XML::Node.new('TypeVersionArn', stub[:type_version_arn].to_s) unless stub[:type_version_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3730,7 +3732,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('UpdateStackResult')
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3750,7 +3752,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('UpdateStackInstancesResult')
         xml << Hearth::XML::Node.new('OperationId', stub[:operation_id].to_s) unless stub[:operation_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3770,7 +3772,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('UpdateStackSetResult')
         xml << Hearth::XML::Node.new('OperationId', stub[:operation_id].to_s) unless stub[:operation_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3790,7 +3792,7 @@ module AWS::SDK::CloudFormation
         xml = Hearth::XML::Node.new('UpdateTerminationProtectionResult')
         xml << Hearth::XML::Node.new('StackId', stub[:stack_id].to_s) unless stub[:stack_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3812,13 +3814,13 @@ module AWS::SDK::CloudFormation
         response = Hearth::XML::Node.new('ValidateTemplateResponse')
         response.attributes['xmlns'] = 'http://cloudformation.amazonaws.com/doc/2010-05-15/'
         xml = Hearth::XML::Node.new('ValidateTemplateResult')
-        xml << Hearth::XML::Node.new('Parameters', Stubs::TemplateParameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', TemplateParameters.stub('member', stub[:parameters])) unless stub[:parameters].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('Capabilities', Stubs::Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
+        xml << Hearth::XML::Node.new('Capabilities', Capabilities.stub('member', stub[:capabilities])) unless stub[:capabilities].nil?
         xml << Hearth::XML::Node.new('CapabilitiesReason', stub[:capabilities_reason].to_s) unless stub[:capabilities_reason].nil?
-        xml << Hearth::XML::Node.new('DeclaredTransforms', Stubs::TransformsList.stub('member', stub[:declared_transforms])) unless stub[:declared_transforms].nil?
+        xml << Hearth::XML::Node.new('DeclaredTransforms', TransformsList.stub('member', stub[:declared_transforms])) unless stub[:declared_transforms].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3836,7 +3838,7 @@ module AWS::SDK::CloudFormation
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TemplateParameter.stub(node_name, element) unless element.nil?
+          xml << TemplateParameter.stub(node_name, element) unless element.nil?
         end
         xml
       end

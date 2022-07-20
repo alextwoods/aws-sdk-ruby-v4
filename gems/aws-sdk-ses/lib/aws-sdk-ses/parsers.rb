@@ -632,11 +632,11 @@ module AWS::SDK::SES
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeActiveReceiptRuleSetResult')
         xml.at('Metadata') do |node|
-          data.metadata = Parsers::ReceiptRuleSetMetadata.parse(node)
+          data.metadata = ReceiptRuleSetMetadata.parse(node)
         end
         xml.at('Rules') do |node|
           children = node.children('member')
-          data.rules = Parsers::ReceiptRulesList.parse(children)
+          data.rules = ReceiptRulesList.parse(children)
         end
         data
       end
@@ -646,7 +646,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReceiptRule.parse(node)
+          data << ReceiptRule.parse(node)
         end
         data
       end
@@ -666,11 +666,11 @@ module AWS::SDK::SES
         end
         xml.at('Recipients') do |node|
           children = node.children('member')
-          data.recipients = Parsers::RecipientsList.parse(children)
+          data.recipients = RecipientsList.parse(children)
         end
         xml.at('Actions') do |node|
           children = node.children('member')
-          data.actions = Parsers::ReceiptActionsList.parse(children)
+          data.actions = ReceiptActionsList.parse(children)
         end
         xml.at('ScanEnabled') do |node|
           data.scan_enabled = (node.text == 'true')
@@ -683,7 +683,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReceiptAction.parse(node)
+          data << ReceiptAction.parse(node)
         end
         data
       end
@@ -693,25 +693,25 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = Types::ReceiptAction.new
         xml.at('S3Action') do |node|
-          data.s3_action = Parsers::S3Action.parse(node)
+          data.s3_action = S3Action.parse(node)
         end
         xml.at('BounceAction') do |node|
-          data.bounce_action = Parsers::BounceAction.parse(node)
+          data.bounce_action = BounceAction.parse(node)
         end
         xml.at('WorkmailAction') do |node|
-          data.workmail_action = Parsers::WorkmailAction.parse(node)
+          data.workmail_action = WorkmailAction.parse(node)
         end
         xml.at('LambdaAction') do |node|
-          data.lambda_action = Parsers::LambdaAction.parse(node)
+          data.lambda_action = LambdaAction.parse(node)
         end
         xml.at('StopAction') do |node|
-          data.stop_action = Parsers::StopAction.parse(node)
+          data.stop_action = StopAction.parse(node)
         end
         xml.at('AddHeaderAction') do |node|
-          data.add_header_action = Parsers::AddHeaderAction.parse(node)
+          data.add_header_action = AddHeaderAction.parse(node)
         end
         xml.at('SNSAction') do |node|
-          data.sns_action = Parsers::SNSAction.parse(node)
+          data.sns_action = SNSAction.parse(node)
         end
         return data
       end
@@ -857,20 +857,20 @@ module AWS::SDK::SES
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeConfigurationSetResult')
         xml.at('ConfigurationSet') do |node|
-          data.configuration_set = Parsers::ConfigurationSet.parse(node)
+          data.configuration_set = ConfigurationSet.parse(node)
         end
         xml.at('EventDestinations') do |node|
           children = node.children('member')
-          data.event_destinations = Parsers::EventDestinations.parse(children)
+          data.event_destinations = EventDestinations.parse(children)
         end
         xml.at('TrackingOptions') do |node|
-          data.tracking_options = Parsers::TrackingOptions.parse(node)
+          data.tracking_options = TrackingOptions.parse(node)
         end
         xml.at('DeliveryOptions') do |node|
-          data.delivery_options = Parsers::DeliveryOptions.parse(node)
+          data.delivery_options = DeliveryOptions.parse(node)
         end
         xml.at('ReputationOptions') do |node|
-          data.reputation_options = Parsers::ReputationOptions.parse(node)
+          data.reputation_options = ReputationOptions.parse(node)
         end
         data
       end
@@ -916,7 +916,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EventDestination.parse(node)
+          data << EventDestination.parse(node)
         end
         data
       end
@@ -933,16 +933,16 @@ module AWS::SDK::SES
         end
         xml.at('MatchingEventTypes') do |node|
           children = node.children('member')
-          data.matching_event_types = Parsers::EventTypes.parse(children)
+          data.matching_event_types = EventTypes.parse(children)
         end
         xml.at('KinesisFirehoseDestination') do |node|
-          data.kinesis_firehose_destination = Parsers::KinesisFirehoseDestination.parse(node)
+          data.kinesis_firehose_destination = KinesisFirehoseDestination.parse(node)
         end
         xml.at('CloudWatchDestination') do |node|
-          data.cloud_watch_destination = Parsers::CloudWatchDestination.parse(node)
+          data.cloud_watch_destination = CloudWatchDestination.parse(node)
         end
         xml.at('SNSDestination') do |node|
-          data.sns_destination = Parsers::SNSDestination.parse(node)
+          data.sns_destination = SNSDestination.parse(node)
         end
         return data
       end
@@ -963,7 +963,7 @@ module AWS::SDK::SES
         data = Types::CloudWatchDestination.new
         xml.at('DimensionConfigurations') do |node|
           children = node.children('member')
-          data.dimension_configurations = Parsers::CloudWatchDimensionConfigurations.parse(children)
+          data.dimension_configurations = CloudWatchDimensionConfigurations.parse(children)
         end
         return data
       end
@@ -973,7 +973,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CloudWatchDimensionConfiguration.parse(node)
+          data << CloudWatchDimensionConfiguration.parse(node)
         end
         data
       end
@@ -1036,7 +1036,7 @@ module AWS::SDK::SES
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeReceiptRuleResult')
         xml.at('Rule') do |node|
-          data.rule = Parsers::ReceiptRule.parse(node)
+          data.rule = ReceiptRule.parse(node)
         end
         data
       end
@@ -1050,11 +1050,11 @@ module AWS::SDK::SES
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeReceiptRuleSetResult')
         xml.at('Metadata') do |node|
-          data.metadata = Parsers::ReceiptRuleSetMetadata.parse(node)
+          data.metadata = ReceiptRuleSetMetadata.parse(node)
         end
         xml.at('Rules') do |node|
           children = node.children('member')
-          data.rules = Parsers::ReceiptRulesList.parse(children)
+          data.rules = ReceiptRulesList.parse(children)
         end
         data
       end
@@ -1129,7 +1129,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('GetIdentityDkimAttributesResult')
         xml.at('DkimAttributes') do |node|
           children = node.children('entry')
-          data.dkim_attributes = Parsers::DkimAttributes.parse(children)
+          data.dkim_attributes = DkimAttributes.parse(children)
         end
         data
       end
@@ -1141,7 +1141,7 @@ module AWS::SDK::SES
         xml.each do |entry_node|
           key = entry_node.at('key').text
           node = entry_node.at('value')
-          data[key] = Parsers::IdentityDkimAttributes.parse(node)
+          data[key] = IdentityDkimAttributes.parse(node)
         end
         data
       end
@@ -1158,7 +1158,7 @@ module AWS::SDK::SES
         end
         xml.at('DkimTokens') do |node|
           children = node.children('member')
-          data.dkim_tokens = Parsers::VerificationTokenList.parse(children)
+          data.dkim_tokens = VerificationTokenList.parse(children)
         end
         return data
       end
@@ -1183,7 +1183,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('GetIdentityMailFromDomainAttributesResult')
         xml.at('MailFromDomainAttributes') do |node|
           children = node.children('entry')
-          data.mail_from_domain_attributes = Parsers::MailFromDomainAttributes.parse(children)
+          data.mail_from_domain_attributes = MailFromDomainAttributes.parse(children)
         end
         data
       end
@@ -1195,7 +1195,7 @@ module AWS::SDK::SES
         xml.each do |entry_node|
           key = entry_node.at('key').text
           node = entry_node.at('value')
-          data[key] = Parsers::IdentityMailFromDomainAttributes.parse(node)
+          data[key] = IdentityMailFromDomainAttributes.parse(node)
         end
         data
       end
@@ -1226,7 +1226,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('GetIdentityNotificationAttributesResult')
         xml.at('NotificationAttributes') do |node|
           children = node.children('entry')
-          data.notification_attributes = Parsers::NotificationAttributes.parse(children)
+          data.notification_attributes = NotificationAttributes.parse(children)
         end
         data
       end
@@ -1238,7 +1238,7 @@ module AWS::SDK::SES
         xml.each do |entry_node|
           key = entry_node.at('key').text
           node = entry_node.at('value')
-          data[key] = Parsers::IdentityNotificationAttributes.parse(node)
+          data[key] = IdentityNotificationAttributes.parse(node)
         end
         data
       end
@@ -1281,7 +1281,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('GetIdentityPoliciesResult')
         xml.at('Policies') do |node|
           children = node.children('entry')
-          data.policies = Parsers::PolicyMap.parse(children)
+          data.policies = PolicyMap.parse(children)
         end
         data
       end
@@ -1308,7 +1308,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('GetIdentityVerificationAttributesResult')
         xml.at('VerificationAttributes') do |node|
           children = node.children('entry')
-          data.verification_attributes = Parsers::VerificationAttributes.parse(children)
+          data.verification_attributes = VerificationAttributes.parse(children)
         end
         data
       end
@@ -1320,7 +1320,7 @@ module AWS::SDK::SES
         xml.each do |entry_node|
           key = entry_node.at('key').text
           node = entry_node.at('value')
-          data[key] = Parsers::IdentityVerificationAttributes.parse(node)
+          data[key] = IdentityVerificationAttributes.parse(node)
         end
         data
       end
@@ -1368,7 +1368,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('GetSendStatisticsResult')
         xml.at('SendDataPoints') do |node|
           children = node.children('member')
-          data.send_data_points = Parsers::SendDataPointList.parse(children)
+          data.send_data_points = SendDataPointList.parse(children)
         end
         data
       end
@@ -1378,7 +1378,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SendDataPoint.parse(node)
+          data << SendDataPoint.parse(node)
         end
         data
       end
@@ -1414,7 +1414,7 @@ module AWS::SDK::SES
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetTemplateResult')
         xml.at('Template') do |node|
-          data.template = Parsers::Template.parse(node)
+          data.template = Template.parse(node)
         end
         data
       end
@@ -1465,7 +1465,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListConfigurationSetsResult')
         xml.at('ConfigurationSets') do |node|
           children = node.children('member')
-          data.configuration_sets = Parsers::ConfigurationSets.parse(children)
+          data.configuration_sets = ConfigurationSets.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1478,7 +1478,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ConfigurationSet.parse(node)
+          data << ConfigurationSet.parse(node)
         end
         data
       end
@@ -1493,7 +1493,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListCustomVerificationEmailTemplatesResult')
         xml.at('CustomVerificationEmailTemplates') do |node|
           children = node.children('member')
-          data.custom_verification_email_templates = Parsers::CustomVerificationEmailTemplates.parse(children)
+          data.custom_verification_email_templates = CustomVerificationEmailTemplates.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1506,7 +1506,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CustomVerificationEmailTemplate.parse(node)
+          data << CustomVerificationEmailTemplate.parse(node)
         end
         data
       end
@@ -1543,7 +1543,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListIdentitiesResult')
         xml.at('Identities') do |node|
           children = node.children('member')
-          data.identities = Parsers::IdentityList.parse(children)
+          data.identities = IdentityList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1571,7 +1571,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListIdentityPoliciesResult')
         xml.at('PolicyNames') do |node|
           children = node.children('member')
-          data.policy_names = Parsers::PolicyNameList.parse(children)
+          data.policy_names = PolicyNameList.parse(children)
         end
         data
       end
@@ -1596,7 +1596,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListReceiptFiltersResult')
         xml.at('Filters') do |node|
           children = node.children('member')
-          data.filters = Parsers::ReceiptFilterList.parse(children)
+          data.filters = ReceiptFilterList.parse(children)
         end
         data
       end
@@ -1606,7 +1606,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReceiptFilter.parse(node)
+          data << ReceiptFilter.parse(node)
         end
         data
       end
@@ -1619,7 +1619,7 @@ module AWS::SDK::SES
           data.name = (node.text || '')
         end
         xml.at('IpFilter') do |node|
-          data.ip_filter = Parsers::ReceiptIpFilter.parse(node)
+          data.ip_filter = ReceiptIpFilter.parse(node)
         end
         return data
       end
@@ -1647,7 +1647,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListReceiptRuleSetsResult')
         xml.at('RuleSets') do |node|
           children = node.children('member')
-          data.rule_sets = Parsers::ReceiptRuleSetsLists.parse(children)
+          data.rule_sets = ReceiptRuleSetsLists.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1660,7 +1660,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReceiptRuleSetMetadata.parse(node)
+          data << ReceiptRuleSetMetadata.parse(node)
         end
         data
       end
@@ -1675,7 +1675,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListTemplatesResult')
         xml.at('TemplatesMetadata') do |node|
           children = node.children('member')
-          data.templates_metadata = Parsers::TemplateMetadataList.parse(children)
+          data.templates_metadata = TemplateMetadataList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1688,7 +1688,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TemplateMetadata.parse(node)
+          data << TemplateMetadata.parse(node)
         end
         data
       end
@@ -1716,7 +1716,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('ListVerifiedEmailAddressesResult')
         xml.at('VerifiedEmailAddresses') do |node|
           children = node.children('member')
-          data.verified_email_addresses = Parsers::AddressList.parse(children)
+          data.verified_email_addresses = AddressList.parse(children)
         end
         data
       end
@@ -1830,7 +1830,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('SendBulkTemplatedEmailResult')
         xml.at('Status') do |node|
           children = node.children('member')
-          data.status = Parsers::BulkEmailDestinationStatusList.parse(children)
+          data.status = BulkEmailDestinationStatusList.parse(children)
         end
         data
       end
@@ -1840,7 +1840,7 @@ module AWS::SDK::SES
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::BulkEmailDestinationStatus.parse(node)
+          data << BulkEmailDestinationStatus.parse(node)
         end
         data
       end
@@ -2199,7 +2199,7 @@ module AWS::SDK::SES
         xml = Hearth::XML.parse(body).at('VerifyDomainDkimResult')
         xml.at('DkimTokens') do |node|
           children = node.children('member')
-          data.dkim_tokens = Parsers::VerificationTokenList.parse(children)
+          data.dkim_tokens = VerificationTokenList.parse(children)
         end
         data
       end

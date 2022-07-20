@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AmplifyBackend
   module Builders
 
@@ -32,7 +34,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['targetEnvironmentName'] = input[:target_environment_name] unless input[:target_environment_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,9 +51,9 @@ module AWS::SDK::AmplifyBackend
         data['appId'] = input[:app_id] unless input[:app_id].nil?
         data['appName'] = input[:app_name] unless input[:app_name].nil?
         data['backendEnvironmentName'] = input[:backend_environment_name] unless input[:backend_environment_name].nil?
-        data['resourceConfig'] = Builders::ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -81,9 +83,9 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['backendEnvironmentName'] = input[:backend_environment_name] unless input[:backend_environment_name].nil?
-        data['resourceConfig'] = Builders::BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,10 +93,10 @@ module AWS::SDK::AmplifyBackend
     class BackendAPIResourceConfig
       def self.build(input)
         data = {}
-        data['additionalAuthTypes'] = Builders::ListOfBackendAPIAuthType.build(input[:additional_auth_types]) unless input[:additional_auth_types].nil?
+        data['additionalAuthTypes'] = ListOfBackendAPIAuthType.build(input[:additional_auth_types]) unless input[:additional_auth_types].nil?
         data['apiName'] = input[:api_name] unless input[:api_name].nil?
-        data['conflictResolution'] = Builders::BackendAPIConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
-        data['defaultAuthType'] = Builders::BackendAPIAuthType.build(input[:default_auth_type]) unless input[:default_auth_type].nil?
+        data['conflictResolution'] = BackendAPIConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        data['defaultAuthType'] = BackendAPIAuthType.build(input[:default_auth_type]) unless input[:default_auth_type].nil?
         data['service'] = input[:service] unless input[:service].nil?
         data['transformSchema'] = input[:transform_schema] unless input[:transform_schema].nil?
         data
@@ -106,7 +108,7 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['mode'] = input[:mode] unless input[:mode].nil?
-        data['settings'] = Builders::BackendAPIAppSyncAuthSettings.build(input[:settings]) unless input[:settings].nil?
+        data['settings'] = BackendAPIAppSyncAuthSettings.build(input[:settings]) unless input[:settings].nil?
         data
       end
     end
@@ -141,7 +143,7 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BackendAPIAuthType.build(element) unless element.nil?
+          data << BackendAPIAuthType.build(element) unless element.nil?
         end
         data
       end
@@ -165,9 +167,9 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['backendEnvironmentName'] = input[:backend_environment_name] unless input[:backend_environment_name].nil?
-        data['resourceConfig'] = Builders::CreateBackendAuthResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = CreateBackendAuthResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,9 +178,9 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['authResources'] = input[:auth_resources] unless input[:auth_resources].nil?
-        data['identityPoolConfigs'] = Builders::CreateBackendAuthIdentityPoolConfig.build(input[:identity_pool_configs]) unless input[:identity_pool_configs].nil?
+        data['identityPoolConfigs'] = CreateBackendAuthIdentityPoolConfig.build(input[:identity_pool_configs]) unless input[:identity_pool_configs].nil?
         data['service'] = input[:service] unless input[:service].nil?
-        data['userPoolConfigs'] = Builders::CreateBackendAuthUserPoolConfig.build(input[:user_pool_configs]) unless input[:user_pool_configs].nil?
+        data['userPoolConfigs'] = CreateBackendAuthUserPoolConfig.build(input[:user_pool_configs]) unless input[:user_pool_configs].nil?
         data
       end
     end
@@ -187,14 +189,14 @@ module AWS::SDK::AmplifyBackend
     class CreateBackendAuthUserPoolConfig
       def self.build(input)
         data = {}
-        data['forgotPassword'] = Builders::CreateBackendAuthForgotPasswordConfig.build(input[:forgot_password]) unless input[:forgot_password].nil?
-        data['mfa'] = Builders::CreateBackendAuthMFAConfig.build(input[:mfa]) unless input[:mfa].nil?
-        data['oAuth'] = Builders::CreateBackendAuthOAuthConfig.build(input[:o_auth]) unless input[:o_auth].nil?
-        data['passwordPolicy'] = Builders::CreateBackendAuthPasswordPolicyConfig.build(input[:password_policy]) unless input[:password_policy].nil?
-        data['requiredSignUpAttributes'] = Builders::ListOfRequiredSignUpAttributesElement.build(input[:required_sign_up_attributes]) unless input[:required_sign_up_attributes].nil?
+        data['forgotPassword'] = CreateBackendAuthForgotPasswordConfig.build(input[:forgot_password]) unless input[:forgot_password].nil?
+        data['mfa'] = CreateBackendAuthMFAConfig.build(input[:mfa]) unless input[:mfa].nil?
+        data['oAuth'] = CreateBackendAuthOAuthConfig.build(input[:o_auth]) unless input[:o_auth].nil?
+        data['passwordPolicy'] = CreateBackendAuthPasswordPolicyConfig.build(input[:password_policy]) unless input[:password_policy].nil?
+        data['requiredSignUpAttributes'] = ListOfRequiredSignUpAttributesElement.build(input[:required_sign_up_attributes]) unless input[:required_sign_up_attributes].nil?
         data['signInMethod'] = input[:sign_in_method] unless input[:sign_in_method].nil?
         data['userPoolName'] = input[:user_pool_name] unless input[:user_pool_name].nil?
-        data['verificationMessage'] = Builders::CreateBackendAuthVerificationMessageConfig.build(input[:verification_message]) unless input[:verification_message].nil?
+        data['verificationMessage'] = CreateBackendAuthVerificationMessageConfig.build(input[:verification_message]) unless input[:verification_message].nil?
         data
       end
     end
@@ -204,8 +206,8 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['deliveryMethod'] = input[:delivery_method] unless input[:delivery_method].nil?
-        data['emailSettings'] = Builders::EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
-        data['smsSettings'] = Builders::SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
+        data['emailSettings'] = EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
+        data['smsSettings'] = SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
         data
       end
     end
@@ -244,7 +246,7 @@ module AWS::SDK::AmplifyBackend
     class CreateBackendAuthPasswordPolicyConfig
       def self.build(input)
         data = {}
-        data['additionalConstraints'] = Builders::ListOfAdditionalConstraintsElement.build(input[:additional_constraints]) unless input[:additional_constraints].nil?
+        data['additionalConstraints'] = ListOfAdditionalConstraintsElement.build(input[:additional_constraints]) unless input[:additional_constraints].nil?
         data['minimumLength'] = Hearth::NumberHelper.serialize(input[:minimum_length]) unless input[:minimum_length].nil?
         data
       end
@@ -267,10 +269,10 @@ module AWS::SDK::AmplifyBackend
         data = {}
         data['domainPrefix'] = input[:domain_prefix] unless input[:domain_prefix].nil?
         data['oAuthGrantType'] = input[:o_auth_grant_type] unless input[:o_auth_grant_type].nil?
-        data['oAuthScopes'] = Builders::ListOfOAuthScopesElement.build(input[:o_auth_scopes]) unless input[:o_auth_scopes].nil?
-        data['redirectSignInURIs'] = Builders::ListOf__string.build(input[:redirect_sign_in_ur_is]) unless input[:redirect_sign_in_ur_is].nil?
-        data['redirectSignOutURIs'] = Builders::ListOf__string.build(input[:redirect_sign_out_ur_is]) unless input[:redirect_sign_out_ur_is].nil?
-        data['socialProviderSettings'] = Builders::SocialProviderSettings.build(input[:social_provider_settings]) unless input[:social_provider_settings].nil?
+        data['oAuthScopes'] = ListOfOAuthScopesElement.build(input[:o_auth_scopes]) unless input[:o_auth_scopes].nil?
+        data['redirectSignInURIs'] = ListOf__string.build(input[:redirect_sign_in_ur_is]) unless input[:redirect_sign_in_ur_is].nil?
+        data['redirectSignOutURIs'] = ListOf__string.build(input[:redirect_sign_out_ur_is]) unless input[:redirect_sign_out_ur_is].nil?
+        data['socialProviderSettings'] = SocialProviderSettings.build(input[:social_provider_settings]) unless input[:social_provider_settings].nil?
         data
       end
     end
@@ -279,10 +281,10 @@ module AWS::SDK::AmplifyBackend
     class SocialProviderSettings
       def self.build(input)
         data = {}
-        data['Facebook'] = Builders::BackendAuthSocialProviderConfig.build(input[:facebook]) unless input[:facebook].nil?
-        data['Google'] = Builders::BackendAuthSocialProviderConfig.build(input[:google]) unless input[:google].nil?
-        data['LoginWithAmazon'] = Builders::BackendAuthSocialProviderConfig.build(input[:login_with_amazon]) unless input[:login_with_amazon].nil?
-        data['SignInWithApple'] = Builders::BackendAuthAppleProviderConfig.build(input[:sign_in_with_apple]) unless input[:sign_in_with_apple].nil?
+        data['Facebook'] = BackendAuthSocialProviderConfig.build(input[:facebook]) unless input[:facebook].nil?
+        data['Google'] = BackendAuthSocialProviderConfig.build(input[:google]) unless input[:google].nil?
+        data['LoginWithAmazon'] = BackendAuthSocialProviderConfig.build(input[:login_with_amazon]) unless input[:login_with_amazon].nil?
+        data['SignInWithApple'] = BackendAuthAppleProviderConfig.build(input[:sign_in_with_apple]) unless input[:sign_in_with_apple].nil?
         data
       end
     end
@@ -336,7 +338,7 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['MFAMode'] = input[:mfa_mode] unless input[:mfa_mode].nil?
-        data['settings'] = Builders::Settings.build(input[:settings]) unless input[:settings].nil?
+        data['settings'] = Settings.build(input[:settings]) unless input[:settings].nil?
         data
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::AmplifyBackend
     class Settings
       def self.build(input)
         data = {}
-        data['mfaTypes'] = Builders::ListOfMfaTypesElement.build(input[:mfa_types]) unless input[:mfa_types].nil?
+        data['mfaTypes'] = ListOfMfaTypesElement.build(input[:mfa_types]) unless input[:mfa_types].nil?
         data['smsMessage'] = input[:sms_message] unless input[:sms_message].nil?
         data
       end
@@ -367,8 +369,8 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['deliveryMethod'] = input[:delivery_method] unless input[:delivery_method].nil?
-        data['emailSettings'] = Builders::EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
-        data['smsSettings'] = Builders::SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
+        data['emailSettings'] = EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
+        data['smsSettings'] = SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
         data
       end
     end
@@ -401,7 +403,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['backendManagerAppId'] = input[:backend_manager_app_id] unless input[:backend_manager_app_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -423,9 +425,9 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['backendEnvironmentName'] = input[:backend_environment_name] unless input[:backend_environment_name].nil?
-        data['resourceConfig'] = Builders::CreateBackendStorageResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = CreateBackendStorageResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -434,7 +436,7 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
-        data['permissions'] = Builders::BackendStoragePermissions.build(input[:permissions]) unless input[:permissions].nil?
+        data['permissions'] = BackendStoragePermissions.build(input[:permissions]) unless input[:permissions].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data
       end
@@ -444,8 +446,8 @@ module AWS::SDK::AmplifyBackend
     class BackendStoragePermissions
       def self.build(input)
         data = {}
-        data['authenticated'] = Builders::ListOfAuthenticatedElement.build(input[:authenticated]) unless input[:authenticated].nil?
-        data['unAuthenticated'] = Builders::ListOfUnAuthenticatedElement.build(input[:un_authenticated]) unless input[:un_authenticated].nil?
+        data['authenticated'] = ListOfAuthenticatedElement.build(input[:authenticated]) unless input[:authenticated].nil?
+        data['unAuthenticated'] = ListOfUnAuthenticatedElement.build(input[:un_authenticated]) unless input[:un_authenticated].nil?
         data
       end
     end
@@ -531,9 +533,9 @@ module AWS::SDK::AmplifyBackend
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceConfig'] = Builders::BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -559,7 +561,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -586,7 +588,7 @@ module AWS::SDK::AmplifyBackend
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['backendEnvironmentName'] = input[:backend_environment_name] unless input[:backend_environment_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -680,9 +682,9 @@ module AWS::SDK::AmplifyBackend
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceConfig'] = Builders::BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -734,7 +736,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -785,7 +787,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -835,7 +837,7 @@ module AWS::SDK::AmplifyBackend
         data['nativeClientId'] = input[:native_client_id] unless input[:native_client_id].nil?
         data['userPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['webClientId'] = input[:web_client_id] unless input[:web_client_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::AmplifyBackend
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -892,7 +894,7 @@ module AWS::SDK::AmplifyBackend
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['operation'] = input[:operation] unless input[:operation].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -907,7 +909,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -929,7 +931,7 @@ module AWS::SDK::AmplifyBackend
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['cleanAmplifyApp'] = input[:clean_amplify_app] unless input[:clean_amplify_app].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -971,9 +973,9 @@ module AWS::SDK::AmplifyBackend
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceConfig'] = Builders::BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = BackendAPIResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -998,9 +1000,9 @@ module AWS::SDK::AmplifyBackend
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceConfig'] = Builders::UpdateBackendAuthResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = UpdateBackendAuthResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1009,9 +1011,9 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['authResources'] = input[:auth_resources] unless input[:auth_resources].nil?
-        data['identityPoolConfigs'] = Builders::UpdateBackendAuthIdentityPoolConfig.build(input[:identity_pool_configs]) unless input[:identity_pool_configs].nil?
+        data['identityPoolConfigs'] = UpdateBackendAuthIdentityPoolConfig.build(input[:identity_pool_configs]) unless input[:identity_pool_configs].nil?
         data['service'] = input[:service] unless input[:service].nil?
-        data['userPoolConfigs'] = Builders::UpdateBackendAuthUserPoolConfig.build(input[:user_pool_configs]) unless input[:user_pool_configs].nil?
+        data['userPoolConfigs'] = UpdateBackendAuthUserPoolConfig.build(input[:user_pool_configs]) unless input[:user_pool_configs].nil?
         data
       end
     end
@@ -1020,11 +1022,11 @@ module AWS::SDK::AmplifyBackend
     class UpdateBackendAuthUserPoolConfig
       def self.build(input)
         data = {}
-        data['forgotPassword'] = Builders::UpdateBackendAuthForgotPasswordConfig.build(input[:forgot_password]) unless input[:forgot_password].nil?
-        data['mfa'] = Builders::UpdateBackendAuthMFAConfig.build(input[:mfa]) unless input[:mfa].nil?
-        data['oAuth'] = Builders::UpdateBackendAuthOAuthConfig.build(input[:o_auth]) unless input[:o_auth].nil?
-        data['passwordPolicy'] = Builders::UpdateBackendAuthPasswordPolicyConfig.build(input[:password_policy]) unless input[:password_policy].nil?
-        data['verificationMessage'] = Builders::UpdateBackendAuthVerificationMessageConfig.build(input[:verification_message]) unless input[:verification_message].nil?
+        data['forgotPassword'] = UpdateBackendAuthForgotPasswordConfig.build(input[:forgot_password]) unless input[:forgot_password].nil?
+        data['mfa'] = UpdateBackendAuthMFAConfig.build(input[:mfa]) unless input[:mfa].nil?
+        data['oAuth'] = UpdateBackendAuthOAuthConfig.build(input[:o_auth]) unless input[:o_auth].nil?
+        data['passwordPolicy'] = UpdateBackendAuthPasswordPolicyConfig.build(input[:password_policy]) unless input[:password_policy].nil?
+        data['verificationMessage'] = UpdateBackendAuthVerificationMessageConfig.build(input[:verification_message]) unless input[:verification_message].nil?
         data
       end
     end
@@ -1034,8 +1036,8 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['deliveryMethod'] = input[:delivery_method] unless input[:delivery_method].nil?
-        data['emailSettings'] = Builders::EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
-        data['smsSettings'] = Builders::SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
+        data['emailSettings'] = EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
+        data['smsSettings'] = SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
         data
       end
     end
@@ -1044,7 +1046,7 @@ module AWS::SDK::AmplifyBackend
     class UpdateBackendAuthPasswordPolicyConfig
       def self.build(input)
         data = {}
-        data['additionalConstraints'] = Builders::ListOfAdditionalConstraintsElement.build(input[:additional_constraints]) unless input[:additional_constraints].nil?
+        data['additionalConstraints'] = ListOfAdditionalConstraintsElement.build(input[:additional_constraints]) unless input[:additional_constraints].nil?
         data['minimumLength'] = Hearth::NumberHelper.serialize(input[:minimum_length]) unless input[:minimum_length].nil?
         data
       end
@@ -1056,10 +1058,10 @@ module AWS::SDK::AmplifyBackend
         data = {}
         data['domainPrefix'] = input[:domain_prefix] unless input[:domain_prefix].nil?
         data['oAuthGrantType'] = input[:o_auth_grant_type] unless input[:o_auth_grant_type].nil?
-        data['oAuthScopes'] = Builders::ListOfOAuthScopesElement.build(input[:o_auth_scopes]) unless input[:o_auth_scopes].nil?
-        data['redirectSignInURIs'] = Builders::ListOf__string.build(input[:redirect_sign_in_ur_is]) unless input[:redirect_sign_in_ur_is].nil?
-        data['redirectSignOutURIs'] = Builders::ListOf__string.build(input[:redirect_sign_out_ur_is]) unless input[:redirect_sign_out_ur_is].nil?
-        data['socialProviderSettings'] = Builders::SocialProviderSettings.build(input[:social_provider_settings]) unless input[:social_provider_settings].nil?
+        data['oAuthScopes'] = ListOfOAuthScopesElement.build(input[:o_auth_scopes]) unless input[:o_auth_scopes].nil?
+        data['redirectSignInURIs'] = ListOf__string.build(input[:redirect_sign_in_ur_is]) unless input[:redirect_sign_in_ur_is].nil?
+        data['redirectSignOutURIs'] = ListOf__string.build(input[:redirect_sign_out_ur_is]) unless input[:redirect_sign_out_ur_is].nil?
+        data['socialProviderSettings'] = SocialProviderSettings.build(input[:social_provider_settings]) unless input[:social_provider_settings].nil?
         data
       end
     end
@@ -1069,7 +1071,7 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['MFAMode'] = input[:mfa_mode] unless input[:mfa_mode].nil?
-        data['settings'] = Builders::Settings.build(input[:settings]) unless input[:settings].nil?
+        data['settings'] = Settings.build(input[:settings]) unless input[:settings].nil?
         data
       end
     end
@@ -1079,8 +1081,8 @@ module AWS::SDK::AmplifyBackend
       def self.build(input)
         data = {}
         data['deliveryMethod'] = input[:delivery_method] unless input[:delivery_method].nil?
-        data['emailSettings'] = Builders::EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
-        data['smsSettings'] = Builders::SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
+        data['emailSettings'] = EmailSettings.build(input[:email_settings]) unless input[:email_settings].nil?
+        data['smsSettings'] = SmsSettings.build(input[:sms_settings]) unless input[:sms_settings].nil?
         data
       end
     end
@@ -1111,8 +1113,8 @@ module AWS::SDK::AmplifyBackend
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['loginAuthConfig'] = Builders::LoginAuthConfigReqObj.build(input[:login_auth_config]) unless input[:login_auth_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loginAuthConfig'] = LoginAuthConfigReqObj.build(input[:login_auth_config]) unless input[:login_auth_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1155,7 +1157,7 @@ module AWS::SDK::AmplifyBackend
         data = {}
         data['operation'] = input[:operation] unless input[:operation].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1180,9 +1182,9 @@ module AWS::SDK::AmplifyBackend
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceConfig'] = Builders::UpdateBackendStorageResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['resourceConfig'] = UpdateBackendStorageResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1190,7 +1192,7 @@ module AWS::SDK::AmplifyBackend
     class UpdateBackendStorageResourceConfig
       def self.build(input)
         data = {}
-        data['permissions'] = Builders::BackendStoragePermissions.build(input[:permissions]) unless input[:permissions].nil?
+        data['permissions'] = BackendStoragePermissions.build(input[:permissions]) unless input[:permissions].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data
       end

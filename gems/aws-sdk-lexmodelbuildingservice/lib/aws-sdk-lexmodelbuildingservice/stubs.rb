@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LexModelBuildingService
   module Stubs
 
@@ -40,9 +42,9 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['intents'] = Stubs::IntentList.stub(stub[:intents]) unless stub[:intents].nil?
-        data['clarificationPrompt'] = Stubs::Prompt.stub(stub[:clarification_prompt]) unless stub[:clarification_prompt].nil?
-        data['abortStatement'] = Stubs::Statement.stub(stub[:abort_statement]) unless stub[:abort_statement].nil?
+        data['intents'] = IntentList.stub(stub[:intents]) unless stub[:intents].nil?
+        data['clarificationPrompt'] = Prompt.stub(stub[:clarification_prompt]) unless stub[:clarification_prompt].nil?
+        data['abortStatement'] = Statement.stub(stub[:abort_statement]) unless stub[:abort_statement].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
@@ -55,7 +57,7 @@ module AWS::SDK::LexModelBuildingService
         data['childDirected'] = stub[:child_directed] unless stub[:child_directed].nil?
         data['enableModelImprovements'] = stub[:enable_model_improvements] unless stub[:enable_model_improvements].nil?
         data['detectSentiment'] = stub[:detect_sentiment] unless stub[:detect_sentiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -73,7 +75,7 @@ module AWS::SDK::LexModelBuildingService
       def self.stub(stub)
         stub ||= Types::Statement.new
         data = {}
-        data['messages'] = Stubs::MessageList.stub(stub[:messages]) unless stub[:messages].nil?
+        data['messages'] = MessageList.stub(stub[:messages]) unless stub[:messages].nil?
         data['responseCard'] = stub[:response_card] unless stub[:response_card].nil?
         data
       end
@@ -93,7 +95,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Message.stub(element) unless element.nil?
+          data << Message.stub(element) unless element.nil?
         end
         data
       end
@@ -136,7 +138,7 @@ module AWS::SDK::LexModelBuildingService
       def self.stub(stub)
         stub ||= Types::Prompt.new
         data = {}
-        data['messages'] = Stubs::MessageList.stub(stub[:messages]) unless stub[:messages].nil?
+        data['messages'] = MessageList.stub(stub[:messages]) unless stub[:messages].nil?
         data['maxAttempts'] = stub[:max_attempts] unless stub[:max_attempts].nil?
         data['responseCard'] = stub[:response_card] unless stub[:response_card].nil?
         data
@@ -157,7 +159,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Intent.stub(element) unless element.nil?
+          data << Intent.stub(element) unless element.nil?
         end
         data
       end
@@ -214,23 +216,23 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['slots'] = Stubs::SlotList.stub(stub[:slots]) unless stub[:slots].nil?
-        data['sampleUtterances'] = Stubs::IntentUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
-        data['confirmationPrompt'] = Stubs::Prompt.stub(stub[:confirmation_prompt]) unless stub[:confirmation_prompt].nil?
-        data['rejectionStatement'] = Stubs::Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
-        data['followUpPrompt'] = Stubs::FollowUpPrompt.stub(stub[:follow_up_prompt]) unless stub[:follow_up_prompt].nil?
-        data['conclusionStatement'] = Stubs::Statement.stub(stub[:conclusion_statement]) unless stub[:conclusion_statement].nil?
-        data['dialogCodeHook'] = Stubs::CodeHook.stub(stub[:dialog_code_hook]) unless stub[:dialog_code_hook].nil?
-        data['fulfillmentActivity'] = Stubs::FulfillmentActivity.stub(stub[:fulfillment_activity]) unless stub[:fulfillment_activity].nil?
+        data['slots'] = SlotList.stub(stub[:slots]) unless stub[:slots].nil?
+        data['sampleUtterances'] = IntentUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
+        data['confirmationPrompt'] = Prompt.stub(stub[:confirmation_prompt]) unless stub[:confirmation_prompt].nil?
+        data['rejectionStatement'] = Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
+        data['followUpPrompt'] = FollowUpPrompt.stub(stub[:follow_up_prompt]) unless stub[:follow_up_prompt].nil?
+        data['conclusionStatement'] = Statement.stub(stub[:conclusion_statement]) unless stub[:conclusion_statement].nil?
+        data['dialogCodeHook'] = CodeHook.stub(stub[:dialog_code_hook]) unless stub[:dialog_code_hook].nil?
+        data['fulfillmentActivity'] = FulfillmentActivity.stub(stub[:fulfillment_activity]) unless stub[:fulfillment_activity].nil?
         data['parentIntentSignature'] = stub[:parent_intent_signature] unless stub[:parent_intent_signature].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
-        data['kendraConfiguration'] = Stubs::KendraConfiguration.stub(stub[:kendra_configuration]) unless stub[:kendra_configuration].nil?
-        data['inputContexts'] = Stubs::InputContextList.stub(stub[:input_contexts]) unless stub[:input_contexts].nil?
-        data['outputContexts'] = Stubs::OutputContextList.stub(stub[:output_contexts]) unless stub[:output_contexts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['kendraConfiguration'] = KendraConfiguration.stub(stub[:kendra_configuration]) unless stub[:kendra_configuration].nil?
+        data['inputContexts'] = InputContextList.stub(stub[:input_contexts]) unless stub[:input_contexts].nil?
+        data['outputContexts'] = OutputContextList.stub(stub[:output_contexts]) unless stub[:output_contexts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputContext.stub(element) unless element.nil?
+          data << OutputContext.stub(element) unless element.nil?
         end
         data
       end
@@ -290,7 +292,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputContext.stub(element) unless element.nil?
+          data << InputContext.stub(element) unless element.nil?
         end
         data
       end
@@ -351,7 +353,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= Types::FulfillmentActivity.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['codeHook'] = Stubs::CodeHook.stub(stub[:code_hook]) unless stub[:code_hook].nil?
+        data['codeHook'] = CodeHook.stub(stub[:code_hook]) unless stub[:code_hook].nil?
         data
       end
     end
@@ -390,8 +392,8 @@ module AWS::SDK::LexModelBuildingService
       def self.stub(stub)
         stub ||= Types::FollowUpPrompt.new
         data = {}
-        data['prompt'] = Stubs::Prompt.stub(stub[:prompt]) unless stub[:prompt].nil?
-        data['rejectionStatement'] = Stubs::Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
+        data['prompt'] = Prompt.stub(stub[:prompt]) unless stub[:prompt].nil?
+        data['rejectionStatement'] = Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
         data
       end
     end
@@ -430,7 +432,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Slot.stub(element) unless element.nil?
+          data << Slot.stub(element) unless element.nil?
         end
         data
       end
@@ -464,12 +466,12 @@ module AWS::SDK::LexModelBuildingService
         data['slotConstraint'] = stub[:slot_constraint] unless stub[:slot_constraint].nil?
         data['slotType'] = stub[:slot_type] unless stub[:slot_type].nil?
         data['slotTypeVersion'] = stub[:slot_type_version] unless stub[:slot_type_version].nil?
-        data['valueElicitationPrompt'] = Stubs::Prompt.stub(stub[:value_elicitation_prompt]) unless stub[:value_elicitation_prompt].nil?
+        data['valueElicitationPrompt'] = Prompt.stub(stub[:value_elicitation_prompt]) unless stub[:value_elicitation_prompt].nil?
         data['priority'] = stub[:priority] unless stub[:priority].nil?
-        data['sampleUtterances'] = Stubs::SlotUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
+        data['sampleUtterances'] = SlotUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
         data['responseCard'] = stub[:response_card] unless stub[:response_card].nil?
         data['obfuscationSetting'] = stub[:obfuscation_setting] unless stub[:obfuscation_setting].nil?
-        data['defaultValueSpec'] = Stubs::SlotDefaultValueSpec.stub(stub[:default_value_spec]) unless stub[:default_value_spec].nil?
+        data['defaultValueSpec'] = SlotDefaultValueSpec.stub(stub[:default_value_spec]) unless stub[:default_value_spec].nil?
         data
       end
     end
@@ -487,7 +489,7 @@ module AWS::SDK::LexModelBuildingService
       def self.stub(stub)
         stub ||= Types::SlotDefaultValueSpec.new
         data = {}
-        data['defaultValueList'] = Stubs::SlotDefaultValueList.stub(stub[:default_value_list]) unless stub[:default_value_list].nil?
+        data['defaultValueList'] = SlotDefaultValueList.stub(stub[:default_value_list]) unless stub[:default_value_list].nil?
         data
       end
     end
@@ -506,7 +508,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SlotDefaultValue.stub(element) unless element.nil?
+          data << SlotDefaultValue.stub(element) unless element.nil?
         end
         data
       end
@@ -573,15 +575,15 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['enumerationValues'] = Stubs::EnumerationValues.stub(stub[:enumeration_values]) unless stub[:enumeration_values].nil?
+        data['enumerationValues'] = EnumerationValues.stub(stub[:enumeration_values]) unless stub[:enumeration_values].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
         data['valueSelectionStrategy'] = stub[:value_selection_strategy] unless stub[:value_selection_strategy].nil?
         data['parentSlotTypeSignature'] = stub[:parent_slot_type_signature] unless stub[:parent_slot_type_signature].nil?
-        data['slotTypeConfigurations'] = Stubs::SlotTypeConfigurations.stub(stub[:slot_type_configurations]) unless stub[:slot_type_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['slotTypeConfigurations'] = SlotTypeConfigurations.stub(stub[:slot_type_configurations]) unless stub[:slot_type_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -599,7 +601,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SlotTypeConfiguration.stub(element) unless element.nil?
+          data << SlotTypeConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -618,7 +620,7 @@ module AWS::SDK::LexModelBuildingService
       def self.stub(stub)
         stub ||= Types::SlotTypeConfiguration.new
         data = {}
-        data['regexConfiguration'] = Stubs::SlotTypeRegexConfiguration.stub(stub[:regex_configuration]) unless stub[:regex_configuration].nil?
+        data['regexConfiguration'] = SlotTypeRegexConfiguration.stub(stub[:regex_configuration]) unless stub[:regex_configuration].nil?
         data
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnumerationValue.stub(element) unless element.nil?
+          data << EnumerationValue.stub(element) unless element.nil?
         end
         data
       end
@@ -676,7 +678,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= Types::EnumerationValue.new
         data = {}
         data['value'] = stub[:value] unless stub[:value].nil?
-        data['synonyms'] = Stubs::SynonymList.stub(stub[:synonyms]) unless stub[:synonyms].nil?
+        data['synonyms'] = SynonymList.stub(stub[:synonyms]) unless stub[:synonyms].nil?
         data
       end
     end
@@ -849,11 +851,11 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['intents'] = Stubs::IntentList.stub(stub[:intents]) unless stub[:intents].nil?
+        data['intents'] = IntentList.stub(stub[:intents]) unless stub[:intents].nil?
         data['enableModelImprovements'] = stub[:enable_model_improvements] unless stub[:enable_model_improvements].nil?
         data['nluIntentConfidenceThreshold'] = Hearth::NumberHelper.serialize(stub[:nlu_intent_confidence_threshold])
-        data['clarificationPrompt'] = Stubs::Prompt.stub(stub[:clarification_prompt]) unless stub[:clarification_prompt].nil?
-        data['abortStatement'] = Stubs::Statement.stub(stub[:abort_statement]) unless stub[:abort_statement].nil?
+        data['clarificationPrompt'] = Prompt.stub(stub[:clarification_prompt]) unless stub[:clarification_prompt].nil?
+        data['abortStatement'] = Statement.stub(stub[:abort_statement]) unless stub[:abort_statement].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
@@ -865,7 +867,7 @@ module AWS::SDK::LexModelBuildingService
         data['locale'] = stub[:locale] unless stub[:locale].nil?
         data['childDirected'] = stub[:child_directed] unless stub[:child_directed].nil?
         data['detectSentiment'] = stub[:detect_sentiment] unless stub[:detect_sentiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -895,8 +897,8 @@ module AWS::SDK::LexModelBuildingService
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
-        data['conversationLogs'] = Stubs::ConversationLogsResponse.stub(stub[:conversation_logs]) unless stub[:conversation_logs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conversationLogs'] = ConversationLogsResponse.stub(stub[:conversation_logs]) unless stub[:conversation_logs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -914,7 +916,7 @@ module AWS::SDK::LexModelBuildingService
       def self.stub(stub)
         stub ||= Types::ConversationLogsResponse.new
         data = {}
-        data['logSettings'] = Stubs::LogSettingsResponseList.stub(stub[:log_settings]) unless stub[:log_settings].nil?
+        data['logSettings'] = LogSettingsResponseList.stub(stub[:log_settings]) unless stub[:log_settings].nil?
         data['iamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
         data
       end
@@ -934,7 +936,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogSettingsResponse.stub(element) unless element.nil?
+          data << LogSettingsResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -979,9 +981,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BotAliases'] = Stubs::BotAliasMetadataList.stub(stub[:bot_aliases]) unless stub[:bot_aliases].nil?
+        data['BotAliases'] = BotAliasMetadataList.stub(stub[:bot_aliases]) unless stub[:bot_aliases].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -999,7 +1001,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BotAliasMetadata.stub(element) unless element.nil?
+          data << BotAliasMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1032,7 +1034,7 @@ module AWS::SDK::LexModelBuildingService
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
-        data['conversationLogs'] = Stubs::ConversationLogsResponse.stub(stub[:conversation_logs]) unless stub[:conversation_logs].nil?
+        data['conversationLogs'] = ConversationLogsResponse.stub(stub[:conversation_logs]) unless stub[:conversation_logs].nil?
         data
       end
     end
@@ -1063,10 +1065,10 @@ module AWS::SDK::LexModelBuildingService
         data['botName'] = stub[:bot_name] unless stub[:bot_name].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['botConfiguration'] = Stubs::ChannelConfigurationMap.stub(stub[:bot_configuration]) unless stub[:bot_configuration].nil?
+        data['botConfiguration'] = ChannelConfigurationMap.stub(stub[:bot_configuration]) unless stub[:bot_configuration].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1103,9 +1105,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['botChannelAssociations'] = Stubs::BotChannelAssociationList.stub(stub[:bot_channel_associations]) unless stub[:bot_channel_associations].nil?
+        data['botChannelAssociations'] = BotChannelAssociationList.stub(stub[:bot_channel_associations]) unless stub[:bot_channel_associations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1123,7 +1125,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BotChannelAssociation.stub(element) unless element.nil?
+          data << BotChannelAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1156,7 +1158,7 @@ module AWS::SDK::LexModelBuildingService
         data['botName'] = stub[:bot_name] unless stub[:bot_name].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['botConfiguration'] = Stubs::ChannelConfigurationMap.stub(stub[:bot_configuration]) unless stub[:bot_configuration].nil?
+        data['botConfiguration'] = ChannelConfigurationMap.stub(stub[:bot_configuration]) unless stub[:bot_configuration].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data
@@ -1176,9 +1178,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['bots'] = Stubs::BotMetadataList.stub(stub[:bots]) unless stub[:bots].nil?
+        data['bots'] = BotMetadataList.stub(stub[:bots]) unless stub[:bots].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1196,7 +1198,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BotMetadata.stub(element) unless element.nil?
+          data << BotMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1243,9 +1245,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['bots'] = Stubs::BotMetadataList.stub(stub[:bots]) unless stub[:bots].nil?
+        data['bots'] = BotMetadataList.stub(stub[:bots]) unless stub[:bots].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1264,9 +1266,9 @@ module AWS::SDK::LexModelBuildingService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['signature'] = stub[:signature] unless stub[:signature].nil?
-        data['supportedLocales'] = Stubs::LocaleList.stub(stub[:supported_locales]) unless stub[:supported_locales].nil?
-        data['slots'] = Stubs::BuiltinIntentSlotList.stub(stub[:slots]) unless stub[:slots].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['supportedLocales'] = LocaleList.stub(stub[:supported_locales]) unless stub[:supported_locales].nil?
+        data['slots'] = BuiltinIntentSlotList.stub(stub[:slots]) unless stub[:slots].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1284,7 +1286,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuiltinIntentSlot.stub(element) unless element.nil?
+          data << BuiltinIntentSlot.stub(element) unless element.nil?
         end
         data
       end
@@ -1341,9 +1343,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['intents'] = Stubs::BuiltinIntentMetadataList.stub(stub[:intents]) unless stub[:intents].nil?
+        data['intents'] = BuiltinIntentMetadataList.stub(stub[:intents]) unless stub[:intents].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1361,7 +1363,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuiltinIntentMetadata.stub(element) unless element.nil?
+          data << BuiltinIntentMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1382,7 +1384,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= Types::BuiltinIntentMetadata.new
         data = {}
         data['signature'] = stub[:signature] unless stub[:signature].nil?
-        data['supportedLocales'] = Stubs::LocaleList.stub(stub[:supported_locales]) unless stub[:supported_locales].nil?
+        data['supportedLocales'] = LocaleList.stub(stub[:supported_locales]) unless stub[:supported_locales].nil?
         data
       end
     end
@@ -1400,9 +1402,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['slotTypes'] = Stubs::BuiltinSlotTypeMetadataList.stub(stub[:slot_types]) unless stub[:slot_types].nil?
+        data['slotTypes'] = BuiltinSlotTypeMetadataList.stub(stub[:slot_types]) unless stub[:slot_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1420,7 +1422,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuiltinSlotTypeMetadata.stub(element) unless element.nil?
+          data << BuiltinSlotTypeMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1441,7 +1443,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= Types::BuiltinSlotTypeMetadata.new
         data = {}
         data['signature'] = stub[:signature] unless stub[:signature].nil?
-        data['supportedLocales'] = Stubs::LocaleList.stub(stub[:supported_locales]) unless stub[:supported_locales].nil?
+        data['supportedLocales'] = LocaleList.stub(stub[:supported_locales]) unless stub[:supported_locales].nil?
         data
       end
     end
@@ -1471,7 +1473,7 @@ module AWS::SDK::LexModelBuildingService
         data['exportStatus'] = stub[:export_status] unless stub[:export_status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1498,9 +1500,9 @@ module AWS::SDK::LexModelBuildingService
         data['mergeStrategy'] = stub[:merge_strategy] unless stub[:merge_strategy].nil?
         data['importId'] = stub[:import_id] unless stub[:import_id].nil?
         data['importStatus'] = stub[:import_status] unless stub[:import_status].nil?
-        data['failureReason'] = Stubs::StringList.stub(stub[:failure_reason]) unless stub[:failure_reason].nil?
+        data['failureReason'] = StringList.stub(stub[:failure_reason]) unless stub[:failure_reason].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1555,23 +1557,23 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['slots'] = Stubs::SlotList.stub(stub[:slots]) unless stub[:slots].nil?
-        data['sampleUtterances'] = Stubs::IntentUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
-        data['confirmationPrompt'] = Stubs::Prompt.stub(stub[:confirmation_prompt]) unless stub[:confirmation_prompt].nil?
-        data['rejectionStatement'] = Stubs::Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
-        data['followUpPrompt'] = Stubs::FollowUpPrompt.stub(stub[:follow_up_prompt]) unless stub[:follow_up_prompt].nil?
-        data['conclusionStatement'] = Stubs::Statement.stub(stub[:conclusion_statement]) unless stub[:conclusion_statement].nil?
-        data['dialogCodeHook'] = Stubs::CodeHook.stub(stub[:dialog_code_hook]) unless stub[:dialog_code_hook].nil?
-        data['fulfillmentActivity'] = Stubs::FulfillmentActivity.stub(stub[:fulfillment_activity]) unless stub[:fulfillment_activity].nil?
+        data['slots'] = SlotList.stub(stub[:slots]) unless stub[:slots].nil?
+        data['sampleUtterances'] = IntentUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
+        data['confirmationPrompt'] = Prompt.stub(stub[:confirmation_prompt]) unless stub[:confirmation_prompt].nil?
+        data['rejectionStatement'] = Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
+        data['followUpPrompt'] = FollowUpPrompt.stub(stub[:follow_up_prompt]) unless stub[:follow_up_prompt].nil?
+        data['conclusionStatement'] = Statement.stub(stub[:conclusion_statement]) unless stub[:conclusion_statement].nil?
+        data['dialogCodeHook'] = CodeHook.stub(stub[:dialog_code_hook]) unless stub[:dialog_code_hook].nil?
+        data['fulfillmentActivity'] = FulfillmentActivity.stub(stub[:fulfillment_activity]) unless stub[:fulfillment_activity].nil?
         data['parentIntentSignature'] = stub[:parent_intent_signature] unless stub[:parent_intent_signature].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
-        data['kendraConfiguration'] = Stubs::KendraConfiguration.stub(stub[:kendra_configuration]) unless stub[:kendra_configuration].nil?
-        data['inputContexts'] = Stubs::InputContextList.stub(stub[:input_contexts]) unless stub[:input_contexts].nil?
-        data['outputContexts'] = Stubs::OutputContextList.stub(stub[:output_contexts]) unless stub[:output_contexts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['kendraConfiguration'] = KendraConfiguration.stub(stub[:kendra_configuration]) unless stub[:kendra_configuration].nil?
+        data['inputContexts'] = InputContextList.stub(stub[:input_contexts]) unless stub[:input_contexts].nil?
+        data['outputContexts'] = OutputContextList.stub(stub[:output_contexts]) unless stub[:output_contexts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1588,9 +1590,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['intents'] = Stubs::IntentMetadataList.stub(stub[:intents]) unless stub[:intents].nil?
+        data['intents'] = IntentMetadataList.stub(stub[:intents]) unless stub[:intents].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1608,7 +1610,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IntentMetadata.stub(element) unless element.nil?
+          data << IntentMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1653,9 +1655,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['intents'] = Stubs::IntentMetadataList.stub(stub[:intents]) unless stub[:intents].nil?
+        data['intents'] = IntentMetadataList.stub(stub[:intents]) unless stub[:intents].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1689,8 +1691,8 @@ module AWS::SDK::LexModelBuildingService
         data['migrationStatus'] = stub[:migration_status] unless stub[:migration_status].nil?
         data['migrationStrategy'] = stub[:migration_strategy] unless stub[:migration_strategy].nil?
         data['migrationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:migration_timestamp]).to_i unless stub[:migration_timestamp].nil?
-        data['alerts'] = Stubs::MigrationAlerts.stub(stub[:alerts]) unless stub[:alerts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alerts'] = MigrationAlerts.stub(stub[:alerts]) unless stub[:alerts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1708,7 +1710,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MigrationAlert.stub(element) unless element.nil?
+          data << MigrationAlert.stub(element) unless element.nil?
         end
         data
       end
@@ -1732,8 +1734,8 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['details'] = Stubs::MigrationAlertDetails.stub(stub[:details]) unless stub[:details].nil?
-        data['referenceURLs'] = Stubs::MigrationAlertReferenceURLs.stub(stub[:reference_ur_ls]) unless stub[:reference_ur_ls].nil?
+        data['details'] = MigrationAlertDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['referenceURLs'] = MigrationAlertReferenceURLs.stub(stub[:reference_ur_ls]) unless stub[:reference_ur_ls].nil?
         data
       end
     end
@@ -1791,9 +1793,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['migrationSummaries'] = Stubs::MigrationSummaryList.stub(stub[:migration_summaries]) unless stub[:migration_summaries].nil?
+        data['migrationSummaries'] = MigrationSummaryList.stub(stub[:migration_summaries]) unless stub[:migration_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1811,7 +1813,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MigrationSummary.stub(element) unless element.nil?
+          data << MigrationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1874,15 +1876,15 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['enumerationValues'] = Stubs::EnumerationValues.stub(stub[:enumeration_values]) unless stub[:enumeration_values].nil?
+        data['enumerationValues'] = EnumerationValues.stub(stub[:enumeration_values]) unless stub[:enumeration_values].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
         data['valueSelectionStrategy'] = stub[:value_selection_strategy] unless stub[:value_selection_strategy].nil?
         data['parentSlotTypeSignature'] = stub[:parent_slot_type_signature] unless stub[:parent_slot_type_signature].nil?
-        data['slotTypeConfigurations'] = Stubs::SlotTypeConfigurations.stub(stub[:slot_type_configurations]) unless stub[:slot_type_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['slotTypeConfigurations'] = SlotTypeConfigurations.stub(stub[:slot_type_configurations]) unless stub[:slot_type_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1899,9 +1901,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['slotTypes'] = Stubs::SlotTypeMetadataList.stub(stub[:slot_types]) unless stub[:slot_types].nil?
+        data['slotTypes'] = SlotTypeMetadataList.stub(stub[:slot_types]) unless stub[:slot_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1919,7 +1921,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SlotTypeMetadata.stub(element) unless element.nil?
+          data << SlotTypeMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1964,9 +1966,9 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['slotTypes'] = Stubs::SlotTypeMetadataList.stub(stub[:slot_types]) unless stub[:slot_types].nil?
+        data['slotTypes'] = SlotTypeMetadataList.stub(stub[:slot_types]) unless stub[:slot_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1984,8 +1986,8 @@ module AWS::SDK::LexModelBuildingService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['botName'] = stub[:bot_name] unless stub[:bot_name].nil?
-        data['utterances'] = Stubs::ListsOfUtterances.stub(stub[:utterances]) unless stub[:utterances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['utterances'] = ListsOfUtterances.stub(stub[:utterances]) unless stub[:utterances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2003,7 +2005,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UtteranceList.stub(element) unless element.nil?
+          data << UtteranceList.stub(element) unless element.nil?
         end
         data
       end
@@ -2024,7 +2026,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= Types::UtteranceList.new
         data = {}
         data['botVersion'] = stub[:bot_version] unless stub[:bot_version].nil?
-        data['utterances'] = Stubs::ListOfUtterance.stub(stub[:utterances]) unless stub[:utterances].nil?
+        data['utterances'] = ListOfUtterance.stub(stub[:utterances]) unless stub[:utterances].nil?
         data
       end
     end
@@ -2043,7 +2045,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UtteranceData.stub(element) unless element.nil?
+          data << UtteranceData.stub(element) unless element.nil?
         end
         data
       end
@@ -2087,8 +2089,8 @@ module AWS::SDK::LexModelBuildingService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2106,7 +2108,7 @@ module AWS::SDK::LexModelBuildingService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2165,11 +2167,11 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['intents'] = Stubs::IntentList.stub(stub[:intents]) unless stub[:intents].nil?
+        data['intents'] = IntentList.stub(stub[:intents]) unless stub[:intents].nil?
         data['enableModelImprovements'] = stub[:enable_model_improvements] unless stub[:enable_model_improvements].nil?
         data['nluIntentConfidenceThreshold'] = Hearth::NumberHelper.serialize(stub[:nlu_intent_confidence_threshold])
-        data['clarificationPrompt'] = Stubs::Prompt.stub(stub[:clarification_prompt]) unless stub[:clarification_prompt].nil?
-        data['abortStatement'] = Stubs::Statement.stub(stub[:abort_statement]) unless stub[:abort_statement].nil?
+        data['clarificationPrompt'] = Prompt.stub(stub[:clarification_prompt]) unless stub[:clarification_prompt].nil?
+        data['abortStatement'] = Statement.stub(stub[:abort_statement]) unless stub[:abort_statement].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
@@ -2182,8 +2184,8 @@ module AWS::SDK::LexModelBuildingService
         data['childDirected'] = stub[:child_directed] unless stub[:child_directed].nil?
         data['createVersion'] = stub[:create_version] unless stub[:create_version].nil?
         data['detectSentiment'] = stub[:detect_sentiment] unless stub[:detect_sentiment].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2214,9 +2216,9 @@ module AWS::SDK::LexModelBuildingService
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
-        data['conversationLogs'] = Stubs::ConversationLogsResponse.stub(stub[:conversation_logs]) unless stub[:conversation_logs].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conversationLogs'] = ConversationLogsResponse.stub(stub[:conversation_logs]) unless stub[:conversation_logs].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2252,24 +2254,24 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['slots'] = Stubs::SlotList.stub(stub[:slots]) unless stub[:slots].nil?
-        data['sampleUtterances'] = Stubs::IntentUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
-        data['confirmationPrompt'] = Stubs::Prompt.stub(stub[:confirmation_prompt]) unless stub[:confirmation_prompt].nil?
-        data['rejectionStatement'] = Stubs::Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
-        data['followUpPrompt'] = Stubs::FollowUpPrompt.stub(stub[:follow_up_prompt]) unless stub[:follow_up_prompt].nil?
-        data['conclusionStatement'] = Stubs::Statement.stub(stub[:conclusion_statement]) unless stub[:conclusion_statement].nil?
-        data['dialogCodeHook'] = Stubs::CodeHook.stub(stub[:dialog_code_hook]) unless stub[:dialog_code_hook].nil?
-        data['fulfillmentActivity'] = Stubs::FulfillmentActivity.stub(stub[:fulfillment_activity]) unless stub[:fulfillment_activity].nil?
+        data['slots'] = SlotList.stub(stub[:slots]) unless stub[:slots].nil?
+        data['sampleUtterances'] = IntentUtteranceList.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
+        data['confirmationPrompt'] = Prompt.stub(stub[:confirmation_prompt]) unless stub[:confirmation_prompt].nil?
+        data['rejectionStatement'] = Statement.stub(stub[:rejection_statement]) unless stub[:rejection_statement].nil?
+        data['followUpPrompt'] = FollowUpPrompt.stub(stub[:follow_up_prompt]) unless stub[:follow_up_prompt].nil?
+        data['conclusionStatement'] = Statement.stub(stub[:conclusion_statement]) unless stub[:conclusion_statement].nil?
+        data['dialogCodeHook'] = CodeHook.stub(stub[:dialog_code_hook]) unless stub[:dialog_code_hook].nil?
+        data['fulfillmentActivity'] = FulfillmentActivity.stub(stub[:fulfillment_activity]) unless stub[:fulfillment_activity].nil?
         data['parentIntentSignature'] = stub[:parent_intent_signature] unless stub[:parent_intent_signature].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['checksum'] = stub[:checksum] unless stub[:checksum].nil?
         data['createVersion'] = stub[:create_version] unless stub[:create_version].nil?
-        data['kendraConfiguration'] = Stubs::KendraConfiguration.stub(stub[:kendra_configuration]) unless stub[:kendra_configuration].nil?
-        data['inputContexts'] = Stubs::InputContextList.stub(stub[:input_contexts]) unless stub[:input_contexts].nil?
-        data['outputContexts'] = Stubs::OutputContextList.stub(stub[:output_contexts]) unless stub[:output_contexts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['kendraConfiguration'] = KendraConfiguration.stub(stub[:kendra_configuration]) unless stub[:kendra_configuration].nil?
+        data['inputContexts'] = InputContextList.stub(stub[:input_contexts]) unless stub[:input_contexts].nil?
+        data['outputContexts'] = OutputContextList.stub(stub[:output_contexts]) unless stub[:output_contexts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2297,7 +2299,7 @@ module AWS::SDK::LexModelBuildingService
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['enumerationValues'] = Stubs::EnumerationValues.stub(stub[:enumeration_values]) unless stub[:enumeration_values].nil?
+        data['enumerationValues'] = EnumerationValues.stub(stub[:enumeration_values]) unless stub[:enumeration_values].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
@@ -2305,8 +2307,8 @@ module AWS::SDK::LexModelBuildingService
         data['valueSelectionStrategy'] = stub[:value_selection_strategy] unless stub[:value_selection_strategy].nil?
         data['createVersion'] = stub[:create_version] unless stub[:create_version].nil?
         data['parentSlotTypeSignature'] = stub[:parent_slot_type_signature] unless stub[:parent_slot_type_signature].nil?
-        data['slotTypeConfigurations'] = Stubs::SlotTypeConfigurations.stub(stub[:slot_type_configurations]) unless stub[:slot_type_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['slotTypeConfigurations'] = SlotTypeConfigurations.stub(stub[:slot_type_configurations]) unless stub[:slot_type_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2333,9 +2335,9 @@ module AWS::SDK::LexModelBuildingService
         data['mergeStrategy'] = stub[:merge_strategy] unless stub[:merge_strategy].nil?
         data['importId'] = stub[:import_id] unless stub[:import_id].nil?
         data['importStatus'] = stub[:import_status] unless stub[:import_status].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2366,7 +2368,7 @@ module AWS::SDK::LexModelBuildingService
         data['migrationId'] = stub[:migration_id] unless stub[:migration_id].nil?
         data['migrationStrategy'] = stub[:migration_strategy] unless stub[:migration_strategy].nil?
         data['migrationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:migration_timestamp]).to_i unless stub[:migration_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

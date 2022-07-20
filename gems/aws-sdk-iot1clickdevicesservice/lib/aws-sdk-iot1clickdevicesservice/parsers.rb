@@ -59,7 +59,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(http_resp)
         data = Types::DescribeDeviceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device_description = (Parsers::DeviceDescription.parse(map['deviceDescription']) unless map['deviceDescription'].nil?)
+        data.device_description = (DeviceDescription.parse(map['deviceDescription']) unless map['deviceDescription'].nil?)
         data
       end
     end
@@ -68,12 +68,12 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(map)
         data = Types::DeviceDescription.new
         data.arn = map['arn']
-        data.attributes = (Parsers::DeviceAttributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (DeviceAttributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.device_id = map['deviceId']
         data.enabled = map['enabled']
         data.remaining_life = Hearth::NumberHelper.deserialize(map['remainingLife'])
         data.type = map['type']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(http_resp)
         data = Types::GetDeviceMethodsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device_methods = (Parsers::List____listOfDeviceMethod.parse(map['deviceMethods']) unless map['deviceMethods'].nil?)
+        data.device_methods = (List____listOfDeviceMethod.parse(map['deviceMethods']) unless map['deviceMethods'].nil?)
         data
       end
     end
@@ -155,7 +155,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceMethod.parse(value) unless value.nil?
+          data << DeviceMethod.parse(value) unless value.nil?
         end
         data
       end
@@ -206,7 +206,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(http_resp)
         data = Types::ListDeviceEventsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.events = (Parsers::List____listOfDeviceEvent.parse(map['events']) unless map['events'].nil?)
+        data.events = (List____listOfDeviceEvent.parse(map['events']) unless map['events'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -216,7 +216,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceEvent.parse(value) unless value.nil?
+          data << DeviceEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -225,7 +225,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class DeviceEvent
       def self.parse(map)
         data = Types::DeviceEvent.new
-        data.device = (Parsers::Device.parse(map['device']) unless map['device'].nil?)
+        data.device = (Device.parse(map['device']) unless map['device'].nil?)
         data.std_event = map['stdEvent']
         return data
       end
@@ -234,7 +234,7 @@ module AWS::SDK::IoT1ClickDevicesService
     class Device
       def self.parse(map)
         data = Types::Device.new
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.device_id = map['deviceId']
         data.type = map['type']
         return data
@@ -253,7 +253,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(http_resp)
         data = Types::ListDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.devices = (Parsers::List____listOfDeviceDescription.parse(map['devices']) unless map['devices'].nil?)
+        data.devices = (List____listOfDeviceDescription.parse(map['devices']) unless map['devices'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -263,7 +263,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceDescription.parse(value) unless value.nil?
+          data << DeviceDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -274,7 +274,7 @@ module AWS::SDK::IoT1ClickDevicesService
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SES
   module Builders
 
@@ -22,7 +25,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
         params[context + 'OriginalRuleSetName'] = input[:original_rule_set_name].to_s unless input[:original_rule_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -36,8 +39,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateConfigurationSet'
         params['Version'] = '2010-12-01'
-        Builders::ConfigurationSet.build(input[:configuration_set], params, context: context + 'ConfigurationSet' + '.') unless input[:configuration_set].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConfigurationSet.build(input[:configuration_set], params, context: context + 'ConfigurationSet' + '.') unless input[:configuration_set].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -59,8 +62,8 @@ module AWS::SDK::SES
         params['Action'] = 'CreateConfigurationSetEventDestination'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        Builders::EventDestination.build(input[:event_destination], params, context: context + 'EventDestination' + '.') unless input[:event_destination].nil?
-        http_req.body = StringIO.new(params.to_s)
+        EventDestination.build(input[:event_destination], params, context: context + 'EventDestination' + '.') unless input[:event_destination].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -69,10 +72,10 @@ module AWS::SDK::SES
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        Builders::EventTypes.build(input[:matching_event_types], params, context: context + 'MatchingEventTypes' + '.member') unless input[:matching_event_types].nil?
-        Builders::KinesisFirehoseDestination.build(input[:kinesis_firehose_destination], params, context: context + 'KinesisFirehoseDestination' + '.') unless input[:kinesis_firehose_destination].nil?
-        Builders::CloudWatchDestination.build(input[:cloud_watch_destination], params, context: context + 'CloudWatchDestination' + '.') unless input[:cloud_watch_destination].nil?
-        Builders::SNSDestination.build(input[:sns_destination], params, context: context + 'SNSDestination' + '.') unless input[:sns_destination].nil?
+        EventTypes.build(input[:matching_event_types], params, context: context + 'MatchingEventTypes' + '.member') unless input[:matching_event_types].nil?
+        KinesisFirehoseDestination.build(input[:kinesis_firehose_destination], params, context: context + 'KinesisFirehoseDestination' + '.') unless input[:kinesis_firehose_destination].nil?
+        CloudWatchDestination.build(input[:cloud_watch_destination], params, context: context + 'CloudWatchDestination' + '.') unless input[:cloud_watch_destination].nil?
+        SNSDestination.build(input[:sns_destination], params, context: context + 'SNSDestination' + '.') unless input[:sns_destination].nil?
       end
     end
 
@@ -86,7 +89,7 @@ module AWS::SDK::SES
     # Structure Builder for CloudWatchDestination
     class CloudWatchDestination
       def self.build(input, params, context: nil)
-        Builders::CloudWatchDimensionConfigurations.build(input[:dimension_configurations], params, context: context + 'DimensionConfigurations' + '.member') unless input[:dimension_configurations].nil?
+        CloudWatchDimensionConfigurations.build(input[:dimension_configurations], params, context: context + 'DimensionConfigurations' + '.member') unless input[:dimension_configurations].nil?
       end
     end
 
@@ -94,7 +97,7 @@ module AWS::SDK::SES
     class CloudWatchDimensionConfigurations
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::CloudWatchDimensionConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          CloudWatchDimensionConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -136,8 +139,8 @@ module AWS::SDK::SES
         params['Action'] = 'CreateConfigurationSetTrackingOptions'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        Builders::TrackingOptions.build(input[:tracking_options], params, context: context + 'TrackingOptions' + '.') unless input[:tracking_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TrackingOptions.build(input[:tracking_options], params, context: context + 'TrackingOptions' + '.') unless input[:tracking_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -164,7 +167,7 @@ module AWS::SDK::SES
         params[context + 'TemplateContent'] = input[:template_content].to_s unless input[:template_content].nil?
         params[context + 'SuccessRedirectionURL'] = input[:success_redirection_url].to_s unless input[:success_redirection_url].nil?
         params[context + 'FailureRedirectionURL'] = input[:failure_redirection_url].to_s unless input[:failure_redirection_url].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -178,8 +181,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateReceiptFilter'
         params['Version'] = '2010-12-01'
-        Builders::ReceiptFilter.build(input[:filter], params, context: context + 'Filter' + '.') unless input[:filter].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReceiptFilter.build(input[:filter], params, context: context + 'Filter' + '.') unless input[:filter].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -187,7 +190,7 @@ module AWS::SDK::SES
     class ReceiptFilter
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::ReceiptIpFilter.build(input[:ip_filter], params, context: context + 'IpFilter' + '.') unless input[:ip_filter].nil?
+        ReceiptIpFilter.build(input[:ip_filter], params, context: context + 'IpFilter' + '.') unless input[:ip_filter].nil?
       end
     end
 
@@ -211,8 +214,8 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
         params[context + 'After'] = input[:after].to_s unless input[:after].nil?
-        Builders::ReceiptRule.build(input[:rule], params, context: context + 'Rule' + '.') unless input[:rule].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReceiptRule.build(input[:rule], params, context: context + 'Rule' + '.') unless input[:rule].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -222,8 +225,8 @@ module AWS::SDK::SES
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
         params[context + 'TlsPolicy'] = input[:tls_policy].to_s unless input[:tls_policy].nil?
-        Builders::RecipientsList.build(input[:recipients], params, context: context + 'Recipients' + '.member') unless input[:recipients].nil?
-        Builders::ReceiptActionsList.build(input[:actions], params, context: context + 'Actions' + '.member') unless input[:actions].nil?
+        RecipientsList.build(input[:recipients], params, context: context + 'Recipients' + '.member') unless input[:recipients].nil?
+        ReceiptActionsList.build(input[:actions], params, context: context + 'Actions' + '.member') unless input[:actions].nil?
         params[context + 'ScanEnabled'] = input[:scan_enabled].to_s unless input[:scan_enabled].nil?
       end
     end
@@ -232,7 +235,7 @@ module AWS::SDK::SES
     class ReceiptActionsList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ReceiptAction.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ReceiptAction.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -240,13 +243,13 @@ module AWS::SDK::SES
     # Structure Builder for ReceiptAction
     class ReceiptAction
       def self.build(input, params, context: nil)
-        Builders::S3Action.build(input[:s3_action], params, context: context + 'S3Action' + '.') unless input[:s3_action].nil?
-        Builders::BounceAction.build(input[:bounce_action], params, context: context + 'BounceAction' + '.') unless input[:bounce_action].nil?
-        Builders::WorkmailAction.build(input[:workmail_action], params, context: context + 'WorkmailAction' + '.') unless input[:workmail_action].nil?
-        Builders::LambdaAction.build(input[:lambda_action], params, context: context + 'LambdaAction' + '.') unless input[:lambda_action].nil?
-        Builders::StopAction.build(input[:stop_action], params, context: context + 'StopAction' + '.') unless input[:stop_action].nil?
-        Builders::AddHeaderAction.build(input[:add_header_action], params, context: context + 'AddHeaderAction' + '.') unless input[:add_header_action].nil?
-        Builders::SNSAction.build(input[:sns_action], params, context: context + 'SNSAction' + '.') unless input[:sns_action].nil?
+        S3Action.build(input[:s3_action], params, context: context + 'S3Action' + '.') unless input[:s3_action].nil?
+        BounceAction.build(input[:bounce_action], params, context: context + 'BounceAction' + '.') unless input[:bounce_action].nil?
+        WorkmailAction.build(input[:workmail_action], params, context: context + 'WorkmailAction' + '.') unless input[:workmail_action].nil?
+        LambdaAction.build(input[:lambda_action], params, context: context + 'LambdaAction' + '.') unless input[:lambda_action].nil?
+        StopAction.build(input[:stop_action], params, context: context + 'StopAction' + '.') unless input[:stop_action].nil?
+        AddHeaderAction.build(input[:add_header_action], params, context: context + 'AddHeaderAction' + '.') unless input[:add_header_action].nil?
+        SNSAction.build(input[:sns_action], params, context: context + 'SNSAction' + '.') unless input[:sns_action].nil?
       end
     end
 
@@ -332,7 +335,7 @@ module AWS::SDK::SES
         params['Action'] = 'CreateReceiptRuleSet'
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -346,8 +349,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateTemplate'
         params['Version'] = '2010-12-01'
-        Builders::Template.build(input[:template], params, context: context + 'Template' + '.') unless input[:template].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Template.build(input[:template], params, context: context + 'Template' + '.') unless input[:template].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -372,7 +375,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteConfigurationSet'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -388,7 +391,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
         params[context + 'EventDestinationName'] = input[:event_destination_name].to_s unless input[:event_destination_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -403,7 +406,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteConfigurationSetTrackingOptions'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -418,7 +421,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteCustomVerificationEmailTemplate'
         params['Version'] = '2010-12-01'
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -433,7 +436,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteIdentity'
         params['Version'] = '2010-12-01'
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -449,7 +452,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -464,7 +467,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteReceiptFilter'
         params['Version'] = '2010-12-01'
         params[context + 'FilterName'] = input[:filter_name].to_s unless input[:filter_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -480,7 +483,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
         params[context + 'RuleName'] = input[:rule_name].to_s unless input[:rule_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -495,7 +498,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteReceiptRuleSet'
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -510,7 +513,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteTemplate'
         params['Version'] = '2010-12-01'
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -525,7 +528,7 @@ module AWS::SDK::SES
         params['Action'] = 'DeleteVerifiedEmailAddress'
         params['Version'] = '2010-12-01'
         params[context + 'EmailAddress'] = input[:email_address].to_s unless input[:email_address].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -539,7 +542,7 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeActiveReceiptRuleSet'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -554,8 +557,8 @@ module AWS::SDK::SES
         params['Action'] = 'DescribeConfigurationSet'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        Builders::ConfigurationSetAttributeList.build(input[:configuration_set_attribute_names], params, context: context + 'ConfigurationSetAttributeNames' + '.member') unless input[:configuration_set_attribute_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConfigurationSetAttributeList.build(input[:configuration_set_attribute_names], params, context: context + 'ConfigurationSetAttributeNames' + '.member') unless input[:configuration_set_attribute_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -580,7 +583,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
         params[context + 'RuleName'] = input[:rule_name].to_s unless input[:rule_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -595,7 +598,7 @@ module AWS::SDK::SES
         params['Action'] = 'DescribeReceiptRuleSet'
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -609,7 +612,7 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetAccountSendingEnabled'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -624,7 +627,7 @@ module AWS::SDK::SES
         params['Action'] = 'GetCustomVerificationEmailTemplate'
         params['Version'] = '2010-12-01'
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -638,8 +641,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetIdentityDkimAttributes'
         params['Version'] = '2010-12-01'
-        Builders::IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -662,8 +665,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetIdentityMailFromDomainAttributes'
         params['Version'] = '2010-12-01'
-        Builders::IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -677,8 +680,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetIdentityNotificationAttributes'
         params['Version'] = '2010-12-01'
-        Builders::IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -693,8 +696,8 @@ module AWS::SDK::SES
         params['Action'] = 'GetIdentityPolicies'
         params['Version'] = '2010-12-01'
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
-        Builders::PolicyNameList.build(input[:policy_names], params, context: context + 'PolicyNames' + '.member') unless input[:policy_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        PolicyNameList.build(input[:policy_names], params, context: context + 'PolicyNames' + '.member') unless input[:policy_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -717,8 +720,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetIdentityVerificationAttributes'
         params['Version'] = '2010-12-01'
-        Builders::IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IdentityList.build(input[:identities], params, context: context + 'Identities' + '.member') unless input[:identities].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -732,7 +735,7 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetSendQuota'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -746,7 +749,7 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetSendStatistics'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -761,7 +764,7 @@ module AWS::SDK::SES
         params['Action'] = 'GetTemplate'
         params['Version'] = '2010-12-01'
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -777,7 +780,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -793,7 +796,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -810,7 +813,7 @@ module AWS::SDK::SES
         params[context + 'IdentityType'] = input[:identity_type].to_s unless input[:identity_type].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -825,7 +828,7 @@ module AWS::SDK::SES
         params['Action'] = 'ListIdentityPolicies'
         params['Version'] = '2010-12-01'
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -839,7 +842,7 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListReceiptFilters'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -854,7 +857,7 @@ module AWS::SDK::SES
         params['Action'] = 'ListReceiptRuleSets'
         params['Version'] = '2010-12-01'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -870,7 +873,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -884,7 +887,7 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListVerifiedEmailAddresses'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -899,8 +902,8 @@ module AWS::SDK::SES
         params['Action'] = 'PutConfigurationSetDeliveryOptions'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        Builders::DeliveryOptions.build(input[:delivery_options], params, context: context + 'DeliveryOptions' + '.') unless input[:delivery_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DeliveryOptions.build(input[:delivery_options], params, context: context + 'DeliveryOptions' + '.') unless input[:delivery_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -924,7 +927,7 @@ module AWS::SDK::SES
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
         params[context + 'Policy'] = input[:policy].to_s unless input[:policy].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -939,8 +942,8 @@ module AWS::SDK::SES
         params['Action'] = 'ReorderReceiptRuleSet'
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
-        Builders::ReceiptRuleNamesList.build(input[:rule_names], params, context: context + 'RuleNames' + '.member') unless input[:rule_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReceiptRuleNamesList.build(input[:rule_names], params, context: context + 'RuleNames' + '.member') unless input[:rule_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -966,10 +969,10 @@ module AWS::SDK::SES
         params[context + 'OriginalMessageId'] = input[:original_message_id].to_s unless input[:original_message_id].nil?
         params[context + 'BounceSender'] = input[:bounce_sender].to_s unless input[:bounce_sender].nil?
         params[context + 'Explanation'] = input[:explanation].to_s unless input[:explanation].nil?
-        Builders::MessageDsn.build(input[:message_dsn], params, context: context + 'MessageDsn' + '.') unless input[:message_dsn].nil?
-        Builders::BouncedRecipientInfoList.build(input[:bounced_recipient_info_list], params, context: context + 'BouncedRecipientInfoList' + '.member') unless input[:bounced_recipient_info_list].nil?
+        MessageDsn.build(input[:message_dsn], params, context: context + 'MessageDsn' + '.') unless input[:message_dsn].nil?
+        BouncedRecipientInfoList.build(input[:bounced_recipient_info_list], params, context: context + 'BouncedRecipientInfoList' + '.member') unless input[:bounced_recipient_info_list].nil?
         params[context + 'BounceSenderArn'] = input[:bounce_sender_arn].to_s unless input[:bounce_sender_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -977,7 +980,7 @@ module AWS::SDK::SES
     class BouncedRecipientInfoList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::BouncedRecipientInfo.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          BouncedRecipientInfo.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -988,7 +991,7 @@ module AWS::SDK::SES
         params[context + 'Recipient'] = input[:recipient].to_s unless input[:recipient].nil?
         params[context + 'RecipientArn'] = input[:recipient_arn].to_s unless input[:recipient_arn].nil?
         params[context + 'BounceType'] = input[:bounce_type].to_s unless input[:bounce_type].nil?
-        Builders::RecipientDsnFields.build(input[:recipient_dsn_fields], params, context: context + 'RecipientDsnFields' + '.') unless input[:recipient_dsn_fields].nil?
+        RecipientDsnFields.build(input[:recipient_dsn_fields], params, context: context + 'RecipientDsnFields' + '.') unless input[:recipient_dsn_fields].nil?
       end
     end
 
@@ -1001,7 +1004,7 @@ module AWS::SDK::SES
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
         params[context + 'DiagnosticCode'] = input[:diagnostic_code].to_s unless input[:diagnostic_code].nil?
         params[context + 'LastAttemptDate'] = Hearth::TimeHelper.to_date_time(input[:last_attempt_date]) unless input[:last_attempt_date].nil?
-        Builders::ExtensionFieldList.build(input[:extension_fields], params, context: context + 'ExtensionFields' + '.member') unless input[:extension_fields].nil?
+        ExtensionFieldList.build(input[:extension_fields], params, context: context + 'ExtensionFields' + '.member') unless input[:extension_fields].nil?
       end
     end
 
@@ -1009,7 +1012,7 @@ module AWS::SDK::SES
     class ExtensionFieldList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ExtensionField.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ExtensionField.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1027,7 +1030,7 @@ module AWS::SDK::SES
       def self.build(input, params, context: nil)
         params[context + 'ReportingMta'] = input[:reporting_mta].to_s unless input[:reporting_mta].nil?
         params[context + 'ArrivalDate'] = Hearth::TimeHelper.to_date_time(input[:arrival_date]) unless input[:arrival_date].nil?
-        Builders::ExtensionFieldList.build(input[:extension_fields], params, context: context + 'ExtensionFields' + '.member') unless input[:extension_fields].nil?
+        ExtensionFieldList.build(input[:extension_fields], params, context: context + 'ExtensionFields' + '.member') unless input[:extension_fields].nil?
       end
     end
 
@@ -1043,16 +1046,16 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'Source'] = input[:source].to_s unless input[:source].nil?
         params[context + 'SourceArn'] = input[:source_arn].to_s unless input[:source_arn].nil?
-        Builders::AddressList.build(input[:reply_to_addresses], params, context: context + 'ReplyToAddresses' + '.member') unless input[:reply_to_addresses].nil?
+        AddressList.build(input[:reply_to_addresses], params, context: context + 'ReplyToAddresses' + '.member') unless input[:reply_to_addresses].nil?
         params[context + 'ReturnPath'] = input[:return_path].to_s unless input[:return_path].nil?
         params[context + 'ReturnPathArn'] = input[:return_path_arn].to_s unless input[:return_path_arn].nil?
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        Builders::MessageTagList.build(input[:default_tags], params, context: context + 'DefaultTags' + '.member') unless input[:default_tags].nil?
+        MessageTagList.build(input[:default_tags], params, context: context + 'DefaultTags' + '.member') unless input[:default_tags].nil?
         params[context + 'Template'] = input[:template].to_s unless input[:template].nil?
         params[context + 'TemplateArn'] = input[:template_arn].to_s unless input[:template_arn].nil?
         params[context + 'DefaultTemplateData'] = input[:default_template_data].to_s unless input[:default_template_data].nil?
-        Builders::BulkEmailDestinationList.build(input[:destinations], params, context: context + 'Destinations' + '.member') unless input[:destinations].nil?
-        http_req.body = StringIO.new(params.to_s)
+        BulkEmailDestinationList.build(input[:destinations], params, context: context + 'Destinations' + '.member') unless input[:destinations].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1060,7 +1063,7 @@ module AWS::SDK::SES
     class BulkEmailDestinationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::BulkEmailDestination.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          BulkEmailDestination.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1068,8 +1071,8 @@ module AWS::SDK::SES
     # Structure Builder for BulkEmailDestination
     class BulkEmailDestination
       def self.build(input, params, context: nil)
-        Builders::Destination.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
-        Builders::MessageTagList.build(input[:replacement_tags], params, context: context + 'ReplacementTags' + '.member') unless input[:replacement_tags].nil?
+        Destination.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
+        MessageTagList.build(input[:replacement_tags], params, context: context + 'ReplacementTags' + '.member') unless input[:replacement_tags].nil?
         params[context + 'ReplacementTemplateData'] = input[:replacement_template_data].to_s unless input[:replacement_template_data].nil?
       end
     end
@@ -1078,7 +1081,7 @@ module AWS::SDK::SES
     class MessageTagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::MessageTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          MessageTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1094,9 +1097,9 @@ module AWS::SDK::SES
     # Structure Builder for Destination
     class Destination
       def self.build(input, params, context: nil)
-        Builders::AddressList.build(input[:to_addresses], params, context: context + 'ToAddresses' + '.member') unless input[:to_addresses].nil?
-        Builders::AddressList.build(input[:cc_addresses], params, context: context + 'CcAddresses' + '.member') unless input[:cc_addresses].nil?
-        Builders::AddressList.build(input[:bcc_addresses], params, context: context + 'BccAddresses' + '.member') unless input[:bcc_addresses].nil?
+        AddressList.build(input[:to_addresses], params, context: context + 'ToAddresses' + '.member') unless input[:to_addresses].nil?
+        AddressList.build(input[:cc_addresses], params, context: context + 'CcAddresses' + '.member') unless input[:cc_addresses].nil?
+        AddressList.build(input[:bcc_addresses], params, context: context + 'BccAddresses' + '.member') unless input[:bcc_addresses].nil?
       end
     end
 
@@ -1122,7 +1125,7 @@ module AWS::SDK::SES
         params[context + 'EmailAddress'] = input[:email_address].to_s unless input[:email_address].nil?
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1137,31 +1140,31 @@ module AWS::SDK::SES
         params['Action'] = 'SendEmail'
         params['Version'] = '2010-12-01'
         params[context + 'Source'] = input[:source].to_s unless input[:source].nil?
-        Builders::Destination.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
-        Builders::Message.build(input[:message], params, context: context + 'Message' + '.') unless input[:message].nil?
-        Builders::AddressList.build(input[:reply_to_addresses], params, context: context + 'ReplyToAddresses' + '.member') unless input[:reply_to_addresses].nil?
+        Destination.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
+        Message.build(input[:message], params, context: context + 'Message' + '.') unless input[:message].nil?
+        AddressList.build(input[:reply_to_addresses], params, context: context + 'ReplyToAddresses' + '.member') unless input[:reply_to_addresses].nil?
         params[context + 'ReturnPath'] = input[:return_path].to_s unless input[:return_path].nil?
         params[context + 'SourceArn'] = input[:source_arn].to_s unless input[:source_arn].nil?
         params[context + 'ReturnPathArn'] = input[:return_path_arn].to_s unless input[:return_path_arn].nil?
-        Builders::MessageTagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        MessageTagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for Message
     class Message
       def self.build(input, params, context: nil)
-        Builders::Content.build(input[:subject], params, context: context + 'Subject' + '.') unless input[:subject].nil?
-        Builders::Body.build(input[:body], params, context: context + 'Body' + '.') unless input[:body].nil?
+        Content.build(input[:subject], params, context: context + 'Subject' + '.') unless input[:subject].nil?
+        Body.build(input[:body], params, context: context + 'Body' + '.') unless input[:body].nil?
       end
     end
 
     # Structure Builder for Body
     class Body
       def self.build(input, params, context: nil)
-        Builders::Content.build(input[:text], params, context: context + 'Text' + '.') unless input[:text].nil?
-        Builders::Content.build(input[:html], params, context: context + 'Html' + '.') unless input[:html].nil?
+        Content.build(input[:text], params, context: context + 'Text' + '.') unless input[:text].nil?
+        Content.build(input[:html], params, context: context + 'Html' + '.') unless input[:html].nil?
       end
     end
 
@@ -1184,21 +1187,21 @@ module AWS::SDK::SES
         params['Action'] = 'SendRawEmail'
         params['Version'] = '2010-12-01'
         params[context + 'Source'] = input[:source].to_s unless input[:source].nil?
-        Builders::AddressList.build(input[:destinations], params, context: context + 'Destinations' + '.member') unless input[:destinations].nil?
-        Builders::RawMessage.build(input[:raw_message], params, context: context + 'RawMessage' + '.') unless input[:raw_message].nil?
+        AddressList.build(input[:destinations], params, context: context + 'Destinations' + '.member') unless input[:destinations].nil?
+        RawMessage.build(input[:raw_message], params, context: context + 'RawMessage' + '.') unless input[:raw_message].nil?
         params[context + 'FromArn'] = input[:from_arn].to_s unless input[:from_arn].nil?
         params[context + 'SourceArn'] = input[:source_arn].to_s unless input[:source_arn].nil?
         params[context + 'ReturnPathArn'] = input[:return_path_arn].to_s unless input[:return_path_arn].nil?
-        Builders::MessageTagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        MessageTagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for RawMessage
     class RawMessage
       def self.build(input, params, context: nil)
-        params[context + 'Data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        params[context + 'Data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
       end
     end
 
@@ -1213,17 +1216,17 @@ module AWS::SDK::SES
         params['Action'] = 'SendTemplatedEmail'
         params['Version'] = '2010-12-01'
         params[context + 'Source'] = input[:source].to_s unless input[:source].nil?
-        Builders::Destination.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
-        Builders::AddressList.build(input[:reply_to_addresses], params, context: context + 'ReplyToAddresses' + '.member') unless input[:reply_to_addresses].nil?
+        Destination.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
+        AddressList.build(input[:reply_to_addresses], params, context: context + 'ReplyToAddresses' + '.member') unless input[:reply_to_addresses].nil?
         params[context + 'ReturnPath'] = input[:return_path].to_s unless input[:return_path].nil?
         params[context + 'SourceArn'] = input[:source_arn].to_s unless input[:source_arn].nil?
         params[context + 'ReturnPathArn'] = input[:return_path_arn].to_s unless input[:return_path_arn].nil?
-        Builders::MessageTagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        MessageTagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
         params[context + 'Template'] = input[:template].to_s unless input[:template].nil?
         params[context + 'TemplateArn'] = input[:template_arn].to_s unless input[:template_arn].nil?
         params[context + 'TemplateData'] = input[:template_data].to_s unless input[:template_data].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1238,7 +1241,7 @@ module AWS::SDK::SES
         params['Action'] = 'SetActiveReceiptRuleSet'
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1254,7 +1257,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
         params[context + 'DkimEnabled'] = input[:dkim_enabled].to_s unless input[:dkim_enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1270,7 +1273,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
         params[context + 'ForwardingEnabled'] = input[:forwarding_enabled].to_s unless input[:forwarding_enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1287,7 +1290,7 @@ module AWS::SDK::SES
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
         params[context + 'NotificationType'] = input[:notification_type].to_s unless input[:notification_type].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1304,7 +1307,7 @@ module AWS::SDK::SES
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
         params[context + 'MailFromDomain'] = input[:mail_from_domain].to_s unless input[:mail_from_domain].nil?
         params[context + 'BehaviorOnMXFailure'] = input[:behavior_on_mx_failure].to_s unless input[:behavior_on_mx_failure].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1321,7 +1324,7 @@ module AWS::SDK::SES
         params[context + 'Identity'] = input[:identity].to_s unless input[:identity].nil?
         params[context + 'NotificationType'] = input[:notification_type].to_s unless input[:notification_type].nil?
         params[context + 'SnsTopic'] = input[:sns_topic].to_s unless input[:sns_topic].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1338,7 +1341,7 @@ module AWS::SDK::SES
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
         params[context + 'RuleName'] = input[:rule_name].to_s unless input[:rule_name].nil?
         params[context + 'After'] = input[:after].to_s unless input[:after].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1354,7 +1357,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'TemplateData'] = input[:template_data].to_s unless input[:template_data].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1369,7 +1372,7 @@ module AWS::SDK::SES
         params['Action'] = 'UpdateAccountSendingEnabled'
         params['Version'] = '2010-12-01'
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1384,8 +1387,8 @@ module AWS::SDK::SES
         params['Action'] = 'UpdateConfigurationSetEventDestination'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        Builders::EventDestination.build(input[:event_destination], params, context: context + 'EventDestination' + '.') unless input[:event_destination].nil?
-        http_req.body = StringIO.new(params.to_s)
+        EventDestination.build(input[:event_destination], params, context: context + 'EventDestination' + '.') unless input[:event_destination].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1401,7 +1404,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1417,7 +1420,7 @@ module AWS::SDK::SES
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1432,8 +1435,8 @@ module AWS::SDK::SES
         params['Action'] = 'UpdateConfigurationSetTrackingOptions'
         params['Version'] = '2010-12-01'
         params[context + 'ConfigurationSetName'] = input[:configuration_set_name].to_s unless input[:configuration_set_name].nil?
-        Builders::TrackingOptions.build(input[:tracking_options], params, context: context + 'TrackingOptions' + '.') unless input[:tracking_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TrackingOptions.build(input[:tracking_options], params, context: context + 'TrackingOptions' + '.') unless input[:tracking_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1453,7 +1456,7 @@ module AWS::SDK::SES
         params[context + 'TemplateContent'] = input[:template_content].to_s unless input[:template_content].nil?
         params[context + 'SuccessRedirectionURL'] = input[:success_redirection_url].to_s unless input[:success_redirection_url].nil?
         params[context + 'FailureRedirectionURL'] = input[:failure_redirection_url].to_s unless input[:failure_redirection_url].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1468,8 +1471,8 @@ module AWS::SDK::SES
         params['Action'] = 'UpdateReceiptRule'
         params['Version'] = '2010-12-01'
         params[context + 'RuleSetName'] = input[:rule_set_name].to_s unless input[:rule_set_name].nil?
-        Builders::ReceiptRule.build(input[:rule], params, context: context + 'Rule' + '.') unless input[:rule].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReceiptRule.build(input[:rule], params, context: context + 'Rule' + '.') unless input[:rule].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1483,8 +1486,8 @@ module AWS::SDK::SES
         params = Hearth::Query::ParamList.new
         params['Action'] = 'UpdateTemplate'
         params['Version'] = '2010-12-01'
-        Builders::Template.build(input[:template], params, context: context + 'Template' + '.') unless input[:template].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Template.build(input[:template], params, context: context + 'Template' + '.') unless input[:template].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1499,7 +1502,7 @@ module AWS::SDK::SES
         params['Action'] = 'VerifyDomainDkim'
         params['Version'] = '2010-12-01'
         params[context + 'Domain'] = input[:domain].to_s unless input[:domain].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1514,7 +1517,7 @@ module AWS::SDK::SES
         params['Action'] = 'VerifyDomainIdentity'
         params['Version'] = '2010-12-01'
         params[context + 'Domain'] = input[:domain].to_s unless input[:domain].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1529,7 +1532,7 @@ module AWS::SDK::SES
         params['Action'] = 'VerifyEmailAddress'
         params['Version'] = '2010-12-01'
         params[context + 'EmailAddress'] = input[:email_address].to_s unless input[:email_address].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1544,7 +1547,7 @@ module AWS::SDK::SES
         params['Action'] = 'VerifyEmailIdentity'
         params['Version'] = '2010-12-01'
         params[context + 'EmailAddress'] = input[:email_address].to_s unless input[:email_address].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

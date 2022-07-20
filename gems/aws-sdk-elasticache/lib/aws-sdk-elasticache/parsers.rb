@@ -19,7 +19,7 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('AddTagsToResourceResult')
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         data
       end
@@ -29,7 +29,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -224,7 +224,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AuthorizeCacheSecurityGroupIngressResult')
         xml.at('CacheSecurityGroup') do |node|
-          data.cache_security_group = Parsers::CacheSecurityGroup.parse(node)
+          data.cache_security_group = CacheSecurityGroup.parse(node)
         end
         data
       end
@@ -244,7 +244,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('EC2SecurityGroups') do |node|
           children = node.children('EC2SecurityGroup')
-          data.ec2_security_groups = Parsers::EC2SecurityGroupList.parse(children)
+          data.ec2_security_groups = EC2SecurityGroupList.parse(children)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -257,7 +257,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EC2SecurityGroup.parse(node)
+          data << EC2SecurityGroup.parse(node)
         end
         data
       end
@@ -344,11 +344,11 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('BatchApplyUpdateActionResult')
         xml.at('ProcessedUpdateActions') do |node|
           children = node.children('ProcessedUpdateAction')
-          data.processed_update_actions = Parsers::ProcessedUpdateActionList.parse(children)
+          data.processed_update_actions = ProcessedUpdateActionList.parse(children)
         end
         xml.at('UnprocessedUpdateActions') do |node|
           children = node.children('UnprocessedUpdateAction')
-          data.unprocessed_update_actions = Parsers::UnprocessedUpdateActionList.parse(children)
+          data.unprocessed_update_actions = UnprocessedUpdateActionList.parse(children)
         end
         data
       end
@@ -358,7 +358,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UnprocessedUpdateAction.parse(node)
+          data << UnprocessedUpdateAction.parse(node)
         end
         data
       end
@@ -390,7 +390,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ProcessedUpdateAction.parse(node)
+          data << ProcessedUpdateAction.parse(node)
         end
         data
       end
@@ -438,11 +438,11 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('BatchStopUpdateActionResult')
         xml.at('ProcessedUpdateActions') do |node|
           children = node.children('ProcessedUpdateAction')
-          data.processed_update_actions = Parsers::ProcessedUpdateActionList.parse(children)
+          data.processed_update_actions = ProcessedUpdateActionList.parse(children)
         end
         xml.at('UnprocessedUpdateActions') do |node|
           children = node.children('UnprocessedUpdateAction')
-          data.unprocessed_update_actions = Parsers::UnprocessedUpdateActionList.parse(children)
+          data.unprocessed_update_actions = UnprocessedUpdateActionList.parse(children)
         end
         data
       end
@@ -456,7 +456,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CompleteMigrationResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -472,21 +472,21 @@ module AWS::SDK::ElastiCache
           data.description = (node.text || '')
         end
         xml.at('GlobalReplicationGroupInfo') do |node|
-          data.global_replication_group_info = Parsers::GlobalReplicationGroupInfo.parse(node)
+          data.global_replication_group_info = GlobalReplicationGroupInfo.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
         end
         xml.at('PendingModifiedValues') do |node|
-          data.pending_modified_values = Parsers::ReplicationGroupPendingModifiedValues.parse(node)
+          data.pending_modified_values = ReplicationGroupPendingModifiedValues.parse(node)
         end
         xml.at('MemberClusters') do |node|
           children = node.children('ClusterId')
-          data.member_clusters = Parsers::ClusterIdList.parse(children)
+          data.member_clusters = ClusterIdList.parse(children)
         end
         xml.at('NodeGroups') do |node|
           children = node.children('NodeGroup')
-          data.node_groups = Parsers::NodeGroupList.parse(children)
+          data.node_groups = NodeGroupList.parse(children)
         end
         xml.at('SnapshottingClusterId') do |node|
           data.snapshotting_cluster_id = (node.text || '')
@@ -498,7 +498,7 @@ module AWS::SDK::ElastiCache
           data.multi_az = (node.text || '')
         end
         xml.at('ConfigurationEndpoint') do |node|
-          data.configuration_endpoint = Parsers::Endpoint.parse(node)
+          data.configuration_endpoint = Endpoint.parse(node)
         end
         xml.at('SnapshotRetentionLimit') do |node|
           data.snapshot_retention_limit = node.text&.to_i
@@ -526,7 +526,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('MemberClustersOutpostArns') do |node|
           children = node.children('ReplicationGroupOutpostArn')
-          data.member_clusters_outpost_arns = Parsers::ReplicationGroupOutpostArnList.parse(children)
+          data.member_clusters_outpost_arns = ReplicationGroupOutpostArnList.parse(children)
         end
         xml.at('KmsKeyId') do |node|
           data.kms_key_id = (node.text || '')
@@ -536,11 +536,11 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserGroupIds') do |node|
           children = node.children('member')
-          data.user_group_ids = Parsers::UserGroupIdList.parse(children)
+          data.user_group_ids = UserGroupIdList.parse(children)
         end
         xml.at('LogDeliveryConfigurations') do |node|
           children = node.children('LogDeliveryConfiguration')
-          data.log_delivery_configurations = Parsers::LogDeliveryConfigurationList.parse(children)
+          data.log_delivery_configurations = LogDeliveryConfigurationList.parse(children)
         end
         xml.at('ReplicationGroupCreateTime') do |node|
           data.replication_group_create_time = Time.parse(node.text) if node.text
@@ -556,7 +556,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LogDeliveryConfiguration.parse(node)
+          data << LogDeliveryConfiguration.parse(node)
         end
         data
       end
@@ -572,7 +572,7 @@ module AWS::SDK::ElastiCache
           data.destination_type = (node.text || '')
         end
         xml.at('DestinationDetails') do |node|
-          data.destination_details = Parsers::DestinationDetails.parse(node)
+          data.destination_details = DestinationDetails.parse(node)
         end
         xml.at('LogFormat') do |node|
           data.log_format = (node.text || '')
@@ -591,10 +591,10 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = Types::DestinationDetails.new
         xml.at('CloudWatchLogsDetails') do |node|
-          data.cloud_watch_logs_details = Parsers::CloudWatchLogsDestinationDetails.parse(node)
+          data.cloud_watch_logs_details = CloudWatchLogsDestinationDetails.parse(node)
         end
         xml.at('KinesisFirehoseDetails') do |node|
-          data.kinesis_firehose_details = Parsers::KinesisFirehoseDestinationDetails.parse(node)
+          data.kinesis_firehose_details = KinesisFirehoseDestinationDetails.parse(node)
         end
         return data
       end
@@ -657,7 +657,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NodeGroup.parse(node)
+          data << NodeGroup.parse(node)
         end
         data
       end
@@ -673,17 +673,17 @@ module AWS::SDK::ElastiCache
           data.status = (node.text || '')
         end
         xml.at('PrimaryEndpoint') do |node|
-          data.primary_endpoint = Parsers::Endpoint.parse(node)
+          data.primary_endpoint = Endpoint.parse(node)
         end
         xml.at('ReaderEndpoint') do |node|
-          data.reader_endpoint = Parsers::Endpoint.parse(node)
+          data.reader_endpoint = Endpoint.parse(node)
         end
         xml.at('Slots') do |node|
           data.slots = (node.text || '')
         end
         xml.at('NodeGroupMembers') do |node|
           children = node.children('NodeGroupMember')
-          data.node_group_members = Parsers::NodeGroupMemberList.parse(children)
+          data.node_group_members = NodeGroupMemberList.parse(children)
         end
         return data
       end
@@ -693,7 +693,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NodeGroupMember.parse(node)
+          data << NodeGroupMember.parse(node)
         end
         data
       end
@@ -709,7 +709,7 @@ module AWS::SDK::ElastiCache
           data.cache_node_id = (node.text || '')
         end
         xml.at('ReadEndpoint') do |node|
-          data.read_endpoint = Parsers::Endpoint.parse(node)
+          data.read_endpoint = Endpoint.parse(node)
         end
         xml.at('PreferredAvailabilityZone') do |node|
           data.preferred_availability_zone = (node.text || '')
@@ -744,17 +744,17 @@ module AWS::SDK::ElastiCache
           data.automatic_failover_status = (node.text || '')
         end
         xml.at('Resharding') do |node|
-          data.resharding = Parsers::ReshardingStatus.parse(node)
+          data.resharding = ReshardingStatus.parse(node)
         end
         xml.at('AuthTokenStatus') do |node|
           data.auth_token_status = (node.text || '')
         end
         xml.at('UserGroups') do |node|
-          data.user_groups = Parsers::UserGroupsUpdateStatus.parse(node)
+          data.user_groups = UserGroupsUpdateStatus.parse(node)
         end
         xml.at('LogDeliveryConfigurations') do |node|
           children = node.children('member')
-          data.log_delivery_configurations = Parsers::PendingLogDeliveryConfigurationList.parse(children)
+          data.log_delivery_configurations = PendingLogDeliveryConfigurationList.parse(children)
         end
         return data
       end
@@ -764,7 +764,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PendingLogDeliveryConfiguration.parse(node)
+          data << PendingLogDeliveryConfiguration.parse(node)
         end
         data
       end
@@ -780,7 +780,7 @@ module AWS::SDK::ElastiCache
           data.destination_type = (node.text || '')
         end
         xml.at('DestinationDetails') do |node|
-          data.destination_details = Parsers::DestinationDetails.parse(node)
+          data.destination_details = DestinationDetails.parse(node)
         end
         xml.at('LogFormat') do |node|
           data.log_format = (node.text || '')
@@ -794,11 +794,11 @@ module AWS::SDK::ElastiCache
         data = Types::UserGroupsUpdateStatus.new
         xml.at('UserGroupIdsToAdd') do |node|
           children = node.children('member')
-          data.user_group_ids_to_add = Parsers::UserGroupIdList.parse(children)
+          data.user_group_ids_to_add = UserGroupIdList.parse(children)
         end
         xml.at('UserGroupIdsToRemove') do |node|
           children = node.children('member')
-          data.user_group_ids_to_remove = Parsers::UserGroupIdList.parse(children)
+          data.user_group_ids_to_remove = UserGroupIdList.parse(children)
         end
         return data
       end
@@ -808,7 +808,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = Types::ReshardingStatus.new
         xml.at('SlotMigration') do |node|
-          data.slot_migration = Parsers::SlotMigration.parse(node)
+          data.slot_migration = SlotMigration.parse(node)
         end
         return data
       end
@@ -859,7 +859,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CopySnapshotResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -942,7 +942,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('NodeSnapshots') do |node|
           children = node.children('NodeSnapshot')
-          data.node_snapshots = Parsers::NodeSnapshotList.parse(children)
+          data.node_snapshots = NodeSnapshotList.parse(children)
         end
         xml.at('KmsKeyId') do |node|
           data.kms_key_id = (node.text || '')
@@ -961,7 +961,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NodeSnapshot.parse(node)
+          data << NodeSnapshot.parse(node)
         end
         data
       end
@@ -980,7 +980,7 @@ module AWS::SDK::ElastiCache
           data.cache_node_id = (node.text || '')
         end
         xml.at('NodeGroupConfiguration') do |node|
-          data.node_group_configuration = Parsers::NodeGroupConfiguration.parse(node)
+          data.node_group_configuration = NodeGroupConfiguration.parse(node)
         end
         xml.at('CacheSize') do |node|
           data.cache_size = (node.text || '')
@@ -1012,14 +1012,14 @@ module AWS::SDK::ElastiCache
         end
         xml.at('ReplicaAvailabilityZones') do |node|
           children = node.children('AvailabilityZone')
-          data.replica_availability_zones = Parsers::AvailabilityZonesList.parse(children)
+          data.replica_availability_zones = AvailabilityZonesList.parse(children)
         end
         xml.at('PrimaryOutpostArn') do |node|
           data.primary_outpost_arn = (node.text || '')
         end
         xml.at('ReplicaOutpostArns') do |node|
           children = node.children('OutpostArn')
-          data.replica_outpost_arns = Parsers::OutpostArnsList.parse(children)
+          data.replica_outpost_arns = OutpostArnsList.parse(children)
         end
         return data
       end
@@ -1095,7 +1095,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateCacheClusterResult')
         xml.at('CacheCluster') do |node|
-          data.cache_cluster = Parsers::CacheCluster.parse(node)
+          data.cache_cluster = CacheCluster.parse(node)
         end
         data
       end
@@ -1108,7 +1108,7 @@ module AWS::SDK::ElastiCache
           data.cache_cluster_id = (node.text || '')
         end
         xml.at('ConfigurationEndpoint') do |node|
-          data.configuration_endpoint = Parsers::Endpoint.parse(node)
+          data.configuration_endpoint = Endpoint.parse(node)
         end
         xml.at('ClientDownloadLandingPage') do |node|
           data.client_download_landing_page = (node.text || '')
@@ -1141,31 +1141,31 @@ module AWS::SDK::ElastiCache
           data.preferred_maintenance_window = (node.text || '')
         end
         xml.at('PendingModifiedValues') do |node|
-          data.pending_modified_values = Parsers::PendingModifiedValues.parse(node)
+          data.pending_modified_values = PendingModifiedValues.parse(node)
         end
         xml.at('NotificationConfiguration') do |node|
-          data.notification_configuration = Parsers::NotificationConfiguration.parse(node)
+          data.notification_configuration = NotificationConfiguration.parse(node)
         end
         xml.at('CacheSecurityGroups') do |node|
           children = node.children('CacheSecurityGroup')
-          data.cache_security_groups = Parsers::CacheSecurityGroupMembershipList.parse(children)
+          data.cache_security_groups = CacheSecurityGroupMembershipList.parse(children)
         end
         xml.at('CacheParameterGroup') do |node|
-          data.cache_parameter_group = Parsers::CacheParameterGroupStatus.parse(node)
+          data.cache_parameter_group = CacheParameterGroupStatus.parse(node)
         end
         xml.at('CacheSubnetGroupName') do |node|
           data.cache_subnet_group_name = (node.text || '')
         end
         xml.at('CacheNodes') do |node|
           children = node.children('CacheNode')
-          data.cache_nodes = Parsers::CacheNodeList.parse(children)
+          data.cache_nodes = CacheNodeList.parse(children)
         end
         xml.at('AutoMinorVersionUpgrade') do |node|
           data.auto_minor_version_upgrade = (node.text == 'true')
         end
         xml.at('SecurityGroups') do |node|
           children = node.children('member')
-          data.security_groups = Parsers::SecurityGroupMembershipList.parse(children)
+          data.security_groups = SecurityGroupMembershipList.parse(children)
         end
         xml.at('ReplicationGroupId') do |node|
           data.replication_group_id = (node.text || '')
@@ -1196,7 +1196,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('LogDeliveryConfigurations') do |node|
           children = node.children('LogDeliveryConfiguration')
-          data.log_delivery_configurations = Parsers::LogDeliveryConfigurationList.parse(children)
+          data.log_delivery_configurations = LogDeliveryConfigurationList.parse(children)
         end
         return data
       end
@@ -1206,7 +1206,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SecurityGroupMembership.parse(node)
+          data << SecurityGroupMembership.parse(node)
         end
         data
       end
@@ -1229,7 +1229,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheNode.parse(node)
+          data << CacheNode.parse(node)
         end
         data
       end
@@ -1248,7 +1248,7 @@ module AWS::SDK::ElastiCache
           data.cache_node_create_time = Time.parse(node.text) if node.text
         end
         xml.at('Endpoint') do |node|
-          data.endpoint = Parsers::Endpoint.parse(node)
+          data.endpoint = Endpoint.parse(node)
         end
         xml.at('ParameterGroupStatus') do |node|
           data.parameter_group_status = (node.text || '')
@@ -1277,7 +1277,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheNodeIdsToReboot') do |node|
           children = node.children('CacheNodeId')
-          data.cache_node_ids_to_reboot = Parsers::CacheNodeIdsList.parse(children)
+          data.cache_node_ids_to_reboot = CacheNodeIdsList.parse(children)
         end
         return data
       end
@@ -1297,7 +1297,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheSecurityGroupMembership.parse(node)
+          data << CacheSecurityGroupMembership.parse(node)
         end
         data
       end
@@ -1337,7 +1337,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheNodeIdsToRemove') do |node|
           children = node.children('CacheNodeId')
-          data.cache_node_ids_to_remove = Parsers::CacheNodeIdsList.parse(children)
+          data.cache_node_ids_to_remove = CacheNodeIdsList.parse(children)
         end
         xml.at('EngineVersion') do |node|
           data.engine_version = (node.text || '')
@@ -1350,7 +1350,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('LogDeliveryConfigurations') do |node|
           children = node.children('member')
-          data.log_delivery_configurations = Parsers::PendingLogDeliveryConfigurationList.parse(children)
+          data.log_delivery_configurations = PendingLogDeliveryConfigurationList.parse(children)
         end
         return data
       end
@@ -1448,7 +1448,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateCacheParameterGroupResult')
         xml.at('CacheParameterGroup') do |node|
-          data.cache_parameter_group = Parsers::CacheParameterGroup.parse(node)
+          data.cache_parameter_group = CacheParameterGroup.parse(node)
         end
         data
       end
@@ -1526,7 +1526,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateCacheSecurityGroupResult')
         xml.at('CacheSecurityGroup') do |node|
-          data.cache_security_group = Parsers::CacheSecurityGroup.parse(node)
+          data.cache_security_group = CacheSecurityGroup.parse(node)
         end
         data
       end
@@ -1568,7 +1568,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateCacheSubnetGroupResult')
         xml.at('CacheSubnetGroup') do |node|
-          data.cache_subnet_group = Parsers::CacheSubnetGroup.parse(node)
+          data.cache_subnet_group = CacheSubnetGroup.parse(node)
         end
         data
       end
@@ -1588,7 +1588,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('Subnets') do |node|
           children = node.children('Subnet')
-          data.subnets = Parsers::SubnetList.parse(children)
+          data.subnets = SubnetList.parse(children)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -1601,7 +1601,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Subnet.parse(node)
+          data << Subnet.parse(node)
         end
         data
       end
@@ -1614,10 +1614,10 @@ module AWS::SDK::ElastiCache
           data.subnet_identifier = (node.text || '')
         end
         xml.at('SubnetAvailabilityZone') do |node|
-          data.subnet_availability_zone = Parsers::AvailabilityZone.parse(node)
+          data.subnet_availability_zone = AvailabilityZone.parse(node)
         end
         xml.at('SubnetOutpost') do |node|
-          data.subnet_outpost = Parsers::SubnetOutpost.parse(node)
+          data.subnet_outpost = SubnetOutpost.parse(node)
         end
         return data
       end
@@ -1721,7 +1721,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -1750,14 +1750,14 @@ module AWS::SDK::ElastiCache
         end
         xml.at('Members') do |node|
           children = node.children('GlobalReplicationGroupMember')
-          data.members = Parsers::GlobalReplicationGroupMemberList.parse(children)
+          data.members = GlobalReplicationGroupMemberList.parse(children)
         end
         xml.at('ClusterEnabled') do |node|
           data.cluster_enabled = (node.text == 'true')
         end
         xml.at('GlobalNodeGroups') do |node|
           children = node.children('GlobalNodeGroup')
-          data.global_node_groups = Parsers::GlobalNodeGroupList.parse(children)
+          data.global_node_groups = GlobalNodeGroupList.parse(children)
         end
         xml.at('AuthTokenEnabled') do |node|
           data.auth_token_enabled = (node.text == 'true')
@@ -1779,7 +1779,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GlobalNodeGroup.parse(node)
+          data << GlobalNodeGroup.parse(node)
         end
         data
       end
@@ -1802,7 +1802,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GlobalReplicationGroupMember.parse(node)
+          data << GlobalReplicationGroupMember.parse(node)
         end
         data
       end
@@ -1866,7 +1866,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateReplicationGroupResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -1964,7 +1964,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateSnapshotResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -2011,10 +2011,10 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserGroupIds') do |node|
           children = node.children('member')
-          data.user_group_ids = Parsers::UserGroupIdList.parse(children)
+          data.user_group_ids = UserGroupIdList.parse(children)
         end
         xml.at('Authentication') do |node|
-          data.authentication = Parsers::Authentication.parse(node)
+          data.authentication = Authentication.parse(node)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -2096,17 +2096,17 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserIds') do |node|
           children = node.children('member')
-          data.user_ids = Parsers::UserIdList.parse(children)
+          data.user_ids = UserIdList.parse(children)
         end
         xml.at('MinimumEngineVersion') do |node|
           data.minimum_engine_version = (node.text || '')
         end
         xml.at('PendingChanges') do |node|
-          data.pending_changes = Parsers::UserGroupPendingChanges.parse(node)
+          data.pending_changes = UserGroupPendingChanges.parse(node)
         end
         xml.at('ReplicationGroups') do |node|
           children = node.children('member')
-          data.replication_groups = Parsers::UGReplicationGroupIdList.parse(children)
+          data.replication_groups = UGReplicationGroupIdList.parse(children)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -2130,11 +2130,11 @@ module AWS::SDK::ElastiCache
         data = Types::UserGroupPendingChanges.new
         xml.at('UserIdsToRemove') do |node|
           children = node.children('member')
-          data.user_ids_to_remove = Parsers::UserIdList.parse(children)
+          data.user_ids_to_remove = UserIdList.parse(children)
         end
         xml.at('UserIdsToAdd') do |node|
           children = node.children('member')
-          data.user_ids_to_add = Parsers::UserIdList.parse(children)
+          data.user_ids_to_add = UserIdList.parse(children)
         end
         return data
       end
@@ -2200,7 +2200,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DecreaseNodeGroupsInGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -2214,7 +2214,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DecreaseReplicaCountResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -2242,7 +2242,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteCacheClusterResult')
         xml.at('CacheCluster') do |node|
-          data.cache_cluster = Parsers::CacheCluster.parse(node)
+          data.cache_cluster = CacheCluster.parse(node)
         end
         data
       end
@@ -2303,7 +2303,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -2317,7 +2317,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteReplicationGroupResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -2331,7 +2331,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteSnapshotResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -2364,10 +2364,10 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserGroupIds') do |node|
           children = node.children('member')
-          data.user_group_ids = Parsers::UserGroupIdList.parse(children)
+          data.user_group_ids = UserGroupIdList.parse(children)
         end
         xml.at('Authentication') do |node|
-          data.authentication = Parsers::Authentication.parse(node)
+          data.authentication = Authentication.parse(node)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -2422,17 +2422,17 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserIds') do |node|
           children = node.children('member')
-          data.user_ids = Parsers::UserIdList.parse(children)
+          data.user_ids = UserIdList.parse(children)
         end
         xml.at('MinimumEngineVersion') do |node|
           data.minimum_engine_version = (node.text || '')
         end
         xml.at('PendingChanges') do |node|
-          data.pending_changes = Parsers::UserGroupPendingChanges.parse(node)
+          data.pending_changes = UserGroupPendingChanges.parse(node)
         end
         xml.at('ReplicationGroups') do |node|
           children = node.children('member')
-          data.replication_groups = Parsers::UGReplicationGroupIdList.parse(children)
+          data.replication_groups = UGReplicationGroupIdList.parse(children)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -2453,7 +2453,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheClusters') do |node|
           children = node.children('CacheCluster')
-          data.cache_clusters = Parsers::CacheClusterList.parse(children)
+          data.cache_clusters = CacheClusterList.parse(children)
         end
         data
       end
@@ -2463,7 +2463,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheCluster.parse(node)
+          data << CacheCluster.parse(node)
         end
         data
       end
@@ -2481,7 +2481,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheEngineVersions') do |node|
           children = node.children('CacheEngineVersion')
-          data.cache_engine_versions = Parsers::CacheEngineVersionList.parse(children)
+          data.cache_engine_versions = CacheEngineVersionList.parse(children)
         end
         data
       end
@@ -2491,7 +2491,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheEngineVersion.parse(node)
+          data << CacheEngineVersion.parse(node)
         end
         data
       end
@@ -2531,7 +2531,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheParameterGroups') do |node|
           children = node.children('CacheParameterGroup')
-          data.cache_parameter_groups = Parsers::CacheParameterGroupList.parse(children)
+          data.cache_parameter_groups = CacheParameterGroupList.parse(children)
         end
         data
       end
@@ -2541,7 +2541,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheParameterGroup.parse(node)
+          data << CacheParameterGroup.parse(node)
         end
         data
       end
@@ -2559,11 +2559,11 @@ module AWS::SDK::ElastiCache
         end
         xml.at('Parameters') do |node|
           children = node.children('Parameter')
-          data.parameters = Parsers::ParametersList.parse(children)
+          data.parameters = ParametersList.parse(children)
         end
         xml.at('CacheNodeTypeSpecificParameters') do |node|
           children = node.children('CacheNodeTypeSpecificParameter')
-          data.cache_node_type_specific_parameters = Parsers::CacheNodeTypeSpecificParametersList.parse(children)
+          data.cache_node_type_specific_parameters = CacheNodeTypeSpecificParametersList.parse(children)
         end
         data
       end
@@ -2573,7 +2573,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheNodeTypeSpecificParameter.parse(node)
+          data << CacheNodeTypeSpecificParameter.parse(node)
         end
         data
       end
@@ -2605,7 +2605,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheNodeTypeSpecificValues') do |node|
           children = node.children('CacheNodeTypeSpecificValue')
-          data.cache_node_type_specific_values = Parsers::CacheNodeTypeSpecificValueList.parse(children)
+          data.cache_node_type_specific_values = CacheNodeTypeSpecificValueList.parse(children)
         end
         xml.at('ChangeType') do |node|
           data.change_type = (node.text || '')
@@ -2618,7 +2618,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheNodeTypeSpecificValue.parse(node)
+          data << CacheNodeTypeSpecificValue.parse(node)
         end
         data
       end
@@ -2641,7 +2641,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Parameter.parse(node)
+          data << Parameter.parse(node)
         end
         data
       end
@@ -2693,7 +2693,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheSecurityGroups') do |node|
           children = node.children('CacheSecurityGroup')
-          data.cache_security_groups = Parsers::CacheSecurityGroups.parse(children)
+          data.cache_security_groups = CacheSecurityGroups.parse(children)
         end
         data
       end
@@ -2703,7 +2703,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheSecurityGroup.parse(node)
+          data << CacheSecurityGroup.parse(node)
         end
         data
       end
@@ -2721,7 +2721,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('CacheSubnetGroups') do |node|
           children = node.children('CacheSubnetGroup')
-          data.cache_subnet_groups = Parsers::CacheSubnetGroups.parse(children)
+          data.cache_subnet_groups = CacheSubnetGroups.parse(children)
         end
         data
       end
@@ -2731,7 +2731,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheSubnetGroup.parse(node)
+          data << CacheSubnetGroup.parse(node)
         end
         data
       end
@@ -2745,7 +2745,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeEngineDefaultParametersResult')
         xml.at('EngineDefaults') do |node|
-          data.engine_defaults = Parsers::EngineDefaults.parse(node)
+          data.engine_defaults = EngineDefaults.parse(node)
         end
         data
       end
@@ -2762,11 +2762,11 @@ module AWS::SDK::ElastiCache
         end
         xml.at('Parameters') do |node|
           children = node.children('Parameter')
-          data.parameters = Parsers::ParametersList.parse(children)
+          data.parameters = ParametersList.parse(children)
         end
         xml.at('CacheNodeTypeSpecificParameters') do |node|
           children = node.children('CacheNodeTypeSpecificParameter')
-          data.cache_node_type_specific_parameters = Parsers::CacheNodeTypeSpecificParametersList.parse(children)
+          data.cache_node_type_specific_parameters = CacheNodeTypeSpecificParametersList.parse(children)
         end
         return data
       end
@@ -2784,7 +2784,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('Events') do |node|
           children = node.children('Event')
-          data.events = Parsers::EventList.parse(children)
+          data.events = EventList.parse(children)
         end
         data
       end
@@ -2794,7 +2794,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Event.parse(node)
+          data << Event.parse(node)
         end
         data
       end
@@ -2831,7 +2831,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('GlobalReplicationGroups') do |node|
           children = node.children('GlobalReplicationGroup')
-          data.global_replication_groups = Parsers::GlobalReplicationGroupList.parse(children)
+          data.global_replication_groups = GlobalReplicationGroupList.parse(children)
         end
         data
       end
@@ -2841,7 +2841,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GlobalReplicationGroup.parse(node)
+          data << GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -2859,7 +2859,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('ReplicationGroups') do |node|
           children = node.children('ReplicationGroup')
-          data.replication_groups = Parsers::ReplicationGroupList.parse(children)
+          data.replication_groups = ReplicationGroupList.parse(children)
         end
         data
       end
@@ -2869,7 +2869,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReplicationGroup.parse(node)
+          data << ReplicationGroup.parse(node)
         end
         data
       end
@@ -2887,7 +2887,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('ReservedCacheNodes') do |node|
           children = node.children('ReservedCacheNode')
-          data.reserved_cache_nodes = Parsers::ReservedCacheNodeList.parse(children)
+          data.reserved_cache_nodes = ReservedCacheNodeList.parse(children)
         end
         data
       end
@@ -2897,7 +2897,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedCacheNode.parse(node)
+          data << ReservedCacheNode.parse(node)
         end
         data
       end
@@ -2941,7 +2941,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('RecurringCharges') do |node|
           children = node.children('RecurringCharge')
-          data.recurring_charges = Parsers::RecurringChargeList.parse(children)
+          data.recurring_charges = RecurringChargeList.parse(children)
         end
         xml.at('ReservationARN') do |node|
           data.reservation_arn = (node.text || '')
@@ -2954,7 +2954,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RecurringCharge.parse(node)
+          data << RecurringCharge.parse(node)
         end
         data
       end
@@ -2985,7 +2985,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('ReservedCacheNodesOfferings') do |node|
           children = node.children('ReservedCacheNodesOffering')
-          data.reserved_cache_nodes_offerings = Parsers::ReservedCacheNodesOfferingList.parse(children)
+          data.reserved_cache_nodes_offerings = ReservedCacheNodesOfferingList.parse(children)
         end
         data
       end
@@ -2995,7 +2995,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedCacheNodesOffering.parse(node)
+          data << ReservedCacheNodesOffering.parse(node)
         end
         data
       end
@@ -3027,7 +3027,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('RecurringCharges') do |node|
           children = node.children('RecurringCharge')
-          data.recurring_charges = Parsers::RecurringChargeList.parse(children)
+          data.recurring_charges = RecurringChargeList.parse(children)
         end
         return data
       end
@@ -3059,7 +3059,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('ServiceUpdates') do |node|
           children = node.children('ServiceUpdate')
-          data.service_updates = Parsers::ServiceUpdateList.parse(children)
+          data.service_updates = ServiceUpdateList.parse(children)
         end
         data
       end
@@ -3069,7 +3069,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ServiceUpdate.parse(node)
+          data << ServiceUpdate.parse(node)
         end
         data
       end
@@ -3130,7 +3130,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('Snapshots') do |node|
           children = node.children('Snapshot')
-          data.snapshots = Parsers::SnapshotList.parse(children)
+          data.snapshots = SnapshotList.parse(children)
         end
         data
       end
@@ -3140,7 +3140,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Snapshot.parse(node)
+          data << Snapshot.parse(node)
         end
         data
       end
@@ -3158,7 +3158,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UpdateActions') do |node|
           children = node.children('UpdateAction')
-          data.update_actions = Parsers::UpdateActionList.parse(children)
+          data.update_actions = UpdateActionList.parse(children)
         end
         data
       end
@@ -3168,7 +3168,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UpdateAction.parse(node)
+          data << UpdateAction.parse(node)
         end
         data
       end
@@ -3218,11 +3218,11 @@ module AWS::SDK::ElastiCache
         end
         xml.at('NodeGroupUpdateStatus') do |node|
           children = node.children('NodeGroupUpdateStatus')
-          data.node_group_update_status = Parsers::NodeGroupUpdateStatusList.parse(children)
+          data.node_group_update_status = NodeGroupUpdateStatusList.parse(children)
         end
         xml.at('CacheNodeUpdateStatus') do |node|
           children = node.children('CacheNodeUpdateStatus')
-          data.cache_node_update_status = Parsers::CacheNodeUpdateStatusList.parse(children)
+          data.cache_node_update_status = CacheNodeUpdateStatusList.parse(children)
         end
         xml.at('EstimatedUpdateTime') do |node|
           data.estimated_update_time = (node.text || '')
@@ -3238,7 +3238,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheNodeUpdateStatus.parse(node)
+          data << CacheNodeUpdateStatus.parse(node)
         end
         data
       end
@@ -3279,7 +3279,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NodeGroupUpdateStatus.parse(node)
+          data << NodeGroupUpdateStatus.parse(node)
         end
         data
       end
@@ -3293,7 +3293,7 @@ module AWS::SDK::ElastiCache
         end
         xml.at('NodeGroupMemberUpdateStatus') do |node|
           children = node.children('NodeGroupMemberUpdateStatus')
-          data.node_group_member_update_status = Parsers::NodeGroupMemberUpdateStatusList.parse(children)
+          data.node_group_member_update_status = NodeGroupMemberUpdateStatusList.parse(children)
         end
         return data
       end
@@ -3303,7 +3303,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NodeGroupMemberUpdateStatus.parse(node)
+          data << NodeGroupMemberUpdateStatus.parse(node)
         end
         data
       end
@@ -3352,7 +3352,7 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('DescribeUserGroupsResult')
         xml.at('UserGroups') do |node|
           children = node.children('member')
-          data.user_groups = Parsers::UserGroupList.parse(children)
+          data.user_groups = UserGroupList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -3365,7 +3365,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UserGroup.parse(node)
+          data << UserGroup.parse(node)
         end
         data
       end
@@ -3385,17 +3385,17 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserIds') do |node|
           children = node.children('member')
-          data.user_ids = Parsers::UserIdList.parse(children)
+          data.user_ids = UserIdList.parse(children)
         end
         xml.at('MinimumEngineVersion') do |node|
           data.minimum_engine_version = (node.text || '')
         end
         xml.at('PendingChanges') do |node|
-          data.pending_changes = Parsers::UserGroupPendingChanges.parse(node)
+          data.pending_changes = UserGroupPendingChanges.parse(node)
         end
         xml.at('ReplicationGroups') do |node|
           children = node.children('member')
-          data.replication_groups = Parsers::UGReplicationGroupIdList.parse(children)
+          data.replication_groups = UGReplicationGroupIdList.parse(children)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -3413,7 +3413,7 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('DescribeUsersResult')
         xml.at('Users') do |node|
           children = node.children('member')
-          data.users = Parsers::UserList.parse(children)
+          data.users = UserList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -3426,7 +3426,7 @@ module AWS::SDK::ElastiCache
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::User.parse(node)
+          data << User.parse(node)
         end
         data
       end
@@ -3455,10 +3455,10 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserGroupIds') do |node|
           children = node.children('member')
-          data.user_group_ids = Parsers::UserGroupIdList.parse(children)
+          data.user_group_ids = UserGroupIdList.parse(children)
         end
         xml.at('Authentication') do |node|
-          data.authentication = Parsers::Authentication.parse(node)
+          data.authentication = Authentication.parse(node)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -3475,7 +3475,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DisassociateGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -3489,7 +3489,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('FailoverGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -3503,7 +3503,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('IncreaseNodeGroupsInGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -3517,7 +3517,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('IncreaseReplicaCountResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -3546,11 +3546,11 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('ListAllowedNodeTypeModificationsResult')
         xml.at('ScaleUpModifications') do |node|
           children = node.children('member')
-          data.scale_up_modifications = Parsers::NodeTypeList.parse(children)
+          data.scale_up_modifications = NodeTypeList.parse(children)
         end
         xml.at('ScaleDownModifications') do |node|
           children = node.children('member')
-          data.scale_down_modifications = Parsers::NodeTypeList.parse(children)
+          data.scale_down_modifications = NodeTypeList.parse(children)
         end
         data
       end
@@ -3575,7 +3575,7 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('ListTagsForResourceResult')
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         data
       end
@@ -3589,7 +3589,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyCacheClusterResult')
         xml.at('CacheCluster') do |node|
-          data.cache_cluster = Parsers::CacheCluster.parse(node)
+          data.cache_cluster = CacheCluster.parse(node)
         end
         data
       end
@@ -3617,7 +3617,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyCacheSubnetGroupResult')
         xml.at('CacheSubnetGroup') do |node|
-          data.cache_subnet_group = Parsers::CacheSubnetGroup.parse(node)
+          data.cache_subnet_group = CacheSubnetGroup.parse(node)
         end
         data
       end
@@ -3645,7 +3645,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -3659,7 +3659,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyReplicationGroupResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -3673,7 +3673,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyReplicationGroupShardConfigurationResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -3706,10 +3706,10 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserGroupIds') do |node|
           children = node.children('member')
-          data.user_group_ids = Parsers::UserGroupIdList.parse(children)
+          data.user_group_ids = UserGroupIdList.parse(children)
         end
         xml.at('Authentication') do |node|
-          data.authentication = Parsers::Authentication.parse(node)
+          data.authentication = Authentication.parse(node)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -3736,17 +3736,17 @@ module AWS::SDK::ElastiCache
         end
         xml.at('UserIds') do |node|
           children = node.children('member')
-          data.user_ids = Parsers::UserIdList.parse(children)
+          data.user_ids = UserIdList.parse(children)
         end
         xml.at('MinimumEngineVersion') do |node|
           data.minimum_engine_version = (node.text || '')
         end
         xml.at('PendingChanges') do |node|
-          data.pending_changes = Parsers::UserGroupPendingChanges.parse(node)
+          data.pending_changes = UserGroupPendingChanges.parse(node)
         end
         xml.at('ReplicationGroups') do |node|
           children = node.children('member')
-          data.replication_groups = Parsers::UGReplicationGroupIdList.parse(children)
+          data.replication_groups = UGReplicationGroupIdList.parse(children)
         end
         xml.at('ARN') do |node|
           data.arn = (node.text || '')
@@ -3763,7 +3763,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('PurchaseReservedCacheNodesOfferingResult')
         xml.at('ReservedCacheNode') do |node|
-          data.reserved_cache_node = Parsers::ReservedCacheNode.parse(node)
+          data.reserved_cache_node = ReservedCacheNode.parse(node)
         end
         data
       end
@@ -3805,7 +3805,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RebalanceSlotsInGlobalReplicationGroupResult')
         xml.at('GlobalReplicationGroup') do |node|
-          data.global_replication_group = Parsers::GlobalReplicationGroup.parse(node)
+          data.global_replication_group = GlobalReplicationGroup.parse(node)
         end
         data
       end
@@ -3819,7 +3819,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RebootCacheClusterResult')
         xml.at('CacheCluster') do |node|
-          data.cache_cluster = Parsers::CacheCluster.parse(node)
+          data.cache_cluster = CacheCluster.parse(node)
         end
         data
       end
@@ -3834,7 +3834,7 @@ module AWS::SDK::ElastiCache
         xml = Hearth::XML.parse(body).at('RemoveTagsFromResourceResult')
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         data
       end
@@ -3876,7 +3876,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RevokeCacheSecurityGroupIngressResult')
         xml.at('CacheSecurityGroup') do |node|
-          data.cache_security_group = Parsers::CacheSecurityGroup.parse(node)
+          data.cache_security_group = CacheSecurityGroup.parse(node)
         end
         data
       end
@@ -3904,7 +3904,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('StartMigrationResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end
@@ -3932,7 +3932,7 @@ module AWS::SDK::ElastiCache
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('TestFailoverResult')
         xml.at('ReplicationGroup') do |node|
-          data.replication_group = Parsers::ReplicationGroup.parse(node)
+          data.replication_group = ReplicationGroup.parse(node)
         end
         data
       end

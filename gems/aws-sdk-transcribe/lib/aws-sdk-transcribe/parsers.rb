@@ -17,7 +17,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.category_properties = (Parsers::CategoryProperties.parse(map['CategoryProperties']) unless map['CategoryProperties'].nil?)
+        data.category_properties = (CategoryProperties.parse(map['CategoryProperties']) unless map['CategoryProperties'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::Transcribe
       def self.parse(map)
         data = Types::CategoryProperties.new
         data.category_name = map['CategoryName']
-        data.rules = (Parsers::RuleList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleList.parse(map['Rules']) unless map['Rules'].nil?)
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
         return data
@@ -36,7 +36,7 @@ module AWS::SDK::Transcribe
     class RuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::Rule.parse(value) unless value.nil?
+          Rule.parse(value) unless value.nil?
         end
       end
     end
@@ -46,16 +46,16 @@ module AWS::SDK::Transcribe
         key, value = map.flatten
         case key
         when 'NonTalkTimeFilter'
-          value = (Parsers::NonTalkTimeFilter.parse(value) unless value.nil?)
+          value = (NonTalkTimeFilter.parse(value) unless value.nil?)
           Types::Rule::NonTalkTimeFilter.new(value) if value
         when 'InterruptionFilter'
-          value = (Parsers::InterruptionFilter.parse(value) unless value.nil?)
+          value = (InterruptionFilter.parse(value) unless value.nil?)
           Types::Rule::InterruptionFilter.new(value) if value
         when 'TranscriptFilter'
-          value = (Parsers::TranscriptFilter.parse(value) unless value.nil?)
+          value = (TranscriptFilter.parse(value) unless value.nil?)
           Types::Rule::TranscriptFilter.new(value) if value
         when 'SentimentFilter'
-          value = (Parsers::SentimentFilter.parse(value) unless value.nil?)
+          value = (SentimentFilter.parse(value) unless value.nil?)
           Types::Rule::SentimentFilter.new(value) if value
         else
           Types::Rule::Unknown.new({name: key, value: value})
@@ -66,9 +66,9 @@ module AWS::SDK::Transcribe
     class SentimentFilter
       def self.parse(map)
         data = Types::SentimentFilter.new
-        data.sentiments = (Parsers::SentimentValueList.parse(map['Sentiments']) unless map['Sentiments'].nil?)
-        data.absolute_time_range = (Parsers::AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
-        data.relative_time_range = (Parsers::RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
+        data.sentiments = (SentimentValueList.parse(map['Sentiments']) unless map['Sentiments'].nil?)
+        data.absolute_time_range = (AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
+        data.relative_time_range = (RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
         data.participant_role = map['ParticipantRole']
         data.negate = map['Negate']
         return data
@@ -109,11 +109,11 @@ module AWS::SDK::Transcribe
       def self.parse(map)
         data = Types::TranscriptFilter.new
         data.transcript_filter_type = map['TranscriptFilterType']
-        data.absolute_time_range = (Parsers::AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
-        data.relative_time_range = (Parsers::RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
+        data.absolute_time_range = (AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
+        data.relative_time_range = (RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
         data.participant_role = map['ParticipantRole']
         data.negate = map['Negate']
-        data.targets = (Parsers::StringTargetList.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (StringTargetList.parse(map['Targets']) unless map['Targets'].nil?)
         return data
       end
     end
@@ -131,8 +131,8 @@ module AWS::SDK::Transcribe
         data = Types::InterruptionFilter.new
         data.threshold = map['Threshold']
         data.participant_role = map['ParticipantRole']
-        data.absolute_time_range = (Parsers::AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
-        data.relative_time_range = (Parsers::RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
+        data.absolute_time_range = (AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
+        data.relative_time_range = (RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
         data.negate = map['Negate']
         return data
       end
@@ -142,8 +142,8 @@ module AWS::SDK::Transcribe
       def self.parse(map)
         data = Types::NonTalkTimeFilter.new
         data.threshold = map['Threshold']
-        data.absolute_time_range = (Parsers::AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
-        data.relative_time_range = (Parsers::RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
+        data.absolute_time_range = (AbsoluteTimeRange.parse(map['AbsoluteTimeRange']) unless map['AbsoluteTimeRange'].nil?)
+        data.relative_time_range = (RelativeTimeRange.parse(map['RelativeTimeRange']) unless map['RelativeTimeRange'].nil?)
         data.negate = map['Negate']
         return data
       end
@@ -207,7 +207,7 @@ module AWS::SDK::Transcribe
         data.language_code = map['LanguageCode']
         data.base_model_name = map['BaseModelName']
         data.model_name = map['ModelName']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
         data.model_status = map['ModelStatus']
         data
       end
@@ -376,7 +376,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.language_model = (Parsers::LanguageModel.parse(map['LanguageModel']) unless map['LanguageModel'].nil?)
+        data.language_model = (LanguageModel.parse(map['LanguageModel']) unless map['LanguageModel'].nil?)
         data
       end
     end
@@ -392,7 +392,7 @@ module AWS::SDK::Transcribe
         data.model_status = map['ModelStatus']
         data.upgrade_availability = map['UpgradeAvailability']
         data.failure_reason = map['FailureReason']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
         return data
       end
     end
@@ -404,7 +404,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.category_properties = (Parsers::CategoryProperties.parse(map['CategoryProperties']) unless map['CategoryProperties'].nil?)
+        data.category_properties = (CategoryProperties.parse(map['CategoryProperties']) unless map['CategoryProperties'].nil?)
         data
       end
     end
@@ -416,7 +416,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.call_analytics_job = (Parsers::CallAnalyticsJob.parse(map['CallAnalyticsJob']) unless map['CallAnalyticsJob'].nil?)
+        data.call_analytics_job = (CallAnalyticsJob.parse(map['CallAnalyticsJob']) unless map['CallAnalyticsJob'].nil?)
         data
       end
     end
@@ -429,16 +429,16 @@ module AWS::SDK::Transcribe
         data.language_code = map['LanguageCode']
         data.media_sample_rate_hertz = map['MediaSampleRateHertz']
         data.media_format = map['MediaFormat']
-        data.media = (Parsers::Media.parse(map['Media']) unless map['Media'].nil?)
-        data.transcript = (Parsers::Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
+        data.media = (Media.parse(map['Media']) unless map['Media'].nil?)
+        data.transcript = (Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.completion_time = Time.at(map['CompletionTime'].to_i) if map['CompletionTime']
         data.failure_reason = map['FailureReason']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.identified_language_score = Hearth::NumberHelper.deserialize(map['IdentifiedLanguageScore'])
-        data.settings = (Parsers::CallAnalyticsJobSettings.parse(map['Settings']) unless map['Settings'].nil?)
-        data.channel_definitions = (Parsers::ChannelDefinitions.parse(map['ChannelDefinitions']) unless map['ChannelDefinitions'].nil?)
+        data.settings = (CallAnalyticsJobSettings.parse(map['Settings']) unless map['Settings'].nil?)
+        data.channel_definitions = (ChannelDefinitions.parse(map['ChannelDefinitions']) unless map['ChannelDefinitions'].nil?)
         return data
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::Transcribe
     class ChannelDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::ChannelDefinition.parse(value) unless value.nil?
+          ChannelDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -467,9 +467,9 @@ module AWS::SDK::Transcribe
         data.vocabulary_filter_name = map['VocabularyFilterName']
         data.vocabulary_filter_method = map['VocabularyFilterMethod']
         data.language_model_name = map['LanguageModelName']
-        data.content_redaction = (Parsers::ContentRedaction.parse(map['ContentRedaction']) unless map['ContentRedaction'].nil?)
-        data.language_options = (Parsers::LanguageOptions.parse(map['LanguageOptions']) unless map['LanguageOptions'].nil?)
-        data.language_id_settings = (Parsers::LanguageIdSettingsMap.parse(map['LanguageIdSettings']) unless map['LanguageIdSettings'].nil?)
+        data.content_redaction = (ContentRedaction.parse(map['ContentRedaction']) unless map['ContentRedaction'].nil?)
+        data.language_options = (LanguageOptions.parse(map['LanguageOptions']) unless map['LanguageOptions'].nil?)
+        data.language_id_settings = (LanguageIdSettingsMap.parse(map['LanguageIdSettings']) unless map['LanguageIdSettings'].nil?)
         return data
       end
     end
@@ -478,7 +478,7 @@ module AWS::SDK::Transcribe
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::LanguageIdSettings.parse(value) unless value.nil?
+          data[key] = LanguageIdSettings.parse(value) unless value.nil?
         end
         data
       end
@@ -507,7 +507,7 @@ module AWS::SDK::Transcribe
         data = Types::ContentRedaction.new
         data.redaction_type = map['RedactionType']
         data.redaction_output = map['RedactionOutput']
-        data.pii_entity_types = (Parsers::PiiEntityTypes.parse(map['PiiEntityTypes']) unless map['PiiEntityTypes'].nil?)
+        data.pii_entity_types = (PiiEntityTypes.parse(map['PiiEntityTypes']) unless map['PiiEntityTypes'].nil?)
         return data
       end
     end
@@ -545,7 +545,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.medical_transcription_job = (Parsers::MedicalTranscriptionJob.parse(map['MedicalTranscriptionJob']) unless map['MedicalTranscriptionJob'].nil?)
+        data.medical_transcription_job = (MedicalTranscriptionJob.parse(map['MedicalTranscriptionJob']) unless map['MedicalTranscriptionJob'].nil?)
         data
       end
     end
@@ -558,17 +558,17 @@ module AWS::SDK::Transcribe
         data.language_code = map['LanguageCode']
         data.media_sample_rate_hertz = map['MediaSampleRateHertz']
         data.media_format = map['MediaFormat']
-        data.media = (Parsers::Media.parse(map['Media']) unless map['Media'].nil?)
-        data.transcript = (Parsers::MedicalTranscript.parse(map['Transcript']) unless map['Transcript'].nil?)
+        data.media = (Media.parse(map['Media']) unless map['Media'].nil?)
+        data.transcript = (MedicalTranscript.parse(map['Transcript']) unless map['Transcript'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.completion_time = Time.at(map['CompletionTime'].to_i) if map['CompletionTime']
         data.failure_reason = map['FailureReason']
-        data.settings = (Parsers::MedicalTranscriptionSetting.parse(map['Settings']) unless map['Settings'].nil?)
+        data.settings = (MedicalTranscriptionSetting.parse(map['Settings']) unless map['Settings'].nil?)
         data.content_identification_type = map['ContentIdentificationType']
         data.specialty = map['Specialty']
         data.type = map['Type']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -576,7 +576,7 @@ module AWS::SDK::Transcribe
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -635,7 +635,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.transcription_job = (Parsers::TranscriptionJob.parse(map['TranscriptionJob']) unless map['TranscriptionJob'].nil?)
+        data.transcription_job = (TranscriptionJob.parse(map['TranscriptionJob']) unless map['TranscriptionJob'].nil?)
         data
       end
     end
@@ -648,24 +648,24 @@ module AWS::SDK::Transcribe
         data.language_code = map['LanguageCode']
         data.media_sample_rate_hertz = map['MediaSampleRateHertz']
         data.media_format = map['MediaFormat']
-        data.media = (Parsers::Media.parse(map['Media']) unless map['Media'].nil?)
-        data.transcript = (Parsers::Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
+        data.media = (Media.parse(map['Media']) unless map['Media'].nil?)
+        data.transcript = (Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.completion_time = Time.at(map['CompletionTime'].to_i) if map['CompletionTime']
         data.failure_reason = map['FailureReason']
-        data.settings = (Parsers::Settings.parse(map['Settings']) unless map['Settings'].nil?)
-        data.model_settings = (Parsers::ModelSettings.parse(map['ModelSettings']) unless map['ModelSettings'].nil?)
-        data.job_execution_settings = (Parsers::JobExecutionSettings.parse(map['JobExecutionSettings']) unless map['JobExecutionSettings'].nil?)
-        data.content_redaction = (Parsers::ContentRedaction.parse(map['ContentRedaction']) unless map['ContentRedaction'].nil?)
+        data.settings = (Settings.parse(map['Settings']) unless map['Settings'].nil?)
+        data.model_settings = (ModelSettings.parse(map['ModelSettings']) unless map['ModelSettings'].nil?)
+        data.job_execution_settings = (JobExecutionSettings.parse(map['JobExecutionSettings']) unless map['JobExecutionSettings'].nil?)
+        data.content_redaction = (ContentRedaction.parse(map['ContentRedaction']) unless map['ContentRedaction'].nil?)
         data.identify_language = map['IdentifyLanguage']
         data.identify_multiple_languages = map['IdentifyMultipleLanguages']
-        data.language_options = (Parsers::LanguageOptions.parse(map['LanguageOptions']) unless map['LanguageOptions'].nil?)
+        data.language_options = (LanguageOptions.parse(map['LanguageOptions']) unless map['LanguageOptions'].nil?)
         data.identified_language_score = Hearth::NumberHelper.deserialize(map['IdentifiedLanguageScore'])
-        data.language_codes = (Parsers::LanguageCodeList.parse(map['LanguageCodes']) unless map['LanguageCodes'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.subtitles = (Parsers::SubtitlesOutput.parse(map['Subtitles']) unless map['Subtitles'].nil?)
-        data.language_id_settings = (Parsers::LanguageIdSettingsMap.parse(map['LanguageIdSettings']) unless map['LanguageIdSettings'].nil?)
+        data.language_codes = (LanguageCodeList.parse(map['LanguageCodes']) unless map['LanguageCodes'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.subtitles = (SubtitlesOutput.parse(map['Subtitles']) unless map['Subtitles'].nil?)
+        data.language_id_settings = (LanguageIdSettingsMap.parse(map['LanguageIdSettings']) unless map['LanguageIdSettings'].nil?)
         return data
       end
     end
@@ -673,8 +673,8 @@ module AWS::SDK::Transcribe
     class SubtitlesOutput
       def self.parse(map)
         data = Types::SubtitlesOutput.new
-        data.formats = (Parsers::SubtitleFormats.parse(map['Formats']) unless map['Formats'].nil?)
-        data.subtitle_file_uris = (Parsers::SubtitleFileUris.parse(map['SubtitleFileUris']) unless map['SubtitleFileUris'].nil?)
+        data.formats = (SubtitleFormats.parse(map['Formats']) unless map['Formats'].nil?)
+        data.subtitle_file_uris = (SubtitleFileUris.parse(map['SubtitleFileUris']) unless map['SubtitleFileUris'].nil?)
         data.output_start_index = map['OutputStartIndex']
         return data
       end
@@ -699,7 +699,7 @@ module AWS::SDK::Transcribe
     class LanguageCodeList
       def self.parse(list)
         list.map do |value|
-          Parsers::LanguageCodeItem.parse(value) unless value.nil?
+          LanguageCodeItem.parse(value) unless value.nil?
         end
       end
     end
@@ -785,7 +785,7 @@ module AWS::SDK::Transcribe
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.categories = (Parsers::CategoryPropertiesList.parse(map['Categories']) unless map['Categories'].nil?)
+        data.categories = (CategoryPropertiesList.parse(map['Categories']) unless map['Categories'].nil?)
         data
       end
     end
@@ -793,7 +793,7 @@ module AWS::SDK::Transcribe
     class CategoryPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::CategoryProperties.parse(value) unless value.nil?
+          CategoryProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -807,7 +807,7 @@ module AWS::SDK::Transcribe
         map = Hearth::JSON.load(body)
         data.status = map['Status']
         data.next_token = map['NextToken']
-        data.call_analytics_job_summaries = (Parsers::CallAnalyticsJobSummaries.parse(map['CallAnalyticsJobSummaries']) unless map['CallAnalyticsJobSummaries'].nil?)
+        data.call_analytics_job_summaries = (CallAnalyticsJobSummaries.parse(map['CallAnalyticsJobSummaries']) unless map['CallAnalyticsJobSummaries'].nil?)
         data
       end
     end
@@ -815,7 +815,7 @@ module AWS::SDK::Transcribe
     class CallAnalyticsJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::CallAnalyticsJobSummary.parse(value) unless value.nil?
+          CallAnalyticsJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -842,7 +842,7 @@ module AWS::SDK::Transcribe
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.models = (Parsers::Models.parse(map['Models']) unless map['Models'].nil?)
+        data.models = (Models.parse(map['Models']) unless map['Models'].nil?)
         data
       end
     end
@@ -850,7 +850,7 @@ module AWS::SDK::Transcribe
     class Models
       def self.parse(list)
         list.map do |value|
-          Parsers::LanguageModel.parse(value) unless value.nil?
+          LanguageModel.parse(value) unless value.nil?
         end
       end
     end
@@ -864,7 +864,7 @@ module AWS::SDK::Transcribe
         map = Hearth::JSON.load(body)
         data.status = map['Status']
         data.next_token = map['NextToken']
-        data.medical_transcription_job_summaries = (Parsers::MedicalTranscriptionJobSummaries.parse(map['MedicalTranscriptionJobSummaries']) unless map['MedicalTranscriptionJobSummaries'].nil?)
+        data.medical_transcription_job_summaries = (MedicalTranscriptionJobSummaries.parse(map['MedicalTranscriptionJobSummaries']) unless map['MedicalTranscriptionJobSummaries'].nil?)
         data
       end
     end
@@ -872,7 +872,7 @@ module AWS::SDK::Transcribe
     class MedicalTranscriptionJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::MedicalTranscriptionJobSummary.parse(value) unless value.nil?
+          MedicalTranscriptionJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -904,7 +904,7 @@ module AWS::SDK::Transcribe
         map = Hearth::JSON.load(body)
         data.status = map['Status']
         data.next_token = map['NextToken']
-        data.vocabularies = (Parsers::Vocabularies.parse(map['Vocabularies']) unless map['Vocabularies'].nil?)
+        data.vocabularies = (Vocabularies.parse(map['Vocabularies']) unless map['Vocabularies'].nil?)
         data
       end
     end
@@ -912,7 +912,7 @@ module AWS::SDK::Transcribe
     class Vocabularies
       def self.parse(list)
         list.map do |value|
-          Parsers::VocabularyInfo.parse(value) unless value.nil?
+          VocabularyInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -936,7 +936,7 @@ module AWS::SDK::Transcribe
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_arn = map['ResourceArn']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -950,7 +950,7 @@ module AWS::SDK::Transcribe
         map = Hearth::JSON.load(body)
         data.status = map['Status']
         data.next_token = map['NextToken']
-        data.transcription_job_summaries = (Parsers::TranscriptionJobSummaries.parse(map['TranscriptionJobSummaries']) unless map['TranscriptionJobSummaries'].nil?)
+        data.transcription_job_summaries = (TranscriptionJobSummaries.parse(map['TranscriptionJobSummaries']) unless map['TranscriptionJobSummaries'].nil?)
         data
       end
     end
@@ -958,7 +958,7 @@ module AWS::SDK::Transcribe
     class TranscriptionJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TranscriptionJobSummary.parse(value) unless value.nil?
+          TranscriptionJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -974,12 +974,12 @@ module AWS::SDK::Transcribe
         data.transcription_job_status = map['TranscriptionJobStatus']
         data.failure_reason = map['FailureReason']
         data.output_location_type = map['OutputLocationType']
-        data.content_redaction = (Parsers::ContentRedaction.parse(map['ContentRedaction']) unless map['ContentRedaction'].nil?)
-        data.model_settings = (Parsers::ModelSettings.parse(map['ModelSettings']) unless map['ModelSettings'].nil?)
+        data.content_redaction = (ContentRedaction.parse(map['ContentRedaction']) unless map['ContentRedaction'].nil?)
+        data.model_settings = (ModelSettings.parse(map['ModelSettings']) unless map['ModelSettings'].nil?)
         data.identify_language = map['IdentifyLanguage']
         data.identify_multiple_languages = map['IdentifyMultipleLanguages']
         data.identified_language_score = Hearth::NumberHelper.deserialize(map['IdentifiedLanguageScore'])
-        data.language_codes = (Parsers::LanguageCodeList.parse(map['LanguageCodes']) unless map['LanguageCodes'].nil?)
+        data.language_codes = (LanguageCodeList.parse(map['LanguageCodes']) unless map['LanguageCodes'].nil?)
         return data
       end
     end
@@ -993,7 +993,7 @@ module AWS::SDK::Transcribe
         map = Hearth::JSON.load(body)
         data.status = map['Status']
         data.next_token = map['NextToken']
-        data.vocabularies = (Parsers::Vocabularies.parse(map['Vocabularies']) unless map['Vocabularies'].nil?)
+        data.vocabularies = (Vocabularies.parse(map['Vocabularies']) unless map['Vocabularies'].nil?)
         data
       end
     end
@@ -1006,7 +1006,7 @@ module AWS::SDK::Transcribe
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.vocabulary_filters = (Parsers::VocabularyFilters.parse(map['VocabularyFilters']) unless map['VocabularyFilters'].nil?)
+        data.vocabulary_filters = (VocabularyFilters.parse(map['VocabularyFilters']) unless map['VocabularyFilters'].nil?)
         data
       end
     end
@@ -1014,7 +1014,7 @@ module AWS::SDK::Transcribe
     class VocabularyFilters
       def self.parse(list)
         list.map do |value|
-          Parsers::VocabularyFilterInfo.parse(value) unless value.nil?
+          VocabularyFilterInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1036,7 +1036,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.call_analytics_job = (Parsers::CallAnalyticsJob.parse(map['CallAnalyticsJob']) unless map['CallAnalyticsJob'].nil?)
+        data.call_analytics_job = (CallAnalyticsJob.parse(map['CallAnalyticsJob']) unless map['CallAnalyticsJob'].nil?)
         data
       end
     end
@@ -1048,7 +1048,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.medical_transcription_job = (Parsers::MedicalTranscriptionJob.parse(map['MedicalTranscriptionJob']) unless map['MedicalTranscriptionJob'].nil?)
+        data.medical_transcription_job = (MedicalTranscriptionJob.parse(map['MedicalTranscriptionJob']) unless map['MedicalTranscriptionJob'].nil?)
         data
       end
     end
@@ -1060,7 +1060,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.transcription_job = (Parsers::TranscriptionJob.parse(map['TranscriptionJob']) unless map['TranscriptionJob'].nil?)
+        data.transcription_job = (TranscriptionJob.parse(map['TranscriptionJob']) unless map['TranscriptionJob'].nil?)
         data
       end
     end
@@ -1094,7 +1094,7 @@ module AWS::SDK::Transcribe
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.category_properties = (Parsers::CategoryProperties.parse(map['CategoryProperties']) unless map['CategoryProperties'].nil?)
+        data.category_properties = (CategoryProperties.parse(map['CategoryProperties']) unless map['CategoryProperties'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SMS
   module Stubs
 
@@ -22,10 +24,10 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['appSummary'] = Stubs::AppSummary.stub(stub[:app_summary]) unless stub[:app_summary].nil?
-        data['serverGroups'] = Stubs::ServerGroups.stub(stub[:server_groups]) unless stub[:server_groups].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['appSummary'] = AppSummary.stub(stub[:app_summary]) unless stub[:app_summary].nil?
+        data['serverGroups'] = ServerGroups.stub(stub[:server_groups]) unless stub[:server_groups].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -44,7 +46,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -84,7 +86,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerGroup.stub(element) unless element.nil?
+          data << ServerGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -107,7 +109,7 @@ module AWS::SDK::SMS
         data = {}
         data['serverGroupId'] = stub[:server_group_id] unless stub[:server_group_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['serverList'] = Stubs::ServerList.stub(stub[:server_list]) unless stub[:server_list].nil?
+        data['serverList'] = ServerList.stub(stub[:server_list]) unless stub[:server_list].nil?
         data
       end
     end
@@ -126,7 +128,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Server.stub(element) unless element.nil?
+          data << Server.stub(element) unless element.nil?
         end
         data
       end
@@ -151,7 +153,7 @@ module AWS::SDK::SMS
         data = {}
         data['serverId'] = stub[:server_id] unless stub[:server_id].nil?
         data['serverType'] = stub[:server_type] unless stub[:server_type].nil?
-        data['vmServer'] = Stubs::VmServer.stub(stub[:vm_server]) unless stub[:vm_server].nil?
+        data['vmServer'] = VmServer.stub(stub[:vm_server]) unless stub[:vm_server].nil?
         data['replicationJobId'] = stub[:replication_job_id] unless stub[:replication_job_id].nil?
         data['replicationJobTerminated'] = stub[:replication_job_terminated] unless stub[:replication_job_terminated].nil?
         data
@@ -175,7 +177,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::VmServer.new
         data = {}
-        data['vmServerAddress'] = Stubs::VmServerAddress.stub(stub[:vm_server_address]) unless stub[:vm_server_address].nil?
+        data['vmServerAddress'] = VmServerAddress.stub(stub[:vm_server_address]) unless stub[:vm_server_address].nil?
         data['vmName'] = stub[:vm_name] unless stub[:vm_name].nil?
         data['vmManagerName'] = stub[:vm_manager_name] unless stub[:vm_manager_name].nil?
         data['vmManagerType'] = stub[:vm_manager_type] unless stub[:vm_manager_type].nil?
@@ -248,7 +250,7 @@ module AWS::SDK::SMS
         data['launchConfigurationStatus'] = stub[:launch_configuration_status] unless stub[:launch_configuration_status].nil?
         data['launchStatus'] = stub[:launch_status] unless stub[:launch_status].nil?
         data['launchStatusMessage'] = stub[:launch_status_message] unless stub[:launch_status_message].nil?
-        data['launchDetails'] = Stubs::LaunchDetails.stub(stub[:launch_details]) unless stub[:launch_details].nil?
+        data['launchDetails'] = LaunchDetails.stub(stub[:launch_details]) unless stub[:launch_details].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
         data['roleName'] = stub[:role_name] unless stub[:role_name].nil?
@@ -291,7 +293,7 @@ module AWS::SDK::SMS
       def self.stub(http_resp, stub:)
         data = {}
         data['replicationJobId'] = stub[:replication_job_id] unless stub[:replication_job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -319,7 +321,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -333,7 +335,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -389,7 +391,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -404,8 +406,8 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -440,8 +442,8 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -458,10 +460,10 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['appSummary'] = Stubs::AppSummary.stub(stub[:app_summary]) unless stub[:app_summary].nil?
-        data['serverGroups'] = Stubs::ServerGroups.stub(stub[:server_groups]) unless stub[:server_groups].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['appSummary'] = AppSummary.stub(stub[:app_summary]) unless stub[:app_summary].nil?
+        data['serverGroups'] = ServerGroups.stub(stub[:server_groups]) unless stub[:server_groups].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -482,8 +484,8 @@ module AWS::SDK::SMS
         data['appId'] = stub[:app_id] unless stub[:app_id].nil?
         data['roleName'] = stub[:role_name] unless stub[:role_name].nil?
         data['autoLaunch'] = stub[:auto_launch] unless stub[:auto_launch].nil?
-        data['serverGroupLaunchConfigurations'] = Stubs::ServerGroupLaunchConfigurations.stub(stub[:server_group_launch_configurations]) unless stub[:server_group_launch_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serverGroupLaunchConfigurations'] = ServerGroupLaunchConfigurations.stub(stub[:server_group_launch_configurations]) unless stub[:server_group_launch_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -502,7 +504,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerGroupLaunchConfiguration.stub(element) unless element.nil?
+          data << ServerGroupLaunchConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -525,7 +527,7 @@ module AWS::SDK::SMS
         data = {}
         data['serverGroupId'] = stub[:server_group_id] unless stub[:server_group_id].nil?
         data['launchOrder'] = stub[:launch_order] unless stub[:launch_order].nil?
-        data['serverLaunchConfigurations'] = Stubs::ServerLaunchConfigurations.stub(stub[:server_launch_configurations]) unless stub[:server_launch_configurations].nil?
+        data['serverLaunchConfigurations'] = ServerLaunchConfigurations.stub(stub[:server_launch_configurations]) unless stub[:server_launch_configurations].nil?
         data
       end
     end
@@ -544,7 +546,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerLaunchConfiguration.stub(element) unless element.nil?
+          data << ServerLaunchConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -574,17 +576,17 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::ServerLaunchConfiguration.new
         data = {}
-        data['server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
+        data['server'] = Server.stub(stub[:server]) unless stub[:server].nil?
         data['logicalId'] = stub[:logical_id] unless stub[:logical_id].nil?
         data['vpc'] = stub[:vpc] unless stub[:vpc].nil?
         data['subnet'] = stub[:subnet] unless stub[:subnet].nil?
         data['securityGroup'] = stub[:security_group] unless stub[:security_group].nil?
         data['ec2KeyName'] = stub[:ec2_key_name] unless stub[:ec2_key_name].nil?
-        data['userData'] = Stubs::UserData.stub(stub[:user_data]) unless stub[:user_data].nil?
+        data['userData'] = UserData.stub(stub[:user_data]) unless stub[:user_data].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['associatePublicIpAddress'] = stub[:associate_public_ip_address] unless stub[:associate_public_ip_address].nil?
         data['iamInstanceProfileName'] = stub[:iam_instance_profile_name] unless stub[:iam_instance_profile_name].nil?
-        data['configureScript'] = Stubs::S3Location.stub(stub[:configure_script]) unless stub[:configure_script].nil?
+        data['configureScript'] = S3Location.stub(stub[:configure_script]) unless stub[:configure_script].nil?
         data['configureScriptType'] = stub[:configure_script_type] unless stub[:configure_script_type].nil?
         data
       end
@@ -603,7 +605,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::UserData.new
         data = {}
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -618,8 +620,8 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serverGroupReplicationConfigurations'] = Stubs::ServerGroupReplicationConfigurations.stub(stub[:server_group_replication_configurations]) unless stub[:server_group_replication_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serverGroupReplicationConfigurations'] = ServerGroupReplicationConfigurations.stub(stub[:server_group_replication_configurations]) unless stub[:server_group_replication_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -638,7 +640,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerGroupReplicationConfiguration.stub(element) unless element.nil?
+          data << ServerGroupReplicationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -659,7 +661,7 @@ module AWS::SDK::SMS
         stub ||= Types::ServerGroupReplicationConfiguration.new
         data = {}
         data['serverGroupId'] = stub[:server_group_id] unless stub[:server_group_id].nil?
-        data['serverReplicationConfigurations'] = Stubs::ServerReplicationConfigurations.stub(stub[:server_replication_configurations]) unless stub[:server_replication_configurations].nil?
+        data['serverReplicationConfigurations'] = ServerReplicationConfigurations.stub(stub[:server_replication_configurations]) unless stub[:server_replication_configurations].nil?
         data
       end
     end
@@ -678,7 +680,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerReplicationConfiguration.stub(element) unless element.nil?
+          data << ServerReplicationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -698,8 +700,8 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::ServerReplicationConfiguration.new
         data = {}
-        data['server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
-        data['serverReplicationParameters'] = Stubs::ServerReplicationParameters.stub(stub[:server_replication_parameters]) unless stub[:server_replication_parameters].nil?
+        data['server'] = Server.stub(stub[:server]) unless stub[:server].nil?
+        data['serverReplicationParameters'] = ServerReplicationParameters.stub(stub[:server_replication_parameters]) unless stub[:server_replication_parameters].nil?
         data
       end
     end
@@ -745,9 +747,9 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['appValidationConfigurations'] = Stubs::AppValidationConfigurations.stub(stub[:app_validation_configurations]) unless stub[:app_validation_configurations].nil?
-        data['serverGroupValidationConfigurations'] = Stubs::ServerGroupValidationConfigurations.stub(stub[:server_group_validation_configurations]) unless stub[:server_group_validation_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['appValidationConfigurations'] = AppValidationConfigurations.stub(stub[:app_validation_configurations]) unless stub[:app_validation_configurations].nil?
+        data['serverGroupValidationConfigurations'] = ServerGroupValidationConfigurations.stub(stub[:server_group_validation_configurations]) unless stub[:server_group_validation_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -766,7 +768,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerGroupValidationConfiguration.stub(element) unless element.nil?
+          data << ServerGroupValidationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -787,7 +789,7 @@ module AWS::SDK::SMS
         stub ||= Types::ServerGroupValidationConfiguration.new
         data = {}
         data['serverGroupId'] = stub[:server_group_id] unless stub[:server_group_id].nil?
-        data['serverValidationConfigurations'] = Stubs::ServerValidationConfigurations.stub(stub[:server_validation_configurations]) unless stub[:server_validation_configurations].nil?
+        data['serverValidationConfigurations'] = ServerValidationConfigurations.stub(stub[:server_validation_configurations]) unless stub[:server_validation_configurations].nil?
         data
       end
     end
@@ -806,7 +808,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerValidationConfiguration.stub(element) unless element.nil?
+          data << ServerValidationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -829,11 +831,11 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::ServerValidationConfiguration.new
         data = {}
-        data['server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
+        data['server'] = Server.stub(stub[:server]) unless stub[:server].nil?
         data['validationId'] = stub[:validation_id] unless stub[:validation_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['serverValidationStrategy'] = stub[:server_validation_strategy] unless stub[:server_validation_strategy].nil?
-        data['userDataValidationParameters'] = Stubs::UserDataValidationParameters.stub(stub[:user_data_validation_parameters]) unless stub[:user_data_validation_parameters].nil?
+        data['userDataValidationParameters'] = UserDataValidationParameters.stub(stub[:user_data_validation_parameters]) unless stub[:user_data_validation_parameters].nil?
         data
       end
     end
@@ -852,7 +854,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::UserDataValidationParameters.new
         data = {}
-        data['source'] = Stubs::Source.stub(stub[:source]) unless stub[:source].nil?
+        data['source'] = Source.stub(stub[:source]) unless stub[:source].nil?
         data['scriptType'] = stub[:script_type] unless stub[:script_type].nil?
         data
       end
@@ -871,7 +873,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::Source.new
         data = {}
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -890,7 +892,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppValidationConfiguration.stub(element) unless element.nil?
+          data << AppValidationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -915,7 +917,7 @@ module AWS::SDK::SMS
         data['validationId'] = stub[:validation_id] unless stub[:validation_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['appValidationStrategy'] = stub[:app_validation_strategy] unless stub[:app_validation_strategy].nil?
-        data['ssmValidationParameters'] = Stubs::SSMValidationParameters.stub(stub[:ssm_validation_parameters]) unless stub[:ssm_validation_parameters].nil?
+        data['ssmValidationParameters'] = SSMValidationParameters.stub(stub[:ssm_validation_parameters]) unless stub[:ssm_validation_parameters].nil?
         data
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::SSMValidationParameters.new
         data = {}
-        data['source'] = Stubs::Source.stub(stub[:source]) unless stub[:source].nil?
+        data['source'] = Source.stub(stub[:source]) unless stub[:source].nil?
         data['instanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
         data['scriptType'] = stub[:script_type] unless stub[:script_type].nil?
         data['command'] = stub[:command] unless stub[:command].nil?
@@ -958,8 +960,8 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['validationOutputList'] = Stubs::ValidationOutputList.stub(stub[:validation_output_list]) unless stub[:validation_output_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['validationOutputList'] = ValidationOutputList.stub(stub[:validation_output_list]) unless stub[:validation_output_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -978,7 +980,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidationOutput.stub(element) unless element.nil?
+          data << ValidationOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -1008,8 +1010,8 @@ module AWS::SDK::SMS
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['latestValidationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:latest_validation_time]).to_i unless stub[:latest_validation_time].nil?
-        data['appValidationOutput'] = Stubs::AppValidationOutput.stub(stub[:app_validation_output]) unless stub[:app_validation_output].nil?
-        data['serverValidationOutput'] = Stubs::ServerValidationOutput.stub(stub[:server_validation_output]) unless stub[:server_validation_output].nil?
+        data['appValidationOutput'] = AppValidationOutput.stub(stub[:app_validation_output]) unless stub[:app_validation_output].nil?
+        data['serverValidationOutput'] = ServerValidationOutput.stub(stub[:server_validation_output]) unless stub[:server_validation_output].nil?
         data
       end
     end
@@ -1027,7 +1029,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::ServerValidationOutput.new
         data = {}
-        data['server'] = Stubs::Server.stub(stub[:server]) unless stub[:server].nil?
+        data['server'] = Server.stub(stub[:server]) unless stub[:server].nil?
         data
       end
     end
@@ -1045,7 +1047,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::AppValidationOutput.new
         data = {}
-        data['ssmOutput'] = Stubs::SSMOutput.stub(stub[:ssm_output]) unless stub[:ssm_output].nil?
+        data['ssmOutput'] = SSMOutput.stub(stub[:ssm_output]) unless stub[:ssm_output].nil?
         data
       end
     end
@@ -1063,7 +1065,7 @@ module AWS::SDK::SMS
       def self.stub(stub)
         stub ||= Types::SSMOutput.new
         data = {}
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -1079,9 +1081,9 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['connectorList'] = Stubs::ConnectorList.stub(stub[:connector_list]) unless stub[:connector_list].nil?
+        data['connectorList'] = ConnectorList.stub(stub[:connector_list]) unless stub[:connector_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1100,7 +1102,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connector.stub(element) unless element.nil?
+          data << Connector.stub(element) unless element.nil?
         end
         data
       end
@@ -1131,7 +1133,7 @@ module AWS::SDK::SMS
         data['connectorId'] = stub[:connector_id] unless stub[:connector_id].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['capabilityList'] = Stubs::ConnectorCapabilityList.stub(stub[:capability_list]) unless stub[:capability_list].nil?
+        data['capabilityList'] = ConnectorCapabilityList.stub(stub[:capability_list]) unless stub[:capability_list].nil?
         data['vmManagerName'] = stub[:vm_manager_name] unless stub[:vm_manager_name].nil?
         data['vmManagerType'] = stub[:vm_manager_type] unless stub[:vm_manager_type].nil?
         data['vmManagerId'] = stub[:vm_manager_id] unless stub[:vm_manager_id].nil?
@@ -1173,9 +1175,9 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['replicationJobList'] = Stubs::ReplicationJobList.stub(stub[:replication_job_list]) unless stub[:replication_job_list].nil?
+        data['replicationJobList'] = ReplicationJobList.stub(stub[:replication_job_list]) unless stub[:replication_job_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1194,7 +1196,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationJob.stub(element) unless element.nil?
+          data << ReplicationJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1233,7 +1235,7 @@ module AWS::SDK::SMS
         data['replicationJobId'] = stub[:replication_job_id] unless stub[:replication_job_id].nil?
         data['serverId'] = stub[:server_id] unless stub[:server_id].nil?
         data['serverType'] = stub[:server_type] unless stub[:server_type].nil?
-        data['vmServer'] = Stubs::VmServer.stub(stub[:vm_server]) unless stub[:vm_server].nil?
+        data['vmServer'] = VmServer.stub(stub[:vm_server]) unless stub[:vm_server].nil?
         data['seedReplicationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:seed_replication_time]).to_i unless stub[:seed_replication_time].nil?
         data['frequency'] = stub[:frequency] unless stub[:frequency].nil?
         data['runOnce'] = stub[:run_once] unless stub[:run_once].nil?
@@ -1247,7 +1249,7 @@ module AWS::SDK::SMS
         data['numberOfRecentAmisToKeep'] = stub[:number_of_recent_amis_to_keep] unless stub[:number_of_recent_amis_to_keep].nil?
         data['encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
         data['kmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['replicationRunList'] = Stubs::ReplicationRunList.stub(stub[:replication_run_list]) unless stub[:replication_run_list].nil?
+        data['replicationRunList'] = ReplicationRunList.stub(stub[:replication_run_list]) unless stub[:replication_run_list].nil?
         data
       end
     end
@@ -1266,7 +1268,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationRun.stub(element) unless element.nil?
+          data << ReplicationRun.stub(element) unless element.nil?
         end
         data
       end
@@ -1298,7 +1300,7 @@ module AWS::SDK::SMS
         data['replicationRunId'] = stub[:replication_run_id] unless stub[:replication_run_id].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['stageDetails'] = Stubs::ReplicationRunStageDetails.stub(stub[:stage_details]) unless stub[:stage_details].nil?
+        data['stageDetails'] = ReplicationRunStageDetails.stub(stub[:stage_details]) unless stub[:stage_details].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['amiId'] = stub[:ami_id] unless stub[:ami_id].nil?
         data['scheduledStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:scheduled_start_time]).to_i unless stub[:scheduled_start_time].nil?
@@ -1342,10 +1344,10 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['replicationJob'] = Stubs::ReplicationJob.stub(stub[:replication_job]) unless stub[:replication_job].nil?
-        data['replicationRunList'] = Stubs::ReplicationRunList.stub(stub[:replication_run_list]) unless stub[:replication_run_list].nil?
+        data['replicationJob'] = ReplicationJob.stub(stub[:replication_job]) unless stub[:replication_job].nil?
+        data['replicationRunList'] = ReplicationRunList.stub(stub[:replication_run_list]) unless stub[:replication_run_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1365,9 +1367,9 @@ module AWS::SDK::SMS
         data = {}
         data['lastModifiedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_on]).to_i unless stub[:last_modified_on].nil?
         data['serverCatalogStatus'] = stub[:server_catalog_status] unless stub[:server_catalog_status].nil?
-        data['serverList'] = Stubs::ServerList.stub(stub[:server_list]) unless stub[:server_list].nil?
+        data['serverList'] = ServerList.stub(stub[:server_list]) unless stub[:server_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1381,7 +1383,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1395,7 +1397,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1409,7 +1411,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1425,9 +1427,9 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['apps'] = Stubs::Apps.stub(stub[:apps]) unless stub[:apps].nil?
+        data['apps'] = Apps.stub(stub[:apps]) unless stub[:apps].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1446,7 +1448,7 @@ module AWS::SDK::SMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppSummary.stub(element) unless element.nil?
+          data << AppSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1461,7 +1463,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1475,7 +1477,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1489,7 +1491,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1503,7 +1505,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1517,7 +1519,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1531,7 +1533,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1547,7 +1549,7 @@ module AWS::SDK::SMS
       def self.stub(http_resp, stub:)
         data = {}
         data['replicationRunId'] = stub[:replication_run_id] unless stub[:replication_run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1561,7 +1563,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1575,7 +1577,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1592,10 +1594,10 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['appSummary'] = Stubs::AppSummary.stub(stub[:app_summary]) unless stub[:app_summary].nil?
-        data['serverGroups'] = Stubs::ServerGroups.stub(stub[:server_groups]) unless stub[:server_groups].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['appSummary'] = AppSummary.stub(stub[:app_summary]) unless stub[:app_summary].nil?
+        data['serverGroups'] = ServerGroups.stub(stub[:server_groups]) unless stub[:server_groups].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1609,7 +1611,7 @@ module AWS::SDK::SMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

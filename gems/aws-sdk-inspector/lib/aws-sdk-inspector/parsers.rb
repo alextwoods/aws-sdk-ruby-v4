@@ -17,7 +17,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::Inspector
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FailedItemDetails.parse(value) unless value.nil?
+          data[key] = FailedItemDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -216,7 +216,7 @@ module AWS::SDK::Inspector
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.message = map['message']
-        data.assessment_run_arns = (Parsers::AssessmentRunInProgressArnList.parse(map['assessmentRunArns']) unless map['assessmentRunArns'].nil?)
+        data.assessment_run_arns = (AssessmentRunInProgressArnList.parse(map['assessmentRunArns']) unless map['assessmentRunArns'].nil?)
         data.assessment_run_arns_truncated = map['assessmentRunArnsTruncated']
         data.can_retry = map['canRetry']
         data
@@ -260,8 +260,8 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.assessment_runs = (Parsers::AssessmentRunList.parse(map['assessmentRuns']) unless map['assessmentRuns'].nil?)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.assessment_runs = (AssessmentRunList.parse(map['assessmentRuns']) unless map['assessmentRuns'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::Inspector
     class AssessmentRunList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssessmentRun.parse(value) unless value.nil?
+          AssessmentRun.parse(value) unless value.nil?
         end
       end
     end
@@ -282,16 +282,16 @@ module AWS::SDK::Inspector
         data.assessment_template_arn = map['assessmentTemplateArn']
         data.state = map['state']
         data.duration_in_seconds = map['durationInSeconds']
-        data.rules_package_arns = (Parsers::AssessmentRulesPackageArnList.parse(map['rulesPackageArns']) unless map['rulesPackageArns'].nil?)
-        data.user_attributes_for_findings = (Parsers::UserAttributeList.parse(map['userAttributesForFindings']) unless map['userAttributesForFindings'].nil?)
+        data.rules_package_arns = (AssessmentRulesPackageArnList.parse(map['rulesPackageArns']) unless map['rulesPackageArns'].nil?)
+        data.user_attributes_for_findings = (UserAttributeList.parse(map['userAttributesForFindings']) unless map['userAttributesForFindings'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.started_at = Time.at(map['startedAt'].to_i) if map['startedAt']
         data.completed_at = Time.at(map['completedAt'].to_i) if map['completedAt']
         data.state_changed_at = Time.at(map['stateChangedAt'].to_i) if map['stateChangedAt']
         data.data_collected = map['dataCollected']
-        data.state_changes = (Parsers::AssessmentRunStateChangeList.parse(map['stateChanges']) unless map['stateChanges'].nil?)
-        data.notifications = (Parsers::AssessmentRunNotificationList.parse(map['notifications']) unless map['notifications'].nil?)
-        data.finding_counts = (Parsers::AssessmentRunFindingCounts.parse(map['findingCounts']) unless map['findingCounts'].nil?)
+        data.state_changes = (AssessmentRunStateChangeList.parse(map['stateChanges']) unless map['stateChanges'].nil?)
+        data.notifications = (AssessmentRunNotificationList.parse(map['notifications']) unless map['notifications'].nil?)
+        data.finding_counts = (AssessmentRunFindingCounts.parse(map['findingCounts']) unless map['findingCounts'].nil?)
         return data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::Inspector
     class AssessmentRunNotificationList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssessmentRunNotification.parse(value) unless value.nil?
+          AssessmentRunNotification.parse(value) unless value.nil?
         end
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::Inspector
     class AssessmentRunStateChangeList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssessmentRunStateChange.parse(value) unless value.nil?
+          AssessmentRunStateChange.parse(value) unless value.nil?
         end
       end
     end
@@ -347,7 +347,7 @@ module AWS::SDK::Inspector
     class UserAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Attribute.parse(value) unless value.nil?
+          Attribute.parse(value) unless value.nil?
         end
       end
     end
@@ -376,8 +376,8 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.assessment_targets = (Parsers::AssessmentTargetList.parse(map['assessmentTargets']) unless map['assessmentTargets'].nil?)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.assessment_targets = (AssessmentTargetList.parse(map['assessmentTargets']) unless map['assessmentTargets'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -385,7 +385,7 @@ module AWS::SDK::Inspector
     class AssessmentTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssessmentTarget.parse(value) unless value.nil?
+          AssessmentTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -409,8 +409,8 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.assessment_templates = (Parsers::AssessmentTemplateList.parse(map['assessmentTemplates']) unless map['assessmentTemplates'].nil?)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.assessment_templates = (AssessmentTemplateList.parse(map['assessmentTemplates']) unless map['assessmentTemplates'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -418,7 +418,7 @@ module AWS::SDK::Inspector
     class AssessmentTemplateList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssessmentTemplate.parse(value) unless value.nil?
+          AssessmentTemplate.parse(value) unless value.nil?
         end
       end
     end
@@ -430,8 +430,8 @@ module AWS::SDK::Inspector
         data.name = map['name']
         data.assessment_target_arn = map['assessmentTargetArn']
         data.duration_in_seconds = map['durationInSeconds']
-        data.rules_package_arns = (Parsers::AssessmentTemplateRulesPackageArnList.parse(map['rulesPackageArns']) unless map['rulesPackageArns'].nil?)
-        data.user_attributes_for_findings = (Parsers::UserAttributeList.parse(map['userAttributesForFindings']) unless map['userAttributesForFindings'].nil?)
+        data.rules_package_arns = (AssessmentTemplateRulesPackageArnList.parse(map['rulesPackageArns']) unless map['rulesPackageArns'].nil?)
+        data.user_attributes_for_findings = (UserAttributeList.parse(map['userAttributesForFindings']) unless map['userAttributesForFindings'].nil?)
         data.last_assessment_run_arn = map['lastAssessmentRunArn']
         data.assessment_run_count = map['assessmentRunCount']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
@@ -468,8 +468,8 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.exclusions = (Parsers::ExclusionMap.parse(map['exclusions']) unless map['exclusions'].nil?)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.exclusions = (ExclusionMap.parse(map['exclusions']) unless map['exclusions'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -478,7 +478,7 @@ module AWS::SDK::Inspector
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Exclusion.parse(value) unless value.nil?
+          data[key] = Exclusion.parse(value) unless value.nil?
         end
         data
       end
@@ -491,8 +491,8 @@ module AWS::SDK::Inspector
         data.title = map['title']
         data.description = map['description']
         data.recommendation = map['recommendation']
-        data.scopes = (Parsers::ScopeList.parse(map['scopes']) unless map['scopes'].nil?)
-        data.attributes = (Parsers::AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
+        data.scopes = (ScopeList.parse(map['scopes']) unless map['scopes'].nil?)
+        data.attributes = (AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -500,7 +500,7 @@ module AWS::SDK::Inspector
     class AttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Attribute.parse(value) unless value.nil?
+          Attribute.parse(value) unless value.nil?
         end
       end
     end
@@ -508,7 +508,7 @@ module AWS::SDK::Inspector
     class ScopeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Scope.parse(value) unless value.nil?
+          Scope.parse(value) unless value.nil?
         end
       end
     end
@@ -529,8 +529,8 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.findings = (Parsers::FindingList.parse(map['findings']) unless map['findings'].nil?)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.findings = (FindingList.parse(map['findings']) unless map['findings'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -538,7 +538,7 @@ module AWS::SDK::Inspector
     class FindingList
       def self.parse(list)
         list.map do |value|
-          Parsers::Finding.parse(value) unless value.nil?
+          Finding.parse(value) unless value.nil?
         end
       end
     end
@@ -549,9 +549,9 @@ module AWS::SDK::Inspector
         data.arn = map['arn']
         data.schema_version = map['schemaVersion']
         data.service = map['service']
-        data.service_attributes = (Parsers::InspectorServiceAttributes.parse(map['serviceAttributes']) unless map['serviceAttributes'].nil?)
+        data.service_attributes = (InspectorServiceAttributes.parse(map['serviceAttributes']) unless map['serviceAttributes'].nil?)
         data.asset_type = map['assetType']
-        data.asset_attributes = (Parsers::AssetAttributes.parse(map['assetAttributes']) unless map['assetAttributes'].nil?)
+        data.asset_attributes = (AssetAttributes.parse(map['assetAttributes']) unless map['assetAttributes'].nil?)
         data.id = map['id']
         data.title = map['title']
         data.description = map['description']
@@ -560,8 +560,8 @@ module AWS::SDK::Inspector
         data.numeric_severity = Hearth::NumberHelper.deserialize(map['numericSeverity'])
         data.confidence = map['confidence']
         data.indicator_of_compromise = map['indicatorOfCompromise']
-        data.attributes = (Parsers::AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
-        data.user_attributes = (Parsers::UserAttributeList.parse(map['userAttributes']) unless map['userAttributes'].nil?)
+        data.attributes = (AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
+        data.user_attributes = (UserAttributeList.parse(map['userAttributes']) unless map['userAttributes'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.updated_at = Time.at(map['updatedAt'].to_i) if map['updatedAt']
         return data
@@ -576,9 +576,9 @@ module AWS::SDK::Inspector
         data.auto_scaling_group = map['autoScalingGroup']
         data.ami_id = map['amiId']
         data.hostname = map['hostname']
-        data.ipv4_addresses = (Parsers::Ipv4AddressList.parse(map['ipv4Addresses']) unless map['ipv4Addresses'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.network_interfaces = (Parsers::NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.ipv4_addresses = (Ipv4AddressList.parse(map['ipv4Addresses']) unless map['ipv4Addresses'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.network_interfaces = (NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
         return data
       end
     end
@@ -586,7 +586,7 @@ module AWS::SDK::Inspector
     class NetworkInterfaces
       def self.parse(list)
         list.map do |value|
-          Parsers::NetworkInterface.parse(value) unless value.nil?
+          NetworkInterface.parse(value) unless value.nil?
         end
       end
     end
@@ -599,11 +599,11 @@ module AWS::SDK::Inspector
         data.vpc_id = map['vpcId']
         data.private_dns_name = map['privateDnsName']
         data.private_ip_address = map['privateIpAddress']
-        data.private_ip_addresses = (Parsers::PrivateIpAddresses.parse(map['privateIpAddresses']) unless map['privateIpAddresses'].nil?)
+        data.private_ip_addresses = (PrivateIpAddresses.parse(map['privateIpAddresses']) unless map['privateIpAddresses'].nil?)
         data.public_dns_name = map['publicDnsName']
         data.public_ip = map['publicIp']
-        data.ipv6_addresses = (Parsers::Ipv6Addresses.parse(map['ipv6Addresses']) unless map['ipv6Addresses'].nil?)
-        data.security_groups = (Parsers::SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.ipv6_addresses = (Ipv6Addresses.parse(map['ipv6Addresses']) unless map['ipv6Addresses'].nil?)
+        data.security_groups = (SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
         return data
       end
     end
@@ -611,7 +611,7 @@ module AWS::SDK::Inspector
     class SecurityGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::SecurityGroup.parse(value) unless value.nil?
+          SecurityGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -636,7 +636,7 @@ module AWS::SDK::Inspector
     class PrivateIpAddresses
       def self.parse(list)
         list.map do |value|
-          Parsers::PrivateIp.parse(value) unless value.nil?
+          PrivateIp.parse(value) unless value.nil?
         end
       end
     end
@@ -653,7 +653,7 @@ module AWS::SDK::Inspector
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -692,8 +692,8 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_groups = (Parsers::ResourceGroupList.parse(map['resourceGroups']) unless map['resourceGroups'].nil?)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.resource_groups = (ResourceGroupList.parse(map['resourceGroups']) unless map['resourceGroups'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -701,7 +701,7 @@ module AWS::SDK::Inspector
     class ResourceGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceGroup.parse(value) unless value.nil?
+          ResourceGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -710,7 +710,7 @@ module AWS::SDK::Inspector
       def self.parse(map)
         data = Types::ResourceGroup.new
         data.arn = map['arn']
-        data.tags = (Parsers::ResourceGroupTags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (ResourceGroupTags.parse(map['tags']) unless map['tags'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         return data
       end
@@ -719,7 +719,7 @@ module AWS::SDK::Inspector
     class ResourceGroupTags
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceGroupTag.parse(value) unless value.nil?
+          ResourceGroupTag.parse(value) unless value.nil?
         end
       end
     end
@@ -740,8 +740,8 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rules_packages = (Parsers::RulesPackageList.parse(map['rulesPackages']) unless map['rulesPackages'].nil?)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.rules_packages = (RulesPackageList.parse(map['rulesPackages']) unless map['rulesPackages'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::Inspector
     class RulesPackageList
       def self.parse(list)
         list.map do |value|
-          Parsers::RulesPackage.parse(value) unless value.nil?
+          RulesPackage.parse(value) unless value.nil?
         end
       end
     end
@@ -800,7 +800,7 @@ module AWS::SDK::Inspector
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.preview_status = map['previewStatus']
-        data.exclusion_previews = (Parsers::ExclusionPreviewList.parse(map['exclusionPreviews']) unless map['exclusionPreviews'].nil?)
+        data.exclusion_previews = (ExclusionPreviewList.parse(map['exclusionPreviews']) unless map['exclusionPreviews'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -809,7 +809,7 @@ module AWS::SDK::Inspector
     class ExclusionPreviewList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExclusionPreview.parse(value) unless value.nil?
+          ExclusionPreview.parse(value) unless value.nil?
         end
       end
     end
@@ -820,8 +820,8 @@ module AWS::SDK::Inspector
         data.title = map['title']
         data.description = map['description']
         data.recommendation = map['recommendation']
-        data.scopes = (Parsers::ScopeList.parse(map['scopes']) unless map['scopes'].nil?)
-        data.attributes = (Parsers::AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
+        data.scopes = (ScopeList.parse(map['scopes']) unless map['scopes'].nil?)
+        data.attributes = (AttributeList.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -833,7 +833,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.telemetry_metadata = (Parsers::TelemetryMetadataList.parse(map['telemetryMetadata']) unless map['telemetryMetadata'].nil?)
+        data.telemetry_metadata = (TelemetryMetadataList.parse(map['telemetryMetadata']) unless map['telemetryMetadata'].nil?)
         data
       end
     end
@@ -841,7 +841,7 @@ module AWS::SDK::Inspector
     class TelemetryMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::TelemetryMetadata.parse(value) unless value.nil?
+          TelemetryMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -863,7 +863,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.assessment_run_agents = (Parsers::AssessmentRunAgentList.parse(map['assessmentRunAgents']) unless map['assessmentRunAgents'].nil?)
+        data.assessment_run_agents = (AssessmentRunAgentList.parse(map['assessmentRunAgents']) unless map['assessmentRunAgents'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -872,7 +872,7 @@ module AWS::SDK::Inspector
     class AssessmentRunAgentList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssessmentRunAgent.parse(value) unless value.nil?
+          AssessmentRunAgent.parse(value) unless value.nil?
         end
       end
     end
@@ -886,7 +886,7 @@ module AWS::SDK::Inspector
         data.agent_health_code = map['agentHealthCode']
         data.agent_health_details = map['agentHealthDetails']
         data.auto_scaling_group = map['autoScalingGroup']
-        data.telemetry_metadata = (Parsers::TelemetryMetadataList.parse(map['telemetryMetadata']) unless map['telemetryMetadata'].nil?)
+        data.telemetry_metadata = (TelemetryMetadataList.parse(map['telemetryMetadata']) unless map['telemetryMetadata'].nil?)
         return data
       end
     end
@@ -898,7 +898,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.assessment_run_arns = (Parsers::ListReturnedArnList.parse(map['assessmentRunArns']) unless map['assessmentRunArns'].nil?)
+        data.assessment_run_arns = (ListReturnedArnList.parse(map['assessmentRunArns']) unless map['assessmentRunArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -919,7 +919,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.assessment_target_arns = (Parsers::ListReturnedArnList.parse(map['assessmentTargetArns']) unless map['assessmentTargetArns'].nil?)
+        data.assessment_target_arns = (ListReturnedArnList.parse(map['assessmentTargetArns']) unless map['assessmentTargetArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -932,7 +932,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.assessment_template_arns = (Parsers::ListReturnedArnList.parse(map['assessmentTemplateArns']) unless map['assessmentTemplateArns'].nil?)
+        data.assessment_template_arns = (ListReturnedArnList.parse(map['assessmentTemplateArns']) unless map['assessmentTemplateArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -945,7 +945,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subscriptions = (Parsers::SubscriptionList.parse(map['subscriptions']) unless map['subscriptions'].nil?)
+        data.subscriptions = (SubscriptionList.parse(map['subscriptions']) unless map['subscriptions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -954,7 +954,7 @@ module AWS::SDK::Inspector
     class SubscriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Subscription.parse(value) unless value.nil?
+          Subscription.parse(value) unless value.nil?
         end
       end
     end
@@ -964,7 +964,7 @@ module AWS::SDK::Inspector
         data = Types::Subscription.new
         data.resource_arn = map['resourceArn']
         data.topic_arn = map['topicArn']
-        data.event_subscriptions = (Parsers::EventSubscriptionList.parse(map['eventSubscriptions']) unless map['eventSubscriptions'].nil?)
+        data.event_subscriptions = (EventSubscriptionList.parse(map['eventSubscriptions']) unless map['eventSubscriptions'].nil?)
         return data
       end
     end
@@ -972,7 +972,7 @@ module AWS::SDK::Inspector
     class EventSubscriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventSubscription.parse(value) unless value.nil?
+          EventSubscription.parse(value) unless value.nil?
         end
       end
     end
@@ -993,7 +993,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.exclusion_arns = (Parsers::ListReturnedArnList.parse(map['exclusionArns']) unless map['exclusionArns'].nil?)
+        data.exclusion_arns = (ListReturnedArnList.parse(map['exclusionArns']) unless map['exclusionArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1006,7 +1006,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.finding_arns = (Parsers::ListReturnedArnList.parse(map['findingArns']) unless map['findingArns'].nil?)
+        data.finding_arns = (ListReturnedArnList.parse(map['findingArns']) unless map['findingArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1019,7 +1019,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rules_package_arns = (Parsers::ListReturnedArnList.parse(map['rulesPackageArns']) unless map['rulesPackageArns'].nil?)
+        data.rules_package_arns = (ListReturnedArnList.parse(map['rulesPackageArns']) unless map['rulesPackageArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1032,7 +1032,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1040,7 +1040,7 @@ module AWS::SDK::Inspector
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1052,7 +1052,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.agent_previews = (Parsers::AgentPreviewList.parse(map['agentPreviews']) unless map['agentPreviews'].nil?)
+        data.agent_previews = (AgentPreviewList.parse(map['agentPreviews']) unless map['agentPreviews'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1061,7 +1061,7 @@ module AWS::SDK::Inspector
     class AgentPreviewList
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentPreview.parse(value) unless value.nil?
+          AgentPreview.parse(value) unless value.nil?
         end
       end
     end
@@ -1099,7 +1099,7 @@ module AWS::SDK::Inspector
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_items = (Parsers::FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
+        data.failed_items = (FailedItems.parse(map['failedItems']) unless map['failedItems'].nil?)
         data
       end
     end
@@ -1135,7 +1135,7 @@ module AWS::SDK::Inspector
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.message = map['message']
-        data.agents = (Parsers::AgentAlreadyRunningAssessmentList.parse(map['agents']) unless map['agents'].nil?)
+        data.agents = (AgentAlreadyRunningAssessmentList.parse(map['agents']) unless map['agents'].nil?)
         data.agents_truncated = map['agentsTruncated']
         data.can_retry = map['canRetry']
         data
@@ -1145,7 +1145,7 @@ module AWS::SDK::Inspector
     class AgentAlreadyRunningAssessmentList
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentAlreadyRunningAssessment.parse(value) unless value.nil?
+          AgentAlreadyRunningAssessment.parse(value) unless value.nil?
         end
       end
     end

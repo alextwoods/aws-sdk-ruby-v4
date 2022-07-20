@@ -15,8 +15,8 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::BatchGetTracesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.traces = (Parsers::TraceList.parse(map['Traces']) unless map['Traces'].nil?)
-        data.unprocessed_trace_ids = (Parsers::UnprocessedTraceIdList.parse(map['UnprocessedTraceIds']) unless map['UnprocessedTraceIds'].nil?)
+        data.traces = (TraceList.parse(map['Traces']) unless map['Traces'].nil?)
+        data.unprocessed_trace_ids = (UnprocessedTraceIdList.parse(map['UnprocessedTraceIds']) unless map['UnprocessedTraceIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -36,7 +36,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Trace.parse(value) unless value.nil?
+          data << Trace.parse(value) unless value.nil?
         end
         data
       end
@@ -48,7 +48,7 @@ module AWS::SDK::XRay
         data.id = map['Id']
         data.duration = Hearth::NumberHelper.deserialize(map['Duration'])
         data.limit_exceeded = map['LimitExceeded']
-        data.segments = (Parsers::SegmentList.parse(map['Segments']) unless map['Segments'].nil?)
+        data.segments = (SegmentList.parse(map['Segments']) unless map['Segments'].nil?)
         return data
       end
     end
@@ -57,7 +57,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Segment.parse(value) unless value.nil?
+          data << Segment.parse(value) unless value.nil?
         end
         data
       end
@@ -97,7 +97,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::CreateGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -108,7 +108,7 @@ module AWS::SDK::XRay
         data.group_name = map['GroupName']
         data.group_arn = map['GroupARN']
         data.filter_expression = map['FilterExpression']
-        data.insights_configuration = (Parsers::InsightsConfiguration.parse(map['InsightsConfiguration']) unless map['InsightsConfiguration'].nil?)
+        data.insights_configuration = (InsightsConfiguration.parse(map['InsightsConfiguration']) unless map['InsightsConfiguration'].nil?)
         return data
       end
     end
@@ -127,7 +127,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::CreateSamplingRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sampling_rule_record = (Parsers::SamplingRuleRecord.parse(map['SamplingRuleRecord']) unless map['SamplingRuleRecord'].nil?)
+        data.sampling_rule_record = (SamplingRuleRecord.parse(map['SamplingRuleRecord']) unless map['SamplingRuleRecord'].nil?)
         data
       end
     end
@@ -135,7 +135,7 @@ module AWS::SDK::XRay
     class SamplingRuleRecord
       def self.parse(map)
         data = Types::SamplingRuleRecord.new
-        data.sampling_rule = (Parsers::SamplingRule.parse(map['SamplingRule']) unless map['SamplingRule'].nil?)
+        data.sampling_rule = (SamplingRule.parse(map['SamplingRule']) unless map['SamplingRule'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.modified_at = Time.at(map['ModifiedAt'].to_i) if map['ModifiedAt']
         return data
@@ -157,7 +157,7 @@ module AWS::SDK::XRay
         data.http_method = map['HTTPMethod']
         data.url_path = map['URLPath']
         data.version = map['Version']
-        data.attributes = (Parsers::AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeMap.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -196,7 +196,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::DeleteSamplingRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sampling_rule_record = (Parsers::SamplingRuleRecord.parse(map['SamplingRuleRecord']) unless map['SamplingRuleRecord'].nil?)
+        data.sampling_rule_record = (SamplingRuleRecord.parse(map['SamplingRuleRecord']) unless map['SamplingRuleRecord'].nil?)
         data
       end
     end
@@ -206,7 +206,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetEncryptionConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.encryption_config = (Parsers::EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
+        data.encryption_config = (EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
         data
       end
     end
@@ -226,7 +226,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -236,7 +236,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.groups = (Parsers::GroupSummaryList.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (GroupSummaryList.parse(map['Groups']) unless map['Groups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -246,7 +246,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupSummary.parse(value) unless value.nil?
+          data << GroupSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -258,7 +258,7 @@ module AWS::SDK::XRay
         data.group_name = map['GroupName']
         data.group_arn = map['GroupARN']
         data.filter_expression = map['FilterExpression']
-        data.insights_configuration = (Parsers::InsightsConfiguration.parse(map['InsightsConfiguration']) unless map['InsightsConfiguration'].nil?)
+        data.insights_configuration = (InsightsConfiguration.parse(map['InsightsConfiguration']) unless map['InsightsConfiguration'].nil?)
         return data
       end
     end
@@ -268,7 +268,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetInsightOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insight = (Parsers::Insight.parse(map['Insight']) unless map['Insight'].nil?)
+        data.insight = (Insight.parse(map['Insight']) unless map['Insight'].nil?)
         data
       end
     end
@@ -279,15 +279,15 @@ module AWS::SDK::XRay
         data.insight_id = map['InsightId']
         data.group_arn = map['GroupARN']
         data.group_name = map['GroupName']
-        data.root_cause_service_id = (Parsers::ServiceId.parse(map['RootCauseServiceId']) unless map['RootCauseServiceId'].nil?)
-        data.categories = (Parsers::InsightCategoryList.parse(map['Categories']) unless map['Categories'].nil?)
+        data.root_cause_service_id = (ServiceId.parse(map['RootCauseServiceId']) unless map['RootCauseServiceId'].nil?)
+        data.categories = (InsightCategoryList.parse(map['Categories']) unless map['Categories'].nil?)
         data.state = map['State']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.summary = map['Summary']
-        data.client_request_impact_statistics = (Parsers::RequestImpactStatistics.parse(map['ClientRequestImpactStatistics']) unless map['ClientRequestImpactStatistics'].nil?)
-        data.root_cause_service_request_impact_statistics = (Parsers::RequestImpactStatistics.parse(map['RootCauseServiceRequestImpactStatistics']) unless map['RootCauseServiceRequestImpactStatistics'].nil?)
-        data.top_anomalous_services = (Parsers::AnomalousServiceList.parse(map['TopAnomalousServices']) unless map['TopAnomalousServices'].nil?)
+        data.client_request_impact_statistics = (RequestImpactStatistics.parse(map['ClientRequestImpactStatistics']) unless map['ClientRequestImpactStatistics'].nil?)
+        data.root_cause_service_request_impact_statistics = (RequestImpactStatistics.parse(map['RootCauseServiceRequestImpactStatistics']) unless map['RootCauseServiceRequestImpactStatistics'].nil?)
+        data.top_anomalous_services = (AnomalousServiceList.parse(map['TopAnomalousServices']) unless map['TopAnomalousServices'].nil?)
         return data
       end
     end
@@ -296,7 +296,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnomalousService.parse(value) unless value.nil?
+          data << AnomalousService.parse(value) unless value.nil?
         end
         data
       end
@@ -305,7 +305,7 @@ module AWS::SDK::XRay
     class AnomalousService
       def self.parse(map)
         data = Types::AnomalousService.new
-        data.service_id = (Parsers::ServiceId.parse(map['ServiceId']) unless map['ServiceId'].nil?)
+        data.service_id = (ServiceId.parse(map['ServiceId']) unless map['ServiceId'].nil?)
         return data
       end
     end
@@ -314,7 +314,7 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::ServiceId.new
         data.name = map['Name']
-        data.names = (Parsers::ServiceNames.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (ServiceNames.parse(map['Names']) unless map['Names'].nil?)
         data.account_id = map['AccountId']
         data.type = map['Type']
         return data
@@ -356,7 +356,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetInsightEventsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insight_events = (Parsers::InsightEventList.parse(map['InsightEvents']) unless map['InsightEvents'].nil?)
+        data.insight_events = (InsightEventList.parse(map['InsightEvents']) unless map['InsightEvents'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -366,7 +366,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InsightEvent.parse(value) unless value.nil?
+          data << InsightEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -377,9 +377,9 @@ module AWS::SDK::XRay
         data = Types::InsightEvent.new
         data.summary = map['Summary']
         data.event_time = Time.at(map['EventTime'].to_i) if map['EventTime']
-        data.client_request_impact_statistics = (Parsers::RequestImpactStatistics.parse(map['ClientRequestImpactStatistics']) unless map['ClientRequestImpactStatistics'].nil?)
-        data.root_cause_service_request_impact_statistics = (Parsers::RequestImpactStatistics.parse(map['RootCauseServiceRequestImpactStatistics']) unless map['RootCauseServiceRequestImpactStatistics'].nil?)
-        data.top_anomalous_services = (Parsers::AnomalousServiceList.parse(map['TopAnomalousServices']) unless map['TopAnomalousServices'].nil?)
+        data.client_request_impact_statistics = (RequestImpactStatistics.parse(map['ClientRequestImpactStatistics']) unless map['ClientRequestImpactStatistics'].nil?)
+        data.root_cause_service_request_impact_statistics = (RequestImpactStatistics.parse(map['RootCauseServiceRequestImpactStatistics']) unless map['RootCauseServiceRequestImpactStatistics'].nil?)
+        data.top_anomalous_services = (AnomalousServiceList.parse(map['TopAnomalousServices']) unless map['TopAnomalousServices'].nil?)
         return data
       end
     end
@@ -394,7 +394,7 @@ module AWS::SDK::XRay
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.service_graph_start_time = Time.at(map['ServiceGraphStartTime'].to_i) if map['ServiceGraphStartTime']
         data.service_graph_end_time = Time.at(map['ServiceGraphEndTime'].to_i) if map['ServiceGraphEndTime']
-        data.services = (Parsers::InsightImpactGraphServiceList.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (InsightImpactGraphServiceList.parse(map['Services']) unless map['Services'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -404,7 +404,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InsightImpactGraphService.parse(value) unless value.nil?
+          data << InsightImpactGraphService.parse(value) unless value.nil?
         end
         data
       end
@@ -416,9 +416,9 @@ module AWS::SDK::XRay
         data.reference_id = map['ReferenceId']
         data.type = map['Type']
         data.name = map['Name']
-        data.names = (Parsers::ServiceNames.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (ServiceNames.parse(map['Names']) unless map['Names'].nil?)
         data.account_id = map['AccountId']
-        data.edges = (Parsers::InsightImpactGraphEdgeList.parse(map['Edges']) unless map['Edges'].nil?)
+        data.edges = (InsightImpactGraphEdgeList.parse(map['Edges']) unless map['Edges'].nil?)
         return data
       end
     end
@@ -427,7 +427,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InsightImpactGraphEdge.parse(value) unless value.nil?
+          data << InsightImpactGraphEdge.parse(value) unless value.nil?
         end
         data
       end
@@ -446,7 +446,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetInsightSummariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insight_summaries = (Parsers::InsightSummaryList.parse(map['InsightSummaries']) unless map['InsightSummaries'].nil?)
+        data.insight_summaries = (InsightSummaryList.parse(map['InsightSummaries']) unless map['InsightSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -456,7 +456,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InsightSummary.parse(value) unless value.nil?
+          data << InsightSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -468,15 +468,15 @@ module AWS::SDK::XRay
         data.insight_id = map['InsightId']
         data.group_arn = map['GroupARN']
         data.group_name = map['GroupName']
-        data.root_cause_service_id = (Parsers::ServiceId.parse(map['RootCauseServiceId']) unless map['RootCauseServiceId'].nil?)
-        data.categories = (Parsers::InsightCategoryList.parse(map['Categories']) unless map['Categories'].nil?)
+        data.root_cause_service_id = (ServiceId.parse(map['RootCauseServiceId']) unless map['RootCauseServiceId'].nil?)
+        data.categories = (InsightCategoryList.parse(map['Categories']) unless map['Categories'].nil?)
         data.state = map['State']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.summary = map['Summary']
-        data.client_request_impact_statistics = (Parsers::RequestImpactStatistics.parse(map['ClientRequestImpactStatistics']) unless map['ClientRequestImpactStatistics'].nil?)
-        data.root_cause_service_request_impact_statistics = (Parsers::RequestImpactStatistics.parse(map['RootCauseServiceRequestImpactStatistics']) unless map['RootCauseServiceRequestImpactStatistics'].nil?)
-        data.top_anomalous_services = (Parsers::AnomalousServiceList.parse(map['TopAnomalousServices']) unless map['TopAnomalousServices'].nil?)
+        data.client_request_impact_statistics = (RequestImpactStatistics.parse(map['ClientRequestImpactStatistics']) unless map['ClientRequestImpactStatistics'].nil?)
+        data.root_cause_service_request_impact_statistics = (RequestImpactStatistics.parse(map['RootCauseServiceRequestImpactStatistics']) unless map['RootCauseServiceRequestImpactStatistics'].nil?)
+        data.top_anomalous_services = (AnomalousServiceList.parse(map['TopAnomalousServices']) unless map['TopAnomalousServices'].nil?)
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
         return data
       end
@@ -487,7 +487,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetSamplingRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sampling_rule_records = (Parsers::SamplingRuleRecordList.parse(map['SamplingRuleRecords']) unless map['SamplingRuleRecords'].nil?)
+        data.sampling_rule_records = (SamplingRuleRecordList.parse(map['SamplingRuleRecords']) unless map['SamplingRuleRecords'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -497,7 +497,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SamplingRuleRecord.parse(value) unless value.nil?
+          data << SamplingRuleRecord.parse(value) unless value.nil?
         end
         data
       end
@@ -508,7 +508,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetSamplingStatisticSummariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sampling_statistic_summaries = (Parsers::SamplingStatisticSummaryList.parse(map['SamplingStatisticSummaries']) unless map['SamplingStatisticSummaries'].nil?)
+        data.sampling_statistic_summaries = (SamplingStatisticSummaryList.parse(map['SamplingStatisticSummaries']) unless map['SamplingStatisticSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -518,7 +518,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SamplingStatisticSummary.parse(value) unless value.nil?
+          data << SamplingStatisticSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -541,9 +541,9 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetSamplingTargetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sampling_target_documents = (Parsers::SamplingTargetDocumentList.parse(map['SamplingTargetDocuments']) unless map['SamplingTargetDocuments'].nil?)
+        data.sampling_target_documents = (SamplingTargetDocumentList.parse(map['SamplingTargetDocuments']) unless map['SamplingTargetDocuments'].nil?)
         data.last_rule_modification = Time.at(map['LastRuleModification'].to_i) if map['LastRuleModification']
-        data.unprocessed_statistics = (Parsers::UnprocessedStatisticsList.parse(map['UnprocessedStatistics']) unless map['UnprocessedStatistics'].nil?)
+        data.unprocessed_statistics = (UnprocessedStatisticsList.parse(map['UnprocessedStatistics']) unless map['UnprocessedStatistics'].nil?)
         data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UnprocessedStatistics.parse(value) unless value.nil?
+          data << UnprocessedStatistics.parse(value) unless value.nil?
         end
         data
       end
@@ -572,7 +572,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SamplingTargetDocument.parse(value) unless value.nil?
+          data << SamplingTargetDocument.parse(value) unless value.nil?
         end
         data
       end
@@ -597,7 +597,7 @@ module AWS::SDK::XRay
         map = Hearth::JSON.load(http_resp.body)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.services = (Parsers::ServiceList.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (ServiceList.parse(map['Services']) unless map['Services'].nil?)
         data.contains_old_group_versions = map['ContainsOldGroupVersions']
         data.next_token = map['NextToken']
         data
@@ -608,7 +608,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Service.parse(value) unless value.nil?
+          data << Service.parse(value) unless value.nil?
         end
         data
       end
@@ -619,17 +619,17 @@ module AWS::SDK::XRay
         data = Types::Service.new
         data.reference_id = map['ReferenceId']
         data.name = map['Name']
-        data.names = (Parsers::ServiceNames.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (ServiceNames.parse(map['Names']) unless map['Names'].nil?)
         data.root = map['Root']
         data.account_id = map['AccountId']
         data.type = map['Type']
         data.state = map['State']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.edges = (Parsers::EdgeList.parse(map['Edges']) unless map['Edges'].nil?)
-        data.summary_statistics = (Parsers::ServiceStatistics.parse(map['SummaryStatistics']) unless map['SummaryStatistics'].nil?)
-        data.duration_histogram = (Parsers::Histogram.parse(map['DurationHistogram']) unless map['DurationHistogram'].nil?)
-        data.response_time_histogram = (Parsers::Histogram.parse(map['ResponseTimeHistogram']) unless map['ResponseTimeHistogram'].nil?)
+        data.edges = (EdgeList.parse(map['Edges']) unless map['Edges'].nil?)
+        data.summary_statistics = (ServiceStatistics.parse(map['SummaryStatistics']) unless map['SummaryStatistics'].nil?)
+        data.duration_histogram = (Histogram.parse(map['DurationHistogram']) unless map['DurationHistogram'].nil?)
+        data.response_time_histogram = (Histogram.parse(map['ResponseTimeHistogram']) unless map['ResponseTimeHistogram'].nil?)
         return data
       end
     end
@@ -638,7 +638,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HistogramEntry.parse(value) unless value.nil?
+          data << HistogramEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -657,8 +657,8 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::ServiceStatistics.new
         data.ok_count = map['OkCount']
-        data.error_statistics = (Parsers::ErrorStatistics.parse(map['ErrorStatistics']) unless map['ErrorStatistics'].nil?)
-        data.fault_statistics = (Parsers::FaultStatistics.parse(map['FaultStatistics']) unless map['FaultStatistics'].nil?)
+        data.error_statistics = (ErrorStatistics.parse(map['ErrorStatistics']) unless map['ErrorStatistics'].nil?)
+        data.fault_statistics = (FaultStatistics.parse(map['FaultStatistics']) unless map['FaultStatistics'].nil?)
         data.total_count = map['TotalCount']
         data.total_response_time = Hearth::NumberHelper.deserialize(map['TotalResponseTime'])
         return data
@@ -688,7 +688,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Edge.parse(value) unless value.nil?
+          data << Edge.parse(value) unless value.nil?
         end
         data
       end
@@ -700,9 +700,9 @@ module AWS::SDK::XRay
         data.reference_id = map['ReferenceId']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.summary_statistics = (Parsers::EdgeStatistics.parse(map['SummaryStatistics']) unless map['SummaryStatistics'].nil?)
-        data.response_time_histogram = (Parsers::Histogram.parse(map['ResponseTimeHistogram']) unless map['ResponseTimeHistogram'].nil?)
-        data.aliases = (Parsers::AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.summary_statistics = (EdgeStatistics.parse(map['SummaryStatistics']) unless map['SummaryStatistics'].nil?)
+        data.response_time_histogram = (Histogram.parse(map['ResponseTimeHistogram']) unless map['ResponseTimeHistogram'].nil?)
+        data.aliases = (AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
         return data
       end
     end
@@ -711,7 +711,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Alias.parse(value) unless value.nil?
+          data << Alias.parse(value) unless value.nil?
         end
         data
       end
@@ -721,7 +721,7 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::Alias.new
         data.name = map['Name']
-        data.names = (Parsers::AliasNames.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (AliasNames.parse(map['Names']) unless map['Names'].nil?)
         data.type = map['Type']
         return data
       end
@@ -741,8 +741,8 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::EdgeStatistics.new
         data.ok_count = map['OkCount']
-        data.error_statistics = (Parsers::ErrorStatistics.parse(map['ErrorStatistics']) unless map['ErrorStatistics'].nil?)
-        data.fault_statistics = (Parsers::FaultStatistics.parse(map['FaultStatistics']) unless map['FaultStatistics'].nil?)
+        data.error_statistics = (ErrorStatistics.parse(map['ErrorStatistics']) unless map['ErrorStatistics'].nil?)
+        data.fault_statistics = (FaultStatistics.parse(map['FaultStatistics']) unless map['FaultStatistics'].nil?)
         data.total_count = map['TotalCount']
         data.total_response_time = Hearth::NumberHelper.deserialize(map['TotalResponseTime'])
         return data
@@ -754,7 +754,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetTimeSeriesServiceStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.time_series_service_statistics = (Parsers::TimeSeriesServiceStatisticsList.parse(map['TimeSeriesServiceStatistics']) unless map['TimeSeriesServiceStatistics'].nil?)
+        data.time_series_service_statistics = (TimeSeriesServiceStatisticsList.parse(map['TimeSeriesServiceStatistics']) unless map['TimeSeriesServiceStatistics'].nil?)
         data.contains_old_group_versions = map['ContainsOldGroupVersions']
         data.next_token = map['NextToken']
         data
@@ -765,7 +765,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimeSeriesServiceStatistics.parse(value) unless value.nil?
+          data << TimeSeriesServiceStatistics.parse(value) unless value.nil?
         end
         data
       end
@@ -775,10 +775,10 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::TimeSeriesServiceStatistics.new
         data.timestamp = Time.at(map['Timestamp'].to_i) if map['Timestamp']
-        data.edge_summary_statistics = (Parsers::EdgeStatistics.parse(map['EdgeSummaryStatistics']) unless map['EdgeSummaryStatistics'].nil?)
-        data.service_summary_statistics = (Parsers::ServiceStatistics.parse(map['ServiceSummaryStatistics']) unless map['ServiceSummaryStatistics'].nil?)
-        data.service_forecast_statistics = (Parsers::ForecastStatistics.parse(map['ServiceForecastStatistics']) unless map['ServiceForecastStatistics'].nil?)
-        data.response_time_histogram = (Parsers::Histogram.parse(map['ResponseTimeHistogram']) unless map['ResponseTimeHistogram'].nil?)
+        data.edge_summary_statistics = (EdgeStatistics.parse(map['EdgeSummaryStatistics']) unless map['EdgeSummaryStatistics'].nil?)
+        data.service_summary_statistics = (ServiceStatistics.parse(map['ServiceSummaryStatistics']) unless map['ServiceSummaryStatistics'].nil?)
+        data.service_forecast_statistics = (ForecastStatistics.parse(map['ServiceForecastStatistics']) unless map['ServiceForecastStatistics'].nil?)
+        data.response_time_histogram = (Histogram.parse(map['ResponseTimeHistogram']) unless map['ResponseTimeHistogram'].nil?)
         return data
       end
     end
@@ -797,7 +797,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetTraceGraphOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.services = (Parsers::ServiceList.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (ServiceList.parse(map['Services']) unless map['Services'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -808,7 +808,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::GetTraceSummariesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.trace_summaries = (Parsers::TraceSummaryList.parse(map['TraceSummaries']) unless map['TraceSummaries'].nil?)
+        data.trace_summaries = (TraceSummaryList.parse(map['TraceSummaries']) unless map['TraceSummaries'].nil?)
         data.approximate_time = Time.at(map['ApproximateTime'].to_i) if map['ApproximateTime']
         data.traces_processed_count = map['TracesProcessedCount']
         data.next_token = map['NextToken']
@@ -820,7 +820,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TraceSummary.parse(value) unless value.nil?
+          data << TraceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -836,17 +836,17 @@ module AWS::SDK::XRay
         data.has_error = map['HasError']
         data.has_throttle = map['HasThrottle']
         data.is_partial = map['IsPartial']
-        data.http = (Parsers::Http.parse(map['Http']) unless map['Http'].nil?)
-        data.annotations = (Parsers::Annotations.parse(map['Annotations']) unless map['Annotations'].nil?)
-        data.users = (Parsers::TraceUsers.parse(map['Users']) unless map['Users'].nil?)
-        data.service_ids = (Parsers::ServiceIds.parse(map['ServiceIds']) unless map['ServiceIds'].nil?)
-        data.resource_ar_ns = (Parsers::TraceResourceARNs.parse(map['ResourceARNs']) unless map['ResourceARNs'].nil?)
-        data.instance_ids = (Parsers::TraceInstanceIds.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
-        data.availability_zones = (Parsers::TraceAvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.entry_point = (Parsers::ServiceId.parse(map['EntryPoint']) unless map['EntryPoint'].nil?)
-        data.fault_root_causes = (Parsers::FaultRootCauses.parse(map['FaultRootCauses']) unless map['FaultRootCauses'].nil?)
-        data.error_root_causes = (Parsers::ErrorRootCauses.parse(map['ErrorRootCauses']) unless map['ErrorRootCauses'].nil?)
-        data.response_time_root_causes = (Parsers::ResponseTimeRootCauses.parse(map['ResponseTimeRootCauses']) unless map['ResponseTimeRootCauses'].nil?)
+        data.http = (Http.parse(map['Http']) unless map['Http'].nil?)
+        data.annotations = (Annotations.parse(map['Annotations']) unless map['Annotations'].nil?)
+        data.users = (TraceUsers.parse(map['Users']) unless map['Users'].nil?)
+        data.service_ids = (ServiceIds.parse(map['ServiceIds']) unless map['ServiceIds'].nil?)
+        data.resource_ar_ns = (TraceResourceARNs.parse(map['ResourceARNs']) unless map['ResourceARNs'].nil?)
+        data.instance_ids = (TraceInstanceIds.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
+        data.availability_zones = (TraceAvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.entry_point = (ServiceId.parse(map['EntryPoint']) unless map['EntryPoint'].nil?)
+        data.fault_root_causes = (FaultRootCauses.parse(map['FaultRootCauses']) unless map['FaultRootCauses'].nil?)
+        data.error_root_causes = (ErrorRootCauses.parse(map['ErrorRootCauses']) unless map['ErrorRootCauses'].nil?)
+        data.response_time_root_causes = (ResponseTimeRootCauses.parse(map['ResponseTimeRootCauses']) unless map['ResponseTimeRootCauses'].nil?)
         data.revision = map['Revision']
         data.matched_event_time = Time.at(map['MatchedEventTime'].to_i) if map['MatchedEventTime']
         return data
@@ -857,7 +857,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResponseTimeRootCause.parse(value) unless value.nil?
+          data << ResponseTimeRootCause.parse(value) unless value.nil?
         end
         data
       end
@@ -866,7 +866,7 @@ module AWS::SDK::XRay
     class ResponseTimeRootCause
       def self.parse(map)
         data = Types::ResponseTimeRootCause.new
-        data.services = (Parsers::ResponseTimeRootCauseServices.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (ResponseTimeRootCauseServices.parse(map['Services']) unless map['Services'].nil?)
         data.client_impacting = map['ClientImpacting']
         return data
       end
@@ -876,7 +876,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResponseTimeRootCauseService.parse(value) unless value.nil?
+          data << ResponseTimeRootCauseService.parse(value) unless value.nil?
         end
         data
       end
@@ -886,10 +886,10 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::ResponseTimeRootCauseService.new
         data.name = map['Name']
-        data.names = (Parsers::ServiceNames.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (ServiceNames.parse(map['Names']) unless map['Names'].nil?)
         data.type = map['Type']
         data.account_id = map['AccountId']
-        data.entity_path = (Parsers::ResponseTimeRootCauseEntityPath.parse(map['EntityPath']) unless map['EntityPath'].nil?)
+        data.entity_path = (ResponseTimeRootCauseEntityPath.parse(map['EntityPath']) unless map['EntityPath'].nil?)
         data.inferred = map['Inferred']
         return data
       end
@@ -899,7 +899,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResponseTimeRootCauseEntity.parse(value) unless value.nil?
+          data << ResponseTimeRootCauseEntity.parse(value) unless value.nil?
         end
         data
       end
@@ -919,7 +919,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ErrorRootCause.parse(value) unless value.nil?
+          data << ErrorRootCause.parse(value) unless value.nil?
         end
         data
       end
@@ -928,7 +928,7 @@ module AWS::SDK::XRay
     class ErrorRootCause
       def self.parse(map)
         data = Types::ErrorRootCause.new
-        data.services = (Parsers::ErrorRootCauseServices.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (ErrorRootCauseServices.parse(map['Services']) unless map['Services'].nil?)
         data.client_impacting = map['ClientImpacting']
         return data
       end
@@ -938,7 +938,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ErrorRootCauseService.parse(value) unless value.nil?
+          data << ErrorRootCauseService.parse(value) unless value.nil?
         end
         data
       end
@@ -948,10 +948,10 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::ErrorRootCauseService.new
         data.name = map['Name']
-        data.names = (Parsers::ServiceNames.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (ServiceNames.parse(map['Names']) unless map['Names'].nil?)
         data.type = map['Type']
         data.account_id = map['AccountId']
-        data.entity_path = (Parsers::ErrorRootCauseEntityPath.parse(map['EntityPath']) unless map['EntityPath'].nil?)
+        data.entity_path = (ErrorRootCauseEntityPath.parse(map['EntityPath']) unless map['EntityPath'].nil?)
         data.inferred = map['Inferred']
         return data
       end
@@ -961,7 +961,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ErrorRootCauseEntity.parse(value) unless value.nil?
+          data << ErrorRootCauseEntity.parse(value) unless value.nil?
         end
         data
       end
@@ -971,7 +971,7 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::ErrorRootCauseEntity.new
         data.name = map['Name']
-        data.exceptions = (Parsers::RootCauseExceptions.parse(map['Exceptions']) unless map['Exceptions'].nil?)
+        data.exceptions = (RootCauseExceptions.parse(map['Exceptions']) unless map['Exceptions'].nil?)
         data.remote = map['Remote']
         return data
       end
@@ -981,7 +981,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RootCauseException.parse(value) unless value.nil?
+          data << RootCauseException.parse(value) unless value.nil?
         end
         data
       end
@@ -1000,7 +1000,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FaultRootCause.parse(value) unless value.nil?
+          data << FaultRootCause.parse(value) unless value.nil?
         end
         data
       end
@@ -1009,7 +1009,7 @@ module AWS::SDK::XRay
     class FaultRootCause
       def self.parse(map)
         data = Types::FaultRootCause.new
-        data.services = (Parsers::FaultRootCauseServices.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (FaultRootCauseServices.parse(map['Services']) unless map['Services'].nil?)
         data.client_impacting = map['ClientImpacting']
         return data
       end
@@ -1019,7 +1019,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FaultRootCauseService.parse(value) unless value.nil?
+          data << FaultRootCauseService.parse(value) unless value.nil?
         end
         data
       end
@@ -1029,10 +1029,10 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::FaultRootCauseService.new
         data.name = map['Name']
-        data.names = (Parsers::ServiceNames.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (ServiceNames.parse(map['Names']) unless map['Names'].nil?)
         data.type = map['Type']
         data.account_id = map['AccountId']
-        data.entity_path = (Parsers::FaultRootCauseEntityPath.parse(map['EntityPath']) unless map['EntityPath'].nil?)
+        data.entity_path = (FaultRootCauseEntityPath.parse(map['EntityPath']) unless map['EntityPath'].nil?)
         data.inferred = map['Inferred']
         return data
       end
@@ -1042,7 +1042,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FaultRootCauseEntity.parse(value) unless value.nil?
+          data << FaultRootCauseEntity.parse(value) unless value.nil?
         end
         data
       end
@@ -1052,7 +1052,7 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::FaultRootCauseEntity.new
         data.name = map['Name']
-        data.exceptions = (Parsers::RootCauseExceptions.parse(map['Exceptions']) unless map['Exceptions'].nil?)
+        data.exceptions = (RootCauseExceptions.parse(map['Exceptions']) unless map['Exceptions'].nil?)
         data.remote = map['Remote']
         return data
       end
@@ -1062,7 +1062,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AvailabilityZoneDetail.parse(value) unless value.nil?
+          data << AvailabilityZoneDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -1080,7 +1080,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstanceIdDetail.parse(value) unless value.nil?
+          data << InstanceIdDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -1098,7 +1098,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceARNDetail.parse(value) unless value.nil?
+          data << ResourceARNDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -1116,7 +1116,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServiceId.parse(value) unless value.nil?
+          data << ServiceId.parse(value) unless value.nil?
         end
         data
       end
@@ -1126,7 +1126,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TraceUser.parse(value) unless value.nil?
+          data << TraceUser.parse(value) unless value.nil?
         end
         data
       end
@@ -1136,7 +1136,7 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = Types::TraceUser.new
         data.user_name = map['UserName']
-        data.service_ids = (Parsers::ServiceIds.parse(map['ServiceIds']) unless map['ServiceIds'].nil?)
+        data.service_ids = (ServiceIds.parse(map['ServiceIds']) unless map['ServiceIds'].nil?)
         return data
       end
     end
@@ -1145,7 +1145,7 @@ module AWS::SDK::XRay
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ValuesWithServiceIds.parse(value) unless value.nil?
+          data[key] = ValuesWithServiceIds.parse(value) unless value.nil?
         end
         data
       end
@@ -1155,7 +1155,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValueWithServiceIds.parse(value) unless value.nil?
+          data << ValueWithServiceIds.parse(value) unless value.nil?
         end
         data
       end
@@ -1164,8 +1164,8 @@ module AWS::SDK::XRay
     class ValueWithServiceIds
       def self.parse(map)
         data = Types::ValueWithServiceIds.new
-        data.annotation_value = (Parsers::AnnotationValue.parse(map['AnnotationValue']) unless map['AnnotationValue'].nil?)
-        data.service_ids = (Parsers::ServiceIds.parse(map['ServiceIds']) unless map['ServiceIds'].nil?)
+        data.annotation_value = (AnnotationValue.parse(map['AnnotationValue']) unless map['AnnotationValue'].nil?)
+        data.service_ids = (ServiceIds.parse(map['ServiceIds']) unless map['ServiceIds'].nil?)
         return data
       end
     end
@@ -1206,7 +1206,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1216,7 +1216,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -1247,7 +1247,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::PutEncryptionConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.encryption_config = (Parsers::EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
+        data.encryption_config = (EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
         data
       end
     end
@@ -1266,7 +1266,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::PutTraceSegmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_trace_segments = (Parsers::UnprocessedTraceSegmentList.parse(map['UnprocessedTraceSegments']) unless map['UnprocessedTraceSegments'].nil?)
+        data.unprocessed_trace_segments = (UnprocessedTraceSegmentList.parse(map['UnprocessedTraceSegments']) unless map['UnprocessedTraceSegments'].nil?)
         data
       end
     end
@@ -1275,7 +1275,7 @@ module AWS::SDK::XRay
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UnprocessedTraceSegment.parse(value) unless value.nil?
+          data << UnprocessedTraceSegment.parse(value) unless value.nil?
         end
         data
       end
@@ -1325,7 +1325,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::UpdateGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -1335,7 +1335,7 @@ module AWS::SDK::XRay
       def self.parse(http_resp)
         data = Types::UpdateSamplingRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sampling_rule_record = (Parsers::SamplingRuleRecord.parse(map['SamplingRuleRecord']) unless map['SamplingRuleRecord'].nil?)
+        data.sampling_rule_record = (SamplingRuleRecord.parse(map['SamplingRuleRecord']) unless map['SamplingRuleRecord'].nil?)
         data
       end
     end

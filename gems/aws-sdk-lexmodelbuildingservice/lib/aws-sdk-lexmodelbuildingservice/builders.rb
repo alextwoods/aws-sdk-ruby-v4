@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::LexModelBuildingService
   module Builders
 
@@ -28,7 +31,7 @@ module AWS::SDK::LexModelBuildingService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['checksum'] = input[:checksum] unless input[:checksum].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +53,7 @@ module AWS::SDK::LexModelBuildingService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['checksum'] = input[:checksum] unless input[:checksum].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,7 +75,7 @@ module AWS::SDK::LexModelBuildingService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['checksum'] = input[:checksum] unless input[:checksum].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,11 +690,11 @@ module AWS::SDK::LexModelBuildingService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['intents'] = Builders::IntentList.build(input[:intents]) unless input[:intents].nil?
+        data['intents'] = IntentList.build(input[:intents]) unless input[:intents].nil?
         data['enableModelImprovements'] = input[:enable_model_improvements] unless input[:enable_model_improvements].nil?
         data['nluIntentConfidenceThreshold'] = Hearth::NumberHelper.serialize(input[:nlu_intent_confidence_threshold]) unless input[:nlu_intent_confidence_threshold].nil?
-        data['clarificationPrompt'] = Builders::Prompt.build(input[:clarification_prompt]) unless input[:clarification_prompt].nil?
-        data['abortStatement'] = Builders::Statement.build(input[:abort_statement]) unless input[:abort_statement].nil?
+        data['clarificationPrompt'] = Prompt.build(input[:clarification_prompt]) unless input[:clarification_prompt].nil?
+        data['abortStatement'] = Statement.build(input[:abort_statement]) unless input[:abort_statement].nil?
         data['idleSessionTTLInSeconds'] = input[:idle_session_ttl_in_seconds] unless input[:idle_session_ttl_in_seconds].nil?
         data['voiceId'] = input[:voice_id] unless input[:voice_id].nil?
         data['checksum'] = input[:checksum] unless input[:checksum].nil?
@@ -700,8 +703,8 @@ module AWS::SDK::LexModelBuildingService
         data['childDirected'] = input[:child_directed] unless input[:child_directed].nil?
         data['detectSentiment'] = input[:detect_sentiment] unless input[:detect_sentiment].nil?
         data['createVersion'] = input[:create_version] unless input[:create_version].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -710,7 +713,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -730,7 +733,7 @@ module AWS::SDK::LexModelBuildingService
     class Statement
       def self.build(input)
         data = {}
-        data['messages'] = Builders::MessageList.build(input[:messages]) unless input[:messages].nil?
+        data['messages'] = MessageList.build(input[:messages]) unless input[:messages].nil?
         data['responseCard'] = input[:response_card] unless input[:response_card].nil?
         data
       end
@@ -741,7 +744,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Message.build(element) unless element.nil?
+          data << Message.build(element) unless element.nil?
         end
         data
       end
@@ -762,7 +765,7 @@ module AWS::SDK::LexModelBuildingService
     class Prompt
       def self.build(input)
         data = {}
-        data['messages'] = Builders::MessageList.build(input[:messages]) unless input[:messages].nil?
+        data['messages'] = MessageList.build(input[:messages]) unless input[:messages].nil?
         data['maxAttempts'] = input[:max_attempts] unless input[:max_attempts].nil?
         data['responseCard'] = input[:response_card] unless input[:response_card].nil?
         data
@@ -774,7 +777,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Intent.build(element) unless element.nil?
+          data << Intent.build(element) unless element.nil?
         end
         data
       end
@@ -814,9 +817,9 @@ module AWS::SDK::LexModelBuildingService
         data['description'] = input[:description] unless input[:description].nil?
         data['botVersion'] = input[:bot_version] unless input[:bot_version].nil?
         data['checksum'] = input[:checksum] unless input[:checksum].nil?
-        data['conversationLogs'] = Builders::ConversationLogsRequest.build(input[:conversation_logs]) unless input[:conversation_logs].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conversationLogs'] = ConversationLogsRequest.build(input[:conversation_logs]) unless input[:conversation_logs].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,7 +827,7 @@ module AWS::SDK::LexModelBuildingService
     class ConversationLogsRequest
       def self.build(input)
         data = {}
-        data['logSettings'] = Builders::LogSettingsRequestList.build(input[:log_settings]) unless input[:log_settings].nil?
+        data['logSettings'] = LogSettingsRequestList.build(input[:log_settings]) unless input[:log_settings].nil?
         data['iamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
         data
       end
@@ -835,7 +838,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LogSettingsRequest.build(element) unless element.nil?
+          data << LogSettingsRequest.build(element) unless element.nil?
         end
         data
       end
@@ -871,21 +874,21 @@ module AWS::SDK::LexModelBuildingService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['slots'] = Builders::SlotList.build(input[:slots]) unless input[:slots].nil?
-        data['sampleUtterances'] = Builders::IntentUtteranceList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
-        data['confirmationPrompt'] = Builders::Prompt.build(input[:confirmation_prompt]) unless input[:confirmation_prompt].nil?
-        data['rejectionStatement'] = Builders::Statement.build(input[:rejection_statement]) unless input[:rejection_statement].nil?
-        data['followUpPrompt'] = Builders::FollowUpPrompt.build(input[:follow_up_prompt]) unless input[:follow_up_prompt].nil?
-        data['conclusionStatement'] = Builders::Statement.build(input[:conclusion_statement]) unless input[:conclusion_statement].nil?
-        data['dialogCodeHook'] = Builders::CodeHook.build(input[:dialog_code_hook]) unless input[:dialog_code_hook].nil?
-        data['fulfillmentActivity'] = Builders::FulfillmentActivity.build(input[:fulfillment_activity]) unless input[:fulfillment_activity].nil?
+        data['slots'] = SlotList.build(input[:slots]) unless input[:slots].nil?
+        data['sampleUtterances'] = IntentUtteranceList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
+        data['confirmationPrompt'] = Prompt.build(input[:confirmation_prompt]) unless input[:confirmation_prompt].nil?
+        data['rejectionStatement'] = Statement.build(input[:rejection_statement]) unless input[:rejection_statement].nil?
+        data['followUpPrompt'] = FollowUpPrompt.build(input[:follow_up_prompt]) unless input[:follow_up_prompt].nil?
+        data['conclusionStatement'] = Statement.build(input[:conclusion_statement]) unless input[:conclusion_statement].nil?
+        data['dialogCodeHook'] = CodeHook.build(input[:dialog_code_hook]) unless input[:dialog_code_hook].nil?
+        data['fulfillmentActivity'] = FulfillmentActivity.build(input[:fulfillment_activity]) unless input[:fulfillment_activity].nil?
         data['parentIntentSignature'] = input[:parent_intent_signature] unless input[:parent_intent_signature].nil?
         data['checksum'] = input[:checksum] unless input[:checksum].nil?
         data['createVersion'] = input[:create_version] unless input[:create_version].nil?
-        data['kendraConfiguration'] = Builders::KendraConfiguration.build(input[:kendra_configuration]) unless input[:kendra_configuration].nil?
-        data['inputContexts'] = Builders::InputContextList.build(input[:input_contexts]) unless input[:input_contexts].nil?
-        data['outputContexts'] = Builders::OutputContextList.build(input[:output_contexts]) unless input[:output_contexts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['kendraConfiguration'] = KendraConfiguration.build(input[:kendra_configuration]) unless input[:kendra_configuration].nil?
+        data['inputContexts'] = InputContextList.build(input[:input_contexts]) unless input[:input_contexts].nil?
+        data['outputContexts'] = OutputContextList.build(input[:output_contexts]) unless input[:output_contexts].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -894,7 +897,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputContext.build(element) unless element.nil?
+          data << OutputContext.build(element) unless element.nil?
         end
         data
       end
@@ -916,7 +919,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputContext.build(element) unless element.nil?
+          data << InputContext.build(element) unless element.nil?
         end
         data
       end
@@ -947,7 +950,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
-        data['codeHook'] = Builders::CodeHook.build(input[:code_hook]) unless input[:code_hook].nil?
+        data['codeHook'] = CodeHook.build(input[:code_hook]) unless input[:code_hook].nil?
         data
       end
     end
@@ -966,8 +969,8 @@ module AWS::SDK::LexModelBuildingService
     class FollowUpPrompt
       def self.build(input)
         data = {}
-        data['prompt'] = Builders::Prompt.build(input[:prompt]) unless input[:prompt].nil?
-        data['rejectionStatement'] = Builders::Statement.build(input[:rejection_statement]) unless input[:rejection_statement].nil?
+        data['prompt'] = Prompt.build(input[:prompt]) unless input[:prompt].nil?
+        data['rejectionStatement'] = Statement.build(input[:rejection_statement]) unless input[:rejection_statement].nil?
         data
       end
     end
@@ -988,7 +991,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Slot.build(element) unless element.nil?
+          data << Slot.build(element) unless element.nil?
         end
         data
       end
@@ -1003,12 +1006,12 @@ module AWS::SDK::LexModelBuildingService
         data['slotConstraint'] = input[:slot_constraint] unless input[:slot_constraint].nil?
         data['slotType'] = input[:slot_type] unless input[:slot_type].nil?
         data['slotTypeVersion'] = input[:slot_type_version] unless input[:slot_type_version].nil?
-        data['valueElicitationPrompt'] = Builders::Prompt.build(input[:value_elicitation_prompt]) unless input[:value_elicitation_prompt].nil?
+        data['valueElicitationPrompt'] = Prompt.build(input[:value_elicitation_prompt]) unless input[:value_elicitation_prompt].nil?
         data['priority'] = input[:priority] unless input[:priority].nil?
-        data['sampleUtterances'] = Builders::SlotUtteranceList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
+        data['sampleUtterances'] = SlotUtteranceList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
         data['responseCard'] = input[:response_card] unless input[:response_card].nil?
         data['obfuscationSetting'] = input[:obfuscation_setting] unless input[:obfuscation_setting].nil?
-        data['defaultValueSpec'] = Builders::SlotDefaultValueSpec.build(input[:default_value_spec]) unless input[:default_value_spec].nil?
+        data['defaultValueSpec'] = SlotDefaultValueSpec.build(input[:default_value_spec]) unless input[:default_value_spec].nil?
         data
       end
     end
@@ -1017,7 +1020,7 @@ module AWS::SDK::LexModelBuildingService
     class SlotDefaultValueSpec
       def self.build(input)
         data = {}
-        data['defaultValueList'] = Builders::SlotDefaultValueList.build(input[:default_value_list]) unless input[:default_value_list].nil?
+        data['defaultValueList'] = SlotDefaultValueList.build(input[:default_value_list]) unless input[:default_value_list].nil?
         data
       end
     end
@@ -1027,7 +1030,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SlotDefaultValue.build(element) unless element.nil?
+          data << SlotDefaultValue.build(element) unless element.nil?
         end
         data
       end
@@ -1071,13 +1074,13 @@ module AWS::SDK::LexModelBuildingService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['enumerationValues'] = Builders::EnumerationValues.build(input[:enumeration_values]) unless input[:enumeration_values].nil?
+        data['enumerationValues'] = EnumerationValues.build(input[:enumeration_values]) unless input[:enumeration_values].nil?
         data['checksum'] = input[:checksum] unless input[:checksum].nil?
         data['valueSelectionStrategy'] = input[:value_selection_strategy] unless input[:value_selection_strategy].nil?
         data['createVersion'] = input[:create_version] unless input[:create_version].nil?
         data['parentSlotTypeSignature'] = input[:parent_slot_type_signature] unless input[:parent_slot_type_signature].nil?
-        data['slotTypeConfigurations'] = Builders::SlotTypeConfigurations.build(input[:slot_type_configurations]) unless input[:slot_type_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['slotTypeConfigurations'] = SlotTypeConfigurations.build(input[:slot_type_configurations]) unless input[:slot_type_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1086,7 +1089,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SlotTypeConfiguration.build(element) unless element.nil?
+          data << SlotTypeConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -1096,7 +1099,7 @@ module AWS::SDK::LexModelBuildingService
     class SlotTypeConfiguration
       def self.build(input)
         data = {}
-        data['regexConfiguration'] = Builders::SlotTypeRegexConfiguration.build(input[:regex_configuration]) unless input[:regex_configuration].nil?
+        data['regexConfiguration'] = SlotTypeRegexConfiguration.build(input[:regex_configuration]) unless input[:regex_configuration].nil?
         data
       end
     end
@@ -1115,7 +1118,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EnumerationValue.build(element) unless element.nil?
+          data << EnumerationValue.build(element) unless element.nil?
         end
         data
       end
@@ -1126,7 +1129,7 @@ module AWS::SDK::LexModelBuildingService
       def self.build(input)
         data = {}
         data['value'] = input[:value] unless input[:value].nil?
-        data['synonyms'] = Builders::SynonymList.build(input[:synonyms]) unless input[:synonyms].nil?
+        data['synonyms'] = SynonymList.build(input[:synonyms]) unless input[:synonyms].nil?
         data
       end
     end
@@ -1152,11 +1155,11 @@ module AWS::SDK::LexModelBuildingService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['payload'] = Base64::encode64(input[:payload]).strip unless input[:payload].nil?
+        data['payload'] = ::Base64::encode64(input[:payload]).strip unless input[:payload].nil?
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['mergeStrategy'] = input[:merge_strategy] unless input[:merge_strategy].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1175,7 +1178,7 @@ module AWS::SDK::LexModelBuildingService
         data['v2BotName'] = input[:v2_bot_name] unless input[:v2_bot_name].nil?
         data['v2BotRole'] = input[:v2_bot_role] unless input[:v2_bot_role].nil?
         data['migrationStrategy'] = input[:migration_strategy] unless input[:migration_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1196,8 +1199,8 @@ module AWS::SDK::LexModelBuildingService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

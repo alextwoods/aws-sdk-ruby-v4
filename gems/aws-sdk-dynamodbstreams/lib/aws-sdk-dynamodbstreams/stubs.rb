@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::DynamoDBStreams
   module Stubs
 
@@ -20,8 +23,8 @@ module AWS::SDK::DynamoDBStreams
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StreamDescription'] = Stubs::StreamDescription.stub(stub[:stream_description]) unless stub[:stream_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StreamDescription'] = StreamDescription.stub(stub[:stream_description]) unless stub[:stream_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,8 +56,8 @@ module AWS::SDK::DynamoDBStreams
         data['StreamViewType'] = stub[:stream_view_type] unless stub[:stream_view_type].nil?
         data['CreationRequestDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_request_date_time]).to_i unless stub[:creation_request_date_time].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Shards'] = Stubs::ShardDescriptionList.stub(stub[:shards]) unless stub[:shards].nil?
+        data['KeySchema'] = KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['Shards'] = ShardDescriptionList.stub(stub[:shards]) unless stub[:shards].nil?
         data['LastEvaluatedShardId'] = stub[:last_evaluated_shard_id] unless stub[:last_evaluated_shard_id].nil?
         data
       end
@@ -74,7 +77,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Shard.stub(element) unless element.nil?
+          data << Shard.stub(element) unless element.nil?
         end
         data
       end
@@ -96,7 +99,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= Types::Shard.new
         data = {}
         data['ShardId'] = stub[:shard_id] unless stub[:shard_id].nil?
-        data['SequenceNumberRange'] = Stubs::SequenceNumberRange.stub(stub[:sequence_number_range]) unless stub[:sequence_number_range].nil?
+        data['SequenceNumberRange'] = SequenceNumberRange.stub(stub[:sequence_number_range]) unless stub[:sequence_number_range].nil?
         data['ParentShardId'] = stub[:parent_shard_id] unless stub[:parent_shard_id].nil?
         data
       end
@@ -136,7 +139,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeySchemaElement.stub(element) unless element.nil?
+          data << KeySchemaElement.stub(element) unless element.nil?
         end
         data
       end
@@ -173,9 +176,9 @@ module AWS::SDK::DynamoDBStreams
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Records'] = Stubs::RecordList.stub(stub[:records]) unless stub[:records].nil?
+        data['Records'] = RecordList.stub(stub[:records]) unless stub[:records].nil?
         data['NextShardIterator'] = stub[:next_shard_iterator] unless stub[:next_shard_iterator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -194,7 +197,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Record.stub(element) unless element.nil?
+          data << Record.stub(element) unless element.nil?
         end
         data
       end
@@ -224,8 +227,8 @@ module AWS::SDK::DynamoDBStreams
         data['eventVersion'] = stub[:event_version] unless stub[:event_version].nil?
         data['eventSource'] = stub[:event_source] unless stub[:event_source].nil?
         data['awsRegion'] = stub[:aws_region] unless stub[:aws_region].nil?
-        data['dynamodb'] = Stubs::StreamRecord.stub(stub[:dynamodb]) unless stub[:dynamodb].nil?
-        data['userIdentity'] = Stubs::Identity.stub(stub[:user_identity]) unless stub[:user_identity].nil?
+        data['dynamodb'] = StreamRecord.stub(stub[:dynamodb]) unless stub[:dynamodb].nil?
+        data['userIdentity'] = Identity.stub(stub[:user_identity]) unless stub[:user_identity].nil?
         data
       end
     end
@@ -270,9 +273,9 @@ module AWS::SDK::DynamoDBStreams
         stub ||= Types::StreamRecord.new
         data = {}
         data['ApproximateCreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:approximate_creation_date_time]).to_i unless stub[:approximate_creation_date_time].nil?
-        data['Keys'] = Stubs::AttributeMap.stub(stub[:keys]) unless stub[:keys].nil?
-        data['NewImage'] = Stubs::AttributeMap.stub(stub[:new_image]) unless stub[:new_image].nil?
-        data['OldImage'] = Stubs::AttributeMap.stub(stub[:old_image]) unless stub[:old_image].nil?
+        data['Keys'] = AttributeMap.stub(stub[:keys]) unless stub[:keys].nil?
+        data['NewImage'] = AttributeMap.stub(stub[:new_image]) unless stub[:new_image].nil?
+        data['OldImage'] = AttributeMap.stub(stub[:old_image]) unless stub[:old_image].nil?
         data['SequenceNumber'] = stub[:sequence_number] unless stub[:sequence_number].nil?
         data['SizeBytes'] = stub[:size_bytes] unless stub[:size_bytes].nil?
         data['StreamViewType'] = stub[:stream_view_type] unless stub[:stream_view_type].nil?
@@ -294,7 +297,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -318,17 +321,17 @@ module AWS::SDK::DynamoDBStreams
         when Types::AttributeValue::N
           data['N'] = stub.__getobj__
         when Types::AttributeValue::B
-          data['B'] = Base64::encode64(stub.__getobj__)
+          data['B'] = ::Base64::encode64(stub.__getobj__)
         when Types::AttributeValue::Ss
-          data['SS'] = (Stubs::StringSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['SS'] = (StringSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::Ns
-          data['NS'] = (Stubs::NumberSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['NS'] = (NumberSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::Bs
-          data['BS'] = (Stubs::BinarySetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['BS'] = (BinarySetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::M
-          data['M'] = (Stubs::MapAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['M'] = (MapAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::L
-          data['L'] = (Stubs::ListAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['L'] = (ListAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::Null
           data['NULL'] = stub.__getobj__
         when Types::AttributeValue::Bool
@@ -356,7 +359,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeValue.stub(element) unless element.nil?
+          data << AttributeValue.stub(element) unless element.nil?
         end
         data
       end
@@ -376,7 +379,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -396,7 +399,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= []
         data = []
         stub.each do |element|
-          data << Base64::encode64(element) unless element.nil?
+          data << ::Base64::encode64(element) unless element.nil?
         end
         data
       end
@@ -453,7 +456,7 @@ module AWS::SDK::DynamoDBStreams
       def self.stub(http_resp, stub:)
         data = {}
         data['ShardIterator'] = stub[:shard_iterator] unless stub[:shard_iterator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -469,9 +472,9 @@ module AWS::SDK::DynamoDBStreams
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Streams'] = Stubs::StreamList.stub(stub[:streams]) unless stub[:streams].nil?
+        data['Streams'] = StreamList.stub(stub[:streams]) unless stub[:streams].nil?
         data['LastEvaluatedStreamArn'] = stub[:last_evaluated_stream_arn] unless stub[:last_evaluated_stream_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -490,7 +493,7 @@ module AWS::SDK::DynamoDBStreams
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Stream.stub(element) unless element.nil?
+          data << Stream.stub(element) unless element.nil?
         end
         data
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SagemakerEdge
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::SagemakerEdge
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeviceRegistration'] = stub[:device_registration] unless stub[:device_registration].nil?
         data['CacheTTL'] = stub[:cache_ttl] unless stub[:cache_ttl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SFN
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.CreateActivity'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::SFN
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -57,10 +59,10 @@ module AWS::SDK::SFN
         data['definition'] = input[:definition] unless input[:definition].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['loggingConfiguration'] = Builders::LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['tracingConfiguration'] = Builders::TracingConfiguration.build(input[:tracing_configuration]) unless input[:tracing_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingConfiguration'] = LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tracingConfiguration'] = TracingConfiguration.build(input[:tracing_configuration]) unless input[:tracing_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -79,7 +81,7 @@ module AWS::SDK::SFN
         data = {}
         data['level'] = input[:level] unless input[:level].nil?
         data['includeExecutionData'] = input[:include_execution_data] unless input[:include_execution_data].nil?
-        data['destinations'] = Builders::LogDestinationList.build(input[:destinations]) unless input[:destinations].nil?
+        data['destinations'] = LogDestinationList.build(input[:destinations]) unless input[:destinations].nil?
         data
       end
     end
@@ -89,7 +91,7 @@ module AWS::SDK::SFN
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LogDestination.build(element) unless element.nil?
+          data << LogDestination.build(element) unless element.nil?
         end
         data
       end
@@ -99,7 +101,7 @@ module AWS::SDK::SFN
     class LogDestination
       def self.build(input)
         data = {}
-        data['cloudWatchLogsLogGroup'] = Builders::CloudWatchLogsLogGroup.build(input[:cloud_watch_logs_log_group]) unless input[:cloud_watch_logs_log_group].nil?
+        data['cloudWatchLogsLogGroup'] = CloudWatchLogsLogGroup.build(input[:cloud_watch_logs_log_group]) unless input[:cloud_watch_logs_log_group].nil?
         data
       end
     end
@@ -122,7 +124,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.DeleteActivity'
         data = {}
         data['activityArn'] = input[:activity_arn] unless input[:activity_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.DeleteStateMachine'
         data = {}
         data['stateMachineArn'] = input[:state_machine_arn] unless input[:state_machine_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.DescribeActivity'
         data = {}
         data['activityArn'] = input[:activity_arn] unless input[:activity_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.DescribeExecution'
         data = {}
         data['executionArn'] = input[:execution_arn] unless input[:execution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.DescribeStateMachine'
         data = {}
         data['stateMachineArn'] = input[:state_machine_arn] unless input[:state_machine_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -187,7 +189,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.DescribeStateMachineForExecution'
         data = {}
         data['executionArn'] = input[:execution_arn] unless input[:execution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::SFN
         data = {}
         data['activityArn'] = input[:activity_arn] unless input[:activity_arn].nil?
         data['workerName'] = input[:worker_name] unless input[:worker_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,7 +220,7 @@ module AWS::SDK::SFN
         data['reverseOrder'] = input[:reverse_order] unless input[:reverse_order].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['includeExecutionData'] = input[:include_execution_data] unless input[:include_execution_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -232,7 +234,7 @@ module AWS::SDK::SFN
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::SFN
         data['statusFilter'] = input[:status_filter] unless input[:status_filter].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -262,7 +264,7 @@ module AWS::SDK::SFN
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -275,7 +277,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.ListTagsForResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -290,7 +292,7 @@ module AWS::SDK::SFN
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
         data['error'] = input[:error] unless input[:error].nil?
         data['cause'] = input[:cause] unless input[:cause].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,7 +305,7 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.SendTaskHeartbeat'
         data = {}
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::SFN
         data = {}
         data['taskToken'] = input[:task_token] unless input[:task_token].nil?
         data['output'] = input[:output] unless input[:output].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -333,7 +335,7 @@ module AWS::SDK::SFN
         data['name'] = input[:name] unless input[:name].nil?
         data['input'] = input[:input] unless input[:input].nil?
         data['traceHeader'] = input[:trace_header] unless input[:trace_header].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -349,7 +351,7 @@ module AWS::SDK::SFN
         data['name'] = input[:name] unless input[:name].nil?
         data['input'] = input[:input] unless input[:input].nil?
         data['traceHeader'] = input[:trace_header] unless input[:trace_header].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -364,7 +366,7 @@ module AWS::SDK::SFN
         data['executionArn'] = input[:execution_arn] unless input[:execution_arn].nil?
         data['error'] = input[:error] unless input[:error].nil?
         data['cause'] = input[:cause] unless input[:cause].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -377,8 +379,8 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -391,8 +393,8 @@ module AWS::SDK::SFN
         http_req.headers['X-Amz-Target'] = 'AWSStepFunctions.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -418,9 +420,9 @@ module AWS::SDK::SFN
         data['stateMachineArn'] = input[:state_machine_arn] unless input[:state_machine_arn].nil?
         data['definition'] = input[:definition] unless input[:definition].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['loggingConfiguration'] = Builders::LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
-        data['tracingConfiguration'] = Builders::TracingConfiguration.build(input[:tracing_configuration]) unless input[:tracing_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingConfiguration'] = LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
+        data['tracingConfiguration'] = TracingConfiguration.build(input[:tracing_configuration]) unless input[:tracing_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

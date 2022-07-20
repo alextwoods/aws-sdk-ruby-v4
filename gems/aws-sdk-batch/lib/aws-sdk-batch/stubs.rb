@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Batch
   module Stubs
 
@@ -38,7 +40,7 @@ module AWS::SDK::Batch
         http_resp.headers['Content-Type'] = 'application/json'
         data['computeEnvironmentName'] = stub[:compute_environment_name] unless stub[:compute_environment_name].nil?
         data['computeEnvironmentArn'] = stub[:compute_environment_arn] unless stub[:compute_environment_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,7 +59,7 @@ module AWS::SDK::Batch
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobQueueName'] = stub[:job_queue_name] unless stub[:job_queue_name].nil?
         data['jobQueueArn'] = stub[:job_queue_arn] unless stub[:job_queue_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::Batch
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,9 +147,9 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['computeEnvironments'] = Stubs::ComputeEnvironmentDetailList.stub(stub[:compute_environments]) unless stub[:compute_environments].nil?
+        data['computeEnvironments'] = ComputeEnvironmentDetailList.stub(stub[:compute_environments]) unless stub[:compute_environments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +167,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComputeEnvironmentDetail.stub(element) unless element.nil?
+          data << ComputeEnvironmentDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -199,14 +201,14 @@ module AWS::SDK::Batch
         data['computeEnvironmentArn'] = stub[:compute_environment_arn] unless stub[:compute_environment_arn].nil?
         data['unmanagedvCpus'] = stub[:unmanagedv_cpus] unless stub[:unmanagedv_cpus].nil?
         data['ecsClusterArn'] = stub[:ecs_cluster_arn] unless stub[:ecs_cluster_arn].nil?
-        data['tags'] = Stubs::TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['computeResources'] = Stubs::ComputeResource.stub(stub[:compute_resources]) unless stub[:compute_resources].nil?
+        data['computeResources'] = ComputeResource.stub(stub[:compute_resources]) unless stub[:compute_resources].nil?
         data['serviceRole'] = stub[:service_role] unless stub[:service_role].nil?
-        data['updatePolicy'] = Stubs::UpdatePolicy.stub(stub[:update_policy]) unless stub[:update_policy].nil?
+        data['updatePolicy'] = UpdatePolicy.stub(stub[:update_policy]) unless stub[:update_policy].nil?
         data
       end
     end
@@ -265,18 +267,18 @@ module AWS::SDK::Batch
         data['minvCpus'] = stub[:minv_cpus] unless stub[:minv_cpus].nil?
         data['maxvCpus'] = stub[:maxv_cpus] unless stub[:maxv_cpus].nil?
         data['desiredvCpus'] = stub[:desiredv_cpus] unless stub[:desiredv_cpus].nil?
-        data['instanceTypes'] = Stubs::StringList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
+        data['instanceTypes'] = StringList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
         data['imageId'] = stub[:image_id] unless stub[:image_id].nil?
-        data['subnets'] = Stubs::StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['securityGroupIds'] = Stubs::StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnets'] = StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['securityGroupIds'] = StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['ec2KeyPair'] = stub[:ec2_key_pair] unless stub[:ec2_key_pair].nil?
         data['instanceRole'] = stub[:instance_role] unless stub[:instance_role].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['placementGroup'] = stub[:placement_group] unless stub[:placement_group].nil?
         data['bidPercentage'] = stub[:bid_percentage] unless stub[:bid_percentage].nil?
         data['spotIamFleetRole'] = stub[:spot_iam_fleet_role] unless stub[:spot_iam_fleet_role].nil?
-        data['launchTemplate'] = Stubs::LaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
-        data['ec2Configuration'] = Stubs::Ec2ConfigurationList.stub(stub[:ec2_configuration]) unless stub[:ec2_configuration].nil?
+        data['launchTemplate'] = LaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
+        data['ec2Configuration'] = Ec2ConfigurationList.stub(stub[:ec2_configuration]) unless stub[:ec2_configuration].nil?
         data
       end
     end
@@ -295,7 +297,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Ec2Configuration.stub(element) unless element.nil?
+          data << Ec2Configuration.stub(element) unless element.nil?
         end
         data
       end
@@ -416,9 +418,9 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobDefinitions'] = Stubs::JobDefinitionList.stub(stub[:job_definitions]) unless stub[:job_definitions].nil?
+        data['jobDefinitions'] = JobDefinitionList.stub(stub[:job_definitions]) unless stub[:job_definitions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -436,7 +438,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobDefinition.stub(element) unless element.nil?
+          data << JobDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -474,14 +476,14 @@ module AWS::SDK::Batch
         data['status'] = stub[:status] unless stub[:status].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['schedulingPriority'] = stub[:scheduling_priority] unless stub[:scheduling_priority].nil?
-        data['parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['retryStrategy'] = Stubs::RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
-        data['containerProperties'] = Stubs::ContainerProperties.stub(stub[:container_properties]) unless stub[:container_properties].nil?
-        data['timeout'] = Stubs::JobTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
-        data['nodeProperties'] = Stubs::NodeProperties.stub(stub[:node_properties]) unless stub[:node_properties].nil?
-        data['tags'] = Stubs::TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['retryStrategy'] = RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
+        data['containerProperties'] = ContainerProperties.stub(stub[:container_properties]) unless stub[:container_properties].nil?
+        data['timeout'] = JobTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
+        data['nodeProperties'] = NodeProperties.stub(stub[:node_properties]) unless stub[:node_properties].nil?
+        data['tags'] = TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['propagateTags'] = stub[:propagate_tags] unless stub[:propagate_tags].nil?
-        data['platformCapabilities'] = Stubs::PlatformCapabilityList.stub(stub[:platform_capabilities]) unless stub[:platform_capabilities].nil?
+        data['platformCapabilities'] = PlatformCapabilityList.stub(stub[:platform_capabilities]) unless stub[:platform_capabilities].nil?
         data
       end
     end
@@ -523,7 +525,7 @@ module AWS::SDK::Batch
         data = {}
         data['numNodes'] = stub[:num_nodes] unless stub[:num_nodes].nil?
         data['mainNode'] = stub[:main_node] unless stub[:main_node].nil?
-        data['nodeRangeProperties'] = Stubs::NodeRangeProperties.stub(stub[:node_range_properties]) unless stub[:node_range_properties].nil?
+        data['nodeRangeProperties'] = NodeRangeProperties.stub(stub[:node_range_properties]) unless stub[:node_range_properties].nil?
         data
       end
     end
@@ -542,7 +544,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeRangeProperty.stub(element) unless element.nil?
+          data << NodeRangeProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -563,7 +565,7 @@ module AWS::SDK::Batch
         stub ||= Types::NodeRangeProperty.new
         data = {}
         data['targetNodes'] = stub[:target_nodes] unless stub[:target_nodes].nil?
-        data['container'] = Stubs::ContainerProperties.stub(stub[:container]) unless stub[:container].nil?
+        data['container'] = ContainerProperties.stub(stub[:container]) unless stub[:container].nil?
         data
       end
     end
@@ -603,23 +605,23 @@ module AWS::SDK::Batch
         data['image'] = stub[:image] unless stub[:image].nil?
         data['vcpus'] = stub[:vcpus] unless stub[:vcpus].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
-        data['command'] = Stubs::StringList.stub(stub[:command]) unless stub[:command].nil?
+        data['command'] = StringList.stub(stub[:command]) unless stub[:command].nil?
         data['jobRoleArn'] = stub[:job_role_arn] unless stub[:job_role_arn].nil?
         data['executionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
-        data['volumes'] = Stubs::Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
-        data['environment'] = Stubs::EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
-        data['mountPoints'] = Stubs::MountPoints.stub(stub[:mount_points]) unless stub[:mount_points].nil?
+        data['volumes'] = Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
+        data['environment'] = EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
+        data['mountPoints'] = MountPoints.stub(stub[:mount_points]) unless stub[:mount_points].nil?
         data['readonlyRootFilesystem'] = stub[:readonly_root_filesystem] unless stub[:readonly_root_filesystem].nil?
         data['privileged'] = stub[:privileged] unless stub[:privileged].nil?
-        data['ulimits'] = Stubs::Ulimits.stub(stub[:ulimits]) unless stub[:ulimits].nil?
+        data['ulimits'] = Ulimits.stub(stub[:ulimits]) unless stub[:ulimits].nil?
         data['user'] = stub[:user] unless stub[:user].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['resourceRequirements'] = Stubs::ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
-        data['linuxParameters'] = Stubs::LinuxParameters.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
-        data['logConfiguration'] = Stubs::LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
-        data['secrets'] = Stubs::SecretList.stub(stub[:secrets]) unless stub[:secrets].nil?
-        data['networkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
-        data['fargatePlatformConfiguration'] = Stubs::FargatePlatformConfiguration.stub(stub[:fargate_platform_configuration]) unless stub[:fargate_platform_configuration].nil?
+        data['resourceRequirements'] = ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
+        data['linuxParameters'] = LinuxParameters.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
+        data['logConfiguration'] = LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['secrets'] = SecretList.stub(stub[:secrets]) unless stub[:secrets].nil?
+        data['networkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['fargatePlatformConfiguration'] = FargatePlatformConfiguration.stub(stub[:fargate_platform_configuration]) unless stub[:fargate_platform_configuration].nil?
         data
       end
     end
@@ -674,7 +676,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Secret.stub(element) unless element.nil?
+          data << Secret.stub(element) unless element.nil?
         end
         data
       end
@@ -716,8 +718,8 @@ module AWS::SDK::Batch
         stub ||= Types::LogConfiguration.new
         data = {}
         data['logDriver'] = stub[:log_driver] unless stub[:log_driver].nil?
-        data['options'] = Stubs::LogConfigurationOptionsMap.stub(stub[:options]) unless stub[:options].nil?
-        data['secretOptions'] = Stubs::SecretList.stub(stub[:secret_options]) unless stub[:secret_options].nil?
+        data['options'] = LogConfigurationOptionsMap.stub(stub[:options]) unless stub[:options].nil?
+        data['secretOptions'] = SecretList.stub(stub[:secret_options]) unless stub[:secret_options].nil?
         data
       end
     end
@@ -760,10 +762,10 @@ module AWS::SDK::Batch
       def self.stub(stub)
         stub ||= Types::LinuxParameters.new
         data = {}
-        data['devices'] = Stubs::DevicesList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['devices'] = DevicesList.stub(stub[:devices]) unless stub[:devices].nil?
         data['initProcessEnabled'] = stub[:init_process_enabled] unless stub[:init_process_enabled].nil?
         data['sharedMemorySize'] = stub[:shared_memory_size] unless stub[:shared_memory_size].nil?
-        data['tmpfs'] = Stubs::TmpfsList.stub(stub[:tmpfs]) unless stub[:tmpfs].nil?
+        data['tmpfs'] = TmpfsList.stub(stub[:tmpfs]) unless stub[:tmpfs].nil?
         data['maxSwap'] = stub[:max_swap] unless stub[:max_swap].nil?
         data['swappiness'] = stub[:swappiness] unless stub[:swappiness].nil?
         data
@@ -784,7 +786,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tmpfs.stub(element) unless element.nil?
+          data << Tmpfs.stub(element) unless element.nil?
         end
         data
       end
@@ -807,7 +809,7 @@ module AWS::SDK::Batch
         data = {}
         data['containerPath'] = stub[:container_path] unless stub[:container_path].nil?
         data['size'] = stub[:size] unless stub[:size].nil?
-        data['mountOptions'] = Stubs::StringList.stub(stub[:mount_options]) unless stub[:mount_options].nil?
+        data['mountOptions'] = StringList.stub(stub[:mount_options]) unless stub[:mount_options].nil?
         data
       end
     end
@@ -826,7 +828,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Device.stub(element) unless element.nil?
+          data << Device.stub(element) unless element.nil?
         end
         data
       end
@@ -849,7 +851,7 @@ module AWS::SDK::Batch
         data = {}
         data['hostPath'] = stub[:host_path] unless stub[:host_path].nil?
         data['containerPath'] = stub[:container_path] unless stub[:container_path].nil?
-        data['permissions'] = Stubs::DeviceCgroupPermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = DeviceCgroupPermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
         data
       end
     end
@@ -888,7 +890,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceRequirement.stub(element) unless element.nil?
+          data << ResourceRequirement.stub(element) unless element.nil?
         end
         data
       end
@@ -928,7 +930,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Ulimit.stub(element) unless element.nil?
+          data << Ulimit.stub(element) unless element.nil?
         end
         data
       end
@@ -970,7 +972,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MountPoint.stub(element) unless element.nil?
+          data << MountPoint.stub(element) unless element.nil?
         end
         data
       end
@@ -1012,7 +1014,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -1052,7 +1054,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Volume.stub(element) unless element.nil?
+          data << Volume.stub(element) unless element.nil?
         end
         data
       end
@@ -1073,9 +1075,9 @@ module AWS::SDK::Batch
       def self.stub(stub)
         stub ||= Types::Volume.new
         data = {}
-        data['host'] = Stubs::Host.stub(stub[:host]) unless stub[:host].nil?
+        data['host'] = Host.stub(stub[:host]) unless stub[:host].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['efsVolumeConfiguration'] = Stubs::EFSVolumeConfiguration.stub(stub[:efs_volume_configuration]) unless stub[:efs_volume_configuration].nil?
+        data['efsVolumeConfiguration'] = EFSVolumeConfiguration.stub(stub[:efs_volume_configuration]) unless stub[:efs_volume_configuration].nil?
         data
       end
     end
@@ -1101,7 +1103,7 @@ module AWS::SDK::Batch
         data['rootDirectory'] = stub[:root_directory] unless stub[:root_directory].nil?
         data['transitEncryption'] = stub[:transit_encryption] unless stub[:transit_encryption].nil?
         data['transitEncryptionPort'] = stub[:transit_encryption_port] unless stub[:transit_encryption_port].nil?
-        data['authorizationConfig'] = Stubs::EFSAuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
+        data['authorizationConfig'] = EFSAuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
         data
       end
     end
@@ -1177,7 +1179,7 @@ module AWS::SDK::Batch
         stub ||= Types::RetryStrategy.new
         data = {}
         data['attempts'] = stub[:attempts] unless stub[:attempts].nil?
-        data['evaluateOnExit'] = Stubs::EvaluateOnExitList.stub(stub[:evaluate_on_exit]) unless stub[:evaluate_on_exit].nil?
+        data['evaluateOnExit'] = EvaluateOnExitList.stub(stub[:evaluate_on_exit]) unless stub[:evaluate_on_exit].nil?
         data
       end
     end
@@ -1196,7 +1198,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluateOnExit.stub(element) unless element.nil?
+          data << EvaluateOnExit.stub(element) unless element.nil?
         end
         data
       end
@@ -1259,9 +1261,9 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobQueues'] = Stubs::JobQueueDetailList.stub(stub[:job_queues]) unless stub[:job_queues].nil?
+        data['jobQueues'] = JobQueueDetailList.stub(stub[:job_queues]) unless stub[:job_queues].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1279,7 +1281,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobQueueDetail.stub(element) unless element.nil?
+          data << JobQueueDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1313,8 +1315,8 @@ module AWS::SDK::Batch
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['priority'] = stub[:priority] unless stub[:priority].nil?
-        data['computeEnvironmentOrder'] = Stubs::ComputeEnvironmentOrders.stub(stub[:compute_environment_order]) unless stub[:compute_environment_order].nil?
-        data['tags'] = Stubs::TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['computeEnvironmentOrder'] = ComputeEnvironmentOrders.stub(stub[:compute_environment_order]) unless stub[:compute_environment_order].nil?
+        data['tags'] = TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1333,7 +1335,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComputeEnvironmentOrder.stub(element) unless element.nil?
+          data << ComputeEnvironmentOrder.stub(element) unless element.nil?
         end
         data
       end
@@ -1371,8 +1373,8 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobs'] = Stubs::JobDetailList.stub(stub[:jobs]) unless stub[:jobs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobs'] = JobDetailList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1390,7 +1392,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobDetail.stub(element) unless element.nil?
+          data << JobDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1439,23 +1441,23 @@ module AWS::SDK::Batch
         data['status'] = stub[:status] unless stub[:status].nil?
         data['shareIdentifier'] = stub[:share_identifier] unless stub[:share_identifier].nil?
         data['schedulingPriority'] = stub[:scheduling_priority] unless stub[:scheduling_priority].nil?
-        data['attempts'] = Stubs::AttemptDetails.stub(stub[:attempts]) unless stub[:attempts].nil?
+        data['attempts'] = AttemptDetails.stub(stub[:attempts]) unless stub[:attempts].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['createdAt'] = stub[:created_at] unless stub[:created_at].nil?
-        data['retryStrategy'] = Stubs::RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
+        data['retryStrategy'] = RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
         data['startedAt'] = stub[:started_at] unless stub[:started_at].nil?
         data['stoppedAt'] = stub[:stopped_at] unless stub[:stopped_at].nil?
-        data['dependsOn'] = Stubs::JobDependencyList.stub(stub[:depends_on]) unless stub[:depends_on].nil?
+        data['dependsOn'] = JobDependencyList.stub(stub[:depends_on]) unless stub[:depends_on].nil?
         data['jobDefinition'] = stub[:job_definition] unless stub[:job_definition].nil?
-        data['parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['container'] = Stubs::ContainerDetail.stub(stub[:container]) unless stub[:container].nil?
-        data['nodeDetails'] = Stubs::NodeDetails.stub(stub[:node_details]) unless stub[:node_details].nil?
-        data['nodeProperties'] = Stubs::NodeProperties.stub(stub[:node_properties]) unless stub[:node_properties].nil?
-        data['arrayProperties'] = Stubs::ArrayPropertiesDetail.stub(stub[:array_properties]) unless stub[:array_properties].nil?
-        data['timeout'] = Stubs::JobTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
-        data['tags'] = Stubs::TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['container'] = ContainerDetail.stub(stub[:container]) unless stub[:container].nil?
+        data['nodeDetails'] = NodeDetails.stub(stub[:node_details]) unless stub[:node_details].nil?
+        data['nodeProperties'] = NodeProperties.stub(stub[:node_properties]) unless stub[:node_properties].nil?
+        data['arrayProperties'] = ArrayPropertiesDetail.stub(stub[:array_properties]) unless stub[:array_properties].nil?
+        data['timeout'] = JobTimeout.stub(stub[:timeout]) unless stub[:timeout].nil?
+        data['tags'] = TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['propagateTags'] = stub[:propagate_tags] unless stub[:propagate_tags].nil?
-        data['platformCapabilities'] = Stubs::PlatformCapabilityList.stub(stub[:platform_capabilities]) unless stub[:platform_capabilities].nil?
+        data['platformCapabilities'] = PlatformCapabilityList.stub(stub[:platform_capabilities]) unless stub[:platform_capabilities].nil?
         data
       end
     end
@@ -1475,7 +1477,7 @@ module AWS::SDK::Batch
       def self.stub(stub)
         stub ||= Types::ArrayPropertiesDetail.new
         data = {}
-        data['statusSummary'] = Stubs::ArrayJobStatusSummary.stub(stub[:status_summary]) unless stub[:status_summary].nil?
+        data['statusSummary'] = ArrayJobStatusSummary.stub(stub[:status_summary]) unless stub[:status_summary].nil?
         data['size'] = stub[:size] unless stub[:size].nil?
         data['index'] = stub[:index] unless stub[:index].nil?
         data
@@ -1563,14 +1565,14 @@ module AWS::SDK::Batch
         data['image'] = stub[:image] unless stub[:image].nil?
         data['vcpus'] = stub[:vcpus] unless stub[:vcpus].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
-        data['command'] = Stubs::StringList.stub(stub[:command]) unless stub[:command].nil?
+        data['command'] = StringList.stub(stub[:command]) unless stub[:command].nil?
         data['jobRoleArn'] = stub[:job_role_arn] unless stub[:job_role_arn].nil?
         data['executionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
-        data['volumes'] = Stubs::Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
-        data['environment'] = Stubs::EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
-        data['mountPoints'] = Stubs::MountPoints.stub(stub[:mount_points]) unless stub[:mount_points].nil?
+        data['volumes'] = Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
+        data['environment'] = EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
+        data['mountPoints'] = MountPoints.stub(stub[:mount_points]) unless stub[:mount_points].nil?
         data['readonlyRootFilesystem'] = stub[:readonly_root_filesystem] unless stub[:readonly_root_filesystem].nil?
-        data['ulimits'] = Stubs::Ulimits.stub(stub[:ulimits]) unless stub[:ulimits].nil?
+        data['ulimits'] = Ulimits.stub(stub[:ulimits]) unless stub[:ulimits].nil?
         data['privileged'] = stub[:privileged] unless stub[:privileged].nil?
         data['user'] = stub[:user] unless stub[:user].nil?
         data['exitCode'] = stub[:exit_code] unless stub[:exit_code].nil?
@@ -1579,13 +1581,13 @@ module AWS::SDK::Batch
         data['taskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
         data['logStreamName'] = stub[:log_stream_name] unless stub[:log_stream_name].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['networkInterfaces'] = Stubs::NetworkInterfaceList.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
-        data['resourceRequirements'] = Stubs::ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
-        data['linuxParameters'] = Stubs::LinuxParameters.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
-        data['logConfiguration'] = Stubs::LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
-        data['secrets'] = Stubs::SecretList.stub(stub[:secrets]) unless stub[:secrets].nil?
-        data['networkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
-        data['fargatePlatformConfiguration'] = Stubs::FargatePlatformConfiguration.stub(stub[:fargate_platform_configuration]) unless stub[:fargate_platform_configuration].nil?
+        data['networkInterfaces'] = NetworkInterfaceList.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['resourceRequirements'] = ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
+        data['linuxParameters'] = LinuxParameters.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
+        data['logConfiguration'] = LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['secrets'] = SecretList.stub(stub[:secrets]) unless stub[:secrets].nil?
+        data['networkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['fargatePlatformConfiguration'] = FargatePlatformConfiguration.stub(stub[:fargate_platform_configuration]) unless stub[:fargate_platform_configuration].nil?
         data
       end
     end
@@ -1604,7 +1606,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInterface.stub(element) unless element.nil?
+          data << NetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -1646,7 +1648,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobDependency.stub(element) unless element.nil?
+          data << JobDependency.stub(element) unless element.nil?
         end
         data
       end
@@ -1686,7 +1688,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttemptDetail.stub(element) unless element.nil?
+          data << AttemptDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1708,7 +1710,7 @@ module AWS::SDK::Batch
       def self.stub(stub)
         stub ||= Types::AttemptDetail.new
         data = {}
-        data['container'] = Stubs::AttemptContainerDetail.stub(stub[:container]) unless stub[:container].nil?
+        data['container'] = AttemptContainerDetail.stub(stub[:container]) unless stub[:container].nil?
         data['startedAt'] = stub[:started_at] unless stub[:started_at].nil?
         data['stoppedAt'] = stub[:stopped_at] unless stub[:stopped_at].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
@@ -1739,7 +1741,7 @@ module AWS::SDK::Batch
         data['exitCode'] = stub[:exit_code] unless stub[:exit_code].nil?
         data['reason'] = stub[:reason] unless stub[:reason].nil?
         data['logStreamName'] = stub[:log_stream_name] unless stub[:log_stream_name].nil?
-        data['networkInterfaces'] = Stubs::NetworkInterfaceList.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['networkInterfaces'] = NetworkInterfaceList.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
         data
       end
     end
@@ -1756,8 +1758,8 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['schedulingPolicies'] = Stubs::SchedulingPolicyDetailList.stub(stub[:scheduling_policies]) unless stub[:scheduling_policies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['schedulingPolicies'] = SchedulingPolicyDetailList.stub(stub[:scheduling_policies]) unless stub[:scheduling_policies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1775,7 +1777,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchedulingPolicyDetail.stub(element) unless element.nil?
+          data << SchedulingPolicyDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1799,8 +1801,8 @@ module AWS::SDK::Batch
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['fairsharePolicy'] = Stubs::FairsharePolicy.stub(stub[:fairshare_policy]) unless stub[:fairshare_policy].nil?
-        data['tags'] = Stubs::TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['fairsharePolicy'] = FairsharePolicy.stub(stub[:fairshare_policy]) unless stub[:fairshare_policy].nil?
+        data['tags'] = TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1822,7 +1824,7 @@ module AWS::SDK::Batch
         data = {}
         data['shareDecaySeconds'] = stub[:share_decay_seconds] unless stub[:share_decay_seconds].nil?
         data['computeReservation'] = stub[:compute_reservation] unless stub[:compute_reservation].nil?
-        data['shareDistribution'] = Stubs::ShareAttributesList.stub(stub[:share_distribution]) unless stub[:share_distribution].nil?
+        data['shareDistribution'] = ShareAttributesList.stub(stub[:share_distribution]) unless stub[:share_distribution].nil?
         data
       end
     end
@@ -1841,7 +1843,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ShareAttributes.stub(element) unless element.nil?
+          data << ShareAttributes.stub(element) unless element.nil?
         end
         data
       end
@@ -1880,9 +1882,9 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobSummaryList'] = Stubs::JobSummaryList.stub(stub[:job_summary_list]) unless stub[:job_summary_list].nil?
+        data['jobSummaryList'] = JobSummaryList.stub(stub[:job_summary_list]) unless stub[:job_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1900,7 +1902,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobSummary.stub(element) unless element.nil?
+          data << JobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1938,9 +1940,9 @@ module AWS::SDK::Batch
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['startedAt'] = stub[:started_at] unless stub[:started_at].nil?
         data['stoppedAt'] = stub[:stopped_at] unless stub[:stopped_at].nil?
-        data['container'] = Stubs::ContainerSummary.stub(stub[:container]) unless stub[:container].nil?
-        data['arrayProperties'] = Stubs::ArrayPropertiesSummary.stub(stub[:array_properties]) unless stub[:array_properties].nil?
-        data['nodeProperties'] = Stubs::NodePropertiesSummary.stub(stub[:node_properties]) unless stub[:node_properties].nil?
+        data['container'] = ContainerSummary.stub(stub[:container]) unless stub[:container].nil?
+        data['arrayProperties'] = ArrayPropertiesSummary.stub(stub[:array_properties]) unless stub[:array_properties].nil?
+        data['nodeProperties'] = NodePropertiesSummary.stub(stub[:node_properties]) unless stub[:node_properties].nil?
         data['jobDefinition'] = stub[:job_definition] unless stub[:job_definition].nil?
         data
       end
@@ -2021,9 +2023,9 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['schedulingPolicies'] = Stubs::SchedulingPolicyListingDetailList.stub(stub[:scheduling_policies]) unless stub[:scheduling_policies].nil?
+        data['schedulingPolicies'] = SchedulingPolicyListingDetailList.stub(stub[:scheduling_policies]) unless stub[:scheduling_policies].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2041,7 +2043,7 @@ module AWS::SDK::Batch
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchedulingPolicyListingDetail.stub(element) unless element.nil?
+          data << SchedulingPolicyListingDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2077,8 +2079,8 @@ module AWS::SDK::Batch
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagrisTagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2099,7 +2101,7 @@ module AWS::SDK::Batch
         data['jobDefinitionName'] = stub[:job_definition_name] unless stub[:job_definition_name].nil?
         data['jobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
         data['revision'] = stub[:revision] unless stub[:revision].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2120,7 +2122,7 @@ module AWS::SDK::Batch
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['jobName'] = stub[:job_name] unless stub[:job_name].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2178,7 +2180,7 @@ module AWS::SDK::Batch
         http_resp.headers['Content-Type'] = 'application/json'
         data['computeEnvironmentName'] = stub[:compute_environment_name] unless stub[:compute_environment_name].nil?
         data['computeEnvironmentArn'] = stub[:compute_environment_arn] unless stub[:compute_environment_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2197,7 +2199,7 @@ module AWS::SDK::Batch
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobQueueName'] = stub[:job_queue_name] unless stub[:job_queue_name].nil?
         data['jobQueueArn'] = stub[:job_queue_arn] unless stub[:job_queue_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

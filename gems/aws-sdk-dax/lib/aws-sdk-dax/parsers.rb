@@ -17,7 +17,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -32,16 +32,16 @@ module AWS::SDK::DAX
         data.active_nodes = map['ActiveNodes']
         data.node_type = map['NodeType']
         data.status = map['Status']
-        data.cluster_discovery_endpoint = (Parsers::Endpoint.parse(map['ClusterDiscoveryEndpoint']) unless map['ClusterDiscoveryEndpoint'].nil?)
-        data.node_ids_to_remove = (Parsers::NodeIdentifierList.parse(map['NodeIdsToRemove']) unless map['NodeIdsToRemove'].nil?)
-        data.nodes = (Parsers::NodeList.parse(map['Nodes']) unless map['Nodes'].nil?)
+        data.cluster_discovery_endpoint = (Endpoint.parse(map['ClusterDiscoveryEndpoint']) unless map['ClusterDiscoveryEndpoint'].nil?)
+        data.node_ids_to_remove = (NodeIdentifierList.parse(map['NodeIdsToRemove']) unless map['NodeIdsToRemove'].nil?)
+        data.nodes = (NodeList.parse(map['Nodes']) unless map['Nodes'].nil?)
         data.preferred_maintenance_window = map['PreferredMaintenanceWindow']
-        data.notification_configuration = (Parsers::NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
+        data.notification_configuration = (NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
         data.subnet_group = map['SubnetGroup']
-        data.security_groups = (Parsers::SecurityGroupMembershipList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.security_groups = (SecurityGroupMembershipList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data.iam_role_arn = map['IamRoleArn']
-        data.parameter_group = (Parsers::ParameterGroupStatus.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
-        data.sse_description = (Parsers::SSEDescription.parse(map['SSEDescription']) unless map['SSEDescription'].nil?)
+        data.parameter_group = (ParameterGroupStatus.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
+        data.sse_description = (SSEDescription.parse(map['SSEDescription']) unless map['SSEDescription'].nil?)
         data.cluster_endpoint_encryption_type = map['ClusterEndpointEncryptionType']
         return data
       end
@@ -60,7 +60,7 @@ module AWS::SDK::DAX
         data = Types::ParameterGroupStatus.new
         data.parameter_group_name = map['ParameterGroupName']
         data.parameter_apply_status = map['ParameterApplyStatus']
-        data.node_ids_to_reboot = (Parsers::NodeIdentifierList.parse(map['NodeIdsToReboot']) unless map['NodeIdsToReboot'].nil?)
+        data.node_ids_to_reboot = (NodeIdentifierList.parse(map['NodeIdsToReboot']) unless map['NodeIdsToReboot'].nil?)
         return data
       end
     end
@@ -76,7 +76,7 @@ module AWS::SDK::DAX
     class SecurityGroupMembershipList
       def self.parse(list)
         list.map do |value|
-          Parsers::SecurityGroupMembership.parse(value) unless value.nil?
+          SecurityGroupMembership.parse(value) unless value.nil?
         end
       end
     end
@@ -102,7 +102,7 @@ module AWS::SDK::DAX
     class NodeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Node.parse(value) unless value.nil?
+          Node.parse(value) unless value.nil?
         end
       end
     end
@@ -111,7 +111,7 @@ module AWS::SDK::DAX
       def self.parse(map)
         data = Types::Node.new
         data.node_id = map['NodeId']
-        data.endpoint = (Parsers::Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         data.node_create_time = Time.at(map['NodeCreateTime'].to_i) if map['NodeCreateTime']
         data.availability_zone = map['AvailabilityZone']
         data.node_status = map['NodeStatus']
@@ -316,7 +316,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter_group = (Parsers::ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
+        data.parameter_group = (ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
         data
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subnet_group = (Parsers::SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
+        data.subnet_group = (SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
         data
       end
     end
@@ -372,7 +372,7 @@ module AWS::SDK::DAX
         data.subnet_group_name = map['SubnetGroupName']
         data.description = map['Description']
         data.vpc_id = map['VpcId']
-        data.subnets = (Parsers::SubnetList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.subnets = (SubnetList.parse(map['Subnets']) unless map['Subnets'].nil?)
         return data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::DAX
     class SubnetList
       def self.parse(list)
         list.map do |value|
-          Parsers::Subnet.parse(value) unless value.nil?
+          Subnet.parse(value) unless value.nil?
         end
       end
     end
@@ -449,7 +449,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -485,7 +485,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -534,7 +534,7 @@ module AWS::SDK::DAX
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.clusters = (Parsers::ClusterList.parse(map['Clusters']) unless map['Clusters'].nil?)
+        data.clusters = (ClusterList.parse(map['Clusters']) unless map['Clusters'].nil?)
         data
       end
     end
@@ -542,7 +542,7 @@ module AWS::SDK::DAX
     class ClusterList
       def self.parse(list)
         list.map do |value|
-          Parsers::Cluster.parse(value) unless value.nil?
+          Cluster.parse(value) unless value.nil?
         end
       end
     end
@@ -555,7 +555,7 @@ module AWS::SDK::DAX
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.parameters = (Parsers::ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
         data
       end
     end
@@ -563,7 +563,7 @@ module AWS::SDK::DAX
     class ParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::Parameter.parse(value) unless value.nil?
+          Parameter.parse(value) unless value.nil?
         end
       end
     end
@@ -574,7 +574,7 @@ module AWS::SDK::DAX
         data.parameter_name = map['ParameterName']
         data.parameter_type = map['ParameterType']
         data.parameter_value = map['ParameterValue']
-        data.node_type_specific_values = (Parsers::NodeTypeSpecificValueList.parse(map['NodeTypeSpecificValues']) unless map['NodeTypeSpecificValues'].nil?)
+        data.node_type_specific_values = (NodeTypeSpecificValueList.parse(map['NodeTypeSpecificValues']) unless map['NodeTypeSpecificValues'].nil?)
         data.description = map['Description']
         data.source = map['Source']
         data.data_type = map['DataType']
@@ -588,7 +588,7 @@ module AWS::SDK::DAX
     class NodeTypeSpecificValueList
       def self.parse(list)
         list.map do |value|
-          Parsers::NodeTypeSpecificValue.parse(value) unless value.nil?
+          NodeTypeSpecificValue.parse(value) unless value.nil?
         end
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::DAX
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.events = (Parsers::EventList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventList.parse(map['Events']) unless map['Events'].nil?)
         data
       end
     end
@@ -618,7 +618,7 @@ module AWS::SDK::DAX
     class EventList
       def self.parse(list)
         list.map do |value|
-          Parsers::Event.parse(value) unless value.nil?
+          Event.parse(value) unless value.nil?
         end
       end
     end
@@ -642,7 +642,7 @@ module AWS::SDK::DAX
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.parameter_groups = (Parsers::ParameterGroupList.parse(map['ParameterGroups']) unless map['ParameterGroups'].nil?)
+        data.parameter_groups = (ParameterGroupList.parse(map['ParameterGroups']) unless map['ParameterGroups'].nil?)
         data
       end
     end
@@ -650,7 +650,7 @@ module AWS::SDK::DAX
     class ParameterGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterGroup.parse(value) unless value.nil?
+          ParameterGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::DAX
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.parameters = (Parsers::ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
         data
       end
     end
@@ -676,7 +676,7 @@ module AWS::SDK::DAX
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.subnet_groups = (Parsers::SubnetGroupList.parse(map['SubnetGroups']) unless map['SubnetGroups'].nil?)
+        data.subnet_groups = (SubnetGroupList.parse(map['SubnetGroups']) unless map['SubnetGroups'].nil?)
         data
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::DAX
     class SubnetGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::SubnetGroup.parse(value) unless value.nil?
+          SubnetGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -696,7 +696,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -717,7 +717,7 @@ module AWS::SDK::DAX
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -762,7 +762,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -774,7 +774,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -798,7 +798,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -810,7 +810,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter_group = (Parsers::ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
+        data.parameter_group = (ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
         data
       end
     end
@@ -822,7 +822,7 @@ module AWS::SDK::DAX
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subnet_group = (Parsers::SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
+        data.subnet_group = (SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
         data
       end
     end

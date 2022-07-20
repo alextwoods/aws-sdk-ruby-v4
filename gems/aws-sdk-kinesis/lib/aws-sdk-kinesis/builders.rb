@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Kinesis
   module Builders
 
@@ -19,8 +22,8 @@ module AWS::SDK::Kinesis
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.AddTagsToStream'
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,8 +48,8 @@ module AWS::SDK::Kinesis
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['ShardCount'] = input[:shard_count] unless input[:shard_count].nil?
-        data['StreamModeDetails'] = Builders::StreamModeDetails.build(input[:stream_mode_details]) unless input[:stream_mode_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StreamModeDetails'] = StreamModeDetails.build(input[:stream_mode_details]) unless input[:stream_mode_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +72,7 @@ module AWS::SDK::Kinesis
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['RetentionPeriodHours'] = input[:retention_period_hours] unless input[:retention_period_hours].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +86,7 @@ module AWS::SDK::Kinesis
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['EnforceConsumerDeletion'] = input[:enforce_consumer_deletion] unless input[:enforce_consumer_deletion].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -98,7 +101,7 @@ module AWS::SDK::Kinesis
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['ConsumerName'] = input[:consumer_name] unless input[:consumer_name].nil?
         data['ConsumerARN'] = input[:consumer_arn] unless input[:consumer_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,7 +113,7 @@ module AWS::SDK::Kinesis
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.DescribeLimits'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +128,7 @@ module AWS::SDK::Kinesis
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ExclusiveStartShardId'] = input[:exclusive_start_shard_id] unless input[:exclusive_start_shard_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -140,7 +143,7 @@ module AWS::SDK::Kinesis
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['ConsumerName'] = input[:consumer_name] unless input[:consumer_name].nil?
         data['ConsumerARN'] = input[:consumer_arn] unless input[:consumer_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -153,7 +156,7 @@ module AWS::SDK::Kinesis
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.DescribeStreamSummary'
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -166,8 +169,8 @@ module AWS::SDK::Kinesis
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.DisableEnhancedMonitoring'
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        data['ShardLevelMetrics'] = Builders::MetricsNameList.build(input[:shard_level_metrics]) unless input[:shard_level_metrics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ShardLevelMetrics'] = MetricsNameList.build(input[:shard_level_metrics]) unless input[:shard_level_metrics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,8 +194,8 @@ module AWS::SDK::Kinesis
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.EnableEnhancedMonitoring'
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        data['ShardLevelMetrics'] = Builders::MetricsNameList.build(input[:shard_level_metrics]) unless input[:shard_level_metrics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ShardLevelMetrics'] = MetricsNameList.build(input[:shard_level_metrics]) unless input[:shard_level_metrics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,7 +209,7 @@ module AWS::SDK::Kinesis
         data = {}
         data['ShardIterator'] = input[:shard_iterator] unless input[:shard_iterator].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,7 +226,7 @@ module AWS::SDK::Kinesis
         data['ShardIteratorType'] = input[:shard_iterator_type] unless input[:shard_iterator_type].nil?
         data['StartingSequenceNumber'] = input[:starting_sequence_number] unless input[:starting_sequence_number].nil?
         data['Timestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:timestamp]).to_i unless input[:timestamp].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,7 +240,7 @@ module AWS::SDK::Kinesis
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['RetentionPeriodHours'] = input[:retention_period_hours] unless input[:retention_period_hours].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -254,8 +257,8 @@ module AWS::SDK::Kinesis
         data['ExclusiveStartShardId'] = input[:exclusive_start_shard_id] unless input[:exclusive_start_shard_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:stream_creation_timestamp]).to_i unless input[:stream_creation_timestamp].nil?
-        data['ShardFilter'] = Builders::ShardFilter.build(input[:shard_filter]) unless input[:shard_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ShardFilter'] = ShardFilter.build(input[:shard_filter]) unless input[:shard_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,7 +285,7 @@ module AWS::SDK::Kinesis
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['StreamCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:stream_creation_timestamp]).to_i unless input[:stream_creation_timestamp].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -296,7 +299,7 @@ module AWS::SDK::Kinesis
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ExclusiveStartStreamName'] = input[:exclusive_start_stream_name] unless input[:exclusive_start_stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -311,7 +314,7 @@ module AWS::SDK::Kinesis
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['ExclusiveStartTagKey'] = input[:exclusive_start_tag_key] unless input[:exclusive_start_tag_key].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -326,7 +329,7 @@ module AWS::SDK::Kinesis
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['ShardToMerge'] = input[:shard_to_merge] unless input[:shard_to_merge].nil?
         data['AdjacentShardToMerge'] = input[:adjacent_shard_to_merge] unless input[:adjacent_shard_to_merge].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -339,11 +342,11 @@ module AWS::SDK::Kinesis
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.PutRecord'
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        data['Data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        data['Data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
         data['PartitionKey'] = input[:partition_key] unless input[:partition_key].nil?
         data['ExplicitHashKey'] = input[:explicit_hash_key] unless input[:explicit_hash_key].nil?
         data['SequenceNumberForOrdering'] = input[:sequence_number_for_ordering] unless input[:sequence_number_for_ordering].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,9 +358,9 @@ module AWS::SDK::Kinesis
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.PutRecords'
         data = {}
-        data['Records'] = Builders::PutRecordsRequestEntryList.build(input[:records]) unless input[:records].nil?
+        data['Records'] = PutRecordsRequestEntryList.build(input[:records]) unless input[:records].nil?
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,7 +369,7 @@ module AWS::SDK::Kinesis
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PutRecordsRequestEntry.build(element) unless element.nil?
+          data << PutRecordsRequestEntry.build(element) unless element.nil?
         end
         data
       end
@@ -376,7 +379,7 @@ module AWS::SDK::Kinesis
     class PutRecordsRequestEntry
       def self.build(input)
         data = {}
-        data['Data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        data['Data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
         data['ExplicitHashKey'] = input[:explicit_hash_key] unless input[:explicit_hash_key].nil?
         data['PartitionKey'] = input[:partition_key] unless input[:partition_key].nil?
         data
@@ -393,7 +396,7 @@ module AWS::SDK::Kinesis
         data = {}
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['ConsumerName'] = input[:consumer_name] unless input[:consumer_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,8 +409,8 @@ module AWS::SDK::Kinesis
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.RemoveTagsFromStream'
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,7 +436,7 @@ module AWS::SDK::Kinesis
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['ShardToSplit'] = input[:shard_to_split] unless input[:shard_to_split].nil?
         data['NewStartingHashKey'] = input[:new_starting_hash_key] unless input[:new_starting_hash_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,7 +451,7 @@ module AWS::SDK::Kinesis
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['EncryptionType'] = input[:encryption_type] unless input[:encryption_type].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -463,7 +466,7 @@ module AWS::SDK::Kinesis
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['EncryptionType'] = input[:encryption_type] unless input[:encryption_type].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,7 +481,7 @@ module AWS::SDK::Kinesis
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['TargetShardCount'] = input[:target_shard_count] unless input[:target_shard_count].nil?
         data['ScalingType'] = input[:scaling_type] unless input[:scaling_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -491,8 +494,8 @@ module AWS::SDK::Kinesis
         http_req.headers['X-Amz-Target'] = 'Kinesis_20131202.UpdateStreamMode'
         data = {}
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        data['StreamModeDetails'] = Builders::StreamModeDetails.build(input[:stream_mode_details]) unless input[:stream_mode_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StreamModeDetails'] = StreamModeDetails.build(input[:stream_mode_details]) unless input[:stream_mode_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -17,7 +17,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::Lightsail
     class OperationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Operation.parse(value) unless value.nil?
+          Operation.parse(value) unless value.nil?
         end
       end
     end
@@ -37,7 +37,7 @@ module AWS::SDK::Lightsail
         data.resource_name = map['resourceName']
         data.resource_type = map['resourceType']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.is_terminal = map['isTerminal']
         data.operation_details = map['operationDetails']
         data.operation_type = map['operationType']
@@ -170,7 +170,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -194,7 +194,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -206,7 +206,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -242,7 +242,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -254,8 +254,8 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bucket = (Parsers::Bucket.parse(map['bucket']) unless map['bucket'].nil?)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.bucket = (Bucket.parse(map['bucket']) unless map['bucket'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -264,21 +264,21 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::Bucket.new
         data.resource_type = map['resourceType']
-        data.access_rules = (Parsers::AccessRules.parse(map['accessRules']) unless map['accessRules'].nil?)
+        data.access_rules = (AccessRules.parse(map['accessRules']) unless map['accessRules'].nil?)
         data.arn = map['arn']
         data.bundle_id = map['bundleId']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.url = map['url']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.name = map['name']
         data.support_code = map['supportCode']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.object_versioning = map['objectVersioning']
         data.able_to_update_bundle = map['ableToUpdateBundle']
-        data.readonly_access_accounts = (Parsers::PartnerIdList.parse(map['readonlyAccessAccounts']) unless map['readonlyAccessAccounts'].nil?)
-        data.resources_receiving_access = (Parsers::AccessReceiverList.parse(map['resourcesReceivingAccess']) unless map['resourcesReceivingAccess'].nil?)
-        data.state = (Parsers::BucketState.parse(map['state']) unless map['state'].nil?)
-        data.access_log_config = (Parsers::BucketAccessLogConfig.parse(map['accessLogConfig']) unless map['accessLogConfig'].nil?)
+        data.readonly_access_accounts = (PartnerIdList.parse(map['readonlyAccessAccounts']) unless map['readonlyAccessAccounts'].nil?)
+        data.resources_receiving_access = (AccessReceiverList.parse(map['resourcesReceivingAccess']) unless map['resourcesReceivingAccess'].nil?)
+        data.state = (BucketState.parse(map['state']) unless map['state'].nil?)
+        data.access_log_config = (BucketAccessLogConfig.parse(map['accessLogConfig']) unless map['accessLogConfig'].nil?)
         return data
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::Lightsail
     class AccessReceiverList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceReceivingAccess.parse(value) unless value.nil?
+          ResourceReceivingAccess.parse(value) unless value.nil?
         end
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::Lightsail
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -360,8 +360,8 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.access_key = (Parsers::AccessKey.parse(map['accessKey']) unless map['accessKey'].nil?)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.access_key = (AccessKey.parse(map['accessKey']) unless map['accessKey'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -373,7 +373,7 @@ module AWS::SDK::Lightsail
         data.secret_access_key = map['secretAccessKey']
         data.status = map['status']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.last_used = (Parsers::AccessKeyLastUsed.parse(map['lastUsed']) unless map['lastUsed'].nil?)
+        data.last_used = (AccessKeyLastUsed.parse(map['lastUsed']) unless map['lastUsed'].nil?)
         return data
       end
     end
@@ -395,8 +395,8 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificate = (Parsers::CertificateSummary.parse(map['certificate']) unless map['certificate'].nil?)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.certificate = (CertificateSummary.parse(map['certificate']) unless map['certificate'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -407,8 +407,8 @@ module AWS::SDK::Lightsail
         data.certificate_arn = map['certificateArn']
         data.certificate_name = map['certificateName']
         data.domain_name = map['domainName']
-        data.certificate_detail = (Parsers::Certificate.parse(map['certificateDetail']) unless map['certificateDetail'].nil?)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.certificate_detail = (Certificate.parse(map['certificateDetail']) unless map['certificateDetail'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -421,8 +421,8 @@ module AWS::SDK::Lightsail
         data.domain_name = map['domainName']
         data.status = map['status']
         data.serial_number = map['serialNumber']
-        data.subject_alternative_names = (Parsers::SubjectAlternativeNameList.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
-        data.domain_validation_records = (Parsers::DomainValidationRecordList.parse(map['domainValidationRecords']) unless map['domainValidationRecords'].nil?)
+        data.subject_alternative_names = (SubjectAlternativeNameList.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
+        data.domain_validation_records = (DomainValidationRecordList.parse(map['domainValidationRecords']) unless map['domainValidationRecords'].nil?)
         data.request_failure_reason = map['requestFailureReason']
         data.in_use_resource_count = map['inUseResourceCount']
         data.key_algorithm = map['keyAlgorithm']
@@ -432,10 +432,10 @@ module AWS::SDK::Lightsail
         data.not_before = Time.at(map['notBefore'].to_i) if map['notBefore']
         data.not_after = Time.at(map['notAfter'].to_i) if map['notAfter']
         data.eligible_to_renew = map['eligibleToRenew']
-        data.renewal_summary = (Parsers::RenewalSummary.parse(map['renewalSummary']) unless map['renewalSummary'].nil?)
+        data.renewal_summary = (RenewalSummary.parse(map['renewalSummary']) unless map['renewalSummary'].nil?)
         data.revoked_at = Time.at(map['revokedAt'].to_i) if map['revokedAt']
         data.revocation_reason = map['revocationReason']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.support_code = map['supportCode']
         return data
       end
@@ -444,7 +444,7 @@ module AWS::SDK::Lightsail
     class RenewalSummary
       def self.parse(map)
         data = Types::RenewalSummary.new
-        data.domain_validation_records = (Parsers::DomainValidationRecordList.parse(map['domainValidationRecords']) unless map['domainValidationRecords'].nil?)
+        data.domain_validation_records = (DomainValidationRecordList.parse(map['domainValidationRecords']) unless map['domainValidationRecords'].nil?)
         data.renewal_status = map['renewalStatus']
         data.renewal_status_reason = map['renewalStatusReason']
         data.updated_at = Time.at(map['updatedAt'].to_i) if map['updatedAt']
@@ -455,7 +455,7 @@ module AWS::SDK::Lightsail
     class DomainValidationRecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainValidationRecord.parse(value) unless value.nil?
+          DomainValidationRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -464,7 +464,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::DomainValidationRecord.new
         data.domain_name = map['domainName']
-        data.resource_record = (Parsers::ResourceRecord.parse(map['resourceRecord']) unless map['resourceRecord'].nil?)
+        data.resource_record = (ResourceRecord.parse(map['resourceRecord']) unless map['resourceRecord'].nil?)
         return data
       end
     end
@@ -494,7 +494,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -506,7 +506,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -518,7 +518,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_service = (Parsers::ContainerService.parse(map['containerService']) unless map['containerService'].nil?)
+        data.container_service = (ContainerService.parse(map['containerService']) unless map['containerService'].nil?)
         data
       end
     end
@@ -529,22 +529,22 @@ module AWS::SDK::Lightsail
         data.container_service_name = map['containerServiceName']
         data.arn = map['arn']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.power = map['power']
         data.power_id = map['powerId']
         data.state = map['state']
-        data.state_detail = (Parsers::ContainerServiceStateDetail.parse(map['stateDetail']) unless map['stateDetail'].nil?)
+        data.state_detail = (ContainerServiceStateDetail.parse(map['stateDetail']) unless map['stateDetail'].nil?)
         data.scale = map['scale']
-        data.current_deployment = (Parsers::ContainerServiceDeployment.parse(map['currentDeployment']) unless map['currentDeployment'].nil?)
-        data.next_deployment = (Parsers::ContainerServiceDeployment.parse(map['nextDeployment']) unless map['nextDeployment'].nil?)
+        data.current_deployment = (ContainerServiceDeployment.parse(map['currentDeployment']) unless map['currentDeployment'].nil?)
+        data.next_deployment = (ContainerServiceDeployment.parse(map['nextDeployment']) unless map['nextDeployment'].nil?)
         data.is_disabled = map['isDisabled']
         data.principal_arn = map['principalArn']
         data.private_domain_name = map['privateDomainName']
-        data.public_domain_names = (Parsers::ContainerServicePublicDomains.parse(map['publicDomainNames']) unless map['publicDomainNames'].nil?)
+        data.public_domain_names = (ContainerServicePublicDomains.parse(map['publicDomainNames']) unless map['publicDomainNames'].nil?)
         data.url = map['url']
-        data.private_registry_access = (Parsers::PrivateRegistryAccess.parse(map['privateRegistryAccess']) unless map['privateRegistryAccess'].nil?)
+        data.private_registry_access = (PrivateRegistryAccess.parse(map['privateRegistryAccess']) unless map['privateRegistryAccess'].nil?)
         return data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::Lightsail
     class PrivateRegistryAccess
       def self.parse(map)
         data = Types::PrivateRegistryAccess.new
-        data.ecr_image_puller_role = (Parsers::ContainerServiceECRImagePullerRole.parse(map['ecrImagePullerRole']) unless map['ecrImagePullerRole'].nil?)
+        data.ecr_image_puller_role = (ContainerServiceECRImagePullerRole.parse(map['ecrImagePullerRole']) unless map['ecrImagePullerRole'].nil?)
         return data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ContainerServicePublicDomainsList.parse(value) unless value.nil?
+          data[key] = ContainerServicePublicDomainsList.parse(value) unless value.nil?
         end
         data
       end
@@ -589,8 +589,8 @@ module AWS::SDK::Lightsail
         data = Types::ContainerServiceDeployment.new
         data.version = map['version']
         data.state = map['state']
-        data.containers = (Parsers::ContainerMap.parse(map['containers']) unless map['containers'].nil?)
-        data.public_endpoint = (Parsers::ContainerServiceEndpoint.parse(map['publicEndpoint']) unless map['publicEndpoint'].nil?)
+        data.containers = (ContainerMap.parse(map['containers']) unless map['containers'].nil?)
+        data.public_endpoint = (ContainerServiceEndpoint.parse(map['publicEndpoint']) unless map['publicEndpoint'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         return data
       end
@@ -601,7 +601,7 @@ module AWS::SDK::Lightsail
         data = Types::ContainerServiceEndpoint.new
         data.container_name = map['containerName']
         data.container_port = map['containerPort']
-        data.health_check = (Parsers::ContainerServiceHealthCheckConfig.parse(map['healthCheck']) unless map['healthCheck'].nil?)
+        data.health_check = (ContainerServiceHealthCheckConfig.parse(map['healthCheck']) unless map['healthCheck'].nil?)
         return data
       end
     end
@@ -623,7 +623,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Container.parse(value) unless value.nil?
+          data[key] = Container.parse(value) unless value.nil?
         end
         data
       end
@@ -633,9 +633,9 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::Container.new
         data.image = map['image']
-        data.command = (Parsers::StringList.parse(map['command']) unless map['command'].nil?)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
-        data.ports = (Parsers::PortMap.parse(map['ports']) unless map['ports'].nil?)
+        data.command = (StringList.parse(map['command']) unless map['command'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.ports = (PortMap.parse(map['ports']) unless map['ports'].nil?)
         return data
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_service = (Parsers::ContainerService.parse(map['containerService']) unless map['containerService'].nil?)
+        data.container_service = (ContainerService.parse(map['containerService']) unless map['containerService'].nil?)
         data
       end
     end
@@ -696,7 +696,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.registry_login = (Parsers::ContainerServiceRegistryLogin.parse(map['registryLogin']) unless map['registryLogin'].nil?)
+        data.registry_login = (ContainerServiceRegistryLogin.parse(map['registryLogin']) unless map['registryLogin'].nil?)
         data
       end
     end
@@ -719,7 +719,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -731,7 +731,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -743,7 +743,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -755,8 +755,8 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.distribution = (Parsers::LightsailDistribution.parse(map['distribution']) unless map['distribution'].nil?)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.distribution = (LightsailDistribution.parse(map['distribution']) unless map['distribution'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -768,22 +768,22 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.alternative_domain_names = (Parsers::StringList.parse(map['alternativeDomainNames']) unless map['alternativeDomainNames'].nil?)
+        data.alternative_domain_names = (StringList.parse(map['alternativeDomainNames']) unless map['alternativeDomainNames'].nil?)
         data.status = map['status']
         data.is_enabled = map['isEnabled']
         data.domain_name = map['domainName']
         data.bundle_id = map['bundleId']
         data.certificate_name = map['certificateName']
-        data.origin = (Parsers::Origin.parse(map['origin']) unless map['origin'].nil?)
+        data.origin = (Origin.parse(map['origin']) unless map['origin'].nil?)
         data.origin_public_dns = map['originPublicDNS']
-        data.default_cache_behavior = (Parsers::CacheBehavior.parse(map['defaultCacheBehavior']) unless map['defaultCacheBehavior'].nil?)
-        data.cache_behavior_settings = (Parsers::CacheSettings.parse(map['cacheBehaviorSettings']) unless map['cacheBehaviorSettings'].nil?)
-        data.cache_behaviors = (Parsers::CacheBehaviorList.parse(map['cacheBehaviors']) unless map['cacheBehaviors'].nil?)
+        data.default_cache_behavior = (CacheBehavior.parse(map['defaultCacheBehavior']) unless map['defaultCacheBehavior'].nil?)
+        data.cache_behavior_settings = (CacheSettings.parse(map['cacheBehaviorSettings']) unless map['cacheBehaviorSettings'].nil?)
+        data.cache_behaviors = (CacheBehaviorList.parse(map['cacheBehaviors']) unless map['cacheBehaviors'].nil?)
         data.able_to_update_bundle = map['ableToUpdateBundle']
         data.ip_address_type = map['ipAddressType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -791,7 +791,7 @@ module AWS::SDK::Lightsail
     class CacheBehaviorList
       def self.parse(list)
         list.map do |value|
-          Parsers::CacheBehaviorPerPath.parse(value) unless value.nil?
+          CacheBehaviorPerPath.parse(value) unless value.nil?
         end
       end
     end
@@ -813,9 +813,9 @@ module AWS::SDK::Lightsail
         data.maximum_ttl = map['maximumTTL']
         data.allowed_http_methods = map['allowedHTTPMethods']
         data.cached_http_methods = map['cachedHTTPMethods']
-        data.forwarded_cookies = (Parsers::CookieObject.parse(map['forwardedCookies']) unless map['forwardedCookies'].nil?)
-        data.forwarded_headers = (Parsers::HeaderObject.parse(map['forwardedHeaders']) unless map['forwardedHeaders'].nil?)
-        data.forwarded_query_strings = (Parsers::QueryStringObject.parse(map['forwardedQueryStrings']) unless map['forwardedQueryStrings'].nil?)
+        data.forwarded_cookies = (CookieObject.parse(map['forwardedCookies']) unless map['forwardedCookies'].nil?)
+        data.forwarded_headers = (HeaderObject.parse(map['forwardedHeaders']) unless map['forwardedHeaders'].nil?)
+        data.forwarded_query_strings = (QueryStringObject.parse(map['forwardedQueryStrings']) unless map['forwardedQueryStrings'].nil?)
         return data
       end
     end
@@ -824,7 +824,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::QueryStringObject.new
         data.option = map['option']
-        data.query_strings_allow_list = (Parsers::StringList.parse(map['queryStringsAllowList']) unless map['queryStringsAllowList'].nil?)
+        data.query_strings_allow_list = (StringList.parse(map['queryStringsAllowList']) unless map['queryStringsAllowList'].nil?)
         return data
       end
     end
@@ -833,7 +833,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::HeaderObject.new
         data.option = map['option']
-        data.headers_allow_list = (Parsers::HeaderForwardList.parse(map['headersAllowList']) unless map['headersAllowList'].nil?)
+        data.headers_allow_list = (HeaderForwardList.parse(map['headersAllowList']) unless map['headersAllowList'].nil?)
         return data
       end
     end
@@ -850,7 +850,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::CookieObject.new
         data.option = map['option']
-        data.cookies_allow_list = (Parsers::StringList.parse(map['cookiesAllowList']) unless map['cookiesAllowList'].nil?)
+        data.cookies_allow_list = (StringList.parse(map['cookiesAllowList']) unless map['cookiesAllowList'].nil?)
         return data
       end
     end
@@ -881,7 +881,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -893,7 +893,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -905,7 +905,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -917,7 +917,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -929,7 +929,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -941,10 +941,10 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_pair = (Parsers::KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
+        data.key_pair = (KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
         data.public_key_base64 = map['publicKeyBase64']
         data.private_key_base64 = map['privateKeyBase64']
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -956,9 +956,9 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.fingerprint = map['fingerprint']
         return data
       end
@@ -971,7 +971,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -983,7 +983,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -995,7 +995,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1007,7 +1007,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1019,7 +1019,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1031,7 +1031,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1043,7 +1043,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1055,7 +1055,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1067,7 +1067,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1079,7 +1079,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1091,7 +1091,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1125,7 +1125,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1137,7 +1137,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1149,7 +1149,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -1161,7 +1161,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -1173,7 +1173,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -1185,7 +1185,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1197,7 +1197,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1209,7 +1209,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -1221,7 +1221,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1233,7 +1233,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1245,7 +1245,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1257,7 +1257,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1269,7 +1269,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1281,7 +1281,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -1293,7 +1293,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1305,7 +1305,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1317,7 +1317,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1329,7 +1329,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1355,7 +1355,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1367,7 +1367,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -1379,7 +1379,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.active_names = (Parsers::StringList.parse(map['activeNames']) unless map['activeNames'].nil?)
+        data.active_names = (StringList.parse(map['activeNames']) unless map['activeNames'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1392,7 +1392,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.alarms = (Parsers::AlarmsList.parse(map['alarms']) unless map['alarms'].nil?)
+        data.alarms = (AlarmsList.parse(map['alarms']) unless map['alarms'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1401,7 +1401,7 @@ module AWS::SDK::Lightsail
     class AlarmsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Alarm.parse(value) unless value.nil?
+          Alarm.parse(value) unless value.nil?
         end
       end
     end
@@ -1412,10 +1412,10 @@ module AWS::SDK::Lightsail
         data.name = map['name']
         data.arn = map['arn']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
         data.support_code = map['supportCode']
-        data.monitored_resource_info = (Parsers::MonitoredResourceInfo.parse(map['monitoredResourceInfo']) unless map['monitoredResourceInfo'].nil?)
+        data.monitored_resource_info = (MonitoredResourceInfo.parse(map['monitoredResourceInfo']) unless map['monitoredResourceInfo'].nil?)
         data.comparison_operator = map['comparisonOperator']
         data.evaluation_periods = map['evaluationPeriods']
         data.period = map['period']
@@ -1426,8 +1426,8 @@ module AWS::SDK::Lightsail
         data.metric_name = map['metricName']
         data.state = map['state']
         data.unit = map['unit']
-        data.contact_protocols = (Parsers::ContactProtocolsList.parse(map['contactProtocols']) unless map['contactProtocols'].nil?)
-        data.notification_triggers = (Parsers::NotificationTriggerList.parse(map['notificationTriggers']) unless map['notificationTriggers'].nil?)
+        data.contact_protocols = (ContactProtocolsList.parse(map['contactProtocols']) unless map['contactProtocols'].nil?)
+        data.notification_triggers = (NotificationTriggerList.parse(map['notificationTriggers']) unless map['notificationTriggers'].nil?)
         data.notification_enabled = map['notificationEnabled']
         return data
       end
@@ -1468,7 +1468,7 @@ module AWS::SDK::Lightsail
         map = Hearth::JSON.load(body)
         data.resource_name = map['resourceName']
         data.resource_type = map['resourceType']
-        data.auto_snapshots = (Parsers::AutoSnapshotDetailsList.parse(map['autoSnapshots']) unless map['autoSnapshots'].nil?)
+        data.auto_snapshots = (AutoSnapshotDetailsList.parse(map['autoSnapshots']) unless map['autoSnapshots'].nil?)
         data
       end
     end
@@ -1476,7 +1476,7 @@ module AWS::SDK::Lightsail
     class AutoSnapshotDetailsList
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoSnapshotDetails.parse(value) unless value.nil?
+          AutoSnapshotDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -1487,7 +1487,7 @@ module AWS::SDK::Lightsail
         data.date = map['date']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.status = map['status']
-        data.from_attached_disks = (Parsers::AttachedDiskList.parse(map['fromAttachedDisks']) unless map['fromAttachedDisks'].nil?)
+        data.from_attached_disks = (AttachedDiskList.parse(map['fromAttachedDisks']) unless map['fromAttachedDisks'].nil?)
         return data
       end
     end
@@ -1495,7 +1495,7 @@ module AWS::SDK::Lightsail
     class AttachedDiskList
       def self.parse(list)
         list.map do |value|
-          Parsers::AttachedDisk.parse(value) unless value.nil?
+          AttachedDisk.parse(value) unless value.nil?
         end
       end
     end
@@ -1516,7 +1516,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.blueprints = (Parsers::BlueprintList.parse(map['blueprints']) unless map['blueprints'].nil?)
+        data.blueprints = (BlueprintList.parse(map['blueprints']) unless map['blueprints'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1525,7 +1525,7 @@ module AWS::SDK::Lightsail
     class BlueprintList
       def self.parse(list)
         list.map do |value|
-          Parsers::Blueprint.parse(value) unless value.nil?
+          Blueprint.parse(value) unless value.nil?
         end
       end
     end
@@ -1556,7 +1556,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.access_keys = (Parsers::AccessKeyList.parse(map['accessKeys']) unless map['accessKeys'].nil?)
+        data.access_keys = (AccessKeyList.parse(map['accessKeys']) unless map['accessKeys'].nil?)
         data
       end
     end
@@ -1564,7 +1564,7 @@ module AWS::SDK::Lightsail
     class AccessKeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccessKey.parse(value) unless value.nil?
+          AccessKey.parse(value) unless value.nil?
         end
       end
     end
@@ -1576,7 +1576,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bundles = (Parsers::BucketBundleList.parse(map['bundles']) unless map['bundles'].nil?)
+        data.bundles = (BucketBundleList.parse(map['bundles']) unless map['bundles'].nil?)
         data
       end
     end
@@ -1584,7 +1584,7 @@ module AWS::SDK::Lightsail
     class BucketBundleList
       def self.parse(list)
         list.map do |value|
-          Parsers::BucketBundle.parse(value) unless value.nil?
+          BucketBundle.parse(value) unless value.nil?
         end
       end
     end
@@ -1610,7 +1610,7 @@ module AWS::SDK::Lightsail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.metric_name = map['metricName']
-        data.metric_data = (Parsers::MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
+        data.metric_data = (MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
         data
       end
     end
@@ -1618,7 +1618,7 @@ module AWS::SDK::Lightsail
     class MetricDatapointList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDatapoint.parse(value) unless value.nil?
+          MetricDatapoint.parse(value) unless value.nil?
         end
       end
     end
@@ -1644,9 +1644,9 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.buckets = (Parsers::BucketList.parse(map['buckets']) unless map['buckets'].nil?)
+        data.buckets = (BucketList.parse(map['buckets']) unless map['buckets'].nil?)
         data.next_page_token = map['nextPageToken']
-        data.account_level_bpa_sync = (Parsers::AccountLevelBpaSync.parse(map['accountLevelBpaSync']) unless map['accountLevelBpaSync'].nil?)
+        data.account_level_bpa_sync = (AccountLevelBpaSync.parse(map['accountLevelBpaSync']) unless map['accountLevelBpaSync'].nil?)
         data
       end
     end
@@ -1665,7 +1665,7 @@ module AWS::SDK::Lightsail
     class BucketList
       def self.parse(list)
         list.map do |value|
-          Parsers::Bucket.parse(value) unless value.nil?
+          Bucket.parse(value) unless value.nil?
         end
       end
     end
@@ -1677,7 +1677,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bundles = (Parsers::BundleList.parse(map['bundles']) unless map['bundles'].nil?)
+        data.bundles = (BundleList.parse(map['bundles']) unless map['bundles'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1686,7 +1686,7 @@ module AWS::SDK::Lightsail
     class BundleList
       def self.parse(list)
         list.map do |value|
-          Parsers::Bundle.parse(value) unless value.nil?
+          Bundle.parse(value) unless value.nil?
         end
       end
     end
@@ -1704,7 +1704,7 @@ module AWS::SDK::Lightsail
         data.power = map['power']
         data.ram_size_in_gb = Hearth::NumberHelper.deserialize(map['ramSizeInGb'])
         data.transfer_per_month_in_gb = map['transferPerMonthInGb']
-        data.supported_platforms = (Parsers::InstancePlatformList.parse(map['supportedPlatforms']) unless map['supportedPlatforms'].nil?)
+        data.supported_platforms = (InstancePlatformList.parse(map['supportedPlatforms']) unless map['supportedPlatforms'].nil?)
         return data
       end
     end
@@ -1724,7 +1724,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificates = (Parsers::CertificateSummaryList.parse(map['certificates']) unless map['certificates'].nil?)
+        data.certificates = (CertificateSummaryList.parse(map['certificates']) unless map['certificates'].nil?)
         data
       end
     end
@@ -1732,7 +1732,7 @@ module AWS::SDK::Lightsail
     class CertificateSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::CertificateSummary.parse(value) unless value.nil?
+          CertificateSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1744,7 +1744,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cloud_formation_stack_records = (Parsers::CloudFormationStackRecordList.parse(map['cloudFormationStackRecords']) unless map['cloudFormationStackRecords'].nil?)
+        data.cloud_formation_stack_records = (CloudFormationStackRecordList.parse(map['cloudFormationStackRecords']) unless map['cloudFormationStackRecords'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1753,7 +1753,7 @@ module AWS::SDK::Lightsail
     class CloudFormationStackRecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::CloudFormationStackRecord.parse(value) unless value.nil?
+          CloudFormationStackRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -1764,11 +1764,11 @@ module AWS::SDK::Lightsail
         data.name = map['name']
         data.arn = map['arn']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
         data.state = map['state']
-        data.source_info = (Parsers::CloudFormationStackRecordSourceInfoList.parse(map['sourceInfo']) unless map['sourceInfo'].nil?)
-        data.destination_info = (Parsers::DestinationInfo.parse(map['destinationInfo']) unless map['destinationInfo'].nil?)
+        data.source_info = (CloudFormationStackRecordSourceInfoList.parse(map['sourceInfo']) unless map['sourceInfo'].nil?)
+        data.destination_info = (DestinationInfo.parse(map['destinationInfo']) unless map['destinationInfo'].nil?)
         return data
       end
     end
@@ -1785,7 +1785,7 @@ module AWS::SDK::Lightsail
     class CloudFormationStackRecordSourceInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::CloudFormationStackRecordSourceInfo.parse(value) unless value.nil?
+          CloudFormationStackRecordSourceInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1807,7 +1807,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.contact_methods = (Parsers::ContactMethodsList.parse(map['contactMethods']) unless map['contactMethods'].nil?)
+        data.contact_methods = (ContactMethodsList.parse(map['contactMethods']) unless map['contactMethods'].nil?)
         data
       end
     end
@@ -1815,7 +1815,7 @@ module AWS::SDK::Lightsail
     class ContactMethodsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContactMethod.parse(value) unless value.nil?
+          ContactMethod.parse(value) unless value.nil?
         end
       end
     end
@@ -1829,7 +1829,7 @@ module AWS::SDK::Lightsail
         data.name = map['name']
         data.arn = map['arn']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
         data.support_code = map['supportCode']
         return data
@@ -1843,7 +1843,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metadata = (Parsers::ContainerServiceMetadataEntryList.parse(map['metadata']) unless map['metadata'].nil?)
+        data.metadata = (ContainerServiceMetadataEntryList.parse(map['metadata']) unless map['metadata'].nil?)
         data
       end
     end
@@ -1851,7 +1851,7 @@ module AWS::SDK::Lightsail
     class ContainerServiceMetadataEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerServiceMetadataEntry.parse(value) unless value.nil?
+          ContainerServiceMetadataEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -1873,7 +1873,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_images = (Parsers::ContainerImageList.parse(map['containerImages']) unless map['containerImages'].nil?)
+        data.container_images = (ContainerImageList.parse(map['containerImages']) unless map['containerImages'].nil?)
         data
       end
     end
@@ -1881,7 +1881,7 @@ module AWS::SDK::Lightsail
     class ContainerImageList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerImage.parse(value) unless value.nil?
+          ContainerImage.parse(value) unless value.nil?
         end
       end
     end
@@ -1903,7 +1903,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.log_events = (Parsers::ContainerServiceLogEventList.parse(map['logEvents']) unless map['logEvents'].nil?)
+        data.log_events = (ContainerServiceLogEventList.parse(map['logEvents']) unless map['logEvents'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1912,7 +1912,7 @@ module AWS::SDK::Lightsail
     class ContainerServiceLogEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerServiceLogEvent.parse(value) unless value.nil?
+          ContainerServiceLogEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -1933,7 +1933,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployments = (Parsers::ContainerServiceDeploymentList.parse(map['deployments']) unless map['deployments'].nil?)
+        data.deployments = (ContainerServiceDeploymentList.parse(map['deployments']) unless map['deployments'].nil?)
         data
       end
     end
@@ -1941,7 +1941,7 @@ module AWS::SDK::Lightsail
     class ContainerServiceDeploymentList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerServiceDeployment.parse(value) unless value.nil?
+          ContainerServiceDeployment.parse(value) unless value.nil?
         end
       end
     end
@@ -1954,7 +1954,7 @@ module AWS::SDK::Lightsail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.metric_name = map['metricName']
-        data.metric_data = (Parsers::MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
+        data.metric_data = (MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
         data
       end
     end
@@ -1966,7 +1966,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.powers = (Parsers::ContainerServicePowerList.parse(map['powers']) unless map['powers'].nil?)
+        data.powers = (ContainerServicePowerList.parse(map['powers']) unless map['powers'].nil?)
         data
       end
     end
@@ -1974,7 +1974,7 @@ module AWS::SDK::Lightsail
     class ContainerServicePowerList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerServicePower.parse(value) unless value.nil?
+          ContainerServicePower.parse(value) unless value.nil?
         end
       end
     end
@@ -1999,7 +1999,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_services = (Parsers::ContainerServiceList.parse(map['containerServices']) unless map['containerServices'].nil?)
+        data.container_services = (ContainerServiceList.parse(map['containerServices']) unless map['containerServices'].nil?)
         data
       end
     end
@@ -2007,7 +2007,7 @@ module AWS::SDK::Lightsail
     class ContainerServiceList
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerService.parse(value) unless value.nil?
+          ContainerService.parse(value) unless value.nil?
         end
       end
     end
@@ -2019,7 +2019,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.disk = (Parsers::Disk.parse(map['disk']) unless map['disk'].nil?)
+        data.disk = (Disk.parse(map['disk']) unless map['disk'].nil?)
         data
       end
     end
@@ -2031,10 +2031,10 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
-        data.add_ons = (Parsers::AddOnList.parse(map['addOns']) unless map['addOns'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.add_ons = (AddOnList.parse(map['addOns']) unless map['addOns'].nil?)
         data.size_in_gb = map['sizeInGb']
         data.is_system_disk = map['isSystemDisk']
         data.iops = map['iops']
@@ -2051,7 +2051,7 @@ module AWS::SDK::Lightsail
     class AddOnList
       def self.parse(list)
         list.map do |value|
-          Parsers::AddOn.parse(value) unless value.nil?
+          AddOn.parse(value) unless value.nil?
         end
       end
     end
@@ -2074,7 +2074,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.disk_snapshot = (Parsers::DiskSnapshot.parse(map['diskSnapshot']) unless map['diskSnapshot'].nil?)
+        data.disk_snapshot = (DiskSnapshot.parse(map['diskSnapshot']) unless map['diskSnapshot'].nil?)
         data
       end
     end
@@ -2086,9 +2086,9 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.size_in_gb = map['sizeInGb']
         data.state = map['state']
         data.progress = map['progress']
@@ -2108,7 +2108,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.disk_snapshots = (Parsers::DiskSnapshotList.parse(map['diskSnapshots']) unless map['diskSnapshots'].nil?)
+        data.disk_snapshots = (DiskSnapshotList.parse(map['diskSnapshots']) unless map['diskSnapshots'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2117,7 +2117,7 @@ module AWS::SDK::Lightsail
     class DiskSnapshotList
       def self.parse(list)
         list.map do |value|
-          Parsers::DiskSnapshot.parse(value) unless value.nil?
+          DiskSnapshot.parse(value) unless value.nil?
         end
       end
     end
@@ -2129,7 +2129,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.disks = (Parsers::DiskList.parse(map['disks']) unless map['disks'].nil?)
+        data.disks = (DiskList.parse(map['disks']) unless map['disks'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2138,7 +2138,7 @@ module AWS::SDK::Lightsail
     class DiskList
       def self.parse(list)
         list.map do |value|
-          Parsers::Disk.parse(value) unless value.nil?
+          Disk.parse(value) unless value.nil?
         end
       end
     end
@@ -2150,7 +2150,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bundles = (Parsers::DistributionBundleList.parse(map['bundles']) unless map['bundles'].nil?)
+        data.bundles = (DistributionBundleList.parse(map['bundles']) unless map['bundles'].nil?)
         data
       end
     end
@@ -2158,7 +2158,7 @@ module AWS::SDK::Lightsail
     class DistributionBundleList
       def self.parse(list)
         list.map do |value|
-          Parsers::DistributionBundle.parse(value) unless value.nil?
+          DistributionBundle.parse(value) unless value.nil?
         end
       end
     end
@@ -2196,7 +2196,7 @@ module AWS::SDK::Lightsail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.metric_name = map['metricName']
-        data.metric_data = (Parsers::MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
+        data.metric_data = (MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
         data
       end
     end
@@ -2208,7 +2208,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.distributions = (Parsers::DistributionList.parse(map['distributions']) unless map['distributions'].nil?)
+        data.distributions = (DistributionList.parse(map['distributions']) unless map['distributions'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2217,7 +2217,7 @@ module AWS::SDK::Lightsail
     class DistributionList
       def self.parse(list)
         list.map do |value|
-          Parsers::LightsailDistribution.parse(value) unless value.nil?
+          LightsailDistribution.parse(value) unless value.nil?
         end
       end
     end
@@ -2229,7 +2229,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain = (Parsers::Domain.parse(map['domain']) unless map['domain'].nil?)
+        data.domain = (Domain.parse(map['domain']) unless map['domain'].nil?)
         data
       end
     end
@@ -2241,10 +2241,10 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
-        data.domain_entries = (Parsers::DomainEntryList.parse(map['domainEntries']) unless map['domainEntries'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.domain_entries = (DomainEntryList.parse(map['domainEntries']) unless map['domainEntries'].nil?)
         return data
       end
     end
@@ -2252,7 +2252,7 @@ module AWS::SDK::Lightsail
     class DomainEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainEntry.parse(value) unless value.nil?
+          DomainEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -2265,7 +2265,7 @@ module AWS::SDK::Lightsail
         data.target = map['target']
         data.is_alias = map['isAlias']
         data.type = map['type']
-        data.options = (Parsers::DomainEntryOptions.parse(map['options']) unless map['options'].nil?)
+        data.options = (DomainEntryOptions.parse(map['options']) unless map['options'].nil?)
         return data
       end
     end
@@ -2287,7 +2287,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domains = (Parsers::DomainList.parse(map['domains']) unless map['domains'].nil?)
+        data.domains = (DomainList.parse(map['domains']) unless map['domains'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2296,7 +2296,7 @@ module AWS::SDK::Lightsail
     class DomainList
       def self.parse(list)
         list.map do |value|
-          Parsers::Domain.parse(value) unless value.nil?
+          Domain.parse(value) unless value.nil?
         end
       end
     end
@@ -2308,7 +2308,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.export_snapshot_records = (Parsers::ExportSnapshotRecordList.parse(map['exportSnapshotRecords']) unless map['exportSnapshotRecords'].nil?)
+        data.export_snapshot_records = (ExportSnapshotRecordList.parse(map['exportSnapshotRecords']) unless map['exportSnapshotRecords'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2317,7 +2317,7 @@ module AWS::SDK::Lightsail
     class ExportSnapshotRecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExportSnapshotRecord.parse(value) unless value.nil?
+          ExportSnapshotRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -2328,11 +2328,11 @@ module AWS::SDK::Lightsail
         data.name = map['name']
         data.arn = map['arn']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
         data.state = map['state']
-        data.source_info = (Parsers::ExportSnapshotRecordSourceInfo.parse(map['sourceInfo']) unless map['sourceInfo'].nil?)
-        data.destination_info = (Parsers::DestinationInfo.parse(map['destinationInfo']) unless map['destinationInfo'].nil?)
+        data.source_info = (ExportSnapshotRecordSourceInfo.parse(map['sourceInfo']) unless map['sourceInfo'].nil?)
+        data.destination_info = (DestinationInfo.parse(map['destinationInfo']) unless map['destinationInfo'].nil?)
         return data
       end
     end
@@ -2346,8 +2346,8 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.from_resource_name = map['fromResourceName']
         data.from_resource_arn = map['fromResourceArn']
-        data.instance_snapshot_info = (Parsers::InstanceSnapshotInfo.parse(map['instanceSnapshotInfo']) unless map['instanceSnapshotInfo'].nil?)
-        data.disk_snapshot_info = (Parsers::DiskSnapshotInfo.parse(map['diskSnapshotInfo']) unless map['diskSnapshotInfo'].nil?)
+        data.instance_snapshot_info = (InstanceSnapshotInfo.parse(map['instanceSnapshotInfo']) unless map['instanceSnapshotInfo'].nil?)
+        data.disk_snapshot_info = (DiskSnapshotInfo.parse(map['diskSnapshotInfo']) unless map['diskSnapshotInfo'].nil?)
         return data
       end
     end
@@ -2365,7 +2365,7 @@ module AWS::SDK::Lightsail
         data = Types::InstanceSnapshotInfo.new
         data.from_bundle_id = map['fromBundleId']
         data.from_blueprint_id = map['fromBlueprintId']
-        data.from_disk_info = (Parsers::DiskInfoList.parse(map['fromDiskInfo']) unless map['fromDiskInfo'].nil?)
+        data.from_disk_info = (DiskInfoList.parse(map['fromDiskInfo']) unless map['fromDiskInfo'].nil?)
         return data
       end
     end
@@ -2373,7 +2373,7 @@ module AWS::SDK::Lightsail
     class DiskInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::DiskInfo.parse(value) unless value.nil?
+          DiskInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -2396,7 +2396,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance = (Parsers::Instance.parse(map['instance']) unless map['instance'].nil?)
+        data.instance = (Instance.parse(map['instance']) unless map['instance'].nil?)
         data
       end
     end
@@ -2408,21 +2408,21 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.blueprint_id = map['blueprintId']
         data.blueprint_name = map['blueprintName']
         data.bundle_id = map['bundleId']
-        data.add_ons = (Parsers::AddOnList.parse(map['addOns']) unless map['addOns'].nil?)
+        data.add_ons = (AddOnList.parse(map['addOns']) unless map['addOns'].nil?)
         data.is_static_ip = map['isStaticIp']
         data.private_ip_address = map['privateIpAddress']
         data.public_ip_address = map['publicIpAddress']
-        data.ipv6_addresses = (Parsers::Ipv6AddressList.parse(map['ipv6Addresses']) unless map['ipv6Addresses'].nil?)
+        data.ipv6_addresses = (Ipv6AddressList.parse(map['ipv6Addresses']) unless map['ipv6Addresses'].nil?)
         data.ip_address_type = map['ipAddressType']
-        data.hardware = (Parsers::InstanceHardware.parse(map['hardware']) unless map['hardware'].nil?)
-        data.networking = (Parsers::InstanceNetworking.parse(map['networking']) unless map['networking'].nil?)
-        data.state = (Parsers::InstanceState.parse(map['state']) unless map['state'].nil?)
+        data.hardware = (InstanceHardware.parse(map['hardware']) unless map['hardware'].nil?)
+        data.networking = (InstanceNetworking.parse(map['networking']) unless map['networking'].nil?)
+        data.state = (InstanceState.parse(map['state']) unless map['state'].nil?)
         data.username = map['username']
         data.ssh_key_name = map['sshKeyName']
         return data
@@ -2441,8 +2441,8 @@ module AWS::SDK::Lightsail
     class InstanceNetworking
       def self.parse(map)
         data = Types::InstanceNetworking.new
-        data.monthly_transfer = (Parsers::MonthlyTransfer.parse(map['monthlyTransfer']) unless map['monthlyTransfer'].nil?)
-        data.ports = (Parsers::InstancePortInfoList.parse(map['ports']) unless map['ports'].nil?)
+        data.monthly_transfer = (MonthlyTransfer.parse(map['monthlyTransfer']) unless map['monthlyTransfer'].nil?)
+        data.ports = (InstancePortInfoList.parse(map['ports']) unless map['ports'].nil?)
         return data
       end
     end
@@ -2450,7 +2450,7 @@ module AWS::SDK::Lightsail
     class InstancePortInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstancePortInfo.parse(value) unless value.nil?
+          InstancePortInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -2465,9 +2465,9 @@ module AWS::SDK::Lightsail
         data.access_type = map['accessType']
         data.common_name = map['commonName']
         data.access_direction = map['accessDirection']
-        data.cidrs = (Parsers::StringList.parse(map['cidrs']) unless map['cidrs'].nil?)
-        data.ipv6_cidrs = (Parsers::StringList.parse(map['ipv6Cidrs']) unless map['ipv6Cidrs'].nil?)
-        data.cidr_list_aliases = (Parsers::StringList.parse(map['cidrListAliases']) unless map['cidrListAliases'].nil?)
+        data.cidrs = (StringList.parse(map['cidrs']) unless map['cidrs'].nil?)
+        data.ipv6_cidrs = (StringList.parse(map['ipv6Cidrs']) unless map['ipv6Cidrs'].nil?)
+        data.cidr_list_aliases = (StringList.parse(map['cidrListAliases']) unless map['cidrListAliases'].nil?)
         return data
       end
     end
@@ -2484,7 +2484,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::InstanceHardware.new
         data.cpu_count = map['cpuCount']
-        data.disks = (Parsers::DiskList.parse(map['disks']) unless map['disks'].nil?)
+        data.disks = (DiskList.parse(map['disks']) unless map['disks'].nil?)
         data.ram_size_in_gb = Hearth::NumberHelper.deserialize(map['ramSizeInGb'])
         return data
       end
@@ -2505,7 +2505,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.access_details = (Parsers::InstanceAccessDetails.parse(map['accessDetails']) unless map['accessDetails'].nil?)
+        data.access_details = (InstanceAccessDetails.parse(map['accessDetails']) unless map['accessDetails'].nil?)
         data
       end
     end
@@ -2517,12 +2517,12 @@ module AWS::SDK::Lightsail
         data.expires_at = Time.at(map['expiresAt'].to_i) if map['expiresAt']
         data.ip_address = map['ipAddress']
         data.password = map['password']
-        data.password_data = (Parsers::PasswordData.parse(map['passwordData']) unless map['passwordData'].nil?)
+        data.password_data = (PasswordData.parse(map['passwordData']) unless map['passwordData'].nil?)
         data.private_key = map['privateKey']
         data.protocol = map['protocol']
         data.instance_name = map['instanceName']
         data.username = map['username']
-        data.host_keys = (Parsers::HostKeysList.parse(map['hostKeys']) unless map['hostKeys'].nil?)
+        data.host_keys = (HostKeysList.parse(map['hostKeys']) unless map['hostKeys'].nil?)
         return data
       end
     end
@@ -2530,7 +2530,7 @@ module AWS::SDK::Lightsail
     class HostKeysList
       def self.parse(list)
         list.map do |value|
-          Parsers::HostKeyAttributes.parse(value) unless value.nil?
+          HostKeyAttributes.parse(value) unless value.nil?
         end
       end
     end
@@ -2566,7 +2566,7 @@ module AWS::SDK::Lightsail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.metric_name = map['metricName']
-        data.metric_data = (Parsers::MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
+        data.metric_data = (MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
         data
       end
     end
@@ -2578,7 +2578,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.port_states = (Parsers::InstancePortStateList.parse(map['portStates']) unless map['portStates'].nil?)
+        data.port_states = (InstancePortStateList.parse(map['portStates']) unless map['portStates'].nil?)
         data
       end
     end
@@ -2586,7 +2586,7 @@ module AWS::SDK::Lightsail
     class InstancePortStateList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstancePortState.parse(value) unless value.nil?
+          InstancePortState.parse(value) unless value.nil?
         end
       end
     end
@@ -2598,9 +2598,9 @@ module AWS::SDK::Lightsail
         data.to_port = map['toPort']
         data.protocol = map['protocol']
         data.state = map['state']
-        data.cidrs = (Parsers::StringList.parse(map['cidrs']) unless map['cidrs'].nil?)
-        data.ipv6_cidrs = (Parsers::StringList.parse(map['ipv6Cidrs']) unless map['ipv6Cidrs'].nil?)
-        data.cidr_list_aliases = (Parsers::StringList.parse(map['cidrListAliases']) unless map['cidrListAliases'].nil?)
+        data.cidrs = (StringList.parse(map['cidrs']) unless map['cidrs'].nil?)
+        data.ipv6_cidrs = (StringList.parse(map['ipv6Cidrs']) unless map['ipv6Cidrs'].nil?)
+        data.cidr_list_aliases = (StringList.parse(map['cidrListAliases']) unless map['cidrListAliases'].nil?)
         return data
       end
     end
@@ -2612,7 +2612,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_snapshot = (Parsers::InstanceSnapshot.parse(map['instanceSnapshot']) unless map['instanceSnapshot'].nil?)
+        data.instance_snapshot = (InstanceSnapshot.parse(map['instanceSnapshot']) unless map['instanceSnapshot'].nil?)
         data
       end
     end
@@ -2624,12 +2624,12 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.state = map['state']
         data.progress = map['progress']
-        data.from_attached_disks = (Parsers::DiskList.parse(map['fromAttachedDisks']) unless map['fromAttachedDisks'].nil?)
+        data.from_attached_disks = (DiskList.parse(map['fromAttachedDisks']) unless map['fromAttachedDisks'].nil?)
         data.from_instance_name = map['fromInstanceName']
         data.from_instance_arn = map['fromInstanceArn']
         data.from_blueprint_id = map['fromBlueprintId']
@@ -2647,7 +2647,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_snapshots = (Parsers::InstanceSnapshotList.parse(map['instanceSnapshots']) unless map['instanceSnapshots'].nil?)
+        data.instance_snapshots = (InstanceSnapshotList.parse(map['instanceSnapshots']) unless map['instanceSnapshots'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2656,7 +2656,7 @@ module AWS::SDK::Lightsail
     class InstanceSnapshotList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceSnapshot.parse(value) unless value.nil?
+          InstanceSnapshot.parse(value) unless value.nil?
         end
       end
     end
@@ -2668,7 +2668,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.state = (Parsers::InstanceState.parse(map['state']) unless map['state'].nil?)
+        data.state = (InstanceState.parse(map['state']) unless map['state'].nil?)
         data
       end
     end
@@ -2680,7 +2680,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instances = (Parsers::InstanceList.parse(map['instances']) unless map['instances'].nil?)
+        data.instances = (InstanceList.parse(map['instances']) unless map['instances'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2689,7 +2689,7 @@ module AWS::SDK::Lightsail
     class InstanceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Instance.parse(value) unless value.nil?
+          Instance.parse(value) unless value.nil?
         end
       end
     end
@@ -2701,7 +2701,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_pair = (Parsers::KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
+        data.key_pair = (KeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
         data
       end
     end
@@ -2713,7 +2713,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_pairs = (Parsers::KeyPairList.parse(map['keyPairs']) unless map['keyPairs'].nil?)
+        data.key_pairs = (KeyPairList.parse(map['keyPairs']) unless map['keyPairs'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2722,7 +2722,7 @@ module AWS::SDK::Lightsail
     class KeyPairList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyPair.parse(value) unless value.nil?
+          KeyPair.parse(value) unless value.nil?
         end
       end
     end
@@ -2734,7 +2734,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.load_balancer = (Parsers::LoadBalancer.parse(map['loadBalancer']) unless map['loadBalancer'].nil?)
+        data.load_balancer = (LoadBalancer.parse(map['loadBalancer']) unless map['loadBalancer'].nil?)
         data
       end
     end
@@ -2746,18 +2746,18 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.dns_name = map['dnsName']
         data.state = map['state']
         data.protocol = map['protocol']
-        data.public_ports = (Parsers::PortList.parse(map['publicPorts']) unless map['publicPorts'].nil?)
+        data.public_ports = (PortList.parse(map['publicPorts']) unless map['publicPorts'].nil?)
         data.health_check_path = map['healthCheckPath']
         data.instance_port = map['instancePort']
-        data.instance_health_summary = (Parsers::InstanceHealthSummaryList.parse(map['instanceHealthSummary']) unless map['instanceHealthSummary'].nil?)
-        data.tls_certificate_summaries = (Parsers::LoadBalancerTlsCertificateSummaryList.parse(map['tlsCertificateSummaries']) unless map['tlsCertificateSummaries'].nil?)
-        data.configuration_options = (Parsers::LoadBalancerConfigurationOptions.parse(map['configurationOptions']) unless map['configurationOptions'].nil?)
+        data.instance_health_summary = (InstanceHealthSummaryList.parse(map['instanceHealthSummary']) unless map['instanceHealthSummary'].nil?)
+        data.tls_certificate_summaries = (LoadBalancerTlsCertificateSummaryList.parse(map['tlsCertificateSummaries']) unless map['tlsCertificateSummaries'].nil?)
+        data.configuration_options = (LoadBalancerConfigurationOptions.parse(map['configurationOptions']) unless map['configurationOptions'].nil?)
         data.ip_address_type = map['ipAddressType']
         data.https_redirection_enabled = map['httpsRedirectionEnabled']
         data.tls_policy_name = map['tlsPolicyName']
@@ -2778,7 +2778,7 @@ module AWS::SDK::Lightsail
     class LoadBalancerTlsCertificateSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBalancerTlsCertificateSummary.parse(value) unless value.nil?
+          LoadBalancerTlsCertificateSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2795,7 +2795,7 @@ module AWS::SDK::Lightsail
     class InstanceHealthSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceHealthSummary.parse(value) unless value.nil?
+          InstanceHealthSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2826,7 +2826,7 @@ module AWS::SDK::Lightsail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.metric_name = map['metricName']
-        data.metric_data = (Parsers::MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
+        data.metric_data = (MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
         data
       end
     end
@@ -2838,7 +2838,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tls_certificates = (Parsers::LoadBalancerTlsCertificateList.parse(map['tlsCertificates']) unless map['tlsCertificates'].nil?)
+        data.tls_certificates = (LoadBalancerTlsCertificateList.parse(map['tlsCertificates']) unless map['tlsCertificates'].nil?)
         data
       end
     end
@@ -2846,7 +2846,7 @@ module AWS::SDK::Lightsail
     class LoadBalancerTlsCertificateList
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBalancerTlsCertificate.parse(value) unless value.nil?
+          LoadBalancerTlsCertificate.parse(value) unless value.nil?
         end
       end
     end
@@ -2858,27 +2858,27 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.load_balancer_name = map['loadBalancerName']
         data.is_attached = map['isAttached']
         data.status = map['status']
         data.domain_name = map['domainName']
-        data.domain_validation_records = (Parsers::LoadBalancerTlsCertificateDomainValidationRecordList.parse(map['domainValidationRecords']) unless map['domainValidationRecords'].nil?)
+        data.domain_validation_records = (LoadBalancerTlsCertificateDomainValidationRecordList.parse(map['domainValidationRecords']) unless map['domainValidationRecords'].nil?)
         data.failure_reason = map['failureReason']
         data.issued_at = Time.at(map['issuedAt'].to_i) if map['issuedAt']
         data.issuer = map['issuer']
         data.key_algorithm = map['keyAlgorithm']
         data.not_after = Time.at(map['notAfter'].to_i) if map['notAfter']
         data.not_before = Time.at(map['notBefore'].to_i) if map['notBefore']
-        data.renewal_summary = (Parsers::LoadBalancerTlsCertificateRenewalSummary.parse(map['renewalSummary']) unless map['renewalSummary'].nil?)
+        data.renewal_summary = (LoadBalancerTlsCertificateRenewalSummary.parse(map['renewalSummary']) unless map['renewalSummary'].nil?)
         data.revocation_reason = map['revocationReason']
         data.revoked_at = Time.at(map['revokedAt'].to_i) if map['revokedAt']
         data.serial = map['serial']
         data.signature_algorithm = map['signatureAlgorithm']
         data.subject = map['subject']
-        data.subject_alternative_names = (Parsers::StringList.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
+        data.subject_alternative_names = (StringList.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
         return data
       end
     end
@@ -2887,7 +2887,7 @@ module AWS::SDK::Lightsail
       def self.parse(map)
         data = Types::LoadBalancerTlsCertificateRenewalSummary.new
         data.renewal_status = map['renewalStatus']
-        data.domain_validation_options = (Parsers::LoadBalancerTlsCertificateDomainValidationOptionList.parse(map['domainValidationOptions']) unless map['domainValidationOptions'].nil?)
+        data.domain_validation_options = (LoadBalancerTlsCertificateDomainValidationOptionList.parse(map['domainValidationOptions']) unless map['domainValidationOptions'].nil?)
         return data
       end
     end
@@ -2895,7 +2895,7 @@ module AWS::SDK::Lightsail
     class LoadBalancerTlsCertificateDomainValidationOptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBalancerTlsCertificateDomainValidationOption.parse(value) unless value.nil?
+          LoadBalancerTlsCertificateDomainValidationOption.parse(value) unless value.nil?
         end
       end
     end
@@ -2912,7 +2912,7 @@ module AWS::SDK::Lightsail
     class LoadBalancerTlsCertificateDomainValidationRecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBalancerTlsCertificateDomainValidationRecord.parse(value) unless value.nil?
+          LoadBalancerTlsCertificateDomainValidationRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -2936,7 +2936,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tls_policies = (Parsers::LoadBalancerTlsPolicyList.parse(map['tlsPolicies']) unless map['tlsPolicies'].nil?)
+        data.tls_policies = (LoadBalancerTlsPolicyList.parse(map['tlsPolicies']) unless map['tlsPolicies'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2945,7 +2945,7 @@ module AWS::SDK::Lightsail
     class LoadBalancerTlsPolicyList
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBalancerTlsPolicy.parse(value) unless value.nil?
+          LoadBalancerTlsPolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -2956,8 +2956,8 @@ module AWS::SDK::Lightsail
         data.name = map['name']
         data.is_default = map['isDefault']
         data.description = map['description']
-        data.protocols = (Parsers::StringList.parse(map['protocols']) unless map['protocols'].nil?)
-        data.ciphers = (Parsers::StringList.parse(map['ciphers']) unless map['ciphers'].nil?)
+        data.protocols = (StringList.parse(map['protocols']) unless map['protocols'].nil?)
+        data.ciphers = (StringList.parse(map['ciphers']) unless map['ciphers'].nil?)
         return data
       end
     end
@@ -2969,7 +2969,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.load_balancers = (Parsers::LoadBalancerList.parse(map['loadBalancers']) unless map['loadBalancers'].nil?)
+        data.load_balancers = (LoadBalancerList.parse(map['loadBalancers']) unless map['loadBalancers'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -2978,7 +2978,7 @@ module AWS::SDK::Lightsail
     class LoadBalancerList
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBalancer.parse(value) unless value.nil?
+          LoadBalancer.parse(value) unless value.nil?
         end
       end
     end
@@ -2990,7 +2990,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3002,7 +3002,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3015,7 +3015,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data.next_page_count = map['nextPageCount']
         data.next_page_token = map['nextPageToken']
         data
@@ -3029,7 +3029,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.regions = (Parsers::RegionList.parse(map['regions']) unless map['regions'].nil?)
+        data.regions = (RegionList.parse(map['regions']) unless map['regions'].nil?)
         data
       end
     end
@@ -3037,7 +3037,7 @@ module AWS::SDK::Lightsail
     class RegionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Region.parse(value) unless value.nil?
+          Region.parse(value) unless value.nil?
         end
       end
     end
@@ -3049,8 +3049,8 @@ module AWS::SDK::Lightsail
         data.description = map['description']
         data.display_name = map['displayName']
         data.name = map['name']
-        data.availability_zones = (Parsers::AvailabilityZoneList.parse(map['availabilityZones']) unless map['availabilityZones'].nil?)
-        data.relational_database_availability_zones = (Parsers::AvailabilityZoneList.parse(map['relationalDatabaseAvailabilityZones']) unless map['relationalDatabaseAvailabilityZones'].nil?)
+        data.availability_zones = (AvailabilityZoneList.parse(map['availabilityZones']) unless map['availabilityZones'].nil?)
+        data.relational_database_availability_zones = (AvailabilityZoneList.parse(map['relationalDatabaseAvailabilityZones']) unless map['relationalDatabaseAvailabilityZones'].nil?)
         return data
       end
     end
@@ -3058,7 +3058,7 @@ module AWS::SDK::Lightsail
     class AvailabilityZoneList
       def self.parse(list)
         list.map do |value|
-          Parsers::AvailabilityZone.parse(value) unless value.nil?
+          AvailabilityZone.parse(value) unless value.nil?
         end
       end
     end
@@ -3079,7 +3079,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.relational_database = (Parsers::RelationalDatabase.parse(map['relationalDatabase']) unless map['relationalDatabase'].nil?)
+        data.relational_database = (RelationalDatabase.parse(map['relationalDatabase']) unless map['relationalDatabase'].nil?)
         data
       end
     end
@@ -3091,17 +3091,17 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.relational_database_blueprint_id = map['relationalDatabaseBlueprintId']
         data.relational_database_bundle_id = map['relationalDatabaseBundleId']
         data.master_database_name = map['masterDatabaseName']
-        data.hardware = (Parsers::RelationalDatabaseHardware.parse(map['hardware']) unless map['hardware'].nil?)
+        data.hardware = (RelationalDatabaseHardware.parse(map['hardware']) unless map['hardware'].nil?)
         data.state = map['state']
         data.secondary_availability_zone = map['secondaryAvailabilityZone']
         data.backup_retention_enabled = map['backupRetentionEnabled']
-        data.pending_modified_values = (Parsers::PendingModifiedRelationalDatabaseValues.parse(map['pendingModifiedValues']) unless map['pendingModifiedValues'].nil?)
+        data.pending_modified_values = (PendingModifiedRelationalDatabaseValues.parse(map['pendingModifiedValues']) unless map['pendingModifiedValues'].nil?)
         data.engine = map['engine']
         data.engine_version = map['engineVersion']
         data.latest_restorable_time = Time.at(map['latestRestorableTime'].to_i) if map['latestRestorableTime']
@@ -3110,8 +3110,8 @@ module AWS::SDK::Lightsail
         data.preferred_backup_window = map['preferredBackupWindow']
         data.preferred_maintenance_window = map['preferredMaintenanceWindow']
         data.publicly_accessible = map['publiclyAccessible']
-        data.master_endpoint = (Parsers::RelationalDatabaseEndpoint.parse(map['masterEndpoint']) unless map['masterEndpoint'].nil?)
-        data.pending_maintenance_actions = (Parsers::PendingMaintenanceActionList.parse(map['pendingMaintenanceActions']) unless map['pendingMaintenanceActions'].nil?)
+        data.master_endpoint = (RelationalDatabaseEndpoint.parse(map['masterEndpoint']) unless map['masterEndpoint'].nil?)
+        data.pending_maintenance_actions = (PendingMaintenanceActionList.parse(map['pendingMaintenanceActions']) unless map['pendingMaintenanceActions'].nil?)
         data.ca_certificate_identifier = map['caCertificateIdentifier']
         return data
       end
@@ -3120,7 +3120,7 @@ module AWS::SDK::Lightsail
     class PendingMaintenanceActionList
       def self.parse(list)
         list.map do |value|
-          Parsers::PendingMaintenanceAction.parse(value) unless value.nil?
+          PendingMaintenanceAction.parse(value) unless value.nil?
         end
       end
     end
@@ -3171,7 +3171,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.blueprints = (Parsers::RelationalDatabaseBlueprintList.parse(map['blueprints']) unless map['blueprints'].nil?)
+        data.blueprints = (RelationalDatabaseBlueprintList.parse(map['blueprints']) unless map['blueprints'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3180,7 +3180,7 @@ module AWS::SDK::Lightsail
     class RelationalDatabaseBlueprintList
       def self.parse(list)
         list.map do |value|
-          Parsers::RelationalDatabaseBlueprint.parse(value) unless value.nil?
+          RelationalDatabaseBlueprint.parse(value) unless value.nil?
         end
       end
     end
@@ -3205,7 +3205,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bundles = (Parsers::RelationalDatabaseBundleList.parse(map['bundles']) unless map['bundles'].nil?)
+        data.bundles = (RelationalDatabaseBundleList.parse(map['bundles']) unless map['bundles'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3214,7 +3214,7 @@ module AWS::SDK::Lightsail
     class RelationalDatabaseBundleList
       def self.parse(list)
         list.map do |value|
-          Parsers::RelationalDatabaseBundle.parse(value) unless value.nil?
+          RelationalDatabaseBundle.parse(value) unless value.nil?
         end
       end
     end
@@ -3242,7 +3242,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.relational_database_events = (Parsers::RelationalDatabaseEventList.parse(map['relationalDatabaseEvents']) unless map['relationalDatabaseEvents'].nil?)
+        data.relational_database_events = (RelationalDatabaseEventList.parse(map['relationalDatabaseEvents']) unless map['relationalDatabaseEvents'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3251,7 +3251,7 @@ module AWS::SDK::Lightsail
     class RelationalDatabaseEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::RelationalDatabaseEvent.parse(value) unless value.nil?
+          RelationalDatabaseEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -3262,7 +3262,7 @@ module AWS::SDK::Lightsail
         data.resource = map['resource']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.message = map['message']
-        data.event_categories = (Parsers::StringList.parse(map['eventCategories']) unless map['eventCategories'].nil?)
+        data.event_categories = (StringList.parse(map['eventCategories']) unless map['eventCategories'].nil?)
         return data
       end
     end
@@ -3274,7 +3274,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_log_events = (Parsers::LogEventList.parse(map['resourceLogEvents']) unless map['resourceLogEvents'].nil?)
+        data.resource_log_events = (LogEventList.parse(map['resourceLogEvents']) unless map['resourceLogEvents'].nil?)
         data.next_backward_token = map['nextBackwardToken']
         data.next_forward_token = map['nextForwardToken']
         data
@@ -3284,7 +3284,7 @@ module AWS::SDK::Lightsail
     class LogEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::LogEvent.parse(value) unless value.nil?
+          LogEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -3305,7 +3305,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.log_streams = (Parsers::StringList.parse(map['logStreams']) unless map['logStreams'].nil?)
+        data.log_streams = (StringList.parse(map['logStreams']) unless map['logStreams'].nil?)
         data
       end
     end
@@ -3331,7 +3331,7 @@ module AWS::SDK::Lightsail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.metric_name = map['metricName']
-        data.metric_data = (Parsers::MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
+        data.metric_data = (MetricDatapointList.parse(map['metricData']) unless map['metricData'].nil?)
         data
       end
     end
@@ -3343,7 +3343,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameters = (Parsers::RelationalDatabaseParameterList.parse(map['parameters']) unless map['parameters'].nil?)
+        data.parameters = (RelationalDatabaseParameterList.parse(map['parameters']) unless map['parameters'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3352,7 +3352,7 @@ module AWS::SDK::Lightsail
     class RelationalDatabaseParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::RelationalDatabaseParameter.parse(value) unless value.nil?
+          RelationalDatabaseParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -3379,7 +3379,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.relational_database_snapshot = (Parsers::RelationalDatabaseSnapshot.parse(map['relationalDatabaseSnapshot']) unless map['relationalDatabaseSnapshot'].nil?)
+        data.relational_database_snapshot = (RelationalDatabaseSnapshot.parse(map['relationalDatabaseSnapshot']) unless map['relationalDatabaseSnapshot'].nil?)
         data
       end
     end
@@ -3391,9 +3391,9 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.engine = map['engine']
         data.engine_version = map['engineVersion']
         data.size_in_gb = map['sizeInGb']
@@ -3413,7 +3413,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.relational_database_snapshots = (Parsers::RelationalDatabaseSnapshotList.parse(map['relationalDatabaseSnapshots']) unless map['relationalDatabaseSnapshots'].nil?)
+        data.relational_database_snapshots = (RelationalDatabaseSnapshotList.parse(map['relationalDatabaseSnapshots']) unless map['relationalDatabaseSnapshots'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3422,7 +3422,7 @@ module AWS::SDK::Lightsail
     class RelationalDatabaseSnapshotList
       def self.parse(list)
         list.map do |value|
-          Parsers::RelationalDatabaseSnapshot.parse(value) unless value.nil?
+          RelationalDatabaseSnapshot.parse(value) unless value.nil?
         end
       end
     end
@@ -3434,7 +3434,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.relational_databases = (Parsers::RelationalDatabaseList.parse(map['relationalDatabases']) unless map['relationalDatabases'].nil?)
+        data.relational_databases = (RelationalDatabaseList.parse(map['relationalDatabases']) unless map['relationalDatabases'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3443,7 +3443,7 @@ module AWS::SDK::Lightsail
     class RelationalDatabaseList
       def self.parse(list)
         list.map do |value|
-          Parsers::RelationalDatabase.parse(value) unless value.nil?
+          RelationalDatabase.parse(value) unless value.nil?
         end
       end
     end
@@ -3455,7 +3455,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.static_ip = (Parsers::StaticIp.parse(map['staticIp']) unless map['staticIp'].nil?)
+        data.static_ip = (StaticIp.parse(map['staticIp']) unless map['staticIp'].nil?)
         data
       end
     end
@@ -3467,7 +3467,7 @@ module AWS::SDK::Lightsail
         data.arn = map['arn']
         data.support_code = map['supportCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.location = (Parsers::ResourceLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ResourceLocation.parse(map['location']) unless map['location'].nil?)
         data.resource_type = map['resourceType']
         data.ip_address = map['ipAddress']
         data.attached_to = map['attachedTo']
@@ -3483,7 +3483,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.static_ips = (Parsers::StaticIpList.parse(map['staticIps']) unless map['staticIps'].nil?)
+        data.static_ips = (StaticIpList.parse(map['staticIps']) unless map['staticIps'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -3492,7 +3492,7 @@ module AWS::SDK::Lightsail
     class StaticIpList
       def self.parse(list)
         list.map do |value|
-          Parsers::StaticIp.parse(value) unless value.nil?
+          StaticIp.parse(value) unless value.nil?
         end
       end
     end
@@ -3504,7 +3504,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3528,7 +3528,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3540,7 +3540,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3552,7 +3552,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3564,7 +3564,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3576,7 +3576,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3588,7 +3588,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3600,7 +3600,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_image = (Parsers::ContainerImage.parse(map['containerImage']) unless map['containerImage'].nil?)
+        data.container_image = (ContainerImage.parse(map['containerImage']) unless map['containerImage'].nil?)
         data
       end
     end
@@ -3612,7 +3612,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3626,7 +3626,7 @@ module AWS::SDK::Lightsail
         map = Hearth::JSON.load(body)
         data.status = map['status']
         data.create_time = Time.at(map['createTime'].to_i) if map['createTime']
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3638,7 +3638,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3650,7 +3650,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3662,7 +3662,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3674,7 +3674,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3686,7 +3686,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3698,7 +3698,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3710,7 +3710,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3722,7 +3722,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3734,7 +3734,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3746,7 +3746,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3758,7 +3758,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3770,8 +3770,8 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bucket = (Parsers::Bucket.parse(map['bucket']) unless map['bucket'].nil?)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.bucket = (Bucket.parse(map['bucket']) unless map['bucket'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3783,7 +3783,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3795,7 +3795,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_service = (Parsers::ContainerService.parse(map['containerService']) unless map['containerService'].nil?)
+        data.container_service = (ContainerService.parse(map['containerService']) unless map['containerService'].nil?)
         data
       end
     end
@@ -3807,7 +3807,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3819,7 +3819,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation = (Parsers::Operation.parse(map['operation']) unless map['operation'].nil?)
+        data.operation = (Operation.parse(map['operation']) unless map['operation'].nil?)
         data
       end
     end
@@ -3831,7 +3831,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3843,7 +3843,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3855,7 +3855,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end
@@ -3867,7 +3867,7 @@ module AWS::SDK::Lightsail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (OperationList.parse(map['operations']) unless map['operations'].nil?)
         data
       end
     end

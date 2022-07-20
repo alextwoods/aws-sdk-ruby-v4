@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DirectoryService
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SharedDirectory'] = Stubs::SharedDirectory.stub(stub[:shared_directory]) unless stub[:shared_directory].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SharedDirectory'] = SharedDirectory.stub(stub[:shared_directory]) unless stub[:shared_directory].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -97,7 +99,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -111,7 +113,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['DirectoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -145,7 +147,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
         data['Alias'] = stub[:alias] unless stub[:alias].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -160,8 +162,8 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Computer'] = Stubs::Computer.stub(stub[:computer]) unless stub[:computer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Computer'] = Computer.stub(stub[:computer]) unless stub[:computer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['ComputerId'] = stub[:computer_id] unless stub[:computer_id].nil?
         data['ComputerName'] = stub[:computer_name] unless stub[:computer_name].nil?
-        data['ComputerAttributes'] = Stubs::Attributes.stub(stub[:computer_attributes]) unless stub[:computer_attributes].nil?
+        data['ComputerAttributes'] = Attributes.stub(stub[:computer_attributes]) unless stub[:computer_attributes].nil?
         data
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -237,7 +239,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -253,7 +255,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['DirectoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -283,7 +285,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['DirectoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -299,7 +301,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['SnapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -315,7 +317,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['TrustId'] = stub[:trust_id] unless stub[:trust_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['DirectoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -359,7 +361,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['SnapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -391,7 +393,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['TrustId'] = stub[:trust_id] unless stub[:trust_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -405,7 +407,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -419,7 +421,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -434,8 +436,8 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Certificate'] = Stubs::Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Certificate'] = Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -467,7 +469,7 @@ module AWS::SDK::DirectoryService
         data['RegisteredDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registered_date_time]).to_i unless stub[:registered_date_time].nil?
         data['ExpiryDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiry_date_time]).to_i unless stub[:expiry_date_time].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['ClientCertAuthSettings'] = Stubs::ClientCertAuthSettings.stub(stub[:client_cert_auth_settings]) unless stub[:client_cert_auth_settings].nil?
+        data['ClientCertAuthSettings'] = ClientCertAuthSettings.stub(stub[:client_cert_auth_settings]) unless stub[:client_cert_auth_settings].nil?
         data
       end
     end
@@ -501,9 +503,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ClientAuthenticationSettingsInfo'] = Stubs::ClientAuthenticationSettingsInfo.stub(stub[:client_authentication_settings_info]) unless stub[:client_authentication_settings_info].nil?
+        data['ClientAuthenticationSettingsInfo'] = ClientAuthenticationSettingsInfo.stub(stub[:client_authentication_settings_info]) unless stub[:client_authentication_settings_info].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -522,7 +524,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClientAuthenticationSettingInfo.stub(element) unless element.nil?
+          data << ClientAuthenticationSettingInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -560,8 +562,8 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConditionalForwarders'] = Stubs::ConditionalForwarders.stub(stub[:conditional_forwarders]) unless stub[:conditional_forwarders].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConditionalForwarders'] = ConditionalForwarders.stub(stub[:conditional_forwarders]) unless stub[:conditional_forwarders].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -580,7 +582,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConditionalForwarder.stub(element) unless element.nil?
+          data << ConditionalForwarder.stub(element) unless element.nil?
         end
         data
       end
@@ -602,7 +604,7 @@ module AWS::SDK::DirectoryService
         stub ||= Types::ConditionalForwarder.new
         data = {}
         data['RemoteDomainName'] = stub[:remote_domain_name] unless stub[:remote_domain_name].nil?
-        data['DnsIpAddrs'] = Stubs::DnsIpAddrs.stub(stub[:dns_ip_addrs]) unless stub[:dns_ip_addrs].nil?
+        data['DnsIpAddrs'] = DnsIpAddrs.stub(stub[:dns_ip_addrs]) unless stub[:dns_ip_addrs].nil?
         data['ReplicationScope'] = stub[:replication_scope] unless stub[:replication_scope].nil?
         data
       end
@@ -639,9 +641,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DirectoryDescriptions'] = Stubs::DirectoryDescriptions.stub(stub[:directory_descriptions]) unless stub[:directory_descriptions].nil?
+        data['DirectoryDescriptions'] = DirectoryDescriptions.stub(stub[:directory_descriptions]) unless stub[:directory_descriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -660,7 +662,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DirectoryDescription.stub(element) unless element.nil?
+          data << DirectoryDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -711,7 +713,7 @@ module AWS::SDK::DirectoryService
         data['Alias'] = stub[:alias] unless stub[:alias].nil?
         data['AccessUrl'] = stub[:access_url] unless stub[:access_url].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['DnsIpAddrs'] = Stubs::DnsIpAddrs.stub(stub[:dns_ip_addrs]) unless stub[:dns_ip_addrs].nil?
+        data['DnsIpAddrs'] = DnsIpAddrs.stub(stub[:dns_ip_addrs]) unless stub[:dns_ip_addrs].nil?
         data['Stage'] = stub[:stage] unless stub[:stage].nil?
         data['ShareStatus'] = stub[:share_status] unless stub[:share_status].nil?
         data['ShareMethod'] = stub[:share_method] unless stub[:share_method].nil?
@@ -719,15 +721,15 @@ module AWS::SDK::DirectoryService
         data['LaunchTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:launch_time]).to_i unless stub[:launch_time].nil?
         data['StageLastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stage_last_updated_date_time]).to_i unless stub[:stage_last_updated_date_time].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['VpcSettings'] = Stubs::DirectoryVpcSettingsDescription.stub(stub[:vpc_settings]) unless stub[:vpc_settings].nil?
-        data['ConnectSettings'] = Stubs::DirectoryConnectSettingsDescription.stub(stub[:connect_settings]) unless stub[:connect_settings].nil?
-        data['RadiusSettings'] = Stubs::RadiusSettings.stub(stub[:radius_settings]) unless stub[:radius_settings].nil?
+        data['VpcSettings'] = DirectoryVpcSettingsDescription.stub(stub[:vpc_settings]) unless stub[:vpc_settings].nil?
+        data['ConnectSettings'] = DirectoryConnectSettingsDescription.stub(stub[:connect_settings]) unless stub[:connect_settings].nil?
+        data['RadiusSettings'] = RadiusSettings.stub(stub[:radius_settings]) unless stub[:radius_settings].nil?
         data['RadiusStatus'] = stub[:radius_status] unless stub[:radius_status].nil?
         data['StageReason'] = stub[:stage_reason] unless stub[:stage_reason].nil?
         data['SsoEnabled'] = stub[:sso_enabled] unless stub[:sso_enabled].nil?
         data['DesiredNumberOfDomainControllers'] = stub[:desired_number_of_domain_controllers] unless stub[:desired_number_of_domain_controllers].nil?
-        data['OwnerDirectoryDescription'] = Stubs::OwnerDirectoryDescription.stub(stub[:owner_directory_description]) unless stub[:owner_directory_description].nil?
-        data['RegionsInfo'] = Stubs::RegionsInfo.stub(stub[:regions_info]) unless stub[:regions_info].nil?
+        data['OwnerDirectoryDescription'] = OwnerDirectoryDescription.stub(stub[:owner_directory_description]) unless stub[:owner_directory_description].nil?
+        data['RegionsInfo'] = RegionsInfo.stub(stub[:regions_info]) unless stub[:regions_info].nil?
         data
       end
     end
@@ -747,7 +749,7 @@ module AWS::SDK::DirectoryService
         stub ||= Types::RegionsInfo.new
         data = {}
         data['PrimaryRegion'] = stub[:primary_region] unless stub[:primary_region].nil?
-        data['AdditionalRegions'] = Stubs::AdditionalRegions.stub(stub[:additional_regions]) unless stub[:additional_regions].nil?
+        data['AdditionalRegions'] = AdditionalRegions.stub(stub[:additional_regions]) unless stub[:additional_regions].nil?
         data
       end
     end
@@ -792,9 +794,9 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['DnsIpAddrs'] = Stubs::DnsIpAddrs.stub(stub[:dns_ip_addrs]) unless stub[:dns_ip_addrs].nil?
-        data['VpcSettings'] = Stubs::DirectoryVpcSettingsDescription.stub(stub[:vpc_settings]) unless stub[:vpc_settings].nil?
-        data['RadiusSettings'] = Stubs::RadiusSettings.stub(stub[:radius_settings]) unless stub[:radius_settings].nil?
+        data['DnsIpAddrs'] = DnsIpAddrs.stub(stub[:dns_ip_addrs]) unless stub[:dns_ip_addrs].nil?
+        data['VpcSettings'] = DirectoryVpcSettingsDescription.stub(stub[:vpc_settings]) unless stub[:vpc_settings].nil?
+        data['RadiusSettings'] = RadiusSettings.stub(stub[:radius_settings]) unless stub[:radius_settings].nil?
         data['RadiusStatus'] = stub[:radius_status] unless stub[:radius_status].nil?
         data
       end
@@ -820,7 +822,7 @@ module AWS::SDK::DirectoryService
       def self.stub(stub)
         stub ||= Types::RadiusSettings.new
         data = {}
-        data['RadiusServers'] = Stubs::Servers.stub(stub[:radius_servers]) unless stub[:radius_servers].nil?
+        data['RadiusServers'] = Servers.stub(stub[:radius_servers]) unless stub[:radius_servers].nil?
         data['RadiusPort'] = stub[:radius_port] unless stub[:radius_port].nil?
         data['RadiusTimeout'] = stub[:radius_timeout] unless stub[:radius_timeout].nil?
         data['RadiusRetries'] = stub[:radius_retries] unless stub[:radius_retries].nil?
@@ -869,9 +871,9 @@ module AWS::SDK::DirectoryService
         stub ||= Types::DirectoryVpcSettingsDescription.new
         data = {}
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['SecurityGroupId'] = stub[:security_group_id] unless stub[:security_group_id].nil?
-        data['AvailabilityZones'] = Stubs::AvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['AvailabilityZones'] = AvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data
       end
     end
@@ -935,11 +937,11 @@ module AWS::SDK::DirectoryService
         stub ||= Types::DirectoryConnectSettingsDescription.new
         data = {}
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['CustomerUserName'] = stub[:customer_user_name] unless stub[:customer_user_name].nil?
         data['SecurityGroupId'] = stub[:security_group_id] unless stub[:security_group_id].nil?
-        data['AvailabilityZones'] = Stubs::AvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['ConnectIps'] = Stubs::IpAddrs.stub(stub[:connect_ips]) unless stub[:connect_ips].nil?
+        data['AvailabilityZones'] = AvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['ConnectIps'] = IpAddrs.stub(stub[:connect_ips]) unless stub[:connect_ips].nil?
         data
       end
     end
@@ -975,9 +977,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DomainControllers'] = Stubs::DomainControllers.stub(stub[:domain_controllers]) unless stub[:domain_controllers].nil?
+        data['DomainControllers'] = DomainControllers.stub(stub[:domain_controllers]) unless stub[:domain_controllers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -996,7 +998,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainController.stub(element) unless element.nil?
+          data << DomainController.stub(element) unless element.nil?
         end
         data
       end
@@ -1048,8 +1050,8 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventTopics'] = Stubs::EventTopics.stub(stub[:event_topics]) unless stub[:event_topics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventTopics'] = EventTopics.stub(stub[:event_topics]) unless stub[:event_topics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1068,7 +1070,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventTopic.stub(element) unless element.nil?
+          data << EventTopic.stub(element) unless element.nil?
         end
         data
       end
@@ -1111,9 +1113,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LDAPSSettingsInfo'] = Stubs::LDAPSSettingsInfo.stub(stub[:ldaps_settings_info]) unless stub[:ldaps_settings_info].nil?
+        data['LDAPSSettingsInfo'] = LDAPSSettingsInfo.stub(stub[:ldaps_settings_info]) unless stub[:ldaps_settings_info].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1132,7 +1134,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LDAPSSettingInfo.stub(element) unless element.nil?
+          data << LDAPSSettingInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1171,9 +1173,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RegionsDescription'] = Stubs::RegionsDescription.stub(stub[:regions_description]) unless stub[:regions_description].nil?
+        data['RegionsDescription'] = RegionsDescription.stub(stub[:regions_description]) unless stub[:regions_description].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1192,7 +1194,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegionDescription.stub(element) unless element.nil?
+          data << RegionDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1223,7 +1225,7 @@ module AWS::SDK::DirectoryService
         data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
         data['RegionType'] = stub[:region_type] unless stub[:region_type].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['VpcSettings'] = Stubs::DirectoryVpcSettings.stub(stub[:vpc_settings]) unless stub[:vpc_settings].nil?
+        data['VpcSettings'] = DirectoryVpcSettings.stub(stub[:vpc_settings]) unless stub[:vpc_settings].nil?
         data['DesiredNumberOfDomainControllers'] = stub[:desired_number_of_domain_controllers] unless stub[:desired_number_of_domain_controllers].nil?
         data['LaunchTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:launch_time]).to_i unless stub[:launch_time].nil?
         data['StatusLastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:status_last_updated_date_time]).to_i unless stub[:status_last_updated_date_time].nil?
@@ -1247,7 +1249,7 @@ module AWS::SDK::DirectoryService
         stub ||= Types::DirectoryVpcSettings.new
         data = {}
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data
       end
     end
@@ -1263,9 +1265,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SharedDirectories'] = Stubs::SharedDirectories.stub(stub[:shared_directories]) unless stub[:shared_directories].nil?
+        data['SharedDirectories'] = SharedDirectories.stub(stub[:shared_directories]) unless stub[:shared_directories].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1284,7 +1286,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SharedDirectory.stub(element) unless element.nil?
+          data << SharedDirectory.stub(element) unless element.nil?
         end
         data
       end
@@ -1301,9 +1303,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Snapshots'] = Stubs::Snapshots.stub(stub[:snapshots]) unless stub[:snapshots].nil?
+        data['Snapshots'] = Snapshots.stub(stub[:snapshots]) unless stub[:snapshots].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1322,7 +1324,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Snapshot.stub(element) unless element.nil?
+          data << Snapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -1367,9 +1369,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Trusts'] = Stubs::Trusts.stub(stub[:trusts]) unless stub[:trusts].nil?
+        data['Trusts'] = Trusts.stub(stub[:trusts]) unless stub[:trusts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1388,7 +1390,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Trust.stub(element) unless element.nil?
+          data << Trust.stub(element) unless element.nil?
         end
         data
       end
@@ -1441,7 +1443,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1455,7 +1457,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1469,7 +1471,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1483,7 +1485,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1497,7 +1499,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1511,7 +1513,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1525,7 +1527,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1539,7 +1541,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1554,8 +1556,8 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DirectoryLimits'] = Stubs::DirectoryLimits.stub(stub[:directory_limits]) unless stub[:directory_limits].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DirectoryLimits'] = DirectoryLimits.stub(stub[:directory_limits]) unless stub[:directory_limits].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1604,8 +1606,8 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SnapshotLimits'] = Stubs::SnapshotLimits.stub(stub[:snapshot_limits]) unless stub[:snapshot_limits].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SnapshotLimits'] = SnapshotLimits.stub(stub[:snapshot_limits]) unless stub[:snapshot_limits].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1644,8 +1646,8 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['CertificatesInfo'] = Stubs::CertificatesInfo.stub(stub[:certificates_info]) unless stub[:certificates_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CertificatesInfo'] = CertificatesInfo.stub(stub[:certificates_info]) unless stub[:certificates_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1664,7 +1666,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CertificateInfo.stub(element) unless element.nil?
+          data << CertificateInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1707,9 +1709,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IpRoutesInfo'] = Stubs::IpRoutesInfo.stub(stub[:ip_routes_info]) unless stub[:ip_routes_info].nil?
+        data['IpRoutesInfo'] = IpRoutesInfo.stub(stub[:ip_routes_info]) unless stub[:ip_routes_info].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1728,7 +1730,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IpRouteInfo.stub(element) unless element.nil?
+          data << IpRouteInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1773,9 +1775,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LogSubscriptions'] = Stubs::LogSubscriptions.stub(stub[:log_subscriptions]) unless stub[:log_subscriptions].nil?
+        data['LogSubscriptions'] = LogSubscriptions.stub(stub[:log_subscriptions]) unless stub[:log_subscriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1794,7 +1796,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogSubscription.stub(element) unless element.nil?
+          data << LogSubscription.stub(element) unless element.nil?
         end
         data
       end
@@ -1833,9 +1835,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SchemaExtensionsInfo'] = Stubs::SchemaExtensionsInfo.stub(stub[:schema_extensions_info]) unless stub[:schema_extensions_info].nil?
+        data['SchemaExtensionsInfo'] = SchemaExtensionsInfo.stub(stub[:schema_extensions_info]) unless stub[:schema_extensions_info].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1854,7 +1856,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaExtensionInfo.stub(element) unless element.nil?
+          data << SchemaExtensionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1901,9 +1903,9 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1922,7 +1924,7 @@ module AWS::SDK::DirectoryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1959,7 +1961,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['CertificateId'] = stub[:certificate_id] unless stub[:certificate_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1973,7 +1975,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1989,7 +1991,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['SharedDirectoryId'] = stub[:shared_directory_id] unless stub[:shared_directory_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2003,7 +2005,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2017,7 +2019,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2031,7 +2033,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2045,7 +2047,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2059,7 +2061,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2075,7 +2077,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['SharedDirectoryId'] = stub[:shared_directory_id] unless stub[:shared_directory_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2091,7 +2093,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['SchemaExtensionId'] = stub[:schema_extension_id] unless stub[:schema_extension_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2107,7 +2109,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['SharedDirectoryId'] = stub[:shared_directory_id] unless stub[:shared_directory_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2121,7 +2123,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2135,7 +2137,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2149,7 +2151,7 @@ module AWS::SDK::DirectoryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2167,7 +2169,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['TrustId'] = stub[:trust_id] unless stub[:trust_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2183,7 +2185,7 @@ module AWS::SDK::DirectoryService
       def self.stub(http_resp, stub:)
         data = {}
         data['TrustId'] = stub[:trust_id] unless stub[:trust_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

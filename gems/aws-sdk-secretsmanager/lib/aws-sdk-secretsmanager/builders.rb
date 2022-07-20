@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SecretsManager
   module Builders
 
@@ -19,7 +22,7 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.CancelRotateSecret'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,12 +38,12 @@ module AWS::SDK::SecretsManager
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['SecretBinary'] = Base64::encode64(input[:secret_binary]).strip unless input[:secret_binary].nil?
+        data['SecretBinary'] = ::Base64::encode64(input[:secret_binary]).strip unless input[:secret_binary].nil?
         data['SecretString'] = input[:secret_string] unless input[:secret_string].nil?
-        data['Tags'] = Builders::TagListType.build(input[:tags]) unless input[:tags].nil?
-        data['AddReplicaRegions'] = Builders::AddReplicaRegionListType.build(input[:add_replica_regions]) unless input[:add_replica_regions].nil?
+        data['Tags'] = TagListType.build(input[:tags]) unless input[:tags].nil?
+        data['AddReplicaRegions'] = AddReplicaRegionListType.build(input[:add_replica_regions]) unless input[:add_replica_regions].nil?
         data['ForceOverwriteReplicaSecret'] = input[:force_overwrite_replica_secret] unless input[:force_overwrite_replica_secret].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,7 +52,7 @@ module AWS::SDK::SecretsManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicaRegionType.build(element) unless element.nil?
+          data << ReplicaRegionType.build(element) unless element.nil?
         end
         data
       end
@@ -70,7 +73,7 @@ module AWS::SDK::SecretsManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -95,7 +98,7 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.DeleteResourcePolicy'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,7 +113,7 @@ module AWS::SDK::SecretsManager
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
         data['RecoveryWindowInDays'] = input[:recovery_window_in_days] unless input[:recovery_window_in_days].nil?
         data['ForceDeleteWithoutRecovery'] = input[:force_delete_without_recovery] unless input[:force_delete_without_recovery].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -123,7 +126,7 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.DescribeSecret'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,7 +146,7 @@ module AWS::SDK::SecretsManager
         data['ExcludeLowercase'] = input[:exclude_lowercase] unless input[:exclude_lowercase].nil?
         data['IncludeSpace'] = input[:include_space] unless input[:include_space].nil?
         data['RequireEachIncludedType'] = input[:require_each_included_type] unless input[:require_each_included_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,7 +159,7 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.GetResourcePolicy'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -171,7 +174,7 @@ module AWS::SDK::SecretsManager
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
         data['VersionId'] = input[:version_id] unless input[:version_id].nil?
         data['VersionStage'] = input[:version_stage] unless input[:version_stage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -187,7 +190,7 @@ module AWS::SDK::SecretsManager
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['IncludeDeprecated'] = input[:include_deprecated] unless input[:include_deprecated].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,9 +204,9 @@ module AWS::SDK::SecretsManager
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::FiltersListType.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FiltersListType.build(input[:filters]) unless input[:filters].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,7 +215,7 @@ module AWS::SDK::SecretsManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -223,7 +226,7 @@ module AWS::SDK::SecretsManager
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::FilterValuesStringList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValuesStringList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -250,7 +253,7 @@ module AWS::SDK::SecretsManager
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
         data['ResourcePolicy'] = input[:resource_policy] unless input[:resource_policy].nil?
         data['BlockPublicPolicy'] = input[:block_public_policy] unless input[:block_public_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -264,10 +267,10 @@ module AWS::SDK::SecretsManager
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['SecretBinary'] = Base64::encode64(input[:secret_binary]).strip unless input[:secret_binary].nil?
+        data['SecretBinary'] = ::Base64::encode64(input[:secret_binary]).strip unless input[:secret_binary].nil?
         data['SecretString'] = input[:secret_string] unless input[:secret_string].nil?
-        data['VersionStages'] = Builders::SecretVersionStagesType.build(input[:version_stages]) unless input[:version_stages].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VersionStages'] = SecretVersionStagesType.build(input[:version_stages]) unless input[:version_stages].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -291,8 +294,8 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.RemoveRegionsFromReplication'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        data['RemoveReplicaRegions'] = Builders::RemoveReplicaRegionListType.build(input[:remove_replica_regions]) unless input[:remove_replica_regions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RemoveReplicaRegions'] = RemoveReplicaRegionListType.build(input[:remove_replica_regions]) unless input[:remove_replica_regions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -316,9 +319,9 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.ReplicateSecretToRegions'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        data['AddReplicaRegions'] = Builders::AddReplicaRegionListType.build(input[:add_replica_regions]) unless input[:add_replica_regions].nil?
+        data['AddReplicaRegions'] = AddReplicaRegionListType.build(input[:add_replica_regions]) unless input[:add_replica_regions].nil?
         data['ForceOverwriteReplicaSecret'] = input[:force_overwrite_replica_secret] unless input[:force_overwrite_replica_secret].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,7 +334,7 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.RestoreSecret'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -346,9 +349,9 @@ module AWS::SDK::SecretsManager
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['RotationLambdaARN'] = input[:rotation_lambda_arn] unless input[:rotation_lambda_arn].nil?
-        data['RotationRules'] = Builders::RotationRulesType.build(input[:rotation_rules]) unless input[:rotation_rules].nil?
+        data['RotationRules'] = RotationRulesType.build(input[:rotation_rules]) unless input[:rotation_rules].nil?
         data['RotateImmediately'] = input[:rotate_immediately] unless input[:rotate_immediately].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -372,7 +375,7 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.StopReplicationToReplica'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,8 +388,8 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.TagResource'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        data['Tags'] = Builders::TagListType.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagListType.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,8 +402,8 @@ module AWS::SDK::SecretsManager
         http_req.headers['X-Amz-Target'] = 'secretsmanager.UntagResource'
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
-        data['TagKeys'] = Builders::TagKeyListType.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyListType.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,9 +430,9 @@ module AWS::SDK::SecretsManager
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['SecretBinary'] = Base64::encode64(input[:secret_binary]).strip unless input[:secret_binary].nil?
+        data['SecretBinary'] = ::Base64::encode64(input[:secret_binary]).strip unless input[:secret_binary].nil?
         data['SecretString'] = input[:secret_string] unless input[:secret_string].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,7 +448,7 @@ module AWS::SDK::SecretsManager
         data['VersionStage'] = input[:version_stage] unless input[:version_stage].nil?
         data['RemoveFromVersionId'] = input[:remove_from_version_id] unless input[:remove_from_version_id].nil?
         data['MoveToVersionId'] = input[:move_to_version_id] unless input[:move_to_version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +462,7 @@ module AWS::SDK::SecretsManager
         data = {}
         data['SecretId'] = input[:secret_id] unless input[:secret_id].nil?
         data['ResourcePolicy'] = input[:resource_policy] unless input[:resource_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

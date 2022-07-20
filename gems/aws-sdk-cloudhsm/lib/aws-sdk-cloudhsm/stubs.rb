@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudHSM
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['HapgArn'] = stub[:hapg_arn] unless stub[:hapg_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['HsmArn'] = stub[:hsm_arn] unless stub[:hsm_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['ClientArn'] = stub[:client_arn] unless stub[:client_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -142,14 +144,14 @@ module AWS::SDK::CloudHSM
         data = {}
         data['HapgArn'] = stub[:hapg_arn] unless stub[:hapg_arn].nil?
         data['HapgSerial'] = stub[:hapg_serial] unless stub[:hapg_serial].nil?
-        data['HsmsLastActionFailed'] = Stubs::HsmList.stub(stub[:hsms_last_action_failed]) unless stub[:hsms_last_action_failed].nil?
-        data['HsmsPendingDeletion'] = Stubs::HsmList.stub(stub[:hsms_pending_deletion]) unless stub[:hsms_pending_deletion].nil?
-        data['HsmsPendingRegistration'] = Stubs::HsmList.stub(stub[:hsms_pending_registration]) unless stub[:hsms_pending_registration].nil?
+        data['HsmsLastActionFailed'] = HsmList.stub(stub[:hsms_last_action_failed]) unless stub[:hsms_last_action_failed].nil?
+        data['HsmsPendingDeletion'] = HsmList.stub(stub[:hsms_pending_deletion]) unless stub[:hsms_pending_deletion].nil?
+        data['HsmsPendingRegistration'] = HsmList.stub(stub[:hsms_pending_registration]) unless stub[:hsms_pending_registration].nil?
         data['Label'] = stub[:label] unless stub[:label].nil?
         data['LastModifiedTimestamp'] = stub[:last_modified_timestamp] unless stub[:last_modified_timestamp].nil?
-        data['PartitionSerialList'] = Stubs::PartitionSerialList.stub(stub[:partition_serial_list]) unless stub[:partition_serial_list].nil?
+        data['PartitionSerialList'] = PartitionSerialList.stub(stub[:partition_serial_list]) unless stub[:partition_serial_list].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -244,8 +246,8 @@ module AWS::SDK::CloudHSM
         data['SshKeyLastUpdated'] = stub[:ssh_key_last_updated] unless stub[:ssh_key_last_updated].nil?
         data['ServerCertUri'] = stub[:server_cert_uri] unless stub[:server_cert_uri].nil?
         data['ServerCertLastUpdated'] = stub[:server_cert_last_updated] unless stub[:server_cert_last_updated].nil?
-        data['Partitions'] = Stubs::PartitionList.stub(stub[:partitions]) unless stub[:partitions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Partitions'] = PartitionList.stub(stub[:partitions]) unless stub[:partitions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::CloudHSM
         data['CertificateFingerprint'] = stub[:certificate_fingerprint] unless stub[:certificate_fingerprint].nil?
         data['LastModifiedTimestamp'] = stub[:last_modified_timestamp] unless stub[:last_modified_timestamp].nil?
         data['Label'] = stub[:label] unless stub[:label].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::CloudHSM
         data['ConfigType'] = stub[:config_type] unless stub[:config_type].nil?
         data['ConfigFile'] = stub[:config_file] unless stub[:config_file].nil?
         data['ConfigCred'] = stub[:config_cred] unless stub[:config_cred].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -324,8 +326,8 @@ module AWS::SDK::CloudHSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AZList'] = Stubs::AZList.stub(stub[:az_list]) unless stub[:az_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AZList'] = AZList.stub(stub[:az_list]) unless stub[:az_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -361,9 +363,9 @@ module AWS::SDK::CloudHSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HapgList'] = Stubs::HapgList.stub(stub[:hapg_list]) unless stub[:hapg_list].nil?
+        data['HapgList'] = HapgList.stub(stub[:hapg_list]) unless stub[:hapg_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -399,9 +401,9 @@ module AWS::SDK::CloudHSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HsmList'] = Stubs::HsmList.stub(stub[:hsm_list]) unless stub[:hsm_list].nil?
+        data['HsmList'] = HsmList.stub(stub[:hsm_list]) unless stub[:hsm_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -417,9 +419,9 @@ module AWS::SDK::CloudHSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ClientList'] = Stubs::ClientList.stub(stub[:client_list]) unless stub[:client_list].nil?
+        data['ClientList'] = ClientList.stub(stub[:client_list]) unless stub[:client_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -454,8 +456,8 @@ module AWS::SDK::CloudHSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::CloudHSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -511,7 +513,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['HapgArn'] = stub[:hapg_arn] unless stub[:hapg_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -527,7 +529,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['HsmArn'] = stub[:hsm_arn] unless stub[:hsm_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -543,7 +545,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['ClientArn'] = stub[:client_arn] unless stub[:client_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -559,7 +561,7 @@ module AWS::SDK::CloudHSM
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

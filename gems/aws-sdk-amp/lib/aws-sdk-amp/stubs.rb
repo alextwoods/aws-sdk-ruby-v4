@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Amp
   module Stubs
 
@@ -22,8 +25,8 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['status'] = Stubs::AlertManagerDefinitionStatus.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = AlertManagerDefinitionStatus.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,9 +67,9 @@ module AWS::SDK::Amp
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['status'] = Stubs::RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,9 +130,9 @@ module AWS::SDK::Amp
         http_resp.headers['Content-Type'] = 'application/json'
         data['workspaceId'] = stub[:workspace_id] unless stub[:workspace_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['status'] = Stubs::WorkspaceStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = WorkspaceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,8 +205,8 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['alertManagerDefinition'] = Stubs::AlertManagerDefinitionDescription.stub(stub[:alert_manager_definition]) unless stub[:alert_manager_definition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alertManagerDefinition'] = AlertManagerDefinitionDescription.stub(stub[:alert_manager_definition]) unless stub[:alert_manager_definition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,8 +226,8 @@ module AWS::SDK::Amp
       def self.stub(stub)
         stub ||= Types::AlertManagerDefinitionDescription.new
         data = {}
-        data['status'] = Stubs::AlertManagerDefinitionStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['data'] = Base64::encode64(stub[:data]) unless stub[:data].nil?
+        data['status'] = AlertManagerDefinitionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['data'] = ::Base64::encode64(stub[:data]) unless stub[:data].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['modifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_at]).to_i unless stub[:modified_at].nil?
         data
@@ -243,8 +246,8 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ruleGroupsNamespace'] = Stubs::RuleGroupsNamespaceDescription.stub(stub[:rule_groups_namespace]) unless stub[:rule_groups_namespace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ruleGroupsNamespace'] = RuleGroupsNamespaceDescription.stub(stub[:rule_groups_namespace]) unless stub[:rule_groups_namespace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -269,11 +272,11 @@ module AWS::SDK::Amp
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['status'] = Stubs::RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['data'] = Base64::encode64(stub[:data]) unless stub[:data].nil?
+        data['status'] = RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['data'] = ::Base64::encode64(stub[:data]) unless stub[:data].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['modifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_at]).to_i unless stub[:modified_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -290,8 +293,8 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspace'] = Stubs::WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workspace'] = WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,10 +320,10 @@ module AWS::SDK::Amp
         data['workspaceId'] = stub[:workspace_id] unless stub[:workspace_id].nil?
         data['alias'] = stub[:alias] unless stub[:alias].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['status'] = Stubs::WorkspaceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = WorkspaceStatus.stub(stub[:status]) unless stub[:status].nil?
         data['prometheusEndpoint'] = stub[:prometheus_endpoint] unless stub[:prometheus_endpoint].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -338,9 +341,9 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ruleGroupsNamespaces'] = Stubs::RuleGroupsNamespaceSummaryList.stub(stub[:rule_groups_namespaces]) unless stub[:rule_groups_namespaces].nil?
+        data['ruleGroupsNamespaces'] = RuleGroupsNamespaceSummaryList.stub(stub[:rule_groups_namespaces]) unless stub[:rule_groups_namespaces].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -358,7 +361,7 @@ module AWS::SDK::Amp
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupsNamespaceSummary.stub(element) unless element.nil?
+          data << RuleGroupsNamespaceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -384,10 +387,10 @@ module AWS::SDK::Amp
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['status'] = Stubs::RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['modifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_at]).to_i unless stub[:modified_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -404,8 +407,8 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -422,9 +425,9 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspaces'] = Stubs::WorkspaceSummaryList.stub(stub[:workspaces]) unless stub[:workspaces].nil?
+        data['workspaces'] = WorkspaceSummaryList.stub(stub[:workspaces]) unless stub[:workspaces].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -442,7 +445,7 @@ module AWS::SDK::Amp
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspaceSummary.stub(element) unless element.nil?
+          data << WorkspaceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -469,9 +472,9 @@ module AWS::SDK::Amp
         data['workspaceId'] = stub[:workspace_id] unless stub[:workspace_id].nil?
         data['alias'] = stub[:alias] unless stub[:alias].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['status'] = Stubs::WorkspaceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = WorkspaceStatus.stub(stub[:status]) unless stub[:status].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -488,8 +491,8 @@ module AWS::SDK::Amp
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['status'] = Stubs::AlertManagerDefinitionStatus.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = AlertManagerDefinitionStatus.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,9 +513,9 @@ module AWS::SDK::Amp
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['status'] = Stubs::RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = RuleGroupsNamespaceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

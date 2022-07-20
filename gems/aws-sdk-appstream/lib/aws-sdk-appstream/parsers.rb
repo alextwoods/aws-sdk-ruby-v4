@@ -17,7 +17,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_fleet_association = (Parsers::ApplicationFleetAssociation.parse(map['ApplicationFleetAssociation']) unless map['ApplicationFleetAssociation'].nil?)
+        data.application_fleet_association = (ApplicationFleetAssociation.parse(map['ApplicationFleetAssociation']) unless map['ApplicationFleetAssociation'].nil?)
         data
       end
     end
@@ -156,7 +156,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::UserStackAssociationErrorList.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (UserStackAssociationErrorList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -164,7 +164,7 @@ module AWS::SDK::AppStream
     class UserStackAssociationErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserStackAssociationError.parse(value) unless value.nil?
+          UserStackAssociationError.parse(value) unless value.nil?
         end
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::AppStream
     class UserStackAssociationError
       def self.parse(map)
         data = Types::UserStackAssociationError.new
-        data.user_stack_association = (Parsers::UserStackAssociation.parse(map['UserStackAssociation']) unless map['UserStackAssociation'].nil?)
+        data.user_stack_association = (UserStackAssociation.parse(map['UserStackAssociation']) unless map['UserStackAssociation'].nil?)
         data.error_code = map['ErrorCode']
         data.error_message = map['ErrorMessage']
         return data
@@ -197,7 +197,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::UserStackAssociationErrorList.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (UserStackAssociationErrorList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -245,7 +245,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.app_block = (Parsers::AppBlock.parse(map['AppBlock']) unless map['AppBlock'].nil?)
+        data.app_block = (AppBlock.parse(map['AppBlock']) unless map['AppBlock'].nil?)
         data
       end
     end
@@ -257,8 +257,8 @@ module AWS::SDK::AppStream
         data.arn = map['Arn']
         data.description = map['Description']
         data.display_name = map['DisplayName']
-        data.source_s3_location = (Parsers::S3Location.parse(map['SourceS3Location']) unless map['SourceS3Location'].nil?)
-        data.setup_script_details = (Parsers::ScriptDetails.parse(map['SetupScriptDetails']) unless map['SetupScriptDetails'].nil?)
+        data.source_s3_location = (S3Location.parse(map['SourceS3Location']) unless map['SourceS3Location'].nil?)
+        data.setup_script_details = (ScriptDetails.parse(map['SetupScriptDetails']) unless map['SetupScriptDetails'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
       end
@@ -267,7 +267,7 @@ module AWS::SDK::AppStream
     class ScriptDetails
       def self.parse(map)
         data = Types::ScriptDetails.new
-        data.script_s3_location = (Parsers::S3Location.parse(map['ScriptS3Location']) unless map['ScriptS3Location'].nil?)
+        data.script_s3_location = (S3Location.parse(map['ScriptS3Location']) unless map['ScriptS3Location'].nil?)
         data.executable_path = map['ExecutablePath']
         data.executable_parameters = map['ExecutableParameters']
         data.timeout_in_seconds = map['TimeoutInSeconds']
@@ -291,7 +291,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application = (Parsers::Application.parse(map['Application']) unless map['Application'].nil?)
+        data.application = (Application.parse(map['Application']) unless map['Application'].nil?)
         data
       end
     end
@@ -305,14 +305,14 @@ module AWS::SDK::AppStream
         data.launch_path = map['LaunchPath']
         data.launch_parameters = map['LaunchParameters']
         data.enabled = map['Enabled']
-        data.metadata = (Parsers::Metadata.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.metadata = (Metadata.parse(map['Metadata']) unless map['Metadata'].nil?)
         data.working_directory = map['WorkingDirectory']
         data.description = map['Description']
         data.arn = map['Arn']
         data.app_block_arn = map['AppBlockArn']
-        data.icon_s3_location = (Parsers::S3Location.parse(map['IconS3Location']) unless map['IconS3Location'].nil?)
-        data.platforms = (Parsers::Platforms.parse(map['Platforms']) unless map['Platforms'].nil?)
-        data.instance_families = (Parsers::StringList.parse(map['InstanceFamilies']) unless map['InstanceFamilies'].nil?)
+        data.icon_s3_location = (S3Location.parse(map['IconS3Location']) unless map['IconS3Location'].nil?)
+        data.platforms = (Platforms.parse(map['Platforms']) unless map['Platforms'].nil?)
+        data.instance_families = (StringList.parse(map['InstanceFamilies']) unless map['InstanceFamilies'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
       end
@@ -351,7 +351,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.directory_config = (Parsers::DirectoryConfig.parse(map['DirectoryConfig']) unless map['DirectoryConfig'].nil?)
+        data.directory_config = (DirectoryConfig.parse(map['DirectoryConfig']) unless map['DirectoryConfig'].nil?)
         data
       end
     end
@@ -360,8 +360,8 @@ module AWS::SDK::AppStream
       def self.parse(map)
         data = Types::DirectoryConfig.new
         data.directory_name = map['DirectoryName']
-        data.organizational_unit_distinguished_names = (Parsers::OrganizationalUnitDistinguishedNamesList.parse(map['OrganizationalUnitDistinguishedNames']) unless map['OrganizationalUnitDistinguishedNames'].nil?)
-        data.service_account_credentials = (Parsers::ServiceAccountCredentials.parse(map['ServiceAccountCredentials']) unless map['ServiceAccountCredentials'].nil?)
+        data.organizational_unit_distinguished_names = (OrganizationalUnitDistinguishedNamesList.parse(map['OrganizationalUnitDistinguishedNames']) unless map['OrganizationalUnitDistinguishedNames'].nil?)
+        data.service_account_credentials = (ServiceAccountCredentials.parse(map['ServiceAccountCredentials']) unless map['ServiceAccountCredentials'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
       end
@@ -403,7 +403,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entitlement = (Parsers::Entitlement.parse(map['Entitlement']) unless map['Entitlement'].nil?)
+        data.entitlement = (Entitlement.parse(map['Entitlement']) unless map['Entitlement'].nil?)
         data
       end
     end
@@ -415,7 +415,7 @@ module AWS::SDK::AppStream
         data.stack_name = map['StackName']
         data.description = map['Description']
         data.app_visibility = map['AppVisibility']
-        data.attributes = (Parsers::EntitlementAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (EntitlementAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         return data
@@ -425,7 +425,7 @@ module AWS::SDK::AppStream
     class EntitlementAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntitlementAttribute.parse(value) unless value.nil?
+          EntitlementAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet = (Parsers::Fleet.parse(map['Fleet']) unless map['Fleet'].nil?)
+        data.fleet = (Fleet.parse(map['Fleet']) unless map['Fleet'].nil?)
         data
       end
     end
@@ -474,22 +474,22 @@ module AWS::SDK::AppStream
         data.image_arn = map['ImageArn']
         data.instance_type = map['InstanceType']
         data.fleet_type = map['FleetType']
-        data.compute_capacity_status = (Parsers::ComputeCapacityStatus.parse(map['ComputeCapacityStatus']) unless map['ComputeCapacityStatus'].nil?)
+        data.compute_capacity_status = (ComputeCapacityStatus.parse(map['ComputeCapacityStatus']) unless map['ComputeCapacityStatus'].nil?)
         data.max_user_duration_in_seconds = map['MaxUserDurationInSeconds']
         data.disconnect_timeout_in_seconds = map['DisconnectTimeoutInSeconds']
         data.state = map['State']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.fleet_errors = (Parsers::FleetErrors.parse(map['FleetErrors']) unless map['FleetErrors'].nil?)
+        data.fleet_errors = (FleetErrors.parse(map['FleetErrors']) unless map['FleetErrors'].nil?)
         data.enable_default_internet_access = map['EnableDefaultInternetAccess']
-        data.domain_join_info = (Parsers::DomainJoinInfo.parse(map['DomainJoinInfo']) unless map['DomainJoinInfo'].nil?)
+        data.domain_join_info = (DomainJoinInfo.parse(map['DomainJoinInfo']) unless map['DomainJoinInfo'].nil?)
         data.idle_disconnect_timeout_in_seconds = map['IdleDisconnectTimeoutInSeconds']
         data.iam_role_arn = map['IamRoleArn']
         data.stream_view = map['StreamView']
         data.platform = map['Platform']
         data.max_concurrent_sessions = map['MaxConcurrentSessions']
-        data.usb_device_filter_strings = (Parsers::UsbDeviceFilterStrings.parse(map['UsbDeviceFilterStrings']) unless map['UsbDeviceFilterStrings'].nil?)
-        data.session_script_s3_location = (Parsers::S3Location.parse(map['SessionScriptS3Location']) unless map['SessionScriptS3Location'].nil?)
+        data.usb_device_filter_strings = (UsbDeviceFilterStrings.parse(map['UsbDeviceFilterStrings']) unless map['UsbDeviceFilterStrings'].nil?)
+        data.session_script_s3_location = (S3Location.parse(map['SessionScriptS3Location']) unless map['SessionScriptS3Location'].nil?)
         return data
       end
     end
@@ -514,7 +514,7 @@ module AWS::SDK::AppStream
     class FleetErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::FleetError.parse(value) unless value.nil?
+          FleetError.parse(value) unless value.nil?
         end
       end
     end
@@ -531,8 +531,8 @@ module AWS::SDK::AppStream
     class VpcConfig
       def self.parse(map)
         data = Types::VpcConfig.new
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         return data
       end
     end
@@ -583,7 +583,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_builder = (Parsers::ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
+        data.image_builder = (ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
         data
       end
     end
@@ -596,19 +596,19 @@ module AWS::SDK::AppStream
         data.image_arn = map['ImageArn']
         data.description = map['Description']
         data.display_name = map['DisplayName']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         data.instance_type = map['InstanceType']
         data.platform = map['Platform']
         data.iam_role_arn = map['IamRoleArn']
         data.state = map['State']
-        data.state_change_reason = (Parsers::ImageBuilderStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.state_change_reason = (ImageBuilderStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.enable_default_internet_access = map['EnableDefaultInternetAccess']
-        data.domain_join_info = (Parsers::DomainJoinInfo.parse(map['DomainJoinInfo']) unless map['DomainJoinInfo'].nil?)
-        data.network_access_configuration = (Parsers::NetworkAccessConfiguration.parse(map['NetworkAccessConfiguration']) unless map['NetworkAccessConfiguration'].nil?)
-        data.image_builder_errors = (Parsers::ResourceErrors.parse(map['ImageBuilderErrors']) unless map['ImageBuilderErrors'].nil?)
+        data.domain_join_info = (DomainJoinInfo.parse(map['DomainJoinInfo']) unless map['DomainJoinInfo'].nil?)
+        data.network_access_configuration = (NetworkAccessConfiguration.parse(map['NetworkAccessConfiguration']) unless map['NetworkAccessConfiguration'].nil?)
+        data.image_builder_errors = (ResourceErrors.parse(map['ImageBuilderErrors']) unless map['ImageBuilderErrors'].nil?)
         data.appstream_agent_version = map['AppstreamAgentVersion']
-        data.access_endpoints = (Parsers::AccessEndpointList.parse(map['AccessEndpoints']) unless map['AccessEndpoints'].nil?)
+        data.access_endpoints = (AccessEndpointList.parse(map['AccessEndpoints']) unless map['AccessEndpoints'].nil?)
         return data
       end
     end
@@ -616,7 +616,7 @@ module AWS::SDK::AppStream
     class AccessEndpointList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccessEndpoint.parse(value) unless value.nil?
+          AccessEndpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -633,7 +633,7 @@ module AWS::SDK::AppStream
     class ResourceErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceError.parse(value) unless value.nil?
+          ResourceError.parse(value) unless value.nil?
         end
       end
     end
@@ -686,7 +686,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stack = (Parsers::Stack.parse(map['Stack']) unless map['Stack'].nil?)
+        data.stack = (Stack.parse(map['Stack']) unless map['Stack'].nil?)
         data
       end
     end
@@ -699,14 +699,14 @@ module AWS::SDK::AppStream
         data.description = map['Description']
         data.display_name = map['DisplayName']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.storage_connectors = (Parsers::StorageConnectorList.parse(map['StorageConnectors']) unless map['StorageConnectors'].nil?)
+        data.storage_connectors = (StorageConnectorList.parse(map['StorageConnectors']) unless map['StorageConnectors'].nil?)
         data.redirect_url = map['RedirectURL']
         data.feedback_url = map['FeedbackURL']
-        data.stack_errors = (Parsers::StackErrors.parse(map['StackErrors']) unless map['StackErrors'].nil?)
-        data.user_settings = (Parsers::UserSettingList.parse(map['UserSettings']) unless map['UserSettings'].nil?)
-        data.application_settings = (Parsers::ApplicationSettingsResponse.parse(map['ApplicationSettings']) unless map['ApplicationSettings'].nil?)
-        data.access_endpoints = (Parsers::AccessEndpointList.parse(map['AccessEndpoints']) unless map['AccessEndpoints'].nil?)
-        data.embed_host_domains = (Parsers::EmbedHostDomains.parse(map['EmbedHostDomains']) unless map['EmbedHostDomains'].nil?)
+        data.stack_errors = (StackErrors.parse(map['StackErrors']) unless map['StackErrors'].nil?)
+        data.user_settings = (UserSettingList.parse(map['UserSettings']) unless map['UserSettings'].nil?)
+        data.application_settings = (ApplicationSettingsResponse.parse(map['ApplicationSettings']) unless map['ApplicationSettings'].nil?)
+        data.access_endpoints = (AccessEndpointList.parse(map['AccessEndpoints']) unless map['AccessEndpoints'].nil?)
+        data.embed_host_domains = (EmbedHostDomains.parse(map['EmbedHostDomains']) unless map['EmbedHostDomains'].nil?)
         return data
       end
     end
@@ -732,7 +732,7 @@ module AWS::SDK::AppStream
     class UserSettingList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserSetting.parse(value) unless value.nil?
+          UserSetting.parse(value) unless value.nil?
         end
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::AppStream
     class StackErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::StackError.parse(value) unless value.nil?
+          StackError.parse(value) unless value.nil?
         end
       end
     end
@@ -766,7 +766,7 @@ module AWS::SDK::AppStream
     class StorageConnectorList
       def self.parse(list)
         list.map do |value|
-          Parsers::StorageConnector.parse(value) unless value.nil?
+          StorageConnector.parse(value) unless value.nil?
         end
       end
     end
@@ -776,7 +776,7 @@ module AWS::SDK::AppStream
         data = Types::StorageConnector.new
         data.connector_type = map['ConnectorType']
         data.resource_identifier = map['ResourceIdentifier']
-        data.domains = (Parsers::DomainList.parse(map['Domains']) unless map['Domains'].nil?)
+        data.domains = (DomainList.parse(map['Domains']) unless map['Domains'].nil?)
         return data
       end
     end
@@ -809,7 +809,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image = (Parsers::Image.parse(map['image']) unless map['image'].nil?)
+        data.image = (Image.parse(map['image']) unless map['image'].nil?)
         data.can_update_image = map['canUpdateImage']
         data
       end
@@ -828,13 +828,13 @@ module AWS::SDK::AppStream
         data.image_builder_name = map['ImageBuilderName']
         data.platform = map['Platform']
         data.description = map['Description']
-        data.state_change_reason = (Parsers::ImageStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
-        data.applications = (Parsers::Applications.parse(map['Applications']) unless map['Applications'].nil?)
+        data.state_change_reason = (ImageStateChangeReason.parse(map['StateChangeReason']) unless map['StateChangeReason'].nil?)
+        data.applications = (Applications.parse(map['Applications']) unless map['Applications'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.public_base_image_released_date = Time.at(map['PublicBaseImageReleasedDate'].to_i) if map['PublicBaseImageReleasedDate']
         data.appstream_agent_version = map['AppstreamAgentVersion']
-        data.image_permissions = (Parsers::ImagePermissions.parse(map['ImagePermissions']) unless map['ImagePermissions'].nil?)
-        data.image_errors = (Parsers::ResourceErrors.parse(map['ImageErrors']) unless map['ImageErrors'].nil?)
+        data.image_permissions = (ImagePermissions.parse(map['ImagePermissions']) unless map['ImagePermissions'].nil?)
+        data.image_errors = (ResourceErrors.parse(map['ImageErrors']) unless map['ImageErrors'].nil?)
         return data
       end
     end
@@ -851,7 +851,7 @@ module AWS::SDK::AppStream
     class Applications
       def self.parse(list)
         list.map do |value|
-          Parsers::Application.parse(value) unless value.nil?
+          Application.parse(value) unless value.nil?
         end
       end
     end
@@ -963,7 +963,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image = (Parsers::Image.parse(map['Image']) unless map['Image'].nil?)
+        data.image = (Image.parse(map['Image']) unless map['Image'].nil?)
         data
       end
     end
@@ -975,7 +975,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_builder = (Parsers::ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
+        data.image_builder = (ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
         data
       end
     end
@@ -1031,7 +1031,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.app_blocks = (Parsers::AppBlocks.parse(map['AppBlocks']) unless map['AppBlocks'].nil?)
+        data.app_blocks = (AppBlocks.parse(map['AppBlocks']) unless map['AppBlocks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1040,7 +1040,7 @@ module AWS::SDK::AppStream
     class AppBlocks
       def self.parse(list)
         list.map do |value|
-          Parsers::AppBlock.parse(value) unless value.nil?
+          AppBlock.parse(value) unless value.nil?
         end
       end
     end
@@ -1052,7 +1052,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_fleet_associations = (Parsers::ApplicationFleetAssociationList.parse(map['ApplicationFleetAssociations']) unless map['ApplicationFleetAssociations'].nil?)
+        data.application_fleet_associations = (ApplicationFleetAssociationList.parse(map['ApplicationFleetAssociations']) unless map['ApplicationFleetAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1061,7 +1061,7 @@ module AWS::SDK::AppStream
     class ApplicationFleetAssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ApplicationFleetAssociation.parse(value) unless value.nil?
+          ApplicationFleetAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -1073,7 +1073,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.applications = (Parsers::Applications.parse(map['Applications']) unless map['Applications'].nil?)
+        data.applications = (Applications.parse(map['Applications']) unless map['Applications'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1086,7 +1086,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.directory_configs = (Parsers::DirectoryConfigList.parse(map['DirectoryConfigs']) unless map['DirectoryConfigs'].nil?)
+        data.directory_configs = (DirectoryConfigList.parse(map['DirectoryConfigs']) unless map['DirectoryConfigs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1095,7 +1095,7 @@ module AWS::SDK::AppStream
     class DirectoryConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::DirectoryConfig.parse(value) unless value.nil?
+          DirectoryConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -1107,7 +1107,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entitlements = (Parsers::EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
+        data.entitlements = (EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1116,7 +1116,7 @@ module AWS::SDK::AppStream
     class EntitlementList
       def self.parse(list)
         list.map do |value|
-          Parsers::Entitlement.parse(value) unless value.nil?
+          Entitlement.parse(value) unless value.nil?
         end
       end
     end
@@ -1128,7 +1128,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleets = (Parsers::FleetList.parse(map['Fleets']) unless map['Fleets'].nil?)
+        data.fleets = (FleetList.parse(map['Fleets']) unless map['Fleets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1137,7 +1137,7 @@ module AWS::SDK::AppStream
     class FleetList
       def self.parse(list)
         list.map do |value|
-          Parsers::Fleet.parse(value) unless value.nil?
+          Fleet.parse(value) unless value.nil?
         end
       end
     end
@@ -1149,7 +1149,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_builders = (Parsers::ImageBuilderList.parse(map['ImageBuilders']) unless map['ImageBuilders'].nil?)
+        data.image_builders = (ImageBuilderList.parse(map['ImageBuilders']) unless map['ImageBuilders'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1158,7 +1158,7 @@ module AWS::SDK::AppStream
     class ImageBuilderList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageBuilder.parse(value) unless value.nil?
+          ImageBuilder.parse(value) unless value.nil?
         end
       end
     end
@@ -1171,7 +1171,7 @@ module AWS::SDK::AppStream
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.name = map['Name']
-        data.shared_image_permissions_list = (Parsers::SharedImagePermissionsList.parse(map['SharedImagePermissionsList']) unless map['SharedImagePermissionsList'].nil?)
+        data.shared_image_permissions_list = (SharedImagePermissionsList.parse(map['SharedImagePermissionsList']) unless map['SharedImagePermissionsList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::AppStream
     class SharedImagePermissionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::SharedImagePermissions.parse(value) unless value.nil?
+          SharedImagePermissions.parse(value) unless value.nil?
         end
       end
     end
@@ -1189,7 +1189,7 @@ module AWS::SDK::AppStream
       def self.parse(map)
         data = Types::SharedImagePermissions.new
         data.shared_account_id = map['sharedAccountId']
-        data.image_permissions = (Parsers::ImagePermissions.parse(map['imagePermissions']) unless map['imagePermissions'].nil?)
+        data.image_permissions = (ImagePermissions.parse(map['imagePermissions']) unless map['imagePermissions'].nil?)
         return data
       end
     end
@@ -1201,7 +1201,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.images = (Parsers::ImageList.parse(map['Images']) unless map['Images'].nil?)
+        data.images = (ImageList.parse(map['Images']) unless map['Images'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1210,7 +1210,7 @@ module AWS::SDK::AppStream
     class ImageList
       def self.parse(list)
         list.map do |value|
-          Parsers::Image.parse(value) unless value.nil?
+          Image.parse(value) unless value.nil?
         end
       end
     end
@@ -1222,7 +1222,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sessions = (Parsers::SessionList.parse(map['Sessions']) unless map['Sessions'].nil?)
+        data.sessions = (SessionList.parse(map['Sessions']) unless map['Sessions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1231,7 +1231,7 @@ module AWS::SDK::AppStream
     class SessionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Session.parse(value) unless value.nil?
+          Session.parse(value) unless value.nil?
         end
       end
     end
@@ -1248,7 +1248,7 @@ module AWS::SDK::AppStream
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.max_expiration_time = Time.at(map['MaxExpirationTime'].to_i) if map['MaxExpirationTime']
         data.authentication_type = map['AuthenticationType']
-        data.network_access_configuration = (Parsers::NetworkAccessConfiguration.parse(map['NetworkAccessConfiguration']) unless map['NetworkAccessConfiguration'].nil?)
+        data.network_access_configuration = (NetworkAccessConfiguration.parse(map['NetworkAccessConfiguration']) unless map['NetworkAccessConfiguration'].nil?)
         return data
       end
     end
@@ -1260,7 +1260,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stacks = (Parsers::StackList.parse(map['Stacks']) unless map['Stacks'].nil?)
+        data.stacks = (StackList.parse(map['Stacks']) unless map['Stacks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1269,7 +1269,7 @@ module AWS::SDK::AppStream
     class StackList
       def self.parse(list)
         list.map do |value|
-          Parsers::Stack.parse(value) unless value.nil?
+          Stack.parse(value) unless value.nil?
         end
       end
     end
@@ -1281,7 +1281,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.usage_report_subscriptions = (Parsers::UsageReportSubscriptionList.parse(map['UsageReportSubscriptions']) unless map['UsageReportSubscriptions'].nil?)
+        data.usage_report_subscriptions = (UsageReportSubscriptionList.parse(map['UsageReportSubscriptions']) unless map['UsageReportSubscriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1290,7 +1290,7 @@ module AWS::SDK::AppStream
     class UsageReportSubscriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::UsageReportSubscription.parse(value) unless value.nil?
+          UsageReportSubscription.parse(value) unless value.nil?
         end
       end
     end
@@ -1301,7 +1301,7 @@ module AWS::SDK::AppStream
         data.s3_bucket_name = map['S3BucketName']
         data.schedule = map['Schedule']
         data.last_generated_report_date = Time.at(map['LastGeneratedReportDate'].to_i) if map['LastGeneratedReportDate']
-        data.subscription_errors = (Parsers::LastReportGenerationExecutionErrors.parse(map['SubscriptionErrors']) unless map['SubscriptionErrors'].nil?)
+        data.subscription_errors = (LastReportGenerationExecutionErrors.parse(map['SubscriptionErrors']) unless map['SubscriptionErrors'].nil?)
         return data
       end
     end
@@ -1309,7 +1309,7 @@ module AWS::SDK::AppStream
     class LastReportGenerationExecutionErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::LastReportGenerationExecutionError.parse(value) unless value.nil?
+          LastReportGenerationExecutionError.parse(value) unless value.nil?
         end
       end
     end
@@ -1330,7 +1330,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_stack_associations = (Parsers::UserStackAssociationList.parse(map['UserStackAssociations']) unless map['UserStackAssociations'].nil?)
+        data.user_stack_associations = (UserStackAssociationList.parse(map['UserStackAssociations']) unless map['UserStackAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1339,7 +1339,7 @@ module AWS::SDK::AppStream
     class UserStackAssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserStackAssociation.parse(value) unless value.nil?
+          UserStackAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -1351,7 +1351,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.users = (Parsers::UserList.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (UserList.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1360,7 +1360,7 @@ module AWS::SDK::AppStream
     class UserList
       def self.parse(list)
         list.map do |value|
-          Parsers::User.parse(value) unless value.nil?
+          User.parse(value) unless value.nil?
         end
       end
     end
@@ -1453,7 +1453,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.names = (Parsers::StringList.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (StringList.parse(map['Names']) unless map['Names'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1466,7 +1466,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.names = (Parsers::StringList.parse(map['Names']) unless map['Names'].nil?)
+        data.names = (StringList.parse(map['Names']) unless map['Names'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1479,7 +1479,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entitled_applications = (Parsers::EntitledApplicationList.parse(map['EntitledApplications']) unless map['EntitledApplications'].nil?)
+        data.entitled_applications = (EntitledApplicationList.parse(map['EntitledApplications']) unless map['EntitledApplications'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1488,7 +1488,7 @@ module AWS::SDK::AppStream
     class EntitledApplicationList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntitledApplication.parse(value) unless value.nil?
+          EntitledApplication.parse(value) unless value.nil?
         end
       end
     end
@@ -1508,7 +1508,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1541,7 +1541,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_builder = (Parsers::ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
+        data.image_builder = (ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
         data
       end
     end
@@ -1564,7 +1564,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_builder = (Parsers::ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
+        data.image_builder = (ImageBuilder.parse(map['ImageBuilder']) unless map['ImageBuilder'].nil?)
         data
       end
     end
@@ -1598,7 +1598,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application = (Parsers::Application.parse(map['Application']) unless map['Application'].nil?)
+        data.application = (Application.parse(map['Application']) unless map['Application'].nil?)
         data
       end
     end
@@ -1610,7 +1610,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.directory_config = (Parsers::DirectoryConfig.parse(map['DirectoryConfig']) unless map['DirectoryConfig'].nil?)
+        data.directory_config = (DirectoryConfig.parse(map['DirectoryConfig']) unless map['DirectoryConfig'].nil?)
         data
       end
     end
@@ -1622,7 +1622,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entitlement = (Parsers::Entitlement.parse(map['Entitlement']) unless map['Entitlement'].nil?)
+        data.entitlement = (Entitlement.parse(map['Entitlement']) unless map['Entitlement'].nil?)
         data
       end
     end
@@ -1634,7 +1634,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet = (Parsers::Fleet.parse(map['Fleet']) unless map['Fleet'].nil?)
+        data.fleet = (Fleet.parse(map['Fleet']) unless map['Fleet'].nil?)
         data
       end
     end
@@ -1657,7 +1657,7 @@ module AWS::SDK::AppStream
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stack = (Parsers::Stack.parse(map['Stack']) unless map['Stack'].nil?)
+        data.stack = (Stack.parse(map['Stack']) unless map['Stack'].nil?)
         data
       end
     end

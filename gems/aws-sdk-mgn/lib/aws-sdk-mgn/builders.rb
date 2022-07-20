@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Mgn
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        data['lifeCycle'] = Builders::ChangeServerLifeCycleStateSourceServerLifecycle.build(input[:life_cycle]) unless input[:life_cycle].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['lifeCycle'] = ChangeServerLifeCycleStateSourceServerLifecycle.build(input[:life_cycle]) unless input[:life_cycle].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -47,7 +49,7 @@ module AWS::SDK::Mgn
         data = {}
         data['stagingAreaSubnetId'] = input[:staging_area_subnet_id] unless input[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = input[:associate_default_security_group] unless input[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Builders::ReplicationServersSecurityGroupsIDs.build(input[:replication_servers_security_groups_i_ds]) unless input[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.build(input[:replication_servers_security_groups_i_ds]) unless input[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = input[:replication_server_instance_type] unless input[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = input[:use_dedicated_replication_server] unless input[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = input[:default_large_staging_disk_type] unless input[:default_large_staging_disk_type].nil?
@@ -56,9 +58,9 @@ module AWS::SDK::Mgn
         data['bandwidthThrottling'] = input[:bandwidth_throttling] unless input[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = input[:data_plane_routing] unless input[:data_plane_routing].nil?
         data['createPublicIP'] = input[:create_public_ip] unless input[:create_public_ip].nil?
-        data['stagingAreaTags'] = Builders::TagsMap.build(input[:staging_area_tags]) unless input[:staging_area_tags].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stagingAreaTags'] = TagsMap.build(input[:staging_area_tags]) unless input[:staging_area_tags].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -95,7 +97,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['jobID'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,7 +112,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['replicationConfigurationTemplateID'] = input[:replication_configuration_template_id] unless input[:replication_configuration_template_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -140,7 +142,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['vcenterClientID'] = input[:vcenter_client_id] unless input[:vcenter_client_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::Mgn
         data['jobID'] = input[:job_id] unless input[:job_id].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -171,10 +173,10 @@ module AWS::SDK::Mgn
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::DescribeJobsRequestFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = DescribeJobsRequestFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::Mgn
     class DescribeJobsRequestFilters
       def self.build(input)
         data = {}
-        data['jobIDs'] = Builders::DescribeJobsRequestFiltersJobIDs.build(input[:job_i_ds]) unless input[:job_i_ds].nil?
+        data['jobIDs'] = DescribeJobsRequestFiltersJobIDs.build(input[:job_i_ds]) unless input[:job_i_ds].nil?
         data['fromDate'] = input[:from_date] unless input[:from_date].nil?
         data['toDate'] = input[:to_date] unless input[:to_date].nil?
         data
@@ -210,10 +212,10 @@ module AWS::SDK::Mgn
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['replicationConfigurationTemplateIDs'] = Builders::ReplicationConfigurationTemplateIDs.build(input[:replication_configuration_template_i_ds]) unless input[:replication_configuration_template_i_ds].nil?
+        data['replicationConfigurationTemplateIDs'] = ReplicationConfigurationTemplateIDs.build(input[:replication_configuration_template_i_ds]) unless input[:replication_configuration_template_i_ds].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -238,10 +240,10 @@ module AWS::SDK::Mgn
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::DescribeSourceServersRequestFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = DescribeSourceServersRequestFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -249,10 +251,10 @@ module AWS::SDK::Mgn
     class DescribeSourceServersRequestFilters
       def self.build(input)
         data = {}
-        data['sourceServerIDs'] = Builders::DescribeSourceServersRequestFiltersIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
+        data['sourceServerIDs'] = DescribeSourceServersRequestFiltersIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
         data['isArchived'] = input[:is_archived] unless input[:is_archived].nil?
-        data['replicationTypes'] = Builders::ReplicationTypes.build(input[:replication_types]) unless input[:replication_types].nil?
-        data['lifeCycleStates'] = Builders::LifeCycleStates.build(input[:life_cycle_states]) unless input[:life_cycle_states].nil?
+        data['replicationTypes'] = ReplicationTypes.build(input[:replication_types]) unless input[:replication_types].nil?
+        data['lifeCycleStates'] = LifeCycleStates.build(input[:life_cycle_states]) unless input[:life_cycle_states].nil?
         data
       end
     end
@@ -313,7 +315,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -343,7 +345,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -358,7 +360,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -400,7 +402,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,9 +431,9 @@ module AWS::SDK::Mgn
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sourceServerIDs'] = Builders::StartCutoverRequestSourceServerIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceServerIDs'] = StartCutoverRequestSourceServerIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -457,7 +459,7 @@ module AWS::SDK::Mgn
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,9 +473,9 @@ module AWS::SDK::Mgn
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sourceServerIDs'] = Builders::StartTestRequestSourceServerIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceServerIDs'] = StartTestRequestSourceServerIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -505,8 +507,8 @@ module AWS::SDK::Mgn
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -520,9 +522,9 @@ module AWS::SDK::Mgn
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sourceServerIDs'] = Builders::TerminateTargetInstancesRequestSourceServerIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceServerIDs'] = TerminateTargetInstancesRequestSourceServerIDs.build(input[:source_server_i_ds]) unless input[:source_server_i_ds].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -586,9 +588,9 @@ module AWS::SDK::Mgn
         data['targetInstanceTypeRightSizingMethod'] = input[:target_instance_type_right_sizing_method] unless input[:target_instance_type_right_sizing_method].nil?
         data['copyPrivateIp'] = input[:copy_private_ip] unless input[:copy_private_ip].nil?
         data['copyTags'] = input[:copy_tags] unless input[:copy_tags].nil?
-        data['licensing'] = Builders::Licensing.build(input[:licensing]) unless input[:licensing].nil?
+        data['licensing'] = Licensing.build(input[:licensing]) unless input[:licensing].nil?
         data['bootMode'] = input[:boot_mode] unless input[:boot_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,18 +617,18 @@ module AWS::SDK::Mgn
         data['name'] = input[:name] unless input[:name].nil?
         data['stagingAreaSubnetId'] = input[:staging_area_subnet_id] unless input[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = input[:associate_default_security_group] unless input[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Builders::ReplicationServersSecurityGroupsIDs.build(input[:replication_servers_security_groups_i_ds]) unless input[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.build(input[:replication_servers_security_groups_i_ds]) unless input[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = input[:replication_server_instance_type] unless input[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = input[:use_dedicated_replication_server] unless input[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = input[:default_large_staging_disk_type] unless input[:default_large_staging_disk_type].nil?
-        data['replicatedDisks'] = Builders::ReplicationConfigurationReplicatedDisks.build(input[:replicated_disks]) unless input[:replicated_disks].nil?
+        data['replicatedDisks'] = ReplicationConfigurationReplicatedDisks.build(input[:replicated_disks]) unless input[:replicated_disks].nil?
         data['ebsEncryption'] = input[:ebs_encryption] unless input[:ebs_encryption].nil?
         data['ebsEncryptionKeyArn'] = input[:ebs_encryption_key_arn] unless input[:ebs_encryption_key_arn].nil?
         data['bandwidthThrottling'] = input[:bandwidth_throttling] unless input[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = input[:data_plane_routing] unless input[:data_plane_routing].nil?
         data['createPublicIP'] = input[:create_public_ip] unless input[:create_public_ip].nil?
-        data['stagingAreaTags'] = Builders::TagsMap.build(input[:staging_area_tags]) unless input[:staging_area_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stagingAreaTags'] = TagsMap.build(input[:staging_area_tags]) unless input[:staging_area_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -635,7 +637,7 @@ module AWS::SDK::Mgn
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicationConfigurationReplicatedDisk.build(element) unless element.nil?
+          data << ReplicationConfigurationReplicatedDisk.build(element) unless element.nil?
         end
         data
       end
@@ -668,7 +670,7 @@ module AWS::SDK::Mgn
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['stagingAreaSubnetId'] = input[:staging_area_subnet_id] unless input[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = input[:associate_default_security_group] unless input[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Builders::ReplicationServersSecurityGroupsIDs.build(input[:replication_servers_security_groups_i_ds]) unless input[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.build(input[:replication_servers_security_groups_i_ds]) unless input[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = input[:replication_server_instance_type] unless input[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = input[:use_dedicated_replication_server] unless input[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = input[:default_large_staging_disk_type] unless input[:default_large_staging_disk_type].nil?
@@ -677,8 +679,8 @@ module AWS::SDK::Mgn
         data['bandwidthThrottling'] = input[:bandwidth_throttling] unless input[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = input[:data_plane_routing] unless input[:data_plane_routing].nil?
         data['createPublicIP'] = input[:create_public_ip] unless input[:create_public_ip].nil?
-        data['stagingAreaTags'] = Builders::TagsMap.build(input[:staging_area_tags]) unless input[:staging_area_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stagingAreaTags'] = TagsMap.build(input[:staging_area_tags]) unless input[:staging_area_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::Mgn
         data = {}
         data['sourceServerID'] = input[:source_server_id] unless input[:source_server_id].nil?
         data['replicationType'] = input[:replication_type] unless input[:replication_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

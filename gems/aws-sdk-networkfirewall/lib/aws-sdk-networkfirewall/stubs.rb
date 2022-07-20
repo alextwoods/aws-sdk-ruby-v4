@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::NetworkFirewall
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::NetworkFirewall
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
         data['FirewallPolicyArn'] = stub[:firewall_policy_arn] unless stub[:firewall_policy_arn].nil?
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,9 +49,9 @@ module AWS::SDK::NetworkFirewall
         data = {}
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
-        data['SubnetMappings'] = Stubs::SubnetMappings.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
+        data['SubnetMappings'] = SubnetMappings.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -68,7 +70,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubnetMapping.stub(element) unless element.nil?
+          data << SubnetMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -103,9 +105,9 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Firewall'] = Stubs::Firewall.stub(stub[:firewall]) unless stub[:firewall].nil?
-        data['FirewallStatus'] = Stubs::FirewallStatus.stub(stub[:firewall_status]) unless stub[:firewall_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Firewall'] = Firewall.stub(stub[:firewall]) unless stub[:firewall].nil?
+        data['FirewallStatus'] = FirewallStatus.stub(stub[:firewall_status]) unless stub[:firewall_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::NetworkFirewall
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ConfigurationSyncStateSummary'] = stub[:configuration_sync_state_summary] unless stub[:configuration_sync_state_summary].nil?
-        data['SyncStates'] = Stubs::SyncStates.stub(stub[:sync_states]) unless stub[:sync_states].nil?
+        data['SyncStates'] = SyncStates.stub(stub[:sync_states]) unless stub[:sync_states].nil?
         data
       end
     end
@@ -146,7 +148,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::SyncState.stub(value) unless value.nil?
+          data[key] = SyncState.stub(value) unless value.nil?
         end
         data
       end
@@ -166,8 +168,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::SyncState.new
         data = {}
-        data['Attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
-        data['Config'] = Stubs::SyncStateConfig.stub(stub[:config]) unless stub[:config].nil?
+        data['Attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        data['Config'] = SyncStateConfig.stub(stub[:config]) unless stub[:config].nil?
         data
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PerObjectStatus.stub(value) unless value.nil?
+          data[key] = PerObjectStatus.stub(value) unless value.nil?
         end
         data
       end
@@ -262,14 +264,14 @@ module AWS::SDK::NetworkFirewall
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
         data['FirewallPolicyArn'] = stub[:firewall_policy_arn] unless stub[:firewall_policy_arn].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetMappings'] = Stubs::SubnetMappings.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
+        data['SubnetMappings'] = SubnetMappings.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
         data['DeleteProtection'] = stub[:delete_protection] unless stub[:delete_protection].nil?
         data['SubnetChangeProtection'] = stub[:subnet_change_protection] unless stub[:subnet_change_protection].nil?
         data['FirewallPolicyChangeProtection'] = stub[:firewall_policy_change_protection] unless stub[:firewall_policy_change_protection].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['FirewallId'] = stub[:firewall_id] unless stub[:firewall_id].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
         data
       end
     end
@@ -308,7 +310,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -346,8 +348,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['FirewallPolicyResponse'] = Stubs::FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallPolicyResponse'] = FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -380,11 +382,11 @@ module AWS::SDK::NetworkFirewall
         data['FirewallPolicyId'] = stub[:firewall_policy_id] unless stub[:firewall_policy_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['FirewallPolicyStatus'] = stub[:firewall_policy_status] unless stub[:firewall_policy_status].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['ConsumedStatelessRuleCapacity'] = stub[:consumed_stateless_rule_capacity] unless stub[:consumed_stateless_rule_capacity].nil?
         data['ConsumedStatefulRuleCapacity'] = stub[:consumed_stateful_rule_capacity] unless stub[:consumed_stateful_rule_capacity].nil?
         data['NumberOfAssociations'] = stub[:number_of_associations] unless stub[:number_of_associations].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data
       end
@@ -402,8 +404,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['RuleGroupResponse'] = Stubs::RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroupResponse'] = RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -441,11 +443,11 @@ module AWS::SDK::NetworkFirewall
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Capacity'] = stub[:capacity] unless stub[:capacity].nil?
         data['RuleGroupStatus'] = stub[:rule_group_status] unless stub[:rule_group_status].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['ConsumedCapacity'] = stub[:consumed_capacity] unless stub[:consumed_capacity].nil?
         data['NumberOfAssociations'] = stub[:number_of_associations] unless stub[:number_of_associations].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        data['SourceMetadata'] = Stubs::SourceMetadata.stub(stub[:source_metadata]) unless stub[:source_metadata].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['SourceMetadata'] = SourceMetadata.stub(stub[:source_metadata]) unless stub[:source_metadata].nil?
         data['SnsTopic'] = stub[:sns_topic] unless stub[:sns_topic].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data
@@ -483,9 +485,9 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Firewall'] = Stubs::Firewall.stub(stub[:firewall]) unless stub[:firewall].nil?
-        data['FirewallStatus'] = Stubs::FirewallStatus.stub(stub[:firewall_status]) unless stub[:firewall_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Firewall'] = Firewall.stub(stub[:firewall]) unless stub[:firewall].nil?
+        data['FirewallStatus'] = FirewallStatus.stub(stub[:firewall_status]) unless stub[:firewall_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -500,8 +502,8 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FirewallPolicyResponse'] = Stubs::FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallPolicyResponse'] = FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -515,7 +517,7 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -530,8 +532,8 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuleGroupResponse'] = Stubs::RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroupResponse'] = RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -549,9 +551,9 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['Firewall'] = Stubs::Firewall.stub(stub[:firewall]) unless stub[:firewall].nil?
-        data['FirewallStatus'] = Stubs::FirewallStatus.stub(stub[:firewall_status]) unless stub[:firewall_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Firewall'] = Firewall.stub(stub[:firewall]) unless stub[:firewall].nil?
+        data['FirewallStatus'] = FirewallStatus.stub(stub[:firewall_status]) unless stub[:firewall_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -569,9 +571,9 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['FirewallPolicyResponse'] = Stubs::FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
-        data['FirewallPolicy'] = Stubs::FirewallPolicy.stub(stub[:firewall_policy]) unless stub[:firewall_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallPolicyResponse'] = FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
+        data['FirewallPolicy'] = FirewallPolicy.stub(stub[:firewall_policy]) unless stub[:firewall_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -595,13 +597,13 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::FirewallPolicy.new
         data = {}
-        data['StatelessRuleGroupReferences'] = Stubs::StatelessRuleGroupReferences.stub(stub[:stateless_rule_group_references]) unless stub[:stateless_rule_group_references].nil?
-        data['StatelessDefaultActions'] = Stubs::StatelessActions.stub(stub[:stateless_default_actions]) unless stub[:stateless_default_actions].nil?
-        data['StatelessFragmentDefaultActions'] = Stubs::StatelessActions.stub(stub[:stateless_fragment_default_actions]) unless stub[:stateless_fragment_default_actions].nil?
-        data['StatelessCustomActions'] = Stubs::CustomActions.stub(stub[:stateless_custom_actions]) unless stub[:stateless_custom_actions].nil?
-        data['StatefulRuleGroupReferences'] = Stubs::StatefulRuleGroupReferences.stub(stub[:stateful_rule_group_references]) unless stub[:stateful_rule_group_references].nil?
-        data['StatefulDefaultActions'] = Stubs::StatefulActions.stub(stub[:stateful_default_actions]) unless stub[:stateful_default_actions].nil?
-        data['StatefulEngineOptions'] = Stubs::StatefulEngineOptions.stub(stub[:stateful_engine_options]) unless stub[:stateful_engine_options].nil?
+        data['StatelessRuleGroupReferences'] = StatelessRuleGroupReferences.stub(stub[:stateless_rule_group_references]) unless stub[:stateless_rule_group_references].nil?
+        data['StatelessDefaultActions'] = StatelessActions.stub(stub[:stateless_default_actions]) unless stub[:stateless_default_actions].nil?
+        data['StatelessFragmentDefaultActions'] = StatelessActions.stub(stub[:stateless_fragment_default_actions]) unless stub[:stateless_fragment_default_actions].nil?
+        data['StatelessCustomActions'] = CustomActions.stub(stub[:stateless_custom_actions]) unless stub[:stateless_custom_actions].nil?
+        data['StatefulRuleGroupReferences'] = StatefulRuleGroupReferences.stub(stub[:stateful_rule_group_references]) unless stub[:stateful_rule_group_references].nil?
+        data['StatefulDefaultActions'] = StatefulActions.stub(stub[:stateful_default_actions]) unless stub[:stateful_default_actions].nil?
+        data['StatefulEngineOptions'] = StatefulEngineOptions.stub(stub[:stateful_engine_options]) unless stub[:stateful_engine_options].nil?
         data
       end
     end
@@ -658,7 +660,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatefulRuleGroupReference.stub(element) unless element.nil?
+          data << StatefulRuleGroupReference.stub(element) unless element.nil?
         end
         data
       end
@@ -681,7 +683,7 @@ module AWS::SDK::NetworkFirewall
         data = {}
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
-        data['Override'] = Stubs::StatefulRuleGroupOverride.stub(stub[:override]) unless stub[:override].nil?
+        data['Override'] = StatefulRuleGroupOverride.stub(stub[:override]) unless stub[:override].nil?
         data
       end
     end
@@ -718,7 +720,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomAction.stub(element) unless element.nil?
+          data << CustomAction.stub(element) unless element.nil?
         end
         data
       end
@@ -739,7 +741,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= Types::CustomAction.new
         data = {}
         data['ActionName'] = stub[:action_name] unless stub[:action_name].nil?
-        data['ActionDefinition'] = Stubs::ActionDefinition.stub(stub[:action_definition]) unless stub[:action_definition].nil?
+        data['ActionDefinition'] = ActionDefinition.stub(stub[:action_definition]) unless stub[:action_definition].nil?
         data
       end
     end
@@ -757,7 +759,7 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::ActionDefinition.new
         data = {}
-        data['PublishMetricAction'] = Stubs::PublishMetricAction.stub(stub[:publish_metric_action]) unless stub[:publish_metric_action].nil?
+        data['PublishMetricAction'] = PublishMetricAction.stub(stub[:publish_metric_action]) unless stub[:publish_metric_action].nil?
         data
       end
     end
@@ -775,7 +777,7 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::PublishMetricAction.new
         data = {}
-        data['Dimensions'] = Stubs::Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data
       end
     end
@@ -794,7 +796,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Dimension.stub(element) unless element.nil?
+          data << Dimension.stub(element) unless element.nil?
         end
         data
       end
@@ -852,7 +854,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatelessRuleGroupReference.stub(element) unless element.nil?
+          data << StatelessRuleGroupReference.stub(element) unless element.nil?
         end
         data
       end
@@ -890,8 +892,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -909,7 +911,7 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::LoggingConfiguration.new
         data = {}
-        data['LogDestinationConfigs'] = Stubs::LogDestinationConfigs.stub(stub[:log_destination_configs]) unless stub[:log_destination_configs].nil?
+        data['LogDestinationConfigs'] = LogDestinationConfigs.stub(stub[:log_destination_configs]) unless stub[:log_destination_configs].nil?
         data
       end
     end
@@ -928,7 +930,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogDestinationConfig.stub(element) unless element.nil?
+          data << LogDestinationConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -951,7 +953,7 @@ module AWS::SDK::NetworkFirewall
         data = {}
         data['LogType'] = stub[:log_type] unless stub[:log_type].nil?
         data['LogDestinationType'] = stub[:log_destination_type] unless stub[:log_destination_type].nil?
-        data['LogDestination'] = Stubs::LogDestinationMap.stub(stub[:log_destination]) unless stub[:log_destination].nil?
+        data['LogDestination'] = LogDestinationMap.stub(stub[:log_destination]) unless stub[:log_destination].nil?
         data
       end
     end
@@ -987,7 +989,7 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1005,9 +1007,9 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['RuleGroup'] = Stubs::RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
-        data['RuleGroupResponse'] = Stubs::RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroup'] = RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
+        data['RuleGroupResponse'] = RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1027,9 +1029,9 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::RuleGroup.new
         data = {}
-        data['RuleVariables'] = Stubs::RuleVariables.stub(stub[:rule_variables]) unless stub[:rule_variables].nil?
-        data['RulesSource'] = Stubs::RulesSource.stub(stub[:rules_source]) unless stub[:rules_source].nil?
-        data['StatefulRuleOptions'] = Stubs::StatefulRuleOptions.stub(stub[:stateful_rule_options]) unless stub[:stateful_rule_options].nil?
+        data['RuleVariables'] = RuleVariables.stub(stub[:rule_variables]) unless stub[:rule_variables].nil?
+        data['RulesSource'] = RulesSource.stub(stub[:rules_source]) unless stub[:rules_source].nil?
+        data['StatefulRuleOptions'] = StatefulRuleOptions.stub(stub[:stateful_rule_options]) unless stub[:stateful_rule_options].nil?
         data
       end
     end
@@ -1069,9 +1071,9 @@ module AWS::SDK::NetworkFirewall
         stub ||= Types::RulesSource.new
         data = {}
         data['RulesString'] = stub[:rules_string] unless stub[:rules_string].nil?
-        data['RulesSourceList'] = Stubs::RulesSourceList.stub(stub[:rules_source_list]) unless stub[:rules_source_list].nil?
-        data['StatefulRules'] = Stubs::StatefulRules.stub(stub[:stateful_rules]) unless stub[:stateful_rules].nil?
-        data['StatelessRulesAndCustomActions'] = Stubs::StatelessRulesAndCustomActions.stub(stub[:stateless_rules_and_custom_actions]) unless stub[:stateless_rules_and_custom_actions].nil?
+        data['RulesSourceList'] = RulesSourceList.stub(stub[:rules_source_list]) unless stub[:rules_source_list].nil?
+        data['StatefulRules'] = StatefulRules.stub(stub[:stateful_rules]) unless stub[:stateful_rules].nil?
+        data['StatelessRulesAndCustomActions'] = StatelessRulesAndCustomActions.stub(stub[:stateless_rules_and_custom_actions]) unless stub[:stateless_rules_and_custom_actions].nil?
         data
       end
     end
@@ -1090,8 +1092,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::StatelessRulesAndCustomActions.new
         data = {}
-        data['StatelessRules'] = Stubs::StatelessRules.stub(stub[:stateless_rules]) unless stub[:stateless_rules].nil?
-        data['CustomActions'] = Stubs::CustomActions.stub(stub[:custom_actions]) unless stub[:custom_actions].nil?
+        data['StatelessRules'] = StatelessRules.stub(stub[:stateless_rules]) unless stub[:stateless_rules].nil?
+        data['CustomActions'] = CustomActions.stub(stub[:custom_actions]) unless stub[:custom_actions].nil?
         data
       end
     end
@@ -1110,7 +1112,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatelessRule.stub(element) unless element.nil?
+          data << StatelessRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1130,7 +1132,7 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::StatelessRule.new
         data = {}
-        data['RuleDefinition'] = Stubs::RuleDefinition.stub(stub[:rule_definition]) unless stub[:rule_definition].nil?
+        data['RuleDefinition'] = RuleDefinition.stub(stub[:rule_definition]) unless stub[:rule_definition].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
         data
       end
@@ -1150,8 +1152,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::RuleDefinition.new
         data = {}
-        data['MatchAttributes'] = Stubs::MatchAttributes.stub(stub[:match_attributes]) unless stub[:match_attributes].nil?
-        data['Actions'] = Stubs::StatelessActions.stub(stub[:actions]) unless stub[:actions].nil?
+        data['MatchAttributes'] = MatchAttributes.stub(stub[:match_attributes]) unless stub[:match_attributes].nil?
+        data['Actions'] = StatelessActions.stub(stub[:actions]) unless stub[:actions].nil?
         data
       end
     end
@@ -1174,12 +1176,12 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::MatchAttributes.new
         data = {}
-        data['Sources'] = Stubs::Addresses.stub(stub[:sources]) unless stub[:sources].nil?
-        data['Destinations'] = Stubs::Addresses.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['SourcePorts'] = Stubs::PortRanges.stub(stub[:source_ports]) unless stub[:source_ports].nil?
-        data['DestinationPorts'] = Stubs::PortRanges.stub(stub[:destination_ports]) unless stub[:destination_ports].nil?
-        data['Protocols'] = Stubs::ProtocolNumbers.stub(stub[:protocols]) unless stub[:protocols].nil?
-        data['TCPFlags'] = Stubs::TCPFlags.stub(stub[:tcp_flags]) unless stub[:tcp_flags].nil?
+        data['Sources'] = Addresses.stub(stub[:sources]) unless stub[:sources].nil?
+        data['Destinations'] = Addresses.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['SourcePorts'] = PortRanges.stub(stub[:source_ports]) unless stub[:source_ports].nil?
+        data['DestinationPorts'] = PortRanges.stub(stub[:destination_ports]) unless stub[:destination_ports].nil?
+        data['Protocols'] = ProtocolNumbers.stub(stub[:protocols]) unless stub[:protocols].nil?
+        data['TCPFlags'] = TCPFlags.stub(stub[:tcp_flags]) unless stub[:tcp_flags].nil?
         data
       end
     end
@@ -1198,7 +1200,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TCPFlagField.stub(element) unless element.nil?
+          data << TCPFlagField.stub(element) unless element.nil?
         end
         data
       end
@@ -1218,8 +1220,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::TCPFlagField.new
         data = {}
-        data['Flags'] = Stubs::Flags.stub(stub[:flags]) unless stub[:flags].nil?
-        data['Masks'] = Stubs::Flags.stub(stub[:masks]) unless stub[:masks].nil?
+        data['Flags'] = Flags.stub(stub[:flags]) unless stub[:flags].nil?
+        data['Masks'] = Flags.stub(stub[:masks]) unless stub[:masks].nil?
         data
       end
     end
@@ -1278,7 +1280,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortRange.stub(element) unless element.nil?
+          data << PortRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1318,7 +1320,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Address.stub(element) unless element.nil?
+          data << Address.stub(element) unless element.nil?
         end
         data
       end
@@ -1356,7 +1358,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatefulRule.stub(element) unless element.nil?
+          data << StatefulRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1378,8 +1380,8 @@ module AWS::SDK::NetworkFirewall
         stub ||= Types::StatefulRule.new
         data = {}
         data['Action'] = stub[:action] unless stub[:action].nil?
-        data['Header'] = Stubs::Header.stub(stub[:header]) unless stub[:header].nil?
-        data['RuleOptions'] = Stubs::RuleOptions.stub(stub[:rule_options]) unless stub[:rule_options].nil?
+        data['Header'] = Header.stub(stub[:header]) unless stub[:header].nil?
+        data['RuleOptions'] = RuleOptions.stub(stub[:rule_options]) unless stub[:rule_options].nil?
         data
       end
     end
@@ -1398,7 +1400,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleOption.stub(element) unless element.nil?
+          data << RuleOption.stub(element) unless element.nil?
         end
         data
       end
@@ -1419,7 +1421,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= Types::RuleOption.new
         data = {}
         data['Keyword'] = stub[:keyword] unless stub[:keyword].nil?
-        data['Settings'] = Stubs::Settings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['Settings'] = Settings.stub(stub[:settings]) unless stub[:settings].nil?
         data
       end
     end
@@ -1487,8 +1489,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::RulesSourceList.new
         data = {}
-        data['Targets'] = Stubs::RuleTargets.stub(stub[:targets]) unless stub[:targets].nil?
-        data['TargetTypes'] = Stubs::TargetTypes.stub(stub[:target_types]) unless stub[:target_types].nil?
+        data['Targets'] = RuleTargets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['TargetTypes'] = TargetTypes.stub(stub[:target_types]) unless stub[:target_types].nil?
         data['GeneratedRulesType'] = stub[:generated_rules_type] unless stub[:generated_rules_type].nil?
         data
       end
@@ -1548,8 +1550,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::RuleVariables.new
         data = {}
-        data['IPSets'] = Stubs::IPSets.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
-        data['PortSets'] = Stubs::PortSets.stub(stub[:port_sets]) unless stub[:port_sets].nil?
+        data['IPSets'] = IPSets.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
+        data['PortSets'] = PortSets.stub(stub[:port_sets]) unless stub[:port_sets].nil?
         data
       end
     end
@@ -1568,7 +1570,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PortSet.stub(value) unless value.nil?
+          data[key] = PortSet.stub(value) unless value.nil?
         end
         data
       end
@@ -1587,7 +1589,7 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::PortSet.new
         data = {}
-        data['Definition'] = Stubs::VariableDefinitionList.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = VariableDefinitionList.stub(stub[:definition]) unless stub[:definition].nil?
         data
       end
     end
@@ -1626,7 +1628,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::IPSet.stub(value) unless value.nil?
+          data[key] = IPSet.stub(value) unless value.nil?
         end
         data
       end
@@ -1645,7 +1647,7 @@ module AWS::SDK::NetworkFirewall
       def self.stub(stub)
         stub ||= Types::IPSet.new
         data = {}
-        data['Definition'] = Stubs::VariableDefinitionList.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = VariableDefinitionList.stub(stub[:definition]) unless stub[:definition].nil?
         data
       end
     end
@@ -1671,9 +1673,9 @@ module AWS::SDK::NetworkFirewall
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Capacity'] = stub[:capacity] unless stub[:capacity].nil?
-        data['StatefulRuleOptions'] = Stubs::StatefulRuleOptions.stub(stub[:stateful_rule_options]) unless stub[:stateful_rule_options].nil?
+        data['StatefulRuleOptions'] = StatefulRuleOptions.stub(stub[:stateful_rule_options]) unless stub[:stateful_rule_options].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1693,9 +1695,9 @@ module AWS::SDK::NetworkFirewall
         data = {}
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
-        data['SubnetMappings'] = Stubs::SubnetMappings.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
+        data['SubnetMappings'] = SubnetMappings.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1712,8 +1714,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FirewallPolicies'] = Stubs::FirewallPolicies.stub(stub[:firewall_policies]) unless stub[:firewall_policies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallPolicies'] = FirewallPolicies.stub(stub[:firewall_policies]) unless stub[:firewall_policies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1732,7 +1734,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallPolicyMetadata.stub(element) unless element.nil?
+          data << FirewallPolicyMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1770,8 +1772,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Firewalls'] = Stubs::Firewalls.stub(stub[:firewalls]) unless stub[:firewalls].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Firewalls'] = Firewalls.stub(stub[:firewalls]) unless stub[:firewalls].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1790,7 +1792,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallMetadata.stub(element) unless element.nil?
+          data << FirewallMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1828,8 +1830,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['RuleGroups'] = Stubs::RuleGroups.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroups'] = RuleGroups.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1848,7 +1850,7 @@ module AWS::SDK::NetworkFirewall
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupMetadata.stub(element) unless element.nil?
+          data << RuleGroupMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1886,8 +1888,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1901,7 +1903,7 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1915,7 +1917,7 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1929,7 +1931,7 @@ module AWS::SDK::NetworkFirewall
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1951,7 +1953,7 @@ module AWS::SDK::NetworkFirewall
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
         data['DeleteProtection'] = stub[:delete_protection] unless stub[:delete_protection].nil?
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1973,7 +1975,7 @@ module AWS::SDK::NetworkFirewall
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1994,8 +1996,8 @@ module AWS::SDK::NetworkFirewall
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2012,8 +2014,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['FirewallPolicyResponse'] = Stubs::FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FirewallPolicyResponse'] = FirewallPolicyResponse.stub(stub[:firewall_policy_response]) unless stub[:firewall_policy_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2035,7 +2037,7 @@ module AWS::SDK::NetworkFirewall
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
         data['FirewallPolicyChangeProtection'] = stub[:firewall_policy_change_protection] unless stub[:firewall_policy_change_protection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2054,8 +2056,8 @@ module AWS::SDK::NetworkFirewall
         data = {}
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2072,8 +2074,8 @@ module AWS::SDK::NetworkFirewall
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateToken'] = stub[:update_token] unless stub[:update_token].nil?
-        data['RuleGroupResponse'] = Stubs::RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroupResponse'] = RuleGroupResponse.stub(stub[:rule_group_response]) unless stub[:rule_group_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2095,7 +2097,7 @@ module AWS::SDK::NetworkFirewall
         data['FirewallArn'] = stub[:firewall_arn] unless stub[:firewall_arn].nil?
         data['FirewallName'] = stub[:firewall_name] unless stub[:firewall_name].nil?
         data['SubnetChangeProtection'] = stub[:subnet_change_protection] unless stub[:subnet_change_protection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

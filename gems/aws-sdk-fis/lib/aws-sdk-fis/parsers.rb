@@ -15,7 +15,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::CreateExperimentTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment_template = (Parsers::ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
+        data.experiment_template = (ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
         data
       end
     end
@@ -25,14 +25,14 @@ module AWS::SDK::Fis
         data = Types::ExperimentTemplate.new
         data.id = map['id']
         data.description = map['description']
-        data.targets = (Parsers::ExperimentTemplateTargetMap.parse(map['targets']) unless map['targets'].nil?)
-        data.actions = (Parsers::ExperimentTemplateActionMap.parse(map['actions']) unless map['actions'].nil?)
-        data.stop_conditions = (Parsers::ExperimentTemplateStopConditionList.parse(map['stopConditions']) unless map['stopConditions'].nil?)
+        data.targets = (ExperimentTemplateTargetMap.parse(map['targets']) unless map['targets'].nil?)
+        data.actions = (ExperimentTemplateActionMap.parse(map['actions']) unless map['actions'].nil?)
+        data.stop_conditions = (ExperimentTemplateStopConditionList.parse(map['stopConditions']) unless map['stopConditions'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         data.role_arn = map['roleArn']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.log_configuration = (Parsers::ExperimentTemplateLogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.log_configuration = (ExperimentTemplateLogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
         return data
       end
     end
@@ -40,8 +40,8 @@ module AWS::SDK::Fis
     class ExperimentTemplateLogConfiguration
       def self.parse(map)
         data = Types::ExperimentTemplateLogConfiguration.new
-        data.cloud_watch_logs_configuration = (Parsers::ExperimentTemplateCloudWatchLogsLogConfiguration.parse(map['cloudWatchLogsConfiguration']) unless map['cloudWatchLogsConfiguration'].nil?)
-        data.s3_configuration = (Parsers::ExperimentTemplateS3LogConfiguration.parse(map['s3Configuration']) unless map['s3Configuration'].nil?)
+        data.cloud_watch_logs_configuration = (ExperimentTemplateCloudWatchLogsLogConfiguration.parse(map['cloudWatchLogsConfiguration']) unless map['cloudWatchLogsConfiguration'].nil?)
+        data.s3_configuration = (ExperimentTemplateS3LogConfiguration.parse(map['s3Configuration']) unless map['s3Configuration'].nil?)
         data.log_schema_version = map['logSchemaVersion']
         return data
       end
@@ -78,7 +78,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExperimentTemplateStopCondition.parse(value) unless value.nil?
+          data << ExperimentTemplateStopCondition.parse(value) unless value.nil?
         end
         data
       end
@@ -97,7 +97,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ExperimentTemplateAction.parse(value) unless value.nil?
+          data[key] = ExperimentTemplateAction.parse(value) unless value.nil?
         end
         data
       end
@@ -108,9 +108,9 @@ module AWS::SDK::Fis
         data = Types::ExperimentTemplateAction.new
         data.action_id = map['actionId']
         data.description = map['description']
-        data.parameters = (Parsers::ExperimentTemplateActionParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
-        data.targets = (Parsers::ExperimentTemplateActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
-        data.start_after = (Parsers::ExperimentTemplateActionStartAfterList.parse(map['startAfter']) unless map['startAfter'].nil?)
+        data.parameters = (ExperimentTemplateActionParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.targets = (ExperimentTemplateActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
+        data.start_after = (ExperimentTemplateActionStartAfterList.parse(map['startAfter']) unless map['startAfter'].nil?)
         return data
       end
     end
@@ -149,7 +149,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ExperimentTemplateTarget.parse(value) unless value.nil?
+          data[key] = ExperimentTemplateTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -159,11 +159,11 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = Types::ExperimentTemplateTarget.new
         data.resource_type = map['resourceType']
-        data.resource_arns = (Parsers::ResourceArnList.parse(map['resourceArns']) unless map['resourceArns'].nil?)
-        data.resource_tags = (Parsers::TagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
-        data.filters = (Parsers::ExperimentTemplateTargetFilterList.parse(map['filters']) unless map['filters'].nil?)
+        data.resource_arns = (ResourceArnList.parse(map['resourceArns']) unless map['resourceArns'].nil?)
+        data.resource_tags = (TagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
+        data.filters = (ExperimentTemplateTargetFilterList.parse(map['filters']) unless map['filters'].nil?)
         data.selection_mode = map['selectionMode']
-        data.parameters = (Parsers::ExperimentTemplateTargetParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.parameters = (ExperimentTemplateTargetParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
         return data
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExperimentTemplateTargetFilter.parse(value) unless value.nil?
+          data << ExperimentTemplateTargetFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -192,7 +192,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = Types::ExperimentTemplateTargetFilter.new
         data.path = map['path']
-        data.values = (Parsers::ExperimentTemplateTargetFilterValues.parse(map['values']) unless map['values'].nil?)
+        data.values = (ExperimentTemplateTargetFilterValues.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -262,7 +262,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::DeleteExperimentTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment_template = (Parsers::ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
+        data.experiment_template = (ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
         data
       end
     end
@@ -272,7 +272,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::GetActionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.action = (Parsers::Action.parse(map['action']) unless map['action'].nil?)
+        data.action = (Action.parse(map['action']) unless map['action'].nil?)
         data
       end
     end
@@ -282,9 +282,9 @@ module AWS::SDK::Fis
         data = Types::Action.new
         data.id = map['id']
         data.description = map['description']
-        data.parameters = (Parsers::ActionParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
-        data.targets = (Parsers::ActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.parameters = (ActionParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.targets = (ActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -293,7 +293,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ActionTarget.parse(value) unless value.nil?
+          data[key] = ActionTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -311,7 +311,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ActionParameter.parse(value) unless value.nil?
+          data[key] = ActionParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -331,7 +331,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::GetExperimentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment = (Parsers::Experiment.parse(map['experiment']) unless map['experiment'].nil?)
+        data.experiment = (Experiment.parse(map['experiment']) unless map['experiment'].nil?)
         data
       end
     end
@@ -342,15 +342,15 @@ module AWS::SDK::Fis
         data.id = map['id']
         data.experiment_template_id = map['experimentTemplateId']
         data.role_arn = map['roleArn']
-        data.state = (Parsers::ExperimentState.parse(map['state']) unless map['state'].nil?)
-        data.targets = (Parsers::ExperimentTargetMap.parse(map['targets']) unless map['targets'].nil?)
-        data.actions = (Parsers::ExperimentActionMap.parse(map['actions']) unless map['actions'].nil?)
-        data.stop_conditions = (Parsers::ExperimentStopConditionList.parse(map['stopConditions']) unless map['stopConditions'].nil?)
+        data.state = (ExperimentState.parse(map['state']) unless map['state'].nil?)
+        data.targets = (ExperimentTargetMap.parse(map['targets']) unless map['targets'].nil?)
+        data.actions = (ExperimentActionMap.parse(map['actions']) unless map['actions'].nil?)
+        data.stop_conditions = (ExperimentStopConditionList.parse(map['stopConditions']) unless map['stopConditions'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.log_configuration = (Parsers::ExperimentLogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.log_configuration = (ExperimentLogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
         return data
       end
     end
@@ -358,8 +358,8 @@ module AWS::SDK::Fis
     class ExperimentLogConfiguration
       def self.parse(map)
         data = Types::ExperimentLogConfiguration.new
-        data.cloud_watch_logs_configuration = (Parsers::ExperimentCloudWatchLogsLogConfiguration.parse(map['cloudWatchLogsConfiguration']) unless map['cloudWatchLogsConfiguration'].nil?)
-        data.s3_configuration = (Parsers::ExperimentS3LogConfiguration.parse(map['s3Configuration']) unless map['s3Configuration'].nil?)
+        data.cloud_watch_logs_configuration = (ExperimentCloudWatchLogsLogConfiguration.parse(map['cloudWatchLogsConfiguration']) unless map['cloudWatchLogsConfiguration'].nil?)
+        data.s3_configuration = (ExperimentS3LogConfiguration.parse(map['s3Configuration']) unless map['s3Configuration'].nil?)
         data.log_schema_version = map['logSchemaVersion']
         return data
       end
@@ -386,7 +386,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExperimentStopCondition.parse(value) unless value.nil?
+          data << ExperimentStopCondition.parse(value) unless value.nil?
         end
         data
       end
@@ -405,7 +405,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ExperimentAction.parse(value) unless value.nil?
+          data[key] = ExperimentAction.parse(value) unless value.nil?
         end
         data
       end
@@ -416,10 +416,10 @@ module AWS::SDK::Fis
         data = Types::ExperimentAction.new
         data.action_id = map['actionId']
         data.description = map['description']
-        data.parameters = (Parsers::ExperimentActionParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
-        data.targets = (Parsers::ExperimentActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
-        data.start_after = (Parsers::ExperimentActionStartAfterList.parse(map['startAfter']) unless map['startAfter'].nil?)
-        data.state = (Parsers::ExperimentActionState.parse(map['state']) unless map['state'].nil?)
+        data.parameters = (ExperimentActionParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.targets = (ExperimentActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
+        data.start_after = (ExperimentActionStartAfterList.parse(map['startAfter']) unless map['startAfter'].nil?)
+        data.state = (ExperimentActionState.parse(map['state']) unless map['state'].nil?)
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
         return data
@@ -469,7 +469,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ExperimentTarget.parse(value) unless value.nil?
+          data[key] = ExperimentTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -479,11 +479,11 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = Types::ExperimentTarget.new
         data.resource_type = map['resourceType']
-        data.resource_arns = (Parsers::ResourceArnList.parse(map['resourceArns']) unless map['resourceArns'].nil?)
-        data.resource_tags = (Parsers::TagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
-        data.filters = (Parsers::ExperimentTargetFilterList.parse(map['filters']) unless map['filters'].nil?)
+        data.resource_arns = (ResourceArnList.parse(map['resourceArns']) unless map['resourceArns'].nil?)
+        data.resource_tags = (TagMap.parse(map['resourceTags']) unless map['resourceTags'].nil?)
+        data.filters = (ExperimentTargetFilterList.parse(map['filters']) unless map['filters'].nil?)
         data.selection_mode = map['selectionMode']
-        data.parameters = (Parsers::ExperimentTargetParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.parameters = (ExperimentTargetParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
         return data
       end
     end
@@ -502,7 +502,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExperimentTargetFilter.parse(value) unless value.nil?
+          data << ExperimentTargetFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -512,7 +512,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = Types::ExperimentTargetFilter.new
         data.path = map['path']
-        data.values = (Parsers::ExperimentTargetFilterValues.parse(map['values']) unless map['values'].nil?)
+        data.values = (ExperimentTargetFilterValues.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -541,7 +541,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::GetExperimentTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment_template = (Parsers::ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
+        data.experiment_template = (ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
         data
       end
     end
@@ -551,7 +551,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::GetTargetResourceTypeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.target_resource_type = (Parsers::TargetResourceType.parse(map['targetResourceType']) unless map['targetResourceType'].nil?)
+        data.target_resource_type = (TargetResourceType.parse(map['targetResourceType']) unless map['targetResourceType'].nil?)
         data
       end
     end
@@ -561,7 +561,7 @@ module AWS::SDK::Fis
         data = Types::TargetResourceType.new
         data.resource_type = map['resourceType']
         data.description = map['description']
-        data.parameters = (Parsers::TargetResourceTypeParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.parameters = (TargetResourceTypeParameterMap.parse(map['parameters']) unless map['parameters'].nil?)
         return data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::Fis
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::TargetResourceTypeParameter.parse(value) unless value.nil?
+          data[key] = TargetResourceTypeParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -590,7 +590,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::ListActionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.actions = (Parsers::ActionSummaryList.parse(map['actions']) unless map['actions'].nil?)
+        data.actions = (ActionSummaryList.parse(map['actions']) unless map['actions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -600,7 +600,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActionSummary.parse(value) unless value.nil?
+          data << ActionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -611,8 +611,8 @@ module AWS::SDK::Fis
         data = Types::ActionSummary.new
         data.id = map['id']
         data.description = map['description']
-        data.targets = (Parsers::ActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.targets = (ActionTargetMap.parse(map['targets']) unless map['targets'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -622,7 +622,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::ListExperimentTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment_templates = (Parsers::ExperimentTemplateSummaryList.parse(map['experimentTemplates']) unless map['experimentTemplates'].nil?)
+        data.experiment_templates = (ExperimentTemplateSummaryList.parse(map['experimentTemplates']) unless map['experimentTemplates'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -632,7 +632,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExperimentTemplateSummary.parse(value) unless value.nil?
+          data << ExperimentTemplateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -645,7 +645,7 @@ module AWS::SDK::Fis
         data.description = map['description']
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -655,7 +655,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::ListExperimentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiments = (Parsers::ExperimentSummaryList.parse(map['experiments']) unless map['experiments'].nil?)
+        data.experiments = (ExperimentSummaryList.parse(map['experiments']) unless map['experiments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -665,7 +665,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExperimentSummary.parse(value) unless value.nil?
+          data << ExperimentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -676,9 +676,9 @@ module AWS::SDK::Fis
         data = Types::ExperimentSummary.new
         data.id = map['id']
         data.experiment_template_id = map['experimentTemplateId']
-        data.state = (Parsers::ExperimentState.parse(map['state']) unless map['state'].nil?)
+        data.state = (ExperimentState.parse(map['state']) unless map['state'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -688,7 +688,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -698,7 +698,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::ListTargetResourceTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.target_resource_types = (Parsers::TargetResourceTypeSummaryList.parse(map['targetResourceTypes']) unless map['targetResourceTypes'].nil?)
+        data.target_resource_types = (TargetResourceTypeSummaryList.parse(map['targetResourceTypes']) unless map['targetResourceTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -708,7 +708,7 @@ module AWS::SDK::Fis
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TargetResourceTypeSummary.parse(value) unless value.nil?
+          data << TargetResourceTypeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -728,7 +728,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::StartExperimentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment = (Parsers::Experiment.parse(map['experiment']) unless map['experiment'].nil?)
+        data.experiment = (Experiment.parse(map['experiment']) unless map['experiment'].nil?)
         data
       end
     end
@@ -738,7 +738,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::StopExperimentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment = (Parsers::Experiment.parse(map['experiment']) unless map['experiment'].nil?)
+        data.experiment = (Experiment.parse(map['experiment']) unless map['experiment'].nil?)
         data
       end
     end
@@ -766,7 +766,7 @@ module AWS::SDK::Fis
       def self.parse(http_resp)
         data = Types::UpdateExperimentTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.experiment_template = (Parsers::ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
+        data.experiment_template = (ExperimentTemplate.parse(map['experimentTemplate']) unless map['experimentTemplate'].nil?)
         data
       end
     end

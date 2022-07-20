@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKIdentity
   module Builders
 
@@ -23,8 +25,8 @@ module AWS::SDK::ChimeSDKIdentity
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -67,7 +69,7 @@ module AWS::SDK::ChimeSDKIdentity
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AppInstanceAdminArn'] = input[:app_instance_admin_arn] unless input[:app_instance_admin_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -86,8 +88,8 @@ module AWS::SDK::ChimeSDKIdentity
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,8 +353,8 @@ module AWS::SDK::ChimeSDKIdentity
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AppInstanceRetentionSettings'] = Builders::AppInstanceRetentionSettings.build(input[:app_instance_retention_settings]) unless input[:app_instance_retention_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppInstanceRetentionSettings'] = AppInstanceRetentionSettings.build(input[:app_instance_retention_settings]) unless input[:app_instance_retention_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,7 +362,7 @@ module AWS::SDK::ChimeSDKIdentity
     class AppInstanceRetentionSettings
       def self.build(input)
         data = {}
-        data['ChannelRetentionSettings'] = Builders::ChannelRetentionSettings.build(input[:channel_retention_settings]) unless input[:channel_retention_settings].nil?
+        data['ChannelRetentionSettings'] = ChannelRetentionSettings.build(input[:channel_retention_settings]) unless input[:channel_retention_settings].nil?
         data
       end
     end
@@ -394,10 +396,10 @@ module AWS::SDK::ChimeSDKIdentity
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['EndpointAttributes'] = Builders::EndpointAttributes.build(input[:endpoint_attributes]) unless input[:endpoint_attributes].nil?
+        data['EndpointAttributes'] = EndpointAttributes.build(input[:endpoint_attributes]) unless input[:endpoint_attributes].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['AllowMessages'] = input[:allow_messages] unless input[:allow_messages].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -425,8 +427,8 @@ module AWS::SDK::ChimeSDKIdentity
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,8 +446,8 @@ module AWS::SDK::ChimeSDKIdentity
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -479,7 +481,7 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -502,7 +504,7 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -529,7 +531,7 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['AllowMessages'] = input[:allow_messages] unless input[:allow_messages].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

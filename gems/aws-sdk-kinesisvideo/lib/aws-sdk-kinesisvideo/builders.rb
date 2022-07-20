@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisVideo
   module Builders
 
@@ -22,9 +24,9 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['ChannelName'] = input[:channel_name] unless input[:channel_name].nil?
         data['ChannelType'] = input[:channel_type] unless input[:channel_type].nil?
-        data['SingleMasterConfiguration'] = Builders::SingleMasterConfiguration.build(input[:single_master_configuration]) unless input[:single_master_configuration].nil?
-        data['Tags'] = Builders::TagOnCreateList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SingleMasterConfiguration'] = SingleMasterConfiguration.build(input[:single_master_configuration]) unless input[:single_master_configuration].nil?
+        data['Tags'] = TagOnCreateList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::KinesisVideo
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -73,8 +75,8 @@ module AWS::SDK::KinesisVideo
         data['MediaType'] = input[:media_type] unless input[:media_type].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['DataRetentionInHours'] = input[:data_retention_in_hours] unless input[:data_retention_in_hours].nil?
-        data['Tags'] = Builders::ResourceTags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = ResourceTags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -101,7 +103,7 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['ChannelARN'] = input[:channel_arn] unless input[:channel_arn].nil?
         data['CurrentVersion'] = input[:current_version] unless input[:current_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['CurrentVersion'] = input[:current_version] unless input[:current_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,7 +135,7 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +167,7 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['ChannelName'] = input[:channel_name] unless input[:channel_name].nil?
         data['ChannelARN'] = input[:channel_arn] unless input[:channel_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -181,7 +183,7 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::KinesisVideo
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['APIName'] = input[:api_name] unless input[:api_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -213,8 +215,8 @@ module AWS::SDK::KinesisVideo
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ChannelARN'] = input[:channel_arn] unless input[:channel_arn].nil?
-        data['SingleMasterChannelEndpointConfiguration'] = Builders::SingleMasterChannelEndpointConfiguration.build(input[:single_master_channel_endpoint_configuration]) unless input[:single_master_channel_endpoint_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SingleMasterChannelEndpointConfiguration'] = SingleMasterChannelEndpointConfiguration.build(input[:single_master_channel_endpoint_configuration]) unless input[:single_master_channel_endpoint_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::KinesisVideo
     class SingleMasterChannelEndpointConfiguration
       def self.build(input)
         data = {}
-        data['Protocols'] = Builders::ListOfProtocols.build(input[:protocols]) unless input[:protocols].nil?
+        data['Protocols'] = ListOfProtocols.build(input[:protocols]) unless input[:protocols].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data
       end
@@ -251,8 +253,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['ChannelNameCondition'] = Builders::ChannelNameCondition.build(input[:channel_name_condition]) unless input[:channel_name_condition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelNameCondition'] = ChannelNameCondition.build(input[:channel_name_condition]) unless input[:channel_name_condition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -278,8 +280,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['StreamNameCondition'] = Builders::StreamNameCondition.build(input[:stream_name_condition]) unless input[:stream_name_condition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StreamNameCondition'] = StreamNameCondition.build(input[:stream_name_condition]) unless input[:stream_name_condition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::KinesisVideo
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,8 +339,8 @@ module AWS::SDK::KinesisVideo
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -347,7 +349,7 @@ module AWS::SDK::KinesisVideo
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -365,8 +367,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        data['Tags'] = Builders::ResourceTags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = ResourceTags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -381,8 +383,8 @@ module AWS::SDK::KinesisVideo
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeyList'] = Builders::TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeyList'] = TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -409,8 +411,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
-        data['TagKeyList'] = Builders::TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeyList'] = TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,7 +431,7 @@ module AWS::SDK::KinesisVideo
         data['CurrentVersion'] = input[:current_version] unless input[:current_version].nil?
         data['Operation'] = input[:operation] unless input[:operation].nil?
         data['DataRetentionChangeInHours'] = input[:data_retention_change_in_hours] unless input[:data_retention_change_in_hours].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,8 +447,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        data['ImageGenerationConfiguration'] = Builders::ImageGenerationConfiguration.build(input[:image_generation_configuration]) unless input[:image_generation_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImageGenerationConfiguration'] = ImageGenerationConfiguration.build(input[:image_generation_configuration]) unless input[:image_generation_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -456,10 +458,10 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['Status'] = input[:status] unless input[:status].nil?
         data['ImageSelectorType'] = input[:image_selector_type] unless input[:image_selector_type].nil?
-        data['DestinationConfig'] = Builders::ImageGenerationDestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        data['DestinationConfig'] = ImageGenerationDestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
         data['SamplingInterval'] = input[:sampling_interval] unless input[:sampling_interval].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        data['FormatConfig'] = Builders::FormatConfig.build(input[:format_config]) unless input[:format_config].nil?
+        data['FormatConfig'] = FormatConfig.build(input[:format_config]) unless input[:format_config].nil?
         data['WidthPixels'] = input[:width_pixels] unless input[:width_pixels].nil?
         data['HeightPixels'] = input[:height_pixels] unless input[:height_pixels].nil?
         data
@@ -499,8 +501,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        data['NotificationConfiguration'] = Builders::NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotificationConfiguration'] = NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -509,7 +511,7 @@ module AWS::SDK::KinesisVideo
       def self.build(input)
         data = {}
         data['Status'] = input[:status] unless input[:status].nil?
-        data['DestinationConfig'] = Builders::NotificationDestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        data['DestinationConfig'] = NotificationDestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
         data
       end
     end
@@ -535,8 +537,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['ChannelARN'] = input[:channel_arn] unless input[:channel_arn].nil?
         data['CurrentVersion'] = input[:current_version] unless input[:current_version].nil?
-        data['SingleMasterConfiguration'] = Builders::SingleMasterConfiguration.build(input[:single_master_configuration]) unless input[:single_master_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SingleMasterConfiguration'] = SingleMasterConfiguration.build(input[:single_master_configuration]) unless input[:single_master_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -555,7 +557,7 @@ module AWS::SDK::KinesisVideo
         data['CurrentVersion'] = input[:current_version] unless input[:current_version].nil?
         data['DeviceName'] = input[:device_name] unless input[:device_name].nil?
         data['MediaType'] = input[:media_type] unless input[:media_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHubRefactorSpaces
   module Builders
 
@@ -30,10 +32,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['Name'] = input[:name] unless input[:name].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data['ProxyType'] = input[:proxy_type] unless input[:proxy_type].nil?
-        data['ApiGatewayProxy'] = Builders::ApiGatewayProxyInput.build(input[:api_gateway_proxy]) unless input[:api_gateway_proxy].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['ApiGatewayProxy'] = ApiGatewayProxyInput.build(input[:api_gateway_proxy]) unless input[:api_gateway_proxy].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,9 +73,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['NetworkFabricType'] = input[:network_fabric_type] unless input[:network_fabric_type].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,10 +102,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         data['ServiceIdentifier'] = input[:service_identifier] unless input[:service_identifier].nil?
         data['RouteType'] = input[:route_type] unless input[:route_type].nil?
-        data['UriPathRoute'] = Builders::UriPathRouteInput.build(input[:uri_path_route]) unless input[:uri_path_route].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['UriPathRoute'] = UriPathRouteInput.build(input[:uri_path_route]) unless input[:uri_path_route].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,7 +115,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         data['SourcePath'] = input[:source_path] unless input[:source_path].nil?
         data['ActivationState'] = input[:activation_state] unless input[:activation_state].nil?
-        data['Methods'] = Builders::HttpMethods.build(input[:member_methods]) unless input[:member_methods].nil?
+        data['Methods'] = HttpMethods.build(input[:member_methods]) unless input[:member_methods].nil?
         data['IncludeChildPaths'] = input[:include_child_paths] unless input[:include_child_paths].nil?
         data
       end
@@ -155,11 +157,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['Description'] = input[:description] unless input[:description].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data['EndpointType'] = input[:endpoint_type] unless input[:endpoint_type].nil?
-        data['UrlEndpoint'] = Builders::UrlEndpointInput.build(input[:url_endpoint]) unless input[:url_endpoint].nil?
-        data['LambdaEndpoint'] = Builders::LambdaEndpointInput.build(input[:lambda_endpoint]) unless input[:lambda_endpoint].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['UrlEndpoint'] = UrlEndpointInput.build(input[:url_endpoint]) unless input[:url_endpoint].nil?
+        data['LambdaEndpoint'] = LambdaEndpointInput.build(input[:lambda_endpoint]) unless input[:lambda_endpoint].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -517,7 +519,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -538,8 +540,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -17,8 +17,8 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.base_configuration_items = (Parsers::BaseConfigurationItems.parse(map['BaseConfigurationItems']) unless map['BaseConfigurationItems'].nil?)
-        data.unprocessed_resource_identifiers = (Parsers::UnprocessedResourceIdentifierList.parse(map['UnprocessedResourceIdentifiers']) unless map['UnprocessedResourceIdentifiers'].nil?)
+        data.base_configuration_items = (BaseConfigurationItems.parse(map['BaseConfigurationItems']) unless map['BaseConfigurationItems'].nil?)
+        data.unprocessed_resource_identifiers = (UnprocessedResourceIdentifierList.parse(map['UnprocessedResourceIdentifiers']) unless map['UnprocessedResourceIdentifiers'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::ConfigService
     class UnprocessedResourceIdentifierList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateResourceIdentifier.parse(value) unless value.nil?
+          AggregateResourceIdentifier.parse(value) unless value.nil?
         end
       end
     end
@@ -46,7 +46,7 @@ module AWS::SDK::ConfigService
     class BaseConfigurationItems
       def self.parse(list)
         list.map do |value|
-          Parsers::BaseConfigurationItem.parse(value) unless value.nil?
+          BaseConfigurationItem.parse(value) unless value.nil?
         end
       end
     end
@@ -67,7 +67,7 @@ module AWS::SDK::ConfigService
         data.availability_zone = map['availabilityZone']
         data.resource_creation_time = Time.at(map['resourceCreationTime'].to_i) if map['resourceCreationTime']
         data.configuration = map['configuration']
-        data.supplementary_configuration = (Parsers::SupplementaryConfiguration.parse(map['supplementaryConfiguration']) unless map['supplementaryConfiguration'].nil?)
+        data.supplementary_configuration = (SupplementaryConfiguration.parse(map['supplementaryConfiguration']) unless map['supplementaryConfiguration'].nil?)
         return data
       end
     end
@@ -113,8 +113,8 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.base_configuration_items = (Parsers::BaseConfigurationItems.parse(map['baseConfigurationItems']) unless map['baseConfigurationItems'].nil?)
-        data.unprocessed_resource_keys = (Parsers::ResourceKeys.parse(map['unprocessedResourceKeys']) unless map['unprocessedResourceKeys'].nil?)
+        data.base_configuration_items = (BaseConfigurationItems.parse(map['baseConfigurationItems']) unless map['baseConfigurationItems'].nil?)
+        data.unprocessed_resource_keys = (ResourceKeys.parse(map['unprocessedResourceKeys']) unless map['unprocessedResourceKeys'].nil?)
         data
       end
     end
@@ -122,7 +122,7 @@ module AWS::SDK::ConfigService
     class ResourceKeys
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceKey.parse(value) unless value.nil?
+          ResourceKey.parse(value) unless value.nil?
         end
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_batches = (Parsers::FailedDeleteRemediationExceptionsBatches.parse(map['FailedBatches']) unless map['FailedBatches'].nil?)
+        data.failed_batches = (FailedDeleteRemediationExceptionsBatches.parse(map['FailedBatches']) unless map['FailedBatches'].nil?)
         data
       end
     end
@@ -440,7 +440,7 @@ module AWS::SDK::ConfigService
     class FailedDeleteRemediationExceptionsBatches
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedDeleteRemediationExceptionsBatch.parse(value) unless value.nil?
+          FailedDeleteRemediationExceptionsBatch.parse(value) unless value.nil?
         end
       end
     end
@@ -449,7 +449,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::FailedDeleteRemediationExceptionsBatch.new
         data.failure_message = map['FailureMessage']
-        data.failed_items = (Parsers::RemediationExceptionResourceKeys.parse(map['FailedItems']) unless map['FailedItems'].nil?)
+        data.failed_items = (RemediationExceptionResourceKeys.parse(map['FailedItems']) unless map['FailedItems'].nil?)
         return data
       end
     end
@@ -457,7 +457,7 @@ module AWS::SDK::ConfigService
     class RemediationExceptionResourceKeys
       def self.parse(list)
         list.map do |value|
-          Parsers::RemediationExceptionResourceKey.parse(value) unless value.nil?
+          RemediationExceptionResourceKey.parse(value) unless value.nil?
         end
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aggregate_compliance_by_config_rules = (Parsers::AggregateComplianceByConfigRuleList.parse(map['AggregateComplianceByConfigRules']) unless map['AggregateComplianceByConfigRules'].nil?)
+        data.aggregate_compliance_by_config_rules = (AggregateComplianceByConfigRuleList.parse(map['AggregateComplianceByConfigRules']) unless map['AggregateComplianceByConfigRules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -580,7 +580,7 @@ module AWS::SDK::ConfigService
     class AggregateComplianceByConfigRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateComplianceByConfigRule.parse(value) unless value.nil?
+          AggregateComplianceByConfigRule.parse(value) unless value.nil?
         end
       end
     end
@@ -589,7 +589,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::AggregateComplianceByConfigRule.new
         data.config_rule_name = map['ConfigRuleName']
-        data.compliance = (Parsers::Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
+        data.compliance = (Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
         data.account_id = map['AccountId']
         data.aws_region = map['AwsRegion']
         return data
@@ -600,7 +600,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::Compliance.new
         data.compliance_type = map['ComplianceType']
-        data.compliance_contributor_count = (Parsers::ComplianceContributorCount.parse(map['ComplianceContributorCount']) unless map['ComplianceContributorCount'].nil?)
+        data.compliance_contributor_count = (ComplianceContributorCount.parse(map['ComplianceContributorCount']) unless map['ComplianceContributorCount'].nil?)
         return data
       end
     end
@@ -645,7 +645,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aggregate_compliance_by_conformance_packs = (Parsers::AggregateComplianceByConformancePackList.parse(map['AggregateComplianceByConformancePacks']) unless map['AggregateComplianceByConformancePacks'].nil?)
+        data.aggregate_compliance_by_conformance_packs = (AggregateComplianceByConformancePackList.parse(map['AggregateComplianceByConformancePacks']) unless map['AggregateComplianceByConformancePacks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -654,7 +654,7 @@ module AWS::SDK::ConfigService
     class AggregateComplianceByConformancePackList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateComplianceByConformancePack.parse(value) unless value.nil?
+          AggregateComplianceByConformancePack.parse(value) unless value.nil?
         end
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::AggregateComplianceByConformancePack.new
         data.conformance_pack_name = map['ConformancePackName']
-        data.compliance = (Parsers::AggregateConformancePackCompliance.parse(map['Compliance']) unless map['Compliance'].nil?)
+        data.compliance = (AggregateConformancePackCompliance.parse(map['Compliance']) unless map['Compliance'].nil?)
         data.account_id = map['AccountId']
         data.aws_region = map['AwsRegion']
         return data
@@ -688,7 +688,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aggregation_authorizations = (Parsers::AggregationAuthorizationList.parse(map['AggregationAuthorizations']) unless map['AggregationAuthorizations'].nil?)
+        data.aggregation_authorizations = (AggregationAuthorizationList.parse(map['AggregationAuthorizations']) unless map['AggregationAuthorizations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -697,7 +697,7 @@ module AWS::SDK::ConfigService
     class AggregationAuthorizationList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregationAuthorization.parse(value) unless value.nil?
+          AggregationAuthorization.parse(value) unless value.nil?
         end
       end
     end
@@ -720,7 +720,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compliance_by_config_rules = (Parsers::ComplianceByConfigRules.parse(map['ComplianceByConfigRules']) unless map['ComplianceByConfigRules'].nil?)
+        data.compliance_by_config_rules = (ComplianceByConfigRules.parse(map['ComplianceByConfigRules']) unless map['ComplianceByConfigRules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -729,7 +729,7 @@ module AWS::SDK::ConfigService
     class ComplianceByConfigRules
       def self.parse(list)
         list.map do |value|
-          Parsers::ComplianceByConfigRule.parse(value) unless value.nil?
+          ComplianceByConfigRule.parse(value) unless value.nil?
         end
       end
     end
@@ -738,7 +738,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::ComplianceByConfigRule.new
         data.config_rule_name = map['ConfigRuleName']
-        data.compliance = (Parsers::Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
+        data.compliance = (Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
         return data
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compliance_by_resources = (Parsers::ComplianceByResources.parse(map['ComplianceByResources']) unless map['ComplianceByResources'].nil?)
+        data.compliance_by_resources = (ComplianceByResources.parse(map['ComplianceByResources']) unless map['ComplianceByResources'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -759,7 +759,7 @@ module AWS::SDK::ConfigService
     class ComplianceByResources
       def self.parse(list)
         list.map do |value|
-          Parsers::ComplianceByResource.parse(value) unless value.nil?
+          ComplianceByResource.parse(value) unless value.nil?
         end
       end
     end
@@ -769,7 +769,7 @@ module AWS::SDK::ConfigService
         data = Types::ComplianceByResource.new
         data.resource_type = map['ResourceType']
         data.resource_id = map['ResourceId']
-        data.compliance = (Parsers::Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
+        data.compliance = (Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
         return data
       end
     end
@@ -781,7 +781,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.config_rules_evaluation_status = (Parsers::ConfigRuleEvaluationStatusList.parse(map['ConfigRulesEvaluationStatus']) unless map['ConfigRulesEvaluationStatus'].nil?)
+        data.config_rules_evaluation_status = (ConfigRuleEvaluationStatusList.parse(map['ConfigRulesEvaluationStatus']) unless map['ConfigRulesEvaluationStatus'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -790,7 +790,7 @@ module AWS::SDK::ConfigService
     class ConfigRuleEvaluationStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigRuleEvaluationStatus.parse(value) unless value.nil?
+          ConfigRuleEvaluationStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -824,7 +824,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.config_rules = (Parsers::ConfigRules.parse(map['ConfigRules']) unless map['ConfigRules'].nil?)
+        data.config_rules = (ConfigRules.parse(map['ConfigRules']) unless map['ConfigRules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -833,7 +833,7 @@ module AWS::SDK::ConfigService
     class ConfigRules
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigRule.parse(value) unless value.nil?
+          ConfigRule.parse(value) unless value.nil?
         end
       end
     end
@@ -845,8 +845,8 @@ module AWS::SDK::ConfigService
         data.config_rule_arn = map['ConfigRuleArn']
         data.config_rule_id = map['ConfigRuleId']
         data.description = map['Description']
-        data.scope = (Parsers::Scope.parse(map['Scope']) unless map['Scope'].nil?)
-        data.source = (Parsers::Source.parse(map['Source']) unless map['Source'].nil?)
+        data.scope = (Scope.parse(map['Scope']) unless map['Scope'].nil?)
+        data.source = (Source.parse(map['Source']) unless map['Source'].nil?)
         data.input_parameters = map['InputParameters']
         data.maximum_execution_frequency = map['MaximumExecutionFrequency']
         data.config_rule_state = map['ConfigRuleState']
@@ -860,8 +860,8 @@ module AWS::SDK::ConfigService
         data = Types::Source.new
         data.owner = map['Owner']
         data.source_identifier = map['SourceIdentifier']
-        data.source_details = (Parsers::SourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
-        data.custom_policy_details = (Parsers::CustomPolicyDetails.parse(map['CustomPolicyDetails']) unless map['CustomPolicyDetails'].nil?)
+        data.source_details = (SourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
+        data.custom_policy_details = (CustomPolicyDetails.parse(map['CustomPolicyDetails']) unless map['CustomPolicyDetails'].nil?)
         return data
       end
     end
@@ -879,7 +879,7 @@ module AWS::SDK::ConfigService
     class SourceDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::SourceDetail.parse(value) unless value.nil?
+          SourceDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -897,7 +897,7 @@ module AWS::SDK::ConfigService
     class Scope
       def self.parse(map)
         data = Types::Scope.new
-        data.compliance_resource_types = (Parsers::ComplianceResourceTypes.parse(map['ComplianceResourceTypes']) unless map['ComplianceResourceTypes'].nil?)
+        data.compliance_resource_types = (ComplianceResourceTypes.parse(map['ComplianceResourceTypes']) unless map['ComplianceResourceTypes'].nil?)
         data.tag_key = map['TagKey']
         data.tag_value = map['TagValue']
         data.compliance_resource_id = map['ComplianceResourceId']
@@ -920,7 +920,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aggregated_source_status_list = (Parsers::AggregatedSourceStatusList.parse(map['AggregatedSourceStatusList']) unless map['AggregatedSourceStatusList'].nil?)
+        data.aggregated_source_status_list = (AggregatedSourceStatusList.parse(map['AggregatedSourceStatusList']) unless map['AggregatedSourceStatusList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -929,7 +929,7 @@ module AWS::SDK::ConfigService
     class AggregatedSourceStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregatedSourceStatus.parse(value) unless value.nil?
+          AggregatedSourceStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -955,7 +955,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration_aggregators = (Parsers::ConfigurationAggregatorList.parse(map['ConfigurationAggregators']) unless map['ConfigurationAggregators'].nil?)
+        data.configuration_aggregators = (ConfigurationAggregatorList.parse(map['ConfigurationAggregators']) unless map['ConfigurationAggregators'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -964,7 +964,7 @@ module AWS::SDK::ConfigService
     class ConfigurationAggregatorList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigurationAggregator.parse(value) unless value.nil?
+          ConfigurationAggregator.parse(value) unless value.nil?
         end
       end
     end
@@ -974,8 +974,8 @@ module AWS::SDK::ConfigService
         data = Types::ConfigurationAggregator.new
         data.configuration_aggregator_name = map['ConfigurationAggregatorName']
         data.configuration_aggregator_arn = map['ConfigurationAggregatorArn']
-        data.account_aggregation_sources = (Parsers::AccountAggregationSourceList.parse(map['AccountAggregationSources']) unless map['AccountAggregationSources'].nil?)
-        data.organization_aggregation_source = (Parsers::OrganizationAggregationSource.parse(map['OrganizationAggregationSource']) unless map['OrganizationAggregationSource'].nil?)
+        data.account_aggregation_sources = (AccountAggregationSourceList.parse(map['AccountAggregationSources']) unless map['AccountAggregationSources'].nil?)
+        data.organization_aggregation_source = (OrganizationAggregationSource.parse(map['OrganizationAggregationSource']) unless map['OrganizationAggregationSource'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.created_by = map['CreatedBy']
@@ -987,7 +987,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::OrganizationAggregationSource.new
         data.role_arn = map['RoleArn']
-        data.aws_regions = (Parsers::AggregatorRegionList.parse(map['AwsRegions']) unless map['AwsRegions'].nil?)
+        data.aws_regions = (AggregatorRegionList.parse(map['AwsRegions']) unless map['AwsRegions'].nil?)
         data.all_aws_regions = map['AllAwsRegions']
         return data
       end
@@ -1004,7 +1004,7 @@ module AWS::SDK::ConfigService
     class AccountAggregationSourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountAggregationSource.parse(value) unless value.nil?
+          AccountAggregationSource.parse(value) unless value.nil?
         end
       end
     end
@@ -1012,9 +1012,9 @@ module AWS::SDK::ConfigService
     class AccountAggregationSource
       def self.parse(map)
         data = Types::AccountAggregationSource.new
-        data.account_ids = (Parsers::AccountAggregationSourceAccountList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
+        data.account_ids = (AccountAggregationSourceAccountList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
         data.all_aws_regions = map['AllAwsRegions']
-        data.aws_regions = (Parsers::AggregatorRegionList.parse(map['AwsRegions']) unless map['AwsRegions'].nil?)
+        data.aws_regions = (AggregatorRegionList.parse(map['AwsRegions']) unless map['AwsRegions'].nil?)
         return data
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration_recorders_status = (Parsers::ConfigurationRecorderStatusList.parse(map['ConfigurationRecordersStatus']) unless map['ConfigurationRecordersStatus'].nil?)
+        data.configuration_recorders_status = (ConfigurationRecorderStatusList.parse(map['ConfigurationRecordersStatus']) unless map['ConfigurationRecordersStatus'].nil?)
         data
       end
     end
@@ -1042,7 +1042,7 @@ module AWS::SDK::ConfigService
     class ConfigurationRecorderStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigurationRecorderStatus.parse(value) unless value.nil?
+          ConfigurationRecorderStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1069,7 +1069,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration_recorders = (Parsers::ConfigurationRecorderList.parse(map['ConfigurationRecorders']) unless map['ConfigurationRecorders'].nil?)
+        data.configuration_recorders = (ConfigurationRecorderList.parse(map['ConfigurationRecorders']) unless map['ConfigurationRecorders'].nil?)
         data
       end
     end
@@ -1077,7 +1077,7 @@ module AWS::SDK::ConfigService
     class ConfigurationRecorderList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigurationRecorder.parse(value) unless value.nil?
+          ConfigurationRecorder.parse(value) unless value.nil?
         end
       end
     end
@@ -1087,7 +1087,7 @@ module AWS::SDK::ConfigService
         data = Types::ConfigurationRecorder.new
         data.name = map['name']
         data.role_arn = map['roleARN']
-        data.recording_group = (Parsers::RecordingGroup.parse(map['recordingGroup']) unless map['recordingGroup'].nil?)
+        data.recording_group = (RecordingGroup.parse(map['recordingGroup']) unless map['recordingGroup'].nil?)
         return data
       end
     end
@@ -1097,7 +1097,7 @@ module AWS::SDK::ConfigService
         data = Types::RecordingGroup.new
         data.all_supported = map['allSupported']
         data.include_global_resource_types = map['includeGlobalResourceTypes']
-        data.resource_types = (Parsers::ResourceTypeList.parse(map['resourceTypes']) unless map['resourceTypes'].nil?)
+        data.resource_types = (ResourceTypeList.parse(map['resourceTypes']) unless map['resourceTypes'].nil?)
         return data
       end
     end
@@ -1118,7 +1118,7 @@ module AWS::SDK::ConfigService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.conformance_pack_name = map['ConformancePackName']
-        data.conformance_pack_rule_compliance_list = (Parsers::ConformancePackRuleComplianceList.parse(map['ConformancePackRuleComplianceList']) unless map['ConformancePackRuleComplianceList'].nil?)
+        data.conformance_pack_rule_compliance_list = (ConformancePackRuleComplianceList.parse(map['ConformancePackRuleComplianceList']) unless map['ConformancePackRuleComplianceList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1127,7 +1127,7 @@ module AWS::SDK::ConfigService
     class ConformancePackRuleComplianceList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConformancePackRuleCompliance.parse(value) unless value.nil?
+          ConformancePackRuleCompliance.parse(value) unless value.nil?
         end
       end
     end
@@ -1137,7 +1137,7 @@ module AWS::SDK::ConfigService
         data = Types::ConformancePackRuleCompliance.new
         data.config_rule_name = map['ConfigRuleName']
         data.compliance_type = map['ComplianceType']
-        data.controls = (Parsers::ControlsList.parse(map['Controls']) unless map['Controls'].nil?)
+        data.controls = (ControlsList.parse(map['Controls']) unless map['Controls'].nil?)
         return data
       end
     end
@@ -1169,7 +1169,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conformance_pack_status_details = (Parsers::ConformancePackStatusDetailsList.parse(map['ConformancePackStatusDetails']) unless map['ConformancePackStatusDetails'].nil?)
+        data.conformance_pack_status_details = (ConformancePackStatusDetailsList.parse(map['ConformancePackStatusDetails']) unless map['ConformancePackStatusDetails'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1178,7 +1178,7 @@ module AWS::SDK::ConfigService
     class ConformancePackStatusDetailsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConformancePackStatusDetail.parse(value) unless value.nil?
+          ConformancePackStatusDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1205,7 +1205,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conformance_pack_details = (Parsers::ConformancePackDetailList.parse(map['ConformancePackDetails']) unless map['ConformancePackDetails'].nil?)
+        data.conformance_pack_details = (ConformancePackDetailList.parse(map['ConformancePackDetails']) unless map['ConformancePackDetails'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1214,7 +1214,7 @@ module AWS::SDK::ConfigService
     class ConformancePackDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConformancePackDetail.parse(value) unless value.nil?
+          ConformancePackDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1227,7 +1227,7 @@ module AWS::SDK::ConfigService
         data.conformance_pack_id = map['ConformancePackId']
         data.delivery_s3_bucket = map['DeliveryS3Bucket']
         data.delivery_s3_key_prefix = map['DeliveryS3KeyPrefix']
-        data.conformance_pack_input_parameters = (Parsers::ConformancePackInputParameters.parse(map['ConformancePackInputParameters']) unless map['ConformancePackInputParameters'].nil?)
+        data.conformance_pack_input_parameters = (ConformancePackInputParameters.parse(map['ConformancePackInputParameters']) unless map['ConformancePackInputParameters'].nil?)
         data.last_update_requested_time = Time.at(map['LastUpdateRequestedTime'].to_i) if map['LastUpdateRequestedTime']
         data.created_by = map['CreatedBy']
         return data
@@ -1237,7 +1237,7 @@ module AWS::SDK::ConfigService
     class ConformancePackInputParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::ConformancePackInputParameter.parse(value) unless value.nil?
+          ConformancePackInputParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -1258,7 +1258,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.delivery_channels_status = (Parsers::DeliveryChannelStatusList.parse(map['DeliveryChannelsStatus']) unless map['DeliveryChannelsStatus'].nil?)
+        data.delivery_channels_status = (DeliveryChannelStatusList.parse(map['DeliveryChannelsStatus']) unless map['DeliveryChannelsStatus'].nil?)
         data
       end
     end
@@ -1266,7 +1266,7 @@ module AWS::SDK::ConfigService
     class DeliveryChannelStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeliveryChannelStatus.parse(value) unless value.nil?
+          DeliveryChannelStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1275,9 +1275,9 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::DeliveryChannelStatus.new
         data.name = map['name']
-        data.config_snapshot_delivery_info = (Parsers::ConfigExportDeliveryInfo.parse(map['configSnapshotDeliveryInfo']) unless map['configSnapshotDeliveryInfo'].nil?)
-        data.config_history_delivery_info = (Parsers::ConfigExportDeliveryInfo.parse(map['configHistoryDeliveryInfo']) unless map['configHistoryDeliveryInfo'].nil?)
-        data.config_stream_delivery_info = (Parsers::ConfigStreamDeliveryInfo.parse(map['configStreamDeliveryInfo']) unless map['configStreamDeliveryInfo'].nil?)
+        data.config_snapshot_delivery_info = (ConfigExportDeliveryInfo.parse(map['configSnapshotDeliveryInfo']) unless map['configSnapshotDeliveryInfo'].nil?)
+        data.config_history_delivery_info = (ConfigExportDeliveryInfo.parse(map['configHistoryDeliveryInfo']) unless map['configHistoryDeliveryInfo'].nil?)
+        data.config_stream_delivery_info = (ConfigStreamDeliveryInfo.parse(map['configStreamDeliveryInfo']) unless map['configStreamDeliveryInfo'].nil?)
         return data
       end
     end
@@ -1313,7 +1313,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.delivery_channels = (Parsers::DeliveryChannelList.parse(map['DeliveryChannels']) unless map['DeliveryChannels'].nil?)
+        data.delivery_channels = (DeliveryChannelList.parse(map['DeliveryChannels']) unless map['DeliveryChannels'].nil?)
         data
       end
     end
@@ -1321,7 +1321,7 @@ module AWS::SDK::ConfigService
     class DeliveryChannelList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeliveryChannel.parse(value) unless value.nil?
+          DeliveryChannel.parse(value) unless value.nil?
         end
       end
     end
@@ -1334,7 +1334,7 @@ module AWS::SDK::ConfigService
         data.s3_key_prefix = map['s3KeyPrefix']
         data.s3_kms_key_arn = map['s3KmsKeyArn']
         data.sns_topic_arn = map['snsTopicARN']
-        data.config_snapshot_delivery_properties = (Parsers::ConfigSnapshotDeliveryProperties.parse(map['configSnapshotDeliveryProperties']) unless map['configSnapshotDeliveryProperties'].nil?)
+        data.config_snapshot_delivery_properties = (ConfigSnapshotDeliveryProperties.parse(map['configSnapshotDeliveryProperties']) unless map['configSnapshotDeliveryProperties'].nil?)
         return data
       end
     end
@@ -1354,7 +1354,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_config_rule_statuses = (Parsers::OrganizationConfigRuleStatuses.parse(map['OrganizationConfigRuleStatuses']) unless map['OrganizationConfigRuleStatuses'].nil?)
+        data.organization_config_rule_statuses = (OrganizationConfigRuleStatuses.parse(map['OrganizationConfigRuleStatuses']) unless map['OrganizationConfigRuleStatuses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1363,7 +1363,7 @@ module AWS::SDK::ConfigService
     class OrganizationConfigRuleStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationConfigRuleStatus.parse(value) unless value.nil?
+          OrganizationConfigRuleStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1387,7 +1387,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_config_rules = (Parsers::OrganizationConfigRules.parse(map['OrganizationConfigRules']) unless map['OrganizationConfigRules'].nil?)
+        data.organization_config_rules = (OrganizationConfigRules.parse(map['OrganizationConfigRules']) unless map['OrganizationConfigRules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1396,7 +1396,7 @@ module AWS::SDK::ConfigService
     class OrganizationConfigRules
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationConfigRule.parse(value) unless value.nil?
+          OrganizationConfigRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1406,11 +1406,11 @@ module AWS::SDK::ConfigService
         data = Types::OrganizationConfigRule.new
         data.organization_config_rule_name = map['OrganizationConfigRuleName']
         data.organization_config_rule_arn = map['OrganizationConfigRuleArn']
-        data.organization_managed_rule_metadata = (Parsers::OrganizationManagedRuleMetadata.parse(map['OrganizationManagedRuleMetadata']) unless map['OrganizationManagedRuleMetadata'].nil?)
-        data.organization_custom_rule_metadata = (Parsers::OrganizationCustomRuleMetadata.parse(map['OrganizationCustomRuleMetadata']) unless map['OrganizationCustomRuleMetadata'].nil?)
-        data.excluded_accounts = (Parsers::ExcludedAccounts.parse(map['ExcludedAccounts']) unless map['ExcludedAccounts'].nil?)
+        data.organization_managed_rule_metadata = (OrganizationManagedRuleMetadata.parse(map['OrganizationManagedRuleMetadata']) unless map['OrganizationManagedRuleMetadata'].nil?)
+        data.organization_custom_rule_metadata = (OrganizationCustomRuleMetadata.parse(map['OrganizationCustomRuleMetadata']) unless map['OrganizationCustomRuleMetadata'].nil?)
+        data.excluded_accounts = (ExcludedAccounts.parse(map['ExcludedAccounts']) unless map['ExcludedAccounts'].nil?)
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
-        data.organization_custom_policy_rule_metadata = (Parsers::OrganizationCustomPolicyRuleMetadataNoPolicy.parse(map['OrganizationCustomPolicyRuleMetadata']) unless map['OrganizationCustomPolicyRuleMetadata'].nil?)
+        data.organization_custom_policy_rule_metadata = (OrganizationCustomPolicyRuleMetadataNoPolicy.parse(map['OrganizationCustomPolicyRuleMetadata']) unless map['OrganizationCustomPolicyRuleMetadata'].nil?)
         return data
       end
     end
@@ -1419,15 +1419,15 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::OrganizationCustomPolicyRuleMetadataNoPolicy.new
         data.description = map['Description']
-        data.organization_config_rule_trigger_types = (Parsers::OrganizationConfigRuleTriggerTypeNoSNs.parse(map['OrganizationConfigRuleTriggerTypes']) unless map['OrganizationConfigRuleTriggerTypes'].nil?)
+        data.organization_config_rule_trigger_types = (OrganizationConfigRuleTriggerTypeNoSNs.parse(map['OrganizationConfigRuleTriggerTypes']) unless map['OrganizationConfigRuleTriggerTypes'].nil?)
         data.input_parameters = map['InputParameters']
         data.maximum_execution_frequency = map['MaximumExecutionFrequency']
-        data.resource_types_scope = (Parsers::ResourceTypesScope.parse(map['ResourceTypesScope']) unless map['ResourceTypesScope'].nil?)
+        data.resource_types_scope = (ResourceTypesScope.parse(map['ResourceTypesScope']) unless map['ResourceTypesScope'].nil?)
         data.resource_id_scope = map['ResourceIdScope']
         data.tag_key_scope = map['TagKeyScope']
         data.tag_value_scope = map['TagValueScope']
         data.policy_runtime = map['PolicyRuntime']
-        data.debug_log_delivery_accounts = (Parsers::DebugLogDeliveryAccounts.parse(map['DebugLogDeliveryAccounts']) unless map['DebugLogDeliveryAccounts'].nil?)
+        data.debug_log_delivery_accounts = (DebugLogDeliveryAccounts.parse(map['DebugLogDeliveryAccounts']) unless map['DebugLogDeliveryAccounts'].nil?)
         return data
       end
     end
@@ -1469,10 +1469,10 @@ module AWS::SDK::ConfigService
         data = Types::OrganizationCustomRuleMetadata.new
         data.description = map['Description']
         data.lambda_function_arn = map['LambdaFunctionArn']
-        data.organization_config_rule_trigger_types = (Parsers::OrganizationConfigRuleTriggerTypes.parse(map['OrganizationConfigRuleTriggerTypes']) unless map['OrganizationConfigRuleTriggerTypes'].nil?)
+        data.organization_config_rule_trigger_types = (OrganizationConfigRuleTriggerTypes.parse(map['OrganizationConfigRuleTriggerTypes']) unless map['OrganizationConfigRuleTriggerTypes'].nil?)
         data.input_parameters = map['InputParameters']
         data.maximum_execution_frequency = map['MaximumExecutionFrequency']
-        data.resource_types_scope = (Parsers::ResourceTypesScope.parse(map['ResourceTypesScope']) unless map['ResourceTypesScope'].nil?)
+        data.resource_types_scope = (ResourceTypesScope.parse(map['ResourceTypesScope']) unless map['ResourceTypesScope'].nil?)
         data.resource_id_scope = map['ResourceIdScope']
         data.tag_key_scope = map['TagKeyScope']
         data.tag_value_scope = map['TagValueScope']
@@ -1495,7 +1495,7 @@ module AWS::SDK::ConfigService
         data.rule_identifier = map['RuleIdentifier']
         data.input_parameters = map['InputParameters']
         data.maximum_execution_frequency = map['MaximumExecutionFrequency']
-        data.resource_types_scope = (Parsers::ResourceTypesScope.parse(map['ResourceTypesScope']) unless map['ResourceTypesScope'].nil?)
+        data.resource_types_scope = (ResourceTypesScope.parse(map['ResourceTypesScope']) unless map['ResourceTypesScope'].nil?)
         data.resource_id_scope = map['ResourceIdScope']
         data.tag_key_scope = map['TagKeyScope']
         data.tag_value_scope = map['TagValueScope']
@@ -1510,7 +1510,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_conformance_pack_statuses = (Parsers::OrganizationConformancePackStatuses.parse(map['OrganizationConformancePackStatuses']) unless map['OrganizationConformancePackStatuses'].nil?)
+        data.organization_conformance_pack_statuses = (OrganizationConformancePackStatuses.parse(map['OrganizationConformancePackStatuses']) unless map['OrganizationConformancePackStatuses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1519,7 +1519,7 @@ module AWS::SDK::ConfigService
     class OrganizationConformancePackStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationConformancePackStatus.parse(value) unless value.nil?
+          OrganizationConformancePackStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1543,7 +1543,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_conformance_packs = (Parsers::OrganizationConformancePacks.parse(map['OrganizationConformancePacks']) unless map['OrganizationConformancePacks'].nil?)
+        data.organization_conformance_packs = (OrganizationConformancePacks.parse(map['OrganizationConformancePacks']) unless map['OrganizationConformancePacks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1552,7 +1552,7 @@ module AWS::SDK::ConfigService
     class OrganizationConformancePacks
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationConformancePack.parse(value) unless value.nil?
+          OrganizationConformancePack.parse(value) unless value.nil?
         end
       end
     end
@@ -1564,8 +1564,8 @@ module AWS::SDK::ConfigService
         data.organization_conformance_pack_arn = map['OrganizationConformancePackArn']
         data.delivery_s3_bucket = map['DeliveryS3Bucket']
         data.delivery_s3_key_prefix = map['DeliveryS3KeyPrefix']
-        data.conformance_pack_input_parameters = (Parsers::ConformancePackInputParameters.parse(map['ConformancePackInputParameters']) unless map['ConformancePackInputParameters'].nil?)
-        data.excluded_accounts = (Parsers::ExcludedAccounts.parse(map['ExcludedAccounts']) unless map['ExcludedAccounts'].nil?)
+        data.conformance_pack_input_parameters = (ConformancePackInputParameters.parse(map['ConformancePackInputParameters']) unless map['ConformancePackInputParameters'].nil?)
+        data.excluded_accounts = (ExcludedAccounts.parse(map['ExcludedAccounts']) unless map['ExcludedAccounts'].nil?)
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
         return data
       end
@@ -1578,7 +1578,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pending_aggregation_requests = (Parsers::PendingAggregationRequestList.parse(map['PendingAggregationRequests']) unless map['PendingAggregationRequests'].nil?)
+        data.pending_aggregation_requests = (PendingAggregationRequestList.parse(map['PendingAggregationRequests']) unless map['PendingAggregationRequests'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1587,7 +1587,7 @@ module AWS::SDK::ConfigService
     class PendingAggregationRequestList
       def self.parse(list)
         list.map do |value|
-          Parsers::PendingAggregationRequest.parse(value) unless value.nil?
+          PendingAggregationRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -1608,7 +1608,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.remediation_configurations = (Parsers::RemediationConfigurations.parse(map['RemediationConfigurations']) unless map['RemediationConfigurations'].nil?)
+        data.remediation_configurations = (RemediationConfigurations.parse(map['RemediationConfigurations']) unless map['RemediationConfigurations'].nil?)
         data
       end
     end
@@ -1616,7 +1616,7 @@ module AWS::SDK::ConfigService
     class RemediationConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::RemediationConfiguration.parse(value) unless value.nil?
+          RemediationConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1628,10 +1628,10 @@ module AWS::SDK::ConfigService
         data.target_type = map['TargetType']
         data.target_id = map['TargetId']
         data.target_version = map['TargetVersion']
-        data.parameters = (Parsers::RemediationParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (RemediationParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.resource_type = map['ResourceType']
         data.automatic = map['Automatic']
-        data.execution_controls = (Parsers::ExecutionControls.parse(map['ExecutionControls']) unless map['ExecutionControls'].nil?)
+        data.execution_controls = (ExecutionControls.parse(map['ExecutionControls']) unless map['ExecutionControls'].nil?)
         data.maximum_automatic_attempts = map['MaximumAutomaticAttempts']
         data.retry_attempt_seconds = map['RetryAttemptSeconds']
         data.arn = map['Arn']
@@ -1643,7 +1643,7 @@ module AWS::SDK::ConfigService
     class ExecutionControls
       def self.parse(map)
         data = Types::ExecutionControls.new
-        data.ssm_controls = (Parsers::SsmControls.parse(map['SsmControls']) unless map['SsmControls'].nil?)
+        data.ssm_controls = (SsmControls.parse(map['SsmControls']) unless map['SsmControls'].nil?)
         return data
       end
     end
@@ -1661,7 +1661,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::RemediationParameterValue.parse(value) unless value.nil?
+          data[key] = RemediationParameterValue.parse(value) unless value.nil?
         end
         data
       end
@@ -1670,8 +1670,8 @@ module AWS::SDK::ConfigService
     class RemediationParameterValue
       def self.parse(map)
         data = Types::RemediationParameterValue.new
-        data.resource_value = (Parsers::ResourceValue.parse(map['ResourceValue']) unless map['ResourceValue'].nil?)
-        data.static_value = (Parsers::StaticValue.parse(map['StaticValue']) unless map['StaticValue'].nil?)
+        data.resource_value = (ResourceValue.parse(map['ResourceValue']) unless map['ResourceValue'].nil?)
+        data.static_value = (StaticValue.parse(map['StaticValue']) unless map['StaticValue'].nil?)
         return data
       end
     end
@@ -1679,7 +1679,7 @@ module AWS::SDK::ConfigService
     class StaticValue
       def self.parse(map)
         data = Types::StaticValue.new
-        data.values = (Parsers::StaticParameterValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (StaticParameterValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1707,7 +1707,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.remediation_exceptions = (Parsers::RemediationExceptions.parse(map['RemediationExceptions']) unless map['RemediationExceptions'].nil?)
+        data.remediation_exceptions = (RemediationExceptions.parse(map['RemediationExceptions']) unless map['RemediationExceptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1716,7 +1716,7 @@ module AWS::SDK::ConfigService
     class RemediationExceptions
       def self.parse(list)
         list.map do |value|
-          Parsers::RemediationException.parse(value) unless value.nil?
+          RemediationException.parse(value) unless value.nil?
         end
       end
     end
@@ -1740,7 +1740,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.remediation_execution_statuses = (Parsers::RemediationExecutionStatuses.parse(map['RemediationExecutionStatuses']) unless map['RemediationExecutionStatuses'].nil?)
+        data.remediation_execution_statuses = (RemediationExecutionStatuses.parse(map['RemediationExecutionStatuses']) unless map['RemediationExecutionStatuses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1749,7 +1749,7 @@ module AWS::SDK::ConfigService
     class RemediationExecutionStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::RemediationExecutionStatus.parse(value) unless value.nil?
+          RemediationExecutionStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1757,9 +1757,9 @@ module AWS::SDK::ConfigService
     class RemediationExecutionStatus
       def self.parse(map)
         data = Types::RemediationExecutionStatus.new
-        data.resource_key = (Parsers::ResourceKey.parse(map['ResourceKey']) unless map['ResourceKey'].nil?)
+        data.resource_key = (ResourceKey.parse(map['ResourceKey']) unless map['ResourceKey'].nil?)
         data.state = map['State']
-        data.step_details = (Parsers::RemediationExecutionSteps.parse(map['StepDetails']) unless map['StepDetails'].nil?)
+        data.step_details = (RemediationExecutionSteps.parse(map['StepDetails']) unless map['StepDetails'].nil?)
         data.invocation_time = Time.at(map['InvocationTime'].to_i) if map['InvocationTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         return data
@@ -1769,7 +1769,7 @@ module AWS::SDK::ConfigService
     class RemediationExecutionSteps
       def self.parse(list)
         list.map do |value|
-          Parsers::RemediationExecutionStep.parse(value) unless value.nil?
+          RemediationExecutionStep.parse(value) unless value.nil?
         end
       end
     end
@@ -1793,7 +1793,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.retention_configurations = (Parsers::RetentionConfigurationList.parse(map['RetentionConfigurations']) unless map['RetentionConfigurations'].nil?)
+        data.retention_configurations = (RetentionConfigurationList.parse(map['RetentionConfigurations']) unless map['RetentionConfigurations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1802,7 +1802,7 @@ module AWS::SDK::ConfigService
     class RetentionConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::RetentionConfiguration.parse(value) unless value.nil?
+          RetentionConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1823,7 +1823,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aggregate_evaluation_results = (Parsers::AggregateEvaluationResultList.parse(map['AggregateEvaluationResults']) unless map['AggregateEvaluationResults'].nil?)
+        data.aggregate_evaluation_results = (AggregateEvaluationResultList.parse(map['AggregateEvaluationResults']) unless map['AggregateEvaluationResults'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1832,7 +1832,7 @@ module AWS::SDK::ConfigService
     class AggregateEvaluationResultList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateEvaluationResult.parse(value) unless value.nil?
+          AggregateEvaluationResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1840,7 +1840,7 @@ module AWS::SDK::ConfigService
     class AggregateEvaluationResult
       def self.parse(map)
         data = Types::AggregateEvaluationResult.new
-        data.evaluation_result_identifier = (Parsers::EvaluationResultIdentifier.parse(map['EvaluationResultIdentifier']) unless map['EvaluationResultIdentifier'].nil?)
+        data.evaluation_result_identifier = (EvaluationResultIdentifier.parse(map['EvaluationResultIdentifier']) unless map['EvaluationResultIdentifier'].nil?)
         data.compliance_type = map['ComplianceType']
         data.result_recorded_time = Time.at(map['ResultRecordedTime'].to_i) if map['ResultRecordedTime']
         data.config_rule_invoked_time = Time.at(map['ConfigRuleInvokedTime'].to_i) if map['ConfigRuleInvokedTime']
@@ -1854,7 +1854,7 @@ module AWS::SDK::ConfigService
     class EvaluationResultIdentifier
       def self.parse(map)
         data = Types::EvaluationResultIdentifier.new
-        data.evaluation_result_qualifier = (Parsers::EvaluationResultQualifier.parse(map['EvaluationResultQualifier']) unless map['EvaluationResultQualifier'].nil?)
+        data.evaluation_result_qualifier = (EvaluationResultQualifier.parse(map['EvaluationResultQualifier']) unless map['EvaluationResultQualifier'].nil?)
         data.ordering_timestamp = Time.at(map['OrderingTimestamp'].to_i) if map['OrderingTimestamp']
         return data
       end
@@ -1878,7 +1878,7 @@ module AWS::SDK::ConfigService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.group_by_key = map['GroupByKey']
-        data.aggregate_compliance_counts = (Parsers::AggregateComplianceCountList.parse(map['AggregateComplianceCounts']) unless map['AggregateComplianceCounts'].nil?)
+        data.aggregate_compliance_counts = (AggregateComplianceCountList.parse(map['AggregateComplianceCounts']) unless map['AggregateComplianceCounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1887,7 +1887,7 @@ module AWS::SDK::ConfigService
     class AggregateComplianceCountList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateComplianceCount.parse(value) unless value.nil?
+          AggregateComplianceCount.parse(value) unless value.nil?
         end
       end
     end
@@ -1896,7 +1896,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::AggregateComplianceCount.new
         data.group_name = map['GroupName']
-        data.compliance_summary = (Parsers::ComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
+        data.compliance_summary = (ComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
         return data
       end
     end
@@ -1904,8 +1904,8 @@ module AWS::SDK::ConfigService
     class ComplianceSummary
       def self.parse(map)
         data = Types::ComplianceSummary.new
-        data.compliant_resource_count = (Parsers::ComplianceContributorCount.parse(map['CompliantResourceCount']) unless map['CompliantResourceCount'].nil?)
-        data.non_compliant_resource_count = (Parsers::ComplianceContributorCount.parse(map['NonCompliantResourceCount']) unless map['NonCompliantResourceCount'].nil?)
+        data.compliant_resource_count = (ComplianceContributorCount.parse(map['CompliantResourceCount']) unless map['CompliantResourceCount'].nil?)
+        data.non_compliant_resource_count = (ComplianceContributorCount.parse(map['NonCompliantResourceCount']) unless map['NonCompliantResourceCount'].nil?)
         data.compliance_summary_timestamp = Time.at(map['ComplianceSummaryTimestamp'].to_i) if map['ComplianceSummaryTimestamp']
         return data
       end
@@ -1918,7 +1918,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aggregate_conformance_pack_compliance_summaries = (Parsers::AggregateConformancePackComplianceSummaryList.parse(map['AggregateConformancePackComplianceSummaries']) unless map['AggregateConformancePackComplianceSummaries'].nil?)
+        data.aggregate_conformance_pack_compliance_summaries = (AggregateConformancePackComplianceSummaryList.parse(map['AggregateConformancePackComplianceSummaries']) unless map['AggregateConformancePackComplianceSummaries'].nil?)
         data.group_by_key = map['GroupByKey']
         data.next_token = map['NextToken']
         data
@@ -1928,7 +1928,7 @@ module AWS::SDK::ConfigService
     class AggregateConformancePackComplianceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateConformancePackComplianceSummary.parse(value) unless value.nil?
+          AggregateConformancePackComplianceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1936,7 +1936,7 @@ module AWS::SDK::ConfigService
     class AggregateConformancePackComplianceSummary
       def self.parse(map)
         data = Types::AggregateConformancePackComplianceSummary.new
-        data.compliance_summary = (Parsers::AggregateConformancePackComplianceCount.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
+        data.compliance_summary = (AggregateConformancePackComplianceCount.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
         data.group_name = map['GroupName']
         return data
       end
@@ -1960,7 +1960,7 @@ module AWS::SDK::ConfigService
         map = Hearth::JSON.load(body)
         data.total_discovered_resources = map['TotalDiscoveredResources']
         data.group_by_key = map['GroupByKey']
-        data.grouped_resource_counts = (Parsers::GroupedResourceCountList.parse(map['GroupedResourceCounts']) unless map['GroupedResourceCounts'].nil?)
+        data.grouped_resource_counts = (GroupedResourceCountList.parse(map['GroupedResourceCounts']) unless map['GroupedResourceCounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1969,7 +1969,7 @@ module AWS::SDK::ConfigService
     class GroupedResourceCountList
       def self.parse(list)
         list.map do |value|
-          Parsers::GroupedResourceCount.parse(value) unless value.nil?
+          GroupedResourceCount.parse(value) unless value.nil?
         end
       end
     end
@@ -1990,7 +1990,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration_item = (Parsers::ConfigurationItem.parse(map['ConfigurationItem']) unless map['ConfigurationItem'].nil?)
+        data.configuration_item = (ConfigurationItem.parse(map['ConfigurationItem']) unless map['ConfigurationItem'].nil?)
         data
       end
     end
@@ -2011,11 +2011,11 @@ module AWS::SDK::ConfigService
         data.aws_region = map['awsRegion']
         data.availability_zone = map['availabilityZone']
         data.resource_creation_time = Time.at(map['resourceCreationTime'].to_i) if map['resourceCreationTime']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.related_events = (Parsers::RelatedEventList.parse(map['relatedEvents']) unless map['relatedEvents'].nil?)
-        data.relationships = (Parsers::RelationshipList.parse(map['relationships']) unless map['relationships'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.related_events = (RelatedEventList.parse(map['relatedEvents']) unless map['relatedEvents'].nil?)
+        data.relationships = (RelationshipList.parse(map['relationships']) unless map['relationships'].nil?)
         data.configuration = map['configuration']
-        data.supplementary_configuration = (Parsers::SupplementaryConfiguration.parse(map['supplementaryConfiguration']) unless map['supplementaryConfiguration'].nil?)
+        data.supplementary_configuration = (SupplementaryConfiguration.parse(map['supplementaryConfiguration']) unless map['supplementaryConfiguration'].nil?)
         return data
       end
     end
@@ -2023,7 +2023,7 @@ module AWS::SDK::ConfigService
     class RelationshipList
       def self.parse(list)
         list.map do |value|
-          Parsers::Relationship.parse(value) unless value.nil?
+          Relationship.parse(value) unless value.nil?
         end
       end
     end
@@ -2088,7 +2088,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.evaluation_results = (Parsers::EvaluationResults.parse(map['EvaluationResults']) unless map['EvaluationResults'].nil?)
+        data.evaluation_results = (EvaluationResults.parse(map['EvaluationResults']) unless map['EvaluationResults'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2097,7 +2097,7 @@ module AWS::SDK::ConfigService
     class EvaluationResults
       def self.parse(list)
         list.map do |value|
-          Parsers::EvaluationResult.parse(value) unless value.nil?
+          EvaluationResult.parse(value) unless value.nil?
         end
       end
     end
@@ -2105,7 +2105,7 @@ module AWS::SDK::ConfigService
     class EvaluationResult
       def self.parse(map)
         data = Types::EvaluationResult.new
-        data.evaluation_result_identifier = (Parsers::EvaluationResultIdentifier.parse(map['EvaluationResultIdentifier']) unless map['EvaluationResultIdentifier'].nil?)
+        data.evaluation_result_identifier = (EvaluationResultIdentifier.parse(map['EvaluationResultIdentifier']) unless map['EvaluationResultIdentifier'].nil?)
         data.compliance_type = map['ComplianceType']
         data.result_recorded_time = Time.at(map['ResultRecordedTime'].to_i) if map['ResultRecordedTime']
         data.config_rule_invoked_time = Time.at(map['ConfigRuleInvokedTime'].to_i) if map['ConfigRuleInvokedTime']
@@ -2122,7 +2122,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.evaluation_results = (Parsers::EvaluationResults.parse(map['EvaluationResults']) unless map['EvaluationResults'].nil?)
+        data.evaluation_results = (EvaluationResults.parse(map['EvaluationResults']) unless map['EvaluationResults'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2135,7 +2135,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compliance_summary = (Parsers::ComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
+        data.compliance_summary = (ComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
         data
       end
     end
@@ -2147,7 +2147,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compliance_summaries_by_resource_type = (Parsers::ComplianceSummariesByResourceType.parse(map['ComplianceSummariesByResourceType']) unless map['ComplianceSummariesByResourceType'].nil?)
+        data.compliance_summaries_by_resource_type = (ComplianceSummariesByResourceType.parse(map['ComplianceSummariesByResourceType']) unless map['ComplianceSummariesByResourceType'].nil?)
         data
       end
     end
@@ -2155,7 +2155,7 @@ module AWS::SDK::ConfigService
     class ComplianceSummariesByResourceType
       def self.parse(list)
         list.map do |value|
-          Parsers::ComplianceSummaryByResourceType.parse(value) unless value.nil?
+          ComplianceSummaryByResourceType.parse(value) unless value.nil?
         end
       end
     end
@@ -2164,7 +2164,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::ComplianceSummaryByResourceType.new
         data.resource_type = map['ResourceType']
-        data.compliance_summary = (Parsers::ComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
+        data.compliance_summary = (ComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
         return data
       end
     end
@@ -2177,7 +2177,7 @@ module AWS::SDK::ConfigService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.conformance_pack_name = map['ConformancePackName']
-        data.conformance_pack_rule_evaluation_results = (Parsers::ConformancePackRuleEvaluationResultsList.parse(map['ConformancePackRuleEvaluationResults']) unless map['ConformancePackRuleEvaluationResults'].nil?)
+        data.conformance_pack_rule_evaluation_results = (ConformancePackRuleEvaluationResultsList.parse(map['ConformancePackRuleEvaluationResults']) unless map['ConformancePackRuleEvaluationResults'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2186,7 +2186,7 @@ module AWS::SDK::ConfigService
     class ConformancePackRuleEvaluationResultsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConformancePackEvaluationResult.parse(value) unless value.nil?
+          ConformancePackEvaluationResult.parse(value) unless value.nil?
         end
       end
     end
@@ -2195,7 +2195,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::ConformancePackEvaluationResult.new
         data.compliance_type = map['ComplianceType']
-        data.evaluation_result_identifier = (Parsers::EvaluationResultIdentifier.parse(map['EvaluationResultIdentifier']) unless map['EvaluationResultIdentifier'].nil?)
+        data.evaluation_result_identifier = (EvaluationResultIdentifier.parse(map['EvaluationResultIdentifier']) unless map['EvaluationResultIdentifier'].nil?)
         data.config_rule_invoked_time = Time.at(map['ConfigRuleInvokedTime'].to_i) if map['ConfigRuleInvokedTime']
         data.result_recorded_time = Time.at(map['ResultRecordedTime'].to_i) if map['ResultRecordedTime']
         data.annotation = map['Annotation']
@@ -2210,7 +2210,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.conformance_pack_compliance_summary_list = (Parsers::ConformancePackComplianceSummaryList.parse(map['ConformancePackComplianceSummaryList']) unless map['ConformancePackComplianceSummaryList'].nil?)
+        data.conformance_pack_compliance_summary_list = (ConformancePackComplianceSummaryList.parse(map['ConformancePackComplianceSummaryList']) unless map['ConformancePackComplianceSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2219,7 +2219,7 @@ module AWS::SDK::ConfigService
     class ConformancePackComplianceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConformancePackComplianceSummary.parse(value) unless value.nil?
+          ConformancePackComplianceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2253,7 +2253,7 @@ module AWS::SDK::ConfigService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.total_discovered_resources = map['totalDiscoveredResources']
-        data.resource_counts = (Parsers::ResourceCounts.parse(map['resourceCounts']) unless map['resourceCounts'].nil?)
+        data.resource_counts = (ResourceCounts.parse(map['resourceCounts']) unless map['resourceCounts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2262,7 +2262,7 @@ module AWS::SDK::ConfigService
     class ResourceCounts
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceCount.parse(value) unless value.nil?
+          ResourceCount.parse(value) unless value.nil?
         end
       end
     end
@@ -2283,7 +2283,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_config_rule_detailed_status = (Parsers::OrganizationConfigRuleDetailedStatus.parse(map['OrganizationConfigRuleDetailedStatus']) unless map['OrganizationConfigRuleDetailedStatus'].nil?)
+        data.organization_config_rule_detailed_status = (OrganizationConfigRuleDetailedStatus.parse(map['OrganizationConfigRuleDetailedStatus']) unless map['OrganizationConfigRuleDetailedStatus'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2292,7 +2292,7 @@ module AWS::SDK::ConfigService
     class OrganizationConfigRuleDetailedStatus
       def self.parse(list)
         list.map do |value|
-          Parsers::MemberAccountStatus.parse(value) unless value.nil?
+          MemberAccountStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -2317,7 +2317,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_conformance_pack_detailed_statuses = (Parsers::OrganizationConformancePackDetailedStatuses.parse(map['OrganizationConformancePackDetailedStatuses']) unless map['OrganizationConformancePackDetailedStatuses'].nil?)
+        data.organization_conformance_pack_detailed_statuses = (OrganizationConformancePackDetailedStatuses.parse(map['OrganizationConformancePackDetailedStatuses']) unless map['OrganizationConformancePackDetailedStatuses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2326,7 +2326,7 @@ module AWS::SDK::ConfigService
     class OrganizationConformancePackDetailedStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationConformancePackDetailedStatus.parse(value) unless value.nil?
+          OrganizationConformancePackDetailedStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -2363,7 +2363,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration_items = (Parsers::ConfigurationItemList.parse(map['configurationItems']) unless map['configurationItems'].nil?)
+        data.configuration_items = (ConfigurationItemList.parse(map['configurationItems']) unless map['configurationItems'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2372,7 +2372,7 @@ module AWS::SDK::ConfigService
     class ConfigurationItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigurationItem.parse(value) unless value.nil?
+          ConfigurationItem.parse(value) unless value.nil?
         end
       end
     end
@@ -2396,7 +2396,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stored_query = (Parsers::StoredQuery.parse(map['StoredQuery']) unless map['StoredQuery'].nil?)
+        data.stored_query = (StoredQuery.parse(map['StoredQuery']) unless map['StoredQuery'].nil?)
         data
       end
     end
@@ -2420,7 +2420,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_identifiers = (Parsers::DiscoveredResourceIdentifierList.parse(map['ResourceIdentifiers']) unless map['ResourceIdentifiers'].nil?)
+        data.resource_identifiers = (DiscoveredResourceIdentifierList.parse(map['ResourceIdentifiers']) unless map['ResourceIdentifiers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2429,7 +2429,7 @@ module AWS::SDK::ConfigService
     class DiscoveredResourceIdentifierList
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateResourceIdentifier.parse(value) unless value.nil?
+          AggregateResourceIdentifier.parse(value) unless value.nil?
         end
       end
     end
@@ -2441,7 +2441,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_identifiers = (Parsers::ResourceIdentifierList.parse(map['resourceIdentifiers']) unless map['resourceIdentifiers'].nil?)
+        data.resource_identifiers = (ResourceIdentifierList.parse(map['resourceIdentifiers']) unless map['resourceIdentifiers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2450,7 +2450,7 @@ module AWS::SDK::ConfigService
     class ResourceIdentifierList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceIdentifier.parse(value) unless value.nil?
+          ResourceIdentifier.parse(value) unless value.nil?
         end
       end
     end
@@ -2473,7 +2473,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stored_query_metadata = (Parsers::StoredQueryMetadataList.parse(map['StoredQueryMetadata']) unless map['StoredQueryMetadata'].nil?)
+        data.stored_query_metadata = (StoredQueryMetadataList.parse(map['StoredQueryMetadata']) unless map['StoredQueryMetadata'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2482,7 +2482,7 @@ module AWS::SDK::ConfigService
     class StoredQueryMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::StoredQueryMetadata.parse(value) unless value.nil?
+          StoredQueryMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -2505,7 +2505,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2514,7 +2514,7 @@ module AWS::SDK::ConfigService
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -2535,7 +2535,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aggregation_authorization = (Parsers::AggregationAuthorization.parse(map['AggregationAuthorization']) unless map['AggregationAuthorization'].nil?)
+        data.aggregation_authorization = (AggregationAuthorization.parse(map['AggregationAuthorization']) unless map['AggregationAuthorization'].nil?)
         data
       end
     end
@@ -2570,7 +2570,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration_aggregator = (Parsers::ConfigurationAggregator.parse(map['ConfigurationAggregator']) unless map['ConfigurationAggregator'].nil?)
+        data.configuration_aggregator = (ConfigurationAggregator.parse(map['ConfigurationAggregator']) unless map['ConfigurationAggregator'].nil?)
         data
       end
     end
@@ -2808,7 +2808,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_evaluations = (Parsers::Evaluations.parse(map['FailedEvaluations']) unless map['FailedEvaluations'].nil?)
+        data.failed_evaluations = (Evaluations.parse(map['FailedEvaluations']) unless map['FailedEvaluations'].nil?)
         data
       end
     end
@@ -2816,7 +2816,7 @@ module AWS::SDK::ConfigService
     class Evaluations
       def self.parse(list)
         list.map do |value|
-          Parsers::Evaluation.parse(value) unless value.nil?
+          Evaluation.parse(value) unless value.nil?
         end
       end
     end
@@ -2923,7 +2923,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_batches = (Parsers::FailedRemediationBatches.parse(map['FailedBatches']) unless map['FailedBatches'].nil?)
+        data.failed_batches = (FailedRemediationBatches.parse(map['FailedBatches']) unless map['FailedBatches'].nil?)
         data
       end
     end
@@ -2931,7 +2931,7 @@ module AWS::SDK::ConfigService
     class FailedRemediationBatches
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedRemediationBatch.parse(value) unless value.nil?
+          FailedRemediationBatch.parse(value) unless value.nil?
         end
       end
     end
@@ -2940,7 +2940,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::FailedRemediationBatch.new
         data.failure_message = map['FailureMessage']
-        data.failed_items = (Parsers::RemediationConfigurations.parse(map['FailedItems']) unless map['FailedItems'].nil?)
+        data.failed_items = (RemediationConfigurations.parse(map['FailedItems']) unless map['FailedItems'].nil?)
         return data
       end
     end
@@ -2952,7 +2952,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_batches = (Parsers::FailedRemediationExceptionBatches.parse(map['FailedBatches']) unless map['FailedBatches'].nil?)
+        data.failed_batches = (FailedRemediationExceptionBatches.parse(map['FailedBatches']) unless map['FailedBatches'].nil?)
         data
       end
     end
@@ -2960,7 +2960,7 @@ module AWS::SDK::ConfigService
     class FailedRemediationExceptionBatches
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedRemediationExceptionBatch.parse(value) unless value.nil?
+          FailedRemediationExceptionBatch.parse(value) unless value.nil?
         end
       end
     end
@@ -2969,7 +2969,7 @@ module AWS::SDK::ConfigService
       def self.parse(map)
         data = Types::FailedRemediationExceptionBatch.new
         data.failure_message = map['FailureMessage']
-        data.failed_items = (Parsers::RemediationExceptions.parse(map['FailedItems']) unless map['FailedItems'].nil?)
+        data.failed_items = (RemediationExceptions.parse(map['FailedItems']) unless map['FailedItems'].nil?)
         return data
       end
     end
@@ -3004,7 +3004,7 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.retention_configuration = (Parsers::RetentionConfiguration.parse(map['RetentionConfiguration']) unless map['RetentionConfiguration'].nil?)
+        data.retention_configuration = (RetentionConfiguration.parse(map['RetentionConfiguration']) unless map['RetentionConfiguration'].nil?)
         data
       end
     end
@@ -3064,8 +3064,8 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::Results.parse(map['Results']) unless map['Results'].nil?)
-        data.query_info = (Parsers::QueryInfo.parse(map['QueryInfo']) unless map['QueryInfo'].nil?)
+        data.results = (Results.parse(map['Results']) unless map['Results'].nil?)
+        data.query_info = (QueryInfo.parse(map['QueryInfo']) unless map['QueryInfo'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3074,7 +3074,7 @@ module AWS::SDK::ConfigService
     class QueryInfo
       def self.parse(map)
         data = Types::QueryInfo.new
-        data.select_fields = (Parsers::FieldInfoList.parse(map['SelectFields']) unless map['SelectFields'].nil?)
+        data.select_fields = (FieldInfoList.parse(map['SelectFields']) unless map['SelectFields'].nil?)
         return data
       end
     end
@@ -3082,7 +3082,7 @@ module AWS::SDK::ConfigService
     class FieldInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::FieldInfo.parse(value) unless value.nil?
+          FieldInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -3122,8 +3122,8 @@ module AWS::SDK::ConfigService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::Results.parse(map['Results']) unless map['Results'].nil?)
-        data.query_info = (Parsers::QueryInfo.parse(map['QueryInfo']) unless map['QueryInfo'].nil?)
+        data.results = (Results.parse(map['Results']) unless map['Results'].nil?)
+        data.query_info = (QueryInfo.parse(map['QueryInfo']) unless map['QueryInfo'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3171,7 +3171,7 @@ module AWS::SDK::ConfigService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.failure_message = map['FailureMessage']
-        data.failed_items = (Parsers::ResourceKeys.parse(map['FailedItems']) unless map['FailedItems'].nil?)
+        data.failed_items = (ResourceKeys.parse(map['FailedItems']) unless map['FailedItems'].nil?)
         data
       end
     end

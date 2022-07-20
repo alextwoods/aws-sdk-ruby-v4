@@ -197,9 +197,9 @@ module AWS::SDK::EventBridge
         map = Hearth::JSON.load(body)
         data.name = map['Name']
         data.arn = map['Arn']
-        data.routing_config = (Parsers::RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
-        data.replication_config = (Parsers::ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
-        data.event_buses = (Parsers::EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
+        data.routing_config = (RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.replication_config = (ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
+        data.event_buses = (EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
         data.role_arn = map['RoleArn']
         data.state = map['State']
         data
@@ -209,7 +209,7 @@ module AWS::SDK::EventBridge
     class EndpointEventBusList
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointEventBus.parse(value) unless value.nil?
+          EndpointEventBus.parse(value) unless value.nil?
         end
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::EventBridge
     class RoutingConfig
       def self.parse(map)
         data = Types::RoutingConfig.new
-        data.failover_config = (Parsers::FailoverConfig.parse(map['FailoverConfig']) unless map['FailoverConfig'].nil?)
+        data.failover_config = (FailoverConfig.parse(map['FailoverConfig']) unless map['FailoverConfig'].nil?)
         return data
       end
     end
@@ -241,8 +241,8 @@ module AWS::SDK::EventBridge
     class FailoverConfig
       def self.parse(map)
         data = Types::FailoverConfig.new
-        data.primary = (Parsers::Primary.parse(map['Primary']) unless map['Primary'].nil?)
-        data.secondary = (Parsers::Secondary.parse(map['Secondary']) unless map['Secondary'].nil?)
+        data.primary = (Primary.parse(map['Primary']) unless map['Primary'].nil?)
+        data.secondary = (Secondary.parse(map['Secondary']) unless map['Secondary'].nil?)
         return data
       end
     end
@@ -465,7 +465,7 @@ module AWS::SDK::EventBridge
         data.state_reason = map['StateReason']
         data.authorization_type = map['AuthorizationType']
         data.secret_arn = map['SecretArn']
-        data.auth_parameters = (Parsers::ConnectionAuthResponseParameters.parse(map['AuthParameters']) unless map['AuthParameters'].nil?)
+        data.auth_parameters = (ConnectionAuthResponseParameters.parse(map['AuthParameters']) unless map['AuthParameters'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.last_authorized_time = Time.at(map['LastAuthorizedTime'].to_i) if map['LastAuthorizedTime']
@@ -476,10 +476,10 @@ module AWS::SDK::EventBridge
     class ConnectionAuthResponseParameters
       def self.parse(map)
         data = Types::ConnectionAuthResponseParameters.new
-        data.basic_auth_parameters = (Parsers::ConnectionBasicAuthResponseParameters.parse(map['BasicAuthParameters']) unless map['BasicAuthParameters'].nil?)
-        data.o_auth_parameters = (Parsers::ConnectionOAuthResponseParameters.parse(map['OAuthParameters']) unless map['OAuthParameters'].nil?)
-        data.api_key_auth_parameters = (Parsers::ConnectionApiKeyAuthResponseParameters.parse(map['ApiKeyAuthParameters']) unless map['ApiKeyAuthParameters'].nil?)
-        data.invocation_http_parameters = (Parsers::ConnectionHttpParameters.parse(map['InvocationHttpParameters']) unless map['InvocationHttpParameters'].nil?)
+        data.basic_auth_parameters = (ConnectionBasicAuthResponseParameters.parse(map['BasicAuthParameters']) unless map['BasicAuthParameters'].nil?)
+        data.o_auth_parameters = (ConnectionOAuthResponseParameters.parse(map['OAuthParameters']) unless map['OAuthParameters'].nil?)
+        data.api_key_auth_parameters = (ConnectionApiKeyAuthResponseParameters.parse(map['ApiKeyAuthParameters']) unless map['ApiKeyAuthParameters'].nil?)
+        data.invocation_http_parameters = (ConnectionHttpParameters.parse(map['InvocationHttpParameters']) unless map['InvocationHttpParameters'].nil?)
         return data
       end
     end
@@ -487,9 +487,9 @@ module AWS::SDK::EventBridge
     class ConnectionHttpParameters
       def self.parse(map)
         data = Types::ConnectionHttpParameters.new
-        data.header_parameters = (Parsers::ConnectionHeaderParametersList.parse(map['HeaderParameters']) unless map['HeaderParameters'].nil?)
-        data.query_string_parameters = (Parsers::ConnectionQueryStringParametersList.parse(map['QueryStringParameters']) unless map['QueryStringParameters'].nil?)
-        data.body_parameters = (Parsers::ConnectionBodyParametersList.parse(map['BodyParameters']) unless map['BodyParameters'].nil?)
+        data.header_parameters = (ConnectionHeaderParametersList.parse(map['HeaderParameters']) unless map['HeaderParameters'].nil?)
+        data.query_string_parameters = (ConnectionQueryStringParametersList.parse(map['QueryStringParameters']) unless map['QueryStringParameters'].nil?)
+        data.body_parameters = (ConnectionBodyParametersList.parse(map['BodyParameters']) unless map['BodyParameters'].nil?)
         return data
       end
     end
@@ -497,7 +497,7 @@ module AWS::SDK::EventBridge
     class ConnectionBodyParametersList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectionBodyParameter.parse(value) unless value.nil?
+          ConnectionBodyParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -515,7 +515,7 @@ module AWS::SDK::EventBridge
     class ConnectionQueryStringParametersList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectionQueryStringParameter.parse(value) unless value.nil?
+          ConnectionQueryStringParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -533,7 +533,7 @@ module AWS::SDK::EventBridge
     class ConnectionHeaderParametersList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectionHeaderParameter.parse(value) unless value.nil?
+          ConnectionHeaderParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -559,10 +559,10 @@ module AWS::SDK::EventBridge
     class ConnectionOAuthResponseParameters
       def self.parse(map)
         data = Types::ConnectionOAuthResponseParameters.new
-        data.client_parameters = (Parsers::ConnectionOAuthClientResponseParameters.parse(map['ClientParameters']) unless map['ClientParameters'].nil?)
+        data.client_parameters = (ConnectionOAuthClientResponseParameters.parse(map['ClientParameters']) unless map['ClientParameters'].nil?)
         data.authorization_endpoint = map['AuthorizationEndpoint']
         data.http_method = map['HttpMethod']
-        data.o_auth_http_parameters = (Parsers::ConnectionHttpParameters.parse(map['OAuthHttpParameters']) unless map['OAuthHttpParameters'].nil?)
+        data.o_auth_http_parameters = (ConnectionHttpParameters.parse(map['OAuthHttpParameters']) unless map['OAuthHttpParameters'].nil?)
         return data
       end
     end
@@ -593,9 +593,9 @@ module AWS::SDK::EventBridge
         data.name = map['Name']
         data.description = map['Description']
         data.arn = map['Arn']
-        data.routing_config = (Parsers::RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
-        data.replication_config = (Parsers::ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
-        data.event_buses = (Parsers::EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
+        data.routing_config = (RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.replication_config = (ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
+        data.event_buses = (EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
         data.role_arn = map['RoleArn']
         data.endpoint_id = map['EndpointId']
         data.endpoint_url = map['EndpointUrl']
@@ -664,7 +664,7 @@ module AWS::SDK::EventBridge
         data.state = map['State']
         data.state_reason = map['StateReason']
         data.event_source_arn = map['EventSourceArn']
-        data.destination = (Parsers::ReplayDestination.parse(map['Destination']) unless map['Destination'].nil?)
+        data.destination = (ReplayDestination.parse(map['Destination']) unless map['Destination'].nil?)
         data.event_start_time = Time.at(map['EventStartTime'].to_i) if map['EventStartTime']
         data.event_end_time = Time.at(map['EventEndTime'].to_i) if map['EventEndTime']
         data.event_last_replayed_time = Time.at(map['EventLastReplayedTime'].to_i) if map['EventLastReplayedTime']
@@ -678,7 +678,7 @@ module AWS::SDK::EventBridge
       def self.parse(map)
         data = Types::ReplayDestination.new
         data.arn = map['Arn']
-        data.filter_arns = (Parsers::ReplayDestinationFilters.parse(map['FilterArns']) unless map['FilterArns'].nil?)
+        data.filter_arns = (ReplayDestinationFilters.parse(map['FilterArns']) unless map['FilterArns'].nil?)
         return data
       end
     end
@@ -741,7 +741,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.api_destinations = (Parsers::ApiDestinationResponseList.parse(map['ApiDestinations']) unless map['ApiDestinations'].nil?)
+        data.api_destinations = (ApiDestinationResponseList.parse(map['ApiDestinations']) unless map['ApiDestinations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -750,7 +750,7 @@ module AWS::SDK::EventBridge
     class ApiDestinationResponseList
       def self.parse(list)
         list.map do |value|
-          Parsers::ApiDestination.parse(value) unless value.nil?
+          ApiDestination.parse(value) unless value.nil?
         end
       end
     end
@@ -778,7 +778,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.archives = (Parsers::ArchiveResponseList.parse(map['Archives']) unless map['Archives'].nil?)
+        data.archives = (ArchiveResponseList.parse(map['Archives']) unless map['Archives'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -787,7 +787,7 @@ module AWS::SDK::EventBridge
     class ArchiveResponseList
       def self.parse(list)
         list.map do |value|
-          Parsers::Archive.parse(value) unless value.nil?
+          Archive.parse(value) unless value.nil?
         end
       end
     end
@@ -814,7 +814,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connections = (Parsers::ConnectionResponseList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.connections = (ConnectionResponseList.parse(map['Connections']) unless map['Connections'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -823,7 +823,7 @@ module AWS::SDK::EventBridge
     class ConnectionResponseList
       def self.parse(list)
         list.map do |value|
-          Parsers::Connection.parse(value) unless value.nil?
+          Connection.parse(value) unless value.nil?
         end
       end
     end
@@ -850,7 +850,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoints = (Parsers::EndpointList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (EndpointList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -859,7 +859,7 @@ module AWS::SDK::EventBridge
     class EndpointList
       def self.parse(list)
         list.map do |value|
-          Parsers::Endpoint.parse(value) unless value.nil?
+          Endpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -870,9 +870,9 @@ module AWS::SDK::EventBridge
         data.name = map['Name']
         data.description = map['Description']
         data.arn = map['Arn']
-        data.routing_config = (Parsers::RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
-        data.replication_config = (Parsers::ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
-        data.event_buses = (Parsers::EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
+        data.routing_config = (RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.replication_config = (ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
+        data.event_buses = (EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
         data.role_arn = map['RoleArn']
         data.endpoint_id = map['EndpointId']
         data.endpoint_url = map['EndpointUrl']
@@ -891,7 +891,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_buses = (Parsers::EventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
+        data.event_buses = (EventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -900,7 +900,7 @@ module AWS::SDK::EventBridge
     class EventBusList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventBus.parse(value) unless value.nil?
+          EventBus.parse(value) unless value.nil?
         end
       end
     end
@@ -922,7 +922,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_sources = (Parsers::EventSourceList.parse(map['EventSources']) unless map['EventSources'].nil?)
+        data.event_sources = (EventSourceList.parse(map['EventSources']) unless map['EventSources'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -931,7 +931,7 @@ module AWS::SDK::EventBridge
     class EventSourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventSource.parse(value) unless value.nil?
+          EventSource.parse(value) unless value.nil?
         end
       end
     end
@@ -956,7 +956,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.partner_event_source_accounts = (Parsers::PartnerEventSourceAccountList.parse(map['PartnerEventSourceAccounts']) unless map['PartnerEventSourceAccounts'].nil?)
+        data.partner_event_source_accounts = (PartnerEventSourceAccountList.parse(map['PartnerEventSourceAccounts']) unless map['PartnerEventSourceAccounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -965,7 +965,7 @@ module AWS::SDK::EventBridge
     class PartnerEventSourceAccountList
       def self.parse(list)
         list.map do |value|
-          Parsers::PartnerEventSourceAccount.parse(value) unless value.nil?
+          PartnerEventSourceAccount.parse(value) unless value.nil?
         end
       end
     end
@@ -988,7 +988,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.partner_event_sources = (Parsers::PartnerEventSourceList.parse(map['PartnerEventSources']) unless map['PartnerEventSources'].nil?)
+        data.partner_event_sources = (PartnerEventSourceList.parse(map['PartnerEventSources']) unless map['PartnerEventSources'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -997,7 +997,7 @@ module AWS::SDK::EventBridge
     class PartnerEventSourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::PartnerEventSource.parse(value) unless value.nil?
+          PartnerEventSource.parse(value) unless value.nil?
         end
       end
     end
@@ -1018,7 +1018,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replays = (Parsers::ReplayList.parse(map['Replays']) unless map['Replays'].nil?)
+        data.replays = (ReplayList.parse(map['Replays']) unless map['Replays'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1027,7 +1027,7 @@ module AWS::SDK::EventBridge
     class ReplayList
       def self.parse(list)
         list.map do |value|
-          Parsers::Replay.parse(value) unless value.nil?
+          Replay.parse(value) unless value.nil?
         end
       end
     end
@@ -1055,7 +1055,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule_names = (Parsers::RuleNameList.parse(map['RuleNames']) unless map['RuleNames'].nil?)
+        data.rule_names = (RuleNameList.parse(map['RuleNames']) unless map['RuleNames'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1076,7 +1076,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rules = (Parsers::RuleResponseList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleResponseList.parse(map['Rules']) unless map['Rules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1085,7 +1085,7 @@ module AWS::SDK::EventBridge
     class RuleResponseList
       def self.parse(list)
         list.map do |value|
-          Parsers::Rule.parse(value) unless value.nil?
+          Rule.parse(value) unless value.nil?
         end
       end
     end
@@ -1113,7 +1113,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1121,7 +1121,7 @@ module AWS::SDK::EventBridge
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1142,7 +1142,7 @@ module AWS::SDK::EventBridge
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.targets = (Parsers::TargetList.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (TargetList.parse(map['Targets']) unless map['Targets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1151,7 +1151,7 @@ module AWS::SDK::EventBridge
     class TargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::Target.parse(value) unless value.nil?
+          Target.parse(value) unless value.nil?
         end
       end
     end
@@ -1164,17 +1164,17 @@ module AWS::SDK::EventBridge
         data.role_arn = map['RoleArn']
         data.input = map['Input']
         data.input_path = map['InputPath']
-        data.input_transformer = (Parsers::InputTransformer.parse(map['InputTransformer']) unless map['InputTransformer'].nil?)
-        data.kinesis_parameters = (Parsers::KinesisParameters.parse(map['KinesisParameters']) unless map['KinesisParameters'].nil?)
-        data.run_command_parameters = (Parsers::RunCommandParameters.parse(map['RunCommandParameters']) unless map['RunCommandParameters'].nil?)
-        data.ecs_parameters = (Parsers::EcsParameters.parse(map['EcsParameters']) unless map['EcsParameters'].nil?)
-        data.batch_parameters = (Parsers::BatchParameters.parse(map['BatchParameters']) unless map['BatchParameters'].nil?)
-        data.sqs_parameters = (Parsers::SqsParameters.parse(map['SqsParameters']) unless map['SqsParameters'].nil?)
-        data.http_parameters = (Parsers::HttpParameters.parse(map['HttpParameters']) unless map['HttpParameters'].nil?)
-        data.redshift_data_parameters = (Parsers::RedshiftDataParameters.parse(map['RedshiftDataParameters']) unless map['RedshiftDataParameters'].nil?)
-        data.sage_maker_pipeline_parameters = (Parsers::SageMakerPipelineParameters.parse(map['SageMakerPipelineParameters']) unless map['SageMakerPipelineParameters'].nil?)
-        data.dead_letter_config = (Parsers::DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.retry_policy = (Parsers::RetryPolicy.parse(map['RetryPolicy']) unless map['RetryPolicy'].nil?)
+        data.input_transformer = (InputTransformer.parse(map['InputTransformer']) unless map['InputTransformer'].nil?)
+        data.kinesis_parameters = (KinesisParameters.parse(map['KinesisParameters']) unless map['KinesisParameters'].nil?)
+        data.run_command_parameters = (RunCommandParameters.parse(map['RunCommandParameters']) unless map['RunCommandParameters'].nil?)
+        data.ecs_parameters = (EcsParameters.parse(map['EcsParameters']) unless map['EcsParameters'].nil?)
+        data.batch_parameters = (BatchParameters.parse(map['BatchParameters']) unless map['BatchParameters'].nil?)
+        data.sqs_parameters = (SqsParameters.parse(map['SqsParameters']) unless map['SqsParameters'].nil?)
+        data.http_parameters = (HttpParameters.parse(map['HttpParameters']) unless map['HttpParameters'].nil?)
+        data.redshift_data_parameters = (RedshiftDataParameters.parse(map['RedshiftDataParameters']) unless map['RedshiftDataParameters'].nil?)
+        data.sage_maker_pipeline_parameters = (SageMakerPipelineParameters.parse(map['SageMakerPipelineParameters']) unless map['SageMakerPipelineParameters'].nil?)
+        data.dead_letter_config = (DeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.retry_policy = (RetryPolicy.parse(map['RetryPolicy']) unless map['RetryPolicy'].nil?)
         return data
       end
     end
@@ -1199,7 +1199,7 @@ module AWS::SDK::EventBridge
     class SageMakerPipelineParameters
       def self.parse(map)
         data = Types::SageMakerPipelineParameters.new
-        data.pipeline_parameter_list = (Parsers::SageMakerPipelineParameterList.parse(map['PipelineParameterList']) unless map['PipelineParameterList'].nil?)
+        data.pipeline_parameter_list = (SageMakerPipelineParameterList.parse(map['PipelineParameterList']) unless map['PipelineParameterList'].nil?)
         return data
       end
     end
@@ -1207,7 +1207,7 @@ module AWS::SDK::EventBridge
     class SageMakerPipelineParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::SageMakerPipelineParameter.parse(value) unless value.nil?
+          SageMakerPipelineParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -1237,9 +1237,9 @@ module AWS::SDK::EventBridge
     class HttpParameters
       def self.parse(map)
         data = Types::HttpParameters.new
-        data.path_parameter_values = (Parsers::PathParameterList.parse(map['PathParameterValues']) unless map['PathParameterValues'].nil?)
-        data.header_parameters = (Parsers::HeaderParametersMap.parse(map['HeaderParameters']) unless map['HeaderParameters'].nil?)
-        data.query_string_parameters = (Parsers::QueryStringParametersMap.parse(map['QueryStringParameters']) unless map['QueryStringParameters'].nil?)
+        data.path_parameter_values = (PathParameterList.parse(map['PathParameterValues']) unless map['PathParameterValues'].nil?)
+        data.header_parameters = (HeaderParametersMap.parse(map['HeaderParameters']) unless map['HeaderParameters'].nil?)
+        data.query_string_parameters = (QueryStringParametersMap.parse(map['QueryStringParameters']) unless map['QueryStringParameters'].nil?)
         return data
       end
     end
@@ -1285,8 +1285,8 @@ module AWS::SDK::EventBridge
         data = Types::BatchParameters.new
         data.job_definition = map['JobDefinition']
         data.job_name = map['JobName']
-        data.array_properties = (Parsers::BatchArrayProperties.parse(map['ArrayProperties']) unless map['ArrayProperties'].nil?)
-        data.retry_strategy = (Parsers::BatchRetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
+        data.array_properties = (BatchArrayProperties.parse(map['ArrayProperties']) unless map['ArrayProperties'].nil?)
+        data.retry_strategy = (BatchRetryStrategy.parse(map['RetryStrategy']) unless map['RetryStrategy'].nil?)
         return data
       end
     end
@@ -1313,17 +1313,17 @@ module AWS::SDK::EventBridge
         data.task_definition_arn = map['TaskDefinitionArn']
         data.task_count = map['TaskCount']
         data.launch_type = map['LaunchType']
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
         data.platform_version = map['PlatformVersion']
         data.group = map['Group']
-        data.capacity_provider_strategy = (Parsers::CapacityProviderStrategy.parse(map['CapacityProviderStrategy']) unless map['CapacityProviderStrategy'].nil?)
+        data.capacity_provider_strategy = (CapacityProviderStrategy.parse(map['CapacityProviderStrategy']) unless map['CapacityProviderStrategy'].nil?)
         data.enable_ecs_managed_tags = map['EnableECSManagedTags']
         data.enable_execute_command = map['EnableExecuteCommand']
-        data.placement_constraints = (Parsers::PlacementConstraints.parse(map['PlacementConstraints']) unless map['PlacementConstraints'].nil?)
-        data.placement_strategy = (Parsers::PlacementStrategies.parse(map['PlacementStrategy']) unless map['PlacementStrategy'].nil?)
+        data.placement_constraints = (PlacementConstraints.parse(map['PlacementConstraints']) unless map['PlacementConstraints'].nil?)
+        data.placement_strategy = (PlacementStrategies.parse(map['PlacementStrategy']) unless map['PlacementStrategy'].nil?)
         data.propagate_tags = map['PropagateTags']
         data.reference_id = map['ReferenceId']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1331,7 +1331,7 @@ module AWS::SDK::EventBridge
     class PlacementStrategies
       def self.parse(list)
         list.map do |value|
-          Parsers::PlacementStrategy.parse(value) unless value.nil?
+          PlacementStrategy.parse(value) unless value.nil?
         end
       end
     end
@@ -1348,7 +1348,7 @@ module AWS::SDK::EventBridge
     class PlacementConstraints
       def self.parse(list)
         list.map do |value|
-          Parsers::PlacementConstraint.parse(value) unless value.nil?
+          PlacementConstraint.parse(value) unless value.nil?
         end
       end
     end
@@ -1365,7 +1365,7 @@ module AWS::SDK::EventBridge
     class CapacityProviderStrategy
       def self.parse(list)
         list.map do |value|
-          Parsers::CapacityProviderStrategyItem.parse(value) unless value.nil?
+          CapacityProviderStrategyItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1383,7 +1383,7 @@ module AWS::SDK::EventBridge
     class NetworkConfiguration
       def self.parse(map)
         data = Types::NetworkConfiguration.new
-        data.awsvpc_configuration = (Parsers::AwsVpcConfiguration.parse(map['awsvpcConfiguration']) unless map['awsvpcConfiguration'].nil?)
+        data.awsvpc_configuration = (AwsVpcConfiguration.parse(map['awsvpcConfiguration']) unless map['awsvpcConfiguration'].nil?)
         return data
       end
     end
@@ -1391,8 +1391,8 @@ module AWS::SDK::EventBridge
     class AwsVpcConfiguration
       def self.parse(map)
         data = Types::AwsVpcConfiguration.new
-        data.subnets = (Parsers::StringList.parse(map['Subnets']) unless map['Subnets'].nil?)
-        data.security_groups = (Parsers::StringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.subnets = (StringList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_groups = (StringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data.assign_public_ip = map['AssignPublicIp']
         return data
       end
@@ -1409,7 +1409,7 @@ module AWS::SDK::EventBridge
     class RunCommandParameters
       def self.parse(map)
         data = Types::RunCommandParameters.new
-        data.run_command_targets = (Parsers::RunCommandTargets.parse(map['RunCommandTargets']) unless map['RunCommandTargets'].nil?)
+        data.run_command_targets = (RunCommandTargets.parse(map['RunCommandTargets']) unless map['RunCommandTargets'].nil?)
         return data
       end
     end
@@ -1417,7 +1417,7 @@ module AWS::SDK::EventBridge
     class RunCommandTargets
       def self.parse(list)
         list.map do |value|
-          Parsers::RunCommandTarget.parse(value) unless value.nil?
+          RunCommandTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -1426,7 +1426,7 @@ module AWS::SDK::EventBridge
       def self.parse(map)
         data = Types::RunCommandTarget.new
         data.key = map['Key']
-        data.values = (Parsers::RunCommandTargetValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (RunCommandTargetValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1450,7 +1450,7 @@ module AWS::SDK::EventBridge
     class InputTransformer
       def self.parse(map)
         data = Types::InputTransformer.new
-        data.input_paths_map = (Parsers::TransformerPaths.parse(map['InputPathsMap']) unless map['InputPathsMap'].nil?)
+        data.input_paths_map = (TransformerPaths.parse(map['InputPathsMap']) unless map['InputPathsMap'].nil?)
         data.input_template = map['InputTemplate']
         return data
       end
@@ -1474,7 +1474,7 @@ module AWS::SDK::EventBridge
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.failed_entry_count = map['FailedEntryCount']
-        data.entries = (Parsers::PutEventsResultEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (PutEventsResultEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data
       end
     end
@@ -1482,7 +1482,7 @@ module AWS::SDK::EventBridge
     class PutEventsResultEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PutEventsResultEntry.parse(value) unless value.nil?
+          PutEventsResultEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -1505,7 +1505,7 @@ module AWS::SDK::EventBridge
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.failed_entry_count = map['FailedEntryCount']
-        data.entries = (Parsers::PutPartnerEventsResultEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (PutPartnerEventsResultEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data
       end
     end
@@ -1513,7 +1513,7 @@ module AWS::SDK::EventBridge
     class PutPartnerEventsResultEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PutPartnerEventsResultEntry.parse(value) unless value.nil?
+          PutPartnerEventsResultEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -1571,7 +1571,7 @@ module AWS::SDK::EventBridge
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.failed_entry_count = map['FailedEntryCount']
-        data.failed_entries = (Parsers::PutTargetsResultEntryList.parse(map['FailedEntries']) unless map['FailedEntries'].nil?)
+        data.failed_entries = (PutTargetsResultEntryList.parse(map['FailedEntries']) unless map['FailedEntries'].nil?)
         data
       end
     end
@@ -1579,7 +1579,7 @@ module AWS::SDK::EventBridge
     class PutTargetsResultEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PutTargetsResultEntry.parse(value) unless value.nil?
+          PutTargetsResultEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -1613,7 +1613,7 @@ module AWS::SDK::EventBridge
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.failed_entry_count = map['FailedEntryCount']
-        data.failed_entries = (Parsers::RemoveTargetsResultEntryList.parse(map['FailedEntries']) unless map['FailedEntries'].nil?)
+        data.failed_entries = (RemoveTargetsResultEntryList.parse(map['FailedEntries']) unless map['FailedEntries'].nil?)
         data
       end
     end
@@ -1621,7 +1621,7 @@ module AWS::SDK::EventBridge
     class RemoveTargetsResultEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::RemoveTargetsResultEntry.parse(value) unless value.nil?
+          RemoveTargetsResultEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -1740,9 +1740,9 @@ module AWS::SDK::EventBridge
         map = Hearth::JSON.load(body)
         data.name = map['Name']
         data.arn = map['Arn']
-        data.routing_config = (Parsers::RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
-        data.replication_config = (Parsers::ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
-        data.event_buses = (Parsers::EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
+        data.routing_config = (RoutingConfig.parse(map['RoutingConfig']) unless map['RoutingConfig'].nil?)
+        data.replication_config = (ReplicationConfig.parse(map['ReplicationConfig']) unless map['ReplicationConfig'].nil?)
+        data.event_buses = (EndpointEventBusList.parse(map['EventBuses']) unless map['EventBuses'].nil?)
         data.role_arn = map['RoleArn']
         data.endpoint_id = map['EndpointId']
         data.endpoint_url = map['EndpointUrl']

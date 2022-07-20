@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKMessaging
   module Stubs
 
@@ -36,9 +38,9 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BatchChannelMemberships'] = Stubs::BatchChannelMemberships.stub(stub[:batch_channel_memberships]) unless stub[:batch_channel_memberships].nil?
-        data['Errors'] = Stubs::BatchCreateChannelMembershipErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BatchChannelMemberships'] = BatchChannelMemberships.stub(stub[:batch_channel_memberships]) unless stub[:batch_channel_memberships].nil?
+        data['Errors'] = BatchCreateChannelMembershipErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,7 +58,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchCreateChannelMembershipError.stub(element) unless element.nil?
+          data << BatchCreateChannelMembershipError.stub(element) unless element.nil?
         end
         data
       end
@@ -100,9 +102,9 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::BatchChannelMemberships.new
         data = {}
-        data['InvitedBy'] = Stubs::Identity.stub(stub[:invited_by]) unless stub[:invited_by].nil?
+        data['InvitedBy'] = Identity.stub(stub[:invited_by]) unless stub[:invited_by].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Members'] = Stubs::Members.stub(stub[:members]) unless stub[:members].nil?
+        data['Members'] = Members.stub(stub[:members]) unless stub[:members].nil?
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data
       end
@@ -122,7 +124,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Identity.stub(element) unless element.nil?
+          data << Identity.stub(element) unless element.nil?
         end
         data
       end
@@ -163,7 +165,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['CallbackId'] = stub[:callback_id] unless stub[:callback_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -180,7 +182,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,8 +200,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -216,7 +218,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelFlowArn'] = stub[:channel_flow_arn] unless stub[:channel_flow_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,8 +236,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -253,8 +255,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['ChannelModerator'] = Stubs::Identity.stub(stub[:channel_moderator]) unless stub[:channel_moderator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelModerator'] = Identity.stub(stub[:channel_moderator]) unless stub[:channel_moderator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,8 +350,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -380,7 +382,7 @@ module AWS::SDK::ChimeSDKMessaging
         data['Mode'] = stub[:mode] unless stub[:mode].nil?
         data['Privacy'] = stub[:privacy] unless stub[:privacy].nil?
         data['Metadata'] = stub[:metadata] unless stub[:metadata].nil?
-        data['CreatedBy'] = Stubs::Identity.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = Identity.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastMessageTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_message_timestamp]).to_i unless stub[:last_message_timestamp].nil?
         data['LastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
@@ -401,8 +403,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelBan'] = Stubs::ChannelBan.stub(stub[:channel_ban]) unless stub[:channel_ban].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelBan'] = ChannelBan.stub(stub[:channel_ban]) unless stub[:channel_ban].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -422,10 +424,10 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelBan.new
         data = {}
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        data['CreatedBy'] = Stubs::Identity.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = Identity.stub(stub[:created_by]) unless stub[:created_by].nil?
         data
       end
     end
@@ -442,8 +444,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelFlow'] = Stubs::ChannelFlow.stub(stub[:channel_flow]) unless stub[:channel_flow].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelFlow'] = ChannelFlow.stub(stub[:channel_flow]) unless stub[:channel_flow].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -465,7 +467,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= Types::ChannelFlow.new
         data = {}
         data['ChannelFlowArn'] = stub[:channel_flow_arn] unless stub[:channel_flow_arn].nil?
-        data['Processors'] = Stubs::ProcessorList.stub(stub[:processors]) unless stub[:processors].nil?
+        data['Processors'] = ProcessorList.stub(stub[:processors]) unless stub[:processors].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
@@ -487,7 +489,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Processor.stub(element) unless element.nil?
+          data << Processor.stub(element) unless element.nil?
         end
         data
       end
@@ -510,7 +512,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= Types::Processor.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Configuration'] = Stubs::ProcessorConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = ProcessorConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['ExecutionOrder'] = stub[:execution_order] unless stub[:execution_order].nil?
         data['FallbackAction'] = stub[:fallback_action] unless stub[:fallback_action].nil?
         data
@@ -530,7 +532,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ProcessorConfiguration.new
         data = {}
-        data['Lambda'] = Stubs::LambdaConfiguration.stub(stub[:lambda]) unless stub[:lambda].nil?
+        data['Lambda'] = LambdaConfiguration.stub(stub[:lambda]) unless stub[:lambda].nil?
         data
       end
     end
@@ -567,8 +569,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelMembership'] = Stubs::ChannelMembership.stub(stub[:channel_membership]) unless stub[:channel_membership].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelMembership'] = ChannelMembership.stub(stub[:channel_membership]) unless stub[:channel_membership].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -590,9 +592,9 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelMembership.new
         data = {}
-        data['InvitedBy'] = Stubs::Identity.stub(stub[:invited_by]) unless stub[:invited_by].nil?
+        data['InvitedBy'] = Identity.stub(stub[:invited_by]) unless stub[:invited_by].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
@@ -612,8 +614,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelMembership'] = Stubs::ChannelMembershipForAppInstanceUserSummary.stub(stub[:channel_membership]) unless stub[:channel_membership].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelMembership'] = ChannelMembershipForAppInstanceUserSummary.stub(stub[:channel_membership]) unless stub[:channel_membership].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,8 +633,8 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelMembershipForAppInstanceUserSummary.new
         data = {}
-        data['ChannelSummary'] = Stubs::ChannelSummary.stub(stub[:channel_summary]) unless stub[:channel_summary].nil?
-        data['AppInstanceUserMembershipSummary'] = Stubs::AppInstanceUserMembershipSummary.stub(stub[:app_instance_user_membership_summary]) unless stub[:app_instance_user_membership_summary].nil?
+        data['ChannelSummary'] = ChannelSummary.stub(stub[:channel_summary]) unless stub[:channel_summary].nil?
+        data['AppInstanceUserMembershipSummary'] = AppInstanceUserMembershipSummary.stub(stub[:app_instance_user_membership_summary]) unless stub[:app_instance_user_membership_summary].nil?
         data
       end
     end
@@ -697,8 +699,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Channel'] = Stubs::ChannelModeratedByAppInstanceUserSummary.stub(stub[:channel]) unless stub[:channel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Channel'] = ChannelModeratedByAppInstanceUserSummary.stub(stub[:channel]) unless stub[:channel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -715,7 +717,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelModeratedByAppInstanceUserSummary.new
         data = {}
-        data['ChannelSummary'] = Stubs::ChannelSummary.stub(stub[:channel_summary]) unless stub[:channel_summary].nil?
+        data['ChannelSummary'] = ChannelSummary.stub(stub[:channel_summary]) unless stub[:channel_summary].nil?
         data
       end
     end
@@ -732,8 +734,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelModerator'] = Stubs::ChannelModerator.stub(stub[:channel_moderator]) unless stub[:channel_moderator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelModerator'] = ChannelModerator.stub(stub[:channel_moderator]) unless stub[:channel_moderator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -753,10 +755,10 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelModerator.new
         data = {}
-        data['Moderator'] = Stubs::Identity.stub(stub[:moderator]) unless stub[:moderator].nil?
+        data['Moderator'] = Identity.stub(stub[:moderator]) unless stub[:moderator].nil?
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        data['CreatedBy'] = Stubs::Identity.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = Identity.stub(stub[:created_by]) unless stub[:created_by].nil?
         data
       end
     end
@@ -789,9 +791,9 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
-        data['Preferences'] = Stubs::ChannelMembershipPreferences.stub(stub[:preferences]) unless stub[:preferences].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
+        data['Preferences'] = ChannelMembershipPreferences.stub(stub[:preferences]) unless stub[:preferences].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -808,7 +810,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelMembershipPreferences.new
         data = {}
-        data['PushNotifications'] = Stubs::PushNotificationPreferences.stub(stub[:push_notifications]) unless stub[:push_notifications].nil?
+        data['PushNotifications'] = PushNotificationPreferences.stub(stub[:push_notifications]) unless stub[:push_notifications].nil?
         data
       end
     end
@@ -845,8 +847,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelMessage'] = Stubs::ChannelMessage.stub(stub[:channel_message]) unless stub[:channel_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelMessage'] = ChannelMessage.stub(stub[:channel_message]) unless stub[:channel_message].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,11 +885,11 @@ module AWS::SDK::ChimeSDKMessaging
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastEditedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_edited_timestamp]).to_i unless stub[:last_edited_timestamp].nil?
         data['LastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
-        data['Sender'] = Stubs::Identity.stub(stub[:sender]) unless stub[:sender].nil?
+        data['Sender'] = Identity.stub(stub[:sender]) unless stub[:sender].nil?
         data['Redacted'] = stub[:redacted] unless stub[:redacted].nil?
         data['Persistence'] = stub[:persistence] unless stub[:persistence].nil?
-        data['Status'] = Stubs::ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
-        data['MessageAttributes'] = Stubs::MessageAttributeMap.stub(stub[:message_attributes]) unless stub[:message_attributes].nil?
+        data['Status'] = ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
+        data['MessageAttributes'] = MessageAttributeMap.stub(stub[:message_attributes]) unless stub[:message_attributes].nil?
         data
       end
     end
@@ -906,7 +908,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MessageAttributeValue.stub(value) unless value.nil?
+          data[key] = MessageAttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -925,7 +927,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::MessageAttributeValue.new
         data = {}
-        data['StringValues'] = Stubs::MessageAttributeStringValues.stub(stub[:string_values]) unless stub[:string_values].nil?
+        data['StringValues'] = MessageAttributeStringValues.stub(stub[:string_values]) unless stub[:string_values].nil?
         data
       end
     end
@@ -982,8 +984,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Status'] = Stubs::ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Status'] = ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -999,8 +1001,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Endpoint'] = Stubs::MessagingSessionEndpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoint'] = MessagingSessionEndpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1038,8 +1040,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ChannelBans'] = Stubs::ChannelBanSummaryList.stub(stub[:channel_bans]) unless stub[:channel_bans].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelBans'] = ChannelBanSummaryList.stub(stub[:channel_bans]) unless stub[:channel_bans].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1057,7 +1059,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelBanSummary.stub(element) unless element.nil?
+          data << ChannelBanSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1076,7 +1078,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelBanSummary.new
         data = {}
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
         data
       end
     end
@@ -1094,9 +1096,9 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelFlows'] = Stubs::ChannelFlowSummaryList.stub(stub[:channel_flows]) unless stub[:channel_flows].nil?
+        data['ChannelFlows'] = ChannelFlowSummaryList.stub(stub[:channel_flows]) unless stub[:channel_flows].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1114,7 +1116,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelFlowSummary.stub(element) unless element.nil?
+          data << ChannelFlowSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1137,7 +1139,7 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         data['ChannelFlowArn'] = stub[:channel_flow_arn] unless stub[:channel_flow_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Processors'] = Stubs::ProcessorList.stub(stub[:processors]) unless stub[:processors].nil?
+        data['Processors'] = ProcessorList.stub(stub[:processors]) unless stub[:processors].nil?
         data
       end
     end
@@ -1157,9 +1159,9 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['ChannelMemberships'] = Stubs::ChannelMembershipSummaryList.stub(stub[:channel_memberships]) unless stub[:channel_memberships].nil?
+        data['ChannelMemberships'] = ChannelMembershipSummaryList.stub(stub[:channel_memberships]) unless stub[:channel_memberships].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1177,7 +1179,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelMembershipSummary.stub(element) unless element.nil?
+          data << ChannelMembershipSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1196,7 +1198,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelMembershipSummary.new
         data = {}
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
         data
       end
     end
@@ -1214,9 +1216,9 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelMemberships'] = Stubs::ChannelMembershipForAppInstanceUserSummaryList.stub(stub[:channel_memberships]) unless stub[:channel_memberships].nil?
+        data['ChannelMemberships'] = ChannelMembershipForAppInstanceUserSummaryList.stub(stub[:channel_memberships]) unless stub[:channel_memberships].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1234,7 +1236,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelMembershipForAppInstanceUserSummary.stub(element) unless element.nil?
+          data << ChannelMembershipForAppInstanceUserSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1256,8 +1258,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ChannelMessages'] = Stubs::ChannelMessageSummaryList.stub(stub[:channel_messages]) unless stub[:channel_messages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelMessages'] = ChannelMessageSummaryList.stub(stub[:channel_messages]) unless stub[:channel_messages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1275,7 +1277,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelMessageSummary.stub(element) unless element.nil?
+          data << ChannelMessageSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1311,10 +1313,10 @@ module AWS::SDK::ChimeSDKMessaging
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
         data['LastEditedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_edited_timestamp]).to_i unless stub[:last_edited_timestamp].nil?
-        data['Sender'] = Stubs::Identity.stub(stub[:sender]) unless stub[:sender].nil?
+        data['Sender'] = Identity.stub(stub[:sender]) unless stub[:sender].nil?
         data['Redacted'] = stub[:redacted] unless stub[:redacted].nil?
-        data['Status'] = Stubs::ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
-        data['MessageAttributes'] = Stubs::MessageAttributeMap.stub(stub[:message_attributes]) unless stub[:message_attributes].nil?
+        data['Status'] = ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
+        data['MessageAttributes'] = MessageAttributeMap.stub(stub[:message_attributes]) unless stub[:message_attributes].nil?
         data
       end
     end
@@ -1335,8 +1337,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ChannelModerators'] = Stubs::ChannelModeratorSummaryList.stub(stub[:channel_moderators]) unless stub[:channel_moderators].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelModerators'] = ChannelModeratorSummaryList.stub(stub[:channel_moderators]) unless stub[:channel_moderators].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1354,7 +1356,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelModeratorSummary.stub(element) unless element.nil?
+          data << ChannelModeratorSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1373,7 +1375,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.stub(stub)
         stub ||= Types::ChannelModeratorSummary.new
         data = {}
-        data['Moderator'] = Stubs::Identity.stub(stub[:moderator]) unless stub[:moderator].nil?
+        data['Moderator'] = Identity.stub(stub[:moderator]) unless stub[:moderator].nil?
         data
       end
     end
@@ -1391,9 +1393,9 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Channels'] = Stubs::ChannelSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
+        data['Channels'] = ChannelSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1411,7 +1413,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelSummary.stub(element) unless element.nil?
+          data << ChannelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1430,9 +1432,9 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Channels'] = Stubs::ChannelAssociatedWithFlowSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
+        data['Channels'] = ChannelAssociatedWithFlowSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1450,7 +1452,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelAssociatedWithFlowSummary.stub(element) unless element.nil?
+          data << ChannelAssociatedWithFlowSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1495,9 +1497,9 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Channels'] = Stubs::ChannelModeratedByAppInstanceUserSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
+        data['Channels'] = ChannelModeratedByAppInstanceUserSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1515,7 +1517,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelModeratedByAppInstanceUserSummary.stub(element) unless element.nil?
+          data << ChannelModeratedByAppInstanceUserSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1533,8 +1535,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1552,7 +1554,7 @@ module AWS::SDK::ChimeSDKMessaging
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1593,9 +1595,9 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        data['Member'] = Stubs::Identity.stub(stub[:member]) unless stub[:member].nil?
-        data['Preferences'] = Stubs::ChannelMembershipPreferences.stub(stub[:preferences]) unless stub[:preferences].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Member'] = Identity.stub(stub[:member]) unless stub[:member].nil?
+        data['Preferences'] = ChannelMembershipPreferences.stub(stub[:preferences]) unless stub[:preferences].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1614,7 +1616,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1631,9 +1633,9 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Channels'] = Stubs::ChannelSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
+        data['Channels'] = ChannelSummaryList.stub(stub[:channels]) unless stub[:channels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1653,8 +1655,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        data['Status'] = Stubs::ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Status'] = ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1697,7 +1699,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1714,7 +1716,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelFlowArn'] = stub[:channel_flow_arn] unless stub[:channel_flow_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1734,8 +1736,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        data['Status'] = Stubs::ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Status'] = ChannelMessageStatusStructure.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1752,7 +1754,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelArn'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

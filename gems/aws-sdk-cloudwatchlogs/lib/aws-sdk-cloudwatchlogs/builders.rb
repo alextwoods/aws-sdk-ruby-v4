@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudWatchLogs
   module Builders
 
@@ -20,7 +22,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.CancelExportTask'
         data = {}
         data['taskId'] = input[:task_id] unless input[:task_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,7 +54,7 @@ module AWS::SDK::CloudWatchLogs
         data['to'] = input[:to] unless input[:to].nil?
         data['destination'] = input[:destination] unless input[:destination].nil?
         data['destinationPrefix'] = input[:destination_prefix] unless input[:destination_prefix].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,8 +68,8 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -92,7 +94,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['logStreamName'] = input[:log_stream_name] unless input[:log_stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.DeleteDestination'
         data = {}
         data['destinationName'] = input[:destination_name] unless input[:destination_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.DeleteLogGroup'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['logStreamName'] = input[:log_stream_name] unless input[:log_stream_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -146,7 +148,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['filterName'] = input[:filter_name] unless input[:filter_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -159,7 +161,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.DeleteQueryDefinition'
         data = {}
         data['queryDefinitionId'] = input[:query_definition_id] unless input[:query_definition_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -172,7 +174,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.DeleteResourcePolicy'
         data = {}
         data['policyName'] = input[:policy_name] unless input[:policy_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.DeleteRetentionPolicy'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -199,7 +201,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['filterName'] = input[:filter_name] unless input[:filter_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -214,7 +216,7 @@ module AWS::SDK::CloudWatchLogs
         data['DestinationNamePrefix'] = input[:destination_name_prefix] unless input[:destination_name_prefix].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -230,7 +232,7 @@ module AWS::SDK::CloudWatchLogs
         data['statusCode'] = input[:status_code] unless input[:status_code].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::CloudWatchLogs
         data['logGroupNamePrefix'] = input[:log_group_name_prefix] unless input[:log_group_name_prefix].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -263,7 +265,7 @@ module AWS::SDK::CloudWatchLogs
         data['descending'] = input[:descending] unless input[:descending].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::CloudWatchLogs
         data['limit'] = input[:limit] unless input[:limit].nil?
         data['metricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['metricNamespace'] = input[:metric_namespace] unless input[:metric_namespace].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -297,7 +299,7 @@ module AWS::SDK::CloudWatchLogs
         data['status'] = input[:status] unless input[:status].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,7 +314,7 @@ module AWS::SDK::CloudWatchLogs
         data['queryDefinitionNamePrefix'] = input[:query_definition_name_prefix] unless input[:query_definition_name_prefix].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -326,7 +328,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::CloudWatchLogs
         data['filterNamePrefix'] = input[:filter_name_prefix] unless input[:filter_name_prefix].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.DisassociateKmsKey'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -368,7 +370,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.FilterLogEvents'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        data['logStreamNames'] = Builders::InputLogStreamNames.build(input[:log_stream_names]) unless input[:log_stream_names].nil?
+        data['logStreamNames'] = InputLogStreamNames.build(input[:log_stream_names]) unless input[:log_stream_names].nil?
         data['logStreamNamePrefix'] = input[:log_stream_name_prefix] unless input[:log_stream_name_prefix].nil?
         data['startTime'] = input[:start_time] unless input[:start_time].nil?
         data['endTime'] = input[:end_time] unless input[:end_time].nil?
@@ -376,7 +378,7 @@ module AWS::SDK::CloudWatchLogs
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
         data['interleaved'] = input[:interleaved] unless input[:interleaved].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::CloudWatchLogs
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
         data['startFromHead'] = input[:start_from_head] unless input[:start_from_head].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -420,7 +422,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['time'] = input[:time] unless input[:time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,7 +435,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.GetLogRecord'
         data = {}
         data['logRecordPointer'] = input[:log_record_pointer] unless input[:log_record_pointer].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,7 +448,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.GetQueryResults'
         data = {}
         data['queryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.ListTagsLogGroup'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -474,7 +476,7 @@ module AWS::SDK::CloudWatchLogs
         data['destinationName'] = input[:destination_name] unless input[:destination_name].nil?
         data['targetArn'] = input[:target_arn] unless input[:target_arn].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -489,7 +491,7 @@ module AWS::SDK::CloudWatchLogs
         data['destinationName'] = input[:destination_name] unless input[:destination_name].nil?
         data['accessPolicy'] = input[:access_policy] unless input[:access_policy].nil?
         data['forceUpdate'] = input[:force_update] unless input[:force_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -503,9 +505,9 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['logStreamName'] = input[:log_stream_name] unless input[:log_stream_name].nil?
-        data['logEvents'] = Builders::InputLogEvents.build(input[:log_events]) unless input[:log_events].nil?
+        data['logEvents'] = InputLogEvents.build(input[:log_events]) unless input[:log_events].nil?
         data['sequenceToken'] = input[:sequence_token] unless input[:sequence_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -514,7 +516,7 @@ module AWS::SDK::CloudWatchLogs
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputLogEvent.build(element) unless element.nil?
+          data << InputLogEvent.build(element) unless element.nil?
         end
         data
       end
@@ -541,8 +543,8 @@ module AWS::SDK::CloudWatchLogs
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['filterName'] = input[:filter_name] unless input[:filter_name].nil?
         data['filterPattern'] = input[:filter_pattern] unless input[:filter_pattern].nil?
-        data['metricTransformations'] = Builders::MetricTransformations.build(input[:metric_transformations]) unless input[:metric_transformations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metricTransformations'] = MetricTransformations.build(input[:metric_transformations]) unless input[:metric_transformations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -551,7 +553,7 @@ module AWS::SDK::CloudWatchLogs
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricTransformation.build(element) unless element.nil?
+          data << MetricTransformation.build(element) unless element.nil?
         end
         data
       end
@@ -565,7 +567,7 @@ module AWS::SDK::CloudWatchLogs
         data['metricNamespace'] = input[:metric_namespace] unless input[:metric_namespace].nil?
         data['metricValue'] = input[:metric_value] unless input[:metric_value].nil?
         data['defaultValue'] = Hearth::NumberHelper.serialize(input[:default_value]) unless input[:default_value].nil?
-        data['dimensions'] = Builders::Dimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['dimensions'] = Dimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
         data
       end
@@ -592,9 +594,9 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['queryDefinitionId'] = input[:query_definition_id] unless input[:query_definition_id].nil?
-        data['logGroupNames'] = Builders::LogGroupNames.build(input[:log_group_names]) unless input[:log_group_names].nil?
+        data['logGroupNames'] = LogGroupNames.build(input[:log_group_names]) unless input[:log_group_names].nil?
         data['queryString'] = input[:query_string] unless input[:query_string].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -619,7 +621,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['policyName'] = input[:policy_name] unless input[:policy_name].nil?
         data['policyDocument'] = input[:policy_document] unless input[:policy_document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,7 +635,7 @@ module AWS::SDK::CloudWatchLogs
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
         data['retentionInDays'] = input[:retention_in_days] unless input[:retention_in_days].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -651,7 +653,7 @@ module AWS::SDK::CloudWatchLogs
         data['destinationArn'] = input[:destination_arn] unless input[:destination_arn].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['distribution'] = input[:distribution] unless input[:distribution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,12 +666,12 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.StartQuery'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        data['logGroupNames'] = Builders::LogGroupNames.build(input[:log_group_names]) unless input[:log_group_names].nil?
+        data['logGroupNames'] = LogGroupNames.build(input[:log_group_names]) unless input[:log_group_names].nil?
         data['startTime'] = input[:start_time] unless input[:start_time].nil?
         data['endTime'] = input[:end_time] unless input[:end_time].nil?
         data['queryString'] = input[:query_string] unless input[:query_string].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -682,7 +684,7 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.StopQuery'
         data = {}
         data['queryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -695,8 +697,8 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.TagLogGroup'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,8 +711,8 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.TestMetricFilter'
         data = {}
         data['filterPattern'] = input[:filter_pattern] unless input[:filter_pattern].nil?
-        data['logEventMessages'] = Builders::TestEventMessages.build(input[:log_event_messages]) unless input[:log_event_messages].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['logEventMessages'] = TestEventMessages.build(input[:log_event_messages]) unless input[:log_event_messages].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -734,8 +736,8 @@ module AWS::SDK::CloudWatchLogs
         http_req.headers['X-Amz-Target'] = 'Logs_20140328.UntagLogGroup'
         data = {}
         data['logGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

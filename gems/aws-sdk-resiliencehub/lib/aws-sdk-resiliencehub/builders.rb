@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Resiliencehub
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
-        data['resourceMappings'] = Builders::ResourceMappingList.build(input[:resource_mappings]) unless input[:resource_mappings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceMappings'] = ResourceMappingList.build(input[:resource_mappings]) unless input[:resource_mappings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -31,7 +33,7 @@ module AWS::SDK::Resiliencehub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceMapping.build(element) unless element.nil?
+          data << ResourceMapping.build(element) unless element.nil?
         end
         data
       end
@@ -46,7 +48,7 @@ module AWS::SDK::Resiliencehub
         data['appRegistryAppName'] = input[:app_registry_app_name] unless input[:app_registry_app_name].nil?
         data['resourceGroupName'] = input[:resource_group_name] unless input[:resource_group_name].nil?
         data['mappingType'] = input[:mapping_type] unless input[:mapping_type].nil?
-        data['physicalResourceId'] = Builders::PhysicalResourceId.build(input[:physical_resource_id]) unless input[:physical_resource_id].nil?
+        data['physicalResourceId'] = PhysicalResourceId.build(input[:physical_resource_id]) unless input[:physical_resource_id].nil?
         data['terraformSourceName'] = input[:terraform_source_name] unless input[:terraform_source_name].nil?
         data
       end
@@ -77,10 +79,10 @@ module AWS::SDK::Resiliencehub
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['policyArn'] = input[:policy_arn] unless input[:policy_arn].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['assessmentSchedule'] = input[:assessment_schedule] unless input[:assessment_schedule].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,15 +107,15 @@ module AWS::SDK::Resiliencehub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['recommendationIds'] = Builders::RecommendationIdList.build(input[:recommendation_ids]) unless input[:recommendation_ids].nil?
+        data['recommendationIds'] = RecommendationIdList.build(input[:recommendation_ids]) unless input[:recommendation_ids].nil?
         data['format'] = input[:format] unless input[:format].nil?
-        data['recommendationTypes'] = Builders::RenderRecommendationTypeList.build(input[:recommendation_types]) unless input[:recommendation_types].nil?
+        data['recommendationTypes'] = RenderRecommendationTypeList.build(input[:recommendation_types]) unless input[:recommendation_types].nil?
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -153,10 +155,10 @@ module AWS::SDK::Resiliencehub
         data['policyDescription'] = input[:policy_description] unless input[:policy_description].nil?
         data['dataLocationConstraint'] = input[:data_location_constraint] unless input[:data_location_constraint].nil?
         data['tier'] = input[:tier] unless input[:tier].nil?
-        data['policy'] = Builders::DisruptionPolicy.build(input[:policy]) unless input[:policy].nil?
+        data['policy'] = DisruptionPolicy.build(input[:policy]) unless input[:policy].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +167,7 @@ module AWS::SDK::Resiliencehub
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::FailurePolicy.build(value) unless value.nil?
+          data[key] = FailurePolicy.build(value) unless value.nil?
         end
         data
       end
@@ -194,7 +196,7 @@ module AWS::SDK::Resiliencehub
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['forceDelete'] = input[:force_delete] unless input[:force_delete].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +212,7 @@ module AWS::SDK::Resiliencehub
         data = {}
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -226,7 +228,7 @@ module AWS::SDK::Resiliencehub
         data = {}
         data['recommendationTemplateArn'] = input[:recommendation_template_arn] unless input[:recommendation_template_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -242,7 +244,7 @@ module AWS::SDK::Resiliencehub
         data = {}
         data['policyArn'] = input[:policy_arn] unless input[:policy_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::Resiliencehub
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['appVersion'] = input[:app_version] unless input[:app_version].nil?
         data['resolutionId'] = input[:resolution_id] unless input[:resolution_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::Resiliencehub
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['appVersion'] = input[:app_version] unless input[:app_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -335,7 +337,7 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['policyArn'] = input[:policy_arn] unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -350,9 +352,9 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
-        data['sourceArns'] = Builders::ArnList.build(input[:source_arns]) unless input[:source_arns].nil?
-        data['terraformSources'] = Builders::TerraformSourceList.build(input[:terraform_sources]) unless input[:terraform_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceArns'] = ArnList.build(input[:source_arns]) unless input[:source_arns].nil?
+        data['terraformSources'] = TerraformSourceList.build(input[:terraform_sources]) unless input[:terraform_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,7 +363,7 @@ module AWS::SDK::Resiliencehub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TerraformSource.build(element) unless element.nil?
+          data << TerraformSource.build(element) unless element.nil?
         end
         data
       end
@@ -400,7 +402,7 @@ module AWS::SDK::Resiliencehub
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::Resiliencehub
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::Resiliencehub
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::Resiliencehub
         data['appVersion'] = input[:app_version] unless input[:app_version].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -504,7 +506,7 @@ module AWS::SDK::Resiliencehub
         data['resolutionId'] = input[:resolution_id] unless input[:resolution_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -521,7 +523,7 @@ module AWS::SDK::Resiliencehub
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -597,7 +599,7 @@ module AWS::SDK::Resiliencehub
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -643,7 +645,7 @@ module AWS::SDK::Resiliencehub
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['assessmentArn'] = input[:assessment_arn] unless input[:assessment_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -662,7 +664,7 @@ module AWS::SDK::Resiliencehub
         data['resolutionId'] = input[:resolution_id] unless input[:resolution_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -677,7 +679,7 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -693,7 +695,7 @@ module AWS::SDK::Resiliencehub
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['appTemplateBody'] = input[:app_template_body] unless input[:app_template_body].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -708,12 +710,12 @@ module AWS::SDK::Resiliencehub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
-        data['resourceNames'] = Builders::EntityNameList.build(input[:resource_names]) unless input[:resource_names].nil?
-        data['logicalStackNames'] = Builders::String255List.build(input[:logical_stack_names]) unless input[:logical_stack_names].nil?
-        data['appRegistryAppNames'] = Builders::EntityNameList.build(input[:app_registry_app_names]) unless input[:app_registry_app_names].nil?
-        data['resourceGroupNames'] = Builders::EntityNameList.build(input[:resource_group_names]) unless input[:resource_group_names].nil?
-        data['terraformSourceNames'] = Builders::String255List.build(input[:terraform_source_names]) unless input[:terraform_source_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceNames'] = EntityNameList.build(input[:resource_names]) unless input[:resource_names].nil?
+        data['logicalStackNames'] = String255List.build(input[:logical_stack_names]) unless input[:logical_stack_names].nil?
+        data['appRegistryAppNames'] = EntityNameList.build(input[:app_registry_app_names]) unless input[:app_registry_app_names].nil?
+        data['resourceGroupNames'] = EntityNameList.build(input[:resource_group_names]) unless input[:resource_group_names].nil?
+        data['terraformSourceNames'] = String255List.build(input[:terraform_source_names]) unless input[:terraform_source_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::Resiliencehub
         data = {}
         data['appArn'] = input[:app_arn] unless input[:app_arn].nil?
         data['appVersion'] = input[:app_version] unless input[:app_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -769,8 +771,8 @@ module AWS::SDK::Resiliencehub
         data['appVersion'] = input[:app_version] unless input[:app_version].nil?
         data['assessmentName'] = input[:assessment_name] unless input[:assessment_name].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -791,8 +793,8 @@ module AWS::SDK::Resiliencehub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -844,7 +846,7 @@ module AWS::SDK::Resiliencehub
         data['policyArn'] = input[:policy_arn] unless input[:policy_arn].nil?
         data['clearResiliencyPolicyArn'] = input[:clear_resiliency_policy_arn] unless input[:clear_resiliency_policy_arn].nil?
         data['assessmentSchedule'] = input[:assessment_schedule] unless input[:assessment_schedule].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -863,8 +865,8 @@ module AWS::SDK::Resiliencehub
         data['policyDescription'] = input[:policy_description] unless input[:policy_description].nil?
         data['dataLocationConstraint'] = input[:data_location_constraint] unless input[:data_location_constraint].nil?
         data['tier'] = input[:tier] unless input[:tier].nil?
-        data['policy'] = Builders::DisruptionPolicy.build(input[:policy]) unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = DisruptionPolicy.build(input[:policy]) unless input[:policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

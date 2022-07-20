@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticBeanstalk
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -39,7 +41,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'ActionId'] = input[:action_id].to_s unless input[:action_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -55,7 +57,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'OperationsRole'] = input[:operations_role].to_s unless input[:operations_role].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'CheckDNSAvailability'
         params['Version'] = '2010-12-01'
         params[context + 'CNAMEPrefix'] = input[:cname_prefix].to_s unless input[:cname_prefix].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -86,8 +88,8 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        Builders::VersionLabels.build(input[:version_labels], params, context: context + 'VersionLabels' + '.member') unless input[:version_labels].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VersionLabels.build(input[:version_labels], params, context: context + 'VersionLabels' + '.member') unless input[:version_labels].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -112,9 +114,9 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::ApplicationResourceLifecycleConfig.build(input[:resource_lifecycle_config], params, context: context + 'ResourceLifecycleConfig' + '.') unless input[:resource_lifecycle_config].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ApplicationResourceLifecycleConfig.build(input[:resource_lifecycle_config], params, context: context + 'ResourceLifecycleConfig' + '.') unless input[:resource_lifecycle_config].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::ElasticBeanstalk
     class Tags
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -139,15 +141,15 @@ module AWS::SDK::ElasticBeanstalk
     class ApplicationResourceLifecycleConfig
       def self.build(input, params, context: nil)
         params[context + 'ServiceRole'] = input[:service_role].to_s unless input[:service_role].nil?
-        Builders::ApplicationVersionLifecycleConfig.build(input[:version_lifecycle_config], params, context: context + 'VersionLifecycleConfig' + '.') unless input[:version_lifecycle_config].nil?
+        ApplicationVersionLifecycleConfig.build(input[:version_lifecycle_config], params, context: context + 'VersionLifecycleConfig' + '.') unless input[:version_lifecycle_config].nil?
       end
     end
 
     # Structure Builder for ApplicationVersionLifecycleConfig
     class ApplicationVersionLifecycleConfig
       def self.build(input, params, context: nil)
-        Builders::MaxCountRule.build(input[:max_count_rule], params, context: context + 'MaxCountRule' + '.') unless input[:max_count_rule].nil?
-        Builders::MaxAgeRule.build(input[:max_age_rule], params, context: context + 'MaxAgeRule' + '.') unless input[:max_age_rule].nil?
+        MaxCountRule.build(input[:max_count_rule], params, context: context + 'MaxCountRule' + '.') unless input[:max_count_rule].nil?
+        MaxAgeRule.build(input[:max_age_rule], params, context: context + 'MaxAgeRule' + '.') unless input[:max_age_rule].nil?
       end
     end
 
@@ -182,13 +184,13 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'VersionLabel'] = input[:version_label].to_s unless input[:version_label].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::SourceBuildInformation.build(input[:source_build_information], params, context: context + 'SourceBuildInformation' + '.') unless input[:source_build_information].nil?
-        Builders::S3Location.build(input[:source_bundle], params, context: context + 'SourceBundle' + '.') unless input[:source_bundle].nil?
-        Builders::BuildConfiguration.build(input[:build_configuration], params, context: context + 'BuildConfiguration' + '.') unless input[:build_configuration].nil?
+        SourceBuildInformation.build(input[:source_build_information], params, context: context + 'SourceBuildInformation' + '.') unless input[:source_build_information].nil?
+        S3Location.build(input[:source_bundle], params, context: context + 'SourceBundle' + '.') unless input[:source_bundle].nil?
+        BuildConfiguration.build(input[:build_configuration], params, context: context + 'BuildConfiguration' + '.') unless input[:build_configuration].nil?
         params[context + 'AutoCreateApplication'] = input[:auto_create_application].to_s unless input[:auto_create_application].nil?
         params[context + 'Process'] = input[:process].to_s unless input[:process].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -234,12 +236,12 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'SolutionStackName'] = input[:solution_stack_name].to_s unless input[:solution_stack_name].nil?
         params[context + 'PlatformArn'] = input[:platform_arn].to_s unless input[:platform_arn].nil?
-        Builders::SourceConfiguration.build(input[:source_configuration], params, context: context + 'SourceConfiguration' + '.') unless input[:source_configuration].nil?
+        SourceConfiguration.build(input[:source_configuration], params, context: context + 'SourceConfiguration' + '.') unless input[:source_configuration].nil?
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::ElasticBeanstalk
     class ConfigurationOptionSettingsList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ConfigurationOptionSetting.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ConfigurationOptionSetting.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -285,16 +287,16 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'CNAMEPrefix'] = input[:cname_prefix].to_s unless input[:cname_prefix].nil?
-        Builders::EnvironmentTier.build(input[:tier], params, context: context + 'Tier' + '.') unless input[:tier].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        EnvironmentTier.build(input[:tier], params, context: context + 'Tier' + '.') unless input[:tier].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'VersionLabel'] = input[:version_label].to_s unless input[:version_label].nil?
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'SolutionStackName'] = input[:solution_stack_name].to_s unless input[:solution_stack_name].nil?
         params[context + 'PlatformArn'] = input[:platform_arn].to_s unless input[:platform_arn].nil?
-        Builders::ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
-        Builders::OptionsSpecifierList.build(input[:options_to_remove], params, context: context + 'OptionsToRemove' + '.member') unless input[:options_to_remove].nil?
+        ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
+        OptionsSpecifierList.build(input[:options_to_remove], params, context: context + 'OptionsToRemove' + '.member') unless input[:options_to_remove].nil?
         params[context + 'OperationsRole'] = input[:operations_role].to_s unless input[:operations_role].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::ElasticBeanstalk
     class OptionsSpecifierList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::OptionSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          OptionSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -337,11 +339,11 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'PlatformName'] = input[:platform_name].to_s unless input[:platform_name].nil?
         params[context + 'PlatformVersion'] = input[:platform_version].to_s unless input[:platform_version].nil?
-        Builders::S3Location.build(input[:platform_definition_bundle], params, context: context + 'PlatformDefinitionBundle' + '.') unless input[:platform_definition_bundle].nil?
+        S3Location.build(input[:platform_definition_bundle], params, context: context + 'PlatformDefinitionBundle' + '.') unless input[:platform_definition_bundle].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        Builders::ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::ElasticBeanstalk
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateStorageLocation'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -371,7 +373,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'TerminateEnvByForce'] = input[:terminate_env_by_force].to_s unless input[:terminate_env_by_force].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'VersionLabel'] = input[:version_label].to_s unless input[:version_label].nil?
         params[context + 'DeleteSourceBundle'] = input[:delete_source_bundle].to_s unless input[:delete_source_bundle].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -404,7 +406,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -420,7 +422,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -435,7 +437,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'DeletePlatformVersion'
         params['Version'] = '2010-12-01'
         params[context + 'PlatformArn'] = input[:platform_arn].to_s unless input[:platform_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -449,7 +451,7 @@ module AWS::SDK::ElasticBeanstalk
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAccountAttributes'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -464,10 +466,10 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'DescribeApplicationVersions'
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
-        Builders::VersionLabelsList.build(input[:version_labels], params, context: context + 'VersionLabels' + '.member') unless input[:version_labels].nil?
+        VersionLabelsList.build(input[:version_labels], params, context: context + 'VersionLabels' + '.member') unless input[:version_labels].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -490,8 +492,8 @@ module AWS::SDK::ElasticBeanstalk
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeApplications'
         params['Version'] = '2010-12-01'
-        Builders::ApplicationNamesList.build(input[:application_names], params, context: context + 'ApplicationNames' + '.member') unless input[:application_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ApplicationNamesList.build(input[:application_names], params, context: context + 'ApplicationNames' + '.member') unless input[:application_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -519,8 +521,8 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'SolutionStackName'] = input[:solution_stack_name].to_s unless input[:solution_stack_name].nil?
         params[context + 'PlatformArn'] = input[:platform_arn].to_s unless input[:platform_arn].nil?
-        Builders::OptionsSpecifierList.build(input[:options], params, context: context + 'Options' + '.member') unless input[:options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        OptionsSpecifierList.build(input[:options], params, context: context + 'Options' + '.member') unless input[:options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -537,7 +539,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -553,8 +555,8 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
-        Builders::EnvironmentHealthAttributes.build(input[:attribute_names], params, context: context + 'AttributeNames' + '.member') unless input[:attribute_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        EnvironmentHealthAttributes.build(input[:attribute_names], params, context: context + 'AttributeNames' + '.member') unless input[:attribute_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -581,7 +583,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -598,7 +600,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -614,7 +616,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -630,13 +632,13 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'VersionLabel'] = input[:version_label].to_s unless input[:version_label].nil?
-        Builders::EnvironmentIdList.build(input[:environment_ids], params, context: context + 'EnvironmentIds' + '.member') unless input[:environment_ids].nil?
-        Builders::EnvironmentNamesList.build(input[:environment_names], params, context: context + 'EnvironmentNames' + '.member') unless input[:environment_names].nil?
+        EnvironmentIdList.build(input[:environment_ids], params, context: context + 'EnvironmentIds' + '.member') unless input[:environment_ids].nil?
+        EnvironmentNamesList.build(input[:environment_names], params, context: context + 'EnvironmentNames' + '.member') unless input[:environment_names].nil?
         params[context + 'IncludeDeleted'] = input[:include_deleted].to_s unless input[:include_deleted].nil?
         params[context + 'IncludedDeletedBackTo'] = Hearth::TimeHelper.to_date_time(input[:included_deleted_back_to]) unless input[:included_deleted_back_to].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -680,7 +682,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -696,9 +698,9 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
-        Builders::InstancesHealthAttributes.build(input[:attribute_names], params, context: context + 'AttributeNames' + '.member') unless input[:attribute_names].nil?
+        InstancesHealthAttributes.build(input[:attribute_names], params, context: context + 'AttributeNames' + '.member') unless input[:attribute_names].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -722,7 +724,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'DescribePlatformVersion'
         params['Version'] = '2010-12-01'
         params[context + 'PlatformArn'] = input[:platform_arn].to_s unless input[:platform_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -737,7 +739,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'DisassociateEnvironmentOperationsRole'
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::ElasticBeanstalk
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListAvailableSolutionStacks'
         params['Version'] = '2010-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -765,10 +767,10 @@ module AWS::SDK::ElasticBeanstalk
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListPlatformBranches'
         params['Version'] = '2010-12-01'
-        Builders::SearchFilters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
+        SearchFilters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -776,7 +778,7 @@ module AWS::SDK::ElasticBeanstalk
     class SearchFilters
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SearchFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SearchFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -786,7 +788,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.build(input, params, context: nil)
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'Operator'] = input[:operator].to_s unless input[:operator].nil?
-        Builders::SearchFilterValues.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        SearchFilterValues.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
@@ -809,10 +811,10 @@ module AWS::SDK::ElasticBeanstalk
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListPlatformVersions'
         params['Version'] = '2010-12-01'
-        Builders::PlatformFilters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
+        PlatformFilters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -820,7 +822,7 @@ module AWS::SDK::ElasticBeanstalk
     class PlatformFilters
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::PlatformFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          PlatformFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -830,7 +832,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.build(input, params, context: nil)
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'Operator'] = input[:operator].to_s unless input[:operator].nil?
-        Builders::PlatformFilterValueList.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        PlatformFilterValueList.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
@@ -854,7 +856,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'ListTagsForResource'
         params['Version'] = '2010-12-01'
         params[context + 'ResourceArn'] = input[:resource_arn].to_s unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -870,7 +872,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -887,7 +889,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'InfoType'] = input[:info_type].to_s unless input[:info_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -903,7 +905,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -920,7 +922,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentId'] = input[:environment_id].to_s unless input[:environment_id].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'InfoType'] = input[:info_type].to_s unless input[:info_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -938,7 +940,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'SourceEnvironmentName'] = input[:source_environment_name].to_s unless input[:source_environment_name].nil?
         params[context + 'DestinationEnvironmentId'] = input[:destination_environment_id].to_s unless input[:destination_environment_id].nil?
         params[context + 'DestinationEnvironmentName'] = input[:destination_environment_name].to_s unless input[:destination_environment_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -956,7 +958,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'TerminateResources'] = input[:terminate_resources].to_s unless input[:terminate_resources].nil?
         params[context + 'ForceTerminate'] = input[:force_terminate].to_s unless input[:force_terminate].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -972,7 +974,7 @@ module AWS::SDK::ElasticBeanstalk
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -987,8 +989,8 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'UpdateApplicationResourceLifecycle'
         params['Version'] = '2010-12-01'
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
-        Builders::ApplicationResourceLifecycleConfig.build(input[:resource_lifecycle_config], params, context: context + 'ResourceLifecycleConfig' + '.') unless input[:resource_lifecycle_config].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ApplicationResourceLifecycleConfig.build(input[:resource_lifecycle_config], params, context: context + 'ResourceLifecycleConfig' + '.') unless input[:resource_lifecycle_config].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1005,7 +1007,7 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'VersionLabel'] = input[:version_label].to_s unless input[:version_label].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1022,9 +1024,9 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
-        Builders::OptionsSpecifierList.build(input[:options_to_remove], params, context: context + 'OptionsToRemove' + '.member') unless input[:options_to_remove].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
+        OptionsSpecifierList.build(input[:options_to_remove], params, context: context + 'OptionsToRemove' + '.member') unless input[:options_to_remove].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1043,14 +1045,14 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::EnvironmentTier.build(input[:tier], params, context: context + 'Tier' + '.') unless input[:tier].nil?
+        EnvironmentTier.build(input[:tier], params, context: context + 'Tier' + '.') unless input[:tier].nil?
         params[context + 'VersionLabel'] = input[:version_label].to_s unless input[:version_label].nil?
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'SolutionStackName'] = input[:solution_stack_name].to_s unless input[:solution_stack_name].nil?
         params[context + 'PlatformArn'] = input[:platform_arn].to_s unless input[:platform_arn].nil?
-        Builders::ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
-        Builders::OptionsSpecifierList.build(input[:options_to_remove], params, context: context + 'OptionsToRemove' + '.member') unless input[:options_to_remove].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
+        OptionsSpecifierList.build(input[:options_to_remove], params, context: context + 'OptionsToRemove' + '.member') unless input[:options_to_remove].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1065,9 +1067,9 @@ module AWS::SDK::ElasticBeanstalk
         params['Action'] = 'UpdateTagsForResource'
         params['Version'] = '2010-12-01'
         params[context + 'ResourceArn'] = input[:resource_arn].to_s unless input[:resource_arn].nil?
-        Builders::TagList.build(input[:tags_to_add], params, context: context + 'TagsToAdd' + '.member') unless input[:tags_to_add].nil?
-        Builders::TagKeyList.build(input[:tags_to_remove], params, context: context + 'TagsToRemove' + '.member') unless input[:tags_to_remove].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags_to_add], params, context: context + 'TagsToAdd' + '.member') unless input[:tags_to_add].nil?
+        TagKeyList.build(input[:tags_to_remove], params, context: context + 'TagsToRemove' + '.member') unless input[:tags_to_remove].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1084,7 +1086,7 @@ module AWS::SDK::ElasticBeanstalk
     class TagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1102,8 +1104,8 @@ module AWS::SDK::ElasticBeanstalk
         params[context + 'ApplicationName'] = input[:application_name].to_s unless input[:application_name].nil?
         params[context + 'TemplateName'] = input[:template_name].to_s unless input[:template_name].nil?
         params[context + 'EnvironmentName'] = input[:environment_name].to_s unless input[:environment_name].nil?
-        Builders::ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConfigurationOptionSettingsList.build(input[:option_settings], params, context: context + 'OptionSettings' + '.member') unless input[:option_settings].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

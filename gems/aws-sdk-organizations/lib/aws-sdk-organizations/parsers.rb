@@ -17,7 +17,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshake = (Parsers::Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
+        data.handshake = (Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
         data
       end
     end
@@ -27,12 +27,12 @@ module AWS::SDK::Organizations
         data = Types::Handshake.new
         data.id = map['Id']
         data.arn = map['Arn']
-        data.parties = (Parsers::HandshakeParties.parse(map['Parties']) unless map['Parties'].nil?)
+        data.parties = (HandshakeParties.parse(map['Parties']) unless map['Parties'].nil?)
         data.state = map['State']
         data.requested_timestamp = Time.at(map['RequestedTimestamp'].to_i) if map['RequestedTimestamp']
         data.expiration_timestamp = Time.at(map['ExpirationTimestamp'].to_i) if map['ExpirationTimestamp']
         data.action = map['Action']
-        data.resources = (Parsers::HandshakeResources.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (HandshakeResources.parse(map['Resources']) unless map['Resources'].nil?)
         return data
       end
     end
@@ -40,7 +40,7 @@ module AWS::SDK::Organizations
     class HandshakeResources
       def self.parse(list)
         list.map do |value|
-          Parsers::HandshakeResource.parse(value) unless value.nil?
+          HandshakeResource.parse(value) unless value.nil?
         end
       end
     end
@@ -50,7 +50,7 @@ module AWS::SDK::Organizations
         data = Types::HandshakeResource.new
         data.value = map['Value']
         data.type = map['Type']
-        data.resources = (Parsers::HandshakeResources.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (HandshakeResources.parse(map['Resources']) unless map['Resources'].nil?)
         return data
       end
     end
@@ -58,7 +58,7 @@ module AWS::SDK::Organizations
     class HandshakeParties
       def self.parse(list)
         list.map do |value|
-          Parsers::HandshakeParty.parse(value) unless value.nil?
+          HandshakeParty.parse(value) unless value.nil?
         end
       end
     end
@@ -311,7 +311,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshake = (Parsers::Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
+        data.handshake = (Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
         data
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.create_account_status = (Parsers::CreateAccountStatus.parse(map['CreateAccountStatus']) unless map['CreateAccountStatus'].nil?)
+        data.create_account_status = (CreateAccountStatus.parse(map['CreateAccountStatus']) unless map['CreateAccountStatus'].nil?)
         data
       end
     end
@@ -409,7 +409,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.create_account_status = (Parsers::CreateAccountStatus.parse(map['CreateAccountStatus']) unless map['CreateAccountStatus'].nil?)
+        data.create_account_status = (CreateAccountStatus.parse(map['CreateAccountStatus']) unless map['CreateAccountStatus'].nil?)
         data
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization = (Parsers::Organization.parse(map['Organization']) unless map['Organization'].nil?)
+        data.organization = (Organization.parse(map['Organization']) unless map['Organization'].nil?)
         data
       end
     end
@@ -435,7 +435,7 @@ module AWS::SDK::Organizations
         data.master_account_arn = map['MasterAccountArn']
         data.master_account_id = map['MasterAccountId']
         data.master_account_email = map['MasterAccountEmail']
-        data.available_policy_types = (Parsers::PolicyTypes.parse(map['AvailablePolicyTypes']) unless map['AvailablePolicyTypes'].nil?)
+        data.available_policy_types = (PolicyTypes.parse(map['AvailablePolicyTypes']) unless map['AvailablePolicyTypes'].nil?)
         return data
       end
     end
@@ -443,7 +443,7 @@ module AWS::SDK::Organizations
     class PolicyTypes
       def self.parse(list)
         list.map do |value|
-          Parsers::PolicyTypeSummary.parse(value) unless value.nil?
+          PolicyTypeSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -476,7 +476,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organizational_unit = (Parsers::OrganizationalUnit.parse(map['OrganizationalUnit']) unless map['OrganizationalUnit'].nil?)
+        data.organizational_unit = (OrganizationalUnit.parse(map['OrganizationalUnit']) unless map['OrganizationalUnit'].nil?)
         data
       end
     end
@@ -522,7 +522,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy = (Parsers::Policy.parse(map['Policy']) unless map['Policy'].nil?)
+        data.policy = (Policy.parse(map['Policy']) unless map['Policy'].nil?)
         data
       end
     end
@@ -530,7 +530,7 @@ module AWS::SDK::Organizations
     class Policy
       def self.parse(map)
         data = Types::Policy.new
-        data.policy_summary = (Parsers::PolicySummary.parse(map['PolicySummary']) unless map['PolicySummary'].nil?)
+        data.policy_summary = (PolicySummary.parse(map['PolicySummary']) unless map['PolicySummary'].nil?)
         data.content = map['Content']
         return data
       end
@@ -592,7 +592,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshake = (Parsers::Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
+        data.handshake = (Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
         data
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account = (Parsers::Account.parse(map['Account']) unless map['Account'].nil?)
+        data.account = (Account.parse(map['Account']) unless map['Account'].nil?)
         data
       end
     end
@@ -734,7 +734,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.create_account_status = (Parsers::CreateAccountStatus.parse(map['CreateAccountStatus']) unless map['CreateAccountStatus'].nil?)
+        data.create_account_status = (CreateAccountStatus.parse(map['CreateAccountStatus']) unless map['CreateAccountStatus'].nil?)
         data
       end
     end
@@ -758,7 +758,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.effective_policy = (Parsers::EffectivePolicy.parse(map['EffectivePolicy']) unless map['EffectivePolicy'].nil?)
+        data.effective_policy = (EffectivePolicy.parse(map['EffectivePolicy']) unless map['EffectivePolicy'].nil?)
         data
       end
     end
@@ -793,7 +793,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshake = (Parsers::Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
+        data.handshake = (Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
         data
       end
     end
@@ -805,7 +805,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization = (Parsers::Organization.parse(map['Organization']) unless map['Organization'].nil?)
+        data.organization = (Organization.parse(map['Organization']) unless map['Organization'].nil?)
         data
       end
     end
@@ -817,7 +817,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organizational_unit = (Parsers::OrganizationalUnit.parse(map['OrganizationalUnit']) unless map['OrganizationalUnit'].nil?)
+        data.organizational_unit = (OrganizationalUnit.parse(map['OrganizationalUnit']) unless map['OrganizationalUnit'].nil?)
         data
       end
     end
@@ -829,7 +829,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy = (Parsers::Policy.parse(map['Policy']) unless map['Policy'].nil?)
+        data.policy = (Policy.parse(map['Policy']) unless map['Policy'].nil?)
         data
       end
     end
@@ -875,7 +875,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.root = (Parsers::Root.parse(map['Root']) unless map['Root'].nil?)
+        data.root = (Root.parse(map['Root']) unless map['Root'].nil?)
         data
       end
     end
@@ -886,7 +886,7 @@ module AWS::SDK::Organizations
         data.id = map['Id']
         data.arn = map['Arn']
         data.name = map['Name']
-        data.policy_types = (Parsers::PolicyTypes.parse(map['PolicyTypes']) unless map['PolicyTypes'].nil?)
+        data.policy_types = (PolicyTypes.parse(map['PolicyTypes']) unless map['PolicyTypes'].nil?)
         return data
       end
     end
@@ -921,7 +921,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshake = (Parsers::Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
+        data.handshake = (Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
         data
       end
     end
@@ -933,7 +933,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.root = (Parsers::Root.parse(map['Root']) unless map['Root'].nil?)
+        data.root = (Root.parse(map['Root']) unless map['Root'].nil?)
         data
       end
     end
@@ -957,7 +957,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshake = (Parsers::Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
+        data.handshake = (Handshake.parse(map['Handshake']) unless map['Handshake'].nil?)
         data
       end
     end
@@ -1016,7 +1016,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.enabled_service_principals = (Parsers::EnabledServicePrincipals.parse(map['EnabledServicePrincipals']) unless map['EnabledServicePrincipals'].nil?)
+        data.enabled_service_principals = (EnabledServicePrincipals.parse(map['EnabledServicePrincipals']) unless map['EnabledServicePrincipals'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1025,7 +1025,7 @@ module AWS::SDK::Organizations
     class EnabledServicePrincipals
       def self.parse(list)
         list.map do |value|
-          Parsers::EnabledServicePrincipal.parse(value) unless value.nil?
+          EnabledServicePrincipal.parse(value) unless value.nil?
         end
       end
     end
@@ -1046,7 +1046,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accounts = (Parsers::Accounts.parse(map['Accounts']) unless map['Accounts'].nil?)
+        data.accounts = (Accounts.parse(map['Accounts']) unless map['Accounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1055,7 +1055,7 @@ module AWS::SDK::Organizations
     class Accounts
       def self.parse(list)
         list.map do |value|
-          Parsers::Account.parse(value) unless value.nil?
+          Account.parse(value) unless value.nil?
         end
       end
     end
@@ -1067,7 +1067,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accounts = (Parsers::Accounts.parse(map['Accounts']) unless map['Accounts'].nil?)
+        data.accounts = (Accounts.parse(map['Accounts']) unless map['Accounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1080,7 +1080,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.children = (Parsers::Children.parse(map['Children']) unless map['Children'].nil?)
+        data.children = (Children.parse(map['Children']) unless map['Children'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1089,7 +1089,7 @@ module AWS::SDK::Organizations
     class Children
       def self.parse(list)
         list.map do |value|
-          Parsers::Child.parse(value) unless value.nil?
+          Child.parse(value) unless value.nil?
         end
       end
     end
@@ -1110,7 +1110,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.create_account_statuses = (Parsers::CreateAccountStatuses.parse(map['CreateAccountStatuses']) unless map['CreateAccountStatuses'].nil?)
+        data.create_account_statuses = (CreateAccountStatuses.parse(map['CreateAccountStatuses']) unless map['CreateAccountStatuses'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1119,7 +1119,7 @@ module AWS::SDK::Organizations
     class CreateAccountStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::CreateAccountStatus.parse(value) unless value.nil?
+          CreateAccountStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1131,7 +1131,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.delegated_administrators = (Parsers::DelegatedAdministrators.parse(map['DelegatedAdministrators']) unless map['DelegatedAdministrators'].nil?)
+        data.delegated_administrators = (DelegatedAdministrators.parse(map['DelegatedAdministrators']) unless map['DelegatedAdministrators'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1140,7 +1140,7 @@ module AWS::SDK::Organizations
     class DelegatedAdministrators
       def self.parse(list)
         list.map do |value|
-          Parsers::DelegatedAdministrator.parse(value) unless value.nil?
+          DelegatedAdministrator.parse(value) unless value.nil?
         end
       end
     end
@@ -1167,7 +1167,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.delegated_services = (Parsers::DelegatedServices.parse(map['DelegatedServices']) unless map['DelegatedServices'].nil?)
+        data.delegated_services = (DelegatedServices.parse(map['DelegatedServices']) unless map['DelegatedServices'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1176,7 +1176,7 @@ module AWS::SDK::Organizations
     class DelegatedServices
       def self.parse(list)
         list.map do |value|
-          Parsers::DelegatedService.parse(value) unless value.nil?
+          DelegatedService.parse(value) unless value.nil?
         end
       end
     end
@@ -1197,7 +1197,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshakes = (Parsers::Handshakes.parse(map['Handshakes']) unless map['Handshakes'].nil?)
+        data.handshakes = (Handshakes.parse(map['Handshakes']) unless map['Handshakes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1206,7 +1206,7 @@ module AWS::SDK::Organizations
     class Handshakes
       def self.parse(list)
         list.map do |value|
-          Parsers::Handshake.parse(value) unless value.nil?
+          Handshake.parse(value) unless value.nil?
         end
       end
     end
@@ -1218,7 +1218,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.handshakes = (Parsers::Handshakes.parse(map['Handshakes']) unless map['Handshakes'].nil?)
+        data.handshakes = (Handshakes.parse(map['Handshakes']) unless map['Handshakes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1231,7 +1231,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organizational_units = (Parsers::OrganizationalUnits.parse(map['OrganizationalUnits']) unless map['OrganizationalUnits'].nil?)
+        data.organizational_units = (OrganizationalUnits.parse(map['OrganizationalUnits']) unless map['OrganizationalUnits'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1240,7 +1240,7 @@ module AWS::SDK::Organizations
     class OrganizationalUnits
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationalUnit.parse(value) unless value.nil?
+          OrganizationalUnit.parse(value) unless value.nil?
         end
       end
     end
@@ -1252,7 +1252,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parents = (Parsers::Parents.parse(map['Parents']) unless map['Parents'].nil?)
+        data.parents = (Parents.parse(map['Parents']) unless map['Parents'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1261,7 +1261,7 @@ module AWS::SDK::Organizations
     class Parents
       def self.parse(list)
         list.map do |value|
-          Parsers::Parent.parse(value) unless value.nil?
+          Parent.parse(value) unless value.nil?
         end
       end
     end
@@ -1294,7 +1294,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policies = (Parsers::Policies.parse(map['Policies']) unless map['Policies'].nil?)
+        data.policies = (Policies.parse(map['Policies']) unless map['Policies'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1303,7 +1303,7 @@ module AWS::SDK::Organizations
     class Policies
       def self.parse(list)
         list.map do |value|
-          Parsers::PolicySummary.parse(value) unless value.nil?
+          PolicySummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1315,7 +1315,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policies = (Parsers::Policies.parse(map['Policies']) unless map['Policies'].nil?)
+        data.policies = (Policies.parse(map['Policies']) unless map['Policies'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1328,7 +1328,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.roots = (Parsers::Roots.parse(map['Roots']) unless map['Roots'].nil?)
+        data.roots = (Roots.parse(map['Roots']) unless map['Roots'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1337,7 +1337,7 @@ module AWS::SDK::Organizations
     class Roots
       def self.parse(list)
         list.map do |value|
-          Parsers::Root.parse(value) unless value.nil?
+          Root.parse(value) unless value.nil?
         end
       end
     end
@@ -1349,7 +1349,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1358,7 +1358,7 @@ module AWS::SDK::Organizations
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1379,7 +1379,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.targets = (Parsers::PolicyTargets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (PolicyTargets.parse(map['Targets']) unless map['Targets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1388,7 +1388,7 @@ module AWS::SDK::Organizations
     class PolicyTargets
       def self.parse(list)
         list.map do |value|
-          Parsers::PolicyTargetSummary.parse(value) unless value.nil?
+          PolicyTargetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1514,7 +1514,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organizational_unit = (Parsers::OrganizationalUnit.parse(map['OrganizationalUnit']) unless map['OrganizationalUnit'].nil?)
+        data.organizational_unit = (OrganizationalUnit.parse(map['OrganizationalUnit']) unless map['OrganizationalUnit'].nil?)
         data
       end
     end
@@ -1526,7 +1526,7 @@ module AWS::SDK::Organizations
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.policy = (Parsers::Policy.parse(map['Policy']) unless map['Policy'].nil?)
+        data.policy = (Policy.parse(map['Policy']) unless map['Policy'].nil?)
         data
       end
     end

@@ -121,7 +121,7 @@ module AWS::SDK::KafkaConnect
         data = Types::CreateWorkerConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
-        data.latest_revision = (Parsers::WorkerConfigurationRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.latest_revision = (WorkerConfigurationRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
         data.worker_configuration_arn = map['workerConfigurationArn']
         data
@@ -165,23 +165,23 @@ module AWS::SDK::KafkaConnect
       def self.parse(http_resp)
         data = Types::DescribeConnectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.capacity = (Parsers::CapacityDescription.parse(map['capacity']) unless map['capacity'].nil?)
+        data.capacity = (CapacityDescription.parse(map['capacity']) unless map['capacity'].nil?)
         data.connector_arn = map['connectorArn']
-        data.connector_configuration = (Parsers::Map____sensitive__mapOf__string.parse(map['connectorConfiguration']) unless map['connectorConfiguration'].nil?)
+        data.connector_configuration = (Map____sensitive__mapOf__string.parse(map['connectorConfiguration']) unless map['connectorConfiguration'].nil?)
         data.connector_description = map['connectorDescription']
         data.connector_name = map['connectorName']
         data.connector_state = map['connectorState']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.current_version = map['currentVersion']
-        data.kafka_cluster = (Parsers::KafkaClusterDescription.parse(map['kafkaCluster']) unless map['kafkaCluster'].nil?)
-        data.kafka_cluster_client_authentication = (Parsers::KafkaClusterClientAuthenticationDescription.parse(map['kafkaClusterClientAuthentication']) unless map['kafkaClusterClientAuthentication'].nil?)
-        data.kafka_cluster_encryption_in_transit = (Parsers::KafkaClusterEncryptionInTransitDescription.parse(map['kafkaClusterEncryptionInTransit']) unless map['kafkaClusterEncryptionInTransit'].nil?)
+        data.kafka_cluster = (KafkaClusterDescription.parse(map['kafkaCluster']) unless map['kafkaCluster'].nil?)
+        data.kafka_cluster_client_authentication = (KafkaClusterClientAuthenticationDescription.parse(map['kafkaClusterClientAuthentication']) unless map['kafkaClusterClientAuthentication'].nil?)
+        data.kafka_cluster_encryption_in_transit = (KafkaClusterEncryptionInTransitDescription.parse(map['kafkaClusterEncryptionInTransit']) unless map['kafkaClusterEncryptionInTransit'].nil?)
         data.kafka_connect_version = map['kafkaConnectVersion']
-        data.log_delivery = (Parsers::LogDeliveryDescription.parse(map['logDelivery']) unless map['logDelivery'].nil?)
-        data.plugins = (Parsers::List____listOfPluginDescription.parse(map['plugins']) unless map['plugins'].nil?)
+        data.log_delivery = (LogDeliveryDescription.parse(map['logDelivery']) unless map['logDelivery'].nil?)
+        data.plugins = (List____listOfPluginDescription.parse(map['plugins']) unless map['plugins'].nil?)
         data.service_execution_role_arn = map['serviceExecutionRoleArn']
-        data.worker_configuration = (Parsers::WorkerConfigurationDescription.parse(map['workerConfiguration']) unless map['workerConfiguration'].nil?)
-        data.state_description = (Parsers::StateDescription.parse(map['stateDescription']) unless map['stateDescription'].nil?)
+        data.worker_configuration = (WorkerConfigurationDescription.parse(map['workerConfiguration']) unless map['workerConfiguration'].nil?)
+        data.state_description = (StateDescription.parse(map['stateDescription']) unless map['stateDescription'].nil?)
         data
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::KafkaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PluginDescription.parse(value) unless value.nil?
+          data << PluginDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -217,7 +217,7 @@ module AWS::SDK::KafkaConnect
     class PluginDescription
       def self.parse(map)
         data = Types::PluginDescription.new
-        data.custom_plugin = (Parsers::CustomPluginDescription.parse(map['customPlugin']) unless map['customPlugin'].nil?)
+        data.custom_plugin = (CustomPluginDescription.parse(map['customPlugin']) unless map['customPlugin'].nil?)
         return data
       end
     end
@@ -234,7 +234,7 @@ module AWS::SDK::KafkaConnect
     class LogDeliveryDescription
       def self.parse(map)
         data = Types::LogDeliveryDescription.new
-        data.worker_log_delivery = (Parsers::WorkerLogDeliveryDescription.parse(map['workerLogDelivery']) unless map['workerLogDelivery'].nil?)
+        data.worker_log_delivery = (WorkerLogDeliveryDescription.parse(map['workerLogDelivery']) unless map['workerLogDelivery'].nil?)
         return data
       end
     end
@@ -242,9 +242,9 @@ module AWS::SDK::KafkaConnect
     class WorkerLogDeliveryDescription
       def self.parse(map)
         data = Types::WorkerLogDeliveryDescription.new
-        data.cloud_watch_logs = (Parsers::CloudWatchLogsLogDeliveryDescription.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
-        data.firehose = (Parsers::FirehoseLogDeliveryDescription.parse(map['firehose']) unless map['firehose'].nil?)
-        data.s3 = (Parsers::S3LogDeliveryDescription.parse(map['s3']) unless map['s3'].nil?)
+        data.cloud_watch_logs = (CloudWatchLogsLogDeliveryDescription.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
+        data.firehose = (FirehoseLogDeliveryDescription.parse(map['firehose']) unless map['firehose'].nil?)
+        data.s3 = (S3LogDeliveryDescription.parse(map['s3']) unless map['s3'].nil?)
         return data
       end
     end
@@ -296,7 +296,7 @@ module AWS::SDK::KafkaConnect
     class KafkaClusterDescription
       def self.parse(map)
         data = Types::KafkaClusterDescription.new
-        data.apache_kafka_cluster = (Parsers::ApacheKafkaClusterDescription.parse(map['apacheKafkaCluster']) unless map['apacheKafkaCluster'].nil?)
+        data.apache_kafka_cluster = (ApacheKafkaClusterDescription.parse(map['apacheKafkaCluster']) unless map['apacheKafkaCluster'].nil?)
         return data
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::KafkaConnect
       def self.parse(map)
         data = Types::ApacheKafkaClusterDescription.new
         data.bootstrap_servers = map['bootstrapServers']
-        data.vpc = (Parsers::VpcDescription.parse(map['vpc']) unless map['vpc'].nil?)
+        data.vpc = (VpcDescription.parse(map['vpc']) unless map['vpc'].nil?)
         return data
       end
     end
@@ -313,8 +313,8 @@ module AWS::SDK::KafkaConnect
     class VpcDescription
       def self.parse(map)
         data = Types::VpcDescription.new
-        data.security_groups = (Parsers::List____listOf__string.parse(map['securityGroups']) unless map['securityGroups'].nil?)
-        data.subnets = (Parsers::List____listOf__string.parse(map['subnets']) unless map['subnets'].nil?)
+        data.security_groups = (List____listOf__string.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.subnets = (List____listOf__string.parse(map['subnets']) unless map['subnets'].nil?)
         return data
       end
     end
@@ -342,8 +342,8 @@ module AWS::SDK::KafkaConnect
     class CapacityDescription
       def self.parse(map)
         data = Types::CapacityDescription.new
-        data.auto_scaling = (Parsers::AutoScalingDescription.parse(map['autoScaling']) unless map['autoScaling'].nil?)
-        data.provisioned_capacity = (Parsers::ProvisionedCapacityDescription.parse(map['provisionedCapacity']) unless map['provisionedCapacity'].nil?)
+        data.auto_scaling = (AutoScalingDescription.parse(map['autoScaling']) unless map['autoScaling'].nil?)
+        data.provisioned_capacity = (ProvisionedCapacityDescription.parse(map['provisionedCapacity']) unless map['provisionedCapacity'].nil?)
         return data
       end
     end
@@ -363,8 +363,8 @@ module AWS::SDK::KafkaConnect
         data.max_worker_count = map['maxWorkerCount']
         data.mcu_count = map['mcuCount']
         data.min_worker_count = map['minWorkerCount']
-        data.scale_in_policy = (Parsers::ScaleInPolicyDescription.parse(map['scaleInPolicy']) unless map['scaleInPolicy'].nil?)
-        data.scale_out_policy = (Parsers::ScaleOutPolicyDescription.parse(map['scaleOutPolicy']) unless map['scaleOutPolicy'].nil?)
+        data.scale_in_policy = (ScaleInPolicyDescription.parse(map['scaleInPolicy']) unless map['scaleInPolicy'].nil?)
+        data.scale_out_policy = (ScaleOutPolicyDescription.parse(map['scaleOutPolicy']) unless map['scaleOutPolicy'].nil?)
         return data
       end
     end
@@ -394,9 +394,9 @@ module AWS::SDK::KafkaConnect
         data.custom_plugin_arn = map['customPluginArn']
         data.custom_plugin_state = map['customPluginState']
         data.description = map['description']
-        data.latest_revision = (Parsers::CustomPluginRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.latest_revision = (CustomPluginRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
-        data.state_description = (Parsers::StateDescription.parse(map['stateDescription']) unless map['stateDescription'].nil?)
+        data.state_description = (StateDescription.parse(map['stateDescription']) unless map['stateDescription'].nil?)
         data
       end
     end
@@ -407,8 +407,8 @@ module AWS::SDK::KafkaConnect
         data.content_type = map['contentType']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.description = map['description']
-        data.file_description = (Parsers::CustomPluginFileDescription.parse(map['fileDescription']) unless map['fileDescription'].nil?)
-        data.location = (Parsers::CustomPluginLocationDescription.parse(map['location']) unless map['location'].nil?)
+        data.file_description = (CustomPluginFileDescription.parse(map['fileDescription']) unless map['fileDescription'].nil?)
+        data.location = (CustomPluginLocationDescription.parse(map['location']) unless map['location'].nil?)
         data.revision = map['revision']
         return data
       end
@@ -417,7 +417,7 @@ module AWS::SDK::KafkaConnect
     class CustomPluginLocationDescription
       def self.parse(map)
         data = Types::CustomPluginLocationDescription.new
-        data.s3_location = (Parsers::S3LocationDescription.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3LocationDescription.parse(map['s3Location']) unless map['s3Location'].nil?)
         return data
       end
     end
@@ -448,7 +448,7 @@ module AWS::SDK::KafkaConnect
         map = Hearth::JSON.load(http_resp.body)
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.description = map['description']
-        data.latest_revision = (Parsers::WorkerConfigurationRevisionDescription.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.latest_revision = (WorkerConfigurationRevisionDescription.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
         data.worker_configuration_arn = map['workerConfigurationArn']
         data
@@ -471,7 +471,7 @@ module AWS::SDK::KafkaConnect
       def self.parse(http_resp)
         data = Types::ListConnectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connectors = (Parsers::List____listOfConnectorSummary.parse(map['connectors']) unless map['connectors'].nil?)
+        data.connectors = (List____listOfConnectorSummary.parse(map['connectors']) unless map['connectors'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -481,7 +481,7 @@ module AWS::SDK::KafkaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConnectorSummary.parse(value) unless value.nil?
+          data << ConnectorSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -490,21 +490,21 @@ module AWS::SDK::KafkaConnect
     class ConnectorSummary
       def self.parse(map)
         data = Types::ConnectorSummary.new
-        data.capacity = (Parsers::CapacityDescription.parse(map['capacity']) unless map['capacity'].nil?)
+        data.capacity = (CapacityDescription.parse(map['capacity']) unless map['capacity'].nil?)
         data.connector_arn = map['connectorArn']
         data.connector_description = map['connectorDescription']
         data.connector_name = map['connectorName']
         data.connector_state = map['connectorState']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.current_version = map['currentVersion']
-        data.kafka_cluster = (Parsers::KafkaClusterDescription.parse(map['kafkaCluster']) unless map['kafkaCluster'].nil?)
-        data.kafka_cluster_client_authentication = (Parsers::KafkaClusterClientAuthenticationDescription.parse(map['kafkaClusterClientAuthentication']) unless map['kafkaClusterClientAuthentication'].nil?)
-        data.kafka_cluster_encryption_in_transit = (Parsers::KafkaClusterEncryptionInTransitDescription.parse(map['kafkaClusterEncryptionInTransit']) unless map['kafkaClusterEncryptionInTransit'].nil?)
+        data.kafka_cluster = (KafkaClusterDescription.parse(map['kafkaCluster']) unless map['kafkaCluster'].nil?)
+        data.kafka_cluster_client_authentication = (KafkaClusterClientAuthenticationDescription.parse(map['kafkaClusterClientAuthentication']) unless map['kafkaClusterClientAuthentication'].nil?)
+        data.kafka_cluster_encryption_in_transit = (KafkaClusterEncryptionInTransitDescription.parse(map['kafkaClusterEncryptionInTransit']) unless map['kafkaClusterEncryptionInTransit'].nil?)
         data.kafka_connect_version = map['kafkaConnectVersion']
-        data.log_delivery = (Parsers::LogDeliveryDescription.parse(map['logDelivery']) unless map['logDelivery'].nil?)
-        data.plugins = (Parsers::List____listOfPluginDescription.parse(map['plugins']) unless map['plugins'].nil?)
+        data.log_delivery = (LogDeliveryDescription.parse(map['logDelivery']) unless map['logDelivery'].nil?)
+        data.plugins = (List____listOfPluginDescription.parse(map['plugins']) unless map['plugins'].nil?)
         data.service_execution_role_arn = map['serviceExecutionRoleArn']
-        data.worker_configuration = (Parsers::WorkerConfigurationDescription.parse(map['workerConfiguration']) unless map['workerConfiguration'].nil?)
+        data.worker_configuration = (WorkerConfigurationDescription.parse(map['workerConfiguration']) unless map['workerConfiguration'].nil?)
         return data
       end
     end
@@ -514,7 +514,7 @@ module AWS::SDK::KafkaConnect
       def self.parse(http_resp)
         data = Types::ListCustomPluginsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.custom_plugins = (Parsers::List____listOfCustomPluginSummary.parse(map['customPlugins']) unless map['customPlugins'].nil?)
+        data.custom_plugins = (List____listOfCustomPluginSummary.parse(map['customPlugins']) unless map['customPlugins'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -524,7 +524,7 @@ module AWS::SDK::KafkaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomPluginSummary.parse(value) unless value.nil?
+          data << CustomPluginSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -537,7 +537,7 @@ module AWS::SDK::KafkaConnect
         data.custom_plugin_arn = map['customPluginArn']
         data.custom_plugin_state = map['customPluginState']
         data.description = map['description']
-        data.latest_revision = (Parsers::CustomPluginRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.latest_revision = (CustomPluginRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
         return data
       end
@@ -549,7 +549,7 @@ module AWS::SDK::KafkaConnect
         data = Types::ListWorkerConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.worker_configurations = (Parsers::List____listOfWorkerConfigurationSummary.parse(map['workerConfigurations']) unless map['workerConfigurations'].nil?)
+        data.worker_configurations = (List____listOfWorkerConfigurationSummary.parse(map['workerConfigurations']) unless map['workerConfigurations'].nil?)
         data
       end
     end
@@ -558,7 +558,7 @@ module AWS::SDK::KafkaConnect
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkerConfigurationSummary.parse(value) unless value.nil?
+          data << WorkerConfigurationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -569,7 +569,7 @@ module AWS::SDK::KafkaConnect
         data = Types::WorkerConfigurationSummary.new
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.description = map['description']
-        data.latest_revision = (Parsers::WorkerConfigurationRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.latest_revision = (WorkerConfigurationRevisionSummary.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
         data.worker_configuration_arn = map['workerConfigurationArn']
         return data

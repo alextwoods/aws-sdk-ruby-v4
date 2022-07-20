@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Connect
   module Stubs
 
@@ -62,7 +64,7 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -144,7 +146,7 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['PhoneNumberId'] = stub[:phone_number_id] unless stub[:phone_number_id].nil?
         data['PhoneNumberArn'] = stub[:phone_number_arn] unless stub[:phone_number_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['AgentStatusARN'] = stub[:agent_status_arn] unless stub[:agent_status_arn].nil?
         data['AgentStatusId'] = stub[:agent_status_id] unless stub[:agent_status_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['ContactFlowId'] = stub[:contact_flow_id] unless stub[:contact_flow_id].nil?
         data['ContactFlowArn'] = stub[:contact_flow_arn] unless stub[:contact_flow_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,7 +241,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['HoursOfOperationId'] = stub[:hours_of_operation_id] unless stub[:hours_of_operation_id].nil?
         data['HoursOfOperationArn'] = stub[:hours_of_operation_arn] unless stub[:hours_of_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['IntegrationAssociationId'] = stub[:integration_association_id] unless stub[:integration_association_id].nil?
         data['IntegrationAssociationArn'] = stub[:integration_association_arn] unless stub[:integration_association_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -296,7 +298,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['QueueArn'] = stub[:queue_arn] unless stub[:queue_arn].nil?
         data['QueueId'] = stub[:queue_id] unless stub[:queue_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['QuickConnectARN'] = stub[:quick_connect_arn] unless stub[:quick_connect_arn].nil?
         data['QuickConnectId'] = stub[:quick_connect_id] unless stub[:quick_connect_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['RoutingProfileArn'] = stub[:routing_profile_arn] unless stub[:routing_profile_arn].nil?
         data['RoutingProfileId'] = stub[:routing_profile_id] unless stub[:routing_profile_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,7 +355,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['SecurityProfileId'] = stub[:security_profile_id] unless stub[:security_profile_id].nil?
         data['SecurityProfileArn'] = stub[:security_profile_arn] unless stub[:security_profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -372,7 +374,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -391,7 +393,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['UseCaseId'] = stub[:use_case_id] unless stub[:use_case_id].nil?
         data['UseCaseArn'] = stub[:use_case_arn] unless stub[:use_case_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -410,7 +412,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['UserId'] = stub[:user_id] unless stub[:user_id].nil?
         data['UserArn'] = stub[:user_arn] unless stub[:user_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,7 +431,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['HierarchyGroupId'] = stub[:hierarchy_group_id] unless stub[:hierarchy_group_id].nil?
         data['HierarchyGroupArn'] = stub[:hierarchy_group_arn] unless stub[:hierarchy_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::Connect
         data['VocabularyArn'] = stub[:vocabulary_arn] unless stub[:vocabulary_arn].nil?
         data['VocabularyId'] = stub[:vocabulary_id] unless stub[:vocabulary_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -614,7 +616,7 @@ module AWS::SDK::Connect
         data['VocabularyArn'] = stub[:vocabulary_arn] unless stub[:vocabulary_arn].nil?
         data['VocabularyId'] = stub[:vocabulary_id] unless stub[:vocabulary_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -630,8 +632,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AgentStatus'] = Stubs::AgentStatus.stub(stub[:agent_status]) unless stub[:agent_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AgentStatus'] = AgentStatus.stub(stub[:agent_status]) unless stub[:agent_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -662,7 +664,7 @@ module AWS::SDK::Connect
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['DisplayOrder'] = stub[:display_order] unless stub[:display_order].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -699,8 +701,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Contact'] = Stubs::Contact.stub(stub[:contact]) unless stub[:contact].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Contact'] = Contact.stub(stub[:contact]) unless stub[:contact].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -738,8 +740,8 @@ module AWS::SDK::Connect
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Channel'] = stub[:channel] unless stub[:channel].nil?
-        data['QueueInfo'] = Stubs::QueueInfo.stub(stub[:queue_info]) unless stub[:queue_info].nil?
-        data['AgentInfo'] = Stubs::AgentInfo.stub(stub[:agent_info]) unless stub[:agent_info].nil?
+        data['QueueInfo'] = QueueInfo.stub(stub[:queue_info]) unless stub[:queue_info].nil?
+        data['AgentInfo'] = AgentInfo.stub(stub[:agent_info]) unless stub[:agent_info].nil?
         data['InitiationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:initiation_timestamp]).to_i unless stub[:initiation_timestamp].nil?
         data['DisconnectTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:disconnect_timestamp]).to_i unless stub[:disconnect_timestamp].nil?
         data['LastUpdateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_timestamp]).to_i unless stub[:last_update_timestamp].nil?
@@ -800,8 +802,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ContactFlow'] = Stubs::ContactFlow.stub(stub[:contact_flow]) unless stub[:contact_flow].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ContactFlow'] = ContactFlow.stub(stub[:contact_flow]) unless stub[:contact_flow].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -832,7 +834,7 @@ module AWS::SDK::Connect
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Content'] = stub[:content] unless stub[:content].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -849,8 +851,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ContactFlowModule'] = Stubs::ContactFlowModule.stub(stub[:contact_flow_module]) unless stub[:contact_flow_module].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ContactFlowModule'] = ContactFlowModule.stub(stub[:contact_flow_module]) unless stub[:contact_flow_module].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -881,7 +883,7 @@ module AWS::SDK::Connect
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -898,8 +900,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['HoursOfOperation'] = Stubs::HoursOfOperation.stub(stub[:hours_of_operation]) unless stub[:hours_of_operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HoursOfOperation'] = HoursOfOperation.stub(stub[:hours_of_operation]) unless stub[:hours_of_operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -927,8 +929,8 @@ module AWS::SDK::Connect
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['TimeZone'] = stub[:time_zone] unless stub[:time_zone].nil?
-        data['Config'] = Stubs::HoursOfOperationConfigList.stub(stub[:config]) unless stub[:config].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Config'] = HoursOfOperationConfigList.stub(stub[:config]) unless stub[:config].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -947,7 +949,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HoursOfOperationConfig.stub(element) unless element.nil?
+          data << HoursOfOperationConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -969,8 +971,8 @@ module AWS::SDK::Connect
         stub ||= Types::HoursOfOperationConfig.new
         data = {}
         data['Day'] = stub[:day] unless stub[:day].nil?
-        data['StartTime'] = Stubs::HoursOfOperationTimeSlice.stub(stub[:start_time]) unless stub[:start_time].nil?
-        data['EndTime'] = Stubs::HoursOfOperationTimeSlice.stub(stub[:end_time]) unless stub[:end_time].nil?
+        data['StartTime'] = HoursOfOperationTimeSlice.stub(stub[:start_time]) unless stub[:start_time].nil?
+        data['EndTime'] = HoursOfOperationTimeSlice.stub(stub[:end_time]) unless stub[:end_time].nil?
         data
       end
     end
@@ -1007,8 +1009,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Instance'] = Stubs::Instance.stub(stub[:instance]) unless stub[:instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Instance'] = Instance.stub(stub[:instance]) unless stub[:instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1041,7 +1043,7 @@ module AWS::SDK::Connect
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['InstanceStatus'] = stub[:instance_status] unless stub[:instance_status].nil?
-        data['StatusReason'] = Stubs::InstanceStatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
+        data['StatusReason'] = InstanceStatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
         data['InboundCallsEnabled'] = stub[:inbound_calls_enabled] unless stub[:inbound_calls_enabled].nil?
         data['OutboundCallsEnabled'] = stub[:outbound_calls_enabled] unless stub[:outbound_calls_enabled].nil?
         data
@@ -1078,8 +1080,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attribute'] = Stubs::Attribute.stub(stub[:attribute]) unless stub[:attribute].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attribute'] = Attribute.stub(stub[:attribute]) unless stub[:attribute].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1115,8 +1117,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StorageConfig'] = Stubs::InstanceStorageConfig.stub(stub[:storage_config]) unless stub[:storage_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageConfig'] = InstanceStorageConfig.stub(stub[:storage_config]) unless stub[:storage_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1140,10 +1142,10 @@ module AWS::SDK::Connect
         data = {}
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
         data['StorageType'] = stub[:storage_type] unless stub[:storage_type].nil?
-        data['S3Config'] = Stubs::S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
-        data['KinesisVideoStreamConfig'] = Stubs::KinesisVideoStreamConfig.stub(stub[:kinesis_video_stream_config]) unless stub[:kinesis_video_stream_config].nil?
-        data['KinesisStreamConfig'] = Stubs::KinesisStreamConfig.stub(stub[:kinesis_stream_config]) unless stub[:kinesis_stream_config].nil?
-        data['KinesisFirehoseConfig'] = Stubs::KinesisFirehoseConfig.stub(stub[:kinesis_firehose_config]) unless stub[:kinesis_firehose_config].nil?
+        data['S3Config'] = S3Config.stub(stub[:s3_config]) unless stub[:s3_config].nil?
+        data['KinesisVideoStreamConfig'] = KinesisVideoStreamConfig.stub(stub[:kinesis_video_stream_config]) unless stub[:kinesis_video_stream_config].nil?
+        data['KinesisStreamConfig'] = KinesisStreamConfig.stub(stub[:kinesis_stream_config]) unless stub[:kinesis_stream_config].nil?
+        data['KinesisFirehoseConfig'] = KinesisFirehoseConfig.stub(stub[:kinesis_firehose_config]) unless stub[:kinesis_firehose_config].nil?
         data
       end
     end
@@ -1201,7 +1203,7 @@ module AWS::SDK::Connect
         data = {}
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
         data['RetentionPeriodHours'] = stub[:retention_period_hours] unless stub[:retention_period_hours].nil?
-        data['EncryptionConfig'] = Stubs::EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
         data
       end
     end
@@ -1243,7 +1245,7 @@ module AWS::SDK::Connect
         data = {}
         data['BucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
         data['BucketPrefix'] = stub[:bucket_prefix] unless stub[:bucket_prefix].nil?
-        data['EncryptionConfig'] = Stubs::EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
         data
       end
     end
@@ -1260,8 +1262,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ClaimedPhoneNumberSummary'] = Stubs::ClaimedPhoneNumberSummary.stub(stub[:claimed_phone_number_summary]) unless stub[:claimed_phone_number_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClaimedPhoneNumberSummary'] = ClaimedPhoneNumberSummary.stub(stub[:claimed_phone_number_summary]) unless stub[:claimed_phone_number_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1293,8 +1295,8 @@ module AWS::SDK::Connect
         data['PhoneNumberType'] = stub[:phone_number_type] unless stub[:phone_number_type].nil?
         data['PhoneNumberDescription'] = stub[:phone_number_description] unless stub[:phone_number_description].nil?
         data['TargetArn'] = stub[:target_arn] unless stub[:target_arn].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['PhoneNumberStatus'] = Stubs::PhoneNumberStatus.stub(stub[:phone_number_status]) unless stub[:phone_number_status].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['PhoneNumberStatus'] = PhoneNumberStatus.stub(stub[:phone_number_status]) unless stub[:phone_number_status].nil?
         data
       end
     end
@@ -1331,8 +1333,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Queue'] = Stubs::Queue.stub(stub[:queue]) unless stub[:queue].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Queue'] = Queue.stub(stub[:queue]) unless stub[:queue].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1361,11 +1363,11 @@ module AWS::SDK::Connect
         data['QueueArn'] = stub[:queue_arn] unless stub[:queue_arn].nil?
         data['QueueId'] = stub[:queue_id] unless stub[:queue_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['OutboundCallerConfig'] = Stubs::OutboundCallerConfig.stub(stub[:outbound_caller_config]) unless stub[:outbound_caller_config].nil?
+        data['OutboundCallerConfig'] = OutboundCallerConfig.stub(stub[:outbound_caller_config]) unless stub[:outbound_caller_config].nil?
         data['HoursOfOperationId'] = stub[:hours_of_operation_id] unless stub[:hours_of_operation_id].nil?
         data['MaxContacts'] = stub[:max_contacts] unless stub[:max_contacts].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1404,8 +1406,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['QuickConnect'] = Stubs::QuickConnect.stub(stub[:quick_connect]) unless stub[:quick_connect].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QuickConnect'] = QuickConnect.stub(stub[:quick_connect]) unless stub[:quick_connect].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1431,8 +1433,8 @@ module AWS::SDK::Connect
         data['QuickConnectId'] = stub[:quick_connect_id] unless stub[:quick_connect_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['QuickConnectConfig'] = Stubs::QuickConnectConfig.stub(stub[:quick_connect_config]) unless stub[:quick_connect_config].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['QuickConnectConfig'] = QuickConnectConfig.stub(stub[:quick_connect_config]) unless stub[:quick_connect_config].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1454,9 +1456,9 @@ module AWS::SDK::Connect
         stub ||= Types::QuickConnectConfig.new
         data = {}
         data['QuickConnectType'] = stub[:quick_connect_type] unless stub[:quick_connect_type].nil?
-        data['UserConfig'] = Stubs::UserQuickConnectConfig.stub(stub[:user_config]) unless stub[:user_config].nil?
-        data['QueueConfig'] = Stubs::QueueQuickConnectConfig.stub(stub[:queue_config]) unless stub[:queue_config].nil?
-        data['PhoneConfig'] = Stubs::PhoneNumberQuickConnectConfig.stub(stub[:phone_config]) unless stub[:phone_config].nil?
+        data['UserConfig'] = UserQuickConnectConfig.stub(stub[:user_config]) unless stub[:user_config].nil?
+        data['QueueConfig'] = QueueQuickConnectConfig.stub(stub[:queue_config]) unless stub[:queue_config].nil?
+        data['PhoneConfig'] = PhoneNumberQuickConnectConfig.stub(stub[:phone_config]) unless stub[:phone_config].nil?
         data
       end
     end
@@ -1531,8 +1533,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RoutingProfile'] = Stubs::RoutingProfile.stub(stub[:routing_profile]) unless stub[:routing_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingProfile'] = RoutingProfile.stub(stub[:routing_profile]) unless stub[:routing_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1561,9 +1563,9 @@ module AWS::SDK::Connect
         data['RoutingProfileArn'] = stub[:routing_profile_arn] unless stub[:routing_profile_arn].nil?
         data['RoutingProfileId'] = stub[:routing_profile_id] unless stub[:routing_profile_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['MediaConcurrencies'] = Stubs::MediaConcurrencies.stub(stub[:media_concurrencies]) unless stub[:media_concurrencies].nil?
+        data['MediaConcurrencies'] = MediaConcurrencies.stub(stub[:media_concurrencies]) unless stub[:media_concurrencies].nil?
         data['DefaultOutboundQueueId'] = stub[:default_outbound_queue_id] unless stub[:default_outbound_queue_id].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1582,7 +1584,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MediaConcurrency.stub(element) unless element.nil?
+          data << MediaConcurrency.stub(element) unless element.nil?
         end
         data
       end
@@ -1620,8 +1622,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SecurityProfile'] = Stubs::SecurityProfile.stub(stub[:security_profile]) unless stub[:security_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityProfile'] = SecurityProfile.stub(stub[:security_profile]) unless stub[:security_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1648,7 +1650,7 @@ module AWS::SDK::Connect
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['SecurityProfileName'] = stub[:security_profile_name] unless stub[:security_profile_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1665,8 +1667,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1695,13 +1697,13 @@ module AWS::SDK::Connect
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Username'] = stub[:username] unless stub[:username].nil?
-        data['IdentityInfo'] = Stubs::UserIdentityInfo.stub(stub[:identity_info]) unless stub[:identity_info].nil?
-        data['PhoneConfig'] = Stubs::UserPhoneConfig.stub(stub[:phone_config]) unless stub[:phone_config].nil?
+        data['IdentityInfo'] = UserIdentityInfo.stub(stub[:identity_info]) unless stub[:identity_info].nil?
+        data['PhoneConfig'] = UserPhoneConfig.stub(stub[:phone_config]) unless stub[:phone_config].nil?
         data['DirectoryUserId'] = stub[:directory_user_id] unless stub[:directory_user_id].nil?
-        data['SecurityProfileIds'] = Stubs::SecurityProfileIds.stub(stub[:security_profile_ids]) unless stub[:security_profile_ids].nil?
+        data['SecurityProfileIds'] = SecurityProfileIds.stub(stub[:security_profile_ids]) unless stub[:security_profile_ids].nil?
         data['RoutingProfileId'] = stub[:routing_profile_id] unless stub[:routing_profile_id].nil?
         data['HierarchyGroupId'] = stub[:hierarchy_group_id] unless stub[:hierarchy_group_id].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1784,8 +1786,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['HierarchyGroup'] = Stubs::HierarchyGroup.stub(stub[:hierarchy_group]) unless stub[:hierarchy_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HierarchyGroup'] = HierarchyGroup.stub(stub[:hierarchy_group]) unless stub[:hierarchy_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1811,8 +1813,8 @@ module AWS::SDK::Connect
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['LevelId'] = stub[:level_id] unless stub[:level_id].nil?
-        data['HierarchyPath'] = Stubs::HierarchyPath.stub(stub[:hierarchy_path]) unless stub[:hierarchy_path].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['HierarchyPath'] = HierarchyPath.stub(stub[:hierarchy_path]) unless stub[:hierarchy_path].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1834,11 +1836,11 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::HierarchyPath.new
         data = {}
-        data['LevelOne'] = Stubs::HierarchyGroupSummary.stub(stub[:level_one]) unless stub[:level_one].nil?
-        data['LevelTwo'] = Stubs::HierarchyGroupSummary.stub(stub[:level_two]) unless stub[:level_two].nil?
-        data['LevelThree'] = Stubs::HierarchyGroupSummary.stub(stub[:level_three]) unless stub[:level_three].nil?
-        data['LevelFour'] = Stubs::HierarchyGroupSummary.stub(stub[:level_four]) unless stub[:level_four].nil?
-        data['LevelFive'] = Stubs::HierarchyGroupSummary.stub(stub[:level_five]) unless stub[:level_five].nil?
+        data['LevelOne'] = HierarchyGroupSummary.stub(stub[:level_one]) unless stub[:level_one].nil?
+        data['LevelTwo'] = HierarchyGroupSummary.stub(stub[:level_two]) unless stub[:level_two].nil?
+        data['LevelThree'] = HierarchyGroupSummary.stub(stub[:level_three]) unless stub[:level_three].nil?
+        data['LevelFour'] = HierarchyGroupSummary.stub(stub[:level_four]) unless stub[:level_four].nil?
+        data['LevelFive'] = HierarchyGroupSummary.stub(stub[:level_five]) unless stub[:level_five].nil?
         data
       end
     end
@@ -1877,8 +1879,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['HierarchyStructure'] = Stubs::HierarchyStructure.stub(stub[:hierarchy_structure]) unless stub[:hierarchy_structure].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HierarchyStructure'] = HierarchyStructure.stub(stub[:hierarchy_structure]) unless stub[:hierarchy_structure].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1899,11 +1901,11 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::HierarchyStructure.new
         data = {}
-        data['LevelOne'] = Stubs::HierarchyLevel.stub(stub[:level_one]) unless stub[:level_one].nil?
-        data['LevelTwo'] = Stubs::HierarchyLevel.stub(stub[:level_two]) unless stub[:level_two].nil?
-        data['LevelThree'] = Stubs::HierarchyLevel.stub(stub[:level_three]) unless stub[:level_three].nil?
-        data['LevelFour'] = Stubs::HierarchyLevel.stub(stub[:level_four]) unless stub[:level_four].nil?
-        data['LevelFive'] = Stubs::HierarchyLevel.stub(stub[:level_five]) unless stub[:level_five].nil?
+        data['LevelOne'] = HierarchyLevel.stub(stub[:level_one]) unless stub[:level_one].nil?
+        data['LevelTwo'] = HierarchyLevel.stub(stub[:level_two]) unless stub[:level_two].nil?
+        data['LevelThree'] = HierarchyLevel.stub(stub[:level_three]) unless stub[:level_three].nil?
+        data['LevelFour'] = HierarchyLevel.stub(stub[:level_four]) unless stub[:level_four].nil?
+        data['LevelFive'] = HierarchyLevel.stub(stub[:level_five]) unless stub[:level_five].nil?
         data
       end
     end
@@ -1942,8 +1944,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Vocabulary'] = Stubs::Vocabulary.stub(stub[:vocabulary]) unless stub[:vocabulary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Vocabulary'] = Vocabulary.stub(stub[:vocabulary]) unless stub[:vocabulary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1976,7 +1978,7 @@ module AWS::SDK::Connect
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['Content'] = stub[:content] unless stub[:content].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2110,8 +2112,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2150,9 +2152,9 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['MetricResults'] = Stubs::CurrentMetricResults.stub(stub[:metric_results]) unless stub[:metric_results].nil?
+        data['MetricResults'] = CurrentMetricResults.stub(stub[:metric_results]) unless stub[:metric_results].nil?
         data['DataSnapshotTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_snapshot_time]).to_i unless stub[:data_snapshot_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2170,7 +2172,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CurrentMetricResult.stub(element) unless element.nil?
+          data << CurrentMetricResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2190,8 +2192,8 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::CurrentMetricResult.new
         data = {}
-        data['Dimensions'] = Stubs::Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
-        data['Collections'] = Stubs::CurrentMetricDataCollections.stub(stub[:collections]) unless stub[:collections].nil?
+        data['Dimensions'] = Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Collections'] = CurrentMetricDataCollections.stub(stub[:collections]) unless stub[:collections].nil?
         data
       end
     end
@@ -2210,7 +2212,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CurrentMetricData.stub(element) unless element.nil?
+          data << CurrentMetricData.stub(element) unless element.nil?
         end
         data
       end
@@ -2230,7 +2232,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::CurrentMetricData.new
         data = {}
-        data['Metric'] = Stubs::CurrentMetric.stub(stub[:metric]) unless stub[:metric].nil?
+        data['Metric'] = CurrentMetric.stub(stub[:metric]) unless stub[:metric].nil?
         data['Value'] = Hearth::NumberHelper.serialize(stub[:value])
         data
       end
@@ -2270,7 +2272,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::Dimensions.new
         data = {}
-        data['Queue'] = Stubs::QueueReference.stub(stub[:queue]) unless stub[:queue].nil?
+        data['Queue'] = QueueReference.stub(stub[:queue]) unless stub[:queue].nil?
         data['Channel'] = stub[:channel] unless stub[:channel].nil?
         data
       end
@@ -2310,8 +2312,8 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['UserDataList'] = Stubs::UserDataList.stub(stub[:user_data_list]) unless stub[:user_data_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserDataList'] = UserDataList.stub(stub[:user_data_list]) unless stub[:user_data_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2329,7 +2331,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserData.stub(element) unless element.nil?
+          data << UserData.stub(element) unless element.nil?
         end
         data
       end
@@ -2355,14 +2357,14 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::UserData.new
         data = {}
-        data['User'] = Stubs::UserReference.stub(stub[:user]) unless stub[:user].nil?
-        data['RoutingProfile'] = Stubs::RoutingProfileReference.stub(stub[:routing_profile]) unless stub[:routing_profile].nil?
-        data['HierarchyPath'] = Stubs::HierarchyPathReference.stub(stub[:hierarchy_path]) unless stub[:hierarchy_path].nil?
-        data['Status'] = Stubs::AgentStatusReference.stub(stub[:status]) unless stub[:status].nil?
-        data['AvailableSlotsByChannel'] = Stubs::ChannelToCountMap.stub(stub[:available_slots_by_channel]) unless stub[:available_slots_by_channel].nil?
-        data['MaxSlotsByChannel'] = Stubs::ChannelToCountMap.stub(stub[:max_slots_by_channel]) unless stub[:max_slots_by_channel].nil?
-        data['ActiveSlotsByChannel'] = Stubs::ChannelToCountMap.stub(stub[:active_slots_by_channel]) unless stub[:active_slots_by_channel].nil?
-        data['Contacts'] = Stubs::AgentContactReferenceList.stub(stub[:contacts]) unless stub[:contacts].nil?
+        data['User'] = UserReference.stub(stub[:user]) unless stub[:user].nil?
+        data['RoutingProfile'] = RoutingProfileReference.stub(stub[:routing_profile]) unless stub[:routing_profile].nil?
+        data['HierarchyPath'] = HierarchyPathReference.stub(stub[:hierarchy_path]) unless stub[:hierarchy_path].nil?
+        data['Status'] = AgentStatusReference.stub(stub[:status]) unless stub[:status].nil?
+        data['AvailableSlotsByChannel'] = ChannelToCountMap.stub(stub[:available_slots_by_channel]) unless stub[:available_slots_by_channel].nil?
+        data['MaxSlotsByChannel'] = ChannelToCountMap.stub(stub[:max_slots_by_channel]) unless stub[:max_slots_by_channel].nil?
+        data['ActiveSlotsByChannel'] = ChannelToCountMap.stub(stub[:active_slots_by_channel]) unless stub[:active_slots_by_channel].nil?
+        data['Contacts'] = AgentContactReferenceList.stub(stub[:contacts]) unless stub[:contacts].nil?
         data
       end
     end
@@ -2381,7 +2383,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentContactReference.stub(element) unless element.nil?
+          data << AgentContactReference.stub(element) unless element.nil?
         end
         data
       end
@@ -2412,7 +2414,7 @@ module AWS::SDK::Connect
         data['AgentContactState'] = stub[:agent_contact_state] unless stub[:agent_contact_state].nil?
         data['StateStartTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:state_start_timestamp]).to_i unless stub[:state_start_timestamp].nil?
         data['ConnectedToAgentTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:connected_to_agent_timestamp]).to_i unless stub[:connected_to_agent_timestamp].nil?
-        data['Queue'] = Stubs::QueueReference.stub(stub[:queue]) unless stub[:queue].nil?
+        data['Queue'] = QueueReference.stub(stub[:queue]) unless stub[:queue].nil?
         data
       end
     end
@@ -2474,11 +2476,11 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::HierarchyPathReference.new
         data = {}
-        data['LevelOne'] = Stubs::HierarchyGroupSummaryReference.stub(stub[:level_one]) unless stub[:level_one].nil?
-        data['LevelTwo'] = Stubs::HierarchyGroupSummaryReference.stub(stub[:level_two]) unless stub[:level_two].nil?
-        data['LevelThree'] = Stubs::HierarchyGroupSummaryReference.stub(stub[:level_three]) unless stub[:level_three].nil?
-        data['LevelFour'] = Stubs::HierarchyGroupSummaryReference.stub(stub[:level_four]) unless stub[:level_four].nil?
-        data['LevelFive'] = Stubs::HierarchyGroupSummaryReference.stub(stub[:level_five]) unless stub[:level_five].nil?
+        data['LevelOne'] = HierarchyGroupSummaryReference.stub(stub[:level_one]) unless stub[:level_one].nil?
+        data['LevelTwo'] = HierarchyGroupSummaryReference.stub(stub[:level_two]) unless stub[:level_two].nil?
+        data['LevelThree'] = HierarchyGroupSummaryReference.stub(stub[:level_three]) unless stub[:level_three].nil?
+        data['LevelFour'] = HierarchyGroupSummaryReference.stub(stub[:level_four]) unless stub[:level_four].nil?
+        data['LevelFive'] = HierarchyGroupSummaryReference.stub(stub[:level_five]) unless stub[:level_five].nil?
         data
       end
     end
@@ -2555,8 +2557,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Credentials'] = Stubs::Credentials.stub(stub[:credentials]) unless stub[:credentials].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Credentials'] = Credentials.stub(stub[:credentials]) unless stub[:credentials].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2598,8 +2600,8 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['MetricResults'] = Stubs::HistoricalMetricResults.stub(stub[:metric_results]) unless stub[:metric_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetricResults'] = HistoricalMetricResults.stub(stub[:metric_results]) unless stub[:metric_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2617,7 +2619,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HistoricalMetricResult.stub(element) unless element.nil?
+          data << HistoricalMetricResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2637,8 +2639,8 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::HistoricalMetricResult.new
         data = {}
-        data['Dimensions'] = Stubs::Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
-        data['Collections'] = Stubs::HistoricalMetricDataCollections.stub(stub[:collections]) unless stub[:collections].nil?
+        data['Dimensions'] = Dimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Collections'] = HistoricalMetricDataCollections.stub(stub[:collections]) unless stub[:collections].nil?
         data
       end
     end
@@ -2657,7 +2659,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HistoricalMetricData.stub(element) unless element.nil?
+          data << HistoricalMetricData.stub(element) unless element.nil?
         end
         data
       end
@@ -2677,7 +2679,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::HistoricalMetricData.new
         data = {}
-        data['Metric'] = Stubs::HistoricalMetric.stub(stub[:metric]) unless stub[:metric].nil?
+        data['Metric'] = HistoricalMetric.stub(stub[:metric]) unless stub[:metric].nil?
         data['Value'] = Hearth::NumberHelper.serialize(stub[:value])
         data
       end
@@ -2700,7 +2702,7 @@ module AWS::SDK::Connect
         stub ||= Types::HistoricalMetric.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Threshold'] = Stubs::Threshold.stub(stub[:threshold]) unless stub[:threshold].nil?
+        data['Threshold'] = Threshold.stub(stub[:threshold]) unless stub[:threshold].nil?
         data['Statistic'] = stub[:statistic] unless stub[:statistic].nil?
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
         data
@@ -2757,14 +2759,14 @@ module AWS::SDK::Connect
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ContactFlowId'] = stub[:contact_flow_id] unless stub[:contact_flow_id].nil?
-        data['Constraints'] = Stubs::TaskTemplateConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
-        data['Defaults'] = Stubs::TaskTemplateDefaults.stub(stub[:defaults]) unless stub[:defaults].nil?
-        data['Fields'] = Stubs::TaskTemplateFields.stub(stub[:fields]) unless stub[:fields].nil?
+        data['Constraints'] = TaskTemplateConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['Defaults'] = TaskTemplateDefaults.stub(stub[:defaults]) unless stub[:defaults].nil?
+        data['Fields'] = TaskTemplateFields.stub(stub[:fields]) unless stub[:fields].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2782,7 +2784,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskTemplateField.stub(element) unless element.nil?
+          data << TaskTemplateField.stub(element) unless element.nil?
         end
         data
       end
@@ -2804,10 +2806,10 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::TaskTemplateField.new
         data = {}
-        data['Id'] = Stubs::TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['SingleSelectOptions'] = Stubs::SingleSelectOptions.stub(stub[:single_select_options]) unless stub[:single_select_options].nil?
+        data['SingleSelectOptions'] = SingleSelectOptions.stub(stub[:single_select_options]) unless stub[:single_select_options].nil?
         data
       end
     end
@@ -2863,7 +2865,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::TaskTemplateDefaults.new
         data = {}
-        data['DefaultFieldValues'] = Stubs::TaskTemplateDefaultFieldValueList.stub(stub[:default_field_values]) unless stub[:default_field_values].nil?
+        data['DefaultFieldValues'] = TaskTemplateDefaultFieldValueList.stub(stub[:default_field_values]) unless stub[:default_field_values].nil?
         data
       end
     end
@@ -2882,7 +2884,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskTemplateDefaultFieldValue.stub(element) unless element.nil?
+          data << TaskTemplateDefaultFieldValue.stub(element) unless element.nil?
         end
         data
       end
@@ -2902,7 +2904,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::TaskTemplateDefaultFieldValue.new
         data = {}
-        data['Id'] = Stubs::TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
         data['DefaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data
       end
@@ -2923,9 +2925,9 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::TaskTemplateConstraints.new
         data = {}
-        data['RequiredFields'] = Stubs::RequiredTaskTemplateFields.stub(stub[:required_fields]) unless stub[:required_fields].nil?
-        data['ReadOnlyFields'] = Stubs::ReadOnlyTaskTemplateFields.stub(stub[:read_only_fields]) unless stub[:read_only_fields].nil?
-        data['InvisibleFields'] = Stubs::InvisibleTaskTemplateFields.stub(stub[:invisible_fields]) unless stub[:invisible_fields].nil?
+        data['RequiredFields'] = RequiredTaskTemplateFields.stub(stub[:required_fields]) unless stub[:required_fields].nil?
+        data['ReadOnlyFields'] = ReadOnlyTaskTemplateFields.stub(stub[:read_only_fields]) unless stub[:read_only_fields].nil?
+        data['InvisibleFields'] = InvisibleTaskTemplateFields.stub(stub[:invisible_fields]) unless stub[:invisible_fields].nil?
         data
       end
     end
@@ -2944,7 +2946,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InvisibleFieldInfo.stub(element) unless element.nil?
+          data << InvisibleFieldInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2963,7 +2965,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::InvisibleFieldInfo.new
         data = {}
-        data['Id'] = Stubs::TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
         data
       end
     end
@@ -2982,7 +2984,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReadOnlyFieldInfo.stub(element) unless element.nil?
+          data << ReadOnlyFieldInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -3001,7 +3003,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::ReadOnlyFieldInfo.new
         data = {}
-        data['Id'] = Stubs::TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
         data
       end
     end
@@ -3020,7 +3022,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RequiredFieldInfo.stub(element) unless element.nil?
+          data << RequiredFieldInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -3039,7 +3041,7 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::RequiredFieldInfo.new
         data = {}
-        data['Id'] = Stubs::TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.stub(stub[:id]) unless stub[:id].nil?
         data
       end
     end
@@ -3058,8 +3060,8 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['AgentStatusSummaryList'] = Stubs::AgentStatusSummaryList.stub(stub[:agent_status_summary_list]) unless stub[:agent_status_summary_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AgentStatusSummaryList'] = AgentStatusSummaryList.stub(stub[:agent_status_summary_list]) unless stub[:agent_status_summary_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3077,7 +3079,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentStatusSummary.stub(element) unless element.nil?
+          data << AgentStatusSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3120,9 +3122,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Origins'] = Stubs::OriginsList.stub(stub[:origins]) unless stub[:origins].nil?
+        data['Origins'] = OriginsList.stub(stub[:origins]) unless stub[:origins].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3159,9 +3161,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LexBots'] = Stubs::LexBotConfigList.stub(stub[:lex_bots]) unless stub[:lex_bots].nil?
+        data['LexBots'] = LexBotConfigList.stub(stub[:lex_bots]) unless stub[:lex_bots].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3179,7 +3181,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LexBotConfig.stub(element) unless element.nil?
+          data << LexBotConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -3199,8 +3201,8 @@ module AWS::SDK::Connect
       def self.stub(stub)
         stub ||= Types::LexBotConfig.new
         data = {}
-        data['LexBot'] = Stubs::LexBot.stub(stub[:lex_bot]) unless stub[:lex_bot].nil?
-        data['LexV2Bot'] = Stubs::LexV2Bot.stub(stub[:lex_v2_bot]) unless stub[:lex_v2_bot].nil?
+        data['LexBot'] = LexBot.stub(stub[:lex_bot]) unless stub[:lex_bot].nil?
+        data['LexV2Bot'] = LexV2Bot.stub(stub[:lex_v2_bot]) unless stub[:lex_v2_bot].nil?
         data
       end
     end
@@ -3256,9 +3258,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ContactFlowModulesSummaryList'] = Stubs::ContactFlowModulesSummaryList.stub(stub[:contact_flow_modules_summary_list]) unless stub[:contact_flow_modules_summary_list].nil?
+        data['ContactFlowModulesSummaryList'] = ContactFlowModulesSummaryList.stub(stub[:contact_flow_modules_summary_list]) unless stub[:contact_flow_modules_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3276,7 +3278,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContactFlowModuleSummary.stub(element) unless element.nil?
+          data << ContactFlowModuleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3319,9 +3321,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ContactFlowSummaryList'] = Stubs::ContactFlowSummaryList.stub(stub[:contact_flow_summary_list]) unless stub[:contact_flow_summary_list].nil?
+        data['ContactFlowSummaryList'] = ContactFlowSummaryList.stub(stub[:contact_flow_summary_list]) unless stub[:contact_flow_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3339,7 +3341,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContactFlowSummary.stub(element) unless element.nil?
+          data << ContactFlowSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3384,9 +3386,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ReferenceSummaryList'] = Stubs::ReferenceSummaryList.stub(stub[:reference_summary_list]) unless stub[:reference_summary_list].nil?
+        data['ReferenceSummaryList'] = ReferenceSummaryList.stub(stub[:reference_summary_list]) unless stub[:reference_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3404,7 +3406,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReferenceSummary.stub(element) unless element.nil?
+          data << ReferenceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3424,17 +3426,17 @@ module AWS::SDK::Connect
         data = {}
         case stub
         when Types::ReferenceSummary::Url
-          data['Url'] = (Stubs::UrlReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['Url'] = (UrlReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ReferenceSummary::Attachment
-          data['Attachment'] = (Stubs::AttachmentReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['Attachment'] = (AttachmentReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ReferenceSummary::String
-          data['String'] = (Stubs::StringReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['String'] = (StringReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ReferenceSummary::Number
-          data['Number'] = (Stubs::NumberReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['Number'] = (NumberReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ReferenceSummary::Date
-          data['Date'] = (Stubs::DateReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['Date'] = (DateReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::ReferenceSummary::Email
-          data['Email'] = (Stubs::EmailReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['Email'] = (EmailReference.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ReferenceSummary"
@@ -3579,9 +3581,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DefaultVocabularyList'] = Stubs::DefaultVocabularyList.stub(stub[:default_vocabulary_list]) unless stub[:default_vocabulary_list].nil?
+        data['DefaultVocabularyList'] = DefaultVocabularyList.stub(stub[:default_vocabulary_list]) unless stub[:default_vocabulary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3599,7 +3601,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DefaultVocabulary.stub(element) unless element.nil?
+          data << DefaultVocabulary.stub(element) unless element.nil?
         end
         data
       end
@@ -3642,9 +3644,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['HoursOfOperationSummaryList'] = Stubs::HoursOfOperationSummaryList.stub(stub[:hours_of_operation_summary_list]) unless stub[:hours_of_operation_summary_list].nil?
+        data['HoursOfOperationSummaryList'] = HoursOfOperationSummaryList.stub(stub[:hours_of_operation_summary_list]) unless stub[:hours_of_operation_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3662,7 +3664,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HoursOfOperationSummary.stub(element) unless element.nil?
+          data << HoursOfOperationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3703,9 +3705,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attributes'] = Stubs::AttributesList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = AttributesList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3723,7 +3725,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -3742,9 +3744,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StorageConfigs'] = Stubs::InstanceStorageConfigs.stub(stub[:storage_configs]) unless stub[:storage_configs].nil?
+        data['StorageConfigs'] = InstanceStorageConfigs.stub(stub[:storage_configs]) unless stub[:storage_configs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3762,7 +3764,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceStorageConfig.stub(element) unless element.nil?
+          data << InstanceStorageConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -3781,9 +3783,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InstanceSummaryList'] = Stubs::InstanceSummaryList.stub(stub[:instance_summary_list]) unless stub[:instance_summary_list].nil?
+        data['InstanceSummaryList'] = InstanceSummaryList.stub(stub[:instance_summary_list]) unless stub[:instance_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3801,7 +3803,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceSummary.stub(element) unless element.nil?
+          data << InstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3854,9 +3856,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IntegrationAssociationSummaryList'] = Stubs::IntegrationAssociationSummaryList.stub(stub[:integration_association_summary_list]) unless stub[:integration_association_summary_list].nil?
+        data['IntegrationAssociationSummaryList'] = IntegrationAssociationSummaryList.stub(stub[:integration_association_summary_list]) unless stub[:integration_association_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3874,7 +3876,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IntegrationAssociationSummary.stub(element) unless element.nil?
+          data << IntegrationAssociationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3925,9 +3927,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LambdaFunctions'] = Stubs::FunctionArnsList.stub(stub[:lambda_functions]) unless stub[:lambda_functions].nil?
+        data['LambdaFunctions'] = FunctionArnsList.stub(stub[:lambda_functions]) unless stub[:lambda_functions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3964,9 +3966,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LexBots'] = Stubs::LexBotsList.stub(stub[:lex_bots]) unless stub[:lex_bots].nil?
+        data['LexBots'] = LexBotsList.stub(stub[:lex_bots]) unless stub[:lex_bots].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3984,7 +3986,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LexBot.stub(element) unless element.nil?
+          data << LexBot.stub(element) unless element.nil?
         end
         data
       end
@@ -4003,9 +4005,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PhoneNumberSummaryList'] = Stubs::PhoneNumberSummaryList.stub(stub[:phone_number_summary_list]) unless stub[:phone_number_summary_list].nil?
+        data['PhoneNumberSummaryList'] = PhoneNumberSummaryList.stub(stub[:phone_number_summary_list]) unless stub[:phone_number_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4023,7 +4025,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PhoneNumberSummary.stub(element) unless element.nil?
+          data << PhoneNumberSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4069,8 +4071,8 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ListPhoneNumbersSummaryList'] = Stubs::ListPhoneNumbersSummaryList.stub(stub[:list_phone_numbers_summary_list]) unless stub[:list_phone_numbers_summary_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ListPhoneNumbersSummaryList'] = ListPhoneNumbersSummaryList.stub(stub[:list_phone_numbers_summary_list]) unless stub[:list_phone_numbers_summary_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4088,7 +4090,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListPhoneNumbersSummary.stub(element) unless element.nil?
+          data << ListPhoneNumbersSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4135,9 +4137,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PromptSummaryList'] = Stubs::PromptSummaryList.stub(stub[:prompt_summary_list]) unless stub[:prompt_summary_list].nil?
+        data['PromptSummaryList'] = PromptSummaryList.stub(stub[:prompt_summary_list]) unless stub[:prompt_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4155,7 +4157,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PromptSummary.stub(element) unless element.nil?
+          data << PromptSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4197,8 +4199,8 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['QuickConnectSummaryList'] = Stubs::QuickConnectSummaryList.stub(stub[:quick_connect_summary_list]) unless stub[:quick_connect_summary_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QuickConnectSummaryList'] = QuickConnectSummaryList.stub(stub[:quick_connect_summary_list]) unless stub[:quick_connect_summary_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4216,7 +4218,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QuickConnectSummary.stub(element) unless element.nil?
+          data << QuickConnectSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4259,9 +4261,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['QueueSummaryList'] = Stubs::QueueSummaryList.stub(stub[:queue_summary_list]) unless stub[:queue_summary_list].nil?
+        data['QueueSummaryList'] = QueueSummaryList.stub(stub[:queue_summary_list]) unless stub[:queue_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4279,7 +4281,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueueSummary.stub(element) unless element.nil?
+          data << QueueSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4322,9 +4324,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['QuickConnectSummaryList'] = Stubs::QuickConnectSummaryList.stub(stub[:quick_connect_summary_list]) unless stub[:quick_connect_summary_list].nil?
+        data['QuickConnectSummaryList'] = QuickConnectSummaryList.stub(stub[:quick_connect_summary_list]) unless stub[:quick_connect_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4342,8 +4344,8 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['RoutingProfileQueueConfigSummaryList'] = Stubs::RoutingProfileQueueConfigSummaryList.stub(stub[:routing_profile_queue_config_summary_list]) unless stub[:routing_profile_queue_config_summary_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingProfileQueueConfigSummaryList'] = RoutingProfileQueueConfigSummaryList.stub(stub[:routing_profile_queue_config_summary_list]) unless stub[:routing_profile_queue_config_summary_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4361,7 +4363,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoutingProfileQueueConfigSummary.stub(element) unless element.nil?
+          data << RoutingProfileQueueConfigSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4408,9 +4410,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RoutingProfileSummaryList'] = Stubs::RoutingProfileSummaryList.stub(stub[:routing_profile_summary_list]) unless stub[:routing_profile_summary_list].nil?
+        data['RoutingProfileSummaryList'] = RoutingProfileSummaryList.stub(stub[:routing_profile_summary_list]) unless stub[:routing_profile_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4428,7 +4430,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoutingProfileSummary.stub(element) unless element.nil?
+          data << RoutingProfileSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4469,9 +4471,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SecurityKeys'] = Stubs::SecurityKeysList.stub(stub[:security_keys]) unless stub[:security_keys].nil?
+        data['SecurityKeys'] = SecurityKeysList.stub(stub[:security_keys]) unless stub[:security_keys].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4489,7 +4491,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityKey.stub(element) unless element.nil?
+          data << SecurityKey.stub(element) unless element.nil?
         end
         data
       end
@@ -4530,9 +4532,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Permissions'] = Stubs::PermissionsList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = PermissionsList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4569,9 +4571,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SecurityProfileSummaryList'] = Stubs::SecurityProfileSummaryList.stub(stub[:security_profile_summary_list]) unless stub[:security_profile_summary_list].nil?
+        data['SecurityProfileSummaryList'] = SecurityProfileSummaryList.stub(stub[:security_profile_summary_list]) unless stub[:security_profile_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4589,7 +4591,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityProfileSummary.stub(element) unless element.nil?
+          data << SecurityProfileSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4629,8 +4631,8 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4647,9 +4649,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TaskTemplates'] = Stubs::TaskTemplateList.stub(stub[:task_templates]) unless stub[:task_templates].nil?
+        data['TaskTemplates'] = TaskTemplateList.stub(stub[:task_templates]) unless stub[:task_templates].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4667,7 +4669,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskTemplateMetadata.stub(element) unless element.nil?
+          data << TaskTemplateMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -4716,9 +4718,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UseCaseSummaryList'] = Stubs::UseCaseSummaryList.stub(stub[:use_case_summary_list]) unless stub[:use_case_summary_list].nil?
+        data['UseCaseSummaryList'] = UseCaseSummaryList.stub(stub[:use_case_summary_list]) unless stub[:use_case_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4736,7 +4738,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UseCase.stub(element) unless element.nil?
+          data << UseCase.stub(element) unless element.nil?
         end
         data
       end
@@ -4777,9 +4779,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UserHierarchyGroupSummaryList'] = Stubs::HierarchyGroupSummaryList.stub(stub[:user_hierarchy_group_summary_list]) unless stub[:user_hierarchy_group_summary_list].nil?
+        data['UserHierarchyGroupSummaryList'] = HierarchyGroupSummaryList.stub(stub[:user_hierarchy_group_summary_list]) unless stub[:user_hierarchy_group_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4797,7 +4799,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HierarchyGroupSummary.stub(element) unless element.nil?
+          data << HierarchyGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4816,9 +4818,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UserSummaryList'] = Stubs::UserSummaryList.stub(stub[:user_summary_list]) unless stub[:user_summary_list].nil?
+        data['UserSummaryList'] = UserSummaryList.stub(stub[:user_summary_list]) unless stub[:user_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4836,7 +4838,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserSummary.stub(element) unless element.nil?
+          data << UserSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4917,8 +4919,8 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['AvailableNumbersList'] = Stubs::AvailableNumbersList.stub(stub[:available_numbers_list]) unless stub[:available_numbers_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AvailableNumbersList'] = AvailableNumbersList.stub(stub[:available_numbers_list]) unless stub[:available_numbers_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4936,7 +4938,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AvailableNumberSummary.stub(element) unless element.nil?
+          data << AvailableNumberSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4978,10 +4980,10 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Users'] = Stubs::UserSearchSummaryList.stub(stub[:users]) unless stub[:users].nil?
+        data['Users'] = UserSearchSummaryList.stub(stub[:users]) unless stub[:users].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ApproximateTotalCount'] = stub[:approximate_total_count] unless stub[:approximate_total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4999,7 +5001,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserSearchSummary.stub(element) unless element.nil?
+          data << UserSearchSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5031,11 +5033,11 @@ module AWS::SDK::Connect
         data['DirectoryUserId'] = stub[:directory_user_id] unless stub[:directory_user_id].nil?
         data['HierarchyGroupId'] = stub[:hierarchy_group_id] unless stub[:hierarchy_group_id].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['IdentityInfo'] = Stubs::UserIdentityInfoLite.stub(stub[:identity_info]) unless stub[:identity_info].nil?
-        data['PhoneConfig'] = Stubs::UserPhoneConfig.stub(stub[:phone_config]) unless stub[:phone_config].nil?
+        data['IdentityInfo'] = UserIdentityInfoLite.stub(stub[:identity_info]) unless stub[:identity_info].nil?
+        data['PhoneConfig'] = UserPhoneConfig.stub(stub[:phone_config]) unless stub[:phone_config].nil?
         data['RoutingProfileId'] = stub[:routing_profile_id] unless stub[:routing_profile_id].nil?
-        data['SecurityProfileIds'] = Stubs::SecurityProfileIds.stub(stub[:security_profile_ids]) unless stub[:security_profile_ids].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['SecurityProfileIds'] = SecurityProfileIds.stub(stub[:security_profile_ids]) unless stub[:security_profile_ids].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['Username'] = stub[:username] unless stub[:username].nil?
         data
       end
@@ -5074,9 +5076,9 @@ module AWS::SDK::Connect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['VocabularySummaryList'] = Stubs::VocabularySummaryList.stub(stub[:vocabulary_summary_list]) unless stub[:vocabulary_summary_list].nil?
+        data['VocabularySummaryList'] = VocabularySummaryList.stub(stub[:vocabulary_summary_list]) unless stub[:vocabulary_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5094,7 +5096,7 @@ module AWS::SDK::Connect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VocabularySummary.stub(element) unless element.nil?
+          data << VocabularySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5147,7 +5149,7 @@ module AWS::SDK::Connect
         data['ContactId'] = stub[:contact_id] unless stub[:contact_id].nil?
         data['ParticipantId'] = stub[:participant_id] unless stub[:participant_id].nil?
         data['ParticipantToken'] = stub[:participant_token] unless stub[:participant_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5177,7 +5179,7 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['StreamingId'] = stub[:streaming_id] unless stub[:streaming_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5194,7 +5196,7 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ContactId'] = stub[:contact_id] unless stub[:contact_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5211,7 +5213,7 @@ module AWS::SDK::Connect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ContactId'] = stub[:contact_id] unless stub[:contact_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5295,7 +5297,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['ContactId'] = stub[:contact_id] unless stub[:contact_id].nil?
         data['ContactArn'] = stub[:contact_arn] unless stub[:contact_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5483,7 +5485,7 @@ module AWS::SDK::Connect
         http_resp.headers['Content-Type'] = 'application/json'
         data['PhoneNumberId'] = stub[:phone_number_id] unless stub[:phone_number_id].nil?
         data['PhoneNumberArn'] = stub[:phone_number_arn] unless stub[:phone_number_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5672,13 +5674,13 @@ module AWS::SDK::Connect
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ContactFlowId'] = stub[:contact_flow_id] unless stub[:contact_flow_id].nil?
-        data['Constraints'] = Stubs::TaskTemplateConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
-        data['Defaults'] = Stubs::TaskTemplateDefaults.stub(stub[:defaults]) unless stub[:defaults].nil?
-        data['Fields'] = Stubs::TaskTemplateFields.stub(stub[:fields]) unless stub[:fields].nil?
+        data['Constraints'] = TaskTemplateConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['Defaults'] = TaskTemplateDefaults.stub(stub[:defaults]) unless stub[:defaults].nil?
+        data['Fields'] = TaskTemplateFields.stub(stub[:fields]) unless stub[:fields].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeGuruReviewer
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RepositoryAssociation'] = Stubs::RepositoryAssociation.stub(stub[:repository_association]) unless stub[:repository_association].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RepositoryAssociation'] = RepositoryAssociation.stub(stub[:repository_association]) unless stub[:repository_association].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,8 +85,8 @@ module AWS::SDK::CodeGuruReviewer
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['LastUpdatedTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time_stamp]).to_i unless stub[:last_updated_time_stamp].nil?
         data['CreatedTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time_stamp]).to_i unless stub[:created_time_stamp].nil?
-        data['KMSKeyDetails'] = Stubs::KMSKeyDetails.stub(stub[:kms_key_details]) unless stub[:kms_key_details].nil?
-        data['S3RepositoryDetails'] = Stubs::S3RepositoryDetails.stub(stub[:s3_repository_details]) unless stub[:s3_repository_details].nil?
+        data['KMSKeyDetails'] = KMSKeyDetails.stub(stub[:kms_key_details]) unless stub[:kms_key_details].nil?
+        data['S3RepositoryDetails'] = S3RepositoryDetails.stub(stub[:s3_repository_details]) unless stub[:s3_repository_details].nil?
         data
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::CodeGuruReviewer
         stub ||= Types::S3RepositoryDetails.new
         data = {}
         data['BucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
-        data['CodeArtifacts'] = Stubs::CodeArtifacts.stub(stub[:code_artifacts]) unless stub[:code_artifacts].nil?
+        data['CodeArtifacts'] = CodeArtifacts.stub(stub[:code_artifacts]) unless stub[:code_artifacts].nil?
         data
       end
     end
@@ -161,8 +163,8 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CodeReview'] = Stubs::CodeReview.stub(stub[:code_review]) unless stub[:code_review].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CodeReview'] = CodeReview.stub(stub[:code_review]) unless stub[:code_review].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,10 +207,10 @@ module AWS::SDK::CodeGuruReviewer
         data['LastUpdatedTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time_stamp]).to_i unless stub[:last_updated_time_stamp].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['PullRequestId'] = stub[:pull_request_id] unless stub[:pull_request_id].nil?
-        data['SourceCodeType'] = Stubs::SourceCodeType.stub(stub[:source_code_type]) unless stub[:source_code_type].nil?
+        data['SourceCodeType'] = SourceCodeType.stub(stub[:source_code_type]) unless stub[:source_code_type].nil?
         data['AssociationArn'] = stub[:association_arn] unless stub[:association_arn].nil?
-        data['Metrics'] = Stubs::Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
-        data['AnalysisTypes'] = Stubs::AnalysisTypes.stub(stub[:analysis_types]) unless stub[:analysis_types].nil?
+        data['Metrics'] = Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['AnalysisTypes'] = AnalysisTypes.stub(stub[:analysis_types]) unless stub[:analysis_types].nil?
         data['ConfigFileState'] = stub[:config_file_state] unless stub[:config_file_state].nil?
         data
       end
@@ -273,11 +275,11 @@ module AWS::SDK::CodeGuruReviewer
       def self.stub(stub)
         stub ||= Types::SourceCodeType.new
         data = {}
-        data['CommitDiff'] = Stubs::CommitDiffSourceCodeType.stub(stub[:commit_diff]) unless stub[:commit_diff].nil?
-        data['RepositoryHead'] = Stubs::RepositoryHeadSourceCodeType.stub(stub[:repository_head]) unless stub[:repository_head].nil?
-        data['BranchDiff'] = Stubs::BranchDiffSourceCodeType.stub(stub[:branch_diff]) unless stub[:branch_diff].nil?
-        data['S3BucketRepository'] = Stubs::S3BucketRepository.stub(stub[:s3_bucket_repository]) unless stub[:s3_bucket_repository].nil?
-        data['RequestMetadata'] = Stubs::RequestMetadata.stub(stub[:request_metadata]) unless stub[:request_metadata].nil?
+        data['CommitDiff'] = CommitDiffSourceCodeType.stub(stub[:commit_diff]) unless stub[:commit_diff].nil?
+        data['RepositoryHead'] = RepositoryHeadSourceCodeType.stub(stub[:repository_head]) unless stub[:repository_head].nil?
+        data['BranchDiff'] = BranchDiffSourceCodeType.stub(stub[:branch_diff]) unless stub[:branch_diff].nil?
+        data['S3BucketRepository'] = S3BucketRepository.stub(stub[:s3_bucket_repository]) unless stub[:s3_bucket_repository].nil?
+        data['RequestMetadata'] = RequestMetadata.stub(stub[:request_metadata]) unless stub[:request_metadata].nil?
         data
       end
     end
@@ -300,7 +302,7 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Requester'] = stub[:requester] unless stub[:requester].nil?
-        data['EventInfo'] = Stubs::EventInfo.stub(stub[:event_info]) unless stub[:event_info].nil?
+        data['EventInfo'] = EventInfo.stub(stub[:event_info]) unless stub[:event_info].nil?
         data['VendorName'] = stub[:vendor_name] unless stub[:vendor_name].nil?
         data
       end
@@ -341,7 +343,7 @@ module AWS::SDK::CodeGuruReviewer
         stub ||= Types::S3BucketRepository.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Details'] = Stubs::S3RepositoryDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['Details'] = S3RepositoryDetails.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -418,8 +420,8 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CodeReview'] = Stubs::CodeReview.stub(stub[:code_review]) unless stub[:code_review].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CodeReview'] = CodeReview.stub(stub[:code_review]) unless stub[:code_review].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -435,8 +437,8 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RecommendationFeedback'] = Stubs::RecommendationFeedback.stub(stub[:recommendation_feedback]) unless stub[:recommendation_feedback].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecommendationFeedback'] = RecommendationFeedback.stub(stub[:recommendation_feedback]) unless stub[:recommendation_feedback].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -460,7 +462,7 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         data['CodeReviewArn'] = stub[:code_review_arn] unless stub[:code_review_arn].nil?
         data['RecommendationId'] = stub[:recommendation_id] unless stub[:recommendation_id].nil?
-        data['Reactions'] = Stubs::Reactions.stub(stub[:reactions]) unless stub[:reactions].nil?
+        data['Reactions'] = Reactions.stub(stub[:reactions]) unless stub[:reactions].nil?
         data['UserId'] = stub[:user_id] unless stub[:user_id].nil?
         data['CreatedTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time_stamp]).to_i unless stub[:created_time_stamp].nil?
         data['LastUpdatedTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time_stamp]).to_i unless stub[:last_updated_time_stamp].nil?
@@ -501,9 +503,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RepositoryAssociation'] = Stubs::RepositoryAssociation.stub(stub[:repository_association]) unless stub[:repository_association].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RepositoryAssociation'] = RepositoryAssociation.stub(stub[:repository_association]) unless stub[:repository_association].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -520,9 +522,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RepositoryAssociation'] = Stubs::RepositoryAssociation.stub(stub[:repository_association]) unless stub[:repository_association].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RepositoryAssociation'] = RepositoryAssociation.stub(stub[:repository_association]) unless stub[:repository_association].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -539,9 +541,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CodeReviewSummaries'] = Stubs::CodeReviewSummaries.stub(stub[:code_review_summaries]) unless stub[:code_review_summaries].nil?
+        data['CodeReviewSummaries'] = CodeReviewSummaries.stub(stub[:code_review_summaries]) unless stub[:code_review_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -559,7 +561,7 @@ module AWS::SDK::CodeGuruReviewer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CodeReviewSummary.stub(element) unless element.nil?
+          data << CodeReviewSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -599,8 +601,8 @@ module AWS::SDK::CodeGuruReviewer
         data['LastUpdatedTimeStamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time_stamp]).to_i unless stub[:last_updated_time_stamp].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['PullRequestId'] = stub[:pull_request_id] unless stub[:pull_request_id].nil?
-        data['MetricsSummary'] = Stubs::MetricsSummary.stub(stub[:metrics_summary]) unless stub[:metrics_summary].nil?
-        data['SourceCodeType'] = Stubs::SourceCodeType.stub(stub[:source_code_type]) unless stub[:source_code_type].nil?
+        data['MetricsSummary'] = MetricsSummary.stub(stub[:metrics_summary]) unless stub[:metrics_summary].nil?
+        data['SourceCodeType'] = SourceCodeType.stub(stub[:source_code_type]) unless stub[:source_code_type].nil?
         data
       end
     end
@@ -640,9 +642,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RecommendationFeedbackSummaries'] = Stubs::RecommendationFeedbackSummaries.stub(stub[:recommendation_feedback_summaries]) unless stub[:recommendation_feedback_summaries].nil?
+        data['RecommendationFeedbackSummaries'] = RecommendationFeedbackSummaries.stub(stub[:recommendation_feedback_summaries]) unless stub[:recommendation_feedback_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -660,7 +662,7 @@ module AWS::SDK::CodeGuruReviewer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationFeedbackSummary.stub(element) unless element.nil?
+          data << RecommendationFeedbackSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -682,7 +684,7 @@ module AWS::SDK::CodeGuruReviewer
         stub ||= Types::RecommendationFeedbackSummary.new
         data = {}
         data['RecommendationId'] = stub[:recommendation_id] unless stub[:recommendation_id].nil?
-        data['Reactions'] = Stubs::Reactions.stub(stub[:reactions]) unless stub[:reactions].nil?
+        data['Reactions'] = Reactions.stub(stub[:reactions]) unless stub[:reactions].nil?
         data['UserId'] = stub[:user_id] unless stub[:user_id].nil?
         data
       end
@@ -701,9 +703,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RecommendationSummaries'] = Stubs::RecommendationSummaries.stub(stub[:recommendation_summaries]) unless stub[:recommendation_summaries].nil?
+        data['RecommendationSummaries'] = RecommendationSummaries.stub(stub[:recommendation_summaries]) unless stub[:recommendation_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::CodeGuruReviewer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationSummary.stub(element) unless element.nil?
+          data << RecommendationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -753,7 +755,7 @@ module AWS::SDK::CodeGuruReviewer
         data['EndLine'] = stub[:end_line] unless stub[:end_line].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RecommendationCategory'] = stub[:recommendation_category] unless stub[:recommendation_category].nil?
-        data['RuleMetadata'] = Stubs::RuleMetadata.stub(stub[:rule_metadata]) unless stub[:rule_metadata].nil?
+        data['RuleMetadata'] = RuleMetadata.stub(stub[:rule_metadata]) unless stub[:rule_metadata].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data
       end
@@ -780,7 +782,7 @@ module AWS::SDK::CodeGuruReviewer
         data['RuleName'] = stub[:rule_name] unless stub[:rule_name].nil?
         data['ShortDescription'] = stub[:short_description] unless stub[:short_description].nil?
         data['LongDescription'] = stub[:long_description] unless stub[:long_description].nil?
-        data['RuleTags'] = Stubs::RuleTags.stub(stub[:rule_tags]) unless stub[:rule_tags].nil?
+        data['RuleTags'] = RuleTags.stub(stub[:rule_tags]) unless stub[:rule_tags].nil?
         data
       end
     end
@@ -818,9 +820,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RepositoryAssociationSummaries'] = Stubs::RepositoryAssociationSummaries.stub(stub[:repository_association_summaries]) unless stub[:repository_association_summaries].nil?
+        data['RepositoryAssociationSummaries'] = RepositoryAssociationSummaries.stub(stub[:repository_association_summaries]) unless stub[:repository_association_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -838,7 +840,7 @@ module AWS::SDK::CodeGuruReviewer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryAssociationSummary.stub(element) unless element.nil?
+          data << RepositoryAssociationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -888,8 +890,8 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

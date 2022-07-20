@@ -94,7 +94,7 @@ module AWS::SDK::MarketplaceCatalog
         data.status = map['Status']
         data.failure_code = map['FailureCode']
         data.failure_description = map['FailureDescription']
-        data.change_set = (Parsers::ChangeSetDescription.parse(map['ChangeSet']) unless map['ChangeSet'].nil?)
+        data.change_set = (ChangeSetDescription.parse(map['ChangeSet']) unless map['ChangeSet'].nil?)
         data
       end
     end
@@ -103,7 +103,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChangeSummary.parse(value) unless value.nil?
+          data << ChangeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -113,9 +113,9 @@ module AWS::SDK::MarketplaceCatalog
       def self.parse(map)
         data = Types::ChangeSummary.new
         data.change_type = map['ChangeType']
-        data.entity = (Parsers::Entity.parse(map['Entity']) unless map['Entity'].nil?)
+        data.entity = (Entity.parse(map['Entity']) unless map['Entity'].nil?)
         data.details = map['Details']
-        data.error_detail_list = (Parsers::ErrorDetailList.parse(map['ErrorDetailList']) unless map['ErrorDetailList'].nil?)
+        data.error_detail_list = (ErrorDetailList.parse(map['ErrorDetailList']) unless map['ErrorDetailList'].nil?)
         data.change_name = map['ChangeName']
         return data
       end
@@ -125,7 +125,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ErrorDetail.parse(value) unless value.nil?
+          data << ErrorDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -178,7 +178,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.parse(http_resp)
         data = Types::ListChangeSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.change_set_summary_list = (Parsers::ChangeSetSummaryList.parse(map['ChangeSetSummaryList']) unless map['ChangeSetSummaryList'].nil?)
+        data.change_set_summary_list = (ChangeSetSummaryList.parse(map['ChangeSetSummaryList']) unless map['ChangeSetSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -188,7 +188,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChangeSetSummaryListItem.parse(value) unless value.nil?
+          data << ChangeSetSummaryListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -203,7 +203,7 @@ module AWS::SDK::MarketplaceCatalog
         data.start_time = map['StartTime']
         data.end_time = map['EndTime']
         data.status = map['Status']
-        data.entity_id_list = (Parsers::ResourceIdList.parse(map['EntityIdList']) unless map['EntityIdList'].nil?)
+        data.entity_id_list = (ResourceIdList.parse(map['EntityIdList']) unless map['EntityIdList'].nil?)
         data.failure_code = map['FailureCode']
         return data
       end
@@ -224,7 +224,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.parse(http_resp)
         data = Types::ListEntitiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entity_summary_list = (Parsers::EntitySummaryList.parse(map['EntitySummaryList']) unless map['EntitySummaryList'].nil?)
+        data.entity_summary_list = (EntitySummaryList.parse(map['EntitySummaryList']) unless map['EntitySummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -234,7 +234,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EntitySummary.parse(value) unless value.nil?
+          data << EntitySummary.parse(value) unless value.nil?
         end
         data
       end

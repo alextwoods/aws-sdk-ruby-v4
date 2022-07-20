@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Drs
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['sourceServer'] = Stubs::SourceServer.stub(stub[:source_server]) unless stub[:source_server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceServer'] = SourceServer.stub(stub[:source_server]) unless stub[:source_server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,13 +52,13 @@ module AWS::SDK::Drs
         data = {}
         data['sourceServerID'] = stub[:source_server_id] unless stub[:source_server_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['recoveryInstanceId'] = stub[:recovery_instance_id] unless stub[:recovery_instance_id].nil?
         data['lastLaunchResult'] = stub[:last_launch_result] unless stub[:last_launch_result].nil?
-        data['dataReplicationInfo'] = Stubs::DataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
-        data['lifeCycle'] = Stubs::LifeCycle.stub(stub[:life_cycle]) unless stub[:life_cycle].nil?
-        data['sourceProperties'] = Stubs::SourceProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
-        data['stagingArea'] = Stubs::StagingArea.stub(stub[:staging_area]) unless stub[:staging_area].nil?
+        data['dataReplicationInfo'] = DataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
+        data['lifeCycle'] = LifeCycle.stub(stub[:life_cycle]) unless stub[:life_cycle].nil?
+        data['sourceProperties'] = SourceProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
+        data['stagingArea'] = StagingArea.stub(stub[:staging_area]) unless stub[:staging_area].nil?
         data
       end
     end
@@ -107,12 +109,12 @@ module AWS::SDK::Drs
         data = {}
         data['lastUpdatedDateTime'] = stub[:last_updated_date_time] unless stub[:last_updated_date_time].nil?
         data['recommendedInstanceType'] = stub[:recommended_instance_type] unless stub[:recommended_instance_type].nil?
-        data['identificationHints'] = Stubs::IdentificationHints.stub(stub[:identification_hints]) unless stub[:identification_hints].nil?
-        data['networkInterfaces'] = Stubs::NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
-        data['disks'] = Stubs::Disks.stub(stub[:disks]) unless stub[:disks].nil?
-        data['cpus'] = Stubs::Cpus.stub(stub[:cpus]) unless stub[:cpus].nil?
+        data['identificationHints'] = IdentificationHints.stub(stub[:identification_hints]) unless stub[:identification_hints].nil?
+        data['networkInterfaces'] = NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['disks'] = Disks.stub(stub[:disks]) unless stub[:disks].nil?
+        data['cpus'] = Cpus.stub(stub[:cpus]) unless stub[:cpus].nil?
         data['ramBytes'] = stub[:ram_bytes] unless stub[:ram_bytes].nil?
-        data['os'] = Stubs::OS.stub(stub[:os]) unless stub[:os].nil?
+        data['os'] = OS.stub(stub[:os]) unless stub[:os].nil?
         data
       end
     end
@@ -149,7 +151,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CPU.stub(element) unless element.nil?
+          data << CPU.stub(element) unless element.nil?
         end
         data
       end
@@ -189,7 +191,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Disk.stub(element) unless element.nil?
+          data << Disk.stub(element) unless element.nil?
         end
         data
       end
@@ -229,7 +231,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInterface.stub(element) unless element.nil?
+          data << NetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -251,7 +253,7 @@ module AWS::SDK::Drs
         stub ||= Types::NetworkInterface.new
         data = {}
         data['macAddress'] = stub[:mac_address] unless stub[:mac_address].nil?
-        data['ips'] = Stubs::IPsList.stub(stub[:ips]) unless stub[:ips].nil?
+        data['ips'] = IPsList.stub(stub[:ips]) unless stub[:ips].nil?
         data['isPrimary'] = stub[:is_primary] unless stub[:is_primary].nil?
         data
       end
@@ -322,7 +324,7 @@ module AWS::SDK::Drs
         data['firstByteDateTime'] = stub[:first_byte_date_time] unless stub[:first_byte_date_time].nil?
         data['elapsedReplicationDuration'] = stub[:elapsed_replication_duration] unless stub[:elapsed_replication_duration].nil?
         data['lastSeenByServiceDateTime'] = stub[:last_seen_by_service_date_time] unless stub[:last_seen_by_service_date_time].nil?
-        data['lastLaunch'] = Stubs::LifeCycleLastLaunch.stub(stub[:last_launch]) unless stub[:last_launch].nil?
+        data['lastLaunch'] = LifeCycleLastLaunch.stub(stub[:last_launch]) unless stub[:last_launch].nil?
         data
       end
     end
@@ -340,7 +342,7 @@ module AWS::SDK::Drs
       def self.stub(stub)
         stub ||= Types::LifeCycleLastLaunch.new
         data = {}
-        data['initiated'] = Stubs::LifeCycleLastLaunchInitiated.stub(stub[:initiated]) unless stub[:initiated].nil?
+        data['initiated'] = LifeCycleLastLaunchInitiated.stub(stub[:initiated]) unless stub[:initiated].nil?
         data
       end
     end
@@ -387,10 +389,10 @@ module AWS::SDK::Drs
         data = {}
         data['lagDuration'] = stub[:lag_duration] unless stub[:lag_duration].nil?
         data['etaDateTime'] = stub[:eta_date_time] unless stub[:eta_date_time].nil?
-        data['replicatedDisks'] = Stubs::DataReplicationInfoReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
+        data['replicatedDisks'] = DataReplicationInfoReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
         data['dataReplicationState'] = stub[:data_replication_state] unless stub[:data_replication_state].nil?
-        data['dataReplicationInitiation'] = Stubs::DataReplicationInitiation.stub(stub[:data_replication_initiation]) unless stub[:data_replication_initiation].nil?
-        data['dataReplicationError'] = Stubs::DataReplicationError.stub(stub[:data_replication_error]) unless stub[:data_replication_error].nil?
+        data['dataReplicationInitiation'] = DataReplicationInitiation.stub(stub[:data_replication_initiation]) unless stub[:data_replication_initiation].nil?
+        data['dataReplicationError'] = DataReplicationError.stub(stub[:data_replication_error]) unless stub[:data_replication_error].nil?
         data
       end
     end
@@ -432,7 +434,7 @@ module AWS::SDK::Drs
         data = {}
         data['startDateTime'] = stub[:start_date_time] unless stub[:start_date_time].nil?
         data['nextAttemptDateTime'] = stub[:next_attempt_date_time] unless stub[:next_attempt_date_time].nil?
-        data['steps'] = Stubs::DataReplicationInitiationSteps.stub(stub[:steps]) unless stub[:steps].nil?
+        data['steps'] = DataReplicationInitiationSteps.stub(stub[:steps]) unless stub[:steps].nil?
         data
       end
     end
@@ -451,7 +453,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataReplicationInitiationStep.stub(element) unless element.nil?
+          data << DataReplicationInitiationStep.stub(element) unless element.nil?
         end
         data
       end
@@ -491,7 +493,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataReplicationInfoReplicatedDisk.stub(element) unless element.nil?
+          data << DataReplicationInfoReplicatedDisk.stub(element) unless element.nil?
         end
         data
       end
@@ -574,7 +576,7 @@ module AWS::SDK::Drs
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['stagingAreaSubnetId'] = stub[:staging_area_subnet_id] unless stub[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = stub[:associate_default_security_group] unless stub[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Stubs::ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = stub[:replication_server_instance_type] unless stub[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = stub[:use_dedicated_replication_server] unless stub[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = stub[:default_large_staging_disk_type] unless stub[:default_large_staging_disk_type].nil?
@@ -583,10 +585,10 @@ module AWS::SDK::Drs
         data['bandwidthThrottling'] = stub[:bandwidth_throttling] unless stub[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = stub[:data_plane_routing] unless stub[:data_plane_routing].nil?
         data['createPublicIP'] = stub[:create_public_ip] unless stub[:create_public_ip].nil?
-        data['stagingAreaTags'] = Stubs::TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['pitPolicy'] = Stubs::PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stagingAreaTags'] = TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['pitPolicy'] = PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -604,7 +606,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PITPolicyRule.stub(element) unless element.nil?
+          data << PITPolicyRule.stub(element) unless element.nil?
         end
         data
       end
@@ -721,9 +723,9 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::JobLogs.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = JobLogs.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -741,7 +743,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobLog.stub(element) unless element.nil?
+          data << JobLog.stub(element) unless element.nil?
         end
         data
       end
@@ -764,7 +766,7 @@ module AWS::SDK::Drs
         data = {}
         data['logDateTime'] = stub[:log_date_time] unless stub[:log_date_time].nil?
         data['event'] = stub[:event] unless stub[:event].nil?
-        data['eventData'] = Stubs::JobLogEventData.stub(stub[:event_data]) unless stub[:event_data].nil?
+        data['eventData'] = JobLogEventData.stub(stub[:event_data]) unless stub[:event_data].nil?
         data
       end
     end
@@ -790,7 +792,7 @@ module AWS::SDK::Drs
         data['conversionServerID'] = stub[:conversion_server_id] unless stub[:conversion_server_id].nil?
         data['targetInstanceID'] = stub[:target_instance_id] unless stub[:target_instance_id].nil?
         data['rawError'] = stub[:raw_error] unless stub[:raw_error].nil?
-        data['conversionProperties'] = Stubs::ConversionProperties.stub(stub[:conversion_properties]) unless stub[:conversion_properties].nil?
+        data['conversionProperties'] = ConversionProperties.stub(stub[:conversion_properties]) unless stub[:conversion_properties].nil?
         data
       end
     end
@@ -812,11 +814,11 @@ module AWS::SDK::Drs
       def self.stub(stub)
         stub ||= Types::ConversionProperties.new
         data = {}
-        data['volumeToConversionMap'] = Stubs::VolumeToConversionMap.stub(stub[:volume_to_conversion_map]) unless stub[:volume_to_conversion_map].nil?
+        data['volumeToConversionMap'] = VolumeToConversionMap.stub(stub[:volume_to_conversion_map]) unless stub[:volume_to_conversion_map].nil?
         data['rootVolumeName'] = stub[:root_volume_name] unless stub[:root_volume_name].nil?
         data['forceUefi'] = stub[:force_uefi] unless stub[:force_uefi].nil?
         data['dataTimestamp'] = stub[:data_timestamp] unless stub[:data_timestamp].nil?
-        data['volumeToVolumeSize'] = Stubs::VolumeToSizeMap.stub(stub[:volume_to_volume_size]) unless stub[:volume_to_volume_size].nil?
+        data['volumeToVolumeSize'] = VolumeToSizeMap.stub(stub[:volume_to_volume_size]) unless stub[:volume_to_volume_size].nil?
         data
       end
     end
@@ -855,7 +857,7 @@ module AWS::SDK::Drs
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ConversionMap.stub(value) unless value.nil?
+          data[key] = ConversionMap.stub(value) unless value.nil?
         end
         data
       end
@@ -894,9 +896,9 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::JobsList.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = JobsList.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -914,7 +916,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Job.stub(element) unless element.nil?
+          data << Job.stub(element) unless element.nil?
         end
         data
       end
@@ -948,8 +950,8 @@ module AWS::SDK::Drs
         data['creationDateTime'] = stub[:creation_date_time] unless stub[:creation_date_time].nil?
         data['endDateTime'] = stub[:end_date_time] unless stub[:end_date_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['participatingServers'] = Stubs::ParticipatingServers.stub(stub[:participating_servers]) unless stub[:participating_servers].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['participatingServers'] = ParticipatingServers.stub(stub[:participating_servers]) unless stub[:participating_servers].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -968,7 +970,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParticipatingServer.stub(element) unless element.nil?
+          data << ParticipatingServer.stub(element) unless element.nil?
         end
         data
       end
@@ -1010,8 +1012,8 @@ module AWS::SDK::Drs
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['items'] = Stubs::DescribeRecoveryInstancesItems.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['items'] = DescribeRecoveryInstancesItems.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1029,7 +1031,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoveryInstance.stub(element) unless element.nil?
+          data << RecoveryInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -1065,10 +1067,10 @@ module AWS::SDK::Drs
         data['recoveryInstanceID'] = stub[:recovery_instance_id] unless stub[:recovery_instance_id].nil?
         data['sourceServerID'] = stub[:source_server_id] unless stub[:source_server_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['failback'] = Stubs::RecoveryInstanceFailback.stub(stub[:failback]) unless stub[:failback].nil?
-        data['dataReplicationInfo'] = Stubs::RecoveryInstanceDataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
-        data['recoveryInstanceProperties'] = Stubs::RecoveryInstanceProperties.stub(stub[:recovery_instance_properties]) unless stub[:recovery_instance_properties].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['failback'] = RecoveryInstanceFailback.stub(stub[:failback]) unless stub[:failback].nil?
+        data['dataReplicationInfo'] = RecoveryInstanceDataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
+        data['recoveryInstanceProperties'] = RecoveryInstanceProperties.stub(stub[:recovery_instance_properties]) unless stub[:recovery_instance_properties].nil?
         data['pointInTimeSnapshotDateTime'] = stub[:point_in_time_snapshot_date_time] unless stub[:point_in_time_snapshot_date_time].nil?
         data['isDrill'] = stub[:is_drill] unless stub[:is_drill].nil?
         data
@@ -1095,12 +1097,12 @@ module AWS::SDK::Drs
         stub ||= Types::RecoveryInstanceProperties.new
         data = {}
         data['lastUpdatedDateTime'] = stub[:last_updated_date_time] unless stub[:last_updated_date_time].nil?
-        data['identificationHints'] = Stubs::IdentificationHints.stub(stub[:identification_hints]) unless stub[:identification_hints].nil?
-        data['networkInterfaces'] = Stubs::NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
-        data['disks'] = Stubs::RecoveryInstanceDisks.stub(stub[:disks]) unless stub[:disks].nil?
-        data['cpus'] = Stubs::Cpus.stub(stub[:cpus]) unless stub[:cpus].nil?
+        data['identificationHints'] = IdentificationHints.stub(stub[:identification_hints]) unless stub[:identification_hints].nil?
+        data['networkInterfaces'] = NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['disks'] = RecoveryInstanceDisks.stub(stub[:disks]) unless stub[:disks].nil?
+        data['cpus'] = Cpus.stub(stub[:cpus]) unless stub[:cpus].nil?
         data['ramBytes'] = stub[:ram_bytes] unless stub[:ram_bytes].nil?
-        data['os'] = Stubs::OS.stub(stub[:os]) unless stub[:os].nil?
+        data['os'] = OS.stub(stub[:os]) unless stub[:os].nil?
         data
       end
     end
@@ -1119,7 +1121,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoveryInstanceDisk.stub(element) unless element.nil?
+          data << RecoveryInstanceDisk.stub(element) unless element.nil?
         end
         data
       end
@@ -1167,10 +1169,10 @@ module AWS::SDK::Drs
         data = {}
         data['lagDuration'] = stub[:lag_duration] unless stub[:lag_duration].nil?
         data['etaDateTime'] = stub[:eta_date_time] unless stub[:eta_date_time].nil?
-        data['replicatedDisks'] = Stubs::RecoveryInstanceDataReplicationInfoReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
+        data['replicatedDisks'] = RecoveryInstanceDataReplicationInfoReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
         data['dataReplicationState'] = stub[:data_replication_state] unless stub[:data_replication_state].nil?
-        data['dataReplicationInitiation'] = Stubs::RecoveryInstanceDataReplicationInitiation.stub(stub[:data_replication_initiation]) unless stub[:data_replication_initiation].nil?
-        data['dataReplicationError'] = Stubs::RecoveryInstanceDataReplicationError.stub(stub[:data_replication_error]) unless stub[:data_replication_error].nil?
+        data['dataReplicationInitiation'] = RecoveryInstanceDataReplicationInitiation.stub(stub[:data_replication_initiation]) unless stub[:data_replication_initiation].nil?
+        data['dataReplicationError'] = RecoveryInstanceDataReplicationError.stub(stub[:data_replication_error]) unless stub[:data_replication_error].nil?
         data
       end
     end
@@ -1210,7 +1212,7 @@ module AWS::SDK::Drs
         stub ||= Types::RecoveryInstanceDataReplicationInitiation.new
         data = {}
         data['startDateTime'] = stub[:start_date_time] unless stub[:start_date_time].nil?
-        data['steps'] = Stubs::RecoveryInstanceDataReplicationInitiationSteps.stub(stub[:steps]) unless stub[:steps].nil?
+        data['steps'] = RecoveryInstanceDataReplicationInitiationSteps.stub(stub[:steps]) unless stub[:steps].nil?
         data
       end
     end
@@ -1229,7 +1231,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoveryInstanceDataReplicationInitiationStep.stub(element) unless element.nil?
+          data << RecoveryInstanceDataReplicationInitiationStep.stub(element) unless element.nil?
         end
         data
       end
@@ -1269,7 +1271,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoveryInstanceDataReplicationInfoReplicatedDisk.stub(element) unless element.nil?
+          data << RecoveryInstanceDataReplicationInfoReplicatedDisk.stub(element) unless element.nil?
         end
         data
       end
@@ -1348,9 +1350,9 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::RecoverySnapshotsList.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = RecoverySnapshotsList.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1368,7 +1370,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoverySnapshot.stub(element) unless element.nil?
+          data << RecoverySnapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -1395,7 +1397,7 @@ module AWS::SDK::Drs
         data['sourceServerID'] = stub[:source_server_id] unless stub[:source_server_id].nil?
         data['expectedTimestamp'] = stub[:expected_timestamp] unless stub[:expected_timestamp].nil?
         data['timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['ebsSnapshots'] = Stubs::EbsSnapshotsList.stub(stub[:ebs_snapshots]) unless stub[:ebs_snapshots].nil?
+        data['ebsSnapshots'] = EbsSnapshotsList.stub(stub[:ebs_snapshots]) unless stub[:ebs_snapshots].nil?
         data
       end
     end
@@ -1433,9 +1435,9 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::ReplicationConfigurationTemplates.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = ReplicationConfigurationTemplates.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1453,7 +1455,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationConfigurationTemplate.stub(element) unless element.nil?
+          data << ReplicationConfigurationTemplate.stub(element) unless element.nil?
         end
         data
       end
@@ -1491,7 +1493,7 @@ module AWS::SDK::Drs
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['stagingAreaSubnetId'] = stub[:staging_area_subnet_id] unless stub[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = stub[:associate_default_security_group] unless stub[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Stubs::ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = stub[:replication_server_instance_type] unless stub[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = stub[:use_dedicated_replication_server] unless stub[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = stub[:default_large_staging_disk_type] unless stub[:default_large_staging_disk_type].nil?
@@ -1500,9 +1502,9 @@ module AWS::SDK::Drs
         data['bandwidthThrottling'] = stub[:bandwidth_throttling] unless stub[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = stub[:data_plane_routing] unless stub[:data_plane_routing].nil?
         data['createPublicIP'] = stub[:create_public_ip] unless stub[:create_public_ip].nil?
-        data['stagingAreaTags'] = Stubs::TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['pitPolicy'] = Stubs::PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
+        data['stagingAreaTags'] = TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['pitPolicy'] = PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
         data
       end
     end
@@ -1520,9 +1522,9 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::SourceServersList.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = SourceServersList.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1540,7 +1542,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceServer.stub(element) unless element.nil?
+          data << SourceServer.stub(element) unless element.nil?
         end
         data
       end
@@ -1581,14 +1583,14 @@ module AWS::SDK::Drs
         http_resp.headers['Content-Type'] = 'application/json'
         data['sourceServerID'] = stub[:source_server_id] unless stub[:source_server_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['recoveryInstanceId'] = stub[:recovery_instance_id] unless stub[:recovery_instance_id].nil?
         data['lastLaunchResult'] = stub[:last_launch_result] unless stub[:last_launch_result].nil?
-        data['dataReplicationInfo'] = Stubs::DataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
-        data['lifeCycle'] = Stubs::LifeCycle.stub(stub[:life_cycle]) unless stub[:life_cycle].nil?
-        data['sourceProperties'] = Stubs::SourceProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
-        data['stagingArea'] = Stubs::StagingArea.stub(stub[:staging_area]) unless stub[:staging_area].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataReplicationInfo'] = DataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
+        data['lifeCycle'] = LifeCycle.stub(stub[:life_cycle]) unless stub[:life_cycle].nil?
+        data['sourceProperties'] = SourceProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
+        data['stagingArea'] = StagingArea.stub(stub[:staging_area]) unless stub[:staging_area].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1611,7 +1613,7 @@ module AWS::SDK::Drs
         data['name'] = stub[:name] unless stub[:name].nil?
         data['bandwidthThrottling'] = stub[:bandwidth_throttling] unless stub[:bandwidth_throttling].nil?
         data['usePrivateIP'] = stub[:use_private_ip] unless stub[:use_private_ip].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1641,8 +1643,8 @@ module AWS::SDK::Drs
         data['targetInstanceTypeRightSizingMethod'] = stub[:target_instance_type_right_sizing_method] unless stub[:target_instance_type_right_sizing_method].nil?
         data['copyPrivateIp'] = stub[:copy_private_ip] unless stub[:copy_private_ip].nil?
         data['copyTags'] = stub[:copy_tags] unless stub[:copy_tags].nil?
-        data['licensing'] = Stubs::Licensing.stub(stub[:licensing]) unless stub[:licensing].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['licensing'] = Licensing.stub(stub[:licensing]) unless stub[:licensing].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1695,19 +1697,19 @@ module AWS::SDK::Drs
         data['name'] = stub[:name] unless stub[:name].nil?
         data['stagingAreaSubnetId'] = stub[:staging_area_subnet_id] unless stub[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = stub[:associate_default_security_group] unless stub[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Stubs::ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = stub[:replication_server_instance_type] unless stub[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = stub[:use_dedicated_replication_server] unless stub[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = stub[:default_large_staging_disk_type] unless stub[:default_large_staging_disk_type].nil?
-        data['replicatedDisks'] = Stubs::ReplicationConfigurationReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
+        data['replicatedDisks'] = ReplicationConfigurationReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
         data['ebsEncryption'] = stub[:ebs_encryption] unless stub[:ebs_encryption].nil?
         data['ebsEncryptionKeyArn'] = stub[:ebs_encryption_key_arn] unless stub[:ebs_encryption_key_arn].nil?
         data['bandwidthThrottling'] = stub[:bandwidth_throttling] unless stub[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = stub[:data_plane_routing] unless stub[:data_plane_routing].nil?
         data['createPublicIP'] = stub[:create_public_ip] unless stub[:create_public_ip].nil?
-        data['stagingAreaTags'] = Stubs::TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
-        data['pitPolicy'] = Stubs::PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stagingAreaTags'] = TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
+        data['pitPolicy'] = PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1725,7 +1727,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationConfigurationReplicatedDisk.stub(element) unless element.nil?
+          data << ReplicationConfigurationReplicatedDisk.stub(element) unless element.nil?
         end
         data
       end
@@ -1783,9 +1785,9 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::StagingSourceServersList.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = StagingSourceServersList.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1803,7 +1805,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StagingSourceServer.stub(element) unless element.nil?
+          data << StagingSourceServer.stub(element) unless element.nil?
         end
         data
       end
@@ -1826,7 +1828,7 @@ module AWS::SDK::Drs
         data = {}
         data['hostname'] = stub[:hostname] unless stub[:hostname].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1844,9 +1846,9 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accounts'] = Stubs::Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['accounts'] = Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1864,7 +1866,7 @@ module AWS::SDK::Drs
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Account.stub(element) unless element.nil?
+          data << Account.stub(element) unless element.nil?
         end
         data
       end
@@ -1900,8 +1902,8 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1927,14 +1929,14 @@ module AWS::SDK::Drs
         http_resp.headers['Content-Type'] = 'application/json'
         data['sourceServerID'] = stub[:source_server_id] unless stub[:source_server_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['recoveryInstanceId'] = stub[:recovery_instance_id] unless stub[:recovery_instance_id].nil?
         data['lastLaunchResult'] = stub[:last_launch_result] unless stub[:last_launch_result].nil?
-        data['dataReplicationInfo'] = Stubs::DataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
-        data['lifeCycle'] = Stubs::LifeCycle.stub(stub[:life_cycle]) unless stub[:life_cycle].nil?
-        data['sourceProperties'] = Stubs::SourceProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
-        data['stagingArea'] = Stubs::StagingArea.stub(stub[:staging_area]) unless stub[:staging_area].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataReplicationInfo'] = DataReplicationInfo.stub(stub[:data_replication_info]) unless stub[:data_replication_info].nil?
+        data['lifeCycle'] = LifeCycle.stub(stub[:life_cycle]) unless stub[:life_cycle].nil?
+        data['sourceProperties'] = SourceProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
+        data['stagingArea'] = StagingArea.stub(stub[:staging_area]) unless stub[:staging_area].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1950,8 +1952,8 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1967,8 +1969,8 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2010,8 +2012,8 @@ module AWS::SDK::Drs
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2067,8 +2069,8 @@ module AWS::SDK::Drs
         data['targetInstanceTypeRightSizingMethod'] = stub[:target_instance_type_right_sizing_method] unless stub[:target_instance_type_right_sizing_method].nil?
         data['copyPrivateIp'] = stub[:copy_private_ip] unless stub[:copy_private_ip].nil?
         data['copyTags'] = stub[:copy_tags] unless stub[:copy_tags].nil?
-        data['licensing'] = Stubs::Licensing.stub(stub[:licensing]) unless stub[:licensing].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['licensing'] = Licensing.stub(stub[:licensing]) unless stub[:licensing].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2103,19 +2105,19 @@ module AWS::SDK::Drs
         data['name'] = stub[:name] unless stub[:name].nil?
         data['stagingAreaSubnetId'] = stub[:staging_area_subnet_id] unless stub[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = stub[:associate_default_security_group] unless stub[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Stubs::ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = stub[:replication_server_instance_type] unless stub[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = stub[:use_dedicated_replication_server] unless stub[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = stub[:default_large_staging_disk_type] unless stub[:default_large_staging_disk_type].nil?
-        data['replicatedDisks'] = Stubs::ReplicationConfigurationReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
+        data['replicatedDisks'] = ReplicationConfigurationReplicatedDisks.stub(stub[:replicated_disks]) unless stub[:replicated_disks].nil?
         data['ebsEncryption'] = stub[:ebs_encryption] unless stub[:ebs_encryption].nil?
         data['ebsEncryptionKeyArn'] = stub[:ebs_encryption_key_arn] unless stub[:ebs_encryption_key_arn].nil?
         data['bandwidthThrottling'] = stub[:bandwidth_throttling] unless stub[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = stub[:data_plane_routing] unless stub[:data_plane_routing].nil?
         data['createPublicIP'] = stub[:create_public_ip] unless stub[:create_public_ip].nil?
-        data['stagingAreaTags'] = Stubs::TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
-        data['pitPolicy'] = Stubs::PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stagingAreaTags'] = TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
+        data['pitPolicy'] = PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2150,7 +2152,7 @@ module AWS::SDK::Drs
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['stagingAreaSubnetId'] = stub[:staging_area_subnet_id] unless stub[:staging_area_subnet_id].nil?
         data['associateDefaultSecurityGroup'] = stub[:associate_default_security_group] unless stub[:associate_default_security_group].nil?
-        data['replicationServersSecurityGroupsIDs'] = Stubs::ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
+        data['replicationServersSecurityGroupsIDs'] = ReplicationServersSecurityGroupsIDs.stub(stub[:replication_servers_security_groups_i_ds]) unless stub[:replication_servers_security_groups_i_ds].nil?
         data['replicationServerInstanceType'] = stub[:replication_server_instance_type] unless stub[:replication_server_instance_type].nil?
         data['useDedicatedReplicationServer'] = stub[:use_dedicated_replication_server] unless stub[:use_dedicated_replication_server].nil?
         data['defaultLargeStagingDiskType'] = stub[:default_large_staging_disk_type] unless stub[:default_large_staging_disk_type].nil?
@@ -2159,10 +2161,10 @@ module AWS::SDK::Drs
         data['bandwidthThrottling'] = stub[:bandwidth_throttling] unless stub[:bandwidth_throttling].nil?
         data['dataPlaneRouting'] = stub[:data_plane_routing] unless stub[:data_plane_routing].nil?
         data['createPublicIP'] = stub[:create_public_ip] unless stub[:create_public_ip].nil?
-        data['stagingAreaTags'] = Stubs::TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['pitPolicy'] = Stubs::PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stagingAreaTags'] = TagsMap.stub(stub[:staging_area_tags]) unless stub[:staging_area_tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['pitPolicy'] = PITPolicy.stub(stub[:pit_policy]) unless stub[:pit_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

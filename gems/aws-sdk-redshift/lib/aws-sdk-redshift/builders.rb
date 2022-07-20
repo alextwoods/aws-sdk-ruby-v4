@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Redshift
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ReservedNodeId'] = input[:reserved_node_id].to_s unless input[:reserved_node_id].nil?
         params[context + 'TargetReservedNodeOfferingId'] = input[:target_reserved_node_offering_id].to_s unless input[:target_reserved_node_offering_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'DatabaseName'] = input[:database_name].to_s unless input[:database_name].nil?
         params[context + 'PartnerName'] = input[:partner_name].to_s unless input[:partner_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::Redshift
         params[context + 'AssociateEntireAccount'] = input[:associate_entire_account].to_s unless input[:associate_entire_account].nil?
         params[context + 'ConsumerArn'] = input[:consumer_arn].to_s unless input[:consumer_arn].nil?
         params[context + 'ConsumerRegion'] = input[:consumer_region].to_s unless input[:consumer_region].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::Redshift
         params[context + 'CIDRIP'] = input[:cidrip].to_s unless input[:cidrip].nil?
         params[context + 'EC2SecurityGroupName'] = input[:ec2_security_group_name].to_s unless input[:ec2_security_group_name].nil?
         params[context + 'EC2SecurityGroupOwnerId'] = input[:ec2_security_group_owner_id].to_s unless input[:ec2_security_group_owner_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -92,7 +94,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'DataShareArn'] = input[:data_share_arn].to_s unless input[:data_share_arn].nil?
         params[context + 'ConsumerIdentifier'] = input[:consumer_identifier].to_s unless input[:consumer_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -108,8 +110,8 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'Account'] = input[:account].to_s unless input[:account].nil?
-        Builders::VpcIdentifierList.build(input[:vpc_ids], params, context: context + 'VpcIds' + '.VpcIdentifier') unless input[:vpc_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcIdentifierList.build(input[:vpc_ids], params, context: context + 'VpcIds' + '.VpcIdentifier') unless input[:vpc_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::Redshift
         params[context + 'SnapshotIdentifier'] = input[:snapshot_identifier].to_s unless input[:snapshot_identifier].nil?
         params[context + 'SnapshotClusterIdentifier'] = input[:snapshot_cluster_identifier].to_s unless input[:snapshot_cluster_identifier].nil?
         params[context + 'AccountWithRestoreAccess'] = input[:account_with_restore_access].to_s unless input[:account_with_restore_access].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -149,8 +151,8 @@ module AWS::SDK::Redshift
         params = Hearth::Query::ParamList.new
         params['Action'] = 'BatchDeleteClusterSnapshots'
         params['Version'] = '2012-12-01'
-        Builders::DeleteClusterSnapshotMessageList.build(input[:identifiers], params, context: context + 'Identifiers' + '.DeleteClusterSnapshotMessage') unless input[:identifiers].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DeleteClusterSnapshotMessageList.build(input[:identifiers], params, context: context + 'Identifiers' + '.DeleteClusterSnapshotMessage') unless input[:identifiers].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::Redshift
     class DeleteClusterSnapshotMessageList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::DeleteClusterSnapshotMessage.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          DeleteClusterSnapshotMessage.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -181,10 +183,10 @@ module AWS::SDK::Redshift
         params = Hearth::Query::ParamList.new
         params['Action'] = 'BatchModifyClusterSnapshots'
         params['Version'] = '2012-12-01'
-        Builders::SnapshotIdentifierList.build(input[:snapshot_identifier_list], params, context: context + 'SnapshotIdentifierList' + '.String') unless input[:snapshot_identifier_list].nil?
+        SnapshotIdentifierList.build(input[:snapshot_identifier_list], params, context: context + 'SnapshotIdentifierList' + '.String') unless input[:snapshot_identifier_list].nil?
         params[context + 'ManualSnapshotRetentionPeriod'] = input[:manual_snapshot_retention_period].to_s unless input[:manual_snapshot_retention_period].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -208,7 +210,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'CancelResize'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -226,7 +228,7 @@ module AWS::SDK::Redshift
         params[context + 'SourceSnapshotClusterIdentifier'] = input[:source_snapshot_cluster_identifier].to_s unless input[:source_snapshot_cluster_identifier].nil?
         params[context + 'TargetSnapshotIdentifier'] = input[:target_snapshot_identifier].to_s unless input[:target_snapshot_identifier].nil?
         params[context + 'ManualSnapshotRetentionPeriod'] = input[:manual_snapshot_retention_period].to_s unless input[:manual_snapshot_retention_period].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -242,7 +244,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'AuthenticationProfileName'] = input[:authentication_profile_name].to_s unless input[:authentication_profile_name].nil?
         params[context + 'AuthenticationProfileContent'] = input[:authentication_profile_content].to_s unless input[:authentication_profile_content].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -262,8 +264,8 @@ module AWS::SDK::Redshift
         params[context + 'NodeType'] = input[:node_type].to_s unless input[:node_type].nil?
         params[context + 'MasterUsername'] = input[:master_username].to_s unless input[:master_username].nil?
         params[context + 'MasterUserPassword'] = input[:master_user_password].to_s unless input[:master_user_password].nil?
-        Builders::ClusterSecurityGroupNameList.build(input[:cluster_security_groups], params, context: context + 'ClusterSecurityGroups' + '.ClusterSecurityGroupName') unless input[:cluster_security_groups].nil?
-        Builders::VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
+        ClusterSecurityGroupNameList.build(input[:cluster_security_groups], params, context: context + 'ClusterSecurityGroups' + '.ClusterSecurityGroupName') unless input[:cluster_security_groups].nil?
+        VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
         params[context + 'ClusterSubnetGroupName'] = input[:cluster_subnet_group_name].to_s unless input[:cluster_subnet_group_name].nil?
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'PreferredMaintenanceWindow'] = input[:preferred_maintenance_window].to_s unless input[:preferred_maintenance_window].nil?
@@ -279,18 +281,18 @@ module AWS::SDK::Redshift
         params[context + 'HsmClientCertificateIdentifier'] = input[:hsm_client_certificate_identifier].to_s unless input[:hsm_client_certificate_identifier].nil?
         params[context + 'HsmConfigurationIdentifier'] = input[:hsm_configuration_identifier].to_s unless input[:hsm_configuration_identifier].nil?
         params[context + 'ElasticIp'] = input[:elastic_ip].to_s unless input[:elastic_ip].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
         params[context + 'EnhancedVpcRouting'] = input[:enhanced_vpc_routing].to_s unless input[:enhanced_vpc_routing].nil?
         params[context + 'AdditionalInfo'] = input[:additional_info].to_s unless input[:additional_info].nil?
-        Builders::IamRoleArnList.build(input[:iam_roles], params, context: context + 'IamRoles' + '.IamRoleArn') unless input[:iam_roles].nil?
+        IamRoleArnList.build(input[:iam_roles], params, context: context + 'IamRoles' + '.IamRoleArn') unless input[:iam_roles].nil?
         params[context + 'MaintenanceTrackName'] = input[:maintenance_track_name].to_s unless input[:maintenance_track_name].nil?
         params[context + 'SnapshotScheduleIdentifier'] = input[:snapshot_schedule_identifier].to_s unless input[:snapshot_schedule_identifier].nil?
         params[context + 'AvailabilityZoneRelocation'] = input[:availability_zone_relocation].to_s unless input[:availability_zone_relocation].nil?
         params[context + 'AquaConfigurationStatus'] = input[:aqua_configuration_status].to_s unless input[:aqua_configuration_status].nil?
         params[context + 'DefaultIamRoleArn'] = input[:default_iam_role_arn].to_s unless input[:default_iam_role_arn].nil?
         params[context + 'LoadSampleData'] = input[:load_sample_data].to_s unless input[:load_sample_data].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::Redshift
     class TagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -351,8 +353,8 @@ module AWS::SDK::Redshift
         params[context + 'ParameterGroupName'] = input[:parameter_group_name].to_s unless input[:parameter_group_name].nil?
         params[context + 'ParameterGroupFamily'] = input[:parameter_group_family].to_s unless input[:parameter_group_family].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -368,8 +370,8 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterSecurityGroupName'] = input[:cluster_security_group_name].to_s unless input[:cluster_security_group_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -386,8 +388,8 @@ module AWS::SDK::Redshift
         params[context + 'SnapshotIdentifier'] = input[:snapshot_identifier].to_s unless input[:snapshot_identifier].nil?
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'ManualSnapshotRetentionPeriod'] = input[:manual_snapshot_retention_period].to_s unless input[:manual_snapshot_retention_period].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -403,9 +405,9 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterSubnetGroupName'] = input[:cluster_subnet_group_name].to_s unless input[:cluster_subnet_group_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -432,8 +434,8 @@ module AWS::SDK::Redshift
         params[context + 'ResourceOwner'] = input[:resource_owner].to_s unless input[:resource_owner].nil?
         params[context + 'EndpointName'] = input[:endpoint_name].to_s unless input[:endpoint_name].nil?
         params[context + 'SubnetGroupName'] = input[:subnet_group_name].to_s unless input[:subnet_group_name].nil?
-        Builders::VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -450,12 +452,12 @@ module AWS::SDK::Redshift
         params[context + 'SubscriptionName'] = input[:subscription_name].to_s unless input[:subscription_name].nil?
         params[context + 'SnsTopicArn'] = input[:sns_topic_arn].to_s unless input[:sns_topic_arn].nil?
         params[context + 'SourceType'] = input[:source_type].to_s unless input[:source_type].nil?
-        Builders::SourceIdsList.build(input[:source_ids], params, context: context + 'SourceIds' + '.SourceId') unless input[:source_ids].nil?
-        Builders::EventCategoriesList.build(input[:event_categories], params, context: context + 'EventCategories' + '.EventCategory') unless input[:event_categories].nil?
+        SourceIdsList.build(input[:source_ids], params, context: context + 'SourceIds' + '.SourceId') unless input[:source_ids].nil?
+        EventCategoriesList.build(input[:event_categories], params, context: context + 'EventCategories' + '.EventCategory') unless input[:event_categories].nil?
         params[context + 'Severity'] = input[:severity].to_s unless input[:severity].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -488,8 +490,8 @@ module AWS::SDK::Redshift
         params['Action'] = 'CreateHsmClientCertificate'
         params['Version'] = '2012-12-01'
         params[context + 'HsmClientCertificateIdentifier'] = input[:hsm_client_certificate_identifier].to_s unless input[:hsm_client_certificate_identifier].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -509,8 +511,8 @@ module AWS::SDK::Redshift
         params[context + 'HsmPartitionName'] = input[:hsm_partition_name].to_s unless input[:hsm_partition_name].nil?
         params[context + 'HsmPartitionPassword'] = input[:hsm_partition_password].to_s unless input[:hsm_partition_password].nil?
         params[context + 'HsmServerPublicCertificate'] = input[:hsm_server_public_certificate].to_s unless input[:hsm_server_public_certificate].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -525,23 +527,23 @@ module AWS::SDK::Redshift
         params['Action'] = 'CreateScheduledAction'
         params['Version'] = '2012-12-01'
         params[context + 'ScheduledActionName'] = input[:scheduled_action_name].to_s unless input[:scheduled_action_name].nil?
-        Builders::ScheduledActionType.build(input[:target_action], params, context: context + 'TargetAction' + '.') unless input[:target_action].nil?
+        ScheduledActionType.build(input[:target_action], params, context: context + 'TargetAction' + '.') unless input[:target_action].nil?
         params[context + 'Schedule'] = input[:schedule].to_s unless input[:schedule].nil?
         params[context + 'IamRole'] = input[:iam_role].to_s unless input[:iam_role].nil?
         params[context + 'ScheduledActionDescription'] = input[:scheduled_action_description].to_s unless input[:scheduled_action_description].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
         params[context + 'Enable'] = input[:enable].to_s unless input[:enable].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for ScheduledActionType
     class ScheduledActionType
       def self.build(input, params, context: nil)
-        Builders::ResizeClusterMessage.build(input[:resize_cluster], params, context: context + 'ResizeCluster' + '.') unless input[:resize_cluster].nil?
-        Builders::PauseClusterMessage.build(input[:pause_cluster], params, context: context + 'PauseCluster' + '.') unless input[:pause_cluster].nil?
-        Builders::ResumeClusterMessage.build(input[:resume_cluster], params, context: context + 'ResumeCluster' + '.') unless input[:resume_cluster].nil?
+        ResizeClusterMessage.build(input[:resize_cluster], params, context: context + 'ResizeCluster' + '.') unless input[:resize_cluster].nil?
+        PauseClusterMessage.build(input[:pause_cluster], params, context: context + 'PauseCluster' + '.') unless input[:pause_cluster].nil?
+        ResumeClusterMessage.build(input[:resume_cluster], params, context: context + 'ResumeCluster' + '.') unless input[:resume_cluster].nil?
       end
     end
 
@@ -584,8 +586,8 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'SnapshotCopyGrantName'] = input[:snapshot_copy_grant_name].to_s unless input[:snapshot_copy_grant_name].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -599,13 +601,13 @@ module AWS::SDK::Redshift
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateSnapshotSchedule'
         params['Version'] = '2012-12-01'
-        Builders::ScheduleDefinitionList.build(input[:schedule_definitions], params, context: context + 'ScheduleDefinitions' + '.ScheduleDefinition') unless input[:schedule_definitions].nil?
+        ScheduleDefinitionList.build(input[:schedule_definitions], params, context: context + 'ScheduleDefinitions' + '.ScheduleDefinition') unless input[:schedule_definitions].nil?
         params[context + 'ScheduleIdentifier'] = input[:schedule_identifier].to_s unless input[:schedule_identifier].nil?
         params[context + 'ScheduleDescription'] = input[:schedule_description].to_s unless input[:schedule_description].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextInvocations'] = input[:next_invocations].to_s unless input[:next_invocations].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -629,8 +631,8 @@ module AWS::SDK::Redshift
         params['Action'] = 'CreateTags'
         params['Version'] = '2012-12-01'
         params[context + 'ResourceName'] = input[:resource_name].to_s unless input[:resource_name].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -650,8 +652,8 @@ module AWS::SDK::Redshift
         params[context + 'Amount'] = input[:amount].to_s unless input[:amount].nil?
         params[context + 'Period'] = input[:period].to_s unless input[:period].nil?
         params[context + 'BreachAction'] = input[:breach_action].to_s unless input[:breach_action].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -667,7 +669,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'DataShareArn'] = input[:data_share_arn].to_s unless input[:data_share_arn].nil?
         params[context + 'ConsumerIdentifier'] = input[:consumer_identifier].to_s unless input[:consumer_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -682,7 +684,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteAuthenticationProfile'
         params['Version'] = '2012-12-01'
         params[context + 'AuthenticationProfileName'] = input[:authentication_profile_name].to_s unless input[:authentication_profile_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -700,7 +702,7 @@ module AWS::SDK::Redshift
         params[context + 'SkipFinalClusterSnapshot'] = input[:skip_final_cluster_snapshot].to_s unless input[:skip_final_cluster_snapshot].nil?
         params[context + 'FinalClusterSnapshotIdentifier'] = input[:final_cluster_snapshot_identifier].to_s unless input[:final_cluster_snapshot_identifier].nil?
         params[context + 'FinalClusterSnapshotRetentionPeriod'] = input[:final_cluster_snapshot_retention_period].to_s unless input[:final_cluster_snapshot_retention_period].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -715,7 +717,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteClusterParameterGroup'
         params['Version'] = '2012-12-01'
         params[context + 'ParameterGroupName'] = input[:parameter_group_name].to_s unless input[:parameter_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -730,7 +732,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteClusterSecurityGroup'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterSecurityGroupName'] = input[:cluster_security_group_name].to_s unless input[:cluster_security_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -746,7 +748,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'SnapshotIdentifier'] = input[:snapshot_identifier].to_s unless input[:snapshot_identifier].nil?
         params[context + 'SnapshotClusterIdentifier'] = input[:snapshot_cluster_identifier].to_s unless input[:snapshot_cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -761,7 +763,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteClusterSubnetGroup'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterSubnetGroupName'] = input[:cluster_subnet_group_name].to_s unless input[:cluster_subnet_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -776,7 +778,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteEndpointAccess'
         params['Version'] = '2012-12-01'
         params[context + 'EndpointName'] = input[:endpoint_name].to_s unless input[:endpoint_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -791,7 +793,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteEventSubscription'
         params['Version'] = '2012-12-01'
         params[context + 'SubscriptionName'] = input[:subscription_name].to_s unless input[:subscription_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -806,7 +808,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteHsmClientCertificate'
         params['Version'] = '2012-12-01'
         params[context + 'HsmClientCertificateIdentifier'] = input[:hsm_client_certificate_identifier].to_s unless input[:hsm_client_certificate_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -821,7 +823,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteHsmConfiguration'
         params['Version'] = '2012-12-01'
         params[context + 'HsmConfigurationIdentifier'] = input[:hsm_configuration_identifier].to_s unless input[:hsm_configuration_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -839,7 +841,7 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'DatabaseName'] = input[:database_name].to_s unless input[:database_name].nil?
         params[context + 'PartnerName'] = input[:partner_name].to_s unless input[:partner_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -854,7 +856,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteScheduledAction'
         params['Version'] = '2012-12-01'
         params[context + 'ScheduledActionName'] = input[:scheduled_action_name].to_s unless input[:scheduled_action_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -869,7 +871,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteSnapshotCopyGrant'
         params['Version'] = '2012-12-01'
         params[context + 'SnapshotCopyGrantName'] = input[:snapshot_copy_grant_name].to_s unless input[:snapshot_copy_grant_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -884,7 +886,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteSnapshotSchedule'
         params['Version'] = '2012-12-01'
         params[context + 'ScheduleIdentifier'] = input[:schedule_identifier].to_s unless input[:schedule_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -899,8 +901,8 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteTags'
         params['Version'] = '2012-12-01'
         params[context + 'ResourceName'] = input[:resource_name].to_s unless input[:resource_name].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -924,7 +926,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DeleteUsageLimit'
         params['Version'] = '2012-12-01'
         params[context + 'UsageLimitId'] = input[:usage_limit_id].to_s unless input[:usage_limit_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -938,8 +940,8 @@ module AWS::SDK::Redshift
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAccountAttributes'
         params['Version'] = '2012-12-01'
-        Builders::AttributeNameList.build(input[:attribute_names], params, context: context + 'AttributeNames' + '.AttributeName') unless input[:attribute_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AttributeNameList.build(input[:attribute_names], params, context: context + 'AttributeNames' + '.AttributeName') unless input[:attribute_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -963,7 +965,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DescribeAuthenticationProfiles'
         params['Version'] = '2012-12-01'
         params[context + 'AuthenticationProfileName'] = input[:authentication_profile_name].to_s unless input[:authentication_profile_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -980,7 +982,7 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -997,9 +999,9 @@ module AWS::SDK::Redshift
         params[context + 'ParameterGroupName'] = input[:parameter_group_name].to_s unless input[:parameter_group_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1026,7 +1028,7 @@ module AWS::SDK::Redshift
         params[context + 'Source'] = input[:source].to_s unless input[:source].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1043,9 +1045,9 @@ module AWS::SDK::Redshift
         params[context + 'ClusterSecurityGroupName'] = input[:cluster_security_group_name].to_s unless input[:cluster_security_group_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1067,11 +1069,11 @@ module AWS::SDK::Redshift
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'OwnerAccount'] = input[:owner_account].to_s unless input[:owner_account].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
         params[context + 'ClusterExists'] = input[:cluster_exists].to_s unless input[:cluster_exists].nil?
-        Builders::SnapshotSortingEntityList.build(input[:sorting_entities], params, context: context + 'SortingEntities' + '.SnapshotSortingEntity') unless input[:sorting_entities].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SnapshotSortingEntityList.build(input[:sorting_entities], params, context: context + 'SortingEntities' + '.SnapshotSortingEntity') unless input[:sorting_entities].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1079,7 +1081,7 @@ module AWS::SDK::Redshift
     class SnapshotSortingEntityList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SnapshotSortingEntity.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SnapshotSortingEntity.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1105,9 +1107,9 @@ module AWS::SDK::Redshift
         params[context + 'ClusterSubnetGroupName'] = input[:cluster_subnet_group_name].to_s unless input[:cluster_subnet_group_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1124,7 +1126,7 @@ module AWS::SDK::Redshift
         params[context + 'MaintenanceTrackName'] = input[:maintenance_track_name].to_s unless input[:maintenance_track_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1142,7 +1144,7 @@ module AWS::SDK::Redshift
         params[context + 'ClusterParameterGroupFamily'] = input[:cluster_parameter_group_family].to_s unless input[:cluster_parameter_group_family].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1159,9 +1161,9 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1178,7 +1180,7 @@ module AWS::SDK::Redshift
         params[context + 'DataShareArn'] = input[:data_share_arn].to_s unless input[:data_share_arn].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1196,7 +1198,7 @@ module AWS::SDK::Redshift
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1214,7 +1216,7 @@ module AWS::SDK::Redshift
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1231,7 +1233,7 @@ module AWS::SDK::Redshift
         params[context + 'ParameterGroupFamily'] = input[:parameter_group_family].to_s unless input[:parameter_group_family].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1251,7 +1253,7 @@ module AWS::SDK::Redshift
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1270,7 +1272,7 @@ module AWS::SDK::Redshift
         params[context + 'Grantee'] = input[:grantee].to_s unless input[:grantee].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1285,7 +1287,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DescribeEventCategories'
         params['Version'] = '2012-12-01'
         params[context + 'SourceType'] = input[:source_type].to_s unless input[:source_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1302,9 +1304,9 @@ module AWS::SDK::Redshift
         params[context + 'SubscriptionName'] = input[:subscription_name].to_s unless input[:subscription_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1325,7 +1327,7 @@ module AWS::SDK::Redshift
         params[context + 'Duration'] = input[:duration].to_s unless input[:duration].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1342,9 +1344,9 @@ module AWS::SDK::Redshift
         params[context + 'HsmClientCertificateIdentifier'] = input[:hsm_client_certificate_identifier].to_s unless input[:hsm_client_certificate_identifier].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1361,9 +1363,9 @@ module AWS::SDK::Redshift
         params[context + 'HsmConfigurationIdentifier'] = input[:hsm_configuration_identifier].to_s unless input[:hsm_configuration_identifier].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1378,7 +1380,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DescribeLoggingStatus'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1396,10 +1398,10 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'SnapshotIdentifier'] = input[:snapshot_identifier].to_s unless input[:snapshot_identifier].nil?
         params[context + 'OwnerAccount'] = input[:owner_account].to_s unless input[:owner_account].nil?
-        Builders::NodeConfigurationOptionsFilterList.build(input[:filters], params, context: context + 'Filter' + '.NodeConfigurationOptionsFilter') unless input[:filters].nil?
+        NodeConfigurationOptionsFilterList.build(input[:filters], params, context: context + 'Filter' + '.NodeConfigurationOptionsFilter') unless input[:filters].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1407,7 +1409,7 @@ module AWS::SDK::Redshift
     class NodeConfigurationOptionsFilterList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::NodeConfigurationOptionsFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          NodeConfigurationOptionsFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1417,7 +1419,7 @@ module AWS::SDK::Redshift
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'Operator'] = input[:operator].to_s unless input[:operator].nil?
-        Builders::ValueStringList.build(input[:values], params, context: context + 'Value' + '.item') unless input[:values].nil?
+        ValueStringList.build(input[:values], params, context: context + 'Value' + '.item') unless input[:values].nil?
       end
     end
 
@@ -1444,7 +1446,7 @@ module AWS::SDK::Redshift
         params[context + 'NodeType'] = input[:node_type].to_s unless input[:node_type].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1462,7 +1464,7 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'DatabaseName'] = input[:database_name].to_s unless input[:database_name].nil?
         params[context + 'PartnerName'] = input[:partner_name].to_s unless input[:partner_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1480,7 +1482,7 @@ module AWS::SDK::Redshift
         params[context + 'ReservedNodeExchangeRequestId'] = input[:reserved_node_exchange_request_id].to_s unless input[:reserved_node_exchange_request_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1497,7 +1499,7 @@ module AWS::SDK::Redshift
         params[context + 'ReservedNodeOfferingId'] = input[:reserved_node_offering_id].to_s unless input[:reserved_node_offering_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1514,7 +1516,7 @@ module AWS::SDK::Redshift
         params[context + 'ReservedNodeId'] = input[:reserved_node_id].to_s unless input[:reserved_node_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1529,7 +1531,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DescribeResize'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1548,10 +1550,10 @@ module AWS::SDK::Redshift
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
         params[context + 'Active'] = input[:active].to_s unless input[:active].nil?
-        Builders::ScheduledActionFilterList.build(input[:filters], params, context: context + 'Filters' + '.ScheduledActionFilter') unless input[:filters].nil?
+        ScheduledActionFilterList.build(input[:filters], params, context: context + 'Filters' + '.ScheduledActionFilter') unless input[:filters].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1559,7 +1561,7 @@ module AWS::SDK::Redshift
     class ScheduledActionFilterList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ScheduledActionFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ScheduledActionFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1568,7 +1570,7 @@ module AWS::SDK::Redshift
     class ScheduledActionFilter
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::ValueStringList.build(input[:values], params, context: context + 'Values' + '.item') unless input[:values].nil?
+        ValueStringList.build(input[:values], params, context: context + 'Values' + '.item') unless input[:values].nil?
       end
     end
 
@@ -1585,9 +1587,9 @@ module AWS::SDK::Redshift
         params[context + 'SnapshotCopyGrantName'] = input[:snapshot_copy_grant_name].to_s unless input[:snapshot_copy_grant_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1603,11 +1605,11 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'ScheduleIdentifier'] = input[:schedule_identifier].to_s unless input[:schedule_identifier].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1621,7 +1623,7 @@ module AWS::SDK::Redshift
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeStorage'
         params['Version'] = '2012-12-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1639,7 +1641,7 @@ module AWS::SDK::Redshift
         params[context + 'TableRestoreRequestId'] = input[:table_restore_request_id].to_s unless input[:table_restore_request_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1657,9 +1659,9 @@ module AWS::SDK::Redshift
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1678,9 +1680,9 @@ module AWS::SDK::Redshift
         params[context + 'FeatureType'] = input[:feature_type].to_s unless input[:feature_type].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
-        Builders::TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.TagKey') unless input[:tag_keys].nil?
+        TagValueList.build(input[:tag_values], params, context: context + 'TagValues' + '.TagValue') unless input[:tag_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1695,7 +1697,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DisableLogging'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1710,7 +1712,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'DisableSnapshotCopy'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1728,7 +1730,7 @@ module AWS::SDK::Redshift
         params[context + 'DisassociateEntireAccount'] = input[:disassociate_entire_account].to_s unless input[:disassociate_entire_account].nil?
         params[context + 'ConsumerArn'] = input[:consumer_arn].to_s unless input[:consumer_arn].nil?
         params[context + 'ConsumerRegion'] = input[:consumer_region].to_s unless input[:consumer_region].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1746,8 +1748,8 @@ module AWS::SDK::Redshift
         params[context + 'BucketName'] = input[:bucket_name].to_s unless input[:bucket_name].nil?
         params[context + 'S3KeyPrefix'] = input[:s3_key_prefix].to_s unless input[:s3_key_prefix].nil?
         params[context + 'LogDestinationType'] = input[:log_destination_type].to_s unless input[:log_destination_type].nil?
-        Builders::LogTypeList.build(input[:log_exports], params, context: context + 'LogExports' + '.member') unless input[:log_exports].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LogTypeList.build(input[:log_exports], params, context: context + 'LogExports' + '.member') unless input[:log_exports].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1775,7 +1777,7 @@ module AWS::SDK::Redshift
         params[context + 'RetentionPeriod'] = input[:retention_period].to_s unless input[:retention_period].nil?
         params[context + 'SnapshotCopyGrantName'] = input[:snapshot_copy_grant_name].to_s unless input[:snapshot_copy_grant_name].nil?
         params[context + 'ManualSnapshotRetentionPeriod'] = input[:manual_snapshot_retention_period].to_s unless input[:manual_snapshot_retention_period].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1794,8 +1796,8 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?
         params[context + 'AutoCreate'] = input[:auto_create].to_s unless input[:auto_create].nil?
-        Builders::DbGroupList.build(input[:db_groups], params, context: context + 'DbGroups' + '.DbGroup') unless input[:db_groups].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DbGroupList.build(input[:db_groups], params, context: context + 'DbGroups' + '.DbGroup') unless input[:db_groups].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1821,7 +1823,7 @@ module AWS::SDK::Redshift
         params[context + 'DbName'] = input[:db_name].to_s unless input[:db_name].nil?
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'DurationSeconds'] = input[:duration_seconds].to_s unless input[:duration_seconds].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1840,7 +1842,7 @@ module AWS::SDK::Redshift
         params[context + 'SnapshotIdentifier'] = input[:snapshot_identifier].to_s unless input[:snapshot_identifier].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1857,7 +1859,7 @@ module AWS::SDK::Redshift
         params[context + 'ReservedNodeId'] = input[:reserved_node_id].to_s unless input[:reserved_node_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1873,7 +1875,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'AquaConfigurationStatus'] = input[:aqua_configuration_status].to_s unless input[:aqua_configuration_status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1889,7 +1891,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'AuthenticationProfileName'] = input[:authentication_profile_name].to_s unless input[:authentication_profile_name].nil?
         params[context + 'AuthenticationProfileContent'] = input[:authentication_profile_content].to_s unless input[:authentication_profile_content].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1907,8 +1909,8 @@ module AWS::SDK::Redshift
         params[context + 'ClusterType'] = input[:cluster_type].to_s unless input[:cluster_type].nil?
         params[context + 'NodeType'] = input[:node_type].to_s unless input[:node_type].nil?
         params[context + 'NumberOfNodes'] = input[:number_of_nodes].to_s unless input[:number_of_nodes].nil?
-        Builders::ClusterSecurityGroupNameList.build(input[:cluster_security_groups], params, context: context + 'ClusterSecurityGroups' + '.ClusterSecurityGroupName') unless input[:cluster_security_groups].nil?
-        Builders::VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
+        ClusterSecurityGroupNameList.build(input[:cluster_security_groups], params, context: context + 'ClusterSecurityGroups' + '.ClusterSecurityGroupName') unless input[:cluster_security_groups].nil?
+        VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
         params[context + 'MasterUserPassword'] = input[:master_user_password].to_s unless input[:master_user_password].nil?
         params[context + 'ClusterParameterGroupName'] = input[:cluster_parameter_group_name].to_s unless input[:cluster_parameter_group_name].nil?
         params[context + 'AutomatedSnapshotRetentionPeriod'] = input[:automated_snapshot_retention_period].to_s unless input[:automated_snapshot_retention_period].nil?
@@ -1928,7 +1930,7 @@ module AWS::SDK::Redshift
         params[context + 'AvailabilityZoneRelocation'] = input[:availability_zone_relocation].to_s unless input[:availability_zone_relocation].nil?
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'Port'] = input[:port].to_s unless input[:port].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1944,7 +1946,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'RevisionTarget'] = input[:revision_target].to_s unless input[:revision_target].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1959,10 +1961,10 @@ module AWS::SDK::Redshift
         params['Action'] = 'ModifyClusterIamRoles'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        Builders::IamRoleArnList.build(input[:add_iam_roles], params, context: context + 'AddIamRoles' + '.IamRoleArn') unless input[:add_iam_roles].nil?
-        Builders::IamRoleArnList.build(input[:remove_iam_roles], params, context: context + 'RemoveIamRoles' + '.IamRoleArn') unless input[:remove_iam_roles].nil?
+        IamRoleArnList.build(input[:add_iam_roles], params, context: context + 'AddIamRoles' + '.IamRoleArn') unless input[:add_iam_roles].nil?
+        IamRoleArnList.build(input[:remove_iam_roles], params, context: context + 'RemoveIamRoles' + '.IamRoleArn') unless input[:remove_iam_roles].nil?
         params[context + 'DefaultIamRoleArn'] = input[:default_iam_role_arn].to_s unless input[:default_iam_role_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1982,7 +1984,7 @@ module AWS::SDK::Redshift
         params[context + 'DeferMaintenanceStartTime'] = Hearth::TimeHelper.to_date_time(input[:defer_maintenance_start_time]) unless input[:defer_maintenance_start_time].nil?
         params[context + 'DeferMaintenanceEndTime'] = Hearth::TimeHelper.to_date_time(input[:defer_maintenance_end_time]) unless input[:defer_maintenance_end_time].nil?
         params[context + 'DeferMaintenanceDuration'] = input[:defer_maintenance_duration].to_s unless input[:defer_maintenance_duration].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1997,8 +1999,8 @@ module AWS::SDK::Redshift
         params['Action'] = 'ModifyClusterParameterGroup'
         params['Version'] = '2012-12-01'
         params[context + 'ParameterGroupName'] = input[:parameter_group_name].to_s unless input[:parameter_group_name].nil?
-        Builders::ParametersList.build(input[:parameters], params, context: context + 'Parameters' + '.Parameter') unless input[:parameters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ParametersList.build(input[:parameters], params, context: context + 'Parameters' + '.Parameter') unless input[:parameters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2006,7 +2008,7 @@ module AWS::SDK::Redshift
     class ParametersList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Parameter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Parameter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2039,7 +2041,7 @@ module AWS::SDK::Redshift
         params[context + 'SnapshotIdentifier'] = input[:snapshot_identifier].to_s unless input[:snapshot_identifier].nil?
         params[context + 'ManualSnapshotRetentionPeriod'] = input[:manual_snapshot_retention_period].to_s unless input[:manual_snapshot_retention_period].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2056,7 +2058,7 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'ScheduleIdentifier'] = input[:schedule_identifier].to_s unless input[:schedule_identifier].nil?
         params[context + 'DisassociateSchedule'] = input[:disassociate_schedule].to_s unless input[:disassociate_schedule].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2072,8 +2074,8 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterSubnetGroupName'] = input[:cluster_subnet_group_name].to_s unless input[:cluster_subnet_group_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2088,8 +2090,8 @@ module AWS::SDK::Redshift
         params['Action'] = 'ModifyEndpointAccess'
         params['Version'] = '2012-12-01'
         params[context + 'EndpointName'] = input[:endpoint_name].to_s unless input[:endpoint_name].nil?
-        Builders::VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2106,11 +2108,11 @@ module AWS::SDK::Redshift
         params[context + 'SubscriptionName'] = input[:subscription_name].to_s unless input[:subscription_name].nil?
         params[context + 'SnsTopicArn'] = input[:sns_topic_arn].to_s unless input[:sns_topic_arn].nil?
         params[context + 'SourceType'] = input[:source_type].to_s unless input[:source_type].nil?
-        Builders::SourceIdsList.build(input[:source_ids], params, context: context + 'SourceIds' + '.SourceId') unless input[:source_ids].nil?
-        Builders::EventCategoriesList.build(input[:event_categories], params, context: context + 'EventCategories' + '.EventCategory') unless input[:event_categories].nil?
+        SourceIdsList.build(input[:source_ids], params, context: context + 'SourceIds' + '.SourceId') unless input[:source_ids].nil?
+        EventCategoriesList.build(input[:event_categories], params, context: context + 'EventCategories' + '.EventCategory') unless input[:event_categories].nil?
         params[context + 'Severity'] = input[:severity].to_s unless input[:severity].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2125,14 +2127,14 @@ module AWS::SDK::Redshift
         params['Action'] = 'ModifyScheduledAction'
         params['Version'] = '2012-12-01'
         params[context + 'ScheduledActionName'] = input[:scheduled_action_name].to_s unless input[:scheduled_action_name].nil?
-        Builders::ScheduledActionType.build(input[:target_action], params, context: context + 'TargetAction' + '.') unless input[:target_action].nil?
+        ScheduledActionType.build(input[:target_action], params, context: context + 'TargetAction' + '.') unless input[:target_action].nil?
         params[context + 'Schedule'] = input[:schedule].to_s unless input[:schedule].nil?
         params[context + 'IamRole'] = input[:iam_role].to_s unless input[:iam_role].nil?
         params[context + 'ScheduledActionDescription'] = input[:scheduled_action_description].to_s unless input[:scheduled_action_description].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
         params[context + 'Enable'] = input[:enable].to_s unless input[:enable].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2149,7 +2151,7 @@ module AWS::SDK::Redshift
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'RetentionPeriod'] = input[:retention_period].to_s unless input[:retention_period].nil?
         params[context + 'Manual'] = input[:manual].to_s unless input[:manual].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2164,8 +2166,8 @@ module AWS::SDK::Redshift
         params['Action'] = 'ModifySnapshotSchedule'
         params['Version'] = '2012-12-01'
         params[context + 'ScheduleIdentifier'] = input[:schedule_identifier].to_s unless input[:schedule_identifier].nil?
-        Builders::ScheduleDefinitionList.build(input[:schedule_definitions], params, context: context + 'ScheduleDefinitions' + '.ScheduleDefinition') unless input[:schedule_definitions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ScheduleDefinitionList.build(input[:schedule_definitions], params, context: context + 'ScheduleDefinitions' + '.ScheduleDefinition') unless input[:schedule_definitions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2182,7 +2184,7 @@ module AWS::SDK::Redshift
         params[context + 'UsageLimitId'] = input[:usage_limit_id].to_s unless input[:usage_limit_id].nil?
         params[context + 'Amount'] = input[:amount].to_s unless input[:amount].nil?
         params[context + 'BreachAction'] = input[:breach_action].to_s unless input[:breach_action].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2197,7 +2199,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'PauseCluster'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2213,7 +2215,7 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ReservedNodeOfferingId'] = input[:reserved_node_offering_id].to_s unless input[:reserved_node_offering_id].nil?
         params[context + 'NodeCount'] = input[:node_count].to_s unless input[:node_count].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2228,7 +2230,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'RebootCluster'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2243,7 +2245,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'RejectDataShare'
         params['Version'] = '2012-12-01'
         params[context + 'DataShareArn'] = input[:data_share_arn].to_s unless input[:data_share_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2259,8 +2261,8 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ParameterGroupName'] = input[:parameter_group_name].to_s unless input[:parameter_group_name].nil?
         params[context + 'ResetAllParameters'] = input[:reset_all_parameters].to_s unless input[:reset_all_parameters].nil?
-        Builders::ParametersList.build(input[:parameters], params, context: context + 'Parameters' + '.Parameter') unless input[:parameters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ParametersList.build(input[:parameters], params, context: context + 'Parameters' + '.Parameter') unless input[:parameters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2281,7 +2283,7 @@ module AWS::SDK::Redshift
         params[context + 'Classic'] = input[:classic].to_s unless input[:classic].nil?
         params[context + 'ReservedNodeId'] = input[:reserved_node_id].to_s unless input[:reserved_node_id].nil?
         params[context + 'TargetReservedNodeOfferingId'] = input[:target_reserved_node_offering_id].to_s unless input[:target_reserved_node_offering_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2308,8 +2310,8 @@ module AWS::SDK::Redshift
         params[context + 'HsmConfigurationIdentifier'] = input[:hsm_configuration_identifier].to_s unless input[:hsm_configuration_identifier].nil?
         params[context + 'ElasticIp'] = input[:elastic_ip].to_s unless input[:elastic_ip].nil?
         params[context + 'ClusterParameterGroupName'] = input[:cluster_parameter_group_name].to_s unless input[:cluster_parameter_group_name].nil?
-        Builders::ClusterSecurityGroupNameList.build(input[:cluster_security_groups], params, context: context + 'ClusterSecurityGroups' + '.ClusterSecurityGroupName') unless input[:cluster_security_groups].nil?
-        Builders::VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
+        ClusterSecurityGroupNameList.build(input[:cluster_security_groups], params, context: context + 'ClusterSecurityGroups' + '.ClusterSecurityGroupName') unless input[:cluster_security_groups].nil?
+        VpcSecurityGroupIdList.build(input[:vpc_security_group_ids], params, context: context + 'VpcSecurityGroupIds' + '.VpcSecurityGroupId') unless input[:vpc_security_group_ids].nil?
         params[context + 'PreferredMaintenanceWindow'] = input[:preferred_maintenance_window].to_s unless input[:preferred_maintenance_window].nil?
         params[context + 'AutomatedSnapshotRetentionPeriod'] = input[:automated_snapshot_retention_period].to_s unless input[:automated_snapshot_retention_period].nil?
         params[context + 'ManualSnapshotRetentionPeriod'] = input[:manual_snapshot_retention_period].to_s unless input[:manual_snapshot_retention_period].nil?
@@ -2317,7 +2319,7 @@ module AWS::SDK::Redshift
         params[context + 'NodeType'] = input[:node_type].to_s unless input[:node_type].nil?
         params[context + 'EnhancedVpcRouting'] = input[:enhanced_vpc_routing].to_s unless input[:enhanced_vpc_routing].nil?
         params[context + 'AdditionalInfo'] = input[:additional_info].to_s unless input[:additional_info].nil?
-        Builders::IamRoleArnList.build(input[:iam_roles], params, context: context + 'IamRoles' + '.IamRoleArn') unless input[:iam_roles].nil?
+        IamRoleArnList.build(input[:iam_roles], params, context: context + 'IamRoles' + '.IamRoleArn') unless input[:iam_roles].nil?
         params[context + 'MaintenanceTrackName'] = input[:maintenance_track_name].to_s unless input[:maintenance_track_name].nil?
         params[context + 'SnapshotScheduleIdentifier'] = input[:snapshot_schedule_identifier].to_s unless input[:snapshot_schedule_identifier].nil?
         params[context + 'NumberOfNodes'] = input[:number_of_nodes].to_s unless input[:number_of_nodes].nil?
@@ -2327,7 +2329,7 @@ module AWS::SDK::Redshift
         params[context + 'ReservedNodeId'] = input[:reserved_node_id].to_s unless input[:reserved_node_id].nil?
         params[context + 'TargetReservedNodeOfferingId'] = input[:target_reserved_node_offering_id].to_s unless input[:target_reserved_node_offering_id].nil?
         params[context + 'Encrypted'] = input[:encrypted].to_s unless input[:encrypted].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2350,7 +2352,7 @@ module AWS::SDK::Redshift
         params[context + 'TargetSchemaName'] = input[:target_schema_name].to_s unless input[:target_schema_name].nil?
         params[context + 'NewTableName'] = input[:new_table_name].to_s unless input[:new_table_name].nil?
         params[context + 'EnableCaseSensitiveIdentifier'] = input[:enable_case_sensitive_identifier].to_s unless input[:enable_case_sensitive_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2365,7 +2367,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'ResumeCluster'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2383,7 +2385,7 @@ module AWS::SDK::Redshift
         params[context + 'CIDRIP'] = input[:cidrip].to_s unless input[:cidrip].nil?
         params[context + 'EC2SecurityGroupName'] = input[:ec2_security_group_name].to_s unless input[:ec2_security_group_name].nil?
         params[context + 'EC2SecurityGroupOwnerId'] = input[:ec2_security_group_owner_id].to_s unless input[:ec2_security_group_owner_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2399,9 +2401,9 @@ module AWS::SDK::Redshift
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
         params[context + 'Account'] = input[:account].to_s unless input[:account].nil?
-        Builders::VpcIdentifierList.build(input[:vpc_ids], params, context: context + 'VpcIds' + '.VpcIdentifier') unless input[:vpc_ids].nil?
+        VpcIdentifierList.build(input[:vpc_ids], params, context: context + 'VpcIds' + '.VpcIdentifier') unless input[:vpc_ids].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2418,7 +2420,7 @@ module AWS::SDK::Redshift
         params[context + 'SnapshotIdentifier'] = input[:snapshot_identifier].to_s unless input[:snapshot_identifier].nil?
         params[context + 'SnapshotClusterIdentifier'] = input[:snapshot_cluster_identifier].to_s unless input[:snapshot_cluster_identifier].nil?
         params[context + 'AccountWithRestoreAccess'] = input[:account_with_restore_access].to_s unless input[:account_with_restore_access].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2433,7 +2435,7 @@ module AWS::SDK::Redshift
         params['Action'] = 'RotateEncryptionKey'
         params['Version'] = '2012-12-01'
         params[context + 'ClusterIdentifier'] = input[:cluster_identifier].to_s unless input[:cluster_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2453,7 +2455,7 @@ module AWS::SDK::Redshift
         params[context + 'PartnerName'] = input[:partner_name].to_s unless input[:partner_name].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
         params[context + 'StatusMessage'] = input[:status_message].to_s unless input[:status_message].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

@@ -134,8 +134,8 @@ module AWS::SDK::WorkLink
         data = Types::DescribeCompanyNetworkConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data
       end
     end
@@ -214,7 +214,7 @@ module AWS::SDK::WorkLink
         data.optimize_for_end_user_location = map['OptimizeForEndUserLocation']
         data.company_code = map['CompanyCode']
         data.fleet_status = map['FleetStatus']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::WorkLink
       def self.parse(http_resp)
         data = Types::ListDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.devices = (Parsers::DeviceSummaryList.parse(map['Devices']) unless map['Devices'].nil?)
+        data.devices = (DeviceSummaryList.parse(map['Devices']) unless map['Devices'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -295,7 +295,7 @@ module AWS::SDK::WorkLink
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceSummary.parse(value) unless value.nil?
+          data << DeviceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -315,7 +315,7 @@ module AWS::SDK::WorkLink
       def self.parse(http_resp)
         data = Types::ListDomainsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domains = (Parsers::DomainSummaryList.parse(map['Domains']) unless map['Domains'].nil?)
+        data.domains = (DomainSummaryList.parse(map['Domains']) unless map['Domains'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -325,7 +325,7 @@ module AWS::SDK::WorkLink
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainSummary.parse(value) unless value.nil?
+          data << DomainSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -347,7 +347,7 @@ module AWS::SDK::WorkLink
       def self.parse(http_resp)
         data = Types::ListFleetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.fleet_summary_list = (Parsers::FleetSummaryList.parse(map['FleetSummaryList']) unless map['FleetSummaryList'].nil?)
+        data.fleet_summary_list = (FleetSummaryList.parse(map['FleetSummaryList']) unless map['FleetSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -357,7 +357,7 @@ module AWS::SDK::WorkLink
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FleetSummary.parse(value) unless value.nil?
+          data << FleetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -373,7 +373,7 @@ module AWS::SDK::WorkLink
         data.display_name = map['DisplayName']
         data.company_code = map['CompanyCode']
         data.fleet_status = map['FleetStatus']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -383,7 +383,7 @@ module AWS::SDK::WorkLink
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -393,7 +393,7 @@ module AWS::SDK::WorkLink
       def self.parse(http_resp)
         data = Types::ListWebsiteAuthorizationProvidersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.website_authorization_providers = (Parsers::WebsiteAuthorizationProvidersSummaryList.parse(map['WebsiteAuthorizationProviders']) unless map['WebsiteAuthorizationProviders'].nil?)
+        data.website_authorization_providers = (WebsiteAuthorizationProvidersSummaryList.parse(map['WebsiteAuthorizationProviders']) unless map['WebsiteAuthorizationProviders'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -403,7 +403,7 @@ module AWS::SDK::WorkLink
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WebsiteAuthorizationProviderSummary.parse(value) unless value.nil?
+          data << WebsiteAuthorizationProviderSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -425,7 +425,7 @@ module AWS::SDK::WorkLink
       def self.parse(http_resp)
         data = Types::ListWebsiteCertificateAuthoritiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.website_certificate_authorities = (Parsers::WebsiteCaSummaryList.parse(map['WebsiteCertificateAuthorities']) unless map['WebsiteCertificateAuthorities'].nil?)
+        data.website_certificate_authorities = (WebsiteCaSummaryList.parse(map['WebsiteCertificateAuthorities']) unless map['WebsiteCertificateAuthorities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -435,7 +435,7 @@ module AWS::SDK::WorkLink
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WebsiteCaSummary.parse(value) unless value.nil?
+          data << WebsiteCaSummary.parse(value) unless value.nil?
         end
         data
       end

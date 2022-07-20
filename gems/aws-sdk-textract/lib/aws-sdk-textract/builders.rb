@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Textract
   module Builders
 
@@ -18,11 +21,11 @@ module AWS::SDK::Textract
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Textract.AnalyzeDocument'
         data = {}
-        data['Document'] = Builders::Document.build(input[:document]) unless input[:document].nil?
-        data['FeatureTypes'] = Builders::FeatureTypes.build(input[:feature_types]) unless input[:feature_types].nil?
-        data['HumanLoopConfig'] = Builders::HumanLoopConfig.build(input[:human_loop_config]) unless input[:human_loop_config].nil?
-        data['QueriesConfig'] = Builders::QueriesConfig.build(input[:queries_config]) unless input[:queries_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Document'] = Document.build(input[:document]) unless input[:document].nil?
+        data['FeatureTypes'] = FeatureTypes.build(input[:feature_types]) unless input[:feature_types].nil?
+        data['HumanLoopConfig'] = HumanLoopConfig.build(input[:human_loop_config]) unless input[:human_loop_config].nil?
+        data['QueriesConfig'] = QueriesConfig.build(input[:queries_config]) unless input[:queries_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +33,7 @@ module AWS::SDK::Textract
     class QueriesConfig
       def self.build(input)
         data = {}
-        data['Queries'] = Builders::Queries.build(input[:queries]) unless input[:queries].nil?
+        data['Queries'] = Queries.build(input[:queries]) unless input[:queries].nil?
         data
       end
     end
@@ -40,7 +43,7 @@ module AWS::SDK::Textract
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Query.build(element) unless element.nil?
+          data << Query.build(element) unless element.nil?
         end
         data
       end
@@ -52,7 +55,7 @@ module AWS::SDK::Textract
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
         data['Alias'] = input[:alias] unless input[:alias].nil?
-        data['Pages'] = Builders::QueryPages.build(input[:pages]) unless input[:pages].nil?
+        data['Pages'] = QueryPages.build(input[:pages]) unless input[:pages].nil?
         data
       end
     end
@@ -74,7 +77,7 @@ module AWS::SDK::Textract
         data = {}
         data['HumanLoopName'] = input[:human_loop_name] unless input[:human_loop_name].nil?
         data['FlowDefinitionArn'] = input[:flow_definition_arn] unless input[:flow_definition_arn].nil?
-        data['DataAttributes'] = Builders::HumanLoopDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
+        data['DataAttributes'] = HumanLoopDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
         data
       end
     end
@@ -83,7 +86,7 @@ module AWS::SDK::Textract
     class HumanLoopDataAttributes
       def self.build(input)
         data = {}
-        data['ContentClassifiers'] = Builders::ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
+        data['ContentClassifiers'] = ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
         data
       end
     end
@@ -114,8 +117,8 @@ module AWS::SDK::Textract
     class Document
       def self.build(input)
         data = {}
-        data['Bytes'] = Base64::encode64(input[:bytes]).strip unless input[:bytes].nil?
-        data['S3Object'] = Builders::S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
+        data['Bytes'] = ::Base64::encode64(input[:bytes]).strip unless input[:bytes].nil?
+        data['S3Object'] = S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
         data
       end
     end
@@ -139,8 +142,8 @@ module AWS::SDK::Textract
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Textract.AnalyzeExpense'
         data = {}
-        data['Document'] = Builders::Document.build(input[:document]) unless input[:document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Document'] = Document.build(input[:document]) unless input[:document].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -152,8 +155,8 @@ module AWS::SDK::Textract
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Textract.AnalyzeID'
         data = {}
-        data['DocumentPages'] = Builders::DocumentPages.build(input[:document_pages]) unless input[:document_pages].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DocumentPages'] = DocumentPages.build(input[:document_pages]) unless input[:document_pages].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,7 +165,7 @@ module AWS::SDK::Textract
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Document.build(element) unless element.nil?
+          data << Document.build(element) unless element.nil?
         end
         data
       end
@@ -176,8 +179,8 @@ module AWS::SDK::Textract
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Textract.DetectDocumentText'
         data = {}
-        data['Document'] = Builders::Document.build(input[:document]) unless input[:document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Document'] = Document.build(input[:document]) unless input[:document].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,7 +195,7 @@ module AWS::SDK::Textract
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -207,7 +210,7 @@ module AWS::SDK::Textract
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +225,7 @@ module AWS::SDK::Textract
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,15 +237,15 @@ module AWS::SDK::Textract
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Textract.StartDocumentAnalysis'
         data = {}
-        data['DocumentLocation'] = Builders::DocumentLocation.build(input[:document_location]) unless input[:document_location].nil?
-        data['FeatureTypes'] = Builders::FeatureTypes.build(input[:feature_types]) unless input[:feature_types].nil?
+        data['DocumentLocation'] = DocumentLocation.build(input[:document_location]) unless input[:document_location].nil?
+        data['FeatureTypes'] = FeatureTypes.build(input[:feature_types]) unless input[:feature_types].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
-        data['OutputConfig'] = Builders::OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['OutputConfig'] = OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['KMSKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['QueriesConfig'] = Builders::QueriesConfig.build(input[:queries_config]) unless input[:queries_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueriesConfig'] = QueriesConfig.build(input[:queries_config]) unless input[:queries_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -270,7 +273,7 @@ module AWS::SDK::Textract
     class DocumentLocation
       def self.build(input)
         data = {}
-        data['S3Object'] = Builders::S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
+        data['S3Object'] = S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
         data
       end
     end
@@ -283,13 +286,13 @@ module AWS::SDK::Textract
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Textract.StartDocumentTextDetection'
         data = {}
-        data['DocumentLocation'] = Builders::DocumentLocation.build(input[:document_location]) unless input[:document_location].nil?
+        data['DocumentLocation'] = DocumentLocation.build(input[:document_location]) unless input[:document_location].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
-        data['OutputConfig'] = Builders::OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['OutputConfig'] = OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['KMSKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,13 +304,13 @@ module AWS::SDK::Textract
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Textract.StartExpenseAnalysis'
         data = {}
-        data['DocumentLocation'] = Builders::DocumentLocation.build(input[:document_location]) unless input[:document_location].nil?
+        data['DocumentLocation'] = DocumentLocation.build(input[:document_location]) unless input[:document_location].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
-        data['OutputConfig'] = Builders::OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['OutputConfig'] = OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['KMSKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

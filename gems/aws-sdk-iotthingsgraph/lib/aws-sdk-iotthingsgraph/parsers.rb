@@ -76,7 +76,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::FlowTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (FlowTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end
@@ -123,7 +123,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end
@@ -151,7 +151,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::SystemTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (SystemTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end
@@ -232,7 +232,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
         data.greengrass_deployment_id = map['greengrassDeploymentId']
         data
       end
@@ -294,7 +294,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.descriptions = (Parsers::EntityDescriptions.parse(map['descriptions']) unless map['descriptions'].nil?)
+        data.descriptions = (EntityDescriptions.parse(map['descriptions']) unless map['descriptions'].nil?)
         data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::IoTThingsGraph
     class EntityDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityDescription.parse(value) unless value.nil?
+          EntityDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -314,7 +314,7 @@ module AWS::SDK::IoTThingsGraph
         data.arn = map['arn']
         data.type = map['type']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.definition = (Parsers::DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
+        data.definition = (DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
         return data
       end
     end
@@ -335,7 +335,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.description = (Parsers::FlowTemplateDescription.parse(map['description']) unless map['description'].nil?)
+        data.description = (FlowTemplateDescription.parse(map['description']) unless map['description'].nil?)
         data
       end
     end
@@ -343,8 +343,8 @@ module AWS::SDK::IoTThingsGraph
     class FlowTemplateDescription
       def self.parse(map)
         data = Types::FlowTemplateDescription.new
-        data.summary = (Parsers::FlowTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
-        data.definition = (Parsers::DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
+        data.summary = (FlowTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.definition = (DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
         data.validated_namespace_version = map['validatedNamespaceVersion']
         return data
       end
@@ -357,7 +357,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summaries = (Parsers::FlowTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (FlowTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -366,7 +366,7 @@ module AWS::SDK::IoTThingsGraph
     class FlowTemplateSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::FlowTemplateSummary.parse(value) unless value.nil?
+          FlowTemplateSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -394,7 +394,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.description = (Parsers::SystemInstanceDescription.parse(map['description']) unless map['description'].nil?)
+        data.description = (SystemInstanceDescription.parse(map['description']) unless map['description'].nil?)
         data
       end
     end
@@ -402,12 +402,12 @@ module AWS::SDK::IoTThingsGraph
     class SystemInstanceDescription
       def self.parse(map)
         data = Types::SystemInstanceDescription.new
-        data.summary = (Parsers::SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
-        data.definition = (Parsers::DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
+        data.summary = (SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.definition = (DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
         data.s3_bucket_name = map['s3BucketName']
-        data.metrics_configuration = (Parsers::MetricsConfiguration.parse(map['metricsConfiguration']) unless map['metricsConfiguration'].nil?)
+        data.metrics_configuration = (MetricsConfiguration.parse(map['metricsConfiguration']) unless map['metricsConfiguration'].nil?)
         data.validated_namespace_version = map['validatedNamespaceVersion']
-        data.validated_dependency_revisions = (Parsers::DependencyRevisions.parse(map['validatedDependencyRevisions']) unless map['validatedDependencyRevisions'].nil?)
+        data.validated_dependency_revisions = (DependencyRevisions.parse(map['validatedDependencyRevisions']) unless map['validatedDependencyRevisions'].nil?)
         data.flow_actions_role_arn = map['flowActionsRoleArn']
         return data
       end
@@ -416,7 +416,7 @@ module AWS::SDK::IoTThingsGraph
     class DependencyRevisions
       def self.parse(list)
         list.map do |value|
-          Parsers::DependencyRevision.parse(value) unless value.nil?
+          DependencyRevision.parse(value) unless value.nil?
         end
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.description = (Parsers::SystemTemplateDescription.parse(map['description']) unless map['description'].nil?)
+        data.description = (SystemTemplateDescription.parse(map['description']) unless map['description'].nil?)
         data
       end
     end
@@ -454,8 +454,8 @@ module AWS::SDK::IoTThingsGraph
     class SystemTemplateDescription
       def self.parse(map)
         data = Types::SystemTemplateDescription.new
-        data.summary = (Parsers::SystemTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
-        data.definition = (Parsers::DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
+        data.summary = (SystemTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.definition = (DefinitionDocument.parse(map['definition']) unless map['definition'].nil?)
         data.validated_namespace_version = map['validatedNamespaceVersion']
         return data
       end
@@ -468,7 +468,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summaries = (Parsers::SystemTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (SystemTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -477,7 +477,7 @@ module AWS::SDK::IoTThingsGraph
     class SystemTemplateSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SystemTemplateSummary.parse(value) unless value.nil?
+          SystemTemplateSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -494,7 +494,7 @@ module AWS::SDK::IoTThingsGraph
         data.namespace_arn = map['namespaceArn']
         data.namespace_name = map['namespaceName']
         data.namespace_version = map['namespaceVersion']
-        data.failure_reason = (Parsers::StringList.parse(map['failureReason']) unless map['failureReason'].nil?)
+        data.failure_reason = (StringList.parse(map['failureReason']) unless map['failureReason'].nil?)
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data
       end
@@ -515,7 +515,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.messages = (Parsers::FlowExecutionMessages.parse(map['messages']) unless map['messages'].nil?)
+        data.messages = (FlowExecutionMessages.parse(map['messages']) unless map['messages'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -524,7 +524,7 @@ module AWS::SDK::IoTThingsGraph
     class FlowExecutionMessages
       def self.parse(list)
         list.map do |value|
-          Parsers::FlowExecutionMessage.parse(value) unless value.nil?
+          FlowExecutionMessage.parse(value) unless value.nil?
         end
       end
     end
@@ -547,7 +547,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -556,7 +556,7 @@ module AWS::SDK::IoTThingsGraph
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -577,7 +577,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.descriptions = (Parsers::EntityDescriptions.parse(map['descriptions']) unless map['descriptions'].nil?)
+        data.descriptions = (EntityDescriptions.parse(map['descriptions']) unless map['descriptions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -590,7 +590,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summaries = (Parsers::FlowExecutionSummaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (FlowExecutionSummaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -599,7 +599,7 @@ module AWS::SDK::IoTThingsGraph
     class FlowExecutionSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::FlowExecutionSummary.parse(value) unless value.nil?
+          FlowExecutionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -624,7 +624,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summaries = (Parsers::FlowTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (FlowTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -637,7 +637,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summaries = (Parsers::SystemInstanceSummaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (SystemInstanceSummaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -646,7 +646,7 @@ module AWS::SDK::IoTThingsGraph
     class SystemInstanceSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SystemInstanceSummary.parse(value) unless value.nil?
+          SystemInstanceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -658,7 +658,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summaries = (Parsers::SystemTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (SystemTemplateSummaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -671,7 +671,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.things = (Parsers::Things.parse(map['things']) unless map['things'].nil?)
+        data.things = (Things.parse(map['things']) unless map['things'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -680,7 +680,7 @@ module AWS::SDK::IoTThingsGraph
     class Things
       def self.parse(list)
         list.map do |value|
-          Parsers::Thing.parse(value) unless value.nil?
+          Thing.parse(value) unless value.nil?
         end
       end
     end
@@ -712,7 +712,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (SystemInstanceSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end
@@ -735,7 +735,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::FlowTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (FlowTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end
@@ -747,7 +747,7 @@ module AWS::SDK::IoTThingsGraph
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::SystemTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (SystemTemplateSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end

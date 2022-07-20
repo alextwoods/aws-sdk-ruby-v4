@@ -155,7 +155,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_service_action_associations = (Parsers::FailedServiceActionAssociations.parse(map['FailedServiceActionAssociations']) unless map['FailedServiceActionAssociations'].nil?)
+        data.failed_service_action_associations = (FailedServiceActionAssociations.parse(map['FailedServiceActionAssociations']) unless map['FailedServiceActionAssociations'].nil?)
         data
       end
     end
@@ -163,7 +163,7 @@ module AWS::SDK::ServiceCatalog
     class FailedServiceActionAssociations
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedServiceActionAssociation.parse(value) unless value.nil?
+          FailedServiceActionAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -187,7 +187,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_service_action_associations = (Parsers::FailedServiceActionAssociations.parse(map['FailedServiceActionAssociations']) unless map['FailedServiceActionAssociations'].nil?)
+        data.failed_service_action_associations = (FailedServiceActionAssociations.parse(map['FailedServiceActionAssociations']) unless map['FailedServiceActionAssociations'].nil?)
         data
       end
     end
@@ -211,7 +211,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.constraint_detail = (Parsers::ConstraintDetail.parse(map['ConstraintDetail']) unless map['ConstraintDetail'].nil?)
+        data.constraint_detail = (ConstraintDetail.parse(map['ConstraintDetail']) unless map['ConstraintDetail'].nil?)
         data.constraint_parameters = map['ConstraintParameters']
         data.status = map['Status']
         data
@@ -238,8 +238,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.portfolio_detail = (Parsers::PortfolioDetail.parse(map['PortfolioDetail']) unless map['PortfolioDetail'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.portfolio_detail = (PortfolioDetail.parse(map['PortfolioDetail']) unless map['PortfolioDetail'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::ServiceCatalog
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -305,9 +305,9 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.product_view_detail = (Parsers::ProductViewDetail.parse(map['ProductViewDetail']) unless map['ProductViewDetail'].nil?)
-        data.provisioning_artifact_detail = (Parsers::ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.product_view_detail = (ProductViewDetail.parse(map['ProductViewDetail']) unless map['ProductViewDetail'].nil?)
+        data.provisioning_artifact_detail = (ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -329,7 +329,7 @@ module AWS::SDK::ServiceCatalog
     class ProductViewDetail
       def self.parse(map)
         data = Types::ProductViewDetail.new
-        data.product_view_summary = (Parsers::ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
+        data.product_view_summary = (ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
         data.status = map['Status']
         data.product_arn = map['ProductARN']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
@@ -378,8 +378,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioning_artifact_detail = (Parsers::ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
-        data.info = (Parsers::ProvisioningArtifactInfo.parse(map['Info']) unless map['Info'].nil?)
+        data.provisioning_artifact_detail = (ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
+        data.info = (ProvisioningArtifactInfo.parse(map['Info']) unless map['Info'].nil?)
         data.status = map['Status']
         data
       end
@@ -402,7 +402,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_action_detail = (Parsers::ServiceActionDetail.parse(map['ServiceActionDetail']) unless map['ServiceActionDetail'].nil?)
+        data.service_action_detail = (ServiceActionDetail.parse(map['ServiceActionDetail']) unless map['ServiceActionDetail'].nil?)
         data
       end
     end
@@ -410,8 +410,8 @@ module AWS::SDK::ServiceCatalog
     class ServiceActionDetail
       def self.parse(map)
         data = Types::ServiceActionDetail.new
-        data.service_action_summary = (Parsers::ServiceActionSummary.parse(map['ServiceActionSummary']) unless map['ServiceActionSummary'].nil?)
-        data.definition = (Parsers::ServiceActionDefinitionMap.parse(map['Definition']) unless map['Definition'].nil?)
+        data.service_action_summary = (ServiceActionSummary.parse(map['ServiceActionSummary']) unless map['ServiceActionSummary'].nil?)
+        data.definition = (ServiceActionDefinitionMap.parse(map['Definition']) unless map['Definition'].nil?)
         return data
       end
     end
@@ -444,7 +444,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_option_detail = (Parsers::TagOptionDetail.parse(map['TagOptionDetail']) unless map['TagOptionDetail'].nil?)
+        data.tag_option_detail = (TagOptionDetail.parse(map['TagOptionDetail']) unless map['TagOptionDetail'].nil?)
         data
       end
     end
@@ -569,7 +569,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.constraint_detail = (Parsers::ConstraintDetail.parse(map['ConstraintDetail']) unless map['ConstraintDetail'].nil?)
+        data.constraint_detail = (ConstraintDetail.parse(map['ConstraintDetail']) unless map['ConstraintDetail'].nil?)
         data.constraint_parameters = map['ConstraintParameters']
         data.status = map['Status']
         data
@@ -597,10 +597,10 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.portfolio_detail = (Parsers::PortfolioDetail.parse(map['PortfolioDetail']) unless map['PortfolioDetail'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.tag_options = (Parsers::TagOptionDetails.parse(map['TagOptions']) unless map['TagOptions'].nil?)
-        data.budgets = (Parsers::Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
+        data.portfolio_detail = (PortfolioDetail.parse(map['PortfolioDetail']) unless map['PortfolioDetail'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tag_options = (TagOptionDetails.parse(map['TagOptions']) unless map['TagOptions'].nil?)
+        data.budgets = (Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
         data
       end
     end
@@ -608,7 +608,7 @@ module AWS::SDK::ServiceCatalog
     class Budgets
       def self.parse(list)
         list.map do |value|
-          Parsers::BudgetDetail.parse(value) unless value.nil?
+          BudgetDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -624,7 +624,7 @@ module AWS::SDK::ServiceCatalog
     class TagOptionDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::TagOptionDetail.parse(value) unless value.nil?
+          TagOptionDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -640,7 +640,7 @@ module AWS::SDK::ServiceCatalog
         data.portfolio_id = map['PortfolioId']
         data.organization_node_value = map['OrganizationNodeValue']
         data.status = map['Status']
-        data.share_details = (Parsers::ShareDetails.parse(map['ShareDetails']) unless map['ShareDetails'].nil?)
+        data.share_details = (ShareDetails.parse(map['ShareDetails']) unless map['ShareDetails'].nil?)
         data
       end
     end
@@ -648,8 +648,8 @@ module AWS::SDK::ServiceCatalog
     class ShareDetails
       def self.parse(map)
         data = Types::ShareDetails.new
-        data.successful_shares = (Parsers::SuccessfulShares.parse(map['SuccessfulShares']) unless map['SuccessfulShares'].nil?)
-        data.share_errors = (Parsers::ShareErrors.parse(map['ShareErrors']) unless map['ShareErrors'].nil?)
+        data.successful_shares = (SuccessfulShares.parse(map['SuccessfulShares']) unless map['SuccessfulShares'].nil?)
+        data.share_errors = (ShareErrors.parse(map['ShareErrors']) unless map['ShareErrors'].nil?)
         return data
       end
     end
@@ -657,7 +657,7 @@ module AWS::SDK::ServiceCatalog
     class ShareErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::ShareError.parse(value) unless value.nil?
+          ShareError.parse(value) unless value.nil?
         end
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::ServiceCatalog
     class ShareError
       def self.parse(map)
         data = Types::ShareError.new
-        data.accounts = (Parsers::Namespaces.parse(map['Accounts']) unless map['Accounts'].nil?)
+        data.accounts = (Namespaces.parse(map['Accounts']) unless map['Accounts'].nil?)
         data.message = map['Message']
         data.error = map['Error']
         return data
@@ -696,7 +696,7 @@ module AWS::SDK::ServiceCatalog
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_page_token = map['NextPageToken']
-        data.portfolio_share_details = (Parsers::PortfolioShareDetails.parse(map['PortfolioShareDetails']) unless map['PortfolioShareDetails'].nil?)
+        data.portfolio_share_details = (PortfolioShareDetails.parse(map['PortfolioShareDetails']) unless map['PortfolioShareDetails'].nil?)
         data
       end
     end
@@ -704,7 +704,7 @@ module AWS::SDK::ServiceCatalog
     class PortfolioShareDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::PortfolioShareDetail.parse(value) unless value.nil?
+          PortfolioShareDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -727,10 +727,10 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.product_view_summary = (Parsers::ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
-        data.provisioning_artifacts = (Parsers::ProvisioningArtifacts.parse(map['ProvisioningArtifacts']) unless map['ProvisioningArtifacts'].nil?)
-        data.budgets = (Parsers::Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
-        data.launch_paths = (Parsers::LaunchPaths.parse(map['LaunchPaths']) unless map['LaunchPaths'].nil?)
+        data.product_view_summary = (ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
+        data.provisioning_artifacts = (ProvisioningArtifacts.parse(map['ProvisioningArtifacts']) unless map['ProvisioningArtifacts'].nil?)
+        data.budgets = (Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
+        data.launch_paths = (LaunchPaths.parse(map['LaunchPaths']) unless map['LaunchPaths'].nil?)
         data
       end
     end
@@ -738,7 +738,7 @@ module AWS::SDK::ServiceCatalog
     class LaunchPaths
       def self.parse(list)
         list.map do |value|
-          Parsers::LaunchPath.parse(value) unless value.nil?
+          LaunchPath.parse(value) unless value.nil?
         end
       end
     end
@@ -755,7 +755,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifacts
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisioningArtifact.parse(value) unless value.nil?
+          ProvisioningArtifact.parse(value) unless value.nil?
         end
       end
     end
@@ -779,11 +779,11 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.product_view_detail = (Parsers::ProductViewDetail.parse(map['ProductViewDetail']) unless map['ProductViewDetail'].nil?)
-        data.provisioning_artifact_summaries = (Parsers::ProvisioningArtifactSummaries.parse(map['ProvisioningArtifactSummaries']) unless map['ProvisioningArtifactSummaries'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.tag_options = (Parsers::TagOptionDetails.parse(map['TagOptions']) unless map['TagOptions'].nil?)
-        data.budgets = (Parsers::Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
+        data.product_view_detail = (ProductViewDetail.parse(map['ProductViewDetail']) unless map['ProductViewDetail'].nil?)
+        data.provisioning_artifact_summaries = (ProvisioningArtifactSummaries.parse(map['ProvisioningArtifactSummaries']) unless map['ProvisioningArtifactSummaries'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tag_options = (TagOptionDetails.parse(map['TagOptions']) unless map['TagOptions'].nil?)
+        data.budgets = (Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
         data
       end
     end
@@ -791,7 +791,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisioningArtifactSummary.parse(value) unless value.nil?
+          ProvisioningArtifactSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -803,7 +803,7 @@ module AWS::SDK::ServiceCatalog
         data.name = map['Name']
         data.description = map['Description']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.provisioning_artifact_metadata = (Parsers::ProvisioningArtifactInfo.parse(map['ProvisioningArtifactMetadata']) unless map['ProvisioningArtifactMetadata'].nil?)
+        data.provisioning_artifact_metadata = (ProvisioningArtifactInfo.parse(map['ProvisioningArtifactMetadata']) unless map['ProvisioningArtifactMetadata'].nil?)
         return data
       end
     end
@@ -815,8 +815,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.product_view_summary = (Parsers::ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
-        data.provisioning_artifacts = (Parsers::ProvisioningArtifacts.parse(map['ProvisioningArtifacts']) unless map['ProvisioningArtifacts'].nil?)
+        data.product_view_summary = (ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
+        data.provisioning_artifacts = (ProvisioningArtifacts.parse(map['ProvisioningArtifacts']) unless map['ProvisioningArtifacts'].nil?)
         data
       end
     end
@@ -828,8 +828,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioned_product_detail = (Parsers::ProvisionedProductDetail.parse(map['ProvisionedProductDetail']) unless map['ProvisionedProductDetail'].nil?)
-        data.cloud_watch_dashboards = (Parsers::CloudWatchDashboards.parse(map['CloudWatchDashboards']) unless map['CloudWatchDashboards'].nil?)
+        data.provisioned_product_detail = (ProvisionedProductDetail.parse(map['ProvisionedProductDetail']) unless map['ProvisionedProductDetail'].nil?)
+        data.cloud_watch_dashboards = (CloudWatchDashboards.parse(map['CloudWatchDashboards']) unless map['CloudWatchDashboards'].nil?)
         data
       end
     end
@@ -837,7 +837,7 @@ module AWS::SDK::ServiceCatalog
     class CloudWatchDashboards
       def self.parse(list)
         list.map do |value|
-          Parsers::CloudWatchDashboard.parse(value) unless value.nil?
+          CloudWatchDashboard.parse(value) unless value.nil?
         end
       end
     end
@@ -878,8 +878,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioned_product_plan_details = (Parsers::ProvisionedProductPlanDetails.parse(map['ProvisionedProductPlanDetails']) unless map['ProvisionedProductPlanDetails'].nil?)
-        data.resource_changes = (Parsers::ResourceChanges.parse(map['ResourceChanges']) unless map['ResourceChanges'].nil?)
+        data.provisioned_product_plan_details = (ProvisionedProductPlanDetails.parse(map['ProvisionedProductPlanDetails']) unless map['ProvisionedProductPlanDetails'].nil?)
+        data.resource_changes = (ResourceChanges.parse(map['ResourceChanges']) unless map['ResourceChanges'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -888,7 +888,7 @@ module AWS::SDK::ServiceCatalog
     class ResourceChanges
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceChange.parse(value) unless value.nil?
+          ResourceChange.parse(value) unless value.nil?
         end
       end
     end
@@ -901,8 +901,8 @@ module AWS::SDK::ServiceCatalog
         data.physical_resource_id = map['PhysicalResourceId']
         data.resource_type = map['ResourceType']
         data.replacement = map['Replacement']
-        data.scope = (Parsers::Scope.parse(map['Scope']) unless map['Scope'].nil?)
-        data.details = (Parsers::ResourceChangeDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.scope = (Scope.parse(map['Scope']) unless map['Scope'].nil?)
+        data.details = (ResourceChangeDetails.parse(map['Details']) unless map['Details'].nil?)
         return data
       end
     end
@@ -910,7 +910,7 @@ module AWS::SDK::ServiceCatalog
     class ResourceChangeDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceChangeDetail.parse(value) unless value.nil?
+          ResourceChangeDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -918,7 +918,7 @@ module AWS::SDK::ServiceCatalog
     class ResourceChangeDetail
       def self.parse(map)
         data = Types::ResourceChangeDetail.new
-        data.target = (Parsers::ResourceTargetDefinition.parse(map['Target']) unless map['Target'].nil?)
+        data.target = (ResourceTargetDefinition.parse(map['Target']) unless map['Target'].nil?)
         data.evaluation = map['Evaluation']
         data.causing_entity = map['CausingEntity']
         return data
@@ -957,9 +957,9 @@ module AWS::SDK::ServiceCatalog
         data.provisioning_artifact_id = map['ProvisioningArtifactId']
         data.status = map['Status']
         data.updated_time = Time.at(map['UpdatedTime'].to_i) if map['UpdatedTime']
-        data.notification_arns = (Parsers::NotificationArns.parse(map['NotificationArns']) unless map['NotificationArns'].nil?)
-        data.provisioning_parameters = (Parsers::UpdateProvisioningParameters.parse(map['ProvisioningParameters']) unless map['ProvisioningParameters'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.notification_arns = (NotificationArns.parse(map['NotificationArns']) unless map['NotificationArns'].nil?)
+        data.provisioning_parameters = (UpdateProvisioningParameters.parse(map['ProvisioningParameters']) unless map['ProvisioningParameters'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.status_message = map['StatusMessage']
         return data
       end
@@ -968,7 +968,7 @@ module AWS::SDK::ServiceCatalog
     class UpdateProvisioningParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::UpdateProvisioningParameter.parse(value) unless value.nil?
+          UpdateProvisioningParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -998,8 +998,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioning_artifact_detail = (Parsers::ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
-        data.info = (Parsers::ProvisioningArtifactInfo.parse(map['Info']) unless map['Info'].nil?)
+        data.provisioning_artifact_detail = (ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
+        data.info = (ProvisioningArtifactInfo.parse(map['Info']) unless map['Info'].nil?)
         data.status = map['Status']
         data
       end
@@ -1012,13 +1012,13 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioning_artifact_parameters = (Parsers::ProvisioningArtifactParameters.parse(map['ProvisioningArtifactParameters']) unless map['ProvisioningArtifactParameters'].nil?)
-        data.constraint_summaries = (Parsers::ConstraintSummaries.parse(map['ConstraintSummaries']) unless map['ConstraintSummaries'].nil?)
-        data.usage_instructions = (Parsers::UsageInstructions.parse(map['UsageInstructions']) unless map['UsageInstructions'].nil?)
-        data.tag_options = (Parsers::TagOptionSummaries.parse(map['TagOptions']) unless map['TagOptions'].nil?)
-        data.provisioning_artifact_preferences = (Parsers::ProvisioningArtifactPreferences.parse(map['ProvisioningArtifactPreferences']) unless map['ProvisioningArtifactPreferences'].nil?)
-        data.provisioning_artifact_outputs = (Parsers::ProvisioningArtifactOutputs.parse(map['ProvisioningArtifactOutputs']) unless map['ProvisioningArtifactOutputs'].nil?)
-        data.provisioning_artifact_output_keys = (Parsers::ProvisioningArtifactOutputs.parse(map['ProvisioningArtifactOutputKeys']) unless map['ProvisioningArtifactOutputKeys'].nil?)
+        data.provisioning_artifact_parameters = (ProvisioningArtifactParameters.parse(map['ProvisioningArtifactParameters']) unless map['ProvisioningArtifactParameters'].nil?)
+        data.constraint_summaries = (ConstraintSummaries.parse(map['ConstraintSummaries']) unless map['ConstraintSummaries'].nil?)
+        data.usage_instructions = (UsageInstructions.parse(map['UsageInstructions']) unless map['UsageInstructions'].nil?)
+        data.tag_options = (TagOptionSummaries.parse(map['TagOptions']) unless map['TagOptions'].nil?)
+        data.provisioning_artifact_preferences = (ProvisioningArtifactPreferences.parse(map['ProvisioningArtifactPreferences']) unless map['ProvisioningArtifactPreferences'].nil?)
+        data.provisioning_artifact_outputs = (ProvisioningArtifactOutputs.parse(map['ProvisioningArtifactOutputs']) unless map['ProvisioningArtifactOutputs'].nil?)
+        data.provisioning_artifact_output_keys = (ProvisioningArtifactOutputs.parse(map['ProvisioningArtifactOutputKeys']) unless map['ProvisioningArtifactOutputKeys'].nil?)
         data
       end
     end
@@ -1026,7 +1026,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactOutputs
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisioningArtifactOutput.parse(value) unless value.nil?
+          ProvisioningArtifactOutput.parse(value) unless value.nil?
         end
       end
     end
@@ -1043,8 +1043,8 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactPreferences
       def self.parse(map)
         data = Types::ProvisioningArtifactPreferences.new
-        data.stack_set_accounts = (Parsers::StackSetAccounts.parse(map['StackSetAccounts']) unless map['StackSetAccounts'].nil?)
-        data.stack_set_regions = (Parsers::StackSetRegions.parse(map['StackSetRegions']) unless map['StackSetRegions'].nil?)
+        data.stack_set_accounts = (StackSetAccounts.parse(map['StackSetAccounts']) unless map['StackSetAccounts'].nil?)
+        data.stack_set_regions = (StackSetRegions.parse(map['StackSetRegions']) unless map['StackSetRegions'].nil?)
         return data
       end
     end
@@ -1068,7 +1068,7 @@ module AWS::SDK::ServiceCatalog
     class TagOptionSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::TagOptionSummary.parse(value) unless value.nil?
+          TagOptionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1077,7 +1077,7 @@ module AWS::SDK::ServiceCatalog
       def self.parse(map)
         data = Types::TagOptionSummary.new
         data.key = map['Key']
-        data.values = (Parsers::TagOptionValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (TagOptionValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1093,7 +1093,7 @@ module AWS::SDK::ServiceCatalog
     class UsageInstructions
       def self.parse(list)
         list.map do |value|
-          Parsers::UsageInstruction.parse(value) unless value.nil?
+          UsageInstruction.parse(value) unless value.nil?
         end
       end
     end
@@ -1110,7 +1110,7 @@ module AWS::SDK::ServiceCatalog
     class ConstraintSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ConstraintSummary.parse(value) unless value.nil?
+          ConstraintSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1127,7 +1127,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisioningArtifactParameter.parse(value) unless value.nil?
+          ProvisioningArtifactParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -1140,7 +1140,7 @@ module AWS::SDK::ServiceCatalog
         data.parameter_type = map['ParameterType']
         data.is_no_echo = map['IsNoEcho']
         data.description = map['Description']
-        data.parameter_constraints = (Parsers::ParameterConstraints.parse(map['ParameterConstraints']) unless map['ParameterConstraints'].nil?)
+        data.parameter_constraints = (ParameterConstraints.parse(map['ParameterConstraints']) unless map['ParameterConstraints'].nil?)
         return data
       end
     end
@@ -1148,7 +1148,7 @@ module AWS::SDK::ServiceCatalog
     class ParameterConstraints
       def self.parse(map)
         data = Types::ParameterConstraints.new
-        data.allowed_values = (Parsers::AllowedValues.parse(map['AllowedValues']) unless map['AllowedValues'].nil?)
+        data.allowed_values = (AllowedValues.parse(map['AllowedValues']) unless map['AllowedValues'].nil?)
         data.allowed_pattern = map['AllowedPattern']
         data.constraint_description = map['ConstraintDescription']
         data.max_length = map['MaxLength']
@@ -1174,8 +1174,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_detail = (Parsers::RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
-        data.record_outputs = (Parsers::RecordOutputs.parse(map['RecordOutputs']) unless map['RecordOutputs'].nil?)
+        data.record_detail = (RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
+        data.record_outputs = (RecordOutputs.parse(map['RecordOutputs']) unless map['RecordOutputs'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1184,7 +1184,7 @@ module AWS::SDK::ServiceCatalog
     class RecordOutputs
       def self.parse(list)
         list.map do |value|
-          Parsers::RecordOutput.parse(value) unless value.nil?
+          RecordOutput.parse(value) unless value.nil?
         end
       end
     end
@@ -1213,8 +1213,8 @@ module AWS::SDK::ServiceCatalog
         data.product_id = map['ProductId']
         data.provisioning_artifact_id = map['ProvisioningArtifactId']
         data.path_id = map['PathId']
-        data.record_errors = (Parsers::RecordErrors.parse(map['RecordErrors']) unless map['RecordErrors'].nil?)
-        data.record_tags = (Parsers::RecordTags.parse(map['RecordTags']) unless map['RecordTags'].nil?)
+        data.record_errors = (RecordErrors.parse(map['RecordErrors']) unless map['RecordErrors'].nil?)
+        data.record_tags = (RecordTags.parse(map['RecordTags']) unless map['RecordTags'].nil?)
         data.launch_role_arn = map['LaunchRoleArn']
         return data
       end
@@ -1223,7 +1223,7 @@ module AWS::SDK::ServiceCatalog
     class RecordTags
       def self.parse(list)
         list.map do |value|
-          Parsers::RecordTag.parse(value) unless value.nil?
+          RecordTag.parse(value) unless value.nil?
         end
       end
     end
@@ -1240,7 +1240,7 @@ module AWS::SDK::ServiceCatalog
     class RecordErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::RecordError.parse(value) unless value.nil?
+          RecordError.parse(value) unless value.nil?
         end
       end
     end
@@ -1261,7 +1261,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_action_detail = (Parsers::ServiceActionDetail.parse(map['ServiceActionDetail']) unless map['ServiceActionDetail'].nil?)
+        data.service_action_detail = (ServiceActionDetail.parse(map['ServiceActionDetail']) unless map['ServiceActionDetail'].nil?)
         data
       end
     end
@@ -1273,7 +1273,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_action_parameters = (Parsers::ExecutionParameters.parse(map['ServiceActionParameters']) unless map['ServiceActionParameters'].nil?)
+        data.service_action_parameters = (ExecutionParameters.parse(map['ServiceActionParameters']) unless map['ServiceActionParameters'].nil?)
         data
       end
     end
@@ -1281,7 +1281,7 @@ module AWS::SDK::ServiceCatalog
     class ExecutionParameters
       def self.parse(list)
         list.map do |value|
-          Parsers::ExecutionParameter.parse(value) unless value.nil?
+          ExecutionParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -1291,7 +1291,7 @@ module AWS::SDK::ServiceCatalog
         data = Types::ExecutionParameter.new
         data.name = map['Name']
         data.type = map['Type']
-        data.default_values = (Parsers::ExecutionParameterValueList.parse(map['DefaultValues']) unless map['DefaultValues'].nil?)
+        data.default_values = (ExecutionParameterValueList.parse(map['DefaultValues']) unless map['DefaultValues'].nil?)
         return data
       end
     end
@@ -1311,7 +1311,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_option_detail = (Parsers::TagOptionDetail.parse(map['TagOptionDetail']) unless map['TagOptionDetail'].nil?)
+        data.tag_option_detail = (TagOptionDetail.parse(map['TagOptionDetail']) unless map['TagOptionDetail'].nil?)
         data
       end
     end
@@ -1400,7 +1400,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_detail = (Parsers::RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
+        data.record_detail = (RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
         data
       end
     end
@@ -1412,7 +1412,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_detail = (Parsers::RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
+        data.record_detail = (RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
         data
       end
     end
@@ -1436,7 +1436,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.outputs = (Parsers::RecordOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.outputs = (RecordOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1449,7 +1449,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_detail = (Parsers::RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
+        data.record_detail = (RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
         data
       end
     end
@@ -1461,7 +1461,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.portfolio_details = (Parsers::PortfolioDetails.parse(map['PortfolioDetails']) unless map['PortfolioDetails'].nil?)
+        data.portfolio_details = (PortfolioDetails.parse(map['PortfolioDetails']) unless map['PortfolioDetails'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1470,7 +1470,7 @@ module AWS::SDK::ServiceCatalog
     class PortfolioDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::PortfolioDetail.parse(value) unless value.nil?
+          PortfolioDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1482,7 +1482,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.budgets = (Parsers::Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
+        data.budgets = (Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1495,7 +1495,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.constraint_details = (Parsers::ConstraintDetails.parse(map['ConstraintDetails']) unless map['ConstraintDetails'].nil?)
+        data.constraint_details = (ConstraintDetails.parse(map['ConstraintDetails']) unless map['ConstraintDetails'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1504,7 +1504,7 @@ module AWS::SDK::ServiceCatalog
     class ConstraintDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ConstraintDetail.parse(value) unless value.nil?
+          ConstraintDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1516,7 +1516,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.launch_path_summaries = (Parsers::LaunchPathSummaries.parse(map['LaunchPathSummaries']) unless map['LaunchPathSummaries'].nil?)
+        data.launch_path_summaries = (LaunchPathSummaries.parse(map['LaunchPathSummaries']) unless map['LaunchPathSummaries'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1525,7 +1525,7 @@ module AWS::SDK::ServiceCatalog
     class LaunchPathSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::LaunchPathSummary.parse(value) unless value.nil?
+          LaunchPathSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1534,8 +1534,8 @@ module AWS::SDK::ServiceCatalog
       def self.parse(map)
         data = Types::LaunchPathSummary.new
         data.id = map['Id']
-        data.constraint_summaries = (Parsers::ConstraintSummaries.parse(map['ConstraintSummaries']) unless map['ConstraintSummaries'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.constraint_summaries = (ConstraintSummaries.parse(map['ConstraintSummaries']) unless map['ConstraintSummaries'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.name = map['Name']
         return data
       end
@@ -1548,7 +1548,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_nodes = (Parsers::OrganizationNodes.parse(map['OrganizationNodes']) unless map['OrganizationNodes'].nil?)
+        data.organization_nodes = (OrganizationNodes.parse(map['OrganizationNodes']) unless map['OrganizationNodes'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1557,7 +1557,7 @@ module AWS::SDK::ServiceCatalog
     class OrganizationNodes
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationNode.parse(value) unless value.nil?
+          OrganizationNode.parse(value) unless value.nil?
         end
       end
     end
@@ -1578,7 +1578,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_ids = (Parsers::AccountIds.parse(map['AccountIds']) unless map['AccountIds'].nil?)
+        data.account_ids = (AccountIds.parse(map['AccountIds']) unless map['AccountIds'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1599,7 +1599,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.portfolio_details = (Parsers::PortfolioDetails.parse(map['PortfolioDetails']) unless map['PortfolioDetails'].nil?)
+        data.portfolio_details = (PortfolioDetails.parse(map['PortfolioDetails']) unless map['PortfolioDetails'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1612,7 +1612,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.portfolio_details = (Parsers::PortfolioDetails.parse(map['PortfolioDetails']) unless map['PortfolioDetails'].nil?)
+        data.portfolio_details = (PortfolioDetails.parse(map['PortfolioDetails']) unless map['PortfolioDetails'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1625,7 +1625,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.principals = (Parsers::Principals.parse(map['Principals']) unless map['Principals'].nil?)
+        data.principals = (Principals.parse(map['Principals']) unless map['Principals'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1634,7 +1634,7 @@ module AWS::SDK::ServiceCatalog
     class Principals
       def self.parse(list)
         list.map do |value|
-          Parsers::Principal.parse(value) unless value.nil?
+          Principal.parse(value) unless value.nil?
         end
       end
     end
@@ -1655,7 +1655,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioned_product_plans = (Parsers::ProvisionedProductPlans.parse(map['ProvisionedProductPlans']) unless map['ProvisionedProductPlans'].nil?)
+        data.provisioned_product_plans = (ProvisionedProductPlans.parse(map['ProvisionedProductPlans']) unless map['ProvisionedProductPlans'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1664,7 +1664,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisionedProductPlans
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisionedProductPlanSummary.parse(value) unless value.nil?
+          ProvisionedProductPlanSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1689,7 +1689,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioning_artifact_details = (Parsers::ProvisioningArtifactDetails.parse(map['ProvisioningArtifactDetails']) unless map['ProvisioningArtifactDetails'].nil?)
+        data.provisioning_artifact_details = (ProvisioningArtifactDetails.parse(map['ProvisioningArtifactDetails']) unless map['ProvisioningArtifactDetails'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1698,7 +1698,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisioningArtifactDetail.parse(value) unless value.nil?
+          ProvisioningArtifactDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1710,7 +1710,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioning_artifact_views = (Parsers::ProvisioningArtifactViews.parse(map['ProvisioningArtifactViews']) unless map['ProvisioningArtifactViews'].nil?)
+        data.provisioning_artifact_views = (ProvisioningArtifactViews.parse(map['ProvisioningArtifactViews']) unless map['ProvisioningArtifactViews'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1719,7 +1719,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactViews
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisioningArtifactView.parse(value) unless value.nil?
+          ProvisioningArtifactView.parse(value) unless value.nil?
         end
       end
     end
@@ -1727,8 +1727,8 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningArtifactView
       def self.parse(map)
         data = Types::ProvisioningArtifactView.new
-        data.product_view_summary = (Parsers::ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
-        data.provisioning_artifact = (Parsers::ProvisioningArtifact.parse(map['ProvisioningArtifact']) unless map['ProvisioningArtifact'].nil?)
+        data.product_view_summary = (ProductViewSummary.parse(map['ProductViewSummary']) unless map['ProductViewSummary'].nil?)
+        data.provisioning_artifact = (ProvisioningArtifact.parse(map['ProvisioningArtifact']) unless map['ProvisioningArtifact'].nil?)
         return data
       end
     end
@@ -1740,7 +1740,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_details = (Parsers::RecordDetails.parse(map['RecordDetails']) unless map['RecordDetails'].nil?)
+        data.record_details = (RecordDetails.parse(map['RecordDetails']) unless map['RecordDetails'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1749,7 +1749,7 @@ module AWS::SDK::ServiceCatalog
     class RecordDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::RecordDetail.parse(value) unless value.nil?
+          RecordDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1761,7 +1761,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_details = (Parsers::ResourceDetails.parse(map['ResourceDetails']) unless map['ResourceDetails'].nil?)
+        data.resource_details = (ResourceDetails.parse(map['ResourceDetails']) unless map['ResourceDetails'].nil?)
         data.page_token = map['PageToken']
         data
       end
@@ -1770,7 +1770,7 @@ module AWS::SDK::ServiceCatalog
     class ResourceDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceDetail.parse(value) unless value.nil?
+          ResourceDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1794,7 +1794,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_action_summaries = (Parsers::ServiceActionSummaries.parse(map['ServiceActionSummaries']) unless map['ServiceActionSummaries'].nil?)
+        data.service_action_summaries = (ServiceActionSummaries.parse(map['ServiceActionSummaries']) unless map['ServiceActionSummaries'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1803,7 +1803,7 @@ module AWS::SDK::ServiceCatalog
     class ServiceActionSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceActionSummary.parse(value) unless value.nil?
+          ServiceActionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1815,7 +1815,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_action_summaries = (Parsers::ServiceActionSummaries.parse(map['ServiceActionSummaries']) unless map['ServiceActionSummaries'].nil?)
+        data.service_action_summaries = (ServiceActionSummaries.parse(map['ServiceActionSummaries']) unless map['ServiceActionSummaries'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1828,7 +1828,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stack_instances = (Parsers::StackInstances.parse(map['StackInstances']) unless map['StackInstances'].nil?)
+        data.stack_instances = (StackInstances.parse(map['StackInstances']) unless map['StackInstances'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1837,7 +1837,7 @@ module AWS::SDK::ServiceCatalog
     class StackInstances
       def self.parse(list)
         list.map do |value|
-          Parsers::StackInstance.parse(value) unless value.nil?
+          StackInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -1859,7 +1859,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_option_details = (Parsers::TagOptionDetails.parse(map['TagOptionDetails']) unless map['TagOptionDetails'].nil?)
+        data.tag_option_details = (TagOptionDetails.parse(map['TagOptionDetails']) unless map['TagOptionDetails'].nil?)
         data.page_token = map['PageToken']
         data
       end
@@ -1872,7 +1872,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_detail = (Parsers::RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
+        data.record_detail = (RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
         data
       end
     end
@@ -1895,7 +1895,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioned_products = (Parsers::ProvisionedProductDetails.parse(map['ProvisionedProducts']) unless map['ProvisionedProducts'].nil?)
+        data.provisioned_products = (ProvisionedProductDetails.parse(map['ProvisionedProducts']) unless map['ProvisionedProducts'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1904,7 +1904,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisionedProductDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisionedProductDetail.parse(value) unless value.nil?
+          ProvisionedProductDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1916,8 +1916,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.product_view_summaries = (Parsers::ProductViewSummaries.parse(map['ProductViewSummaries']) unless map['ProductViewSummaries'].nil?)
-        data.product_view_aggregations = (Parsers::ProductViewAggregations.parse(map['ProductViewAggregations']) unless map['ProductViewAggregations'].nil?)
+        data.product_view_summaries = (ProductViewSummaries.parse(map['ProductViewSummaries']) unless map['ProductViewSummaries'].nil?)
+        data.product_view_aggregations = (ProductViewAggregations.parse(map['ProductViewAggregations']) unless map['ProductViewAggregations'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1927,7 +1927,7 @@ module AWS::SDK::ServiceCatalog
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ProductViewAggregationValues.parse(value) unless value.nil?
+          data[key] = ProductViewAggregationValues.parse(value) unless value.nil?
         end
         data
       end
@@ -1936,7 +1936,7 @@ module AWS::SDK::ServiceCatalog
     class ProductViewAggregationValues
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductViewAggregationValue.parse(value) unless value.nil?
+          ProductViewAggregationValue.parse(value) unless value.nil?
         end
       end
     end
@@ -1953,7 +1953,7 @@ module AWS::SDK::ServiceCatalog
     class ProductViewSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductViewSummary.parse(value) unless value.nil?
+          ProductViewSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1965,7 +1965,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.product_view_details = (Parsers::ProductViewDetails.parse(map['ProductViewDetails']) unless map['ProductViewDetails'].nil?)
+        data.product_view_details = (ProductViewDetails.parse(map['ProductViewDetails']) unless map['ProductViewDetails'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1974,7 +1974,7 @@ module AWS::SDK::ServiceCatalog
     class ProductViewDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ProductViewDetail.parse(value) unless value.nil?
+          ProductViewDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1986,7 +1986,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioned_products = (Parsers::ProvisionedProductAttributes.parse(map['ProvisionedProducts']) unless map['ProvisionedProducts'].nil?)
+        data.provisioned_products = (ProvisionedProductAttributes.parse(map['ProvisionedProducts']) unless map['ProvisionedProducts'].nil?)
         data.total_results_count = map['TotalResultsCount']
         data.next_page_token = map['NextPageToken']
         data
@@ -1996,7 +1996,7 @@ module AWS::SDK::ServiceCatalog
     class ProvisionedProductAttributes
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisionedProductAttribute.parse(value) unless value.nil?
+          ProvisionedProductAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -2015,7 +2015,7 @@ module AWS::SDK::ServiceCatalog
         data.last_record_id = map['LastRecordId']
         data.last_provisioning_record_id = map['LastProvisioningRecordId']
         data.last_successful_provisioning_record_id = map['LastSuccessfulProvisioningRecordId']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.physical_id = map['PhysicalId']
         data.product_id = map['ProductId']
         data.product_name = map['ProductName']
@@ -2034,7 +2034,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_detail = (Parsers::RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
+        data.record_detail = (RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
         data
       end
     end
@@ -2046,7 +2046,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.constraint_detail = (Parsers::ConstraintDetail.parse(map['ConstraintDetail']) unless map['ConstraintDetail'].nil?)
+        data.constraint_detail = (ConstraintDetail.parse(map['ConstraintDetail']) unless map['ConstraintDetail'].nil?)
         data.constraint_parameters = map['ConstraintParameters']
         data.status = map['Status']
         data
@@ -2060,8 +2060,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.portfolio_detail = (Parsers::PortfolioDetail.parse(map['PortfolioDetail']) unless map['PortfolioDetail'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.portfolio_detail = (PortfolioDetail.parse(map['PortfolioDetail']) unless map['PortfolioDetail'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2086,8 +2086,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.product_view_detail = (Parsers::ProductViewDetail.parse(map['ProductViewDetail']) unless map['ProductViewDetail'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.product_view_detail = (ProductViewDetail.parse(map['ProductViewDetail']) unless map['ProductViewDetail'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2099,7 +2099,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.record_detail = (Parsers::RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
+        data.record_detail = (RecordDetail.parse(map['RecordDetail']) unless map['RecordDetail'].nil?)
         data
       end
     end
@@ -2112,7 +2112,7 @@ module AWS::SDK::ServiceCatalog
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.provisioned_product_id = map['ProvisionedProductId']
-        data.provisioned_product_properties = (Parsers::ProvisionedProductProperties.parse(map['ProvisionedProductProperties']) unless map['ProvisionedProductProperties'].nil?)
+        data.provisioned_product_properties = (ProvisionedProductProperties.parse(map['ProvisionedProductProperties']) unless map['ProvisionedProductProperties'].nil?)
         data.record_id = map['RecordId']
         data.status = map['Status']
         data
@@ -2136,8 +2136,8 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.provisioning_artifact_detail = (Parsers::ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
-        data.info = (Parsers::ProvisioningArtifactInfo.parse(map['Info']) unless map['Info'].nil?)
+        data.provisioning_artifact_detail = (ProvisioningArtifactDetail.parse(map['ProvisioningArtifactDetail']) unless map['ProvisioningArtifactDetail'].nil?)
+        data.info = (ProvisioningArtifactInfo.parse(map['Info']) unless map['Info'].nil?)
         data.status = map['Status']
         data
       end
@@ -2150,7 +2150,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_action_detail = (Parsers::ServiceActionDetail.parse(map['ServiceActionDetail']) unless map['ServiceActionDetail'].nil?)
+        data.service_action_detail = (ServiceActionDetail.parse(map['ServiceActionDetail']) unless map['ServiceActionDetail'].nil?)
         data
       end
     end
@@ -2162,7 +2162,7 @@ module AWS::SDK::ServiceCatalog
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_option_detail = (Parsers::TagOptionDetail.parse(map['TagOptionDetail']) unless map['TagOptionDetail'].nil?)
+        data.tag_option_detail = (TagOptionDetail.parse(map['TagOptionDetail']) unless map['TagOptionDetail'].nil?)
         data
       end
     end

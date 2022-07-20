@@ -17,7 +17,7 @@ module AWS::SDK::Pricing
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.services = (Parsers::ServiceList.parse(map['Services']) unless map['Services'].nil?)
+        data.services = (ServiceList.parse(map['Services']) unless map['Services'].nil?)
         data.format_version = map['FormatVersion']
         data.next_token = map['NextToken']
         data
@@ -27,7 +27,7 @@ module AWS::SDK::Pricing
     class ServiceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Service.parse(value) unless value.nil?
+          Service.parse(value) unless value.nil?
         end
       end
     end
@@ -36,7 +36,7 @@ module AWS::SDK::Pricing
       def self.parse(map)
         data = Types::Service.new
         data.service_code = map['ServiceCode']
-        data.attribute_names = (Parsers::AttributeNameList.parse(map['AttributeNames']) unless map['AttributeNames'].nil?)
+        data.attribute_names = (AttributeNameList.parse(map['AttributeNames']) unless map['AttributeNames'].nil?)
         return data
       end
     end
@@ -116,7 +116,7 @@ module AWS::SDK::Pricing
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attribute_values = (Parsers::AttributeValueList.parse(map['AttributeValues']) unless map['AttributeValues'].nil?)
+        data.attribute_values = (AttributeValueList.parse(map['AttributeValues']) unless map['AttributeValues'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -125,7 +125,7 @@ module AWS::SDK::Pricing
     class AttributeValueList
       def self.parse(list)
         list.map do |value|
-          Parsers::AttributeValue.parse(value) unless value.nil?
+          AttributeValue.parse(value) unless value.nil?
         end
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::Pricing
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.format_version = map['FormatVersion']
-        data.price_list = (Parsers::PriceList.parse(map['PriceList']) unless map['PriceList'].nil?)
+        data.price_list = (PriceList.parse(map['PriceList']) unless map['PriceList'].nil?)
         data.next_token = map['NextToken']
         data
       end

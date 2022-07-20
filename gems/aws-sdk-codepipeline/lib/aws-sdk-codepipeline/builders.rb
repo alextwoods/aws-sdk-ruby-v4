@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodePipeline
   module Builders
 
@@ -20,7 +22,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['nonce'] = input[:nonce] unless input[:nonce].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::CodePipeline
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['nonce'] = input[:nonce] unless input[:nonce].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,12 +52,12 @@ module AWS::SDK::CodePipeline
         data['category'] = input[:category] unless input[:category].nil?
         data['provider'] = input[:provider] unless input[:provider].nil?
         data['version'] = input[:version] unless input[:version].nil?
-        data['settings'] = Builders::ActionTypeSettings.build(input[:settings]) unless input[:settings].nil?
-        data['configurationProperties'] = Builders::ActionConfigurationPropertyList.build(input[:configuration_properties]) unless input[:configuration_properties].nil?
-        data['inputArtifactDetails'] = Builders::ArtifactDetails.build(input[:input_artifact_details]) unless input[:input_artifact_details].nil?
-        data['outputArtifactDetails'] = Builders::ArtifactDetails.build(input[:output_artifact_details]) unless input[:output_artifact_details].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['settings'] = ActionTypeSettings.build(input[:settings]) unless input[:settings].nil?
+        data['configurationProperties'] = ActionConfigurationPropertyList.build(input[:configuration_properties]) unless input[:configuration_properties].nil?
+        data['inputArtifactDetails'] = ArtifactDetails.build(input[:input_artifact_details]) unless input[:input_artifact_details].nil?
+        data['outputArtifactDetails'] = ArtifactDetails.build(input[:output_artifact_details]) unless input[:output_artifact_details].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,7 +66,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -95,7 +97,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ActionConfigurationProperty.build(element) unless element.nil?
+          data << ActionConfigurationProperty.build(element) unless element.nil?
         end
         data
       end
@@ -136,9 +138,9 @@ module AWS::SDK::CodePipeline
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.CreatePipeline'
         data = {}
-        data['pipeline'] = Builders::PipelineDeclaration.build(input[:pipeline]) unless input[:pipeline].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipeline'] = PipelineDeclaration.build(input[:pipeline]) unless input[:pipeline].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,9 +150,9 @@ module AWS::SDK::CodePipeline
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['artifactStore'] = Builders::ArtifactStore.build(input[:artifact_store]) unless input[:artifact_store].nil?
-        data['artifactStores'] = Builders::ArtifactStoreMap.build(input[:artifact_stores]) unless input[:artifact_stores].nil?
-        data['stages'] = Builders::PipelineStageDeclarationList.build(input[:stages]) unless input[:stages].nil?
+        data['artifactStore'] = ArtifactStore.build(input[:artifact_store]) unless input[:artifact_store].nil?
+        data['artifactStores'] = ArtifactStoreMap.build(input[:artifact_stores]) unless input[:artifact_stores].nil?
+        data['stages'] = PipelineStageDeclarationList.build(input[:stages]) unless input[:stages].nil?
         data['version'] = input[:version] unless input[:version].nil?
         data
       end
@@ -161,7 +163,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StageDeclaration.build(element) unless element.nil?
+          data << StageDeclaration.build(element) unless element.nil?
         end
         data
       end
@@ -172,8 +174,8 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['blockers'] = Builders::StageBlockerDeclarationList.build(input[:blockers]) unless input[:blockers].nil?
-        data['actions'] = Builders::StageActionDeclarationList.build(input[:actions]) unless input[:actions].nil?
+        data['blockers'] = StageBlockerDeclarationList.build(input[:blockers]) unless input[:blockers].nil?
+        data['actions'] = StageActionDeclarationList.build(input[:actions]) unless input[:actions].nil?
         data
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ActionDeclaration.build(element) unless element.nil?
+          data << ActionDeclaration.build(element) unless element.nil?
         end
         data
       end
@@ -194,11 +196,11 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['actionTypeId'] = Builders::ActionTypeId.build(input[:action_type_id]) unless input[:action_type_id].nil?
+        data['actionTypeId'] = ActionTypeId.build(input[:action_type_id]) unless input[:action_type_id].nil?
         data['runOrder'] = input[:run_order] unless input[:run_order].nil?
-        data['configuration'] = Builders::ActionConfigurationMap.build(input[:configuration]) unless input[:configuration].nil?
-        data['outputArtifacts'] = Builders::OutputArtifactList.build(input[:output_artifacts]) unless input[:output_artifacts].nil?
-        data['inputArtifacts'] = Builders::InputArtifactList.build(input[:input_artifacts]) unless input[:input_artifacts].nil?
+        data['configuration'] = ActionConfigurationMap.build(input[:configuration]) unless input[:configuration].nil?
+        data['outputArtifacts'] = OutputArtifactList.build(input[:output_artifacts]) unless input[:output_artifacts].nil?
+        data['inputArtifacts'] = InputArtifactList.build(input[:input_artifacts]) unless input[:input_artifacts].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['region'] = input[:region] unless input[:region].nil?
         data['namespace'] = input[:namespace] unless input[:namespace].nil?
@@ -211,7 +213,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputArtifact.build(element) unless element.nil?
+          data << InputArtifact.build(element) unless element.nil?
         end
         data
       end
@@ -231,7 +233,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputArtifact.build(element) unless element.nil?
+          data << OutputArtifact.build(element) unless element.nil?
         end
         data
       end
@@ -274,7 +276,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BlockerDeclaration.build(element) unless element.nil?
+          data << BlockerDeclaration.build(element) unless element.nil?
         end
         data
       end
@@ -295,7 +297,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ArtifactStore.build(value) unless value.nil?
+          data[key] = ArtifactStore.build(value) unless value.nil?
         end
         data
       end
@@ -307,7 +309,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
         data['location'] = input[:location] unless input[:location].nil?
-        data['encryptionKey'] = Builders::EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
+        data['encryptionKey'] = EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
         data
       end
     end
@@ -333,7 +335,7 @@ module AWS::SDK::CodePipeline
         data['category'] = input[:category] unless input[:category].nil?
         data['provider'] = input[:provider] unless input[:provider].nil?
         data['version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -346,7 +348,7 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.DeletePipeline'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.DeleteWebhook'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -372,7 +374,7 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.DeregisterWebhookWithThirdParty'
         data = {}
         data['webhookName'] = input[:webhook_name] unless input[:webhook_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::CodePipeline
         data['stageName'] = input[:stage_name] unless input[:stage_name].nil?
         data['transitionType'] = input[:transition_type] unless input[:transition_type].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,7 +405,7 @@ module AWS::SDK::CodePipeline
         data['pipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['stageName'] = input[:stage_name] unless input[:stage_name].nil?
         data['transitionType'] = input[:transition_type] unless input[:transition_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -419,7 +421,7 @@ module AWS::SDK::CodePipeline
         data['owner'] = input[:owner] unless input[:owner].nil?
         data['provider'] = input[:provider] unless input[:provider].nil?
         data['version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -432,7 +434,7 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.GetJobDetails'
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,7 +448,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -460,7 +462,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['pipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['pipelineExecutionId'] = input[:pipeline_execution_id] unless input[:pipeline_execution_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -473,7 +475,7 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.GetPipelineState'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -487,7 +489,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -500,10 +502,10 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.ListActionExecutions'
         data = {}
         data['pipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
-        data['filter'] = Builders::ActionExecutionFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = ActionExecutionFilter.build(input[:filter]) unless input[:filter].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::CodePipeline
         data['actionOwnerFilter'] = input[:action_owner_filter] unless input[:action_owner_filter].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['regionFilter'] = input[:region_filter] unless input[:region_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -542,7 +544,7 @@ module AWS::SDK::CodePipeline
         data['pipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -556,7 +558,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -571,7 +573,7 @@ module AWS::SDK::CodePipeline
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -597,10 +599,10 @@ module AWS::SDK::CodePipeline
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.PollForJobs'
         data = {}
-        data['actionTypeId'] = Builders::ActionTypeId.build(input[:action_type_id]) unless input[:action_type_id].nil?
+        data['actionTypeId'] = ActionTypeId.build(input[:action_type_id]) unless input[:action_type_id].nil?
         data['maxBatchSize'] = input[:max_batch_size] unless input[:max_batch_size].nil?
-        data['queryParam'] = Builders::QueryParamMap.build(input[:query_param]) unless input[:query_param].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['queryParam'] = QueryParamMap.build(input[:query_param]) unless input[:query_param].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -623,9 +625,9 @@ module AWS::SDK::CodePipeline
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.PollForThirdPartyJobs'
         data = {}
-        data['actionTypeId'] = Builders::ActionTypeId.build(input[:action_type_id]) unless input[:action_type_id].nil?
+        data['actionTypeId'] = ActionTypeId.build(input[:action_type_id]) unless input[:action_type_id].nil?
         data['maxBatchSize'] = input[:max_batch_size] unless input[:max_batch_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -640,8 +642,8 @@ module AWS::SDK::CodePipeline
         data['pipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['stageName'] = input[:stage_name] unless input[:stage_name].nil?
         data['actionName'] = input[:action_name] unless input[:action_name].nil?
-        data['actionRevision'] = Builders::ActionRevision.build(input[:action_revision]) unless input[:action_revision].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['actionRevision'] = ActionRevision.build(input[:action_revision]) unless input[:action_revision].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -667,9 +669,9 @@ module AWS::SDK::CodePipeline
         data['pipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['stageName'] = input[:stage_name] unless input[:stage_name].nil?
         data['actionName'] = input[:action_name] unless input[:action_name].nil?
-        data['result'] = Builders::ApprovalResult.build(input[:result]) unless input[:result].nil?
+        data['result'] = ApprovalResult.build(input[:result]) unless input[:result].nil?
         data['token'] = input[:token] unless input[:token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -692,8 +694,8 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.PutJobFailureResult'
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
-        data['failureDetails'] = Builders::FailureDetails.build(input[:failure_details]) unless input[:failure_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failureDetails'] = FailureDetails.build(input[:failure_details]) unless input[:failure_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -717,11 +719,11 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.PutJobSuccessResult'
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
-        data['currentRevision'] = Builders::CurrentRevision.build(input[:current_revision]) unless input[:current_revision].nil?
+        data['currentRevision'] = CurrentRevision.build(input[:current_revision]) unless input[:current_revision].nil?
         data['continuationToken'] = input[:continuation_token] unless input[:continuation_token].nil?
-        data['executionDetails'] = Builders::ExecutionDetails.build(input[:execution_details]) unless input[:execution_details].nil?
-        data['outputVariables'] = Builders::OutputVariablesMap.build(input[:output_variables]) unless input[:output_variables].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['executionDetails'] = ExecutionDetails.build(input[:execution_details]) unless input[:execution_details].nil?
+        data['outputVariables'] = OutputVariablesMap.build(input[:output_variables]) unless input[:output_variables].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -769,8 +771,8 @@ module AWS::SDK::CodePipeline
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['failureDetails'] = Builders::FailureDetails.build(input[:failure_details]) unless input[:failure_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failureDetails'] = FailureDetails.build(input[:failure_details]) unless input[:failure_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,10 +786,10 @@ module AWS::SDK::CodePipeline
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['currentRevision'] = Builders::CurrentRevision.build(input[:current_revision]) unless input[:current_revision].nil?
+        data['currentRevision'] = CurrentRevision.build(input[:current_revision]) unless input[:current_revision].nil?
         data['continuationToken'] = input[:continuation_token] unless input[:continuation_token].nil?
-        data['executionDetails'] = Builders::ExecutionDetails.build(input[:execution_details]) unless input[:execution_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['executionDetails'] = ExecutionDetails.build(input[:execution_details]) unless input[:execution_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -799,9 +801,9 @@ module AWS::SDK::CodePipeline
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.PutWebhook'
         data = {}
-        data['webhook'] = Builders::WebhookDefinition.build(input[:webhook]) unless input[:webhook].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = WebhookDefinition.build(input[:webhook]) unless input[:webhook].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -812,9 +814,9 @@ module AWS::SDK::CodePipeline
         data['name'] = input[:name] unless input[:name].nil?
         data['targetPipeline'] = input[:target_pipeline] unless input[:target_pipeline].nil?
         data['targetAction'] = input[:target_action] unless input[:target_action].nil?
-        data['filters'] = Builders::WebhookFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = WebhookFilters.build(input[:filters]) unless input[:filters].nil?
         data['authentication'] = input[:authentication] unless input[:authentication].nil?
-        data['authenticationConfiguration'] = Builders::WebhookAuthConfiguration.build(input[:authentication_configuration]) unless input[:authentication_configuration].nil?
+        data['authenticationConfiguration'] = WebhookAuthConfiguration.build(input[:authentication_configuration]) unless input[:authentication_configuration].nil?
         data
       end
     end
@@ -834,7 +836,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WebhookFilterRule.build(element) unless element.nil?
+          data << WebhookFilterRule.build(element) unless element.nil?
         end
         data
       end
@@ -859,7 +861,7 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.RegisterWebhookWithThirdParty'
         data = {}
         data['webhookName'] = input[:webhook_name] unless input[:webhook_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -875,7 +877,7 @@ module AWS::SDK::CodePipeline
         data['stageName'] = input[:stage_name] unless input[:stage_name].nil?
         data['pipelineExecutionId'] = input[:pipeline_execution_id] unless input[:pipeline_execution_id].nil?
         data['retryMode'] = input[:retry_mode] unless input[:retry_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -889,7 +891,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -905,7 +907,7 @@ module AWS::SDK::CodePipeline
         data['pipelineExecutionId'] = input[:pipeline_execution_id] unless input[:pipeline_execution_id].nil?
         data['abandon'] = input[:abandon] unless input[:abandon].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -918,8 +920,8 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -932,8 +934,8 @@ module AWS::SDK::CodePipeline
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -956,8 +958,8 @@ module AWS::SDK::CodePipeline
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.UpdateActionType'
         data = {}
-        data['actionType'] = Builders::ActionTypeDeclaration.build(input[:action_type]) unless input[:action_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['actionType'] = ActionTypeDeclaration.build(input[:action_type]) unless input[:action_type].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -966,13 +968,13 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['executor'] = Builders::ActionTypeExecutor.build(input[:executor]) unless input[:executor].nil?
-        data['id'] = Builders::ActionTypeIdentifier.build(input[:id]) unless input[:id].nil?
-        data['inputArtifactDetails'] = Builders::ActionTypeArtifactDetails.build(input[:input_artifact_details]) unless input[:input_artifact_details].nil?
-        data['outputArtifactDetails'] = Builders::ActionTypeArtifactDetails.build(input[:output_artifact_details]) unless input[:output_artifact_details].nil?
-        data['permissions'] = Builders::ActionTypePermissions.build(input[:permissions]) unless input[:permissions].nil?
-        data['properties'] = Builders::ActionTypeProperties.build(input[:properties]) unless input[:properties].nil?
-        data['urls'] = Builders::ActionTypeUrls.build(input[:urls]) unless input[:urls].nil?
+        data['executor'] = ActionTypeExecutor.build(input[:executor]) unless input[:executor].nil?
+        data['id'] = ActionTypeIdentifier.build(input[:id]) unless input[:id].nil?
+        data['inputArtifactDetails'] = ActionTypeArtifactDetails.build(input[:input_artifact_details]) unless input[:input_artifact_details].nil?
+        data['outputArtifactDetails'] = ActionTypeArtifactDetails.build(input[:output_artifact_details]) unless input[:output_artifact_details].nil?
+        data['permissions'] = ActionTypePermissions.build(input[:permissions]) unless input[:permissions].nil?
+        data['properties'] = ActionTypeProperties.build(input[:properties]) unless input[:properties].nil?
+        data['urls'] = ActionTypeUrls.build(input[:urls]) unless input[:urls].nil?
         data
       end
     end
@@ -994,7 +996,7 @@ module AWS::SDK::CodePipeline
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ActionTypeProperty.build(element) unless element.nil?
+          data << ActionTypeProperty.build(element) unless element.nil?
         end
         data
       end
@@ -1018,7 +1020,7 @@ module AWS::SDK::CodePipeline
     class ActionTypePermissions
       def self.build(input)
         data = {}
-        data['allowedAccounts'] = Builders::AllowedAccounts.build(input[:allowed_accounts]) unless input[:allowed_accounts].nil?
+        data['allowedAccounts'] = AllowedAccounts.build(input[:allowed_accounts]) unless input[:allowed_accounts].nil?
         data
       end
     end
@@ -1060,7 +1062,7 @@ module AWS::SDK::CodePipeline
     class ActionTypeExecutor
       def self.build(input)
         data = {}
-        data['configuration'] = Builders::ExecutorConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['configuration'] = ExecutorConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['policyStatementsTemplate'] = input[:policy_statements_template] unless input[:policy_statements_template].nil?
         data['jobTimeout'] = input[:job_timeout] unless input[:job_timeout].nil?
@@ -1072,8 +1074,8 @@ module AWS::SDK::CodePipeline
     class ExecutorConfiguration
       def self.build(input)
         data = {}
-        data['lambdaExecutorConfiguration'] = Builders::LambdaExecutorConfiguration.build(input[:lambda_executor_configuration]) unless input[:lambda_executor_configuration].nil?
-        data['jobWorkerExecutorConfiguration'] = Builders::JobWorkerExecutorConfiguration.build(input[:job_worker_executor_configuration]) unless input[:job_worker_executor_configuration].nil?
+        data['lambdaExecutorConfiguration'] = LambdaExecutorConfiguration.build(input[:lambda_executor_configuration]) unless input[:lambda_executor_configuration].nil?
+        data['jobWorkerExecutorConfiguration'] = JobWorkerExecutorConfiguration.build(input[:job_worker_executor_configuration]) unless input[:job_worker_executor_configuration].nil?
         data
       end
     end
@@ -1082,8 +1084,8 @@ module AWS::SDK::CodePipeline
     class JobWorkerExecutorConfiguration
       def self.build(input)
         data = {}
-        data['pollingAccounts'] = Builders::PollingAccountList.build(input[:polling_accounts]) unless input[:polling_accounts].nil?
-        data['pollingServicePrincipals'] = Builders::PollingServicePrincipalList.build(input[:polling_service_principals]) unless input[:polling_service_principals].nil?
+        data['pollingAccounts'] = PollingAccountList.build(input[:polling_accounts]) unless input[:polling_accounts].nil?
+        data['pollingServicePrincipals'] = PollingServicePrincipalList.build(input[:polling_service_principals]) unless input[:polling_service_principals].nil?
         data
       end
     end
@@ -1127,8 +1129,8 @@ module AWS::SDK::CodePipeline
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodePipeline_20150709.UpdatePipeline'
         data = {}
-        data['pipeline'] = Builders::PipelineDeclaration.build(input[:pipeline]) unless input[:pipeline].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipeline'] = PipelineDeclaration.build(input[:pipeline]) unless input[:pipeline].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

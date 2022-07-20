@@ -333,22 +333,22 @@ module AWS::SDK::Forecast
         data.predictor_arn = map['PredictorArn']
         data.predictor_name = map['PredictorName']
         data.forecast_horizon = map['ForecastHorizon']
-        data.forecast_types = (Parsers::ForecastTypes.parse(map['ForecastTypes']) unless map['ForecastTypes'].nil?)
+        data.forecast_types = (ForecastTypes.parse(map['ForecastTypes']) unless map['ForecastTypes'].nil?)
         data.forecast_frequency = map['ForecastFrequency']
-        data.forecast_dimensions = (Parsers::ForecastDimensions.parse(map['ForecastDimensions']) unless map['ForecastDimensions'].nil?)
-        data.dataset_import_job_arns = (Parsers::ArnList.parse(map['DatasetImportJobArns']) unless map['DatasetImportJobArns'].nil?)
-        data.data_config = (Parsers::DataConfig.parse(map['DataConfig']) unless map['DataConfig'].nil?)
-        data.encryption_config = (Parsers::EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
-        data.reference_predictor_summary = (Parsers::ReferencePredictorSummary.parse(map['ReferencePredictorSummary']) unless map['ReferencePredictorSummary'].nil?)
+        data.forecast_dimensions = (ForecastDimensions.parse(map['ForecastDimensions']) unless map['ForecastDimensions'].nil?)
+        data.dataset_import_job_arns = (ArnList.parse(map['DatasetImportJobArns']) unless map['DatasetImportJobArns'].nil?)
+        data.data_config = (DataConfig.parse(map['DataConfig']) unless map['DataConfig'].nil?)
+        data.encryption_config = (EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
+        data.reference_predictor_summary = (ReferencePredictorSummary.parse(map['ReferencePredictorSummary']) unless map['ReferencePredictorSummary'].nil?)
         data.estimated_time_remaining_in_minutes = map['EstimatedTimeRemainingInMinutes']
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
         data.optimization_metric = map['OptimizationMetric']
-        data.explainability_info = (Parsers::ExplainabilityInfo.parse(map['ExplainabilityInfo']) unless map['ExplainabilityInfo'].nil?)
-        data.monitor_info = (Parsers::MonitorInfo.parse(map['MonitorInfo']) unless map['MonitorInfo'].nil?)
-        data.time_alignment_boundary = (Parsers::TimeAlignmentBoundary.parse(map['TimeAlignmentBoundary']) unless map['TimeAlignmentBoundary'].nil?)
+        data.explainability_info = (ExplainabilityInfo.parse(map['ExplainabilityInfo']) unless map['ExplainabilityInfo'].nil?)
+        data.monitor_info = (MonitorInfo.parse(map['MonitorInfo']) unless map['MonitorInfo'].nil?)
+        data.time_alignment_boundary = (TimeAlignmentBoundary.parse(map['TimeAlignmentBoundary']) unless map['TimeAlignmentBoundary'].nil?)
         data
       end
     end
@@ -404,8 +404,8 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::DataConfig.new
         data.dataset_group_arn = map['DatasetGroupArn']
-        data.attribute_configs = (Parsers::AttributeConfigs.parse(map['AttributeConfigs']) unless map['AttributeConfigs'].nil?)
-        data.additional_datasets = (Parsers::AdditionalDatasets.parse(map['AdditionalDatasets']) unless map['AdditionalDatasets'].nil?)
+        data.attribute_configs = (AttributeConfigs.parse(map['AttributeConfigs']) unless map['AttributeConfigs'].nil?)
+        data.additional_datasets = (AdditionalDatasets.parse(map['AdditionalDatasets']) unless map['AdditionalDatasets'].nil?)
         return data
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::Forecast
     class AdditionalDatasets
       def self.parse(list)
         list.map do |value|
-          Parsers::AdditionalDataset.parse(value) unless value.nil?
+          AdditionalDataset.parse(value) unless value.nil?
         end
       end
     end
@@ -422,7 +422,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::AdditionalDataset.new
         data.name = map['Name']
-        data.configuration = (Parsers::Configuration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (Configuration.parse(map['Configuration']) unless map['Configuration'].nil?)
         return data
       end
     end
@@ -431,7 +431,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Values.parse(value) unless value.nil?
+          data[key] = Values.parse(value) unless value.nil?
         end
         data
       end
@@ -448,7 +448,7 @@ module AWS::SDK::Forecast
     class AttributeConfigs
       def self.parse(list)
         list.map do |value|
-          Parsers::AttributeConfig.parse(value) unless value.nil?
+          AttributeConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -457,7 +457,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::AttributeConfig.new
         data.attribute_name = map['AttributeName']
-        data.transformations = (Parsers::Transformations.parse(map['Transformations']) unless map['Transformations'].nil?)
+        data.transformations = (Transformations.parse(map['Transformations']) unless map['Transformations'].nil?)
         return data
       end
     end
@@ -508,8 +508,8 @@ module AWS::SDK::Forecast
         data.domain = map['Domain']
         data.dataset_type = map['DatasetType']
         data.data_frequency = map['DataFrequency']
-        data.schema = (Parsers::Schema.parse(map['Schema']) unless map['Schema'].nil?)
-        data.encryption_config = (Parsers::EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
+        data.schema = (Schema.parse(map['Schema']) unless map['Schema'].nil?)
+        data.encryption_config = (EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
         data.status = map['Status']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
@@ -520,7 +520,7 @@ module AWS::SDK::Forecast
     class Schema
       def self.parse(map)
         data = Types::Schema.new
-        data.attributes = (Parsers::SchemaAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (SchemaAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -528,7 +528,7 @@ module AWS::SDK::Forecast
     class SchemaAttributes
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaAttribute.parse(value) unless value.nil?
+          SchemaAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -551,7 +551,7 @@ module AWS::SDK::Forecast
         map = Hearth::JSON.load(body)
         data.dataset_group_name = map['DatasetGroupName']
         data.dataset_group_arn = map['DatasetGroupArn']
-        data.dataset_arns = (Parsers::ArnList.parse(map['DatasetArns']) unless map['DatasetArns'].nil?)
+        data.dataset_arns = (ArnList.parse(map['DatasetArns']) unless map['DatasetArns'].nil?)
         data.domain = map['Domain']
         data.status = map['Status']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -574,9 +574,9 @@ module AWS::SDK::Forecast
         data.time_zone = map['TimeZone']
         data.use_geolocation_for_time_zone = map['UseGeolocationForTimeZone']
         data.geolocation_format = map['GeolocationFormat']
-        data.data_source = (Parsers::DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.data_source = (DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
         data.estimated_time_remaining_in_minutes = map['EstimatedTimeRemainingInMinutes']
-        data.field_statistics = (Parsers::FieldStatistics.parse(map['FieldStatistics']) unless map['FieldStatistics'].nil?)
+        data.field_statistics = (FieldStatistics.parse(map['FieldStatistics']) unless map['FieldStatistics'].nil?)
         data.data_size = Hearth::NumberHelper.deserialize(map['DataSize'])
         data.status = map['Status']
         data.message = map['Message']
@@ -591,7 +591,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Statistics.parse(value) unless value.nil?
+          data[key] = Statistics.parse(value) unless value.nil?
         end
         data
       end
@@ -619,7 +619,7 @@ module AWS::SDK::Forecast
     class DataSource
       def self.parse(map)
         data = Types::DataSource.new
-        data.s3_config = (Parsers::S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
+        data.s3_config = (S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
         return data
       end
     end
@@ -644,10 +644,10 @@ module AWS::SDK::Forecast
         data.explainability_arn = map['ExplainabilityArn']
         data.explainability_name = map['ExplainabilityName']
         data.resource_arn = map['ResourceArn']
-        data.explainability_config = (Parsers::ExplainabilityConfig.parse(map['ExplainabilityConfig']) unless map['ExplainabilityConfig'].nil?)
+        data.explainability_config = (ExplainabilityConfig.parse(map['ExplainabilityConfig']) unless map['ExplainabilityConfig'].nil?)
         data.enable_visualization = map['EnableVisualization']
-        data.data_source = (Parsers::DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
-        data.schema = (Parsers::Schema.parse(map['Schema']) unless map['Schema'].nil?)
+        data.data_source = (DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.schema = (Schema.parse(map['Schema']) unless map['Schema'].nil?)
         data.start_date_time = map['StartDateTime']
         data.end_date_time = map['EndDateTime']
         data.estimated_time_remaining_in_minutes = map['EstimatedTimeRemainingInMinutes']
@@ -678,7 +678,7 @@ module AWS::SDK::Forecast
         data.explainability_export_arn = map['ExplainabilityExportArn']
         data.explainability_export_name = map['ExplainabilityExportName']
         data.explainability_arn = map['ExplainabilityArn']
-        data.destination = (Parsers::DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
+        data.destination = (DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
         data.message = map['Message']
         data.status = map['Status']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -691,7 +691,7 @@ module AWS::SDK::Forecast
     class DataDestination
       def self.parse(map)
         data = Types::DataDestination.new
-        data.s3_config = (Parsers::S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
+        data.s3_config = (S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
         return data
       end
     end
@@ -705,7 +705,7 @@ module AWS::SDK::Forecast
         map = Hearth::JSON.load(body)
         data.forecast_arn = map['ForecastArn']
         data.forecast_name = map['ForecastName']
-        data.forecast_types = (Parsers::ForecastTypes.parse(map['ForecastTypes']) unless map['ForecastTypes'].nil?)
+        data.forecast_types = (ForecastTypes.parse(map['ForecastTypes']) unless map['ForecastTypes'].nil?)
         data.predictor_arn = map['PredictorArn']
         data.dataset_group_arn = map['DatasetGroupArn']
         data.estimated_time_remaining_in_minutes = map['EstimatedTimeRemainingInMinutes']
@@ -713,7 +713,7 @@ module AWS::SDK::Forecast
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
-        data.time_series_selector = (Parsers::TimeSeriesSelector.parse(map['TimeSeriesSelector']) unless map['TimeSeriesSelector'].nil?)
+        data.time_series_selector = (TimeSeriesSelector.parse(map['TimeSeriesSelector']) unless map['TimeSeriesSelector'].nil?)
         data
       end
     end
@@ -721,7 +721,7 @@ module AWS::SDK::Forecast
     class TimeSeriesSelector
       def self.parse(map)
         data = Types::TimeSeriesSelector.new
-        data.time_series_identifiers = (Parsers::TimeSeriesIdentifiers.parse(map['TimeSeriesIdentifiers']) unless map['TimeSeriesIdentifiers'].nil?)
+        data.time_series_identifiers = (TimeSeriesIdentifiers.parse(map['TimeSeriesIdentifiers']) unless map['TimeSeriesIdentifiers'].nil?)
         return data
       end
     end
@@ -729,8 +729,8 @@ module AWS::SDK::Forecast
     class TimeSeriesIdentifiers
       def self.parse(map)
         data = Types::TimeSeriesIdentifiers.new
-        data.data_source = (Parsers::DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
-        data.schema = (Parsers::Schema.parse(map['Schema']) unless map['Schema'].nil?)
+        data.data_source = (DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.schema = (Schema.parse(map['Schema']) unless map['Schema'].nil?)
         data.format = map['Format']
         return data
       end
@@ -746,7 +746,7 @@ module AWS::SDK::Forecast
         data.forecast_export_job_arn = map['ForecastExportJobArn']
         data.forecast_export_job_name = map['ForecastExportJobName']
         data.forecast_arn = map['ForecastArn']
-        data.destination = (Parsers::DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
+        data.destination = (DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
         data.message = map['Message']
         data.status = map['Status']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -769,7 +769,7 @@ module AWS::SDK::Forecast
         data.status = map['Status']
         data.last_evaluation_time = Time.at(map['LastEvaluationTime'].to_i) if map['LastEvaluationTime']
         data.last_evaluation_state = map['LastEvaluationState']
-        data.baseline = (Parsers::Baseline.parse(map['Baseline']) unless map['Baseline'].nil?)
+        data.baseline = (Baseline.parse(map['Baseline']) unless map['Baseline'].nil?)
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_modification_time = Time.at(map['LastModificationTime'].to_i) if map['LastModificationTime']
@@ -781,7 +781,7 @@ module AWS::SDK::Forecast
     class Baseline
       def self.parse(map)
         data = Types::Baseline.new
-        data.predictor_baseline = (Parsers::PredictorBaseline.parse(map['PredictorBaseline']) unless map['PredictorBaseline'].nil?)
+        data.predictor_baseline = (PredictorBaseline.parse(map['PredictorBaseline']) unless map['PredictorBaseline'].nil?)
         return data
       end
     end
@@ -789,7 +789,7 @@ module AWS::SDK::Forecast
     class PredictorBaseline
       def self.parse(map)
         data = Types::PredictorBaseline.new
-        data.baseline_metrics = (Parsers::BaselineMetrics.parse(map['BaselineMetrics']) unless map['BaselineMetrics'].nil?)
+        data.baseline_metrics = (BaselineMetrics.parse(map['BaselineMetrics']) unless map['BaselineMetrics'].nil?)
         return data
       end
     end
@@ -797,7 +797,7 @@ module AWS::SDK::Forecast
     class BaselineMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::BaselineMetric.parse(value) unless value.nil?
+          BaselineMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -821,22 +821,22 @@ module AWS::SDK::Forecast
         data.predictor_arn = map['PredictorArn']
         data.predictor_name = map['PredictorName']
         data.algorithm_arn = map['AlgorithmArn']
-        data.auto_ml_algorithm_arns = (Parsers::ArnList.parse(map['AutoMLAlgorithmArns']) unless map['AutoMLAlgorithmArns'].nil?)
+        data.auto_ml_algorithm_arns = (ArnList.parse(map['AutoMLAlgorithmArns']) unless map['AutoMLAlgorithmArns'].nil?)
         data.forecast_horizon = map['ForecastHorizon']
-        data.forecast_types = (Parsers::ForecastTypes.parse(map['ForecastTypes']) unless map['ForecastTypes'].nil?)
+        data.forecast_types = (ForecastTypes.parse(map['ForecastTypes']) unless map['ForecastTypes'].nil?)
         data.perform_auto_ml = map['PerformAutoML']
         data.auto_ml_override_strategy = map['AutoMLOverrideStrategy']
         data.perform_hpo = map['PerformHPO']
-        data.training_parameters = (Parsers::TrainingParameters.parse(map['TrainingParameters']) unless map['TrainingParameters'].nil?)
-        data.evaluation_parameters = (Parsers::EvaluationParameters.parse(map['EvaluationParameters']) unless map['EvaluationParameters'].nil?)
-        data.hpo_config = (Parsers::HyperParameterTuningJobConfig.parse(map['HPOConfig']) unless map['HPOConfig'].nil?)
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.featurization_config = (Parsers::FeaturizationConfig.parse(map['FeaturizationConfig']) unless map['FeaturizationConfig'].nil?)
-        data.encryption_config = (Parsers::EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
-        data.predictor_execution_details = (Parsers::PredictorExecutionDetails.parse(map['PredictorExecutionDetails']) unless map['PredictorExecutionDetails'].nil?)
+        data.training_parameters = (TrainingParameters.parse(map['TrainingParameters']) unless map['TrainingParameters'].nil?)
+        data.evaluation_parameters = (EvaluationParameters.parse(map['EvaluationParameters']) unless map['EvaluationParameters'].nil?)
+        data.hpo_config = (HyperParameterTuningJobConfig.parse(map['HPOConfig']) unless map['HPOConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.featurization_config = (FeaturizationConfig.parse(map['FeaturizationConfig']) unless map['FeaturizationConfig'].nil?)
+        data.encryption_config = (EncryptionConfig.parse(map['EncryptionConfig']) unless map['EncryptionConfig'].nil?)
+        data.predictor_execution_details = (PredictorExecutionDetails.parse(map['PredictorExecutionDetails']) unless map['PredictorExecutionDetails'].nil?)
         data.estimated_time_remaining_in_minutes = map['EstimatedTimeRemainingInMinutes']
         data.is_auto_predictor = map['IsAutoPredictor']
-        data.dataset_import_job_arns = (Parsers::ArnList.parse(map['DatasetImportJobArns']) unless map['DatasetImportJobArns'].nil?)
+        data.dataset_import_job_arns = (ArnList.parse(map['DatasetImportJobArns']) unless map['DatasetImportJobArns'].nil?)
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -849,7 +849,7 @@ module AWS::SDK::Forecast
     class PredictorExecutionDetails
       def self.parse(map)
         data = Types::PredictorExecutionDetails.new
-        data.predictor_executions = (Parsers::PredictorExecutions.parse(map['PredictorExecutions']) unless map['PredictorExecutions'].nil?)
+        data.predictor_executions = (PredictorExecutions.parse(map['PredictorExecutions']) unless map['PredictorExecutions'].nil?)
         return data
       end
     end
@@ -857,7 +857,7 @@ module AWS::SDK::Forecast
     class PredictorExecutions
       def self.parse(list)
         list.map do |value|
-          Parsers::PredictorExecution.parse(value) unless value.nil?
+          PredictorExecution.parse(value) unless value.nil?
         end
       end
     end
@@ -866,7 +866,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::PredictorExecution.new
         data.algorithm_arn = map['AlgorithmArn']
-        data.test_windows = (Parsers::TestWindowDetails.parse(map['TestWindows']) unless map['TestWindows'].nil?)
+        data.test_windows = (TestWindowDetails.parse(map['TestWindows']) unless map['TestWindows'].nil?)
         return data
       end
     end
@@ -874,7 +874,7 @@ module AWS::SDK::Forecast
     class TestWindowDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::TestWindowSummary.parse(value) unless value.nil?
+          TestWindowSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -894,8 +894,8 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::FeaturizationConfig.new
         data.forecast_frequency = map['ForecastFrequency']
-        data.forecast_dimensions = (Parsers::ForecastDimensions.parse(map['ForecastDimensions']) unless map['ForecastDimensions'].nil?)
-        data.featurizations = (Parsers::Featurizations.parse(map['Featurizations']) unless map['Featurizations'].nil?)
+        data.forecast_dimensions = (ForecastDimensions.parse(map['ForecastDimensions']) unless map['ForecastDimensions'].nil?)
+        data.featurizations = (Featurizations.parse(map['Featurizations']) unless map['Featurizations'].nil?)
         return data
       end
     end
@@ -903,7 +903,7 @@ module AWS::SDK::Forecast
     class Featurizations
       def self.parse(list)
         list.map do |value|
-          Parsers::Featurization.parse(value) unless value.nil?
+          Featurization.parse(value) unless value.nil?
         end
       end
     end
@@ -912,7 +912,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::Featurization.new
         data.attribute_name = map['AttributeName']
-        data.featurization_pipeline = (Parsers::FeaturizationPipeline.parse(map['FeaturizationPipeline']) unless map['FeaturizationPipeline'].nil?)
+        data.featurization_pipeline = (FeaturizationPipeline.parse(map['FeaturizationPipeline']) unless map['FeaturizationPipeline'].nil?)
         return data
       end
     end
@@ -920,7 +920,7 @@ module AWS::SDK::Forecast
     class FeaturizationPipeline
       def self.parse(list)
         list.map do |value|
-          Parsers::FeaturizationMethod.parse(value) unless value.nil?
+          FeaturizationMethod.parse(value) unless value.nil?
         end
       end
     end
@@ -929,7 +929,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::FeaturizationMethod.new
         data.featurization_method_name = map['FeaturizationMethodName']
-        data.featurization_method_parameters = (Parsers::FeaturizationMethodParameters.parse(map['FeaturizationMethodParameters']) unless map['FeaturizationMethodParameters'].nil?)
+        data.featurization_method_parameters = (FeaturizationMethodParameters.parse(map['FeaturizationMethodParameters']) unless map['FeaturizationMethodParameters'].nil?)
         return data
       end
     end
@@ -948,7 +948,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::InputDataConfig.new
         data.dataset_group_arn = map['DatasetGroupArn']
-        data.supplementary_features = (Parsers::SupplementaryFeatures.parse(map['SupplementaryFeatures']) unless map['SupplementaryFeatures'].nil?)
+        data.supplementary_features = (SupplementaryFeatures.parse(map['SupplementaryFeatures']) unless map['SupplementaryFeatures'].nil?)
         return data
       end
     end
@@ -956,7 +956,7 @@ module AWS::SDK::Forecast
     class SupplementaryFeatures
       def self.parse(list)
         list.map do |value|
-          Parsers::SupplementaryFeature.parse(value) unless value.nil?
+          SupplementaryFeature.parse(value) unless value.nil?
         end
       end
     end
@@ -973,7 +973,7 @@ module AWS::SDK::Forecast
     class HyperParameterTuningJobConfig
       def self.parse(map)
         data = Types::HyperParameterTuningJobConfig.new
-        data.parameter_ranges = (Parsers::ParameterRanges.parse(map['ParameterRanges']) unless map['ParameterRanges'].nil?)
+        data.parameter_ranges = (ParameterRanges.parse(map['ParameterRanges']) unless map['ParameterRanges'].nil?)
         return data
       end
     end
@@ -981,9 +981,9 @@ module AWS::SDK::Forecast
     class ParameterRanges
       def self.parse(map)
         data = Types::ParameterRanges.new
-        data.categorical_parameter_ranges = (Parsers::CategoricalParameterRanges.parse(map['CategoricalParameterRanges']) unless map['CategoricalParameterRanges'].nil?)
-        data.continuous_parameter_ranges = (Parsers::ContinuousParameterRanges.parse(map['ContinuousParameterRanges']) unless map['ContinuousParameterRanges'].nil?)
-        data.integer_parameter_ranges = (Parsers::IntegerParameterRanges.parse(map['IntegerParameterRanges']) unless map['IntegerParameterRanges'].nil?)
+        data.categorical_parameter_ranges = (CategoricalParameterRanges.parse(map['CategoricalParameterRanges']) unless map['CategoricalParameterRanges'].nil?)
+        data.continuous_parameter_ranges = (ContinuousParameterRanges.parse(map['ContinuousParameterRanges']) unless map['ContinuousParameterRanges'].nil?)
+        data.integer_parameter_ranges = (IntegerParameterRanges.parse(map['IntegerParameterRanges']) unless map['IntegerParameterRanges'].nil?)
         return data
       end
     end
@@ -991,7 +991,7 @@ module AWS::SDK::Forecast
     class IntegerParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::IntegerParameterRange.parse(value) unless value.nil?
+          IntegerParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -1010,7 +1010,7 @@ module AWS::SDK::Forecast
     class ContinuousParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::ContinuousParameterRange.parse(value) unless value.nil?
+          ContinuousParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -1029,7 +1029,7 @@ module AWS::SDK::Forecast
     class CategoricalParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::CategoricalParameterRange.parse(value) unless value.nil?
+          CategoricalParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -1038,7 +1038,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::CategoricalParameterRange.new
         data.name = map['Name']
-        data.values = (Parsers::Values.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (Values.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1072,7 +1072,7 @@ module AWS::SDK::Forecast
         data.predictor_backtest_export_job_arn = map['PredictorBacktestExportJobArn']
         data.predictor_backtest_export_job_name = map['PredictorBacktestExportJobName']
         data.predictor_arn = map['PredictorArn']
-        data.destination = (Parsers::DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
+        data.destination = (DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
         data.message = map['Message']
         data.status = map['Status']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -1089,7 +1089,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.predictor_evaluation_results = (Parsers::PredictorEvaluationResults.parse(map['PredictorEvaluationResults']) unless map['PredictorEvaluationResults'].nil?)
+        data.predictor_evaluation_results = (PredictorEvaluationResults.parse(map['PredictorEvaluationResults']) unless map['PredictorEvaluationResults'].nil?)
         data.is_auto_predictor = map['IsAutoPredictor']
         data.auto_ml_override_strategy = map['AutoMLOverrideStrategy']
         data.optimization_metric = map['OptimizationMetric']
@@ -1100,7 +1100,7 @@ module AWS::SDK::Forecast
     class PredictorEvaluationResults
       def self.parse(list)
         list.map do |value|
-          Parsers::EvaluationResult.parse(value) unless value.nil?
+          EvaluationResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1109,7 +1109,7 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::EvaluationResult.new
         data.algorithm_arn = map['AlgorithmArn']
-        data.test_windows = (Parsers::TestWindows.parse(map['TestWindows']) unless map['TestWindows'].nil?)
+        data.test_windows = (TestWindows.parse(map['TestWindows']) unless map['TestWindows'].nil?)
         return data
       end
     end
@@ -1117,7 +1117,7 @@ module AWS::SDK::Forecast
     class TestWindows
       def self.parse(list)
         list.map do |value|
-          Parsers::WindowSummary.parse(value) unless value.nil?
+          WindowSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1129,7 +1129,7 @@ module AWS::SDK::Forecast
         data.test_window_end = Time.at(map['TestWindowEnd'].to_i) if map['TestWindowEnd']
         data.item_count = map['ItemCount']
         data.evaluation_type = map['EvaluationType']
-        data.metrics = (Parsers::Metrics.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.metrics = (Metrics.parse(map['Metrics']) unless map['Metrics'].nil?)
         return data
       end
     end
@@ -1138,8 +1138,8 @@ module AWS::SDK::Forecast
       def self.parse(map)
         data = Types::Metrics.new
         data.rmse = Hearth::NumberHelper.deserialize(map['RMSE'])
-        data.weighted_quantile_losses = (Parsers::WeightedQuantileLosses.parse(map['WeightedQuantileLosses']) unless map['WeightedQuantileLosses'].nil?)
-        data.error_metrics = (Parsers::ErrorMetrics.parse(map['ErrorMetrics']) unless map['ErrorMetrics'].nil?)
+        data.weighted_quantile_losses = (WeightedQuantileLosses.parse(map['WeightedQuantileLosses']) unless map['WeightedQuantileLosses'].nil?)
+        data.error_metrics = (ErrorMetrics.parse(map['ErrorMetrics']) unless map['ErrorMetrics'].nil?)
         data.average_weighted_quantile_loss = Hearth::NumberHelper.deserialize(map['AverageWeightedQuantileLoss'])
         return data
       end
@@ -1148,7 +1148,7 @@ module AWS::SDK::Forecast
     class ErrorMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::ErrorMetric.parse(value) unless value.nil?
+          ErrorMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -1168,7 +1168,7 @@ module AWS::SDK::Forecast
     class WeightedQuantileLosses
       def self.parse(list)
         list.map do |value|
-          Parsers::WeightedQuantileLoss.parse(value) unless value.nil?
+          WeightedQuantileLoss.parse(value) unless value.nil?
         end
       end
     end
@@ -1189,7 +1189,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_groups = (Parsers::DatasetGroups.parse(map['DatasetGroups']) unless map['DatasetGroups'].nil?)
+        data.dataset_groups = (DatasetGroups.parse(map['DatasetGroups']) unless map['DatasetGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1198,7 +1198,7 @@ module AWS::SDK::Forecast
     class DatasetGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetGroupSummary.parse(value) unless value.nil?
+          DatasetGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1233,7 +1233,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_import_jobs = (Parsers::DatasetImportJobs.parse(map['DatasetImportJobs']) unless map['DatasetImportJobs'].nil?)
+        data.dataset_import_jobs = (DatasetImportJobs.parse(map['DatasetImportJobs']) unless map['DatasetImportJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1242,7 +1242,7 @@ module AWS::SDK::Forecast
     class DatasetImportJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetImportJobSummary.parse(value) unless value.nil?
+          DatasetImportJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1252,7 +1252,7 @@ module AWS::SDK::Forecast
         data = Types::DatasetImportJobSummary.new
         data.dataset_import_job_arn = map['DatasetImportJobArn']
         data.dataset_import_job_name = map['DatasetImportJobName']
-        data.data_source = (Parsers::DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
+        data.data_source = (DataSource.parse(map['DataSource']) unless map['DataSource'].nil?)
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -1268,7 +1268,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.datasets = (Parsers::Datasets.parse(map['Datasets']) unless map['Datasets'].nil?)
+        data.datasets = (Datasets.parse(map['Datasets']) unless map['Datasets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1277,7 +1277,7 @@ module AWS::SDK::Forecast
     class Datasets
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetSummary.parse(value) unless value.nil?
+          DatasetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1302,7 +1302,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.explainabilities = (Parsers::Explainabilities.parse(map['Explainabilities']) unless map['Explainabilities'].nil?)
+        data.explainabilities = (Explainabilities.parse(map['Explainabilities']) unless map['Explainabilities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1311,7 +1311,7 @@ module AWS::SDK::Forecast
     class Explainabilities
       def self.parse(list)
         list.map do |value|
-          Parsers::ExplainabilitySummary.parse(value) unless value.nil?
+          ExplainabilitySummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1322,7 +1322,7 @@ module AWS::SDK::Forecast
         data.explainability_arn = map['ExplainabilityArn']
         data.explainability_name = map['ExplainabilityName']
         data.resource_arn = map['ResourceArn']
-        data.explainability_config = (Parsers::ExplainabilityConfig.parse(map['ExplainabilityConfig']) unless map['ExplainabilityConfig'].nil?)
+        data.explainability_config = (ExplainabilityConfig.parse(map['ExplainabilityConfig']) unless map['ExplainabilityConfig'].nil?)
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -1338,7 +1338,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.explainability_exports = (Parsers::ExplainabilityExports.parse(map['ExplainabilityExports']) unless map['ExplainabilityExports'].nil?)
+        data.explainability_exports = (ExplainabilityExports.parse(map['ExplainabilityExports']) unless map['ExplainabilityExports'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1347,7 +1347,7 @@ module AWS::SDK::Forecast
     class ExplainabilityExports
       def self.parse(list)
         list.map do |value|
-          Parsers::ExplainabilityExportSummary.parse(value) unless value.nil?
+          ExplainabilityExportSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1357,7 +1357,7 @@ module AWS::SDK::Forecast
         data = Types::ExplainabilityExportSummary.new
         data.explainability_export_arn = map['ExplainabilityExportArn']
         data.explainability_export_name = map['ExplainabilityExportName']
-        data.destination = (Parsers::DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
+        data.destination = (DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -1373,7 +1373,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.forecast_export_jobs = (Parsers::ForecastExportJobs.parse(map['ForecastExportJobs']) unless map['ForecastExportJobs'].nil?)
+        data.forecast_export_jobs = (ForecastExportJobs.parse(map['ForecastExportJobs']) unless map['ForecastExportJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1382,7 +1382,7 @@ module AWS::SDK::Forecast
     class ForecastExportJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::ForecastExportJobSummary.parse(value) unless value.nil?
+          ForecastExportJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1392,7 +1392,7 @@ module AWS::SDK::Forecast
         data = Types::ForecastExportJobSummary.new
         data.forecast_export_job_arn = map['ForecastExportJobArn']
         data.forecast_export_job_name = map['ForecastExportJobName']
-        data.destination = (Parsers::DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
+        data.destination = (DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -1408,7 +1408,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.forecasts = (Parsers::Forecasts.parse(map['Forecasts']) unless map['Forecasts'].nil?)
+        data.forecasts = (Forecasts.parse(map['Forecasts']) unless map['Forecasts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1417,7 +1417,7 @@ module AWS::SDK::Forecast
     class Forecasts
       def self.parse(list)
         list.map do |value|
-          Parsers::ForecastSummary.parse(value) unless value.nil?
+          ForecastSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1446,7 +1446,7 @@ module AWS::SDK::Forecast
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.predictor_monitor_evaluations = (Parsers::PredictorMonitorEvaluations.parse(map['PredictorMonitorEvaluations']) unless map['PredictorMonitorEvaluations'].nil?)
+        data.predictor_monitor_evaluations = (PredictorMonitorEvaluations.parse(map['PredictorMonitorEvaluations']) unless map['PredictorMonitorEvaluations'].nil?)
         data
       end
     end
@@ -1454,7 +1454,7 @@ module AWS::SDK::Forecast
     class PredictorMonitorEvaluations
       def self.parse(list)
         list.map do |value|
-          Parsers::PredictorMonitorEvaluation.parse(value) unless value.nil?
+          PredictorMonitorEvaluation.parse(value) unless value.nil?
         end
       end
     end
@@ -1468,9 +1468,9 @@ module AWS::SDK::Forecast
         data.evaluation_state = map['EvaluationState']
         data.window_start_datetime = Time.at(map['WindowStartDatetime'].to_i) if map['WindowStartDatetime']
         data.window_end_datetime = Time.at(map['WindowEndDatetime'].to_i) if map['WindowEndDatetime']
-        data.predictor_event = (Parsers::PredictorEvent.parse(map['PredictorEvent']) unless map['PredictorEvent'].nil?)
-        data.monitor_data_source = (Parsers::MonitorDataSource.parse(map['MonitorDataSource']) unless map['MonitorDataSource'].nil?)
-        data.metric_results = (Parsers::MetricResults.parse(map['MetricResults']) unless map['MetricResults'].nil?)
+        data.predictor_event = (PredictorEvent.parse(map['PredictorEvent']) unless map['PredictorEvent'].nil?)
+        data.monitor_data_source = (MonitorDataSource.parse(map['MonitorDataSource']) unless map['MonitorDataSource'].nil?)
+        data.metric_results = (MetricResults.parse(map['MetricResults']) unless map['MetricResults'].nil?)
         data.num_items_evaluated = map['NumItemsEvaluated']
         data.message = map['Message']
         return data
@@ -1480,7 +1480,7 @@ module AWS::SDK::Forecast
     class MetricResults
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricResult.parse(value) unless value.nil?
+          MetricResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1520,7 +1520,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.monitors = (Parsers::Monitors.parse(map['Monitors']) unless map['Monitors'].nil?)
+        data.monitors = (Monitors.parse(map['Monitors']) unless map['Monitors'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1529,7 +1529,7 @@ module AWS::SDK::Forecast
     class Monitors
       def self.parse(list)
         list.map do |value|
-          Parsers::MonitorSummary.parse(value) unless value.nil?
+          MonitorSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1554,7 +1554,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.predictor_backtest_export_jobs = (Parsers::PredictorBacktestExportJobs.parse(map['PredictorBacktestExportJobs']) unless map['PredictorBacktestExportJobs'].nil?)
+        data.predictor_backtest_export_jobs = (PredictorBacktestExportJobs.parse(map['PredictorBacktestExportJobs']) unless map['PredictorBacktestExportJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1563,7 +1563,7 @@ module AWS::SDK::Forecast
     class PredictorBacktestExportJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::PredictorBacktestExportJobSummary.parse(value) unless value.nil?
+          PredictorBacktestExportJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1573,7 +1573,7 @@ module AWS::SDK::Forecast
         data = Types::PredictorBacktestExportJobSummary.new
         data.predictor_backtest_export_job_arn = map['PredictorBacktestExportJobArn']
         data.predictor_backtest_export_job_name = map['PredictorBacktestExportJobName']
-        data.destination = (Parsers::DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
+        data.destination = (DataDestination.parse(map['Destination']) unless map['Destination'].nil?)
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -1589,7 +1589,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.predictors = (Parsers::Predictors.parse(map['Predictors']) unless map['Predictors'].nil?)
+        data.predictors = (Predictors.parse(map['Predictors']) unless map['Predictors'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1598,7 +1598,7 @@ module AWS::SDK::Forecast
     class Predictors
       def self.parse(list)
         list.map do |value|
-          Parsers::PredictorSummary.parse(value) unless value.nil?
+          PredictorSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1610,7 +1610,7 @@ module AWS::SDK::Forecast
         data.predictor_name = map['PredictorName']
         data.dataset_group_arn = map['DatasetGroupArn']
         data.is_auto_predictor = map['IsAutoPredictor']
-        data.reference_predictor_summary = (Parsers::ReferencePredictorSummary.parse(map['ReferencePredictorSummary']) unless map['ReferencePredictorSummary'].nil?)
+        data.reference_predictor_summary = (ReferencePredictorSummary.parse(map['ReferencePredictorSummary']) unless map['ReferencePredictorSummary'].nil?)
         data.status = map['Status']
         data.message = map['Message']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -1626,7 +1626,7 @@ module AWS::SDK::Forecast
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1634,7 +1634,7 @@ module AWS::SDK::Forecast
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::PinpointEmail
   module Builders
 
@@ -21,12 +24,12 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        data['TrackingOptions'] = Builders::TrackingOptions.build(input[:tracking_options]) unless input[:tracking_options].nil?
-        data['DeliveryOptions'] = Builders::DeliveryOptions.build(input[:delivery_options]) unless input[:delivery_options].nil?
-        data['ReputationOptions'] = Builders::ReputationOptions.build(input[:reputation_options]) unless input[:reputation_options].nil?
-        data['SendingOptions'] = Builders::SendingOptions.build(input[:sending_options]) unless input[:sending_options].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TrackingOptions'] = TrackingOptions.build(input[:tracking_options]) unless input[:tracking_options].nil?
+        data['DeliveryOptions'] = DeliveryOptions.build(input[:delivery_options]) unless input[:delivery_options].nil?
+        data['ReputationOptions'] = ReputationOptions.build(input[:reputation_options]) unless input[:reputation_options].nil?
+        data['SendingOptions'] = SendingOptions.build(input[:sending_options]) unless input[:sending_options].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,7 +38,7 @@ module AWS::SDK::PinpointEmail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -107,8 +110,8 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['EventDestinationName'] = input[:event_destination_name] unless input[:event_destination_name].nil?
-        data['EventDestination'] = Builders::EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,11 +120,11 @@ module AWS::SDK::PinpointEmail
       def self.build(input)
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['MatchingEventTypes'] = Builders::EventTypes.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
-        data['KinesisFirehoseDestination'] = Builders::KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
-        data['CloudWatchDestination'] = Builders::CloudWatchDestination.build(input[:cloud_watch_destination]) unless input[:cloud_watch_destination].nil?
-        data['SnsDestination'] = Builders::SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
-        data['PinpointDestination'] = Builders::PinpointDestination.build(input[:pinpoint_destination]) unless input[:pinpoint_destination].nil?
+        data['MatchingEventTypes'] = EventTypes.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
+        data['CloudWatchDestination'] = CloudWatchDestination.build(input[:cloud_watch_destination]) unless input[:cloud_watch_destination].nil?
+        data['SnsDestination'] = SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
+        data['PinpointDestination'] = PinpointDestination.build(input[:pinpoint_destination]) unless input[:pinpoint_destination].nil?
         data
       end
     end
@@ -148,7 +151,7 @@ module AWS::SDK::PinpointEmail
     class CloudWatchDestination
       def self.build(input)
         data = {}
-        data['DimensionConfigurations'] = Builders::CloudWatchDimensionConfigurations.build(input[:dimension_configurations]) unless input[:dimension_configurations].nil?
+        data['DimensionConfigurations'] = CloudWatchDimensionConfigurations.build(input[:dimension_configurations]) unless input[:dimension_configurations].nil?
         data
       end
     end
@@ -158,7 +161,7 @@ module AWS::SDK::PinpointEmail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CloudWatchDimensionConfiguration.build(element) unless element.nil?
+          data << CloudWatchDimensionConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -207,8 +210,8 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PoolName'] = input[:pool_name] unless input[:pool_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -224,9 +227,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         data['ReportName'] = input[:report_name] unless input[:report_name].nil?
         data['FromEmailAddress'] = input[:from_email_address] unless input[:from_email_address].nil?
-        data['Content'] = Builders::EmailContent.build(input[:content]) unless input[:content].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Content'] = EmailContent.build(input[:content]) unless input[:content].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,9 +237,9 @@ module AWS::SDK::PinpointEmail
     class EmailContent
       def self.build(input)
         data = {}
-        data['Simple'] = Builders::Message.build(input[:simple]) unless input[:simple].nil?
-        data['Raw'] = Builders::RawMessage.build(input[:raw]) unless input[:raw].nil?
-        data['Template'] = Builders::Template.build(input[:template]) unless input[:template].nil?
+        data['Simple'] = Message.build(input[:simple]) unless input[:simple].nil?
+        data['Raw'] = RawMessage.build(input[:raw]) unless input[:raw].nil?
+        data['Template'] = Template.build(input[:template]) unless input[:template].nil?
         data
       end
     end
@@ -255,7 +258,7 @@ module AWS::SDK::PinpointEmail
     class RawMessage
       def self.build(input)
         data = {}
-        data['Data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        data['Data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
         data
       end
     end
@@ -264,8 +267,8 @@ module AWS::SDK::PinpointEmail
     class Message
       def self.build(input)
         data = {}
-        data['Subject'] = Builders::Content.build(input[:subject]) unless input[:subject].nil?
-        data['Body'] = Builders::Body.build(input[:body]) unless input[:body].nil?
+        data['Subject'] = Content.build(input[:subject]) unless input[:subject].nil?
+        data['Body'] = Body.build(input[:body]) unless input[:body].nil?
         data
       end
     end
@@ -274,8 +277,8 @@ module AWS::SDK::PinpointEmail
     class Body
       def self.build(input)
         data = {}
-        data['Text'] = Builders::Content.build(input[:text]) unless input[:text].nil?
-        data['Html'] = Builders::Content.build(input[:html]) unless input[:html].nil?
+        data['Text'] = Content.build(input[:text]) unless input[:text].nil?
+        data['Html'] = Content.build(input[:html]) unless input[:html].nil?
         data
       end
     end
@@ -301,8 +304,8 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['EmailIdentity'] = input[:email_identity] unless input[:email_identity].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,7 +652,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AutoWarmupEnabled'] = input[:auto_warmup_enabled] unless input[:auto_warmup_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +667,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SendingEnabled'] = input[:sending_enabled] unless input[:sending_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,7 +690,7 @@ module AWS::SDK::PinpointEmail
         data = {}
         data['TlsPolicy'] = input[:tls_policy] unless input[:tls_policy].nil?
         data['SendingPoolName'] = input[:sending_pool_name] unless input[:sending_pool_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,7 +712,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ReputationMetricsEnabled'] = input[:reputation_metrics_enabled] unless input[:reputation_metrics_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -731,7 +734,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SendingEnabled'] = input[:sending_enabled] unless input[:sending_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -753,7 +756,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CustomRedirectDomain'] = input[:custom_redirect_domain] unless input[:custom_redirect_domain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -775,7 +778,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DestinationPoolName'] = input[:destination_pool_name] unless input[:destination_pool_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -797,7 +800,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['WarmupPercentage'] = input[:warmup_percentage] unless input[:warmup_percentage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -812,8 +815,8 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DashboardEnabled'] = input[:dashboard_enabled] unless input[:dashboard_enabled].nil?
-        data['SubscribedDomains'] = Builders::DomainDeliverabilityTrackingOptions.build(input[:subscribed_domains]) unless input[:subscribed_domains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubscribedDomains'] = DomainDeliverabilityTrackingOptions.build(input[:subscribed_domains]) unless input[:subscribed_domains].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -822,7 +825,7 @@ module AWS::SDK::PinpointEmail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DomainDeliverabilityTrackingOption.build(element) unless element.nil?
+          data << DomainDeliverabilityTrackingOption.build(element) unless element.nil?
         end
         data
       end
@@ -834,7 +837,7 @@ module AWS::SDK::PinpointEmail
         data = {}
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['SubscriptionStartDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:subscription_start_date]).to_i unless input[:subscription_start_date].nil?
-        data['InboxPlacementTrackingOption'] = Builders::InboxPlacementTrackingOption.build(input[:inbox_placement_tracking_option]) unless input[:inbox_placement_tracking_option].nil?
+        data['InboxPlacementTrackingOption'] = InboxPlacementTrackingOption.build(input[:inbox_placement_tracking_option]) unless input[:inbox_placement_tracking_option].nil?
         data
       end
     end
@@ -844,7 +847,7 @@ module AWS::SDK::PinpointEmail
       def self.build(input)
         data = {}
         data['Global'] = input[:global] unless input[:global].nil?
-        data['TrackedIsps'] = Builders::IspNameList.build(input[:tracked_isps]) unless input[:tracked_isps].nil?
+        data['TrackedIsps'] = IspNameList.build(input[:tracked_isps]) unless input[:tracked_isps].nil?
         data
       end
     end
@@ -878,7 +881,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SigningEnabled'] = input[:signing_enabled] unless input[:signing_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -900,7 +903,7 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['EmailForwardingEnabled'] = input[:email_forwarding_enabled] unless input[:email_forwarding_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -923,7 +926,7 @@ module AWS::SDK::PinpointEmail
         data = {}
         data['MailFromDomain'] = input[:mail_from_domain] unless input[:mail_from_domain].nil?
         data['BehaviorOnMxFailure'] = input[:behavior_on_mx_failure] unless input[:behavior_on_mx_failure].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -938,13 +941,13 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FromEmailAddress'] = input[:from_email_address] unless input[:from_email_address].nil?
-        data['Destination'] = Builders::Destination.build(input[:destination]) unless input[:destination].nil?
-        data['ReplyToAddresses'] = Builders::EmailAddressList.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
+        data['Destination'] = Destination.build(input[:destination]) unless input[:destination].nil?
+        data['ReplyToAddresses'] = EmailAddressList.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
         data['FeedbackForwardingEmailAddress'] = input[:feedback_forwarding_email_address] unless input[:feedback_forwarding_email_address].nil?
-        data['Content'] = Builders::EmailContent.build(input[:content]) unless input[:content].nil?
-        data['EmailTags'] = Builders::MessageTagList.build(input[:email_tags]) unless input[:email_tags].nil?
+        data['Content'] = EmailContent.build(input[:content]) unless input[:content].nil?
+        data['EmailTags'] = MessageTagList.build(input[:email_tags]) unless input[:email_tags].nil?
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -953,7 +956,7 @@ module AWS::SDK::PinpointEmail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MessageTag.build(element) unless element.nil?
+          data << MessageTag.build(element) unless element.nil?
         end
         data
       end
@@ -984,9 +987,9 @@ module AWS::SDK::PinpointEmail
     class Destination
       def self.build(input)
         data = {}
-        data['ToAddresses'] = Builders::EmailAddressList.build(input[:to_addresses]) unless input[:to_addresses].nil?
-        data['CcAddresses'] = Builders::EmailAddressList.build(input[:cc_addresses]) unless input[:cc_addresses].nil?
-        data['BccAddresses'] = Builders::EmailAddressList.build(input[:bcc_addresses]) unless input[:bcc_addresses].nil?
+        data['ToAddresses'] = EmailAddressList.build(input[:to_addresses]) unless input[:to_addresses].nil?
+        data['CcAddresses'] = EmailAddressList.build(input[:cc_addresses]) unless input[:cc_addresses].nil?
+        data['BccAddresses'] = EmailAddressList.build(input[:bcc_addresses]) unless input[:bcc_addresses].nil?
         data
       end
     end
@@ -1002,8 +1005,8 @@ module AWS::SDK::PinpointEmail
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1055,8 +1058,8 @@ module AWS::SDK::PinpointEmail
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['EventDestination'] = Builders::EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticInference
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::ElasticInference
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['acceleratorTypeOfferings'] = Stubs::AcceleratorTypeOfferingList.stub(stub[:accelerator_type_offerings]) unless stub[:accelerator_type_offerings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['acceleratorTypeOfferings'] = AcceleratorTypeOfferingList.stub(stub[:accelerator_type_offerings]) unless stub[:accelerator_type_offerings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::ElasticInference
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AcceleratorTypeOffering.stub(element) unless element.nil?
+          data << AcceleratorTypeOffering.stub(element) unless element.nil?
         end
         data
       end
@@ -81,8 +83,8 @@ module AWS::SDK::ElasticInference
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['acceleratorTypes'] = Stubs::AcceleratorTypeList.stub(stub[:accelerator_types]) unless stub[:accelerator_types].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['acceleratorTypes'] = AcceleratorTypeList.stub(stub[:accelerator_types]) unless stub[:accelerator_types].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::ElasticInference
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AcceleratorType.stub(element) unless element.nil?
+          data << AcceleratorType.stub(element) unless element.nil?
         end
         data
       end
@@ -122,8 +124,8 @@ module AWS::SDK::ElasticInference
         stub ||= Types::AcceleratorType.new
         data = {}
         data['acceleratorTypeName'] = stub[:accelerator_type_name] unless stub[:accelerator_type_name].nil?
-        data['memoryInfo'] = Stubs::MemoryInfo.stub(stub[:memory_info]) unless stub[:memory_info].nil?
-        data['throughputInfo'] = Stubs::ThroughputInfoList.stub(stub[:throughput_info]) unless stub[:throughput_info].nil?
+        data['memoryInfo'] = MemoryInfo.stub(stub[:memory_info]) unless stub[:memory_info].nil?
+        data['throughputInfo'] = ThroughputInfoList.stub(stub[:throughput_info]) unless stub[:throughput_info].nil?
         data
       end
     end
@@ -142,7 +144,7 @@ module AWS::SDK::ElasticInference
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -199,9 +201,9 @@ module AWS::SDK::ElasticInference
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['acceleratorSet'] = Stubs::ElasticInferenceAcceleratorSet.stub(stub[:accelerator_set]) unless stub[:accelerator_set].nil?
+        data['acceleratorSet'] = ElasticInferenceAcceleratorSet.stub(stub[:accelerator_set]) unless stub[:accelerator_set].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::ElasticInference
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ElasticInferenceAccelerator.stub(element) unless element.nil?
+          data << ElasticInferenceAccelerator.stub(element) unless element.nil?
         end
         data
       end
@@ -242,7 +244,7 @@ module AWS::SDK::ElasticInference
       def self.stub(stub)
         stub ||= Types::ElasticInferenceAccelerator.new
         data = {}
-        data['acceleratorHealth'] = Stubs::ElasticInferenceAcceleratorHealth.stub(stub[:accelerator_health]) unless stub[:accelerator_health].nil?
+        data['acceleratorHealth'] = ElasticInferenceAcceleratorHealth.stub(stub[:accelerator_health]) unless stub[:accelerator_health].nil?
         data['acceleratorType'] = stub[:accelerator_type] unless stub[:accelerator_type].nil?
         data['acceleratorId'] = stub[:accelerator_id] unless stub[:accelerator_id].nil?
         data['availabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
@@ -281,8 +283,8 @@ module AWS::SDK::ElasticInference
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::M2
   module Stubs
 
@@ -40,7 +42,7 @@ module AWS::SDK::M2
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
         data['applicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['applicationVersion'] = stub[:application_version] unless stub[:application_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,7 +59,7 @@ module AWS::SDK::M2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::M2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['deploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,7 +93,7 @@ module AWS::SDK::M2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['environmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,20 +170,20 @@ module AWS::SDK::M2
         data['applicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['latestVersion'] = Stubs::ApplicationVersionSummary.stub(stub[:latest_version]) unless stub[:latest_version].nil?
-        data['deployedVersion'] = Stubs::DeployedVersionSummary.stub(stub[:deployed_version]) unless stub[:deployed_version].nil?
+        data['latestVersion'] = ApplicationVersionSummary.stub(stub[:latest_version]) unless stub[:latest_version].nil?
+        data['deployedVersion'] = DeployedVersionSummary.stub(stub[:deployed_version]) unless stub[:deployed_version].nil?
         data['engineType'] = stub[:engine_type] unless stub[:engine_type].nil?
-        data['logGroups'] = Stubs::LogGroupSummaries.stub(stub[:log_groups]) unless stub[:log_groups].nil?
+        data['logGroups'] = LogGroupSummaries.stub(stub[:log_groups]) unless stub[:log_groups].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_start_time]).to_i unless stub[:last_start_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['environmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
-        data['targetGroupArns'] = Stubs::ArnList.stub(stub[:target_group_arns]) unless stub[:target_group_arns].nil?
-        data['listenerArns'] = Stubs::ArnList.stub(stub[:listener_arns]) unless stub[:listener_arns].nil?
-        data['listenerPorts'] = Stubs::PortList.stub(stub[:listener_ports]) unless stub[:listener_ports].nil?
+        data['targetGroupArns'] = ArnList.stub(stub[:target_group_arns]) unless stub[:target_group_arns].nil?
+        data['listenerArns'] = ArnList.stub(stub[:listener_arns]) unless stub[:listener_arns].nil?
+        data['listenerPorts'] = PortList.stub(stub[:listener_ports]) unless stub[:listener_ports].nil?
         data['loadBalancerDnsName'] = stub[:load_balancer_dns_name] unless stub[:load_balancer_dns_name].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -259,7 +261,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogGroupSummary.stub(element) unless element.nil?
+          data << LogGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -356,7 +358,7 @@ module AWS::SDK::M2
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -391,7 +393,7 @@ module AWS::SDK::M2
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,14 +417,14 @@ module AWS::SDK::M2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['dataSetName'] = stub[:data_set_name] unless stub[:data_set_name].nil?
-        data['dataSetOrg'] = Stubs::DatasetDetailOrgAttributes.stub(stub[:data_set_org]) unless stub[:data_set_org].nil?
+        data['dataSetOrg'] = DatasetDetailOrgAttributes.stub(stub[:data_set_org]) unless stub[:data_set_org].nil?
         data['recordLength'] = stub[:record_length] unless stub[:record_length].nil?
         data['location'] = stub[:location] unless stub[:location].nil?
         data['blocksize'] = stub[:blocksize] unless stub[:blocksize].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['lastReferencedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_referenced_time]).to_i unless stub[:last_referenced_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -440,9 +442,9 @@ module AWS::SDK::M2
         data = {}
         case stub
         when Types::DatasetDetailOrgAttributes::Vsam
-          data['vsam'] = (Stubs::VsamDetailAttributes.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['vsam'] = (VsamDetailAttributes.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::DatasetDetailOrgAttributes::Gdg
-          data['gdg'] = (Stubs::GdgDetailAttributes.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['gdg'] = (GdgDetailAttributes.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DatasetDetailOrgAttributes"
@@ -494,8 +496,8 @@ module AWS::SDK::M2
         data['recordFormat'] = stub[:record_format] unless stub[:record_format].nil?
         data['compressed'] = stub[:compressed] unless stub[:compressed].nil?
         data['cacheAtStartup'] = stub[:cache_at_startup] unless stub[:cache_at_startup].nil?
-        data['primaryKey'] = Stubs::PrimaryKey.stub(stub[:primary_key]) unless stub[:primary_key].nil?
-        data['alternateKeys'] = Stubs::AlternateKeyList.stub(stub[:alternate_keys]) unless stub[:alternate_keys].nil?
+        data['primaryKey'] = PrimaryKey.stub(stub[:primary_key]) unless stub[:primary_key].nil?
+        data['alternateKeys'] = AlternateKeyList.stub(stub[:alternate_keys]) unless stub[:alternate_keys].nil?
         data
       end
     end
@@ -514,7 +516,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlternateKey.stub(element) unless element.nil?
+          data << AlternateKey.stub(element) unless element.nil?
         end
         data
       end
@@ -582,8 +584,8 @@ module AWS::SDK::M2
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['summary'] = Stubs::DataSetImportSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summary'] = DataSetImportSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -638,7 +640,7 @@ module AWS::SDK::M2
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -683,19 +685,19 @@ module AWS::SDK::M2
         data['engineType'] = stub[:engine_type] unless stub[:engine_type].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['subnetIds'] = Stubs::String50List.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['securityGroupIds'] = Stubs::String50List.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnetIds'] = String50List.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroupIds'] = String50List.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['storageConfigurations'] = Stubs::StorageConfigurationList.stub(stub[:storage_configurations]) unless stub[:storage_configurations].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['highAvailabilityConfig'] = Stubs::HighAvailabilityConfig.stub(stub[:high_availability_config]) unless stub[:high_availability_config].nil?
+        data['storageConfigurations'] = StorageConfigurationList.stub(stub[:storage_configurations]) unless stub[:storage_configurations].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['highAvailabilityConfig'] = HighAvailabilityConfig.stub(stub[:high_availability_config]) unless stub[:high_availability_config].nil?
         data['publiclyAccessible'] = stub[:publicly_accessible] unless stub[:publicly_accessible].nil?
         data['actualCapacity'] = stub[:actual_capacity] unless stub[:actual_capacity].nil?
         data['loadBalancerArn'] = stub[:load_balancer_arn] unless stub[:load_balancer_arn].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['preferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
-        data['pendingMaintenance'] = Stubs::PendingMaintenance.stub(stub[:pending_maintenance]) unless stub[:pending_maintenance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pendingMaintenance'] = PendingMaintenance.stub(stub[:pending_maintenance]) unless stub[:pending_maintenance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -713,7 +715,7 @@ module AWS::SDK::M2
       def self.stub(stub)
         stub ||= Types::PendingMaintenance.new
         data = {}
-        data['schedule'] = Stubs::MaintenanceSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['schedule'] = MaintenanceSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data
       end
@@ -771,7 +773,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StorageConfiguration.stub(element) unless element.nil?
+          data << StorageConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -791,9 +793,9 @@ module AWS::SDK::M2
         data = {}
         case stub
         when Types::StorageConfiguration::Efs
-          data['efs'] = (Stubs::EfsStorageConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['efs'] = (EfsStorageConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StorageConfiguration::Fsx
-          data['fsx'] = (Stubs::FsxStorageConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['fsx'] = (FsxStorageConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::StorageConfiguration"
@@ -876,9 +878,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applicationVersions'] = Stubs::ApplicationVersionSummaryList.stub(stub[:application_versions]) unless stub[:application_versions].nil?
+        data['applicationVersions'] = ApplicationVersionSummaryList.stub(stub[:application_versions]) unless stub[:application_versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -896,7 +898,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationVersionSummary.stub(element) unless element.nil?
+          data << ApplicationVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -915,9 +917,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applications'] = Stubs::ApplicationSummaryList.stub(stub[:applications]) unless stub[:applications].nil?
+        data['applications'] = ApplicationSummaryList.stub(stub[:applications]) unless stub[:applications].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -935,7 +937,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationSummary.stub(element) unless element.nil?
+          data << ApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -994,9 +996,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['batchJobDefinitions'] = Stubs::BatchJobDefinitions.stub(stub[:batch_job_definitions]) unless stub[:batch_job_definitions].nil?
+        data['batchJobDefinitions'] = BatchJobDefinitions.stub(stub[:batch_job_definitions]) unless stub[:batch_job_definitions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1014,7 +1016,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchJobDefinition.stub(element) unless element.nil?
+          data << BatchJobDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -1034,9 +1036,9 @@ module AWS::SDK::M2
         data = {}
         case stub
         when Types::BatchJobDefinition::FileBatchJobDefinition
-          data['fileBatchJobDefinition'] = (Stubs::FileBatchJobDefinition.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['fileBatchJobDefinition'] = (FileBatchJobDefinition.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::BatchJobDefinition::ScriptBatchJobDefinition
-          data['scriptBatchJobDefinition'] = (Stubs::ScriptBatchJobDefinition.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['scriptBatchJobDefinition'] = (ScriptBatchJobDefinition.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::BatchJobDefinition"
@@ -1097,9 +1099,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['batchJobExecutions'] = Stubs::BatchJobExecutionSummaryList.stub(stub[:batch_job_executions]) unless stub[:batch_job_executions].nil?
+        data['batchJobExecutions'] = BatchJobExecutionSummaryList.stub(stub[:batch_job_executions]) unless stub[:batch_job_executions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1117,7 +1119,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchJobExecutionSummary.stub(element) unless element.nil?
+          data << BatchJobExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1168,9 +1170,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dataSetImportTasks'] = Stubs::DataSetImportTaskList.stub(stub[:data_set_import_tasks]) unless stub[:data_set_import_tasks].nil?
+        data['dataSetImportTasks'] = DataSetImportTaskList.stub(stub[:data_set_import_tasks]) unless stub[:data_set_import_tasks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,7 +1190,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSetImportTask.stub(element) unless element.nil?
+          data << DataSetImportTask.stub(element) unless element.nil?
         end
         data
       end
@@ -1211,7 +1213,7 @@ module AWS::SDK::M2
         data = {}
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['summary'] = Stubs::DataSetImportSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['summary'] = DataSetImportSummary.stub(stub[:summary]) unless stub[:summary].nil?
         data
       end
     end
@@ -1229,9 +1231,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dataSets'] = Stubs::DataSetsSummaryList.stub(stub[:data_sets]) unless stub[:data_sets].nil?
+        data['dataSets'] = DataSetsSummaryList.stub(stub[:data_sets]) unless stub[:data_sets].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1249,7 +1251,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSetSummary.stub(element) unless element.nil?
+          data << DataSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1296,9 +1298,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['deployments'] = Stubs::DeploymentList.stub(stub[:deployments]) unless stub[:deployments].nil?
+        data['deployments'] = DeploymentList.stub(stub[:deployments]) unless stub[:deployments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1316,7 +1318,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentSummary.stub(element) unless element.nil?
+          data << DeploymentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1365,9 +1367,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['engineVersions'] = Stubs::EngineVersionsSummaryList.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
+        data['engineVersions'] = EngineVersionsSummaryList.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1385,7 +1387,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EngineVersionsSummary.stub(element) unless element.nil?
+          data << EngineVersionsSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1424,9 +1426,9 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['environments'] = Stubs::EnvironmentSummaryList.stub(stub[:environments]) unless stub[:environments].nil?
+        data['environments'] = EnvironmentSummaryList.stub(stub[:environments]) unless stub[:environments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1444,7 +1446,7 @@ module AWS::SDK::M2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentSummary.stub(element) unless element.nil?
+          data << EnvironmentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1494,8 +1496,8 @@ module AWS::SDK::M2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1525,7 +1527,7 @@ module AWS::SDK::M2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['executionId'] = stub[:execution_id] unless stub[:execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1581,7 +1583,7 @@ module AWS::SDK::M2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['applicationVersion'] = stub[:application_version] unless stub[:application_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1598,7 +1600,7 @@ module AWS::SDK::M2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['environmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

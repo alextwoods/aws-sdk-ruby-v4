@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::S3Control
   module Stubs
 
@@ -28,7 +30,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('AccessPointArn', stub[:access_point_arn].to_s) unless stub[:access_point_arn].nil?
         xml << Hearth::XML::Node.new('Alias', stub[:alias].to_s) unless stub[:alias].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('CreateAccessPointForObjectLambdaResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('ObjectLambdaAccessPointArn', stub[:object_lambda_access_point_arn].to_s) unless stub[:object_lambda_access_point_arn].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('CreateBucketResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('BucketArn', stub[:bucket_arn].to_s) unless stub[:bucket_arn].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -90,7 +92,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('CreateJobResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('JobId', stub[:job_id].to_s) unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -110,7 +112,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('CreateMultiRegionAccessPointResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('RequestTokenARN', stub[:request_token_arn].to_s) unless stub[:request_token_arn].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('DeleteMultiRegionAccessPointResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('RequestTokenARN', stub[:request_token_arn].to_s) unless stub[:request_token_arn].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('DescribeJobResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::JobDescriptor.stub('Job', stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1255,7 +1257,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('DescribeMultiRegionAccessPointOperationResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::AsyncOperation.stub('AsyncOperation', stub[:async_operation]) unless stub[:async_operation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1565,7 +1567,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('Alias', stub[:alias].to_s) unless stub[:alias].nil?
         xml << Hearth::XML::Node.new('AccessPointArn', stub[:access_point_arn].to_s) unless stub[:access_point_arn].nil?
         xml << Hearth::XML::Node.new('Endpoints', Stubs::Endpoints.stub('entry', stub[:endpoints])) unless stub[:endpoints].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1626,7 +1628,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetAccessPointConfigurationForObjectLambdaResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::ObjectLambdaConfiguration.stub('Configuration', stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1798,7 +1800,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Stubs::PublicAccessBlockConfiguration.stub('PublicAccessBlockConfiguration', stub[:public_access_block_configuration]) unless stub[:public_access_block_configuration].nil?
         xml << Hearth::XML::Node.new('CreationDate', Hearth::TimeHelper.to_date_time(stub[:creation_date])) unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1818,7 +1820,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetAccessPointPolicyResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Policy', stub[:policy].to_s) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1838,7 +1840,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetAccessPointPolicyForObjectLambdaResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Policy', stub[:policy].to_s) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1858,7 +1860,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetAccessPointPolicyStatusResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::PolicyStatus.stub('PolicyStatus', stub[:policy_status]) unless stub[:policy_status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1896,7 +1898,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetAccessPointPolicyStatusForObjectLambdaResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::PolicyStatus.stub('PolicyStatus', stub[:policy_status]) unless stub[:policy_status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1920,7 +1922,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('Bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
         xml << Hearth::XML::Node.new('PublicAccessBlockEnabled', stub[:public_access_block_enabled].to_s) unless stub[:public_access_block_enabled].nil?
         xml << Hearth::XML::Node.new('CreationDate', Hearth::TimeHelper.to_date_time(stub[:creation_date])) unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1940,7 +1942,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetBucketLifecycleConfigurationResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Rules', Stubs::LifecycleRules.stub('Rule', stub[:rules])) unless stub[:rules].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2194,7 +2196,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetBucketPolicyResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Policy', stub[:policy].to_s) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2214,7 +2216,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetBucketTaggingResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('TagSet', Stubs::S3TagSet.stub('member', stub[:tag_set])) unless stub[:tag_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2234,7 +2236,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetJobTaggingResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Tags', Stubs::S3TagSet.stub('member', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2254,7 +2256,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetMultiRegionAccessPointResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::MultiRegionAccessPointReport.stub('AccessPoint', stub[:access_point]) unless stub[:access_point].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2342,7 +2344,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetMultiRegionAccessPointPolicyResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::MultiRegionAccessPointPolicyDocument.stub('Policy', stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2418,7 +2420,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetMultiRegionAccessPointPolicyStatusResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Stubs::PolicyStatus.stub('Established', stub[:established]) unless stub[:established].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2435,7 +2437,7 @@ module AWS::SDK::S3Control
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', stub[:public_access_block_configuration]) unless stub[:public_access_block_configuration].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2452,7 +2454,7 @@ module AWS::SDK::S3Control
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Builders::StorageLensConfiguration.build('StorageLensConfiguration', stub[:storage_lens_configuration]) unless stub[:storage_lens_configuration].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2840,7 +2842,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('GetStorageLensConfigurationTaggingResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Tags', Stubs::StorageLensTags.stub('Tag', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2902,7 +2904,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('AccessPointList', Stubs::AccessPointList.stub('AccessPoint', stub[:access_point_list])) unless stub[:access_point_list].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2972,7 +2974,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('ObjectLambdaAccessPointList', Stubs::ObjectLambdaAccessPointList.stub('ObjectLambdaAccessPoint', stub[:object_lambda_access_point_list])) unless stub[:object_lambda_access_point_list].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3034,7 +3036,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('Jobs', Stubs::JobListDescriptorList.stub('member', stub[:jobs])) unless stub[:jobs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3108,7 +3110,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('AccessPoints', Stubs::MultiRegionAccessPointReportList.stub('AccessPoint', stub[:access_points])) unless stub[:access_points].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3150,7 +3152,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('RegionalBucketList', Stubs::RegionalBucketList.stub('RegionalBucket', stub[:regional_bucket_list])) unless stub[:regional_bucket_list].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3218,7 +3220,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Stubs::StorageLensConfigurationList.stub('StorageLensConfigurationList', stub[:storage_lens_configuration_list]) unless stub[:storage_lens_configuration_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3373,7 +3375,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('PutMultiRegionAccessPointPolicyResult')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('RequestTokenARN', stub[:request_token_arn].to_s) unless stub[:request_token_arn].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3434,7 +3436,7 @@ module AWS::SDK::S3Control
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('JobId', stub[:job_id].to_s) unless stub[:job_id].nil?
         xml << Hearth::XML::Node.new('Priority', stub[:priority].to_s) unless stub[:priority].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -3458,7 +3460,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('JobId', stub[:job_id].to_s) unless stub[:job_id].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('StatusUpdateReason', stub[:status_update_reason].to_s) unless stub[:status_update_reason].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
   end

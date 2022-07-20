@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EMR
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.AddInstanceFleet'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        data['InstanceFleet'] = Builders::InstanceFleetConfig.build(input[:instance_fleet]) unless input[:instance_fleet].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceFleet'] = InstanceFleetConfig.build(input[:instance_fleet]) unless input[:instance_fleet].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,8 +34,8 @@ module AWS::SDK::EMR
         data['InstanceFleetType'] = input[:instance_fleet_type] unless input[:instance_fleet_type].nil?
         data['TargetOnDemandCapacity'] = input[:target_on_demand_capacity] unless input[:target_on_demand_capacity].nil?
         data['TargetSpotCapacity'] = input[:target_spot_capacity] unless input[:target_spot_capacity].nil?
-        data['InstanceTypeConfigs'] = Builders::InstanceTypeConfigList.build(input[:instance_type_configs]) unless input[:instance_type_configs].nil?
-        data['LaunchSpecifications'] = Builders::InstanceFleetProvisioningSpecifications.build(input[:launch_specifications]) unless input[:launch_specifications].nil?
+        data['InstanceTypeConfigs'] = InstanceTypeConfigList.build(input[:instance_type_configs]) unless input[:instance_type_configs].nil?
+        data['LaunchSpecifications'] = InstanceFleetProvisioningSpecifications.build(input[:launch_specifications]) unless input[:launch_specifications].nil?
         data
       end
     end
@@ -42,8 +44,8 @@ module AWS::SDK::EMR
     class InstanceFleetProvisioningSpecifications
       def self.build(input)
         data = {}
-        data['SpotSpecification'] = Builders::SpotProvisioningSpecification.build(input[:spot_specification]) unless input[:spot_specification].nil?
-        data['OnDemandSpecification'] = Builders::OnDemandProvisioningSpecification.build(input[:on_demand_specification]) unless input[:on_demand_specification].nil?
+        data['SpotSpecification'] = SpotProvisioningSpecification.build(input[:spot_specification]) unless input[:spot_specification].nil?
+        data['OnDemandSpecification'] = OnDemandProvisioningSpecification.build(input[:on_demand_specification]) unless input[:on_demand_specification].nil?
         data
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['AllocationStrategy'] = input[:allocation_strategy] unless input[:allocation_strategy].nil?
-        data['CapacityReservationOptions'] = Builders::OnDemandCapacityReservationOptions.build(input[:capacity_reservation_options]) unless input[:capacity_reservation_options].nil?
+        data['CapacityReservationOptions'] = OnDemandCapacityReservationOptions.build(input[:capacity_reservation_options]) unless input[:capacity_reservation_options].nil?
         data
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InstanceTypeConfig.build(element) unless element.nil?
+          data << InstanceTypeConfig.build(element) unless element.nil?
         end
         data
       end
@@ -100,8 +102,8 @@ module AWS::SDK::EMR
         data['WeightedCapacity'] = input[:weighted_capacity] unless input[:weighted_capacity].nil?
         data['BidPrice'] = input[:bid_price] unless input[:bid_price].nil?
         data['BidPriceAsPercentageOfOnDemandPrice'] = Hearth::NumberHelper.serialize(input[:bid_price_as_percentage_of_on_demand_price]) unless input[:bid_price_as_percentage_of_on_demand_price].nil?
-        data['EbsConfiguration'] = Builders::EbsConfiguration.build(input[:ebs_configuration]) unless input[:ebs_configuration].nil?
-        data['Configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['EbsConfiguration'] = EbsConfiguration.build(input[:ebs_configuration]) unless input[:ebs_configuration].nil?
+        data['Configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
         data['CustomAmiId'] = input[:custom_ami_id] unless input[:custom_ami_id].nil?
         data
       end
@@ -112,7 +114,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Configuration.build(element) unless element.nil?
+          data << Configuration.build(element) unless element.nil?
         end
         data
       end
@@ -123,8 +125,8 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['Classification'] = input[:classification] unless input[:classification].nil?
-        data['Configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
-        data['Properties'] = Builders::StringMap.build(input[:properties]) unless input[:properties].nil?
+        data['Configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['Properties'] = StringMap.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -144,7 +146,7 @@ module AWS::SDK::EMR
     class EbsConfiguration
       def self.build(input)
         data = {}
-        data['EbsBlockDeviceConfigs'] = Builders::EbsBlockDeviceConfigList.build(input[:ebs_block_device_configs]) unless input[:ebs_block_device_configs].nil?
+        data['EbsBlockDeviceConfigs'] = EbsBlockDeviceConfigList.build(input[:ebs_block_device_configs]) unless input[:ebs_block_device_configs].nil?
         data['EbsOptimized'] = input[:ebs_optimized] unless input[:ebs_optimized].nil?
         data
       end
@@ -155,7 +157,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EbsBlockDeviceConfig.build(element) unless element.nil?
+          data << EbsBlockDeviceConfig.build(element) unless element.nil?
         end
         data
       end
@@ -165,7 +167,7 @@ module AWS::SDK::EMR
     class EbsBlockDeviceConfig
       def self.build(input)
         data = {}
-        data['VolumeSpecification'] = Builders::VolumeSpecification.build(input[:volume_specification]) unless input[:volume_specification].nil?
+        data['VolumeSpecification'] = VolumeSpecification.build(input[:volume_specification]) unless input[:volume_specification].nil?
         data['VolumesPerInstance'] = input[:volumes_per_instance] unless input[:volumes_per_instance].nil?
         data
       end
@@ -190,9 +192,9 @@ module AWS::SDK::EMR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.AddInstanceGroups'
         data = {}
-        data['InstanceGroups'] = Builders::InstanceGroupConfigList.build(input[:instance_groups]) unless input[:instance_groups].nil?
+        data['InstanceGroups'] = InstanceGroupConfigList.build(input[:instance_groups]) unless input[:instance_groups].nil?
         data['JobFlowId'] = input[:job_flow_id] unless input[:job_flow_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InstanceGroupConfig.build(element) unless element.nil?
+          data << InstanceGroupConfig.build(element) unless element.nil?
         end
         data
       end
@@ -217,9 +219,9 @@ module AWS::SDK::EMR
         data['BidPrice'] = input[:bid_price] unless input[:bid_price].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['InstanceCount'] = input[:instance_count] unless input[:instance_count].nil?
-        data['Configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
-        data['EbsConfiguration'] = Builders::EbsConfiguration.build(input[:ebs_configuration]) unless input[:ebs_configuration].nil?
-        data['AutoScalingPolicy'] = Builders::AutoScalingPolicy.build(input[:auto_scaling_policy]) unless input[:auto_scaling_policy].nil?
+        data['Configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['EbsConfiguration'] = EbsConfiguration.build(input[:ebs_configuration]) unless input[:ebs_configuration].nil?
+        data['AutoScalingPolicy'] = AutoScalingPolicy.build(input[:auto_scaling_policy]) unless input[:auto_scaling_policy].nil?
         data['CustomAmiId'] = input[:custom_ami_id] unless input[:custom_ami_id].nil?
         data
       end
@@ -229,8 +231,8 @@ module AWS::SDK::EMR
     class AutoScalingPolicy
       def self.build(input)
         data = {}
-        data['Constraints'] = Builders::ScalingConstraints.build(input[:constraints]) unless input[:constraints].nil?
-        data['Rules'] = Builders::ScalingRuleList.build(input[:rules]) unless input[:rules].nil?
+        data['Constraints'] = ScalingConstraints.build(input[:constraints]) unless input[:constraints].nil?
+        data['Rules'] = ScalingRuleList.build(input[:rules]) unless input[:rules].nil?
         data
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ScalingRule.build(element) unless element.nil?
+          data << ScalingRule.build(element) unless element.nil?
         end
         data
       end
@@ -252,8 +254,8 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Action'] = Builders::ScalingAction.build(input[:action]) unless input[:action].nil?
-        data['Trigger'] = Builders::ScalingTrigger.build(input[:trigger]) unless input[:trigger].nil?
+        data['Action'] = ScalingAction.build(input[:action]) unless input[:action].nil?
+        data['Trigger'] = ScalingTrigger.build(input[:trigger]) unless input[:trigger].nil?
         data
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::EMR
     class ScalingTrigger
       def self.build(input)
         data = {}
-        data['CloudWatchAlarmDefinition'] = Builders::CloudWatchAlarmDefinition.build(input[:cloud_watch_alarm_definition]) unless input[:cloud_watch_alarm_definition].nil?
+        data['CloudWatchAlarmDefinition'] = CloudWatchAlarmDefinition.build(input[:cloud_watch_alarm_definition]) unless input[:cloud_watch_alarm_definition].nil?
         data
       end
     end
@@ -279,7 +281,7 @@ module AWS::SDK::EMR
         data['Statistic'] = input[:statistic] unless input[:statistic].nil?
         data['Threshold'] = Hearth::NumberHelper.serialize(input[:threshold]) unless input[:threshold].nil?
         data['Unit'] = input[:unit] unless input[:unit].nil?
-        data['Dimensions'] = Builders::MetricDimensionList.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = MetricDimensionList.build(input[:dimensions]) unless input[:dimensions].nil?
         data
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricDimension.build(element) unless element.nil?
+          data << MetricDimension.build(element) unless element.nil?
         end
         data
       end
@@ -310,7 +312,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['Market'] = input[:market] unless input[:market].nil?
-        data['SimpleScalingPolicyConfiguration'] = Builders::SimpleScalingPolicyConfiguration.build(input[:simple_scaling_policy_configuration]) unless input[:simple_scaling_policy_configuration].nil?
+        data['SimpleScalingPolicyConfiguration'] = SimpleScalingPolicyConfiguration.build(input[:simple_scaling_policy_configuration]) unless input[:simple_scaling_policy_configuration].nil?
         data
       end
     end
@@ -345,8 +347,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.AddJobFlowSteps'
         data = {}
         data['JobFlowId'] = input[:job_flow_id] unless input[:job_flow_id].nil?
-        data['Steps'] = Builders::StepConfigList.build(input[:steps]) unless input[:steps].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Steps'] = StepConfigList.build(input[:steps]) unless input[:steps].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StepConfig.build(element) unless element.nil?
+          data << StepConfig.build(element) unless element.nil?
         end
         data
       end
@@ -367,7 +369,7 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ActionOnFailure'] = input[:action_on_failure] unless input[:action_on_failure].nil?
-        data['HadoopJarStep'] = Builders::HadoopJarStepConfig.build(input[:hadoop_jar_step]) unless input[:hadoop_jar_step].nil?
+        data['HadoopJarStep'] = HadoopJarStepConfig.build(input[:hadoop_jar_step]) unless input[:hadoop_jar_step].nil?
         data
       end
     end
@@ -376,10 +378,10 @@ module AWS::SDK::EMR
     class HadoopJarStepConfig
       def self.build(input)
         data = {}
-        data['Properties'] = Builders::KeyValueList.build(input[:properties]) unless input[:properties].nil?
+        data['Properties'] = KeyValueList.build(input[:properties]) unless input[:properties].nil?
         data['Jar'] = input[:jar] unless input[:jar].nil?
         data['MainClass'] = input[:main_class] unless input[:main_class].nil?
-        data['Args'] = Builders::XmlStringList.build(input[:args]) unless input[:args].nil?
+        data['Args'] = XmlStringList.build(input[:args]) unless input[:args].nil?
         data
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeyValue.build(element) unless element.nil?
+          data << KeyValue.build(element) unless element.nil?
         end
         data
       end
@@ -425,8 +427,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.AddTags'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -435,7 +437,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -460,9 +462,9 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.CancelSteps'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        data['StepIds'] = Builders::StepIdsList.build(input[:step_ids]) unless input[:step_ids].nil?
+        data['StepIds'] = StepIdsList.build(input[:step_ids]) unless input[:step_ids].nil?
         data['StepCancellationOption'] = input[:step_cancellation_option] unless input[:step_cancellation_option].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -487,7 +489,7 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -503,7 +505,7 @@ module AWS::SDK::EMR
         data['Description'] = input[:description] unless input[:description].nil?
         data['AuthMode'] = input[:auth_mode] unless input[:auth_mode].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['SubnetIds'] = Builders::SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['ServiceRole'] = input[:service_role] unless input[:service_role].nil?
         data['UserRole'] = input[:user_role] unless input[:user_role].nil?
         data['WorkspaceSecurityGroupId'] = input[:workspace_security_group_id] unless input[:workspace_security_group_id].nil?
@@ -511,8 +513,8 @@ module AWS::SDK::EMR
         data['DefaultS3Location'] = input[:default_s3_location] unless input[:default_s3_location].nil?
         data['IdpAuthUrl'] = input[:idp_auth_url] unless input[:idp_auth_url].nil?
         data['IdpRelayStateParameterName'] = input[:idp_relay_state_parameter_name] unless input[:idp_relay_state_parameter_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -540,7 +542,7 @@ module AWS::SDK::EMR
         data['IdentityName'] = input[:identity_name] unless input[:identity_name].nil?
         data['IdentityType'] = input[:identity_type] unless input[:identity_type].nil?
         data['SessionPolicyArn'] = input[:session_policy_arn] unless input[:session_policy_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -553,7 +555,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.DeleteSecurityConfiguration'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.DeleteStudio'
         data = {}
         data['StudioId'] = input[:studio_id] unless input[:studio_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -582,7 +584,7 @@ module AWS::SDK::EMR
         data['IdentityId'] = input[:identity_id] unless input[:identity_id].nil?
         data['IdentityName'] = input[:identity_name] unless input[:identity_name].nil?
         data['IdentityType'] = input[:identity_type] unless input[:identity_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,7 +597,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.DescribeCluster'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -609,9 +611,9 @@ module AWS::SDK::EMR
         data = {}
         data['CreatedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:created_after]).to_i unless input[:created_after].nil?
         data['CreatedBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:created_before]).to_i unless input[:created_before].nil?
-        data['JobFlowIds'] = Builders::XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
-        data['JobFlowStates'] = Builders::JobFlowExecutionStateList.build(input[:job_flow_states]) unless input[:job_flow_states].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobFlowIds'] = XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
+        data['JobFlowStates'] = JobFlowExecutionStateList.build(input[:job_flow_states]) unless input[:job_flow_states].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -635,7 +637,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.DescribeNotebookExecution'
         data = {}
         data['NotebookExecutionId'] = input[:notebook_execution_id] unless input[:notebook_execution_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -650,7 +652,7 @@ module AWS::SDK::EMR
         data['ReleaseLabel'] = input[:release_label] unless input[:release_label].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -663,7 +665,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.DescribeSecurityConfiguration'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -677,7 +679,7 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['StepId'] = input[:step_id] unless input[:step_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -690,7 +692,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.DescribeStudio'
         data = {}
         data['StudioId'] = input[:studio_id] unless input[:studio_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -703,7 +705,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.GetAutoTerminationPolicy'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -715,7 +717,7 @@ module AWS::SDK::EMR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.GetBlockPublicAccessConfiguration'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -728,7 +730,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.GetManagedScalingPolicy'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -744,7 +746,7 @@ module AWS::SDK::EMR
         data['IdentityId'] = input[:identity_id] unless input[:identity_id].nil?
         data['IdentityName'] = input[:identity_name] unless input[:identity_name].nil?
         data['IdentityType'] = input[:identity_type] unless input[:identity_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -758,7 +760,7 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -772,9 +774,9 @@ module AWS::SDK::EMR
         data = {}
         data['CreatedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:created_after]).to_i unless input[:created_after].nil?
         data['CreatedBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:created_before]).to_i unless input[:created_before].nil?
-        data['ClusterStates'] = Builders::ClusterStateList.build(input[:cluster_states]) unless input[:cluster_states].nil?
+        data['ClusterStates'] = ClusterStateList.build(input[:cluster_states]) unless input[:cluster_states].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -799,7 +801,7 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -813,7 +815,7 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -827,12 +829,12 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['InstanceGroupId'] = input[:instance_group_id] unless input[:instance_group_id].nil?
-        data['InstanceGroupTypes'] = Builders::InstanceGroupTypeList.build(input[:instance_group_types]) unless input[:instance_group_types].nil?
+        data['InstanceGroupTypes'] = InstanceGroupTypeList.build(input[:instance_group_types]) unless input[:instance_group_types].nil?
         data['InstanceFleetId'] = input[:instance_fleet_id] unless input[:instance_fleet_id].nil?
         data['InstanceFleetType'] = input[:instance_fleet_type] unless input[:instance_fleet_type].nil?
-        data['InstanceStates'] = Builders::InstanceStateList.build(input[:instance_states]) unless input[:instance_states].nil?
+        data['InstanceStates'] = InstanceStateList.build(input[:instance_states]) unless input[:instance_states].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -871,7 +873,7 @@ module AWS::SDK::EMR
         data['From'] = Hearth::TimeHelper.to_epoch_seconds(input[:from]).to_i unless input[:from].nil?
         data['To'] = Hearth::TimeHelper.to_epoch_seconds(input[:to]).to_i unless input[:to].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,10 +885,10 @@ module AWS::SDK::EMR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.ListReleaseLabels'
         data = {}
-        data['Filters'] = Builders::ReleaseLabelFilter.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ReleaseLabelFilter.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -909,7 +911,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.ListSecurityConfigurations'
         data = {}
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,10 +924,10 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.ListSteps'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        data['StepStates'] = Builders::StepStateList.build(input[:step_states]) unless input[:step_states].nil?
-        data['StepIds'] = Builders::XmlStringList.build(input[:step_ids]) unless input[:step_ids].nil?
+        data['StepStates'] = StepStateList.build(input[:step_states]) unless input[:step_states].nil?
+        data['StepIds'] = XmlStringList.build(input[:step_ids]) unless input[:step_ids].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -951,7 +953,7 @@ module AWS::SDK::EMR
         data['StudioId'] = input[:studio_id] unless input[:studio_id].nil?
         data['IdentityType'] = input[:identity_type] unless input[:identity_type].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -964,7 +966,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.ListStudios'
         data = {}
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -978,7 +980,7 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['StepConcurrencyLevel'] = input[:step_concurrency_level] unless input[:step_concurrency_level].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -991,8 +993,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.ModifyInstanceFleet'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        data['InstanceFleet'] = Builders::InstanceFleetModifyConfig.build(input[:instance_fleet]) unless input[:instance_fleet].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceFleet'] = InstanceFleetModifyConfig.build(input[:instance_fleet]) unless input[:instance_fleet].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1016,8 +1018,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.ModifyInstanceGroups'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        data['InstanceGroups'] = Builders::InstanceGroupModifyConfigList.build(input[:instance_groups]) unless input[:instance_groups].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceGroups'] = InstanceGroupModifyConfigList.build(input[:instance_groups]) unless input[:instance_groups].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1026,7 +1028,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InstanceGroupModifyConfig.build(element) unless element.nil?
+          data << InstanceGroupModifyConfig.build(element) unless element.nil?
         end
         data
       end
@@ -1038,10 +1040,10 @@ module AWS::SDK::EMR
         data = {}
         data['InstanceGroupId'] = input[:instance_group_id] unless input[:instance_group_id].nil?
         data['InstanceCount'] = input[:instance_count] unless input[:instance_count].nil?
-        data['EC2InstanceIdsToTerminate'] = Builders::EC2InstanceIdsToTerminateList.build(input[:ec2_instance_ids_to_terminate]) unless input[:ec2_instance_ids_to_terminate].nil?
-        data['ShrinkPolicy'] = Builders::ShrinkPolicy.build(input[:shrink_policy]) unless input[:shrink_policy].nil?
+        data['EC2InstanceIdsToTerminate'] = EC2InstanceIdsToTerminateList.build(input[:ec2_instance_ids_to_terminate]) unless input[:ec2_instance_ids_to_terminate].nil?
+        data['ShrinkPolicy'] = ShrinkPolicy.build(input[:shrink_policy]) unless input[:shrink_policy].nil?
         data['ReconfigurationType'] = input[:reconfiguration_type] unless input[:reconfiguration_type].nil?
-        data['Configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['Configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
         data
       end
     end
@@ -1051,7 +1053,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['DecommissionTimeout'] = input[:decommission_timeout] unless input[:decommission_timeout].nil?
-        data['InstanceResizePolicy'] = Builders::InstanceResizePolicy.build(input[:instance_resize_policy]) unless input[:instance_resize_policy].nil?
+        data['InstanceResizePolicy'] = InstanceResizePolicy.build(input[:instance_resize_policy]) unless input[:instance_resize_policy].nil?
         data
       end
     end
@@ -1060,8 +1062,8 @@ module AWS::SDK::EMR
     class InstanceResizePolicy
       def self.build(input)
         data = {}
-        data['InstancesToTerminate'] = Builders::EC2InstanceIdsList.build(input[:instances_to_terminate]) unless input[:instances_to_terminate].nil?
-        data['InstancesToProtect'] = Builders::EC2InstanceIdsList.build(input[:instances_to_protect]) unless input[:instances_to_protect].nil?
+        data['InstancesToTerminate'] = EC2InstanceIdsList.build(input[:instances_to_terminate]) unless input[:instances_to_terminate].nil?
+        data['InstancesToProtect'] = EC2InstanceIdsList.build(input[:instances_to_protect]) unless input[:instances_to_protect].nil?
         data['InstanceTerminationTimeout'] = input[:instance_termination_timeout] unless input[:instance_termination_timeout].nil?
         data
       end
@@ -1099,8 +1101,8 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['InstanceGroupId'] = input[:instance_group_id] unless input[:instance_group_id].nil?
-        data['AutoScalingPolicy'] = Builders::AutoScalingPolicy.build(input[:auto_scaling_policy]) unless input[:auto_scaling_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoScalingPolicy'] = AutoScalingPolicy.build(input[:auto_scaling_policy]) unless input[:auto_scaling_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1113,8 +1115,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.PutAutoTerminationPolicy'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        data['AutoTerminationPolicy'] = Builders::AutoTerminationPolicy.build(input[:auto_termination_policy]) unless input[:auto_termination_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoTerminationPolicy'] = AutoTerminationPolicy.build(input[:auto_termination_policy]) unless input[:auto_termination_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1135,8 +1137,8 @@ module AWS::SDK::EMR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.PutBlockPublicAccessConfiguration'
         data = {}
-        data['BlockPublicAccessConfiguration'] = Builders::BlockPublicAccessConfiguration.build(input[:block_public_access_configuration]) unless input[:block_public_access_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BlockPublicAccessConfiguration'] = BlockPublicAccessConfiguration.build(input[:block_public_access_configuration]) unless input[:block_public_access_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1145,10 +1147,10 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['BlockPublicSecurityGroupRules'] = input[:block_public_security_group_rules] unless input[:block_public_security_group_rules].nil?
-        data['PermittedPublicSecurityGroupRuleRanges'] = Builders::PortRanges.build(input[:permitted_public_security_group_rule_ranges]) unless input[:permitted_public_security_group_rule_ranges].nil?
+        data['PermittedPublicSecurityGroupRuleRanges'] = PortRanges.build(input[:permitted_public_security_group_rule_ranges]) unless input[:permitted_public_security_group_rule_ranges].nil?
         data['Classification'] = input[:classification] unless input[:classification].nil?
-        data['Configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
-        data['Properties'] = Builders::StringMap.build(input[:properties]) unless input[:properties].nil?
+        data['Configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['Properties'] = StringMap.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -1158,7 +1160,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortRange.build(element) unless element.nil?
+          data << PortRange.build(element) unless element.nil?
         end
         data
       end
@@ -1183,8 +1185,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.PutManagedScalingPolicy'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        data['ManagedScalingPolicy'] = Builders::ManagedScalingPolicy.build(input[:managed_scaling_policy]) unless input[:managed_scaling_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ManagedScalingPolicy'] = ManagedScalingPolicy.build(input[:managed_scaling_policy]) unless input[:managed_scaling_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1192,7 +1194,7 @@ module AWS::SDK::EMR
     class ManagedScalingPolicy
       def self.build(input)
         data = {}
-        data['ComputeLimits'] = Builders::ComputeLimits.build(input[:compute_limits]) unless input[:compute_limits].nil?
+        data['ComputeLimits'] = ComputeLimits.build(input[:compute_limits]) unless input[:compute_limits].nil?
         data
       end
     end
@@ -1220,7 +1222,7 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['InstanceGroupId'] = input[:instance_group_id] unless input[:instance_group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1233,7 +1235,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.RemoveAutoTerminationPolicy'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1246,7 +1248,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.RemoveManagedScalingPolicy'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1259,8 +1261,8 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.RemoveTags'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagKeys'] = Builders::StringList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = StringList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1289,30 +1291,30 @@ module AWS::SDK::EMR
         data['AdditionalInfo'] = input[:additional_info] unless input[:additional_info].nil?
         data['AmiVersion'] = input[:ami_version] unless input[:ami_version].nil?
         data['ReleaseLabel'] = input[:release_label] unless input[:release_label].nil?
-        data['Instances'] = Builders::JobFlowInstancesConfig.build(input[:instances]) unless input[:instances].nil?
-        data['Steps'] = Builders::StepConfigList.build(input[:steps]) unless input[:steps].nil?
-        data['BootstrapActions'] = Builders::BootstrapActionConfigList.build(input[:bootstrap_actions]) unless input[:bootstrap_actions].nil?
-        data['SupportedProducts'] = Builders::SupportedProductsList.build(input[:supported_products]) unless input[:supported_products].nil?
-        data['NewSupportedProducts'] = Builders::NewSupportedProductsList.build(input[:new_supported_products]) unless input[:new_supported_products].nil?
-        data['Applications'] = Builders::ApplicationList.build(input[:applications]) unless input[:applications].nil?
-        data['Configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['Instances'] = JobFlowInstancesConfig.build(input[:instances]) unless input[:instances].nil?
+        data['Steps'] = StepConfigList.build(input[:steps]) unless input[:steps].nil?
+        data['BootstrapActions'] = BootstrapActionConfigList.build(input[:bootstrap_actions]) unless input[:bootstrap_actions].nil?
+        data['SupportedProducts'] = SupportedProductsList.build(input[:supported_products]) unless input[:supported_products].nil?
+        data['NewSupportedProducts'] = NewSupportedProductsList.build(input[:new_supported_products]) unless input[:new_supported_products].nil?
+        data['Applications'] = ApplicationList.build(input[:applications]) unless input[:applications].nil?
+        data['Configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
         data['VisibleToAllUsers'] = input[:visible_to_all_users] unless input[:visible_to_all_users].nil?
         data['JobFlowRole'] = input[:job_flow_role] unless input[:job_flow_role].nil?
         data['ServiceRole'] = input[:service_role] unless input[:service_role].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
         data['AutoScalingRole'] = input[:auto_scaling_role] unless input[:auto_scaling_role].nil?
         data['ScaleDownBehavior'] = input[:scale_down_behavior] unless input[:scale_down_behavior].nil?
         data['CustomAmiId'] = input[:custom_ami_id] unless input[:custom_ami_id].nil?
         data['EbsRootVolumeSize'] = input[:ebs_root_volume_size] unless input[:ebs_root_volume_size].nil?
         data['RepoUpgradeOnBoot'] = input[:repo_upgrade_on_boot] unless input[:repo_upgrade_on_boot].nil?
-        data['KerberosAttributes'] = Builders::KerberosAttributes.build(input[:kerberos_attributes]) unless input[:kerberos_attributes].nil?
+        data['KerberosAttributes'] = KerberosAttributes.build(input[:kerberos_attributes]) unless input[:kerberos_attributes].nil?
         data['StepConcurrencyLevel'] = input[:step_concurrency_level] unless input[:step_concurrency_level].nil?
-        data['ManagedScalingPolicy'] = Builders::ManagedScalingPolicy.build(input[:managed_scaling_policy]) unless input[:managed_scaling_policy].nil?
-        data['PlacementGroupConfigs'] = Builders::PlacementGroupConfigList.build(input[:placement_group_configs]) unless input[:placement_group_configs].nil?
-        data['AutoTerminationPolicy'] = Builders::AutoTerminationPolicy.build(input[:auto_termination_policy]) unless input[:auto_termination_policy].nil?
+        data['ManagedScalingPolicy'] = ManagedScalingPolicy.build(input[:managed_scaling_policy]) unless input[:managed_scaling_policy].nil?
+        data['PlacementGroupConfigs'] = PlacementGroupConfigList.build(input[:placement_group_configs]) unless input[:placement_group_configs].nil?
+        data['AutoTerminationPolicy'] = AutoTerminationPolicy.build(input[:auto_termination_policy]) unless input[:auto_termination_policy].nil?
         data['OSReleaseLabel'] = input[:os_release_label] unless input[:os_release_label].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1321,7 +1323,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlacementGroupConfig.build(element) unless element.nil?
+          data << PlacementGroupConfig.build(element) unless element.nil?
         end
         data
       end
@@ -1355,7 +1357,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Application.build(element) unless element.nil?
+          data << Application.build(element) unless element.nil?
         end
         data
       end
@@ -1367,8 +1369,8 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['Args'] = Builders::StringList.build(input[:args]) unless input[:args].nil?
-        data['AdditionalInfo'] = Builders::StringMap.build(input[:additional_info]) unless input[:additional_info].nil?
+        data['Args'] = StringList.build(input[:args]) unless input[:args].nil?
+        data['AdditionalInfo'] = StringMap.build(input[:additional_info]) unless input[:additional_info].nil?
         data
       end
     end
@@ -1378,7 +1380,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SupportedProductConfig.build(element) unless element.nil?
+          data << SupportedProductConfig.build(element) unless element.nil?
         end
         data
       end
@@ -1389,7 +1391,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Args'] = Builders::XmlStringList.build(input[:args]) unless input[:args].nil?
+        data['Args'] = XmlStringList.build(input[:args]) unless input[:args].nil?
         data
       end
     end
@@ -1410,7 +1412,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BootstrapActionConfig.build(element) unless element.nil?
+          data << BootstrapActionConfig.build(element) unless element.nil?
         end
         data
       end
@@ -1421,7 +1423,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['ScriptBootstrapAction'] = Builders::ScriptBootstrapActionConfig.build(input[:script_bootstrap_action]) unless input[:script_bootstrap_action].nil?
+        data['ScriptBootstrapAction'] = ScriptBootstrapActionConfig.build(input[:script_bootstrap_action]) unless input[:script_bootstrap_action].nil?
         data
       end
     end
@@ -1431,7 +1433,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['Path'] = input[:path] unless input[:path].nil?
-        data['Args'] = Builders::XmlStringList.build(input[:args]) unless input[:args].nil?
+        data['Args'] = XmlStringList.build(input[:args]) unless input[:args].nil?
         data
       end
     end
@@ -1443,20 +1445,20 @@ module AWS::SDK::EMR
         data['MasterInstanceType'] = input[:master_instance_type] unless input[:master_instance_type].nil?
         data['SlaveInstanceType'] = input[:slave_instance_type] unless input[:slave_instance_type].nil?
         data['InstanceCount'] = input[:instance_count] unless input[:instance_count].nil?
-        data['InstanceGroups'] = Builders::InstanceGroupConfigList.build(input[:instance_groups]) unless input[:instance_groups].nil?
-        data['InstanceFleets'] = Builders::InstanceFleetConfigList.build(input[:instance_fleets]) unless input[:instance_fleets].nil?
+        data['InstanceGroups'] = InstanceGroupConfigList.build(input[:instance_groups]) unless input[:instance_groups].nil?
+        data['InstanceFleets'] = InstanceFleetConfigList.build(input[:instance_fleets]) unless input[:instance_fleets].nil?
         data['Ec2KeyName'] = input[:ec2_key_name] unless input[:ec2_key_name].nil?
-        data['Placement'] = Builders::PlacementType.build(input[:placement]) unless input[:placement].nil?
+        data['Placement'] = PlacementType.build(input[:placement]) unless input[:placement].nil?
         data['KeepJobFlowAliveWhenNoSteps'] = input[:keep_job_flow_alive_when_no_steps] unless input[:keep_job_flow_alive_when_no_steps].nil?
         data['TerminationProtected'] = input[:termination_protected] unless input[:termination_protected].nil?
         data['HadoopVersion'] = input[:hadoop_version] unless input[:hadoop_version].nil?
         data['Ec2SubnetId'] = input[:ec2_subnet_id] unless input[:ec2_subnet_id].nil?
-        data['Ec2SubnetIds'] = Builders::XmlStringMaxLen256List.build(input[:ec2_subnet_ids]) unless input[:ec2_subnet_ids].nil?
+        data['Ec2SubnetIds'] = XmlStringMaxLen256List.build(input[:ec2_subnet_ids]) unless input[:ec2_subnet_ids].nil?
         data['EmrManagedMasterSecurityGroup'] = input[:emr_managed_master_security_group] unless input[:emr_managed_master_security_group].nil?
         data['EmrManagedSlaveSecurityGroup'] = input[:emr_managed_slave_security_group] unless input[:emr_managed_slave_security_group].nil?
         data['ServiceAccessSecurityGroup'] = input[:service_access_security_group] unless input[:service_access_security_group].nil?
-        data['AdditionalMasterSecurityGroups'] = Builders::SecurityGroupsList.build(input[:additional_master_security_groups]) unless input[:additional_master_security_groups].nil?
-        data['AdditionalSlaveSecurityGroups'] = Builders::SecurityGroupsList.build(input[:additional_slave_security_groups]) unless input[:additional_slave_security_groups].nil?
+        data['AdditionalMasterSecurityGroups'] = SecurityGroupsList.build(input[:additional_master_security_groups]) unless input[:additional_master_security_groups].nil?
+        data['AdditionalSlaveSecurityGroups'] = SecurityGroupsList.build(input[:additional_slave_security_groups]) unless input[:additional_slave_security_groups].nil?
         data
       end
     end
@@ -1488,7 +1490,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = {}
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
-        data['AvailabilityZones'] = Builders::XmlStringMaxLen256List.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['AvailabilityZones'] = XmlStringMaxLen256List.build(input[:availability_zones]) unless input[:availability_zones].nil?
         data
       end
     end
@@ -1498,7 +1500,7 @@ module AWS::SDK::EMR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InstanceFleetConfig.build(element) unless element.nil?
+          data << InstanceFleetConfig.build(element) unless element.nil?
         end
         data
       end
@@ -1512,9 +1514,9 @@ module AWS::SDK::EMR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.SetTerminationProtection'
         data = {}
-        data['JobFlowIds'] = Builders::XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
+        data['JobFlowIds'] = XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
         data['TerminationProtected'] = input[:termination_protected] unless input[:termination_protected].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1526,9 +1528,9 @@ module AWS::SDK::EMR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.SetVisibleToAllUsers'
         data = {}
-        data['JobFlowIds'] = Builders::XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
+        data['JobFlowIds'] = XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
         data['VisibleToAllUsers'] = input[:visible_to_all_users] unless input[:visible_to_all_users].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1544,11 +1546,11 @@ module AWS::SDK::EMR
         data['RelativePath'] = input[:relative_path] unless input[:relative_path].nil?
         data['NotebookExecutionName'] = input[:notebook_execution_name] unless input[:notebook_execution_name].nil?
         data['NotebookParams'] = input[:notebook_params] unless input[:notebook_params].nil?
-        data['ExecutionEngine'] = Builders::ExecutionEngineConfig.build(input[:execution_engine]) unless input[:execution_engine].nil?
+        data['ExecutionEngine'] = ExecutionEngineConfig.build(input[:execution_engine]) unless input[:execution_engine].nil?
         data['ServiceRole'] = input[:service_role] unless input[:service_role].nil?
         data['NotebookInstanceSecurityGroupId'] = input[:notebook_instance_security_group_id] unless input[:notebook_instance_security_group_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1572,7 +1574,7 @@ module AWS::SDK::EMR
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.StopNotebookExecution'
         data = {}
         data['NotebookExecutionId'] = input[:notebook_execution_id] unless input[:notebook_execution_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1584,8 +1586,8 @@ module AWS::SDK::EMR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ElasticMapReduce.TerminateJobFlows'
         data = {}
-        data['JobFlowIds'] = Builders::XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobFlowIds'] = XmlStringList.build(input[:job_flow_ids]) unless input[:job_flow_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1600,9 +1602,9 @@ module AWS::SDK::EMR
         data['StudioId'] = input[:studio_id] unless input[:studio_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['SubnetIds'] = Builders::SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['DefaultS3Location'] = input[:default_s3_location] unless input[:default_s3_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1619,7 +1621,7 @@ module AWS::SDK::EMR
         data['IdentityName'] = input[:identity_name] unless input[:identity_name].nil?
         data['IdentityType'] = input[:identity_type] unless input[:identity_type].nil?
         data['SessionPolicyArn'] = input[:session_policy_arn] unless input[:session_policy_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

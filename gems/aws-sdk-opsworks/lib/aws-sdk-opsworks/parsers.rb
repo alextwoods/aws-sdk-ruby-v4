@@ -279,7 +279,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.agent_versions = (Parsers::AgentVersions.parse(map['AgentVersions']) unless map['AgentVersions'].nil?)
+        data.agent_versions = (AgentVersions.parse(map['AgentVersions']) unless map['AgentVersions'].nil?)
         data
       end
     end
@@ -287,7 +287,7 @@ module AWS::SDK::OpsWorks
     class AgentVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentVersion.parse(value) unless value.nil?
+          AgentVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -296,7 +296,7 @@ module AWS::SDK::OpsWorks
       def self.parse(map)
         data = Types::AgentVersion.new
         data.version = map['Version']
-        data.configuration_manager = (Parsers::StackConfigurationManager.parse(map['ConfigurationManager']) unless map['ConfigurationManager'].nil?)
+        data.configuration_manager = (StackConfigurationManager.parse(map['ConfigurationManager']) unless map['ConfigurationManager'].nil?)
         return data
       end
     end
@@ -317,7 +317,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.apps = (Parsers::Apps.parse(map['Apps']) unless map['Apps'].nil?)
+        data.apps = (Apps.parse(map['Apps']) unless map['Apps'].nil?)
         data
       end
     end
@@ -325,7 +325,7 @@ module AWS::SDK::OpsWorks
     class Apps
       def self.parse(list)
         list.map do |value|
-          Parsers::App.parse(value) unless value.nil?
+          App.parse(value) unless value.nil?
         end
       end
     end
@@ -338,15 +338,15 @@ module AWS::SDK::OpsWorks
         data.shortname = map['Shortname']
         data.name = map['Name']
         data.description = map['Description']
-        data.data_sources = (Parsers::DataSources.parse(map['DataSources']) unless map['DataSources'].nil?)
+        data.data_sources = (DataSources.parse(map['DataSources']) unless map['DataSources'].nil?)
         data.type = map['Type']
-        data.app_source = (Parsers::Source.parse(map['AppSource']) unless map['AppSource'].nil?)
-        data.domains = (Parsers::Strings.parse(map['Domains']) unless map['Domains'].nil?)
+        data.app_source = (Source.parse(map['AppSource']) unless map['AppSource'].nil?)
+        data.domains = (Strings.parse(map['Domains']) unless map['Domains'].nil?)
         data.enable_ssl = map['EnableSsl']
-        data.ssl_configuration = (Parsers::SslConfiguration.parse(map['SslConfiguration']) unless map['SslConfiguration'].nil?)
-        data.attributes = (Parsers::AppAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.ssl_configuration = (SslConfiguration.parse(map['SslConfiguration']) unless map['SslConfiguration'].nil?)
+        data.attributes = (AppAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.created_at = map['CreatedAt']
-        data.environment = (Parsers::EnvironmentVariables.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (EnvironmentVariables.parse(map['Environment']) unless map['Environment'].nil?)
         return data
       end
     end
@@ -354,7 +354,7 @@ module AWS::SDK::OpsWorks
     class EnvironmentVariables
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentVariable.parse(value) unless value.nil?
+          EnvironmentVariable.parse(value) unless value.nil?
         end
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::OpsWorks
     class DataSources
       def self.parse(list)
         list.map do |value|
-          Parsers::DataSource.parse(value) unless value.nil?
+          DataSource.parse(value) unless value.nil?
         end
       end
     end
@@ -435,7 +435,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.commands = (Parsers::Commands.parse(map['Commands']) unless map['Commands'].nil?)
+        data.commands = (Commands.parse(map['Commands']) unless map['Commands'].nil?)
         data
       end
     end
@@ -443,7 +443,7 @@ module AWS::SDK::OpsWorks
     class Commands
       def self.parse(list)
         list.map do |value|
-          Parsers::Command.parse(value) unless value.nil?
+          Command.parse(value) unless value.nil?
         end
       end
     end
@@ -472,7 +472,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deployments = (Parsers::Deployments.parse(map['Deployments']) unless map['Deployments'].nil?)
+        data.deployments = (Deployments.parse(map['Deployments']) unless map['Deployments'].nil?)
         data
       end
     end
@@ -480,7 +480,7 @@ module AWS::SDK::OpsWorks
     class Deployments
       def self.parse(list)
         list.map do |value|
-          Parsers::Deployment.parse(value) unless value.nil?
+          Deployment.parse(value) unless value.nil?
         end
       end
     end
@@ -496,10 +496,10 @@ module AWS::SDK::OpsWorks
         data.duration = map['Duration']
         data.iam_user_arn = map['IamUserArn']
         data.comment = map['Comment']
-        data.command = (Parsers::DeploymentCommand.parse(map['Command']) unless map['Command'].nil?)
+        data.command = (DeploymentCommand.parse(map['Command']) unless map['Command'].nil?)
         data.status = map['Status']
         data.custom_json = map['CustomJson']
-        data.instance_ids = (Parsers::Strings.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
+        data.instance_ids = (Strings.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
         return data
       end
     end
@@ -508,7 +508,7 @@ module AWS::SDK::OpsWorks
       def self.parse(map)
         data = Types::DeploymentCommand.new
         data.name = map['Name']
-        data.args = (Parsers::DeploymentCommandArgs.parse(map['Args']) unless map['Args'].nil?)
+        data.args = (DeploymentCommandArgs.parse(map['Args']) unless map['Args'].nil?)
         return data
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::OpsWorks
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Strings.parse(value) unless value.nil?
+          data[key] = Strings.parse(value) unless value.nil?
         end
         data
       end
@@ -530,7 +530,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ecs_clusters = (Parsers::EcsClusters.parse(map['EcsClusters']) unless map['EcsClusters'].nil?)
+        data.ecs_clusters = (EcsClusters.parse(map['EcsClusters']) unless map['EcsClusters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -539,7 +539,7 @@ module AWS::SDK::OpsWorks
     class EcsClusters
       def self.parse(list)
         list.map do |value|
-          Parsers::EcsCluster.parse(value) unless value.nil?
+          EcsCluster.parse(value) unless value.nil?
         end
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.elastic_ips = (Parsers::ElasticIps.parse(map['ElasticIps']) unless map['ElasticIps'].nil?)
+        data.elastic_ips = (ElasticIps.parse(map['ElasticIps']) unless map['ElasticIps'].nil?)
         data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::OpsWorks
     class ElasticIps
       def self.parse(list)
         list.map do |value|
-          Parsers::ElasticIp.parse(value) unless value.nil?
+          ElasticIp.parse(value) unless value.nil?
         end
       end
     end
@@ -594,7 +594,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.elastic_load_balancers = (Parsers::ElasticLoadBalancers.parse(map['ElasticLoadBalancers']) unless map['ElasticLoadBalancers'].nil?)
+        data.elastic_load_balancers = (ElasticLoadBalancers.parse(map['ElasticLoadBalancers']) unless map['ElasticLoadBalancers'].nil?)
         data
       end
     end
@@ -602,7 +602,7 @@ module AWS::SDK::OpsWorks
     class ElasticLoadBalancers
       def self.parse(list)
         list.map do |value|
-          Parsers::ElasticLoadBalancer.parse(value) unless value.nil?
+          ElasticLoadBalancer.parse(value) unless value.nil?
         end
       end
     end
@@ -616,9 +616,9 @@ module AWS::SDK::OpsWorks
         data.stack_id = map['StackId']
         data.layer_id = map['LayerId']
         data.vpc_id = map['VpcId']
-        data.availability_zones = (Parsers::Strings.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.subnet_ids = (Parsers::Strings.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.ec2_instance_ids = (Parsers::Strings.parse(map['Ec2InstanceIds']) unless map['Ec2InstanceIds'].nil?)
+        data.availability_zones = (Strings.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.subnet_ids = (Strings.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.ec2_instance_ids = (Strings.parse(map['Ec2InstanceIds']) unless map['Ec2InstanceIds'].nil?)
         return data
       end
     end
@@ -630,7 +630,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instances = (Parsers::Instances.parse(map['Instances']) unless map['Instances'].nil?)
+        data.instances = (Instances.parse(map['Instances']) unless map['Instances'].nil?)
         data
       end
     end
@@ -638,7 +638,7 @@ module AWS::SDK::OpsWorks
     class Instances
       def self.parse(list)
         list.map do |value|
-          Parsers::Instance.parse(value) unless value.nil?
+          Instance.parse(value) unless value.nil?
         end
       end
     end
@@ -652,7 +652,7 @@ module AWS::SDK::OpsWorks
         data.arn = map['Arn']
         data.auto_scaling_type = map['AutoScalingType']
         data.availability_zone = map['AvailabilityZone']
-        data.block_device_mappings = (Parsers::BlockDeviceMappings.parse(map['BlockDeviceMappings']) unless map['BlockDeviceMappings'].nil?)
+        data.block_device_mappings = (BlockDeviceMappings.parse(map['BlockDeviceMappings']) unless map['BlockDeviceMappings'].nil?)
         data.created_at = map['CreatedAt']
         data.ebs_optimized = map['EbsOptimized']
         data.ec2_instance_id = map['Ec2InstanceId']
@@ -666,7 +666,7 @@ module AWS::SDK::OpsWorks
         data.instance_profile_arn = map['InstanceProfileArn']
         data.instance_type = map['InstanceType']
         data.last_service_error_id = map['LastServiceErrorId']
-        data.layer_ids = (Parsers::Strings.parse(map['LayerIds']) unless map['LayerIds'].nil?)
+        data.layer_ids = (Strings.parse(map['LayerIds']) unless map['LayerIds'].nil?)
         data.os = map['Os']
         data.platform = map['Platform']
         data.private_dns = map['PrivateDns']
@@ -675,10 +675,10 @@ module AWS::SDK::OpsWorks
         data.public_ip = map['PublicIp']
         data.registered_by = map['RegisteredBy']
         data.reported_agent_version = map['ReportedAgentVersion']
-        data.reported_os = (Parsers::ReportedOs.parse(map['ReportedOs']) unless map['ReportedOs'].nil?)
+        data.reported_os = (ReportedOs.parse(map['ReportedOs']) unless map['ReportedOs'].nil?)
         data.root_device_type = map['RootDeviceType']
         data.root_device_volume_id = map['RootDeviceVolumeId']
-        data.security_group_ids = (Parsers::Strings.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (Strings.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.ssh_host_dsa_key_fingerprint = map['SshHostDsaKeyFingerprint']
         data.ssh_host_rsa_key_fingerprint = map['SshHostRsaKeyFingerprint']
         data.ssh_key_name = map['SshKeyName']
@@ -704,7 +704,7 @@ module AWS::SDK::OpsWorks
     class BlockDeviceMappings
       def self.parse(list)
         list.map do |value|
-          Parsers::BlockDeviceMapping.parse(value) unless value.nil?
+          BlockDeviceMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -715,7 +715,7 @@ module AWS::SDK::OpsWorks
         data.device_name = map['DeviceName']
         data.no_device = map['NoDevice']
         data.virtual_name = map['VirtualName']
-        data.ebs = (Parsers::EbsBlockDevice.parse(map['Ebs']) unless map['Ebs'].nil?)
+        data.ebs = (EbsBlockDevice.parse(map['Ebs']) unless map['Ebs'].nil?)
         return data
       end
     end
@@ -739,7 +739,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.layers = (Parsers::Layers.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (Layers.parse(map['Layers']) unless map['Layers'].nil?)
         data
       end
     end
@@ -747,7 +747,7 @@ module AWS::SDK::OpsWorks
     class Layers
       def self.parse(list)
         list.map do |value|
-          Parsers::Layer.parse(value) unless value.nil?
+          Layer.parse(value) unless value.nil?
         end
       end
     end
@@ -761,23 +761,23 @@ module AWS::SDK::OpsWorks
         data.type = map['Type']
         data.name = map['Name']
         data.shortname = map['Shortname']
-        data.attributes = (Parsers::LayerAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.cloud_watch_logs_configuration = (Parsers::CloudWatchLogsConfiguration.parse(map['CloudWatchLogsConfiguration']) unless map['CloudWatchLogsConfiguration'].nil?)
+        data.attributes = (LayerAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.cloud_watch_logs_configuration = (CloudWatchLogsConfiguration.parse(map['CloudWatchLogsConfiguration']) unless map['CloudWatchLogsConfiguration'].nil?)
         data.custom_instance_profile_arn = map['CustomInstanceProfileArn']
         data.custom_json = map['CustomJson']
-        data.custom_security_group_ids = (Parsers::Strings.parse(map['CustomSecurityGroupIds']) unless map['CustomSecurityGroupIds'].nil?)
-        data.default_security_group_names = (Parsers::Strings.parse(map['DefaultSecurityGroupNames']) unless map['DefaultSecurityGroupNames'].nil?)
-        data.packages = (Parsers::Strings.parse(map['Packages']) unless map['Packages'].nil?)
-        data.volume_configurations = (Parsers::VolumeConfigurations.parse(map['VolumeConfigurations']) unless map['VolumeConfigurations'].nil?)
+        data.custom_security_group_ids = (Strings.parse(map['CustomSecurityGroupIds']) unless map['CustomSecurityGroupIds'].nil?)
+        data.default_security_group_names = (Strings.parse(map['DefaultSecurityGroupNames']) unless map['DefaultSecurityGroupNames'].nil?)
+        data.packages = (Strings.parse(map['Packages']) unless map['Packages'].nil?)
+        data.volume_configurations = (VolumeConfigurations.parse(map['VolumeConfigurations']) unless map['VolumeConfigurations'].nil?)
         data.enable_auto_healing = map['EnableAutoHealing']
         data.auto_assign_elastic_ips = map['AutoAssignElasticIps']
         data.auto_assign_public_ips = map['AutoAssignPublicIps']
-        data.default_recipes = (Parsers::Recipes.parse(map['DefaultRecipes']) unless map['DefaultRecipes'].nil?)
-        data.custom_recipes = (Parsers::Recipes.parse(map['CustomRecipes']) unless map['CustomRecipes'].nil?)
+        data.default_recipes = (Recipes.parse(map['DefaultRecipes']) unless map['DefaultRecipes'].nil?)
+        data.custom_recipes = (Recipes.parse(map['CustomRecipes']) unless map['CustomRecipes'].nil?)
         data.created_at = map['CreatedAt']
         data.install_updates_on_boot = map['InstallUpdatesOnBoot']
         data.use_ebs_optimized_instances = map['UseEbsOptimizedInstances']
-        data.lifecycle_event_configuration = (Parsers::LifecycleEventConfiguration.parse(map['LifecycleEventConfiguration']) unless map['LifecycleEventConfiguration'].nil?)
+        data.lifecycle_event_configuration = (LifecycleEventConfiguration.parse(map['LifecycleEventConfiguration']) unless map['LifecycleEventConfiguration'].nil?)
         return data
       end
     end
@@ -785,7 +785,7 @@ module AWS::SDK::OpsWorks
     class LifecycleEventConfiguration
       def self.parse(map)
         data = Types::LifecycleEventConfiguration.new
-        data.shutdown = (Parsers::ShutdownEventConfiguration.parse(map['Shutdown']) unless map['Shutdown'].nil?)
+        data.shutdown = (ShutdownEventConfiguration.parse(map['Shutdown']) unless map['Shutdown'].nil?)
         return data
       end
     end
@@ -802,11 +802,11 @@ module AWS::SDK::OpsWorks
     class Recipes
       def self.parse(map)
         data = Types::Recipes.new
-        data.setup = (Parsers::Strings.parse(map['Setup']) unless map['Setup'].nil?)
-        data.configure = (Parsers::Strings.parse(map['Configure']) unless map['Configure'].nil?)
-        data.deploy = (Parsers::Strings.parse(map['Deploy']) unless map['Deploy'].nil?)
-        data.undeploy = (Parsers::Strings.parse(map['Undeploy']) unless map['Undeploy'].nil?)
-        data.shutdown = (Parsers::Strings.parse(map['Shutdown']) unless map['Shutdown'].nil?)
+        data.setup = (Strings.parse(map['Setup']) unless map['Setup'].nil?)
+        data.configure = (Strings.parse(map['Configure']) unless map['Configure'].nil?)
+        data.deploy = (Strings.parse(map['Deploy']) unless map['Deploy'].nil?)
+        data.undeploy = (Strings.parse(map['Undeploy']) unless map['Undeploy'].nil?)
+        data.shutdown = (Strings.parse(map['Shutdown']) unless map['Shutdown'].nil?)
         return data
       end
     end
@@ -814,7 +814,7 @@ module AWS::SDK::OpsWorks
     class VolumeConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::VolumeConfiguration.parse(value) unless value.nil?
+          VolumeConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -837,7 +837,7 @@ module AWS::SDK::OpsWorks
       def self.parse(map)
         data = Types::CloudWatchLogsConfiguration.new
         data.enabled = map['Enabled']
-        data.log_streams = (Parsers::CloudWatchLogsLogStreams.parse(map['LogStreams']) unless map['LogStreams'].nil?)
+        data.log_streams = (CloudWatchLogsLogStreams.parse(map['LogStreams']) unless map['LogStreams'].nil?)
         return data
       end
     end
@@ -845,7 +845,7 @@ module AWS::SDK::OpsWorks
     class CloudWatchLogsLogStreams
       def self.parse(list)
         list.map do |value|
-          Parsers::CloudWatchLogsLogStream.parse(value) unless value.nil?
+          CloudWatchLogsLogStream.parse(value) unless value.nil?
         end
       end
     end
@@ -885,7 +885,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.load_based_auto_scaling_configurations = (Parsers::LoadBasedAutoScalingConfigurations.parse(map['LoadBasedAutoScalingConfigurations']) unless map['LoadBasedAutoScalingConfigurations'].nil?)
+        data.load_based_auto_scaling_configurations = (LoadBasedAutoScalingConfigurations.parse(map['LoadBasedAutoScalingConfigurations']) unless map['LoadBasedAutoScalingConfigurations'].nil?)
         data
       end
     end
@@ -893,7 +893,7 @@ module AWS::SDK::OpsWorks
     class LoadBasedAutoScalingConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBasedAutoScalingConfiguration.parse(value) unless value.nil?
+          LoadBasedAutoScalingConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -903,8 +903,8 @@ module AWS::SDK::OpsWorks
         data = Types::LoadBasedAutoScalingConfiguration.new
         data.layer_id = map['LayerId']
         data.enable = map['Enable']
-        data.up_scaling = (Parsers::AutoScalingThresholds.parse(map['UpScaling']) unless map['UpScaling'].nil?)
-        data.down_scaling = (Parsers::AutoScalingThresholds.parse(map['DownScaling']) unless map['DownScaling'].nil?)
+        data.up_scaling = (AutoScalingThresholds.parse(map['UpScaling']) unless map['UpScaling'].nil?)
+        data.down_scaling = (AutoScalingThresholds.parse(map['DownScaling']) unless map['DownScaling'].nil?)
         return data
       end
     end
@@ -918,7 +918,7 @@ module AWS::SDK::OpsWorks
         data.cpu_threshold = Hearth::NumberHelper.deserialize(map['CpuThreshold'])
         data.memory_threshold = Hearth::NumberHelper.deserialize(map['MemoryThreshold'])
         data.load_threshold = Hearth::NumberHelper.deserialize(map['LoadThreshold'])
-        data.alarms = (Parsers::Strings.parse(map['Alarms']) unless map['Alarms'].nil?)
+        data.alarms = (Strings.parse(map['Alarms']) unless map['Alarms'].nil?)
         return data
       end
     end
@@ -930,7 +930,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_profile = (Parsers::SelfUserProfile.parse(map['UserProfile']) unless map['UserProfile'].nil?)
+        data.user_profile = (SelfUserProfile.parse(map['UserProfile']) unless map['UserProfile'].nil?)
         data
       end
     end
@@ -953,7 +953,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operating_systems = (Parsers::OperatingSystems.parse(map['OperatingSystems']) unless map['OperatingSystems'].nil?)
+        data.operating_systems = (OperatingSystems.parse(map['OperatingSystems']) unless map['OperatingSystems'].nil?)
         data
       end
     end
@@ -961,7 +961,7 @@ module AWS::SDK::OpsWorks
     class OperatingSystems
       def self.parse(list)
         list.map do |value|
-          Parsers::OperatingSystem.parse(value) unless value.nil?
+          OperatingSystem.parse(value) unless value.nil?
         end
       end
     end
@@ -972,7 +972,7 @@ module AWS::SDK::OpsWorks
         data.name = map['Name']
         data.id = map['Id']
         data.type = map['Type']
-        data.configuration_managers = (Parsers::OperatingSystemConfigurationManagers.parse(map['ConfigurationManagers']) unless map['ConfigurationManagers'].nil?)
+        data.configuration_managers = (OperatingSystemConfigurationManagers.parse(map['ConfigurationManagers']) unless map['ConfigurationManagers'].nil?)
         data.reported_name = map['ReportedName']
         data.reported_version = map['ReportedVersion']
         data.supported = map['Supported']
@@ -983,7 +983,7 @@ module AWS::SDK::OpsWorks
     class OperatingSystemConfigurationManagers
       def self.parse(list)
         list.map do |value|
-          Parsers::OperatingSystemConfigurationManager.parse(value) unless value.nil?
+          OperatingSystemConfigurationManager.parse(value) unless value.nil?
         end
       end
     end
@@ -1004,7 +1004,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permissions = (Parsers::Permissions.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (Permissions.parse(map['Permissions']) unless map['Permissions'].nil?)
         data
       end
     end
@@ -1012,7 +1012,7 @@ module AWS::SDK::OpsWorks
     class Permissions
       def self.parse(list)
         list.map do |value|
-          Parsers::Permission.parse(value) unless value.nil?
+          Permission.parse(value) unless value.nil?
         end
       end
     end
@@ -1036,7 +1036,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.raid_arrays = (Parsers::RaidArrays.parse(map['RaidArrays']) unless map['RaidArrays'].nil?)
+        data.raid_arrays = (RaidArrays.parse(map['RaidArrays']) unless map['RaidArrays'].nil?)
         data
       end
     end
@@ -1044,7 +1044,7 @@ module AWS::SDK::OpsWorks
     class RaidArrays
       def self.parse(list)
         list.map do |value|
-          Parsers::RaidArray.parse(value) unless value.nil?
+          RaidArray.parse(value) unless value.nil?
         end
       end
     end
@@ -1076,7 +1076,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rds_db_instances = (Parsers::RdsDbInstances.parse(map['RdsDbInstances']) unless map['RdsDbInstances'].nil?)
+        data.rds_db_instances = (RdsDbInstances.parse(map['RdsDbInstances']) unless map['RdsDbInstances'].nil?)
         data
       end
     end
@@ -1084,7 +1084,7 @@ module AWS::SDK::OpsWorks
     class RdsDbInstances
       def self.parse(list)
         list.map do |value|
-          Parsers::RdsDbInstance.parse(value) unless value.nil?
+          RdsDbInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -1112,7 +1112,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_errors = (Parsers::ServiceErrors.parse(map['ServiceErrors']) unless map['ServiceErrors'].nil?)
+        data.service_errors = (ServiceErrors.parse(map['ServiceErrors']) unless map['ServiceErrors'].nil?)
         data
       end
     end
@@ -1120,7 +1120,7 @@ module AWS::SDK::OpsWorks
     class ServiceErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceError.parse(value) unless value.nil?
+          ServiceError.parse(value) unless value.nil?
         end
       end
     end
@@ -1146,7 +1146,7 @@ module AWS::SDK::OpsWorks
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.agent_installer_url = map['AgentInstallerUrl']
-        data.parameters = (Parsers::Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
         data
       end
     end
@@ -1168,7 +1168,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stack_summary = (Parsers::StackSummary.parse(map['StackSummary']) unless map['StackSummary'].nil?)
+        data.stack_summary = (StackSummary.parse(map['StackSummary']) unless map['StackSummary'].nil?)
         data
       end
     end
@@ -1181,7 +1181,7 @@ module AWS::SDK::OpsWorks
         data.arn = map['Arn']
         data.layers_count = map['LayersCount']
         data.apps_count = map['AppsCount']
-        data.instances_count = (Parsers::InstancesCount.parse(map['InstancesCount']) unless map['InstancesCount'].nil?)
+        data.instances_count = (InstancesCount.parse(map['InstancesCount']) unless map['InstancesCount'].nil?)
         return data
       end
     end
@@ -1220,7 +1220,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stacks = (Parsers::Stacks.parse(map['Stacks']) unless map['Stacks'].nil?)
+        data.stacks = (Stacks.parse(map['Stacks']) unless map['Stacks'].nil?)
         data
       end
     end
@@ -1228,7 +1228,7 @@ module AWS::SDK::OpsWorks
     class Stacks
       def self.parse(list)
         list.map do |value|
-          Parsers::Stack.parse(value) unless value.nil?
+          Stack.parse(value) unless value.nil?
         end
       end
     end
@@ -1241,7 +1241,7 @@ module AWS::SDK::OpsWorks
         data.arn = map['Arn']
         data.region = map['Region']
         data.vpc_id = map['VpcId']
-        data.attributes = (Parsers::StackAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (StackAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.service_role_arn = map['ServiceRoleArn']
         data.default_instance_profile_arn = map['DefaultInstanceProfileArn']
         data.default_os = map['DefaultOs']
@@ -1249,11 +1249,11 @@ module AWS::SDK::OpsWorks
         data.default_availability_zone = map['DefaultAvailabilityZone']
         data.default_subnet_id = map['DefaultSubnetId']
         data.custom_json = map['CustomJson']
-        data.configuration_manager = (Parsers::StackConfigurationManager.parse(map['ConfigurationManager']) unless map['ConfigurationManager'].nil?)
-        data.chef_configuration = (Parsers::ChefConfiguration.parse(map['ChefConfiguration']) unless map['ChefConfiguration'].nil?)
+        data.configuration_manager = (StackConfigurationManager.parse(map['ConfigurationManager']) unless map['ConfigurationManager'].nil?)
+        data.chef_configuration = (ChefConfiguration.parse(map['ChefConfiguration']) unless map['ChefConfiguration'].nil?)
         data.use_custom_cookbooks = map['UseCustomCookbooks']
         data.use_opsworks_security_groups = map['UseOpsworksSecurityGroups']
-        data.custom_cookbooks_source = (Parsers::Source.parse(map['CustomCookbooksSource']) unless map['CustomCookbooksSource'].nil?)
+        data.custom_cookbooks_source = (Source.parse(map['CustomCookbooksSource']) unless map['CustomCookbooksSource'].nil?)
         data.default_ssh_key_name = map['DefaultSshKeyName']
         data.created_at = map['CreatedAt']
         data.default_root_device_type = map['DefaultRootDeviceType']
@@ -1288,7 +1288,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.time_based_auto_scaling_configurations = (Parsers::TimeBasedAutoScalingConfigurations.parse(map['TimeBasedAutoScalingConfigurations']) unless map['TimeBasedAutoScalingConfigurations'].nil?)
+        data.time_based_auto_scaling_configurations = (TimeBasedAutoScalingConfigurations.parse(map['TimeBasedAutoScalingConfigurations']) unless map['TimeBasedAutoScalingConfigurations'].nil?)
         data
       end
     end
@@ -1296,7 +1296,7 @@ module AWS::SDK::OpsWorks
     class TimeBasedAutoScalingConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::TimeBasedAutoScalingConfiguration.parse(value) unless value.nil?
+          TimeBasedAutoScalingConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1305,7 +1305,7 @@ module AWS::SDK::OpsWorks
       def self.parse(map)
         data = Types::TimeBasedAutoScalingConfiguration.new
         data.instance_id = map['InstanceId']
-        data.auto_scaling_schedule = (Parsers::WeeklyAutoScalingSchedule.parse(map['AutoScalingSchedule']) unless map['AutoScalingSchedule'].nil?)
+        data.auto_scaling_schedule = (WeeklyAutoScalingSchedule.parse(map['AutoScalingSchedule']) unless map['AutoScalingSchedule'].nil?)
         return data
       end
     end
@@ -1313,13 +1313,13 @@ module AWS::SDK::OpsWorks
     class WeeklyAutoScalingSchedule
       def self.parse(map)
         data = Types::WeeklyAutoScalingSchedule.new
-        data.monday = (Parsers::DailyAutoScalingSchedule.parse(map['Monday']) unless map['Monday'].nil?)
-        data.tuesday = (Parsers::DailyAutoScalingSchedule.parse(map['Tuesday']) unless map['Tuesday'].nil?)
-        data.wednesday = (Parsers::DailyAutoScalingSchedule.parse(map['Wednesday']) unless map['Wednesday'].nil?)
-        data.thursday = (Parsers::DailyAutoScalingSchedule.parse(map['Thursday']) unless map['Thursday'].nil?)
-        data.friday = (Parsers::DailyAutoScalingSchedule.parse(map['Friday']) unless map['Friday'].nil?)
-        data.saturday = (Parsers::DailyAutoScalingSchedule.parse(map['Saturday']) unless map['Saturday'].nil?)
-        data.sunday = (Parsers::DailyAutoScalingSchedule.parse(map['Sunday']) unless map['Sunday'].nil?)
+        data.monday = (DailyAutoScalingSchedule.parse(map['Monday']) unless map['Monday'].nil?)
+        data.tuesday = (DailyAutoScalingSchedule.parse(map['Tuesday']) unless map['Tuesday'].nil?)
+        data.wednesday = (DailyAutoScalingSchedule.parse(map['Wednesday']) unless map['Wednesday'].nil?)
+        data.thursday = (DailyAutoScalingSchedule.parse(map['Thursday']) unless map['Thursday'].nil?)
+        data.friday = (DailyAutoScalingSchedule.parse(map['Friday']) unless map['Friday'].nil?)
+        data.saturday = (DailyAutoScalingSchedule.parse(map['Saturday']) unless map['Saturday'].nil?)
+        data.sunday = (DailyAutoScalingSchedule.parse(map['Sunday']) unless map['Sunday'].nil?)
         return data
       end
     end
@@ -1341,7 +1341,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_profiles = (Parsers::UserProfiles.parse(map['UserProfiles']) unless map['UserProfiles'].nil?)
+        data.user_profiles = (UserProfiles.parse(map['UserProfiles']) unless map['UserProfiles'].nil?)
         data
       end
     end
@@ -1349,7 +1349,7 @@ module AWS::SDK::OpsWorks
     class UserProfiles
       def self.parse(list)
         list.map do |value|
-          Parsers::UserProfile.parse(value) unless value.nil?
+          UserProfile.parse(value) unless value.nil?
         end
       end
     end
@@ -1373,7 +1373,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.volumes = (Parsers::Volumes.parse(map['Volumes']) unless map['Volumes'].nil?)
+        data.volumes = (Volumes.parse(map['Volumes']) unless map['Volumes'].nil?)
         data
       end
     end
@@ -1381,7 +1381,7 @@ module AWS::SDK::OpsWorks
     class Volumes
       def self.parse(list)
         list.map do |value|
-          Parsers::Volume.parse(value) unless value.nil?
+          Volume.parse(value) unless value.nil?
         end
       end
     end
@@ -1449,7 +1449,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.temporary_credential = (Parsers::TemporaryCredential.parse(map['TemporaryCredential']) unless map['TemporaryCredential'].nil?)
+        data.temporary_credential = (TemporaryCredential.parse(map['TemporaryCredential']) unless map['TemporaryCredential'].nil?)
         data
       end
     end
@@ -1472,7 +1472,7 @@ module AWS::SDK::OpsWorks
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end

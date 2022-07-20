@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AutoScalingPlans
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::AutoScalingPlans
       def self.stub(http_resp, stub:)
         data = {}
         data['ScalingPlanVersion'] = stub[:scaling_plan_version] unless stub[:scaling_plan_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,7 +37,7 @@ module AWS::SDK::AutoScalingPlans
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -51,9 +53,9 @@ module AWS::SDK::AutoScalingPlans
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScalingPlanResources'] = Stubs::ScalingPlanResources.stub(stub[:scaling_plan_resources]) unless stub[:scaling_plan_resources].nil?
+        data['ScalingPlanResources'] = ScalingPlanResources.stub(stub[:scaling_plan_resources]) unless stub[:scaling_plan_resources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -72,7 +74,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingPlanResource.stub(element) unless element.nil?
+          data << ScalingPlanResource.stub(element) unless element.nil?
         end
         data
       end
@@ -103,7 +105,7 @@ module AWS::SDK::AutoScalingPlans
         data['ServiceNamespace'] = stub[:service_namespace] unless stub[:service_namespace].nil?
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ScalableDimension'] = stub[:scalable_dimension] unless stub[:scalable_dimension].nil?
-        data['ScalingPolicies'] = Stubs::ScalingPolicies.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
+        data['ScalingPolicies'] = ScalingPolicies.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
         data['ScalingStatusCode'] = stub[:scaling_status_code] unless stub[:scaling_status_code].nil?
         data['ScalingStatusMessage'] = stub[:scaling_status_message] unless stub[:scaling_status_message].nil?
         data
@@ -124,7 +126,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingPolicy.stub(element) unless element.nil?
+          data << ScalingPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -147,7 +149,7 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['PolicyName'] = stub[:policy_name] unless stub[:policy_name].nil?
         data['PolicyType'] = stub[:policy_type] unless stub[:policy_type].nil?
-        data['TargetTrackingConfiguration'] = Stubs::TargetTrackingConfiguration.stub(stub[:target_tracking_configuration]) unless stub[:target_tracking_configuration].nil?
+        data['TargetTrackingConfiguration'] = TargetTrackingConfiguration.stub(stub[:target_tracking_configuration]) unless stub[:target_tracking_configuration].nil?
         data
       end
     end
@@ -171,8 +173,8 @@ module AWS::SDK::AutoScalingPlans
       def self.stub(stub)
         stub ||= Types::TargetTrackingConfiguration.new
         data = {}
-        data['PredefinedScalingMetricSpecification'] = Stubs::PredefinedScalingMetricSpecification.stub(stub[:predefined_scaling_metric_specification]) unless stub[:predefined_scaling_metric_specification].nil?
-        data['CustomizedScalingMetricSpecification'] = Stubs::CustomizedScalingMetricSpecification.stub(stub[:customized_scaling_metric_specification]) unless stub[:customized_scaling_metric_specification].nil?
+        data['PredefinedScalingMetricSpecification'] = PredefinedScalingMetricSpecification.stub(stub[:predefined_scaling_metric_specification]) unless stub[:predefined_scaling_metric_specification].nil?
+        data['CustomizedScalingMetricSpecification'] = CustomizedScalingMetricSpecification.stub(stub[:customized_scaling_metric_specification]) unless stub[:customized_scaling_metric_specification].nil?
         data['TargetValue'] = Hearth::NumberHelper.serialize(stub[:target_value])
         data['DisableScaleIn'] = stub[:disable_scale_in] unless stub[:disable_scale_in].nil?
         data['ScaleOutCooldown'] = stub[:scale_out_cooldown] unless stub[:scale_out_cooldown].nil?
@@ -201,7 +203,7 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['Namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['Dimensions'] = Stubs::MetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = MetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['Statistic'] = stub[:statistic] unless stub[:statistic].nil?
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
         data
@@ -222,7 +224,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDimension.stub(element) unless element.nil?
+          data << MetricDimension.stub(element) unless element.nil?
         end
         data
       end
@@ -279,9 +281,9 @@ module AWS::SDK::AutoScalingPlans
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScalingPlans'] = Stubs::ScalingPlans.stub(stub[:scaling_plans]) unless stub[:scaling_plans].nil?
+        data['ScalingPlans'] = ScalingPlans.stub(stub[:scaling_plans]) unless stub[:scaling_plans].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -300,7 +302,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingPlan.stub(element) unless element.nil?
+          data << ScalingPlan.stub(element) unless element.nil?
         end
         data
       end
@@ -328,8 +330,8 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['ScalingPlanName'] = stub[:scaling_plan_name] unless stub[:scaling_plan_name].nil?
         data['ScalingPlanVersion'] = stub[:scaling_plan_version] unless stub[:scaling_plan_version].nil?
-        data['ApplicationSource'] = Stubs::ApplicationSource.stub(stub[:application_source]) unless stub[:application_source].nil?
-        data['ScalingInstructions'] = Stubs::ScalingInstructions.stub(stub[:scaling_instructions]) unless stub[:scaling_instructions].nil?
+        data['ApplicationSource'] = ApplicationSource.stub(stub[:application_source]) unless stub[:application_source].nil?
+        data['ScalingInstructions'] = ScalingInstructions.stub(stub[:scaling_instructions]) unless stub[:scaling_instructions].nil?
         data['StatusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['StatusStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:status_start_time]).to_i unless stub[:status_start_time].nil?
@@ -352,7 +354,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingInstruction.stub(element) unless element.nil?
+          data << ScalingInstruction.stub(element) unless element.nil?
         end
         data
       end
@@ -389,9 +391,9 @@ module AWS::SDK::AutoScalingPlans
         data['ScalableDimension'] = stub[:scalable_dimension] unless stub[:scalable_dimension].nil?
         data['MinCapacity'] = stub[:min_capacity] unless stub[:min_capacity].nil?
         data['MaxCapacity'] = stub[:max_capacity] unless stub[:max_capacity].nil?
-        data['TargetTrackingConfigurations'] = Stubs::TargetTrackingConfigurations.stub(stub[:target_tracking_configurations]) unless stub[:target_tracking_configurations].nil?
-        data['PredefinedLoadMetricSpecification'] = Stubs::PredefinedLoadMetricSpecification.stub(stub[:predefined_load_metric_specification]) unless stub[:predefined_load_metric_specification].nil?
-        data['CustomizedLoadMetricSpecification'] = Stubs::CustomizedLoadMetricSpecification.stub(stub[:customized_load_metric_specification]) unless stub[:customized_load_metric_specification].nil?
+        data['TargetTrackingConfigurations'] = TargetTrackingConfigurations.stub(stub[:target_tracking_configurations]) unless stub[:target_tracking_configurations].nil?
+        data['PredefinedLoadMetricSpecification'] = PredefinedLoadMetricSpecification.stub(stub[:predefined_load_metric_specification]) unless stub[:predefined_load_metric_specification].nil?
+        data['CustomizedLoadMetricSpecification'] = CustomizedLoadMetricSpecification.stub(stub[:customized_load_metric_specification]) unless stub[:customized_load_metric_specification].nil?
         data['ScheduledActionBufferTime'] = stub[:scheduled_action_buffer_time] unless stub[:scheduled_action_buffer_time].nil?
         data['PredictiveScalingMaxCapacityBehavior'] = stub[:predictive_scaling_max_capacity_behavior] unless stub[:predictive_scaling_max_capacity_behavior].nil?
         data['PredictiveScalingMaxCapacityBuffer'] = stub[:predictive_scaling_max_capacity_buffer] unless stub[:predictive_scaling_max_capacity_buffer].nil?
@@ -421,7 +423,7 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['Namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['Dimensions'] = Stubs::MetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = MetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['Statistic'] = stub[:statistic] unless stub[:statistic].nil?
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
         data
@@ -462,7 +464,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetTrackingConfiguration.stub(element) unless element.nil?
+          data << TargetTrackingConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -483,7 +485,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= Types::ApplicationSource.new
         data = {}
         data['CloudFormationStackARN'] = stub[:cloud_formation_stack_arn] unless stub[:cloud_formation_stack_arn].nil?
-        data['TagFilters'] = Stubs::TagFilters.stub(stub[:tag_filters]) unless stub[:tag_filters].nil?
+        data['TagFilters'] = TagFilters.stub(stub[:tag_filters]) unless stub[:tag_filters].nil?
         data
       end
     end
@@ -502,7 +504,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagFilter.stub(element) unless element.nil?
+          data << TagFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -523,7 +525,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= Types::TagFilter.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::TagValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = TagValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -558,8 +560,8 @@ module AWS::SDK::AutoScalingPlans
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Datapoints'] = Stubs::Datapoints.stub(stub[:datapoints]) unless stub[:datapoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Datapoints'] = Datapoints.stub(stub[:datapoints]) unless stub[:datapoints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -578,7 +580,7 @@ module AWS::SDK::AutoScalingPlans
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Datapoint.stub(element) unless element.nil?
+          data << Datapoint.stub(element) unless element.nil?
         end
         data
       end
@@ -613,7 +615,7 @@ module AWS::SDK::AutoScalingPlans
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

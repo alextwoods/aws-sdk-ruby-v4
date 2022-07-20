@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppIntegrations
   module Stubs
 
@@ -36,10 +38,10 @@ module AWS::SDK::AppIntegrations
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['KmsKey'] = stub[:kms_key] unless stub[:kms_key].nil?
         data['SourceURI'] = stub[:source_uri] unless stub[:source_uri].nil?
-        data['ScheduleConfiguration'] = Stubs::ScheduleConfiguration.stub(stub[:schedule_configuration]) unless stub[:schedule_configuration].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ScheduleConfiguration'] = ScheduleConfiguration.stub(stub[:schedule_configuration]) unless stub[:schedule_configuration].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['ClientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::AppIntegrations
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['EventIntegrationArn'] = stub[:event_integration_arn] unless stub[:event_integration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -153,9 +155,9 @@ module AWS::SDK::AppIntegrations
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['KmsKey'] = stub[:kms_key] unless stub[:kms_key].nil?
         data['SourceURI'] = stub[:source_uri] unless stub[:source_uri].nil?
-        data['ScheduleConfiguration'] = Stubs::ScheduleConfiguration.stub(stub[:schedule_configuration]) unless stub[:schedule_configuration].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ScheduleConfiguration'] = ScheduleConfiguration.stub(stub[:schedule_configuration]) unless stub[:schedule_configuration].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -180,9 +182,9 @@ module AWS::SDK::AppIntegrations
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['EventIntegrationArn'] = stub[:event_integration_arn] unless stub[:event_integration_arn].nil?
         data['EventBridgeBus'] = stub[:event_bridge_bus] unless stub[:event_bridge_bus].nil?
-        data['EventFilter'] = Stubs::EventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventFilter'] = EventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -217,9 +219,9 @@ module AWS::SDK::AppIntegrations
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataIntegrationAssociations'] = Stubs::DataIntegrationAssociationsList.stub(stub[:data_integration_associations]) unless stub[:data_integration_associations].nil?
+        data['DataIntegrationAssociations'] = DataIntegrationAssociationsList.stub(stub[:data_integration_associations]) unless stub[:data_integration_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,7 +239,7 @@ module AWS::SDK::AppIntegrations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataIntegrationAssociationSummary.stub(element) unless element.nil?
+          data << DataIntegrationAssociationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -278,9 +280,9 @@ module AWS::SDK::AppIntegrations
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataIntegrations'] = Stubs::DataIntegrationsList.stub(stub[:data_integrations]) unless stub[:data_integrations].nil?
+        data['DataIntegrations'] = DataIntegrationsList.stub(stub[:data_integrations]) unless stub[:data_integrations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -298,7 +300,7 @@ module AWS::SDK::AppIntegrations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataIntegrationSummary.stub(element) unless element.nil?
+          data << DataIntegrationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -339,9 +341,9 @@ module AWS::SDK::AppIntegrations
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EventIntegrationAssociations'] = Stubs::EventIntegrationAssociationsList.stub(stub[:event_integration_associations]) unless stub[:event_integration_associations].nil?
+        data['EventIntegrationAssociations'] = EventIntegrationAssociationsList.stub(stub[:event_integration_associations]) unless stub[:event_integration_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,7 +361,7 @@ module AWS::SDK::AppIntegrations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventIntegrationAssociation.stub(element) unless element.nil?
+          data << EventIntegrationAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -388,7 +390,7 @@ module AWS::SDK::AppIntegrations
         data['EventIntegrationName'] = stub[:event_integration_name] unless stub[:event_integration_name].nil?
         data['ClientId'] = stub[:client_id] unless stub[:client_id].nil?
         data['EventBridgeRuleName'] = stub[:event_bridge_rule_name] unless stub[:event_bridge_rule_name].nil?
-        data['ClientAssociationMetadata'] = Stubs::ClientAssociationMetadata.stub(stub[:client_association_metadata]) unless stub[:client_association_metadata].nil?
+        data['ClientAssociationMetadata'] = ClientAssociationMetadata.stub(stub[:client_association_metadata]) unless stub[:client_association_metadata].nil?
         data
       end
     end
@@ -426,9 +428,9 @@ module AWS::SDK::AppIntegrations
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EventIntegrations'] = Stubs::EventIntegrationsList.stub(stub[:event_integrations]) unless stub[:event_integrations].nil?
+        data['EventIntegrations'] = EventIntegrationsList.stub(stub[:event_integrations]) unless stub[:event_integrations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,7 +448,7 @@ module AWS::SDK::AppIntegrations
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventIntegration.stub(element) unless element.nil?
+          data << EventIntegration.stub(element) unless element.nil?
         end
         data
       end
@@ -473,9 +475,9 @@ module AWS::SDK::AppIntegrations
         data['EventIntegrationArn'] = stub[:event_integration_arn] unless stub[:event_integration_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['EventFilter'] = Stubs::EventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
+        data['EventFilter'] = EventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
         data['EventBridgeBus'] = stub[:event_bridge_bus] unless stub[:event_bridge_bus].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -492,8 +494,8 @@ module AWS::SDK::AppIntegrations
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ServiceQuotas
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -62,8 +64,8 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Quota'] = Stubs::ServiceQuota.stub(stub[:quota]) unless stub[:quota].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Quota'] = ServiceQuota.stub(stub[:quota]) unless stub[:quota].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -101,9 +103,9 @@ module AWS::SDK::ServiceQuotas
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
         data['Adjustable'] = stub[:adjustable] unless stub[:adjustable].nil?
         data['GlobalQuota'] = stub[:global_quota] unless stub[:global_quota].nil?
-        data['UsageMetric'] = Stubs::MetricInfo.stub(stub[:usage_metric]) unless stub[:usage_metric].nil?
-        data['Period'] = Stubs::QuotaPeriod.stub(stub[:period]) unless stub[:period].nil?
-        data['ErrorReason'] = Stubs::ErrorReason.stub(stub[:error_reason]) unless stub[:error_reason].nil?
+        data['UsageMetric'] = MetricInfo.stub(stub[:usage_metric]) unless stub[:usage_metric].nil?
+        data['Period'] = QuotaPeriod.stub(stub[:period]) unless stub[:period].nil?
+        data['ErrorReason'] = ErrorReason.stub(stub[:error_reason]) unless stub[:error_reason].nil?
         data
       end
     end
@@ -166,7 +168,7 @@ module AWS::SDK::ServiceQuotas
         data = {}
         data['MetricNamespace'] = stub[:metric_namespace] unless stub[:metric_namespace].nil?
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['MetricDimensions'] = Stubs::MetricDimensionsMapDefinition.stub(stub[:metric_dimensions]) unless stub[:metric_dimensions].nil?
+        data['MetricDimensions'] = MetricDimensionsMapDefinition.stub(stub[:metric_dimensions]) unless stub[:metric_dimensions].nil?
         data['MetricStatisticRecommendation'] = stub[:metric_statistic_recommendation] unless stub[:metric_statistic_recommendation].nil?
         data
       end
@@ -203,7 +205,7 @@ module AWS::SDK::ServiceQuotas
       def self.stub(http_resp, stub:)
         data = {}
         data['ServiceQuotaTemplateAssociationStatus'] = stub[:service_quota_template_association_status] unless stub[:service_quota_template_association_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -218,8 +220,8 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RequestedQuota'] = Stubs::RequestedServiceQuotaChange.stub(stub[:requested_quota]) unless stub[:requested_quota].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RequestedQuota'] = RequestedServiceQuotaChange.stub(stub[:requested_quota]) unless stub[:requested_quota].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -278,8 +280,8 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Quota'] = Stubs::ServiceQuota.stub(stub[:quota]) unless stub[:quota].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Quota'] = ServiceQuota.stub(stub[:quota]) unless stub[:quota].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -294,8 +296,8 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceQuotaIncreaseRequestInTemplate'] = Stubs::ServiceQuotaIncreaseRequestInTemplate.stub(stub[:service_quota_increase_request_in_template]) unless stub[:service_quota_increase_request_in_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceQuotaIncreaseRequestInTemplate'] = ServiceQuotaIncreaseRequestInTemplate.stub(stub[:service_quota_increase_request_in_template]) unless stub[:service_quota_increase_request_in_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -344,8 +346,8 @@ module AWS::SDK::ServiceQuotas
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Quotas'] = Stubs::ServiceQuotaListDefinition.stub(stub[:quotas]) unless stub[:quotas].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Quotas'] = ServiceQuotaListDefinition.stub(stub[:quotas]) unless stub[:quotas].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -364,7 +366,7 @@ module AWS::SDK::ServiceQuotas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceQuota.stub(element) unless element.nil?
+          data << ServiceQuota.stub(element) unless element.nil?
         end
         data
       end
@@ -382,8 +384,8 @@ module AWS::SDK::ServiceQuotas
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['RequestedQuotas'] = Stubs::RequestedServiceQuotaChangeHistoryListDefinition.stub(stub[:requested_quotas]) unless stub[:requested_quotas].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RequestedQuotas'] = RequestedServiceQuotaChangeHistoryListDefinition.stub(stub[:requested_quotas]) unless stub[:requested_quotas].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -402,7 +404,7 @@ module AWS::SDK::ServiceQuotas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RequestedServiceQuotaChange.stub(element) unless element.nil?
+          data << RequestedServiceQuotaChange.stub(element) unless element.nil?
         end
         data
       end
@@ -420,8 +422,8 @@ module AWS::SDK::ServiceQuotas
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['RequestedQuotas'] = Stubs::RequestedServiceQuotaChangeHistoryListDefinition.stub(stub[:requested_quotas]) unless stub[:requested_quotas].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RequestedQuotas'] = RequestedServiceQuotaChangeHistoryListDefinition.stub(stub[:requested_quotas]) unless stub[:requested_quotas].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -437,9 +439,9 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceQuotaIncreaseRequestInTemplateList'] = Stubs::ServiceQuotaIncreaseRequestInTemplateList.stub(stub[:service_quota_increase_request_in_template_list]) unless stub[:service_quota_increase_request_in_template_list].nil?
+        data['ServiceQuotaIncreaseRequestInTemplateList'] = ServiceQuotaIncreaseRequestInTemplateList.stub(stub[:service_quota_increase_request_in_template_list]) unless stub[:service_quota_increase_request_in_template_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -458,7 +460,7 @@ module AWS::SDK::ServiceQuotas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceQuotaIncreaseRequestInTemplate.stub(element) unless element.nil?
+          data << ServiceQuotaIncreaseRequestInTemplate.stub(element) unless element.nil?
         end
         data
       end
@@ -476,8 +478,8 @@ module AWS::SDK::ServiceQuotas
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Quotas'] = Stubs::ServiceQuotaListDefinition.stub(stub[:quotas]) unless stub[:quotas].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Quotas'] = ServiceQuotaListDefinition.stub(stub[:quotas]) unless stub[:quotas].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -494,8 +496,8 @@ module AWS::SDK::ServiceQuotas
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Services'] = Stubs::ServiceInfoListDefinition.stub(stub[:services]) unless stub[:services].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Services'] = ServiceInfoListDefinition.stub(stub[:services]) unless stub[:services].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -514,7 +516,7 @@ module AWS::SDK::ServiceQuotas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceInfo.stub(element) unless element.nil?
+          data << ServiceInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -550,8 +552,8 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::OutputTags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = OutputTags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -570,7 +572,7 @@ module AWS::SDK::ServiceQuotas
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -606,8 +608,8 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceQuotaIncreaseRequestInTemplate'] = Stubs::ServiceQuotaIncreaseRequestInTemplate.stub(stub[:service_quota_increase_request_in_template]) unless stub[:service_quota_increase_request_in_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceQuotaIncreaseRequestInTemplate'] = ServiceQuotaIncreaseRequestInTemplate.stub(stub[:service_quota_increase_request_in_template]) unless stub[:service_quota_increase_request_in_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -622,8 +624,8 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RequestedQuota'] = Stubs::RequestedServiceQuotaChange.stub(stub[:requested_quota]) unless stub[:requested_quota].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RequestedQuota'] = RequestedServiceQuotaChange.stub(stub[:requested_quota]) unless stub[:requested_quota].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -637,7 +639,7 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -651,7 +653,7 @@ module AWS::SDK::ServiceQuotas
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

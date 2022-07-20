@@ -17,8 +17,8 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.named_queries = (Parsers::NamedQueryList.parse(map['NamedQueries']) unless map['NamedQueries'].nil?)
-        data.unprocessed_named_query_ids = (Parsers::UnprocessedNamedQueryIdList.parse(map['UnprocessedNamedQueryIds']) unless map['UnprocessedNamedQueryIds'].nil?)
+        data.named_queries = (NamedQueryList.parse(map['NamedQueries']) unless map['NamedQueries'].nil?)
+        data.unprocessed_named_query_ids = (UnprocessedNamedQueryIdList.parse(map['UnprocessedNamedQueryIds']) unless map['UnprocessedNamedQueryIds'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::Athena
     class UnprocessedNamedQueryIdList
       def self.parse(list)
         list.map do |value|
-          Parsers::UnprocessedNamedQueryId.parse(value) unless value.nil?
+          UnprocessedNamedQueryId.parse(value) unless value.nil?
         end
       end
     end
@@ -44,7 +44,7 @@ module AWS::SDK::Athena
     class NamedQueryList
       def self.parse(list)
         list.map do |value|
-          Parsers::NamedQuery.parse(value) unless value.nil?
+          NamedQuery.parse(value) unless value.nil?
         end
       end
     end
@@ -94,8 +94,8 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.query_executions = (Parsers::QueryExecutionList.parse(map['QueryExecutions']) unless map['QueryExecutions'].nil?)
-        data.unprocessed_query_execution_ids = (Parsers::UnprocessedQueryExecutionIdList.parse(map['UnprocessedQueryExecutionIds']) unless map['UnprocessedQueryExecutionIds'].nil?)
+        data.query_executions = (QueryExecutionList.parse(map['QueryExecutions']) unless map['QueryExecutions'].nil?)
+        data.unprocessed_query_execution_ids = (UnprocessedQueryExecutionIdList.parse(map['UnprocessedQueryExecutionIds']) unless map['UnprocessedQueryExecutionIds'].nil?)
         data
       end
     end
@@ -103,7 +103,7 @@ module AWS::SDK::Athena
     class UnprocessedQueryExecutionIdList
       def self.parse(list)
         list.map do |value|
-          Parsers::UnprocessedQueryExecutionId.parse(value) unless value.nil?
+          UnprocessedQueryExecutionId.parse(value) unless value.nil?
         end
       end
     end
@@ -121,7 +121,7 @@ module AWS::SDK::Athena
     class QueryExecutionList
       def self.parse(list)
         list.map do |value|
-          Parsers::QueryExecution.parse(value) unless value.nil?
+          QueryExecution.parse(value) unless value.nil?
         end
       end
     end
@@ -132,12 +132,12 @@ module AWS::SDK::Athena
         data.query_execution_id = map['QueryExecutionId']
         data.query = map['Query']
         data.statement_type = map['StatementType']
-        data.result_configuration = (Parsers::ResultConfiguration.parse(map['ResultConfiguration']) unless map['ResultConfiguration'].nil?)
-        data.query_execution_context = (Parsers::QueryExecutionContext.parse(map['QueryExecutionContext']) unless map['QueryExecutionContext'].nil?)
-        data.status = (Parsers::QueryExecutionStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.statistics = (Parsers::QueryExecutionStatistics.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.result_configuration = (ResultConfiguration.parse(map['ResultConfiguration']) unless map['ResultConfiguration'].nil?)
+        data.query_execution_context = (QueryExecutionContext.parse(map['QueryExecutionContext']) unless map['QueryExecutionContext'].nil?)
+        data.status = (QueryExecutionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.statistics = (QueryExecutionStatistics.parse(map['Statistics']) unless map['Statistics'].nil?)
         data.work_group = map['WorkGroup']
-        data.engine_version = (Parsers::EngineVersion.parse(map['EngineVersion']) unless map['EngineVersion'].nil?)
+        data.engine_version = (EngineVersion.parse(map['EngineVersion']) unless map['EngineVersion'].nil?)
         return data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::Athena
         data.state_change_reason = map['StateChangeReason']
         data.submission_date_time = Time.at(map['SubmissionDateTime'].to_i) if map['SubmissionDateTime']
         data.completion_date_time = Time.at(map['CompletionDateTime'].to_i) if map['CompletionDateTime']
-        data.athena_error = (Parsers::AthenaError.parse(map['AthenaError']) unless map['AthenaError'].nil?)
+        data.athena_error = (AthenaError.parse(map['AthenaError']) unless map['AthenaError'].nil?)
         return data
       end
     end
@@ -201,9 +201,9 @@ module AWS::SDK::Athena
       def self.parse(map)
         data = Types::ResultConfiguration.new
         data.output_location = map['OutputLocation']
-        data.encryption_configuration = (Parsers::EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
+        data.encryption_configuration = (EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
         data.expected_bucket_owner = map['ExpectedBucketOwner']
-        data.acl_configuration = (Parsers::AclConfiguration.parse(map['AclConfiguration']) unless map['AclConfiguration'].nil?)
+        data.acl_configuration = (AclConfiguration.parse(map['AclConfiguration']) unless map['AclConfiguration'].nil?)
         return data
       end
     end
@@ -334,7 +334,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.data_catalog = (Parsers::DataCatalog.parse(map['DataCatalog']) unless map['DataCatalog'].nil?)
+        data.data_catalog = (DataCatalog.parse(map['DataCatalog']) unless map['DataCatalog'].nil?)
         data
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::Athena
         data.name = map['Name']
         data.description = map['Description']
         data.type = map['Type']
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -367,7 +367,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database = (Parsers::Database.parse(map['Database']) unless map['Database'].nil?)
+        data.database = (Database.parse(map['Database']) unless map['Database'].nil?)
         data
       end
     end
@@ -377,7 +377,7 @@ module AWS::SDK::Athena
         data = Types::Database.new
         data.name = map['Name']
         data.description = map['Description']
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -401,7 +401,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.named_query = (Parsers::NamedQuery.parse(map['NamedQuery']) unless map['NamedQuery'].nil?)
+        data.named_query = (NamedQuery.parse(map['NamedQuery']) unless map['NamedQuery'].nil?)
         data
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.prepared_statement = (Parsers::PreparedStatement.parse(map['PreparedStatement']) unless map['PreparedStatement'].nil?)
+        data.prepared_statement = (PreparedStatement.parse(map['PreparedStatement']) unless map['PreparedStatement'].nil?)
         data
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.query_execution = (Parsers::QueryExecution.parse(map['QueryExecution']) unless map['QueryExecution'].nil?)
+        data.query_execution = (QueryExecution.parse(map['QueryExecution']) unless map['QueryExecution'].nil?)
         data
       end
     end
@@ -450,7 +450,7 @@ module AWS::SDK::Athena
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.update_count = map['UpdateCount']
-        data.result_set = (Parsers::ResultSet.parse(map['ResultSet']) unless map['ResultSet'].nil?)
+        data.result_set = (ResultSet.parse(map['ResultSet']) unless map['ResultSet'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -459,8 +459,8 @@ module AWS::SDK::Athena
     class ResultSet
       def self.parse(map)
         data = Types::ResultSet.new
-        data.rows = (Parsers::RowList.parse(map['Rows']) unless map['Rows'].nil?)
-        data.result_set_metadata = (Parsers::ResultSetMetadata.parse(map['ResultSetMetadata']) unless map['ResultSetMetadata'].nil?)
+        data.rows = (RowList.parse(map['Rows']) unless map['Rows'].nil?)
+        data.result_set_metadata = (ResultSetMetadata.parse(map['ResultSetMetadata']) unless map['ResultSetMetadata'].nil?)
         return data
       end
     end
@@ -468,7 +468,7 @@ module AWS::SDK::Athena
     class ResultSetMetadata
       def self.parse(map)
         data = Types::ResultSetMetadata.new
-        data.column_info = (Parsers::ColumnInfoList.parse(map['ColumnInfo']) unless map['ColumnInfo'].nil?)
+        data.column_info = (ColumnInfoList.parse(map['ColumnInfo']) unless map['ColumnInfo'].nil?)
         return data
       end
     end
@@ -476,7 +476,7 @@ module AWS::SDK::Athena
     class ColumnInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnInfo.parse(value) unless value.nil?
+          ColumnInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -501,7 +501,7 @@ module AWS::SDK::Athena
     class RowList
       def self.parse(list)
         list.map do |value|
-          Parsers::Row.parse(value) unless value.nil?
+          Row.parse(value) unless value.nil?
         end
       end
     end
@@ -509,7 +509,7 @@ module AWS::SDK::Athena
     class Row
       def self.parse(map)
         data = Types::Row.new
-        data.data = (Parsers::DatumList.parse(map['Data']) unless map['Data'].nil?)
+        data.data = (DatumList.parse(map['Data']) unless map['Data'].nil?)
         return data
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::Athena
     class DatumList
       def self.parse(list)
         list.map do |value|
-          Parsers::Datum.parse(value) unless value.nil?
+          Datum.parse(value) unless value.nil?
         end
       end
     end
@@ -537,7 +537,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table_metadata = (Parsers::TableMetadata.parse(map['TableMetadata']) unless map['TableMetadata'].nil?)
+        data.table_metadata = (TableMetadata.parse(map['TableMetadata']) unless map['TableMetadata'].nil?)
         data
       end
     end
@@ -549,9 +549,9 @@ module AWS::SDK::Athena
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
         data.last_access_time = Time.at(map['LastAccessTime'].to_i) if map['LastAccessTime']
         data.table_type = map['TableType']
-        data.columns = (Parsers::ColumnList.parse(map['Columns']) unless map['Columns'].nil?)
-        data.partition_keys = (Parsers::ColumnList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.columns = (ColumnList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.partition_keys = (ColumnList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -559,7 +559,7 @@ module AWS::SDK::Athena
     class ColumnList
       def self.parse(list)
         list.map do |value|
-          Parsers::Column.parse(value) unless value.nil?
+          Column.parse(value) unless value.nil?
         end
       end
     end
@@ -581,7 +581,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.work_group = (Parsers::WorkGroup.parse(map['WorkGroup']) unless map['WorkGroup'].nil?)
+        data.work_group = (WorkGroup.parse(map['WorkGroup']) unless map['WorkGroup'].nil?)
         data
       end
     end
@@ -591,7 +591,7 @@ module AWS::SDK::Athena
         data = Types::WorkGroup.new
         data.name = map['Name']
         data.state = map['State']
-        data.configuration = (Parsers::WorkGroupConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (WorkGroupConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data.description = map['Description']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         return data
@@ -601,12 +601,12 @@ module AWS::SDK::Athena
     class WorkGroupConfiguration
       def self.parse(map)
         data = Types::WorkGroupConfiguration.new
-        data.result_configuration = (Parsers::ResultConfiguration.parse(map['ResultConfiguration']) unless map['ResultConfiguration'].nil?)
+        data.result_configuration = (ResultConfiguration.parse(map['ResultConfiguration']) unless map['ResultConfiguration'].nil?)
         data.enforce_work_group_configuration = map['EnforceWorkGroupConfiguration']
         data.publish_cloud_watch_metrics_enabled = map['PublishCloudWatchMetricsEnabled']
         data.bytes_scanned_cutoff_per_query = map['BytesScannedCutoffPerQuery']
         data.requester_pays_enabled = map['RequesterPaysEnabled']
-        data.engine_version = (Parsers::EngineVersion.parse(map['EngineVersion']) unless map['EngineVersion'].nil?)
+        data.engine_version = (EngineVersion.parse(map['EngineVersion']) unless map['EngineVersion'].nil?)
         return data
       end
     end
@@ -618,7 +618,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.data_catalogs_summary = (Parsers::DataCatalogSummaryList.parse(map['DataCatalogsSummary']) unless map['DataCatalogsSummary'].nil?)
+        data.data_catalogs_summary = (DataCatalogSummaryList.parse(map['DataCatalogsSummary']) unless map['DataCatalogsSummary'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -627,7 +627,7 @@ module AWS::SDK::Athena
     class DataCatalogSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::DataCatalogSummary.parse(value) unless value.nil?
+          DataCatalogSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database_list = (Parsers::DatabaseList.parse(map['DatabaseList']) unless map['DatabaseList'].nil?)
+        data.database_list = (DatabaseList.parse(map['DatabaseList']) unless map['DatabaseList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -657,7 +657,7 @@ module AWS::SDK::Athena
     class DatabaseList
       def self.parse(list)
         list.map do |value|
-          Parsers::Database.parse(value) unless value.nil?
+          Database.parse(value) unless value.nil?
         end
       end
     end
@@ -669,7 +669,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.engine_versions = (Parsers::EngineVersionsList.parse(map['EngineVersions']) unless map['EngineVersions'].nil?)
+        data.engine_versions = (EngineVersionsList.parse(map['EngineVersions']) unless map['EngineVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -678,7 +678,7 @@ module AWS::SDK::Athena
     class EngineVersionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::EngineVersion.parse(value) unless value.nil?
+          EngineVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -690,7 +690,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.named_query_ids = (Parsers::NamedQueryIdList.parse(map['NamedQueryIds']) unless map['NamedQueryIds'].nil?)
+        data.named_query_ids = (NamedQueryIdList.parse(map['NamedQueryIds']) unless map['NamedQueryIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -711,7 +711,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.prepared_statements = (Parsers::PreparedStatementsList.parse(map['PreparedStatements']) unless map['PreparedStatements'].nil?)
+        data.prepared_statements = (PreparedStatementsList.parse(map['PreparedStatements']) unless map['PreparedStatements'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -720,7 +720,7 @@ module AWS::SDK::Athena
     class PreparedStatementsList
       def self.parse(list)
         list.map do |value|
-          Parsers::PreparedStatementSummary.parse(value) unless value.nil?
+          PreparedStatementSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -741,7 +741,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.query_execution_ids = (Parsers::QueryExecutionIdList.parse(map['QueryExecutionIds']) unless map['QueryExecutionIds'].nil?)
+        data.query_execution_ids = (QueryExecutionIdList.parse(map['QueryExecutionIds']) unless map['QueryExecutionIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -762,7 +762,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table_metadata_list = (Parsers::TableMetadataList.parse(map['TableMetadataList']) unless map['TableMetadataList'].nil?)
+        data.table_metadata_list = (TableMetadataList.parse(map['TableMetadataList']) unless map['TableMetadataList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -771,7 +771,7 @@ module AWS::SDK::Athena
     class TableMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::TableMetadata.parse(value) unless value.nil?
+          TableMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -783,7 +783,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -792,7 +792,7 @@ module AWS::SDK::Athena
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -813,7 +813,7 @@ module AWS::SDK::Athena
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.work_groups = (Parsers::WorkGroupsList.parse(map['WorkGroups']) unless map['WorkGroups'].nil?)
+        data.work_groups = (WorkGroupsList.parse(map['WorkGroups']) unless map['WorkGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -822,7 +822,7 @@ module AWS::SDK::Athena
     class WorkGroupsList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkGroupSummary.parse(value) unless value.nil?
+          WorkGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -834,7 +834,7 @@ module AWS::SDK::Athena
         data.state = map['State']
         data.description = map['Description']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.engine_version = (Parsers::EngineVersion.parse(map['EngineVersion']) unless map['EngineVersion'].nil?)
+        data.engine_version = (EngineVersion.parse(map['EngineVersion']) unless map['EngineVersion'].nil?)
         return data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSOAdmin
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -34,8 +36,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAssignmentCreationStatus'] = Stubs::AccountAssignmentOperationStatus.stub(stub[:account_assignment_creation_status]) unless stub[:account_assignment_creation_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountAssignmentCreationStatus'] = AccountAssignmentOperationStatus.stub(stub[:account_assignment_creation_status]) unless stub[:account_assignment_creation_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -98,8 +100,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PermissionSet'] = Stubs::PermissionSet.stub(stub[:permission_set]) unless stub[:permission_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PermissionSet'] = PermissionSet.stub(stub[:permission_set]) unless stub[:permission_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -142,8 +144,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAssignmentDeletionStatus'] = Stubs::AccountAssignmentOperationStatus.stub(stub[:account_assignment_deletion_status]) unless stub[:account_assignment_deletion_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountAssignmentDeletionStatus'] = AccountAssignmentOperationStatus.stub(stub[:account_assignment_deletion_status]) unless stub[:account_assignment_deletion_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -157,7 +159,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -171,7 +173,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -200,8 +202,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAssignmentCreationStatus'] = Stubs::AccountAssignmentOperationStatus.stub(stub[:account_assignment_creation_status]) unless stub[:account_assignment_creation_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountAssignmentCreationStatus'] = AccountAssignmentOperationStatus.stub(stub[:account_assignment_creation_status]) unless stub[:account_assignment_creation_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -216,8 +218,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAssignmentDeletionStatus'] = Stubs::AccountAssignmentOperationStatus.stub(stub[:account_assignment_deletion_status]) unless stub[:account_assignment_deletion_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountAssignmentDeletionStatus'] = AccountAssignmentOperationStatus.stub(stub[:account_assignment_deletion_status]) unless stub[:account_assignment_deletion_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -236,8 +238,8 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['InstanceAccessControlAttributeConfiguration'] = Stubs::InstanceAccessControlAttributeConfiguration.stub(stub[:instance_access_control_attribute_configuration]) unless stub[:instance_access_control_attribute_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceAccessControlAttributeConfiguration'] = InstanceAccessControlAttributeConfiguration.stub(stub[:instance_access_control_attribute_configuration]) unless stub[:instance_access_control_attribute_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::SSOAdmin
       def self.stub(stub)
         stub ||= Types::InstanceAccessControlAttributeConfiguration.new
         data = {}
-        data['AccessControlAttributes'] = Stubs::AccessControlAttributeList.stub(stub[:access_control_attributes]) unless stub[:access_control_attributes].nil?
+        data['AccessControlAttributes'] = AccessControlAttributeList.stub(stub[:access_control_attributes]) unless stub[:access_control_attributes].nil?
         data
       end
     end
@@ -274,7 +276,7 @@ module AWS::SDK::SSOAdmin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessControlAttribute.stub(element) unless element.nil?
+          data << AccessControlAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -295,7 +297,7 @@ module AWS::SDK::SSOAdmin
         stub ||= Types::AccessControlAttribute.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Value'] = Stubs::AccessControlAttributeValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = AccessControlAttributeValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -313,7 +315,7 @@ module AWS::SDK::SSOAdmin
       def self.stub(stub)
         stub ||= Types::AccessControlAttributeValue.new
         data = {}
-        data['Source'] = Stubs::AccessControlAttributeValueSourceList.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = AccessControlAttributeValueSourceList.stub(stub[:source]) unless stub[:source].nil?
         data
       end
     end
@@ -348,8 +350,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PermissionSet'] = Stubs::PermissionSet.stub(stub[:permission_set]) unless stub[:permission_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PermissionSet'] = PermissionSet.stub(stub[:permission_set]) unless stub[:permission_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -364,8 +366,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PermissionSetProvisioningStatus'] = Stubs::PermissionSetProvisioningStatus.stub(stub[:permission_set_provisioning_status]) unless stub[:permission_set_provisioning_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PermissionSetProvisioningStatus'] = PermissionSetProvisioningStatus.stub(stub[:permission_set_provisioning_status]) unless stub[:permission_set_provisioning_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -407,7 +409,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -423,7 +425,7 @@ module AWS::SDK::SSOAdmin
       def self.stub(http_resp, stub:)
         data = {}
         data['InlinePolicy'] = stub[:inline_policy] unless stub[:inline_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -439,9 +441,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAssignmentsCreationStatus'] = Stubs::AccountAssignmentOperationStatusList.stub(stub[:account_assignments_creation_status]) unless stub[:account_assignments_creation_status].nil?
+        data['AccountAssignmentsCreationStatus'] = AccountAssignmentOperationStatusList.stub(stub[:account_assignments_creation_status]) unless stub[:account_assignments_creation_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -460,7 +462,7 @@ module AWS::SDK::SSOAdmin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountAssignmentOperationStatusMetadata.stub(element) unless element.nil?
+          data << AccountAssignmentOperationStatusMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -499,9 +501,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAssignmentsDeletionStatus'] = Stubs::AccountAssignmentOperationStatusList.stub(stub[:account_assignments_deletion_status]) unless stub[:account_assignments_deletion_status].nil?
+        data['AccountAssignmentsDeletionStatus'] = AccountAssignmentOperationStatusList.stub(stub[:account_assignments_deletion_status]) unless stub[:account_assignments_deletion_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -517,9 +519,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAssignments'] = Stubs::AccountAssignmentList.stub(stub[:account_assignments]) unless stub[:account_assignments].nil?
+        data['AccountAssignments'] = AccountAssignmentList.stub(stub[:account_assignments]) unless stub[:account_assignments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -538,7 +540,7 @@ module AWS::SDK::SSOAdmin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountAssignment.stub(element) unless element.nil?
+          data << AccountAssignment.stub(element) unless element.nil?
         end
         data
       end
@@ -579,9 +581,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountIds'] = Stubs::AccountList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
+        data['AccountIds'] = AccountList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -617,9 +619,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Instances'] = Stubs::InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
+        data['Instances'] = InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -638,7 +640,7 @@ module AWS::SDK::SSOAdmin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceMetadata.stub(element) unless element.nil?
+          data << InstanceMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -675,9 +677,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AttachedManagedPolicies'] = Stubs::AttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
+        data['AttachedManagedPolicies'] = AttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -696,7 +698,7 @@ module AWS::SDK::SSOAdmin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttachedManagedPolicy.stub(element) unless element.nil?
+          data << AttachedManagedPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -733,9 +735,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PermissionSetsProvisioningStatus'] = Stubs::PermissionSetProvisioningStatusList.stub(stub[:permission_sets_provisioning_status]) unless stub[:permission_sets_provisioning_status].nil?
+        data['PermissionSetsProvisioningStatus'] = PermissionSetProvisioningStatusList.stub(stub[:permission_sets_provisioning_status]) unless stub[:permission_sets_provisioning_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -754,7 +756,7 @@ module AWS::SDK::SSOAdmin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PermissionSetProvisioningStatusMetadata.stub(element) unless element.nil?
+          data << PermissionSetProvisioningStatusMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -793,9 +795,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PermissionSets'] = Stubs::PermissionSetList.stub(stub[:permission_sets]) unless stub[:permission_sets].nil?
+        data['PermissionSets'] = PermissionSetList.stub(stub[:permission_sets]) unless stub[:permission_sets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -832,8 +834,8 @@ module AWS::SDK::SSOAdmin
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['PermissionSets'] = Stubs::PermissionSetList.stub(stub[:permission_sets]) unless stub[:permission_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PermissionSets'] = PermissionSetList.stub(stub[:permission_sets]) unless stub[:permission_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -849,9 +851,9 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -870,7 +872,7 @@ module AWS::SDK::SSOAdmin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -906,8 +908,8 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PermissionSetProvisioningStatus'] = Stubs::PermissionSetProvisioningStatus.stub(stub[:permission_set_provisioning_status]) unless stub[:permission_set_provisioning_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PermissionSetProvisioningStatus'] = PermissionSetProvisioningStatus.stub(stub[:permission_set_provisioning_status]) unless stub[:permission_set_provisioning_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -935,7 +937,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -949,7 +951,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -963,7 +965,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -977,7 +979,7 @@ module AWS::SDK::SSOAdmin
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

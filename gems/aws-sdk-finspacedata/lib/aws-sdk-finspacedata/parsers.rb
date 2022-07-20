@@ -183,11 +183,11 @@ module AWS::SDK::FinspaceData
         data.changeset_arn = map['changesetArn']
         data.dataset_id = map['datasetId']
         data.change_type = map['changeType']
-        data.source_params = (Parsers::SourceParams.parse(map['sourceParams']) unless map['sourceParams'].nil?)
-        data.format_params = (Parsers::FormatParams.parse(map['formatParams']) unless map['formatParams'].nil?)
+        data.source_params = (SourceParams.parse(map['sourceParams']) unless map['sourceParams'].nil?)
+        data.format_params = (FormatParams.parse(map['formatParams']) unless map['formatParams'].nil?)
         data.create_time = map['createTime']
         data.status = map['status']
-        data.error_info = (Parsers::ChangesetErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.error_info = (ChangesetErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
         data.active_until_timestamp = map['activeUntilTimestamp']
         data.active_from_timestamp = map['activeFromTimestamp']
         data.updates_changeset_id = map['updatesChangesetId']
@@ -231,16 +231,16 @@ module AWS::SDK::FinspaceData
         data = Types::GetDataViewOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.auto_update = map['autoUpdate']
-        data.partition_columns = (Parsers::PartitionColumnList.parse(map['partitionColumns']) unless map['partitionColumns'].nil?)
+        data.partition_columns = (PartitionColumnList.parse(map['partitionColumns']) unless map['partitionColumns'].nil?)
         data.dataset_id = map['datasetId']
         data.as_of_timestamp = map['asOfTimestamp']
-        data.error_info = (Parsers::DataViewErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.error_info = (DataViewErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
         data.last_modified_time = map['lastModifiedTime']
         data.create_time = map['createTime']
-        data.sort_columns = (Parsers::SortColumnList.parse(map['sortColumns']) unless map['sortColumns'].nil?)
+        data.sort_columns = (SortColumnList.parse(map['sortColumns']) unless map['sortColumns'].nil?)
         data.data_view_id = map['dataViewId']
         data.data_view_arn = map['dataViewArn']
-        data.destination_type_params = (Parsers::DataViewDestinationTypeParams.parse(map['destinationTypeParams']) unless map['destinationTypeParams'].nil?)
+        data.destination_type_params = (DataViewDestinationTypeParams.parse(map['destinationTypeParams']) unless map['destinationTypeParams'].nil?)
         data.status = map['status']
         data
       end
@@ -251,7 +251,7 @@ module AWS::SDK::FinspaceData
         data = Types::DataViewDestinationTypeParams.new
         data.destination_type = map['destinationType']
         data.s3_destination_export_file_format = map['s3DestinationExportFileFormat']
-        data.s3_destination_export_file_format_options = (Parsers::S3DestinationFormatOptions.parse(map['s3DestinationExportFileFormatOptions']) unless map['s3DestinationExportFileFormatOptions'].nil?)
+        data.s3_destination_export_file_format_options = (S3DestinationFormatOptions.parse(map['s3DestinationExportFileFormatOptions']) unless map['s3DestinationExportFileFormatOptions'].nil?)
         return data
       end
     end
@@ -307,7 +307,7 @@ module AWS::SDK::FinspaceData
         data.dataset_description = map['datasetDescription']
         data.create_time = map['createTime']
         data.last_modified_time = map['lastModifiedTime']
-        data.schema_definition = (Parsers::SchemaUnion.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
+        data.schema_definition = (SchemaUnion.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
         data.alias = map['alias']
         data.status = map['status']
         data
@@ -317,7 +317,7 @@ module AWS::SDK::FinspaceData
     class SchemaUnion
       def self.parse(map)
         data = Types::SchemaUnion.new
-        data.tabular_schema_config = (Parsers::SchemaDefinition.parse(map['tabularSchemaConfig']) unless map['tabularSchemaConfig'].nil?)
+        data.tabular_schema_config = (SchemaDefinition.parse(map['tabularSchemaConfig']) unless map['tabularSchemaConfig'].nil?)
         return data
       end
     end
@@ -325,8 +325,8 @@ module AWS::SDK::FinspaceData
     class SchemaDefinition
       def self.parse(map)
         data = Types::SchemaDefinition.new
-        data.columns = (Parsers::ColumnList.parse(map['columns']) unless map['columns'].nil?)
-        data.primary_key_columns = (Parsers::ColumnNameList.parse(map['primaryKeyColumns']) unless map['primaryKeyColumns'].nil?)
+        data.columns = (ColumnList.parse(map['columns']) unless map['columns'].nil?)
+        data.primary_key_columns = (ColumnNameList.parse(map['primaryKeyColumns']) unless map['primaryKeyColumns'].nil?)
         return data
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::FinspaceData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnDefinition.parse(value) unless value.nil?
+          data << ColumnDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -366,7 +366,7 @@ module AWS::SDK::FinspaceData
       def self.parse(http_resp)
         data = Types::GetProgrammaticAccessCredentialsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.credentials = (Parsers::Credentials.parse(map['credentials']) unless map['credentials'].nil?)
+        data.credentials = (Credentials.parse(map['credentials']) unless map['credentials'].nil?)
         data.duration_in_minutes = map['durationInMinutes']
         data
       end
@@ -421,7 +421,7 @@ module AWS::SDK::FinspaceData
       def self.parse(http_resp)
         data = Types::ListChangesetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.changesets = (Parsers::ChangesetList.parse(map['changesets']) unless map['changesets'].nil?)
+        data.changesets = (ChangesetList.parse(map['changesets']) unless map['changesets'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -431,7 +431,7 @@ module AWS::SDK::FinspaceData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChangesetSummary.parse(value) unless value.nil?
+          data << ChangesetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -444,11 +444,11 @@ module AWS::SDK::FinspaceData
         data.changeset_arn = map['changesetArn']
         data.dataset_id = map['datasetId']
         data.change_type = map['changeType']
-        data.source_params = (Parsers::SourceParams.parse(map['sourceParams']) unless map['sourceParams'].nil?)
-        data.format_params = (Parsers::FormatParams.parse(map['formatParams']) unless map['formatParams'].nil?)
+        data.source_params = (SourceParams.parse(map['sourceParams']) unless map['sourceParams'].nil?)
+        data.format_params = (FormatParams.parse(map['formatParams']) unless map['formatParams'].nil?)
         data.create_time = map['createTime']
         data.status = map['status']
-        data.error_info = (Parsers::ChangesetErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.error_info = (ChangesetErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
         data.active_until_timestamp = map['activeUntilTimestamp']
         data.active_from_timestamp = map['activeFromTimestamp']
         data.updates_changeset_id = map['updatesChangesetId']
@@ -463,7 +463,7 @@ module AWS::SDK::FinspaceData
         data = Types::ListDataViewsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.data_views = (Parsers::DataViewList.parse(map['dataViews']) unless map['dataViews'].nil?)
+        data.data_views = (DataViewList.parse(map['dataViews']) unless map['dataViews'].nil?)
         data
       end
     end
@@ -472,7 +472,7 @@ module AWS::SDK::FinspaceData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataViewSummary.parse(value) unless value.nil?
+          data << DataViewSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -485,11 +485,11 @@ module AWS::SDK::FinspaceData
         data.data_view_arn = map['dataViewArn']
         data.dataset_id = map['datasetId']
         data.as_of_timestamp = map['asOfTimestamp']
-        data.partition_columns = (Parsers::PartitionColumnList.parse(map['partitionColumns']) unless map['partitionColumns'].nil?)
-        data.sort_columns = (Parsers::SortColumnList.parse(map['sortColumns']) unless map['sortColumns'].nil?)
+        data.partition_columns = (PartitionColumnList.parse(map['partitionColumns']) unless map['partitionColumns'].nil?)
+        data.sort_columns = (SortColumnList.parse(map['sortColumns']) unless map['sortColumns'].nil?)
         data.status = map['status']
-        data.error_info = (Parsers::DataViewErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
-        data.destination_type_properties = (Parsers::DataViewDestinationTypeParams.parse(map['destinationTypeProperties']) unless map['destinationTypeProperties'].nil?)
+        data.error_info = (DataViewErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.destination_type_properties = (DataViewDestinationTypeParams.parse(map['destinationTypeProperties']) unless map['destinationTypeProperties'].nil?)
         data.auto_update = map['autoUpdate']
         data.create_time = map['createTime']
         data.last_modified_time = map['lastModifiedTime']
@@ -502,7 +502,7 @@ module AWS::SDK::FinspaceData
       def self.parse(http_resp)
         data = Types::ListDatasetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.datasets = (Parsers::DatasetList.parse(map['datasets']) unless map['datasets'].nil?)
+        data.datasets = (DatasetList.parse(map['datasets']) unless map['datasets'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -512,7 +512,7 @@ module AWS::SDK::FinspaceData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Dataset.parse(value) unless value.nil?
+          data << Dataset.parse(value) unless value.nil?
         end
         data
       end
@@ -526,10 +526,10 @@ module AWS::SDK::FinspaceData
         data.dataset_title = map['datasetTitle']
         data.kind = map['kind']
         data.dataset_description = map['datasetDescription']
-        data.owner_info = (Parsers::DatasetOwnerInfo.parse(map['ownerInfo']) unless map['ownerInfo'].nil?)
+        data.owner_info = (DatasetOwnerInfo.parse(map['ownerInfo']) unless map['ownerInfo'].nil?)
         data.create_time = map['createTime']
         data.last_modified_time = map['lastModifiedTime']
-        data.schema_definition = (Parsers::SchemaUnion.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
+        data.schema_definition = (SchemaUnion.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
         data.alias = map['alias']
         return data
       end
@@ -550,7 +550,7 @@ module AWS::SDK::FinspaceData
       def self.parse(http_resp)
         data = Types::ListPermissionGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.permission_groups = (Parsers::PermissionGroupList.parse(map['permissionGroups']) unless map['permissionGroups'].nil?)
+        data.permission_groups = (PermissionGroupList.parse(map['permissionGroups']) unless map['permissionGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -560,7 +560,7 @@ module AWS::SDK::FinspaceData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PermissionGroup.parse(value) unless value.nil?
+          data << PermissionGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -572,7 +572,7 @@ module AWS::SDK::FinspaceData
         data.permission_group_id = map['permissionGroupId']
         data.name = map['name']
         data.description = map['description']
-        data.application_permissions = (Parsers::ApplicationPermissionList.parse(map['applicationPermissions']) unless map['applicationPermissions'].nil?)
+        data.application_permissions = (ApplicationPermissionList.parse(map['applicationPermissions']) unless map['applicationPermissions'].nil?)
         data.create_time = map['createTime']
         data.last_modified_time = map['lastModifiedTime']
         return data
@@ -594,7 +594,7 @@ module AWS::SDK::FinspaceData
       def self.parse(http_resp)
         data = Types::ListUsersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.users = (Parsers::UserList.parse(map['users']) unless map['users'].nil?)
+        data.users = (UserList.parse(map['users']) unless map['users'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -604,7 +604,7 @@ module AWS::SDK::FinspaceData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::User.parse(value) unless value.nil?
+          data << User.parse(value) unless value.nil?
         end
         data
       end

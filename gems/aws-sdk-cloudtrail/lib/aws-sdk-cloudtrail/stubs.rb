@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CloudTrail
   module Stubs
 
@@ -19,7 +22,7 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +40,7 @@ module AWS::SDK::CloudTrail
         data = {}
         data['QueryId'] = stub[:query_id] unless stub[:query_id].nil?
         data['QueryStatus'] = stub[:query_status] unless stub[:query_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -65,15 +68,15 @@ module AWS::SDK::CloudTrail
         data['EventDataStoreArn'] = stub[:event_data_store_arn] unless stub[:event_data_store_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['AdvancedEventSelectors'] = Stubs::AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
         data['MultiRegionEnabled'] = stub[:multi_region_enabled] unless stub[:multi_region_enabled].nil?
         data['OrganizationEnabled'] = stub[:organization_enabled] unless stub[:organization_enabled].nil?
         data['RetentionPeriod'] = stub[:retention_period] unless stub[:retention_period].nil?
         data['TerminationProtectionEnabled'] = stub[:termination_protection_enabled] unless stub[:termination_protection_enabled].nil?
-        data['TagsList'] = Stubs::TagsList.stub(stub[:tags_list]) unless stub[:tags_list].nil?
+        data['TagsList'] = TagsList.stub(stub[:tags_list]) unless stub[:tags_list].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['UpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_timestamp]).to_i unless stub[:updated_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -92,7 +95,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -132,7 +135,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdvancedEventSelector.stub(element) unless element.nil?
+          data << AdvancedEventSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -153,7 +156,7 @@ module AWS::SDK::CloudTrail
         stub ||= Types::AdvancedEventSelector.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['FieldSelectors'] = Stubs::AdvancedFieldSelectors.stub(stub[:field_selectors]) unless stub[:field_selectors].nil?
+        data['FieldSelectors'] = AdvancedFieldSelectors.stub(stub[:field_selectors]) unless stub[:field_selectors].nil?
         data
       end
     end
@@ -172,7 +175,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdvancedFieldSelector.stub(element) unless element.nil?
+          data << AdvancedFieldSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -198,12 +201,12 @@ module AWS::SDK::CloudTrail
         stub ||= Types::AdvancedFieldSelector.new
         data = {}
         data['Field'] = stub[:field] unless stub[:field].nil?
-        data['Equals'] = Stubs::Operator.stub(stub[:equals]) unless stub[:equals].nil?
-        data['StartsWith'] = Stubs::Operator.stub(stub[:starts_with]) unless stub[:starts_with].nil?
-        data['EndsWith'] = Stubs::Operator.stub(stub[:ends_with]) unless stub[:ends_with].nil?
-        data['NotEquals'] = Stubs::Operator.stub(stub[:not_equals]) unless stub[:not_equals].nil?
-        data['NotStartsWith'] = Stubs::Operator.stub(stub[:not_starts_with]) unless stub[:not_starts_with].nil?
-        data['NotEndsWith'] = Stubs::Operator.stub(stub[:not_ends_with]) unless stub[:not_ends_with].nil?
+        data['Equals'] = Operator.stub(stub[:equals]) unless stub[:equals].nil?
+        data['StartsWith'] = Operator.stub(stub[:starts_with]) unless stub[:starts_with].nil?
+        data['EndsWith'] = Operator.stub(stub[:ends_with]) unless stub[:ends_with].nil?
+        data['NotEquals'] = Operator.stub(stub[:not_equals]) unless stub[:not_equals].nil?
+        data['NotStartsWith'] = Operator.stub(stub[:not_starts_with]) unless stub[:not_starts_with].nil?
+        data['NotEndsWith'] = Operator.stub(stub[:not_ends_with]) unless stub[:not_ends_with].nil?
         data
       end
     end
@@ -263,7 +266,7 @@ module AWS::SDK::CloudTrail
         data['CloudWatchLogsRoleArn'] = stub[:cloud_watch_logs_role_arn] unless stub[:cloud_watch_logs_role_arn].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['IsOrganizationTrail'] = stub[:is_organization_trail] unless stub[:is_organization_trail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -277,7 +280,7 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -291,7 +294,7 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -313,9 +316,9 @@ module AWS::SDK::CloudTrail
         data['QueryId'] = stub[:query_id] unless stub[:query_id].nil?
         data['QueryString'] = stub[:query_string] unless stub[:query_string].nil?
         data['QueryStatus'] = stub[:query_status] unless stub[:query_status].nil?
-        data['QueryStatistics'] = Stubs::QueryStatisticsForDescribeQuery.stub(stub[:query_statistics]) unless stub[:query_statistics].nil?
+        data['QueryStatistics'] = QueryStatisticsForDescribeQuery.stub(stub[:query_statistics]) unless stub[:query_statistics].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -356,8 +359,8 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['trailList'] = Stubs::TrailList.stub(stub[:trail_list]) unless stub[:trail_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['trailList'] = TrailList.stub(stub[:trail_list]) unless stub[:trail_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -376,7 +379,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Trail.stub(element) unless element.nil?
+          data << Trail.stub(element) unless element.nil?
         end
         data
       end
@@ -452,14 +455,14 @@ module AWS::SDK::CloudTrail
         data['EventDataStoreArn'] = stub[:event_data_store_arn] unless stub[:event_data_store_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['AdvancedEventSelectors'] = Stubs::AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
         data['MultiRegionEnabled'] = stub[:multi_region_enabled] unless stub[:multi_region_enabled].nil?
         data['OrganizationEnabled'] = stub[:organization_enabled] unless stub[:organization_enabled].nil?
         data['RetentionPeriod'] = stub[:retention_period] unless stub[:retention_period].nil?
         data['TerminationProtectionEnabled'] = stub[:termination_protection_enabled] unless stub[:termination_protection_enabled].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['UpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_timestamp]).to_i unless stub[:updated_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -477,9 +480,9 @@ module AWS::SDK::CloudTrail
       def self.stub(http_resp, stub:)
         data = {}
         data['TrailARN'] = stub[:trail_arn] unless stub[:trail_arn].nil?
-        data['EventSelectors'] = Stubs::EventSelectors.stub(stub[:event_selectors]) unless stub[:event_selectors].nil?
-        data['AdvancedEventSelectors'] = Stubs::AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSelectors'] = EventSelectors.stub(stub[:event_selectors]) unless stub[:event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -498,7 +501,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventSelector.stub(element) unless element.nil?
+          data << EventSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -522,8 +525,8 @@ module AWS::SDK::CloudTrail
         data = {}
         data['ReadWriteType'] = stub[:read_write_type] unless stub[:read_write_type].nil?
         data['IncludeManagementEvents'] = stub[:include_management_events] unless stub[:include_management_events].nil?
-        data['DataResources'] = Stubs::DataResources.stub(stub[:data_resources]) unless stub[:data_resources].nil?
-        data['ExcludeManagementEventSources'] = Stubs::ExcludeManagementEventSources.stub(stub[:exclude_management_event_sources]) unless stub[:exclude_management_event_sources].nil?
+        data['DataResources'] = DataResources.stub(stub[:data_resources]) unless stub[:data_resources].nil?
+        data['ExcludeManagementEventSources'] = ExcludeManagementEventSources.stub(stub[:exclude_management_event_sources]) unless stub[:exclude_management_event_sources].nil?
         data
       end
     end
@@ -562,7 +565,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataResource.stub(element) unless element.nil?
+          data << DataResource.stub(element) unless element.nil?
         end
         data
       end
@@ -583,7 +586,7 @@ module AWS::SDK::CloudTrail
         stub ||= Types::DataResource.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Values'] = Stubs::DataResourceValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = DataResourceValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -620,8 +623,8 @@ module AWS::SDK::CloudTrail
       def self.stub(http_resp, stub:)
         data = {}
         data['TrailARN'] = stub[:trail_arn] unless stub[:trail_arn].nil?
-        data['InsightSelectors'] = Stubs::InsightSelectors.stub(stub[:insight_selectors]) unless stub[:insight_selectors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightSelectors'] = InsightSelectors.stub(stub[:insight_selectors]) unless stub[:insight_selectors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -640,7 +643,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InsightSelector.stub(element) unless element.nil?
+          data << InsightSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -679,11 +682,11 @@ module AWS::SDK::CloudTrail
       def self.stub(http_resp, stub:)
         data = {}
         data['QueryStatus'] = stub[:query_status] unless stub[:query_status].nil?
-        data['QueryStatistics'] = Stubs::QueryStatistics.stub(stub[:query_statistics]) unless stub[:query_statistics].nil?
-        data['QueryResultRows'] = Stubs::QueryResultRows.stub(stub[:query_result_rows]) unless stub[:query_result_rows].nil?
+        data['QueryStatistics'] = QueryStatistics.stub(stub[:query_statistics]) unless stub[:query_statistics].nil?
+        data['QueryResultRows'] = QueryResultRows.stub(stub[:query_result_rows]) unless stub[:query_result_rows].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -702,7 +705,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueryResultRow.stub(element) unless element.nil?
+          data << QueryResultRow.stub(element) unless element.nil?
         end
         data
       end
@@ -722,7 +725,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueryResultColumn.stub(element) unless element.nil?
+          data << QueryResultColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -780,8 +783,8 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Trail'] = Stubs::Trail.stub(stub[:trail]) unless stub[:trail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Trail'] = Trail.stub(stub[:trail]) unless stub[:trail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -829,7 +832,7 @@ module AWS::SDK::CloudTrail
         data['LatestDeliveryAttemptSucceeded'] = stub[:latest_delivery_attempt_succeeded] unless stub[:latest_delivery_attempt_succeeded].nil?
         data['TimeLoggingStarted'] = stub[:time_logging_started] unless stub[:time_logging_started].nil?
         data['TimeLoggingStopped'] = stub[:time_logging_stopped] unless stub[:time_logging_stopped].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -845,9 +848,9 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventDataStores'] = Stubs::EventDataStores.stub(stub[:event_data_stores]) unless stub[:event_data_stores].nil?
+        data['EventDataStores'] = EventDataStores.stub(stub[:event_data_stores]) unless stub[:event_data_stores].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -866,7 +869,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventDataStore.stub(element) unless element.nil?
+          data << EventDataStore.stub(element) unless element.nil?
         end
         data
       end
@@ -898,7 +901,7 @@ module AWS::SDK::CloudTrail
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['TerminationProtectionEnabled'] = stub[:termination_protection_enabled] unless stub[:termination_protection_enabled].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['AdvancedEventSelectors'] = Stubs::AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
         data['MultiRegionEnabled'] = stub[:multi_region_enabled] unless stub[:multi_region_enabled].nil?
         data['OrganizationEnabled'] = stub[:organization_enabled] unless stub[:organization_enabled].nil?
         data['RetentionPeriod'] = stub[:retention_period] unless stub[:retention_period].nil?
@@ -919,9 +922,9 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PublicKeyList'] = Stubs::PublicKeyList.stub(stub[:public_key_list]) unless stub[:public_key_list].nil?
+        data['PublicKeyList'] = PublicKeyList.stub(stub[:public_key_list]) unless stub[:public_key_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -940,7 +943,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PublicKey.stub(element) unless element.nil?
+          data << PublicKey.stub(element) unless element.nil?
         end
         data
       end
@@ -962,7 +965,7 @@ module AWS::SDK::CloudTrail
       def self.stub(stub)
         stub ||= Types::PublicKey.new
         data = {}
-        data['Value'] = Base64::encode64(stub[:value]) unless stub[:value].nil?
+        data['Value'] = ::Base64::encode64(stub[:value]) unless stub[:value].nil?
         data['ValidityStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:validity_start_time]).to_i unless stub[:validity_start_time].nil?
         data['ValidityEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:validity_end_time]).to_i unless stub[:validity_end_time].nil?
         data['Fingerprint'] = stub[:fingerprint] unless stub[:fingerprint].nil?
@@ -981,9 +984,9 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Queries'] = Stubs::Queries.stub(stub[:queries]) unless stub[:queries].nil?
+        data['Queries'] = Queries.stub(stub[:queries]) unless stub[:queries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1002,7 +1005,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Query.stub(element) unless element.nil?
+          data << Query.stub(element) unless element.nil?
         end
         data
       end
@@ -1041,9 +1044,9 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceTagList'] = Stubs::ResourceTagList.stub(stub[:resource_tag_list]) unless stub[:resource_tag_list].nil?
+        data['ResourceTagList'] = ResourceTagList.stub(stub[:resource_tag_list]) unless stub[:resource_tag_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1062,7 +1065,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceTag.stub(element) unless element.nil?
+          data << ResourceTag.stub(element) unless element.nil?
         end
         data
       end
@@ -1083,7 +1086,7 @@ module AWS::SDK::CloudTrail
         stub ||= Types::ResourceTag.new
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
-        data['TagsList'] = Stubs::TagsList.stub(stub[:tags_list]) unless stub[:tags_list].nil?
+        data['TagsList'] = TagsList.stub(stub[:tags_list]) unless stub[:tags_list].nil?
         data
       end
     end
@@ -1099,9 +1102,9 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Trails'] = Stubs::Trails.stub(stub[:trails]) unless stub[:trails].nil?
+        data['Trails'] = Trails.stub(stub[:trails]) unless stub[:trails].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1120,7 +1123,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrailInfo.stub(element) unless element.nil?
+          data << TrailInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1159,9 +1162,9 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Events'] = Stubs::EventsList.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = EventsList.stub(stub[:events]) unless stub[:events].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1180,7 +1183,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Event.stub(element) unless element.nil?
+          data << Event.stub(element) unless element.nil?
         end
         data
       end
@@ -1214,7 +1217,7 @@ module AWS::SDK::CloudTrail
         data['EventTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:event_time]).to_i unless stub[:event_time].nil?
         data['EventSource'] = stub[:event_source] unless stub[:event_source].nil?
         data['Username'] = stub[:username] unless stub[:username].nil?
-        data['Resources'] = Stubs::ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
         data['CloudTrailEvent'] = stub[:cloud_trail_event] unless stub[:cloud_trail_event].nil?
         data
       end
@@ -1234,7 +1237,7 @@ module AWS::SDK::CloudTrail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -1273,9 +1276,9 @@ module AWS::SDK::CloudTrail
       def self.stub(http_resp, stub:)
         data = {}
         data['TrailARN'] = stub[:trail_arn] unless stub[:trail_arn].nil?
-        data['EventSelectors'] = Stubs::EventSelectors.stub(stub[:event_selectors]) unless stub[:event_selectors].nil?
-        data['AdvancedEventSelectors'] = Stubs::AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSelectors'] = EventSelectors.stub(stub[:event_selectors]) unless stub[:event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1292,8 +1295,8 @@ module AWS::SDK::CloudTrail
       def self.stub(http_resp, stub:)
         data = {}
         data['TrailARN'] = stub[:trail_arn] unless stub[:trail_arn].nil?
-        data['InsightSelectors'] = Stubs::InsightSelectors.stub(stub[:insight_selectors]) unless stub[:insight_selectors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightSelectors'] = InsightSelectors.stub(stub[:insight_selectors]) unless stub[:insight_selectors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1307,7 +1310,7 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1334,14 +1337,14 @@ module AWS::SDK::CloudTrail
         data['EventDataStoreArn'] = stub[:event_data_store_arn] unless stub[:event_data_store_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['AdvancedEventSelectors'] = Stubs::AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
         data['MultiRegionEnabled'] = stub[:multi_region_enabled] unless stub[:multi_region_enabled].nil?
         data['OrganizationEnabled'] = stub[:organization_enabled] unless stub[:organization_enabled].nil?
         data['RetentionPeriod'] = stub[:retention_period] unless stub[:retention_period].nil?
         data['TerminationProtectionEnabled'] = stub[:termination_protection_enabled] unless stub[:termination_protection_enabled].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['UpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_timestamp]).to_i unless stub[:updated_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1355,7 +1358,7 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1371,7 +1374,7 @@ module AWS::SDK::CloudTrail
       def self.stub(http_resp, stub:)
         data = {}
         data['QueryId'] = stub[:query_id] unless stub[:query_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1385,7 +1388,7 @@ module AWS::SDK::CloudTrail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1412,14 +1415,14 @@ module AWS::SDK::CloudTrail
         data['EventDataStoreArn'] = stub[:event_data_store_arn] unless stub[:event_data_store_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['AdvancedEventSelectors'] = Stubs::AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.stub(stub[:advanced_event_selectors]) unless stub[:advanced_event_selectors].nil?
         data['MultiRegionEnabled'] = stub[:multi_region_enabled] unless stub[:multi_region_enabled].nil?
         data['OrganizationEnabled'] = stub[:organization_enabled] unless stub[:organization_enabled].nil?
         data['RetentionPeriod'] = stub[:retention_period] unless stub[:retention_period].nil?
         data['TerminationProtectionEnabled'] = stub[:termination_protection_enabled] unless stub[:termination_protection_enabled].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['UpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_timestamp]).to_i unless stub[:updated_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1459,7 +1462,7 @@ module AWS::SDK::CloudTrail
         data['CloudWatchLogsRoleArn'] = stub[:cloud_watch_logs_role_arn] unless stub[:cloud_watch_logs_role_arn].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['IsOrganizationTrail'] = stub[:is_organization_trail] unless stub[:is_organization_trail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

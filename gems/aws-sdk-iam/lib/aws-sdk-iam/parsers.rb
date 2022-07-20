@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::IAM
   module Parsers
 
@@ -235,7 +237,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateAccessKeyResult')
         xml.at('AccessKey') do |node|
-          data.access_key = Parsers::AccessKey.parse(node)
+          data.access_key = AccessKey.parse(node)
         end
         data
       end
@@ -282,7 +284,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateGroupResult')
         xml.at('Group') do |node|
-          data.group = Parsers::Group.parse(node)
+          data.group = Group.parse(node)
         end
         data
       end
@@ -318,7 +320,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateInstanceProfileResult')
         xml.at('InstanceProfile') do |node|
-          data.instance_profile = Parsers::InstanceProfile.parse(node)
+          data.instance_profile = InstanceProfile.parse(node)
         end
         data
       end
@@ -344,11 +346,11 @@ module AWS::SDK::IAM
         end
         xml.at('Roles') do |node|
           children = node.children('member')
-          data.roles = Parsers::RoleListType.parse(children)
+          data.roles = RoleListType.parse(children)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         return data
       end
@@ -358,7 +360,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -381,7 +383,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Role.parse(node)
+          data << Role.parse(node)
         end
         data
       end
@@ -415,14 +417,14 @@ module AWS::SDK::IAM
           data.max_session_duration = node.text&.to_i
         end
         xml.at('PermissionsBoundary') do |node|
-          data.permissions_boundary = Parsers::AttachedPermissionsBoundary.parse(node)
+          data.permissions_boundary = AttachedPermissionsBoundary.parse(node)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('RoleLastUsed') do |node|
-          data.role_last_used = Parsers::RoleLastUsed.parse(node)
+          data.role_last_used = RoleLastUsed.parse(node)
         end
         return data
       end
@@ -476,7 +478,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateLoginProfileResult')
         xml.at('LoginProfile') do |node|
-          data.login_profile = Parsers::LoginProfile.parse(node)
+          data.login_profile = LoginProfile.parse(node)
         end
         data
       end
@@ -510,7 +512,7 @@ module AWS::SDK::IAM
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         data
       end
@@ -524,7 +526,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreatePolicyResult')
         xml.at('Policy') do |node|
-          data.policy = Parsers::Policy.parse(node)
+          data.policy = Policy.parse(node)
         end
         data
       end
@@ -568,7 +570,7 @@ module AWS::SDK::IAM
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         return data
       end
@@ -596,7 +598,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreatePolicyVersionResult')
         xml.at('PolicyVersion') do |node|
-          data.policy_version = Parsers::PolicyVersion.parse(node)
+          data.policy_version = PolicyVersion.parse(node)
         end
         data
       end
@@ -629,7 +631,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateRoleResult')
         xml.at('Role') do |node|
-          data.role = Parsers::Role.parse(node)
+          data.role = Role.parse(node)
         end
         data
       end
@@ -647,7 +649,7 @@ module AWS::SDK::IAM
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         data
       end
@@ -661,7 +663,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateServiceLinkedRoleResult')
         xml.at('Role') do |node|
-          data.role = Parsers::Role.parse(node)
+          data.role = Role.parse(node)
         end
         data
       end
@@ -675,7 +677,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateServiceSpecificCredentialResult')
         xml.at('ServiceSpecificCredential') do |node|
-          data.service_specific_credential = Parsers::ServiceSpecificCredential.parse(node)
+          data.service_specific_credential = ServiceSpecificCredential.parse(node)
         end
         data
       end
@@ -731,7 +733,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateUserResult')
         xml.at('User') do |node|
-          data.user = Parsers::User.parse(node)
+          data.user = User.parse(node)
         end
         data
       end
@@ -759,11 +761,11 @@ module AWS::SDK::IAM
           data.password_last_used = Time.parse(node.text) if node.text
         end
         xml.at('PermissionsBoundary') do |node|
-          data.permissions_boundary = Parsers::AttachedPermissionsBoundary.parse(node)
+          data.permissions_boundary = AttachedPermissionsBoundary.parse(node)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         return data
       end
@@ -777,7 +779,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateVirtualMFADeviceResult')
         xml.at('VirtualMFADevice') do |node|
-          data.virtual_mfa_device = Parsers::VirtualMFADevice.parse(node)
+          data.virtual_mfa_device = VirtualMFADevice.parse(node)
         end
         data
       end
@@ -790,20 +792,20 @@ module AWS::SDK::IAM
           data.serial_number = (node.text || '')
         end
         xml.at('Base32StringSeed') do |node|
-          data.base32_string_seed = ((Base64::decode64(node.text) unless node.text.nil?) || '')
+          data.base32_string_seed = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
         end
         xml.at('QRCodePNG') do |node|
-          data.qr_code_png = ((Base64::decode64(node.text) unless node.text.nil?) || '')
+          data.qr_code_png = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
         end
         xml.at('User') do |node|
-          data.user = Parsers::User.parse(node)
+          data.user = User.parse(node)
         end
         xml.at('EnableDate') do |node|
           data.enable_date = Time.parse(node.text) if node.text
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         return data
       end
@@ -1218,7 +1220,7 @@ module AWS::SDK::IAM
           data.user_name = (node.text || '')
         end
         xml.at('AccessKeyLastUsed') do |node|
-          data.access_key_last_used = Parsers::AccessKeyLastUsed.parse(node)
+          data.access_key_last_used = AccessKeyLastUsed.parse(node)
         end
         data
       end
@@ -1249,19 +1251,19 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('GetAccountAuthorizationDetailsResult')
         xml.at('UserDetailList') do |node|
           children = node.children('member')
-          data.user_detail_list = Parsers::UserDetailListType.parse(children)
+          data.user_detail_list = UserDetailListType.parse(children)
         end
         xml.at('GroupDetailList') do |node|
           children = node.children('member')
-          data.group_detail_list = Parsers::GroupDetailListType.parse(children)
+          data.group_detail_list = GroupDetailListType.parse(children)
         end
         xml.at('RoleDetailList') do |node|
           children = node.children('member')
-          data.role_detail_list = Parsers::RoleDetailListType.parse(children)
+          data.role_detail_list = RoleDetailListType.parse(children)
         end
         xml.at('Policies') do |node|
           children = node.children('member')
-          data.policies = Parsers::ManagedPolicyDetailListType.parse(children)
+          data.policies = ManagedPolicyDetailListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -1277,7 +1279,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ManagedPolicyDetail.parse(node)
+          data << ManagedPolicyDetail.parse(node)
         end
         data
       end
@@ -1321,7 +1323,7 @@ module AWS::SDK::IAM
         end
         xml.at('PolicyVersionList') do |node|
           children = node.children('member')
-          data.policy_version_list = Parsers::PolicyDocumentVersionListType.parse(children)
+          data.policy_version_list = PolicyDocumentVersionListType.parse(children)
         end
         return data
       end
@@ -1331,7 +1333,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyVersion.parse(node)
+          data << PolicyVersion.parse(node)
         end
         data
       end
@@ -1341,7 +1343,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RoleDetail.parse(node)
+          data << RoleDetail.parse(node)
         end
         data
       end
@@ -1370,25 +1372,25 @@ module AWS::SDK::IAM
         end
         xml.at('InstanceProfileList') do |node|
           children = node.children('member')
-          data.instance_profile_list = Parsers::InstanceProfileListType.parse(children)
+          data.instance_profile_list = InstanceProfileListType.parse(children)
         end
         xml.at('RolePolicyList') do |node|
           children = node.children('member')
-          data.role_policy_list = Parsers::PolicyDetailListType.parse(children)
+          data.role_policy_list = PolicyDetailListType.parse(children)
         end
         xml.at('AttachedManagedPolicies') do |node|
           children = node.children('member')
-          data.attached_managed_policies = Parsers::AttachedPoliciesListType.parse(children)
+          data.attached_managed_policies = AttachedPoliciesListType.parse(children)
         end
         xml.at('PermissionsBoundary') do |node|
-          data.permissions_boundary = Parsers::AttachedPermissionsBoundary.parse(node)
+          data.permissions_boundary = AttachedPermissionsBoundary.parse(node)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('RoleLastUsed') do |node|
-          data.role_last_used = Parsers::RoleLastUsed.parse(node)
+          data.role_last_used = RoleLastUsed.parse(node)
         end
         return data
       end
@@ -1398,7 +1400,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AttachedPolicy.parse(node)
+          data << AttachedPolicy.parse(node)
         end
         data
       end
@@ -1421,7 +1423,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyDetail.parse(node)
+          data << PolicyDetail.parse(node)
         end
         data
       end
@@ -1444,7 +1446,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceProfile.parse(node)
+          data << InstanceProfile.parse(node)
         end
         data
       end
@@ -1454,7 +1456,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GroupDetail.parse(node)
+          data << GroupDetail.parse(node)
         end
         data
       end
@@ -1480,11 +1482,11 @@ module AWS::SDK::IAM
         end
         xml.at('GroupPolicyList') do |node|
           children = node.children('member')
-          data.group_policy_list = Parsers::PolicyDetailListType.parse(children)
+          data.group_policy_list = PolicyDetailListType.parse(children)
         end
         xml.at('AttachedManagedPolicies') do |node|
           children = node.children('member')
-          data.attached_managed_policies = Parsers::AttachedPoliciesListType.parse(children)
+          data.attached_managed_policies = AttachedPoliciesListType.parse(children)
         end
         return data
       end
@@ -1494,7 +1496,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UserDetail.parse(node)
+          data << UserDetail.parse(node)
         end
         data
       end
@@ -1520,22 +1522,22 @@ module AWS::SDK::IAM
         end
         xml.at('UserPolicyList') do |node|
           children = node.children('member')
-          data.user_policy_list = Parsers::PolicyDetailListType.parse(children)
+          data.user_policy_list = PolicyDetailListType.parse(children)
         end
         xml.at('GroupList') do |node|
           children = node.children('member')
-          data.group_list = Parsers::GroupNameListType.parse(children)
+          data.group_list = GroupNameListType.parse(children)
         end
         xml.at('AttachedManagedPolicies') do |node|
           children = node.children('member')
-          data.attached_managed_policies = Parsers::AttachedPoliciesListType.parse(children)
+          data.attached_managed_policies = AttachedPoliciesListType.parse(children)
         end
         xml.at('PermissionsBoundary') do |node|
-          data.permissions_boundary = Parsers::AttachedPermissionsBoundary.parse(node)
+          data.permissions_boundary = AttachedPermissionsBoundary.parse(node)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         return data
       end
@@ -1559,7 +1561,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetAccountPasswordPolicyResult')
         xml.at('PasswordPolicy') do |node|
-          data.password_policy = Parsers::PasswordPolicy.parse(node)
+          data.password_policy = PasswordPolicy.parse(node)
         end
         data
       end
@@ -1611,7 +1613,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('GetAccountSummaryResult')
         xml.at('SummaryMap') do |node|
           children = node.children('entry')
-          data.summary_map = Parsers::SummaryMapType.parse(children)
+          data.summary_map = SummaryMapType.parse(children)
         end
         data
       end
@@ -1638,7 +1640,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('GetContextKeysForCustomPolicyResult')
         xml.at('ContextKeyNames') do |node|
           children = node.children('member')
-          data.context_key_names = Parsers::ContextKeyNamesResultListType.parse(children)
+          data.context_key_names = ContextKeyNamesResultListType.parse(children)
         end
         data
       end
@@ -1663,7 +1665,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('GetContextKeysForPrincipalPolicyResult')
         xml.at('ContextKeyNames') do |node|
           children = node.children('member')
-          data.context_key_names = Parsers::ContextKeyNamesResultListType.parse(children)
+          data.context_key_names = ContextKeyNamesResultListType.parse(children)
         end
         data
       end
@@ -1677,7 +1679,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetCredentialReportResult')
         xml.at('Content') do |node|
-          data.content = ((Base64::decode64(node.text) unless node.text.nil?) || '')
+          data.content = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
         end
         xml.at('ReportFormat') do |node|
           data.report_format = (node.text || '')
@@ -1739,11 +1741,11 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetGroupResult')
         xml.at('Group') do |node|
-          data.group = Parsers::Group.parse(node)
+          data.group = Group.parse(node)
         end
         xml.at('Users') do |node|
           children = node.children('member')
-          data.users = Parsers::UserListType.parse(children)
+          data.users = UserListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -1759,7 +1761,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::User.parse(node)
+          data << User.parse(node)
         end
         data
       end
@@ -1793,7 +1795,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetInstanceProfileResult')
         xml.at('InstanceProfile') do |node|
-          data.instance_profile = Parsers::InstanceProfile.parse(node)
+          data.instance_profile = InstanceProfile.parse(node)
         end
         data
       end
@@ -1807,7 +1809,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetLoginProfileResult')
         xml.at('LoginProfile') do |node|
-          data.login_profile = Parsers::LoginProfile.parse(node)
+          data.login_profile = LoginProfile.parse(node)
         end
         data
       end
@@ -1825,18 +1827,18 @@ module AWS::SDK::IAM
         end
         xml.at('ClientIDList') do |node|
           children = node.children('member')
-          data.client_id_list = Parsers::ClientIDListType.parse(children)
+          data.client_id_list = ClientIDListType.parse(children)
         end
         xml.at('ThumbprintList') do |node|
           children = node.children('member')
-          data.thumbprint_list = Parsers::ThumbprintListType.parse(children)
+          data.thumbprint_list = ThumbprintListType.parse(children)
         end
         xml.at('CreateDate') do |node|
           data.create_date = Time.parse(node.text) if node.text
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         data
       end
@@ -1886,7 +1888,7 @@ module AWS::SDK::IAM
         end
         xml.at('AccessDetails') do |node|
           children = node.children('member')
-          data.access_details = Parsers::AccessDetails.parse(children)
+          data.access_details = AccessDetails.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -1895,7 +1897,7 @@ module AWS::SDK::IAM
           data.marker = (node.text || '')
         end
         xml.at('ErrorDetails') do |node|
-          data.error_details = Parsers::ErrorDetails.parse(node)
+          data.error_details = ErrorDetails.parse(node)
         end
         data
       end
@@ -1918,7 +1920,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccessDetail.parse(node)
+          data << AccessDetail.parse(node)
         end
         data
       end
@@ -1957,7 +1959,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetPolicyResult')
         xml.at('Policy') do |node|
-          data.policy = Parsers::Policy.parse(node)
+          data.policy = Policy.parse(node)
         end
         data
       end
@@ -1971,7 +1973,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetPolicyVersionResult')
         xml.at('PolicyVersion') do |node|
-          data.policy_version = Parsers::PolicyVersion.parse(node)
+          data.policy_version = PolicyVersion.parse(node)
         end
         data
       end
@@ -1985,7 +1987,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetRoleResult')
         xml.at('Role') do |node|
-          data.role = Parsers::Role.parse(node)
+          data.role = Role.parse(node)
         end
         data
       end
@@ -2029,7 +2031,7 @@ module AWS::SDK::IAM
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         data
       end
@@ -2043,7 +2045,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetSSHPublicKeyResult')
         xml.at('SSHPublicKey') do |node|
-          data.ssh_public_key = Parsers::SSHPublicKey.parse(node)
+          data.ssh_public_key = SSHPublicKey.parse(node)
         end
         data
       end
@@ -2096,7 +2098,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetServerCertificateResult')
         xml.at('ServerCertificate') do |node|
-          data.server_certificate = Parsers::ServerCertificate.parse(node)
+          data.server_certificate = ServerCertificate.parse(node)
         end
         data
       end
@@ -2106,7 +2108,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = Types::ServerCertificate.new
         xml.at('ServerCertificateMetadata') do |node|
-          data.server_certificate_metadata = Parsers::ServerCertificateMetadata.parse(node)
+          data.server_certificate_metadata = ServerCertificateMetadata.parse(node)
         end
         xml.at('CertificateBody') do |node|
           data.certificate_body = (node.text || '')
@@ -2116,7 +2118,7 @@ module AWS::SDK::IAM
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         return data
       end
@@ -2165,7 +2167,7 @@ module AWS::SDK::IAM
         end
         xml.at('ServicesLastAccessed') do |node|
           children = node.children('member')
-          data.services_last_accessed = Parsers::ServicesLastAccessed.parse(children)
+          data.services_last_accessed = ServicesLastAccessed.parse(children)
         end
         xml.at('JobCompletionDate') do |node|
           data.job_completion_date = Time.parse(node.text) if node.text
@@ -2177,7 +2179,7 @@ module AWS::SDK::IAM
           data.marker = (node.text || '')
         end
         xml.at('Error') do |node|
-          data.error = Parsers::ErrorDetails.parse(node)
+          data.error = ErrorDetails.parse(node)
         end
         data
       end
@@ -2187,7 +2189,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ServiceLastAccessed.parse(node)
+          data << ServiceLastAccessed.parse(node)
         end
         data
       end
@@ -2216,7 +2218,7 @@ module AWS::SDK::IAM
         end
         xml.at('TrackedActionsLastAccessed') do |node|
           children = node.children('member')
-          data.tracked_actions_last_accessed = Parsers::TrackedActionsLastAccessed.parse(children)
+          data.tracked_actions_last_accessed = TrackedActionsLastAccessed.parse(children)
         end
         return data
       end
@@ -2226,7 +2228,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrackedActionLastAccessed.parse(node)
+          data << TrackedActionLastAccessed.parse(node)
         end
         data
       end
@@ -2269,7 +2271,7 @@ module AWS::SDK::IAM
         end
         xml.at('EntityDetailsList') do |node|
           children = node.children('member')
-          data.entity_details_list = Parsers::EntityDetailsListType.parse(children)
+          data.entity_details_list = EntityDetailsListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2278,7 +2280,7 @@ module AWS::SDK::IAM
           data.marker = (node.text || '')
         end
         xml.at('Error') do |node|
-          data.error = Parsers::ErrorDetails.parse(node)
+          data.error = ErrorDetails.parse(node)
         end
         data
       end
@@ -2288,7 +2290,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EntityDetails.parse(node)
+          data << EntityDetails.parse(node)
         end
         data
       end
@@ -2298,7 +2300,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = Types::EntityDetails.new
         xml.at('EntityInfo') do |node|
-          data.entity_info = Parsers::EntityInfo.parse(node)
+          data.entity_info = EntityInfo.parse(node)
         end
         xml.at('LastAuthenticated') do |node|
           data.last_authenticated = Time.parse(node.text) if node.text
@@ -2340,7 +2342,7 @@ module AWS::SDK::IAM
           data.status = (node.text || '')
         end
         xml.at('Reason') do |node|
-          data.reason = Parsers::DeletionTaskFailureReasonType.parse(node)
+          data.reason = DeletionTaskFailureReasonType.parse(node)
         end
         data
       end
@@ -2354,7 +2356,7 @@ module AWS::SDK::IAM
         end
         xml.at('RoleUsageList') do |node|
           children = node.children('member')
-          data.role_usage_list = Parsers::RoleUsageListType.parse(children)
+          data.role_usage_list = RoleUsageListType.parse(children)
         end
         return data
       end
@@ -2364,7 +2366,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RoleUsageType.parse(node)
+          data << RoleUsageType.parse(node)
         end
         data
       end
@@ -2378,7 +2380,7 @@ module AWS::SDK::IAM
         end
         xml.at('Resources') do |node|
           children = node.children('member')
-          data.resources = Parsers::ArnListType.parse(children)
+          data.resources = ArnListType.parse(children)
         end
         return data
       end
@@ -2402,7 +2404,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetUserResult')
         xml.at('User') do |node|
-          data.user = Parsers::User.parse(node)
+          data.user = User.parse(node)
         end
         data
       end
@@ -2437,7 +2439,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListAccessKeysResult')
         xml.at('AccessKeyMetadata') do |node|
           children = node.children('member')
-          data.access_key_metadata = Parsers::AccessKeyMetadataListType.parse(children)
+          data.access_key_metadata = AccessKeyMetadataListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2453,7 +2455,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccessKeyMetadata.parse(node)
+          data << AccessKeyMetadata.parse(node)
         end
         data
       end
@@ -2487,7 +2489,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListAccountAliasesResult')
         xml.at('AccountAliases') do |node|
           children = node.children('member')
-          data.account_aliases = Parsers::AccountAliasListType.parse(children)
+          data.account_aliases = AccountAliasListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2518,7 +2520,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListAttachedGroupPoliciesResult')
         xml.at('AttachedPolicies') do |node|
           children = node.children('member')
-          data.attached_policies = Parsers::AttachedPoliciesListType.parse(children)
+          data.attached_policies = AttachedPoliciesListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2539,7 +2541,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListAttachedRolePoliciesResult')
         xml.at('AttachedPolicies') do |node|
           children = node.children('member')
-          data.attached_policies = Parsers::AttachedPoliciesListType.parse(children)
+          data.attached_policies = AttachedPoliciesListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2560,7 +2562,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListAttachedUserPoliciesResult')
         xml.at('AttachedPolicies') do |node|
           children = node.children('member')
-          data.attached_policies = Parsers::AttachedPoliciesListType.parse(children)
+          data.attached_policies = AttachedPoliciesListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2581,15 +2583,15 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListEntitiesForPolicyResult')
         xml.at('PolicyGroups') do |node|
           children = node.children('member')
-          data.policy_groups = Parsers::PolicyGroupListType.parse(children)
+          data.policy_groups = PolicyGroupListType.parse(children)
         end
         xml.at('PolicyUsers') do |node|
           children = node.children('member')
-          data.policy_users = Parsers::PolicyUserListType.parse(children)
+          data.policy_users = PolicyUserListType.parse(children)
         end
         xml.at('PolicyRoles') do |node|
           children = node.children('member')
-          data.policy_roles = Parsers::PolicyRoleListType.parse(children)
+          data.policy_roles = PolicyRoleListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2605,7 +2607,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyRole.parse(node)
+          data << PolicyRole.parse(node)
         end
         data
       end
@@ -2628,7 +2630,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyUser.parse(node)
+          data << PolicyUser.parse(node)
         end
         data
       end
@@ -2651,7 +2653,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyGroup.parse(node)
+          data << PolicyGroup.parse(node)
         end
         data
       end
@@ -2679,7 +2681,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListGroupPoliciesResult')
         xml.at('PolicyNames') do |node|
           children = node.children('member')
-          data.policy_names = Parsers::PolicyNameListType.parse(children)
+          data.policy_names = PolicyNameListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2710,7 +2712,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListGroupsResult')
         xml.at('Groups') do |node|
           children = node.children('member')
-          data.groups = Parsers::GroupListType.parse(children)
+          data.groups = GroupListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2726,7 +2728,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Group.parse(node)
+          data << Group.parse(node)
         end
         data
       end
@@ -2741,7 +2743,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListGroupsForUserResult')
         xml.at('Groups') do |node|
           children = node.children('member')
-          data.groups = Parsers::GroupListType.parse(children)
+          data.groups = GroupListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2762,7 +2764,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListInstanceProfileTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2783,7 +2785,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListInstanceProfilesResult')
         xml.at('InstanceProfiles') do |node|
           children = node.children('member')
-          data.instance_profiles = Parsers::InstanceProfileListType.parse(children)
+          data.instance_profiles = InstanceProfileListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2804,7 +2806,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListInstanceProfilesForRoleResult')
         xml.at('InstanceProfiles') do |node|
           children = node.children('member')
-          data.instance_profiles = Parsers::InstanceProfileListType.parse(children)
+          data.instance_profiles = InstanceProfileListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2825,7 +2827,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListMFADeviceTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2846,7 +2848,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListMFADevicesResult')
         xml.at('MFADevices') do |node|
           children = node.children('member')
-          data.mfa_devices = Parsers::MfaDeviceListType.parse(children)
+          data.mfa_devices = MfaDeviceListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2862,7 +2864,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MFADevice.parse(node)
+          data << MFADevice.parse(node)
         end
         data
       end
@@ -2893,7 +2895,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListOpenIDConnectProviderTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2914,7 +2916,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListOpenIDConnectProvidersResult')
         xml.at('OpenIDConnectProviderList') do |node|
           children = node.children('member')
-          data.open_id_connect_provider_list = Parsers::OpenIDConnectProviderListType.parse(children)
+          data.open_id_connect_provider_list = OpenIDConnectProviderListType.parse(children)
         end
         data
       end
@@ -2924,7 +2926,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OpenIDConnectProviderListEntry.parse(node)
+          data << OpenIDConnectProviderListEntry.parse(node)
         end
         data
       end
@@ -2949,7 +2951,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListPoliciesResult')
         xml.at('Policies') do |node|
           children = node.children('member')
-          data.policies = Parsers::PolicyListType.parse(children)
+          data.policies = PolicyListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2965,7 +2967,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Policy.parse(node)
+          data << Policy.parse(node)
         end
         data
       end
@@ -2980,7 +2982,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListPoliciesGrantingServiceAccessResult')
         xml.at('PoliciesGrantingServiceAccess') do |node|
           children = node.children('member')
-          data.policies_granting_service_access = Parsers::ListPolicyGrantingServiceAccessResponseListType.parse(children)
+          data.policies_granting_service_access = ListPolicyGrantingServiceAccessResponseListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -2996,7 +2998,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ListPoliciesGrantingServiceAccessEntry.parse(node)
+          data << ListPoliciesGrantingServiceAccessEntry.parse(node)
         end
         data
       end
@@ -3010,7 +3012,7 @@ module AWS::SDK::IAM
         end
         xml.at('Policies') do |node|
           children = node.children('member')
-          data.policies = Parsers::PolicyGrantingServiceAccessListType.parse(children)
+          data.policies = PolicyGrantingServiceAccessListType.parse(children)
         end
         return data
       end
@@ -3020,7 +3022,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PolicyGrantingServiceAccess.parse(node)
+          data << PolicyGrantingServiceAccess.parse(node)
         end
         data
       end
@@ -3057,7 +3059,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListPolicyTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3078,7 +3080,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListPolicyVersionsResult')
         xml.at('Versions') do |node|
           children = node.children('member')
-          data.versions = Parsers::PolicyDocumentVersionListType.parse(children)
+          data.versions = PolicyDocumentVersionListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3099,7 +3101,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListRolePoliciesResult')
         xml.at('PolicyNames') do |node|
           children = node.children('member')
-          data.policy_names = Parsers::PolicyNameListType.parse(children)
+          data.policy_names = PolicyNameListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3120,7 +3122,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListRoleTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3141,7 +3143,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListRolesResult')
         xml.at('Roles') do |node|
           children = node.children('member')
-          data.roles = Parsers::RoleListType.parse(children)
+          data.roles = RoleListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3162,7 +3164,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListSAMLProviderTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3183,7 +3185,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListSAMLProvidersResult')
         xml.at('SAMLProviderList') do |node|
           children = node.children('member')
-          data.saml_provider_list = Parsers::SAMLProviderListType.parse(children)
+          data.saml_provider_list = SAMLProviderListType.parse(children)
         end
         data
       end
@@ -3193,7 +3195,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SAMLProviderListEntry.parse(node)
+          data << SAMLProviderListEntry.parse(node)
         end
         data
       end
@@ -3224,7 +3226,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListSSHPublicKeysResult')
         xml.at('SSHPublicKeys') do |node|
           children = node.children('member')
-          data.ssh_public_keys = Parsers::SSHPublicKeyListType.parse(children)
+          data.ssh_public_keys = SSHPublicKeyListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3240,7 +3242,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SSHPublicKeyMetadata.parse(node)
+          data << SSHPublicKeyMetadata.parse(node)
         end
         data
       end
@@ -3274,7 +3276,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListServerCertificateTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3295,7 +3297,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListServerCertificatesResult')
         xml.at('ServerCertificateMetadataList') do |node|
           children = node.children('member')
-          data.server_certificate_metadata_list = Parsers::ServerCertificateMetadataListType.parse(children)
+          data.server_certificate_metadata_list = ServerCertificateMetadataListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3311,7 +3313,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ServerCertificateMetadata.parse(node)
+          data << ServerCertificateMetadata.parse(node)
         end
         data
       end
@@ -3326,7 +3328,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListServiceSpecificCredentialsResult')
         xml.at('ServiceSpecificCredentials') do |node|
           children = node.children('member')
-          data.service_specific_credentials = Parsers::ServiceSpecificCredentialsListType.parse(children)
+          data.service_specific_credentials = ServiceSpecificCredentialsListType.parse(children)
         end
         data
       end
@@ -3336,7 +3338,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ServiceSpecificCredentialMetadata.parse(node)
+          data << ServiceSpecificCredentialMetadata.parse(node)
         end
         data
       end
@@ -3376,7 +3378,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListSigningCertificatesResult')
         xml.at('Certificates') do |node|
           children = node.children('member')
-          data.certificates = Parsers::CertificateListType.parse(children)
+          data.certificates = CertificateListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3392,7 +3394,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SigningCertificate.parse(node)
+          data << SigningCertificate.parse(node)
         end
         data
       end
@@ -3429,7 +3431,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListUserPoliciesResult')
         xml.at('PolicyNames') do |node|
           children = node.children('member')
-          data.policy_names = Parsers::PolicyNameListType.parse(children)
+          data.policy_names = PolicyNameListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3450,7 +3452,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListUserTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3471,7 +3473,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListUsersResult')
         xml.at('Users') do |node|
           children = node.children('member')
-          data.users = Parsers::UserListType.parse(children)
+          data.users = UserListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3492,7 +3494,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('ListVirtualMFADevicesResult')
         xml.at('VirtualMFADevices') do |node|
           children = node.children('member')
-          data.virtual_mfa_devices = Parsers::VirtualMFADeviceListType.parse(children)
+          data.virtual_mfa_devices = VirtualMFADeviceListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3508,7 +3510,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VirtualMFADevice.parse(node)
+          data << VirtualMFADevice.parse(node)
         end
         data
       end
@@ -3610,7 +3612,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ResetServiceSpecificCredentialResult')
         xml.at('ServiceSpecificCredential') do |node|
-          data.service_specific_credential = Parsers::ServiceSpecificCredential.parse(node)
+          data.service_specific_credential = ServiceSpecificCredential.parse(node)
         end
         data
       end
@@ -3658,7 +3660,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('SimulateCustomPolicyResult')
         xml.at('EvaluationResults') do |node|
           children = node.children('member')
-          data.evaluation_results = Parsers::EvaluationResultsListType.parse(children)
+          data.evaluation_results = EvaluationResultsListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -3674,7 +3676,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EvaluationResult.parse(node)
+          data << EvaluationResult.parse(node)
         end
         data
       end
@@ -3694,25 +3696,25 @@ module AWS::SDK::IAM
         end
         xml.at('MatchedStatements') do |node|
           children = node.children('member')
-          data.matched_statements = Parsers::StatementListType.parse(children)
+          data.matched_statements = StatementListType.parse(children)
         end
         xml.at('MissingContextValues') do |node|
           children = node.children('member')
-          data.missing_context_values = Parsers::ContextKeyNamesResultListType.parse(children)
+          data.missing_context_values = ContextKeyNamesResultListType.parse(children)
         end
         xml.at('OrganizationsDecisionDetail') do |node|
-          data.organizations_decision_detail = Parsers::OrganizationsDecisionDetail.parse(node)
+          data.organizations_decision_detail = OrganizationsDecisionDetail.parse(node)
         end
         xml.at('PermissionsBoundaryDecisionDetail') do |node|
-          data.permissions_boundary_decision_detail = Parsers::PermissionsBoundaryDecisionDetail.parse(node)
+          data.permissions_boundary_decision_detail = PermissionsBoundaryDecisionDetail.parse(node)
         end
         xml.at('EvalDecisionDetails') do |node|
           children = node.children('entry')
-          data.eval_decision_details = Parsers::EvalDecisionDetailsType.parse(children)
+          data.eval_decision_details = EvalDecisionDetailsType.parse(children)
         end
         xml.at('ResourceSpecificResults') do |node|
           children = node.children('member')
-          data.resource_specific_results = Parsers::ResourceSpecificResultListType.parse(children)
+          data.resource_specific_results = ResourceSpecificResultListType.parse(children)
         end
         return data
       end
@@ -3722,7 +3724,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResourceSpecificResult.parse(node)
+          data << ResourceSpecificResult.parse(node)
         end
         data
       end
@@ -3739,18 +3741,18 @@ module AWS::SDK::IAM
         end
         xml.at('MatchedStatements') do |node|
           children = node.children('member')
-          data.matched_statements = Parsers::StatementListType.parse(children)
+          data.matched_statements = StatementListType.parse(children)
         end
         xml.at('MissingContextValues') do |node|
           children = node.children('member')
-          data.missing_context_values = Parsers::ContextKeyNamesResultListType.parse(children)
+          data.missing_context_values = ContextKeyNamesResultListType.parse(children)
         end
         xml.at('EvalDecisionDetails') do |node|
           children = node.children('entry')
-          data.eval_decision_details = Parsers::EvalDecisionDetailsType.parse(children)
+          data.eval_decision_details = EvalDecisionDetailsType.parse(children)
         end
         xml.at('PermissionsBoundaryDecisionDetail') do |node|
-          data.permissions_boundary_decision_detail = Parsers::PermissionsBoundaryDecisionDetail.parse(node)
+          data.permissions_boundary_decision_detail = PermissionsBoundaryDecisionDetail.parse(node)
         end
         return data
       end
@@ -3782,7 +3784,7 @@ module AWS::SDK::IAM
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Statement.parse(node)
+          data << Statement.parse(node)
         end
         data
       end
@@ -3798,10 +3800,10 @@ module AWS::SDK::IAM
           data.source_policy_type = (node.text || '')
         end
         xml.at('StartPosition') do |node|
-          data.start_position = Parsers::Position.parse(node)
+          data.start_position = Position.parse(node)
         end
         xml.at('EndPosition') do |node|
-          data.end_position = Parsers::Position.parse(node)
+          data.end_position = Position.parse(node)
         end
         return data
       end
@@ -3853,7 +3855,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML.parse(body).at('SimulatePrincipalPolicyResult')
         xml.at('EvaluationResults') do |node|
           children = node.children('member')
-          data.evaluation_results = Parsers::EvaluationResultsListType.parse(children)
+          data.evaluation_results = EvaluationResultsListType.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -4126,7 +4128,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UpdateRoleDescriptionResult')
         xml.at('Role') do |node|
-          data.role = Parsers::Role.parse(node)
+          data.role = Role.parse(node)
         end
         data
       end
@@ -4209,7 +4211,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UploadSSHPublicKeyResult')
         xml.at('SSHPublicKey') do |node|
-          data.ssh_public_key = Parsers::SSHPublicKey.parse(node)
+          data.ssh_public_key = SSHPublicKey.parse(node)
         end
         data
       end
@@ -4251,11 +4253,11 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UploadServerCertificateResult')
         xml.at('ServerCertificateMetadata') do |node|
-          data.server_certificate_metadata = Parsers::ServerCertificateMetadata.parse(node)
+          data.server_certificate_metadata = ServerCertificateMetadata.parse(node)
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagListType.parse(children)
+          data.tags = TagListType.parse(children)
         end
         data
       end
@@ -4297,7 +4299,7 @@ module AWS::SDK::IAM
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UploadSigningCertificateResult')
         xml.at('Certificate') do |node|
-          data.certificate = Parsers::SigningCertificate.parse(node)
+          data.certificate = SigningCertificate.parse(node)
         end
         data
       end

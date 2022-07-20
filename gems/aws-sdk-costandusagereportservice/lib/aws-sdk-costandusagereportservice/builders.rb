@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CostAndUsageReportService
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::CostAndUsageReportService
         http_req.headers['X-Amz-Target'] = 'AWSOrigamiServiceGatewayService.DeleteReportDefinition'
         data = {}
         data['ReportName'] = input[:report_name] unless input[:report_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::CostAndUsageReportService
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,8 +48,8 @@ module AWS::SDK::CostAndUsageReportService
         http_req.headers['X-Amz-Target'] = 'AWSOrigamiServiceGatewayService.ModifyReportDefinition'
         data = {}
         data['ReportName'] = input[:report_name] unless input[:report_name].nil?
-        data['ReportDefinition'] = Builders::ReportDefinition.build(input[:report_definition]) unless input[:report_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReportDefinition'] = ReportDefinition.build(input[:report_definition]) unless input[:report_definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,11 +61,11 @@ module AWS::SDK::CostAndUsageReportService
         data['TimeUnit'] = input[:time_unit] unless input[:time_unit].nil?
         data['Format'] = input[:format] unless input[:format].nil?
         data['Compression'] = input[:compression] unless input[:compression].nil?
-        data['AdditionalSchemaElements'] = Builders::SchemaElementList.build(input[:additional_schema_elements]) unless input[:additional_schema_elements].nil?
+        data['AdditionalSchemaElements'] = SchemaElementList.build(input[:additional_schema_elements]) unless input[:additional_schema_elements].nil?
         data['S3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
         data['S3Prefix'] = input[:s3_prefix] unless input[:s3_prefix].nil?
         data['S3Region'] = input[:s3_region] unless input[:s3_region].nil?
-        data['AdditionalArtifacts'] = Builders::AdditionalArtifactList.build(input[:additional_artifacts]) unless input[:additional_artifacts].nil?
+        data['AdditionalArtifacts'] = AdditionalArtifactList.build(input[:additional_artifacts]) unless input[:additional_artifacts].nil?
         data['RefreshClosedReports'] = input[:refresh_closed_reports] unless input[:refresh_closed_reports].nil?
         data['ReportVersioning'] = input[:report_versioning] unless input[:report_versioning].nil?
         data['BillingViewArn'] = input[:billing_view_arn] unless input[:billing_view_arn].nil?
@@ -101,8 +103,8 @@ module AWS::SDK::CostAndUsageReportService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrigamiServiceGatewayService.PutReportDefinition'
         data = {}
-        data['ReportDefinition'] = Builders::ReportDefinition.build(input[:report_definition]) unless input[:report_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReportDefinition'] = ReportDefinition.build(input[:report_definition]) unless input[:report_definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

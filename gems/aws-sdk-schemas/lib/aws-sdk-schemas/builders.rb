@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Schemas
   module Builders
 
@@ -23,8 +25,8 @@ module AWS::SDK::Schemas
         data['Description'] = input[:description] unless input[:description].nil?
         data['SourceArn'] = input[:source_arn] unless input[:source_arn].nil?
         data['CrossAccount'] = input[:cross_account] unless input[:cross_account].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,8 +59,8 @@ module AWS::SDK::Schemas
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,9 +87,9 @@ module AWS::SDK::Schemas
         data = {}
         data['Content'] = input[:content] unless input[:content].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,9 +325,9 @@ module AWS::SDK::Schemas
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Events'] = Builders::List____listOfGetDiscoveredSchemaVersionItemInput.build(input[:events]) unless input[:events].nil?
+        data['Events'] = List____listOfGetDiscoveredSchemaVersionItemInput.build(input[:events]) unless input[:events].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,7 +480,7 @@ module AWS::SDK::Schemas
         data = {}
         data['Policy'] = input[:policy] unless input[:policy].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -553,8 +555,8 @@ module AWS::SDK::Schemas
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -610,7 +612,7 @@ module AWS::SDK::Schemas
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
         data['CrossAccount'] = input[:cross_account] unless input[:cross_account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -632,7 +634,7 @@ module AWS::SDK::Schemas
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -661,7 +663,7 @@ module AWS::SDK::Schemas
         data['Content'] = input[:content] unless input[:content].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

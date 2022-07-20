@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::M2
   module Builders
 
@@ -44,10 +46,10 @@ module AWS::SDK::M2
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['engineType'] = input[:engine_type] unless input[:engine_type].nil?
-        data['definition'] = Builders::Definition.build(input[:definition]) unless input[:definition].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['definition'] = Definition.build(input[:definition]) unless input[:definition].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,9 +99,9 @@ module AWS::SDK::M2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['importConfig'] = Builders::DataSetImportConfig.build(input[:import_config]) unless input[:import_config].nil?
+        data['importConfig'] = DataSetImportConfig.build(input[:import_config]) unless input[:import_config].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -111,7 +113,7 @@ module AWS::SDK::M2
         when Types::DataSetImportConfig::S3Location
           data['s3Location'] = input
         when Types::DataSetImportConfig::DataSets
-          data['dataSets'] = (Builders::DataSetImportList.build(input) unless input.nil?)
+          data['dataSets'] = (DataSetImportList.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DataSetImportConfig"
@@ -126,7 +128,7 @@ module AWS::SDK::M2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataSetImportItem.build(element) unless element.nil?
+          data << DataSetImportItem.build(element) unless element.nil?
         end
         data
       end
@@ -136,8 +138,8 @@ module AWS::SDK::M2
     class DataSetImportItem
       def self.build(input)
         data = {}
-        data['dataSet'] = Builders::DataSet.build(input[:data_set]) unless input[:data_set].nil?
-        data['externalLocation'] = Builders::ExternalLocation.build(input[:external_location]) unless input[:external_location].nil?
+        data['dataSet'] = DataSet.build(input[:data_set]) unless input[:data_set].nil?
+        data['externalLocation'] = ExternalLocation.build(input[:external_location]) unless input[:external_location].nil?
         data
       end
     end
@@ -164,9 +166,9 @@ module AWS::SDK::M2
         data = {}
         data['storageType'] = input[:storage_type] unless input[:storage_type].nil?
         data['datasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
-        data['datasetOrg'] = Builders::DatasetOrgAttributes.build(input[:dataset_org]) unless input[:dataset_org].nil?
+        data['datasetOrg'] = DatasetOrgAttributes.build(input[:dataset_org]) unless input[:dataset_org].nil?
         data['relativePath'] = input[:relative_path] unless input[:relative_path].nil?
-        data['recordLength'] = Builders::RecordLength.build(input[:record_length]) unless input[:record_length].nil?
+        data['recordLength'] = RecordLength.build(input[:record_length]) unless input[:record_length].nil?
         data
       end
     end
@@ -187,9 +189,9 @@ module AWS::SDK::M2
         data = {}
         case input
         when Types::DatasetOrgAttributes::Vsam
-          data['vsam'] = (Builders::VsamAttributes.build(input) unless input.nil?)
+          data['vsam'] = (VsamAttributes.build(input) unless input.nil?)
         when Types::DatasetOrgAttributes::Gdg
-          data['gdg'] = (Builders::GdgAttributes.build(input) unless input.nil?)
+          data['gdg'] = (GdgAttributes.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DatasetOrgAttributes"
@@ -216,8 +218,8 @@ module AWS::SDK::M2
         data['format'] = input[:format] unless input[:format].nil?
         data['encoding'] = input[:encoding] unless input[:encoding].nil?
         data['compressed'] = input[:compressed] unless input[:compressed].nil?
-        data['primaryKey'] = Builders::PrimaryKey.build(input[:primary_key]) unless input[:primary_key].nil?
-        data['alternateKeys'] = Builders::AlternateKeyList.build(input[:alternate_keys]) unless input[:alternate_keys].nil?
+        data['primaryKey'] = PrimaryKey.build(input[:primary_key]) unless input[:primary_key].nil?
+        data['alternateKeys'] = AlternateKeyList.build(input[:alternate_keys]) unless input[:alternate_keys].nil?
         data
       end
     end
@@ -227,7 +229,7 @@ module AWS::SDK::M2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AlternateKey.build(element) unless element.nil?
+          data << AlternateKey.build(element) unless element.nil?
         end
         data
       end
@@ -276,7 +278,7 @@ module AWS::SDK::M2
         data['environmentId'] = input[:environment_id] unless input[:environment_id].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,15 +297,15 @@ module AWS::SDK::M2
         data['description'] = input[:description] unless input[:description].nil?
         data['engineType'] = input[:engine_type] unless input[:engine_type].nil?
         data['engineVersion'] = input[:engine_version] unless input[:engine_version].nil?
-        data['subnetIds'] = Builders::String50List.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['securityGroupIds'] = Builders::String50List.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['storageConfigurations'] = Builders::StorageConfigurationList.build(input[:storage_configurations]) unless input[:storage_configurations].nil?
+        data['subnetIds'] = String50List.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = String50List.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['storageConfigurations'] = StorageConfigurationList.build(input[:storage_configurations]) unless input[:storage_configurations].nil?
         data['publiclyAccessible'] = input[:publicly_accessible] unless input[:publicly_accessible].nil?
-        data['highAvailabilityConfig'] = Builders::HighAvailabilityConfig.build(input[:high_availability_config]) unless input[:high_availability_config].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['highAvailabilityConfig'] = HighAvailabilityConfig.build(input[:high_availability_config]) unless input[:high_availability_config].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['preferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,7 +323,7 @@ module AWS::SDK::M2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StorageConfiguration.build(element) unless element.nil?
+          data << StorageConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -333,9 +335,9 @@ module AWS::SDK::M2
         data = {}
         case input
         when Types::StorageConfiguration::Efs
-          data['efs'] = (Builders::EfsStorageConfiguration.build(input) unless input.nil?)
+          data['efs'] = (EfsStorageConfiguration.build(input) unless input.nil?)
         when Types::StorageConfiguration::Fsx
-          data['fsx'] = (Builders::FsxStorageConfiguration.build(input) unless input.nil?)
+          data['fsx'] = (FsxStorageConfiguration.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::StorageConfiguration"
@@ -817,9 +819,9 @@ module AWS::SDK::M2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['batchJobIdentifier'] = Builders::BatchJobIdentifier.build(input[:batch_job_identifier]) unless input[:batch_job_identifier].nil?
-        data['jobParams'] = Builders::BatchJobParametersMap.build(input[:job_params]) unless input[:job_params].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['batchJobIdentifier'] = BatchJobIdentifier.build(input[:batch_job_identifier]) unless input[:batch_job_identifier].nil?
+        data['jobParams'] = BatchJobParametersMap.build(input[:job_params]) unless input[:job_params].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,9 +842,9 @@ module AWS::SDK::M2
         data = {}
         case input
         when Types::BatchJobIdentifier::FileBatchJobIdentifier
-          data['fileBatchJobIdentifier'] = (Builders::FileBatchJobIdentifier.build(input) unless input.nil?)
+          data['fileBatchJobIdentifier'] = (FileBatchJobIdentifier.build(input) unless input.nil?)
         when Types::BatchJobIdentifier::ScriptBatchJobIdentifier
-          data['scriptBatchJobIdentifier'] = (Builders::ScriptBatchJobIdentifier.build(input) unless input.nil?)
+          data['scriptBatchJobIdentifier'] = (ScriptBatchJobIdentifier.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::BatchJobIdentifier"
@@ -889,7 +891,7 @@ module AWS::SDK::M2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['forceStop'] = input[:force_stop] unless input[:force_stop].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -910,8 +912,8 @@ module AWS::SDK::M2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -967,8 +969,8 @@ module AWS::SDK::M2
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
         data['currentApplicationVersion'] = input[:current_application_version] unless input[:current_application_version].nil?
-        data['definition'] = Builders::Definition.build(input[:definition]) unless input[:definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['definition'] = Definition.build(input[:definition]) unless input[:definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::M2
         data['engineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['preferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['applyDuringMaintenanceWindow'] = input[:apply_during_maintenance_window] unless input[:apply_during_maintenance_window].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

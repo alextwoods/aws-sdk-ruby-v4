@@ -15,7 +15,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(http_resp)
         data = Types::BatchPutPropertyValuesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::ErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (ErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutPropertyErrorEntry.parse(value) unless value.nil?
+          data << BatchPutPropertyErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -33,7 +33,7 @@ module AWS::SDK::IoTTwinMaker
     class BatchPutPropertyErrorEntry
       def self.parse(map)
         data = Types::BatchPutPropertyErrorEntry.new
-        data.errors = (Parsers::Errors.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (Errors.parse(map['errors']) unless map['errors'].nil?)
         return data
       end
     end
@@ -42,7 +42,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutPropertyError.parse(value) unless value.nil?
+          data << BatchPutPropertyError.parse(value) unless value.nil?
         end
         data
       end
@@ -53,7 +53,7 @@ module AWS::SDK::IoTTwinMaker
         data = Types::BatchPutPropertyError.new
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
-        data.entry = (Parsers::PropertyValueEntry.parse(map['entry']) unless map['entry'].nil?)
+        data.entry = (PropertyValueEntry.parse(map['entry']) unless map['entry'].nil?)
         return data
       end
     end
@@ -61,8 +61,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyValueEntry
       def self.parse(map)
         data = Types::PropertyValueEntry.new
-        data.entity_property_reference = (Parsers::EntityPropertyReference.parse(map['entityPropertyReference']) unless map['entityPropertyReference'].nil?)
-        data.property_values = (Parsers::PropertyValues.parse(map['propertyValues']) unless map['propertyValues'].nil?)
+        data.entity_property_reference = (EntityPropertyReference.parse(map['entityPropertyReference']) unless map['entityPropertyReference'].nil?)
+        data.property_values = (PropertyValues.parse(map['propertyValues']) unless map['propertyValues'].nil?)
         return data
       end
     end
@@ -71,7 +71,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PropertyValue.parse(value) unless value.nil?
+          data << PropertyValue.parse(value) unless value.nil?
         end
         data
       end
@@ -81,7 +81,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = Types::PropertyValue.new
         data.timestamp = Time.at(map['timestamp'].to_i) if map['timestamp']
-        data.value = (Parsers::DataValue.parse(map['value']) unless map['value'].nil?)
+        data.value = (DataValue.parse(map['value']) unless map['value'].nil?)
         data.time = map['time']
         return data
       end
@@ -95,9 +95,9 @@ module AWS::SDK::IoTTwinMaker
         data.integer_value = map['integerValue']
         data.long_value = map['longValue']
         data.string_value = map['stringValue']
-        data.list_value = (Parsers::DataValueList.parse(map['listValue']) unless map['listValue'].nil?)
-        data.map_value = (Parsers::DataValueMap.parse(map['mapValue']) unless map['mapValue'].nil?)
-        data.relationship_value = (Parsers::RelationshipValue.parse(map['relationshipValue']) unless map['relationshipValue'].nil?)
+        data.list_value = (DataValueList.parse(map['listValue']) unless map['listValue'].nil?)
+        data.map_value = (DataValueMap.parse(map['mapValue']) unless map['mapValue'].nil?)
+        data.relationship_value = (RelationshipValue.parse(map['relationshipValue']) unless map['relationshipValue'].nil?)
         data.expression = map['expression']
         return data
       end
@@ -116,7 +116,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::DataValue.parse(value) unless value.nil?
+          data[key] = DataValue.parse(value) unless value.nil?
         end
         data
       end
@@ -126,7 +126,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataValue.parse(value) unless value.nil?
+          data << DataValue.parse(value) unless value.nil?
         end
         data
       end
@@ -136,7 +136,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = Types::EntityPropertyReference.new
         data.component_name = map['componentName']
-        data.external_id_property = (Parsers::ExternalIdProperty.parse(map['externalIdProperty']) unless map['externalIdProperty'].nil?)
+        data.external_id_property = (ExternalIdProperty.parse(map['externalIdProperty']) unless map['externalIdProperty'].nil?)
         data.entity_id = map['entityId']
         data.property_name = map['propertyName']
         return data
@@ -317,15 +317,15 @@ module AWS::SDK::IoTTwinMaker
         data.is_singleton = map['isSingleton']
         data.component_type_id = map['componentTypeId']
         data.description = map['description']
-        data.property_definitions = (Parsers::PropertyDefinitionsResponse.parse(map['propertyDefinitions']) unless map['propertyDefinitions'].nil?)
-        data.extends_from = (Parsers::ExtendsFrom.parse(map['extendsFrom']) unless map['extendsFrom'].nil?)
-        data.functions = (Parsers::FunctionsResponse.parse(map['functions']) unless map['functions'].nil?)
+        data.property_definitions = (PropertyDefinitionsResponse.parse(map['propertyDefinitions']) unless map['propertyDefinitions'].nil?)
+        data.extends_from = (ExtendsFrom.parse(map['extendsFrom']) unless map['extendsFrom'].nil?)
+        data.functions = (FunctionsResponse.parse(map['functions']) unless map['functions'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.update_date_time = Time.at(map['updateDateTime'].to_i) if map['updateDateTime']
         data.arn = map['arn']
         data.is_abstract = map['isAbstract']
         data.is_schema_initialized = map['isSchemaInitialized']
-        data.status = (Parsers::Status.parse(map['status']) unless map['status'].nil?)
+        data.status = (Status.parse(map['status']) unless map['status'].nil?)
         data
       end
     end
@@ -334,7 +334,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = Types::Status.new
         data.state = map['state']
-        data.error = (Parsers::ErrorDetails.parse(map['error']) unless map['error'].nil?)
+        data.error = (ErrorDetails.parse(map['error']) unless map['error'].nil?)
         return data
       end
     end
@@ -352,7 +352,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FunctionResponse.parse(value) unless value.nil?
+          data[key] = FunctionResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -361,9 +361,9 @@ module AWS::SDK::IoTTwinMaker
     class FunctionResponse
       def self.parse(map)
         data = Types::FunctionResponse.new
-        data.required_properties = (Parsers::RequiredProperties.parse(map['requiredProperties']) unless map['requiredProperties'].nil?)
+        data.required_properties = (RequiredProperties.parse(map['requiredProperties']) unless map['requiredProperties'].nil?)
         data.scope = map['scope']
-        data.implemented_by = (Parsers::DataConnector.parse(map['implementedBy']) unless map['implementedBy'].nil?)
+        data.implemented_by = (DataConnector.parse(map['implementedBy']) unless map['implementedBy'].nil?)
         data.is_inherited = map['isInherited']
         return data
       end
@@ -372,7 +372,7 @@ module AWS::SDK::IoTTwinMaker
     class DataConnector
       def self.parse(map)
         data = Types::DataConnector.new
-        data.lambda = (Parsers::LambdaFunction.parse(map['lambda']) unless map['lambda'].nil?)
+        data.lambda = (LambdaFunction.parse(map['lambda']) unless map['lambda'].nil?)
         data.is_native = map['isNative']
         return data
       end
@@ -410,7 +410,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::PropertyDefinitionResponse.parse(value) unless value.nil?
+          data[key] = PropertyDefinitionResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -419,7 +419,7 @@ module AWS::SDK::IoTTwinMaker
     class PropertyDefinitionResponse
       def self.parse(map)
         data = Types::PropertyDefinitionResponse.new
-        data.data_type = (Parsers::DataType.parse(map['dataType']) unless map['dataType'].nil?)
+        data.data_type = (DataType.parse(map['dataType']) unless map['dataType'].nil?)
         data.is_time_series = map['isTimeSeries']
         data.is_required_in_entity = map['isRequiredInEntity']
         data.is_external_id = map['isExternalId']
@@ -427,8 +427,8 @@ module AWS::SDK::IoTTwinMaker
         data.is_imported = map['isImported']
         data.is_final = map['isFinal']
         data.is_inherited = map['isInherited']
-        data.default_value = (Parsers::DataValue.parse(map['defaultValue']) unless map['defaultValue'].nil?)
-        data.configuration = (Parsers::Configuration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.default_value = (DataValue.parse(map['defaultValue']) unless map['defaultValue'].nil?)
+        data.configuration = (Configuration.parse(map['configuration']) unless map['configuration'].nil?)
         return data
       end
     end
@@ -447,10 +447,10 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = Types::DataType.new
         data.type = map['type']
-        data.nested_type = (Parsers::DataType.parse(map['nestedType']) unless map['nestedType'].nil?)
-        data.allowed_values = (Parsers::DataValueList.parse(map['allowedValues']) unless map['allowedValues'].nil?)
+        data.nested_type = (DataType.parse(map['nestedType']) unless map['nestedType'].nil?)
+        data.allowed_values = (DataValueList.parse(map['allowedValues']) unless map['allowedValues'].nil?)
         data.unit_of_measure = map['unitOfMeasure']
-        data.relationship = (Parsers::Relationship.parse(map['relationship']) unless map['relationship'].nil?)
+        data.relationship = (Relationship.parse(map['relationship']) unless map['relationship'].nil?)
         return data
       end
     end
@@ -472,10 +472,10 @@ module AWS::SDK::IoTTwinMaker
         data.entity_id = map['entityId']
         data.entity_name = map['entityName']
         data.arn = map['arn']
-        data.status = (Parsers::Status.parse(map['status']) unless map['status'].nil?)
+        data.status = (Status.parse(map['status']) unless map['status'].nil?)
         data.workspace_id = map['workspaceId']
         data.description = map['description']
-        data.components = (Parsers::ComponentsMap.parse(map['components']) unless map['components'].nil?)
+        data.components = (ComponentsMap.parse(map['components']) unless map['components'].nil?)
         data.parent_entity_id = map['parentEntityId']
         data.has_child_entities = map['hasChildEntities']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -488,7 +488,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ComponentResponse.parse(value) unless value.nil?
+          data[key] = ComponentResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -500,9 +500,9 @@ module AWS::SDK::IoTTwinMaker
         data.component_name = map['componentName']
         data.description = map['description']
         data.component_type_id = map['componentTypeId']
-        data.status = (Parsers::Status.parse(map['status']) unless map['status'].nil?)
+        data.status = (Status.parse(map['status']) unless map['status'].nil?)
         data.defined_in = map['definedIn']
-        data.properties = (Parsers::PropertyResponses.parse(map['properties']) unless map['properties'].nil?)
+        data.properties = (PropertyResponses.parse(map['properties']) unless map['properties'].nil?)
         return data
       end
     end
@@ -511,7 +511,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::PropertyResponse.parse(value) unless value.nil?
+          data[key] = PropertyResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -520,8 +520,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyResponse
       def self.parse(map)
         data = Types::PropertyResponse.new
-        data.definition = (Parsers::PropertyDefinitionResponse.parse(map['definition']) unless map['definition'].nil?)
-        data.value = (Parsers::DataValue.parse(map['value']) unless map['value'].nil?)
+        data.definition = (PropertyDefinitionResponse.parse(map['definition']) unless map['definition'].nil?)
+        data.value = (DataValue.parse(map['value']) unless map['value'].nil?)
         return data
       end
     end
@@ -531,7 +531,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(http_resp)
         data = Types::GetPropertyValueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.property_values = (Parsers::PropertyLatestValueMap.parse(map['propertyValues']) unless map['propertyValues'].nil?)
+        data.property_values = (PropertyLatestValueMap.parse(map['propertyValues']) unless map['propertyValues'].nil?)
         data
       end
     end
@@ -540,7 +540,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::PropertyLatestValue.parse(value) unless value.nil?
+          data[key] = PropertyLatestValue.parse(value) unless value.nil?
         end
         data
       end
@@ -549,8 +549,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyLatestValue
       def self.parse(map)
         data = Types::PropertyLatestValue.new
-        data.property_reference = (Parsers::EntityPropertyReference.parse(map['propertyReference']) unless map['propertyReference'].nil?)
-        data.property_value = (Parsers::DataValue.parse(map['propertyValue']) unless map['propertyValue'].nil?)
+        data.property_reference = (EntityPropertyReference.parse(map['propertyReference']) unless map['propertyReference'].nil?)
+        data.property_value = (DataValue.parse(map['propertyValue']) unless map['propertyValue'].nil?)
         return data
       end
     end
@@ -580,7 +580,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(http_resp)
         data = Types::GetPropertyValueHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.property_values = (Parsers::PropertyValueList.parse(map['propertyValues']) unless map['propertyValues'].nil?)
+        data.property_values = (PropertyValueList.parse(map['propertyValues']) unless map['propertyValues'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -590,7 +590,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PropertyValueHistory.parse(value) unless value.nil?
+          data << PropertyValueHistory.parse(value) unless value.nil?
         end
         data
       end
@@ -599,8 +599,8 @@ module AWS::SDK::IoTTwinMaker
     class PropertyValueHistory
       def self.parse(map)
         data = Types::PropertyValueHistory.new
-        data.entity_property_reference = (Parsers::EntityPropertyReference.parse(map['entityPropertyReference']) unless map['entityPropertyReference'].nil?)
-        data.values = (Parsers::Values.parse(map['values']) unless map['values'].nil?)
+        data.entity_property_reference = (EntityPropertyReference.parse(map['entityPropertyReference']) unless map['entityPropertyReference'].nil?)
+        data.values = (Values.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -609,7 +609,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PropertyValue.parse(value) unless value.nil?
+          data << PropertyValue.parse(value) unless value.nil?
         end
         data
       end
@@ -627,7 +627,7 @@ module AWS::SDK::IoTTwinMaker
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.update_date_time = Time.at(map['updateDateTime'].to_i) if map['updateDateTime']
         data.description = map['description']
-        data.capabilities = (Parsers::SceneCapabilities.parse(map['capabilities']) unless map['capabilities'].nil?)
+        data.capabilities = (SceneCapabilities.parse(map['capabilities']) unless map['capabilities'].nil?)
         data
       end
     end
@@ -664,7 +664,7 @@ module AWS::SDK::IoTTwinMaker
         data = Types::ListComponentTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workspace_id = map['workspaceId']
-        data.component_type_summaries = (Parsers::ComponentTypeSummaries.parse(map['componentTypeSummaries']) unless map['componentTypeSummaries'].nil?)
+        data.component_type_summaries = (ComponentTypeSummaries.parse(map['componentTypeSummaries']) unless map['componentTypeSummaries'].nil?)
         data.next_token = map['nextToken']
         data.max_results = map['maxResults']
         data
@@ -675,7 +675,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentTypeSummary.parse(value) unless value.nil?
+          data << ComponentTypeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -689,7 +689,7 @@ module AWS::SDK::IoTTwinMaker
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.update_date_time = Time.at(map['updateDateTime'].to_i) if map['updateDateTime']
         data.description = map['description']
-        data.status = (Parsers::Status.parse(map['status']) unless map['status'].nil?)
+        data.status = (Status.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -699,7 +699,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(http_resp)
         data = Types::ListEntitiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entity_summaries = (Parsers::EntitySummaries.parse(map['entitySummaries']) unless map['entitySummaries'].nil?)
+        data.entity_summaries = (EntitySummaries.parse(map['entitySummaries']) unless map['entitySummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -709,7 +709,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EntitySummary.parse(value) unless value.nil?
+          data << EntitySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -722,7 +722,7 @@ module AWS::SDK::IoTTwinMaker
         data.entity_name = map['entityName']
         data.arn = map['arn']
         data.parent_entity_id = map['parentEntityId']
-        data.status = (Parsers::Status.parse(map['status']) unless map['status'].nil?)
+        data.status = (Status.parse(map['status']) unless map['status'].nil?)
         data.description = map['description']
         data.has_child_entities = map['hasChildEntities']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -736,7 +736,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(http_resp)
         data = Types::ListScenesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.scene_summaries = (Parsers::SceneSummaries.parse(map['sceneSummaries']) unless map['sceneSummaries'].nil?)
+        data.scene_summaries = (SceneSummaries.parse(map['sceneSummaries']) unless map['sceneSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -746,7 +746,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SceneSummary.parse(value) unless value.nil?
+          data << SceneSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -770,7 +770,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -791,7 +791,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(http_resp)
         data = Types::ListWorkspacesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace_summaries = (Parsers::WorkspaceSummaries.parse(map['workspaceSummaries']) unless map['workspaceSummaries'].nil?)
+        data.workspace_summaries = (WorkspaceSummaries.parse(map['workspaceSummaries']) unless map['workspaceSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -801,7 +801,7 @@ module AWS::SDK::IoTTwinMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkspaceSummary.parse(value) unless value.nil?
+          data << WorkspaceSummary.parse(value) unless value.nil?
         end
         data
       end

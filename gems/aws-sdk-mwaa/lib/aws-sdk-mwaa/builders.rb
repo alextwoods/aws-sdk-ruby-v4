@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MWAA
   module Builders
 
@@ -47,23 +49,23 @@ module AWS::SDK::MWAA
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['SourceBucketArn'] = input[:source_bucket_arn] unless input[:source_bucket_arn].nil?
         data['DagS3Path'] = input[:dag_s3_path] unless input[:dag_s3_path].nil?
-        data['NetworkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['NetworkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
         data['PluginsS3Path'] = input[:plugins_s3_path] unless input[:plugins_s3_path].nil?
         data['PluginsS3ObjectVersion'] = input[:plugins_s3_object_version] unless input[:plugins_s3_object_version].nil?
         data['RequirementsS3Path'] = input[:requirements_s3_path] unless input[:requirements_s3_path].nil?
         data['RequirementsS3ObjectVersion'] = input[:requirements_s3_object_version] unless input[:requirements_s3_object_version].nil?
-        data['AirflowConfigurationOptions'] = Builders::AirflowConfigurationOptions.build(input[:airflow_configuration_options]) unless input[:airflow_configuration_options].nil?
+        data['AirflowConfigurationOptions'] = AirflowConfigurationOptions.build(input[:airflow_configuration_options]) unless input[:airflow_configuration_options].nil?
         data['EnvironmentClass'] = input[:environment_class] unless input[:environment_class].nil?
         data['MaxWorkers'] = input[:max_workers] unless input[:max_workers].nil?
         data['KmsKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['AirflowVersion'] = input[:airflow_version] unless input[:airflow_version].nil?
-        data['LoggingConfiguration'] = Builders::LoggingConfigurationInput.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
+        data['LoggingConfiguration'] = LoggingConfigurationInput.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
         data['WeeklyMaintenanceWindowStart'] = input[:weekly_maintenance_window_start] unless input[:weekly_maintenance_window_start].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['WebserverAccessMode'] = input[:webserver_access_mode] unless input[:webserver_access_mode].nil?
         data['MinWorkers'] = input[:min_workers] unless input[:min_workers].nil?
         data['Schedulers'] = input[:schedulers] unless input[:schedulers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,11 +84,11 @@ module AWS::SDK::MWAA
     class LoggingConfigurationInput
       def self.build(input)
         data = {}
-        data['DagProcessingLogs'] = Builders::ModuleLoggingConfigurationInput.build(input[:dag_processing_logs]) unless input[:dag_processing_logs].nil?
-        data['SchedulerLogs'] = Builders::ModuleLoggingConfigurationInput.build(input[:scheduler_logs]) unless input[:scheduler_logs].nil?
-        data['WebserverLogs'] = Builders::ModuleLoggingConfigurationInput.build(input[:webserver_logs]) unless input[:webserver_logs].nil?
-        data['WorkerLogs'] = Builders::ModuleLoggingConfigurationInput.build(input[:worker_logs]) unless input[:worker_logs].nil?
-        data['TaskLogs'] = Builders::ModuleLoggingConfigurationInput.build(input[:task_logs]) unless input[:task_logs].nil?
+        data['DagProcessingLogs'] = ModuleLoggingConfigurationInput.build(input[:dag_processing_logs]) unless input[:dag_processing_logs].nil?
+        data['SchedulerLogs'] = ModuleLoggingConfigurationInput.build(input[:scheduler_logs]) unless input[:scheduler_logs].nil?
+        data['WebserverLogs'] = ModuleLoggingConfigurationInput.build(input[:webserver_logs]) unless input[:webserver_logs].nil?
+        data['WorkerLogs'] = ModuleLoggingConfigurationInput.build(input[:worker_logs]) unless input[:worker_logs].nil?
+        data['TaskLogs'] = ModuleLoggingConfigurationInput.build(input[:task_logs]) unless input[:task_logs].nil?
         data
       end
     end
@@ -116,8 +118,8 @@ module AWS::SDK::MWAA
     class NetworkConfiguration
       def self.build(input)
         data = {}
-        data['SubnetIds'] = Builders::SubnetList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -241,8 +243,8 @@ module AWS::SDK::MWAA
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['MetricData'] = Builders::MetricData.build(input[:metric_data]) unless input[:metric_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetricData'] = MetricData.build(input[:metric_data]) unless input[:metric_data].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -251,7 +253,7 @@ module AWS::SDK::MWAA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricDatum.build(element) unless element.nil?
+          data << MetricDatum.build(element) unless element.nil?
         end
         data
       end
@@ -263,10 +265,10 @@ module AWS::SDK::MWAA
         data = {}
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['Timestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:timestamp]).to_i unless input[:timestamp].nil?
-        data['Dimensions'] = Builders::Dimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = Dimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['Value'] = Hearth::NumberHelper.serialize(input[:value]) unless input[:value].nil?
         data['Unit'] = input[:unit] unless input[:unit].nil?
-        data['StatisticValues'] = Builders::StatisticSet.build(input[:statistic_values]) unless input[:statistic_values].nil?
+        data['StatisticValues'] = StatisticSet.build(input[:statistic_values]) unless input[:statistic_values].nil?
         data
       end
     end
@@ -288,7 +290,7 @@ module AWS::SDK::MWAA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Dimension.build(element) unless element.nil?
+          data << Dimension.build(element) unless element.nil?
         end
         data
       end
@@ -321,8 +323,8 @@ module AWS::SDK::MWAA
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -384,16 +386,16 @@ module AWS::SDK::MWAA
         data['PluginsS3ObjectVersion'] = input[:plugins_s3_object_version] unless input[:plugins_s3_object_version].nil?
         data['RequirementsS3Path'] = input[:requirements_s3_path] unless input[:requirements_s3_path].nil?
         data['RequirementsS3ObjectVersion'] = input[:requirements_s3_object_version] unless input[:requirements_s3_object_version].nil?
-        data['AirflowConfigurationOptions'] = Builders::AirflowConfigurationOptions.build(input[:airflow_configuration_options]) unless input[:airflow_configuration_options].nil?
+        data['AirflowConfigurationOptions'] = AirflowConfigurationOptions.build(input[:airflow_configuration_options]) unless input[:airflow_configuration_options].nil?
         data['EnvironmentClass'] = input[:environment_class] unless input[:environment_class].nil?
         data['MaxWorkers'] = input[:max_workers] unless input[:max_workers].nil?
-        data['NetworkConfiguration'] = Builders::UpdateNetworkConfigurationInput.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['LoggingConfiguration'] = Builders::LoggingConfigurationInput.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
+        data['NetworkConfiguration'] = UpdateNetworkConfigurationInput.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['LoggingConfiguration'] = LoggingConfigurationInput.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
         data['WeeklyMaintenanceWindowStart'] = input[:weekly_maintenance_window_start] unless input[:weekly_maintenance_window_start].nil?
         data['WebserverAccessMode'] = input[:webserver_access_mode] unless input[:webserver_access_mode].nil?
         data['MinWorkers'] = input[:min_workers] unless input[:min_workers].nil?
         data['Schedulers'] = input[:schedulers] unless input[:schedulers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::MWAA
     class UpdateNetworkConfigurationInput
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::SecurityGroupList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end

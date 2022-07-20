@@ -17,11 +17,11 @@ module AWS::SDK::MediaPackage
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
         data.description = map['description']
-        data.egress_access_logs = (Parsers::EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
-        data.hls_ingest = (Parsers::HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
+        data.egress_access_logs = (EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
+        data.hls_ingest = (HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
         data.id = map['id']
-        data.ingress_access_logs = (Parsers::IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.ingress_access_logs = (IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -47,7 +47,7 @@ module AWS::SDK::MediaPackage
     class HlsIngest
       def self.parse(map)
         data = Types::HlsIngest.new
-        data.ingest_endpoints = (Parsers::List____listOfIngestEndpoint.parse(map['ingestEndpoints']) unless map['ingestEndpoints'].nil?)
+        data.ingest_endpoints = (List____listOfIngestEndpoint.parse(map['ingestEndpoints']) unless map['ingestEndpoints'].nil?)
         return data
       end
     end
@@ -56,7 +56,7 @@ module AWS::SDK::MediaPackage
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IngestEndpoint.parse(value) unless value.nil?
+          data << IngestEndpoint.parse(value) unless value.nil?
         end
         data
       end
@@ -148,11 +148,11 @@ module AWS::SDK::MediaPackage
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
         data.description = map['description']
-        data.egress_access_logs = (Parsers::EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
-        data.hls_ingest = (Parsers::HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
+        data.egress_access_logs = (EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
+        data.hls_ingest = (HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
         data.id = map['id']
-        data.ingress_access_logs = (Parsers::IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.ingress_access_logs = (IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -168,7 +168,7 @@ module AWS::SDK::MediaPackage
         data.end_time = map['endTime']
         data.id = map['id']
         data.origin_endpoint_id = map['originEndpointId']
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         data.start_time = map['startTime']
         data.status = map['status']
         data
@@ -191,21 +191,21 @@ module AWS::SDK::MediaPackage
         data = Types::CreateOriginEndpointOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
-        data.authorization = (Parsers::Authorization.parse(map['authorization']) unless map['authorization'].nil?)
+        data.authorization = (Authorization.parse(map['authorization']) unless map['authorization'].nil?)
         data.channel_id = map['channelId']
-        data.cmaf_package = (Parsers::CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
-        data.dash_package = (Parsers::DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
+        data.cmaf_package = (CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
+        data.dash_package = (DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
         data.description = map['description']
-        data.hls_package = (Parsers::HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
+        data.hls_package = (HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
         data.id = map['id']
         data.manifest_name = map['manifestName']
-        data.mss_package = (Parsers::MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
+        data.mss_package = (MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
         data.origination = map['origination']
         data.startover_window_seconds = map['startoverWindowSeconds']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.time_delay_seconds = map['timeDelaySeconds']
         data.url = map['url']
-        data.whitelist = (Parsers::List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
+        data.whitelist = (List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
         data
       end
     end
@@ -223,10 +223,10 @@ module AWS::SDK::MediaPackage
     class MssPackage
       def self.parse(map)
         data = Types::MssPackage.new
-        data.encryption = (Parsers::MssEncryption.parse(map['encryption']) unless map['encryption'].nil?)
+        data.encryption = (MssEncryption.parse(map['encryption']) unless map['encryption'].nil?)
         data.manifest_window_seconds = map['manifestWindowSeconds']
         data.segment_duration_seconds = map['segmentDurationSeconds']
-        data.stream_selection = (Parsers::StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
+        data.stream_selection = (StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
         return data
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::MediaPackage
     class MssEncryption
       def self.parse(map)
         data = Types::MssEncryption.new
-        data.speke_key_provider = (Parsers::SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
         return data
       end
     end
@@ -253,10 +253,10 @@ module AWS::SDK::MediaPackage
       def self.parse(map)
         data = Types::SpekeKeyProvider.new
         data.certificate_arn = map['certificateArn']
-        data.encryption_contract_configuration = (Parsers::EncryptionContractConfiguration.parse(map['encryptionContractConfiguration']) unless map['encryptionContractConfiguration'].nil?)
+        data.encryption_contract_configuration = (EncryptionContractConfiguration.parse(map['encryptionContractConfiguration']) unless map['encryptionContractConfiguration'].nil?)
         data.resource_id = map['resourceId']
         data.role_arn = map['roleArn']
-        data.system_ids = (Parsers::List____listOf__string.parse(map['systemIds']) unless map['systemIds'].nil?)
+        data.system_ids = (List____listOf__string.parse(map['systemIds']) unless map['systemIds'].nil?)
         data.url = map['url']
         return data
       end
@@ -275,16 +275,16 @@ module AWS::SDK::MediaPackage
       def self.parse(map)
         data = Types::HlsPackage.new
         data.ad_markers = map['adMarkers']
-        data.ad_triggers = (Parsers::AdTriggers.parse(map['adTriggers']) unless map['adTriggers'].nil?)
+        data.ad_triggers = (AdTriggers.parse(map['adTriggers']) unless map['adTriggers'].nil?)
         data.ads_on_delivery_restrictions = map['adsOnDeliveryRestrictions']
-        data.encryption = (Parsers::HlsEncryption.parse(map['encryption']) unless map['encryption'].nil?)
+        data.encryption = (HlsEncryption.parse(map['encryption']) unless map['encryption'].nil?)
         data.include_dvb_subtitles = map['includeDvbSubtitles']
         data.include_iframe_only_stream = map['includeIframeOnlyStream']
         data.playlist_type = map['playlistType']
         data.playlist_window_seconds = map['playlistWindowSeconds']
         data.program_date_time_interval_seconds = map['programDateTimeIntervalSeconds']
         data.segment_duration_seconds = map['segmentDurationSeconds']
-        data.stream_selection = (Parsers::StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
+        data.stream_selection = (StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
         data.use_audio_rendition_group = map['useAudioRenditionGroup']
         return data
       end
@@ -297,7 +297,7 @@ module AWS::SDK::MediaPackage
         data.encryption_method = map['encryptionMethod']
         data.key_rotation_interval_seconds = map['keyRotationIntervalSeconds']
         data.repeat_ext_x_key = map['repeatExtXKey']
-        data.speke_key_provider = (Parsers::SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
         return data
       end
     end
@@ -315,18 +315,18 @@ module AWS::SDK::MediaPackage
     class DashPackage
       def self.parse(map)
         data = Types::DashPackage.new
-        data.ad_triggers = (Parsers::AdTriggers.parse(map['adTriggers']) unless map['adTriggers'].nil?)
+        data.ad_triggers = (AdTriggers.parse(map['adTriggers']) unless map['adTriggers'].nil?)
         data.ads_on_delivery_restrictions = map['adsOnDeliveryRestrictions']
-        data.encryption = (Parsers::DashEncryption.parse(map['encryption']) unless map['encryption'].nil?)
+        data.encryption = (DashEncryption.parse(map['encryption']) unless map['encryption'].nil?)
         data.manifest_layout = map['manifestLayout']
         data.manifest_window_seconds = map['manifestWindowSeconds']
         data.min_buffer_time_seconds = map['minBufferTimeSeconds']
         data.min_update_period_seconds = map['minUpdatePeriodSeconds']
-        data.period_triggers = (Parsers::List____listOf__PeriodTriggersElement.parse(map['periodTriggers']) unless map['periodTriggers'].nil?)
+        data.period_triggers = (List____listOf__PeriodTriggersElement.parse(map['periodTriggers']) unless map['periodTriggers'].nil?)
         data.profile = map['profile']
         data.segment_duration_seconds = map['segmentDurationSeconds']
         data.segment_template_format = map['segmentTemplateFormat']
-        data.stream_selection = (Parsers::StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
+        data.stream_selection = (StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
         data.suggested_presentation_delay_seconds = map['suggestedPresentationDelaySeconds']
         data.utc_timing = map['utcTiming']
         data.utc_timing_uri = map['utcTimingUri']
@@ -348,7 +348,7 @@ module AWS::SDK::MediaPackage
       def self.parse(map)
         data = Types::DashEncryption.new
         data.key_rotation_interval_seconds = map['keyRotationIntervalSeconds']
-        data.speke_key_provider = (Parsers::SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
         return data
       end
     end
@@ -356,11 +356,11 @@ module AWS::SDK::MediaPackage
     class CmafPackage
       def self.parse(map)
         data = Types::CmafPackage.new
-        data.encryption = (Parsers::CmafEncryption.parse(map['encryption']) unless map['encryption'].nil?)
-        data.hls_manifests = (Parsers::List____listOfHlsManifest.parse(map['hlsManifests']) unless map['hlsManifests'].nil?)
+        data.encryption = (CmafEncryption.parse(map['encryption']) unless map['encryption'].nil?)
+        data.hls_manifests = (List____listOfHlsManifest.parse(map['hlsManifests']) unless map['hlsManifests'].nil?)
         data.segment_duration_seconds = map['segmentDurationSeconds']
         data.segment_prefix = map['segmentPrefix']
-        data.stream_selection = (Parsers::StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
+        data.stream_selection = (StreamSelection.parse(map['streamSelection']) unless map['streamSelection'].nil?)
         return data
       end
     end
@@ -369,7 +369,7 @@ module AWS::SDK::MediaPackage
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HlsManifest.parse(value) unless value.nil?
+          data << HlsManifest.parse(value) unless value.nil?
         end
         data
       end
@@ -395,7 +395,7 @@ module AWS::SDK::MediaPackage
         data = Types::CmafEncryption.new
         data.constant_initialization_vector = map['constantInitializationVector']
         data.key_rotation_interval_seconds = map['keyRotationIntervalSeconds']
-        data.speke_key_provider = (Parsers::SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
         return data
       end
     end
@@ -434,11 +434,11 @@ module AWS::SDK::MediaPackage
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
         data.description = map['description']
-        data.egress_access_logs = (Parsers::EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
-        data.hls_ingest = (Parsers::HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
+        data.egress_access_logs = (EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
+        data.hls_ingest = (HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
         data.id = map['id']
-        data.ingress_access_logs = (Parsers::IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.ingress_access_logs = (IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -454,7 +454,7 @@ module AWS::SDK::MediaPackage
         data.end_time = map['endTime']
         data.id = map['id']
         data.origin_endpoint_id = map['originEndpointId']
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         data.start_time = map['startTime']
         data.status = map['status']
         data
@@ -467,21 +467,21 @@ module AWS::SDK::MediaPackage
         data = Types::DescribeOriginEndpointOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
-        data.authorization = (Parsers::Authorization.parse(map['authorization']) unless map['authorization'].nil?)
+        data.authorization = (Authorization.parse(map['authorization']) unless map['authorization'].nil?)
         data.channel_id = map['channelId']
-        data.cmaf_package = (Parsers::CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
-        data.dash_package = (Parsers::DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
+        data.cmaf_package = (CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
+        data.dash_package = (DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
         data.description = map['description']
-        data.hls_package = (Parsers::HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
+        data.hls_package = (HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
         data.id = map['id']
         data.manifest_name = map['manifestName']
-        data.mss_package = (Parsers::MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
+        data.mss_package = (MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
         data.origination = map['origination']
         data.startover_window_seconds = map['startoverWindowSeconds']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.time_delay_seconds = map['timeDelaySeconds']
         data.url = map['url']
-        data.whitelist = (Parsers::List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
+        data.whitelist = (List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
         data
       end
     end
@@ -491,7 +491,7 @@ module AWS::SDK::MediaPackage
       def self.parse(http_resp)
         data = Types::ListChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channels = (Parsers::List____listOfChannel.parse(map['channels']) unless map['channels'].nil?)
+        data.channels = (List____listOfChannel.parse(map['channels']) unless map['channels'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -501,7 +501,7 @@ module AWS::SDK::MediaPackage
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Channel.parse(value) unless value.nil?
+          data << Channel.parse(value) unless value.nil?
         end
         data
       end
@@ -512,11 +512,11 @@ module AWS::SDK::MediaPackage
         data = Types::Channel.new
         data.arn = map['arn']
         data.description = map['description']
-        data.egress_access_logs = (Parsers::EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
-        data.hls_ingest = (Parsers::HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
+        data.egress_access_logs = (EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
+        data.hls_ingest = (HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
         data.id = map['id']
-        data.ingress_access_logs = (Parsers::IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.ingress_access_logs = (IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -526,7 +526,7 @@ module AWS::SDK::MediaPackage
       def self.parse(http_resp)
         data = Types::ListHarvestJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.harvest_jobs = (Parsers::List____listOfHarvestJob.parse(map['harvestJobs']) unless map['harvestJobs'].nil?)
+        data.harvest_jobs = (List____listOfHarvestJob.parse(map['harvestJobs']) unless map['harvestJobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -536,7 +536,7 @@ module AWS::SDK::MediaPackage
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HarvestJob.parse(value) unless value.nil?
+          data << HarvestJob.parse(value) unless value.nil?
         end
         data
       end
@@ -551,7 +551,7 @@ module AWS::SDK::MediaPackage
         data.end_time = map['endTime']
         data.id = map['id']
         data.origin_endpoint_id = map['originEndpointId']
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         data.start_time = map['startTime']
         data.status = map['status']
         return data
@@ -564,7 +564,7 @@ module AWS::SDK::MediaPackage
         data = Types::ListOriginEndpointsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.origin_endpoints = (Parsers::List____listOfOriginEndpoint.parse(map['originEndpoints']) unless map['originEndpoints'].nil?)
+        data.origin_endpoints = (List____listOfOriginEndpoint.parse(map['originEndpoints']) unless map['originEndpoints'].nil?)
         data
       end
     end
@@ -573,7 +573,7 @@ module AWS::SDK::MediaPackage
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OriginEndpoint.parse(value) unless value.nil?
+          data << OriginEndpoint.parse(value) unless value.nil?
         end
         data
       end
@@ -583,21 +583,21 @@ module AWS::SDK::MediaPackage
       def self.parse(map)
         data = Types::OriginEndpoint.new
         data.arn = map['arn']
-        data.authorization = (Parsers::Authorization.parse(map['authorization']) unless map['authorization'].nil?)
+        data.authorization = (Authorization.parse(map['authorization']) unless map['authorization'].nil?)
         data.channel_id = map['channelId']
-        data.cmaf_package = (Parsers::CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
-        data.dash_package = (Parsers::DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
+        data.cmaf_package = (CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
+        data.dash_package = (DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
         data.description = map['description']
-        data.hls_package = (Parsers::HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
+        data.hls_package = (HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
         data.id = map['id']
         data.manifest_name = map['manifestName']
-        data.mss_package = (Parsers::MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
+        data.mss_package = (MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
         data.origination = map['origination']
         data.startover_window_seconds = map['startoverWindowSeconds']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.time_delay_seconds = map['timeDelaySeconds']
         data.url = map['url']
-        data.whitelist = (Parsers::List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
+        data.whitelist = (List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
         return data
       end
     end
@@ -607,7 +607,7 @@ module AWS::SDK::MediaPackage
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -629,11 +629,11 @@ module AWS::SDK::MediaPackage
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
         data.description = map['description']
-        data.egress_access_logs = (Parsers::EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
-        data.hls_ingest = (Parsers::HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
+        data.egress_access_logs = (EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
+        data.hls_ingest = (HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
         data.id = map['id']
-        data.ingress_access_logs = (Parsers::IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.ingress_access_logs = (IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -645,11 +645,11 @@ module AWS::SDK::MediaPackage
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
         data.description = map['description']
-        data.egress_access_logs = (Parsers::EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
-        data.hls_ingest = (Parsers::HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
+        data.egress_access_logs = (EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
+        data.hls_ingest = (HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
         data.id = map['id']
-        data.ingress_access_logs = (Parsers::IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.ingress_access_logs = (IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -679,11 +679,11 @@ module AWS::SDK::MediaPackage
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
         data.description = map['description']
-        data.egress_access_logs = (Parsers::EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
-        data.hls_ingest = (Parsers::HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
+        data.egress_access_logs = (EgressAccessLogs.parse(map['egressAccessLogs']) unless map['egressAccessLogs'].nil?)
+        data.hls_ingest = (HlsIngest.parse(map['hlsIngest']) unless map['hlsIngest'].nil?)
         data.id = map['id']
-        data.ingress_access_logs = (Parsers::IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.ingress_access_logs = (IngressAccessLogs.parse(map['ingressAccessLogs']) unless map['ingressAccessLogs'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -694,21 +694,21 @@ module AWS::SDK::MediaPackage
         data = Types::UpdateOriginEndpointOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
-        data.authorization = (Parsers::Authorization.parse(map['authorization']) unless map['authorization'].nil?)
+        data.authorization = (Authorization.parse(map['authorization']) unless map['authorization'].nil?)
         data.channel_id = map['channelId']
-        data.cmaf_package = (Parsers::CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
-        data.dash_package = (Parsers::DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
+        data.cmaf_package = (CmafPackage.parse(map['cmafPackage']) unless map['cmafPackage'].nil?)
+        data.dash_package = (DashPackage.parse(map['dashPackage']) unless map['dashPackage'].nil?)
         data.description = map['description']
-        data.hls_package = (Parsers::HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
+        data.hls_package = (HlsPackage.parse(map['hlsPackage']) unless map['hlsPackage'].nil?)
         data.id = map['id']
         data.manifest_name = map['manifestName']
-        data.mss_package = (Parsers::MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
+        data.mss_package = (MssPackage.parse(map['mssPackage']) unless map['mssPackage'].nil?)
         data.origination = map['origination']
         data.startover_window_seconds = map['startoverWindowSeconds']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.time_delay_seconds = map['timeDelaySeconds']
         data.url = map['url']
-        data.whitelist = (Parsers::List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
+        data.whitelist = (List____listOf__string.parse(map['whitelist']) unless map['whitelist'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::Glue
   module Parsers
 
@@ -17,7 +19,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::PartitionErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (PartitionErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -25,7 +27,7 @@ module AWS::SDK::Glue
     class PartitionErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::PartitionError.parse(value) unless value.nil?
+          PartitionError.parse(value) unless value.nil?
         end
       end
     end
@@ -33,8 +35,8 @@ module AWS::SDK::Glue
     class PartitionError
       def self.parse(map)
         data = Types::PartitionError.new
-        data.partition_values = (Parsers::ValueStringList.parse(map['PartitionValues']) unless map['PartitionValues'].nil?)
-        data.error_detail = (Parsers::ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
+        data.partition_values = (ValueStringList.parse(map['PartitionValues']) unless map['PartitionValues'].nil?)
+        data.error_detail = (ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
         return data
       end
     end
@@ -147,8 +149,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.succeeded = (Parsers::NameStringList.parse(map['Succeeded']) unless map['Succeeded'].nil?)
-        data.errors = (Parsers::ErrorByName.parse(map['Errors']) unless map['Errors'].nil?)
+        data.succeeded = (NameStringList.parse(map['Succeeded']) unless map['Succeeded'].nil?)
+        data.errors = (ErrorByName.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -157,7 +159,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ErrorDetail.parse(value) unless value.nil?
+          data[key] = ErrorDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -178,7 +180,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::PartitionErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (PartitionErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::TableErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (TableErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -198,7 +200,7 @@ module AWS::SDK::Glue
     class TableErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::TableError.parse(value) unless value.nil?
+          TableError.parse(value) unless value.nil?
         end
       end
     end
@@ -207,7 +209,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::TableError.new
         data.table_name = map['TableName']
-        data.error_detail = (Parsers::ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
+        data.error_detail = (ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
         return data
       end
     end
@@ -231,7 +233,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::TableVersionErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (TableVersionErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -239,7 +241,7 @@ module AWS::SDK::Glue
     class TableVersionErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::TableVersionError.parse(value) unless value.nil?
+          TableVersionError.parse(value) unless value.nil?
         end
       end
     end
@@ -249,7 +251,7 @@ module AWS::SDK::Glue
         data = Types::TableVersionError.new
         data.table_name = map['TableName']
         data.version_id = map['VersionId']
-        data.error_detail = (Parsers::ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
+        data.error_detail = (ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
         return data
       end
     end
@@ -261,8 +263,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.blueprints = (Parsers::Blueprints.parse(map['Blueprints']) unless map['Blueprints'].nil?)
-        data.missing_blueprints = (Parsers::BlueprintNames.parse(map['MissingBlueprints']) unless map['MissingBlueprints'].nil?)
+        data.blueprints = (Blueprints.parse(map['Blueprints']) unless map['Blueprints'].nil?)
+        data.missing_blueprints = (BlueprintNames.parse(map['MissingBlueprints']) unless map['MissingBlueprints'].nil?)
         data
       end
     end
@@ -278,7 +280,7 @@ module AWS::SDK::Glue
     class Blueprints
       def self.parse(list)
         list.map do |value|
-          Parsers::Blueprint.parse(value) unless value.nil?
+          Blueprint.parse(value) unless value.nil?
         end
       end
     end
@@ -295,7 +297,7 @@ module AWS::SDK::Glue
         data.blueprint_service_location = map['BlueprintServiceLocation']
         data.status = map['Status']
         data.error_message = map['ErrorMessage']
-        data.last_active_definition = (Parsers::LastActiveDefinition.parse(map['LastActiveDefinition']) unless map['LastActiveDefinition'].nil?)
+        data.last_active_definition = (LastActiveDefinition.parse(map['LastActiveDefinition']) unless map['LastActiveDefinition'].nil?)
         return data
       end
     end
@@ -319,8 +321,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.crawlers = (Parsers::CrawlerList.parse(map['Crawlers']) unless map['Crawlers'].nil?)
-        data.crawlers_not_found = (Parsers::CrawlerNameList.parse(map['CrawlersNotFound']) unless map['CrawlersNotFound'].nil?)
+        data.crawlers = (CrawlerList.parse(map['Crawlers']) unless map['Crawlers'].nil?)
+        data.crawlers_not_found = (CrawlerNameList.parse(map['CrawlersNotFound']) unless map['CrawlersNotFound'].nil?)
         data
       end
     end
@@ -336,7 +338,7 @@ module AWS::SDK::Glue
     class CrawlerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Crawler.parse(value) unless value.nil?
+          Crawler.parse(value) unless value.nil?
         end
       end
     end
@@ -346,24 +348,24 @@ module AWS::SDK::Glue
         data = Types::Crawler.new
         data.name = map['Name']
         data.role = map['Role']
-        data.targets = (Parsers::CrawlerTargets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (CrawlerTargets.parse(map['Targets']) unless map['Targets'].nil?)
         data.database_name = map['DatabaseName']
         data.description = map['Description']
-        data.classifiers = (Parsers::ClassifierNameList.parse(map['Classifiers']) unless map['Classifiers'].nil?)
-        data.recrawl_policy = (Parsers::RecrawlPolicy.parse(map['RecrawlPolicy']) unless map['RecrawlPolicy'].nil?)
-        data.schema_change_policy = (Parsers::SchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
-        data.lineage_configuration = (Parsers::LineageConfiguration.parse(map['LineageConfiguration']) unless map['LineageConfiguration'].nil?)
+        data.classifiers = (ClassifierNameList.parse(map['Classifiers']) unless map['Classifiers'].nil?)
+        data.recrawl_policy = (RecrawlPolicy.parse(map['RecrawlPolicy']) unless map['RecrawlPolicy'].nil?)
+        data.schema_change_policy = (SchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
+        data.lineage_configuration = (LineageConfiguration.parse(map['LineageConfiguration']) unless map['LineageConfiguration'].nil?)
         data.state = map['State']
         data.table_prefix = map['TablePrefix']
-        data.schedule = (Parsers::Schedule.parse(map['Schedule']) unless map['Schedule'].nil?)
+        data.schedule = (Schedule.parse(map['Schedule']) unless map['Schedule'].nil?)
         data.crawl_elapsed_time = map['CrawlElapsedTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_updated = Time.at(map['LastUpdated'].to_i) if map['LastUpdated']
-        data.last_crawl = (Parsers::LastCrawlInfo.parse(map['LastCrawl']) unless map['LastCrawl'].nil?)
+        data.last_crawl = (LastCrawlInfo.parse(map['LastCrawl']) unless map['LastCrawl'].nil?)
         data.version = map['Version']
         data.configuration = map['Configuration']
         data.crawler_security_configuration = map['CrawlerSecurityConfiguration']
-        data.lake_formation_configuration = (Parsers::LakeFormationConfiguration.parse(map['LakeFormationConfiguration']) unless map['LakeFormationConfiguration'].nil?)
+        data.lake_formation_configuration = (LakeFormationConfiguration.parse(map['LakeFormationConfiguration']) unless map['LakeFormationConfiguration'].nil?)
         return data
       end
     end
@@ -435,12 +437,12 @@ module AWS::SDK::Glue
     class CrawlerTargets
       def self.parse(map)
         data = Types::CrawlerTargets.new
-        data.s3_targets = (Parsers::S3TargetList.parse(map['S3Targets']) unless map['S3Targets'].nil?)
-        data.jdbc_targets = (Parsers::JdbcTargetList.parse(map['JdbcTargets']) unless map['JdbcTargets'].nil?)
-        data.mongo_db_targets = (Parsers::MongoDBTargetList.parse(map['MongoDBTargets']) unless map['MongoDBTargets'].nil?)
-        data.dynamo_db_targets = (Parsers::DynamoDBTargetList.parse(map['DynamoDBTargets']) unless map['DynamoDBTargets'].nil?)
-        data.catalog_targets = (Parsers::CatalogTargetList.parse(map['CatalogTargets']) unless map['CatalogTargets'].nil?)
-        data.delta_targets = (Parsers::DeltaTargetList.parse(map['DeltaTargets']) unless map['DeltaTargets'].nil?)
+        data.s3_targets = (S3TargetList.parse(map['S3Targets']) unless map['S3Targets'].nil?)
+        data.jdbc_targets = (JdbcTargetList.parse(map['JdbcTargets']) unless map['JdbcTargets'].nil?)
+        data.mongo_db_targets = (MongoDBTargetList.parse(map['MongoDBTargets']) unless map['MongoDBTargets'].nil?)
+        data.dynamo_db_targets = (DynamoDBTargetList.parse(map['DynamoDBTargets']) unless map['DynamoDBTargets'].nil?)
+        data.catalog_targets = (CatalogTargetList.parse(map['CatalogTargets']) unless map['CatalogTargets'].nil?)
+        data.delta_targets = (DeltaTargetList.parse(map['DeltaTargets']) unless map['DeltaTargets'].nil?)
         return data
       end
     end
@@ -448,7 +450,7 @@ module AWS::SDK::Glue
     class DeltaTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::DeltaTarget.parse(value) unless value.nil?
+          DeltaTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -456,7 +458,7 @@ module AWS::SDK::Glue
     class DeltaTarget
       def self.parse(map)
         data = Types::DeltaTarget.new
-        data.delta_tables = (Parsers::PathList.parse(map['DeltaTables']) unless map['DeltaTables'].nil?)
+        data.delta_tables = (PathList.parse(map['DeltaTables']) unless map['DeltaTables'].nil?)
         data.connection_name = map['ConnectionName']
         data.write_manifest = map['WriteManifest']
         return data
@@ -474,7 +476,7 @@ module AWS::SDK::Glue
     class CatalogTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::CatalogTarget.parse(value) unless value.nil?
+          CatalogTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -483,7 +485,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::CatalogTarget.new
         data.database_name = map['DatabaseName']
-        data.tables = (Parsers::CatalogTablesList.parse(map['Tables']) unless map['Tables'].nil?)
+        data.tables = (CatalogTablesList.parse(map['Tables']) unless map['Tables'].nil?)
         data.connection_name = map['ConnectionName']
         return data
       end
@@ -500,7 +502,7 @@ module AWS::SDK::Glue
     class DynamoDBTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::DynamoDBTarget.parse(value) unless value.nil?
+          DynamoDBTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -518,7 +520,7 @@ module AWS::SDK::Glue
     class MongoDBTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::MongoDBTarget.parse(value) unless value.nil?
+          MongoDBTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -536,7 +538,7 @@ module AWS::SDK::Glue
     class JdbcTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::JdbcTarget.parse(value) unless value.nil?
+          JdbcTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -546,7 +548,7 @@ module AWS::SDK::Glue
         data = Types::JdbcTarget.new
         data.connection_name = map['ConnectionName']
         data.path = map['Path']
-        data.exclusions = (Parsers::PathList.parse(map['Exclusions']) unless map['Exclusions'].nil?)
+        data.exclusions = (PathList.parse(map['Exclusions']) unless map['Exclusions'].nil?)
         return data
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::Glue
     class S3TargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::S3Target.parse(value) unless value.nil?
+          S3Target.parse(value) unless value.nil?
         end
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::S3Target.new
         data.path = map['Path']
-        data.exclusions = (Parsers::PathList.parse(map['Exclusions']) unless map['Exclusions'].nil?)
+        data.exclusions = (PathList.parse(map['Exclusions']) unless map['Exclusions'].nil?)
         data.connection_name = map['ConnectionName']
         data.sample_size = map['SampleSize']
         data.event_queue_arn = map['EventQueueArn']
@@ -579,8 +581,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.custom_entity_types = (Parsers::CustomEntityTypes.parse(map['CustomEntityTypes']) unless map['CustomEntityTypes'].nil?)
-        data.custom_entity_types_not_found = (Parsers::CustomEntityTypeNames.parse(map['CustomEntityTypesNotFound']) unless map['CustomEntityTypesNotFound'].nil?)
+        data.custom_entity_types = (CustomEntityTypes.parse(map['CustomEntityTypes']) unless map['CustomEntityTypes'].nil?)
+        data.custom_entity_types_not_found = (CustomEntityTypeNames.parse(map['CustomEntityTypesNotFound']) unless map['CustomEntityTypesNotFound'].nil?)
         data
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::Glue
     class CustomEntityTypes
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomEntityType.parse(value) unless value.nil?
+          CustomEntityType.parse(value) unless value.nil?
         end
       end
     end
@@ -606,7 +608,7 @@ module AWS::SDK::Glue
         data = Types::CustomEntityType.new
         data.name = map['Name']
         data.regex_string = map['RegexString']
-        data.context_words = (Parsers::ContextWords.parse(map['ContextWords']) unless map['ContextWords'].nil?)
+        data.context_words = (ContextWords.parse(map['ContextWords']) unless map['ContextWords'].nil?)
         return data
       end
     end
@@ -626,8 +628,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dev_endpoints = (Parsers::DevEndpointList.parse(map['DevEndpoints']) unless map['DevEndpoints'].nil?)
-        data.dev_endpoints_not_found = (Parsers::DevEndpointNames.parse(map['DevEndpointsNotFound']) unless map['DevEndpointsNotFound'].nil?)
+        data.dev_endpoints = (DevEndpointList.parse(map['DevEndpoints']) unless map['DevEndpoints'].nil?)
+        data.dev_endpoints_not_found = (DevEndpointNames.parse(map['DevEndpointsNotFound']) unless map['DevEndpointsNotFound'].nil?)
         data
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::Glue
     class DevEndpointList
       def self.parse(list)
         list.map do |value|
-          Parsers::DevEndpoint.parse(value) unless value.nil?
+          DevEndpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -653,7 +655,7 @@ module AWS::SDK::Glue
         data = Types::DevEndpoint.new
         data.endpoint_name = map['EndpointName']
         data.role_arn = map['RoleArn']
-        data.security_group_ids = (Parsers::StringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (StringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.subnet_id = map['SubnetId']
         data.yarn_endpoint_address = map['YarnEndpointAddress']
         data.private_address = map['PrivateAddress']
@@ -673,9 +675,9 @@ module AWS::SDK::Glue
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_modified_timestamp = Time.at(map['LastModifiedTimestamp'].to_i) if map['LastModifiedTimestamp']
         data.public_key = map['PublicKey']
-        data.public_keys = (Parsers::PublicKeysList.parse(map['PublicKeys']) unless map['PublicKeys'].nil?)
+        data.public_keys = (PublicKeysList.parse(map['PublicKeys']) unless map['PublicKeys'].nil?)
         data.security_configuration = map['SecurityConfiguration']
-        data.arguments = (Parsers::MapValue.parse(map['Arguments']) unless map['Arguments'].nil?)
+        data.arguments = (MapValue.parse(map['Arguments']) unless map['Arguments'].nil?)
         return data
       end
     end
@@ -725,8 +727,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.jobs = (Parsers::JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
-        data.jobs_not_found = (Parsers::JobNameList.parse(map['JobsNotFound']) unless map['JobsNotFound'].nil?)
+        data.jobs = (JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs_not_found = (JobNameList.parse(map['JobsNotFound']) unless map['JobsNotFound'].nil?)
         data
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::Glue
     class JobList
       def self.parse(list)
         list.map do |value|
-          Parsers::Job.parse(value) unless value.nil?
+          Job.parse(value) unless value.nil?
         end
       end
     end
@@ -756,11 +758,11 @@ module AWS::SDK::Glue
         data.role = map['Role']
         data.created_on = Time.at(map['CreatedOn'].to_i) if map['CreatedOn']
         data.last_modified_on = Time.at(map['LastModifiedOn'].to_i) if map['LastModifiedOn']
-        data.execution_property = (Parsers::ExecutionProperty.parse(map['ExecutionProperty']) unless map['ExecutionProperty'].nil?)
-        data.command = (Parsers::JobCommand.parse(map['Command']) unless map['Command'].nil?)
-        data.default_arguments = (Parsers::GenericMap.parse(map['DefaultArguments']) unless map['DefaultArguments'].nil?)
-        data.non_overridable_arguments = (Parsers::GenericMap.parse(map['NonOverridableArguments']) unless map['NonOverridableArguments'].nil?)
-        data.connections = (Parsers::ConnectionsList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.execution_property = (ExecutionProperty.parse(map['ExecutionProperty']) unless map['ExecutionProperty'].nil?)
+        data.command = (JobCommand.parse(map['Command']) unless map['Command'].nil?)
+        data.default_arguments = (GenericMap.parse(map['DefaultArguments']) unless map['DefaultArguments'].nil?)
+        data.non_overridable_arguments = (GenericMap.parse(map['NonOverridableArguments']) unless map['NonOverridableArguments'].nil?)
+        data.connections = (ConnectionsList.parse(map['Connections']) unless map['Connections'].nil?)
         data.max_retries = map['MaxRetries']
         data.allocated_capacity = map['AllocatedCapacity']
         data.timeout = map['Timeout']
@@ -768,9 +770,9 @@ module AWS::SDK::Glue
         data.worker_type = map['WorkerType']
         data.number_of_workers = map['NumberOfWorkers']
         data.security_configuration = map['SecurityConfiguration']
-        data.notification_property = (Parsers::NotificationProperty.parse(map['NotificationProperty']) unless map['NotificationProperty'].nil?)
+        data.notification_property = (NotificationProperty.parse(map['NotificationProperty']) unless map['NotificationProperty'].nil?)
         data.glue_version = map['GlueVersion']
-        data.code_gen_configuration_nodes = (Parsers::CodeGenConfigurationNodes.parse(map['CodeGenConfigurationNodes']) unless map['CodeGenConfigurationNodes'].nil?)
+        data.code_gen_configuration_nodes = (CodeGenConfigurationNodes.parse(map['CodeGenConfigurationNodes']) unless map['CodeGenConfigurationNodes'].nil?)
         return data
       end
     end
@@ -779,7 +781,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::CodeGenConfigurationNode.parse(value) unless value.nil?
+          data[key] = CodeGenConfigurationNode.parse(value) unless value.nil?
         end
         data
       end
@@ -788,56 +790,56 @@ module AWS::SDK::Glue
     class CodeGenConfigurationNode
       def self.parse(map)
         data = Types::CodeGenConfigurationNode.new
-        data.athena_connector_source = (Parsers::AthenaConnectorSource.parse(map['AthenaConnectorSource']) unless map['AthenaConnectorSource'].nil?)
-        data.jdbc_connector_source = (Parsers::JDBCConnectorSource.parse(map['JDBCConnectorSource']) unless map['JDBCConnectorSource'].nil?)
-        data.spark_connector_source = (Parsers::SparkConnectorSource.parse(map['SparkConnectorSource']) unless map['SparkConnectorSource'].nil?)
-        data.catalog_source = (Parsers::CatalogSource.parse(map['CatalogSource']) unless map['CatalogSource'].nil?)
-        data.redshift_source = (Parsers::RedshiftSource.parse(map['RedshiftSource']) unless map['RedshiftSource'].nil?)
-        data.s3_catalog_source = (Parsers::S3CatalogSource.parse(map['S3CatalogSource']) unless map['S3CatalogSource'].nil?)
-        data.s3_csv_source = (Parsers::S3CsvSource.parse(map['S3CsvSource']) unless map['S3CsvSource'].nil?)
-        data.s3_json_source = (Parsers::S3JsonSource.parse(map['S3JsonSource']) unless map['S3JsonSource'].nil?)
-        data.s3_parquet_source = (Parsers::S3ParquetSource.parse(map['S3ParquetSource']) unless map['S3ParquetSource'].nil?)
-        data.relational_catalog_source = (Parsers::RelationalCatalogSource.parse(map['RelationalCatalogSource']) unless map['RelationalCatalogSource'].nil?)
-        data.dynamo_db_catalog_source = (Parsers::DynamoDBCatalogSource.parse(map['DynamoDBCatalogSource']) unless map['DynamoDBCatalogSource'].nil?)
-        data.jdbc_connector_target = (Parsers::JDBCConnectorTarget.parse(map['JDBCConnectorTarget']) unless map['JDBCConnectorTarget'].nil?)
-        data.spark_connector_target = (Parsers::SparkConnectorTarget.parse(map['SparkConnectorTarget']) unless map['SparkConnectorTarget'].nil?)
-        data.catalog_target = (Parsers::BasicCatalogTarget.parse(map['CatalogTarget']) unless map['CatalogTarget'].nil?)
-        data.redshift_target = (Parsers::RedshiftTarget.parse(map['RedshiftTarget']) unless map['RedshiftTarget'].nil?)
-        data.s3_catalog_target = (Parsers::S3CatalogTarget.parse(map['S3CatalogTarget']) unless map['S3CatalogTarget'].nil?)
-        data.s3_glue_parquet_target = (Parsers::S3GlueParquetTarget.parse(map['S3GlueParquetTarget']) unless map['S3GlueParquetTarget'].nil?)
-        data.s3_direct_target = (Parsers::S3DirectTarget.parse(map['S3DirectTarget']) unless map['S3DirectTarget'].nil?)
-        data.apply_mapping = (Parsers::ApplyMapping.parse(map['ApplyMapping']) unless map['ApplyMapping'].nil?)
-        data.select_fields = (Parsers::SelectFields.parse(map['SelectFields']) unless map['SelectFields'].nil?)
-        data.drop_fields = (Parsers::DropFields.parse(map['DropFields']) unless map['DropFields'].nil?)
-        data.rename_field = (Parsers::RenameField.parse(map['RenameField']) unless map['RenameField'].nil?)
-        data.spigot = (Parsers::Spigot.parse(map['Spigot']) unless map['Spigot'].nil?)
-        data.join = (Parsers::Join.parse(map['Join']) unless map['Join'].nil?)
-        data.split_fields = (Parsers::SplitFields.parse(map['SplitFields']) unless map['SplitFields'].nil?)
-        data.select_from_collection = (Parsers::SelectFromCollection.parse(map['SelectFromCollection']) unless map['SelectFromCollection'].nil?)
-        data.fill_missing_values = (Parsers::FillMissingValues.parse(map['FillMissingValues']) unless map['FillMissingValues'].nil?)
-        data.filter = (Parsers::Filter.parse(map['Filter']) unless map['Filter'].nil?)
-        data.custom_code = (Parsers::CustomCode.parse(map['CustomCode']) unless map['CustomCode'].nil?)
-        data.spark_sql = (Parsers::SparkSQL.parse(map['SparkSQL']) unless map['SparkSQL'].nil?)
-        data.direct_kinesis_source = (Parsers::DirectKinesisSource.parse(map['DirectKinesisSource']) unless map['DirectKinesisSource'].nil?)
-        data.direct_kafka_source = (Parsers::DirectKafkaSource.parse(map['DirectKafkaSource']) unless map['DirectKafkaSource'].nil?)
-        data.catalog_kinesis_source = (Parsers::CatalogKinesisSource.parse(map['CatalogKinesisSource']) unless map['CatalogKinesisSource'].nil?)
-        data.catalog_kafka_source = (Parsers::CatalogKafkaSource.parse(map['CatalogKafkaSource']) unless map['CatalogKafkaSource'].nil?)
-        data.drop_null_fields = (Parsers::DropNullFields.parse(map['DropNullFields']) unless map['DropNullFields'].nil?)
-        data.merge = (Parsers::Merge.parse(map['Merge']) unless map['Merge'].nil?)
-        data.union = (Parsers::Union.parse(map['Union']) unless map['Union'].nil?)
-        data.pii_detection = (Parsers::PIIDetection.parse(map['PIIDetection']) unless map['PIIDetection'].nil?)
-        data.aggregate = (Parsers::Aggregate.parse(map['Aggregate']) unless map['Aggregate'].nil?)
-        data.drop_duplicates = (Parsers::DropDuplicates.parse(map['DropDuplicates']) unless map['DropDuplicates'].nil?)
-        data.governed_catalog_target = (Parsers::GovernedCatalogTarget.parse(map['GovernedCatalogTarget']) unless map['GovernedCatalogTarget'].nil?)
-        data.governed_catalog_source = (Parsers::GovernedCatalogSource.parse(map['GovernedCatalogSource']) unless map['GovernedCatalogSource'].nil?)
-        data.microsoft_sql_server_catalog_source = (Parsers::MicrosoftSQLServerCatalogSource.parse(map['MicrosoftSQLServerCatalogSource']) unless map['MicrosoftSQLServerCatalogSource'].nil?)
-        data.my_sql_catalog_source = (Parsers::MySQLCatalogSource.parse(map['MySQLCatalogSource']) unless map['MySQLCatalogSource'].nil?)
-        data.oracle_sql_catalog_source = (Parsers::OracleSQLCatalogSource.parse(map['OracleSQLCatalogSource']) unless map['OracleSQLCatalogSource'].nil?)
-        data.postgre_sql_catalog_source = (Parsers::PostgreSQLCatalogSource.parse(map['PostgreSQLCatalogSource']) unless map['PostgreSQLCatalogSource'].nil?)
-        data.microsoft_sql_server_catalog_target = (Parsers::MicrosoftSQLServerCatalogTarget.parse(map['MicrosoftSQLServerCatalogTarget']) unless map['MicrosoftSQLServerCatalogTarget'].nil?)
-        data.my_sql_catalog_target = (Parsers::MySQLCatalogTarget.parse(map['MySQLCatalogTarget']) unless map['MySQLCatalogTarget'].nil?)
-        data.oracle_sql_catalog_target = (Parsers::OracleSQLCatalogTarget.parse(map['OracleSQLCatalogTarget']) unless map['OracleSQLCatalogTarget'].nil?)
-        data.postgre_sql_catalog_target = (Parsers::PostgreSQLCatalogTarget.parse(map['PostgreSQLCatalogTarget']) unless map['PostgreSQLCatalogTarget'].nil?)
+        data.athena_connector_source = (AthenaConnectorSource.parse(map['AthenaConnectorSource']) unless map['AthenaConnectorSource'].nil?)
+        data.jdbc_connector_source = (JDBCConnectorSource.parse(map['JDBCConnectorSource']) unless map['JDBCConnectorSource'].nil?)
+        data.spark_connector_source = (SparkConnectorSource.parse(map['SparkConnectorSource']) unless map['SparkConnectorSource'].nil?)
+        data.catalog_source = (CatalogSource.parse(map['CatalogSource']) unless map['CatalogSource'].nil?)
+        data.redshift_source = (RedshiftSource.parse(map['RedshiftSource']) unless map['RedshiftSource'].nil?)
+        data.s3_catalog_source = (S3CatalogSource.parse(map['S3CatalogSource']) unless map['S3CatalogSource'].nil?)
+        data.s3_csv_source = (S3CsvSource.parse(map['S3CsvSource']) unless map['S3CsvSource'].nil?)
+        data.s3_json_source = (S3JsonSource.parse(map['S3JsonSource']) unless map['S3JsonSource'].nil?)
+        data.s3_parquet_source = (S3ParquetSource.parse(map['S3ParquetSource']) unless map['S3ParquetSource'].nil?)
+        data.relational_catalog_source = (RelationalCatalogSource.parse(map['RelationalCatalogSource']) unless map['RelationalCatalogSource'].nil?)
+        data.dynamo_db_catalog_source = (DynamoDBCatalogSource.parse(map['DynamoDBCatalogSource']) unless map['DynamoDBCatalogSource'].nil?)
+        data.jdbc_connector_target = (JDBCConnectorTarget.parse(map['JDBCConnectorTarget']) unless map['JDBCConnectorTarget'].nil?)
+        data.spark_connector_target = (SparkConnectorTarget.parse(map['SparkConnectorTarget']) unless map['SparkConnectorTarget'].nil?)
+        data.catalog_target = (BasicCatalogTarget.parse(map['CatalogTarget']) unless map['CatalogTarget'].nil?)
+        data.redshift_target = (RedshiftTarget.parse(map['RedshiftTarget']) unless map['RedshiftTarget'].nil?)
+        data.s3_catalog_target = (S3CatalogTarget.parse(map['S3CatalogTarget']) unless map['S3CatalogTarget'].nil?)
+        data.s3_glue_parquet_target = (S3GlueParquetTarget.parse(map['S3GlueParquetTarget']) unless map['S3GlueParquetTarget'].nil?)
+        data.s3_direct_target = (S3DirectTarget.parse(map['S3DirectTarget']) unless map['S3DirectTarget'].nil?)
+        data.apply_mapping = (ApplyMapping.parse(map['ApplyMapping']) unless map['ApplyMapping'].nil?)
+        data.select_fields = (SelectFields.parse(map['SelectFields']) unless map['SelectFields'].nil?)
+        data.drop_fields = (DropFields.parse(map['DropFields']) unless map['DropFields'].nil?)
+        data.rename_field = (RenameField.parse(map['RenameField']) unless map['RenameField'].nil?)
+        data.spigot = (Spigot.parse(map['Spigot']) unless map['Spigot'].nil?)
+        data.join = (Join.parse(map['Join']) unless map['Join'].nil?)
+        data.split_fields = (SplitFields.parse(map['SplitFields']) unless map['SplitFields'].nil?)
+        data.select_from_collection = (SelectFromCollection.parse(map['SelectFromCollection']) unless map['SelectFromCollection'].nil?)
+        data.fill_missing_values = (FillMissingValues.parse(map['FillMissingValues']) unless map['FillMissingValues'].nil?)
+        data.filter = (Filter.parse(map['Filter']) unless map['Filter'].nil?)
+        data.custom_code = (CustomCode.parse(map['CustomCode']) unless map['CustomCode'].nil?)
+        data.spark_sql = (SparkSQL.parse(map['SparkSQL']) unless map['SparkSQL'].nil?)
+        data.direct_kinesis_source = (DirectKinesisSource.parse(map['DirectKinesisSource']) unless map['DirectKinesisSource'].nil?)
+        data.direct_kafka_source = (DirectKafkaSource.parse(map['DirectKafkaSource']) unless map['DirectKafkaSource'].nil?)
+        data.catalog_kinesis_source = (CatalogKinesisSource.parse(map['CatalogKinesisSource']) unless map['CatalogKinesisSource'].nil?)
+        data.catalog_kafka_source = (CatalogKafkaSource.parse(map['CatalogKafkaSource']) unless map['CatalogKafkaSource'].nil?)
+        data.drop_null_fields = (DropNullFields.parse(map['DropNullFields']) unless map['DropNullFields'].nil?)
+        data.merge = (Merge.parse(map['Merge']) unless map['Merge'].nil?)
+        data.union = (Union.parse(map['Union']) unless map['Union'].nil?)
+        data.pii_detection = (PIIDetection.parse(map['PIIDetection']) unless map['PIIDetection'].nil?)
+        data.aggregate = (Aggregate.parse(map['Aggregate']) unless map['Aggregate'].nil?)
+        data.drop_duplicates = (DropDuplicates.parse(map['DropDuplicates']) unless map['DropDuplicates'].nil?)
+        data.governed_catalog_target = (GovernedCatalogTarget.parse(map['GovernedCatalogTarget']) unless map['GovernedCatalogTarget'].nil?)
+        data.governed_catalog_source = (GovernedCatalogSource.parse(map['GovernedCatalogSource']) unless map['GovernedCatalogSource'].nil?)
+        data.microsoft_sql_server_catalog_source = (MicrosoftSQLServerCatalogSource.parse(map['MicrosoftSQLServerCatalogSource']) unless map['MicrosoftSQLServerCatalogSource'].nil?)
+        data.my_sql_catalog_source = (MySQLCatalogSource.parse(map['MySQLCatalogSource']) unless map['MySQLCatalogSource'].nil?)
+        data.oracle_sql_catalog_source = (OracleSQLCatalogSource.parse(map['OracleSQLCatalogSource']) unless map['OracleSQLCatalogSource'].nil?)
+        data.postgre_sql_catalog_source = (PostgreSQLCatalogSource.parse(map['PostgreSQLCatalogSource']) unless map['PostgreSQLCatalogSource'].nil?)
+        data.microsoft_sql_server_catalog_target = (MicrosoftSQLServerCatalogTarget.parse(map['MicrosoftSQLServerCatalogTarget']) unless map['MicrosoftSQLServerCatalogTarget'].nil?)
+        data.my_sql_catalog_target = (MySQLCatalogTarget.parse(map['MySQLCatalogTarget']) unless map['MySQLCatalogTarget'].nil?)
+        data.oracle_sql_catalog_target = (OracleSQLCatalogTarget.parse(map['OracleSQLCatalogTarget']) unless map['OracleSQLCatalogTarget'].nil?)
+        data.postgre_sql_catalog_target = (PostgreSQLCatalogTarget.parse(map['PostgreSQLCatalogTarget']) unless map['PostgreSQLCatalogTarget'].nil?)
         return data
       end
     end
@@ -846,7 +848,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::PostgreSQLCatalogTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.database = map['Database']
         data.table = map['Table']
         return data
@@ -865,7 +867,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::OracleSQLCatalogTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.database = map['Database']
         data.table = map['Table']
         return data
@@ -876,7 +878,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::MySQLCatalogTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.database = map['Database']
         data.table = map['Table']
         return data
@@ -887,7 +889,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::MicrosoftSQLServerCatalogTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.database = map['Database']
         data.table = map['Table']
         return data
@@ -941,7 +943,7 @@ module AWS::SDK::Glue
         data.database = map['Database']
         data.table = map['Table']
         data.partition_predicate = map['PartitionPredicate']
-        data.additional_options = (Parsers::S3SourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.additional_options = (S3SourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
         return data
       end
     end
@@ -959,11 +961,11 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::GovernedCatalogTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.partition_keys = (Parsers::GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.partition_keys = (GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
         data.table = map['Table']
         data.database = map['Database']
-        data.schema_change_policy = (Parsers::CatalogSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
+        data.schema_change_policy = (CatalogSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
         return data
       end
     end
@@ -980,7 +982,7 @@ module AWS::SDK::Glue
     class GlueStudioPathList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnclosedInStringProperties.parse(value) unless value.nil?
+          EnclosedInStringProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -997,8 +999,8 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::DropDuplicates.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.columns = (Parsers::LimitedPathList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.columns = (LimitedPathList.parse(map['Columns']) unless map['Columns'].nil?)
         return data
       end
     end
@@ -1006,7 +1008,7 @@ module AWS::SDK::Glue
     class LimitedPathList
       def self.parse(list)
         list.map do |value|
-          Parsers::LimitedStringList.parse(value) unless value.nil?
+          LimitedStringList.parse(value) unless value.nil?
         end
       end
     end
@@ -1023,9 +1025,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Aggregate.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.groups = (Parsers::GlueStudioPathList.parse(map['Groups']) unless map['Groups'].nil?)
-        data.aggs = (Parsers::AggregateOperations.parse(map['Aggs']) unless map['Aggs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.groups = (GlueStudioPathList.parse(map['Groups']) unless map['Groups'].nil?)
+        data.aggs = (AggregateOperations.parse(map['Aggs']) unless map['Aggs'].nil?)
         return data
       end
     end
@@ -1033,7 +1035,7 @@ module AWS::SDK::Glue
     class AggregateOperations
       def self.parse(list)
         list.map do |value|
-          Parsers::AggregateOperation.parse(value) unless value.nil?
+          AggregateOperation.parse(value) unless value.nil?
         end
       end
     end
@@ -1041,7 +1043,7 @@ module AWS::SDK::Glue
     class AggregateOperation
       def self.parse(map)
         data = Types::AggregateOperation.new
-        data.column = (Parsers::EnclosedInStringProperties.parse(map['Column']) unless map['Column'].nil?)
+        data.column = (EnclosedInStringProperties.parse(map['Column']) unless map['Column'].nil?)
         data.agg_func = map['AggFunc']
         return data
       end
@@ -1051,9 +1053,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::PIIDetection.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.pii_type = map['PiiType']
-        data.entity_types_to_detect = (Parsers::EnclosedInStringProperties.parse(map['EntityTypesToDetect']) unless map['EntityTypesToDetect'].nil?)
+        data.entity_types_to_detect = (EnclosedInStringProperties.parse(map['EntityTypesToDetect']) unless map['EntityTypesToDetect'].nil?)
         data.output_column_name = map['OutputColumnName']
         data.sample_fraction = Hearth::NumberHelper.deserialize(map['SampleFraction'])
         data.threshold_fraction = Hearth::NumberHelper.deserialize(map['ThresholdFraction'])
@@ -1066,7 +1068,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Union.new
         data.name = map['Name']
-        data.inputs = (Parsers::TwoInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (TwoInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.union_type = map['UnionType']
         return data
       end
@@ -1084,9 +1086,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Merge.new
         data.name = map['Name']
-        data.inputs = (Parsers::TwoInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (TwoInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.source = map['Source']
-        data.primary_keys = (Parsers::GlueStudioPathList.parse(map['PrimaryKeys']) unless map['PrimaryKeys'].nil?)
+        data.primary_keys = (GlueStudioPathList.parse(map['PrimaryKeys']) unless map['PrimaryKeys'].nil?)
         return data
       end
     end
@@ -1095,9 +1097,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::DropNullFields.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.null_check_box_list = (Parsers::NullCheckBoxList.parse(map['NullCheckBoxList']) unless map['NullCheckBoxList'].nil?)
-        data.null_text_list = (Parsers::NullValueFields.parse(map['NullTextList']) unless map['NullTextList'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.null_check_box_list = (NullCheckBoxList.parse(map['NullCheckBoxList']) unless map['NullCheckBoxList'].nil?)
+        data.null_text_list = (NullValueFields.parse(map['NullTextList']) unless map['NullTextList'].nil?)
         return data
       end
     end
@@ -1105,7 +1107,7 @@ module AWS::SDK::Glue
     class NullValueFields
       def self.parse(list)
         list.map do |value|
-          Parsers::NullValueField.parse(value) unless value.nil?
+          NullValueField.parse(value) unless value.nil?
         end
       end
     end
@@ -1114,7 +1116,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::NullValueField.new
         data.value = map['Value']
-        data.datatype = (Parsers::Datatype.parse(map['Datatype']) unless map['Datatype'].nil?)
+        data.datatype = (Datatype.parse(map['Datatype']) unless map['Datatype'].nil?)
         return data
       end
     end
@@ -1146,8 +1148,8 @@ module AWS::SDK::Glue
         data.detect_schema = map['DetectSchema']
         data.table = map['Table']
         data.database = map['Database']
-        data.streaming_options = (Parsers::KafkaStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
-        data.data_preview_options = (Parsers::StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
+        data.streaming_options = (KafkaStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
+        data.data_preview_options = (StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
         return data
       end
     end
@@ -1191,8 +1193,8 @@ module AWS::SDK::Glue
         data.detect_schema = map['DetectSchema']
         data.table = map['Table']
         data.database = map['Database']
-        data.streaming_options = (Parsers::KinesisStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
-        data.data_preview_options = (Parsers::StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
+        data.streaming_options = (KinesisStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
+        data.data_preview_options = (StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
         return data
       end
     end
@@ -1226,10 +1228,10 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::DirectKafkaSource.new
         data.name = map['Name']
-        data.streaming_options = (Parsers::KafkaStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
+        data.streaming_options = (KafkaStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
         data.window_size = map['WindowSize']
         data.detect_schema = map['DetectSchema']
-        data.data_preview_options = (Parsers::StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
+        data.data_preview_options = (StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
         return data
       end
     end
@@ -1240,8 +1242,8 @@ module AWS::SDK::Glue
         data.name = map['Name']
         data.window_size = map['WindowSize']
         data.detect_schema = map['DetectSchema']
-        data.streaming_options = (Parsers::KinesisStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
-        data.data_preview_options = (Parsers::StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
+        data.streaming_options = (KinesisStreamingSourceOptions.parse(map['StreamingOptions']) unless map['StreamingOptions'].nil?)
+        data.data_preview_options = (StreamingDataPreviewOptions.parse(map['DataPreviewOptions']) unless map['DataPreviewOptions'].nil?)
         return data
       end
     end
@@ -1250,10 +1252,10 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::SparkSQL.new
         data.name = map['Name']
-        data.inputs = (Parsers::ManyInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (ManyInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.sql_query = map['SqlQuery']
-        data.sql_aliases = (Parsers::SqlAliases.parse(map['SqlAliases']) unless map['SqlAliases'].nil?)
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.sql_aliases = (SqlAliases.parse(map['SqlAliases']) unless map['SqlAliases'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1261,7 +1263,7 @@ module AWS::SDK::Glue
     class GlueSchemas
       def self.parse(list)
         list.map do |value|
-          Parsers::GlueSchema.parse(value) unless value.nil?
+          GlueSchema.parse(value) unless value.nil?
         end
       end
     end
@@ -1269,7 +1271,7 @@ module AWS::SDK::Glue
     class GlueSchema
       def self.parse(map)
         data = Types::GlueSchema.new
-        data.columns = (Parsers::GlueStudioSchemaColumnList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.columns = (GlueStudioSchemaColumnList.parse(map['Columns']) unless map['Columns'].nil?)
         return data
       end
     end
@@ -1277,7 +1279,7 @@ module AWS::SDK::Glue
     class GlueStudioSchemaColumnList
       def self.parse(list)
         list.map do |value|
-          Parsers::GlueStudioSchemaColumn.parse(value) unless value.nil?
+          GlueStudioSchemaColumn.parse(value) unless value.nil?
         end
       end
     end
@@ -1294,7 +1296,7 @@ module AWS::SDK::Glue
     class SqlAliases
       def self.parse(list)
         list.map do |value|
-          Parsers::SqlAlias.parse(value) unless value.nil?
+          SqlAlias.parse(value) unless value.nil?
         end
       end
     end
@@ -1320,10 +1322,10 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::CustomCode.new
         data.name = map['Name']
-        data.inputs = (Parsers::ManyInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (ManyInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.code = map['Code']
         data.class_name = map['ClassName']
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1332,9 +1334,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Filter.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.logical_operator = map['LogicalOperator']
-        data.filters = (Parsers::FilterExpressions.parse(map['Filters']) unless map['Filters'].nil?)
+        data.filters = (FilterExpressions.parse(map['Filters']) unless map['Filters'].nil?)
         return data
       end
     end
@@ -1342,7 +1344,7 @@ module AWS::SDK::Glue
     class FilterExpressions
       def self.parse(list)
         list.map do |value|
-          Parsers::FilterExpression.parse(value) unless value.nil?
+          FilterExpression.parse(value) unless value.nil?
         end
       end
     end
@@ -1352,7 +1354,7 @@ module AWS::SDK::Glue
         data = Types::FilterExpression.new
         data.operation = map['Operation']
         data.negated = map['Negated']
-        data.values = (Parsers::FilterValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (FilterValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1360,7 +1362,7 @@ module AWS::SDK::Glue
     class FilterValues
       def self.parse(list)
         list.map do |value|
-          Parsers::FilterValue.parse(value) unless value.nil?
+          FilterValue.parse(value) unless value.nil?
         end
       end
     end
@@ -1369,7 +1371,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::FilterValue.new
         data.type = map['Type']
-        data.value = (Parsers::EnclosedInStringProperties.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (EnclosedInStringProperties.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -1378,7 +1380,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::FillMissingValues.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.imputed_path = map['ImputedPath']
         data.filled_path = map['FilledPath']
         return data
@@ -1389,7 +1391,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::SelectFromCollection.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.index = map['Index']
         return data
       end
@@ -1399,8 +1401,8 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::SplitFields.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.paths = (Parsers::GlueStudioPathList.parse(map['Paths']) unless map['Paths'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.paths = (GlueStudioPathList.parse(map['Paths']) unless map['Paths'].nil?)
         return data
       end
     end
@@ -1409,9 +1411,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Join.new
         data.name = map['Name']
-        data.inputs = (Parsers::TwoInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (TwoInputs.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.join_type = map['JoinType']
-        data.columns = (Parsers::JoinColumns.parse(map['Columns']) unless map['Columns'].nil?)
+        data.columns = (JoinColumns.parse(map['Columns']) unless map['Columns'].nil?)
         return data
       end
     end
@@ -1419,7 +1421,7 @@ module AWS::SDK::Glue
     class JoinColumns
       def self.parse(list)
         list.map do |value|
-          Parsers::JoinColumn.parse(value) unless value.nil?
+          JoinColumn.parse(value) unless value.nil?
         end
       end
     end
@@ -1428,7 +1430,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::JoinColumn.new
         data.from = map['From']
-        data.keys = (Parsers::GlueStudioPathList.parse(map['Keys']) unless map['Keys'].nil?)
+        data.keys = (GlueStudioPathList.parse(map['Keys']) unless map['Keys'].nil?)
         return data
       end
     end
@@ -1437,7 +1439,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Spigot.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.path = map['Path']
         data.topk = map['Topk']
         data.prob = Hearth::NumberHelper.deserialize(map['Prob'])
@@ -1449,9 +1451,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::RenameField.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.source_path = (Parsers::EnclosedInStringProperties.parse(map['SourcePath']) unless map['SourcePath'].nil?)
-        data.target_path = (Parsers::EnclosedInStringProperties.parse(map['TargetPath']) unless map['TargetPath'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.source_path = (EnclosedInStringProperties.parse(map['SourcePath']) unless map['SourcePath'].nil?)
+        data.target_path = (EnclosedInStringProperties.parse(map['TargetPath']) unless map['TargetPath'].nil?)
         return data
       end
     end
@@ -1460,8 +1462,8 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::DropFields.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.paths = (Parsers::GlueStudioPathList.parse(map['Paths']) unless map['Paths'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.paths = (GlueStudioPathList.parse(map['Paths']) unless map['Paths'].nil?)
         return data
       end
     end
@@ -1470,8 +1472,8 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::SelectFields.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.paths = (Parsers::GlueStudioPathList.parse(map['Paths']) unless map['Paths'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.paths = (GlueStudioPathList.parse(map['Paths']) unless map['Paths'].nil?)
         return data
       end
     end
@@ -1480,8 +1482,8 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::ApplyMapping.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.mapping = (Parsers::Mappings.parse(map['Mapping']) unless map['Mapping'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.mapping = (Mappings.parse(map['Mapping']) unless map['Mapping'].nil?)
         return data
       end
     end
@@ -1489,7 +1491,7 @@ module AWS::SDK::Glue
     class Mappings
       def self.parse(list)
         list.map do |value|
-          Parsers::Mapping.parse(value) unless value.nil?
+          Mapping.parse(value) unless value.nil?
         end
       end
     end
@@ -1498,11 +1500,11 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Mapping.new
         data.to_key = map['ToKey']
-        data.from_path = (Parsers::EnclosedInStringProperties.parse(map['FromPath']) unless map['FromPath'].nil?)
+        data.from_path = (EnclosedInStringProperties.parse(map['FromPath']) unless map['FromPath'].nil?)
         data.from_type = map['FromType']
         data.to_type = map['ToType']
         data.dropped = map['Dropped']
-        data.children = (Parsers::Mappings.parse(map['Children']) unless map['Children'].nil?)
+        data.children = (Mappings.parse(map['Children']) unless map['Children'].nil?)
         return data
       end
     end
@@ -1511,12 +1513,12 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::S3DirectTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.partition_keys = (Parsers::GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.partition_keys = (GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
         data.path = map['Path']
         data.compression = map['Compression']
         data.format = map['Format']
-        data.schema_change_policy = (Parsers::DirectSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
+        data.schema_change_policy = (DirectSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
         return data
       end
     end
@@ -1536,11 +1538,11 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::S3GlueParquetTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.partition_keys = (Parsers::GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.partition_keys = (GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
         data.path = map['Path']
         data.compression = map['Compression']
-        data.schema_change_policy = (Parsers::DirectSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
+        data.schema_change_policy = (DirectSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
         return data
       end
     end
@@ -1549,11 +1551,11 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::S3CatalogTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.partition_keys = (Parsers::GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.partition_keys = (GlueStudioPathList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
         data.table = map['Table']
         data.database = map['Database']
-        data.schema_change_policy = (Parsers::CatalogSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
+        data.schema_change_policy = (CatalogSchemaChangePolicy.parse(map['SchemaChangePolicy']) unless map['SchemaChangePolicy'].nil?)
         return data
       end
     end
@@ -1562,12 +1564,12 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::RedshiftTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.database = map['Database']
         data.table = map['Table']
         data.redshift_tmp_dir = map['RedshiftTmpDir']
         data.tmp_dir_iam_role = map['TmpDirIAMRole']
-        data.upsert_redshift_options = (Parsers::UpsertRedshiftTargetOptions.parse(map['UpsertRedshiftOptions']) unless map['UpsertRedshiftOptions'].nil?)
+        data.upsert_redshift_options = (UpsertRedshiftTargetOptions.parse(map['UpsertRedshiftOptions']) unless map['UpsertRedshiftOptions'].nil?)
         return data
       end
     end
@@ -1577,7 +1579,7 @@ module AWS::SDK::Glue
         data = Types::UpsertRedshiftTargetOptions.new
         data.table_location = map['TableLocation']
         data.connection_name = map['ConnectionName']
-        data.upsert_keys = (Parsers::EnclosedInStringPropertiesMinOne.parse(map['UpsertKeys']) unless map['UpsertKeys'].nil?)
+        data.upsert_keys = (EnclosedInStringPropertiesMinOne.parse(map['UpsertKeys']) unless map['UpsertKeys'].nil?)
         return data
       end
     end
@@ -1594,7 +1596,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::BasicCatalogTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.database = map['Database']
         data.table = map['Table']
         return data
@@ -1605,12 +1607,12 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::SparkConnectorTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.connection_name = map['ConnectionName']
         data.connector_name = map['ConnectorName']
         data.connection_type = map['ConnectionType']
-        data.additional_options = (Parsers::AdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.additional_options = (AdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1629,13 +1631,13 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::JDBCConnectorTarget.new
         data.name = map['Name']
-        data.inputs = (Parsers::OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.inputs = (OneInput.parse(map['Inputs']) unless map['Inputs'].nil?)
         data.connection_name = map['ConnectionName']
         data.connection_table = map['ConnectionTable']
         data.connector_name = map['ConnectorName']
         data.connection_type = map['ConnectionType']
-        data.additional_options = (Parsers::AdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.additional_options = (AdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1664,16 +1666,16 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::S3ParquetSource.new
         data.name = map['Name']
-        data.paths = (Parsers::EnclosedInStringProperties.parse(map['Paths']) unless map['Paths'].nil?)
+        data.paths = (EnclosedInStringProperties.parse(map['Paths']) unless map['Paths'].nil?)
         data.compression_type = map['CompressionType']
-        data.exclusions = (Parsers::EnclosedInStringProperties.parse(map['Exclusions']) unless map['Exclusions'].nil?)
+        data.exclusions = (EnclosedInStringProperties.parse(map['Exclusions']) unless map['Exclusions'].nil?)
         data.group_size = map['GroupSize']
         data.group_files = map['GroupFiles']
         data.recurse = map['Recurse']
         data.max_band = map['MaxBand']
         data.max_files_in_band = map['MaxFilesInBand']
-        data.additional_options = (Parsers::S3DirectSourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.additional_options = (S3DirectSourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1693,18 +1695,18 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::S3JsonSource.new
         data.name = map['Name']
-        data.paths = (Parsers::EnclosedInStringProperties.parse(map['Paths']) unless map['Paths'].nil?)
+        data.paths = (EnclosedInStringProperties.parse(map['Paths']) unless map['Paths'].nil?)
         data.compression_type = map['CompressionType']
-        data.exclusions = (Parsers::EnclosedInStringProperties.parse(map['Exclusions']) unless map['Exclusions'].nil?)
+        data.exclusions = (EnclosedInStringProperties.parse(map['Exclusions']) unless map['Exclusions'].nil?)
         data.group_size = map['GroupSize']
         data.group_files = map['GroupFiles']
         data.recurse = map['Recurse']
         data.max_band = map['MaxBand']
         data.max_files_in_band = map['MaxFilesInBand']
-        data.additional_options = (Parsers::S3DirectSourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.additional_options = (S3DirectSourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
         data.json_path = map['JsonPath']
         data.multiline = map['Multiline']
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1713,15 +1715,15 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::S3CsvSource.new
         data.name = map['Name']
-        data.paths = (Parsers::EnclosedInStringProperties.parse(map['Paths']) unless map['Paths'].nil?)
+        data.paths = (EnclosedInStringProperties.parse(map['Paths']) unless map['Paths'].nil?)
         data.compression_type = map['CompressionType']
-        data.exclusions = (Parsers::EnclosedInStringProperties.parse(map['Exclusions']) unless map['Exclusions'].nil?)
+        data.exclusions = (EnclosedInStringProperties.parse(map['Exclusions']) unless map['Exclusions'].nil?)
         data.group_size = map['GroupSize']
         data.group_files = map['GroupFiles']
         data.recurse = map['Recurse']
         data.max_band = map['MaxBand']
         data.max_files_in_band = map['MaxFilesInBand']
-        data.additional_options = (Parsers::S3DirectSourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.additional_options = (S3DirectSourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
         data.separator = map['Separator']
         data.escaper = map['Escaper']
         data.quote_char = map['QuoteChar']
@@ -1730,7 +1732,7 @@ module AWS::SDK::Glue
         data.write_header = map['WriteHeader']
         data.skip_first = map['SkipFirst']
         data.optimize_performance = map['OptimizePerformance']
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1742,7 +1744,7 @@ module AWS::SDK::Glue
         data.database = map['Database']
         data.table = map['Table']
         data.partition_predicate = map['PartitionPredicate']
-        data.additional_options = (Parsers::S3SourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.additional_options = (S3SourceAdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
         return data
       end
     end
@@ -1776,8 +1778,8 @@ module AWS::SDK::Glue
         data.connection_name = map['ConnectionName']
         data.connector_name = map['ConnectorName']
         data.connection_type = map['ConnectionType']
-        data.additional_options = (Parsers::AdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.additional_options = (AdditionalOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1789,10 +1791,10 @@ module AWS::SDK::Glue
         data.connection_name = map['ConnectionName']
         data.connector_name = map['ConnectorName']
         data.connection_type = map['ConnectionType']
-        data.additional_options = (Parsers::JDBCConnectorOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
+        data.additional_options = (JDBCConnectorOptions.parse(map['AdditionalOptions']) unless map['AdditionalOptions'].nil?)
         data.connection_table = map['ConnectionTable']
         data.query = map['Query']
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1805,9 +1807,9 @@ module AWS::SDK::Glue
         data.lower_bound = map['LowerBound']
         data.upper_bound = map['UpperBound']
         data.num_partitions = map['NumPartitions']
-        data.job_bookmark_keys = (Parsers::EnclosedInStringProperties.parse(map['JobBookmarkKeys']) unless map['JobBookmarkKeys'].nil?)
+        data.job_bookmark_keys = (EnclosedInStringProperties.parse(map['JobBookmarkKeys']) unless map['JobBookmarkKeys'].nil?)
         data.job_bookmark_keys_sort_order = map['JobBookmarkKeysSortOrder']
-        data.data_type_mapping = (Parsers::JDBCDataTypeMapping.parse(map['DataTypeMapping']) unless map['DataTypeMapping'].nil?)
+        data.data_type_mapping = (JDBCDataTypeMapping.parse(map['DataTypeMapping']) unless map['DataTypeMapping'].nil?)
         return data
       end
     end
@@ -1831,7 +1833,7 @@ module AWS::SDK::Glue
         data.connection_type = map['ConnectionType']
         data.connection_table = map['ConnectionTable']
         data.schema_name = map['SchemaName']
-        data.output_schemas = (Parsers::GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
+        data.output_schemas = (GlueSchemas.parse(map['OutputSchemas']) unless map['OutputSchemas'].nil?)
         return data
       end
     end
@@ -1847,7 +1849,7 @@ module AWS::SDK::Glue
     class ConnectionsList
       def self.parse(map)
         data = Types::ConnectionsList.new
-        data.connections = (Parsers::OrchestrationStringList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.connections = (OrchestrationStringList.parse(map['Connections']) unless map['Connections'].nil?)
         return data
       end
     end
@@ -1895,8 +1897,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.partitions = (Parsers::PartitionList.parse(map['Partitions']) unless map['Partitions'].nil?)
-        data.unprocessed_keys = (Parsers::BatchGetPartitionValueList.parse(map['UnprocessedKeys']) unless map['UnprocessedKeys'].nil?)
+        data.partitions = (PartitionList.parse(map['Partitions']) unless map['Partitions'].nil?)
+        data.unprocessed_keys = (BatchGetPartitionValueList.parse(map['UnprocessedKeys']) unless map['UnprocessedKeys'].nil?)
         data
       end
     end
@@ -1904,7 +1906,7 @@ module AWS::SDK::Glue
     class BatchGetPartitionValueList
       def self.parse(list)
         list.map do |value|
-          Parsers::PartitionValueList.parse(value) unless value.nil?
+          PartitionValueList.parse(value) unless value.nil?
         end
       end
     end
@@ -1912,7 +1914,7 @@ module AWS::SDK::Glue
     class PartitionValueList
       def self.parse(map)
         data = Types::PartitionValueList.new
-        data.values = (Parsers::ValueStringList.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (ValueStringList.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1920,7 +1922,7 @@ module AWS::SDK::Glue
     class PartitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Partition.parse(value) unless value.nil?
+          Partition.parse(value) unless value.nil?
         end
       end
     end
@@ -1928,13 +1930,13 @@ module AWS::SDK::Glue
     class Partition
       def self.parse(map)
         data = Types::Partition.new
-        data.values = (Parsers::ValueStringList.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (ValueStringList.parse(map['Values']) unless map['Values'].nil?)
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_access_time = Time.at(map['LastAccessTime'].to_i) if map['LastAccessTime']
-        data.storage_descriptor = (Parsers::StorageDescriptor.parse(map['StorageDescriptor']) unless map['StorageDescriptor'].nil?)
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.storage_descriptor = (StorageDescriptor.parse(map['StorageDescriptor']) unless map['StorageDescriptor'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.last_analyzed_time = Time.at(map['LastAnalyzedTime'].to_i) if map['LastAnalyzedTime']
         data.catalog_id = map['CatalogId']
         return data
@@ -1954,20 +1956,20 @@ module AWS::SDK::Glue
     class StorageDescriptor
       def self.parse(map)
         data = Types::StorageDescriptor.new
-        data.columns = (Parsers::ColumnList.parse(map['Columns']) unless map['Columns'].nil?)
+        data.columns = (ColumnList.parse(map['Columns']) unless map['Columns'].nil?)
         data.location = map['Location']
-        data.additional_locations = (Parsers::LocationStringList.parse(map['AdditionalLocations']) unless map['AdditionalLocations'].nil?)
+        data.additional_locations = (LocationStringList.parse(map['AdditionalLocations']) unless map['AdditionalLocations'].nil?)
         data.input_format = map['InputFormat']
         data.output_format = map['OutputFormat']
         data.compressed = map['Compressed']
         data.number_of_buckets = map['NumberOfBuckets']
-        data.serde_info = (Parsers::SerDeInfo.parse(map['SerdeInfo']) unless map['SerdeInfo'].nil?)
-        data.bucket_columns = (Parsers::NameStringList.parse(map['BucketColumns']) unless map['BucketColumns'].nil?)
-        data.sort_columns = (Parsers::OrderList.parse(map['SortColumns']) unless map['SortColumns'].nil?)
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.skewed_info = (Parsers::SkewedInfo.parse(map['SkewedInfo']) unless map['SkewedInfo'].nil?)
+        data.serde_info = (SerDeInfo.parse(map['SerdeInfo']) unless map['SerdeInfo'].nil?)
+        data.bucket_columns = (NameStringList.parse(map['BucketColumns']) unless map['BucketColumns'].nil?)
+        data.sort_columns = (OrderList.parse(map['SortColumns']) unless map['SortColumns'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.skewed_info = (SkewedInfo.parse(map['SkewedInfo']) unless map['SkewedInfo'].nil?)
         data.stored_as_sub_directories = map['StoredAsSubDirectories']
-        data.schema_reference = (Parsers::SchemaReference.parse(map['SchemaReference']) unless map['SchemaReference'].nil?)
+        data.schema_reference = (SchemaReference.parse(map['SchemaReference']) unless map['SchemaReference'].nil?)
         return data
       end
     end
@@ -1975,7 +1977,7 @@ module AWS::SDK::Glue
     class SchemaReference
       def self.parse(map)
         data = Types::SchemaReference.new
-        data.schema_id = (Parsers::SchemaId.parse(map['SchemaId']) unless map['SchemaId'].nil?)
+        data.schema_id = (SchemaId.parse(map['SchemaId']) unless map['SchemaId'].nil?)
         data.schema_version_id = map['SchemaVersionId']
         data.schema_version_number = map['SchemaVersionNumber']
         return data
@@ -1995,9 +1997,9 @@ module AWS::SDK::Glue
     class SkewedInfo
       def self.parse(map)
         data = Types::SkewedInfo.new
-        data.skewed_column_names = (Parsers::NameStringList.parse(map['SkewedColumnNames']) unless map['SkewedColumnNames'].nil?)
-        data.skewed_column_values = (Parsers::ColumnValueStringList.parse(map['SkewedColumnValues']) unless map['SkewedColumnValues'].nil?)
-        data.skewed_column_value_location_maps = (Parsers::LocationMap.parse(map['SkewedColumnValueLocationMaps']) unless map['SkewedColumnValueLocationMaps'].nil?)
+        data.skewed_column_names = (NameStringList.parse(map['SkewedColumnNames']) unless map['SkewedColumnNames'].nil?)
+        data.skewed_column_values = (ColumnValueStringList.parse(map['SkewedColumnValues']) unless map['SkewedColumnValues'].nil?)
+        data.skewed_column_value_location_maps = (LocationMap.parse(map['SkewedColumnValueLocationMaps']) unless map['SkewedColumnValueLocationMaps'].nil?)
         return data
       end
     end
@@ -2023,7 +2025,7 @@ module AWS::SDK::Glue
     class OrderList
       def self.parse(list)
         list.map do |value|
-          Parsers::Order.parse(value) unless value.nil?
+          Order.parse(value) unless value.nil?
         end
       end
     end
@@ -2042,7 +2044,7 @@ module AWS::SDK::Glue
         data = Types::SerDeInfo.new
         data.name = map['Name']
         data.serialization_library = map['SerializationLibrary']
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -2058,7 +2060,7 @@ module AWS::SDK::Glue
     class ColumnList
       def self.parse(list)
         list.map do |value|
-          Parsers::Column.parse(value) unless value.nil?
+          Column.parse(value) unless value.nil?
         end
       end
     end
@@ -2069,7 +2071,7 @@ module AWS::SDK::Glue
         data.name = map['Name']
         data.type = map['Type']
         data.comment = map['Comment']
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -2093,8 +2095,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.triggers = (Parsers::TriggerList.parse(map['Triggers']) unless map['Triggers'].nil?)
-        data.triggers_not_found = (Parsers::TriggerNameList.parse(map['TriggersNotFound']) unless map['TriggersNotFound'].nil?)
+        data.triggers = (TriggerList.parse(map['Triggers']) unless map['Triggers'].nil?)
+        data.triggers_not_found = (TriggerNameList.parse(map['TriggersNotFound']) unless map['TriggersNotFound'].nil?)
         data
       end
     end
@@ -2110,7 +2112,7 @@ module AWS::SDK::Glue
     class TriggerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Trigger.parse(value) unless value.nil?
+          Trigger.parse(value) unless value.nil?
         end
       end
     end
@@ -2125,9 +2127,9 @@ module AWS::SDK::Glue
         data.state = map['State']
         data.description = map['Description']
         data.schedule = map['Schedule']
-        data.actions = (Parsers::ActionList.parse(map['Actions']) unless map['Actions'].nil?)
-        data.predicate = (Parsers::Predicate.parse(map['Predicate']) unless map['Predicate'].nil?)
-        data.event_batching_condition = (Parsers::EventBatchingCondition.parse(map['EventBatchingCondition']) unless map['EventBatchingCondition'].nil?)
+        data.actions = (ActionList.parse(map['Actions']) unless map['Actions'].nil?)
+        data.predicate = (Predicate.parse(map['Predicate']) unless map['Predicate'].nil?)
+        data.event_batching_condition = (EventBatchingCondition.parse(map['EventBatchingCondition']) unless map['EventBatchingCondition'].nil?)
         return data
       end
     end
@@ -2145,7 +2147,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Predicate.new
         data.logical = map['Logical']
-        data.conditions = (Parsers::ConditionList.parse(map['Conditions']) unless map['Conditions'].nil?)
+        data.conditions = (ConditionList.parse(map['Conditions']) unless map['Conditions'].nil?)
         return data
       end
     end
@@ -2153,7 +2155,7 @@ module AWS::SDK::Glue
     class ConditionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Condition.parse(value) unless value.nil?
+          Condition.parse(value) unless value.nil?
         end
       end
     end
@@ -2173,7 +2175,7 @@ module AWS::SDK::Glue
     class ActionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Action.parse(value) unless value.nil?
+          Action.parse(value) unless value.nil?
         end
       end
     end
@@ -2182,10 +2184,10 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::Action.new
         data.job_name = map['JobName']
-        data.arguments = (Parsers::GenericMap.parse(map['Arguments']) unless map['Arguments'].nil?)
+        data.arguments = (GenericMap.parse(map['Arguments']) unless map['Arguments'].nil?)
         data.timeout = map['Timeout']
         data.security_configuration = map['SecurityConfiguration']
-        data.notification_property = (Parsers::NotificationProperty.parse(map['NotificationProperty']) unless map['NotificationProperty'].nil?)
+        data.notification_property = (NotificationProperty.parse(map['NotificationProperty']) unless map['NotificationProperty'].nil?)
         data.crawler_name = map['CrawlerName']
         return data
       end
@@ -2198,8 +2200,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workflows = (Parsers::Workflows.parse(map['Workflows']) unless map['Workflows'].nil?)
-        data.missing_workflows = (Parsers::WorkflowNames.parse(map['MissingWorkflows']) unless map['MissingWorkflows'].nil?)
+        data.workflows = (Workflows.parse(map['Workflows']) unless map['Workflows'].nil?)
+        data.missing_workflows = (WorkflowNames.parse(map['MissingWorkflows']) unless map['MissingWorkflows'].nil?)
         data
       end
     end
@@ -2215,7 +2217,7 @@ module AWS::SDK::Glue
     class Workflows
       def self.parse(list)
         list.map do |value|
-          Parsers::Workflow.parse(value) unless value.nil?
+          Workflow.parse(value) unless value.nil?
         end
       end
     end
@@ -2225,13 +2227,13 @@ module AWS::SDK::Glue
         data = Types::Workflow.new
         data.name = map['Name']
         data.description = map['Description']
-        data.default_run_properties = (Parsers::WorkflowRunProperties.parse(map['DefaultRunProperties']) unless map['DefaultRunProperties'].nil?)
+        data.default_run_properties = (WorkflowRunProperties.parse(map['DefaultRunProperties']) unless map['DefaultRunProperties'].nil?)
         data.created_on = Time.at(map['CreatedOn'].to_i) if map['CreatedOn']
         data.last_modified_on = Time.at(map['LastModifiedOn'].to_i) if map['LastModifiedOn']
-        data.last_run = (Parsers::WorkflowRun.parse(map['LastRun']) unless map['LastRun'].nil?)
-        data.graph = (Parsers::WorkflowGraph.parse(map['Graph']) unless map['Graph'].nil?)
+        data.last_run = (WorkflowRun.parse(map['LastRun']) unless map['LastRun'].nil?)
+        data.graph = (WorkflowGraph.parse(map['Graph']) unless map['Graph'].nil?)
         data.max_concurrent_runs = map['MaxConcurrentRuns']
-        data.blueprint_details = (Parsers::BlueprintDetails.parse(map['BlueprintDetails']) unless map['BlueprintDetails'].nil?)
+        data.blueprint_details = (BlueprintDetails.parse(map['BlueprintDetails']) unless map['BlueprintDetails'].nil?)
         return data
       end
     end
@@ -2248,8 +2250,8 @@ module AWS::SDK::Glue
     class WorkflowGraph
       def self.parse(map)
         data = Types::WorkflowGraph.new
-        data.nodes = (Parsers::NodeList.parse(map['Nodes']) unless map['Nodes'].nil?)
-        data.edges = (Parsers::EdgeList.parse(map['Edges']) unless map['Edges'].nil?)
+        data.nodes = (NodeList.parse(map['Nodes']) unless map['Nodes'].nil?)
+        data.edges = (EdgeList.parse(map['Edges']) unless map['Edges'].nil?)
         return data
       end
     end
@@ -2257,7 +2259,7 @@ module AWS::SDK::Glue
     class EdgeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Edge.parse(value) unless value.nil?
+          Edge.parse(value) unless value.nil?
         end
       end
     end
@@ -2274,7 +2276,7 @@ module AWS::SDK::Glue
     class NodeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Node.parse(value) unless value.nil?
+          Node.parse(value) unless value.nil?
         end
       end
     end
@@ -2285,9 +2287,9 @@ module AWS::SDK::Glue
         data.type = map['Type']
         data.name = map['Name']
         data.unique_id = map['UniqueId']
-        data.trigger_details = (Parsers::TriggerNodeDetails.parse(map['TriggerDetails']) unless map['TriggerDetails'].nil?)
-        data.job_details = (Parsers::JobNodeDetails.parse(map['JobDetails']) unless map['JobDetails'].nil?)
-        data.crawler_details = (Parsers::CrawlerNodeDetails.parse(map['CrawlerDetails']) unless map['CrawlerDetails'].nil?)
+        data.trigger_details = (TriggerNodeDetails.parse(map['TriggerDetails']) unless map['TriggerDetails'].nil?)
+        data.job_details = (JobNodeDetails.parse(map['JobDetails']) unless map['JobDetails'].nil?)
+        data.crawler_details = (CrawlerNodeDetails.parse(map['CrawlerDetails']) unless map['CrawlerDetails'].nil?)
         return data
       end
     end
@@ -2295,7 +2297,7 @@ module AWS::SDK::Glue
     class CrawlerNodeDetails
       def self.parse(map)
         data = Types::CrawlerNodeDetails.new
-        data.crawls = (Parsers::CrawlList.parse(map['Crawls']) unless map['Crawls'].nil?)
+        data.crawls = (CrawlList.parse(map['Crawls']) unless map['Crawls'].nil?)
         return data
       end
     end
@@ -2303,7 +2305,7 @@ module AWS::SDK::Glue
     class CrawlList
       def self.parse(list)
         list.map do |value|
-          Parsers::Crawl.parse(value) unless value.nil?
+          Crawl.parse(value) unless value.nil?
         end
       end
     end
@@ -2324,7 +2326,7 @@ module AWS::SDK::Glue
     class JobNodeDetails
       def self.parse(map)
         data = Types::JobNodeDetails.new
-        data.job_runs = (Parsers::JobRunList.parse(map['JobRuns']) unless map['JobRuns'].nil?)
+        data.job_runs = (JobRunList.parse(map['JobRuns']) unless map['JobRuns'].nil?)
         return data
       end
     end
@@ -2332,7 +2334,7 @@ module AWS::SDK::Glue
     class JobRunList
       def self.parse(list)
         list.map do |value|
-          Parsers::JobRun.parse(value) unless value.nil?
+          JobRun.parse(value) unless value.nil?
         end
       end
     end
@@ -2349,9 +2351,9 @@ module AWS::SDK::Glue
         data.last_modified_on = Time.at(map['LastModifiedOn'].to_i) if map['LastModifiedOn']
         data.completed_on = Time.at(map['CompletedOn'].to_i) if map['CompletedOn']
         data.job_run_state = map['JobRunState']
-        data.arguments = (Parsers::GenericMap.parse(map['Arguments']) unless map['Arguments'].nil?)
+        data.arguments = (GenericMap.parse(map['Arguments']) unless map['Arguments'].nil?)
         data.error_message = map['ErrorMessage']
-        data.predecessor_runs = (Parsers::PredecessorList.parse(map['PredecessorRuns']) unless map['PredecessorRuns'].nil?)
+        data.predecessor_runs = (PredecessorList.parse(map['PredecessorRuns']) unless map['PredecessorRuns'].nil?)
         data.allocated_capacity = map['AllocatedCapacity']
         data.execution_time = map['ExecutionTime']
         data.timeout = map['Timeout']
@@ -2360,7 +2362,7 @@ module AWS::SDK::Glue
         data.number_of_workers = map['NumberOfWorkers']
         data.security_configuration = map['SecurityConfiguration']
         data.log_group_name = map['LogGroupName']
-        data.notification_property = (Parsers::NotificationProperty.parse(map['NotificationProperty']) unless map['NotificationProperty'].nil?)
+        data.notification_property = (NotificationProperty.parse(map['NotificationProperty']) unless map['NotificationProperty'].nil?)
         data.glue_version = map['GlueVersion']
         data.dpu_seconds = Hearth::NumberHelper.deserialize(map['DPUSeconds'])
         return data
@@ -2370,7 +2372,7 @@ module AWS::SDK::Glue
     class PredecessorList
       def self.parse(list)
         list.map do |value|
-          Parsers::Predecessor.parse(value) unless value.nil?
+          Predecessor.parse(value) unless value.nil?
         end
       end
     end
@@ -2387,7 +2389,7 @@ module AWS::SDK::Glue
     class TriggerNodeDetails
       def self.parse(map)
         data = Types::TriggerNodeDetails.new
-        data.trigger = (Parsers::Trigger.parse(map['Trigger']) unless map['Trigger'].nil?)
+        data.trigger = (Trigger.parse(map['Trigger']) unless map['Trigger'].nil?)
         return data
       end
     end
@@ -2398,14 +2400,14 @@ module AWS::SDK::Glue
         data.name = map['Name']
         data.workflow_run_id = map['WorkflowRunId']
         data.previous_run_id = map['PreviousRunId']
-        data.workflow_run_properties = (Parsers::WorkflowRunProperties.parse(map['WorkflowRunProperties']) unless map['WorkflowRunProperties'].nil?)
+        data.workflow_run_properties = (WorkflowRunProperties.parse(map['WorkflowRunProperties']) unless map['WorkflowRunProperties'].nil?)
         data.started_on = Time.at(map['StartedOn'].to_i) if map['StartedOn']
         data.completed_on = Time.at(map['CompletedOn'].to_i) if map['CompletedOn']
         data.status = map['Status']
         data.error_message = map['ErrorMessage']
-        data.statistics = (Parsers::WorkflowRunStatistics.parse(map['Statistics']) unless map['Statistics'].nil?)
-        data.graph = (Parsers::WorkflowGraph.parse(map['Graph']) unless map['Graph'].nil?)
-        data.starting_event_batch_condition = (Parsers::StartingEventBatchCondition.parse(map['StartingEventBatchCondition']) unless map['StartingEventBatchCondition'].nil?)
+        data.statistics = (WorkflowRunStatistics.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.graph = (WorkflowGraph.parse(map['Graph']) unless map['Graph'].nil?)
+        data.starting_event_batch_condition = (StartingEventBatchCondition.parse(map['StartingEventBatchCondition']) unless map['StartingEventBatchCondition'].nil?)
         return data
       end
     end
@@ -2449,8 +2451,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.successful_submissions = (Parsers::BatchStopJobRunSuccessfulSubmissionList.parse(map['SuccessfulSubmissions']) unless map['SuccessfulSubmissions'].nil?)
-        data.errors = (Parsers::BatchStopJobRunErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.successful_submissions = (BatchStopJobRunSuccessfulSubmissionList.parse(map['SuccessfulSubmissions']) unless map['SuccessfulSubmissions'].nil?)
+        data.errors = (BatchStopJobRunErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -2458,7 +2460,7 @@ module AWS::SDK::Glue
     class BatchStopJobRunErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchStopJobRunError.parse(value) unless value.nil?
+          BatchStopJobRunError.parse(value) unless value.nil?
         end
       end
     end
@@ -2468,7 +2470,7 @@ module AWS::SDK::Glue
         data = Types::BatchStopJobRunError.new
         data.job_name = map['JobName']
         data.job_run_id = map['JobRunId']
-        data.error_detail = (Parsers::ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
+        data.error_detail = (ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
         return data
       end
     end
@@ -2476,7 +2478,7 @@ module AWS::SDK::Glue
     class BatchStopJobRunSuccessfulSubmissionList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchStopJobRunSuccessfulSubmission.parse(value) unless value.nil?
+          BatchStopJobRunSuccessfulSubmission.parse(value) unless value.nil?
         end
       end
     end
@@ -2497,7 +2499,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::BatchUpdatePartitionFailureList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (BatchUpdatePartitionFailureList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -2505,7 +2507,7 @@ module AWS::SDK::Glue
     class BatchUpdatePartitionFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchUpdatePartitionFailureEntry.parse(value) unless value.nil?
+          BatchUpdatePartitionFailureEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -2513,8 +2515,8 @@ module AWS::SDK::Glue
     class BatchUpdatePartitionFailureEntry
       def self.parse(map)
         data = Types::BatchUpdatePartitionFailureEntry.new
-        data.partition_value_list = (Parsers::BoundedPartitionValueList.parse(map['PartitionValueList']) unless map['PartitionValueList'].nil?)
-        data.error_detail = (Parsers::ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
+        data.partition_value_list = (BoundedPartitionValueList.parse(map['PartitionValueList']) unless map['PartitionValueList'].nil?)
+        data.error_detail = (ErrorDetail.parse(map['ErrorDetail']) unless map['ErrorDetail'].nil?)
         return data
       end
     end
@@ -2678,7 +2680,7 @@ module AWS::SDK::Glue
         map = Hearth::JSON.load(body)
         data.endpoint_name = map['EndpointName']
         data.status = map['Status']
-        data.security_group_ids = (Parsers::StringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (StringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.subnet_id = map['SubnetId']
         data.role_arn = map['RoleArn']
         data.yarn_endpoint_address = map['YarnEndpointAddress']
@@ -2694,7 +2696,7 @@ module AWS::SDK::Glue
         data.failure_reason = map['FailureReason']
         data.security_configuration = map['SecurityConfiguration']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
-        data.arguments = (Parsers::MapValue.parse(map['Arguments']) unless map['Arguments'].nil?)
+        data.arguments = (MapValue.parse(map['Arguments']) unless map['Arguments'].nil?)
         data
       end
     end
@@ -2767,7 +2769,7 @@ module AWS::SDK::Glue
         data.registry_arn = map['RegistryArn']
         data.registry_name = map['RegistryName']
         data.description = map['Description']
-        data.tags = (Parsers::TagsMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagsMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2800,7 +2802,7 @@ module AWS::SDK::Glue
         data.latest_schema_version = map['LatestSchemaVersion']
         data.next_schema_version = map['NextSchemaVersion']
         data.schema_status = map['SchemaStatus']
-        data.tags = (Parsers::TagsMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagsMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.schema_version_id = map['SchemaVersionId']
         data.schema_version_status = map['SchemaVersionStatus']
         data
@@ -2840,7 +2842,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.session = (Parsers::Session.parse(map['Session']) unless map['Session'].nil?)
+        data.session = (Session.parse(map['Session']) unless map['Session'].nil?)
         data
       end
     end
@@ -2854,9 +2856,9 @@ module AWS::SDK::Glue
         data.error_message = map['ErrorMessage']
         data.description = map['Description']
         data.role = map['Role']
-        data.command = (Parsers::SessionCommand.parse(map['Command']) unless map['Command'].nil?)
-        data.default_arguments = (Parsers::OrchestrationArgumentsMap.parse(map['DefaultArguments']) unless map['DefaultArguments'].nil?)
-        data.connections = (Parsers::ConnectionsList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.command = (SessionCommand.parse(map['Command']) unless map['Command'].nil?)
+        data.default_arguments = (OrchestrationArgumentsMap.parse(map['DefaultArguments']) unless map['DefaultArguments'].nil?)
+        data.connections = (ConnectionsList.parse(map['Connections']) unless map['Connections'].nil?)
         data.progress = Hearth::NumberHelper.deserialize(map['Progress'])
         data.max_capacity = Hearth::NumberHelper.deserialize(map['MaxCapacity'])
         data.security_configuration = map['SecurityConfiguration']
@@ -3171,7 +3173,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schema_version_errors = (Parsers::SchemaVersionErrorList.parse(map['SchemaVersionErrors']) unless map['SchemaVersionErrors'].nil?)
+        data.schema_version_errors = (SchemaVersionErrorList.parse(map['SchemaVersionErrors']) unless map['SchemaVersionErrors'].nil?)
         data
       end
     end
@@ -3179,7 +3181,7 @@ module AWS::SDK::Glue
     class SchemaVersionErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaVersionErrorItem.parse(value) unless value.nil?
+          SchemaVersionErrorItem.parse(value) unless value.nil?
         end
       end
     end
@@ -3188,7 +3190,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::SchemaVersionErrorItem.new
         data.version_number = map['VersionNumber']
-        data.error_details = (Parsers::ErrorDetails.parse(map['ErrorDetails']) unless map['ErrorDetails'].nil?)
+        data.error_details = (ErrorDetails.parse(map['ErrorDetails']) unless map['ErrorDetails'].nil?)
         return data
       end
     end
@@ -3289,7 +3291,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.blueprint = (Parsers::Blueprint.parse(map['Blueprint']) unless map['Blueprint'].nil?)
+        data.blueprint = (Blueprint.parse(map['Blueprint']) unless map['Blueprint'].nil?)
         data
       end
     end
@@ -3301,7 +3303,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.blueprint_run = (Parsers::BlueprintRun.parse(map['BlueprintRun']) unless map['BlueprintRun'].nil?)
+        data.blueprint_run = (BlueprintRun.parse(map['BlueprintRun']) unless map['BlueprintRun'].nil?)
         data
       end
     end
@@ -3330,7 +3332,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.blueprint_runs = (Parsers::BlueprintRuns.parse(map['BlueprintRuns']) unless map['BlueprintRuns'].nil?)
+        data.blueprint_runs = (BlueprintRuns.parse(map['BlueprintRuns']) unless map['BlueprintRuns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3339,7 +3341,7 @@ module AWS::SDK::Glue
     class BlueprintRuns
       def self.parse(list)
         list.map do |value|
-          Parsers::BlueprintRun.parse(value) unless value.nil?
+          BlueprintRun.parse(value) unless value.nil?
         end
       end
     end
@@ -3351,7 +3353,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.import_status = (Parsers::CatalogImportStatus.parse(map['ImportStatus']) unless map['ImportStatus'].nil?)
+        data.import_status = (CatalogImportStatus.parse(map['ImportStatus']) unless map['ImportStatus'].nil?)
         data
       end
     end
@@ -3373,7 +3375,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.classifier = (Parsers::Classifier.parse(map['Classifier']) unless map['Classifier'].nil?)
+        data.classifier = (Classifier.parse(map['Classifier']) unless map['Classifier'].nil?)
         data
       end
     end
@@ -3381,10 +3383,10 @@ module AWS::SDK::Glue
     class Classifier
       def self.parse(map)
         data = Types::Classifier.new
-        data.grok_classifier = (Parsers::GrokClassifier.parse(map['GrokClassifier']) unless map['GrokClassifier'].nil?)
-        data.xml_classifier = (Parsers::XMLClassifier.parse(map['XMLClassifier']) unless map['XMLClassifier'].nil?)
-        data.json_classifier = (Parsers::JsonClassifier.parse(map['JsonClassifier']) unless map['JsonClassifier'].nil?)
-        data.csv_classifier = (Parsers::CsvClassifier.parse(map['CsvClassifier']) unless map['CsvClassifier'].nil?)
+        data.grok_classifier = (GrokClassifier.parse(map['GrokClassifier']) unless map['GrokClassifier'].nil?)
+        data.xml_classifier = (XMLClassifier.parse(map['XMLClassifier']) unless map['XMLClassifier'].nil?)
+        data.json_classifier = (JsonClassifier.parse(map['JsonClassifier']) unless map['JsonClassifier'].nil?)
+        data.csv_classifier = (CsvClassifier.parse(map['CsvClassifier']) unless map['CsvClassifier'].nil?)
         return data
       end
     end
@@ -3399,7 +3401,7 @@ module AWS::SDK::Glue
         data.delimiter = map['Delimiter']
         data.quote_symbol = map['QuoteSymbol']
         data.contains_header = map['ContainsHeader']
-        data.header = (Parsers::CsvHeader.parse(map['Header']) unless map['Header'].nil?)
+        data.header = (CsvHeader.parse(map['Header']) unless map['Header'].nil?)
         data.disable_value_trimming = map['DisableValueTrimming']
         data.allow_single_column = map['AllowSingleColumn']
         return data
@@ -3460,7 +3462,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.classifiers = (Parsers::ClassifierList.parse(map['Classifiers']) unless map['Classifiers'].nil?)
+        data.classifiers = (ClassifierList.parse(map['Classifiers']) unless map['Classifiers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3469,7 +3471,7 @@ module AWS::SDK::Glue
     class ClassifierList
       def self.parse(list)
         list.map do |value|
-          Parsers::Classifier.parse(value) unless value.nil?
+          Classifier.parse(value) unless value.nil?
         end
       end
     end
@@ -3481,8 +3483,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.column_statistics_list = (Parsers::ColumnStatisticsList.parse(map['ColumnStatisticsList']) unless map['ColumnStatisticsList'].nil?)
-        data.errors = (Parsers::ColumnErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.column_statistics_list = (ColumnStatisticsList.parse(map['ColumnStatisticsList']) unless map['ColumnStatisticsList'].nil?)
+        data.errors = (ColumnErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -3490,7 +3492,7 @@ module AWS::SDK::Glue
     class ColumnErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnError.parse(value) unless value.nil?
+          ColumnError.parse(value) unless value.nil?
         end
       end
     end
@@ -3499,7 +3501,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::ColumnError.new
         data.column_name = map['ColumnName']
-        data.error = (Parsers::ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -3507,7 +3509,7 @@ module AWS::SDK::Glue
     class ColumnStatisticsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnStatistics.parse(value) unless value.nil?
+          ColumnStatistics.parse(value) unless value.nil?
         end
       end
     end
@@ -3518,7 +3520,7 @@ module AWS::SDK::Glue
         data.column_name = map['ColumnName']
         data.column_type = map['ColumnType']
         data.analyzed_time = Time.at(map['AnalyzedTime'].to_i) if map['AnalyzedTime']
-        data.statistics_data = (Parsers::ColumnStatisticsData.parse(map['StatisticsData']) unless map['StatisticsData'].nil?)
+        data.statistics_data = (ColumnStatisticsData.parse(map['StatisticsData']) unless map['StatisticsData'].nil?)
         return data
       end
     end
@@ -3527,13 +3529,13 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::ColumnStatisticsData.new
         data.type = map['Type']
-        data.boolean_column_statistics_data = (Parsers::BooleanColumnStatisticsData.parse(map['BooleanColumnStatisticsData']) unless map['BooleanColumnStatisticsData'].nil?)
-        data.date_column_statistics_data = (Parsers::DateColumnStatisticsData.parse(map['DateColumnStatisticsData']) unless map['DateColumnStatisticsData'].nil?)
-        data.decimal_column_statistics_data = (Parsers::DecimalColumnStatisticsData.parse(map['DecimalColumnStatisticsData']) unless map['DecimalColumnStatisticsData'].nil?)
-        data.double_column_statistics_data = (Parsers::DoubleColumnStatisticsData.parse(map['DoubleColumnStatisticsData']) unless map['DoubleColumnStatisticsData'].nil?)
-        data.long_column_statistics_data = (Parsers::LongColumnStatisticsData.parse(map['LongColumnStatisticsData']) unless map['LongColumnStatisticsData'].nil?)
-        data.string_column_statistics_data = (Parsers::StringColumnStatisticsData.parse(map['StringColumnStatisticsData']) unless map['StringColumnStatisticsData'].nil?)
-        data.binary_column_statistics_data = (Parsers::BinaryColumnStatisticsData.parse(map['BinaryColumnStatisticsData']) unless map['BinaryColumnStatisticsData'].nil?)
+        data.boolean_column_statistics_data = (BooleanColumnStatisticsData.parse(map['BooleanColumnStatisticsData']) unless map['BooleanColumnStatisticsData'].nil?)
+        data.date_column_statistics_data = (DateColumnStatisticsData.parse(map['DateColumnStatisticsData']) unless map['DateColumnStatisticsData'].nil?)
+        data.decimal_column_statistics_data = (DecimalColumnStatisticsData.parse(map['DecimalColumnStatisticsData']) unless map['DecimalColumnStatisticsData'].nil?)
+        data.double_column_statistics_data = (DoubleColumnStatisticsData.parse(map['DoubleColumnStatisticsData']) unless map['DoubleColumnStatisticsData'].nil?)
+        data.long_column_statistics_data = (LongColumnStatisticsData.parse(map['LongColumnStatisticsData']) unless map['LongColumnStatisticsData'].nil?)
+        data.string_column_statistics_data = (StringColumnStatisticsData.parse(map['StringColumnStatisticsData']) unless map['StringColumnStatisticsData'].nil?)
+        data.binary_column_statistics_data = (BinaryColumnStatisticsData.parse(map['BinaryColumnStatisticsData']) unless map['BinaryColumnStatisticsData'].nil?)
         return data
       end
     end
@@ -3584,8 +3586,8 @@ module AWS::SDK::Glue
     class DecimalColumnStatisticsData
       def self.parse(map)
         data = Types::DecimalColumnStatisticsData.new
-        data.minimum_value = (Parsers::DecimalNumber.parse(map['MinimumValue']) unless map['MinimumValue'].nil?)
-        data.maximum_value = (Parsers::DecimalNumber.parse(map['MaximumValue']) unless map['MaximumValue'].nil?)
+        data.minimum_value = (DecimalNumber.parse(map['MinimumValue']) unless map['MinimumValue'].nil?)
+        data.maximum_value = (DecimalNumber.parse(map['MaximumValue']) unless map['MaximumValue'].nil?)
         data.number_of_nulls = map['NumberOfNulls']
         data.number_of_distinct_values = map['NumberOfDistinctValues']
         return data
@@ -3595,7 +3597,7 @@ module AWS::SDK::Glue
     class DecimalNumber
       def self.parse(map)
         data = Types::DecimalNumber.new
-        data.unscaled_value = Base64::decode64(map['UnscaledValue']) unless map['UnscaledValue'].nil?
+        data.unscaled_value = ::Base64::decode64(map['UnscaledValue']) unless map['UnscaledValue'].nil?
         data.scale = map['Scale']
         return data
       end
@@ -3629,8 +3631,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.column_statistics_list = (Parsers::ColumnStatisticsList.parse(map['ColumnStatisticsList']) unless map['ColumnStatisticsList'].nil?)
-        data.errors = (Parsers::ColumnErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.column_statistics_list = (ColumnStatisticsList.parse(map['ColumnStatisticsList']) unless map['ColumnStatisticsList'].nil?)
+        data.errors = (ColumnErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -3642,7 +3644,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -3653,9 +3655,9 @@ module AWS::SDK::Glue
         data.name = map['Name']
         data.description = map['Description']
         data.connection_type = map['ConnectionType']
-        data.match_criteria = (Parsers::MatchCriteria.parse(map['MatchCriteria']) unless map['MatchCriteria'].nil?)
-        data.connection_properties = (Parsers::ConnectionProperties.parse(map['ConnectionProperties']) unless map['ConnectionProperties'].nil?)
-        data.physical_connection_requirements = (Parsers::PhysicalConnectionRequirements.parse(map['PhysicalConnectionRequirements']) unless map['PhysicalConnectionRequirements'].nil?)
+        data.match_criteria = (MatchCriteria.parse(map['MatchCriteria']) unless map['MatchCriteria'].nil?)
+        data.connection_properties = (ConnectionProperties.parse(map['ConnectionProperties']) unless map['ConnectionProperties'].nil?)
+        data.physical_connection_requirements = (PhysicalConnectionRequirements.parse(map['PhysicalConnectionRequirements']) unless map['PhysicalConnectionRequirements'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.last_updated_by = map['LastUpdatedBy']
@@ -3667,7 +3669,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::PhysicalConnectionRequirements.new
         data.subnet_id = map['SubnetId']
-        data.security_group_id_list = (Parsers::SecurityGroupIdList.parse(map['SecurityGroupIdList']) unless map['SecurityGroupIdList'].nil?)
+        data.security_group_id_list = (SecurityGroupIdList.parse(map['SecurityGroupIdList']) unless map['SecurityGroupIdList'].nil?)
         data.availability_zone = map['AvailabilityZone']
         return data
       end
@@ -3706,7 +3708,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection_list = (Parsers::ConnectionList.parse(map['ConnectionList']) unless map['ConnectionList'].nil?)
+        data.connection_list = (ConnectionList.parse(map['ConnectionList']) unless map['ConnectionList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3715,7 +3717,7 @@ module AWS::SDK::Glue
     class ConnectionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Connection.parse(value) unless value.nil?
+          Connection.parse(value) unless value.nil?
         end
       end
     end
@@ -3727,7 +3729,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.crawler = (Parsers::Crawler.parse(map['Crawler']) unless map['Crawler'].nil?)
+        data.crawler = (Crawler.parse(map['Crawler']) unless map['Crawler'].nil?)
         data
       end
     end
@@ -3739,7 +3741,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.crawler_metrics_list = (Parsers::CrawlerMetricsList.parse(map['CrawlerMetricsList']) unless map['CrawlerMetricsList'].nil?)
+        data.crawler_metrics_list = (CrawlerMetricsList.parse(map['CrawlerMetricsList']) unless map['CrawlerMetricsList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3748,7 +3750,7 @@ module AWS::SDK::Glue
     class CrawlerMetricsList
       def self.parse(list)
         list.map do |value|
-          Parsers::CrawlerMetrics.parse(value) unless value.nil?
+          CrawlerMetrics.parse(value) unless value.nil?
         end
       end
     end
@@ -3775,7 +3777,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.crawlers = (Parsers::CrawlerList.parse(map['Crawlers']) unless map['Crawlers'].nil?)
+        data.crawlers = (CrawlerList.parse(map['Crawlers']) unless map['Crawlers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3790,7 +3792,7 @@ module AWS::SDK::Glue
         map = Hearth::JSON.load(body)
         data.name = map['Name']
         data.regex_string = map['RegexString']
-        data.context_words = (Parsers::ContextWords.parse(map['ContextWords']) unless map['ContextWords'].nil?)
+        data.context_words = (ContextWords.parse(map['ContextWords']) unless map['ContextWords'].nil?)
         data
       end
     end
@@ -3802,7 +3804,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.data_catalog_encryption_settings = (Parsers::DataCatalogEncryptionSettings.parse(map['DataCatalogEncryptionSettings']) unless map['DataCatalogEncryptionSettings'].nil?)
+        data.data_catalog_encryption_settings = (DataCatalogEncryptionSettings.parse(map['DataCatalogEncryptionSettings']) unless map['DataCatalogEncryptionSettings'].nil?)
         data
       end
     end
@@ -3810,8 +3812,8 @@ module AWS::SDK::Glue
     class DataCatalogEncryptionSettings
       def self.parse(map)
         data = Types::DataCatalogEncryptionSettings.new
-        data.encryption_at_rest = (Parsers::EncryptionAtRest.parse(map['EncryptionAtRest']) unless map['EncryptionAtRest'].nil?)
-        data.connection_password_encryption = (Parsers::ConnectionPasswordEncryption.parse(map['ConnectionPasswordEncryption']) unless map['ConnectionPasswordEncryption'].nil?)
+        data.encryption_at_rest = (EncryptionAtRest.parse(map['EncryptionAtRest']) unless map['EncryptionAtRest'].nil?)
+        data.connection_password_encryption = (ConnectionPasswordEncryption.parse(map['ConnectionPasswordEncryption']) unless map['ConnectionPasswordEncryption'].nil?)
         return data
       end
     end
@@ -3841,7 +3843,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database = (Parsers::Database.parse(map['Database']) unless map['Database'].nil?)
+        data.database = (Database.parse(map['Database']) unless map['Database'].nil?)
         data
       end
     end
@@ -3852,10 +3854,10 @@ module AWS::SDK::Glue
         data.name = map['Name']
         data.description = map['Description']
         data.location_uri = map['LocationUri']
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
-        data.create_table_default_permissions = (Parsers::PrincipalPermissionsList.parse(map['CreateTableDefaultPermissions']) unless map['CreateTableDefaultPermissions'].nil?)
-        data.target_database = (Parsers::DatabaseIdentifier.parse(map['TargetDatabase']) unless map['TargetDatabase'].nil?)
+        data.create_table_default_permissions = (PrincipalPermissionsList.parse(map['CreateTableDefaultPermissions']) unless map['CreateTableDefaultPermissions'].nil?)
+        data.target_database = (DatabaseIdentifier.parse(map['TargetDatabase']) unless map['TargetDatabase'].nil?)
         data.catalog_id = map['CatalogId']
         return data
       end
@@ -3873,7 +3875,7 @@ module AWS::SDK::Glue
     class PrincipalPermissionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::PrincipalPermissions.parse(value) unless value.nil?
+          PrincipalPermissions.parse(value) unless value.nil?
         end
       end
     end
@@ -3881,8 +3883,8 @@ module AWS::SDK::Glue
     class PrincipalPermissions
       def self.parse(map)
         data = Types::PrincipalPermissions.new
-        data.principal = (Parsers::DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
-        data.permissions = (Parsers::PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.principal = (DataLakePrincipal.parse(map['Principal']) unless map['Principal'].nil?)
+        data.permissions = (PermissionList.parse(map['Permissions']) unless map['Permissions'].nil?)
         return data
       end
     end
@@ -3910,7 +3912,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database_list = (Parsers::DatabaseList.parse(map['DatabaseList']) unless map['DatabaseList'].nil?)
+        data.database_list = (DatabaseList.parse(map['DatabaseList']) unless map['DatabaseList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3919,7 +3921,7 @@ module AWS::SDK::Glue
     class DatabaseList
       def self.parse(list)
         list.map do |value|
-          Parsers::Database.parse(value) unless value.nil?
+          Database.parse(value) unless value.nil?
         end
       end
     end
@@ -3931,8 +3933,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dag_nodes = (Parsers::DagNodes.parse(map['DagNodes']) unless map['DagNodes'].nil?)
-        data.dag_edges = (Parsers::DagEdges.parse(map['DagEdges']) unless map['DagEdges'].nil?)
+        data.dag_nodes = (DagNodes.parse(map['DagNodes']) unless map['DagNodes'].nil?)
+        data.dag_edges = (DagEdges.parse(map['DagEdges']) unless map['DagEdges'].nil?)
         data
       end
     end
@@ -3940,7 +3942,7 @@ module AWS::SDK::Glue
     class DagEdges
       def self.parse(list)
         list.map do |value|
-          Parsers::CodeGenEdge.parse(value) unless value.nil?
+          CodeGenEdge.parse(value) unless value.nil?
         end
       end
     end
@@ -3958,7 +3960,7 @@ module AWS::SDK::Glue
     class DagNodes
       def self.parse(list)
         list.map do |value|
-          Parsers::CodeGenNode.parse(value) unless value.nil?
+          CodeGenNode.parse(value) unless value.nil?
         end
       end
     end
@@ -3968,7 +3970,7 @@ module AWS::SDK::Glue
         data = Types::CodeGenNode.new
         data.id = map['Id']
         data.node_type = map['NodeType']
-        data.args = (Parsers::CodeGenNodeArgs.parse(map['Args']) unless map['Args'].nil?)
+        data.args = (CodeGenNodeArgs.parse(map['Args']) unless map['Args'].nil?)
         data.line_number = map['LineNumber']
         return data
       end
@@ -3977,7 +3979,7 @@ module AWS::SDK::Glue
     class CodeGenNodeArgs
       def self.parse(list)
         list.map do |value|
-          Parsers::CodeGenNodeArg.parse(value) unless value.nil?
+          CodeGenNodeArg.parse(value) unless value.nil?
         end
       end
     end
@@ -3999,7 +4001,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dev_endpoint = (Parsers::DevEndpoint.parse(map['DevEndpoint']) unless map['DevEndpoint'].nil?)
+        data.dev_endpoint = (DevEndpoint.parse(map['DevEndpoint']) unless map['DevEndpoint'].nil?)
         data
       end
     end
@@ -4011,7 +4013,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dev_endpoints = (Parsers::DevEndpointList.parse(map['DevEndpoints']) unless map['DevEndpoints'].nil?)
+        data.dev_endpoints = (DevEndpointList.parse(map['DevEndpoints']) unless map['DevEndpoints'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4024,7 +4026,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job = (Parsers::Job.parse(map['Job']) unless map['Job'].nil?)
+        data.job = (Job.parse(map['Job']) unless map['Job'].nil?)
         data
       end
     end
@@ -4036,7 +4038,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_bookmark_entry = (Parsers::JobBookmarkEntry.parse(map['JobBookmarkEntry']) unless map['JobBookmarkEntry'].nil?)
+        data.job_bookmark_entry = (JobBookmarkEntry.parse(map['JobBookmarkEntry']) unless map['JobBookmarkEntry'].nil?)
         data
       end
     end
@@ -4062,7 +4064,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_run = (Parsers::JobRun.parse(map['JobRun']) unless map['JobRun'].nil?)
+        data.job_run = (JobRun.parse(map['JobRun']) unless map['JobRun'].nil?)
         data
       end
     end
@@ -4074,7 +4076,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_runs = (Parsers::JobRunList.parse(map['JobRuns']) unless map['JobRuns'].nil?)
+        data.job_runs = (JobRunList.parse(map['JobRuns']) unless map['JobRuns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4087,7 +4089,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.jobs = (Parsers::JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs = (JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4104,7 +4106,7 @@ module AWS::SDK::Glue
         data.task_run_id = map['TaskRunId']
         data.status = map['Status']
         data.log_group_name = map['LogGroupName']
-        data.properties = (Parsers::TaskRunProperties.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (TaskRunProperties.parse(map['Properties']) unless map['Properties'].nil?)
         data.error_string = map['ErrorString']
         data.started_on = Time.at(map['StartedOn'].to_i) if map['StartedOn']
         data.last_modified_on = Time.at(map['LastModifiedOn'].to_i) if map['LastModifiedOn']
@@ -4118,10 +4120,10 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::TaskRunProperties.new
         data.task_type = map['TaskType']
-        data.import_labels_task_run_properties = (Parsers::ImportLabelsTaskRunProperties.parse(map['ImportLabelsTaskRunProperties']) unless map['ImportLabelsTaskRunProperties'].nil?)
-        data.export_labels_task_run_properties = (Parsers::ExportLabelsTaskRunProperties.parse(map['ExportLabelsTaskRunProperties']) unless map['ExportLabelsTaskRunProperties'].nil?)
-        data.labeling_set_generation_task_run_properties = (Parsers::LabelingSetGenerationTaskRunProperties.parse(map['LabelingSetGenerationTaskRunProperties']) unless map['LabelingSetGenerationTaskRunProperties'].nil?)
-        data.find_matches_task_run_properties = (Parsers::FindMatchesTaskRunProperties.parse(map['FindMatchesTaskRunProperties']) unless map['FindMatchesTaskRunProperties'].nil?)
+        data.import_labels_task_run_properties = (ImportLabelsTaskRunProperties.parse(map['ImportLabelsTaskRunProperties']) unless map['ImportLabelsTaskRunProperties'].nil?)
+        data.export_labels_task_run_properties = (ExportLabelsTaskRunProperties.parse(map['ExportLabelsTaskRunProperties']) unless map['ExportLabelsTaskRunProperties'].nil?)
+        data.labeling_set_generation_task_run_properties = (LabelingSetGenerationTaskRunProperties.parse(map['LabelingSetGenerationTaskRunProperties']) unless map['LabelingSetGenerationTaskRunProperties'].nil?)
+        data.find_matches_task_run_properties = (FindMatchesTaskRunProperties.parse(map['FindMatchesTaskRunProperties']) unless map['FindMatchesTaskRunProperties'].nil?)
         return data
       end
     end
@@ -4168,7 +4170,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_runs = (Parsers::TaskRunList.parse(map['TaskRuns']) unless map['TaskRuns'].nil?)
+        data.task_runs = (TaskRunList.parse(map['TaskRuns']) unless map['TaskRuns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4177,7 +4179,7 @@ module AWS::SDK::Glue
     class TaskRunList
       def self.parse(list)
         list.map do |value|
-          Parsers::TaskRun.parse(value) unless value.nil?
+          TaskRun.parse(value) unless value.nil?
         end
       end
     end
@@ -4189,7 +4191,7 @@ module AWS::SDK::Glue
         data.task_run_id = map['TaskRunId']
         data.status = map['Status']
         data.log_group_name = map['LogGroupName']
-        data.properties = (Parsers::TaskRunProperties.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (TaskRunProperties.parse(map['Properties']) unless map['Properties'].nil?)
         data.error_string = map['ErrorString']
         data.started_on = Time.at(map['StartedOn'].to_i) if map['StartedOn']
         data.last_modified_on = Time.at(map['LastModifiedOn'].to_i) if map['LastModifiedOn']
@@ -4212,11 +4214,11 @@ module AWS::SDK::Glue
         data.status = map['Status']
         data.created_on = Time.at(map['CreatedOn'].to_i) if map['CreatedOn']
         data.last_modified_on = Time.at(map['LastModifiedOn'].to_i) if map['LastModifiedOn']
-        data.input_record_tables = (Parsers::GlueTables.parse(map['InputRecordTables']) unless map['InputRecordTables'].nil?)
-        data.parameters = (Parsers::TransformParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.evaluation_metrics = (Parsers::EvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
+        data.input_record_tables = (GlueTables.parse(map['InputRecordTables']) unless map['InputRecordTables'].nil?)
+        data.parameters = (TransformParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.evaluation_metrics = (EvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
         data.label_count = map['LabelCount']
-        data.schema = (Parsers::TransformSchema.parse(map['Schema']) unless map['Schema'].nil?)
+        data.schema = (TransformSchema.parse(map['Schema']) unless map['Schema'].nil?)
         data.role = map['Role']
         data.glue_version = map['GlueVersion']
         data.max_capacity = Hearth::NumberHelper.deserialize(map['MaxCapacity'])
@@ -4224,7 +4226,7 @@ module AWS::SDK::Glue
         data.number_of_workers = map['NumberOfWorkers']
         data.timeout = map['Timeout']
         data.max_retries = map['MaxRetries']
-        data.transform_encryption = (Parsers::TransformEncryption.parse(map['TransformEncryption']) unless map['TransformEncryption'].nil?)
+        data.transform_encryption = (TransformEncryption.parse(map['TransformEncryption']) unless map['TransformEncryption'].nil?)
         data
       end
     end
@@ -4232,7 +4234,7 @@ module AWS::SDK::Glue
     class TransformEncryption
       def self.parse(map)
         data = Types::TransformEncryption.new
-        data.ml_user_data_encryption = (Parsers::MLUserDataEncryption.parse(map['MlUserDataEncryption']) unless map['MlUserDataEncryption'].nil?)
+        data.ml_user_data_encryption = (MLUserDataEncryption.parse(map['MlUserDataEncryption']) unless map['MlUserDataEncryption'].nil?)
         data.task_run_security_configuration_name = map['TaskRunSecurityConfigurationName']
         return data
       end
@@ -4250,7 +4252,7 @@ module AWS::SDK::Glue
     class TransformSchema
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaColumn.parse(value) unless value.nil?
+          SchemaColumn.parse(value) unless value.nil?
         end
       end
     end
@@ -4268,7 +4270,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::EvaluationMetrics.new
         data.transform_type = map['TransformType']
-        data.find_matches_metrics = (Parsers::FindMatchesMetrics.parse(map['FindMatchesMetrics']) unless map['FindMatchesMetrics'].nil?)
+        data.find_matches_metrics = (FindMatchesMetrics.parse(map['FindMatchesMetrics']) unless map['FindMatchesMetrics'].nil?)
         return data
       end
     end
@@ -4280,8 +4282,8 @@ module AWS::SDK::Glue
         data.precision = Hearth::NumberHelper.deserialize(map['Precision'])
         data.recall = Hearth::NumberHelper.deserialize(map['Recall'])
         data.f1 = Hearth::NumberHelper.deserialize(map['F1'])
-        data.confusion_matrix = (Parsers::ConfusionMatrix.parse(map['ConfusionMatrix']) unless map['ConfusionMatrix'].nil?)
-        data.column_importances = (Parsers::ColumnImportanceList.parse(map['ColumnImportances']) unless map['ColumnImportances'].nil?)
+        data.confusion_matrix = (ConfusionMatrix.parse(map['ConfusionMatrix']) unless map['ConfusionMatrix'].nil?)
+        data.column_importances = (ColumnImportanceList.parse(map['ColumnImportances']) unless map['ColumnImportances'].nil?)
         return data
       end
     end
@@ -4289,7 +4291,7 @@ module AWS::SDK::Glue
     class ColumnImportanceList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnImportance.parse(value) unless value.nil?
+          ColumnImportance.parse(value) unless value.nil?
         end
       end
     end
@@ -4318,7 +4320,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::TransformParameters.new
         data.transform_type = map['TransformType']
-        data.find_matches_parameters = (Parsers::FindMatchesParameters.parse(map['FindMatchesParameters']) unless map['FindMatchesParameters'].nil?)
+        data.find_matches_parameters = (FindMatchesParameters.parse(map['FindMatchesParameters']) unless map['FindMatchesParameters'].nil?)
         return data
       end
     end
@@ -4337,7 +4339,7 @@ module AWS::SDK::Glue
     class GlueTables
       def self.parse(list)
         list.map do |value|
-          Parsers::GlueTable.parse(value) unless value.nil?
+          GlueTable.parse(value) unless value.nil?
         end
       end
     end
@@ -4360,7 +4362,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.transforms = (Parsers::TransformList.parse(map['Transforms']) unless map['Transforms'].nil?)
+        data.transforms = (TransformList.parse(map['Transforms']) unless map['Transforms'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4369,7 +4371,7 @@ module AWS::SDK::Glue
     class TransformList
       def self.parse(list)
         list.map do |value|
-          Parsers::MLTransform.parse(value) unless value.nil?
+          MLTransform.parse(value) unless value.nil?
         end
       end
     end
@@ -4383,11 +4385,11 @@ module AWS::SDK::Glue
         data.status = map['Status']
         data.created_on = Time.at(map['CreatedOn'].to_i) if map['CreatedOn']
         data.last_modified_on = Time.at(map['LastModifiedOn'].to_i) if map['LastModifiedOn']
-        data.input_record_tables = (Parsers::GlueTables.parse(map['InputRecordTables']) unless map['InputRecordTables'].nil?)
-        data.parameters = (Parsers::TransformParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.evaluation_metrics = (Parsers::EvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
+        data.input_record_tables = (GlueTables.parse(map['InputRecordTables']) unless map['InputRecordTables'].nil?)
+        data.parameters = (TransformParameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.evaluation_metrics = (EvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
         data.label_count = map['LabelCount']
-        data.schema = (Parsers::TransformSchema.parse(map['Schema']) unless map['Schema'].nil?)
+        data.schema = (TransformSchema.parse(map['Schema']) unless map['Schema'].nil?)
         data.role = map['Role']
         data.glue_version = map['GlueVersion']
         data.max_capacity = Hearth::NumberHelper.deserialize(map['MaxCapacity'])
@@ -4395,7 +4397,7 @@ module AWS::SDK::Glue
         data.number_of_workers = map['NumberOfWorkers']
         data.timeout = map['Timeout']
         data.max_retries = map['MaxRetries']
-        data.transform_encryption = (Parsers::TransformEncryption.parse(map['TransformEncryption']) unless map['TransformEncryption'].nil?)
+        data.transform_encryption = (TransformEncryption.parse(map['TransformEncryption']) unless map['TransformEncryption'].nil?)
         return data
       end
     end
@@ -4407,7 +4409,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.mapping = (Parsers::MappingList.parse(map['Mapping']) unless map['Mapping'].nil?)
+        data.mapping = (MappingList.parse(map['Mapping']) unless map['Mapping'].nil?)
         data
       end
     end
@@ -4415,7 +4417,7 @@ module AWS::SDK::Glue
     class MappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::MappingEntry.parse(value) unless value.nil?
+          MappingEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -4440,7 +4442,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.partition = (Parsers::Partition.parse(map['Partition']) unless map['Partition'].nil?)
+        data.partition = (Partition.parse(map['Partition']) unless map['Partition'].nil?)
         data
       end
     end
@@ -4452,7 +4454,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.partition_index_descriptor_list = (Parsers::PartitionIndexDescriptorList.parse(map['PartitionIndexDescriptorList']) unless map['PartitionIndexDescriptorList'].nil?)
+        data.partition_index_descriptor_list = (PartitionIndexDescriptorList.parse(map['PartitionIndexDescriptorList']) unless map['PartitionIndexDescriptorList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4461,7 +4463,7 @@ module AWS::SDK::Glue
     class PartitionIndexDescriptorList
       def self.parse(list)
         list.map do |value|
-          Parsers::PartitionIndexDescriptor.parse(value) unless value.nil?
+          PartitionIndexDescriptor.parse(value) unless value.nil?
         end
       end
     end
@@ -4470,9 +4472,9 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::PartitionIndexDescriptor.new
         data.index_name = map['IndexName']
-        data.keys = (Parsers::KeySchemaElementList.parse(map['Keys']) unless map['Keys'].nil?)
+        data.keys = (KeySchemaElementList.parse(map['Keys']) unless map['Keys'].nil?)
         data.index_status = map['IndexStatus']
-        data.backfill_errors = (Parsers::BackfillErrors.parse(map['BackfillErrors']) unless map['BackfillErrors'].nil?)
+        data.backfill_errors = (BackfillErrors.parse(map['BackfillErrors']) unless map['BackfillErrors'].nil?)
         return data
       end
     end
@@ -4480,7 +4482,7 @@ module AWS::SDK::Glue
     class BackfillErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::BackfillError.parse(value) unless value.nil?
+          BackfillError.parse(value) unless value.nil?
         end
       end
     end
@@ -4489,7 +4491,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = Types::BackfillError.new
         data.code = map['Code']
-        data.partitions = (Parsers::BackfillErroredPartitionsList.parse(map['Partitions']) unless map['Partitions'].nil?)
+        data.partitions = (BackfillErroredPartitionsList.parse(map['Partitions']) unless map['Partitions'].nil?)
         return data
       end
     end
@@ -4497,7 +4499,7 @@ module AWS::SDK::Glue
     class BackfillErroredPartitionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::PartitionValueList.parse(value) unless value.nil?
+          PartitionValueList.parse(value) unless value.nil?
         end
       end
     end
@@ -4505,7 +4507,7 @@ module AWS::SDK::Glue
     class KeySchemaElementList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeySchemaElement.parse(value) unless value.nil?
+          KeySchemaElement.parse(value) unless value.nil?
         end
       end
     end
@@ -4526,7 +4528,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.partitions = (Parsers::PartitionList.parse(map['Partitions']) unless map['Partitions'].nil?)
+        data.partitions = (PartitionList.parse(map['Partitions']) unless map['Partitions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4569,7 +4571,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.get_resource_policies_response_list = (Parsers::GetResourcePoliciesResponseList.parse(map['GetResourcePoliciesResponseList']) unless map['GetResourcePoliciesResponseList'].nil?)
+        data.get_resource_policies_response_list = (GetResourcePoliciesResponseList.parse(map['GetResourcePoliciesResponseList']) unless map['GetResourcePoliciesResponseList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4578,7 +4580,7 @@ module AWS::SDK::Glue
     class GetResourcePoliciesResponseList
       def self.parse(list)
         list.map do |value|
-          Parsers::GluePolicy.parse(value) unless value.nil?
+          GluePolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -4686,7 +4688,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.security_configuration = (Parsers::SecurityConfiguration.parse(map['SecurityConfiguration']) unless map['SecurityConfiguration'].nil?)
+        data.security_configuration = (SecurityConfiguration.parse(map['SecurityConfiguration']) unless map['SecurityConfiguration'].nil?)
         data
       end
     end
@@ -4696,7 +4698,7 @@ module AWS::SDK::Glue
         data = Types::SecurityConfiguration.new
         data.name = map['Name']
         data.created_time_stamp = Time.at(map['CreatedTimeStamp'].to_i) if map['CreatedTimeStamp']
-        data.encryption_configuration = (Parsers::EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
+        data.encryption_configuration = (EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
         return data
       end
     end
@@ -4704,9 +4706,9 @@ module AWS::SDK::Glue
     class EncryptionConfiguration
       def self.parse(map)
         data = Types::EncryptionConfiguration.new
-        data.s3_encryption = (Parsers::S3EncryptionList.parse(map['S3Encryption']) unless map['S3Encryption'].nil?)
-        data.cloud_watch_encryption = (Parsers::CloudWatchEncryption.parse(map['CloudWatchEncryption']) unless map['CloudWatchEncryption'].nil?)
-        data.job_bookmarks_encryption = (Parsers::JobBookmarksEncryption.parse(map['JobBookmarksEncryption']) unless map['JobBookmarksEncryption'].nil?)
+        data.s3_encryption = (S3EncryptionList.parse(map['S3Encryption']) unless map['S3Encryption'].nil?)
+        data.cloud_watch_encryption = (CloudWatchEncryption.parse(map['CloudWatchEncryption']) unless map['CloudWatchEncryption'].nil?)
+        data.job_bookmarks_encryption = (JobBookmarksEncryption.parse(map['JobBookmarksEncryption']) unless map['JobBookmarksEncryption'].nil?)
         return data
       end
     end
@@ -4732,7 +4734,7 @@ module AWS::SDK::Glue
     class S3EncryptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::S3Encryption.parse(value) unless value.nil?
+          S3Encryption.parse(value) unless value.nil?
         end
       end
     end
@@ -4753,7 +4755,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.security_configurations = (Parsers::SecurityConfigurationList.parse(map['SecurityConfigurations']) unless map['SecurityConfigurations'].nil?)
+        data.security_configurations = (SecurityConfigurationList.parse(map['SecurityConfigurations']) unless map['SecurityConfigurations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4762,7 +4764,7 @@ module AWS::SDK::Glue
     class SecurityConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::SecurityConfiguration.parse(value) unless value.nil?
+          SecurityConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -4774,7 +4776,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.session = (Parsers::Session.parse(map['Session']) unless map['Session'].nil?)
+        data.session = (Session.parse(map['Session']) unless map['Session'].nil?)
         data
       end
     end
@@ -4786,7 +4788,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.statement = (Parsers::Statement.parse(map['Statement']) unless map['Statement'].nil?)
+        data.statement = (Statement.parse(map['Statement']) unless map['Statement'].nil?)
         data
       end
     end
@@ -4797,7 +4799,7 @@ module AWS::SDK::Glue
         data.id = map['Id']
         data.code = map['Code']
         data.state = map['State']
-        data.output = (Parsers::StatementOutput.parse(map['Output']) unless map['Output'].nil?)
+        data.output = (StatementOutput.parse(map['Output']) unless map['Output'].nil?)
         data.progress = Hearth::NumberHelper.deserialize(map['Progress'])
         data.started_on = map['StartedOn']
         data.completed_on = map['CompletedOn']
@@ -4808,12 +4810,12 @@ module AWS::SDK::Glue
     class StatementOutput
       def self.parse(map)
         data = Types::StatementOutput.new
-        data.data = (Parsers::StatementOutputData.parse(map['Data']) unless map['Data'].nil?)
+        data.data = (StatementOutputData.parse(map['Data']) unless map['Data'].nil?)
         data.execution_count = map['ExecutionCount']
         data.status = map['Status']
         data.error_name = map['ErrorName']
         data.error_value = map['ErrorValue']
-        data.traceback = (Parsers::OrchestrationStringList.parse(map['Traceback']) unless map['Traceback'].nil?)
+        data.traceback = (OrchestrationStringList.parse(map['Traceback']) unless map['Traceback'].nil?)
         return data
       end
     end
@@ -4833,7 +4835,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table = (Parsers::Table.parse(map['Table']) unless map['Table'].nil?)
+        data.table = (Table.parse(map['Table']) unless map['Table'].nil?)
         data
       end
     end
@@ -4850,15 +4852,15 @@ module AWS::SDK::Glue
         data.last_access_time = Time.at(map['LastAccessTime'].to_i) if map['LastAccessTime']
         data.last_analyzed_time = Time.at(map['LastAnalyzedTime'].to_i) if map['LastAnalyzedTime']
         data.retention = map['Retention']
-        data.storage_descriptor = (Parsers::StorageDescriptor.parse(map['StorageDescriptor']) unless map['StorageDescriptor'].nil?)
-        data.partition_keys = (Parsers::ColumnList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
+        data.storage_descriptor = (StorageDescriptor.parse(map['StorageDescriptor']) unless map['StorageDescriptor'].nil?)
+        data.partition_keys = (ColumnList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
         data.view_original_text = map['ViewOriginalText']
         data.view_expanded_text = map['ViewExpandedText']
         data.table_type = map['TableType']
-        data.parameters = (Parsers::ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.created_by = map['CreatedBy']
         data.is_registered_with_lake_formation = map['IsRegisteredWithLakeFormation']
-        data.target_table = (Parsers::TableIdentifier.parse(map['TargetTable']) unless map['TargetTable'].nil?)
+        data.target_table = (TableIdentifier.parse(map['TargetTable']) unless map['TargetTable'].nil?)
         data.catalog_id = map['CatalogId']
         data.version_id = map['VersionId']
         return data
@@ -4882,7 +4884,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table_version = (Parsers::TableVersion.parse(map['TableVersion']) unless map['TableVersion'].nil?)
+        data.table_version = (TableVersion.parse(map['TableVersion']) unless map['TableVersion'].nil?)
         data
       end
     end
@@ -4890,7 +4892,7 @@ module AWS::SDK::Glue
     class TableVersion
       def self.parse(map)
         data = Types::TableVersion.new
-        data.table = (Parsers::Table.parse(map['Table']) unless map['Table'].nil?)
+        data.table = (Table.parse(map['Table']) unless map['Table'].nil?)
         data.version_id = map['VersionId']
         return data
       end
@@ -4903,7 +4905,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table_versions = (Parsers::GetTableVersionsList.parse(map['TableVersions']) unless map['TableVersions'].nil?)
+        data.table_versions = (GetTableVersionsList.parse(map['TableVersions']) unless map['TableVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4912,7 +4914,7 @@ module AWS::SDK::Glue
     class GetTableVersionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::TableVersion.parse(value) unless value.nil?
+          TableVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -4924,7 +4926,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table_list = (Parsers::TableList.parse(map['TableList']) unless map['TableList'].nil?)
+        data.table_list = (TableList.parse(map['TableList']) unless map['TableList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4933,7 +4935,7 @@ module AWS::SDK::Glue
     class TableList
       def self.parse(list)
         list.map do |value|
-          Parsers::Table.parse(value) unless value.nil?
+          Table.parse(value) unless value.nil?
         end
       end
     end
@@ -4945,7 +4947,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagsMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagsMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -4957,7 +4959,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trigger = (Parsers::Trigger.parse(map['Trigger']) unless map['Trigger'].nil?)
+        data.trigger = (Trigger.parse(map['Trigger']) unless map['Trigger'].nil?)
         data
       end
     end
@@ -4969,7 +4971,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.triggers = (Parsers::TriggerList.parse(map['Triggers']) unless map['Triggers'].nil?)
+        data.triggers = (TriggerList.parse(map['Triggers']) unless map['Triggers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4982,8 +4984,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.partition = (Parsers::Partition.parse(map['Partition']) unless map['Partition'].nil?)
-        data.authorized_columns = (Parsers::NameStringList.parse(map['AuthorizedColumns']) unless map['AuthorizedColumns'].nil?)
+        data.partition = (Partition.parse(map['Partition']) unless map['Partition'].nil?)
+        data.authorized_columns = (NameStringList.parse(map['AuthorizedColumns']) unless map['AuthorizedColumns'].nil?)
         data.is_registered_with_lake_formation = map['IsRegisteredWithLakeFormation']
         data
       end
@@ -5008,7 +5010,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.unfiltered_partitions = (Parsers::UnfilteredPartitionList.parse(map['UnfilteredPartitions']) unless map['UnfilteredPartitions'].nil?)
+        data.unfiltered_partitions = (UnfilteredPartitionList.parse(map['UnfilteredPartitions']) unless map['UnfilteredPartitions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5017,7 +5019,7 @@ module AWS::SDK::Glue
     class UnfilteredPartitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::UnfilteredPartition.parse(value) unless value.nil?
+          UnfilteredPartition.parse(value) unless value.nil?
         end
       end
     end
@@ -5025,8 +5027,8 @@ module AWS::SDK::Glue
     class UnfilteredPartition
       def self.parse(map)
         data = Types::UnfilteredPartition.new
-        data.partition = (Parsers::Partition.parse(map['Partition']) unless map['Partition'].nil?)
-        data.authorized_columns = (Parsers::NameStringList.parse(map['AuthorizedColumns']) unless map['AuthorizedColumns'].nil?)
+        data.partition = (Partition.parse(map['Partition']) unless map['Partition'].nil?)
+        data.authorized_columns = (NameStringList.parse(map['AuthorizedColumns']) unless map['AuthorizedColumns'].nil?)
         data.is_registered_with_lake_formation = map['IsRegisteredWithLakeFormation']
         return data
       end
@@ -5039,10 +5041,10 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table = (Parsers::Table.parse(map['Table']) unless map['Table'].nil?)
-        data.authorized_columns = (Parsers::NameStringList.parse(map['AuthorizedColumns']) unless map['AuthorizedColumns'].nil?)
+        data.table = (Table.parse(map['Table']) unless map['Table'].nil?)
+        data.authorized_columns = (NameStringList.parse(map['AuthorizedColumns']) unless map['AuthorizedColumns'].nil?)
         data.is_registered_with_lake_formation = map['IsRegisteredWithLakeFormation']
-        data.cell_filters = (Parsers::ColumnRowFilterList.parse(map['CellFilters']) unless map['CellFilters'].nil?)
+        data.cell_filters = (ColumnRowFilterList.parse(map['CellFilters']) unless map['CellFilters'].nil?)
         data
       end
     end
@@ -5050,7 +5052,7 @@ module AWS::SDK::Glue
     class ColumnRowFilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnRowFilter.parse(value) unless value.nil?
+          ColumnRowFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -5071,7 +5073,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_defined_function = (Parsers::UserDefinedFunction.parse(map['UserDefinedFunction']) unless map['UserDefinedFunction'].nil?)
+        data.user_defined_function = (UserDefinedFunction.parse(map['UserDefinedFunction']) unless map['UserDefinedFunction'].nil?)
         data
       end
     end
@@ -5085,7 +5087,7 @@ module AWS::SDK::Glue
         data.owner_name = map['OwnerName']
         data.owner_type = map['OwnerType']
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
-        data.resource_uris = (Parsers::ResourceUriList.parse(map['ResourceUris']) unless map['ResourceUris'].nil?)
+        data.resource_uris = (ResourceUriList.parse(map['ResourceUris']) unless map['ResourceUris'].nil?)
         data.catalog_id = map['CatalogId']
         return data
       end
@@ -5094,7 +5096,7 @@ module AWS::SDK::Glue
     class ResourceUriList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceUri.parse(value) unless value.nil?
+          ResourceUri.parse(value) unless value.nil?
         end
       end
     end
@@ -5115,7 +5117,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_defined_functions = (Parsers::UserDefinedFunctionList.parse(map['UserDefinedFunctions']) unless map['UserDefinedFunctions'].nil?)
+        data.user_defined_functions = (UserDefinedFunctionList.parse(map['UserDefinedFunctions']) unless map['UserDefinedFunctions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5124,7 +5126,7 @@ module AWS::SDK::Glue
     class UserDefinedFunctionList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserDefinedFunction.parse(value) unless value.nil?
+          UserDefinedFunction.parse(value) unless value.nil?
         end
       end
     end
@@ -5136,7 +5138,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workflow = (Parsers::Workflow.parse(map['Workflow']) unless map['Workflow'].nil?)
+        data.workflow = (Workflow.parse(map['Workflow']) unless map['Workflow'].nil?)
         data
       end
     end
@@ -5148,7 +5150,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.run = (Parsers::WorkflowRun.parse(map['Run']) unless map['Run'].nil?)
+        data.run = (WorkflowRun.parse(map['Run']) unless map['Run'].nil?)
         data
       end
     end
@@ -5160,7 +5162,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.run_properties = (Parsers::WorkflowRunProperties.parse(map['RunProperties']) unless map['RunProperties'].nil?)
+        data.run_properties = (WorkflowRunProperties.parse(map['RunProperties']) unless map['RunProperties'].nil?)
         data
       end
     end
@@ -5172,7 +5174,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.runs = (Parsers::WorkflowRuns.parse(map['Runs']) unless map['Runs'].nil?)
+        data.runs = (WorkflowRuns.parse(map['Runs']) unless map['Runs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5181,7 +5183,7 @@ module AWS::SDK::Glue
     class WorkflowRuns
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkflowRun.parse(value) unless value.nil?
+          WorkflowRun.parse(value) unless value.nil?
         end
       end
     end
@@ -5204,7 +5206,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.blueprints = (Parsers::BlueprintNames.parse(map['Blueprints']) unless map['Blueprints'].nil?)
+        data.blueprints = (BlueprintNames.parse(map['Blueprints']) unless map['Blueprints'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5217,7 +5219,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.crawler_names = (Parsers::CrawlerNameList.parse(map['CrawlerNames']) unless map['CrawlerNames'].nil?)
+        data.crawler_names = (CrawlerNameList.parse(map['CrawlerNames']) unless map['CrawlerNames'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5230,7 +5232,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.custom_entity_types = (Parsers::CustomEntityTypes.parse(map['CustomEntityTypes']) unless map['CustomEntityTypes'].nil?)
+        data.custom_entity_types = (CustomEntityTypes.parse(map['CustomEntityTypes']) unless map['CustomEntityTypes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5243,7 +5245,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dev_endpoint_names = (Parsers::DevEndpointNameList.parse(map['DevEndpointNames']) unless map['DevEndpointNames'].nil?)
+        data.dev_endpoint_names = (DevEndpointNameList.parse(map['DevEndpointNames']) unless map['DevEndpointNames'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5264,7 +5266,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_names = (Parsers::JobNameList.parse(map['JobNames']) unless map['JobNames'].nil?)
+        data.job_names = (JobNameList.parse(map['JobNames']) unless map['JobNames'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5277,7 +5279,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.transform_ids = (Parsers::TransformIdList.parse(map['TransformIds']) unless map['TransformIds'].nil?)
+        data.transform_ids = (TransformIdList.parse(map['TransformIds']) unless map['TransformIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5298,7 +5300,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.registries = (Parsers::RegistryListDefinition.parse(map['Registries']) unless map['Registries'].nil?)
+        data.registries = (RegistryListDefinition.parse(map['Registries']) unless map['Registries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5307,7 +5309,7 @@ module AWS::SDK::Glue
     class RegistryListDefinition
       def self.parse(list)
         list.map do |value|
-          Parsers::RegistryListItem.parse(value) unless value.nil?
+          RegistryListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -5332,7 +5334,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schemas = (Parsers::SchemaVersionList.parse(map['Schemas']) unless map['Schemas'].nil?)
+        data.schemas = (SchemaVersionList.parse(map['Schemas']) unless map['Schemas'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5341,7 +5343,7 @@ module AWS::SDK::Glue
     class SchemaVersionList
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaVersionListItem.parse(value) unless value.nil?
+          SchemaVersionListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -5365,7 +5367,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schemas = (Parsers::SchemaListDefinition.parse(map['Schemas']) unless map['Schemas'].nil?)
+        data.schemas = (SchemaListDefinition.parse(map['Schemas']) unless map['Schemas'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5374,7 +5376,7 @@ module AWS::SDK::Glue
     class SchemaListDefinition
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaListItem.parse(value) unless value.nil?
+          SchemaListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -5400,8 +5402,8 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ids = (Parsers::SessionIdList.parse(map['Ids']) unless map['Ids'].nil?)
-        data.sessions = (Parsers::SessionList.parse(map['Sessions']) unless map['Sessions'].nil?)
+        data.ids = (SessionIdList.parse(map['Ids']) unless map['Ids'].nil?)
+        data.sessions = (SessionList.parse(map['Sessions']) unless map['Sessions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5410,7 +5412,7 @@ module AWS::SDK::Glue
     class SessionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Session.parse(value) unless value.nil?
+          Session.parse(value) unless value.nil?
         end
       end
     end
@@ -5430,7 +5432,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.statements = (Parsers::StatementList.parse(map['Statements']) unless map['Statements'].nil?)
+        data.statements = (StatementList.parse(map['Statements']) unless map['Statements'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5439,7 +5441,7 @@ module AWS::SDK::Glue
     class StatementList
       def self.parse(list)
         list.map do |value|
-          Parsers::Statement.parse(value) unless value.nil?
+          Statement.parse(value) unless value.nil?
         end
       end
     end
@@ -5451,7 +5453,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trigger_names = (Parsers::TriggerNameList.parse(map['TriggerNames']) unless map['TriggerNames'].nil?)
+        data.trigger_names = (TriggerNameList.parse(map['TriggerNames']) unless map['TriggerNames'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5464,7 +5466,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workflows = (Parsers::WorkflowNames.parse(map['Workflows']) unless map['Workflows'].nil?)
+        data.workflows = (WorkflowNames.parse(map['Workflows']) unless map['Workflows'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -5530,7 +5532,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metadata_info_map = (Parsers::MetadataInfoMap.parse(map['MetadataInfoMap']) unless map['MetadataInfoMap'].nil?)
+        data.metadata_info_map = (MetadataInfoMap.parse(map['MetadataInfoMap']) unless map['MetadataInfoMap'].nil?)
         data.schema_version_id = map['SchemaVersionId']
         data.next_token = map['NextToken']
         data
@@ -5541,7 +5543,7 @@ module AWS::SDK::Glue
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MetadataInfo.parse(value) unless value.nil?
+          data[key] = MetadataInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -5552,7 +5554,7 @@ module AWS::SDK::Glue
         data = Types::MetadataInfo.new
         data.metadata_value = map['MetadataValue']
         data.created_time = map['CreatedTime']
-        data.other_metadata_value_list = (Parsers::OtherMetadataValueList.parse(map['OtherMetadataValueList']) unless map['OtherMetadataValueList'].nil?)
+        data.other_metadata_value_list = (OtherMetadataValueList.parse(map['OtherMetadataValueList']) unless map['OtherMetadataValueList'].nil?)
         return data
       end
     end
@@ -5560,7 +5562,7 @@ module AWS::SDK::Glue
     class OtherMetadataValueList
       def self.parse(list)
         list.map do |value|
-          Parsers::OtherMetadataValueListItem.parse(value) unless value.nil?
+          OtherMetadataValueListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -5614,7 +5616,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_bookmark_entry = (Parsers::JobBookmarkEntry.parse(map['JobBookmarkEntry']) unless map['JobBookmarkEntry'].nil?)
+        data.job_bookmark_entry = (JobBookmarkEntry.parse(map['JobBookmarkEntry']) unless map['JobBookmarkEntry'].nil?)
         data
       end
     end
@@ -5627,7 +5629,7 @@ module AWS::SDK::Glue
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.run_id = map['RunId']
-        data.node_ids = (Parsers::NodeIdList.parse(map['NodeIds']) unless map['NodeIds'].nil?)
+        data.node_ids = (NodeIdList.parse(map['NodeIds']) unless map['NodeIds'].nil?)
         data
       end
     end
@@ -5684,7 +5686,7 @@ module AWS::SDK::Glue
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.table_list = (Parsers::TableList.parse(map['TableList']) unless map['TableList'].nil?)
+        data.table_list = (TableList.parse(map['TableList']) unless map['TableList'].nil?)
         data
       end
     end
@@ -6012,7 +6014,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::ColumnStatisticsErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (ColumnStatisticsErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -6020,7 +6022,7 @@ module AWS::SDK::Glue
     class ColumnStatisticsErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnStatisticsError.parse(value) unless value.nil?
+          ColumnStatisticsError.parse(value) unless value.nil?
         end
       end
     end
@@ -6028,8 +6030,8 @@ module AWS::SDK::Glue
     class ColumnStatisticsError
       def self.parse(map)
         data = Types::ColumnStatisticsError.new
-        data.column_statistics = (Parsers::ColumnStatistics.parse(map['ColumnStatistics']) unless map['ColumnStatistics'].nil?)
-        data.error = (Parsers::ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
+        data.column_statistics = (ColumnStatistics.parse(map['ColumnStatistics']) unless map['ColumnStatistics'].nil?)
+        data.error = (ErrorDetail.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -6041,7 +6043,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::ColumnStatisticsErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (ColumnStatisticsErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -6181,7 +6183,7 @@ module AWS::SDK::Glue
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trigger = (Parsers::Trigger.parse(map['Trigger']) unless map['Trigger'].nil?)
+        data.trigger = (Trigger.parse(map['Trigger']) unless map['Trigger'].nil?)
         data
       end
     end

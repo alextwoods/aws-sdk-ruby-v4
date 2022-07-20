@@ -17,7 +17,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule_group_association = (Parsers::FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
+        data.firewall_rule_group_association = (FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
         data
       end
     end
@@ -135,7 +135,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_endpoint = (Parsers::ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
+        data.resolver_endpoint = (ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
         data
       end
     end
@@ -147,7 +147,7 @@ module AWS::SDK::Route53Resolver
         data.creator_request_id = map['CreatorRequestId']
         data.arn = map['Arn']
         data.name = map['Name']
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.direction = map['Direction']
         data.ip_address_count = map['IpAddressCount']
         data.host_vpc_id = map['HostVPCId']
@@ -212,7 +212,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_query_log_config_association = (Parsers::ResolverQueryLogConfigAssociation.parse(map['ResolverQueryLogConfigAssociation']) unless map['ResolverQueryLogConfigAssociation'].nil?)
+        data.resolver_query_log_config_association = (ResolverQueryLogConfigAssociation.parse(map['ResolverQueryLogConfigAssociation']) unless map['ResolverQueryLogConfigAssociation'].nil?)
         data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_rule_association = (Parsers::ResolverRuleAssociation.parse(map['ResolverRuleAssociation']) unless map['ResolverRuleAssociation'].nil?)
+        data.resolver_rule_association = (ResolverRuleAssociation.parse(map['ResolverRuleAssociation']) unless map['ResolverRuleAssociation'].nil?)
         data
       end
     end
@@ -276,7 +276,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_domain_list = (Parsers::FirewallDomainList.parse(map['FirewallDomainList']) unless map['FirewallDomainList'].nil?)
+        data.firewall_domain_list = (FirewallDomainList.parse(map['FirewallDomainList']) unless map['FirewallDomainList'].nil?)
         data
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule = (Parsers::FirewallRule.parse(map['FirewallRule']) unless map['FirewallRule'].nil?)
+        data.firewall_rule = (FirewallRule.parse(map['FirewallRule']) unless map['FirewallRule'].nil?)
         data
       end
     end
@@ -336,7 +336,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule_group = (Parsers::FirewallRuleGroup.parse(map['FirewallRuleGroup']) unless map['FirewallRuleGroup'].nil?)
+        data.firewall_rule_group = (FirewallRuleGroup.parse(map['FirewallRuleGroup']) unless map['FirewallRuleGroup'].nil?)
         data
       end
     end
@@ -366,7 +366,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_endpoint = (Parsers::ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
+        data.resolver_endpoint = (ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
         data
       end
     end
@@ -378,7 +378,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_query_log_config = (Parsers::ResolverQueryLogConfig.parse(map['ResolverQueryLogConfig']) unless map['ResolverQueryLogConfig'].nil?)
+        data.resolver_query_log_config = (ResolverQueryLogConfig.parse(map['ResolverQueryLogConfig']) unless map['ResolverQueryLogConfig'].nil?)
         data
       end
     end
@@ -407,7 +407,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_rule = (Parsers::ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
+        data.resolver_rule = (ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
         data
       end
     end
@@ -423,7 +423,7 @@ module AWS::SDK::Route53Resolver
         data.status_message = map['StatusMessage']
         data.rule_type = map['RuleType']
         data.name = map['Name']
-        data.target_ips = (Parsers::TargetList.parse(map['TargetIps']) unless map['TargetIps'].nil?)
+        data.target_ips = (TargetList.parse(map['TargetIps']) unless map['TargetIps'].nil?)
         data.resolver_endpoint_id = map['ResolverEndpointId']
         data.owner_id = map['OwnerId']
         data.share_status = map['ShareStatus']
@@ -436,7 +436,7 @@ module AWS::SDK::Route53Resolver
     class TargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetAddress.parse(value) unless value.nil?
+          TargetAddress.parse(value) unless value.nil?
         end
       end
     end
@@ -457,7 +457,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_domain_list = (Parsers::FirewallDomainList.parse(map['FirewallDomainList']) unless map['FirewallDomainList'].nil?)
+        data.firewall_domain_list = (FirewallDomainList.parse(map['FirewallDomainList']) unless map['FirewallDomainList'].nil?)
         data
       end
     end
@@ -469,7 +469,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule = (Parsers::FirewallRule.parse(map['FirewallRule']) unless map['FirewallRule'].nil?)
+        data.firewall_rule = (FirewallRule.parse(map['FirewallRule']) unless map['FirewallRule'].nil?)
         data
       end
     end
@@ -481,7 +481,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule_group = (Parsers::FirewallRuleGroup.parse(map['FirewallRuleGroup']) unless map['FirewallRuleGroup'].nil?)
+        data.firewall_rule_group = (FirewallRuleGroup.parse(map['FirewallRuleGroup']) unless map['FirewallRuleGroup'].nil?)
         data
       end
     end
@@ -493,7 +493,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_endpoint = (Parsers::ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
+        data.resolver_endpoint = (ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
         data
       end
     end
@@ -505,7 +505,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_query_log_config = (Parsers::ResolverQueryLogConfig.parse(map['ResolverQueryLogConfig']) unless map['ResolverQueryLogConfig'].nil?)
+        data.resolver_query_log_config = (ResolverQueryLogConfig.parse(map['ResolverQueryLogConfig']) unless map['ResolverQueryLogConfig'].nil?)
         data
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_rule = (Parsers::ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
+        data.resolver_rule = (ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
         data
       end
     end
@@ -542,7 +542,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule_group_association = (Parsers::FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
+        data.firewall_rule_group_association = (FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
         data
       end
     end
@@ -554,7 +554,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_endpoint = (Parsers::ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
+        data.resolver_endpoint = (ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
         data
       end
     end
@@ -566,7 +566,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_query_log_config_association = (Parsers::ResolverQueryLogConfigAssociation.parse(map['ResolverQueryLogConfigAssociation']) unless map['ResolverQueryLogConfigAssociation'].nil?)
+        data.resolver_query_log_config_association = (ResolverQueryLogConfigAssociation.parse(map['ResolverQueryLogConfigAssociation']) unless map['ResolverQueryLogConfigAssociation'].nil?)
         data
       end
     end
@@ -578,7 +578,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_rule_association = (Parsers::ResolverRuleAssociation.parse(map['ResolverRuleAssociation']) unless map['ResolverRuleAssociation'].nil?)
+        data.resolver_rule_association = (ResolverRuleAssociation.parse(map['ResolverRuleAssociation']) unless map['ResolverRuleAssociation'].nil?)
         data
       end
     end
@@ -590,7 +590,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_config = (Parsers::FirewallConfig.parse(map['FirewallConfig']) unless map['FirewallConfig'].nil?)
+        data.firewall_config = (FirewallConfig.parse(map['FirewallConfig']) unless map['FirewallConfig'].nil?)
         data
       end
     end
@@ -613,7 +613,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_domain_list = (Parsers::FirewallDomainList.parse(map['FirewallDomainList']) unless map['FirewallDomainList'].nil?)
+        data.firewall_domain_list = (FirewallDomainList.parse(map['FirewallDomainList']) unless map['FirewallDomainList'].nil?)
         data
       end
     end
@@ -625,7 +625,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule_group = (Parsers::FirewallRuleGroup.parse(map['FirewallRuleGroup']) unless map['FirewallRuleGroup'].nil?)
+        data.firewall_rule_group = (FirewallRuleGroup.parse(map['FirewallRuleGroup']) unless map['FirewallRuleGroup'].nil?)
         data
       end
     end
@@ -637,7 +637,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule_group_association = (Parsers::FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
+        data.firewall_rule_group_association = (FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
         data
       end
     end
@@ -661,7 +661,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_config = (Parsers::ResolverConfig.parse(map['ResolverConfig']) unless map['ResolverConfig'].nil?)
+        data.resolver_config = (ResolverConfig.parse(map['ResolverConfig']) unless map['ResolverConfig'].nil?)
         data
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_dnssec_config = (Parsers::ResolverDnssecConfig.parse(map['ResolverDNSSECConfig']) unless map['ResolverDNSSECConfig'].nil?)
+        data.resolver_dnssec_config = (ResolverDnssecConfig.parse(map['ResolverDNSSECConfig']) unless map['ResolverDNSSECConfig'].nil?)
         data
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_endpoint = (Parsers::ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
+        data.resolver_endpoint = (ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
         data
       end
     end
@@ -719,7 +719,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_query_log_config = (Parsers::ResolverQueryLogConfig.parse(map['ResolverQueryLogConfig']) unless map['ResolverQueryLogConfig'].nil?)
+        data.resolver_query_log_config = (ResolverQueryLogConfig.parse(map['ResolverQueryLogConfig']) unless map['ResolverQueryLogConfig'].nil?)
         data
       end
     end
@@ -731,7 +731,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_query_log_config_association = (Parsers::ResolverQueryLogConfigAssociation.parse(map['ResolverQueryLogConfigAssociation']) unless map['ResolverQueryLogConfigAssociation'].nil?)
+        data.resolver_query_log_config_association = (ResolverQueryLogConfigAssociation.parse(map['ResolverQueryLogConfigAssociation']) unless map['ResolverQueryLogConfigAssociation'].nil?)
         data
       end
     end
@@ -767,7 +767,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_rule = (Parsers::ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
+        data.resolver_rule = (ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
         data
       end
     end
@@ -779,7 +779,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_rule_association = (Parsers::ResolverRuleAssociation.parse(map['ResolverRuleAssociation']) unless map['ResolverRuleAssociation'].nil?)
+        data.resolver_rule_association = (ResolverRuleAssociation.parse(map['ResolverRuleAssociation']) unless map['ResolverRuleAssociation'].nil?)
         data
       end
     end
@@ -819,7 +819,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.firewall_configs = (Parsers::FirewallConfigList.parse(map['FirewallConfigs']) unless map['FirewallConfigs'].nil?)
+        data.firewall_configs = (FirewallConfigList.parse(map['FirewallConfigs']) unless map['FirewallConfigs'].nil?)
         data
       end
     end
@@ -827,7 +827,7 @@ module AWS::SDK::Route53Resolver
     class FirewallConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::FirewallConfig.parse(value) unless value.nil?
+          FirewallConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -840,7 +840,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.firewall_domain_lists = (Parsers::FirewallDomainListMetadataList.parse(map['FirewallDomainLists']) unless map['FirewallDomainLists'].nil?)
+        data.firewall_domain_lists = (FirewallDomainListMetadataList.parse(map['FirewallDomainLists']) unless map['FirewallDomainLists'].nil?)
         data
       end
     end
@@ -848,7 +848,7 @@ module AWS::SDK::Route53Resolver
     class FirewallDomainListMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::FirewallDomainListMetadata.parse(value) unless value.nil?
+          FirewallDomainListMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -873,7 +873,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.domains = (Parsers::FirewallDomains.parse(map['Domains']) unless map['Domains'].nil?)
+        data.domains = (FirewallDomains.parse(map['Domains']) unless map['Domains'].nil?)
         data
       end
     end
@@ -894,7 +894,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.firewall_rule_group_associations = (Parsers::FirewallRuleGroupAssociations.parse(map['FirewallRuleGroupAssociations']) unless map['FirewallRuleGroupAssociations'].nil?)
+        data.firewall_rule_group_associations = (FirewallRuleGroupAssociations.parse(map['FirewallRuleGroupAssociations']) unless map['FirewallRuleGroupAssociations'].nil?)
         data
       end
     end
@@ -902,7 +902,7 @@ module AWS::SDK::Route53Resolver
     class FirewallRuleGroupAssociations
       def self.parse(list)
         list.map do |value|
-          Parsers::FirewallRuleGroupAssociation.parse(value) unless value.nil?
+          FirewallRuleGroupAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -915,7 +915,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.firewall_rule_groups = (Parsers::FirewallRuleGroupMetadataList.parse(map['FirewallRuleGroups']) unless map['FirewallRuleGroups'].nil?)
+        data.firewall_rule_groups = (FirewallRuleGroupMetadataList.parse(map['FirewallRuleGroups']) unless map['FirewallRuleGroups'].nil?)
         data
       end
     end
@@ -923,7 +923,7 @@ module AWS::SDK::Route53Resolver
     class FirewallRuleGroupMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::FirewallRuleGroupMetadata.parse(value) unless value.nil?
+          FirewallRuleGroupMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -949,7 +949,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.firewall_rules = (Parsers::FirewallRules.parse(map['FirewallRules']) unless map['FirewallRules'].nil?)
+        data.firewall_rules = (FirewallRules.parse(map['FirewallRules']) unless map['FirewallRules'].nil?)
         data
       end
     end
@@ -957,7 +957,7 @@ module AWS::SDK::Route53Resolver
     class FirewallRules
       def self.parse(list)
         list.map do |value|
-          Parsers::FirewallRule.parse(value) unless value.nil?
+          FirewallRule.parse(value) unless value.nil?
         end
       end
     end
@@ -970,7 +970,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.resolver_configs = (Parsers::ResolverConfigList.parse(map['ResolverConfigs']) unless map['ResolverConfigs'].nil?)
+        data.resolver_configs = (ResolverConfigList.parse(map['ResolverConfigs']) unless map['ResolverConfigs'].nil?)
         data
       end
     end
@@ -978,7 +978,7 @@ module AWS::SDK::Route53Resolver
     class ResolverConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolverConfig.parse(value) unless value.nil?
+          ResolverConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -1003,7 +1003,7 @@ module AWS::SDK::Route53Resolver
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.resolver_dnssec_configs = (Parsers::ResolverDnssecConfigList.parse(map['ResolverDnssecConfigs']) unless map['ResolverDnssecConfigs'].nil?)
+        data.resolver_dnssec_configs = (ResolverDnssecConfigList.parse(map['ResolverDnssecConfigs']) unless map['ResolverDnssecConfigs'].nil?)
         data
       end
     end
@@ -1011,7 +1011,7 @@ module AWS::SDK::Route53Resolver
     class ResolverDnssecConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolverDnssecConfig.parse(value) unless value.nil?
+          ResolverDnssecConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -1025,7 +1025,7 @@ module AWS::SDK::Route53Resolver
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
         data.max_results = map['MaxResults']
-        data.ip_addresses = (Parsers::IpAddressesResponse.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
+        data.ip_addresses = (IpAddressesResponse.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
         data
       end
     end
@@ -1033,7 +1033,7 @@ module AWS::SDK::Route53Resolver
     class IpAddressesResponse
       def self.parse(list)
         list.map do |value|
-          Parsers::IpAddressResponse.parse(value) unless value.nil?
+          IpAddressResponse.parse(value) unless value.nil?
         end
       end
     end
@@ -1061,7 +1061,7 @@ module AWS::SDK::Route53Resolver
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
         data.max_results = map['MaxResults']
-        data.resolver_endpoints = (Parsers::ResolverEndpoints.parse(map['ResolverEndpoints']) unless map['ResolverEndpoints'].nil?)
+        data.resolver_endpoints = (ResolverEndpoints.parse(map['ResolverEndpoints']) unless map['ResolverEndpoints'].nil?)
         data
       end
     end
@@ -1069,7 +1069,7 @@ module AWS::SDK::Route53Resolver
     class ResolverEndpoints
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolverEndpoint.parse(value) unless value.nil?
+          ResolverEndpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -1084,7 +1084,7 @@ module AWS::SDK::Route53Resolver
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data.total_filtered_count = map['TotalFilteredCount']
-        data.resolver_query_log_config_associations = (Parsers::ResolverQueryLogConfigAssociationList.parse(map['ResolverQueryLogConfigAssociations']) unless map['ResolverQueryLogConfigAssociations'].nil?)
+        data.resolver_query_log_config_associations = (ResolverQueryLogConfigAssociationList.parse(map['ResolverQueryLogConfigAssociations']) unless map['ResolverQueryLogConfigAssociations'].nil?)
         data
       end
     end
@@ -1092,7 +1092,7 @@ module AWS::SDK::Route53Resolver
     class ResolverQueryLogConfigAssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolverQueryLogConfigAssociation.parse(value) unless value.nil?
+          ResolverQueryLogConfigAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -1107,7 +1107,7 @@ module AWS::SDK::Route53Resolver
         data.next_token = map['NextToken']
         data.total_count = map['TotalCount']
         data.total_filtered_count = map['TotalFilteredCount']
-        data.resolver_query_log_configs = (Parsers::ResolverQueryLogConfigList.parse(map['ResolverQueryLogConfigs']) unless map['ResolverQueryLogConfigs'].nil?)
+        data.resolver_query_log_configs = (ResolverQueryLogConfigList.parse(map['ResolverQueryLogConfigs']) unless map['ResolverQueryLogConfigs'].nil?)
         data
       end
     end
@@ -1115,7 +1115,7 @@ module AWS::SDK::Route53Resolver
     class ResolverQueryLogConfigList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolverQueryLogConfig.parse(value) unless value.nil?
+          ResolverQueryLogConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -1129,7 +1129,7 @@ module AWS::SDK::Route53Resolver
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
         data.max_results = map['MaxResults']
-        data.resolver_rule_associations = (Parsers::ResolverRuleAssociations.parse(map['ResolverRuleAssociations']) unless map['ResolverRuleAssociations'].nil?)
+        data.resolver_rule_associations = (ResolverRuleAssociations.parse(map['ResolverRuleAssociations']) unless map['ResolverRuleAssociations'].nil?)
         data
       end
     end
@@ -1137,7 +1137,7 @@ module AWS::SDK::Route53Resolver
     class ResolverRuleAssociations
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolverRuleAssociation.parse(value) unless value.nil?
+          ResolverRuleAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -1151,7 +1151,7 @@ module AWS::SDK::Route53Resolver
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
         data.max_results = map['MaxResults']
-        data.resolver_rules = (Parsers::ResolverRules.parse(map['ResolverRules']) unless map['ResolverRules'].nil?)
+        data.resolver_rules = (ResolverRules.parse(map['ResolverRules']) unless map['ResolverRules'].nil?)
         data
       end
     end
@@ -1159,7 +1159,7 @@ module AWS::SDK::Route53Resolver
     class ResolverRules
       def self.parse(list)
         list.map do |value|
-          Parsers::ResolverRule.parse(value) unless value.nil?
+          ResolverRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1171,7 +1171,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::Route53Resolver
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1283,7 +1283,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_config = (Parsers::FirewallConfig.parse(map['FirewallConfig']) unless map['FirewallConfig'].nil?)
+        data.firewall_config = (FirewallConfig.parse(map['FirewallConfig']) unless map['FirewallConfig'].nil?)
         data
       end
     end
@@ -1310,7 +1310,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule = (Parsers::FirewallRule.parse(map['FirewallRule']) unless map['FirewallRule'].nil?)
+        data.firewall_rule = (FirewallRule.parse(map['FirewallRule']) unless map['FirewallRule'].nil?)
         data
       end
     end
@@ -1322,7 +1322,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.firewall_rule_group_association = (Parsers::FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
+        data.firewall_rule_group_association = (FirewallRuleGroupAssociation.parse(map['FirewallRuleGroupAssociation']) unless map['FirewallRuleGroupAssociation'].nil?)
         data
       end
     end
@@ -1334,7 +1334,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_config = (Parsers::ResolverConfig.parse(map['ResolverConfig']) unless map['ResolverConfig'].nil?)
+        data.resolver_config = (ResolverConfig.parse(map['ResolverConfig']) unless map['ResolverConfig'].nil?)
         data
       end
     end
@@ -1346,7 +1346,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_dnssec_config = (Parsers::ResolverDnssecConfig.parse(map['ResolverDNSSECConfig']) unless map['ResolverDNSSECConfig'].nil?)
+        data.resolver_dnssec_config = (ResolverDnssecConfig.parse(map['ResolverDNSSECConfig']) unless map['ResolverDNSSECConfig'].nil?)
         data
       end
     end
@@ -1358,7 +1358,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_endpoint = (Parsers::ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
+        data.resolver_endpoint = (ResolverEndpoint.parse(map['ResolverEndpoint']) unless map['ResolverEndpoint'].nil?)
         data
       end
     end
@@ -1370,7 +1370,7 @@ module AWS::SDK::Route53Resolver
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resolver_rule = (Parsers::ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
+        data.resolver_rule = (ResolverRule.parse(map['ResolverRule']) unless map['ResolverRule'].nil?)
         data
       end
     end

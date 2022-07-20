@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKMessaging
   module Builders
 
@@ -28,7 +30,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ChannelFlowArn'] = input[:channel_flow_arn] unless input[:channel_flow_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -54,8 +56,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['MemberArns'] = Builders::MemberArns.build(input[:member_arns]) unless input[:member_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MemberArns'] = MemberArns.build(input[:member_arns]) unless input[:member_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -93,8 +95,8 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         data['CallbackId'] = input[:callback_id] unless input[:callback_id].nil?
         data['DeleteResource'] = input[:delete_resource] unless input[:delete_resource].nil?
-        data['ChannelMessage'] = Builders::ChannelMessageCallback.build(input[:channel_message]) unless input[:channel_message].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelMessage'] = ChannelMessageCallback.build(input[:channel_message]) unless input[:channel_message].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,8 +107,8 @@ module AWS::SDK::ChimeSDKMessaging
         data['MessageId'] = input[:message_id] unless input[:message_id].nil?
         data['Content'] = input[:content] unless input[:content].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        data['PushNotification'] = Builders::PushNotificationConfiguration.build(input[:push_notification]) unless input[:push_notification].nil?
-        data['MessageAttributes'] = Builders::MessageAttributeMap.build(input[:message_attributes]) unless input[:message_attributes].nil?
+        data['PushNotification'] = PushNotificationConfiguration.build(input[:push_notification]) unless input[:push_notification].nil?
+        data['MessageAttributes'] = MessageAttributeMap.build(input[:message_attributes]) unless input[:message_attributes].nil?
         data
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::MessageAttributeValue.build(value) unless value.nil?
+          data[key] = MessageAttributeValue.build(value) unless value.nil?
         end
         data
       end
@@ -126,7 +128,7 @@ module AWS::SDK::ChimeSDKMessaging
     class MessageAttributeValue
       def self.build(input)
         data = {}
-        data['StringValues'] = Builders::MessageAttributeStringValues.build(input[:string_values]) unless input[:string_values].nil?
+        data['StringValues'] = MessageAttributeStringValues.build(input[:string_values]) unless input[:string_values].nil?
         data
       end
     end
@@ -169,11 +171,11 @@ module AWS::SDK::ChimeSDKMessaging
         data['Privacy'] = input[:privacy] unless input[:privacy].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ChannelId'] = input[:channel_id] unless input[:channel_id].nil?
-        data['MemberArns'] = Builders::ChannelMemberArns.build(input[:member_arns]) unless input[:member_arns].nil?
-        data['ModeratorArns'] = Builders::ChannelModeratorArns.build(input[:moderator_arns]) unless input[:moderator_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MemberArns'] = ChannelMemberArns.build(input[:member_arns]) unless input[:member_arns].nil?
+        data['ModeratorArns'] = ChannelModeratorArns.build(input[:moderator_arns]) unless input[:moderator_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -205,7 +207,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -239,7 +241,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MemberArn'] = input[:member_arn] unless input[:member_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -255,11 +257,11 @@ module AWS::SDK::ChimeSDKMessaging
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AppInstanceArn'] = input[:app_instance_arn] unless input[:app_instance_arn].nil?
-        data['Processors'] = Builders::ProcessorList.build(input[:processors]) unless input[:processors].nil?
+        data['Processors'] = ProcessorList.build(input[:processors]) unless input[:processors].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Processor.build(element) unless element.nil?
+          data << Processor.build(element) unless element.nil?
         end
         data
       end
@@ -279,7 +281,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Configuration'] = Builders::ProcessorConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Configuration'] = ProcessorConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['ExecutionOrder'] = input[:execution_order] unless input[:execution_order].nil?
         data['FallbackAction'] = input[:fallback_action] unless input[:fallback_action].nil?
         data
@@ -290,7 +292,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ProcessorConfiguration
       def self.build(input)
         data = {}
-        data['Lambda'] = Builders::LambdaConfiguration.build(input[:lambda]) unless input[:lambda].nil?
+        data['Lambda'] = LambdaConfiguration.build(input[:lambda]) unless input[:lambda].nil?
         data
       end
     end
@@ -324,7 +326,7 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         data['MemberArn'] = input[:member_arn] unless input[:member_arn].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::ChimeSDKMessaging
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ChannelModeratorArn'] = input[:channel_moderator_arn] unless input[:channel_moderator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -915,8 +917,8 @@ module AWS::SDK::ChimeSDKMessaging
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Preferences'] = Builders::ChannelMembershipPreferences.build(input[:preferences]) unless input[:preferences].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Preferences'] = ChannelMembershipPreferences.build(input[:preferences]) unless input[:preferences].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -925,7 +927,7 @@ module AWS::SDK::ChimeSDKMessaging
     class ChannelMembershipPreferences
       def self.build(input)
         data = {}
-        data['PushNotifications'] = Builders::PushNotificationPreferences.build(input[:push_notifications]) unless input[:push_notifications].nil?
+        data['PushNotifications'] = PushNotificationPreferences.build(input[:push_notifications]) unless input[:push_notifications].nil?
         data
       end
     end
@@ -980,8 +982,8 @@ module AWS::SDK::ChimeSDKMessaging
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Fields'] = Builders::SearchFields.build(input[:fields]) unless input[:fields].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fields'] = SearchFields.build(input[:fields]) unless input[:fields].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -991,7 +993,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SearchField.build(element) unless element.nil?
+          data << SearchField.build(element) unless element.nil?
         end
         data
       end
@@ -1002,7 +1004,7 @@ module AWS::SDK::ChimeSDKMessaging
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::SearchFieldValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = SearchFieldValues.build(input[:values]) unless input[:values].nil?
         data['Operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -1041,9 +1043,9 @@ module AWS::SDK::ChimeSDKMessaging
         data['Persistence'] = input[:persistence] unless input[:persistence].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['PushNotification'] = Builders::PushNotificationConfiguration.build(input[:push_notification]) unless input[:push_notification].nil?
-        data['MessageAttributes'] = Builders::MessageAttributeMap.build(input[:message_attributes]) unless input[:message_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PushNotification'] = PushNotificationConfiguration.build(input[:push_notification]) unless input[:push_notification].nil?
+        data['MessageAttributes'] = MessageAttributeMap.build(input[:message_attributes]) unless input[:message_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -1062,8 +1064,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1081,8 +1083,8 @@ module AWS::SDK::ChimeSDKMessaging
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1117,7 +1119,7 @@ module AWS::SDK::ChimeSDKMessaging
         data['Name'] = input[:name] unless input[:name].nil?
         data['Mode'] = input[:mode] unless input[:mode].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -1139,9 +1141,9 @@ module AWS::SDK::ChimeSDKMessaging
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Processors'] = Builders::ProcessorList.build(input[:processors]) unless input[:processors].nil?
+        data['Processors'] = ProcessorList.build(input[:processors]) unless input[:processors].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1168,7 +1170,7 @@ module AWS::SDK::ChimeSDKMessaging
         data = {}
         data['Content'] = input[:content] unless input[:content].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end

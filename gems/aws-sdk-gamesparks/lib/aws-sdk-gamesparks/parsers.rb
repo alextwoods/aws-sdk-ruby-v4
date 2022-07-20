@@ -15,7 +15,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::CreateGameOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.game = (Parsers::GameDetails.parse(map['Game']) unless map['Game'].nil?)
+        data.game = (GameDetails.parse(map['Game']) unless map['Game'].nil?)
         data
       end
     end
@@ -30,7 +30,7 @@ module AWS::SDK::GameSparks
         data.last_updated = Time.parse(map['LastUpdated']) if map['LastUpdated']
         data.state = map['State']
         data.enable_termination_protection = map['EnableTerminationProtection']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -110,7 +110,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::CreateSnapshotOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.snapshot = (Parsers::SnapshotDetails.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (SnapshotDetails.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -120,7 +120,7 @@ module AWS::SDK::GameSparks
         data = Types::SnapshotDetails.new
         data.id = map['Id']
         data.description = map['Description']
-        data.sections = (Parsers::Sections.parse(map['Sections']) unless map['Sections'].nil?)
+        data.sections = (Sections.parse(map['Sections']) unless map['Sections'].nil?)
         data.created = Time.parse(map['Created']) if map['Created']
         data.last_updated = Time.parse(map['LastUpdated']) if map['LastUpdated']
         return data
@@ -131,7 +131,7 @@ module AWS::SDK::GameSparks
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Section.parse(value) unless value.nil?
+          data[key] = Section.parse(value) unless value.nil?
         end
         data
       end
@@ -162,7 +162,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::CreateStageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stage = (Parsers::StageDetails.parse(map['Stage']) unless map['Stage'].nil?)
+        data.stage = (StageDetails.parse(map['Stage']) unless map['Stage'].nil?)
         data
       end
     end
@@ -178,7 +178,7 @@ module AWS::SDK::GameSparks
         data.created = Time.parse(map['Created']) if map['Created']
         data.last_updated = Time.parse(map['LastUpdated']) if map['LastUpdated']
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.log_group = map['LogGroup']
         return data
       end
@@ -207,8 +207,8 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::DisconnectPlayerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.disconnect_successes = (Parsers::ConnectionIdList.parse(map['DisconnectSuccesses']) unless map['DisconnectSuccesses'].nil?)
-        data.disconnect_failures = (Parsers::ConnectionIdList.parse(map['DisconnectFailures']) unless map['DisconnectFailures'].nil?)
+        data.disconnect_successes = (ConnectionIdList.parse(map['DisconnectSuccesses']) unless map['DisconnectSuccesses'].nil?)
+        data.disconnect_failures = (ConnectionIdList.parse(map['DisconnectFailures']) unless map['DisconnectFailures'].nil?)
         data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetExtensionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.extension = (Parsers::ExtensionDetails.parse(map['Extension']) unless map['Extension'].nil?)
+        data.extension = (ExtensionDetails.parse(map['Extension']) unless map['Extension'].nil?)
         data
       end
     end
@@ -258,7 +258,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetExtensionVersionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.extension_version = (Parsers::ExtensionVersionDetails.parse(map['ExtensionVersion']) unless map['ExtensionVersion'].nil?)
+        data.extension_version = (ExtensionVersionDetails.parse(map['ExtensionVersion']) unless map['ExtensionVersion'].nil?)
         data
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetGameOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.game = (Parsers::GameDetails.parse(map['Game']) unless map['Game'].nil?)
+        data.game = (GameDetails.parse(map['Game']) unless map['Game'].nil?)
         data
       end
     end
@@ -289,7 +289,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetGameConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.game_configuration = (Parsers::GameConfigurationDetails.parse(map['GameConfiguration']) unless map['GameConfiguration'].nil?)
+        data.game_configuration = (GameConfigurationDetails.parse(map['GameConfiguration']) unless map['GameConfiguration'].nil?)
         data
       end
     end
@@ -297,7 +297,7 @@ module AWS::SDK::GameSparks
     class GameConfigurationDetails
       def self.parse(map)
         data = Types::GameConfigurationDetails.new
-        data.sections = (Parsers::Sections.parse(map['Sections']) unless map['Sections'].nil?)
+        data.sections = (Sections.parse(map['Sections']) unless map['Sections'].nil?)
         data.created = Time.parse(map['Created']) if map['Created']
         data.last_updated = Time.parse(map['LastUpdated']) if map['LastUpdated']
         return data
@@ -309,7 +309,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetGeneratedCodeJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.generated_code_job = (Parsers::GeneratedCodeJobDetails.parse(map['GeneratedCodeJob']) unless map['GeneratedCodeJob'].nil?)
+        data.generated_code_job = (GeneratedCodeJobDetails.parse(map['GeneratedCodeJob']) unless map['GeneratedCodeJob'].nil?)
         data
       end
     end
@@ -331,7 +331,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetPlayerConnectionStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connections = (Parsers::ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.connections = (ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
         data
       end
     end
@@ -340,7 +340,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Connection.parse(value) unless value.nil?
+          data << Connection.parse(value) unless value.nil?
         end
         data
       end
@@ -360,7 +360,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetSnapshotOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.snapshot = (Parsers::SnapshotDetails.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (SnapshotDetails.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetStageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stage = (Parsers::StageDetails.parse(map['Stage']) unless map['Stage'].nil?)
+        data.stage = (StageDetails.parse(map['Stage']) unless map['Stage'].nil?)
         data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::GetStageDeploymentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stage_deployment = (Parsers::StageDeploymentDetails.parse(map['StageDeployment']) unless map['StageDeployment'].nil?)
+        data.stage_deployment = (StageDeploymentDetails.parse(map['StageDeployment']) unless map['StageDeployment'].nil?)
         data
       end
     end
@@ -394,7 +394,7 @@ module AWS::SDK::GameSparks
         data.deployment_state = map['DeploymentState']
         data.created = Time.parse(map['Created']) if map['Created']
         data.last_updated = Time.parse(map['LastUpdated']) if map['LastUpdated']
-        data.deployment_result = (Parsers::DeploymentResult.parse(map['DeploymentResult']) unless map['DeploymentResult'].nil?)
+        data.deployment_result = (DeploymentResult.parse(map['DeploymentResult']) unless map['DeploymentResult'].nil?)
         return data
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ImportGameConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.game_configuration = (Parsers::GameConfigurationDetails.parse(map['GameConfiguration']) unless map['GameConfiguration'].nil?)
+        data.game_configuration = (GameConfigurationDetails.parse(map['GameConfiguration']) unless map['GameConfiguration'].nil?)
         data
       end
     end
@@ -423,7 +423,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListExtensionVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.extension_versions = (Parsers::ExtensionVersionDetailsList.parse(map['ExtensionVersions']) unless map['ExtensionVersions'].nil?)
+        data.extension_versions = (ExtensionVersionDetailsList.parse(map['ExtensionVersions']) unless map['ExtensionVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -433,7 +433,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExtensionVersionDetails.parse(value) unless value.nil?
+          data << ExtensionVersionDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -444,7 +444,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListExtensionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.extensions = (Parsers::ExtensionDetailsList.parse(map['Extensions']) unless map['Extensions'].nil?)
+        data.extensions = (ExtensionDetailsList.parse(map['Extensions']) unless map['Extensions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -454,7 +454,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExtensionDetails.parse(value) unless value.nil?
+          data << ExtensionDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -465,7 +465,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListGamesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.games = (Parsers::GameSummaryList.parse(map['Games']) unless map['Games'].nil?)
+        data.games = (GameSummaryList.parse(map['Games']) unless map['Games'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -475,7 +475,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GameSummary.parse(value) unless value.nil?
+          data << GameSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -487,7 +487,7 @@ module AWS::SDK::GameSparks
         data.name = map['Name']
         data.description = map['Description']
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -497,7 +497,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListGeneratedCodeJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.generated_code_jobs = (Parsers::GeneratedCodeJobDetailsList.parse(map['GeneratedCodeJobs']) unless map['GeneratedCodeJobs'].nil?)
+        data.generated_code_jobs = (GeneratedCodeJobDetailsList.parse(map['GeneratedCodeJobs']) unless map['GeneratedCodeJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -507,7 +507,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GeneratedCodeJobDetails.parse(value) unless value.nil?
+          data << GeneratedCodeJobDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -518,7 +518,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListSnapshotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.snapshots = (Parsers::SnapshotSummaryList.parse(map['Snapshots']) unless map['Snapshots'].nil?)
+        data.snapshots = (SnapshotSummaryList.parse(map['Snapshots']) unless map['Snapshots'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -528,7 +528,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SnapshotSummary.parse(value) unless value.nil?
+          data << SnapshotSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -550,7 +550,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListStageDeploymentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stage_deployments = (Parsers::StageDeploymentList.parse(map['StageDeployments']) unless map['StageDeployments'].nil?)
+        data.stage_deployments = (StageDeploymentList.parse(map['StageDeployments']) unless map['StageDeployments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -560,7 +560,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StageDeploymentSummary.parse(value) unless value.nil?
+          data << StageDeploymentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -574,7 +574,7 @@ module AWS::SDK::GameSparks
         data.deployment_action = map['DeploymentAction']
         data.deployment_state = map['DeploymentState']
         data.last_updated = Time.parse(map['LastUpdated']) if map['LastUpdated']
-        data.deployment_result = (Parsers::DeploymentResult.parse(map['DeploymentResult']) unless map['DeploymentResult'].nil?)
+        data.deployment_result = (DeploymentResult.parse(map['DeploymentResult']) unless map['DeploymentResult'].nil?)
         return data
       end
     end
@@ -584,7 +584,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListStagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stages = (Parsers::StageSummaryList.parse(map['Stages']) unless map['Stages'].nil?)
+        data.stages = (StageSummaryList.parse(map['Stages']) unless map['Stages'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -594,7 +594,7 @@ module AWS::SDK::GameSparks
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StageSummary.parse(value) unless value.nil?
+          data << StageSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -607,7 +607,7 @@ module AWS::SDK::GameSparks
         data.game_key = map['GameKey']
         data.description = map['Description']
         data.state = map['State']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -617,7 +617,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -637,7 +637,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::StartStageDeploymentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stage_deployment = (Parsers::StageDeploymentDetails.parse(map['StageDeployment']) unless map['StageDeployment'].nil?)
+        data.stage_deployment = (StageDeploymentDetails.parse(map['StageDeployment']) unless map['StageDeployment'].nil?)
         data
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::UpdateGameOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.game = (Parsers::GameDetails.parse(map['Game']) unless map['Game'].nil?)
+        data.game = (GameDetails.parse(map['Game']) unless map['Game'].nil?)
         data
       end
     end
@@ -675,7 +675,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::UpdateGameConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.game_configuration = (Parsers::GameConfigurationDetails.parse(map['GameConfiguration']) unless map['GameConfiguration'].nil?)
+        data.game_configuration = (GameConfigurationDetails.parse(map['GameConfiguration']) unless map['GameConfiguration'].nil?)
         data
       end
     end
@@ -685,7 +685,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::UpdateSnapshotOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.snapshot = (Parsers::SnapshotDetails.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (SnapshotDetails.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -695,7 +695,7 @@ module AWS::SDK::GameSparks
       def self.parse(http_resp)
         data = Types::UpdateStageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stage = (Parsers::StageDetails.parse(map['Stage']) unless map['Stage'].nil?)
+        data.stage = (StageDetails.parse(map['Stage']) unless map['Stage'].nil?)
         data
       end
     end

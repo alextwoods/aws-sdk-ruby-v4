@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ConnectParticipant
   module Stubs
 
@@ -36,9 +38,9 @@ module AWS::SDK::ConnectParticipant
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Websocket'] = Stubs::Websocket.stub(stub[:websocket]) unless stub[:websocket].nil?
-        data['ConnectionCredentials'] = Stubs::ConnectionCredentials.stub(stub[:connection_credentials]) unless stub[:connection_credentials].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Websocket'] = Websocket.stub(stub[:websocket]) unless stub[:websocket].nil?
+        data['ConnectionCredentials'] = ConnectionCredentials.stub(stub[:connection_credentials]) unless stub[:connection_credentials].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,7 +112,7 @@ module AWS::SDK::ConnectParticipant
         http_resp.headers['Content-Type'] = 'application/json'
         data['Url'] = stub[:url] unless stub[:url].nil?
         data['UrlExpiry'] = stub[:url_expiry] unless stub[:url_expiry].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,9 +131,9 @@ module AWS::SDK::ConnectParticipant
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['InitialContactId'] = stub[:initial_contact_id] unless stub[:initial_contact_id].nil?
-        data['Transcript'] = Stubs::Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Transcript'] = Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::ConnectParticipant
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Item.stub(element) unless element.nil?
+          data << Item.stub(element) unless element.nil?
         end
         data
       end
@@ -184,7 +186,7 @@ module AWS::SDK::ConnectParticipant
         data['ParticipantId'] = stub[:participant_id] unless stub[:participant_id].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['ParticipantRole'] = stub[:participant_role] unless stub[:participant_role].nil?
-        data['Attachments'] = Stubs::Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
+        data['Attachments'] = Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
         data
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::ConnectParticipant
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttachmentItem.stub(element) unless element.nil?
+          data << AttachmentItem.stub(element) unless element.nil?
         end
         data
       end
@@ -248,7 +250,7 @@ module AWS::SDK::ConnectParticipant
         http_resp.headers['Content-Type'] = 'application/json'
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['AbsoluteTime'] = stub[:absolute_time] unless stub[:absolute_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::ConnectParticipant
         http_resp.headers['Content-Type'] = 'application/json'
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['AbsoluteTime'] = stub[:absolute_time] unless stub[:absolute_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,8 +287,8 @@ module AWS::SDK::ConnectParticipant
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AttachmentId'] = stub[:attachment_id] unless stub[:attachment_id].nil?
-        data['UploadMetadata'] = Stubs::UploadMetadata.stub(stub[:upload_metadata]) unless stub[:upload_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UploadMetadata'] = UploadMetadata.stub(stub[:upload_metadata]) unless stub[:upload_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::ConnectParticipant
         data = {}
         data['Url'] = stub[:url] unless stub[:url].nil?
         data['UrlExpiry'] = stub[:url_expiry] unless stub[:url_expiry].nil?
-        data['HeadersToInclude'] = Stubs::UploadMetadataSignedHeaders.stub(stub[:headers_to_include]) unless stub[:headers_to_include].nil?
+        data['HeadersToInclude'] = UploadMetadataSignedHeaders.stub(stub[:headers_to_include]) unless stub[:headers_to_include].nil?
         data
       end
     end

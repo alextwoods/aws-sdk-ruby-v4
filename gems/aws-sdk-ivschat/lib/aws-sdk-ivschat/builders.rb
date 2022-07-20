@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Ivschat
   module Builders
 
@@ -22,10 +24,10 @@ module AWS::SDK::Ivschat
         data = {}
         data['roomIdentifier'] = input[:room_identifier] unless input[:room_identifier].nil?
         data['userId'] = input[:user_id] unless input[:user_id].nil?
-        data['capabilities'] = Builders::ChatTokenCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        data['capabilities'] = ChatTokenCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
         data['sessionDurationInMinutes'] = input[:session_duration_in_minutes] unless input[:session_duration_in_minutes].nil?
-        data['attributes'] = Builders::ChatTokenAttributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = ChatTokenAttributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,9 +66,9 @@ module AWS::SDK::Ivschat
         data['name'] = input[:name] unless input[:name].nil?
         data['maximumMessageRatePerSecond'] = input[:maximum_message_rate_per_second] unless input[:maximum_message_rate_per_second].nil?
         data['maximumMessageLength'] = input[:maximum_message_length] unless input[:maximum_message_length].nil?
-        data['messageReviewHandler'] = Builders::MessageReviewHandler.build(input[:message_review_handler]) unless input[:message_review_handler].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messageReviewHandler'] = MessageReviewHandler.build(input[:message_review_handler]) unless input[:message_review_handler].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -104,7 +106,7 @@ module AWS::SDK::Ivschat
         data['roomIdentifier'] = input[:room_identifier] unless input[:room_identifier].nil?
         data['id'] = input[:id] unless input[:id].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::Ivschat
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['identifier'] = input[:identifier] unless input[:identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -136,7 +138,7 @@ module AWS::SDK::Ivschat
         data['roomIdentifier'] = input[:room_identifier] unless input[:room_identifier].nil?
         data['userId'] = input[:user_id] unless input[:user_id].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::Ivschat
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['identifier'] = input[:identifier] unless input[:identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::Ivschat
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['messageReviewHandlerUri'] = input[:message_review_handler_uri] unless input[:message_review_handler_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,8 +204,8 @@ module AWS::SDK::Ivschat
         data = {}
         data['roomIdentifier'] = input[:room_identifier] unless input[:room_identifier].nil?
         data['eventName'] = input[:event_name] unless input[:event_name].nil?
-        data['attributes'] = Builders::EventAttributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = EventAttributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,8 +237,8 @@ module AWS::SDK::Ivschat
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -287,8 +289,8 @@ module AWS::SDK::Ivschat
         data['name'] = input[:name] unless input[:name].nil?
         data['maximumMessageRatePerSecond'] = input[:maximum_message_rate_per_second] unless input[:maximum_message_rate_per_second].nil?
         data['maximumMessageLength'] = input[:maximum_message_length] unless input[:maximum_message_length].nil?
-        data['messageReviewHandler'] = Builders::MessageReviewHandler.build(input[:message_review_handler]) unless input[:message_review_handler].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messageReviewHandler'] = MessageReviewHandler.build(input[:message_review_handler]) unless input[:message_review_handler].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

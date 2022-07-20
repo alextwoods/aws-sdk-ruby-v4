@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CostAndUsageReportService
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::CostAndUsageReportService
       def self.stub(http_resp, stub:)
         data = {}
         data['ResponseMessage'] = stub[:response_message] unless stub[:response_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,9 +39,9 @@ module AWS::SDK::CostAndUsageReportService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReportDefinitions'] = Stubs::ReportDefinitionList.stub(stub[:report_definitions]) unless stub[:report_definitions].nil?
+        data['ReportDefinitions'] = ReportDefinitionList.stub(stub[:report_definitions]) unless stub[:report_definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -58,7 +60,7 @@ module AWS::SDK::CostAndUsageReportService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReportDefinition.stub(element) unless element.nil?
+          data << ReportDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -92,11 +94,11 @@ module AWS::SDK::CostAndUsageReportService
         data['TimeUnit'] = stub[:time_unit] unless stub[:time_unit].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
         data['Compression'] = stub[:compression] unless stub[:compression].nil?
-        data['AdditionalSchemaElements'] = Stubs::SchemaElementList.stub(stub[:additional_schema_elements]) unless stub[:additional_schema_elements].nil?
+        data['AdditionalSchemaElements'] = SchemaElementList.stub(stub[:additional_schema_elements]) unless stub[:additional_schema_elements].nil?
         data['S3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
         data['S3Prefix'] = stub[:s3_prefix] unless stub[:s3_prefix].nil?
         data['S3Region'] = stub[:s3_region] unless stub[:s3_region].nil?
-        data['AdditionalArtifacts'] = Stubs::AdditionalArtifactList.stub(stub[:additional_artifacts]) unless stub[:additional_artifacts].nil?
+        data['AdditionalArtifacts'] = AdditionalArtifactList.stub(stub[:additional_artifacts]) unless stub[:additional_artifacts].nil?
         data['RefreshClosedReports'] = stub[:refresh_closed_reports] unless stub[:refresh_closed_reports].nil?
         data['ReportVersioning'] = stub[:report_versioning] unless stub[:report_versioning].nil?
         data['BillingViewArn'] = stub[:billing_view_arn] unless stub[:billing_view_arn].nil?
@@ -153,7 +155,7 @@ module AWS::SDK::CostAndUsageReportService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::CostAndUsageReportService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

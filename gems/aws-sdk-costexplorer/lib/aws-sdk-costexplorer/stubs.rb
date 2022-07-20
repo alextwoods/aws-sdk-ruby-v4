@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CostExplorer
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['MonitorArn'] = stub[:monitor_arn] unless stub[:monitor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['SubscriptionArn'] = stub[:subscription_arn] unless stub[:subscription_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -55,7 +57,7 @@ module AWS::SDK::CostExplorer
         data = {}
         data['CostCategoryArn'] = stub[:cost_category_arn] unless stub[:cost_category_arn].nil?
         data['EffectiveStart'] = stub[:effective_start] unless stub[:effective_start].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::CostExplorer
         data = {}
         data['CostCategoryArn'] = stub[:cost_category_arn] unless stub[:cost_category_arn].nil?
         data['EffectiveEnd'] = stub[:effective_end] unless stub[:effective_end].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -116,8 +118,8 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CostCategory'] = Stubs::CostCategory.stub(stub[:cost_category]) unless stub[:cost_category].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CostCategory'] = CostCategory.stub(stub[:cost_category]) unless stub[:cost_category].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -148,9 +150,9 @@ module AWS::SDK::CostExplorer
         data['EffectiveEnd'] = stub[:effective_end] unless stub[:effective_end].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['RuleVersion'] = stub[:rule_version] unless stub[:rule_version].nil?
-        data['Rules'] = Stubs::CostCategoryRulesList.stub(stub[:rules]) unless stub[:rules].nil?
-        data['SplitChargeRules'] = Stubs::CostCategorySplitChargeRulesList.stub(stub[:split_charge_rules]) unless stub[:split_charge_rules].nil?
-        data['ProcessingStatus'] = Stubs::CostCategoryProcessingStatusList.stub(stub[:processing_status]) unless stub[:processing_status].nil?
+        data['Rules'] = CostCategoryRulesList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['SplitChargeRules'] = CostCategorySplitChargeRulesList.stub(stub[:split_charge_rules]) unless stub[:split_charge_rules].nil?
+        data['ProcessingStatus'] = CostCategoryProcessingStatusList.stub(stub[:processing_status]) unless stub[:processing_status].nil?
         data['DefaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data
       end
@@ -170,7 +172,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CostCategoryProcessingStatus.stub(element) unless element.nil?
+          data << CostCategoryProcessingStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -210,7 +212,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CostCategorySplitChargeRule.stub(element) unless element.nil?
+          data << CostCategorySplitChargeRule.stub(element) unless element.nil?
         end
         data
       end
@@ -233,9 +235,9 @@ module AWS::SDK::CostExplorer
         stub ||= Types::CostCategorySplitChargeRule.new
         data = {}
         data['Source'] = stub[:source] unless stub[:source].nil?
-        data['Targets'] = Stubs::CostCategorySplitChargeRuleTargetsList.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = CostCategorySplitChargeRuleTargetsList.stub(stub[:targets]) unless stub[:targets].nil?
         data['Method'] = stub[:member_method] unless stub[:member_method].nil?
-        data['Parameters'] = Stubs::CostCategorySplitChargeRuleParametersList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = CostCategorySplitChargeRuleParametersList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CostCategorySplitChargeRuleParameter.stub(element) unless element.nil?
+          data << CostCategorySplitChargeRuleParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -275,7 +277,7 @@ module AWS::SDK::CostExplorer
         stub ||= Types::CostCategorySplitChargeRuleParameter.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Values'] = Stubs::CostCategorySplitChargeRuleParameterValuesList.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = CostCategorySplitChargeRuleParameterValuesList.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -334,7 +336,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CostCategoryRule.stub(element) unless element.nil?
+          data << CostCategoryRule.stub(element) unless element.nil?
         end
         data
       end
@@ -357,8 +359,8 @@ module AWS::SDK::CostExplorer
         stub ||= Types::CostCategoryRule.new
         data = {}
         data['Value'] = stub[:value] unless stub[:value].nil?
-        data['Rule'] = Stubs::Expression.stub(stub[:rule]) unless stub[:rule].nil?
-        data['InheritedValue'] = Stubs::CostCategoryInheritedValueDimension.stub(stub[:inherited_value]) unless stub[:inherited_value].nil?
+        data['Rule'] = Expression.stub(stub[:rule]) unless stub[:rule].nil?
+        data['InheritedValue'] = CostCategoryInheritedValueDimension.stub(stub[:inherited_value]) unless stub[:inherited_value].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -402,12 +404,12 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::Expression.new
         data = {}
-        data['Or'] = Stubs::Expressions.stub(stub[:or]) unless stub[:or].nil?
-        data['And'] = Stubs::Expressions.stub(stub[:and]) unless stub[:and].nil?
-        data['Not'] = Stubs::Expression.stub(stub[:not]) unless stub[:not].nil?
-        data['Dimensions'] = Stubs::DimensionValues.stub(stub[:dimensions]) unless stub[:dimensions].nil?
-        data['Tags'] = Stubs::TagValues.stub(stub[:tags]) unless stub[:tags].nil?
-        data['CostCategories'] = Stubs::CostCategoryValues.stub(stub[:cost_categories]) unless stub[:cost_categories].nil?
+        data['Or'] = Expressions.stub(stub[:or]) unless stub[:or].nil?
+        data['And'] = Expressions.stub(stub[:and]) unless stub[:and].nil?
+        data['Not'] = Expression.stub(stub[:not]) unless stub[:not].nil?
+        data['Dimensions'] = DimensionValues.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Tags'] = TagValues.stub(stub[:tags]) unless stub[:tags].nil?
+        data['CostCategories'] = CostCategoryValues.stub(stub[:cost_categories]) unless stub[:cost_categories].nil?
         data
       end
     end
@@ -428,8 +430,8 @@ module AWS::SDK::CostExplorer
         stub ||= Types::CostCategoryValues.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::Values.stub(stub[:values]) unless stub[:values].nil?
-        data['MatchOptions'] = Stubs::MatchOptions.stub(stub[:match_options]) unless stub[:match_options].nil?
+        data['Values'] = Values.stub(stub[:values]) unless stub[:values].nil?
+        data['MatchOptions'] = MatchOptions.stub(stub[:match_options]) unless stub[:match_options].nil?
         data
       end
     end
@@ -490,8 +492,8 @@ module AWS::SDK::CostExplorer
         stub ||= Types::TagValues.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::Values.stub(stub[:values]) unless stub[:values].nil?
-        data['MatchOptions'] = Stubs::MatchOptions.stub(stub[:match_options]) unless stub[:match_options].nil?
+        data['Values'] = Values.stub(stub[:values]) unless stub[:values].nil?
+        data['MatchOptions'] = MatchOptions.stub(stub[:match_options]) unless stub[:match_options].nil?
         data
       end
     end
@@ -512,8 +514,8 @@ module AWS::SDK::CostExplorer
         stub ||= Types::DimensionValues.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::Values.stub(stub[:values]) unless stub[:values].nil?
-        data['MatchOptions'] = Stubs::MatchOptions.stub(stub[:match_options]) unless stub[:match_options].nil?
+        data['Values'] = Values.stub(stub[:values]) unless stub[:values].nil?
+        data['MatchOptions'] = MatchOptions.stub(stub[:match_options]) unless stub[:match_options].nil?
         data
       end
     end
@@ -532,7 +534,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Expression.stub(element) unless element.nil?
+          data << Expression.stub(element) unless element.nil?
         end
         data
       end
@@ -549,9 +551,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Anomalies'] = Stubs::Anomalies.stub(stub[:anomalies]) unless stub[:anomalies].nil?
+        data['Anomalies'] = Anomalies.stub(stub[:anomalies]) unless stub[:anomalies].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -570,7 +572,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Anomaly.stub(element) unless element.nil?
+          data << Anomaly.stub(element) unless element.nil?
         end
         data
       end
@@ -601,9 +603,9 @@ module AWS::SDK::CostExplorer
         data['AnomalyStartDate'] = stub[:anomaly_start_date] unless stub[:anomaly_start_date].nil?
         data['AnomalyEndDate'] = stub[:anomaly_end_date] unless stub[:anomaly_end_date].nil?
         data['DimensionValue'] = stub[:dimension_value] unless stub[:dimension_value].nil?
-        data['RootCauses'] = Stubs::RootCauses.stub(stub[:root_causes]) unless stub[:root_causes].nil?
-        data['AnomalyScore'] = Stubs::AnomalyScore.stub(stub[:anomaly_score]) unless stub[:anomaly_score].nil?
-        data['Impact'] = Stubs::Impact.stub(stub[:impact]) unless stub[:impact].nil?
+        data['RootCauses'] = RootCauses.stub(stub[:root_causes]) unless stub[:root_causes].nil?
+        data['AnomalyScore'] = AnomalyScore.stub(stub[:anomaly_score]) unless stub[:anomaly_score].nil?
+        data['Impact'] = Impact.stub(stub[:impact]) unless stub[:impact].nil?
         data['MonitorArn'] = stub[:monitor_arn] unless stub[:monitor_arn].nil?
         data['Feedback'] = stub[:feedback] unless stub[:feedback].nil?
         data
@@ -664,7 +666,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RootCause.stub(element) unless element.nil?
+          data << RootCause.stub(element) unless element.nil?
         end
         data
       end
@@ -705,9 +707,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AnomalyMonitors'] = Stubs::AnomalyMonitors.stub(stub[:anomaly_monitors]) unless stub[:anomaly_monitors].nil?
+        data['AnomalyMonitors'] = AnomalyMonitors.stub(stub[:anomaly_monitors]) unless stub[:anomaly_monitors].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -726,7 +728,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnomalyMonitor.stub(element) unless element.nil?
+          data << AnomalyMonitor.stub(element) unless element.nil?
         end
         data
       end
@@ -760,7 +762,7 @@ module AWS::SDK::CostExplorer
         data['LastEvaluatedDate'] = stub[:last_evaluated_date] unless stub[:last_evaluated_date].nil?
         data['MonitorType'] = stub[:monitor_type] unless stub[:monitor_type].nil?
         data['MonitorDimension'] = stub[:monitor_dimension] unless stub[:monitor_dimension].nil?
-        data['MonitorSpecification'] = Stubs::Expression.stub(stub[:monitor_specification]) unless stub[:monitor_specification].nil?
+        data['MonitorSpecification'] = Expression.stub(stub[:monitor_specification]) unless stub[:monitor_specification].nil?
         data['DimensionalValueCount'] = stub[:dimensional_value_count] unless stub[:dimensional_value_count].nil?
         data
       end
@@ -777,9 +779,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AnomalySubscriptions'] = Stubs::AnomalySubscriptions.stub(stub[:anomaly_subscriptions]) unless stub[:anomaly_subscriptions].nil?
+        data['AnomalySubscriptions'] = AnomalySubscriptions.stub(stub[:anomaly_subscriptions]) unless stub[:anomaly_subscriptions].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -798,7 +800,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnomalySubscription.stub(element) unless element.nil?
+          data << AnomalySubscription.stub(element) unless element.nil?
         end
         data
       end
@@ -825,8 +827,8 @@ module AWS::SDK::CostExplorer
         data = {}
         data['SubscriptionArn'] = stub[:subscription_arn] unless stub[:subscription_arn].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['MonitorArnList'] = Stubs::MonitorArnList.stub(stub[:monitor_arn_list]) unless stub[:monitor_arn_list].nil?
-        data['Subscribers'] = Stubs::Subscribers.stub(stub[:subscribers]) unless stub[:subscribers].nil?
+        data['MonitorArnList'] = MonitorArnList.stub(stub[:monitor_arn_list]) unless stub[:monitor_arn_list].nil?
+        data['Subscribers'] = Subscribers.stub(stub[:subscribers]) unless stub[:subscribers].nil?
         data['Threshold'] = Hearth::NumberHelper.serialize(stub[:threshold])
         data['Frequency'] = stub[:frequency] unless stub[:frequency].nil?
         data['SubscriptionName'] = stub[:subscription_name] unless stub[:subscription_name].nil?
@@ -848,7 +850,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subscriber.stub(element) unless element.nil?
+          data << Subscriber.stub(element) unless element.nil?
         end
         data
       end
@@ -910,10 +912,10 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        data['GroupDefinitions'] = Stubs::GroupDefinitions.stub(stub[:group_definitions]) unless stub[:group_definitions].nil?
-        data['ResultsByTime'] = Stubs::ResultsByTime.stub(stub[:results_by_time]) unless stub[:results_by_time].nil?
-        data['DimensionValueAttributes'] = Stubs::DimensionValuesWithAttributesList.stub(stub[:dimension_value_attributes]) unless stub[:dimension_value_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupDefinitions'] = GroupDefinitions.stub(stub[:group_definitions]) unless stub[:group_definitions].nil?
+        data['ResultsByTime'] = ResultsByTime.stub(stub[:results_by_time]) unless stub[:results_by_time].nil?
+        data['DimensionValueAttributes'] = DimensionValuesWithAttributesList.stub(stub[:dimension_value_attributes]) unless stub[:dimension_value_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -932,7 +934,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionValuesWithAttributes.stub(element) unless element.nil?
+          data << DimensionValuesWithAttributes.stub(element) unless element.nil?
         end
         data
       end
@@ -953,7 +955,7 @@ module AWS::SDK::CostExplorer
         stub ||= Types::DimensionValuesWithAttributes.new
         data = {}
         data['Value'] = stub[:value] unless stub[:value].nil?
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -992,7 +994,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResultByTime.stub(element) unless element.nil?
+          data << ResultByTime.stub(element) unless element.nil?
         end
         data
       end
@@ -1014,9 +1016,9 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::ResultByTime.new
         data = {}
-        data['TimePeriod'] = Stubs::DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
-        data['Total'] = Stubs::Metrics.stub(stub[:total]) unless stub[:total].nil?
-        data['Groups'] = Stubs::Groups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['TimePeriod'] = DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['Total'] = Metrics.stub(stub[:total]) unless stub[:total].nil?
+        data['Groups'] = Groups.stub(stub[:groups]) unless stub[:groups].nil?
         data['Estimated'] = stub[:estimated] unless stub[:estimated].nil?
         data
       end
@@ -1036,7 +1038,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Group.stub(element) unless element.nil?
+          data << Group.stub(element) unless element.nil?
         end
         data
       end
@@ -1056,8 +1058,8 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::Group.new
         data = {}
-        data['Keys'] = Stubs::Keys.stub(stub[:keys]) unless stub[:keys].nil?
-        data['Metrics'] = Stubs::Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Keys'] = Keys.stub(stub[:keys]) unless stub[:keys].nil?
+        data['Metrics'] = Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
         data
       end
     end
@@ -1076,7 +1078,7 @@ module AWS::SDK::CostExplorer
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MetricValue.stub(value) unless value.nil?
+          data[key] = MetricValue.stub(value) unless value.nil?
         end
         data
       end
@@ -1156,7 +1158,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupDefinition.stub(element) unless element.nil?
+          data << GroupDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -1196,10 +1198,10 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        data['GroupDefinitions'] = Stubs::GroupDefinitions.stub(stub[:group_definitions]) unless stub[:group_definitions].nil?
-        data['ResultsByTime'] = Stubs::ResultsByTime.stub(stub[:results_by_time]) unless stub[:results_by_time].nil?
-        data['DimensionValueAttributes'] = Stubs::DimensionValuesWithAttributesList.stub(stub[:dimension_value_attributes]) unless stub[:dimension_value_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupDefinitions'] = GroupDefinitions.stub(stub[:group_definitions]) unless stub[:group_definitions].nil?
+        data['ResultsByTime'] = ResultsByTime.stub(stub[:results_by_time]) unless stub[:results_by_time].nil?
+        data['DimensionValueAttributes'] = DimensionValuesWithAttributesList.stub(stub[:dimension_value_attributes]) unless stub[:dimension_value_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1219,11 +1221,11 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        data['CostCategoryNames'] = Stubs::CostCategoryNamesList.stub(stub[:cost_category_names]) unless stub[:cost_category_names].nil?
-        data['CostCategoryValues'] = Stubs::CostCategoryValuesList.stub(stub[:cost_category_values]) unless stub[:cost_category_values].nil?
+        data['CostCategoryNames'] = CostCategoryNamesList.stub(stub[:cost_category_names]) unless stub[:cost_category_names].nil?
+        data['CostCategoryValues'] = CostCategoryValuesList.stub(stub[:cost_category_values]) unless stub[:cost_category_values].nil?
         data['ReturnSize'] = stub[:return_size] unless stub[:return_size].nil?
         data['TotalSize'] = stub[:total_size] unless stub[:total_size].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1279,9 +1281,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Total'] = Stubs::MetricValue.stub(stub[:total]) unless stub[:total].nil?
-        data['ForecastResultsByTime'] = Stubs::ForecastResultsByTime.stub(stub[:forecast_results_by_time]) unless stub[:forecast_results_by_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Total'] = MetricValue.stub(stub[:total]) unless stub[:total].nil?
+        data['ForecastResultsByTime'] = ForecastResultsByTime.stub(stub[:forecast_results_by_time]) unless stub[:forecast_results_by_time].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1300,7 +1302,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ForecastResult.stub(element) unless element.nil?
+          data << ForecastResult.stub(element) unless element.nil?
         end
         data
       end
@@ -1322,7 +1324,7 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::ForecastResult.new
         data = {}
-        data['TimePeriod'] = Stubs::DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['TimePeriod'] = DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
         data['MeanValue'] = stub[:mean_value] unless stub[:mean_value].nil?
         data['PredictionIntervalLowerBound'] = stub[:prediction_interval_lower_bound] unless stub[:prediction_interval_lower_bound].nil?
         data['PredictionIntervalUpperBound'] = stub[:prediction_interval_upper_bound] unless stub[:prediction_interval_upper_bound].nil?
@@ -1343,11 +1345,11 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DimensionValues'] = Stubs::DimensionValuesWithAttributesList.stub(stub[:dimension_values]) unless stub[:dimension_values].nil?
+        data['DimensionValues'] = DimensionValuesWithAttributesList.stub(stub[:dimension_values]) unless stub[:dimension_values].nil?
         data['ReturnSize'] = stub[:return_size] unless stub[:return_size].nil?
         data['TotalSize'] = stub[:total_size] unless stub[:total_size].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1364,10 +1366,10 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CoveragesByTime'] = Stubs::CoveragesByTime.stub(stub[:coverages_by_time]) unless stub[:coverages_by_time].nil?
-        data['Total'] = Stubs::Coverage.stub(stub[:total]) unless stub[:total].nil?
+        data['CoveragesByTime'] = CoveragesByTime.stub(stub[:coverages_by_time]) unless stub[:coverages_by_time].nil?
+        data['Total'] = Coverage.stub(stub[:total]) unless stub[:total].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1387,9 +1389,9 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::Coverage.new
         data = {}
-        data['CoverageHours'] = Stubs::CoverageHours.stub(stub[:coverage_hours]) unless stub[:coverage_hours].nil?
-        data['CoverageNormalizedUnits'] = Stubs::CoverageNormalizedUnits.stub(stub[:coverage_normalized_units]) unless stub[:coverage_normalized_units].nil?
-        data['CoverageCost'] = Stubs::CoverageCost.stub(stub[:coverage_cost]) unless stub[:coverage_cost].nil?
+        data['CoverageHours'] = CoverageHours.stub(stub[:coverage_hours]) unless stub[:coverage_hours].nil?
+        data['CoverageNormalizedUnits'] = CoverageNormalizedUnits.stub(stub[:coverage_normalized_units]) unless stub[:coverage_normalized_units].nil?
+        data['CoverageCost'] = CoverageCost.stub(stub[:coverage_cost]) unless stub[:coverage_cost].nil?
         data
       end
     end
@@ -1474,7 +1476,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoverageByTime.stub(element) unless element.nil?
+          data << CoverageByTime.stub(element) unless element.nil?
         end
         data
       end
@@ -1495,9 +1497,9 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::CoverageByTime.new
         data = {}
-        data['TimePeriod'] = Stubs::DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
-        data['Groups'] = Stubs::ReservationCoverageGroups.stub(stub[:groups]) unless stub[:groups].nil?
-        data['Total'] = Stubs::Coverage.stub(stub[:total]) unless stub[:total].nil?
+        data['TimePeriod'] = DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['Groups'] = ReservationCoverageGroups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Total'] = Coverage.stub(stub[:total]) unless stub[:total].nil?
         data
       end
     end
@@ -1516,7 +1518,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReservationCoverageGroup.stub(element) unless element.nil?
+          data << ReservationCoverageGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1536,8 +1538,8 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::ReservationCoverageGroup.new
         data = {}
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Coverage'] = Stubs::Coverage.stub(stub[:coverage]) unless stub[:coverage].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Coverage'] = Coverage.stub(stub[:coverage]) unless stub[:coverage].nil?
         data
       end
     end
@@ -1554,10 +1556,10 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Metadata'] = Stubs::ReservationPurchaseRecommendationMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['Recommendations'] = Stubs::ReservationPurchaseRecommendations.stub(stub[:recommendations]) unless stub[:recommendations].nil?
+        data['Metadata'] = ReservationPurchaseRecommendationMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Recommendations'] = ReservationPurchaseRecommendations.stub(stub[:recommendations]) unless stub[:recommendations].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1576,7 +1578,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReservationPurchaseRecommendation.stub(element) unless element.nil?
+          data << ReservationPurchaseRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -1605,9 +1607,9 @@ module AWS::SDK::CostExplorer
         data['LookbackPeriodInDays'] = stub[:lookback_period_in_days] unless stub[:lookback_period_in_days].nil?
         data['TermInYears'] = stub[:term_in_years] unless stub[:term_in_years].nil?
         data['PaymentOption'] = stub[:payment_option] unless stub[:payment_option].nil?
-        data['ServiceSpecification'] = Stubs::ServiceSpecification.stub(stub[:service_specification]) unless stub[:service_specification].nil?
-        data['RecommendationDetails'] = Stubs::ReservationPurchaseRecommendationDetails.stub(stub[:recommendation_details]) unless stub[:recommendation_details].nil?
-        data['RecommendationSummary'] = Stubs::ReservationPurchaseRecommendationSummary.stub(stub[:recommendation_summary]) unless stub[:recommendation_summary].nil?
+        data['ServiceSpecification'] = ServiceSpecification.stub(stub[:service_specification]) unless stub[:service_specification].nil?
+        data['RecommendationDetails'] = ReservationPurchaseRecommendationDetails.stub(stub[:recommendation_details]) unless stub[:recommendation_details].nil?
+        data['RecommendationSummary'] = ReservationPurchaseRecommendationSummary.stub(stub[:recommendation_summary]) unless stub[:recommendation_summary].nil?
         data
       end
     end
@@ -1648,7 +1650,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReservationPurchaseRecommendationDetail.stub(element) unless element.nil?
+          data << ReservationPurchaseRecommendationDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1686,7 +1688,7 @@ module AWS::SDK::CostExplorer
         stub ||= Types::ReservationPurchaseRecommendationDetail.new
         data = {}
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['InstanceDetails'] = Stubs::InstanceDetails.stub(stub[:instance_details]) unless stub[:instance_details].nil?
+        data['InstanceDetails'] = InstanceDetails.stub(stub[:instance_details]) unless stub[:instance_details].nil?
         data['RecommendedNumberOfInstancesToPurchase'] = stub[:recommended_number_of_instances_to_purchase] unless stub[:recommended_number_of_instances_to_purchase].nil?
         data['RecommendedNormalizedUnitsToPurchase'] = stub[:recommended_normalized_units_to_purchase] unless stub[:recommended_normalized_units_to_purchase].nil?
         data['MinimumNumberOfInstancesUsedPerHour'] = stub[:minimum_number_of_instances_used_per_hour] unless stub[:minimum_number_of_instances_used_per_hour].nil?
@@ -1725,11 +1727,11 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::InstanceDetails.new
         data = {}
-        data['EC2InstanceDetails'] = Stubs::EC2InstanceDetails.stub(stub[:ec2_instance_details]) unless stub[:ec2_instance_details].nil?
-        data['RDSInstanceDetails'] = Stubs::RDSInstanceDetails.stub(stub[:rds_instance_details]) unless stub[:rds_instance_details].nil?
-        data['RedshiftInstanceDetails'] = Stubs::RedshiftInstanceDetails.stub(stub[:redshift_instance_details]) unless stub[:redshift_instance_details].nil?
-        data['ElastiCacheInstanceDetails'] = Stubs::ElastiCacheInstanceDetails.stub(stub[:elasti_cache_instance_details]) unless stub[:elasti_cache_instance_details].nil?
-        data['ESInstanceDetails'] = Stubs::ESInstanceDetails.stub(stub[:es_instance_details]) unless stub[:es_instance_details].nil?
+        data['EC2InstanceDetails'] = EC2InstanceDetails.stub(stub[:ec2_instance_details]) unless stub[:ec2_instance_details].nil?
+        data['RDSInstanceDetails'] = RDSInstanceDetails.stub(stub[:rds_instance_details]) unless stub[:rds_instance_details].nil?
+        data['RedshiftInstanceDetails'] = RedshiftInstanceDetails.stub(stub[:redshift_instance_details]) unless stub[:redshift_instance_details].nil?
+        data['ElastiCacheInstanceDetails'] = ElastiCacheInstanceDetails.stub(stub[:elasti_cache_instance_details]) unless stub[:elasti_cache_instance_details].nil?
+        data['ESInstanceDetails'] = ESInstanceDetails.stub(stub[:es_instance_details]) unless stub[:es_instance_details].nil?
         data
       end
     end
@@ -1893,7 +1895,7 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::ServiceSpecification.new
         data = {}
-        data['EC2Specification'] = Stubs::EC2Specification.stub(stub[:ec2_specification]) unless stub[:ec2_specification].nil?
+        data['EC2Specification'] = EC2Specification.stub(stub[:ec2_specification]) unless stub[:ec2_specification].nil?
         data
       end
     end
@@ -1948,10 +1950,10 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UtilizationsByTime'] = Stubs::UtilizationsByTime.stub(stub[:utilizations_by_time]) unless stub[:utilizations_by_time].nil?
-        data['Total'] = Stubs::ReservationAggregates.stub(stub[:total]) unless stub[:total].nil?
+        data['UtilizationsByTime'] = UtilizationsByTime.stub(stub[:utilizations_by_time]) unless stub[:utilizations_by_time].nil?
+        data['Total'] = ReservationAggregates.stub(stub[:total]) unless stub[:total].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2020,7 +2022,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UtilizationByTime.stub(element) unless element.nil?
+          data << UtilizationByTime.stub(element) unless element.nil?
         end
         data
       end
@@ -2041,9 +2043,9 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::UtilizationByTime.new
         data = {}
-        data['TimePeriod'] = Stubs::DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
-        data['Groups'] = Stubs::ReservationUtilizationGroups.stub(stub[:groups]) unless stub[:groups].nil?
-        data['Total'] = Stubs::ReservationAggregates.stub(stub[:total]) unless stub[:total].nil?
+        data['TimePeriod'] = DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['Groups'] = ReservationUtilizationGroups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Total'] = ReservationAggregates.stub(stub[:total]) unless stub[:total].nil?
         data
       end
     end
@@ -2062,7 +2064,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReservationUtilizationGroup.stub(element) unless element.nil?
+          data << ReservationUtilizationGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2086,8 +2088,8 @@ module AWS::SDK::CostExplorer
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
         data['Value'] = stub[:value] unless stub[:value].nil?
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Utilization'] = Stubs::ReservationAggregates.stub(stub[:utilization]) unless stub[:utilization].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Utilization'] = ReservationAggregates.stub(stub[:utilization]) unless stub[:utilization].nil?
         data
       end
     end
@@ -2106,12 +2108,12 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Metadata'] = Stubs::RightsizingRecommendationMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['Summary'] = Stubs::RightsizingRecommendationSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['RightsizingRecommendations'] = Stubs::RightsizingRecommendationList.stub(stub[:rightsizing_recommendations]) unless stub[:rightsizing_recommendations].nil?
+        data['Metadata'] = RightsizingRecommendationMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Summary'] = RightsizingRecommendationSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['RightsizingRecommendations'] = RightsizingRecommendationList.stub(stub[:rightsizing_recommendations]) unless stub[:rightsizing_recommendations].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        data['Configuration'] = Stubs::RightsizingRecommendationConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Configuration'] = RightsizingRecommendationConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2150,7 +2152,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RightsizingRecommendation.stub(element) unless element.nil?
+          data << RightsizingRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -2175,11 +2177,11 @@ module AWS::SDK::CostExplorer
         stub ||= Types::RightsizingRecommendation.new
         data = {}
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['CurrentInstance'] = Stubs::CurrentInstance.stub(stub[:current_instance]) unless stub[:current_instance].nil?
+        data['CurrentInstance'] = CurrentInstance.stub(stub[:current_instance]) unless stub[:current_instance].nil?
         data['RightsizingType'] = stub[:rightsizing_type] unless stub[:rightsizing_type].nil?
-        data['ModifyRecommendationDetail'] = Stubs::ModifyRecommendationDetail.stub(stub[:modify_recommendation_detail]) unless stub[:modify_recommendation_detail].nil?
-        data['TerminateRecommendationDetail'] = Stubs::TerminateRecommendationDetail.stub(stub[:terminate_recommendation_detail]) unless stub[:terminate_recommendation_detail].nil?
-        data['FindingReasonCodes'] = Stubs::FindingReasonCodes.stub(stub[:finding_reason_codes]) unless stub[:finding_reason_codes].nil?
+        data['ModifyRecommendationDetail'] = ModifyRecommendationDetail.stub(stub[:modify_recommendation_detail]) unless stub[:modify_recommendation_detail].nil?
+        data['TerminateRecommendationDetail'] = TerminateRecommendationDetail.stub(stub[:terminate_recommendation_detail]) unless stub[:terminate_recommendation_detail].nil?
+        data['FindingReasonCodes'] = FindingReasonCodes.stub(stub[:finding_reason_codes]) unless stub[:finding_reason_codes].nil?
         data
       end
     end
@@ -2237,7 +2239,7 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::ModifyRecommendationDetail.new
         data = {}
-        data['TargetInstances'] = Stubs::TargetInstancesList.stub(stub[:target_instances]) unless stub[:target_instances].nil?
+        data['TargetInstances'] = TargetInstancesList.stub(stub[:target_instances]) unless stub[:target_instances].nil?
         data
       end
     end
@@ -2256,7 +2258,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetInstance.stub(element) unless element.nil?
+          data << TargetInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -2285,9 +2287,9 @@ module AWS::SDK::CostExplorer
         data['EstimatedMonthlySavings'] = stub[:estimated_monthly_savings] unless stub[:estimated_monthly_savings].nil?
         data['CurrencyCode'] = stub[:currency_code] unless stub[:currency_code].nil?
         data['DefaultTargetInstance'] = stub[:default_target_instance] unless stub[:default_target_instance].nil?
-        data['ResourceDetails'] = Stubs::ResourceDetails.stub(stub[:resource_details]) unless stub[:resource_details].nil?
-        data['ExpectedResourceUtilization'] = Stubs::ResourceUtilization.stub(stub[:expected_resource_utilization]) unless stub[:expected_resource_utilization].nil?
-        data['PlatformDifferences'] = Stubs::PlatformDifferences.stub(stub[:platform_differences]) unless stub[:platform_differences].nil?
+        data['ResourceDetails'] = ResourceDetails.stub(stub[:resource_details]) unless stub[:resource_details].nil?
+        data['ExpectedResourceUtilization'] = ResourceUtilization.stub(stub[:expected_resource_utilization]) unless stub[:expected_resource_utilization].nil?
+        data['PlatformDifferences'] = PlatformDifferences.stub(stub[:platform_differences]) unless stub[:platform_differences].nil?
         data
       end
     end
@@ -2325,7 +2327,7 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::ResourceUtilization.new
         data = {}
-        data['EC2ResourceUtilization'] = Stubs::EC2ResourceUtilization.stub(stub[:ec2_resource_utilization]) unless stub[:ec2_resource_utilization].nil?
+        data['EC2ResourceUtilization'] = EC2ResourceUtilization.stub(stub[:ec2_resource_utilization]) unless stub[:ec2_resource_utilization].nil?
         data
       end
     end
@@ -2351,9 +2353,9 @@ module AWS::SDK::CostExplorer
         data['MaxCpuUtilizationPercentage'] = stub[:max_cpu_utilization_percentage] unless stub[:max_cpu_utilization_percentage].nil?
         data['MaxMemoryUtilizationPercentage'] = stub[:max_memory_utilization_percentage] unless stub[:max_memory_utilization_percentage].nil?
         data['MaxStorageUtilizationPercentage'] = stub[:max_storage_utilization_percentage] unless stub[:max_storage_utilization_percentage].nil?
-        data['EBSResourceUtilization'] = Stubs::EBSResourceUtilization.stub(stub[:ebs_resource_utilization]) unless stub[:ebs_resource_utilization].nil?
-        data['DiskResourceUtilization'] = Stubs::DiskResourceUtilization.stub(stub[:disk_resource_utilization]) unless stub[:disk_resource_utilization].nil?
-        data['NetworkResourceUtilization'] = Stubs::NetworkResourceUtilization.stub(stub[:network_resource_utilization]) unless stub[:network_resource_utilization].nil?
+        data['EBSResourceUtilization'] = EBSResourceUtilization.stub(stub[:ebs_resource_utilization]) unless stub[:ebs_resource_utilization].nil?
+        data['DiskResourceUtilization'] = DiskResourceUtilization.stub(stub[:disk_resource_utilization]) unless stub[:disk_resource_utilization].nil?
+        data['NetworkResourceUtilization'] = NetworkResourceUtilization.stub(stub[:network_resource_utilization]) unless stub[:network_resource_utilization].nil?
         data
       end
     end
@@ -2443,7 +2445,7 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::ResourceDetails.new
         data = {}
-        data['EC2ResourceDetails'] = Stubs::EC2ResourceDetails.stub(stub[:ec2_resource_details]) unless stub[:ec2_resource_details].nil?
+        data['EC2ResourceDetails'] = EC2ResourceDetails.stub(stub[:ec2_resource_details]) unless stub[:ec2_resource_details].nil?
         data
       end
     end
@@ -2507,9 +2509,9 @@ module AWS::SDK::CostExplorer
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['InstanceName'] = stub[:instance_name] unless stub[:instance_name].nil?
-        data['Tags'] = Stubs::TagValuesList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ResourceDetails'] = Stubs::ResourceDetails.stub(stub[:resource_details]) unless stub[:resource_details].nil?
-        data['ResourceUtilization'] = Stubs::ResourceUtilization.stub(stub[:resource_utilization]) unless stub[:resource_utilization].nil?
+        data['Tags'] = TagValuesList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ResourceDetails'] = ResourceDetails.stub(stub[:resource_details]) unless stub[:resource_details].nil?
+        data['ResourceUtilization'] = ResourceUtilization.stub(stub[:resource_utilization]) unless stub[:resource_utilization].nil?
         data['ReservationCoveredHoursInLookbackPeriod'] = stub[:reservation_covered_hours_in_lookback_period] unless stub[:reservation_covered_hours_in_lookback_period].nil?
         data['SavingsPlansCoveredHoursInLookbackPeriod'] = stub[:savings_plans_covered_hours_in_lookback_period] unless stub[:savings_plans_covered_hours_in_lookback_period].nil?
         data['OnDemandHoursInLookbackPeriod'] = stub[:on_demand_hours_in_lookback_period] unless stub[:on_demand_hours_in_lookback_period].nil?
@@ -2534,7 +2536,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagValues.stub(element) unless element.nil?
+          data << TagValues.stub(element) unless element.nil?
         end
         data
       end
@@ -2599,9 +2601,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SavingsPlansCoverages'] = Stubs::SavingsPlansCoverages.stub(stub[:savings_plans_coverages]) unless stub[:savings_plans_coverages].nil?
+        data['SavingsPlansCoverages'] = SavingsPlansCoverages.stub(stub[:savings_plans_coverages]) unless stub[:savings_plans_coverages].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2620,7 +2622,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlansCoverage.stub(element) unless element.nil?
+          data << SavingsPlansCoverage.stub(element) unless element.nil?
         end
         data
       end
@@ -2641,9 +2643,9 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::SavingsPlansCoverage.new
         data = {}
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Coverage'] = Stubs::SavingsPlansCoverageData.stub(stub[:coverage]) unless stub[:coverage].nil?
-        data['TimePeriod'] = Stubs::DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Coverage'] = SavingsPlansCoverageData.stub(stub[:coverage]) unless stub[:coverage].nil?
+        data['TimePeriod'] = DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
         data
       end
     end
@@ -2684,10 +2686,10 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Metadata'] = Stubs::SavingsPlansPurchaseRecommendationMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['SavingsPlansPurchaseRecommendation'] = Stubs::SavingsPlansPurchaseRecommendation.stub(stub[:savings_plans_purchase_recommendation]) unless stub[:savings_plans_purchase_recommendation].nil?
+        data['Metadata'] = SavingsPlansPurchaseRecommendationMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['SavingsPlansPurchaseRecommendation'] = SavingsPlansPurchaseRecommendation.stub(stub[:savings_plans_purchase_recommendation]) unless stub[:savings_plans_purchase_recommendation].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2716,8 +2718,8 @@ module AWS::SDK::CostExplorer
         data['TermInYears'] = stub[:term_in_years] unless stub[:term_in_years].nil?
         data['PaymentOption'] = stub[:payment_option] unless stub[:payment_option].nil?
         data['LookbackPeriodInDays'] = stub[:lookback_period_in_days] unless stub[:lookback_period_in_days].nil?
-        data['SavingsPlansPurchaseRecommendationDetails'] = Stubs::SavingsPlansPurchaseRecommendationDetailList.stub(stub[:savings_plans_purchase_recommendation_details]) unless stub[:savings_plans_purchase_recommendation_details].nil?
-        data['SavingsPlansPurchaseRecommendationSummary'] = Stubs::SavingsPlansPurchaseRecommendationSummary.stub(stub[:savings_plans_purchase_recommendation_summary]) unless stub[:savings_plans_purchase_recommendation_summary].nil?
+        data['SavingsPlansPurchaseRecommendationDetails'] = SavingsPlansPurchaseRecommendationDetailList.stub(stub[:savings_plans_purchase_recommendation_details]) unless stub[:savings_plans_purchase_recommendation_details].nil?
+        data['SavingsPlansPurchaseRecommendationSummary'] = SavingsPlansPurchaseRecommendationSummary.stub(stub[:savings_plans_purchase_recommendation_summary]) unless stub[:savings_plans_purchase_recommendation_summary].nil?
         data
       end
     end
@@ -2774,7 +2776,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlansPurchaseRecommendationDetail.stub(element) unless element.nil?
+          data << SavingsPlansPurchaseRecommendationDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2808,7 +2810,7 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::SavingsPlansPurchaseRecommendationDetail.new
         data = {}
-        data['SavingsPlansDetails'] = Stubs::SavingsPlansDetails.stub(stub[:savings_plans_details]) unless stub[:savings_plans_details].nil?
+        data['SavingsPlansDetails'] = SavingsPlansDetails.stub(stub[:savings_plans_details]) unless stub[:savings_plans_details].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['UpfrontCost'] = stub[:upfront_cost] unless stub[:upfront_cost].nil?
         data['EstimatedROI'] = stub[:estimated_roi] unless stub[:estimated_roi].nil?
@@ -2883,9 +2885,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SavingsPlansUtilizationsByTime'] = Stubs::SavingsPlansUtilizationsByTime.stub(stub[:savings_plans_utilizations_by_time]) unless stub[:savings_plans_utilizations_by_time].nil?
-        data['Total'] = Stubs::SavingsPlansUtilizationAggregates.stub(stub[:total]) unless stub[:total].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SavingsPlansUtilizationsByTime'] = SavingsPlansUtilizationsByTime.stub(stub[:savings_plans_utilizations_by_time]) unless stub[:savings_plans_utilizations_by_time].nil?
+        data['Total'] = SavingsPlansUtilizationAggregates.stub(stub[:total]) unless stub[:total].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2905,9 +2907,9 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::SavingsPlansUtilizationAggregates.new
         data = {}
-        data['Utilization'] = Stubs::SavingsPlansUtilization.stub(stub[:utilization]) unless stub[:utilization].nil?
-        data['Savings'] = Stubs::SavingsPlansSavings.stub(stub[:savings]) unless stub[:savings].nil?
-        data['AmortizedCommitment'] = Stubs::SavingsPlansAmortizedCommitment.stub(stub[:amortized_commitment]) unless stub[:amortized_commitment].nil?
+        data['Utilization'] = SavingsPlansUtilization.stub(stub[:utilization]) unless stub[:utilization].nil?
+        data['Savings'] = SavingsPlansSavings.stub(stub[:savings]) unless stub[:savings].nil?
+        data['AmortizedCommitment'] = SavingsPlansAmortizedCommitment.stub(stub[:amortized_commitment]) unless stub[:amortized_commitment].nil?
         data
       end
     end
@@ -2992,7 +2994,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlansUtilizationByTime.stub(element) unless element.nil?
+          data << SavingsPlansUtilizationByTime.stub(element) unless element.nil?
         end
         data
       end
@@ -3014,10 +3016,10 @@ module AWS::SDK::CostExplorer
       def self.stub(stub)
         stub ||= Types::SavingsPlansUtilizationByTime.new
         data = {}
-        data['TimePeriod'] = Stubs::DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
-        data['Utilization'] = Stubs::SavingsPlansUtilization.stub(stub[:utilization]) unless stub[:utilization].nil?
-        data['Savings'] = Stubs::SavingsPlansSavings.stub(stub[:savings]) unless stub[:savings].nil?
-        data['AmortizedCommitment'] = Stubs::SavingsPlansAmortizedCommitment.stub(stub[:amortized_commitment]) unless stub[:amortized_commitment].nil?
+        data['TimePeriod'] = DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['Utilization'] = SavingsPlansUtilization.stub(stub[:utilization]) unless stub[:utilization].nil?
+        data['Savings'] = SavingsPlansSavings.stub(stub[:savings]) unless stub[:savings].nil?
+        data['AmortizedCommitment'] = SavingsPlansAmortizedCommitment.stub(stub[:amortized_commitment]) unless stub[:amortized_commitment].nil?
         data
       end
     end
@@ -3035,11 +3037,11 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SavingsPlansUtilizationDetails'] = Stubs::SavingsPlansUtilizationDetails.stub(stub[:savings_plans_utilization_details]) unless stub[:savings_plans_utilization_details].nil?
-        data['Total'] = Stubs::SavingsPlansUtilizationAggregates.stub(stub[:total]) unless stub[:total].nil?
-        data['TimePeriod'] = Stubs::DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['SavingsPlansUtilizationDetails'] = SavingsPlansUtilizationDetails.stub(stub[:savings_plans_utilization_details]) unless stub[:savings_plans_utilization_details].nil?
+        data['Total'] = SavingsPlansUtilizationAggregates.stub(stub[:total]) unless stub[:total].nil?
+        data['TimePeriod'] = DateInterval.stub(stub[:time_period]) unless stub[:time_period].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3058,7 +3060,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SavingsPlansUtilizationDetail.stub(element) unless element.nil?
+          data << SavingsPlansUtilizationDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -3082,10 +3084,10 @@ module AWS::SDK::CostExplorer
         stub ||= Types::SavingsPlansUtilizationDetail.new
         data = {}
         data['SavingsPlanArn'] = stub[:savings_plan_arn] unless stub[:savings_plan_arn].nil?
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Utilization'] = Stubs::SavingsPlansUtilization.stub(stub[:utilization]) unless stub[:utilization].nil?
-        data['Savings'] = Stubs::SavingsPlansSavings.stub(stub[:savings]) unless stub[:savings].nil?
-        data['AmortizedCommitment'] = Stubs::SavingsPlansAmortizedCommitment.stub(stub[:amortized_commitment]) unless stub[:amortized_commitment].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Utilization'] = SavingsPlansUtilization.stub(stub[:utilization]) unless stub[:utilization].nil?
+        data['Savings'] = SavingsPlansSavings.stub(stub[:savings]) unless stub[:savings].nil?
+        data['AmortizedCommitment'] = SavingsPlansAmortizedCommitment.stub(stub[:amortized_commitment]) unless stub[:amortized_commitment].nil?
         data
       end
     end
@@ -3104,10 +3106,10 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['ReturnSize'] = stub[:return_size] unless stub[:return_size].nil?
         data['TotalSize'] = stub[:total_size] unless stub[:total_size].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3143,9 +3145,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Total'] = Stubs::MetricValue.stub(stub[:total]) unless stub[:total].nil?
-        data['ForecastResultsByTime'] = Stubs::ForecastResultsByTime.stub(stub[:forecast_results_by_time]) unless stub[:forecast_results_by_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Total'] = MetricValue.stub(stub[:total]) unless stub[:total].nil?
+        data['ForecastResultsByTime'] = ForecastResultsByTime.stub(stub[:forecast_results_by_time]) unless stub[:forecast_results_by_time].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3161,9 +3163,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CostAllocationTags'] = Stubs::CostAllocationTagList.stub(stub[:cost_allocation_tags]) unless stub[:cost_allocation_tags].nil?
+        data['CostAllocationTags'] = CostAllocationTagList.stub(stub[:cost_allocation_tags]) unless stub[:cost_allocation_tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3182,7 +3184,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CostAllocationTag.stub(element) unless element.nil?
+          data << CostAllocationTag.stub(element) unless element.nil?
         end
         data
       end
@@ -3221,9 +3223,9 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CostCategoryReferences'] = Stubs::CostCategoryReferencesList.stub(stub[:cost_category_references]) unless stub[:cost_category_references].nil?
+        data['CostCategoryReferences'] = CostCategoryReferencesList.stub(stub[:cost_category_references]) unless stub[:cost_category_references].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3242,7 +3244,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CostCategoryReference.stub(element) unless element.nil?
+          data << CostCategoryReference.stub(element) unless element.nil?
         end
         data
       end
@@ -3273,8 +3275,8 @@ module AWS::SDK::CostExplorer
         data['EffectiveStart'] = stub[:effective_start] unless stub[:effective_start].nil?
         data['EffectiveEnd'] = stub[:effective_end] unless stub[:effective_end].nil?
         data['NumberOfRules'] = stub[:number_of_rules] unless stub[:number_of_rules].nil?
-        data['ProcessingStatus'] = Stubs::CostCategoryProcessingStatusList.stub(stub[:processing_status]) unless stub[:processing_status].nil?
-        data['Values'] = Stubs::CostCategoryValuesList.stub(stub[:values]) unless stub[:values].nil?
+        data['ProcessingStatus'] = CostCategoryProcessingStatusList.stub(stub[:processing_status]) unless stub[:processing_status].nil?
+        data['Values'] = CostCategoryValuesList.stub(stub[:values]) unless stub[:values].nil?
         data['DefaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data
       end
@@ -3290,8 +3292,8 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceTags'] = Stubs::ResourceTagList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTags'] = ResourceTagList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3310,7 +3312,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceTag.stub(element) unless element.nil?
+          data << ResourceTag.stub(element) unless element.nil?
         end
         data
       end
@@ -3347,7 +3349,7 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['AnomalyId'] = stub[:anomaly_id] unless stub[:anomaly_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3361,7 +3363,7 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3375,7 +3377,7 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3391,7 +3393,7 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['MonitorArn'] = stub[:monitor_arn] unless stub[:monitor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3407,7 +3409,7 @@ module AWS::SDK::CostExplorer
       def self.stub(http_resp, stub:)
         data = {}
         data['SubscriptionArn'] = stub[:subscription_arn] unless stub[:subscription_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3422,8 +3424,8 @@ module AWS::SDK::CostExplorer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Errors'] = Stubs::UpdateCostAllocationTagsStatusErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = UpdateCostAllocationTagsStatusErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3442,7 +3444,7 @@ module AWS::SDK::CostExplorer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpdateCostAllocationTagsStatusError.stub(element) unless element.nil?
+          data << UpdateCostAllocationTagsStatusError.stub(element) unless element.nil?
         end
         data
       end
@@ -3483,7 +3485,7 @@ module AWS::SDK::CostExplorer
         data = {}
         data['CostCategoryArn'] = stub[:cost_category_arn] unless stub[:cost_category_arn].nil?
         data['EffectiveStart'] = stub[:effective_start] unless stub[:effective_start].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

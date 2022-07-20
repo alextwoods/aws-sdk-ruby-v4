@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Firehose
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::Firehose
       def self.stub(http_resp, stub:)
         data = {}
         data['DeliveryStreamARN'] = stub[:delivery_stream_arn] unless stub[:delivery_stream_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,7 +37,7 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -50,8 +52,8 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeliveryStreamDescription'] = Stubs::DeliveryStreamDescription.stub(stub[:delivery_stream_description]) unless stub[:delivery_stream_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryStreamDescription'] = DeliveryStreamDescription.stub(stub[:delivery_stream_description]) unless stub[:delivery_stream_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,14 +85,14 @@ module AWS::SDK::Firehose
         data['DeliveryStreamName'] = stub[:delivery_stream_name] unless stub[:delivery_stream_name].nil?
         data['DeliveryStreamARN'] = stub[:delivery_stream_arn] unless stub[:delivery_stream_arn].nil?
         data['DeliveryStreamStatus'] = stub[:delivery_stream_status] unless stub[:delivery_stream_status].nil?
-        data['FailureDescription'] = Stubs::FailureDescription.stub(stub[:failure_description]) unless stub[:failure_description].nil?
-        data['DeliveryStreamEncryptionConfiguration'] = Stubs::DeliveryStreamEncryptionConfiguration.stub(stub[:delivery_stream_encryption_configuration]) unless stub[:delivery_stream_encryption_configuration].nil?
+        data['FailureDescription'] = FailureDescription.stub(stub[:failure_description]) unless stub[:failure_description].nil?
+        data['DeliveryStreamEncryptionConfiguration'] = DeliveryStreamEncryptionConfiguration.stub(stub[:delivery_stream_encryption_configuration]) unless stub[:delivery_stream_encryption_configuration].nil?
         data['DeliveryStreamType'] = stub[:delivery_stream_type] unless stub[:delivery_stream_type].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
         data['CreateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_timestamp]).to_i unless stub[:create_timestamp].nil?
         data['LastUpdateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_timestamp]).to_i unless stub[:last_update_timestamp].nil?
-        data['Source'] = Stubs::SourceDescription.stub(stub[:source]) unless stub[:source].nil?
-        data['Destinations'] = Stubs::DestinationDescriptionList.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['Source'] = SourceDescription.stub(stub[:source]) unless stub[:source].nil?
+        data['Destinations'] = DestinationDescriptionList.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['HasMoreDestinations'] = stub[:has_more_destinations] unless stub[:has_more_destinations].nil?
         data
       end
@@ -110,7 +112,7 @@ module AWS::SDK::Firehose
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DestinationDescription.stub(element) unless element.nil?
+          data << DestinationDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -137,13 +139,13 @@ module AWS::SDK::Firehose
         stub ||= Types::DestinationDescription.new
         data = {}
         data['DestinationId'] = stub[:destination_id] unless stub[:destination_id].nil?
-        data['S3DestinationDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
-        data['ExtendedS3DestinationDescription'] = Stubs::ExtendedS3DestinationDescription.stub(stub[:extended_s3_destination_description]) unless stub[:extended_s3_destination_description].nil?
-        data['RedshiftDestinationDescription'] = Stubs::RedshiftDestinationDescription.stub(stub[:redshift_destination_description]) unless stub[:redshift_destination_description].nil?
-        data['ElasticsearchDestinationDescription'] = Stubs::ElasticsearchDestinationDescription.stub(stub[:elasticsearch_destination_description]) unless stub[:elasticsearch_destination_description].nil?
-        data['AmazonopensearchserviceDestinationDescription'] = Stubs::AmazonopensearchserviceDestinationDescription.stub(stub[:amazonopensearchservice_destination_description]) unless stub[:amazonopensearchservice_destination_description].nil?
-        data['SplunkDestinationDescription'] = Stubs::SplunkDestinationDescription.stub(stub[:splunk_destination_description]) unless stub[:splunk_destination_description].nil?
-        data['HttpEndpointDestinationDescription'] = Stubs::HttpEndpointDestinationDescription.stub(stub[:http_endpoint_destination_description]) unless stub[:http_endpoint_destination_description].nil?
+        data['S3DestinationDescription'] = S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
+        data['ExtendedS3DestinationDescription'] = ExtendedS3DestinationDescription.stub(stub[:extended_s3_destination_description]) unless stub[:extended_s3_destination_description].nil?
+        data['RedshiftDestinationDescription'] = RedshiftDestinationDescription.stub(stub[:redshift_destination_description]) unless stub[:redshift_destination_description].nil?
+        data['ElasticsearchDestinationDescription'] = ElasticsearchDestinationDescription.stub(stub[:elasticsearch_destination_description]) unless stub[:elasticsearch_destination_description].nil?
+        data['AmazonopensearchserviceDestinationDescription'] = AmazonopensearchserviceDestinationDescription.stub(stub[:amazonopensearchservice_destination_description]) unless stub[:amazonopensearchservice_destination_description].nil?
+        data['SplunkDestinationDescription'] = SplunkDestinationDescription.stub(stub[:splunk_destination_description]) unless stub[:splunk_destination_description].nil?
+        data['HttpEndpointDestinationDescription'] = HttpEndpointDestinationDescription.stub(stub[:http_endpoint_destination_description]) unless stub[:http_endpoint_destination_description].nil?
         data
       end
     end
@@ -169,15 +171,15 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::HttpEndpointDestinationDescription.new
         data = {}
-        data['EndpointConfiguration'] = Stubs::HttpEndpointDescription.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
-        data['BufferingHints'] = Stubs::HttpEndpointBufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
-        data['CloudWatchLoggingOptions'] = Stubs::CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
-        data['RequestConfiguration'] = Stubs::HttpEndpointRequestConfiguration.stub(stub[:request_configuration]) unless stub[:request_configuration].nil?
-        data['ProcessingConfiguration'] = Stubs::ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
+        data['EndpointConfiguration'] = HttpEndpointDescription.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['BufferingHints'] = HttpEndpointBufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
+        data['RequestConfiguration'] = HttpEndpointRequestConfiguration.stub(stub[:request_configuration]) unless stub[:request_configuration].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
         data['RoleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['RetryOptions'] = Stubs::HttpEndpointRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
+        data['RetryOptions'] = HttpEndpointRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
         data['S3BackupMode'] = stub[:s3_backup_mode] unless stub[:s3_backup_mode].nil?
-        data['S3DestinationDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
+        data['S3DestinationDescription'] = S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
         data
       end
     end
@@ -206,10 +208,10 @@ module AWS::SDK::Firehose
         data['BucketARN'] = stub[:bucket_arn] unless stub[:bucket_arn].nil?
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
         data['ErrorOutputPrefix'] = stub[:error_output_prefix] unless stub[:error_output_prefix].nil?
-        data['BufferingHints'] = Stubs::BufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
+        data['BufferingHints'] = BufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
         data['CompressionFormat'] = stub[:compression_format] unless stub[:compression_format].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Stubs::CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -251,7 +253,7 @@ module AWS::SDK::Firehose
         stub ||= Types::EncryptionConfiguration.new
         data = {}
         data['NoEncryptionConfig'] = stub[:no_encryption_config] unless stub[:no_encryption_config].nil?
-        data['KMSEncryptionConfig'] = Stubs::KMSEncryptionConfig.stub(stub[:kms_encryption_config]) unless stub[:kms_encryption_config].nil?
+        data['KMSEncryptionConfig'] = KMSEncryptionConfig.stub(stub[:kms_encryption_config]) unless stub[:kms_encryption_config].nil?
         data
       end
     end
@@ -327,7 +329,7 @@ module AWS::SDK::Firehose
         stub ||= Types::ProcessingConfiguration.new
         data = {}
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['Processors'] = Stubs::ProcessorList.stub(stub[:processors]) unless stub[:processors].nil?
+        data['Processors'] = ProcessorList.stub(stub[:processors]) unless stub[:processors].nil?
         data
       end
     end
@@ -346,7 +348,7 @@ module AWS::SDK::Firehose
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Processor.stub(element) unless element.nil?
+          data << Processor.stub(element) unless element.nil?
         end
         data
       end
@@ -367,7 +369,7 @@ module AWS::SDK::Firehose
         stub ||= Types::Processor.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Parameters'] = Stubs::ProcessorParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ProcessorParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -386,7 +388,7 @@ module AWS::SDK::Firehose
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProcessorParameter.stub(element) unless element.nil?
+          data << ProcessorParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -427,7 +429,7 @@ module AWS::SDK::Firehose
         stub ||= Types::HttpEndpointRequestConfiguration.new
         data = {}
         data['ContentEncoding'] = stub[:content_encoding] unless stub[:content_encoding].nil?
-        data['CommonAttributes'] = Stubs::HttpEndpointCommonAttributesList.stub(stub[:common_attributes]) unless stub[:common_attributes].nil?
+        data['CommonAttributes'] = HttpEndpointCommonAttributesList.stub(stub[:common_attributes]) unless stub[:common_attributes].nil?
         data
       end
     end
@@ -446,7 +448,7 @@ module AWS::SDK::Firehose
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HttpEndpointCommonAttribute.stub(element) unless element.nil?
+          data << HttpEndpointCommonAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -537,11 +539,11 @@ module AWS::SDK::Firehose
         data['HECEndpointType'] = stub[:hec_endpoint_type] unless stub[:hec_endpoint_type].nil?
         data['HECToken'] = stub[:hec_token] unless stub[:hec_token].nil?
         data['HECAcknowledgmentTimeoutInSeconds'] = stub[:hec_acknowledgment_timeout_in_seconds] unless stub[:hec_acknowledgment_timeout_in_seconds].nil?
-        data['RetryOptions'] = Stubs::SplunkRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
+        data['RetryOptions'] = SplunkRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
         data['S3BackupMode'] = stub[:s3_backup_mode] unless stub[:s3_backup_mode].nil?
-        data['S3DestinationDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
-        data['ProcessingConfiguration'] = Stubs::ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Stubs::CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
+        data['S3DestinationDescription'] = S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -595,13 +597,13 @@ module AWS::SDK::Firehose
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['TypeName'] = stub[:type_name] unless stub[:type_name].nil?
         data['IndexRotationPeriod'] = stub[:index_rotation_period] unless stub[:index_rotation_period].nil?
-        data['BufferingHints'] = Stubs::AmazonopensearchserviceBufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
-        data['RetryOptions'] = Stubs::AmazonopensearchserviceRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
+        data['BufferingHints'] = AmazonopensearchserviceBufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
+        data['RetryOptions'] = AmazonopensearchserviceRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
         data['S3BackupMode'] = stub[:s3_backup_mode] unless stub[:s3_backup_mode].nil?
-        data['S3DestinationDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
-        data['ProcessingConfiguration'] = Stubs::ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Stubs::CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
-        data['VpcConfigurationDescription'] = Stubs::VpcConfigurationDescription.stub(stub[:vpc_configuration_description]) unless stub[:vpc_configuration_description].nil?
+        data['S3DestinationDescription'] = S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
+        data['VpcConfigurationDescription'] = VpcConfigurationDescription.stub(stub[:vpc_configuration_description]) unless stub[:vpc_configuration_description].nil?
         data
       end
     end
@@ -622,9 +624,9 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::VpcConfigurationDescription.new
         data = {}
-        data['SubnetIds'] = Stubs::SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['RoleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -739,13 +741,13 @@ module AWS::SDK::Firehose
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['TypeName'] = stub[:type_name] unless stub[:type_name].nil?
         data['IndexRotationPeriod'] = stub[:index_rotation_period] unless stub[:index_rotation_period].nil?
-        data['BufferingHints'] = Stubs::ElasticsearchBufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
-        data['RetryOptions'] = Stubs::ElasticsearchRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
+        data['BufferingHints'] = ElasticsearchBufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
+        data['RetryOptions'] = ElasticsearchRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
         data['S3BackupMode'] = stub[:s3_backup_mode] unless stub[:s3_backup_mode].nil?
-        data['S3DestinationDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
-        data['ProcessingConfiguration'] = Stubs::ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Stubs::CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
-        data['VpcConfigurationDescription'] = Stubs::VpcConfigurationDescription.stub(stub[:vpc_configuration_description]) unless stub[:vpc_configuration_description].nil?
+        data['S3DestinationDescription'] = S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
+        data['VpcConfigurationDescription'] = VpcConfigurationDescription.stub(stub[:vpc_configuration_description]) unless stub[:vpc_configuration_description].nil?
         data
       end
     end
@@ -812,14 +814,14 @@ module AWS::SDK::Firehose
         data = {}
         data['RoleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ClusterJDBCURL'] = stub[:cluster_jdbcurl] unless stub[:cluster_jdbcurl].nil?
-        data['CopyCommand'] = Stubs::CopyCommand.stub(stub[:copy_command]) unless stub[:copy_command].nil?
+        data['CopyCommand'] = CopyCommand.stub(stub[:copy_command]) unless stub[:copy_command].nil?
         data['Username'] = stub[:username] unless stub[:username].nil?
-        data['RetryOptions'] = Stubs::RedshiftRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
-        data['S3DestinationDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
-        data['ProcessingConfiguration'] = Stubs::ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
+        data['RetryOptions'] = RedshiftRetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
+        data['S3DestinationDescription'] = S3DestinationDescription.stub(stub[:s3_destination_description]) unless stub[:s3_destination_description].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
         data['S3BackupMode'] = stub[:s3_backup_mode] unless stub[:s3_backup_mode].nil?
-        data['S3BackupDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_backup_description]) unless stub[:s3_backup_description].nil?
-        data['CloudWatchLoggingOptions'] = Stubs::CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
+        data['S3BackupDescription'] = S3DestinationDescription.stub(stub[:s3_backup_description]) unless stub[:s3_backup_description].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
         data
       end
     end
@@ -893,15 +895,15 @@ module AWS::SDK::Firehose
         data['BucketARN'] = stub[:bucket_arn] unless stub[:bucket_arn].nil?
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
         data['ErrorOutputPrefix'] = stub[:error_output_prefix] unless stub[:error_output_prefix].nil?
-        data['BufferingHints'] = Stubs::BufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
+        data['BufferingHints'] = BufferingHints.stub(stub[:buffering_hints]) unless stub[:buffering_hints].nil?
         data['CompressionFormat'] = stub[:compression_format] unless stub[:compression_format].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Stubs::CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
-        data['ProcessingConfiguration'] = Stubs::ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.stub(stub[:cloud_watch_logging_options]) unless stub[:cloud_watch_logging_options].nil?
+        data['ProcessingConfiguration'] = ProcessingConfiguration.stub(stub[:processing_configuration]) unless stub[:processing_configuration].nil?
         data['S3BackupMode'] = stub[:s3_backup_mode] unless stub[:s3_backup_mode].nil?
-        data['S3BackupDescription'] = Stubs::S3DestinationDescription.stub(stub[:s3_backup_description]) unless stub[:s3_backup_description].nil?
-        data['DataFormatConversionConfiguration'] = Stubs::DataFormatConversionConfiguration.stub(stub[:data_format_conversion_configuration]) unless stub[:data_format_conversion_configuration].nil?
-        data['DynamicPartitioningConfiguration'] = Stubs::DynamicPartitioningConfiguration.stub(stub[:dynamic_partitioning_configuration]) unless stub[:dynamic_partitioning_configuration].nil?
+        data['S3BackupDescription'] = S3DestinationDescription.stub(stub[:s3_backup_description]) unless stub[:s3_backup_description].nil?
+        data['DataFormatConversionConfiguration'] = DataFormatConversionConfiguration.stub(stub[:data_format_conversion_configuration]) unless stub[:data_format_conversion_configuration].nil?
+        data['DynamicPartitioningConfiguration'] = DynamicPartitioningConfiguration.stub(stub[:dynamic_partitioning_configuration]) unless stub[:dynamic_partitioning_configuration].nil?
         data
       end
     end
@@ -920,7 +922,7 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::DynamicPartitioningConfiguration.new
         data = {}
-        data['RetryOptions'] = Stubs::RetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
+        data['RetryOptions'] = RetryOptions.stub(stub[:retry_options]) unless stub[:retry_options].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data
       end
@@ -960,9 +962,9 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::DataFormatConversionConfiguration.new
         data = {}
-        data['SchemaConfiguration'] = Stubs::SchemaConfiguration.stub(stub[:schema_configuration]) unless stub[:schema_configuration].nil?
-        data['InputFormatConfiguration'] = Stubs::InputFormatConfiguration.stub(stub[:input_format_configuration]) unless stub[:input_format_configuration].nil?
-        data['OutputFormatConfiguration'] = Stubs::OutputFormatConfiguration.stub(stub[:output_format_configuration]) unless stub[:output_format_configuration].nil?
+        data['SchemaConfiguration'] = SchemaConfiguration.stub(stub[:schema_configuration]) unless stub[:schema_configuration].nil?
+        data['InputFormatConfiguration'] = InputFormatConfiguration.stub(stub[:input_format_configuration]) unless stub[:input_format_configuration].nil?
+        data['OutputFormatConfiguration'] = OutputFormatConfiguration.stub(stub[:output_format_configuration]) unless stub[:output_format_configuration].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data
       end
@@ -981,7 +983,7 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::OutputFormatConfiguration.new
         data = {}
-        data['Serializer'] = Stubs::Serializer.stub(stub[:serializer]) unless stub[:serializer].nil?
+        data['Serializer'] = Serializer.stub(stub[:serializer]) unless stub[:serializer].nil?
         data
       end
     end
@@ -1000,8 +1002,8 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::Serializer.new
         data = {}
-        data['ParquetSerDe'] = Stubs::ParquetSerDe.stub(stub[:parquet_ser_de]) unless stub[:parquet_ser_de].nil?
-        data['OrcSerDe'] = Stubs::OrcSerDe.stub(stub[:orc_ser_de]) unless stub[:orc_ser_de].nil?
+        data['ParquetSerDe'] = ParquetSerDe.stub(stub[:parquet_ser_de]) unless stub[:parquet_ser_de].nil?
+        data['OrcSerDe'] = OrcSerDe.stub(stub[:orc_ser_de]) unless stub[:orc_ser_de].nil?
         data
       end
     end
@@ -1034,7 +1036,7 @@ module AWS::SDK::Firehose
         data['EnablePadding'] = stub[:enable_padding] unless stub[:enable_padding].nil?
         data['PaddingTolerance'] = Hearth::NumberHelper.serialize(stub[:padding_tolerance])
         data['Compression'] = stub[:compression] unless stub[:compression].nil?
-        data['BloomFilterColumns'] = Stubs::ListOfNonEmptyStringsWithoutWhitespace.stub(stub[:bloom_filter_columns]) unless stub[:bloom_filter_columns].nil?
+        data['BloomFilterColumns'] = ListOfNonEmptyStringsWithoutWhitespace.stub(stub[:bloom_filter_columns]) unless stub[:bloom_filter_columns].nil?
         data['BloomFilterFalsePositiveProbability'] = Hearth::NumberHelper.serialize(stub[:bloom_filter_false_positive_probability])
         data['DictionaryKeyThreshold'] = Hearth::NumberHelper.serialize(stub[:dictionary_key_threshold])
         data['FormatVersion'] = stub[:format_version] unless stub[:format_version].nil?
@@ -1103,7 +1105,7 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::InputFormatConfiguration.new
         data = {}
-        data['Deserializer'] = Stubs::Deserializer.stub(stub[:deserializer]) unless stub[:deserializer].nil?
+        data['Deserializer'] = Deserializer.stub(stub[:deserializer]) unless stub[:deserializer].nil?
         data
       end
     end
@@ -1122,8 +1124,8 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::Deserializer.new
         data = {}
-        data['OpenXJsonSerDe'] = Stubs::OpenXJsonSerDe.stub(stub[:open_x_json_ser_de]) unless stub[:open_x_json_ser_de].nil?
-        data['HiveJsonSerDe'] = Stubs::HiveJsonSerDe.stub(stub[:hive_json_ser_de]) unless stub[:hive_json_ser_de].nil?
+        data['OpenXJsonSerDe'] = OpenXJsonSerDe.stub(stub[:open_x_json_ser_de]) unless stub[:open_x_json_ser_de].nil?
+        data['HiveJsonSerDe'] = HiveJsonSerDe.stub(stub[:hive_json_ser_de]) unless stub[:hive_json_ser_de].nil?
         data
       end
     end
@@ -1141,7 +1143,7 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::HiveJsonSerDe.new
         data = {}
-        data['TimestampFormats'] = Stubs::ListOfNonEmptyStrings.stub(stub[:timestamp_formats]) unless stub[:timestamp_formats].nil?
+        data['TimestampFormats'] = ListOfNonEmptyStrings.stub(stub[:timestamp_formats]) unless stub[:timestamp_formats].nil?
         data
       end
     end
@@ -1183,7 +1185,7 @@ module AWS::SDK::Firehose
         data = {}
         data['ConvertDotsInJsonKeysToUnderscores'] = stub[:convert_dots_in_json_keys_to_underscores] unless stub[:convert_dots_in_json_keys_to_underscores].nil?
         data['CaseInsensitive'] = stub[:case_insensitive] unless stub[:case_insensitive].nil?
-        data['ColumnToJsonKeyMappings'] = Stubs::ColumnToJsonKeyMappings.stub(stub[:column_to_json_key_mappings]) unless stub[:column_to_json_key_mappings].nil?
+        data['ColumnToJsonKeyMappings'] = ColumnToJsonKeyMappings.stub(stub[:column_to_json_key_mappings]) unless stub[:column_to_json_key_mappings].nil?
         data
       end
     end
@@ -1249,7 +1251,7 @@ module AWS::SDK::Firehose
       def self.stub(stub)
         stub ||= Types::SourceDescription.new
         data = {}
-        data['KinesisStreamSourceDescription'] = Stubs::KinesisStreamSourceDescription.stub(stub[:kinesis_stream_source_description]) unless stub[:kinesis_stream_source_description].nil?
+        data['KinesisStreamSourceDescription'] = KinesisStreamSourceDescription.stub(stub[:kinesis_stream_source_description]) unless stub[:kinesis_stream_source_description].nil?
         data
       end
     end
@@ -1295,7 +1297,7 @@ module AWS::SDK::Firehose
         data['KeyARN'] = stub[:key_arn] unless stub[:key_arn].nil?
         data['KeyType'] = stub[:key_type] unless stub[:key_type].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['FailureDescription'] = Stubs::FailureDescription.stub(stub[:failure_description]) unless stub[:failure_description].nil?
+        data['FailureDescription'] = FailureDescription.stub(stub[:failure_description]) unless stub[:failure_description].nil?
         data
       end
     end
@@ -1331,9 +1333,9 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeliveryStreamNames'] = Stubs::DeliveryStreamNameList.stub(stub[:delivery_stream_names]) unless stub[:delivery_stream_names].nil?
+        data['DeliveryStreamNames'] = DeliveryStreamNameList.stub(stub[:delivery_stream_names]) unless stub[:delivery_stream_names].nil?
         data['HasMoreDeliveryStreams'] = stub[:has_more_delivery_streams] unless stub[:has_more_delivery_streams].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1369,9 +1371,9 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::ListTagsForDeliveryStreamOutputTagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = ListTagsForDeliveryStreamOutputTagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['HasMoreTags'] = stub[:has_more_tags] unless stub[:has_more_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1390,7 +1392,7 @@ module AWS::SDK::Firehose
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1429,7 +1431,7 @@ module AWS::SDK::Firehose
         data = {}
         data['RecordId'] = stub[:record_id] unless stub[:record_id].nil?
         data['Encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1448,8 +1450,8 @@ module AWS::SDK::Firehose
         data = {}
         data['FailedPutCount'] = stub[:failed_put_count] unless stub[:failed_put_count].nil?
         data['Encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
-        data['RequestResponses'] = Stubs::PutRecordBatchResponseEntryList.stub(stub[:request_responses]) unless stub[:request_responses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RequestResponses'] = PutRecordBatchResponseEntryList.stub(stub[:request_responses]) unless stub[:request_responses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1468,7 +1470,7 @@ module AWS::SDK::Firehose
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PutRecordBatchResponseEntry.stub(element) unless element.nil?
+          data << PutRecordBatchResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1505,7 +1507,7 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1519,7 +1521,7 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1533,7 +1535,7 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1547,7 +1549,7 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1561,7 +1563,7 @@ module AWS::SDK::Firehose
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

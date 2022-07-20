@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::RDS
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('AddRoleToDBClusterResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('AddRoleToDBInstanceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -59,9 +61,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('AddSourceIdentifierToSubscriptionResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('AddSourceIdentifierToSubscriptionResult')
-        xml << Stubs::EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
+        xml << EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -94,8 +96,8 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('SubscriptionCreationTime', stub[:subscription_creation_time].to_s) unless stub[:subscription_creation_time].nil?
         xml << Hearth::XML::Node.new('SourceType', stub[:source_type].to_s) unless stub[:source_type].nil?
-        xml << Hearth::XML::Node.new('SourceIdsList', Stubs::SourceIdsList.stub('SourceId', stub[:source_ids_list])) unless stub[:source_ids_list].nil?
-        xml << Hearth::XML::Node.new('EventCategoriesList', Stubs::EventCategoriesList.stub('EventCategory', stub[:event_categories_list])) unless stub[:event_categories_list].nil?
+        xml << Hearth::XML::Node.new('SourceIdsList', SourceIdsList.stub('SourceId', stub[:source_ids_list])) unless stub[:source_ids_list].nil?
+        xml << Hearth::XML::Node.new('EventCategoriesList', EventCategoriesList.stub('EventCategory', stub[:event_categories_list])) unless stub[:event_categories_list].nil?
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('EventSubscriptionArn', stub[:event_subscription_arn].to_s) unless stub[:event_subscription_arn].nil?
         xml
@@ -153,7 +155,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('AddTagsToResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -171,9 +173,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ApplyPendingMaintenanceActionResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ApplyPendingMaintenanceActionResult')
-        xml << Stubs::ResourcePendingMaintenanceActions.stub('ResourcePendingMaintenanceActions', stub[:resource_pending_maintenance_actions]) unless stub[:resource_pending_maintenance_actions].nil?
+        xml << ResourcePendingMaintenanceActions.stub('ResourcePendingMaintenanceActions', stub[:resource_pending_maintenance_actions]) unless stub[:resource_pending_maintenance_actions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::RDS
         stub ||= Types::ResourcePendingMaintenanceActions.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ResourceIdentifier', stub[:resource_identifier].to_s) unless stub[:resource_identifier].nil?
-        xml << Hearth::XML::Node.new('PendingMaintenanceActionDetails', Stubs::PendingMaintenanceActionDetails.stub('PendingMaintenanceAction', stub[:pending_maintenance_action_details])) unless stub[:pending_maintenance_action_details].nil?
+        xml << Hearth::XML::Node.new('PendingMaintenanceActionDetails', PendingMaintenanceActionDetails.stub('PendingMaintenanceAction', stub[:pending_maintenance_action_details])) unless stub[:pending_maintenance_action_details].nil?
         xml
       end
     end
@@ -211,7 +213,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PendingMaintenanceAction.stub(node_name, element) unless element.nil?
+          xml << PendingMaintenanceAction.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -258,9 +260,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('AuthorizeDBSecurityGroupIngressResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('AuthorizeDBSecurityGroupIngressResult')
-        xml << Stubs::DBSecurityGroup.stub('DBSecurityGroup', stub[:db_security_group]) unless stub[:db_security_group].nil?
+        xml << DBSecurityGroup.stub('DBSecurityGroup', stub[:db_security_group]) unless stub[:db_security_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -288,8 +290,8 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBSecurityGroupName', stub[:db_security_group_name].to_s) unless stub[:db_security_group_name].nil?
         xml << Hearth::XML::Node.new('DBSecurityGroupDescription', stub[:db_security_group_description].to_s) unless stub[:db_security_group_description].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        xml << Hearth::XML::Node.new('EC2SecurityGroups', Stubs::EC2SecurityGroupList.stub('EC2SecurityGroup', stub[:ec2_security_groups])) unless stub[:ec2_security_groups].nil?
-        xml << Hearth::XML::Node.new('IPRanges', Stubs::IPRangeList.stub('IPRange', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
+        xml << Hearth::XML::Node.new('EC2SecurityGroups', EC2SecurityGroupList.stub('EC2SecurityGroup', stub[:ec2_security_groups])) unless stub[:ec2_security_groups].nil?
+        xml << Hearth::XML::Node.new('IPRanges', IPRangeList.stub('IPRange', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
         xml << Hearth::XML::Node.new('DBSecurityGroupArn', stub[:db_security_group_arn].to_s) unless stub[:db_security_group_arn].nil?
         xml
       end
@@ -308,7 +310,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::IPRange.stub(node_name, element) unless element.nil?
+          xml << IPRange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -347,7 +349,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EC2SecurityGroup.stub(node_name, element) unless element.nil?
+          xml << EC2SecurityGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -402,7 +404,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('BacktrackRequestCreationTime', Hearth::TimeHelper.to_date_time(stub[:backtrack_request_creation_time])) unless stub[:backtrack_request_creation_time].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -436,7 +438,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new('CancelExportTaskResult')
         xml << Hearth::XML::Node.new('ExportTaskIdentifier', stub[:export_task_identifier].to_s) unless stub[:export_task_identifier].nil?
         xml << Hearth::XML::Node.new('SourceArn', stub[:source_arn].to_s) unless stub[:source_arn].nil?
-        xml << Hearth::XML::Node.new('ExportOnly', Stubs::StringList.stub('member', stub[:export_only])) unless stub[:export_only].nil?
+        xml << Hearth::XML::Node.new('ExportOnly', StringList.stub('member', stub[:export_only])) unless stub[:export_only].nil?
         xml << Hearth::XML::Node.new('SnapshotTime', Hearth::TimeHelper.to_date_time(stub[:snapshot_time])) unless stub[:snapshot_time].nil?
         xml << Hearth::XML::Node.new('TaskStartTime', Hearth::TimeHelper.to_date_time(stub[:task_start_time])) unless stub[:task_start_time].nil?
         xml << Hearth::XML::Node.new('TaskEndTime', Hearth::TimeHelper.to_date_time(stub[:task_end_time])) unless stub[:task_end_time].nil?
@@ -450,7 +452,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('FailureCause', stub[:failure_cause].to_s) unless stub[:failure_cause].nil?
         xml << Hearth::XML::Node.new('WarningMessage', stub[:warning_message].to_s) unless stub[:warning_message].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -487,9 +489,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CopyDBClusterParameterGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CopyDBClusterParameterGroupResult')
-        xml << Stubs::DBClusterParameterGroup.stub('DBClusterParameterGroup', stub[:db_cluster_parameter_group]) unless stub[:db_cluster_parameter_group].nil?
+        xml << DBClusterParameterGroup.stub('DBClusterParameterGroup', stub[:db_cluster_parameter_group]) unless stub[:db_cluster_parameter_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -531,9 +533,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CopyDBClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CopyDBClusterSnapshotResult')
-        xml << Stubs::DBClusterSnapshot.stub('DBClusterSnapshot', stub[:db_cluster_snapshot]) unless stub[:db_cluster_snapshot].nil?
+        xml << DBClusterSnapshot.stub('DBClusterSnapshot', stub[:db_cluster_snapshot]) unless stub[:db_cluster_snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -572,7 +574,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         stub ||= Types::DBClusterSnapshot.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('AvailabilityZones', Stubs::AvailabilityZones.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('AvailabilityZones', AvailabilityZones.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
         xml << Hearth::XML::Node.new('DBClusterSnapshotIdentifier', stub[:db_cluster_snapshot_identifier].to_s) unless stub[:db_cluster_snapshot_identifier].nil?
         xml << Hearth::XML::Node.new('DBClusterIdentifier', stub[:db_cluster_identifier].to_s) unless stub[:db_cluster_identifier].nil?
         xml << Hearth::XML::Node.new('SnapshotCreateTime', Hearth::TimeHelper.to_date_time(stub[:snapshot_create_time])) unless stub[:snapshot_create_time].nil?
@@ -593,7 +595,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBClusterSnapshotArn', stub[:db_cluster_snapshot_arn].to_s) unless stub[:db_cluster_snapshot_arn].nil?
         xml << Hearth::XML::Node.new('SourceDBClusterSnapshotArn', stub[:source_db_cluster_snapshot_arn].to_s) unless stub[:source_db_cluster_snapshot_arn].nil?
         xml << Hearth::XML::Node.new('IAMDatabaseAuthenticationEnabled', stub[:iam_database_authentication_enabled].to_s) unless stub[:iam_database_authentication_enabled].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         xml
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -669,9 +671,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CopyDBParameterGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CopyDBParameterGroupResult')
-        xml << Stubs::DBParameterGroup.stub('DBParameterGroup', stub[:db_parameter_group]) unless stub[:db_parameter_group].nil?
+        xml << DBParameterGroup.stub('DBParameterGroup', stub[:db_parameter_group]) unless stub[:db_parameter_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -713,9 +715,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CopyDBSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CopyDBSnapshotResult')
-        xml << Stubs::DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
+        xml << DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -789,9 +791,9 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBSnapshotArn', stub[:db_snapshot_arn].to_s) unless stub[:db_snapshot_arn].nil?
         xml << Hearth::XML::Node.new('Timezone', stub[:timezone].to_s) unless stub[:timezone].nil?
         xml << Hearth::XML::Node.new('IAMDatabaseAuthenticationEnabled', stub[:iam_database_authentication_enabled].to_s) unless stub[:iam_database_authentication_enabled].nil?
-        xml << Hearth::XML::Node.new('ProcessorFeatures', Stubs::ProcessorFeatureList.stub('ProcessorFeature', stub[:processor_features])) unless stub[:processor_features].nil?
+        xml << Hearth::XML::Node.new('ProcessorFeatures', ProcessorFeatureList.stub('ProcessorFeature', stub[:processor_features])) unless stub[:processor_features].nil?
         xml << Hearth::XML::Node.new('DbiResourceId', stub[:dbi_resource_id].to_s) unless stub[:dbi_resource_id].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         xml << Hearth::XML::Node.new('OriginalSnapshotCreateTime', Hearth::TimeHelper.to_date_time(stub[:original_snapshot_create_time])) unless stub[:original_snapshot_create_time].nil?
         xml << Hearth::XML::Node.new('SnapshotTarget', stub[:snapshot_target].to_s) unless stub[:snapshot_target].nil?
         xml
@@ -811,7 +813,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ProcessorFeature.stub(node_name, element) unless element.nil?
+          xml << ProcessorFeature.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -850,9 +852,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CopyOptionGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CopyOptionGroupResult')
-        xml << Stubs::OptionGroup.stub('OptionGroup', stub[:option_group]) unless stub[:option_group].nil?
+        xml << OptionGroup.stub('OptionGroup', stub[:option_group]) unless stub[:option_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('OptionGroupDescription', stub[:option_group_description].to_s) unless stub[:option_group_description].nil?
         xml << Hearth::XML::Node.new('EngineName', stub[:engine_name].to_s) unless stub[:engine_name].nil?
         xml << Hearth::XML::Node.new('MajorEngineVersion', stub[:major_engine_version].to_s) unless stub[:major_engine_version].nil?
-        xml << Hearth::XML::Node.new('Options', Stubs::OptionsList.stub('Option', stub[:options])) unless stub[:options].nil?
+        xml << Hearth::XML::Node.new('Options', OptionsList.stub('Option', stub[:options])) unless stub[:options].nil?
         xml << Hearth::XML::Node.new('AllowsVpcAndNonVpcInstanceMemberships', stub[:allows_vpc_and_non_vpc_instance_memberships].to_s) unless stub[:allows_vpc_and_non_vpc_instance_memberships].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('OptionGroupArn', stub[:option_group_arn].to_s) unless stub[:option_group_arn].nil?
@@ -902,7 +904,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Option.stub(node_name, element) unless element.nil?
+          xml << Option.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -935,9 +937,9 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Permanent', stub[:permanent].to_s) unless stub[:permanent].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('OptionVersion', stub[:option_version].to_s) unless stub[:option_version].nil?
-        xml << Hearth::XML::Node.new('OptionSettings', Stubs::OptionSettingConfigurationList.stub('OptionSetting', stub[:option_settings])) unless stub[:option_settings].nil?
-        xml << Hearth::XML::Node.new('DBSecurityGroupMemberships', Stubs::DBSecurityGroupMembershipList.stub('DBSecurityGroup', stub[:db_security_group_memberships])) unless stub[:db_security_group_memberships].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroupMemberships', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroupMembership', stub[:vpc_security_group_memberships])) unless stub[:vpc_security_group_memberships].nil?
+        xml << Hearth::XML::Node.new('OptionSettings', OptionSettingConfigurationList.stub('OptionSetting', stub[:option_settings])) unless stub[:option_settings].nil?
+        xml << Hearth::XML::Node.new('DBSecurityGroupMemberships', DBSecurityGroupMembershipList.stub('DBSecurityGroup', stub[:db_security_group_memberships])) unless stub[:db_security_group_memberships].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroupMemberships', VpcSecurityGroupMembershipList.stub('VpcSecurityGroupMembership', stub[:vpc_security_group_memberships])) unless stub[:vpc_security_group_memberships].nil?
         xml
       end
     end
@@ -955,7 +957,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcSecurityGroupMembership.stub(node_name, element) unless element.nil?
+          xml << VpcSecurityGroupMembership.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -994,7 +996,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBSecurityGroupMembership.stub(node_name, element) unless element.nil?
+          xml << DBSecurityGroupMembership.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1033,7 +1035,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OptionSetting.stub(node_name, element) unless element.nil?
+          xml << OptionSetting.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1116,16 +1118,16 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBParameterGroupFamily', stub[:db_parameter_group_family].to_s) unless stub[:db_parameter_group_family].nil?
         xml << Hearth::XML::Node.new('DBEngineDescription', stub[:db_engine_description].to_s) unless stub[:db_engine_description].nil?
         xml << Hearth::XML::Node.new('DBEngineVersionDescription', stub[:db_engine_version_description].to_s) unless stub[:db_engine_version_description].nil?
-        xml << Stubs::CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
-        xml << Hearth::XML::Node.new('SupportedCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
-        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
-        xml << Hearth::XML::Node.new('ValidUpgradeTarget', Stubs::ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
-        xml << Hearth::XML::Node.new('SupportedTimezones', Stubs::SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
-        xml << Hearth::XML::Node.new('ExportableLogTypes', Stubs::LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
+        xml << CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
+        xml << Hearth::XML::Node.new('SupportedCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
+        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
+        xml << Hearth::XML::Node.new('ValidUpgradeTarget', ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
+        xml << Hearth::XML::Node.new('SupportedTimezones', SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
+        xml << Hearth::XML::Node.new('ExportableLogTypes', LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
         xml << Hearth::XML::Node.new('SupportsLogExportsToCloudwatchLogs', stub[:supports_log_exports_to_cloudwatch_logs].to_s) unless stub[:supports_log_exports_to_cloudwatch_logs].nil?
         xml << Hearth::XML::Node.new('SupportsReadReplica', stub[:supports_read_replica].to_s) unless stub[:supports_read_replica].nil?
-        xml << Hearth::XML::Node.new('SupportedEngineModes', Stubs::EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
-        xml << Hearth::XML::Node.new('SupportedFeatureNames', Stubs::FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
+        xml << Hearth::XML::Node.new('SupportedEngineModes', EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
+        xml << Hearth::XML::Node.new('SupportedFeatureNames', FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('SupportsParallelQuery', stub[:supports_parallel_query].to_s) unless stub[:supports_parallel_query].nil?
         xml << Hearth::XML::Node.new('SupportsGlobalDatabases', stub[:supports_global_databases].to_s) unless stub[:supports_global_databases].nil?
@@ -1135,10 +1137,10 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBEngineVersionArn', stub[:db_engine_version_arn].to_s) unless stub[:db_engine_version_arn].nil?
         xml << Hearth::XML::Node.new('KMSKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('CreateTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         xml << Hearth::XML::Node.new('SupportsBabelfish', stub[:supports_babelfish].to_s) unless stub[:supports_babelfish].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1213,7 +1215,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Timezone.stub(node_name, element) unless element.nil?
+          xml << Timezone.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1250,7 +1252,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::UpgradeTarget.stub(node_name, element) unless element.nil?
+          xml << UpgradeTarget.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1282,7 +1284,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('AutoUpgrade', stub[:auto_upgrade].to_s) unless stub[:auto_upgrade].nil?
         xml << Hearth::XML::Node.new('IsMajorVersionUpgrade', stub[:is_major_version_upgrade].to_s) unless stub[:is_major_version_upgrade].nil?
-        xml << Hearth::XML::Node.new('SupportedEngineModes', Stubs::EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
+        xml << Hearth::XML::Node.new('SupportedEngineModes', EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
         xml << Hearth::XML::Node.new('SupportsParallelQuery', stub[:supports_parallel_query].to_s) unless stub[:supports_parallel_query].nil?
         xml << Hearth::XML::Node.new('SupportsGlobalDatabases', stub[:supports_global_databases].to_s) unless stub[:supports_global_databases].nil?
         xml << Hearth::XML::Node.new('SupportsBabelfish', stub[:supports_babelfish].to_s) unless stub[:supports_babelfish].nil?
@@ -1303,7 +1305,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::CharacterSet.stub(node_name, element) unless element.nil?
+          xml << CharacterSet.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1342,9 +1344,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1430,7 +1432,7 @@ module AWS::SDK::RDS
         stub ||= Types::DBCluster.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AllocatedStorage', stub[:allocated_storage].to_s) unless stub[:allocated_storage].nil?
-        xml << Hearth::XML::Node.new('AvailabilityZones', Stubs::AvailabilityZones.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('AvailabilityZones', AvailabilityZones.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
         xml << Hearth::XML::Node.new('BackupRetentionPeriod', stub[:backup_retention_period].to_s) unless stub[:backup_retention_period].nil?
         xml << Hearth::XML::Node.new('CharacterSetName', stub[:character_set_name].to_s) unless stub[:character_set_name].nil?
         xml << Hearth::XML::Node.new('DatabaseName', stub[:database_name].to_s) unless stub[:database_name].nil?
@@ -1443,36 +1445,36 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('EarliestRestorableTime', Hearth::TimeHelper.to_date_time(stub[:earliest_restorable_time])) unless stub[:earliest_restorable_time].nil?
         xml << Hearth::XML::Node.new('Endpoint', stub[:endpoint].to_s) unless stub[:endpoint].nil?
         xml << Hearth::XML::Node.new('ReaderEndpoint', stub[:reader_endpoint].to_s) unless stub[:reader_endpoint].nil?
-        xml << Hearth::XML::Node.new('CustomEndpoints', Stubs::StringList.stub('member', stub[:custom_endpoints])) unless stub[:custom_endpoints].nil?
+        xml << Hearth::XML::Node.new('CustomEndpoints', StringList.stub('member', stub[:custom_endpoints])) unless stub[:custom_endpoints].nil?
         xml << Hearth::XML::Node.new('MultiAZ', stub[:multi_az].to_s) unless stub[:multi_az].nil?
         xml << Hearth::XML::Node.new('Engine', stub[:engine].to_s) unless stub[:engine].nil?
         xml << Hearth::XML::Node.new('EngineVersion', stub[:engine_version].to_s) unless stub[:engine_version].nil?
         xml << Hearth::XML::Node.new('LatestRestorableTime', Hearth::TimeHelper.to_date_time(stub[:latest_restorable_time])) unless stub[:latest_restorable_time].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('MasterUsername', stub[:master_username].to_s) unless stub[:master_username].nil?
-        xml << Hearth::XML::Node.new('DBClusterOptionGroupMemberships', Stubs::DBClusterOptionGroupMemberships.stub('DBClusterOptionGroup', stub[:db_cluster_option_group_memberships])) unless stub[:db_cluster_option_group_memberships].nil?
+        xml << Hearth::XML::Node.new('DBClusterOptionGroupMemberships', DBClusterOptionGroupMemberships.stub('DBClusterOptionGroup', stub[:db_cluster_option_group_memberships])) unless stub[:db_cluster_option_group_memberships].nil?
         xml << Hearth::XML::Node.new('PreferredBackupWindow', stub[:preferred_backup_window].to_s) unless stub[:preferred_backup_window].nil?
         xml << Hearth::XML::Node.new('PreferredMaintenanceWindow', stub[:preferred_maintenance_window].to_s) unless stub[:preferred_maintenance_window].nil?
         xml << Hearth::XML::Node.new('ReplicationSourceIdentifier', stub[:replication_source_identifier].to_s) unless stub[:replication_source_identifier].nil?
-        xml << Hearth::XML::Node.new('ReadReplicaIdentifiers', Stubs::ReadReplicaIdentifierList.stub('ReadReplicaIdentifier', stub[:read_replica_identifiers])) unless stub[:read_replica_identifiers].nil?
-        xml << Hearth::XML::Node.new('DBClusterMembers', Stubs::DBClusterMemberList.stub('DBClusterMember', stub[:db_cluster_members])) unless stub[:db_cluster_members].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroups', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroupMembership', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
+        xml << Hearth::XML::Node.new('ReadReplicaIdentifiers', ReadReplicaIdentifierList.stub('ReadReplicaIdentifier', stub[:read_replica_identifiers])) unless stub[:read_replica_identifiers].nil?
+        xml << Hearth::XML::Node.new('DBClusterMembers', DBClusterMemberList.stub('DBClusterMember', stub[:db_cluster_members])) unless stub[:db_cluster_members].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroups', VpcSecurityGroupMembershipList.stub('VpcSecurityGroupMembership', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
         xml << Hearth::XML::Node.new('HostedZoneId', stub[:hosted_zone_id].to_s) unless stub[:hosted_zone_id].nil?
         xml << Hearth::XML::Node.new('StorageEncrypted', stub[:storage_encrypted].to_s) unless stub[:storage_encrypted].nil?
         xml << Hearth::XML::Node.new('KmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('DbClusterResourceId', stub[:db_cluster_resource_id].to_s) unless stub[:db_cluster_resource_id].nil?
         xml << Hearth::XML::Node.new('DBClusterArn', stub[:db_cluster_arn].to_s) unless stub[:db_cluster_arn].nil?
-        xml << Hearth::XML::Node.new('AssociatedRoles', Stubs::DBClusterRoles.stub('DBClusterRole', stub[:associated_roles])) unless stub[:associated_roles].nil?
+        xml << Hearth::XML::Node.new('AssociatedRoles', DBClusterRoles.stub('DBClusterRole', stub[:associated_roles])) unless stub[:associated_roles].nil?
         xml << Hearth::XML::Node.new('IAMDatabaseAuthenticationEnabled', stub[:iam_database_authentication_enabled].to_s) unless stub[:iam_database_authentication_enabled].nil?
         xml << Hearth::XML::Node.new('CloneGroupId', stub[:clone_group_id].to_s) unless stub[:clone_group_id].nil?
         xml << Hearth::XML::Node.new('ClusterCreateTime', Hearth::TimeHelper.to_date_time(stub[:cluster_create_time])) unless stub[:cluster_create_time].nil?
         xml << Hearth::XML::Node.new('EarliestBacktrackTime', Hearth::TimeHelper.to_date_time(stub[:earliest_backtrack_time])) unless stub[:earliest_backtrack_time].nil?
         xml << Hearth::XML::Node.new('BacktrackWindow', stub[:backtrack_window].to_s) unless stub[:backtrack_window].nil?
         xml << Hearth::XML::Node.new('BacktrackConsumedChangeRecords', stub[:backtrack_consumed_change_records].to_s) unless stub[:backtrack_consumed_change_records].nil?
-        xml << Hearth::XML::Node.new('EnabledCloudwatchLogsExports', Stubs::LogTypeList.stub('member', stub[:enabled_cloudwatch_logs_exports])) unless stub[:enabled_cloudwatch_logs_exports].nil?
+        xml << Hearth::XML::Node.new('EnabledCloudwatchLogsExports', LogTypeList.stub('member', stub[:enabled_cloudwatch_logs_exports])) unless stub[:enabled_cloudwatch_logs_exports].nil?
         xml << Hearth::XML::Node.new('Capacity', stub[:capacity].to_s) unless stub[:capacity].nil?
         xml << Hearth::XML::Node.new('EngineMode', stub[:engine_mode].to_s) unless stub[:engine_mode].nil?
-        xml << Stubs::ScalingConfigurationInfo.stub('ScalingConfigurationInfo', stub[:scaling_configuration_info]) unless stub[:scaling_configuration_info].nil?
+        xml << ScalingConfigurationInfo.stub('ScalingConfigurationInfo', stub[:scaling_configuration_info]) unless stub[:scaling_configuration_info].nil?
         xml << Hearth::XML::Node.new('DeletionProtection', stub[:deletion_protection].to_s) unless stub[:deletion_protection].nil?
         xml << Hearth::XML::Node.new('HttpEndpointEnabled', stub[:http_endpoint_enabled].to_s) unless stub[:http_endpoint_enabled].nil?
         xml << Hearth::XML::Node.new('ActivityStreamMode', stub[:activity_stream_mode].to_s) unless stub[:activity_stream_mode].nil?
@@ -1481,11 +1483,11 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('ActivityStreamKinesisStreamName', stub[:activity_stream_kinesis_stream_name].to_s) unless stub[:activity_stream_kinesis_stream_name].nil?
         xml << Hearth::XML::Node.new('CopyTagsToSnapshot', stub[:copy_tags_to_snapshot].to_s) unless stub[:copy_tags_to_snapshot].nil?
         xml << Hearth::XML::Node.new('CrossAccountClone', stub[:cross_account_clone].to_s) unless stub[:cross_account_clone].nil?
-        xml << Hearth::XML::Node.new('DomainMemberships', Stubs::DomainMembershipList.stub('DomainMembership', stub[:domain_memberships])) unless stub[:domain_memberships].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('DomainMemberships', DomainMembershipList.stub('DomainMembership', stub[:domain_memberships])) unless stub[:domain_memberships].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         xml << Hearth::XML::Node.new('GlobalWriteForwardingStatus', stub[:global_write_forwarding_status].to_s) unless stub[:global_write_forwarding_status].nil?
         xml << Hearth::XML::Node.new('GlobalWriteForwardingRequested', stub[:global_write_forwarding_requested].to_s) unless stub[:global_write_forwarding_requested].nil?
-        xml << Stubs::ClusterPendingModifiedValues.stub('PendingModifiedValues', stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
+        xml << ClusterPendingModifiedValues.stub('PendingModifiedValues', stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
         xml << Hearth::XML::Node.new('DBClusterInstanceClass', stub[:db_cluster_instance_class].to_s) unless stub[:db_cluster_instance_class].nil?
         xml << Hearth::XML::Node.new('StorageType', stub[:storage_type].to_s) unless stub[:storage_type].nil?
         xml << Hearth::XML::Node.new('Iops', stub[:iops].to_s) unless stub[:iops].nil?
@@ -1496,7 +1498,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('PerformanceInsightsEnabled', stub[:performance_insights_enabled].to_s) unless stub[:performance_insights_enabled].nil?
         xml << Hearth::XML::Node.new('PerformanceInsightsKMSKeyId', stub[:performance_insights_kms_key_id].to_s) unless stub[:performance_insights_kms_key_id].nil?
         xml << Hearth::XML::Node.new('PerformanceInsightsRetentionPeriod', stub[:performance_insights_retention_period].to_s) unless stub[:performance_insights_retention_period].nil?
-        xml << Stubs::ServerlessV2ScalingConfigurationInfo.stub('ServerlessV2ScalingConfiguration', stub[:serverless_v2_scaling_configuration]) unless stub[:serverless_v2_scaling_configuration].nil?
+        xml << ServerlessV2ScalingConfigurationInfo.stub('ServerlessV2ScalingConfiguration', stub[:serverless_v2_scaling_configuration]) unless stub[:serverless_v2_scaling_configuration].nil?
         xml
       end
     end
@@ -1538,7 +1540,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         stub ||= Types::ClusterPendingModifiedValues.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::PendingCloudwatchLogsExports.stub('PendingCloudwatchLogsExports', stub[:pending_cloudwatch_logs_exports]) unless stub[:pending_cloudwatch_logs_exports].nil?
+        xml << PendingCloudwatchLogsExports.stub('PendingCloudwatchLogsExports', stub[:pending_cloudwatch_logs_exports]) unless stub[:pending_cloudwatch_logs_exports].nil?
         xml << Hearth::XML::Node.new('DBClusterIdentifier', stub[:db_cluster_identifier].to_s) unless stub[:db_cluster_identifier].nil?
         xml << Hearth::XML::Node.new('MasterUserPassword', stub[:master_user_password].to_s) unless stub[:master_user_password].nil?
         xml << Hearth::XML::Node.new('IAMDatabaseAuthenticationEnabled', stub[:iam_database_authentication_enabled].to_s) unless stub[:iam_database_authentication_enabled].nil?
@@ -1561,8 +1563,8 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         stub ||= Types::PendingCloudwatchLogsExports.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('LogTypesToEnable', Stubs::LogTypeList.stub('member', stub[:log_types_to_enable])) unless stub[:log_types_to_enable].nil?
-        xml << Hearth::XML::Node.new('LogTypesToDisable', Stubs::LogTypeList.stub('member', stub[:log_types_to_disable])) unless stub[:log_types_to_disable].nil?
+        xml << Hearth::XML::Node.new('LogTypesToEnable', LogTypeList.stub('member', stub[:log_types_to_enable])) unless stub[:log_types_to_enable].nil?
+        xml << Hearth::XML::Node.new('LogTypesToDisable', LogTypeList.stub('member', stub[:log_types_to_disable])) unless stub[:log_types_to_disable].nil?
         xml
       end
     end
@@ -1580,7 +1582,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DomainMembership.stub(node_name, element) unless element.nil?
+          xml << DomainMembership.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1651,7 +1653,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterRole.stub(node_name, element) unless element.nil?
+          xml << DBClusterRole.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1692,7 +1694,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterMember.stub(node_name, element) unless element.nil?
+          xml << DBClusterMember.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1754,7 +1756,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterOptionGroupStatus.stub(node_name, element) unless element.nil?
+          xml << DBClusterOptionGroupStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1809,11 +1811,11 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('EndpointType', stub[:endpoint_type].to_s) unless stub[:endpoint_type].nil?
         xml << Hearth::XML::Node.new('CustomEndpointType', stub[:custom_endpoint_type].to_s) unless stub[:custom_endpoint_type].nil?
-        xml << Hearth::XML::Node.new('StaticMembers', Stubs::StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
-        xml << Hearth::XML::Node.new('ExcludedMembers', Stubs::StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
+        xml << Hearth::XML::Node.new('StaticMembers', StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
+        xml << Hearth::XML::Node.new('ExcludedMembers', StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
         xml << Hearth::XML::Node.new('DBClusterEndpointArn', stub[:db_cluster_endpoint_arn].to_s) unless stub[:db_cluster_endpoint_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1831,9 +1833,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBClusterParameterGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBClusterParameterGroupResult')
-        xml << Stubs::DBClusterParameterGroup.stub('DBClusterParameterGroup', stub[:db_cluster_parameter_group]) unless stub[:db_cluster_parameter_group].nil?
+        xml << DBClusterParameterGroup.stub('DBClusterParameterGroup', stub[:db_cluster_parameter_group]) unless stub[:db_cluster_parameter_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1851,9 +1853,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBClusterSnapshotResult')
-        xml << Stubs::DBClusterSnapshot.stub('DBClusterSnapshot', stub[:db_cluster_snapshot]) unless stub[:db_cluster_snapshot].nil?
+        xml << DBClusterSnapshot.stub('DBClusterSnapshot', stub[:db_cluster_snapshot]) unless stub[:db_cluster_snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1871,9 +1873,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBInstanceResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBInstanceResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1972,34 +1974,34 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('AutomaticRestartTime', Hearth::TimeHelper.to_date_time(stub[:automatic_restart_time])) unless stub[:automatic_restart_time].nil?
         xml << Hearth::XML::Node.new('MasterUsername', stub[:master_username].to_s) unless stub[:master_username].nil?
         xml << Hearth::XML::Node.new('DBName', stub[:db_name].to_s) unless stub[:db_name].nil?
-        xml << Stubs::Endpoint.stub('Endpoint', stub[:endpoint]) unless stub[:endpoint].nil?
+        xml << Endpoint.stub('Endpoint', stub[:endpoint]) unless stub[:endpoint].nil?
         xml << Hearth::XML::Node.new('AllocatedStorage', stub[:allocated_storage].to_s) unless stub[:allocated_storage].nil?
         xml << Hearth::XML::Node.new('InstanceCreateTime', Hearth::TimeHelper.to_date_time(stub[:instance_create_time])) unless stub[:instance_create_time].nil?
         xml << Hearth::XML::Node.new('PreferredBackupWindow', stub[:preferred_backup_window].to_s) unless stub[:preferred_backup_window].nil?
         xml << Hearth::XML::Node.new('BackupRetentionPeriod', stub[:backup_retention_period].to_s) unless stub[:backup_retention_period].nil?
-        xml << Hearth::XML::Node.new('DBSecurityGroups', Stubs::DBSecurityGroupMembershipList.stub('DBSecurityGroup', stub[:db_security_groups])) unless stub[:db_security_groups].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroups', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroupMembership', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
-        xml << Hearth::XML::Node.new('DBParameterGroups', Stubs::DBParameterGroupStatusList.stub('DBParameterGroup', stub[:db_parameter_groups])) unless stub[:db_parameter_groups].nil?
+        xml << Hearth::XML::Node.new('DBSecurityGroups', DBSecurityGroupMembershipList.stub('DBSecurityGroup', stub[:db_security_groups])) unless stub[:db_security_groups].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroups', VpcSecurityGroupMembershipList.stub('VpcSecurityGroupMembership', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
+        xml << Hearth::XML::Node.new('DBParameterGroups', DBParameterGroupStatusList.stub('DBParameterGroup', stub[:db_parameter_groups])) unless stub[:db_parameter_groups].nil?
         xml << Hearth::XML::Node.new('AvailabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
-        xml << Stubs::DBSubnetGroup.stub('DBSubnetGroup', stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
+        xml << DBSubnetGroup.stub('DBSubnetGroup', stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
         xml << Hearth::XML::Node.new('PreferredMaintenanceWindow', stub[:preferred_maintenance_window].to_s) unless stub[:preferred_maintenance_window].nil?
-        xml << Stubs::PendingModifiedValues.stub('PendingModifiedValues', stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
+        xml << PendingModifiedValues.stub('PendingModifiedValues', stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
         xml << Hearth::XML::Node.new('LatestRestorableTime', Hearth::TimeHelper.to_date_time(stub[:latest_restorable_time])) unless stub[:latest_restorable_time].nil?
         xml << Hearth::XML::Node.new('MultiAZ', stub[:multi_az].to_s) unless stub[:multi_az].nil?
         xml << Hearth::XML::Node.new('EngineVersion', stub[:engine_version].to_s) unless stub[:engine_version].nil?
         xml << Hearth::XML::Node.new('AutoMinorVersionUpgrade', stub[:auto_minor_version_upgrade].to_s) unless stub[:auto_minor_version_upgrade].nil?
         xml << Hearth::XML::Node.new('ReadReplicaSourceDBInstanceIdentifier', stub[:read_replica_source_db_instance_identifier].to_s) unless stub[:read_replica_source_db_instance_identifier].nil?
-        xml << Hearth::XML::Node.new('ReadReplicaDBInstanceIdentifiers', Stubs::ReadReplicaDBInstanceIdentifierList.stub('ReadReplicaDBInstanceIdentifier', stub[:read_replica_db_instance_identifiers])) unless stub[:read_replica_db_instance_identifiers].nil?
-        xml << Hearth::XML::Node.new('ReadReplicaDBClusterIdentifiers', Stubs::ReadReplicaDBClusterIdentifierList.stub('ReadReplicaDBClusterIdentifier', stub[:read_replica_db_cluster_identifiers])) unless stub[:read_replica_db_cluster_identifiers].nil?
+        xml << Hearth::XML::Node.new('ReadReplicaDBInstanceIdentifiers', ReadReplicaDBInstanceIdentifierList.stub('ReadReplicaDBInstanceIdentifier', stub[:read_replica_db_instance_identifiers])) unless stub[:read_replica_db_instance_identifiers].nil?
+        xml << Hearth::XML::Node.new('ReadReplicaDBClusterIdentifiers', ReadReplicaDBClusterIdentifierList.stub('ReadReplicaDBClusterIdentifier', stub[:read_replica_db_cluster_identifiers])) unless stub[:read_replica_db_cluster_identifiers].nil?
         xml << Hearth::XML::Node.new('ReplicaMode', stub[:replica_mode].to_s) unless stub[:replica_mode].nil?
         xml << Hearth::XML::Node.new('LicenseModel', stub[:license_model].to_s) unless stub[:license_model].nil?
         xml << Hearth::XML::Node.new('Iops', stub[:iops].to_s) unless stub[:iops].nil?
-        xml << Hearth::XML::Node.new('OptionGroupMemberships', Stubs::OptionGroupMembershipList.stub('OptionGroupMembership', stub[:option_group_memberships])) unless stub[:option_group_memberships].nil?
+        xml << Hearth::XML::Node.new('OptionGroupMemberships', OptionGroupMembershipList.stub('OptionGroupMembership', stub[:option_group_memberships])) unless stub[:option_group_memberships].nil?
         xml << Hearth::XML::Node.new('CharacterSetName', stub[:character_set_name].to_s) unless stub[:character_set_name].nil?
         xml << Hearth::XML::Node.new('NcharCharacterSetName', stub[:nchar_character_set_name].to_s) unless stub[:nchar_character_set_name].nil?
         xml << Hearth::XML::Node.new('SecondaryAvailabilityZone', stub[:secondary_availability_zone].to_s) unless stub[:secondary_availability_zone].nil?
         xml << Hearth::XML::Node.new('PubliclyAccessible', stub[:publicly_accessible].to_s) unless stub[:publicly_accessible].nil?
-        xml << Hearth::XML::Node.new('StatusInfos', Stubs::DBInstanceStatusInfoList.stub('DBInstanceStatusInfo', stub[:status_infos])) unless stub[:status_infos].nil?
+        xml << Hearth::XML::Node.new('StatusInfos', DBInstanceStatusInfoList.stub('DBInstanceStatusInfo', stub[:status_infos])) unless stub[:status_infos].nil?
         xml << Hearth::XML::Node.new('StorageType', stub[:storage_type].to_s) unless stub[:storage_type].nil?
         xml << Hearth::XML::Node.new('TdeCredentialArn', stub[:tde_credential_arn].to_s) unless stub[:tde_credential_arn].nil?
         xml << Hearth::XML::Node.new('DbInstancePort', stub[:db_instance_port].to_s) unless stub[:db_instance_port].nil?
@@ -2008,7 +2010,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('KmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('DbiResourceId', stub[:dbi_resource_id].to_s) unless stub[:dbi_resource_id].nil?
         xml << Hearth::XML::Node.new('CACertificateIdentifier', stub[:ca_certificate_identifier].to_s) unless stub[:ca_certificate_identifier].nil?
-        xml << Hearth::XML::Node.new('DomainMemberships', Stubs::DomainMembershipList.stub('DomainMembership', stub[:domain_memberships])) unless stub[:domain_memberships].nil?
+        xml << Hearth::XML::Node.new('DomainMemberships', DomainMembershipList.stub('DomainMembership', stub[:domain_memberships])) unless stub[:domain_memberships].nil?
         xml << Hearth::XML::Node.new('CopyTagsToSnapshot', stub[:copy_tags_to_snapshot].to_s) unless stub[:copy_tags_to_snapshot].nil?
         xml << Hearth::XML::Node.new('MonitoringInterval', stub[:monitoring_interval].to_s) unless stub[:monitoring_interval].nil?
         xml << Hearth::XML::Node.new('EnhancedMonitoringResourceArn', stub[:enhanced_monitoring_resource_arn].to_s) unless stub[:enhanced_monitoring_resource_arn].nil?
@@ -2020,14 +2022,14 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('PerformanceInsightsEnabled', stub[:performance_insights_enabled].to_s) unless stub[:performance_insights_enabled].nil?
         xml << Hearth::XML::Node.new('PerformanceInsightsKMSKeyId', stub[:performance_insights_kms_key_id].to_s) unless stub[:performance_insights_kms_key_id].nil?
         xml << Hearth::XML::Node.new('PerformanceInsightsRetentionPeriod', stub[:performance_insights_retention_period].to_s) unless stub[:performance_insights_retention_period].nil?
-        xml << Hearth::XML::Node.new('EnabledCloudwatchLogsExports', Stubs::LogTypeList.stub('member', stub[:enabled_cloudwatch_logs_exports])) unless stub[:enabled_cloudwatch_logs_exports].nil?
-        xml << Hearth::XML::Node.new('ProcessorFeatures', Stubs::ProcessorFeatureList.stub('ProcessorFeature', stub[:processor_features])) unless stub[:processor_features].nil?
+        xml << Hearth::XML::Node.new('EnabledCloudwatchLogsExports', LogTypeList.stub('member', stub[:enabled_cloudwatch_logs_exports])) unless stub[:enabled_cloudwatch_logs_exports].nil?
+        xml << Hearth::XML::Node.new('ProcessorFeatures', ProcessorFeatureList.stub('ProcessorFeature', stub[:processor_features])) unless stub[:processor_features].nil?
         xml << Hearth::XML::Node.new('DeletionProtection', stub[:deletion_protection].to_s) unless stub[:deletion_protection].nil?
-        xml << Hearth::XML::Node.new('AssociatedRoles', Stubs::DBInstanceRoles.stub('DBInstanceRole', stub[:associated_roles])) unless stub[:associated_roles].nil?
-        xml << Stubs::Endpoint.stub('ListenerEndpoint', stub[:listener_endpoint]) unless stub[:listener_endpoint].nil?
+        xml << Hearth::XML::Node.new('AssociatedRoles', DBInstanceRoles.stub('DBInstanceRole', stub[:associated_roles])) unless stub[:associated_roles].nil?
+        xml << Endpoint.stub('ListenerEndpoint', stub[:listener_endpoint]) unless stub[:listener_endpoint].nil?
         xml << Hearth::XML::Node.new('MaxAllocatedStorage', stub[:max_allocated_storage].to_s) unless stub[:max_allocated_storage].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
-        xml << Hearth::XML::Node.new('DBInstanceAutomatedBackupsReplications', Stubs::DBInstanceAutomatedBackupsReplicationList.stub('DBInstanceAutomatedBackupsReplication', stub[:db_instance_automated_backups_replications])) unless stub[:db_instance_automated_backups_replications].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('DBInstanceAutomatedBackupsReplications', DBInstanceAutomatedBackupsReplicationList.stub('DBInstanceAutomatedBackupsReplication', stub[:db_instance_automated_backups_replications])) unless stub[:db_instance_automated_backups_replications].nil?
         xml << Hearth::XML::Node.new('CustomerOwnedIpEnabled', stub[:customer_owned_ip_enabled].to_s) unless stub[:customer_owned_ip_enabled].nil?
         xml << Hearth::XML::Node.new('AwsBackupRecoveryPointArn', stub[:aws_backup_recovery_point_arn].to_s) unless stub[:aws_backup_recovery_point_arn].nil?
         xml << Hearth::XML::Node.new('ActivityStreamStatus', stub[:activity_stream_status].to_s) unless stub[:activity_stream_status].nil?
@@ -2057,7 +2059,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBInstanceAutomatedBackupsReplication.stub(node_name, element) unless element.nil?
+          xml << DBInstanceAutomatedBackupsReplication.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2116,7 +2118,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBInstanceRole.stub(node_name, element) unless element.nil?
+          xml << DBInstanceRole.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2157,7 +2159,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBInstanceStatusInfo.stub(node_name, element) unless element.nil?
+          xml << DBInstanceStatusInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2200,7 +2202,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OptionGroupMembership.stub(node_name, element) unless element.nil?
+          xml << OptionGroupMembership.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2307,8 +2309,8 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('StorageType', stub[:storage_type].to_s) unless stub[:storage_type].nil?
         xml << Hearth::XML::Node.new('CACertificateIdentifier', stub[:ca_certificate_identifier].to_s) unless stub[:ca_certificate_identifier].nil?
         xml << Hearth::XML::Node.new('DBSubnetGroupName', stub[:db_subnet_group_name].to_s) unless stub[:db_subnet_group_name].nil?
-        xml << Stubs::PendingCloudwatchLogsExports.stub('PendingCloudwatchLogsExports', stub[:pending_cloudwatch_logs_exports]) unless stub[:pending_cloudwatch_logs_exports].nil?
-        xml << Hearth::XML::Node.new('ProcessorFeatures', Stubs::ProcessorFeatureList.stub('ProcessorFeature', stub[:processor_features])) unless stub[:processor_features].nil?
+        xml << PendingCloudwatchLogsExports.stub('PendingCloudwatchLogsExports', stub[:pending_cloudwatch_logs_exports]) unless stub[:pending_cloudwatch_logs_exports].nil?
+        xml << Hearth::XML::Node.new('ProcessorFeatures', ProcessorFeatureList.stub('ProcessorFeature', stub[:processor_features])) unless stub[:processor_features].nil?
         xml << Hearth::XML::Node.new('IAMDatabaseAuthenticationEnabled', stub[:iam_database_authentication_enabled].to_s) unless stub[:iam_database_authentication_enabled].nil?
         xml << Hearth::XML::Node.new('AutomationMode', stub[:automation_mode].to_s) unless stub[:automation_mode].nil?
         xml << Hearth::XML::Node.new('ResumeFullAutomationModeTime', Hearth::TimeHelper.to_date_time(stub[:resume_full_automation_mode_time])) unless stub[:resume_full_automation_mode_time].nil?
@@ -2339,9 +2341,9 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBSubnetGroupDescription', stub[:db_subnet_group_description].to_s) unless stub[:db_subnet_group_description].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('SubnetGroupStatus', stub[:subnet_group_status].to_s) unless stub[:subnet_group_status].nil?
-        xml << Hearth::XML::Node.new('Subnets', Stubs::SubnetList.stub('Subnet', stub[:subnets])) unless stub[:subnets].nil?
+        xml << Hearth::XML::Node.new('Subnets', SubnetList.stub('Subnet', stub[:subnets])) unless stub[:subnets].nil?
         xml << Hearth::XML::Node.new('DBSubnetGroupArn', stub[:db_subnet_group_arn].to_s) unless stub[:db_subnet_group_arn].nil?
-        xml << Hearth::XML::Node.new('SupportedNetworkTypes', Stubs::StringList.stub('member', stub[:supported_network_types])) unless stub[:supported_network_types].nil?
+        xml << Hearth::XML::Node.new('SupportedNetworkTypes', StringList.stub('member', stub[:supported_network_types])) unless stub[:supported_network_types].nil?
         xml
       end
     end
@@ -2359,7 +2361,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Subnet.stub(node_name, element) unless element.nil?
+          xml << Subnet.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2382,8 +2384,8 @@ module AWS::SDK::RDS
         stub ||= Types::Subnet.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SubnetIdentifier', stub[:subnet_identifier].to_s) unless stub[:subnet_identifier].nil?
-        xml << Stubs::AvailabilityZone.stub('SubnetAvailabilityZone', stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
-        xml << Stubs::Outpost.stub('SubnetOutpost', stub[:subnet_outpost]) unless stub[:subnet_outpost].nil?
+        xml << AvailabilityZone.stub('SubnetAvailabilityZone', stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
+        xml << Outpost.stub('SubnetOutpost', stub[:subnet_outpost]) unless stub[:subnet_outpost].nil?
         xml << Hearth::XML::Node.new('SubnetStatus', stub[:subnet_status].to_s) unless stub[:subnet_status].nil?
         xml
       end
@@ -2438,7 +2440,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBParameterGroupStatus.stub(node_name, element) unless element.nil?
+          xml << DBParameterGroupStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2477,9 +2479,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBInstanceReadReplicaResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBInstanceReadReplicaResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2497,9 +2499,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBParameterGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBParameterGroupResult')
-        xml << Stubs::DBParameterGroup.stub('DBParameterGroup', stub[:db_parameter_group]) unless stub[:db_parameter_group].nil?
+        xml << DBParameterGroup.stub('DBParameterGroup', stub[:db_parameter_group]) unless stub[:db_parameter_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2517,9 +2519,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBProxyResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBProxyResult')
-        xml << Stubs::DBProxy.stub('DBProxy', stub[:db_proxy]) unless stub[:db_proxy].nil?
+        xml << DBProxy.stub('DBProxy', stub[:db_proxy]) unless stub[:db_proxy].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2556,9 +2558,9 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('EngineFamily', stub[:engine_family].to_s) unless stub[:engine_family].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroupIds', Stubs::StringList.stub('member', stub[:vpc_security_group_ids])) unless stub[:vpc_security_group_ids].nil?
-        xml << Hearth::XML::Node.new('VpcSubnetIds', Stubs::StringList.stub('member', stub[:vpc_subnet_ids])) unless stub[:vpc_subnet_ids].nil?
-        xml << Hearth::XML::Node.new('Auth', Stubs::UserAuthConfigInfoList.stub('member', stub[:auth])) unless stub[:auth].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroupIds', StringList.stub('member', stub[:vpc_security_group_ids])) unless stub[:vpc_security_group_ids].nil?
+        xml << Hearth::XML::Node.new('VpcSubnetIds', StringList.stub('member', stub[:vpc_subnet_ids])) unless stub[:vpc_subnet_ids].nil?
+        xml << Hearth::XML::Node.new('Auth', UserAuthConfigInfoList.stub('member', stub[:auth])) unless stub[:auth].nil?
         xml << Hearth::XML::Node.new('RoleArn', stub[:role_arn].to_s) unless stub[:role_arn].nil?
         xml << Hearth::XML::Node.new('Endpoint', stub[:endpoint].to_s) unless stub[:endpoint].nil?
         xml << Hearth::XML::Node.new('RequireTLS', stub[:require_tls].to_s) unless stub[:require_tls].nil?
@@ -2583,7 +2585,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::UserAuthConfigInfo.stub(node_name, element) unless element.nil?
+          xml << UserAuthConfigInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2628,9 +2630,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBProxyEndpointResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBProxyEndpointResult')
-        xml << Stubs::DBProxyEndpoint.stub('DBProxyEndpoint', stub[:db_proxy_endpoint]) unless stub[:db_proxy_endpoint].nil?
+        xml << DBProxyEndpoint.stub('DBProxyEndpoint', stub[:db_proxy_endpoint]) unless stub[:db_proxy_endpoint].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2663,8 +2665,8 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBProxyName', stub[:db_proxy_name].to_s) unless stub[:db_proxy_name].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroupIds', Stubs::StringList.stub('member', stub[:vpc_security_group_ids])) unless stub[:vpc_security_group_ids].nil?
-        xml << Hearth::XML::Node.new('VpcSubnetIds', Stubs::StringList.stub('member', stub[:vpc_subnet_ids])) unless stub[:vpc_subnet_ids].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroupIds', StringList.stub('member', stub[:vpc_security_group_ids])) unless stub[:vpc_security_group_ids].nil?
+        xml << Hearth::XML::Node.new('VpcSubnetIds', StringList.stub('member', stub[:vpc_subnet_ids])) unless stub[:vpc_subnet_ids].nil?
         xml << Hearth::XML::Node.new('Endpoint', stub[:endpoint].to_s) unless stub[:endpoint].nil?
         xml << Hearth::XML::Node.new('CreatedDate', Hearth::TimeHelper.to_date_time(stub[:created_date])) unless stub[:created_date].nil?
         xml << Hearth::XML::Node.new('TargetRole', stub[:target_role].to_s) unless stub[:target_role].nil?
@@ -2686,9 +2688,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBSecurityGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBSecurityGroupResult')
-        xml << Stubs::DBSecurityGroup.stub('DBSecurityGroup', stub[:db_security_group]) unless stub[:db_security_group].nil?
+        xml << DBSecurityGroup.stub('DBSecurityGroup', stub[:db_security_group]) unless stub[:db_security_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2706,9 +2708,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBSnapshotResult')
-        xml << Stubs::DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
+        xml << DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2726,9 +2728,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateDBSubnetGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateDBSubnetGroupResult')
-        xml << Stubs::DBSubnetGroup.stub('DBSubnetGroup', stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
+        xml << DBSubnetGroup.stub('DBSubnetGroup', stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2746,9 +2748,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateEventSubscriptionResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateEventSubscriptionResult')
-        xml << Stubs::EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
+        xml << EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2766,9 +2768,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateGlobalClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateGlobalClusterResult')
-        xml << Stubs::GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
+        xml << GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2805,8 +2807,8 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DatabaseName', stub[:database_name].to_s) unless stub[:database_name].nil?
         xml << Hearth::XML::Node.new('StorageEncrypted', stub[:storage_encrypted].to_s) unless stub[:storage_encrypted].nil?
         xml << Hearth::XML::Node.new('DeletionProtection', stub[:deletion_protection].to_s) unless stub[:deletion_protection].nil?
-        xml << Hearth::XML::Node.new('GlobalClusterMembers', Stubs::GlobalClusterMemberList.stub('GlobalClusterMember', stub[:global_cluster_members])) unless stub[:global_cluster_members].nil?
-        xml << Stubs::FailoverState.stub('FailoverState', stub[:failover_state]) unless stub[:failover_state].nil?
+        xml << Hearth::XML::Node.new('GlobalClusterMembers', GlobalClusterMemberList.stub('GlobalClusterMember', stub[:global_cluster_members])) unless stub[:global_cluster_members].nil?
+        xml << FailoverState.stub('FailoverState', stub[:failover_state]) unless stub[:failover_state].nil?
         xml
       end
     end
@@ -2846,7 +2848,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::GlobalClusterMember.stub(node_name, element) unless element.nil?
+          xml << GlobalClusterMember.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2869,7 +2871,7 @@ module AWS::SDK::RDS
         stub ||= Types::GlobalClusterMember.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('DBClusterArn', stub[:db_cluster_arn].to_s) unless stub[:db_cluster_arn].nil?
-        xml << Hearth::XML::Node.new('Readers', Stubs::ReadersArnList.stub('member', stub[:readers])) unless stub[:readers].nil?
+        xml << Hearth::XML::Node.new('Readers', ReadersArnList.stub('member', stub[:readers])) unless stub[:readers].nil?
         xml << Hearth::XML::Node.new('IsWriter', stub[:is_writer].to_s) unless stub[:is_writer].nil?
         xml << Hearth::XML::Node.new('GlobalWriteForwardingStatus', stub[:global_write_forwarding_status].to_s) unless stub[:global_write_forwarding_status].nil?
         xml
@@ -2908,9 +2910,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('CreateOptionGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('CreateOptionGroupResult')
-        xml << Stubs::OptionGroup.stub('OptionGroup', stub[:option_group]) unless stub[:option_group].nil?
+        xml << OptionGroup.stub('OptionGroup', stub[:option_group]) unless stub[:option_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2958,16 +2960,16 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBParameterGroupFamily', stub[:db_parameter_group_family].to_s) unless stub[:db_parameter_group_family].nil?
         xml << Hearth::XML::Node.new('DBEngineDescription', stub[:db_engine_description].to_s) unless stub[:db_engine_description].nil?
         xml << Hearth::XML::Node.new('DBEngineVersionDescription', stub[:db_engine_version_description].to_s) unless stub[:db_engine_version_description].nil?
-        xml << Stubs::CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
-        xml << Hearth::XML::Node.new('SupportedCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
-        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
-        xml << Hearth::XML::Node.new('ValidUpgradeTarget', Stubs::ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
-        xml << Hearth::XML::Node.new('SupportedTimezones', Stubs::SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
-        xml << Hearth::XML::Node.new('ExportableLogTypes', Stubs::LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
+        xml << CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
+        xml << Hearth::XML::Node.new('SupportedCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
+        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
+        xml << Hearth::XML::Node.new('ValidUpgradeTarget', ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
+        xml << Hearth::XML::Node.new('SupportedTimezones', SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
+        xml << Hearth::XML::Node.new('ExportableLogTypes', LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
         xml << Hearth::XML::Node.new('SupportsLogExportsToCloudwatchLogs', stub[:supports_log_exports_to_cloudwatch_logs].to_s) unless stub[:supports_log_exports_to_cloudwatch_logs].nil?
         xml << Hearth::XML::Node.new('SupportsReadReplica', stub[:supports_read_replica].to_s) unless stub[:supports_read_replica].nil?
-        xml << Hearth::XML::Node.new('SupportedEngineModes', Stubs::EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
-        xml << Hearth::XML::Node.new('SupportedFeatureNames', Stubs::FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
+        xml << Hearth::XML::Node.new('SupportedEngineModes', EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
+        xml << Hearth::XML::Node.new('SupportedFeatureNames', FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('SupportsParallelQuery', stub[:supports_parallel_query].to_s) unless stub[:supports_parallel_query].nil?
         xml << Hearth::XML::Node.new('SupportsGlobalDatabases', stub[:supports_global_databases].to_s) unless stub[:supports_global_databases].nil?
@@ -2977,10 +2979,10 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBEngineVersionArn', stub[:db_engine_version_arn].to_s) unless stub[:db_engine_version_arn].nil?
         xml << Hearth::XML::Node.new('KMSKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('CreateTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         xml << Hearth::XML::Node.new('SupportsBabelfish', stub[:supports_babelfish].to_s) unless stub[:supports_babelfish].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2998,9 +3000,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3034,11 +3036,11 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('EndpointType', stub[:endpoint_type].to_s) unless stub[:endpoint_type].nil?
         xml << Hearth::XML::Node.new('CustomEndpointType', stub[:custom_endpoint_type].to_s) unless stub[:custom_endpoint_type].nil?
-        xml << Hearth::XML::Node.new('StaticMembers', Stubs::StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
-        xml << Hearth::XML::Node.new('ExcludedMembers', Stubs::StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
+        xml << Hearth::XML::Node.new('StaticMembers', StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
+        xml << Hearth::XML::Node.new('ExcludedMembers', StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
         xml << Hearth::XML::Node.new('DBClusterEndpointArn', stub[:db_cluster_endpoint_arn].to_s) unless stub[:db_cluster_endpoint_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3056,7 +3058,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBClusterParameterGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3074,9 +3076,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteDBClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBClusterSnapshotResult')
-        xml << Stubs::DBClusterSnapshot.stub('DBClusterSnapshot', stub[:db_cluster_snapshot]) unless stub[:db_cluster_snapshot].nil?
+        xml << DBClusterSnapshot.stub('DBClusterSnapshot', stub[:db_cluster_snapshot]) unless stub[:db_cluster_snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3094,9 +3096,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteDBInstanceResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBInstanceResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3114,9 +3116,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteDBInstanceAutomatedBackupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBInstanceAutomatedBackupResult')
-        xml << Stubs::DBInstanceAutomatedBackup.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backup]) unless stub[:db_instance_automated_backup].nil?
+        xml << DBInstanceAutomatedBackup.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backup]) unless stub[:db_instance_automated_backup].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3164,7 +3166,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DbiResourceId', stub[:dbi_resource_id].to_s) unless stub[:dbi_resource_id].nil?
         xml << Hearth::XML::Node.new('Region', stub[:region].to_s) unless stub[:region].nil?
         xml << Hearth::XML::Node.new('DBInstanceIdentifier', stub[:db_instance_identifier].to_s) unless stub[:db_instance_identifier].nil?
-        xml << Stubs::RestoreWindow.stub('RestoreWindow', stub[:restore_window]) unless stub[:restore_window].nil?
+        xml << RestoreWindow.stub('RestoreWindow', stub[:restore_window]) unless stub[:restore_window].nil?
         xml << Hearth::XML::Node.new('AllocatedStorage', stub[:allocated_storage].to_s) unless stub[:allocated_storage].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
@@ -3185,7 +3187,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('IAMDatabaseAuthenticationEnabled', stub[:iam_database_authentication_enabled].to_s) unless stub[:iam_database_authentication_enabled].nil?
         xml << Hearth::XML::Node.new('BackupRetentionPeriod', stub[:backup_retention_period].to_s) unless stub[:backup_retention_period].nil?
         xml << Hearth::XML::Node.new('DBInstanceAutomatedBackupsArn', stub[:db_instance_automated_backups_arn].to_s) unless stub[:db_instance_automated_backups_arn].nil?
-        xml << Hearth::XML::Node.new('DBInstanceAutomatedBackupsReplications', Stubs::DBInstanceAutomatedBackupsReplicationList.stub('DBInstanceAutomatedBackupsReplication', stub[:db_instance_automated_backups_replications])) unless stub[:db_instance_automated_backups_replications].nil?
+        xml << Hearth::XML::Node.new('DBInstanceAutomatedBackupsReplications', DBInstanceAutomatedBackupsReplicationList.stub('DBInstanceAutomatedBackupsReplication', stub[:db_instance_automated_backups_replications])) unless stub[:db_instance_automated_backups_replications].nil?
         xml << Hearth::XML::Node.new('BackupTarget', stub[:backup_target].to_s) unless stub[:backup_target].nil?
         xml
       end
@@ -3224,7 +3226,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBParameterGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3242,9 +3244,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteDBProxyResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBProxyResult')
-        xml << Stubs::DBProxy.stub('DBProxy', stub[:db_proxy]) unless stub[:db_proxy].nil?
+        xml << DBProxy.stub('DBProxy', stub[:db_proxy]) unless stub[:db_proxy].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3262,9 +3264,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteDBProxyEndpointResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBProxyEndpointResult')
-        xml << Stubs::DBProxyEndpoint.stub('DBProxyEndpoint', stub[:db_proxy_endpoint]) unless stub[:db_proxy_endpoint].nil?
+        xml << DBProxyEndpoint.stub('DBProxyEndpoint', stub[:db_proxy_endpoint]) unless stub[:db_proxy_endpoint].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3282,7 +3284,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBSecurityGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3300,9 +3302,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteDBSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBSnapshotResult')
-        xml << Stubs::DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
+        xml << DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3320,7 +3322,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteDBSubnetGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3338,9 +3340,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteEventSubscriptionResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteEventSubscriptionResult')
-        xml << Stubs::EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
+        xml << EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3358,9 +3360,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DeleteGlobalClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteGlobalClusterResult')
-        xml << Stubs::GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
+        xml << GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3378,7 +3380,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeleteOptionGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3396,7 +3398,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DeregisterDBProxyTargetsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3414,9 +3416,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeAccountAttributesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeAccountAttributesResult')
-        xml << Hearth::XML::Node.new('AccountQuotas', Stubs::AccountQuotaList.stub('AccountQuota', stub[:account_quotas])) unless stub[:account_quotas].nil?
+        xml << Hearth::XML::Node.new('AccountQuotas', AccountQuotaList.stub('AccountQuota', stub[:account_quotas])) unless stub[:account_quotas].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3434,7 +3436,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AccountQuota.stub(node_name, element) unless element.nil?
+          xml << AccountQuota.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3476,10 +3478,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeCertificatesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeCertificatesResult')
-        xml << Hearth::XML::Node.new('Certificates', Stubs::CertificateList.stub('Certificate', stub[:certificates])) unless stub[:certificates].nil?
+        xml << Hearth::XML::Node.new('Certificates', CertificateList.stub('Certificate', stub[:certificates])) unless stub[:certificates].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3497,7 +3499,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Certificate.stub(node_name, element) unless element.nil?
+          xml << Certificate.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3550,9 +3552,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBClusterBacktracksResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBClusterBacktracks', Stubs::DBClusterBacktrackList.stub('DBClusterBacktrack', stub[:db_cluster_backtracks])) unless stub[:db_cluster_backtracks].nil?
+        xml << Hearth::XML::Node.new('DBClusterBacktracks', DBClusterBacktrackList.stub('DBClusterBacktrack', stub[:db_cluster_backtracks])) unless stub[:db_cluster_backtracks].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3570,7 +3572,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterBacktrack.stub(node_name, element) unless element.nil?
+          xml << DBClusterBacktrack.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3619,9 +3621,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBClusterEndpointsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBClusterEndpoints', Stubs::DBClusterEndpointList.stub('DBClusterEndpointList', stub[:db_cluster_endpoints])) unless stub[:db_cluster_endpoints].nil?
+        xml << Hearth::XML::Node.new('DBClusterEndpoints', DBClusterEndpointList.stub('DBClusterEndpointList', stub[:db_cluster_endpoints])) unless stub[:db_cluster_endpoints].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3639,7 +3641,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterEndpoint.stub(node_name, element) unless element.nil?
+          xml << DBClusterEndpoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3674,8 +3676,8 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('EndpointType', stub[:endpoint_type].to_s) unless stub[:endpoint_type].nil?
         xml << Hearth::XML::Node.new('CustomEndpointType', stub[:custom_endpoint_type].to_s) unless stub[:custom_endpoint_type].nil?
-        xml << Hearth::XML::Node.new('StaticMembers', Stubs::StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
-        xml << Hearth::XML::Node.new('ExcludedMembers', Stubs::StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
+        xml << Hearth::XML::Node.new('StaticMembers', StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
+        xml << Hearth::XML::Node.new('ExcludedMembers', StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
         xml << Hearth::XML::Node.new('DBClusterEndpointArn', stub[:db_cluster_endpoint_arn].to_s) unless stub[:db_cluster_endpoint_arn].nil?
         xml
       end
@@ -3696,9 +3698,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBClusterParameterGroupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBClusterParameterGroups', Stubs::DBClusterParameterGroupList.stub('DBClusterParameterGroup', stub[:db_cluster_parameter_groups])) unless stub[:db_cluster_parameter_groups].nil?
+        xml << Hearth::XML::Node.new('DBClusterParameterGroups', DBClusterParameterGroupList.stub('DBClusterParameterGroup', stub[:db_cluster_parameter_groups])) unless stub[:db_cluster_parameter_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3716,7 +3718,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterParameterGroup.stub(node_name, element) unless element.nil?
+          xml << DBClusterParameterGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3736,10 +3738,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBClusterParametersResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBClusterParametersResult')
-        xml << Hearth::XML::Node.new('Parameters', Stubs::ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3757,7 +3759,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Parameter.stub(node_name, element) unless element.nil?
+          xml << Parameter.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3796,7 +3798,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('IsModifiable', stub[:is_modifiable].to_s) unless stub[:is_modifiable].nil?
         xml << Hearth::XML::Node.new('MinimumEngineVersion', stub[:minimum_engine_version].to_s) unless stub[:minimum_engine_version].nil?
         xml << Hearth::XML::Node.new('ApplyMethod', stub[:apply_method].to_s) unless stub[:apply_method].nil?
-        xml << Hearth::XML::Node.new('SupportedEngineModes', Stubs::EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
+        xml << Hearth::XML::Node.new('SupportedEngineModes', EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
         xml
       end
     end
@@ -3814,9 +3816,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBClusterSnapshotAttributesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBClusterSnapshotAttributesResult')
-        xml << Stubs::DBClusterSnapshotAttributesResult.stub('DBClusterSnapshotAttributesResult', stub[:db_cluster_snapshot_attributes_result]) unless stub[:db_cluster_snapshot_attributes_result].nil?
+        xml << DBClusterSnapshotAttributesResult.stub('DBClusterSnapshotAttributesResult', stub[:db_cluster_snapshot_attributes_result]) unless stub[:db_cluster_snapshot_attributes_result].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3836,7 +3838,7 @@ module AWS::SDK::RDS
         stub ||= Types::DBClusterSnapshotAttributesResult.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('DBClusterSnapshotIdentifier', stub[:db_cluster_snapshot_identifier].to_s) unless stub[:db_cluster_snapshot_identifier].nil?
-        xml << Hearth::XML::Node.new('DBClusterSnapshotAttributes', Stubs::DBClusterSnapshotAttributeList.stub('DBClusterSnapshotAttribute', stub[:db_cluster_snapshot_attributes])) unless stub[:db_cluster_snapshot_attributes].nil?
+        xml << Hearth::XML::Node.new('DBClusterSnapshotAttributes', DBClusterSnapshotAttributeList.stub('DBClusterSnapshotAttribute', stub[:db_cluster_snapshot_attributes])) unless stub[:db_cluster_snapshot_attributes].nil?
         xml
       end
     end
@@ -3854,7 +3856,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterSnapshotAttribute.stub(node_name, element) unless element.nil?
+          xml << DBClusterSnapshotAttribute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3875,7 +3877,7 @@ module AWS::SDK::RDS
         stub ||= Types::DBClusterSnapshotAttribute.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AttributeName', stub[:attribute_name].to_s) unless stub[:attribute_name].nil?
-        xml << Hearth::XML::Node.new('AttributeValues', Stubs::AttributeValueList.stub('AttributeValue', stub[:attribute_values])) unless stub[:attribute_values].nil?
+        xml << Hearth::XML::Node.new('AttributeValues', AttributeValueList.stub('AttributeValue', stub[:attribute_values])) unless stub[:attribute_values].nil?
         xml
       end
     end
@@ -3914,9 +3916,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBClusterSnapshotsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBClusterSnapshots', Stubs::DBClusterSnapshotList.stub('DBClusterSnapshot', stub[:db_cluster_snapshots])) unless stub[:db_cluster_snapshots].nil?
+        xml << Hearth::XML::Node.new('DBClusterSnapshots', DBClusterSnapshotList.stub('DBClusterSnapshot', stub[:db_cluster_snapshots])) unless stub[:db_cluster_snapshots].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3934,7 +3936,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBClusterSnapshot.stub(node_name, element) unless element.nil?
+          xml << DBClusterSnapshot.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3955,9 +3957,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBClustersResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBClusters', Stubs::DBClusterList.stub('DBCluster', stub[:db_clusters])) unless stub[:db_clusters].nil?
+        xml << Hearth::XML::Node.new('DBClusters', DBClusterList.stub('DBCluster', stub[:db_clusters])) unless stub[:db_clusters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3975,7 +3977,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBCluster.stub(node_name, element) unless element.nil?
+          xml << DBCluster.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3996,9 +3998,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBEngineVersionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBEngineVersions', Stubs::DBEngineVersionList.stub('DBEngineVersion', stub[:db_engine_versions])) unless stub[:db_engine_versions].nil?
+        xml << Hearth::XML::Node.new('DBEngineVersions', DBEngineVersionList.stub('DBEngineVersion', stub[:db_engine_versions])) unless stub[:db_engine_versions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4016,7 +4018,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBEngineVersion.stub(node_name, element) unless element.nil?
+          xml << DBEngineVersion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4065,16 +4067,16 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBParameterGroupFamily', stub[:db_parameter_group_family].to_s) unless stub[:db_parameter_group_family].nil?
         xml << Hearth::XML::Node.new('DBEngineDescription', stub[:db_engine_description].to_s) unless stub[:db_engine_description].nil?
         xml << Hearth::XML::Node.new('DBEngineVersionDescription', stub[:db_engine_version_description].to_s) unless stub[:db_engine_version_description].nil?
-        xml << Stubs::CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
-        xml << Hearth::XML::Node.new('SupportedCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
-        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
-        xml << Hearth::XML::Node.new('ValidUpgradeTarget', Stubs::ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
-        xml << Hearth::XML::Node.new('SupportedTimezones', Stubs::SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
-        xml << Hearth::XML::Node.new('ExportableLogTypes', Stubs::LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
+        xml << CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
+        xml << Hearth::XML::Node.new('SupportedCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
+        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
+        xml << Hearth::XML::Node.new('ValidUpgradeTarget', ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
+        xml << Hearth::XML::Node.new('SupportedTimezones', SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
+        xml << Hearth::XML::Node.new('ExportableLogTypes', LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
         xml << Hearth::XML::Node.new('SupportsLogExportsToCloudwatchLogs', stub[:supports_log_exports_to_cloudwatch_logs].to_s) unless stub[:supports_log_exports_to_cloudwatch_logs].nil?
         xml << Hearth::XML::Node.new('SupportsReadReplica', stub[:supports_read_replica].to_s) unless stub[:supports_read_replica].nil?
-        xml << Hearth::XML::Node.new('SupportedEngineModes', Stubs::EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
-        xml << Hearth::XML::Node.new('SupportedFeatureNames', Stubs::FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
+        xml << Hearth::XML::Node.new('SupportedEngineModes', EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
+        xml << Hearth::XML::Node.new('SupportedFeatureNames', FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('SupportsParallelQuery', stub[:supports_parallel_query].to_s) unless stub[:supports_parallel_query].nil?
         xml << Hearth::XML::Node.new('SupportsGlobalDatabases', stub[:supports_global_databases].to_s) unless stub[:supports_global_databases].nil?
@@ -4084,7 +4086,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBEngineVersionArn', stub[:db_engine_version_arn].to_s) unless stub[:db_engine_version_arn].nil?
         xml << Hearth::XML::Node.new('KMSKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('CreateTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         xml << Hearth::XML::Node.new('SupportsBabelfish', stub[:supports_babelfish].to_s) unless stub[:supports_babelfish].nil?
         xml
       end
@@ -4105,9 +4107,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBInstanceAutomatedBackupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBInstanceAutomatedBackups', Stubs::DBInstanceAutomatedBackupList.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backups])) unless stub[:db_instance_automated_backups].nil?
+        xml << Hearth::XML::Node.new('DBInstanceAutomatedBackups', DBInstanceAutomatedBackupList.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backups])) unless stub[:db_instance_automated_backups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4125,7 +4127,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBInstanceAutomatedBackup.stub(node_name, element) unless element.nil?
+          xml << DBInstanceAutomatedBackup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4146,9 +4148,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBInstancesResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBInstances', Stubs::DBInstanceList.stub('DBInstance', stub[:db_instances])) unless stub[:db_instances].nil?
+        xml << Hearth::XML::Node.new('DBInstances', DBInstanceList.stub('DBInstance', stub[:db_instances])) unless stub[:db_instances].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4166,7 +4168,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBInstance.stub(node_name, element) unless element.nil?
+          xml << DBInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4186,10 +4188,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBLogFilesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBLogFilesResult')
-        xml << Hearth::XML::Node.new('DescribeDBLogFiles', Stubs::DescribeDBLogFilesList.stub('DescribeDBLogFilesDetails', stub[:describe_db_log_files])) unless stub[:describe_db_log_files].nil?
+        xml << Hearth::XML::Node.new('DescribeDBLogFiles', DescribeDBLogFilesList.stub('DescribeDBLogFilesDetails', stub[:describe_db_log_files])) unless stub[:describe_db_log_files].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4207,7 +4209,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DescribeDBLogFilesDetails.stub(node_name, element) unless element.nil?
+          xml << DescribeDBLogFilesDetails.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4250,9 +4252,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBParameterGroupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBParameterGroups', Stubs::DBParameterGroupList.stub('DBParameterGroup', stub[:db_parameter_groups])) unless stub[:db_parameter_groups].nil?
+        xml << Hearth::XML::Node.new('DBParameterGroups', DBParameterGroupList.stub('DBParameterGroup', stub[:db_parameter_groups])) unless stub[:db_parameter_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4270,7 +4272,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBParameterGroup.stub(node_name, element) unless element.nil?
+          xml << DBParameterGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4290,10 +4292,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBParametersResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBParametersResult')
-        xml << Hearth::XML::Node.new('Parameters', Stubs::ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4312,10 +4314,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBProxiesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBProxiesResult')
-        xml << Hearth::XML::Node.new('DBProxies', Stubs::DBProxyList.stub('member', stub[:db_proxies])) unless stub[:db_proxies].nil?
+        xml << Hearth::XML::Node.new('DBProxies', DBProxyList.stub('member', stub[:db_proxies])) unless stub[:db_proxies].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4333,7 +4335,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBProxy.stub(node_name, element) unless element.nil?
+          xml << DBProxy.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4353,10 +4355,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBProxyEndpointsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBProxyEndpointsResult')
-        xml << Hearth::XML::Node.new('DBProxyEndpoints', Stubs::DBProxyEndpointList.stub('member', stub[:db_proxy_endpoints])) unless stub[:db_proxy_endpoints].nil?
+        xml << Hearth::XML::Node.new('DBProxyEndpoints', DBProxyEndpointList.stub('member', stub[:db_proxy_endpoints])) unless stub[:db_proxy_endpoints].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4374,7 +4376,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBProxyEndpoint.stub(node_name, element) unless element.nil?
+          xml << DBProxyEndpoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4394,10 +4396,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBProxyTargetGroupsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBProxyTargetGroupsResult')
-        xml << Hearth::XML::Node.new('TargetGroups', Stubs::TargetGroupList.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
+        xml << Hearth::XML::Node.new('TargetGroups', TargetGroupList.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4415,7 +4417,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBProxyTargetGroup.stub(node_name, element) unless element.nil?
+          xml << DBProxyTargetGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4446,7 +4448,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('TargetGroupArn', stub[:target_group_arn].to_s) unless stub[:target_group_arn].nil?
         xml << Hearth::XML::Node.new('IsDefault', stub[:is_default].to_s) unless stub[:is_default].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::ConnectionPoolConfigurationInfo.stub('ConnectionPoolConfig', stub[:connection_pool_config]) unless stub[:connection_pool_config].nil?
+        xml << ConnectionPoolConfigurationInfo.stub('ConnectionPoolConfig', stub[:connection_pool_config]) unless stub[:connection_pool_config].nil?
         xml << Hearth::XML::Node.new('CreatedDate', Hearth::TimeHelper.to_date_time(stub[:created_date])) unless stub[:created_date].nil?
         xml << Hearth::XML::Node.new('UpdatedDate', Hearth::TimeHelper.to_date_time(stub[:updated_date])) unless stub[:updated_date].nil?
         xml
@@ -4473,7 +4475,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('MaxConnectionsPercent', stub[:max_connections_percent].to_s) unless stub[:max_connections_percent].nil?
         xml << Hearth::XML::Node.new('MaxIdleConnectionsPercent', stub[:max_idle_connections_percent].to_s) unless stub[:max_idle_connections_percent].nil?
         xml << Hearth::XML::Node.new('ConnectionBorrowTimeout', stub[:connection_borrow_timeout].to_s) unless stub[:connection_borrow_timeout].nil?
-        xml << Hearth::XML::Node.new('SessionPinningFilters', Stubs::StringList.stub('member', stub[:session_pinning_filters])) unless stub[:session_pinning_filters].nil?
+        xml << Hearth::XML::Node.new('SessionPinningFilters', StringList.stub('member', stub[:session_pinning_filters])) unless stub[:session_pinning_filters].nil?
         xml << Hearth::XML::Node.new('InitQuery', stub[:init_query].to_s) unless stub[:init_query].nil?
         xml
       end
@@ -4493,10 +4495,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBProxyTargetsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBProxyTargetsResult')
-        xml << Hearth::XML::Node.new('Targets', Stubs::TargetList.stub('member', stub[:targets])) unless stub[:targets].nil?
+        xml << Hearth::XML::Node.new('Targets', TargetList.stub('member', stub[:targets])) unless stub[:targets].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4514,7 +4516,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBProxyTarget.stub(node_name, element) unless element.nil?
+          xml << DBProxyTarget.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4547,7 +4549,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('Type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('Role', stub[:role].to_s) unless stub[:role].nil?
-        xml << Stubs::TargetHealth.stub('TargetHealth', stub[:target_health]) unless stub[:target_health].nil?
+        xml << TargetHealth.stub('TargetHealth', stub[:target_health]) unless stub[:target_health].nil?
         xml
       end
     end
@@ -4589,9 +4591,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBSecurityGroupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBSecurityGroups', Stubs::DBSecurityGroups.stub('DBSecurityGroup', stub[:db_security_groups])) unless stub[:db_security_groups].nil?
+        xml << Hearth::XML::Node.new('DBSecurityGroups', DBSecurityGroups.stub('DBSecurityGroup', stub[:db_security_groups])) unless stub[:db_security_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4609,7 +4611,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBSecurityGroup.stub(node_name, element) unless element.nil?
+          xml << DBSecurityGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4628,9 +4630,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeDBSnapshotAttributesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBSnapshotAttributesResult')
-        xml << Stubs::DBSnapshotAttributesResult.stub('DBSnapshotAttributesResult', stub[:db_snapshot_attributes_result]) unless stub[:db_snapshot_attributes_result].nil?
+        xml << DBSnapshotAttributesResult.stub('DBSnapshotAttributesResult', stub[:db_snapshot_attributes_result]) unless stub[:db_snapshot_attributes_result].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4650,7 +4652,7 @@ module AWS::SDK::RDS
         stub ||= Types::DBSnapshotAttributesResult.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('DBSnapshotIdentifier', stub[:db_snapshot_identifier].to_s) unless stub[:db_snapshot_identifier].nil?
-        xml << Hearth::XML::Node.new('DBSnapshotAttributes', Stubs::DBSnapshotAttributeList.stub('DBSnapshotAttribute', stub[:db_snapshot_attributes])) unless stub[:db_snapshot_attributes].nil?
+        xml << Hearth::XML::Node.new('DBSnapshotAttributes', DBSnapshotAttributeList.stub('DBSnapshotAttribute', stub[:db_snapshot_attributes])) unless stub[:db_snapshot_attributes].nil?
         xml
       end
     end
@@ -4668,7 +4670,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBSnapshotAttribute.stub(node_name, element) unless element.nil?
+          xml << DBSnapshotAttribute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4689,7 +4691,7 @@ module AWS::SDK::RDS
         stub ||= Types::DBSnapshotAttribute.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AttributeName', stub[:attribute_name].to_s) unless stub[:attribute_name].nil?
-        xml << Hearth::XML::Node.new('AttributeValues', Stubs::AttributeValueList.stub('AttributeValue', stub[:attribute_values])) unless stub[:attribute_values].nil?
+        xml << Hearth::XML::Node.new('AttributeValues', AttributeValueList.stub('AttributeValue', stub[:attribute_values])) unless stub[:attribute_values].nil?
         xml
       end
     end
@@ -4709,9 +4711,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBSnapshotsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBSnapshots', Stubs::DBSnapshotList.stub('DBSnapshot', stub[:db_snapshots])) unless stub[:db_snapshots].nil?
+        xml << Hearth::XML::Node.new('DBSnapshots', DBSnapshotList.stub('DBSnapshot', stub[:db_snapshots])) unless stub[:db_snapshots].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4729,7 +4731,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBSnapshot.stub(node_name, element) unless element.nil?
+          xml << DBSnapshot.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4750,9 +4752,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeDBSubnetGroupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('DBSubnetGroups', Stubs::DBSubnetGroups.stub('DBSubnetGroup', stub[:db_subnet_groups])) unless stub[:db_subnet_groups].nil?
+        xml << Hearth::XML::Node.new('DBSubnetGroups', DBSubnetGroups.stub('DBSubnetGroup', stub[:db_subnet_groups])) unless stub[:db_subnet_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4770,7 +4772,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DBSubnetGroup.stub(node_name, element) unless element.nil?
+          xml << DBSubnetGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4789,9 +4791,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeEngineDefaultClusterParametersResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeEngineDefaultClusterParametersResult')
-        xml << Stubs::EngineDefaults.stub('EngineDefaults', stub[:engine_defaults]) unless stub[:engine_defaults].nil?
+        xml << EngineDefaults.stub('EngineDefaults', stub[:engine_defaults]) unless stub[:engine_defaults].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4813,7 +4815,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('DBParameterGroupFamily', stub[:db_parameter_group_family].to_s) unless stub[:db_parameter_group_family].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('Parameters', Stubs::ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
         xml
       end
     end
@@ -4831,9 +4833,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeEngineDefaultParametersResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeEngineDefaultParametersResult')
-        xml << Stubs::EngineDefaults.stub('EngineDefaults', stub[:engine_defaults]) unless stub[:engine_defaults].nil?
+        xml << EngineDefaults.stub('EngineDefaults', stub[:engine_defaults]) unless stub[:engine_defaults].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4851,9 +4853,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeEventCategoriesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeEventCategoriesResult')
-        xml << Hearth::XML::Node.new('EventCategoriesMapList', Stubs::EventCategoriesMapList.stub('EventCategoriesMap', stub[:event_categories_map_list])) unless stub[:event_categories_map_list].nil?
+        xml << Hearth::XML::Node.new('EventCategoriesMapList', EventCategoriesMapList.stub('EventCategoriesMap', stub[:event_categories_map_list])) unless stub[:event_categories_map_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4871,7 +4873,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EventCategoriesMap.stub(node_name, element) unless element.nil?
+          xml << EventCategoriesMap.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4892,7 +4894,7 @@ module AWS::SDK::RDS
         stub ||= Types::EventCategoriesMap.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SourceType', stub[:source_type].to_s) unless stub[:source_type].nil?
-        xml << Hearth::XML::Node.new('EventCategories', Stubs::EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
+        xml << Hearth::XML::Node.new('EventCategories', EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
         xml
       end
     end
@@ -4912,9 +4914,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeEventSubscriptionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('EventSubscriptionsList', Stubs::EventSubscriptionsList.stub('EventSubscription', stub[:event_subscriptions_list])) unless stub[:event_subscriptions_list].nil?
+        xml << Hearth::XML::Node.new('EventSubscriptionsList', EventSubscriptionsList.stub('EventSubscription', stub[:event_subscriptions_list])) unless stub[:event_subscriptions_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4932,7 +4934,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EventSubscription.stub(node_name, element) unless element.nil?
+          xml << EventSubscription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4953,9 +4955,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeEventsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('Events', Stubs::EventList.stub('Event', stub[:events])) unless stub[:events].nil?
+        xml << Hearth::XML::Node.new('Events', EventList.stub('Event', stub[:events])) unless stub[:events].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4973,7 +4975,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Event.stub(node_name, element) unless element.nil?
+          xml << Event.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5000,7 +5002,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('SourceIdentifier', stub[:source_identifier].to_s) unless stub[:source_identifier].nil?
         xml << Hearth::XML::Node.new('SourceType', stub[:source_type].to_s) unless stub[:source_type].nil?
         xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
-        xml << Hearth::XML::Node.new('EventCategories', Stubs::EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
+        xml << Hearth::XML::Node.new('EventCategories', EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
         xml << Hearth::XML::Node.new('Date', Hearth::TimeHelper.to_date_time(stub[:date])) unless stub[:date].nil?
         xml << Hearth::XML::Node.new('SourceArn', stub[:source_arn].to_s) unless stub[:source_arn].nil?
         xml
@@ -5022,9 +5024,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeExportTasksResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ExportTasks', Stubs::ExportTasksList.stub('ExportTask', stub[:export_tasks])) unless stub[:export_tasks].nil?
+        xml << Hearth::XML::Node.new('ExportTasks', ExportTasksList.stub('ExportTask', stub[:export_tasks])) unless stub[:export_tasks].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5042,7 +5044,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ExportTask.stub(node_name, element) unless element.nil?
+          xml << ExportTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5077,7 +5079,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ExportTaskIdentifier', stub[:export_task_identifier].to_s) unless stub[:export_task_identifier].nil?
         xml << Hearth::XML::Node.new('SourceArn', stub[:source_arn].to_s) unless stub[:source_arn].nil?
-        xml << Hearth::XML::Node.new('ExportOnly', Stubs::StringList.stub('member', stub[:export_only])) unless stub[:export_only].nil?
+        xml << Hearth::XML::Node.new('ExportOnly', StringList.stub('member', stub[:export_only])) unless stub[:export_only].nil?
         xml << Hearth::XML::Node.new('SnapshotTime', Hearth::TimeHelper.to_date_time(stub[:snapshot_time])) unless stub[:snapshot_time].nil?
         xml << Hearth::XML::Node.new('TaskStartTime', Hearth::TimeHelper.to_date_time(stub[:task_start_time])) unless stub[:task_start_time].nil?
         xml << Hearth::XML::Node.new('TaskEndTime', Hearth::TimeHelper.to_date_time(stub[:task_end_time])) unless stub[:task_end_time].nil?
@@ -5109,9 +5111,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeGlobalClustersResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('GlobalClusters', Stubs::GlobalClusterList.stub('GlobalClusterMember', stub[:global_clusters])) unless stub[:global_clusters].nil?
+        xml << Hearth::XML::Node.new('GlobalClusters', GlobalClusterList.stub('GlobalClusterMember', stub[:global_clusters])) unless stub[:global_clusters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5129,7 +5131,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::GlobalCluster.stub(node_name, element) unless element.nil?
+          xml << GlobalCluster.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5149,10 +5151,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeOptionGroupOptionsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeOptionGroupOptionsResult')
-        xml << Hearth::XML::Node.new('OptionGroupOptions', Stubs::OptionGroupOptionsList.stub('OptionGroupOption', stub[:option_group_options])) unless stub[:option_group_options].nil?
+        xml << Hearth::XML::Node.new('OptionGroupOptions', OptionGroupOptionsList.stub('OptionGroupOption', stub[:option_group_options])) unless stub[:option_group_options].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5170,7 +5172,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OptionGroupOption.stub(node_name, element) unless element.nil?
+          xml << OptionGroupOption.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5211,15 +5213,15 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('MinimumRequiredMinorEngineVersion', stub[:minimum_required_minor_engine_version].to_s) unless stub[:minimum_required_minor_engine_version].nil?
         xml << Hearth::XML::Node.new('PortRequired', stub[:port_required].to_s) unless stub[:port_required].nil?
         xml << Hearth::XML::Node.new('DefaultPort', stub[:default_port].to_s) unless stub[:default_port].nil?
-        xml << Hearth::XML::Node.new('OptionsDependedOn', Stubs::OptionsDependedOn.stub('OptionName', stub[:options_depended_on])) unless stub[:options_depended_on].nil?
-        xml << Hearth::XML::Node.new('OptionsConflictsWith', Stubs::OptionsConflictsWith.stub('OptionConflictName', stub[:options_conflicts_with])) unless stub[:options_conflicts_with].nil?
+        xml << Hearth::XML::Node.new('OptionsDependedOn', OptionsDependedOn.stub('OptionName', stub[:options_depended_on])) unless stub[:options_depended_on].nil?
+        xml << Hearth::XML::Node.new('OptionsConflictsWith', OptionsConflictsWith.stub('OptionConflictName', stub[:options_conflicts_with])) unless stub[:options_conflicts_with].nil?
         xml << Hearth::XML::Node.new('Persistent', stub[:persistent].to_s) unless stub[:persistent].nil?
         xml << Hearth::XML::Node.new('Permanent', stub[:permanent].to_s) unless stub[:permanent].nil?
         xml << Hearth::XML::Node.new('RequiresAutoMinorEngineVersionUpgrade', stub[:requires_auto_minor_engine_version_upgrade].to_s) unless stub[:requires_auto_minor_engine_version_upgrade].nil?
         xml << Hearth::XML::Node.new('VpcOnly', stub[:vpc_only].to_s) unless stub[:vpc_only].nil?
         xml << Hearth::XML::Node.new('SupportsOptionVersionDowngrade', stub[:supports_option_version_downgrade].to_s) unless stub[:supports_option_version_downgrade].nil?
-        xml << Hearth::XML::Node.new('OptionGroupOptionSettings', Stubs::OptionGroupOptionSettingsList.stub('OptionGroupOptionSetting', stub[:option_group_option_settings])) unless stub[:option_group_option_settings].nil?
-        xml << Hearth::XML::Node.new('OptionGroupOptionVersions', Stubs::OptionGroupOptionVersionsList.stub('OptionVersion', stub[:option_group_option_versions])) unless stub[:option_group_option_versions].nil?
+        xml << Hearth::XML::Node.new('OptionGroupOptionSettings', OptionGroupOptionSettingsList.stub('OptionGroupOptionSetting', stub[:option_group_option_settings])) unless stub[:option_group_option_settings].nil?
+        xml << Hearth::XML::Node.new('OptionGroupOptionVersions', OptionGroupOptionVersionsList.stub('OptionVersion', stub[:option_group_option_versions])) unless stub[:option_group_option_versions].nil?
         xml
       end
     end
@@ -5237,7 +5239,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OptionVersion.stub(node_name, element) unless element.nil?
+          xml << OptionVersion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5276,7 +5278,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OptionGroupOptionSetting.stub(node_name, element) unless element.nil?
+          xml << OptionGroupOptionSetting.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5309,7 +5311,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('AllowedValues', stub[:allowed_values].to_s) unless stub[:allowed_values].nil?
         xml << Hearth::XML::Node.new('IsModifiable', stub[:is_modifiable].to_s) unless stub[:is_modifiable].nil?
         xml << Hearth::XML::Node.new('IsRequired', stub[:is_required].to_s) unless stub[:is_required].nil?
-        xml << Hearth::XML::Node.new('MinimumEngineVersionPerAllowedValue', Stubs::MinimumEngineVersionPerAllowedValueList.stub('MinimumEngineVersionPerAllowedValue', stub[:minimum_engine_version_per_allowed_value])) unless stub[:minimum_engine_version_per_allowed_value].nil?
+        xml << Hearth::XML::Node.new('MinimumEngineVersionPerAllowedValue', MinimumEngineVersionPerAllowedValueList.stub('MinimumEngineVersionPerAllowedValue', stub[:minimum_engine_version_per_allowed_value])) unless stub[:minimum_engine_version_per_allowed_value].nil?
         xml
       end
     end
@@ -5327,7 +5329,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MinimumEngineVersionPerAllowedValue.stub(node_name, element) unless element.nil?
+          xml << MinimumEngineVersionPerAllowedValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5405,10 +5407,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeOptionGroupsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeOptionGroupsResult')
-        xml << Hearth::XML::Node.new('OptionGroupsList', Stubs::OptionGroupsList.stub('OptionGroup', stub[:option_groups_list])) unless stub[:option_groups_list].nil?
+        xml << Hearth::XML::Node.new('OptionGroupsList', OptionGroupsList.stub('OptionGroup', stub[:option_groups_list])) unless stub[:option_groups_list].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5426,7 +5428,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OptionGroup.stub(node_name, element) unless element.nil?
+          xml << OptionGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5446,10 +5448,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeOrderableDBInstanceOptionsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeOrderableDBInstanceOptionsResult')
-        xml << Hearth::XML::Node.new('OrderableDBInstanceOptions', Stubs::OrderableDBInstanceOptionsList.stub('OrderableDBInstanceOption', stub[:orderable_db_instance_options])) unless stub[:orderable_db_instance_options].nil?
+        xml << Hearth::XML::Node.new('OrderableDBInstanceOptions', OrderableDBInstanceOptionsList.stub('OrderableDBInstanceOption', stub[:orderable_db_instance_options])) unless stub[:orderable_db_instance_options].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5467,7 +5469,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OrderableDBInstanceOption.stub(node_name, element) unless element.nil?
+          xml << OrderableDBInstanceOption.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5520,7 +5522,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBInstanceClass', stub[:db_instance_class].to_s) unless stub[:db_instance_class].nil?
         xml << Hearth::XML::Node.new('LicenseModel', stub[:license_model].to_s) unless stub[:license_model].nil?
         xml << Hearth::XML::Node.new('AvailabilityZoneGroup', stub[:availability_zone_group].to_s) unless stub[:availability_zone_group].nil?
-        xml << Hearth::XML::Node.new('AvailabilityZones', Stubs::AvailabilityZoneList.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('AvailabilityZones', AvailabilityZoneList.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
         xml << Hearth::XML::Node.new('MultiAZCapable', stub[:multi_az_capable].to_s) unless stub[:multi_az_capable].nil?
         xml << Hearth::XML::Node.new('ReadReplicaCapable', stub[:read_replica_capable].to_s) unless stub[:read_replica_capable].nil?
         xml << Hearth::XML::Node.new('Vpc', stub[:vpc].to_s) unless stub[:vpc].nil?
@@ -5536,15 +5538,15 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('MaxIopsPerDbInstance', stub[:max_iops_per_db_instance].to_s) unless stub[:max_iops_per_db_instance].nil?
         xml << Hearth::XML::Node.new('MinIopsPerGib', Hearth::NumberHelper.serialize(stub[:min_iops_per_gib]).to_s) unless stub[:min_iops_per_gib].nil?
         xml << Hearth::XML::Node.new('MaxIopsPerGib', Hearth::NumberHelper.serialize(stub[:max_iops_per_gib]).to_s) unless stub[:max_iops_per_gib].nil?
-        xml << Hearth::XML::Node.new('AvailableProcessorFeatures', Stubs::AvailableProcessorFeatureList.stub('AvailableProcessorFeature', stub[:available_processor_features])) unless stub[:available_processor_features].nil?
-        xml << Hearth::XML::Node.new('SupportedEngineModes', Stubs::EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
+        xml << Hearth::XML::Node.new('AvailableProcessorFeatures', AvailableProcessorFeatureList.stub('AvailableProcessorFeature', stub[:available_processor_features])) unless stub[:available_processor_features].nil?
+        xml << Hearth::XML::Node.new('SupportedEngineModes', EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
         xml << Hearth::XML::Node.new('SupportsStorageAutoscaling', stub[:supports_storage_autoscaling].to_s) unless stub[:supports_storage_autoscaling].nil?
         xml << Hearth::XML::Node.new('SupportsKerberosAuthentication', stub[:supports_kerberos_authentication].to_s) unless stub[:supports_kerberos_authentication].nil?
         xml << Hearth::XML::Node.new('OutpostCapable', stub[:outpost_capable].to_s) unless stub[:outpost_capable].nil?
-        xml << Hearth::XML::Node.new('SupportedActivityStreamModes', Stubs::ActivityStreamModeList.stub('member', stub[:supported_activity_stream_modes])) unless stub[:supported_activity_stream_modes].nil?
+        xml << Hearth::XML::Node.new('SupportedActivityStreamModes', ActivityStreamModeList.stub('member', stub[:supported_activity_stream_modes])) unless stub[:supported_activity_stream_modes].nil?
         xml << Hearth::XML::Node.new('SupportsGlobalDatabases', stub[:supports_global_databases].to_s) unless stub[:supports_global_databases].nil?
         xml << Hearth::XML::Node.new('SupportsClusters', stub[:supports_clusters].to_s) unless stub[:supports_clusters].nil?
-        xml << Hearth::XML::Node.new('SupportedNetworkTypes', Stubs::StringList.stub('member', stub[:supported_network_types])) unless stub[:supported_network_types].nil?
+        xml << Hearth::XML::Node.new('SupportedNetworkTypes', StringList.stub('member', stub[:supported_network_types])) unless stub[:supported_network_types].nil?
         xml
       end
     end
@@ -5581,7 +5583,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AvailableProcessorFeature.stub(node_name, element) unless element.nil?
+          xml << AvailableProcessorFeature.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5622,7 +5624,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AvailabilityZone.stub(node_name, element) unless element.nil?
+          xml << AvailabilityZone.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5642,10 +5644,10 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribePendingMaintenanceActionsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribePendingMaintenanceActionsResult')
-        xml << Hearth::XML::Node.new('PendingMaintenanceActions', Stubs::PendingMaintenanceActions.stub('ResourcePendingMaintenanceActions', stub[:pending_maintenance_actions])) unless stub[:pending_maintenance_actions].nil?
+        xml << Hearth::XML::Node.new('PendingMaintenanceActions', PendingMaintenanceActions.stub('ResourcePendingMaintenanceActions', stub[:pending_maintenance_actions])) unless stub[:pending_maintenance_actions].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5663,7 +5665,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ResourcePendingMaintenanceActions.stub(node_name, element) unless element.nil?
+          xml << ResourcePendingMaintenanceActions.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5684,9 +5686,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeReservedDBInstancesResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ReservedDBInstances', Stubs::ReservedDBInstanceList.stub('ReservedDBInstance', stub[:reserved_db_instances])) unless stub[:reserved_db_instances].nil?
+        xml << Hearth::XML::Node.new('ReservedDBInstances', ReservedDBInstanceList.stub('ReservedDBInstance', stub[:reserved_db_instances])) unless stub[:reserved_db_instances].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5704,7 +5706,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedDBInstance.stub(node_name, element) unless element.nil?
+          xml << ReservedDBInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5751,7 +5753,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('OfferingType', stub[:offering_type].to_s) unless stub[:offering_type].nil?
         xml << Hearth::XML::Node.new('MultiAZ', stub[:multi_az].to_s) unless stub[:multi_az].nil?
         xml << Hearth::XML::Node.new('State', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('RecurringCharges', Stubs::RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
+        xml << Hearth::XML::Node.new('RecurringCharges', RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
         xml << Hearth::XML::Node.new('ReservedDBInstanceArn', stub[:reserved_db_instance_arn].to_s) unless stub[:reserved_db_instance_arn].nil?
         xml << Hearth::XML::Node.new('LeaseId', stub[:lease_id].to_s) unless stub[:lease_id].nil?
         xml
@@ -5771,7 +5773,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RecurringCharge.stub(node_name, element) unless element.nil?
+          xml << RecurringCharge.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5812,9 +5814,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeReservedDBInstancesOfferingsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ReservedDBInstancesOfferings', Stubs::ReservedDBInstancesOfferingList.stub('ReservedDBInstancesOffering', stub[:reserved_db_instances_offerings])) unless stub[:reserved_db_instances_offerings].nil?
+        xml << Hearth::XML::Node.new('ReservedDBInstancesOfferings', ReservedDBInstancesOfferingList.stub('ReservedDBInstancesOffering', stub[:reserved_db_instances_offerings])) unless stub[:reserved_db_instances_offerings].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5832,7 +5834,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedDBInstancesOffering.stub(node_name, element) unless element.nil?
+          xml << ReservedDBInstancesOffering.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5869,7 +5871,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('ProductDescription', stub[:product_description].to_s) unless stub[:product_description].nil?
         xml << Hearth::XML::Node.new('OfferingType', stub[:offering_type].to_s) unless stub[:offering_type].nil?
         xml << Hearth::XML::Node.new('MultiAZ', stub[:multi_az].to_s) unless stub[:multi_az].nil?
-        xml << Hearth::XML::Node.new('RecurringCharges', Stubs::RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
+        xml << Hearth::XML::Node.new('RecurringCharges', RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
         xml
       end
     end
@@ -5889,9 +5891,9 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeSourceRegionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('SourceRegions', Stubs::SourceRegionList.stub('SourceRegion', stub[:source_regions])) unless stub[:source_regions].nil?
+        xml << Hearth::XML::Node.new('SourceRegions', SourceRegionList.stub('SourceRegion', stub[:source_regions])) unless stub[:source_regions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5909,7 +5911,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SourceRegion.stub(node_name, element) unless element.nil?
+          xml << SourceRegion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5952,9 +5954,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('DescribeValidDBInstanceModificationsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('DescribeValidDBInstanceModificationsResult')
-        xml << Stubs::ValidDBInstanceModificationsMessage.stub('ValidDBInstanceModificationsMessage', stub[:valid_db_instance_modifications_message]) unless stub[:valid_db_instance_modifications_message].nil?
+        xml << ValidDBInstanceModificationsMessage.stub('ValidDBInstanceModificationsMessage', stub[:valid_db_instance_modifications_message]) unless stub[:valid_db_instance_modifications_message].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5973,8 +5975,8 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         stub ||= Types::ValidDBInstanceModificationsMessage.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Storage', Stubs::ValidStorageOptionsList.stub('ValidStorageOptions', stub[:storage])) unless stub[:storage].nil?
-        xml << Hearth::XML::Node.new('ValidProcessorFeatures', Stubs::AvailableProcessorFeatureList.stub('AvailableProcessorFeature', stub[:valid_processor_features])) unless stub[:valid_processor_features].nil?
+        xml << Hearth::XML::Node.new('Storage', ValidStorageOptionsList.stub('ValidStorageOptions', stub[:storage])) unless stub[:storage].nil?
+        xml << Hearth::XML::Node.new('ValidProcessorFeatures', AvailableProcessorFeatureList.stub('AvailableProcessorFeature', stub[:valid_processor_features])) unless stub[:valid_processor_features].nil?
         xml
       end
     end
@@ -5992,7 +5994,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ValidStorageOptions.stub(node_name, element) unless element.nil?
+          xml << ValidStorageOptions.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6016,9 +6018,9 @@ module AWS::SDK::RDS
         stub ||= Types::ValidStorageOptions.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('StorageType', stub[:storage_type].to_s) unless stub[:storage_type].nil?
-        xml << Hearth::XML::Node.new('StorageSize', Stubs::RangeList.stub('Range', stub[:storage_size])) unless stub[:storage_size].nil?
-        xml << Hearth::XML::Node.new('ProvisionedIops', Stubs::RangeList.stub('Range', stub[:provisioned_iops])) unless stub[:provisioned_iops].nil?
-        xml << Hearth::XML::Node.new('IopsToStorageRatio', Stubs::DoubleRangeList.stub('DoubleRange', stub[:iops_to_storage_ratio])) unless stub[:iops_to_storage_ratio].nil?
+        xml << Hearth::XML::Node.new('StorageSize', RangeList.stub('Range', stub[:storage_size])) unless stub[:storage_size].nil?
+        xml << Hearth::XML::Node.new('ProvisionedIops', RangeList.stub('Range', stub[:provisioned_iops])) unless stub[:provisioned_iops].nil?
+        xml << Hearth::XML::Node.new('IopsToStorageRatio', DoubleRangeList.stub('DoubleRange', stub[:iops_to_storage_ratio])) unless stub[:iops_to_storage_ratio].nil?
         xml << Hearth::XML::Node.new('SupportsStorageAutoscaling', stub[:supports_storage_autoscaling].to_s) unless stub[:supports_storage_autoscaling].nil?
         xml
       end
@@ -6037,7 +6039,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DoubleRange.stub(node_name, element) unless element.nil?
+          xml << DoubleRange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6076,7 +6078,7 @@ module AWS::SDK::RDS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Range.stub(node_name, element) unless element.nil?
+          xml << Range.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6123,7 +6125,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         xml << Hearth::XML::Node.new('AdditionalDataPending', stub[:additional_data_pending].to_s) unless stub[:additional_data_pending].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6141,9 +6143,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('FailoverDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('FailoverDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6161,9 +6163,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('FailoverGlobalClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('FailoverGlobalClusterResult')
-        xml << Stubs::GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
+        xml << GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6181,9 +6183,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ListTagsForResourceResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ListTagsForResourceResult')
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6201,9 +6203,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyCertificatesResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyCertificatesResult')
-        xml << Stubs::Certificate.stub('Certificate', stub[:certificate]) unless stub[:certificate].nil?
+        xml << Certificate.stub('Certificate', stub[:certificate]) unless stub[:certificate].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6231,7 +6233,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('SecondsBeforeTimeout', stub[:seconds_before_timeout].to_s) unless stub[:seconds_before_timeout].nil?
         xml << Hearth::XML::Node.new('TimeoutAction', stub[:timeout_action].to_s) unless stub[:timeout_action].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6279,16 +6281,16 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBParameterGroupFamily', stub[:db_parameter_group_family].to_s) unless stub[:db_parameter_group_family].nil?
         xml << Hearth::XML::Node.new('DBEngineDescription', stub[:db_engine_description].to_s) unless stub[:db_engine_description].nil?
         xml << Hearth::XML::Node.new('DBEngineVersionDescription', stub[:db_engine_version_description].to_s) unless stub[:db_engine_version_description].nil?
-        xml << Stubs::CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
-        xml << Hearth::XML::Node.new('SupportedCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
-        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', Stubs::SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
-        xml << Hearth::XML::Node.new('ValidUpgradeTarget', Stubs::ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
-        xml << Hearth::XML::Node.new('SupportedTimezones', Stubs::SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
-        xml << Hearth::XML::Node.new('ExportableLogTypes', Stubs::LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
+        xml << CharacterSet.stub('DefaultCharacterSet', stub[:default_character_set]) unless stub[:default_character_set].nil?
+        xml << Hearth::XML::Node.new('SupportedCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_character_sets])) unless stub[:supported_character_sets].nil?
+        xml << Hearth::XML::Node.new('SupportedNcharCharacterSets', SupportedCharacterSetsList.stub('CharacterSet', stub[:supported_nchar_character_sets])) unless stub[:supported_nchar_character_sets].nil?
+        xml << Hearth::XML::Node.new('ValidUpgradeTarget', ValidUpgradeTargetList.stub('UpgradeTarget', stub[:valid_upgrade_target])) unless stub[:valid_upgrade_target].nil?
+        xml << Hearth::XML::Node.new('SupportedTimezones', SupportedTimezonesList.stub('Timezone', stub[:supported_timezones])) unless stub[:supported_timezones].nil?
+        xml << Hearth::XML::Node.new('ExportableLogTypes', LogTypeList.stub('member', stub[:exportable_log_types])) unless stub[:exportable_log_types].nil?
         xml << Hearth::XML::Node.new('SupportsLogExportsToCloudwatchLogs', stub[:supports_log_exports_to_cloudwatch_logs].to_s) unless stub[:supports_log_exports_to_cloudwatch_logs].nil?
         xml << Hearth::XML::Node.new('SupportsReadReplica', stub[:supports_read_replica].to_s) unless stub[:supports_read_replica].nil?
-        xml << Hearth::XML::Node.new('SupportedEngineModes', Stubs::EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
-        xml << Hearth::XML::Node.new('SupportedFeatureNames', Stubs::FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
+        xml << Hearth::XML::Node.new('SupportedEngineModes', EngineModeList.stub('member', stub[:supported_engine_modes])) unless stub[:supported_engine_modes].nil?
+        xml << Hearth::XML::Node.new('SupportedFeatureNames', FeatureNameList.stub('member', stub[:supported_feature_names])) unless stub[:supported_feature_names].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('SupportsParallelQuery', stub[:supports_parallel_query].to_s) unless stub[:supports_parallel_query].nil?
         xml << Hearth::XML::Node.new('SupportsGlobalDatabases', stub[:supports_global_databases].to_s) unless stub[:supports_global_databases].nil?
@@ -6298,10 +6300,10 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('DBEngineVersionArn', stub[:db_engine_version_arn].to_s) unless stub[:db_engine_version_arn].nil?
         xml << Hearth::XML::Node.new('KMSKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('CreateTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
-        xml << Hearth::XML::Node.new('TagList', Stubs::TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
+        xml << Hearth::XML::Node.new('TagList', TagList.stub('Tag', stub[:tag_list])) unless stub[:tag_list].nil?
         xml << Hearth::XML::Node.new('SupportsBabelfish', stub[:supports_babelfish].to_s) unless stub[:supports_babelfish].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6319,9 +6321,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6355,11 +6357,11 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('EndpointType', stub[:endpoint_type].to_s) unless stub[:endpoint_type].nil?
         xml << Hearth::XML::Node.new('CustomEndpointType', stub[:custom_endpoint_type].to_s) unless stub[:custom_endpoint_type].nil?
-        xml << Hearth::XML::Node.new('StaticMembers', Stubs::StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
-        xml << Hearth::XML::Node.new('ExcludedMembers', Stubs::StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
+        xml << Hearth::XML::Node.new('StaticMembers', StringList.stub('member', stub[:static_members])) unless stub[:static_members].nil?
+        xml << Hearth::XML::Node.new('ExcludedMembers', StringList.stub('member', stub[:excluded_members])) unless stub[:excluded_members].nil?
         xml << Hearth::XML::Node.new('DBClusterEndpointArn', stub[:db_cluster_endpoint_arn].to_s) unless stub[:db_cluster_endpoint_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6379,7 +6381,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new('ModifyDBClusterParameterGroupResult')
         xml << Hearth::XML::Node.new('DBClusterParameterGroupName', stub[:db_cluster_parameter_group_name].to_s) unless stub[:db_cluster_parameter_group_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6397,9 +6399,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBClusterSnapshotAttributeResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBClusterSnapshotAttributeResult')
-        xml << Stubs::DBClusterSnapshotAttributesResult.stub('DBClusterSnapshotAttributesResult', stub[:db_cluster_snapshot_attributes_result]) unless stub[:db_cluster_snapshot_attributes_result].nil?
+        xml << DBClusterSnapshotAttributesResult.stub('DBClusterSnapshotAttributesResult', stub[:db_cluster_snapshot_attributes_result]) unless stub[:db_cluster_snapshot_attributes_result].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6417,9 +6419,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBInstanceResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBInstanceResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6439,7 +6441,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new('ModifyDBParameterGroupResult')
         xml << Hearth::XML::Node.new('DBParameterGroupName', stub[:db_parameter_group_name].to_s) unless stub[:db_parameter_group_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6457,9 +6459,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBProxyResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBProxyResult')
-        xml << Stubs::DBProxy.stub('DBProxy', stub[:db_proxy]) unless stub[:db_proxy].nil?
+        xml << DBProxy.stub('DBProxy', stub[:db_proxy]) unless stub[:db_proxy].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6477,9 +6479,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBProxyEndpointResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBProxyEndpointResult')
-        xml << Stubs::DBProxyEndpoint.stub('DBProxyEndpoint', stub[:db_proxy_endpoint]) unless stub[:db_proxy_endpoint].nil?
+        xml << DBProxyEndpoint.stub('DBProxyEndpoint', stub[:db_proxy_endpoint]) unless stub[:db_proxy_endpoint].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6497,9 +6499,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBProxyTargetGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBProxyTargetGroupResult')
-        xml << Stubs::DBProxyTargetGroup.stub('DBProxyTargetGroup', stub[:db_proxy_target_group]) unless stub[:db_proxy_target_group].nil?
+        xml << DBProxyTargetGroup.stub('DBProxyTargetGroup', stub[:db_proxy_target_group]) unless stub[:db_proxy_target_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6517,9 +6519,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBSnapshotResult')
-        xml << Stubs::DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
+        xml << DBSnapshot.stub('DBSnapshot', stub[:db_snapshot]) unless stub[:db_snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6537,9 +6539,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBSnapshotAttributeResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBSnapshotAttributeResult')
-        xml << Stubs::DBSnapshotAttributesResult.stub('DBSnapshotAttributesResult', stub[:db_snapshot_attributes_result]) unless stub[:db_snapshot_attributes_result].nil?
+        xml << DBSnapshotAttributesResult.stub('DBSnapshotAttributesResult', stub[:db_snapshot_attributes_result]) unless stub[:db_snapshot_attributes_result].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6557,9 +6559,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyDBSubnetGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyDBSubnetGroupResult')
-        xml << Stubs::DBSubnetGroup.stub('DBSubnetGroup', stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
+        xml << DBSubnetGroup.stub('DBSubnetGroup', stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6577,9 +6579,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyEventSubscriptionResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyEventSubscriptionResult')
-        xml << Stubs::EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
+        xml << EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6597,9 +6599,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyGlobalClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyGlobalClusterResult')
-        xml << Stubs::GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
+        xml << GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6617,9 +6619,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('ModifyOptionGroupResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('ModifyOptionGroupResult')
-        xml << Stubs::OptionGroup.stub('OptionGroup', stub[:option_group]) unless stub[:option_group].nil?
+        xml << OptionGroup.stub('OptionGroup', stub[:option_group]) unless stub[:option_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6637,9 +6639,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('PromoteReadReplicaResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('PromoteReadReplicaResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6657,9 +6659,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('PromoteReadReplicaDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('PromoteReadReplicaDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6677,9 +6679,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('PurchaseReservedDBInstancesOfferingResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('PurchaseReservedDBInstancesOfferingResult')
-        xml << Stubs::ReservedDBInstance.stub('ReservedDBInstance', stub[:reserved_db_instance]) unless stub[:reserved_db_instance].nil?
+        xml << ReservedDBInstance.stub('ReservedDBInstance', stub[:reserved_db_instance]) unless stub[:reserved_db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6697,9 +6699,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RebootDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RebootDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6717,9 +6719,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RebootDBInstanceResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RebootDBInstanceResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6737,9 +6739,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RegisterDBProxyTargetsResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RegisterDBProxyTargetsResult')
-        xml << Hearth::XML::Node.new('DBProxyTargets', Stubs::TargetList.stub('member', stub[:db_proxy_targets])) unless stub[:db_proxy_targets].nil?
+        xml << Hearth::XML::Node.new('DBProxyTargets', TargetList.stub('member', stub[:db_proxy_targets])) unless stub[:db_proxy_targets].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6757,9 +6759,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RemoveFromGlobalClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RemoveFromGlobalClusterResult')
-        xml << Stubs::GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
+        xml << GlobalCluster.stub('GlobalCluster', stub[:global_cluster]) unless stub[:global_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6777,7 +6779,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RemoveRoleFromDBClusterResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6795,7 +6797,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RemoveRoleFromDBInstanceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6813,9 +6815,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RemoveSourceIdentifierFromSubscriptionResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RemoveSourceIdentifierFromSubscriptionResult')
-        xml << Stubs::EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
+        xml << EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6833,7 +6835,7 @@ module AWS::SDK::RDS
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RemoveTagsFromResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6853,7 +6855,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new('ResetDBClusterParameterGroupResult')
         xml << Hearth::XML::Node.new('DBClusterParameterGroupName', stub[:db_cluster_parameter_group_name].to_s) unless stub[:db_cluster_parameter_group_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6873,7 +6875,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new('ResetDBParameterGroupResult')
         xml << Hearth::XML::Node.new('DBParameterGroupName', stub[:db_parameter_group_name].to_s) unless stub[:db_parameter_group_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6891,9 +6893,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RestoreDBClusterFromS3Response')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RestoreDBClusterFromS3Result')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6911,9 +6913,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RestoreDBClusterFromSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RestoreDBClusterFromSnapshotResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6931,9 +6933,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RestoreDBClusterToPointInTimeResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RestoreDBClusterToPointInTimeResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6951,9 +6953,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RestoreDBInstanceFromDBSnapshotResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RestoreDBInstanceFromDBSnapshotResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6971,9 +6973,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RestoreDBInstanceFromS3Response')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RestoreDBInstanceFromS3Result')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6991,9 +6993,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RestoreDBInstanceToPointInTimeResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RestoreDBInstanceToPointInTimeResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7011,9 +7013,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('RevokeDBSecurityGroupIngressResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('RevokeDBSecurityGroupIngressResult')
-        xml << Stubs::DBSecurityGroup.stub('DBSecurityGroup', stub[:db_security_group]) unless stub[:db_security_group].nil?
+        xml << DBSecurityGroup.stub('DBSecurityGroup', stub[:db_security_group]) unless stub[:db_security_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7043,7 +7045,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('ApplyImmediately', stub[:apply_immediately].to_s) unless stub[:apply_immediately].nil?
         xml << Hearth::XML::Node.new('EngineNativeAuditFieldsIncluded', stub[:engine_native_audit_fields_included].to_s) unless stub[:engine_native_audit_fields_included].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7061,9 +7063,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('StartDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('StartDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7081,9 +7083,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('StartDBInstanceResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('StartDBInstanceResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7101,9 +7103,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('StartDBInstanceAutomatedBackupsReplicationResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('StartDBInstanceAutomatedBackupsReplicationResult')
-        xml << Stubs::DBInstanceAutomatedBackup.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backup]) unless stub[:db_instance_automated_backup].nil?
+        xml << DBInstanceAutomatedBackup.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backup]) unless stub[:db_instance_automated_backup].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7137,7 +7139,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML::Node.new('StartExportTaskResult')
         xml << Hearth::XML::Node.new('ExportTaskIdentifier', stub[:export_task_identifier].to_s) unless stub[:export_task_identifier].nil?
         xml << Hearth::XML::Node.new('SourceArn', stub[:source_arn].to_s) unless stub[:source_arn].nil?
-        xml << Hearth::XML::Node.new('ExportOnly', Stubs::StringList.stub('member', stub[:export_only])) unless stub[:export_only].nil?
+        xml << Hearth::XML::Node.new('ExportOnly', StringList.stub('member', stub[:export_only])) unless stub[:export_only].nil?
         xml << Hearth::XML::Node.new('SnapshotTime', Hearth::TimeHelper.to_date_time(stub[:snapshot_time])) unless stub[:snapshot_time].nil?
         xml << Hearth::XML::Node.new('TaskStartTime', Hearth::TimeHelper.to_date_time(stub[:task_start_time])) unless stub[:task_start_time].nil?
         xml << Hearth::XML::Node.new('TaskEndTime', Hearth::TimeHelper.to_date_time(stub[:task_end_time])) unless stub[:task_end_time].nil?
@@ -7151,7 +7153,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('FailureCause', stub[:failure_cause].to_s) unless stub[:failure_cause].nil?
         xml << Hearth::XML::Node.new('WarningMessage', stub[:warning_message].to_s) unless stub[:warning_message].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7175,7 +7177,7 @@ module AWS::SDK::RDS
         xml << Hearth::XML::Node.new('KinesisStreamName', stub[:kinesis_stream_name].to_s) unless stub[:kinesis_stream_name].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7193,9 +7195,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('StopDBClusterResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('StopDBClusterResult')
-        xml << Stubs::DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
+        xml << DBCluster.stub('DBCluster', stub[:db_cluster]) unless stub[:db_cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7213,9 +7215,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('StopDBInstanceResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('StopDBInstanceResult')
-        xml << Stubs::DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
+        xml << DBInstance.stub('DBInstance', stub[:db_instance]) unless stub[:db_instance].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -7233,9 +7235,9 @@ module AWS::SDK::RDS
         response = Hearth::XML::Node.new('StopDBInstanceAutomatedBackupsReplicationResponse')
         response.attributes['xmlns'] = 'http://rds.amazonaws.com/doc/2014-10-31/'
         xml = Hearth::XML::Node.new('StopDBInstanceAutomatedBackupsReplicationResult')
-        xml << Stubs::DBInstanceAutomatedBackup.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backup]) unless stub[:db_instance_automated_backup].nil?
+        xml << DBInstanceAutomatedBackup.stub('DBInstanceAutomatedBackup', stub[:db_instance_automated_backup]) unless stub[:db_instance_automated_backup].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

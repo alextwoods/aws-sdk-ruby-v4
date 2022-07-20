@@ -379,7 +379,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('GetEndpointAttributesResult')
         xml.at('Attributes') do |node|
           children = node.children('entry')
-          data.attributes = Parsers::MapStringToString.parse(children)
+          data.attributes = MapStringToString.parse(children)
         end
         data
       end
@@ -406,7 +406,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('GetPlatformApplicationAttributesResult')
         xml.at('Attributes') do |node|
           children = node.children('entry')
-          data.attributes = Parsers::MapStringToString.parse(children)
+          data.attributes = MapStringToString.parse(children)
         end
         data
       end
@@ -421,7 +421,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('GetSMSAttributesResult')
         xml.at('attributes') do |node|
           children = node.children('entry')
-          data.attributes = Parsers::MapStringToString.parse(children)
+          data.attributes = MapStringToString.parse(children)
         end
         data
       end
@@ -450,7 +450,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('GetSubscriptionAttributesResult')
         xml.at('Attributes') do |node|
           children = node.children('entry')
-          data.attributes = Parsers::SubscriptionAttributesMap.parse(children)
+          data.attributes = SubscriptionAttributesMap.parse(children)
         end
         data
       end
@@ -477,7 +477,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('GetTopicAttributesResult')
         xml.at('Attributes') do |node|
           children = node.children('entry')
-          data.attributes = Parsers::TopicAttributesMap.parse(children)
+          data.attributes = TopicAttributesMap.parse(children)
         end
         data
       end
@@ -504,7 +504,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListEndpointsByPlatformApplicationResult')
         xml.at('Endpoints') do |node|
           children = node.children('member')
-          data.endpoints = Parsers::ListOfEndpoints.parse(children)
+          data.endpoints = ListOfEndpoints.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -517,7 +517,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Endpoint.parse(node)
+          data << Endpoint.parse(node)
         end
         data
       end
@@ -531,7 +531,7 @@ module AWS::SDK::SNS
         end
         xml.at('Attributes') do |node|
           children = node.children('entry')
-          data.attributes = Parsers::MapStringToString.parse(children)
+          data.attributes = MapStringToString.parse(children)
         end
         return data
       end
@@ -549,7 +549,7 @@ module AWS::SDK::SNS
         end
         xml.at('PhoneNumbers') do |node|
           children = node.children('member')
-          data.phone_numbers = Parsers::PhoneNumberInformationList.parse(children)
+          data.phone_numbers = PhoneNumberInformationList.parse(children)
         end
         data
       end
@@ -559,7 +559,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PhoneNumberInformation.parse(node)
+          data << PhoneNumberInformation.parse(node)
         end
         data
       end
@@ -585,7 +585,7 @@ module AWS::SDK::SNS
         end
         xml.at('NumberCapabilities') do |node|
           children = node.children('member')
-          data.number_capabilities = Parsers::NumberCapabilityList.parse(children)
+          data.number_capabilities = NumberCapabilityList.parse(children)
         end
         return data
       end
@@ -624,7 +624,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListPhoneNumbersOptedOutResult')
         xml.at('phoneNumbers') do |node|
           children = node.children('member')
-          data.phone_numbers = Parsers::PhoneNumberList.parse(children)
+          data.phone_numbers = PhoneNumberList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -652,7 +652,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListPlatformApplicationsResult')
         xml.at('PlatformApplications') do |node|
           children = node.children('member')
-          data.platform_applications = Parsers::ListOfPlatformApplications.parse(children)
+          data.platform_applications = ListOfPlatformApplications.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -665,7 +665,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PlatformApplication.parse(node)
+          data << PlatformApplication.parse(node)
         end
         data
       end
@@ -679,7 +679,7 @@ module AWS::SDK::SNS
         end
         xml.at('Attributes') do |node|
           children = node.children('entry')
-          data.attributes = Parsers::MapStringToString.parse(children)
+          data.attributes = MapStringToString.parse(children)
         end
         return data
       end
@@ -694,7 +694,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListSMSSandboxPhoneNumbersResult')
         xml.at('PhoneNumbers') do |node|
           children = node.children('member')
-          data.phone_numbers = Parsers::SMSSandboxPhoneNumberList.parse(children)
+          data.phone_numbers = SMSSandboxPhoneNumberList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -707,7 +707,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SMSSandboxPhoneNumber.parse(node)
+          data << SMSSandboxPhoneNumber.parse(node)
         end
         data
       end
@@ -735,7 +735,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListSubscriptionsResult')
         xml.at('Subscriptions') do |node|
           children = node.children('member')
-          data.subscriptions = Parsers::SubscriptionsList.parse(children)
+          data.subscriptions = SubscriptionsList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -748,7 +748,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Subscription.parse(node)
+          data << Subscription.parse(node)
         end
         data
       end
@@ -785,7 +785,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListSubscriptionsByTopicResult')
         xml.at('Subscriptions') do |node|
           children = node.children('member')
-          data.subscriptions = Parsers::SubscriptionsList.parse(children)
+          data.subscriptions = SubscriptionsList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -803,7 +803,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListTagsForResourceResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -813,7 +813,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -841,7 +841,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('ListTopicsResult')
         xml.at('Topics') do |node|
           children = node.children('member')
-          data.topics = Parsers::TopicsList.parse(children)
+          data.topics = TopicsList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -854,7 +854,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Topic.parse(node)
+          data << Topic.parse(node)
         end
         data
       end
@@ -1033,11 +1033,11 @@ module AWS::SDK::SNS
         xml = Hearth::XML.parse(body).at('PublishBatchResult')
         xml.at('Successful') do |node|
           children = node.children('member')
-          data.successful = Parsers::PublishBatchResultEntryList.parse(children)
+          data.successful = PublishBatchResultEntryList.parse(children)
         end
         xml.at('Failed') do |node|
           children = node.children('member')
-          data.failed = Parsers::BatchResultErrorEntryList.parse(children)
+          data.failed = BatchResultErrorEntryList.parse(children)
         end
         data
       end
@@ -1047,7 +1047,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::BatchResultErrorEntry.parse(node)
+          data << BatchResultErrorEntry.parse(node)
         end
         data
       end
@@ -1076,7 +1076,7 @@ module AWS::SDK::SNS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PublishBatchResultEntry.parse(node)
+          data << PublishBatchResultEntry.parse(node)
         end
         data
       end

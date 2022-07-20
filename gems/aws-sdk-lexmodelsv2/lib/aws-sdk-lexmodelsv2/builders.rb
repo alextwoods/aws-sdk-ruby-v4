@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LexModelsV2
   module Builders
 
@@ -48,11 +50,11 @@ module AWS::SDK::LexModelsV2
         data['botName'] = input[:bot_name] unless input[:bot_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['dataPrivacy'] = Builders::DataPrivacy.build(input[:data_privacy]) unless input[:data_privacy].nil?
+        data['dataPrivacy'] = DataPrivacy.build(input[:data_privacy]) unless input[:data_privacy].nil?
         data['idleSessionTTLInSeconds'] = input[:idle_session_ttl_in_seconds] unless input[:idle_session_ttl_in_seconds].nil?
-        data['botTags'] = Builders::TagMap.build(input[:bot_tags]) unless input[:bot_tags].nil?
-        data['testBotAliasTags'] = Builders::TagMap.build(input[:test_bot_alias_tags]) unless input[:test_bot_alias_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['botTags'] = TagMap.build(input[:bot_tags]) unless input[:bot_tags].nil?
+        data['testBotAliasTags'] = TagMap.build(input[:test_bot_alias_tags]) unless input[:test_bot_alias_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,11 +98,11 @@ module AWS::SDK::LexModelsV2
         data['botAliasName'] = input[:bot_alias_name] unless input[:bot_alias_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['botVersion'] = input[:bot_version] unless input[:bot_version].nil?
-        data['botAliasLocaleSettings'] = Builders::BotAliasLocaleSettingsMap.build(input[:bot_alias_locale_settings]) unless input[:bot_alias_locale_settings].nil?
-        data['conversationLogSettings'] = Builders::ConversationLogSettings.build(input[:conversation_log_settings]) unless input[:conversation_log_settings].nil?
-        data['sentimentAnalysisSettings'] = Builders::SentimentAnalysisSettings.build(input[:sentiment_analysis_settings]) unless input[:sentiment_analysis_settings].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['botAliasLocaleSettings'] = BotAliasLocaleSettingsMap.build(input[:bot_alias_locale_settings]) unless input[:bot_alias_locale_settings].nil?
+        data['conversationLogSettings'] = ConversationLogSettings.build(input[:conversation_log_settings]) unless input[:conversation_log_settings].nil?
+        data['sentimentAnalysisSettings'] = SentimentAnalysisSettings.build(input[:sentiment_analysis_settings]) unless input[:sentiment_analysis_settings].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,8 +119,8 @@ module AWS::SDK::LexModelsV2
     class ConversationLogSettings
       def self.build(input)
         data = {}
-        data['textLogSettings'] = Builders::TextLogSettingsList.build(input[:text_log_settings]) unless input[:text_log_settings].nil?
-        data['audioLogSettings'] = Builders::AudioLogSettingsList.build(input[:audio_log_settings]) unless input[:audio_log_settings].nil?
+        data['textLogSettings'] = TextLogSettingsList.build(input[:text_log_settings]) unless input[:text_log_settings].nil?
+        data['audioLogSettings'] = AudioLogSettingsList.build(input[:audio_log_settings]) unless input[:audio_log_settings].nil?
         data
       end
     end
@@ -128,7 +130,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AudioLogSetting.build(element) unless element.nil?
+          data << AudioLogSetting.build(element) unless element.nil?
         end
         data
       end
@@ -139,7 +141,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['destination'] = Builders::AudioLogDestination.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = AudioLogDestination.build(input[:destination]) unless input[:destination].nil?
         data
       end
     end
@@ -148,7 +150,7 @@ module AWS::SDK::LexModelsV2
     class AudioLogDestination
       def self.build(input)
         data = {}
-        data['s3Bucket'] = Builders::S3BucketLogDestination.build(input[:s3_bucket]) unless input[:s3_bucket].nil?
+        data['s3Bucket'] = S3BucketLogDestination.build(input[:s3_bucket]) unless input[:s3_bucket].nil?
         data
       end
     end
@@ -169,7 +171,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TextLogSetting.build(element) unless element.nil?
+          data << TextLogSetting.build(element) unless element.nil?
         end
         data
       end
@@ -180,7 +182,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['destination'] = Builders::TextLogDestination.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = TextLogDestination.build(input[:destination]) unless input[:destination].nil?
         data
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::LexModelsV2
     class TextLogDestination
       def self.build(input)
         data = {}
-        data['cloudWatch'] = Builders::CloudWatchLogGroupLogDestination.build(input[:cloud_watch]) unless input[:cloud_watch].nil?
+        data['cloudWatch'] = CloudWatchLogGroupLogDestination.build(input[:cloud_watch]) unless input[:cloud_watch].nil?
         data
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::BotAliasLocaleSettings.build(value) unless value.nil?
+          data[key] = BotAliasLocaleSettings.build(value) unless value.nil?
         end
         data
       end
@@ -220,7 +222,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['codeHookSpecification'] = Builders::CodeHookSpecification.build(input[:code_hook_specification]) unless input[:code_hook_specification].nil?
+        data['codeHookSpecification'] = CodeHookSpecification.build(input[:code_hook_specification]) unless input[:code_hook_specification].nil?
         data
       end
     end
@@ -229,7 +231,7 @@ module AWS::SDK::LexModelsV2
     class CodeHookSpecification
       def self.build(input)
         data = {}
-        data['lambdaCodeHook'] = Builders::LambdaCodeHook.build(input[:lambda_code_hook]) unless input[:lambda_code_hook].nil?
+        data['lambdaCodeHook'] = LambdaCodeHook.build(input[:lambda_code_hook]) unless input[:lambda_code_hook].nil?
         data
       end
     end
@@ -268,8 +270,8 @@ module AWS::SDK::LexModelsV2
         data['localeId'] = input[:locale_id] unless input[:locale_id].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['nluIntentConfidenceThreshold'] = Hearth::NumberHelper.serialize(input[:nlu_intent_confidence_threshold]) unless input[:nlu_intent_confidence_threshold].nil?
-        data['voiceSettings'] = Builders::VoiceSettings.build(input[:voice_settings]) unless input[:voice_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['voiceSettings'] = VoiceSettings.build(input[:voice_settings]) unless input[:voice_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,8 +303,8 @@ module AWS::SDK::LexModelsV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['botVersionLocaleSpecification'] = Builders::BotVersionLocaleSpecification.build(input[:bot_version_locale_specification]) unless input[:bot_version_locale_specification].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['botVersionLocaleSpecification'] = BotVersionLocaleSpecification.build(input[:bot_version_locale_specification]) unless input[:bot_version_locale_specification].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -311,7 +313,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::BotVersionLocaleDetails.build(value) unless value.nil?
+          data[key] = BotVersionLocaleDetails.build(value) unless value.nil?
         end
         data
       end
@@ -336,10 +338,10 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceSpecification'] = Builders::ExportResourceSpecification.build(input[:resource_specification]) unless input[:resource_specification].nil?
+        data['resourceSpecification'] = ExportResourceSpecification.build(input[:resource_specification]) unless input[:resource_specification].nil?
         data['fileFormat'] = input[:file_format] unless input[:file_format].nil?
         data['filePassword'] = input[:file_password] unless input[:file_password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -347,9 +349,9 @@ module AWS::SDK::LexModelsV2
     class ExportResourceSpecification
       def self.build(input)
         data = {}
-        data['botExportSpecification'] = Builders::BotExportSpecification.build(input[:bot_export_specification]) unless input[:bot_export_specification].nil?
-        data['botLocaleExportSpecification'] = Builders::BotLocaleExportSpecification.build(input[:bot_locale_export_specification]) unless input[:bot_locale_export_specification].nil?
-        data['customVocabularyExportSpecification'] = Builders::CustomVocabularyExportSpecification.build(input[:custom_vocabulary_export_specification]) unless input[:custom_vocabulary_export_specification].nil?
+        data['botExportSpecification'] = BotExportSpecification.build(input[:bot_export_specification]) unless input[:bot_export_specification].nil?
+        data['botLocaleExportSpecification'] = BotLocaleExportSpecification.build(input[:bot_locale_export_specification]) unless input[:bot_locale_export_specification].nil?
+        data['customVocabularyExportSpecification'] = CustomVocabularyExportSpecification.build(input[:custom_vocabulary_export_specification]) unless input[:custom_vocabulary_export_specification].nil?
         data
       end
     end
@@ -414,15 +416,15 @@ module AWS::SDK::LexModelsV2
         data['intentName'] = input[:intent_name] unless input[:intent_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['parentIntentSignature'] = input[:parent_intent_signature] unless input[:parent_intent_signature].nil?
-        data['sampleUtterances'] = Builders::SampleUtterancesList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
-        data['dialogCodeHook'] = Builders::DialogCodeHookSettings.build(input[:dialog_code_hook]) unless input[:dialog_code_hook].nil?
-        data['fulfillmentCodeHook'] = Builders::FulfillmentCodeHookSettings.build(input[:fulfillment_code_hook]) unless input[:fulfillment_code_hook].nil?
-        data['intentConfirmationSetting'] = Builders::IntentConfirmationSetting.build(input[:intent_confirmation_setting]) unless input[:intent_confirmation_setting].nil?
-        data['intentClosingSetting'] = Builders::IntentClosingSetting.build(input[:intent_closing_setting]) unless input[:intent_closing_setting].nil?
-        data['inputContexts'] = Builders::InputContextsList.build(input[:input_contexts]) unless input[:input_contexts].nil?
-        data['outputContexts'] = Builders::OutputContextsList.build(input[:output_contexts]) unless input[:output_contexts].nil?
-        data['kendraConfiguration'] = Builders::KendraConfiguration.build(input[:kendra_configuration]) unless input[:kendra_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sampleUtterances'] = SampleUtterancesList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
+        data['dialogCodeHook'] = DialogCodeHookSettings.build(input[:dialog_code_hook]) unless input[:dialog_code_hook].nil?
+        data['fulfillmentCodeHook'] = FulfillmentCodeHookSettings.build(input[:fulfillment_code_hook]) unless input[:fulfillment_code_hook].nil?
+        data['intentConfirmationSetting'] = IntentConfirmationSetting.build(input[:intent_confirmation_setting]) unless input[:intent_confirmation_setting].nil?
+        data['intentClosingSetting'] = IntentClosingSetting.build(input[:intent_closing_setting]) unless input[:intent_closing_setting].nil?
+        data['inputContexts'] = InputContextsList.build(input[:input_contexts]) unless input[:input_contexts].nil?
+        data['outputContexts'] = OutputContextsList.build(input[:output_contexts]) unless input[:output_contexts].nil?
+        data['kendraConfiguration'] = KendraConfiguration.build(input[:kendra_configuration]) unless input[:kendra_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -442,7 +444,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputContext.build(element) unless element.nil?
+          data << OutputContext.build(element) unless element.nil?
         end
         data
       end
@@ -464,7 +466,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputContext.build(element) unless element.nil?
+          data << InputContext.build(element) unless element.nil?
         end
         data
       end
@@ -483,7 +485,7 @@ module AWS::SDK::LexModelsV2
     class IntentClosingSetting
       def self.build(input)
         data = {}
-        data['closingResponse'] = Builders::ResponseSpecification.build(input[:closing_response]) unless input[:closing_response].nil?
+        data['closingResponse'] = ResponseSpecification.build(input[:closing_response]) unless input[:closing_response].nil?
         data['active'] = input[:active] unless input[:active].nil?
         data
       end
@@ -493,7 +495,7 @@ module AWS::SDK::LexModelsV2
     class ResponseSpecification
       def self.build(input)
         data = {}
-        data['messageGroups'] = Builders::MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
+        data['messageGroups'] = MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
         data['allowInterrupt'] = input[:allow_interrupt] unless input[:allow_interrupt].nil?
         data
       end
@@ -504,7 +506,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MessageGroup.build(element) unless element.nil?
+          data << MessageGroup.build(element) unless element.nil?
         end
         data
       end
@@ -514,8 +516,8 @@ module AWS::SDK::LexModelsV2
     class MessageGroup
       def self.build(input)
         data = {}
-        data['message'] = Builders::Message.build(input[:message]) unless input[:message].nil?
-        data['variations'] = Builders::MessageVariationsList.build(input[:variations]) unless input[:variations].nil?
+        data['message'] = Message.build(input[:message]) unless input[:message].nil?
+        data['variations'] = MessageVariationsList.build(input[:variations]) unless input[:variations].nil?
         data
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Message.build(element) unless element.nil?
+          data << Message.build(element) unless element.nil?
         end
         data
       end
@@ -535,10 +537,10 @@ module AWS::SDK::LexModelsV2
     class Message
       def self.build(input)
         data = {}
-        data['plainTextMessage'] = Builders::PlainTextMessage.build(input[:plain_text_message]) unless input[:plain_text_message].nil?
-        data['customPayload'] = Builders::CustomPayload.build(input[:custom_payload]) unless input[:custom_payload].nil?
-        data['ssmlMessage'] = Builders::SSMLMessage.build(input[:ssml_message]) unless input[:ssml_message].nil?
-        data['imageResponseCard'] = Builders::ImageResponseCard.build(input[:image_response_card]) unless input[:image_response_card].nil?
+        data['plainTextMessage'] = PlainTextMessage.build(input[:plain_text_message]) unless input[:plain_text_message].nil?
+        data['customPayload'] = CustomPayload.build(input[:custom_payload]) unless input[:custom_payload].nil?
+        data['ssmlMessage'] = SSMLMessage.build(input[:ssml_message]) unless input[:ssml_message].nil?
+        data['imageResponseCard'] = ImageResponseCard.build(input[:image_response_card]) unless input[:image_response_card].nil?
         data
       end
     end
@@ -550,7 +552,7 @@ module AWS::SDK::LexModelsV2
         data['title'] = input[:title] unless input[:title].nil?
         data['subtitle'] = input[:subtitle] unless input[:subtitle].nil?
         data['imageUrl'] = input[:image_url] unless input[:image_url].nil?
-        data['buttons'] = Builders::ButtonsList.build(input[:buttons]) unless input[:buttons].nil?
+        data['buttons'] = ButtonsList.build(input[:buttons]) unless input[:buttons].nil?
         data
       end
     end
@@ -560,7 +562,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Button.build(element) unless element.nil?
+          data << Button.build(element) unless element.nil?
         end
         data
       end
@@ -607,8 +609,8 @@ module AWS::SDK::LexModelsV2
     class IntentConfirmationSetting
       def self.build(input)
         data = {}
-        data['promptSpecification'] = Builders::PromptSpecification.build(input[:prompt_specification]) unless input[:prompt_specification].nil?
-        data['declinationResponse'] = Builders::ResponseSpecification.build(input[:declination_response]) unless input[:declination_response].nil?
+        data['promptSpecification'] = PromptSpecification.build(input[:prompt_specification]) unless input[:prompt_specification].nil?
+        data['declinationResponse'] = ResponseSpecification.build(input[:declination_response]) unless input[:declination_response].nil?
         data['active'] = input[:active] unless input[:active].nil?
         data
       end
@@ -618,7 +620,7 @@ module AWS::SDK::LexModelsV2
     class PromptSpecification
       def self.build(input)
         data = {}
-        data['messageGroups'] = Builders::MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
+        data['messageGroups'] = MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
         data['maxRetries'] = input[:max_retries] unless input[:max_retries].nil?
         data['allowInterrupt'] = input[:allow_interrupt] unless input[:allow_interrupt].nil?
         data
@@ -630,8 +632,8 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['postFulfillmentStatusSpecification'] = Builders::PostFulfillmentStatusSpecification.build(input[:post_fulfillment_status_specification]) unless input[:post_fulfillment_status_specification].nil?
-        data['fulfillmentUpdatesSpecification'] = Builders::FulfillmentUpdatesSpecification.build(input[:fulfillment_updates_specification]) unless input[:fulfillment_updates_specification].nil?
+        data['postFulfillmentStatusSpecification'] = PostFulfillmentStatusSpecification.build(input[:post_fulfillment_status_specification]) unless input[:post_fulfillment_status_specification].nil?
+        data['fulfillmentUpdatesSpecification'] = FulfillmentUpdatesSpecification.build(input[:fulfillment_updates_specification]) unless input[:fulfillment_updates_specification].nil?
         data
       end
     end
@@ -641,8 +643,8 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['active'] = input[:active] unless input[:active].nil?
-        data['startResponse'] = Builders::FulfillmentStartResponseSpecification.build(input[:start_response]) unless input[:start_response].nil?
-        data['updateResponse'] = Builders::FulfillmentUpdateResponseSpecification.build(input[:update_response]) unless input[:update_response].nil?
+        data['startResponse'] = FulfillmentStartResponseSpecification.build(input[:start_response]) unless input[:start_response].nil?
+        data['updateResponse'] = FulfillmentUpdateResponseSpecification.build(input[:update_response]) unless input[:update_response].nil?
         data['timeoutInSeconds'] = input[:timeout_in_seconds] unless input[:timeout_in_seconds].nil?
         data
       end
@@ -653,7 +655,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['frequencyInSeconds'] = input[:frequency_in_seconds] unless input[:frequency_in_seconds].nil?
-        data['messageGroups'] = Builders::MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
+        data['messageGroups'] = MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
         data['allowInterrupt'] = input[:allow_interrupt] unless input[:allow_interrupt].nil?
         data
       end
@@ -664,7 +666,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['delayInSeconds'] = input[:delay_in_seconds] unless input[:delay_in_seconds].nil?
-        data['messageGroups'] = Builders::MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
+        data['messageGroups'] = MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
         data['allowInterrupt'] = input[:allow_interrupt] unless input[:allow_interrupt].nil?
         data
       end
@@ -674,9 +676,9 @@ module AWS::SDK::LexModelsV2
     class PostFulfillmentStatusSpecification
       def self.build(input)
         data = {}
-        data['successResponse'] = Builders::ResponseSpecification.build(input[:success_response]) unless input[:success_response].nil?
-        data['failureResponse'] = Builders::ResponseSpecification.build(input[:failure_response]) unless input[:failure_response].nil?
-        data['timeoutResponse'] = Builders::ResponseSpecification.build(input[:timeout_response]) unless input[:timeout_response].nil?
+        data['successResponse'] = ResponseSpecification.build(input[:success_response]) unless input[:success_response].nil?
+        data['failureResponse'] = ResponseSpecification.build(input[:failure_response]) unless input[:failure_response].nil?
+        data['timeoutResponse'] = ResponseSpecification.build(input[:timeout_response]) unless input[:timeout_response].nil?
         data
       end
     end
@@ -695,7 +697,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SampleUtterance.build(element) unless element.nil?
+          data << SampleUtterance.build(element) unless element.nil?
         end
         data
       end
@@ -728,7 +730,7 @@ module AWS::SDK::LexModelsV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -752,10 +754,10 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['statementId'] = input[:statement_id] unless input[:statement_id].nil?
         data['effect'] = input[:effect] unless input[:effect].nil?
-        data['principal'] = Builders::PrincipalList.build(input[:principal]) unless input[:principal].nil?
-        data['action'] = Builders::OperationList.build(input[:action]) unless input[:action].nil?
-        data['condition'] = Builders::ConditionMap.build(input[:condition]) unless input[:condition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['principal'] = PrincipalList.build(input[:principal]) unless input[:principal].nil?
+        data['action'] = OperationList.build(input[:action]) unless input[:action].nil?
+        data['condition'] = ConditionMap.build(input[:condition]) unless input[:condition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -764,7 +766,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ConditionKeyValueMap.build(value) unless value.nil?
+          data[key] = ConditionKeyValueMap.build(value) unless value.nil?
         end
         data
       end
@@ -797,7 +799,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Principal.build(element) unless element.nil?
+          data << Principal.build(element) unless element.nil?
         end
         data
       end
@@ -845,10 +847,10 @@ module AWS::SDK::LexModelsV2
         data['slotName'] = input[:slot_name] unless input[:slot_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['slotTypeId'] = input[:slot_type_id] unless input[:slot_type_id].nil?
-        data['valueElicitationSetting'] = Builders::SlotValueElicitationSetting.build(input[:value_elicitation_setting]) unless input[:value_elicitation_setting].nil?
-        data['obfuscationSetting'] = Builders::ObfuscationSetting.build(input[:obfuscation_setting]) unless input[:obfuscation_setting].nil?
-        data['multipleValuesSetting'] = Builders::MultipleValuesSetting.build(input[:multiple_values_setting]) unless input[:multiple_values_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['valueElicitationSetting'] = SlotValueElicitationSetting.build(input[:value_elicitation_setting]) unless input[:value_elicitation_setting].nil?
+        data['obfuscationSetting'] = ObfuscationSetting.build(input[:obfuscation_setting]) unless input[:obfuscation_setting].nil?
+        data['multipleValuesSetting'] = MultipleValuesSetting.build(input[:multiple_values_setting]) unless input[:multiple_values_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -874,11 +876,11 @@ module AWS::SDK::LexModelsV2
     class SlotValueElicitationSetting
       def self.build(input)
         data = {}
-        data['defaultValueSpecification'] = Builders::SlotDefaultValueSpecification.build(input[:default_value_specification]) unless input[:default_value_specification].nil?
+        data['defaultValueSpecification'] = SlotDefaultValueSpecification.build(input[:default_value_specification]) unless input[:default_value_specification].nil?
         data['slotConstraint'] = input[:slot_constraint] unless input[:slot_constraint].nil?
-        data['promptSpecification'] = Builders::PromptSpecification.build(input[:prompt_specification]) unless input[:prompt_specification].nil?
-        data['sampleUtterances'] = Builders::SampleUtterancesList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
-        data['waitAndContinueSpecification'] = Builders::WaitAndContinueSpecification.build(input[:wait_and_continue_specification]) unless input[:wait_and_continue_specification].nil?
+        data['promptSpecification'] = PromptSpecification.build(input[:prompt_specification]) unless input[:prompt_specification].nil?
+        data['sampleUtterances'] = SampleUtterancesList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
+        data['waitAndContinueSpecification'] = WaitAndContinueSpecification.build(input[:wait_and_continue_specification]) unless input[:wait_and_continue_specification].nil?
         data
       end
     end
@@ -887,9 +889,9 @@ module AWS::SDK::LexModelsV2
     class WaitAndContinueSpecification
       def self.build(input)
         data = {}
-        data['waitingResponse'] = Builders::ResponseSpecification.build(input[:waiting_response]) unless input[:waiting_response].nil?
-        data['continueResponse'] = Builders::ResponseSpecification.build(input[:continue_response]) unless input[:continue_response].nil?
-        data['stillWaitingResponse'] = Builders::StillWaitingResponseSpecification.build(input[:still_waiting_response]) unless input[:still_waiting_response].nil?
+        data['waitingResponse'] = ResponseSpecification.build(input[:waiting_response]) unless input[:waiting_response].nil?
+        data['continueResponse'] = ResponseSpecification.build(input[:continue_response]) unless input[:continue_response].nil?
+        data['stillWaitingResponse'] = StillWaitingResponseSpecification.build(input[:still_waiting_response]) unless input[:still_waiting_response].nil?
         data['active'] = input[:active] unless input[:active].nil?
         data
       end
@@ -899,7 +901,7 @@ module AWS::SDK::LexModelsV2
     class StillWaitingResponseSpecification
       def self.build(input)
         data = {}
-        data['messageGroups'] = Builders::MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
+        data['messageGroups'] = MessageGroupsList.build(input[:message_groups]) unless input[:message_groups].nil?
         data['frequencyInSeconds'] = input[:frequency_in_seconds] unless input[:frequency_in_seconds].nil?
         data['timeoutInSeconds'] = input[:timeout_in_seconds] unless input[:timeout_in_seconds].nil?
         data['allowInterrupt'] = input[:allow_interrupt] unless input[:allow_interrupt].nil?
@@ -911,7 +913,7 @@ module AWS::SDK::LexModelsV2
     class SlotDefaultValueSpecification
       def self.build(input)
         data = {}
-        data['defaultValueList'] = Builders::SlotDefaultValueList.build(input[:default_value_list]) unless input[:default_value_list].nil?
+        data['defaultValueList'] = SlotDefaultValueList.build(input[:default_value_list]) unless input[:default_value_list].nil?
         data
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SlotDefaultValue.build(element) unless element.nil?
+          data << SlotDefaultValue.build(element) unless element.nil?
         end
         data
       end
@@ -963,11 +965,11 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['slotTypeName'] = input[:slot_type_name] unless input[:slot_type_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['slotTypeValues'] = Builders::SlotTypeValues.build(input[:slot_type_values]) unless input[:slot_type_values].nil?
-        data['valueSelectionSetting'] = Builders::SlotValueSelectionSetting.build(input[:value_selection_setting]) unless input[:value_selection_setting].nil?
+        data['slotTypeValues'] = SlotTypeValues.build(input[:slot_type_values]) unless input[:slot_type_values].nil?
+        data['valueSelectionSetting'] = SlotValueSelectionSetting.build(input[:value_selection_setting]) unless input[:value_selection_setting].nil?
         data['parentSlotTypeSignature'] = input[:parent_slot_type_signature] unless input[:parent_slot_type_signature].nil?
-        data['externalSourceSetting'] = Builders::ExternalSourceSetting.build(input[:external_source_setting]) unless input[:external_source_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['externalSourceSetting'] = ExternalSourceSetting.build(input[:external_source_setting]) unless input[:external_source_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -975,7 +977,7 @@ module AWS::SDK::LexModelsV2
     class ExternalSourceSetting
       def self.build(input)
         data = {}
-        data['grammarSlotTypeSetting'] = Builders::GrammarSlotTypeSetting.build(input[:grammar_slot_type_setting]) unless input[:grammar_slot_type_setting].nil?
+        data['grammarSlotTypeSetting'] = GrammarSlotTypeSetting.build(input[:grammar_slot_type_setting]) unless input[:grammar_slot_type_setting].nil?
         data
       end
     end
@@ -984,7 +986,7 @@ module AWS::SDK::LexModelsV2
     class GrammarSlotTypeSetting
       def self.build(input)
         data = {}
-        data['source'] = Builders::GrammarSlotTypeSource.build(input[:source]) unless input[:source].nil?
+        data['source'] = GrammarSlotTypeSource.build(input[:source]) unless input[:source].nil?
         data
       end
     end
@@ -1005,8 +1007,8 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['resolutionStrategy'] = input[:resolution_strategy] unless input[:resolution_strategy].nil?
-        data['regexFilter'] = Builders::SlotValueRegexFilter.build(input[:regex_filter]) unless input[:regex_filter].nil?
-        data['advancedRecognitionSetting'] = Builders::AdvancedRecognitionSetting.build(input[:advanced_recognition_setting]) unless input[:advanced_recognition_setting].nil?
+        data['regexFilter'] = SlotValueRegexFilter.build(input[:regex_filter]) unless input[:regex_filter].nil?
+        data['advancedRecognitionSetting'] = AdvancedRecognitionSetting.build(input[:advanced_recognition_setting]) unless input[:advanced_recognition_setting].nil?
         data
       end
     end
@@ -1034,7 +1036,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SlotTypeValue.build(element) unless element.nil?
+          data << SlotTypeValue.build(element) unless element.nil?
         end
         data
       end
@@ -1044,8 +1046,8 @@ module AWS::SDK::LexModelsV2
     class SlotTypeValue
       def self.build(input)
         data = {}
-        data['sampleValue'] = Builders::SampleValue.build(input[:sample_value]) unless input[:sample_value].nil?
-        data['synonyms'] = Builders::SynonymList.build(input[:synonyms]) unless input[:synonyms].nil?
+        data['sampleValue'] = SampleValue.build(input[:sample_value]) unless input[:sample_value].nil?
+        data['synonyms'] = SynonymList.build(input[:synonyms]) unless input[:synonyms].nil?
         data
       end
     end
@@ -1055,7 +1057,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SampleValue.build(element) unless element.nil?
+          data << SampleValue.build(element) unless element.nil?
         end
         data
       end
@@ -1677,12 +1679,12 @@ module AWS::SDK::LexModelsV2
         data['botAliasId'] = input[:bot_alias_id] unless input[:bot_alias_id].nil?
         data['botVersion'] = input[:bot_version] unless input[:bot_version].nil?
         data['localeId'] = input[:locale_id] unless input[:locale_id].nil?
-        data['aggregationDuration'] = Builders::UtteranceAggregationDuration.build(input[:aggregation_duration]) unless input[:aggregation_duration].nil?
-        data['sortBy'] = Builders::AggregatedUtterancesSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::AggregatedUtterancesFilters.build(input[:filters]) unless input[:filters].nil?
+        data['aggregationDuration'] = UtteranceAggregationDuration.build(input[:aggregation_duration]) unless input[:aggregation_duration].nil?
+        data['sortBy'] = AggregatedUtterancesSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = AggregatedUtterancesFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1691,7 +1693,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AggregatedUtterancesFilter.build(element) unless element.nil?
+          data << AggregatedUtterancesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -1702,7 +1704,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -1733,7 +1735,7 @@ module AWS::SDK::LexModelsV2
     class UtteranceAggregationDuration
       def self.build(input)
         data = {}
-        data['relativeAggregationDuration'] = Builders::RelativeAggregationDuration.build(input[:relative_aggregation_duration]) unless input[:relative_aggregation_duration].nil?
+        data['relativeAggregationDuration'] = RelativeAggregationDuration.build(input[:relative_aggregation_duration]) unless input[:relative_aggregation_duration].nil?
         data
       end
     end
@@ -1767,7 +1769,7 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1792,11 +1794,11 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::BotLocaleSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::BotLocaleFilters.build(input[:filters]) unless input[:filters].nil?
+        data['sortBy'] = BotLocaleSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = BotLocaleFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1805,7 +1807,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BotLocaleFilter.build(element) unless element.nil?
+          data << BotLocaleFilter.build(element) unless element.nil?
         end
         data
       end
@@ -1816,7 +1818,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -1859,7 +1861,7 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1880,10 +1882,10 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::BotVersionSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['sortBy'] = BotVersionSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1907,11 +1909,11 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::BotSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::BotFilters.build(input[:filters]) unless input[:filters].nil?
+        data['sortBy'] = BotSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = BotFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1920,7 +1922,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BotFilter.build(element) unless element.nil?
+          data << BotFilter.build(element) unless element.nil?
         end
         data
       end
@@ -1931,7 +1933,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -1964,10 +1966,10 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::BuiltInIntentSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['sortBy'] = BuiltInIntentSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1998,10 +2000,10 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::BuiltInSlotTypeSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['sortBy'] = BuiltInSlotTypeSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2027,12 +2029,12 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['botId'] = input[:bot_id] unless input[:bot_id].nil?
         data['botVersion'] = input[:bot_version] unless input[:bot_version].nil?
-        data['sortBy'] = Builders::ExportSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::ExportFilters.build(input[:filters]) unless input[:filters].nil?
+        data['sortBy'] = ExportSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = ExportFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['localeId'] = input[:locale_id] unless input[:locale_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2041,7 +2043,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ExportFilter.build(element) unless element.nil?
+          data << ExportFilter.build(element) unless element.nil?
         end
         data
       end
@@ -2052,7 +2054,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -2080,12 +2082,12 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['botId'] = input[:bot_id] unless input[:bot_id].nil?
         data['botVersion'] = input[:bot_version] unless input[:bot_version].nil?
-        data['sortBy'] = Builders::ImportSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::ImportFilters.build(input[:filters]) unless input[:filters].nil?
+        data['sortBy'] = ImportSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = ImportFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['localeId'] = input[:locale_id] unless input[:locale_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2094,7 +2096,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ImportFilter.build(element) unless element.nil?
+          data << ImportFilter.build(element) unless element.nil?
         end
         data
       end
@@ -2105,7 +2107,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -2146,11 +2148,11 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::IntentSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::IntentFilters.build(input[:filters]) unless input[:filters].nil?
+        data['sortBy'] = IntentSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = IntentFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2159,7 +2161,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IntentFilter.build(element) unless element.nil?
+          data << IntentFilter.build(element) unless element.nil?
         end
         data
       end
@@ -2170,7 +2172,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -2217,7 +2219,7 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2246,11 +2248,11 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::SlotTypeSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::SlotTypeFilters.build(input[:filters]) unless input[:filters].nil?
+        data['sortBy'] = SlotTypeSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = SlotTypeFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2259,7 +2261,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SlotTypeFilter.build(element) unless element.nil?
+          data << SlotTypeFilter.build(element) unless element.nil?
         end
         data
       end
@@ -2270,7 +2272,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -2315,11 +2317,11 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sortBy'] = Builders::SlotSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
-        data['filters'] = Builders::SlotFilters.build(input[:filters]) unless input[:filters].nil?
+        data['sortBy'] = SlotSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['filters'] = SlotFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2328,7 +2330,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SlotFilter.build(element) unless element.nil?
+          data << SlotFilter.build(element) unless element.nil?
         end
         data
       end
@@ -2339,7 +2341,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -2402,10 +2404,10 @@ module AWS::SDK::LexModelsV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['searchOrder'] = input[:search_order] unless input[:search_order].nil?
-        data['filters'] = Builders::AssociatedTranscriptFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = AssociatedTranscriptFilters.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextIndex'] = input[:next_index] unless input[:next_index].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2414,7 +2416,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssociatedTranscriptFilter.build(element) unless element.nil?
+          data << AssociatedTranscriptFilter.build(element) unless element.nil?
         end
         data
       end
@@ -2425,7 +2427,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -2455,9 +2457,9 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['transcriptSourceSetting'] = Builders::TranscriptSourceSetting.build(input[:transcript_source_setting]) unless input[:transcript_source_setting].nil?
-        data['encryptionSetting'] = Builders::EncryptionSetting.build(input[:encryption_setting]) unless input[:encryption_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['transcriptSourceSetting'] = TranscriptSourceSetting.build(input[:transcript_source_setting]) unless input[:transcript_source_setting].nil?
+        data['encryptionSetting'] = EncryptionSetting.build(input[:encryption_setting]) unless input[:encryption_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2476,7 +2478,7 @@ module AWS::SDK::LexModelsV2
     class TranscriptSourceSetting
       def self.build(input)
         data = {}
-        data['s3BucketTranscriptSource'] = Builders::S3BucketTranscriptSource.build(input[:s3_bucket_transcript_source]) unless input[:s3_bucket_transcript_source].nil?
+        data['s3BucketTranscriptSource'] = S3BucketTranscriptSource.build(input[:s3_bucket_transcript_source]) unless input[:s3_bucket_transcript_source].nil?
         data
       end
     end
@@ -2486,9 +2488,9 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = {}
         data['s3BucketName'] = input[:s3_bucket_name] unless input[:s3_bucket_name].nil?
-        data['pathFormat'] = Builders::PathFormat.build(input[:path_format]) unless input[:path_format].nil?
+        data['pathFormat'] = PathFormat.build(input[:path_format]) unless input[:path_format].nil?
         data['transcriptFormat'] = input[:transcript_format] unless input[:transcript_format].nil?
-        data['transcriptFilter'] = Builders::TranscriptFilter.build(input[:transcript_filter]) unless input[:transcript_filter].nil?
+        data['transcriptFilter'] = TranscriptFilter.build(input[:transcript_filter]) unless input[:transcript_filter].nil?
         data['kmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data
       end
@@ -2498,7 +2500,7 @@ module AWS::SDK::LexModelsV2
     class TranscriptFilter
       def self.build(input)
         data = {}
-        data['lexTranscriptFilter'] = Builders::LexTranscriptFilter.build(input[:lex_transcript_filter]) unless input[:lex_transcript_filter].nil?
+        data['lexTranscriptFilter'] = LexTranscriptFilter.build(input[:lex_transcript_filter]) unless input[:lex_transcript_filter].nil?
         data
       end
     end
@@ -2507,7 +2509,7 @@ module AWS::SDK::LexModelsV2
     class LexTranscriptFilter
       def self.build(input)
         data = {}
-        data['dateRangeFilter'] = Builders::DateRangeFilter.build(input[:date_range_filter]) unless input[:date_range_filter].nil?
+        data['dateRangeFilter'] = DateRangeFilter.build(input[:date_range_filter]) unless input[:date_range_filter].nil?
         data
       end
     end
@@ -2526,7 +2528,7 @@ module AWS::SDK::LexModelsV2
     class PathFormat
       def self.build(input)
         data = {}
-        data['objectPrefixes'] = Builders::ObjectPrefixes.build(input[:object_prefixes]) unless input[:object_prefixes].nil?
+        data['objectPrefixes'] = ObjectPrefixes.build(input[:object_prefixes]) unless input[:object_prefixes].nil?
         data
       end
     end
@@ -2553,10 +2555,10 @@ module AWS::SDK::LexModelsV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['importId'] = input[:import_id] unless input[:import_id].nil?
-        data['resourceSpecification'] = Builders::ImportResourceSpecification.build(input[:resource_specification]) unless input[:resource_specification].nil?
+        data['resourceSpecification'] = ImportResourceSpecification.build(input[:resource_specification]) unless input[:resource_specification].nil?
         data['mergeStrategy'] = input[:merge_strategy] unless input[:merge_strategy].nil?
         data['filePassword'] = input[:file_password] unless input[:file_password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2564,9 +2566,9 @@ module AWS::SDK::LexModelsV2
     class ImportResourceSpecification
       def self.build(input)
         data = {}
-        data['botImportSpecification'] = Builders::BotImportSpecification.build(input[:bot_import_specification]) unless input[:bot_import_specification].nil?
-        data['botLocaleImportSpecification'] = Builders::BotLocaleImportSpecification.build(input[:bot_locale_import_specification]) unless input[:bot_locale_import_specification].nil?
-        data['customVocabularyImportSpecification'] = Builders::CustomVocabularyImportSpecification.build(input[:custom_vocabulary_import_specification]) unless input[:custom_vocabulary_import_specification].nil?
+        data['botImportSpecification'] = BotImportSpecification.build(input[:bot_import_specification]) unless input[:bot_import_specification].nil?
+        data['botLocaleImportSpecification'] = BotLocaleImportSpecification.build(input[:bot_locale_import_specification]) unless input[:bot_locale_import_specification].nil?
+        data['customVocabularyImportSpecification'] = CustomVocabularyImportSpecification.build(input[:custom_vocabulary_import_specification]) unless input[:custom_vocabulary_import_specification].nil?
         data
       end
     end
@@ -2590,7 +2592,7 @@ module AWS::SDK::LexModelsV2
         data['botVersion'] = input[:bot_version] unless input[:bot_version].nil?
         data['localeId'] = input[:locale_id] unless input[:locale_id].nil?
         data['nluIntentConfidenceThreshold'] = Hearth::NumberHelper.serialize(input[:nlu_intent_confidence_threshold]) unless input[:nlu_intent_confidence_threshold].nil?
-        data['voiceSettings'] = Builders::VoiceSettings.build(input[:voice_settings]) unless input[:voice_settings].nil?
+        data['voiceSettings'] = VoiceSettings.build(input[:voice_settings]) unless input[:voice_settings].nil?
         data
       end
     end
@@ -2601,10 +2603,10 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['botName'] = input[:bot_name] unless input[:bot_name].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['dataPrivacy'] = Builders::DataPrivacy.build(input[:data_privacy]) unless input[:data_privacy].nil?
+        data['dataPrivacy'] = DataPrivacy.build(input[:data_privacy]) unless input[:data_privacy].nil?
         data['idleSessionTTLInSeconds'] = input[:idle_session_ttl_in_seconds] unless input[:idle_session_ttl_in_seconds].nil?
-        data['botTags'] = Builders::TagMap.build(input[:bot_tags]) unless input[:bot_tags].nil?
-        data['testBotAliasTags'] = Builders::TagMap.build(input[:test_bot_alias_tags]) unless input[:test_bot_alias_tags].nil?
+        data['botTags'] = TagMap.build(input[:bot_tags]) unless input[:bot_tags].nil?
+        data['testBotAliasTags'] = TagMap.build(input[:test_bot_alias_tags]) unless input[:test_bot_alias_tags].nil?
         data
       end
     end
@@ -2626,8 +2628,8 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2684,9 +2686,9 @@ module AWS::SDK::LexModelsV2
         data['botName'] = input[:bot_name] unless input[:bot_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['dataPrivacy'] = Builders::DataPrivacy.build(input[:data_privacy]) unless input[:data_privacy].nil?
+        data['dataPrivacy'] = DataPrivacy.build(input[:data_privacy]) unless input[:data_privacy].nil?
         data['idleSessionTTLInSeconds'] = input[:idle_session_ttl_in_seconds] unless input[:idle_session_ttl_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2714,10 +2716,10 @@ module AWS::SDK::LexModelsV2
         data['botAliasName'] = input[:bot_alias_name] unless input[:bot_alias_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['botVersion'] = input[:bot_version] unless input[:bot_version].nil?
-        data['botAliasLocaleSettings'] = Builders::BotAliasLocaleSettingsMap.build(input[:bot_alias_locale_settings]) unless input[:bot_alias_locale_settings].nil?
-        data['conversationLogSettings'] = Builders::ConversationLogSettings.build(input[:conversation_log_settings]) unless input[:conversation_log_settings].nil?
-        data['sentimentAnalysisSettings'] = Builders::SentimentAnalysisSettings.build(input[:sentiment_analysis_settings]) unless input[:sentiment_analysis_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['botAliasLocaleSettings'] = BotAliasLocaleSettingsMap.build(input[:bot_alias_locale_settings]) unless input[:bot_alias_locale_settings].nil?
+        data['conversationLogSettings'] = ConversationLogSettings.build(input[:conversation_log_settings]) unless input[:conversation_log_settings].nil?
+        data['sentimentAnalysisSettings'] = SentimentAnalysisSettings.build(input[:sentiment_analysis_settings]) unless input[:sentiment_analysis_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2748,8 +2750,8 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
         data['nluIntentConfidenceThreshold'] = Hearth::NumberHelper.serialize(input[:nlu_intent_confidence_threshold]) unless input[:nlu_intent_confidence_threshold].nil?
-        data['voiceSettings'] = Builders::VoiceSettings.build(input[:voice_settings]) unless input[:voice_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['voiceSettings'] = VoiceSettings.build(input[:voice_settings]) unless input[:voice_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2782,8 +2784,8 @@ module AWS::SDK::LexModelsV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['encryptionSetting'] = Builders::EncryptionSetting.build(input[:encryption_setting]) unless input[:encryption_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['encryptionSetting'] = EncryptionSetting.build(input[:encryption_setting]) unless input[:encryption_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2805,7 +2807,7 @@ module AWS::SDK::LexModelsV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['filePassword'] = input[:file_password] unless input[:file_password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2841,16 +2843,16 @@ module AWS::SDK::LexModelsV2
         data['intentName'] = input[:intent_name] unless input[:intent_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['parentIntentSignature'] = input[:parent_intent_signature] unless input[:parent_intent_signature].nil?
-        data['sampleUtterances'] = Builders::SampleUtterancesList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
-        data['dialogCodeHook'] = Builders::DialogCodeHookSettings.build(input[:dialog_code_hook]) unless input[:dialog_code_hook].nil?
-        data['fulfillmentCodeHook'] = Builders::FulfillmentCodeHookSettings.build(input[:fulfillment_code_hook]) unless input[:fulfillment_code_hook].nil?
-        data['slotPriorities'] = Builders::SlotPrioritiesList.build(input[:slot_priorities]) unless input[:slot_priorities].nil?
-        data['intentConfirmationSetting'] = Builders::IntentConfirmationSetting.build(input[:intent_confirmation_setting]) unless input[:intent_confirmation_setting].nil?
-        data['intentClosingSetting'] = Builders::IntentClosingSetting.build(input[:intent_closing_setting]) unless input[:intent_closing_setting].nil?
-        data['inputContexts'] = Builders::InputContextsList.build(input[:input_contexts]) unless input[:input_contexts].nil?
-        data['outputContexts'] = Builders::OutputContextsList.build(input[:output_contexts]) unless input[:output_contexts].nil?
-        data['kendraConfiguration'] = Builders::KendraConfiguration.build(input[:kendra_configuration]) unless input[:kendra_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sampleUtterances'] = SampleUtterancesList.build(input[:sample_utterances]) unless input[:sample_utterances].nil?
+        data['dialogCodeHook'] = DialogCodeHookSettings.build(input[:dialog_code_hook]) unless input[:dialog_code_hook].nil?
+        data['fulfillmentCodeHook'] = FulfillmentCodeHookSettings.build(input[:fulfillment_code_hook]) unless input[:fulfillment_code_hook].nil?
+        data['slotPriorities'] = SlotPrioritiesList.build(input[:slot_priorities]) unless input[:slot_priorities].nil?
+        data['intentConfirmationSetting'] = IntentConfirmationSetting.build(input[:intent_confirmation_setting]) unless input[:intent_confirmation_setting].nil?
+        data['intentClosingSetting'] = IntentClosingSetting.build(input[:intent_closing_setting]) unless input[:intent_closing_setting].nil?
+        data['inputContexts'] = InputContextsList.build(input[:input_contexts]) unless input[:input_contexts].nil?
+        data['outputContexts'] = OutputContextsList.build(input[:output_contexts]) unless input[:output_contexts].nil?
+        data['kendraConfiguration'] = KendraConfiguration.build(input[:kendra_configuration]) unless input[:kendra_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2859,7 +2861,7 @@ module AWS::SDK::LexModelsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SlotPriority.build(element) unless element.nil?
+          data << SlotPriority.build(element) unless element.nil?
         end
         data
       end
@@ -2894,7 +2896,7 @@ module AWS::SDK::LexModelsV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2934,10 +2936,10 @@ module AWS::SDK::LexModelsV2
         data['slotName'] = input[:slot_name] unless input[:slot_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['slotTypeId'] = input[:slot_type_id] unless input[:slot_type_id].nil?
-        data['valueElicitationSetting'] = Builders::SlotValueElicitationSetting.build(input[:value_elicitation_setting]) unless input[:value_elicitation_setting].nil?
-        data['obfuscationSetting'] = Builders::ObfuscationSetting.build(input[:obfuscation_setting]) unless input[:obfuscation_setting].nil?
-        data['multipleValuesSetting'] = Builders::MultipleValuesSetting.build(input[:multiple_values_setting]) unless input[:multiple_values_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['valueElicitationSetting'] = SlotValueElicitationSetting.build(input[:value_elicitation_setting]) unless input[:value_elicitation_setting].nil?
+        data['obfuscationSetting'] = ObfuscationSetting.build(input[:obfuscation_setting]) unless input[:obfuscation_setting].nil?
+        data['multipleValuesSetting'] = MultipleValuesSetting.build(input[:multiple_values_setting]) unless input[:multiple_values_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2972,11 +2974,11 @@ module AWS::SDK::LexModelsV2
         data = {}
         data['slotTypeName'] = input[:slot_type_name] unless input[:slot_type_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['slotTypeValues'] = Builders::SlotTypeValues.build(input[:slot_type_values]) unless input[:slot_type_values].nil?
-        data['valueSelectionSetting'] = Builders::SlotValueSelectionSetting.build(input[:value_selection_setting]) unless input[:value_selection_setting].nil?
+        data['slotTypeValues'] = SlotTypeValues.build(input[:slot_type_values]) unless input[:slot_type_values].nil?
+        data['valueSelectionSetting'] = SlotValueSelectionSetting.build(input[:value_selection_setting]) unless input[:value_selection_setting].nil?
         data['parentSlotTypeSignature'] = input[:parent_slot_type_signature] unless input[:parent_slot_type_signature].nil?
-        data['externalSourceSetting'] = Builders::ExternalSourceSetting.build(input[:external_source_setting]) unless input[:external_source_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['externalSourceSetting'] = ExternalSourceSetting.build(input[:external_source_setting]) unless input[:external_source_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

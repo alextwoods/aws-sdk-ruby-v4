@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApplicationInsights
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationInfo'] = Stubs::ApplicationInfo.stub(stub[:application_info]) unless stub[:application_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationInfo'] = ApplicationInfo.stub(stub[:application_info]) unless stub[:application_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,9 +85,9 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LogPattern'] = Stubs::LogPattern.stub(stub[:log_pattern]) unless stub[:log_pattern].nil?
+        data['LogPattern'] = LogPattern.stub(stub[:log_pattern]) unless stub[:log_pattern].nil?
         data['ResourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -123,7 +125,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -137,7 +139,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -166,8 +168,8 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationInfo'] = Stubs::ApplicationInfo.stub(stub[:application_info]) unless stub[:application_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationInfo'] = ApplicationInfo.stub(stub[:application_info]) unless stub[:application_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,9 +185,9 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationComponent'] = Stubs::ApplicationComponent.stub(stub[:application_component]) unless stub[:application_component].nil?
-        data['ResourceList'] = Stubs::ResourceList.stub(stub[:resource_list]) unless stub[:resource_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationComponent'] = ApplicationComponent.stub(stub[:application_component]) unless stub[:application_component].nil?
+        data['ResourceList'] = ResourceList.stub(stub[:resource_list]) unless stub[:resource_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::ApplicationInsights
         data['OsType'] = stub[:os_type] unless stub[:os_type].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
         data['Monitor'] = stub[:monitor] unless stub[:monitor].nil?
-        data['DetectedWorkload'] = Stubs::DetectedWorkload.stub(stub[:detected_workload]) unless stub[:detected_workload].nil?
+        data['DetectedWorkload'] = DetectedWorkload.stub(stub[:detected_workload]) unless stub[:detected_workload].nil?
         data
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::WorkloadMetaData.stub(value) unless value.nil?
+          data[key] = WorkloadMetaData.stub(value) unless value.nil?
         end
         data
       end
@@ -295,7 +297,7 @@ module AWS::SDK::ApplicationInsights
         data['Monitor'] = stub[:monitor] unless stub[:monitor].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
         data['ComponentConfiguration'] = stub[:component_configuration] unless stub[:component_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -311,7 +313,7 @@ module AWS::SDK::ApplicationInsights
       def self.stub(http_resp, stub:)
         data = {}
         data['ComponentConfiguration'] = stub[:component_configuration] unless stub[:component_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -328,8 +330,8 @@ module AWS::SDK::ApplicationInsights
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
-        data['LogPattern'] = Stubs::LogPattern.stub(stub[:log_pattern]) unless stub[:log_pattern].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LogPattern'] = LogPattern.stub(stub[:log_pattern]) unless stub[:log_pattern].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -344,8 +346,8 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Observation'] = Stubs::Observation.stub(stub[:observation]) unless stub[:observation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Observation'] = Observation.stub(stub[:observation]) unless stub[:observation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -466,8 +468,8 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Problem'] = Stubs::Problem.stub(stub[:problem]) unless stub[:problem].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Problem'] = Problem.stub(stub[:problem]) unless stub[:problem].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -505,7 +507,7 @@ module AWS::SDK::ApplicationInsights
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['SeverityLevel'] = stub[:severity_level] unless stub[:severity_level].nil?
         data['ResourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
-        data['Feedback'] = Stubs::Feedback.stub(stub[:feedback]) unless stub[:feedback].nil?
+        data['Feedback'] = Feedback.stub(stub[:feedback]) unless stub[:feedback].nil?
         data['RecurringCount'] = stub[:recurring_count] unless stub[:recurring_count].nil?
         data['LastRecurrenceTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_recurrence_time]).to_i unless stub[:last_recurrence_time].nil?
         data
@@ -542,8 +544,8 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RelatedObservations'] = Stubs::RelatedObservations.stub(stub[:related_observations]) unless stub[:related_observations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RelatedObservations'] = RelatedObservations.stub(stub[:related_observations]) unless stub[:related_observations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -561,7 +563,7 @@ module AWS::SDK::ApplicationInsights
       def self.stub(stub)
         stub ||= Types::RelatedObservations.new
         data = {}
-        data['ObservationList'] = Stubs::ObservationList.stub(stub[:observation_list]) unless stub[:observation_list].nil?
+        data['ObservationList'] = ObservationList.stub(stub[:observation_list]) unless stub[:observation_list].nil?
         data
       end
     end
@@ -580,7 +582,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Observation.stub(element) unless element.nil?
+          data << Observation.stub(element) unless element.nil?
         end
         data
       end
@@ -597,9 +599,9 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationInfoList'] = Stubs::ApplicationInfoList.stub(stub[:application_info_list]) unless stub[:application_info_list].nil?
+        data['ApplicationInfoList'] = ApplicationInfoList.stub(stub[:application_info_list]) unless stub[:application_info_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -618,7 +620,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationInfo.stub(element) unless element.nil?
+          data << ApplicationInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -635,9 +637,9 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationComponentList'] = Stubs::ApplicationComponentList.stub(stub[:application_component_list]) unless stub[:application_component_list].nil?
+        data['ApplicationComponentList'] = ApplicationComponentList.stub(stub[:application_component_list]) unless stub[:application_component_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationComponent.stub(element) unless element.nil?
+          data << ApplicationComponent.stub(element) unless element.nil?
         end
         data
       end
@@ -673,9 +675,9 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventList'] = Stubs::ConfigurationEventList.stub(stub[:event_list]) unless stub[:event_list].nil?
+        data['EventList'] = ConfigurationEventList.stub(stub[:event_list]) unless stub[:event_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -694,7 +696,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationEvent.stub(element) unless element.nil?
+          data << ConfigurationEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -741,9 +743,9 @@ module AWS::SDK::ApplicationInsights
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
-        data['LogPatternSets'] = Stubs::LogPatternSetList.stub(stub[:log_pattern_sets]) unless stub[:log_pattern_sets].nil?
+        data['LogPatternSets'] = LogPatternSetList.stub(stub[:log_pattern_sets]) unless stub[:log_pattern_sets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -781,9 +783,9 @@ module AWS::SDK::ApplicationInsights
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
-        data['LogPatterns'] = Stubs::LogPatternList.stub(stub[:log_patterns]) unless stub[:log_patterns].nil?
+        data['LogPatterns'] = LogPatternList.stub(stub[:log_patterns]) unless stub[:log_patterns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -802,7 +804,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogPattern.stub(element) unless element.nil?
+          data << LogPattern.stub(element) unless element.nil?
         end
         data
       end
@@ -820,10 +822,10 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProblemList'] = Stubs::ProblemList.stub(stub[:problem_list]) unless stub[:problem_list].nil?
+        data['ProblemList'] = ProblemList.stub(stub[:problem_list]) unless stub[:problem_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ResourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -842,7 +844,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Problem.stub(element) unless element.nil?
+          data << Problem.stub(element) unless element.nil?
         end
         data
       end
@@ -858,8 +860,8 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -878,7 +880,7 @@ module AWS::SDK::ApplicationInsights
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -913,7 +915,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -927,7 +929,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -942,8 +944,8 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationInfo'] = Stubs::ApplicationInfo.stub(stub[:application_info]) unless stub[:application_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationInfo'] = ApplicationInfo.stub(stub[:application_info]) unless stub[:application_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -957,7 +959,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -971,7 +973,7 @@ module AWS::SDK::ApplicationInsights
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -988,8 +990,8 @@ module AWS::SDK::ApplicationInsights
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
-        data['LogPattern'] = Stubs::LogPattern.stub(stub[:log_pattern]) unless stub[:log_pattern].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LogPattern'] = LogPattern.stub(stub[:log_pattern]) unless stub[:log_pattern].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

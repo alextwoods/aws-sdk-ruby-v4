@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ConnectContactLens
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::ConnectContactLens
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Segments'] = Stubs::RealtimeContactAnalysisSegments.stub(stub[:segments]) unless stub[:segments].nil?
+        data['Segments'] = RealtimeContactAnalysisSegments.stub(stub[:segments]) unless stub[:segments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::ConnectContactLens
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RealtimeContactAnalysisSegment.stub(element) unless element.nil?
+          data << RealtimeContactAnalysisSegment.stub(element) unless element.nil?
         end
         data
       end
@@ -63,8 +65,8 @@ module AWS::SDK::ConnectContactLens
       def self.stub(stub)
         stub ||= Types::RealtimeContactAnalysisSegment.new
         data = {}
-        data['Transcript'] = Stubs::Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
-        data['Categories'] = Stubs::Categories.stub(stub[:categories]) unless stub[:categories].nil?
+        data['Transcript'] = Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Categories'] = Categories.stub(stub[:categories]) unless stub[:categories].nil?
         data
       end
     end
@@ -83,8 +85,8 @@ module AWS::SDK::ConnectContactLens
       def self.stub(stub)
         stub ||= Types::Categories.new
         data = {}
-        data['MatchedCategories'] = Stubs::MatchedCategories.stub(stub[:matched_categories]) unless stub[:matched_categories].nil?
-        data['MatchedDetails'] = Stubs::MatchedDetails.stub(stub[:matched_details]) unless stub[:matched_details].nil?
+        data['MatchedCategories'] = MatchedCategories.stub(stub[:matched_categories]) unless stub[:matched_categories].nil?
+        data['MatchedDetails'] = MatchedDetails.stub(stub[:matched_details]) unless stub[:matched_details].nil?
         data
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::ConnectContactLens
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::CategoryDetails.stub(value) unless value.nil?
+          data[key] = CategoryDetails.stub(value) unless value.nil?
         end
         data
       end
@@ -122,7 +124,7 @@ module AWS::SDK::ConnectContactLens
       def self.stub(stub)
         stub ||= Types::CategoryDetails.new
         data = {}
-        data['PointsOfInterest'] = Stubs::PointsOfInterest.stub(stub[:points_of_interest]) unless stub[:points_of_interest].nil?
+        data['PointsOfInterest'] = PointsOfInterest.stub(stub[:points_of_interest]) unless stub[:points_of_interest].nil?
         data
       end
     end
@@ -141,7 +143,7 @@ module AWS::SDK::ConnectContactLens
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PointOfInterest.stub(element) unless element.nil?
+          data << PointOfInterest.stub(element) unless element.nil?
         end
         data
       end
@@ -214,7 +216,7 @@ module AWS::SDK::ConnectContactLens
         data['BeginOffsetMillis'] = stub[:begin_offset_millis] unless stub[:begin_offset_millis].nil?
         data['EndOffsetMillis'] = stub[:end_offset_millis] unless stub[:end_offset_millis].nil?
         data['Sentiment'] = stub[:sentiment] unless stub[:sentiment].nil?
-        data['IssuesDetected'] = Stubs::IssuesDetected.stub(stub[:issues_detected]) unless stub[:issues_detected].nil?
+        data['IssuesDetected'] = IssuesDetected.stub(stub[:issues_detected]) unless stub[:issues_detected].nil?
         data
       end
     end
@@ -233,7 +235,7 @@ module AWS::SDK::ConnectContactLens
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IssueDetected.stub(element) unless element.nil?
+          data << IssueDetected.stub(element) unless element.nil?
         end
         data
       end
@@ -252,7 +254,7 @@ module AWS::SDK::ConnectContactLens
       def self.stub(stub)
         stub ||= Types::IssueDetected.new
         data = {}
-        data['CharacterOffsets'] = Stubs::CharacterOffsets.stub(stub[:character_offsets]) unless stub[:character_offsets].nil?
+        data['CharacterOffsets'] = CharacterOffsets.stub(stub[:character_offsets]) unless stub[:character_offsets].nil?
         data
       end
     end

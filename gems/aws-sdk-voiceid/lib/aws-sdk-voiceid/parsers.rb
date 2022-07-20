@@ -17,7 +17,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain = (Parsers::Domain.parse(map['Domain']) unless map['Domain'].nil?)
+        data.domain = (Domain.parse(map['Domain']) unless map['Domain'].nil?)
         data
       end
     end
@@ -30,10 +30,10 @@ module AWS::SDK::VoiceID
         data.name = map['Name']
         data.description = map['Description']
         data.domain_status = map['DomainStatus']
-        data.server_side_encryption_configuration = (Parsers::ServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
+        data.server_side_encryption_configuration = (ServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.server_side_encryption_update_details = (Parsers::ServerSideEncryptionUpdateDetails.parse(map['ServerSideEncryptionUpdateDetails']) unless map['ServerSideEncryptionUpdateDetails'].nil?)
+        data.server_side_encryption_update_details = (ServerSideEncryptionUpdateDetails.parse(map['ServerSideEncryptionUpdateDetails']) unless map['ServerSideEncryptionUpdateDetails'].nil?)
         return data
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain = (Parsers::Domain.parse(map['Domain']) unless map['Domain'].nil?)
+        data.domain = (Domain.parse(map['Domain']) unless map['Domain'].nil?)
         data
       end
     end
@@ -194,7 +194,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fraudster = (Parsers::Fraudster.parse(map['Fraudster']) unless map['Fraudster'].nil?)
+        data.fraudster = (Fraudster.parse(map['Fraudster']) unless map['Fraudster'].nil?)
         data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job = (Parsers::FraudsterRegistrationJob.parse(map['Job']) unless map['Job'].nil?)
+        data.job = (FraudsterRegistrationJob.parse(map['Job']) unless map['Job'].nil?)
         data
       end
     end
@@ -229,13 +229,13 @@ module AWS::SDK::VoiceID
         data.job_status = map['JobStatus']
         data.domain_id = map['DomainId']
         data.data_access_role_arn = map['DataAccessRoleArn']
-        data.registration_config = (Parsers::RegistrationConfig.parse(map['RegistrationConfig']) unless map['RegistrationConfig'].nil?)
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.registration_config = (RegistrationConfig.parse(map['RegistrationConfig']) unless map['RegistrationConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.ended_at = Time.at(map['EndedAt'].to_i) if map['EndedAt']
-        data.failure_details = (Parsers::FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
-        data.job_progress = (Parsers::JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
+        data.failure_details = (FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.job_progress = (JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
         return data
       end
     end
@@ -290,7 +290,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.speaker = (Parsers::Speaker.parse(map['Speaker']) unless map['Speaker'].nil?)
+        data.speaker = (Speaker.parse(map['Speaker']) unless map['Speaker'].nil?)
         data
       end
     end
@@ -316,7 +316,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job = (Parsers::SpeakerEnrollmentJob.parse(map['Job']) unless map['Job'].nil?)
+        data.job = (SpeakerEnrollmentJob.parse(map['Job']) unless map['Job'].nil?)
         data
       end
     end
@@ -329,13 +329,13 @@ module AWS::SDK::VoiceID
         data.job_status = map['JobStatus']
         data.domain_id = map['DomainId']
         data.data_access_role_arn = map['DataAccessRoleArn']
-        data.enrollment_config = (Parsers::EnrollmentConfig.parse(map['EnrollmentConfig']) unless map['EnrollmentConfig'].nil?)
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.enrollment_config = (EnrollmentConfig.parse(map['EnrollmentConfig']) unless map['EnrollmentConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.ended_at = Time.at(map['EndedAt'].to_i) if map['EndedAt']
-        data.failure_details = (Parsers::FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
-        data.job_progress = (Parsers::JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
+        data.failure_details = (FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.job_progress = (JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
         return data
       end
     end
@@ -344,7 +344,7 @@ module AWS::SDK::VoiceID
       def self.parse(map)
         data = Types::EnrollmentConfig.new
         data.existing_enrollment_action = map['ExistingEnrollmentAction']
-        data.fraud_detection_config = (Parsers::EnrollmentJobFraudDetectionConfig.parse(map['FraudDetectionConfig']) unless map['FraudDetectionConfig'].nil?)
+        data.fraud_detection_config = (EnrollmentJobFraudDetectionConfig.parse(map['FraudDetectionConfig']) unless map['FraudDetectionConfig'].nil?)
         return data
       end
     end
@@ -369,8 +369,8 @@ module AWS::SDK::VoiceID
         data.session_id = map['SessionId']
         data.session_name = map['SessionName']
         data.streaming_status = map['StreamingStatus']
-        data.authentication_result = (Parsers::AuthenticationResult.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
-        data.fraud_detection_result = (Parsers::FraudDetectionResult.parse(map['FraudDetectionResult']) unless map['FraudDetectionResult'].nil?)
+        data.authentication_result = (AuthenticationResult.parse(map['AuthenticationResult']) unless map['AuthenticationResult'].nil?)
+        data.fraud_detection_result = (FraudDetectionResult.parse(map['FraudDetectionResult']) unless map['FraudDetectionResult'].nil?)
         data
       end
     end
@@ -381,10 +381,10 @@ module AWS::SDK::VoiceID
         data.fraud_detection_result_id = map['FraudDetectionResultId']
         data.audio_aggregation_started_at = Time.at(map['AudioAggregationStartedAt'].to_i) if map['AudioAggregationStartedAt']
         data.audio_aggregation_ended_at = Time.at(map['AudioAggregationEndedAt'].to_i) if map['AudioAggregationEndedAt']
-        data.configuration = (Parsers::FraudDetectionConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (FraudDetectionConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data.decision = map['Decision']
-        data.reasons = (Parsers::FraudDetectionReasons.parse(map['Reasons']) unless map['Reasons'].nil?)
-        data.risk_details = (Parsers::FraudRiskDetails.parse(map['RiskDetails']) unless map['RiskDetails'].nil?)
+        data.reasons = (FraudDetectionReasons.parse(map['Reasons']) unless map['Reasons'].nil?)
+        data.risk_details = (FraudRiskDetails.parse(map['RiskDetails']) unless map['RiskDetails'].nil?)
         return data
       end
     end
@@ -392,7 +392,7 @@ module AWS::SDK::VoiceID
     class FraudRiskDetails
       def self.parse(map)
         data = Types::FraudRiskDetails.new
-        data.known_fraudster_risk = (Parsers::KnownFraudsterRisk.parse(map['KnownFraudsterRisk']) unless map['KnownFraudsterRisk'].nil?)
+        data.known_fraudster_risk = (KnownFraudsterRisk.parse(map['KnownFraudsterRisk']) unless map['KnownFraudsterRisk'].nil?)
         return data
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::VoiceID
         data.generated_speaker_id = map['GeneratedSpeakerId']
         data.decision = map['Decision']
         data.score = map['Score']
-        data.configuration = (Parsers::AuthenticationConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (AuthenticationConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         return data
       end
     end
@@ -452,7 +452,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain_summaries = (Parsers::DomainSummaries.parse(map['DomainSummaries']) unless map['DomainSummaries'].nil?)
+        data.domain_summaries = (DomainSummaries.parse(map['DomainSummaries']) unless map['DomainSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -461,7 +461,7 @@ module AWS::SDK::VoiceID
     class DomainSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainSummary.parse(value) unless value.nil?
+          DomainSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -474,10 +474,10 @@ module AWS::SDK::VoiceID
         data.name = map['Name']
         data.description = map['Description']
         data.domain_status = map['DomainStatus']
-        data.server_side_encryption_configuration = (Parsers::ServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
+        data.server_side_encryption_configuration = (ServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.server_side_encryption_update_details = (Parsers::ServerSideEncryptionUpdateDetails.parse(map['ServerSideEncryptionUpdateDetails']) unless map['ServerSideEncryptionUpdateDetails'].nil?)
+        data.server_side_encryption_update_details = (ServerSideEncryptionUpdateDetails.parse(map['ServerSideEncryptionUpdateDetails']) unless map['ServerSideEncryptionUpdateDetails'].nil?)
         return data
       end
     end
@@ -489,7 +489,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_summaries = (Parsers::FraudsterRegistrationJobSummaries.parse(map['JobSummaries']) unless map['JobSummaries'].nil?)
+        data.job_summaries = (FraudsterRegistrationJobSummaries.parse(map['JobSummaries']) unless map['JobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -498,7 +498,7 @@ module AWS::SDK::VoiceID
     class FraudsterRegistrationJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::FraudsterRegistrationJobSummary.parse(value) unless value.nil?
+          FraudsterRegistrationJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -512,8 +512,8 @@ module AWS::SDK::VoiceID
         data.domain_id = map['DomainId']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.ended_at = Time.at(map['EndedAt'].to_i) if map['EndedAt']
-        data.failure_details = (Parsers::FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
-        data.job_progress = (Parsers::JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
+        data.failure_details = (FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.job_progress = (JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
         return data
       end
     end
@@ -525,7 +525,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_summaries = (Parsers::SpeakerEnrollmentJobSummaries.parse(map['JobSummaries']) unless map['JobSummaries'].nil?)
+        data.job_summaries = (SpeakerEnrollmentJobSummaries.parse(map['JobSummaries']) unless map['JobSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -534,7 +534,7 @@ module AWS::SDK::VoiceID
     class SpeakerEnrollmentJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SpeakerEnrollmentJobSummary.parse(value) unless value.nil?
+          SpeakerEnrollmentJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -548,8 +548,8 @@ module AWS::SDK::VoiceID
         data.domain_id = map['DomainId']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.ended_at = Time.at(map['EndedAt'].to_i) if map['EndedAt']
-        data.failure_details = (Parsers::FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
-        data.job_progress = (Parsers::JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
+        data.failure_details = (FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.job_progress = (JobProgress.parse(map['JobProgress']) unless map['JobProgress'].nil?)
         return data
       end
     end
@@ -561,7 +561,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.speaker_summaries = (Parsers::SpeakerSummaries.parse(map['SpeakerSummaries']) unless map['SpeakerSummaries'].nil?)
+        data.speaker_summaries = (SpeakerSummaries.parse(map['SpeakerSummaries']) unless map['SpeakerSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -570,7 +570,7 @@ module AWS::SDK::VoiceID
     class SpeakerSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SpeakerSummary.parse(value) unless value.nil?
+          SpeakerSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -604,7 +604,7 @@ module AWS::SDK::VoiceID
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -625,7 +625,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.speaker = (Parsers::Speaker.parse(map['Speaker']) unless map['Speaker'].nil?)
+        data.speaker = (Speaker.parse(map['Speaker']) unless map['Speaker'].nil?)
         data
       end
     end
@@ -637,7 +637,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job = (Parsers::FraudsterRegistrationJob.parse(map['Job']) unless map['Job'].nil?)
+        data.job = (FraudsterRegistrationJob.parse(map['Job']) unless map['Job'].nil?)
         data
       end
     end
@@ -649,7 +649,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job = (Parsers::SpeakerEnrollmentJob.parse(map['Job']) unless map['Job'].nil?)
+        data.job = (SpeakerEnrollmentJob.parse(map['Job']) unless map['Job'].nil?)
         data
       end
     end
@@ -683,7 +683,7 @@ module AWS::SDK::VoiceID
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain = (Parsers::Domain.parse(map['Domain']) unless map['Domain'].nil?)
+        data.domain = (Domain.parse(map['Domain']) unless map['Domain'].nil?)
         data
       end
     end

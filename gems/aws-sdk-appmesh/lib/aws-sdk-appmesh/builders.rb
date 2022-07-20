@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppMesh
   module Builders
 
@@ -33,10 +35,10 @@ module AWS::SDK::AppMesh
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['gatewayRouteName'] = input[:gateway_route_name] unless input[:gateway_route_name].nil?
-        data['spec'] = Builders::GatewayRouteSpec.build(input[:spec]) unless input[:spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['spec'] = GatewayRouteSpec.build(input[:spec]) unless input[:spec].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagRef.build(element) unless element.nil?
+          data << TagRef.build(element) unless element.nil?
         end
         data
       end
@@ -66,9 +68,9 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['priority'] = input[:priority] unless input[:priority].nil?
-        data['httpRoute'] = Builders::HttpGatewayRoute.build(input[:http_route]) unless input[:http_route].nil?
-        data['http2Route'] = Builders::HttpGatewayRoute.build(input[:http2_route]) unless input[:http2_route].nil?
-        data['grpcRoute'] = Builders::GrpcGatewayRoute.build(input[:grpc_route]) unless input[:grpc_route].nil?
+        data['httpRoute'] = HttpGatewayRoute.build(input[:http_route]) unless input[:http_route].nil?
+        data['http2Route'] = HttpGatewayRoute.build(input[:http2_route]) unless input[:http2_route].nil?
+        data['grpcRoute'] = GrpcGatewayRoute.build(input[:grpc_route]) unless input[:grpc_route].nil?
         data
       end
     end
@@ -77,8 +79,8 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRoute
       def self.build(input)
         data = {}
-        data['match'] = Builders::GrpcGatewayRouteMatch.build(input[:match]) unless input[:match].nil?
-        data['action'] = Builders::GrpcGatewayRouteAction.build(input[:action]) unless input[:action].nil?
+        data['match'] = GrpcGatewayRouteMatch.build(input[:match]) unless input[:match].nil?
+        data['action'] = GrpcGatewayRouteAction.build(input[:action]) unless input[:action].nil?
         data
       end
     end
@@ -87,8 +89,8 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRouteAction
       def self.build(input)
         data = {}
-        data['target'] = Builders::GatewayRouteTarget.build(input[:target]) unless input[:target].nil?
-        data['rewrite'] = Builders::GrpcGatewayRouteRewrite.build(input[:rewrite]) unless input[:rewrite].nil?
+        data['target'] = GatewayRouteTarget.build(input[:target]) unless input[:target].nil?
+        data['rewrite'] = GrpcGatewayRouteRewrite.build(input[:rewrite]) unless input[:rewrite].nil?
         data
       end
     end
@@ -97,7 +99,7 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRouteRewrite
       def self.build(input)
         data = {}
-        data['hostname'] = Builders::GatewayRouteHostnameRewrite.build(input[:hostname]) unless input[:hostname].nil?
+        data['hostname'] = GatewayRouteHostnameRewrite.build(input[:hostname]) unless input[:hostname].nil?
         data
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::AppMesh
     class GatewayRouteTarget
       def self.build(input)
         data = {}
-        data['virtualService'] = Builders::GatewayRouteVirtualService.build(input[:virtual_service]) unless input[:virtual_service].nil?
+        data['virtualService'] = GatewayRouteVirtualService.build(input[:virtual_service]) unless input[:virtual_service].nil?
         data
       end
     end
@@ -134,8 +136,8 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        data['hostname'] = Builders::GatewayRouteHostnameMatch.build(input[:hostname]) unless input[:hostname].nil?
-        data['metadata'] = Builders::GrpcGatewayRouteMetadataList.build(input[:metadata]) unless input[:metadata].nil?
+        data['hostname'] = GatewayRouteHostnameMatch.build(input[:hostname]) unless input[:hostname].nil?
+        data['metadata'] = GrpcGatewayRouteMetadataList.build(input[:metadata]) unless input[:metadata].nil?
         data
       end
     end
@@ -145,7 +147,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GrpcGatewayRouteMetadata.build(element) unless element.nil?
+          data << GrpcGatewayRouteMetadata.build(element) unless element.nil?
         end
         data
       end
@@ -157,7 +159,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['invert'] = input[:invert] unless input[:invert].nil?
-        data['match'] = Builders::GrpcMetadataMatchMethod.build(input[:match]) unless input[:match].nil?
+        data['match'] = GrpcMetadataMatchMethod.build(input[:match]) unless input[:match].nil?
         data
       end
     end
@@ -172,7 +174,7 @@ module AWS::SDK::AppMesh
         when Types::GrpcMetadataMatchMethod::Regex
           data['regex'] = input
         when Types::GrpcMetadataMatchMethod::Range
-          data['range'] = (Builders::MatchRange.build(input) unless input.nil?)
+          data['range'] = (MatchRange.build(input) unless input.nil?)
         when Types::GrpcMetadataMatchMethod::Prefix
           data['prefix'] = input
         when Types::GrpcMetadataMatchMethod::Suffix
@@ -210,8 +212,8 @@ module AWS::SDK::AppMesh
     class HttpGatewayRoute
       def self.build(input)
         data = {}
-        data['match'] = Builders::HttpGatewayRouteMatch.build(input[:match]) unless input[:match].nil?
-        data['action'] = Builders::HttpGatewayRouteAction.build(input[:action]) unless input[:action].nil?
+        data['match'] = HttpGatewayRouteMatch.build(input[:match]) unless input[:match].nil?
+        data['action'] = HttpGatewayRouteAction.build(input[:action]) unless input[:action].nil?
         data
       end
     end
@@ -220,8 +222,8 @@ module AWS::SDK::AppMesh
     class HttpGatewayRouteAction
       def self.build(input)
         data = {}
-        data['target'] = Builders::GatewayRouteTarget.build(input[:target]) unless input[:target].nil?
-        data['rewrite'] = Builders::HttpGatewayRouteRewrite.build(input[:rewrite]) unless input[:rewrite].nil?
+        data['target'] = GatewayRouteTarget.build(input[:target]) unless input[:target].nil?
+        data['rewrite'] = HttpGatewayRouteRewrite.build(input[:rewrite]) unless input[:rewrite].nil?
         data
       end
     end
@@ -230,9 +232,9 @@ module AWS::SDK::AppMesh
     class HttpGatewayRouteRewrite
       def self.build(input)
         data = {}
-        data['prefix'] = Builders::HttpGatewayRoutePrefixRewrite.build(input[:prefix]) unless input[:prefix].nil?
-        data['path'] = Builders::HttpGatewayRoutePathRewrite.build(input[:path]) unless input[:path].nil?
-        data['hostname'] = Builders::GatewayRouteHostnameRewrite.build(input[:hostname]) unless input[:hostname].nil?
+        data['prefix'] = HttpGatewayRoutePrefixRewrite.build(input[:prefix]) unless input[:prefix].nil?
+        data['path'] = HttpGatewayRoutePathRewrite.build(input[:path]) unless input[:path].nil?
+        data['hostname'] = GatewayRouteHostnameRewrite.build(input[:hostname]) unless input[:hostname].nil?
         data
       end
     end
@@ -261,11 +263,11 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['path'] = Builders::HttpPathMatch.build(input[:path]) unless input[:path].nil?
-        data['queryParameters'] = Builders::HttpQueryParameters.build(input[:query_parameters]) unless input[:query_parameters].nil?
+        data['path'] = HttpPathMatch.build(input[:path]) unless input[:path].nil?
+        data['queryParameters'] = HttpQueryParameters.build(input[:query_parameters]) unless input[:query_parameters].nil?
         data['method'] = input[:member_method] unless input[:member_method].nil?
-        data['hostname'] = Builders::GatewayRouteHostnameMatch.build(input[:hostname]) unless input[:hostname].nil?
-        data['headers'] = Builders::HttpGatewayRouteHeaders.build(input[:headers]) unless input[:headers].nil?
+        data['hostname'] = GatewayRouteHostnameMatch.build(input[:hostname]) unless input[:hostname].nil?
+        data['headers'] = HttpGatewayRouteHeaders.build(input[:headers]) unless input[:headers].nil?
         data
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HttpGatewayRouteHeader.build(element) unless element.nil?
+          data << HttpGatewayRouteHeader.build(element) unless element.nil?
         end
         data
       end
@@ -287,7 +289,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['invert'] = input[:invert] unless input[:invert].nil?
-        data['match'] = Builders::HeaderMatchMethod.build(input[:match]) unless input[:match].nil?
+        data['match'] = HeaderMatchMethod.build(input[:match]) unless input[:match].nil?
         data
       end
     end
@@ -302,7 +304,7 @@ module AWS::SDK::AppMesh
         when Types::HeaderMatchMethod::Regex
           data['regex'] = input
         when Types::HeaderMatchMethod::Range
-          data['range'] = (Builders::MatchRange.build(input) unless input.nil?)
+          data['range'] = (MatchRange.build(input) unless input.nil?)
         when Types::HeaderMatchMethod::Prefix
           data['prefix'] = input
         when Types::HeaderMatchMethod::Suffix
@@ -321,7 +323,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HttpQueryParameter.build(element) unless element.nil?
+          data << HttpQueryParameter.build(element) unless element.nil?
         end
         data
       end
@@ -332,7 +334,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['match'] = Builders::QueryParameterMatch.build(input[:match]) unless input[:match].nil?
+        data['match'] = QueryParameterMatch.build(input[:match]) unless input[:match].nil?
         data
       end
     end
@@ -367,10 +369,10 @@ module AWS::SDK::AppMesh
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['meshName'] = input[:mesh_name] unless input[:mesh_name].nil?
-        data['spec'] = Builders::MeshSpec.build(input[:spec]) unless input[:spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['spec'] = MeshSpec.build(input[:spec]) unless input[:spec].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -378,8 +380,8 @@ module AWS::SDK::AppMesh
     class MeshSpec
       def self.build(input)
         data = {}
-        data['egressFilter'] = Builders::EgressFilter.build(input[:egress_filter]) unless input[:egress_filter].nil?
-        data['serviceDiscovery'] = Builders::MeshServiceDiscovery.build(input[:service_discovery]) unless input[:service_discovery].nil?
+        data['egressFilter'] = EgressFilter.build(input[:egress_filter]) unless input[:egress_filter].nil?
+        data['serviceDiscovery'] = MeshServiceDiscovery.build(input[:service_discovery]) unless input[:service_discovery].nil?
         data
       end
     end
@@ -425,10 +427,10 @@ module AWS::SDK::AppMesh
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['routeName'] = input[:route_name] unless input[:route_name].nil?
-        data['spec'] = Builders::RouteSpec.build(input[:spec]) unless input[:spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['spec'] = RouteSpec.build(input[:spec]) unless input[:spec].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -437,10 +439,10 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['priority'] = input[:priority] unless input[:priority].nil?
-        data['httpRoute'] = Builders::HttpRoute.build(input[:http_route]) unless input[:http_route].nil?
-        data['tcpRoute'] = Builders::TcpRoute.build(input[:tcp_route]) unless input[:tcp_route].nil?
-        data['http2Route'] = Builders::HttpRoute.build(input[:http2_route]) unless input[:http2_route].nil?
-        data['grpcRoute'] = Builders::GrpcRoute.build(input[:grpc_route]) unless input[:grpc_route].nil?
+        data['httpRoute'] = HttpRoute.build(input[:http_route]) unless input[:http_route].nil?
+        data['tcpRoute'] = TcpRoute.build(input[:tcp_route]) unless input[:tcp_route].nil?
+        data['http2Route'] = HttpRoute.build(input[:http2_route]) unless input[:http2_route].nil?
+        data['grpcRoute'] = GrpcRoute.build(input[:grpc_route]) unless input[:grpc_route].nil?
         data
       end
     end
@@ -449,10 +451,10 @@ module AWS::SDK::AppMesh
     class GrpcRoute
       def self.build(input)
         data = {}
-        data['action'] = Builders::GrpcRouteAction.build(input[:action]) unless input[:action].nil?
-        data['match'] = Builders::GrpcRouteMatch.build(input[:match]) unless input[:match].nil?
-        data['retryPolicy'] = Builders::GrpcRetryPolicy.build(input[:retry_policy]) unless input[:retry_policy].nil?
-        data['timeout'] = Builders::GrpcTimeout.build(input[:timeout]) unless input[:timeout].nil?
+        data['action'] = GrpcRouteAction.build(input[:action]) unless input[:action].nil?
+        data['match'] = GrpcRouteMatch.build(input[:match]) unless input[:match].nil?
+        data['retryPolicy'] = GrpcRetryPolicy.build(input[:retry_policy]) unless input[:retry_policy].nil?
+        data['timeout'] = GrpcTimeout.build(input[:timeout]) unless input[:timeout].nil?
         data
       end
     end
@@ -461,8 +463,8 @@ module AWS::SDK::AppMesh
     class GrpcTimeout
       def self.build(input)
         data = {}
-        data['perRequest'] = Builders::Duration.build(input[:per_request]) unless input[:per_request].nil?
-        data['idle'] = Builders::Duration.build(input[:idle]) unless input[:idle].nil?
+        data['perRequest'] = Duration.build(input[:per_request]) unless input[:per_request].nil?
+        data['idle'] = Duration.build(input[:idle]) unless input[:idle].nil?
         data
       end
     end
@@ -481,11 +483,11 @@ module AWS::SDK::AppMesh
     class GrpcRetryPolicy
       def self.build(input)
         data = {}
-        data['perRetryTimeout'] = Builders::Duration.build(input[:per_retry_timeout]) unless input[:per_retry_timeout].nil?
+        data['perRetryTimeout'] = Duration.build(input[:per_retry_timeout]) unless input[:per_retry_timeout].nil?
         data['maxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        data['httpRetryEvents'] = Builders::HttpRetryPolicyEvents.build(input[:http_retry_events]) unless input[:http_retry_events].nil?
-        data['tcpRetryEvents'] = Builders::TcpRetryPolicyEvents.build(input[:tcp_retry_events]) unless input[:tcp_retry_events].nil?
-        data['grpcRetryEvents'] = Builders::GrpcRetryPolicyEvents.build(input[:grpc_retry_events]) unless input[:grpc_retry_events].nil?
+        data['httpRetryEvents'] = HttpRetryPolicyEvents.build(input[:http_retry_events]) unless input[:http_retry_events].nil?
+        data['tcpRetryEvents'] = TcpRetryPolicyEvents.build(input[:tcp_retry_events]) unless input[:tcp_retry_events].nil?
+        data['grpcRetryEvents'] = GrpcRetryPolicyEvents.build(input[:grpc_retry_events]) unless input[:grpc_retry_events].nil?
         data
       end
     end
@@ -529,7 +531,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['methodName'] = input[:method_name] unless input[:method_name].nil?
-        data['metadata'] = Builders::GrpcRouteMetadataList.build(input[:metadata]) unless input[:metadata].nil?
+        data['metadata'] = GrpcRouteMetadataList.build(input[:metadata]) unless input[:metadata].nil?
         data
       end
     end
@@ -539,7 +541,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GrpcRouteMetadata.build(element) unless element.nil?
+          data << GrpcRouteMetadata.build(element) unless element.nil?
         end
         data
       end
@@ -551,7 +553,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['invert'] = input[:invert] unless input[:invert].nil?
-        data['match'] = Builders::GrpcRouteMetadataMatchMethod.build(input[:match]) unless input[:match].nil?
+        data['match'] = GrpcRouteMetadataMatchMethod.build(input[:match]) unless input[:match].nil?
         data
       end
     end
@@ -566,7 +568,7 @@ module AWS::SDK::AppMesh
         when Types::GrpcRouteMetadataMatchMethod::Regex
           data['regex'] = input
         when Types::GrpcRouteMetadataMatchMethod::Range
-          data['range'] = (Builders::MatchRange.build(input) unless input.nil?)
+          data['range'] = (MatchRange.build(input) unless input.nil?)
         when Types::GrpcRouteMetadataMatchMethod::Prefix
           data['prefix'] = input
         when Types::GrpcRouteMetadataMatchMethod::Suffix
@@ -584,7 +586,7 @@ module AWS::SDK::AppMesh
     class GrpcRouteAction
       def self.build(input)
         data = {}
-        data['weightedTargets'] = Builders::WeightedTargets.build(input[:weighted_targets]) unless input[:weighted_targets].nil?
+        data['weightedTargets'] = WeightedTargets.build(input[:weighted_targets]) unless input[:weighted_targets].nil?
         data
       end
     end
@@ -594,7 +596,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WeightedTarget.build(element) unless element.nil?
+          data << WeightedTarget.build(element) unless element.nil?
         end
         data
       end
@@ -614,10 +616,10 @@ module AWS::SDK::AppMesh
     class HttpRoute
       def self.build(input)
         data = {}
-        data['match'] = Builders::HttpRouteMatch.build(input[:match]) unless input[:match].nil?
-        data['action'] = Builders::HttpRouteAction.build(input[:action]) unless input[:action].nil?
-        data['retryPolicy'] = Builders::HttpRetryPolicy.build(input[:retry_policy]) unless input[:retry_policy].nil?
-        data['timeout'] = Builders::HttpTimeout.build(input[:timeout]) unless input[:timeout].nil?
+        data['match'] = HttpRouteMatch.build(input[:match]) unless input[:match].nil?
+        data['action'] = HttpRouteAction.build(input[:action]) unless input[:action].nil?
+        data['retryPolicy'] = HttpRetryPolicy.build(input[:retry_policy]) unless input[:retry_policy].nil?
+        data['timeout'] = HttpTimeout.build(input[:timeout]) unless input[:timeout].nil?
         data
       end
     end
@@ -626,8 +628,8 @@ module AWS::SDK::AppMesh
     class HttpTimeout
       def self.build(input)
         data = {}
-        data['perRequest'] = Builders::Duration.build(input[:per_request]) unless input[:per_request].nil?
-        data['idle'] = Builders::Duration.build(input[:idle]) unless input[:idle].nil?
+        data['perRequest'] = Duration.build(input[:per_request]) unless input[:per_request].nil?
+        data['idle'] = Duration.build(input[:idle]) unless input[:idle].nil?
         data
       end
     end
@@ -636,10 +638,10 @@ module AWS::SDK::AppMesh
     class HttpRetryPolicy
       def self.build(input)
         data = {}
-        data['perRetryTimeout'] = Builders::Duration.build(input[:per_retry_timeout]) unless input[:per_retry_timeout].nil?
+        data['perRetryTimeout'] = Duration.build(input[:per_retry_timeout]) unless input[:per_retry_timeout].nil?
         data['maxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        data['httpRetryEvents'] = Builders::HttpRetryPolicyEvents.build(input[:http_retry_events]) unless input[:http_retry_events].nil?
-        data['tcpRetryEvents'] = Builders::TcpRetryPolicyEvents.build(input[:tcp_retry_events]) unless input[:tcp_retry_events].nil?
+        data['httpRetryEvents'] = HttpRetryPolicyEvents.build(input[:http_retry_events]) unless input[:http_retry_events].nil?
+        data['tcpRetryEvents'] = TcpRetryPolicyEvents.build(input[:tcp_retry_events]) unless input[:tcp_retry_events].nil?
         data
       end
     end
@@ -648,7 +650,7 @@ module AWS::SDK::AppMesh
     class HttpRouteAction
       def self.build(input)
         data = {}
-        data['weightedTargets'] = Builders::WeightedTargets.build(input[:weighted_targets]) unless input[:weighted_targets].nil?
+        data['weightedTargets'] = WeightedTargets.build(input[:weighted_targets]) unless input[:weighted_targets].nil?
         data
       end
     end
@@ -658,11 +660,11 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['path'] = Builders::HttpPathMatch.build(input[:path]) unless input[:path].nil?
-        data['queryParameters'] = Builders::HttpQueryParameters.build(input[:query_parameters]) unless input[:query_parameters].nil?
+        data['path'] = HttpPathMatch.build(input[:path]) unless input[:path].nil?
+        data['queryParameters'] = HttpQueryParameters.build(input[:query_parameters]) unless input[:query_parameters].nil?
         data['method'] = input[:member_method] unless input[:member_method].nil?
         data['scheme'] = input[:scheme] unless input[:scheme].nil?
-        data['headers'] = Builders::HttpRouteHeaders.build(input[:headers]) unless input[:headers].nil?
+        data['headers'] = HttpRouteHeaders.build(input[:headers]) unless input[:headers].nil?
         data
       end
     end
@@ -672,7 +674,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HttpRouteHeader.build(element) unless element.nil?
+          data << HttpRouteHeader.build(element) unless element.nil?
         end
         data
       end
@@ -684,7 +686,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['invert'] = input[:invert] unless input[:invert].nil?
-        data['match'] = Builders::HeaderMatchMethod.build(input[:match]) unless input[:match].nil?
+        data['match'] = HeaderMatchMethod.build(input[:match]) unless input[:match].nil?
         data
       end
     end
@@ -693,8 +695,8 @@ module AWS::SDK::AppMesh
     class TcpRoute
       def self.build(input)
         data = {}
-        data['action'] = Builders::TcpRouteAction.build(input[:action]) unless input[:action].nil?
-        data['timeout'] = Builders::TcpTimeout.build(input[:timeout]) unless input[:timeout].nil?
+        data['action'] = TcpRouteAction.build(input[:action]) unless input[:action].nil?
+        data['timeout'] = TcpTimeout.build(input[:timeout]) unless input[:timeout].nil?
         data
       end
     end
@@ -703,7 +705,7 @@ module AWS::SDK::AppMesh
     class TcpTimeout
       def self.build(input)
         data = {}
-        data['idle'] = Builders::Duration.build(input[:idle]) unless input[:idle].nil?
+        data['idle'] = Duration.build(input[:idle]) unless input[:idle].nil?
         data
       end
     end
@@ -712,7 +714,7 @@ module AWS::SDK::AppMesh
     class TcpRouteAction
       def self.build(input)
         data = {}
-        data['weightedTargets'] = Builders::WeightedTargets.build(input[:weighted_targets]) unless input[:weighted_targets].nil?
+        data['weightedTargets'] = WeightedTargets.build(input[:weighted_targets]) unless input[:weighted_targets].nil?
         data
       end
     end
@@ -736,10 +738,10 @@ module AWS::SDK::AppMesh
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['virtualGatewayName'] = input[:virtual_gateway_name] unless input[:virtual_gateway_name].nil?
-        data['spec'] = Builders::VirtualGatewaySpec.build(input[:spec]) unless input[:spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['spec'] = VirtualGatewaySpec.build(input[:spec]) unless input[:spec].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -747,9 +749,9 @@ module AWS::SDK::AppMesh
     class VirtualGatewaySpec
       def self.build(input)
         data = {}
-        data['backendDefaults'] = Builders::VirtualGatewayBackendDefaults.build(input[:backend_defaults]) unless input[:backend_defaults].nil?
-        data['listeners'] = Builders::VirtualGatewayListeners.build(input[:listeners]) unless input[:listeners].nil?
-        data['logging'] = Builders::VirtualGatewayLogging.build(input[:logging]) unless input[:logging].nil?
+        data['backendDefaults'] = VirtualGatewayBackendDefaults.build(input[:backend_defaults]) unless input[:backend_defaults].nil?
+        data['listeners'] = VirtualGatewayListeners.build(input[:listeners]) unless input[:listeners].nil?
+        data['logging'] = VirtualGatewayLogging.build(input[:logging]) unless input[:logging].nil?
         data
       end
     end
@@ -758,7 +760,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayLogging
       def self.build(input)
         data = {}
-        data['accessLog'] = Builders::VirtualGatewayAccessLog.build(input[:access_log]) unless input[:access_log].nil?
+        data['accessLog'] = VirtualGatewayAccessLog.build(input[:access_log]) unless input[:access_log].nil?
         data
       end
     end
@@ -769,7 +771,7 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualGatewayAccessLog::File
-          data['file'] = (Builders::VirtualGatewayFileAccessLog.build(input) unless input.nil?)
+          data['file'] = (VirtualGatewayFileAccessLog.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayAccessLog"
@@ -793,7 +795,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VirtualGatewayListener.build(element) unless element.nil?
+          data << VirtualGatewayListener.build(element) unless element.nil?
         end
         data
       end
@@ -803,10 +805,10 @@ module AWS::SDK::AppMesh
     class VirtualGatewayListener
       def self.build(input)
         data = {}
-        data['healthCheck'] = Builders::VirtualGatewayHealthCheckPolicy.build(input[:health_check]) unless input[:health_check].nil?
-        data['portMapping'] = Builders::VirtualGatewayPortMapping.build(input[:port_mapping]) unless input[:port_mapping].nil?
-        data['tls'] = Builders::VirtualGatewayListenerTls.build(input[:tls]) unless input[:tls].nil?
-        data['connectionPool'] = Builders::VirtualGatewayConnectionPool.build(input[:connection_pool]) unless input[:connection_pool].nil?
+        data['healthCheck'] = VirtualGatewayHealthCheckPolicy.build(input[:health_check]) unless input[:health_check].nil?
+        data['portMapping'] = VirtualGatewayPortMapping.build(input[:port_mapping]) unless input[:port_mapping].nil?
+        data['tls'] = VirtualGatewayListenerTls.build(input[:tls]) unless input[:tls].nil?
+        data['connectionPool'] = VirtualGatewayConnectionPool.build(input[:connection_pool]) unless input[:connection_pool].nil?
         data
       end
     end
@@ -817,11 +819,11 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualGatewayConnectionPool::Http
-          data['http'] = (Builders::VirtualGatewayHttpConnectionPool.build(input) unless input.nil?)
+          data['http'] = (VirtualGatewayHttpConnectionPool.build(input) unless input.nil?)
         when Types::VirtualGatewayConnectionPool::Http2
-          data['http2'] = (Builders::VirtualGatewayHttp2ConnectionPool.build(input) unless input.nil?)
+          data['http2'] = (VirtualGatewayHttp2ConnectionPool.build(input) unless input.nil?)
         when Types::VirtualGatewayConnectionPool::Grpc
-          data['grpc'] = (Builders::VirtualGatewayGrpcConnectionPool.build(input) unless input.nil?)
+          data['grpc'] = (VirtualGatewayGrpcConnectionPool.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayConnectionPool"
@@ -864,8 +866,8 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['mode'] = input[:mode] unless input[:mode].nil?
-        data['validation'] = Builders::VirtualGatewayListenerTlsValidationContext.build(input[:validation]) unless input[:validation].nil?
-        data['certificate'] = Builders::VirtualGatewayListenerTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
+        data['validation'] = VirtualGatewayListenerTlsValidationContext.build(input[:validation]) unless input[:validation].nil?
+        data['certificate'] = VirtualGatewayListenerTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
         data
       end
     end
@@ -876,11 +878,11 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualGatewayListenerTlsCertificate::Acm
-          data['acm'] = (Builders::VirtualGatewayListenerTlsAcmCertificate.build(input) unless input.nil?)
+          data['acm'] = (VirtualGatewayListenerTlsAcmCertificate.build(input) unless input.nil?)
         when Types::VirtualGatewayListenerTlsCertificate::File
-          data['file'] = (Builders::VirtualGatewayListenerTlsFileCertificate.build(input) unless input.nil?)
+          data['file'] = (VirtualGatewayListenerTlsFileCertificate.build(input) unless input.nil?)
         when Types::VirtualGatewayListenerTlsCertificate::Sds
-          data['sds'] = (Builders::VirtualGatewayListenerTlsSdsCertificate.build(input) unless input.nil?)
+          data['sds'] = (VirtualGatewayListenerTlsSdsCertificate.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayListenerTlsCertificate"
@@ -922,8 +924,8 @@ module AWS::SDK::AppMesh
     class VirtualGatewayListenerTlsValidationContext
       def self.build(input)
         data = {}
-        data['trust'] = Builders::VirtualGatewayListenerTlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
-        data['subjectAlternativeNames'] = Builders::SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['trust'] = VirtualGatewayListenerTlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
         data
       end
     end
@@ -932,7 +934,7 @@ module AWS::SDK::AppMesh
     class SubjectAlternativeNames
       def self.build(input)
         data = {}
-        data['match'] = Builders::SubjectAlternativeNameMatchers.build(input[:match]) unless input[:match].nil?
+        data['match'] = SubjectAlternativeNameMatchers.build(input[:match]) unless input[:match].nil?
         data
       end
     end
@@ -941,7 +943,7 @@ module AWS::SDK::AppMesh
     class SubjectAlternativeNameMatchers
       def self.build(input)
         data = {}
-        data['exact'] = Builders::SubjectAlternativeNameList.build(input[:exact]) unless input[:exact].nil?
+        data['exact'] = SubjectAlternativeNameList.build(input[:exact]) unless input[:exact].nil?
         data
       end
     end
@@ -963,9 +965,9 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualGatewayListenerTlsValidationContextTrust::File
-          data['file'] = (Builders::VirtualGatewayTlsValidationContextFileTrust.build(input) unless input.nil?)
+          data['file'] = (VirtualGatewayTlsValidationContextFileTrust.build(input) unless input.nil?)
         when Types::VirtualGatewayListenerTlsValidationContextTrust::Sds
-          data['sds'] = (Builders::VirtualGatewayTlsValidationContextSdsTrust.build(input) unless input.nil?)
+          data['sds'] = (VirtualGatewayTlsValidationContextSdsTrust.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayListenerTlsValidationContextTrust"
@@ -1022,7 +1024,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayBackendDefaults
       def self.build(input)
         data = {}
-        data['clientPolicy'] = Builders::VirtualGatewayClientPolicy.build(input[:client_policy]) unless input[:client_policy].nil?
+        data['clientPolicy'] = VirtualGatewayClientPolicy.build(input[:client_policy]) unless input[:client_policy].nil?
         data
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayClientPolicy
       def self.build(input)
         data = {}
-        data['tls'] = Builders::VirtualGatewayClientPolicyTls.build(input[:tls]) unless input[:tls].nil?
+        data['tls'] = VirtualGatewayClientPolicyTls.build(input[:tls]) unless input[:tls].nil?
         data
       end
     end
@@ -1041,9 +1043,9 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['enforce'] = input[:enforce] unless input[:enforce].nil?
-        data['ports'] = Builders::PortSet.build(input[:ports]).to_a unless input[:ports].nil?
-        data['certificate'] = Builders::VirtualGatewayClientTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
-        data['validation'] = Builders::VirtualGatewayTlsValidationContext.build(input[:validation]) unless input[:validation].nil?
+        data['ports'] = PortSet.build(input[:ports]) unless input[:ports].nil?
+        data['certificate'] = VirtualGatewayClientTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
+        data['validation'] = VirtualGatewayTlsValidationContext.build(input[:validation]) unless input[:validation].nil?
         data
       end
     end
@@ -1052,8 +1054,8 @@ module AWS::SDK::AppMesh
     class VirtualGatewayTlsValidationContext
       def self.build(input)
         data = {}
-        data['trust'] = Builders::VirtualGatewayTlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
-        data['subjectAlternativeNames'] = Builders::SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['trust'] = VirtualGatewayTlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
         data
       end
     end
@@ -1064,11 +1066,11 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualGatewayTlsValidationContextTrust::Acm
-          data['acm'] = (Builders::VirtualGatewayTlsValidationContextAcmTrust.build(input) unless input.nil?)
+          data['acm'] = (VirtualGatewayTlsValidationContextAcmTrust.build(input) unless input.nil?)
         when Types::VirtualGatewayTlsValidationContextTrust::File
-          data['file'] = (Builders::VirtualGatewayTlsValidationContextFileTrust.build(input) unless input.nil?)
+          data['file'] = (VirtualGatewayTlsValidationContextFileTrust.build(input) unless input.nil?)
         when Types::VirtualGatewayTlsValidationContextTrust::Sds
-          data['sds'] = (Builders::VirtualGatewayTlsValidationContextSdsTrust.build(input) unless input.nil?)
+          data['sds'] = (VirtualGatewayTlsValidationContextSdsTrust.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayTlsValidationContextTrust"
@@ -1082,7 +1084,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayTlsValidationContextAcmTrust
       def self.build(input)
         data = {}
-        data['certificateAuthorityArns'] = Builders::VirtualGatewayCertificateAuthorityArns.build(input[:certificate_authority_arns]) unless input[:certificate_authority_arns].nil?
+        data['certificateAuthorityArns'] = VirtualGatewayCertificateAuthorityArns.build(input[:certificate_authority_arns]) unless input[:certificate_authority_arns].nil?
         data
       end
     end
@@ -1104,9 +1106,9 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualGatewayClientTlsCertificate::File
-          data['file'] = (Builders::VirtualGatewayListenerTlsFileCertificate.build(input) unless input.nil?)
+          data['file'] = (VirtualGatewayListenerTlsFileCertificate.build(input) unless input.nil?)
         when Types::VirtualGatewayClientTlsCertificate::Sds
-          data['sds'] = (Builders::VirtualGatewayListenerTlsSdsCertificate.build(input) unless input.nil?)
+          data['sds'] = (VirtualGatewayListenerTlsSdsCertificate.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualGatewayClientTlsCertificate"
@@ -1146,10 +1148,10 @@ module AWS::SDK::AppMesh
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['virtualNodeName'] = input[:virtual_node_name] unless input[:virtual_node_name].nil?
-        data['spec'] = Builders::VirtualNodeSpec.build(input[:spec]) unless input[:spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['spec'] = VirtualNodeSpec.build(input[:spec]) unless input[:spec].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1157,11 +1159,11 @@ module AWS::SDK::AppMesh
     class VirtualNodeSpec
       def self.build(input)
         data = {}
-        data['serviceDiscovery'] = Builders::ServiceDiscovery.build(input[:service_discovery]) unless input[:service_discovery].nil?
-        data['listeners'] = Builders::Listeners.build(input[:listeners]) unless input[:listeners].nil?
-        data['backends'] = Builders::Backends.build(input[:backends]) unless input[:backends].nil?
-        data['backendDefaults'] = Builders::BackendDefaults.build(input[:backend_defaults]) unless input[:backend_defaults].nil?
-        data['logging'] = Builders::Logging.build(input[:logging]) unless input[:logging].nil?
+        data['serviceDiscovery'] = ServiceDiscovery.build(input[:service_discovery]) unless input[:service_discovery].nil?
+        data['listeners'] = Listeners.build(input[:listeners]) unless input[:listeners].nil?
+        data['backends'] = Backends.build(input[:backends]) unless input[:backends].nil?
+        data['backendDefaults'] = BackendDefaults.build(input[:backend_defaults]) unless input[:backend_defaults].nil?
+        data['logging'] = Logging.build(input[:logging]) unless input[:logging].nil?
         data
       end
     end
@@ -1170,7 +1172,7 @@ module AWS::SDK::AppMesh
     class Logging
       def self.build(input)
         data = {}
-        data['accessLog'] = Builders::AccessLog.build(input[:access_log]) unless input[:access_log].nil?
+        data['accessLog'] = AccessLog.build(input[:access_log]) unless input[:access_log].nil?
         data
       end
     end
@@ -1181,7 +1183,7 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::AccessLog::File
-          data['file'] = (Builders::FileAccessLog.build(input) unless input.nil?)
+          data['file'] = (FileAccessLog.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::AccessLog"
@@ -1204,7 +1206,7 @@ module AWS::SDK::AppMesh
     class BackendDefaults
       def self.build(input)
         data = {}
-        data['clientPolicy'] = Builders::ClientPolicy.build(input[:client_policy]) unless input[:client_policy].nil?
+        data['clientPolicy'] = ClientPolicy.build(input[:client_policy]) unless input[:client_policy].nil?
         data
       end
     end
@@ -1213,7 +1215,7 @@ module AWS::SDK::AppMesh
     class ClientPolicy
       def self.build(input)
         data = {}
-        data['tls'] = Builders::ClientPolicyTls.build(input[:tls]) unless input[:tls].nil?
+        data['tls'] = ClientPolicyTls.build(input[:tls]) unless input[:tls].nil?
         data
       end
     end
@@ -1223,9 +1225,9 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['enforce'] = input[:enforce] unless input[:enforce].nil?
-        data['ports'] = Builders::PortSet.build(input[:ports]).to_a unless input[:ports].nil?
-        data['certificate'] = Builders::ClientTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
-        data['validation'] = Builders::TlsValidationContext.build(input[:validation]) unless input[:validation].nil?
+        data['ports'] = PortSet.build(input[:ports]) unless input[:ports].nil?
+        data['certificate'] = ClientTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
+        data['validation'] = TlsValidationContext.build(input[:validation]) unless input[:validation].nil?
         data
       end
     end
@@ -1234,8 +1236,8 @@ module AWS::SDK::AppMesh
     class TlsValidationContext
       def self.build(input)
         data = {}
-        data['trust'] = Builders::TlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
-        data['subjectAlternativeNames'] = Builders::SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['trust'] = TlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
         data
       end
     end
@@ -1246,11 +1248,11 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::TlsValidationContextTrust::Acm
-          data['acm'] = (Builders::TlsValidationContextAcmTrust.build(input) unless input.nil?)
+          data['acm'] = (TlsValidationContextAcmTrust.build(input) unless input.nil?)
         when Types::TlsValidationContextTrust::File
-          data['file'] = (Builders::TlsValidationContextFileTrust.build(input) unless input.nil?)
+          data['file'] = (TlsValidationContextFileTrust.build(input) unless input.nil?)
         when Types::TlsValidationContextTrust::Sds
-          data['sds'] = (Builders::TlsValidationContextSdsTrust.build(input) unless input.nil?)
+          data['sds'] = (TlsValidationContextSdsTrust.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::TlsValidationContextTrust"
@@ -1282,7 +1284,7 @@ module AWS::SDK::AppMesh
     class TlsValidationContextAcmTrust
       def self.build(input)
         data = {}
-        data['certificateAuthorityArns'] = Builders::CertificateAuthorityArns.build(input[:certificate_authority_arns]) unless input[:certificate_authority_arns].nil?
+        data['certificateAuthorityArns'] = CertificateAuthorityArns.build(input[:certificate_authority_arns]) unless input[:certificate_authority_arns].nil?
         data
       end
     end
@@ -1304,9 +1306,9 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::ClientTlsCertificate::File
-          data['file'] = (Builders::ListenerTlsFileCertificate.build(input) unless input.nil?)
+          data['file'] = (ListenerTlsFileCertificate.build(input) unless input.nil?)
         when Types::ClientTlsCertificate::Sds
-          data['sds'] = (Builders::ListenerTlsSdsCertificate.build(input) unless input.nil?)
+          data['sds'] = (ListenerTlsSdsCertificate.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ClientTlsCertificate"
@@ -1340,7 +1342,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Backend.build(element) unless element.nil?
+          data << Backend.build(element) unless element.nil?
         end
         data
       end
@@ -1352,7 +1354,7 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::Backend::VirtualService
-          data['virtualService'] = (Builders::VirtualServiceBackend.build(input) unless input.nil?)
+          data['virtualService'] = (VirtualServiceBackend.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Backend"
@@ -1367,7 +1369,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['virtualServiceName'] = input[:virtual_service_name] unless input[:virtual_service_name].nil?
-        data['clientPolicy'] = Builders::ClientPolicy.build(input[:client_policy]) unless input[:client_policy].nil?
+        data['clientPolicy'] = ClientPolicy.build(input[:client_policy]) unless input[:client_policy].nil?
         data
       end
     end
@@ -1377,7 +1379,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Listener.build(element) unless element.nil?
+          data << Listener.build(element) unless element.nil?
         end
         data
       end
@@ -1387,12 +1389,12 @@ module AWS::SDK::AppMesh
     class Listener
       def self.build(input)
         data = {}
-        data['portMapping'] = Builders::PortMapping.build(input[:port_mapping]) unless input[:port_mapping].nil?
-        data['tls'] = Builders::ListenerTls.build(input[:tls]) unless input[:tls].nil?
-        data['healthCheck'] = Builders::HealthCheckPolicy.build(input[:health_check]) unless input[:health_check].nil?
-        data['timeout'] = Builders::ListenerTimeout.build(input[:timeout]) unless input[:timeout].nil?
-        data['outlierDetection'] = Builders::OutlierDetection.build(input[:outlier_detection]) unless input[:outlier_detection].nil?
-        data['connectionPool'] = Builders::VirtualNodeConnectionPool.build(input[:connection_pool]) unless input[:connection_pool].nil?
+        data['portMapping'] = PortMapping.build(input[:port_mapping]) unless input[:port_mapping].nil?
+        data['tls'] = ListenerTls.build(input[:tls]) unless input[:tls].nil?
+        data['healthCheck'] = HealthCheckPolicy.build(input[:health_check]) unless input[:health_check].nil?
+        data['timeout'] = ListenerTimeout.build(input[:timeout]) unless input[:timeout].nil?
+        data['outlierDetection'] = OutlierDetection.build(input[:outlier_detection]) unless input[:outlier_detection].nil?
+        data['connectionPool'] = VirtualNodeConnectionPool.build(input[:connection_pool]) unless input[:connection_pool].nil?
         data
       end
     end
@@ -1403,13 +1405,13 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualNodeConnectionPool::Tcp
-          data['tcp'] = (Builders::VirtualNodeTcpConnectionPool.build(input) unless input.nil?)
+          data['tcp'] = (VirtualNodeTcpConnectionPool.build(input) unless input.nil?)
         when Types::VirtualNodeConnectionPool::Http
-          data['http'] = (Builders::VirtualNodeHttpConnectionPool.build(input) unless input.nil?)
+          data['http'] = (VirtualNodeHttpConnectionPool.build(input) unless input.nil?)
         when Types::VirtualNodeConnectionPool::Http2
-          data['http2'] = (Builders::VirtualNodeHttp2ConnectionPool.build(input) unless input.nil?)
+          data['http2'] = (VirtualNodeHttp2ConnectionPool.build(input) unless input.nil?)
         when Types::VirtualNodeConnectionPool::Grpc
-          data['grpc'] = (Builders::VirtualNodeGrpcConnectionPool.build(input) unless input.nil?)
+          data['grpc'] = (VirtualNodeGrpcConnectionPool.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualNodeConnectionPool"
@@ -1461,8 +1463,8 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['maxServerErrors'] = input[:max_server_errors] unless input[:max_server_errors].nil?
-        data['interval'] = Builders::Duration.build(input[:interval]) unless input[:interval].nil?
-        data['baseEjectionDuration'] = Builders::Duration.build(input[:base_ejection_duration]) unless input[:base_ejection_duration].nil?
+        data['interval'] = Duration.build(input[:interval]) unless input[:interval].nil?
+        data['baseEjectionDuration'] = Duration.build(input[:base_ejection_duration]) unless input[:base_ejection_duration].nil?
         data['maxEjectionPercent'] = input[:max_ejection_percent] unless input[:max_ejection_percent].nil?
         data
       end
@@ -1474,13 +1476,13 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::ListenerTimeout::Tcp
-          data['tcp'] = (Builders::TcpTimeout.build(input) unless input.nil?)
+          data['tcp'] = (TcpTimeout.build(input) unless input.nil?)
         when Types::ListenerTimeout::Http
-          data['http'] = (Builders::HttpTimeout.build(input) unless input.nil?)
+          data['http'] = (HttpTimeout.build(input) unless input.nil?)
         when Types::ListenerTimeout::Http2
-          data['http2'] = (Builders::HttpTimeout.build(input) unless input.nil?)
+          data['http2'] = (HttpTimeout.build(input) unless input.nil?)
         when Types::ListenerTimeout::Grpc
-          data['grpc'] = (Builders::GrpcTimeout.build(input) unless input.nil?)
+          data['grpc'] = (GrpcTimeout.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ListenerTimeout"
@@ -1510,8 +1512,8 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = {}
         data['mode'] = input[:mode] unless input[:mode].nil?
-        data['certificate'] = Builders::ListenerTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
-        data['validation'] = Builders::ListenerTlsValidationContext.build(input[:validation]) unless input[:validation].nil?
+        data['certificate'] = ListenerTlsCertificate.build(input[:certificate]) unless input[:certificate].nil?
+        data['validation'] = ListenerTlsValidationContext.build(input[:validation]) unless input[:validation].nil?
         data
       end
     end
@@ -1520,8 +1522,8 @@ module AWS::SDK::AppMesh
     class ListenerTlsValidationContext
       def self.build(input)
         data = {}
-        data['trust'] = Builders::ListenerTlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
-        data['subjectAlternativeNames'] = Builders::SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['trust'] = ListenerTlsValidationContextTrust.build(input[:member_trust]) unless input[:member_trust].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNames.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
         data
       end
     end
@@ -1532,9 +1534,9 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::ListenerTlsValidationContextTrust::File
-          data['file'] = (Builders::TlsValidationContextFileTrust.build(input) unless input.nil?)
+          data['file'] = (TlsValidationContextFileTrust.build(input) unless input.nil?)
         when Types::ListenerTlsValidationContextTrust::Sds
-          data['sds'] = (Builders::TlsValidationContextSdsTrust.build(input) unless input.nil?)
+          data['sds'] = (TlsValidationContextSdsTrust.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ListenerTlsValidationContextTrust"
@@ -1550,11 +1552,11 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::ListenerTlsCertificate::Acm
-          data['acm'] = (Builders::ListenerTlsAcmCertificate.build(input) unless input.nil?)
+          data['acm'] = (ListenerTlsAcmCertificate.build(input) unless input.nil?)
         when Types::ListenerTlsCertificate::File
-          data['file'] = (Builders::ListenerTlsFileCertificate.build(input) unless input.nil?)
+          data['file'] = (ListenerTlsFileCertificate.build(input) unless input.nil?)
         when Types::ListenerTlsCertificate::Sds
-          data['sds'] = (Builders::ListenerTlsSdsCertificate.build(input) unless input.nil?)
+          data['sds'] = (ListenerTlsSdsCertificate.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ListenerTlsCertificate"
@@ -1589,9 +1591,9 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::ServiceDiscovery::Dns
-          data['dns'] = (Builders::DnsServiceDiscovery.build(input) unless input.nil?)
+          data['dns'] = (DnsServiceDiscovery.build(input) unless input.nil?)
         when Types::ServiceDiscovery::AwsCloudMap
-          data['awsCloudMap'] = (Builders::AwsCloudMapServiceDiscovery.build(input) unless input.nil?)
+          data['awsCloudMap'] = (AwsCloudMapServiceDiscovery.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ServiceDiscovery"
@@ -1607,7 +1609,7 @@ module AWS::SDK::AppMesh
         data = {}
         data['namespaceName'] = input[:namespace_name] unless input[:namespace_name].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        data['attributes'] = Builders::AwsCloudMapInstanceAttributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = AwsCloudMapInstanceAttributes.build(input[:attributes]) unless input[:attributes].nil?
         data['ipPreference'] = input[:ip_preference] unless input[:ip_preference].nil?
         data
       end
@@ -1618,7 +1620,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCloudMapInstanceAttribute.build(element) unless element.nil?
+          data << AwsCloudMapInstanceAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -1664,10 +1666,10 @@ module AWS::SDK::AppMesh
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['virtualRouterName'] = input[:virtual_router_name] unless input[:virtual_router_name].nil?
-        data['spec'] = Builders::VirtualRouterSpec.build(input[:spec]) unless input[:spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['spec'] = VirtualRouterSpec.build(input[:spec]) unless input[:spec].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1675,7 +1677,7 @@ module AWS::SDK::AppMesh
     class VirtualRouterSpec
       def self.build(input)
         data = {}
-        data['listeners'] = Builders::VirtualRouterListeners.build(input[:listeners]) unless input[:listeners].nil?
+        data['listeners'] = VirtualRouterListeners.build(input[:listeners]) unless input[:listeners].nil?
         data
       end
     end
@@ -1685,7 +1687,7 @@ module AWS::SDK::AppMesh
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VirtualRouterListener.build(element) unless element.nil?
+          data << VirtualRouterListener.build(element) unless element.nil?
         end
         data
       end
@@ -1695,7 +1697,7 @@ module AWS::SDK::AppMesh
     class VirtualRouterListener
       def self.build(input)
         data = {}
-        data['portMapping'] = Builders::PortMapping.build(input[:port_mapping]) unless input[:port_mapping].nil?
+        data['portMapping'] = PortMapping.build(input[:port_mapping]) unless input[:port_mapping].nil?
         data
       end
     end
@@ -1719,10 +1721,10 @@ module AWS::SDK::AppMesh
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['virtualServiceName'] = input[:virtual_service_name] unless input[:virtual_service_name].nil?
-        data['spec'] = Builders::VirtualServiceSpec.build(input[:spec]) unless input[:spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['spec'] = VirtualServiceSpec.build(input[:spec]) unless input[:spec].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1730,7 +1732,7 @@ module AWS::SDK::AppMesh
     class VirtualServiceSpec
       def self.build(input)
         data = {}
-        data['provider'] = Builders::VirtualServiceProvider.build(input[:provider]) unless input[:provider].nil?
+        data['provider'] = VirtualServiceProvider.build(input[:provider]) unless input[:provider].nil?
         data
       end
     end
@@ -1741,9 +1743,9 @@ module AWS::SDK::AppMesh
         data = {}
         case input
         when Types::VirtualServiceProvider::VirtualNode
-          data['virtualNode'] = (Builders::VirtualNodeServiceProvider.build(input) unless input.nil?)
+          data['virtualNode'] = (VirtualNodeServiceProvider.build(input) unless input.nil?)
         when Types::VirtualServiceProvider::VirtualRouter
-          data['virtualRouter'] = (Builders::VirtualRouterServiceProvider.build(input) unless input.nil?)
+          data['virtualRouter'] = (VirtualRouterServiceProvider.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::VirtualServiceProvider"
@@ -2250,8 +2252,8 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2266,8 +2268,8 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2308,9 +2310,9 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['spec'] = Builders::GatewayRouteSpec.build(input[:spec]) unless input[:spec].nil?
+        data['spec'] = GatewayRouteSpec.build(input[:spec]) unless input[:spec].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2331,9 +2333,9 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['spec'] = Builders::MeshSpec.build(input[:spec]) unless input[:spec].nil?
+        data['spec'] = MeshSpec.build(input[:spec]) unless input[:spec].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2363,9 +2365,9 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['spec'] = Builders::RouteSpec.build(input[:spec]) unless input[:spec].nil?
+        data['spec'] = RouteSpec.build(input[:spec]) unless input[:spec].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2391,9 +2393,9 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['spec'] = Builders::VirtualGatewaySpec.build(input[:spec]) unless input[:spec].nil?
+        data['spec'] = VirtualGatewaySpec.build(input[:spec]) unless input[:spec].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2419,9 +2421,9 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['spec'] = Builders::VirtualNodeSpec.build(input[:spec]) unless input[:spec].nil?
+        data['spec'] = VirtualNodeSpec.build(input[:spec]) unless input[:spec].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2447,9 +2449,9 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['spec'] = Builders::VirtualRouterSpec.build(input[:spec]) unless input[:spec].nil?
+        data['spec'] = VirtualRouterSpec.build(input[:spec]) unless input[:spec].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2475,9 +2477,9 @@ module AWS::SDK::AppMesh
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['spec'] = Builders::VirtualServiceSpec.build(input[:spec]) unless input[:spec].nil?
+        data['spec'] = VirtualServiceSpec.build(input[:spec]) unless input[:spec].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

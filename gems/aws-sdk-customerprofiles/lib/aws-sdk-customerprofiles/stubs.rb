@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CustomerProfiles
   module Stubs
 
@@ -24,8 +26,8 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['KeyName'] = stub[:key_name] unless stub[:key_name].nil?
-        data['Values'] = Stubs::RequestValueList.stub(stub[:values]) unless stub[:values].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Values'] = RequestValueList.stub(stub[:values]) unless stub[:values].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,11 +74,11 @@ module AWS::SDK::CustomerProfiles
         data['DefaultExpirationDays'] = stub[:default_expiration_days] unless stub[:default_expiration_days].nil?
         data['DefaultEncryptionKey'] = stub[:default_encryption_key] unless stub[:default_encryption_key].nil?
         data['DeadLetterQueueUrl'] = stub[:dead_letter_queue_url] unless stub[:dead_letter_queue_url].nil?
-        data['Matching'] = Stubs::MatchingResponse.stub(stub[:matching]) unless stub[:matching].nil?
+        data['Matching'] = MatchingResponse.stub(stub[:matching]) unless stub[:matching].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,9 +119,9 @@ module AWS::SDK::CustomerProfiles
         stub ||= Types::MatchingResponse.new
         data = {}
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['JobSchedule'] = Stubs::JobSchedule.stub(stub[:job_schedule]) unless stub[:job_schedule].nil?
-        data['AutoMerging'] = Stubs::AutoMerging.stub(stub[:auto_merging]) unless stub[:auto_merging].nil?
-        data['ExportingConfig'] = Stubs::ExportingConfig.stub(stub[:exporting_config]) unless stub[:exporting_config].nil?
+        data['JobSchedule'] = JobSchedule.stub(stub[:job_schedule]) unless stub[:job_schedule].nil?
+        data['AutoMerging'] = AutoMerging.stub(stub[:auto_merging]) unless stub[:auto_merging].nil?
+        data['ExportingConfig'] = ExportingConfig.stub(stub[:exporting_config]) unless stub[:exporting_config].nil?
         data
       end
     end
@@ -137,7 +139,7 @@ module AWS::SDK::CustomerProfiles
       def self.stub(stub)
         stub ||= Types::ExportingConfig.new
         data = {}
-        data['S3Exporting'] = Stubs::S3ExportingConfig.stub(stub[:s3_exporting]) unless stub[:s3_exporting].nil?
+        data['S3Exporting'] = S3ExportingConfig.stub(stub[:s3_exporting]) unless stub[:s3_exporting].nil?
         data
       end
     end
@@ -178,8 +180,8 @@ module AWS::SDK::CustomerProfiles
         stub ||= Types::AutoMerging.new
         data = {}
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['Consolidation'] = Stubs::Consolidation.stub(stub[:consolidation]) unless stub[:consolidation].nil?
-        data['ConflictResolution'] = Stubs::ConflictResolution.stub(stub[:conflict_resolution]) unless stub[:conflict_resolution].nil?
+        data['Consolidation'] = Consolidation.stub(stub[:consolidation]) unless stub[:consolidation].nil?
+        data['ConflictResolution'] = ConflictResolution.stub(stub[:conflict_resolution]) unless stub[:conflict_resolution].nil?
         data
       end
     end
@@ -217,7 +219,7 @@ module AWS::SDK::CustomerProfiles
       def self.stub(stub)
         stub ||= Types::Consolidation.new
         data = {}
-        data['MatchingAttributesList'] = Stubs::MatchingAttributesList.stub(stub[:matching_attributes_list]) unless stub[:matching_attributes_list].nil?
+        data['MatchingAttributesList'] = MatchingAttributesList.stub(stub[:matching_attributes_list]) unless stub[:matching_attributes_list].nil?
         data
       end
     end
@@ -236,7 +238,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MatchingAttributes.stub(element) unless element.nil?
+          data << MatchingAttributes.stub(element) unless element.nil?
         end
         data
       end
@@ -297,7 +299,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -314,7 +316,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ProfileId'] = stub[:profile_id] unless stub[:profile_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,7 +333,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,7 +350,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,7 +401,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -416,7 +418,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +454,7 @@ module AWS::SDK::CustomerProfiles
         data['NumberOfMatchesInSample'] = stub[:number_of_matches_in_sample] unless stub[:number_of_matches_in_sample].nil?
         data['NumberOfProfilesInSample'] = stub[:number_of_profiles_in_sample] unless stub[:number_of_profiles_in_sample].nil?
         data['NumberOfProfilesWillBeMerged'] = stub[:number_of_profiles_will_be_merged] unless stub[:number_of_profiles_will_be_merged].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -480,12 +482,12 @@ module AWS::SDK::CustomerProfiles
         data['DefaultExpirationDays'] = stub[:default_expiration_days] unless stub[:default_expiration_days].nil?
         data['DefaultEncryptionKey'] = stub[:default_encryption_key] unless stub[:default_encryption_key].nil?
         data['DeadLetterQueueUrl'] = stub[:dead_letter_queue_url] unless stub[:dead_letter_queue_url].nil?
-        data['Stats'] = Stubs::DomainStats.stub(stub[:stats]) unless stub[:stats].nil?
-        data['Matching'] = Stubs::MatchingResponse.stub(stub[:matching]) unless stub[:matching].nil?
+        data['Stats'] = DomainStats.stub(stub[:stats]) unless stub[:stats].nil?
+        data['Matching'] = MatchingResponse.stub(stub[:matching]) unless stub[:matching].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -543,10 +545,10 @@ module AWS::SDK::CustomerProfiles
         data['JobEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:job_end_time]).to_i unless stub[:job_end_time].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['JobExpirationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:job_expiration_time]).to_i unless stub[:job_expiration_time].nil?
-        data['AutoMerging'] = Stubs::AutoMerging.stub(stub[:auto_merging]) unless stub[:auto_merging].nil?
-        data['ExportingLocation'] = Stubs::ExportingLocation.stub(stub[:exporting_location]) unless stub[:exporting_location].nil?
-        data['JobStats'] = Stubs::JobStats.stub(stub[:job_stats]) unless stub[:job_stats].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoMerging'] = AutoMerging.stub(stub[:auto_merging]) unless stub[:auto_merging].nil?
+        data['ExportingLocation'] = ExportingLocation.stub(stub[:exporting_location]) unless stub[:exporting_location].nil?
+        data['JobStats'] = JobStats.stub(stub[:job_stats]) unless stub[:job_stats].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::CustomerProfiles
       def self.stub(stub)
         stub ||= Types::ExportingLocation.new
         data = {}
-        data['S3Exporting'] = Stubs::S3ExportingLocation.stub(stub[:s3_exporting]) unless stub[:s3_exporting].nil?
+        data['S3Exporting'] = S3ExportingLocation.stub(stub[:s3_exporting]) unless stub[:s3_exporting].nil?
         data
       end
     end
@@ -634,10 +636,10 @@ module AWS::SDK::CustomerProfiles
         data['ObjectTypeName'] = stub[:object_type_name] unless stub[:object_type_name].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ObjectTypeNames'] = Stubs::ObjectTypeNames.stub(stub[:object_type_names]) unless stub[:object_type_names].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ObjectTypeNames'] = ObjectTypeNames.stub(stub[:object_type_names]) unless stub[:object_type_names].nil?
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,8 +681,8 @@ module AWS::SDK::CustomerProfiles
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['MatchGenerationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:match_generation_date]).to_i unless stub[:match_generation_date].nil?
         data['PotentialMatches'] = stub[:potential_matches] unless stub[:potential_matches].nil?
-        data['Matches'] = Stubs::MatchesList.stub(stub[:matches]) unless stub[:matches].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Matches'] = MatchesList.stub(stub[:matches]) unless stub[:matches].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -698,7 +700,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MatchItem.stub(element) unless element.nil?
+          data << MatchItem.stub(element) unless element.nil?
         end
         data
       end
@@ -720,7 +722,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= Types::MatchItem.new
         data = {}
         data['MatchId'] = stub[:match_id] unless stub[:match_id].nil?
-        data['ProfileIds'] = Stubs::ProfileIdList.stub(stub[:profile_ids]) unless stub[:profile_ids].nil?
+        data['ProfileIds'] = ProfileIdList.stub(stub[:profile_ids]) unless stub[:profile_ids].nil?
         data['ConfidenceScore'] = Hearth::NumberHelper.serialize(stub[:confidence_score])
         data
       end
@@ -776,12 +778,12 @@ module AWS::SDK::CustomerProfiles
         data['EncryptionKey'] = stub[:encryption_key] unless stub[:encryption_key].nil?
         data['AllowProfileCreation'] = stub[:allow_profile_creation] unless stub[:allow_profile_creation].nil?
         data['SourceLastUpdatedTimestampFormat'] = stub[:source_last_updated_timestamp_format] unless stub[:source_last_updated_timestamp_format].nil?
-        data['Fields'] = Stubs::FieldMap.stub(stub[:fields]) unless stub[:fields].nil?
-        data['Keys'] = Stubs::KeyMap.stub(stub[:keys]) unless stub[:keys].nil?
+        data['Fields'] = FieldMap.stub(stub[:fields]) unless stub[:fields].nil?
+        data['Keys'] = KeyMap.stub(stub[:keys]) unless stub[:keys].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -799,7 +801,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ObjectTypeKeyList.stub(value) unless value.nil?
+          data[key] = ObjectTypeKeyList.stub(value) unless value.nil?
         end
         data
       end
@@ -819,7 +821,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ObjectTypeKey.stub(element) unless element.nil?
+          data << ObjectTypeKey.stub(element) unless element.nil?
         end
         data
       end
@@ -839,8 +841,8 @@ module AWS::SDK::CustomerProfiles
       def self.stub(stub)
         stub ||= Types::ObjectTypeKey.new
         data = {}
-        data['StandardIdentifiers'] = Stubs::StandardIdentifierList.stub(stub[:standard_identifiers]) unless stub[:standard_identifiers].nil?
-        data['FieldNames'] = Stubs::FieldNameList.stub(stub[:field_names]) unless stub[:field_names].nil?
+        data['StandardIdentifiers'] = StandardIdentifierList.stub(stub[:standard_identifiers]) unless stub[:standard_identifiers].nil?
+        data['FieldNames'] = FieldNameList.stub(stub[:field_names]) unless stub[:field_names].nil?
         data
       end
     end
@@ -899,7 +901,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ObjectTypeField.stub(value) unless value.nil?
+          data[key] = ObjectTypeField.stub(value) unless value.nil?
         end
         data
       end
@@ -950,9 +952,9 @@ module AWS::SDK::CustomerProfiles
         data['SourceObject'] = stub[:source_object] unless stub[:source_object].nil?
         data['AllowProfileCreation'] = stub[:allow_profile_creation] unless stub[:allow_profile_creation].nil?
         data['SourceLastUpdatedTimestampFormat'] = stub[:source_last_updated_timestamp_format] unless stub[:source_last_updated_timestamp_format].nil?
-        data['Fields'] = Stubs::FieldMap.stub(stub[:fields]) unless stub[:fields].nil?
-        data['Keys'] = Stubs::KeyMap.stub(stub[:keys]) unless stub[:keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fields'] = FieldMap.stub(stub[:fields]) unless stub[:fields].nil?
+        data['Keys'] = KeyMap.stub(stub[:keys]) unless stub[:keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -981,9 +983,9 @@ module AWS::SDK::CustomerProfiles
         data['ErrorDescription'] = stub[:error_description] unless stub[:error_description].nil?
         data['StartDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_date]).to_i unless stub[:start_date].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Attributes'] = Stubs::WorkflowAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Metrics'] = Stubs::WorkflowMetrics.stub(stub[:metrics]) unless stub[:metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = WorkflowAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Metrics'] = WorkflowMetrics.stub(stub[:metrics]) unless stub[:metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1000,7 +1002,7 @@ module AWS::SDK::CustomerProfiles
       def self.stub(stub)
         stub ||= Types::WorkflowMetrics.new
         data = {}
-        data['AppflowIntegration'] = Stubs::AppflowIntegrationWorkflowMetrics.stub(stub[:appflow_integration]) unless stub[:appflow_integration].nil?
+        data['AppflowIntegration'] = AppflowIntegrationWorkflowMetrics.stub(stub[:appflow_integration]) unless stub[:appflow_integration].nil?
         data
       end
     end
@@ -1040,7 +1042,7 @@ module AWS::SDK::CustomerProfiles
       def self.stub(stub)
         stub ||= Types::WorkflowAttributes.new
         data = {}
-        data['AppflowIntegration'] = Stubs::AppflowIntegrationWorkflowAttributes.stub(stub[:appflow_integration]) unless stub[:appflow_integration].nil?
+        data['AppflowIntegration'] = AppflowIntegrationWorkflowAttributes.stub(stub[:appflow_integration]) unless stub[:appflow_integration].nil?
         data
       end
     end
@@ -1084,9 +1086,9 @@ module AWS::SDK::CustomerProfiles
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
         data['WorkflowType'] = stub[:workflow_type] unless stub[:workflow_type].nil?
-        data['Items'] = Stubs::WorkflowStepsList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = WorkflowStepsList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1104,7 +1106,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkflowStepItem.stub(element) unless element.nil?
+          data << WorkflowStepItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1123,7 +1125,7 @@ module AWS::SDK::CustomerProfiles
       def self.stub(stub)
         stub ||= Types::WorkflowStepItem.new
         data = {}
-        data['AppflowIntegration'] = Stubs::AppflowIntegrationWorkflowStep.stub(stub[:appflow_integration]) unless stub[:appflow_integration].nil?
+        data['AppflowIntegration'] = AppflowIntegrationWorkflowStep.stub(stub[:appflow_integration]) unless stub[:appflow_integration].nil?
         data
       end
     end
@@ -1173,9 +1175,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::IntegrationList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = IntegrationList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1193,7 +1195,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListIntegrationItem.stub(element) unless element.nil?
+          data << ListIntegrationItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1224,8 +1226,8 @@ module AWS::SDK::CustomerProfiles
         data['ObjectTypeName'] = stub[:object_type_name] unless stub[:object_type_name].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ObjectTypeNames'] = Stubs::ObjectTypeNames.stub(stub[:object_type_names]) unless stub[:object_type_names].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ObjectTypeNames'] = ObjectTypeNames.stub(stub[:object_type_names]) unless stub[:object_type_names].nil?
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
         data
       end
@@ -1244,9 +1246,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::DomainList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = DomainList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1264,7 +1266,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListDomainItem.stub(element) unless element.nil?
+          data << ListDomainItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1289,7 +1291,7 @@ module AWS::SDK::CustomerProfiles
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1307,9 +1309,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IdentityResolutionJobsList'] = Stubs::IdentityResolutionJobsList.stub(stub[:identity_resolution_jobs_list]) unless stub[:identity_resolution_jobs_list].nil?
+        data['IdentityResolutionJobsList'] = IdentityResolutionJobsList.stub(stub[:identity_resolution_jobs_list]) unless stub[:identity_resolution_jobs_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1327,7 +1329,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityResolutionJob.stub(element) unless element.nil?
+          data << IdentityResolutionJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1358,8 +1360,8 @@ module AWS::SDK::CustomerProfiles
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['JobStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:job_start_time]).to_i unless stub[:job_start_time].nil?
         data['JobEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:job_end_time]).to_i unless stub[:job_end_time].nil?
-        data['JobStats'] = Stubs::JobStats.stub(stub[:job_stats]) unless stub[:job_stats].nil?
-        data['ExportingLocation'] = Stubs::ExportingLocation.stub(stub[:exporting_location]) unless stub[:exporting_location].nil?
+        data['JobStats'] = JobStats.stub(stub[:job_stats]) unless stub[:job_stats].nil?
+        data['ExportingLocation'] = ExportingLocation.stub(stub[:exporting_location]) unless stub[:exporting_location].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data
       end
@@ -1378,9 +1380,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::IntegrationList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = IntegrationList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1397,9 +1399,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::ProfileObjectTypeTemplateList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ProfileObjectTypeTemplateList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1417,7 +1419,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListProfileObjectTypeTemplateItem.stub(element) unless element.nil?
+          data << ListProfileObjectTypeTemplateItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1458,9 +1460,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::ProfileObjectTypeList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ProfileObjectTypeList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1478,7 +1480,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListProfileObjectTypeItem.stub(element) unless element.nil?
+          data << ListProfileObjectTypeItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1505,7 +1507,7 @@ module AWS::SDK::CustomerProfiles
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1523,9 +1525,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::ProfileObjectList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ProfileObjectList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1543,7 +1545,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListProfileObjectsItem.stub(element) unless element.nil?
+          data << ListProfileObjectsItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1583,8 +1585,8 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1601,9 +1603,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::WorkflowList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = WorkflowList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1621,7 +1623,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListWorkflowsItem.stub(element) unless element.nil?
+          data << ListWorkflowsItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1668,7 +1670,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1696,10 +1698,10 @@ module AWS::SDK::CustomerProfiles
         data['ObjectTypeName'] = stub[:object_type_name] unless stub[:object_type_name].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ObjectTypeNames'] = Stubs::ObjectTypeNames.stub(stub[:object_type_names]) unless stub[:object_type_names].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ObjectTypeNames'] = ObjectTypeNames.stub(stub[:object_type_names]) unless stub[:object_type_names].nil?
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1716,7 +1718,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ProfileObjectUniqueKey'] = stub[:profile_object_unique_key] unless stub[:profile_object_unique_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1750,12 +1752,12 @@ module AWS::SDK::CustomerProfiles
         data['EncryptionKey'] = stub[:encryption_key] unless stub[:encryption_key].nil?
         data['AllowProfileCreation'] = stub[:allow_profile_creation] unless stub[:allow_profile_creation].nil?
         data['SourceLastUpdatedTimestampFormat'] = stub[:source_last_updated_timestamp_format] unless stub[:source_last_updated_timestamp_format].nil?
-        data['Fields'] = Stubs::FieldMap.stub(stub[:fields]) unless stub[:fields].nil?
-        data['Keys'] = Stubs::KeyMap.stub(stub[:keys]) unless stub[:keys].nil?
+        data['Fields'] = FieldMap.stub(stub[:fields]) unless stub[:fields].nil?
+        data['Keys'] = KeyMap.stub(stub[:keys]) unless stub[:keys].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1772,9 +1774,9 @@ module AWS::SDK::CustomerProfiles
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::ProfileList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ProfileList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1792,7 +1794,7 @@ module AWS::SDK::CustomerProfiles
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Profile.stub(element) unless element.nil?
+          data << Profile.stub(element) unless element.nil?
         end
         data
       end
@@ -1849,11 +1851,11 @@ module AWS::SDK::CustomerProfiles
         data['EmailAddress'] = stub[:email_address] unless stub[:email_address].nil?
         data['PersonalEmailAddress'] = stub[:personal_email_address] unless stub[:personal_email_address].nil?
         data['BusinessEmailAddress'] = stub[:business_email_address] unless stub[:business_email_address].nil?
-        data['Address'] = Stubs::Address.stub(stub[:address]) unless stub[:address].nil?
-        data['ShippingAddress'] = Stubs::Address.stub(stub[:shipping_address]) unless stub[:shipping_address].nil?
-        data['MailingAddress'] = Stubs::Address.stub(stub[:mailing_address]) unless stub[:mailing_address].nil?
-        data['BillingAddress'] = Stubs::Address.stub(stub[:billing_address]) unless stub[:billing_address].nil?
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Address'] = Address.stub(stub[:address]) unless stub[:address].nil?
+        data['ShippingAddress'] = Address.stub(stub[:shipping_address]) unless stub[:shipping_address].nil?
+        data['MailingAddress'] = Address.stub(stub[:mailing_address]) unless stub[:mailing_address].nil?
+        data['BillingAddress'] = Address.stub(stub[:billing_address]) unless stub[:billing_address].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -1963,11 +1965,11 @@ module AWS::SDK::CustomerProfiles
         data['DefaultExpirationDays'] = stub[:default_expiration_days] unless stub[:default_expiration_days].nil?
         data['DefaultEncryptionKey'] = stub[:default_encryption_key] unless stub[:default_encryption_key].nil?
         data['DeadLetterQueueUrl'] = stub[:dead_letter_queue_url] unless stub[:dead_letter_queue_url].nil?
-        data['Matching'] = Stubs::MatchingResponse.stub(stub[:matching]) unless stub[:matching].nil?
+        data['Matching'] = MatchingResponse.stub(stub[:matching]) unless stub[:matching].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1984,7 +1986,7 @@ module AWS::SDK::CustomerProfiles
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ProfileId'] = stub[:profile_id] unless stub[:profile_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

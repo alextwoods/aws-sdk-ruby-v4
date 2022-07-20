@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Translate
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Translate
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::Translate
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -55,7 +57,7 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -70,8 +72,8 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TextTranslationJobProperties'] = Stubs::TextTranslationJobProperties.stub(stub[:text_translation_job_properties]) unless stub[:text_translation_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TextTranslationJobProperties'] = TextTranslationJobProperties.stub(stub[:text_translation_job_properties]) unless stub[:text_translation_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -106,18 +108,18 @@ module AWS::SDK::Translate
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        data['JobDetails'] = Stubs::JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
+        data['JobDetails'] = JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
         data['SourceLanguageCode'] = stub[:source_language_code] unless stub[:source_language_code].nil?
-        data['TargetLanguageCodes'] = Stubs::TargetLanguageCodeStringList.stub(stub[:target_language_codes]) unless stub[:target_language_codes].nil?
-        data['TerminologyNames'] = Stubs::ResourceNameList.stub(stub[:terminology_names]) unless stub[:terminology_names].nil?
-        data['ParallelDataNames'] = Stubs::ResourceNameList.stub(stub[:parallel_data_names]) unless stub[:parallel_data_names].nil?
+        data['TargetLanguageCodes'] = TargetLanguageCodeStringList.stub(stub[:target_language_codes]) unless stub[:target_language_codes].nil?
+        data['TerminologyNames'] = ResourceNameList.stub(stub[:terminology_names]) unless stub[:terminology_names].nil?
+        data['ParallelDataNames'] = ResourceNameList.stub(stub[:parallel_data_names]) unless stub[:parallel_data_names].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmittedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submitted_time]).to_i unless stub[:submitted_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
-        data['Settings'] = Stubs::TranslationSettings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['Settings'] = TranslationSettings.stub(stub[:settings]) unless stub[:settings].nil?
         data
       end
     end
@@ -157,7 +159,7 @@ module AWS::SDK::Translate
         stub ||= Types::OutputDataConfig.new
         data = {}
         data['S3Uri'] = stub[:s3_uri] unless stub[:s3_uri].nil?
-        data['EncryptionKey'] = Stubs::EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
+        data['EncryptionKey'] = EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
         data
       end
     end
@@ -277,11 +279,11 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParallelDataProperties'] = Stubs::ParallelDataProperties.stub(stub[:parallel_data_properties]) unless stub[:parallel_data_properties].nil?
-        data['DataLocation'] = Stubs::ParallelDataDataLocation.stub(stub[:data_location]) unless stub[:data_location].nil?
-        data['AuxiliaryDataLocation'] = Stubs::ParallelDataDataLocation.stub(stub[:auxiliary_data_location]) unless stub[:auxiliary_data_location].nil?
-        data['LatestUpdateAttemptAuxiliaryDataLocation'] = Stubs::ParallelDataDataLocation.stub(stub[:latest_update_attempt_auxiliary_data_location]) unless stub[:latest_update_attempt_auxiliary_data_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParallelDataProperties'] = ParallelDataProperties.stub(stub[:parallel_data_properties]) unless stub[:parallel_data_properties].nil?
+        data['DataLocation'] = ParallelDataDataLocation.stub(stub[:data_location]) unless stub[:data_location].nil?
+        data['AuxiliaryDataLocation'] = ParallelDataDataLocation.stub(stub[:auxiliary_data_location]) unless stub[:auxiliary_data_location].nil?
+        data['LatestUpdateAttemptAuxiliaryDataLocation'] = ParallelDataDataLocation.stub(stub[:latest_update_attempt_auxiliary_data_location]) unless stub[:latest_update_attempt_auxiliary_data_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -340,14 +342,14 @@ module AWS::SDK::Translate
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['SourceLanguageCode'] = stub[:source_language_code] unless stub[:source_language_code].nil?
-        data['TargetLanguageCodes'] = Stubs::LanguageCodeStringList.stub(stub[:target_language_codes]) unless stub[:target_language_codes].nil?
-        data['ParallelDataConfig'] = Stubs::ParallelDataConfig.stub(stub[:parallel_data_config]) unless stub[:parallel_data_config].nil?
+        data['TargetLanguageCodes'] = LanguageCodeStringList.stub(stub[:target_language_codes]) unless stub[:target_language_codes].nil?
+        data['ParallelDataConfig'] = ParallelDataConfig.stub(stub[:parallel_data_config]) unless stub[:parallel_data_config].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['ImportedDataSize'] = stub[:imported_data_size] unless stub[:imported_data_size].nil?
         data['ImportedRecordCount'] = stub[:imported_record_count] unless stub[:imported_record_count].nil?
         data['FailedRecordCount'] = stub[:failed_record_count] unless stub[:failed_record_count].nil?
         data['SkippedRecordCount'] = stub[:skipped_record_count] unless stub[:skipped_record_count].nil?
-        data['EncryptionKey'] = Stubs::EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
+        data['EncryptionKey'] = EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['LatestUpdateAttemptStatus'] = stub[:latest_update_attempt_status] unless stub[:latest_update_attempt_status].nil?
@@ -408,10 +410,10 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TerminologyProperties'] = Stubs::TerminologyProperties.stub(stub[:terminology_properties]) unless stub[:terminology_properties].nil?
-        data['TerminologyDataLocation'] = Stubs::TerminologyDataLocation.stub(stub[:terminology_data_location]) unless stub[:terminology_data_location].nil?
-        data['AuxiliaryDataLocation'] = Stubs::TerminologyDataLocation.stub(stub[:auxiliary_data_location]) unless stub[:auxiliary_data_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TerminologyProperties'] = TerminologyProperties.stub(stub[:terminology_properties]) unless stub[:terminology_properties].nil?
+        data['TerminologyDataLocation'] = TerminologyDataLocation.stub(stub[:terminology_data_location]) unless stub[:terminology_data_location].nil?
+        data['AuxiliaryDataLocation'] = TerminologyDataLocation.stub(stub[:auxiliary_data_location]) unless stub[:auxiliary_data_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -466,8 +468,8 @@ module AWS::SDK::Translate
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['SourceLanguageCode'] = stub[:source_language_code] unless stub[:source_language_code].nil?
-        data['TargetLanguageCodes'] = Stubs::LanguageCodeStringList.stub(stub[:target_language_codes]) unless stub[:target_language_codes].nil?
-        data['EncryptionKey'] = Stubs::EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
+        data['TargetLanguageCodes'] = LanguageCodeStringList.stub(stub[:target_language_codes]) unless stub[:target_language_codes].nil?
+        data['EncryptionKey'] = EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
         data['SizeBytes'] = stub[:size_bytes] unless stub[:size_bytes].nil?
         data['TermCount'] = stub[:term_count] unless stub[:term_count].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
@@ -491,9 +493,9 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TerminologyProperties'] = Stubs::TerminologyProperties.stub(stub[:terminology_properties]) unless stub[:terminology_properties].nil?
-        data['AuxiliaryDataLocation'] = Stubs::TerminologyDataLocation.stub(stub[:auxiliary_data_location]) unless stub[:auxiliary_data_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TerminologyProperties'] = TerminologyProperties.stub(stub[:terminology_properties]) unless stub[:terminology_properties].nil?
+        data['AuxiliaryDataLocation'] = TerminologyDataLocation.stub(stub[:auxiliary_data_location]) unless stub[:auxiliary_data_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -509,9 +511,9 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParallelDataPropertiesList'] = Stubs::ParallelDataPropertiesList.stub(stub[:parallel_data_properties_list]) unless stub[:parallel_data_properties_list].nil?
+        data['ParallelDataPropertiesList'] = ParallelDataPropertiesList.stub(stub[:parallel_data_properties_list]) unless stub[:parallel_data_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -530,7 +532,7 @@ module AWS::SDK::Translate
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParallelDataProperties.stub(element) unless element.nil?
+          data << ParallelDataProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -547,9 +549,9 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TerminologyPropertiesList'] = Stubs::TerminologyPropertiesList.stub(stub[:terminology_properties_list]) unless stub[:terminology_properties_list].nil?
+        data['TerminologyPropertiesList'] = TerminologyPropertiesList.stub(stub[:terminology_properties_list]) unless stub[:terminology_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -568,7 +570,7 @@ module AWS::SDK::Translate
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TerminologyProperties.stub(element) unless element.nil?
+          data << TerminologyProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -585,9 +587,9 @@ module AWS::SDK::Translate
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TextTranslationJobPropertiesList'] = Stubs::TextTranslationJobPropertiesList.stub(stub[:text_translation_job_properties_list]) unless stub[:text_translation_job_properties_list].nil?
+        data['TextTranslationJobPropertiesList'] = TextTranslationJobPropertiesList.stub(stub[:text_translation_job_properties_list]) unless stub[:text_translation_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -606,7 +608,7 @@ module AWS::SDK::Translate
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TextTranslationJobProperties.stub(element) unless element.nil?
+          data << TextTranslationJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -625,7 +627,7 @@ module AWS::SDK::Translate
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -643,7 +645,7 @@ module AWS::SDK::Translate
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -665,9 +667,9 @@ module AWS::SDK::Translate
         data['TranslatedText'] = stub[:translated_text] unless stub[:translated_text].nil?
         data['SourceLanguageCode'] = stub[:source_language_code] unless stub[:source_language_code].nil?
         data['TargetLanguageCode'] = stub[:target_language_code] unless stub[:target_language_code].nil?
-        data['AppliedTerminologies'] = Stubs::AppliedTerminologyList.stub(stub[:applied_terminologies]) unless stub[:applied_terminologies].nil?
-        data['AppliedSettings'] = Stubs::TranslationSettings.stub(stub[:applied_settings]) unless stub[:applied_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppliedTerminologies'] = AppliedTerminologyList.stub(stub[:applied_terminologies]) unless stub[:applied_terminologies].nil?
+        data['AppliedSettings'] = TranslationSettings.stub(stub[:applied_settings]) unless stub[:applied_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -686,7 +688,7 @@ module AWS::SDK::Translate
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppliedTerminology.stub(element) unless element.nil?
+          data << AppliedTerminology.stub(element) unless element.nil?
         end
         data
       end
@@ -707,7 +709,7 @@ module AWS::SDK::Translate
         stub ||= Types::AppliedTerminology.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Terms'] = Stubs::TermList.stub(stub[:terms]) unless stub[:terms].nil?
+        data['Terms'] = TermList.stub(stub[:terms]) unless stub[:terms].nil?
         data
       end
     end
@@ -726,7 +728,7 @@ module AWS::SDK::Translate
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Term.stub(element) unless element.nil?
+          data << Term.stub(element) unless element.nil?
         end
         data
       end
@@ -769,7 +771,7 @@ module AWS::SDK::Translate
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['LatestUpdateAttemptStatus'] = stub[:latest_update_attempt_status] unless stub[:latest_update_attempt_status].nil?
         data['LatestUpdateAttemptAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:latest_update_attempt_at]).to_i unless stub[:latest_update_attempt_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

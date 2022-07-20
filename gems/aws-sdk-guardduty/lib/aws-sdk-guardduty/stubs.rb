@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::GuardDuty
   module Stubs
 
@@ -49,7 +51,7 @@ module AWS::SDK::GuardDuty
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['detectorId'] = stub[:detector_id] unless stub[:detector_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::GuardDuty
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::GuardDuty
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ipSetId'] = stub[:ip_set_id] unless stub[:ip_set_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -99,8 +101,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedAccount.stub(element) unless element.nil?
+          data << UnprocessedAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -157,7 +159,7 @@ module AWS::SDK::GuardDuty
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['destinationId'] = stub[:destination_id] unless stub[:destination_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -187,7 +189,7 @@ module AWS::SDK::GuardDuty
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['threatIntelSetId'] = stub[:threat_intel_set_id] unless stub[:threat_intel_set_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,8 +205,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -259,8 +261,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -276,8 +278,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,8 +325,8 @@ module AWS::SDK::GuardDuty
         http_resp.headers['Content-Type'] = 'application/json'
         data['autoEnable'] = stub[:auto_enable] unless stub[:auto_enable].nil?
         data['memberAccountLimitReached'] = stub[:member_account_limit_reached] unless stub[:member_account_limit_reached].nil?
-        data['dataSources'] = Stubs::OrganizationDataSourceConfigurationsResult.stub(stub[:data_sources]) unless stub[:data_sources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSources'] = OrganizationDataSourceConfigurationsResult.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,8 +344,8 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::OrganizationDataSourceConfigurationsResult.new
         data = {}
-        data['s3Logs'] = Stubs::OrganizationS3LogsConfigurationResult.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
-        data['kubernetes'] = Stubs::OrganizationKubernetesConfigurationResult.stub(stub[:kubernetes]) unless stub[:kubernetes].nil?
+        data['s3Logs'] = OrganizationS3LogsConfigurationResult.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
+        data['kubernetes'] = OrganizationKubernetesConfigurationResult.stub(stub[:kubernetes]) unless stub[:kubernetes].nil?
         data
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::OrganizationKubernetesConfigurationResult.new
         data = {}
-        data['auditLogs'] = Stubs::OrganizationKubernetesAuditLogsConfigurationResult.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
+        data['auditLogs'] = OrganizationKubernetesAuditLogsConfigurationResult.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
         data
       end
     end
@@ -422,8 +424,8 @@ module AWS::SDK::GuardDuty
         data['destinationType'] = stub[:destination_type] unless stub[:destination_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['publishingFailureStartTimestamp'] = stub[:publishing_failure_start_timestamp] unless stub[:publishing_failure_start_timestamp].nil?
-        data['destinationProperties'] = Stubs::DestinationProperties.stub(stub[:destination_properties]) unless stub[:destination_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinationProperties'] = DestinationProperties.stub(stub[:destination_properties]) unless stub[:destination_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -485,8 +487,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -526,9 +528,9 @@ module AWS::SDK::GuardDuty
         data['serviceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['updatedAt'] = stub[:updated_at] unless stub[:updated_at].nil?
-        data['dataSources'] = Stubs::DataSourceConfigurationsResult.stub(stub[:data_sources]) unless stub[:data_sources].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSources'] = DataSourceConfigurationsResult.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -569,11 +571,11 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::DataSourceConfigurationsResult.new
         data = {}
-        data['cloudTrail'] = Stubs::CloudTrailConfigurationResult.stub(stub[:cloud_trail]) unless stub[:cloud_trail].nil?
-        data['dnsLogs'] = Stubs::DNSLogsConfigurationResult.stub(stub[:dns_logs]) unless stub[:dns_logs].nil?
-        data['flowLogs'] = Stubs::FlowLogsConfigurationResult.stub(stub[:flow_logs]) unless stub[:flow_logs].nil?
-        data['s3Logs'] = Stubs::S3LogsConfigurationResult.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
-        data['kubernetes'] = Stubs::KubernetesConfigurationResult.stub(stub[:kubernetes]) unless stub[:kubernetes].nil?
+        data['cloudTrail'] = CloudTrailConfigurationResult.stub(stub[:cloud_trail]) unless stub[:cloud_trail].nil?
+        data['dnsLogs'] = DNSLogsConfigurationResult.stub(stub[:dns_logs]) unless stub[:dns_logs].nil?
+        data['flowLogs'] = FlowLogsConfigurationResult.stub(stub[:flow_logs]) unless stub[:flow_logs].nil?
+        data['s3Logs'] = S3LogsConfigurationResult.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
+        data['kubernetes'] = KubernetesConfigurationResult.stub(stub[:kubernetes]) unless stub[:kubernetes].nil?
         data
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::KubernetesConfigurationResult.new
         data = {}
-        data['auditLogs'] = Stubs::KubernetesAuditLogsConfigurationResult.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
+        data['auditLogs'] = KubernetesAuditLogsConfigurationResult.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
         data
       end
     end
@@ -707,9 +709,9 @@ module AWS::SDK::GuardDuty
         data['description'] = stub[:description] unless stub[:description].nil?
         data['action'] = stub[:action] unless stub[:action].nil?
         data['rank'] = stub[:rank] unless stub[:rank].nil?
-        data['findingCriteria'] = Stubs::FindingCriteria.stub(stub[:finding_criteria]) unless stub[:finding_criteria].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingCriteria'] = FindingCriteria.stub(stub[:finding_criteria]) unless stub[:finding_criteria].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -726,7 +728,7 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::FindingCriteria.new
         data = {}
-        data['criterion'] = Stubs::Criterion.stub(stub[:criterion]) unless stub[:criterion].nil?
+        data['criterion'] = Criterion.stub(stub[:criterion]) unless stub[:criterion].nil?
         data
       end
     end
@@ -745,7 +747,7 @@ module AWS::SDK::GuardDuty
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Condition.stub(value) unless value.nil?
+          data[key] = Condition.stub(value) unless value.nil?
         end
         data
       end
@@ -775,14 +777,14 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::Condition.new
         data = {}
-        data['eq'] = Stubs::Eq.stub(stub[:eq]) unless stub[:eq].nil?
-        data['neq'] = Stubs::Neq.stub(stub[:neq]) unless stub[:neq].nil?
+        data['eq'] = Eq.stub(stub[:eq]) unless stub[:eq].nil?
+        data['neq'] = Neq.stub(stub[:neq]) unless stub[:neq].nil?
         data['gt'] = stub[:gt] unless stub[:gt].nil?
         data['gte'] = stub[:gte] unless stub[:gte].nil?
         data['lt'] = stub[:lt] unless stub[:lt].nil?
         data['lte'] = stub[:lte] unless stub[:lte].nil?
-        data['equals'] = Stubs::Equals.stub(stub[:equals]) unless stub[:equals].nil?
-        data['notEquals'] = Stubs::NotEquals.stub(stub[:not_equals]) unless stub[:not_equals].nil?
+        data['equals'] = Equals.stub(stub[:equals]) unless stub[:equals].nil?
+        data['notEquals'] = NotEquals.stub(stub[:not_equals]) unless stub[:not_equals].nil?
         data['greaterThan'] = stub[:greater_than] unless stub[:greater_than].nil?
         data['greaterThanOrEqual'] = stub[:greater_than_or_equal] unless stub[:greater_than_or_equal].nil?
         data['lessThan'] = stub[:less_than] unless stub[:less_than].nil?
@@ -883,8 +885,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findings'] = Stubs::Findings.stub(stub[:findings]) unless stub[:findings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findings'] = Findings.stub(stub[:findings]) unless stub[:findings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -902,7 +904,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Finding.stub(element) unless element.nil?
+          data << Finding.stub(element) unless element.nil?
         end
         data
       end
@@ -943,9 +945,9 @@ module AWS::SDK::GuardDuty
         data['id'] = stub[:id] unless stub[:id].nil?
         data['partition'] = stub[:partition] unless stub[:partition].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['resource'] = Stubs::Resource.stub(stub[:resource]) unless stub[:resource].nil?
+        data['resource'] = Resource.stub(stub[:resource]) unless stub[:resource].nil?
         data['schemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
         data['severity'] = Hearth::NumberHelper.serialize(stub[:severity])
         data['title'] = stub[:title] unless stub[:title].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
@@ -976,8 +978,8 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::Service.new
         data = {}
-        data['action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
-        data['evidence'] = Stubs::Evidence.stub(stub[:evidence]) unless stub[:evidence].nil?
+        data['action'] = Action.stub(stub[:action]) unless stub[:action].nil?
+        data['evidence'] = Evidence.stub(stub[:evidence]) unless stub[:evidence].nil?
         data['archived'] = stub[:archived] unless stub[:archived].nil?
         data['count'] = stub[:count] unless stub[:count].nil?
         data['detectorId'] = stub[:detector_id] unless stub[:detector_id].nil?
@@ -1003,7 +1005,7 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::Evidence.new
         data = {}
-        data['threatIntelligenceDetails'] = Stubs::ThreatIntelligenceDetails.stub(stub[:threat_intelligence_details]) unless stub[:threat_intelligence_details].nil?
+        data['threatIntelligenceDetails'] = ThreatIntelligenceDetails.stub(stub[:threat_intelligence_details]) unless stub[:threat_intelligence_details].nil?
         data
       end
     end
@@ -1022,7 +1024,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThreatIntelligenceDetail.stub(element) unless element.nil?
+          data << ThreatIntelligenceDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1043,7 +1045,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::ThreatIntelligenceDetail.new
         data = {}
         data['threatListName'] = stub[:threat_list_name] unless stub[:threat_list_name].nil?
-        data['threatNames'] = Stubs::ThreatNames.stub(stub[:threat_names]) unless stub[:threat_names].nil?
+        data['threatNames'] = ThreatNames.stub(stub[:threat_names]) unless stub[:threat_names].nil?
         data
       end
     end
@@ -1087,11 +1089,11 @@ module AWS::SDK::GuardDuty
         stub ||= Types::Action.new
         data = {}
         data['actionType'] = stub[:action_type] unless stub[:action_type].nil?
-        data['awsApiCallAction'] = Stubs::AwsApiCallAction.stub(stub[:aws_api_call_action]) unless stub[:aws_api_call_action].nil?
-        data['dnsRequestAction'] = Stubs::DnsRequestAction.stub(stub[:dns_request_action]) unless stub[:dns_request_action].nil?
-        data['networkConnectionAction'] = Stubs::NetworkConnectionAction.stub(stub[:network_connection_action]) unless stub[:network_connection_action].nil?
-        data['portProbeAction'] = Stubs::PortProbeAction.stub(stub[:port_probe_action]) unless stub[:port_probe_action].nil?
-        data['kubernetesApiCallAction'] = Stubs::KubernetesApiCallAction.stub(stub[:kubernetes_api_call_action]) unless stub[:kubernetes_api_call_action].nil?
+        data['awsApiCallAction'] = AwsApiCallAction.stub(stub[:aws_api_call_action]) unless stub[:aws_api_call_action].nil?
+        data['dnsRequestAction'] = DnsRequestAction.stub(stub[:dns_request_action]) unless stub[:dns_request_action].nil?
+        data['networkConnectionAction'] = NetworkConnectionAction.stub(stub[:network_connection_action]) unless stub[:network_connection_action].nil?
+        data['portProbeAction'] = PortProbeAction.stub(stub[:port_probe_action]) unless stub[:port_probe_action].nil?
+        data['kubernetesApiCallAction'] = KubernetesApiCallAction.stub(stub[:kubernetes_api_call_action]) unless stub[:kubernetes_api_call_action].nil?
         data
       end
     end
@@ -1117,9 +1119,9 @@ module AWS::SDK::GuardDuty
         data = {}
         data['requestUri'] = stub[:request_uri] unless stub[:request_uri].nil?
         data['verb'] = stub[:verb] unless stub[:verb].nil?
-        data['sourceIps'] = Stubs::SourceIps.stub(stub[:source_ips]) unless stub[:source_ips].nil?
+        data['sourceIps'] = SourceIps.stub(stub[:source_ips]) unless stub[:source_ips].nil?
         data['userAgent'] = stub[:user_agent] unless stub[:user_agent].nil?
-        data['remoteIpDetails'] = Stubs::RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
+        data['remoteIpDetails'] = RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['parameters'] = stub[:parameters] unless stub[:parameters].nil?
         data
@@ -1143,11 +1145,11 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::RemoteIpDetails.new
         data = {}
-        data['city'] = Stubs::City.stub(stub[:city]) unless stub[:city].nil?
-        data['country'] = Stubs::Country.stub(stub[:country]) unless stub[:country].nil?
-        data['geoLocation'] = Stubs::GeoLocation.stub(stub[:geo_location]) unless stub[:geo_location].nil?
+        data['city'] = City.stub(stub[:city]) unless stub[:city].nil?
+        data['country'] = Country.stub(stub[:country]) unless stub[:country].nil?
+        data['geoLocation'] = GeoLocation.stub(stub[:geo_location]) unless stub[:geo_location].nil?
         data['ipAddressV4'] = stub[:ip_address_v4] unless stub[:ip_address_v4].nil?
-        data['organization'] = Stubs::Organization.stub(stub[:organization]) unless stub[:organization].nil?
+        data['organization'] = Organization.stub(stub[:organization]) unless stub[:organization].nil?
         data
       end
     end
@@ -1269,7 +1271,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::PortProbeAction.new
         data = {}
         data['blocked'] = stub[:blocked] unless stub[:blocked].nil?
-        data['portProbeDetails'] = Stubs::PortProbeDetails.stub(stub[:port_probe_details]) unless stub[:port_probe_details].nil?
+        data['portProbeDetails'] = PortProbeDetails.stub(stub[:port_probe_details]) unless stub[:port_probe_details].nil?
         data
       end
     end
@@ -1288,7 +1290,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortProbeDetail.stub(element) unless element.nil?
+          data << PortProbeDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1309,9 +1311,9 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::PortProbeDetail.new
         data = {}
-        data['localPortDetails'] = Stubs::LocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
-        data['localIpDetails'] = Stubs::LocalIpDetails.stub(stub[:local_ip_details]) unless stub[:local_ip_details].nil?
-        data['remoteIpDetails'] = Stubs::RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
+        data['localPortDetails'] = LocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
+        data['localIpDetails'] = LocalIpDetails.stub(stub[:local_ip_details]) unless stub[:local_ip_details].nil?
+        data['remoteIpDetails'] = RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
         data
       end
     end
@@ -1375,11 +1377,11 @@ module AWS::SDK::GuardDuty
         data = {}
         data['blocked'] = stub[:blocked] unless stub[:blocked].nil?
         data['connectionDirection'] = stub[:connection_direction] unless stub[:connection_direction].nil?
-        data['localPortDetails'] = Stubs::LocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
+        data['localPortDetails'] = LocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
         data['protocol'] = stub[:protocol] unless stub[:protocol].nil?
-        data['localIpDetails'] = Stubs::LocalIpDetails.stub(stub[:local_ip_details]) unless stub[:local_ip_details].nil?
-        data['remoteIpDetails'] = Stubs::RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
-        data['remotePortDetails'] = Stubs::RemotePortDetails.stub(stub[:remote_port_details]) unless stub[:remote_port_details].nil?
+        data['localIpDetails'] = LocalIpDetails.stub(stub[:local_ip_details]) unless stub[:local_ip_details].nil?
+        data['remoteIpDetails'] = RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
+        data['remotePortDetails'] = RemotePortDetails.stub(stub[:remote_port_details]) unless stub[:remote_port_details].nil?
         data
       end
     end
@@ -1444,12 +1446,12 @@ module AWS::SDK::GuardDuty
         data = {}
         data['api'] = stub[:api] unless stub[:api].nil?
         data['callerType'] = stub[:caller_type] unless stub[:caller_type].nil?
-        data['domainDetails'] = Stubs::DomainDetails.stub(stub[:domain_details]) unless stub[:domain_details].nil?
+        data['domainDetails'] = DomainDetails.stub(stub[:domain_details]) unless stub[:domain_details].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['userAgent'] = stub[:user_agent] unless stub[:user_agent].nil?
-        data['remoteIpDetails'] = Stubs::RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
+        data['remoteIpDetails'] = RemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
         data['serviceName'] = stub[:service_name] unless stub[:service_name].nil?
-        data['remoteAccountDetails'] = Stubs::RemoteAccountDetails.stub(stub[:remote_account_details]) unless stub[:remote_account_details].nil?
+        data['remoteAccountDetails'] = RemoteAccountDetails.stub(stub[:remote_account_details]) unless stub[:remote_account_details].nil?
         data
       end
     end
@@ -1510,11 +1512,11 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::Resource.new
         data = {}
-        data['accessKeyDetails'] = Stubs::AccessKeyDetails.stub(stub[:access_key_details]) unless stub[:access_key_details].nil?
-        data['s3BucketDetails'] = Stubs::S3BucketDetails.stub(stub[:s3_bucket_details]) unless stub[:s3_bucket_details].nil?
-        data['instanceDetails'] = Stubs::InstanceDetails.stub(stub[:instance_details]) unless stub[:instance_details].nil?
-        data['eksClusterDetails'] = Stubs::EksClusterDetails.stub(stub[:eks_cluster_details]) unless stub[:eks_cluster_details].nil?
-        data['kubernetesDetails'] = Stubs::KubernetesDetails.stub(stub[:kubernetes_details]) unless stub[:kubernetes_details].nil?
+        data['accessKeyDetails'] = AccessKeyDetails.stub(stub[:access_key_details]) unless stub[:access_key_details].nil?
+        data['s3BucketDetails'] = S3BucketDetails.stub(stub[:s3_bucket_details]) unless stub[:s3_bucket_details].nil?
+        data['instanceDetails'] = InstanceDetails.stub(stub[:instance_details]) unless stub[:instance_details].nil?
+        data['eksClusterDetails'] = EksClusterDetails.stub(stub[:eks_cluster_details]) unless stub[:eks_cluster_details].nil?
+        data['kubernetesDetails'] = KubernetesDetails.stub(stub[:kubernetes_details]) unless stub[:kubernetes_details].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data
       end
@@ -1534,8 +1536,8 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::KubernetesDetails.new
         data = {}
-        data['kubernetesUserDetails'] = Stubs::KubernetesUserDetails.stub(stub[:kubernetes_user_details]) unless stub[:kubernetes_user_details].nil?
-        data['kubernetesWorkloadDetails'] = Stubs::KubernetesWorkloadDetails.stub(stub[:kubernetes_workload_details]) unless stub[:kubernetes_workload_details].nil?
+        data['kubernetesUserDetails'] = KubernetesUserDetails.stub(stub[:kubernetes_user_details]) unless stub[:kubernetes_user_details].nil?
+        data['kubernetesWorkloadDetails'] = KubernetesWorkloadDetails.stub(stub[:kubernetes_workload_details]) unless stub[:kubernetes_workload_details].nil?
         data
       end
     end
@@ -1564,8 +1566,8 @@ module AWS::SDK::GuardDuty
         data['uid'] = stub[:uid] unless stub[:uid].nil?
         data['namespace'] = stub[:namespace] unless stub[:namespace].nil?
         data['hostNetwork'] = stub[:host_network] unless stub[:host_network].nil?
-        data['containers'] = Stubs::Containers.stub(stub[:containers]) unless stub[:containers].nil?
-        data['volumes'] = Stubs::Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
+        data['containers'] = Containers.stub(stub[:containers]) unless stub[:containers].nil?
+        data['volumes'] = Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
         data
       end
     end
@@ -1584,7 +1586,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Volume.stub(element) unless element.nil?
+          data << Volume.stub(element) unless element.nil?
         end
         data
       end
@@ -1605,7 +1607,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::Volume.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['hostPath'] = Stubs::HostPath.stub(stub[:host_path]) unless stub[:host_path].nil?
+        data['hostPath'] = HostPath.stub(stub[:host_path]) unless stub[:host_path].nil?
         data
       end
     end
@@ -1642,7 +1644,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Container.stub(element) unless element.nil?
+          data << Container.stub(element) unless element.nil?
         end
         data
       end
@@ -1672,8 +1674,8 @@ module AWS::SDK::GuardDuty
         data['name'] = stub[:name] unless stub[:name].nil?
         data['image'] = stub[:image] unless stub[:image].nil?
         data['imagePrefix'] = stub[:image_prefix] unless stub[:image_prefix].nil?
-        data['volumeMounts'] = Stubs::VolumeMounts.stub(stub[:volume_mounts]) unless stub[:volume_mounts].nil?
-        data['securityContext'] = Stubs::SecurityContext.stub(stub[:security_context]) unless stub[:security_context].nil?
+        data['volumeMounts'] = VolumeMounts.stub(stub[:volume_mounts]) unless stub[:volume_mounts].nil?
+        data['securityContext'] = SecurityContext.stub(stub[:security_context]) unless stub[:security_context].nil?
         data
       end
     end
@@ -1710,7 +1712,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VolumeMount.stub(element) unless element.nil?
+          data << VolumeMount.stub(element) unless element.nil?
         end
         data
       end
@@ -1753,7 +1755,7 @@ module AWS::SDK::GuardDuty
         data = {}
         data['username'] = stub[:username] unless stub[:username].nil?
         data['uid'] = stub[:uid] unless stub[:uid].nil?
-        data['groups'] = Stubs::Groups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['groups'] = Groups.stub(stub[:groups]) unless stub[:groups].nil?
         data
       end
     end
@@ -1800,7 +1802,7 @@ module AWS::SDK::GuardDuty
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data
       end
@@ -1820,7 +1822,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1872,7 +1874,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::InstanceDetails.new
         data = {}
         data['availabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
-        data['iamInstanceProfile'] = Stubs::IamInstanceProfile.stub(stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
+        data['iamInstanceProfile'] = IamInstanceProfile.stub(stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
         data['imageDescription'] = stub[:image_description] unless stub[:image_description].nil?
         data['imageId'] = stub[:image_id] unless stub[:image_id].nil?
         data['instanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
@@ -1880,10 +1882,10 @@ module AWS::SDK::GuardDuty
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['outpostArn'] = stub[:outpost_arn] unless stub[:outpost_arn].nil?
         data['launchTime'] = stub[:launch_time] unless stub[:launch_time].nil?
-        data['networkInterfaces'] = Stubs::NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['networkInterfaces'] = NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
-        data['productCodes'] = Stubs::ProductCodes.stub(stub[:product_codes]) unless stub[:product_codes].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['productCodes'] = ProductCodes.stub(stub[:product_codes]) unless stub[:product_codes].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1902,7 +1904,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductCode.stub(element) unless element.nil?
+          data << ProductCode.stub(element) unless element.nil?
         end
         data
       end
@@ -1942,7 +1944,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInterface.stub(element) unless element.nil?
+          data << NetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -1970,14 +1972,14 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::NetworkInterface.new
         data = {}
-        data['ipv6Addresses'] = Stubs::Ipv6Addresses.stub(stub[:ipv6_addresses]) unless stub[:ipv6_addresses].nil?
+        data['ipv6Addresses'] = Ipv6Addresses.stub(stub[:ipv6_addresses]) unless stub[:ipv6_addresses].nil?
         data['networkInterfaceId'] = stub[:network_interface_id] unless stub[:network_interface_id].nil?
         data['privateDnsName'] = stub[:private_dns_name] unless stub[:private_dns_name].nil?
         data['privateIpAddress'] = stub[:private_ip_address] unless stub[:private_ip_address].nil?
-        data['privateIpAddresses'] = Stubs::PrivateIpAddresses.stub(stub[:private_ip_addresses]) unless stub[:private_ip_addresses].nil?
+        data['privateIpAddresses'] = PrivateIpAddresses.stub(stub[:private_ip_addresses]) unless stub[:private_ip_addresses].nil?
         data['publicDnsName'] = stub[:public_dns_name] unless stub[:public_dns_name].nil?
         data['publicIp'] = stub[:public_ip] unless stub[:public_ip].nil?
-        data['securityGroups'] = Stubs::SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['securityGroups'] = SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['subnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
@@ -1998,7 +2000,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityGroup.stub(element) unless element.nil?
+          data << SecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2038,7 +2040,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PrivateIpAddressDetails.stub(element) unless element.nil?
+          data << PrivateIpAddressDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2118,7 +2120,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3BucketDetail.stub(element) unless element.nil?
+          data << S3BucketDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2148,10 +2150,10 @@ module AWS::SDK::GuardDuty
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['owner'] = Stubs::Owner.stub(stub[:owner]) unless stub[:owner].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['defaultServerSideEncryption'] = Stubs::DefaultServerSideEncryption.stub(stub[:default_server_side_encryption]) unless stub[:default_server_side_encryption].nil?
-        data['publicAccess'] = Stubs::PublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
+        data['owner'] = Owner.stub(stub[:owner]) unless stub[:owner].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['defaultServerSideEncryption'] = DefaultServerSideEncryption.stub(stub[:default_server_side_encryption]) unless stub[:default_server_side_encryption].nil?
+        data['publicAccess'] = PublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
         data
       end
     end
@@ -2170,7 +2172,7 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::PublicAccess.new
         data = {}
-        data['permissionConfiguration'] = Stubs::PermissionConfiguration.stub(stub[:permission_configuration]) unless stub[:permission_configuration].nil?
+        data['permissionConfiguration'] = PermissionConfiguration.stub(stub[:permission_configuration]) unless stub[:permission_configuration].nil?
         data['effectivePermission'] = stub[:effective_permission] unless stub[:effective_permission].nil?
         data
       end
@@ -2190,8 +2192,8 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::PermissionConfiguration.new
         data = {}
-        data['bucketLevelPermissions'] = Stubs::BucketLevelPermissions.stub(stub[:bucket_level_permissions]) unless stub[:bucket_level_permissions].nil?
-        data['accountLevelPermissions'] = Stubs::AccountLevelPermissions.stub(stub[:account_level_permissions]) unless stub[:account_level_permissions].nil?
+        data['bucketLevelPermissions'] = BucketLevelPermissions.stub(stub[:bucket_level_permissions]) unless stub[:bucket_level_permissions].nil?
+        data['accountLevelPermissions'] = AccountLevelPermissions.stub(stub[:account_level_permissions]) unless stub[:account_level_permissions].nil?
         data
       end
     end
@@ -2209,7 +2211,7 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::AccountLevelPermissions.new
         data = {}
-        data['blockPublicAccess'] = Stubs::BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
+        data['blockPublicAccess'] = BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
         data
       end
     end
@@ -2253,9 +2255,9 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::BucketLevelPermissions.new
         data = {}
-        data['accessControlList'] = Stubs::AccessControlList.stub(stub[:access_control_list]) unless stub[:access_control_list].nil?
-        data['bucketPolicy'] = Stubs::BucketPolicy.stub(stub[:bucket_policy]) unless stub[:bucket_policy].nil?
-        data['blockPublicAccess'] = Stubs::BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
+        data['accessControlList'] = AccessControlList.stub(stub[:access_control_list]) unless stub[:access_control_list].nil?
+        data['bucketPolicy'] = BucketPolicy.stub(stub[:bucket_policy]) unless stub[:bucket_policy].nil?
+        data['blockPublicAccess'] = BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
         data
       end
     end
@@ -2374,8 +2376,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findingStatistics'] = Stubs::FindingStatistics.stub(stub[:finding_statistics]) unless stub[:finding_statistics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingStatistics'] = FindingStatistics.stub(stub[:finding_statistics]) unless stub[:finding_statistics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2392,7 +2394,7 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::FindingStatistics.new
         data = {}
-        data['countBySeverity'] = Stubs::CountBySeverity.stub(stub[:count_by_severity]) unless stub[:count_by_severity].nil?
+        data['countBySeverity'] = CountBySeverity.stub(stub[:count_by_severity]) unless stub[:count_by_severity].nil?
         data
       end
     end
@@ -2437,8 +2439,8 @@ module AWS::SDK::GuardDuty
         data['format'] = stub[:format] unless stub[:format].nil?
         data['location'] = stub[:location] unless stub[:location].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2455,7 +2457,7 @@ module AWS::SDK::GuardDuty
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['invitationsCount'] = stub[:invitations_count] unless stub[:invitations_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2471,8 +2473,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['master'] = Stubs::Master.stub(stub[:master]) unless stub[:master].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['master'] = Master.stub(stub[:master]) unless stub[:master].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2513,9 +2515,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['members'] = Stubs::MemberDataSourceConfigurations.stub(stub[:member_data_source_configurations]) unless stub[:member_data_source_configurations].nil?
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['members'] = MemberDataSourceConfigurations.stub(stub[:member_data_source_configurations]) unless stub[:member_data_source_configurations].nil?
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2533,7 +2535,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MemberDataSourceConfiguration.stub(element) unless element.nil?
+          data << MemberDataSourceConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -2554,7 +2556,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::MemberDataSourceConfiguration.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['dataSources'] = Stubs::DataSourceConfigurationsResult.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['dataSources'] = DataSourceConfigurationsResult.stub(stub[:data_sources]) unless stub[:data_sources].nil?
         data
       end
     end
@@ -2572,9 +2574,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['members'] = Stubs::Members.stub(stub[:members]) unless stub[:members].nil?
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['members'] = Members.stub(stub[:members]) unless stub[:members].nil?
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2592,7 +2594,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Member.stub(element) unless element.nil?
+          data << Member.stub(element) unless element.nil?
         end
         data
       end
@@ -2648,8 +2650,8 @@ module AWS::SDK::GuardDuty
         data['format'] = stub[:format] unless stub[:format].nil?
         data['location'] = stub[:location] unless stub[:location].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2666,9 +2668,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['usageStatistics'] = Stubs::UsageStatistics.stub(stub[:usage_statistics]) unless stub[:usage_statistics].nil?
+        data['usageStatistics'] = UsageStatistics.stub(stub[:usage_statistics]) unless stub[:usage_statistics].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2688,10 +2690,10 @@ module AWS::SDK::GuardDuty
       def self.stub(stub)
         stub ||= Types::UsageStatistics.new
         data = {}
-        data['sumByAccount'] = Stubs::UsageAccountResultList.stub(stub[:sum_by_account]) unless stub[:sum_by_account].nil?
-        data['sumByDataSource'] = Stubs::UsageDataSourceResultList.stub(stub[:sum_by_data_source]) unless stub[:sum_by_data_source].nil?
-        data['sumByResource'] = Stubs::UsageResourceResultList.stub(stub[:sum_by_resource]) unless stub[:sum_by_resource].nil?
-        data['topResources'] = Stubs::UsageResourceResultList.stub(stub[:top_resources]) unless stub[:top_resources].nil?
+        data['sumByAccount'] = UsageAccountResultList.stub(stub[:sum_by_account]) unless stub[:sum_by_account].nil?
+        data['sumByDataSource'] = UsageDataSourceResultList.stub(stub[:sum_by_data_source]) unless stub[:sum_by_data_source].nil?
+        data['sumByResource'] = UsageResourceResultList.stub(stub[:sum_by_resource]) unless stub[:sum_by_resource].nil?
+        data['topResources'] = UsageResourceResultList.stub(stub[:top_resources]) unless stub[:top_resources].nil?
         data
       end
     end
@@ -2710,7 +2712,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageResourceResult.stub(element) unless element.nil?
+          data << UsageResourceResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2731,7 +2733,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::UsageResourceResult.new
         data = {}
         data['resource'] = stub[:resource] unless stub[:resource].nil?
-        data['total'] = Stubs::Total.stub(stub[:total]) unless stub[:total].nil?
+        data['total'] = Total.stub(stub[:total]) unless stub[:total].nil?
         data
       end
     end
@@ -2770,7 +2772,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageDataSourceResult.stub(element) unless element.nil?
+          data << UsageDataSourceResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2791,7 +2793,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::UsageDataSourceResult.new
         data = {}
         data['dataSource'] = stub[:data_source] unless stub[:data_source].nil?
-        data['total'] = Stubs::Total.stub(stub[:total]) unless stub[:total].nil?
+        data['total'] = Total.stub(stub[:total]) unless stub[:total].nil?
         data
       end
     end
@@ -2810,7 +2812,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageAccountResult.stub(element) unless element.nil?
+          data << UsageAccountResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2831,7 +2833,7 @@ module AWS::SDK::GuardDuty
         stub ||= Types::UsageAccountResult.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['total'] = Stubs::Total.stub(stub[:total]) unless stub[:total].nil?
+        data['total'] = Total.stub(stub[:total]) unless stub[:total].nil?
         data
       end
     end
@@ -2848,8 +2850,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2866,9 +2868,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['detectorIds'] = Stubs::DetectorIds.stub(stub[:detector_ids]) unless stub[:detector_ids].nil?
+        data['detectorIds'] = DetectorIds.stub(stub[:detector_ids]) unless stub[:detector_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2905,9 +2907,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['filterNames'] = Stubs::FilterNames.stub(stub[:filter_names]) unless stub[:filter_names].nil?
+        data['filterNames'] = FilterNames.stub(stub[:filter_names]) unless stub[:filter_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2944,9 +2946,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findingIds'] = Stubs::FindingIds.stub(stub[:finding_ids]) unless stub[:finding_ids].nil?
+        data['findingIds'] = FindingIds.stub(stub[:finding_ids]) unless stub[:finding_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2983,9 +2985,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ipSetIds'] = Stubs::IpSetIds.stub(stub[:ip_set_ids]) unless stub[:ip_set_ids].nil?
+        data['ipSetIds'] = IpSetIds.stub(stub[:ip_set_ids]) unless stub[:ip_set_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3022,9 +3024,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['invitations'] = Stubs::Invitations.stub(stub[:invitations]) unless stub[:invitations].nil?
+        data['invitations'] = Invitations.stub(stub[:invitations]) unless stub[:invitations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3042,7 +3044,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Invitation.stub(element) unless element.nil?
+          data << Invitation.stub(element) unless element.nil?
         end
         data
       end
@@ -3085,9 +3087,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['members'] = Stubs::Members.stub(stub[:members]) unless stub[:members].nil?
+        data['members'] = Members.stub(stub[:members]) unless stub[:members].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3104,9 +3106,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['adminAccounts'] = Stubs::AdminAccounts.stub(stub[:admin_accounts]) unless stub[:admin_accounts].nil?
+        data['adminAccounts'] = AdminAccounts.stub(stub[:admin_accounts]) unless stub[:admin_accounts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3124,7 +3126,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdminAccount.stub(element) unless element.nil?
+          data << AdminAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -3163,9 +3165,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['destinations'] = Stubs::Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['destinations'] = Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3183,7 +3185,7 @@ module AWS::SDK::GuardDuty
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Destination.stub(element) unless element.nil?
+          data << Destination.stub(element) unless element.nil?
         end
         data
       end
@@ -3223,8 +3225,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3241,9 +3243,9 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['threatIntelSetIds'] = Stubs::ThreatIntelSetIds.stub(stub[:threat_intel_set_ids]) unless stub[:threat_intel_set_ids].nil?
+        data['threatIntelSetIds'] = ThreatIntelSetIds.stub(stub[:threat_intel_set_ids]) unless stub[:threat_intel_set_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3279,8 +3281,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3296,8 +3298,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3366,7 +3368,7 @@ module AWS::SDK::GuardDuty
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3408,8 +3410,8 @@ module AWS::SDK::GuardDuty
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = UnprocessedAccounts.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

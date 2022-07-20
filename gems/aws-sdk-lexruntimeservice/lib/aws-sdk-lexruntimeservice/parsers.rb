@@ -81,11 +81,11 @@ module AWS::SDK::LexRuntimeService
       def self.parse(http_resp)
         data = Types::GetSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recent_intent_summary_view = (Parsers::IntentSummaryList.parse(map['recentIntentSummaryView']) unless map['recentIntentSummaryView'].nil?)
-        data.session_attributes = (Parsers::StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?)
+        data.recent_intent_summary_view = (IntentSummaryList.parse(map['recentIntentSummaryView']) unless map['recentIntentSummaryView'].nil?)
+        data.session_attributes = (StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?)
         data.session_id = map['sessionId']
-        data.dialog_action = (Parsers::DialogAction.parse(map['dialogAction']) unless map['dialogAction'].nil?)
-        data.active_contexts = (Parsers::ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?)
+        data.dialog_action = (DialogAction.parse(map['dialogAction']) unless map['dialogAction'].nil?)
+        data.active_contexts = (ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?)
         data
       end
     end
@@ -94,7 +94,7 @@ module AWS::SDK::LexRuntimeService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActiveContext.parse(value) unless value.nil?
+          data << ActiveContext.parse(value) unless value.nil?
         end
         data
       end
@@ -104,8 +104,8 @@ module AWS::SDK::LexRuntimeService
       def self.parse(map)
         data = Types::ActiveContext.new
         data.name = map['name']
-        data.time_to_live = (Parsers::ActiveContextTimeToLive.parse(map['timeToLive']) unless map['timeToLive'].nil?)
-        data.parameters = (Parsers::ActiveContextParametersMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.time_to_live = (ActiveContextTimeToLive.parse(map['timeToLive']) unless map['timeToLive'].nil?)
+        data.parameters = (ActiveContextParametersMap.parse(map['parameters']) unless map['parameters'].nil?)
         return data
       end
     end
@@ -134,7 +134,7 @@ module AWS::SDK::LexRuntimeService
         data = Types::DialogAction.new
         data.type = map['type']
         data.intent_name = map['intentName']
-        data.slots = (Parsers::StringMap.parse(map['slots']) unless map['slots'].nil?)
+        data.slots = (StringMap.parse(map['slots']) unless map['slots'].nil?)
         data.slot_to_elicit = map['slotToElicit']
         data.fulfillment_state = map['fulfillmentState']
         data.message = map['message'] || map['Message']
@@ -157,7 +157,7 @@ module AWS::SDK::LexRuntimeService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IntentSummary.parse(value) unless value.nil?
+          data << IntentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -168,7 +168,7 @@ module AWS::SDK::LexRuntimeService
         data = Types::IntentSummary.new
         data.intent_name = map['intentName']
         data.checkpoint_label = map['checkpointLabel']
-        data.slots = (Parsers::StringMap.parse(map['slots']) unless map['slots'].nil?)
+        data.slots = (StringMap.parse(map['slots']) unless map['slots'].nil?)
         data.confirmation_status = map['confirmationStatus']
         data.dialog_action_type = map['dialogActionType']
         data.fulfillment_state = map['fulfillmentState']
@@ -269,19 +269,19 @@ module AWS::SDK::LexRuntimeService
         data = Types::PostTextOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.intent_name = map['intentName']
-        data.nlu_intent_confidence = (Parsers::IntentConfidence.parse(map['nluIntentConfidence']) unless map['nluIntentConfidence'].nil?)
-        data.alternative_intents = (Parsers::IntentList.parse(map['alternativeIntents']) unless map['alternativeIntents'].nil?)
-        data.slots = (Parsers::StringMap.parse(map['slots']) unless map['slots'].nil?)
-        data.session_attributes = (Parsers::StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?)
+        data.nlu_intent_confidence = (IntentConfidence.parse(map['nluIntentConfidence']) unless map['nluIntentConfidence'].nil?)
+        data.alternative_intents = (IntentList.parse(map['alternativeIntents']) unless map['alternativeIntents'].nil?)
+        data.slots = (StringMap.parse(map['slots']) unless map['slots'].nil?)
+        data.session_attributes = (StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?)
         data.message = map['message'] || map['Message']
-        data.sentiment_response = (Parsers::SentimentResponse.parse(map['sentimentResponse']) unless map['sentimentResponse'].nil?)
+        data.sentiment_response = (SentimentResponse.parse(map['sentimentResponse']) unless map['sentimentResponse'].nil?)
         data.message_format = map['messageFormat']
         data.dialog_state = map['dialogState']
         data.slot_to_elicit = map['slotToElicit']
-        data.response_card = (Parsers::ResponseCard.parse(map['responseCard']) unless map['responseCard'].nil?)
+        data.response_card = (ResponseCard.parse(map['responseCard']) unless map['responseCard'].nil?)
         data.session_id = map['sessionId']
         data.bot_version = map['botVersion']
-        data.active_contexts = (Parsers::ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?)
+        data.active_contexts = (ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?)
         data
       end
     end
@@ -291,7 +291,7 @@ module AWS::SDK::LexRuntimeService
         data = Types::ResponseCard.new
         data.version = map['version']
         data.content_type = map['contentType']
-        data.generic_attachments = (Parsers::GenericAttachmentList.parse(map['genericAttachments']) unless map['genericAttachments'].nil?)
+        data.generic_attachments = (GenericAttachmentList.parse(map['genericAttachments']) unless map['genericAttachments'].nil?)
         return data
       end
     end
@@ -300,7 +300,7 @@ module AWS::SDK::LexRuntimeService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GenericAttachment.parse(value) unless value.nil?
+          data << GenericAttachment.parse(value) unless value.nil?
         end
         data
       end
@@ -313,7 +313,7 @@ module AWS::SDK::LexRuntimeService
         data.sub_title = map['subTitle']
         data.attachment_link_url = map['attachmentLinkUrl']
         data.image_url = map['imageUrl']
-        data.buttons = (Parsers::ListOfButtons.parse(map['buttons']) unless map['buttons'].nil?)
+        data.buttons = (ListOfButtons.parse(map['buttons']) unless map['buttons'].nil?)
         return data
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::LexRuntimeService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Button.parse(value) unless value.nil?
+          data << Button.parse(value) unless value.nil?
         end
         data
       end
@@ -350,7 +350,7 @@ module AWS::SDK::LexRuntimeService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PredictedIntent.parse(value) unless value.nil?
+          data << PredictedIntent.parse(value) unless value.nil?
         end
         data
       end
@@ -360,8 +360,8 @@ module AWS::SDK::LexRuntimeService
       def self.parse(map)
         data = Types::PredictedIntent.new
         data.intent_name = map['intentName']
-        data.nlu_intent_confidence = (Parsers::IntentConfidence.parse(map['nluIntentConfidence']) unless map['nluIntentConfidence'].nil?)
-        data.slots = (Parsers::StringMap.parse(map['slots']) unless map['slots'].nil?)
+        data.nlu_intent_confidence = (IntentConfidence.parse(map['nluIntentConfidence']) unless map['nluIntentConfidence'].nil?)
+        data.slots = (StringMap.parse(map['slots']) unless map['slots'].nil?)
         return data
       end
     end

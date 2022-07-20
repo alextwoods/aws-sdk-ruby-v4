@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Signer
   module Builders
 
@@ -32,7 +34,7 @@ module AWS::SDK::Signer
         data['principal'] = input[:principal] unless input[:principal].nil?
         data['revisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data['statementId'] = input[:statement_id] unless input[:statement_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -221,13 +223,13 @@ module AWS::SDK::Signer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['signingMaterial'] = Builders::SigningMaterial.build(input[:signing_material]) unless input[:signing_material].nil?
-        data['signatureValidityPeriod'] = Builders::SignatureValidityPeriod.build(input[:signature_validity_period]) unless input[:signature_validity_period].nil?
+        data['signingMaterial'] = SigningMaterial.build(input[:signing_material]) unless input[:signing_material].nil?
+        data['signatureValidityPeriod'] = SignatureValidityPeriod.build(input[:signature_validity_period]) unless input[:signature_validity_period].nil?
         data['platformId'] = input[:platform_id] unless input[:platform_id].nil?
-        data['overrides'] = Builders::SigningPlatformOverrides.build(input[:overrides]) unless input[:overrides].nil?
-        data['signingParameters'] = Builders::SigningParameters.build(input[:signing_parameters]) unless input[:signing_parameters].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['overrides'] = SigningPlatformOverrides.build(input[:overrides]) unless input[:overrides].nil?
+        data['signingParameters'] = SigningParameters.build(input[:signing_parameters]) unless input[:signing_parameters].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::Signer
     class SigningPlatformOverrides
       def self.build(input)
         data = {}
-        data['signingConfiguration'] = Builders::SigningConfigurationOverrides.build(input[:signing_configuration]) unless input[:signing_configuration].nil?
+        data['signingConfiguration'] = SigningConfigurationOverrides.build(input[:signing_configuration]) unless input[:signing_configuration].nil?
         data['signingImageFormat'] = input[:signing_image_format] unless input[:signing_image_format].nil?
         data
       end
@@ -333,7 +335,7 @@ module AWS::SDK::Signer
         data = {}
         data['jobOwner'] = input[:job_owner] unless input[:job_owner].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -357,7 +359,7 @@ module AWS::SDK::Signer
         data['profileVersion'] = input[:profile_version] unless input[:profile_version].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
         data['effectiveTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:effective_time]).to_i unless input[:effective_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -371,12 +373,12 @@ module AWS::SDK::Signer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['source'] = Builders::Source.build(input[:source]) unless input[:source].nil?
-        data['destination'] = Builders::Destination.build(input[:destination]) unless input[:destination].nil?
+        data['source'] = Source.build(input[:source]) unless input[:source].nil?
+        data['destination'] = Destination.build(input[:destination]) unless input[:destination].nil?
         data['profileName'] = input[:profile_name] unless input[:profile_name].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['profileOwner'] = input[:profile_owner] unless input[:profile_owner].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -384,7 +386,7 @@ module AWS::SDK::Signer
     class Destination
       def self.build(input)
         data = {}
-        data['s3'] = Builders::S3Destination.build(input[:s3]) unless input[:s3].nil?
+        data['s3'] = S3Destination.build(input[:s3]) unless input[:s3].nil?
         data
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::Signer
     class Source
       def self.build(input)
         data = {}
-        data['s3'] = Builders::S3Source.build(input[:s3]) unless input[:s3].nil?
+        data['s3'] = S3Source.build(input[:s3]) unless input[:s3].nil?
         data
       end
     end
@@ -436,8 +438,8 @@ module AWS::SDK::Signer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

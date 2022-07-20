@@ -18,7 +18,7 @@ module AWS::SDK::CodeStarConnections
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.connection_arn = map['ConnectionArn']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::CodeStarConnections
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -84,7 +84,7 @@ module AWS::SDK::CodeStarConnections
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.host_arn = map['HostArn']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -118,7 +118,7 @@ module AWS::SDK::CodeStarConnections
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -147,7 +147,7 @@ module AWS::SDK::CodeStarConnections
         data.status = map['Status']
         data.provider_type = map['ProviderType']
         data.provider_endpoint = map['ProviderEndpoint']
-        data.vpc_configuration = (Parsers::VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.vpc_configuration = (VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         data
       end
     end
@@ -156,8 +156,8 @@ module AWS::SDK::CodeStarConnections
       def self.parse(map)
         data = Types::VpcConfiguration.new
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.tls_certificate = map['TlsCertificate']
         return data
       end
@@ -186,7 +186,7 @@ module AWS::SDK::CodeStarConnections
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connections = (Parsers::ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.connections = (ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -195,7 +195,7 @@ module AWS::SDK::CodeStarConnections
     class ConnectionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Connection.parse(value) unless value.nil?
+          Connection.parse(value) unless value.nil?
         end
       end
     end
@@ -207,7 +207,7 @@ module AWS::SDK::CodeStarConnections
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hosts = (Parsers::HostList.parse(map['Hosts']) unless map['Hosts'].nil?)
+        data.hosts = (HostList.parse(map['Hosts']) unless map['Hosts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -216,7 +216,7 @@ module AWS::SDK::CodeStarConnections
     class HostList
       def self.parse(list)
         list.map do |value|
-          Parsers::Host.parse(value) unless value.nil?
+          Host.parse(value) unless value.nil?
         end
       end
     end
@@ -228,7 +228,7 @@ module AWS::SDK::CodeStarConnections
         data.host_arn = map['HostArn']
         data.provider_type = map['ProviderType']
         data.provider_endpoint = map['ProviderEndpoint']
-        data.vpc_configuration = (Parsers::VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
+        data.vpc_configuration = (VpcConfiguration.parse(map['VpcConfiguration']) unless map['VpcConfiguration'].nil?)
         data.status = map['Status']
         data.status_message = map['StatusMessage']
         return data
@@ -242,7 +242,7 @@ module AWS::SDK::CodeStarConnections
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

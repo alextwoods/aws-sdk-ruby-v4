@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Honeycode
   module Stubs
 
@@ -25,9 +27,9 @@ module AWS::SDK::Honeycode
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        data['createdRows'] = Stubs::CreatedRowsMap.stub(stub[:created_rows]) unless stub[:created_rows].nil?
-        data['failedBatchItems'] = Stubs::FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['createdRows'] = CreatedRowsMap.stub(stub[:created_rows]) unless stub[:created_rows].nil?
+        data['failedBatchItems'] = FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedBatchItem.stub(element) unless element.nil?
+          data << FailedBatchItem.stub(element) unless element.nil?
         end
         data
       end
@@ -105,8 +107,8 @@ module AWS::SDK::Honeycode
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        data['failedBatchItems'] = Stubs::FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedBatchItems'] = FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -124,8 +126,8 @@ module AWS::SDK::Honeycode
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        data['failedBatchItems'] = Stubs::FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedBatchItems'] = FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,10 +145,10 @@ module AWS::SDK::Honeycode
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['rows'] = Stubs::UpsertRowsResultMap.stub(stub[:rows]) unless stub[:rows].nil?
+        data['rows'] = UpsertRowsResultMap.stub(stub[:rows]) unless stub[:rows].nil?
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        data['failedBatchItems'] = Stubs::FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedBatchItems'] = FailedBatchItems.stub(stub[:failed_batch_items]) unless stub[:failed_batch_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::Honeycode
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::UpsertRowsResult.stub(value) unless value.nil?
+          data[key] = UpsertRowsResult.stub(value) unless value.nil?
         end
         data
       end
@@ -184,7 +186,7 @@ module AWS::SDK::Honeycode
       def self.stub(stub)
         stub ||= Types::UpsertRowsResult.new
         data = {}
-        data['rowIds'] = Stubs::RowIdList.stub(stub[:row_ids]) unless stub[:row_ids].nil?
+        data['rowIds'] = RowIdList.stub(stub[:row_ids]) unless stub[:row_ids].nil?
         data['upsertAction'] = stub[:upsert_action] unless stub[:upsert_action].nil?
         data
       end
@@ -227,9 +229,9 @@ module AWS::SDK::Honeycode
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['jobMetadata'] = Stubs::TableDataImportJobMetadata.stub(stub[:job_metadata]) unless stub[:job_metadata].nil?
+        data['jobMetadata'] = TableDataImportJobMetadata.stub(stub[:job_metadata]) unless stub[:job_metadata].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -249,10 +251,10 @@ module AWS::SDK::Honeycode
       def self.stub(stub)
         stub ||= Types::TableDataImportJobMetadata.new
         data = {}
-        data['submitter'] = Stubs::ImportJobSubmitter.stub(stub[:submitter]) unless stub[:submitter].nil?
+        data['submitter'] = ImportJobSubmitter.stub(stub[:submitter]) unless stub[:submitter].nil?
         data['submitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
-        data['importOptions'] = Stubs::ImportOptions.stub(stub[:import_options]) unless stub[:import_options].nil?
-        data['dataSource'] = Stubs::ImportDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['importOptions'] = ImportOptions.stub(stub[:import_options]) unless stub[:import_options].nil?
+        data['dataSource'] = ImportDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data
       end
     end
@@ -270,7 +272,7 @@ module AWS::SDK::Honeycode
       def self.stub(stub)
         stub ||= Types::ImportDataSource.new
         data = {}
-        data['dataSourceConfig'] = Stubs::ImportDataSourceConfig.stub(stub[:data_source_config]) unless stub[:data_source_config].nil?
+        data['dataSourceConfig'] = ImportDataSourceConfig.stub(stub[:data_source_config]) unless stub[:data_source_config].nil?
         data
       end
     end
@@ -307,8 +309,8 @@ module AWS::SDK::Honeycode
       def self.stub(stub)
         stub ||= Types::ImportOptions.new
         data = {}
-        data['destinationOptions'] = Stubs::DestinationOptions.stub(stub[:destination_options]) unless stub[:destination_options].nil?
-        data['delimitedTextOptions'] = Stubs::DelimitedTextImportOptions.stub(stub[:delimited_text_options]) unless stub[:delimited_text_options].nil?
+        data['destinationOptions'] = DestinationOptions.stub(stub[:destination_options]) unless stub[:destination_options].nil?
+        data['delimitedTextOptions'] = DelimitedTextImportOptions.stub(stub[:delimited_text_options]) unless stub[:delimited_text_options].nil?
         data
       end
     end
@@ -350,7 +352,7 @@ module AWS::SDK::Honeycode
       def self.stub(stub)
         stub ||= Types::DestinationOptions.new
         data = {}
-        data['columnMap'] = Stubs::ImportColumnMap.stub(stub[:column_map]) unless stub[:column_map].nil?
+        data['columnMap'] = ImportColumnMap.stub(stub[:column_map]) unless stub[:column_map].nil?
         data
       end
     end
@@ -369,7 +371,7 @@ module AWS::SDK::Honeycode
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::SourceDataColumnProperties.stub(value) unless value.nil?
+          data[key] = SourceDataColumnProperties.stub(value) unless value.nil?
         end
         data
       end
@@ -427,10 +429,10 @@ module AWS::SDK::Honeycode
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['results'] = Stubs::ResultSetMap.stub(stub[:results]) unless stub[:results].nil?
+        data['results'] = ResultSetMap.stub(stub[:results]) unless stub[:results].nil?
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,7 +450,7 @@ module AWS::SDK::Honeycode
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ResultSet.stub(value) unless value.nil?
+          data[key] = ResultSet.stub(value) unless value.nil?
         end
         data
       end
@@ -468,8 +470,8 @@ module AWS::SDK::Honeycode
       def self.stub(stub)
         stub ||= Types::ResultSet.new
         data = {}
-        data['headers'] = Stubs::ResultHeader.stub(stub[:headers]) unless stub[:headers].nil?
-        data['rows'] = Stubs::ResultRows.stub(stub[:rows]) unless stub[:rows].nil?
+        data['headers'] = ResultHeader.stub(stub[:headers]) unless stub[:headers].nil?
+        data['rows'] = ResultRows.stub(stub[:rows]) unless stub[:rows].nil?
         data
       end
     end
@@ -488,7 +490,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResultRow.stub(element) unless element.nil?
+          data << ResultRow.stub(element) unless element.nil?
         end
         data
       end
@@ -509,7 +511,7 @@ module AWS::SDK::Honeycode
         stub ||= Types::ResultRow.new
         data = {}
         data['rowId'] = stub[:row_id] unless stub[:row_id].nil?
-        data['dataItems'] = Stubs::DataItems.stub(stub[:data_items]) unless stub[:data_items].nil?
+        data['dataItems'] = DataItems.stub(stub[:data_items]) unless stub[:data_items].nil?
         data
       end
     end
@@ -528,7 +530,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataItem.stub(element) unless element.nil?
+          data << DataItem.stub(element) unless element.nil?
         end
         data
       end
@@ -570,7 +572,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnMetadata.stub(element) unless element.nil?
+          data << ColumnMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -609,7 +611,7 @@ module AWS::SDK::Honeycode
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -627,10 +629,10 @@ module AWS::SDK::Honeycode
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tableColumns'] = Stubs::TableColumns.stub(stub[:table_columns]) unless stub[:table_columns].nil?
+        data['tableColumns'] = TableColumns.stub(stub[:table_columns]) unless stub[:table_columns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -648,7 +650,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableColumn.stub(element) unless element.nil?
+          data << TableColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -692,12 +694,12 @@ module AWS::SDK::Honeycode
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['columnIds'] = Stubs::ResourceIds.stub(stub[:column_ids]) unless stub[:column_ids].nil?
-        data['rows'] = Stubs::TableRows.stub(stub[:rows]) unless stub[:rows].nil?
-        data['rowIdsNotFound'] = Stubs::RowIdList.stub(stub[:row_ids_not_found]) unless stub[:row_ids_not_found].nil?
+        data['columnIds'] = ResourceIds.stub(stub[:column_ids]) unless stub[:column_ids].nil?
+        data['rows'] = TableRows.stub(stub[:rows]) unless stub[:rows].nil?
+        data['rowIdsNotFound'] = RowIdList.stub(stub[:row_ids_not_found]) unless stub[:row_ids_not_found].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -715,7 +717,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableRow.stub(element) unless element.nil?
+          data << TableRow.stub(element) unless element.nil?
         end
         data
       end
@@ -736,7 +738,7 @@ module AWS::SDK::Honeycode
         stub ||= Types::TableRow.new
         data = {}
         data['rowId'] = stub[:row_id] unless stub[:row_id].nil?
-        data['cells'] = Stubs::Cells.stub(stub[:cells]) unless stub[:cells].nil?
+        data['cells'] = Cells.stub(stub[:cells]) unless stub[:cells].nil?
         data
       end
     end
@@ -755,7 +757,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cell.stub(element) unless element.nil?
+          data << Cell.stub(element) unless element.nil?
         end
         data
       end
@@ -782,7 +784,7 @@ module AWS::SDK::Honeycode
         data['format'] = stub[:format] unless stub[:format].nil?
         data['rawValue'] = stub[:raw_value] unless stub[:raw_value].nil?
         data['formattedValue'] = stub[:formatted_value] unless stub[:formatted_value].nil?
-        data['formattedValues'] = Stubs::FormattedValuesList.stub(stub[:formatted_values]) unless stub[:formatted_values].nil?
+        data['formattedValues'] = FormattedValuesList.stub(stub[:formatted_values]) unless stub[:formatted_values].nil?
         data
       end
     end
@@ -841,10 +843,10 @@ module AWS::SDK::Honeycode
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tables'] = Stubs::Tables.stub(stub[:tables]) unless stub[:tables].nil?
+        data['tables'] = Tables.stub(stub[:tables]) unless stub[:tables].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::Honeycode
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Table.stub(element) unless element.nil?
+          data << Table.stub(element) unless element.nil?
         end
         data
       end
@@ -900,8 +902,8 @@ module AWS::SDK::Honeycode
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -940,11 +942,11 @@ module AWS::SDK::Honeycode
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['columnIds'] = Stubs::ResourceIds.stub(stub[:column_ids]) unless stub[:column_ids].nil?
-        data['rows'] = Stubs::TableRows.stub(stub[:rows]) unless stub[:rows].nil?
+        data['columnIds'] = ResourceIds.stub(stub[:column_ids]) unless stub[:column_ids].nil?
+        data['rows'] = TableRows.stub(stub[:rows]) unless stub[:rows].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['workbookCursor'] = stub[:workbook_cursor] unless stub[:workbook_cursor].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -963,7 +965,7 @@ module AWS::SDK::Honeycode
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['jobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MachineLearning
   module Builders
 
@@ -18,10 +20,10 @@ module AWS::SDK::MachineLearning
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.AddTags'
         data = {}
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::MachineLearning
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -59,7 +61,7 @@ module AWS::SDK::MachineLearning
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
         data['BatchPredictionDataSourceId'] = input[:batch_prediction_data_source_id] unless input[:batch_prediction_data_source_id].nil?
         data['OutputUri'] = input[:output_uri] unless input[:output_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -73,10 +75,10 @@ module AWS::SDK::MachineLearning
         data = {}
         data['DataSourceId'] = input[:data_source_id] unless input[:data_source_id].nil?
         data['DataSourceName'] = input[:data_source_name] unless input[:data_source_name].nil?
-        data['RDSData'] = Builders::RDSDataSpec.build(input[:rds_data]) unless input[:rds_data].nil?
+        data['RDSData'] = RDSDataSpec.build(input[:rds_data]) unless input[:rds_data].nil?
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
         data['ComputeStatistics'] = input[:compute_statistics] unless input[:compute_statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,9 +86,9 @@ module AWS::SDK::MachineLearning
     class RDSDataSpec
       def self.build(input)
         data = {}
-        data['DatabaseInformation'] = Builders::RDSDatabase.build(input[:database_information]) unless input[:database_information].nil?
+        data['DatabaseInformation'] = RDSDatabase.build(input[:database_information]) unless input[:database_information].nil?
         data['SelectSqlQuery'] = input[:select_sql_query] unless input[:select_sql_query].nil?
-        data['DatabaseCredentials'] = Builders::RDSDatabaseCredentials.build(input[:database_credentials]) unless input[:database_credentials].nil?
+        data['DatabaseCredentials'] = RDSDatabaseCredentials.build(input[:database_credentials]) unless input[:database_credentials].nil?
         data['S3StagingLocation'] = input[:s3_staging_location] unless input[:s3_staging_location].nil?
         data['DataRearrangement'] = input[:data_rearrangement] unless input[:data_rearrangement].nil?
         data['DataSchema'] = input[:data_schema] unless input[:data_schema].nil?
@@ -94,7 +96,7 @@ module AWS::SDK::MachineLearning
         data['ResourceRole'] = input[:resource_role] unless input[:resource_role].nil?
         data['ServiceRole'] = input[:service_role] unless input[:service_role].nil?
         data['SubnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
-        data['SecurityGroupIds'] = Builders::EDPSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = EDPSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -140,10 +142,10 @@ module AWS::SDK::MachineLearning
         data = {}
         data['DataSourceId'] = input[:data_source_id] unless input[:data_source_id].nil?
         data['DataSourceName'] = input[:data_source_name] unless input[:data_source_name].nil?
-        data['DataSpec'] = Builders::RedshiftDataSpec.build(input[:data_spec]) unless input[:data_spec].nil?
+        data['DataSpec'] = RedshiftDataSpec.build(input[:data_spec]) unless input[:data_spec].nil?
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
         data['ComputeStatistics'] = input[:compute_statistics] unless input[:compute_statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,9 +153,9 @@ module AWS::SDK::MachineLearning
     class RedshiftDataSpec
       def self.build(input)
         data = {}
-        data['DatabaseInformation'] = Builders::RedshiftDatabase.build(input[:database_information]) unless input[:database_information].nil?
+        data['DatabaseInformation'] = RedshiftDatabase.build(input[:database_information]) unless input[:database_information].nil?
         data['SelectSqlQuery'] = input[:select_sql_query] unless input[:select_sql_query].nil?
-        data['DatabaseCredentials'] = Builders::RedshiftDatabaseCredentials.build(input[:database_credentials]) unless input[:database_credentials].nil?
+        data['DatabaseCredentials'] = RedshiftDatabaseCredentials.build(input[:database_credentials]) unless input[:database_credentials].nil?
         data['S3StagingLocation'] = input[:s3_staging_location] unless input[:s3_staging_location].nil?
         data['DataRearrangement'] = input[:data_rearrangement] unless input[:data_rearrangement].nil?
         data['DataSchema'] = input[:data_schema] unless input[:data_schema].nil?
@@ -192,9 +194,9 @@ module AWS::SDK::MachineLearning
         data = {}
         data['DataSourceId'] = input[:data_source_id] unless input[:data_source_id].nil?
         data['DataSourceName'] = input[:data_source_name] unless input[:data_source_name].nil?
-        data['DataSpec'] = Builders::S3DataSpec.build(input[:data_spec]) unless input[:data_spec].nil?
+        data['DataSpec'] = S3DataSpec.build(input[:data_spec]) unless input[:data_spec].nil?
         data['ComputeStatistics'] = input[:compute_statistics] unless input[:compute_statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::MachineLearning
         data['EvaluationName'] = input[:evaluation_name] unless input[:evaluation_name].nil?
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
         data['EvaluationDataSourceId'] = input[:evaluation_data_source_id] unless input[:evaluation_data_source_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,11 +239,11 @@ module AWS::SDK::MachineLearning
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
         data['MLModelName'] = input[:ml_model_name] unless input[:ml_model_name].nil?
         data['MLModelType'] = input[:ml_model_type] unless input[:ml_model_type].nil?
-        data['Parameters'] = Builders::TrainingParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = TrainingParameters.build(input[:parameters]) unless input[:parameters].nil?
         data['TrainingDataSourceId'] = input[:training_data_source_id] unless input[:training_data_source_id].nil?
         data['Recipe'] = input[:recipe] unless input[:recipe].nil?
         data['RecipeUri'] = input[:recipe_uri] unless input[:recipe_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -265,7 +267,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.CreateRealtimeEndpoint'
         data = {}
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -278,7 +280,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.DeleteBatchPrediction'
         data = {}
         data['BatchPredictionId'] = input[:batch_prediction_id] unless input[:batch_prediction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -291,7 +293,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.DeleteDataSource'
         data = {}
         data['DataSourceId'] = input[:data_source_id] unless input[:data_source_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -304,7 +306,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.DeleteEvaluation'
         data = {}
         data['EvaluationId'] = input[:evaluation_id] unless input[:evaluation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.DeleteMLModel'
         data = {}
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -330,7 +332,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.DeleteRealtimeEndpoint'
         data = {}
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,10 +344,10 @@ module AWS::SDK::MachineLearning
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.DeleteTags'
         data = {}
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -379,7 +381,7 @@ module AWS::SDK::MachineLearning
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -402,7 +404,7 @@ module AWS::SDK::MachineLearning
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -425,7 +427,7 @@ module AWS::SDK::MachineLearning
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,7 +450,7 @@ module AWS::SDK::MachineLearning
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.GetBatchPrediction'
         data = {}
         data['BatchPredictionId'] = input[:batch_prediction_id] unless input[:batch_prediction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -489,7 +491,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['DataSourceId'] = input[:data_source_id] unless input[:data_source_id].nil?
         data['Verbose'] = input[:verbose] unless input[:verbose].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -502,7 +504,7 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.GetEvaluation'
         data = {}
         data['EvaluationId'] = input[:evaluation_id] unless input[:evaluation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -516,7 +518,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
         data['Verbose'] = input[:verbose] unless input[:verbose].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -529,9 +531,9 @@ module AWS::SDK::MachineLearning
         http_req.headers['X-Amz-Target'] = 'AmazonML_20141212.Predict'
         data = {}
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
-        data['Record'] = Builders::Record.build(input[:record]) unless input[:record].nil?
+        data['Record'] = Record.build(input[:record]) unless input[:record].nil?
         data['PredictEndpoint'] = input[:predict_endpoint] unless input[:predict_endpoint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -556,7 +558,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['BatchPredictionId'] = input[:batch_prediction_id] unless input[:batch_prediction_id].nil?
         data['BatchPredictionName'] = input[:batch_prediction_name] unless input[:batch_prediction_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,7 +572,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['DataSourceId'] = input[:data_source_id] unless input[:data_source_id].nil?
         data['DataSourceName'] = input[:data_source_name] unless input[:data_source_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,7 +586,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['EvaluationId'] = input[:evaluation_id] unless input[:evaluation_id].nil?
         data['EvaluationName'] = input[:evaluation_name] unless input[:evaluation_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -599,7 +601,7 @@ module AWS::SDK::MachineLearning
         data['MLModelId'] = input[:ml_model_id] unless input[:ml_model_id].nil?
         data['MLModelName'] = input[:ml_model_name] unless input[:ml_model_name].nil?
         data['ScoreThreshold'] = Hearth::NumberHelper.serialize(input[:score_threshold]) unless input[:score_threshold].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

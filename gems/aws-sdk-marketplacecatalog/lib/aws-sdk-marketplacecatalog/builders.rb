@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceCatalog
   module Builders
 
@@ -57,11 +59,11 @@ module AWS::SDK::MarketplaceCatalog
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Catalog'] = input[:catalog] unless input[:catalog].nil?
-        data['FilterList'] = Builders::FilterList.build(input[:filter_list]) unless input[:filter_list].nil?
-        data['Sort'] = Builders::Sort.build(input[:sort]) unless input[:sort].nil?
+        data['FilterList'] = FilterList.build(input[:filter_list]) unless input[:filter_list].nil?
+        data['Sort'] = Sort.build(input[:sort]) unless input[:sort].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -91,7 +93,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['ValueList'] = Builders::ValueList.build(input[:value_list]) unless input[:value_list].nil?
+        data['ValueList'] = ValueList.build(input[:value_list]) unless input[:value_list].nil?
         data
       end
     end
@@ -119,11 +121,11 @@ module AWS::SDK::MarketplaceCatalog
         data = {}
         data['Catalog'] = input[:catalog] unless input[:catalog].nil?
         data['EntityType'] = input[:entity_type] unless input[:entity_type].nil?
-        data['FilterList'] = Builders::FilterList.build(input[:filter_list]) unless input[:filter_list].nil?
-        data['Sort'] = Builders::Sort.build(input[:sort]) unless input[:sort].nil?
+        data['FilterList'] = FilterList.build(input[:filter_list]) unless input[:filter_list].nil?
+        data['Sort'] = Sort.build(input[:sort]) unless input[:sort].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,10 +140,10 @@ module AWS::SDK::MarketplaceCatalog
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Catalog'] = input[:catalog] unless input[:catalog].nil?
-        data['ChangeSet'] = Builders::RequestedChangeList.build(input[:change_set]) unless input[:change_set].nil?
+        data['ChangeSet'] = RequestedChangeList.build(input[:change_set]) unless input[:change_set].nil?
         data['ChangeSetName'] = input[:change_set_name] unless input[:change_set_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -150,7 +152,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Change.build(element) unless element.nil?
+          data << Change.build(element) unless element.nil?
         end
         data
       end
@@ -161,7 +163,7 @@ module AWS::SDK::MarketplaceCatalog
       def self.build(input)
         data = {}
         data['ChangeType'] = input[:change_type] unless input[:change_type].nil?
-        data['Entity'] = Builders::Entity.build(input[:entity]) unless input[:entity].nil?
+        data['Entity'] = Entity.build(input[:entity]) unless input[:entity].nil?
         data['Details'] = input[:details] unless input[:details].nil?
         data['ChangeName'] = input[:change_name] unless input[:change_name].nil?
         data

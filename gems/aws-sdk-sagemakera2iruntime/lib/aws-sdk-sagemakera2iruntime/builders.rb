@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMakerA2IRuntime
   module Builders
 
@@ -72,9 +74,9 @@ module AWS::SDK::SageMakerA2IRuntime
         data = {}
         data['HumanLoopName'] = input[:human_loop_name] unless input[:human_loop_name].nil?
         data['FlowDefinitionArn'] = input[:flow_definition_arn] unless input[:flow_definition_arn].nil?
-        data['HumanLoopInput'] = Builders::HumanLoopInput.build(input[:human_loop_input]) unless input[:human_loop_input].nil?
-        data['DataAttributes'] = Builders::HumanLoopDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HumanLoopInput'] = HumanLoopInput.build(input[:human_loop_input]) unless input[:human_loop_input].nil?
+        data['DataAttributes'] = HumanLoopDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,7 +84,7 @@ module AWS::SDK::SageMakerA2IRuntime
     class HumanLoopDataAttributes
       def self.build(input)
         data = {}
-        data['ContentClassifiers'] = Builders::ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
+        data['ContentClassifiers'] = ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
         data
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::SageMakerA2IRuntime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['HumanLoopName'] = input[:human_loop_name] unless input[:human_loop_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

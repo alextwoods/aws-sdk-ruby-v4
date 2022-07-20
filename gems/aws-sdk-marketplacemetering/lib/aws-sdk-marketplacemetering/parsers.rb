@@ -17,8 +17,8 @@ module AWS::SDK::MarketplaceMetering
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::UsageRecordResultList.parse(map['Results']) unless map['Results'].nil?)
-        data.unprocessed_records = (Parsers::UsageRecordList.parse(map['UnprocessedRecords']) unless map['UnprocessedRecords'].nil?)
+        data.results = (UsageRecordResultList.parse(map['Results']) unless map['Results'].nil?)
+        data.unprocessed_records = (UsageRecordList.parse(map['UnprocessedRecords']) unless map['UnprocessedRecords'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::MarketplaceMetering
     class UsageRecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::UsageRecord.parse(value) unless value.nil?
+          UsageRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -38,7 +38,7 @@ module AWS::SDK::MarketplaceMetering
         data.customer_identifier = map['CustomerIdentifier']
         data.dimension = map['Dimension']
         data.quantity = map['Quantity']
-        data.usage_allocations = (Parsers::UsageAllocations.parse(map['UsageAllocations']) unless map['UsageAllocations'].nil?)
+        data.usage_allocations = (UsageAllocations.parse(map['UsageAllocations']) unless map['UsageAllocations'].nil?)
         return data
       end
     end
@@ -46,7 +46,7 @@ module AWS::SDK::MarketplaceMetering
     class UsageAllocations
       def self.parse(list)
         list.map do |value|
-          Parsers::UsageAllocation.parse(value) unless value.nil?
+          UsageAllocation.parse(value) unless value.nil?
         end
       end
     end
@@ -55,7 +55,7 @@ module AWS::SDK::MarketplaceMetering
       def self.parse(map)
         data = Types::UsageAllocation.new
         data.allocated_usage_quantity = map['AllocatedUsageQuantity']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -63,7 +63,7 @@ module AWS::SDK::MarketplaceMetering
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -80,7 +80,7 @@ module AWS::SDK::MarketplaceMetering
     class UsageRecordResultList
       def self.parse(list)
         list.map do |value|
-          Parsers::UsageRecordResult.parse(value) unless value.nil?
+          UsageRecordResult.parse(value) unless value.nil?
         end
       end
     end
@@ -88,7 +88,7 @@ module AWS::SDK::MarketplaceMetering
     class UsageRecordResult
       def self.parse(map)
         data = Types::UsageRecordResult.new
-        data.usage_record = (Parsers::UsageRecord.parse(map['UsageRecord']) unless map['UsageRecord'].nil?)
+        data.usage_record = (UsageRecord.parse(map['UsageRecord']) unless map['UsageRecord'].nil?)
         data.metering_record_id = map['MeteringRecordId']
         data.status = map['Status']
         return data

@@ -104,7 +104,7 @@ module AWS::SDK::Finspace
       def self.parse(http_resp)
         data = Types::GetEnvironmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -123,7 +123,7 @@ module AWS::SDK::Finspace
         data.kms_key_id = map['kmsKeyId']
         data.dedicated_service_account_id = map['dedicatedServiceAccountId']
         data.federation_mode = map['federationMode']
-        data.federation_parameters = (Parsers::FederationParameters.parse(map['federationParameters']) unless map['federationParameters'].nil?)
+        data.federation_parameters = (FederationParameters.parse(map['federationParameters']) unless map['federationParameters'].nil?)
         return data
       end
     end
@@ -136,7 +136,7 @@ module AWS::SDK::Finspace
         data.application_call_back_url = map['applicationCallBackURL']
         data.federation_urn = map['federationURN']
         data.federation_provider_name = map['federationProviderName']
-        data.attribute_map = (Parsers::AttributeMap.parse(map['attributeMap']) unless map['attributeMap'].nil?)
+        data.attribute_map = (AttributeMap.parse(map['attributeMap']) unless map['attributeMap'].nil?)
         return data
       end
     end
@@ -156,7 +156,7 @@ module AWS::SDK::Finspace
       def self.parse(http_resp)
         data = Types::ListEnvironmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environments = (Parsers::EnvironmentList.parse(map['environments']) unless map['environments'].nil?)
+        data.environments = (EnvironmentList.parse(map['environments']) unless map['environments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -166,7 +166,7 @@ module AWS::SDK::Finspace
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Environment.parse(value) unless value.nil?
+          data << Environment.parse(value) unless value.nil?
         end
         data
       end
@@ -177,7 +177,7 @@ module AWS::SDK::Finspace
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -225,7 +225,7 @@ module AWS::SDK::Finspace
       def self.parse(http_resp)
         data = Types::UpdateEnvironmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end

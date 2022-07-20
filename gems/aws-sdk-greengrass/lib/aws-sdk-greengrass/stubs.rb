@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Greengrass
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociatedAt'] = stub[:associated_at] unless stub[:associated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociatedAt'] = stub[:associated_at] unless stub[:associated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +71,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -92,7 +94,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -144,7 +146,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeploymentArn'] = stub[:deployment_arn] unless stub[:deployment_arn].nil?
         data['DeploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,7 +194,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -244,7 +246,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -296,7 +298,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -313,7 +315,7 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['GroupCertificateAuthorityArn'] = stub[:group_certificate_authority_arn] unless stub[:group_certificate_authority_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,7 +338,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,7 +419,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -440,7 +442,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -461,7 +463,7 @@ module AWS::SDK::Greengrass
         data['IotJobArn'] = stub[:iot_job_arn] unless stub[:iot_job_arn].nil?
         data['IotJobId'] = stub[:iot_job_id] unless stub[:iot_job_id].nil?
         data['PlatformSoftwareVersion'] = stub[:platform_software_version] unless stub[:platform_software_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -490,7 +492,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -513,7 +515,7 @@ module AWS::SDK::Greengrass
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -634,7 +636,7 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DisassociatedAt'] = stub[:disassociated_at] unless stub[:disassociated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -651,7 +653,7 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DisassociatedAt'] = stub[:disassociated_at] unless stub[:disassociated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -670,7 +672,7 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociatedAt'] = stub[:associated_at] unless stub[:associated_at].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -691,13 +693,13 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BulkDeploymentMetrics'] = Stubs::BulkDeploymentMetrics.stub(stub[:bulk_deployment_metrics]) unless stub[:bulk_deployment_metrics].nil?
+        data['BulkDeploymentMetrics'] = BulkDeploymentMetrics.stub(stub[:bulk_deployment_metrics]) unless stub[:bulk_deployment_metrics].nil?
         data['BulkDeploymentStatus'] = stub[:bulk_deployment_status] unless stub[:bulk_deployment_status].nil?
         data['CreatedAt'] = stub[:created_at] unless stub[:created_at].nil?
-        data['ErrorDetails'] = Stubs::ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
+        data['ErrorDetails'] = ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -735,7 +737,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ErrorDetail.stub(element) unless element.nil?
+          data << ErrorDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -796,9 +798,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectivityInfo'] = Stubs::List____listOfConnectivityInfo.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
+        data['ConnectivityInfo'] = List____listOfConnectivityInfo.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -816,7 +818,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectivityInfo.stub(element) unless element.nil?
+          data << ConnectivityInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -872,8 +874,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -896,11 +898,11 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::ConnectorDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = ConnectorDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -917,7 +919,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::ConnectorDefinitionVersion.new
         data = {}
-        data['Connectors'] = Stubs::List____listOfConnector.stub(stub[:connectors]) unless stub[:connectors].nil?
+        data['Connectors'] = List____listOfConnector.stub(stub[:connectors]) unless stub[:connectors].nil?
         data
       end
     end
@@ -936,7 +938,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connector.stub(element) unless element.nil?
+          data << Connector.stub(element) unless element.nil?
         end
         data
       end
@@ -959,7 +961,7 @@ module AWS::SDK::Greengrass
         data = {}
         data['ConnectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Parameters'] = Stubs::Map____mapOf__string.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = Map____mapOf__string.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -1010,8 +1012,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1034,11 +1036,11 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::CoreDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = CoreDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1055,7 +1057,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::CoreDefinitionVersion.new
         data = {}
-        data['Cores'] = Stubs::List____listOfCore.stub(stub[:cores]) unless stub[:cores].nil?
+        data['Cores'] = List____listOfCore.stub(stub[:cores]) unless stub[:cores].nil?
         data
       end
     end
@@ -1074,7 +1076,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Core.stub(element) unless element.nil?
+          data << Core.stub(element) unless element.nil?
         end
         data
       end
@@ -1122,10 +1124,10 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeploymentStatus'] = stub[:deployment_status] unless stub[:deployment_status].nil?
         data['DeploymentType'] = stub[:deployment_type] unless stub[:deployment_type].nil?
-        data['ErrorDetails'] = Stubs::ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
+        data['ErrorDetails'] = ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['UpdatedAt'] = stub[:updated_at] unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1155,8 +1157,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1179,11 +1181,11 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::DeviceDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = DeviceDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1200,7 +1202,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::DeviceDefinitionVersion.new
         data = {}
-        data['Devices'] = Stubs::List____listOfDevice.stub(stub[:devices]) unless stub[:devices].nil?
+        data['Devices'] = List____listOfDevice.stub(stub[:devices]) unless stub[:devices].nil?
         data
       end
     end
@@ -1219,7 +1221,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Device.stub(element) unless element.nil?
+          data << Device.stub(element) unless element.nil?
         end
         data
       end
@@ -1275,8 +1277,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1299,11 +1301,11 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::FunctionDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = FunctionDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1321,8 +1323,8 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::FunctionDefinitionVersion.new
         data = {}
-        data['DefaultConfig'] = Stubs::FunctionDefaultConfig.stub(stub[:default_config]) unless stub[:default_config].nil?
-        data['Functions'] = Stubs::List____listOfFunction.stub(stub[:functions]) unless stub[:functions].nil?
+        data['DefaultConfig'] = FunctionDefaultConfig.stub(stub[:default_config]) unless stub[:default_config].nil?
+        data['Functions'] = List____listOfFunction.stub(stub[:functions]) unless stub[:functions].nil?
         data
       end
     end
@@ -1341,7 +1343,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Function.stub(element) unless element.nil?
+          data << Function.stub(element) unless element.nil?
         end
         data
       end
@@ -1363,7 +1365,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::Function.new
         data = {}
         data['FunctionArn'] = stub[:function_arn] unless stub[:function_arn].nil?
-        data['FunctionConfiguration'] = Stubs::FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
+        data['FunctionConfiguration'] = FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data
       end
@@ -1389,7 +1391,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::FunctionConfiguration.new
         data = {}
         data['EncodingType'] = stub[:encoding_type] unless stub[:encoding_type].nil?
-        data['Environment'] = Stubs::FunctionConfigurationEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Environment'] = FunctionConfigurationEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
         data['ExecArgs'] = stub[:exec_args] unless stub[:exec_args].nil?
         data['Executable'] = stub[:executable] unless stub[:executable].nil?
         data['MemorySize'] = stub[:memory_size] unless stub[:memory_size].nil?
@@ -1416,9 +1418,9 @@ module AWS::SDK::Greengrass
         stub ||= Types::FunctionConfigurationEnvironment.new
         data = {}
         data['AccessSysfs'] = stub[:access_sysfs] unless stub[:access_sysfs].nil?
-        data['Execution'] = Stubs::FunctionExecutionConfig.stub(stub[:execution]) unless stub[:execution].nil?
-        data['ResourceAccessPolicies'] = Stubs::List____listOfResourceAccessPolicy.stub(stub[:resource_access_policies]) unless stub[:resource_access_policies].nil?
-        data['Variables'] = Stubs::Map____mapOf__string.stub(stub[:variables]) unless stub[:variables].nil?
+        data['Execution'] = FunctionExecutionConfig.stub(stub[:execution]) unless stub[:execution].nil?
+        data['ResourceAccessPolicies'] = List____listOfResourceAccessPolicy.stub(stub[:resource_access_policies]) unless stub[:resource_access_policies].nil?
+        data['Variables'] = Map____mapOf__string.stub(stub[:variables]) unless stub[:variables].nil?
         data
       end
     end
@@ -1437,7 +1439,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceAccessPolicy.stub(element) unless element.nil?
+          data << ResourceAccessPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -1478,7 +1480,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::FunctionExecutionConfig.new
         data = {}
         data['IsolationMode'] = stub[:isolation_mode] unless stub[:isolation_mode].nil?
-        data['RunAs'] = Stubs::FunctionRunAsConfig.stub(stub[:run_as]) unless stub[:run_as].nil?
+        data['RunAs'] = FunctionRunAsConfig.stub(stub[:run_as]) unless stub[:run_as].nil?
         data
       end
     end
@@ -1516,7 +1518,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::FunctionDefaultConfig.new
         data = {}
-        data['Execution'] = Stubs::FunctionDefaultExecutionConfig.stub(stub[:execution]) unless stub[:execution].nil?
+        data['Execution'] = FunctionDefaultExecutionConfig.stub(stub[:execution]) unless stub[:execution].nil?
         data
       end
     end
@@ -1536,7 +1538,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::FunctionDefaultExecutionConfig.new
         data = {}
         data['IsolationMode'] = stub[:isolation_mode] unless stub[:isolation_mode].nil?
-        data['RunAs'] = Stubs::FunctionRunAsConfig.stub(stub[:run_as]) unless stub[:run_as].nil?
+        data['RunAs'] = FunctionRunAsConfig.stub(stub[:run_as]) unless stub[:run_as].nil?
         data
       end
     end
@@ -1567,8 +1569,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1589,7 +1591,7 @@ module AWS::SDK::Greengrass
         data['GroupCertificateAuthorityArn'] = stub[:group_certificate_authority_arn] unless stub[:group_certificate_authority_arn].nil?
         data['GroupCertificateAuthorityId'] = stub[:group_certificate_authority_id] unless stub[:group_certificate_authority_id].nil?
         data['PemEncodedCertificate'] = stub[:pem_encoded_certificate] unless stub[:pem_encoded_certificate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1610,7 +1612,7 @@ module AWS::SDK::Greengrass
         data['CertificateAuthorityExpiryInMilliseconds'] = stub[:certificate_authority_expiry_in_milliseconds] unless stub[:certificate_authority_expiry_in_milliseconds].nil?
         data['CertificateExpiryInMilliseconds'] = stub[:certificate_expiry_in_milliseconds] unless stub[:certificate_expiry_in_milliseconds].nil?
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1632,10 +1634,10 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::GroupVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = GroupVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1695,8 +1697,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1718,10 +1720,10 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::LoggerDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = LoggerDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1738,7 +1740,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::LoggerDefinitionVersion.new
         data = {}
-        data['Loggers'] = Stubs::List____listOfLogger.stub(stub[:loggers]) unless stub[:loggers].nil?
+        data['Loggers'] = List____listOfLogger.stub(stub[:loggers]) unless stub[:loggers].nil?
         data
       end
     end
@@ -1757,7 +1759,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Logger.stub(element) unless element.nil?
+          data << Logger.stub(element) unless element.nil?
         end
         data
       end
@@ -1815,8 +1817,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1838,10 +1840,10 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::ResourceDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = ResourceDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1858,7 +1860,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::ResourceDefinitionVersion.new
         data = {}
-        data['Resources'] = Stubs::List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -1877,7 +1879,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -1900,7 +1902,7 @@ module AWS::SDK::Greengrass
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ResourceDataContainer'] = Stubs::ResourceDataContainer.stub(stub[:resource_data_container]) unless stub[:resource_data_container].nil?
+        data['ResourceDataContainer'] = ResourceDataContainer.stub(stub[:resource_data_container]) unless stub[:resource_data_container].nil?
         data
       end
     end
@@ -1922,11 +1924,11 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::ResourceDataContainer.new
         data = {}
-        data['LocalDeviceResourceData'] = Stubs::LocalDeviceResourceData.stub(stub[:local_device_resource_data]) unless stub[:local_device_resource_data].nil?
-        data['LocalVolumeResourceData'] = Stubs::LocalVolumeResourceData.stub(stub[:local_volume_resource_data]) unless stub[:local_volume_resource_data].nil?
-        data['S3MachineLearningModelResourceData'] = Stubs::S3MachineLearningModelResourceData.stub(stub[:s3_machine_learning_model_resource_data]) unless stub[:s3_machine_learning_model_resource_data].nil?
-        data['SageMakerMachineLearningModelResourceData'] = Stubs::SageMakerMachineLearningModelResourceData.stub(stub[:sage_maker_machine_learning_model_resource_data]) unless stub[:sage_maker_machine_learning_model_resource_data].nil?
-        data['SecretsManagerSecretResourceData'] = Stubs::SecretsManagerSecretResourceData.stub(stub[:secrets_manager_secret_resource_data]) unless stub[:secrets_manager_secret_resource_data].nil?
+        data['LocalDeviceResourceData'] = LocalDeviceResourceData.stub(stub[:local_device_resource_data]) unless stub[:local_device_resource_data].nil?
+        data['LocalVolumeResourceData'] = LocalVolumeResourceData.stub(stub[:local_volume_resource_data]) unless stub[:local_volume_resource_data].nil?
+        data['S3MachineLearningModelResourceData'] = S3MachineLearningModelResourceData.stub(stub[:s3_machine_learning_model_resource_data]) unless stub[:s3_machine_learning_model_resource_data].nil?
+        data['SageMakerMachineLearningModelResourceData'] = SageMakerMachineLearningModelResourceData.stub(stub[:sage_maker_machine_learning_model_resource_data]) unless stub[:sage_maker_machine_learning_model_resource_data].nil?
+        data['SecretsManagerSecretResourceData'] = SecretsManagerSecretResourceData.stub(stub[:secrets_manager_secret_resource_data]) unless stub[:secrets_manager_secret_resource_data].nil?
         data
       end
     end
@@ -1946,7 +1948,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::SecretsManagerSecretResourceData.new
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['AdditionalStagingLabelsToDownload'] = Stubs::List____listOf__string.stub(stub[:additional_staging_labels_to_download]) unless stub[:additional_staging_labels_to_download].nil?
+        data['AdditionalStagingLabelsToDownload'] = List____listOf__string.stub(stub[:additional_staging_labels_to_download]) unless stub[:additional_staging_labels_to_download].nil?
         data
       end
     end
@@ -1987,7 +1989,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::SageMakerMachineLearningModelResourceData.new
         data = {}
         data['DestinationPath'] = stub[:destination_path] unless stub[:destination_path].nil?
-        data['OwnerSetting'] = Stubs::ResourceDownloadOwnerSetting.stub(stub[:owner_setting]) unless stub[:owner_setting].nil?
+        data['OwnerSetting'] = ResourceDownloadOwnerSetting.stub(stub[:owner_setting]) unless stub[:owner_setting].nil?
         data['SageMakerJobArn'] = stub[:sage_maker_job_arn] unless stub[:sage_maker_job_arn].nil?
         data
       end
@@ -2029,7 +2031,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::S3MachineLearningModelResourceData.new
         data = {}
         data['DestinationPath'] = stub[:destination_path] unless stub[:destination_path].nil?
-        data['OwnerSetting'] = Stubs::ResourceDownloadOwnerSetting.stub(stub[:owner_setting]) unless stub[:owner_setting].nil?
+        data['OwnerSetting'] = ResourceDownloadOwnerSetting.stub(stub[:owner_setting]) unless stub[:owner_setting].nil?
         data['S3Uri'] = stub[:s3_uri] unless stub[:s3_uri].nil?
         data
       end
@@ -2051,7 +2053,7 @@ module AWS::SDK::Greengrass
         stub ||= Types::LocalVolumeResourceData.new
         data = {}
         data['DestinationPath'] = stub[:destination_path] unless stub[:destination_path].nil?
-        data['GroupOwnerSetting'] = Stubs::GroupOwnerSetting.stub(stub[:group_owner_setting]) unless stub[:group_owner_setting].nil?
+        data['GroupOwnerSetting'] = GroupOwnerSetting.stub(stub[:group_owner_setting]) unless stub[:group_owner_setting].nil?
         data['SourcePath'] = stub[:source_path] unless stub[:source_path].nil?
         data
       end
@@ -2091,7 +2093,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::LocalDeviceResourceData.new
         data = {}
-        data['GroupOwnerSetting'] = Stubs::GroupOwnerSetting.stub(stub[:group_owner_setting]) unless stub[:group_owner_setting].nil?
+        data['GroupOwnerSetting'] = GroupOwnerSetting.stub(stub[:group_owner_setting]) unless stub[:group_owner_setting].nil?
         data['SourcePath'] = stub[:source_path] unless stub[:source_path].nil?
         data
       end
@@ -2112,7 +2114,7 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociatedAt'] = stub[:associated_at] unless stub[:associated_at].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2142,8 +2144,8 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2166,11 +2168,11 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTimestamp'] = stub[:creation_timestamp] unless stub[:creation_timestamp].nil?
-        data['Definition'] = Stubs::SubscriptionDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = SubscriptionDefinitionVersion.stub(stub[:definition]) unless stub[:definition].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2187,7 +2189,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::SubscriptionDefinitionVersion.new
         data = {}
-        data['Subscriptions'] = Stubs::List____listOfSubscription.stub(stub[:subscriptions]) unless stub[:subscriptions].nil?
+        data['Subscriptions'] = List____listOfSubscription.stub(stub[:subscriptions]) unless stub[:subscriptions].nil?
         data
       end
     end
@@ -2206,7 +2208,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subscription.stub(element) unless element.nil?
+          data << Subscription.stub(element) unless element.nil?
         end
         data
       end
@@ -2248,8 +2250,8 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RuntimeConfiguration'] = Stubs::RuntimeConfiguration.stub(stub[:runtime_configuration]) unless stub[:runtime_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuntimeConfiguration'] = RuntimeConfiguration.stub(stub[:runtime_configuration]) unless stub[:runtime_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2266,7 +2268,7 @@ module AWS::SDK::Greengrass
       def self.stub(stub)
         stub ||= Types::RuntimeConfiguration.new
         data = {}
-        data['TelemetryConfiguration'] = Stubs::TelemetryConfiguration.stub(stub[:telemetry_configuration]) unless stub[:telemetry_configuration].nil?
+        data['TelemetryConfiguration'] = TelemetryConfiguration.stub(stub[:telemetry_configuration]) unless stub[:telemetry_configuration].nil?
         data
       end
     end
@@ -2304,9 +2306,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Deployments'] = Stubs::BulkDeploymentResults.stub(stub[:deployments]) unless stub[:deployments].nil?
+        data['Deployments'] = BulkDeploymentResults.stub(stub[:deployments]) unless stub[:deployments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2324,7 +2326,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BulkDeploymentResult.stub(element) unless element.nil?
+          data << BulkDeploymentResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2355,7 +2357,7 @@ module AWS::SDK::Greengrass
         data['DeploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
         data['DeploymentStatus'] = stub[:deployment_status] unless stub[:deployment_status].nil?
         data['DeploymentType'] = stub[:deployment_type] unless stub[:deployment_type].nil?
-        data['ErrorDetails'] = Stubs::ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
+        data['ErrorDetails'] = ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['GroupArn'] = stub[:group_arn] unless stub[:group_arn].nil?
         data
@@ -2375,9 +2377,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BulkDeployments'] = Stubs::BulkDeployments.stub(stub[:bulk_deployments]) unless stub[:bulk_deployments].nil?
+        data['BulkDeployments'] = BulkDeployments.stub(stub[:bulk_deployments]) unless stub[:bulk_deployments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2395,7 +2397,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BulkDeployment.stub(element) unless element.nil?
+          data << BulkDeployment.stub(element) unless element.nil?
         end
         data
       end
@@ -2437,8 +2439,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2456,7 +2458,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VersionInformation.stub(element) unless element.nil?
+          data << VersionInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -2499,9 +2501,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Definitions'] = Stubs::List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
+        data['Definitions'] = List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2519,7 +2521,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DefinitionInformation.stub(element) unless element.nil?
+          data << DefinitionInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -2552,7 +2554,7 @@ module AWS::SDK::Greengrass
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['LatestVersionArn'] = stub[:latest_version_arn] unless stub[:latest_version_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2571,8 +2573,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2589,9 +2591,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Definitions'] = Stubs::List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
+        data['Definitions'] = List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2608,9 +2610,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Deployments'] = Stubs::Deployments.stub(stub[:deployments]) unless stub[:deployments].nil?
+        data['Deployments'] = Deployments.stub(stub[:deployments]) unless stub[:deployments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2628,7 +2630,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Deployment.stub(element) unless element.nil?
+          data << Deployment.stub(element) unless element.nil?
         end
         data
       end
@@ -2674,8 +2676,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2692,9 +2694,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Definitions'] = Stubs::List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
+        data['Definitions'] = List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2712,8 +2714,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2730,9 +2732,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Definitions'] = Stubs::List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
+        data['Definitions'] = List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2748,8 +2750,8 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupCertificateAuthorities'] = Stubs::List____listOfGroupCertificateAuthorityProperties.stub(stub[:group_certificate_authorities]) unless stub[:group_certificate_authorities].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupCertificateAuthorities'] = List____listOfGroupCertificateAuthorityProperties.stub(stub[:group_certificate_authorities]) unless stub[:group_certificate_authorities].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2767,7 +2769,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupCertificateAuthorityProperties.stub(element) unless element.nil?
+          data << GroupCertificateAuthorityProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2807,8 +2809,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2825,9 +2827,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Groups'] = Stubs::List____listOfGroupInformation.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = List____listOfGroupInformation.stub(stub[:groups]) unless stub[:groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2845,7 +2847,7 @@ module AWS::SDK::Greengrass
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupInformation.stub(element) unless element.nil?
+          data << GroupInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -2895,8 +2897,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2913,9 +2915,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Definitions'] = Stubs::List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
+        data['Definitions'] = List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2933,8 +2935,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2951,9 +2953,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Definitions'] = Stubs::List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
+        data['Definitions'] = List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2971,8 +2973,8 @@ module AWS::SDK::Greengrass
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Versions'] = Stubs::List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Versions'] = List____listOfVersionInformation.stub(stub[:versions]) unless stub[:versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2989,9 +2991,9 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Definitions'] = Stubs::List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
+        data['Definitions'] = List____listOfDefinitionInformation.stub(stub[:definitions]) unless stub[:definitions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3007,8 +3009,8 @@ module AWS::SDK::Greengrass
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3027,7 +3029,7 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeploymentArn'] = stub[:deployment_arn] unless stub[:deployment_arn].nil?
         data['DeploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3046,7 +3048,7 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['BulkDeploymentArn'] = stub[:bulk_deployment_arn] unless stub[:bulk_deployment_arn].nil?
         data['BulkDeploymentId'] = stub[:bulk_deployment_id] unless stub[:bulk_deployment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3104,7 +3106,7 @@ module AWS::SDK::Greengrass
         http_resp.headers['Content-Type'] = 'application/json'
         data['message'] = stub[:message] unless stub[:message].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3190,7 +3192,7 @@ module AWS::SDK::Greengrass
         data['CertificateAuthorityExpiryInMilliseconds'] = stub[:certificate_authority_expiry_in_milliseconds] unless stub[:certificate_authority_expiry_in_milliseconds].nil?
         data['CertificateExpiryInMilliseconds'] = stub[:certificate_expiry_in_milliseconds] unless stub[:certificate_expiry_in_milliseconds].nil?
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

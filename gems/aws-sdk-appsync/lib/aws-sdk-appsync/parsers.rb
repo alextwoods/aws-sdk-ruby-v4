@@ -15,7 +15,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::AssociateApiOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_association = (Parsers::ApiAssociation.parse(map['apiAssociation']) unless map['apiAssociation'].nil?)
+        data.api_association = (ApiAssociation.parse(map['apiAssociation']) unless map['apiAssociation'].nil?)
         data
       end
     end
@@ -76,7 +76,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateApiCacheOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_cache = (Parsers::ApiCache.parse(map['apiCache']) unless map['apiCache'].nil?)
+        data.api_cache = (ApiCache.parse(map['apiCache']) unless map['apiCache'].nil?)
         data
       end
     end
@@ -119,7 +119,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateApiKeyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_key = (Parsers::ApiKey.parse(map['apiKey']) unless map['apiKey'].nil?)
+        data.api_key = (ApiKey.parse(map['apiKey']) unless map['apiKey'].nil?)
         data
       end
     end
@@ -170,7 +170,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateDataSourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_source = (Parsers::DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
+        data.data_source = (DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
         data
       end
     end
@@ -183,12 +183,12 @@ module AWS::SDK::AppSync
         data.description = map['description']
         data.type = map['type']
         data.service_role_arn = map['serviceRoleArn']
-        data.dynamodb_config = (Parsers::DynamodbDataSourceConfig.parse(map['dynamodbConfig']) unless map['dynamodbConfig'].nil?)
-        data.lambda_config = (Parsers::LambdaDataSourceConfig.parse(map['lambdaConfig']) unless map['lambdaConfig'].nil?)
-        data.elasticsearch_config = (Parsers::ElasticsearchDataSourceConfig.parse(map['elasticsearchConfig']) unless map['elasticsearchConfig'].nil?)
-        data.open_search_service_config = (Parsers::OpenSearchServiceDataSourceConfig.parse(map['openSearchServiceConfig']) unless map['openSearchServiceConfig'].nil?)
-        data.http_config = (Parsers::HttpDataSourceConfig.parse(map['httpConfig']) unless map['httpConfig'].nil?)
-        data.relational_database_config = (Parsers::RelationalDatabaseDataSourceConfig.parse(map['relationalDatabaseConfig']) unless map['relationalDatabaseConfig'].nil?)
+        data.dynamodb_config = (DynamodbDataSourceConfig.parse(map['dynamodbConfig']) unless map['dynamodbConfig'].nil?)
+        data.lambda_config = (LambdaDataSourceConfig.parse(map['lambdaConfig']) unless map['lambdaConfig'].nil?)
+        data.elasticsearch_config = (ElasticsearchDataSourceConfig.parse(map['elasticsearchConfig']) unless map['elasticsearchConfig'].nil?)
+        data.open_search_service_config = (OpenSearchServiceDataSourceConfig.parse(map['openSearchServiceConfig']) unless map['openSearchServiceConfig'].nil?)
+        data.http_config = (HttpDataSourceConfig.parse(map['httpConfig']) unless map['httpConfig'].nil?)
+        data.relational_database_config = (RelationalDatabaseDataSourceConfig.parse(map['relationalDatabaseConfig']) unless map['relationalDatabaseConfig'].nil?)
         return data
       end
     end
@@ -197,7 +197,7 @@ module AWS::SDK::AppSync
       def self.parse(map)
         data = Types::RelationalDatabaseDataSourceConfig.new
         data.relational_database_source_type = map['relationalDatabaseSourceType']
-        data.rds_http_endpoint_config = (Parsers::RdsHttpEndpointConfig.parse(map['rdsHttpEndpointConfig']) unless map['rdsHttpEndpointConfig'].nil?)
+        data.rds_http_endpoint_config = (RdsHttpEndpointConfig.parse(map['rdsHttpEndpointConfig']) unless map['rdsHttpEndpointConfig'].nil?)
         return data
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::AppSync
       def self.parse(map)
         data = Types::HttpDataSourceConfig.new
         data.endpoint = map['endpoint']
-        data.authorization_config = (Parsers::AuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
+        data.authorization_config = (AuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
         return data
       end
     end
@@ -227,7 +227,7 @@ module AWS::SDK::AppSync
       def self.parse(map)
         data = Types::AuthorizationConfig.new
         data.authorization_type = map['authorizationType']
-        data.aws_iam_config = (Parsers::AwsIamConfig.parse(map['awsIamConfig']) unless map['awsIamConfig'].nil?)
+        data.aws_iam_config = (AwsIamConfig.parse(map['awsIamConfig']) unless map['awsIamConfig'].nil?)
         return data
       end
     end
@@ -273,7 +273,7 @@ module AWS::SDK::AppSync
         data.table_name = map['tableName']
         data.aws_region = map['awsRegion']
         data.use_caller_credentials = map['useCallerCredentials']
-        data.delta_sync_config = (Parsers::DeltaSyncConfig.parse(map['deltaSyncConfig']) unless map['deltaSyncConfig'].nil?)
+        data.delta_sync_config = (DeltaSyncConfig.parse(map['deltaSyncConfig']) unless map['deltaSyncConfig'].nil?)
         data.versioned = map['versioned']
         return data
       end
@@ -294,7 +294,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateDomainNameOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_name_config = (Parsers::DomainNameConfig.parse(map['domainNameConfig']) unless map['domainNameConfig'].nil?)
+        data.domain_name_config = (DomainNameConfig.parse(map['domainNameConfig']) unless map['domainNameConfig'].nil?)
         data
       end
     end
@@ -316,7 +316,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateFunctionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.function_configuration = (Parsers::FunctionConfiguration.parse(map['functionConfiguration']) unless map['functionConfiguration'].nil?)
+        data.function_configuration = (FunctionConfiguration.parse(map['functionConfiguration']) unless map['functionConfiguration'].nil?)
         data
       end
     end
@@ -332,7 +332,7 @@ module AWS::SDK::AppSync
         data.request_mapping_template = map['requestMappingTemplate']
         data.response_mapping_template = map['responseMappingTemplate']
         data.function_version = map['functionVersion']
-        data.sync_config = (Parsers::SyncConfig.parse(map['syncConfig']) unless map['syncConfig'].nil?)
+        data.sync_config = (SyncConfig.parse(map['syncConfig']) unless map['syncConfig'].nil?)
         data.max_batch_size = map['maxBatchSize']
         return data
       end
@@ -343,7 +343,7 @@ module AWS::SDK::AppSync
         data = Types::SyncConfig.new
         data.conflict_handler = map['conflictHandler']
         data.conflict_detection = map['conflictDetection']
-        data.lambda_conflict_handler_config = (Parsers::LambdaConflictHandlerConfig.parse(map['lambdaConflictHandlerConfig']) unless map['lambdaConflictHandlerConfig'].nil?)
+        data.lambda_conflict_handler_config = (LambdaConflictHandlerConfig.parse(map['lambdaConflictHandlerConfig']) unless map['lambdaConflictHandlerConfig'].nil?)
         return data
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateGraphqlApiOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.graphql_api = (Parsers::GraphqlApi.parse(map['graphqlApi']) unless map['graphqlApi'].nil?)
+        data.graphql_api = (GraphqlApi.parse(map['graphqlApi']) unless map['graphqlApi'].nil?)
         data
       end
     end
@@ -372,16 +372,16 @@ module AWS::SDK::AppSync
         data.name = map['name']
         data.api_id = map['apiId']
         data.authentication_type = map['authenticationType']
-        data.log_config = (Parsers::LogConfig.parse(map['logConfig']) unless map['logConfig'].nil?)
-        data.user_pool_config = (Parsers::UserPoolConfig.parse(map['userPoolConfig']) unless map['userPoolConfig'].nil?)
-        data.open_id_connect_config = (Parsers::OpenIDConnectConfig.parse(map['openIDConnectConfig']) unless map['openIDConnectConfig'].nil?)
+        data.log_config = (LogConfig.parse(map['logConfig']) unless map['logConfig'].nil?)
+        data.user_pool_config = (UserPoolConfig.parse(map['userPoolConfig']) unless map['userPoolConfig'].nil?)
+        data.open_id_connect_config = (OpenIDConnectConfig.parse(map['openIDConnectConfig']) unless map['openIDConnectConfig'].nil?)
         data.arn = map['arn']
-        data.uris = (Parsers::MapOfStringToString.parse(map['uris']) unless map['uris'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.additional_authentication_providers = (Parsers::AdditionalAuthenticationProviders.parse(map['additionalAuthenticationProviders']) unless map['additionalAuthenticationProviders'].nil?)
+        data.uris = (MapOfStringToString.parse(map['uris']) unless map['uris'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.additional_authentication_providers = (AdditionalAuthenticationProviders.parse(map['additionalAuthenticationProviders']) unless map['additionalAuthenticationProviders'].nil?)
         data.xray_enabled = map['xrayEnabled']
         data.waf_web_acl_arn = map['wafWebAclArn']
-        data.lambda_authorizer_config = (Parsers::LambdaAuthorizerConfig.parse(map['lambdaAuthorizerConfig']) unless map['lambdaAuthorizerConfig'].nil?)
+        data.lambda_authorizer_config = (LambdaAuthorizerConfig.parse(map['lambdaAuthorizerConfig']) unless map['lambdaAuthorizerConfig'].nil?)
         return data
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AdditionalAuthenticationProvider.parse(value) unless value.nil?
+          data << AdditionalAuthenticationProvider.parse(value) unless value.nil?
         end
         data
       end
@@ -410,9 +410,9 @@ module AWS::SDK::AppSync
       def self.parse(map)
         data = Types::AdditionalAuthenticationProvider.new
         data.authentication_type = map['authenticationType']
-        data.open_id_connect_config = (Parsers::OpenIDConnectConfig.parse(map['openIDConnectConfig']) unless map['openIDConnectConfig'].nil?)
-        data.user_pool_config = (Parsers::CognitoUserPoolConfig.parse(map['userPoolConfig']) unless map['userPoolConfig'].nil?)
-        data.lambda_authorizer_config = (Parsers::LambdaAuthorizerConfig.parse(map['lambdaAuthorizerConfig']) unless map['lambdaAuthorizerConfig'].nil?)
+        data.open_id_connect_config = (OpenIDConnectConfig.parse(map['openIDConnectConfig']) unless map['openIDConnectConfig'].nil?)
+        data.user_pool_config = (CognitoUserPoolConfig.parse(map['userPoolConfig']) unless map['userPoolConfig'].nil?)
+        data.lambda_authorizer_config = (LambdaAuthorizerConfig.parse(map['lambdaAuthorizerConfig']) unless map['lambdaAuthorizerConfig'].nil?)
         return data
       end
     end
@@ -494,7 +494,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateResolverOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resolver = (Parsers::Resolver.parse(map['resolver']) unless map['resolver'].nil?)
+        data.resolver = (Resolver.parse(map['resolver']) unless map['resolver'].nil?)
         data
       end
     end
@@ -509,9 +509,9 @@ module AWS::SDK::AppSync
         data.request_mapping_template = map['requestMappingTemplate']
         data.response_mapping_template = map['responseMappingTemplate']
         data.kind = map['kind']
-        data.pipeline_config = (Parsers::PipelineConfig.parse(map['pipelineConfig']) unless map['pipelineConfig'].nil?)
-        data.sync_config = (Parsers::SyncConfig.parse(map['syncConfig']) unless map['syncConfig'].nil?)
-        data.caching_config = (Parsers::CachingConfig.parse(map['cachingConfig']) unless map['cachingConfig'].nil?)
+        data.pipeline_config = (PipelineConfig.parse(map['pipelineConfig']) unless map['pipelineConfig'].nil?)
+        data.sync_config = (SyncConfig.parse(map['syncConfig']) unless map['syncConfig'].nil?)
+        data.caching_config = (CachingConfig.parse(map['cachingConfig']) unless map['cachingConfig'].nil?)
         data.max_batch_size = map['maxBatchSize']
         return data
       end
@@ -521,7 +521,7 @@ module AWS::SDK::AppSync
       def self.parse(map)
         data = Types::CachingConfig.new
         data.ttl = map['ttl']
-        data.caching_keys = (Parsers::CachingKeys.parse(map['cachingKeys']) unless map['cachingKeys'].nil?)
+        data.caching_keys = (CachingKeys.parse(map['cachingKeys']) unless map['cachingKeys'].nil?)
         return data
       end
     end
@@ -539,7 +539,7 @@ module AWS::SDK::AppSync
     class PipelineConfig
       def self.parse(map)
         data = Types::PipelineConfig.new
-        data.functions = (Parsers::FunctionsIds.parse(map['functions']) unless map['functions'].nil?)
+        data.functions = (FunctionsIds.parse(map['functions']) unless map['functions'].nil?)
         return data
       end
     end
@@ -559,7 +559,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::CreateTypeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.type = (Parsers::Type.parse(map['type']) unless map['type'].nil?)
+        data.type = (Type.parse(map['type']) unless map['type'].nil?)
         data
       end
     end
@@ -671,7 +671,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetApiAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_association = (Parsers::ApiAssociation.parse(map['apiAssociation']) unless map['apiAssociation'].nil?)
+        data.api_association = (ApiAssociation.parse(map['apiAssociation']) unless map['apiAssociation'].nil?)
         data
       end
     end
@@ -681,7 +681,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetApiCacheOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_cache = (Parsers::ApiCache.parse(map['apiCache']) unless map['apiCache'].nil?)
+        data.api_cache = (ApiCache.parse(map['apiCache']) unless map['apiCache'].nil?)
         data
       end
     end
@@ -691,7 +691,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetDataSourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_source = (Parsers::DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
+        data.data_source = (DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
         data
       end
     end
@@ -701,7 +701,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetDomainNameOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_name_config = (Parsers::DomainNameConfig.parse(map['domainNameConfig']) unless map['domainNameConfig'].nil?)
+        data.domain_name_config = (DomainNameConfig.parse(map['domainNameConfig']) unless map['domainNameConfig'].nil?)
         data
       end
     end
@@ -711,7 +711,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetFunctionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.function_configuration = (Parsers::FunctionConfiguration.parse(map['functionConfiguration']) unless map['functionConfiguration'].nil?)
+        data.function_configuration = (FunctionConfiguration.parse(map['functionConfiguration']) unless map['functionConfiguration'].nil?)
         data
       end
     end
@@ -721,7 +721,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetGraphqlApiOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.graphql_api = (Parsers::GraphqlApi.parse(map['graphqlApi']) unless map['graphqlApi'].nil?)
+        data.graphql_api = (GraphqlApi.parse(map['graphqlApi']) unless map['graphqlApi'].nil?)
         data
       end
     end
@@ -751,7 +751,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetResolverOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resolver = (Parsers::Resolver.parse(map['resolver']) unless map['resolver'].nil?)
+        data.resolver = (Resolver.parse(map['resolver']) unless map['resolver'].nil?)
         data
       end
     end
@@ -772,7 +772,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::GetTypeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.type = (Parsers::Type.parse(map['type']) unless map['type'].nil?)
+        data.type = (Type.parse(map['type']) unless map['type'].nil?)
         data
       end
     end
@@ -782,7 +782,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListApiKeysOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_keys = (Parsers::ApiKeys.parse(map['apiKeys']) unless map['apiKeys'].nil?)
+        data.api_keys = (ApiKeys.parse(map['apiKeys']) unless map['apiKeys'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -792,7 +792,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApiKey.parse(value) unless value.nil?
+          data << ApiKey.parse(value) unless value.nil?
         end
         data
       end
@@ -803,7 +803,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListDataSourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_sources = (Parsers::DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.data_sources = (DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -813,7 +813,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSource.parse(value) unless value.nil?
+          data << DataSource.parse(value) unless value.nil?
         end
         data
       end
@@ -824,7 +824,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListDomainNamesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_name_configs = (Parsers::DomainNameConfigs.parse(map['domainNameConfigs']) unless map['domainNameConfigs'].nil?)
+        data.domain_name_configs = (DomainNameConfigs.parse(map['domainNameConfigs']) unless map['domainNameConfigs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -834,7 +834,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainNameConfig.parse(value) unless value.nil?
+          data << DomainNameConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -845,7 +845,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListFunctionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.functions = (Parsers::Functions.parse(map['functions']) unless map['functions'].nil?)
+        data.functions = (Functions.parse(map['functions']) unless map['functions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -855,7 +855,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FunctionConfiguration.parse(value) unless value.nil?
+          data << FunctionConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -866,7 +866,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListGraphqlApisOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.graphql_apis = (Parsers::GraphqlApis.parse(map['graphqlApis']) unless map['graphqlApis'].nil?)
+        data.graphql_apis = (GraphqlApis.parse(map['graphqlApis']) unless map['graphqlApis'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -876,7 +876,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GraphqlApi.parse(value) unless value.nil?
+          data << GraphqlApi.parse(value) unless value.nil?
         end
         data
       end
@@ -887,7 +887,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListResolversOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resolvers = (Parsers::Resolvers.parse(map['resolvers']) unless map['resolvers'].nil?)
+        data.resolvers = (Resolvers.parse(map['resolvers']) unless map['resolvers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -897,7 +897,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Resolver.parse(value) unless value.nil?
+          data << Resolver.parse(value) unless value.nil?
         end
         data
       end
@@ -908,7 +908,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListResolversByFunctionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resolvers = (Parsers::Resolvers.parse(map['resolvers']) unless map['resolvers'].nil?)
+        data.resolvers = (Resolvers.parse(map['resolvers']) unless map['resolvers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -919,7 +919,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -929,7 +929,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::ListTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.types = (Parsers::TypeList.parse(map['types']) unless map['types'].nil?)
+        data.types = (TypeList.parse(map['types']) unless map['types'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -939,7 +939,7 @@ module AWS::SDK::AppSync
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Type.parse(value) unless value.nil?
+          data << Type.parse(value) unless value.nil?
         end
         data
       end
@@ -978,7 +978,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateApiCacheOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_cache = (Parsers::ApiCache.parse(map['apiCache']) unless map['apiCache'].nil?)
+        data.api_cache = (ApiCache.parse(map['apiCache']) unless map['apiCache'].nil?)
         data
       end
     end
@@ -988,7 +988,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateApiKeyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.api_key = (Parsers::ApiKey.parse(map['apiKey']) unless map['apiKey'].nil?)
+        data.api_key = (ApiKey.parse(map['apiKey']) unless map['apiKey'].nil?)
         data
       end
     end
@@ -998,7 +998,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateDataSourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_source = (Parsers::DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
+        data.data_source = (DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
         data
       end
     end
@@ -1008,7 +1008,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateDomainNameOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_name_config = (Parsers::DomainNameConfig.parse(map['domainNameConfig']) unless map['domainNameConfig'].nil?)
+        data.domain_name_config = (DomainNameConfig.parse(map['domainNameConfig']) unless map['domainNameConfig'].nil?)
         data
       end
     end
@@ -1018,7 +1018,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateFunctionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.function_configuration = (Parsers::FunctionConfiguration.parse(map['functionConfiguration']) unless map['functionConfiguration'].nil?)
+        data.function_configuration = (FunctionConfiguration.parse(map['functionConfiguration']) unless map['functionConfiguration'].nil?)
         data
       end
     end
@@ -1028,7 +1028,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateGraphqlApiOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.graphql_api = (Parsers::GraphqlApi.parse(map['graphqlApi']) unless map['graphqlApi'].nil?)
+        data.graphql_api = (GraphqlApi.parse(map['graphqlApi']) unless map['graphqlApi'].nil?)
         data
       end
     end
@@ -1038,7 +1038,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateResolverOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resolver = (Parsers::Resolver.parse(map['resolver']) unless map['resolver'].nil?)
+        data.resolver = (Resolver.parse(map['resolver']) unless map['resolver'].nil?)
         data
       end
     end
@@ -1048,7 +1048,7 @@ module AWS::SDK::AppSync
       def self.parse(http_resp)
         data = Types::UpdateTypeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.type = (Parsers::Type.parse(map['type']) unless map['type'].nil?)
+        data.type = (Type.parse(map['type']) unless map['type'].nil?)
         data
       end
     end

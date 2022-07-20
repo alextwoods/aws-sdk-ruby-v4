@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ComputeOptimizer
   module Builders
 
@@ -19,9 +21,9 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.DeleteRecommendationPreferences'
         data = {}
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['scope'] = Builders::Scope.build(input[:scope]) unless input[:scope].nil?
-        data['recommendationPreferenceNames'] = Builders::RecommendationPreferenceNames.build(input[:recommendation_preference_names]) unless input[:recommendation_preference_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scope'] = Scope.build(input[:scope]) unless input[:scope].nil?
+        data['recommendationPreferenceNames'] = RecommendationPreferenceNames.build(input[:recommendation_preference_names]) unless input[:recommendation_preference_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,11 +56,11 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.DescribeRecommendationExportJobs'
         data = {}
-        data['jobIds'] = Builders::JobIds.build(input[:job_ids]) unless input[:job_ids].nil?
-        data['filters'] = Builders::JobFilters.build(input[:filters]) unless input[:filters].nil?
+        data['jobIds'] = JobIds.build(input[:job_ids]) unless input[:job_ids].nil?
+        data['filters'] = JobFilters.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JobFilter.build(element) unless element.nil?
+          data << JobFilter.build(element) unless element.nil?
         end
         data
       end
@@ -78,7 +80,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -113,14 +115,14 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.ExportAutoScalingGroupRecommendations'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        data['fieldsToExport'] = Builders::ExportableAutoScalingGroupFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
-        data['s3DestinationConfig'] = Builders::S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        data['fieldsToExport'] = ExportableAutoScalingGroupFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
+        data['s3DestinationConfig'] = S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
         data['fileFormat'] = input[:file_format] unless input[:file_format].nil?
         data['includeMemberAccounts'] = input[:include_member_accounts] unless input[:include_member_accounts].nil?
-        data['recommendationPreferences'] = Builders::RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationPreferences'] = RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,7 +130,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationPreferences
       def self.build(input)
         data = {}
-        data['cpuVendorArchitectures'] = Builders::CpuVendorArchitectures.build(input[:cpu_vendor_architectures]) unless input[:cpu_vendor_architectures].nil?
+        data['cpuVendorArchitectures'] = CpuVendorArchitectures.build(input[:cpu_vendor_architectures]) unless input[:cpu_vendor_architectures].nil?
         data
       end
     end
@@ -170,7 +172,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -181,7 +183,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -205,13 +207,13 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.ExportEBSVolumeRecommendations'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['filters'] = Builders::EBSFilters.build(input[:filters]) unless input[:filters].nil?
-        data['fieldsToExport'] = Builders::ExportableVolumeFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
-        data['s3DestinationConfig'] = Builders::S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['filters'] = EBSFilters.build(input[:filters]) unless input[:filters].nil?
+        data['fieldsToExport'] = ExportableVolumeFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
+        data['s3DestinationConfig'] = S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
         data['fileFormat'] = input[:file_format] unless input[:file_format].nil?
         data['includeMemberAccounts'] = input[:include_member_accounts] unless input[:include_member_accounts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,7 +233,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EBSFilter.build(element) unless element.nil?
+          data << EBSFilter.build(element) unless element.nil?
         end
         data
       end
@@ -242,7 +244,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -255,14 +257,14 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.ExportEC2InstanceRecommendations'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        data['fieldsToExport'] = Builders::ExportableInstanceFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
-        data['s3DestinationConfig'] = Builders::S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        data['fieldsToExport'] = ExportableInstanceFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
+        data['s3DestinationConfig'] = S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
         data['fileFormat'] = input[:file_format] unless input[:file_format].nil?
         data['includeMemberAccounts'] = input[:include_member_accounts] unless input[:include_member_accounts].nil?
-        data['recommendationPreferences'] = Builders::RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationPreferences'] = RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,13 +287,13 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.ExportLambdaFunctionRecommendations'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['filters'] = Builders::LambdaFunctionRecommendationFilters.build(input[:filters]) unless input[:filters].nil?
-        data['fieldsToExport'] = Builders::ExportableLambdaFunctionFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
-        data['s3DestinationConfig'] = Builders::S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['filters'] = LambdaFunctionRecommendationFilters.build(input[:filters]) unless input[:filters].nil?
+        data['fieldsToExport'] = ExportableLambdaFunctionFields.build(input[:fields_to_export]) unless input[:fields_to_export].nil?
+        data['s3DestinationConfig'] = S3DestinationConfig.build(input[:s3_destination_config]) unless input[:s3_destination_config].nil?
         data['fileFormat'] = input[:file_format] unless input[:file_format].nil?
         data['includeMemberAccounts'] = input[:include_member_accounts] unless input[:include_member_accounts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -311,7 +313,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LambdaFunctionRecommendationFilter.build(element) unless element.nil?
+          data << LambdaFunctionRecommendationFilter.build(element) unless element.nil?
         end
         data
       end
@@ -322,7 +324,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -335,13 +337,13 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetAutoScalingGroupRecommendations'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['autoScalingGroupArns'] = Builders::AutoScalingGroupArns.build(input[:auto_scaling_group_arns]) unless input[:auto_scaling_group_arns].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['autoScalingGroupArns'] = AutoScalingGroupArns.build(input[:auto_scaling_group_arns]) unless input[:auto_scaling_group_arns].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        data['recommendationPreferences'] = Builders::RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        data['recommendationPreferences'] = RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -364,12 +366,12 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetEBSVolumeRecommendations'
         data = {}
-        data['volumeArns'] = Builders::VolumeArns.build(input[:volume_arns]) unless input[:volume_arns].nil?
+        data['volumeArns'] = VolumeArns.build(input[:volume_arns]) unless input[:volume_arns].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::EBSFilters.build(input[:filters]) unless input[:filters].nil?
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = EBSFilters.build(input[:filters]) unless input[:filters].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,13 +394,13 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetEC2InstanceRecommendations'
         data = {}
-        data['instanceArns'] = Builders::InstanceArns.build(input[:instance_arns]) unless input[:instance_arns].nil?
+        data['instanceArns'] = InstanceArns.build(input[:instance_arns]) unless input[:instance_arns].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['recommendationPreferences'] = Builders::RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['recommendationPreferences'] = RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -426,8 +428,8 @@ module AWS::SDK::ComputeOptimizer
         data['period'] = input[:period] unless input[:period].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        data['recommendationPreferences'] = Builders::RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationPreferences'] = RecommendationPreferences.build(input[:recommendation_preferences]) unless input[:recommendation_preferences].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -440,7 +442,7 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetEffectiveRecommendationPreferences'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +454,7 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetEnrollmentStatus'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -464,10 +466,10 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetEnrollmentStatusesForOrganization'
         data = {}
-        data['filters'] = Builders::EnrollmentFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = EnrollmentFilters.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -476,7 +478,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EnrollmentFilter.build(element) unless element.nil?
+          data << EnrollmentFilter.build(element) unless element.nil?
         end
         data
       end
@@ -487,7 +489,7 @@ module AWS::SDK::ComputeOptimizer
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -500,12 +502,12 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetLambdaFunctionRecommendations'
         data = {}
-        data['functionArns'] = Builders::FunctionArns.build(input[:function_arns]) unless input[:function_arns].nil?
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['filters'] = Builders::LambdaFunctionRecommendationFilters.build(input[:filters]) unless input[:filters].nil?
+        data['functionArns'] = FunctionArns.build(input[:function_arns]) unless input[:function_arns].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['filters'] = LambdaFunctionRecommendationFilters.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -529,10 +531,10 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetRecommendationPreferences'
         data = {}
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['scope'] = Builders::Scope.build(input[:scope]) unless input[:scope].nil?
+        data['scope'] = Scope.build(input[:scope]) unless input[:scope].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -544,10 +546,10 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.GetRecommendationSummaries'
         data = {}
-        data['accountIds'] = Builders::AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['accountIds'] = AccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,10 +562,10 @@ module AWS::SDK::ComputeOptimizer
         http_req.headers['X-Amz-Target'] = 'ComputeOptimizerService.PutRecommendationPreferences'
         data = {}
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['scope'] = Builders::Scope.build(input[:scope]) unless input[:scope].nil?
+        data['scope'] = Scope.build(input[:scope]) unless input[:scope].nil?
         data['enhancedInfrastructureMetrics'] = input[:enhanced_infrastructure_metrics] unless input[:enhanced_infrastructure_metrics].nil?
         data['inferredWorkloadTypes'] = input[:inferred_workload_types] unless input[:inferred_workload_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -577,7 +579,7 @@ module AWS::SDK::ComputeOptimizer
         data = {}
         data['status'] = input[:status] unless input[:status].nil?
         data['includeMemberAccounts'] = input[:include_member_accounts] unless input[:include_member_accounts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

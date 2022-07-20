@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Synthetics
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Synthetics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Canary'] = Stubs::Canary.stub(stub[:canary]) unless stub[:canary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Canary'] = Canary.stub(stub[:canary]) unless stub[:canary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,21 +60,21 @@ module AWS::SDK::Synthetics
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Code'] = Stubs::CanaryCodeOutput.stub(stub[:code]) unless stub[:code].nil?
+        data['Code'] = CanaryCodeOutput.stub(stub[:code]) unless stub[:code].nil?
         data['ExecutionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
-        data['Schedule'] = Stubs::CanaryScheduleOutput.stub(stub[:schedule]) unless stub[:schedule].nil?
-        data['RunConfig'] = Stubs::CanaryRunConfigOutput.stub(stub[:run_config]) unless stub[:run_config].nil?
+        data['Schedule'] = CanaryScheduleOutput.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['RunConfig'] = CanaryRunConfigOutput.stub(stub[:run_config]) unless stub[:run_config].nil?
         data['SuccessRetentionPeriodInDays'] = stub[:success_retention_period_in_days] unless stub[:success_retention_period_in_days].nil?
         data['FailureRetentionPeriodInDays'] = stub[:failure_retention_period_in_days] unless stub[:failure_retention_period_in_days].nil?
-        data['Status'] = Stubs::CanaryStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Timeline'] = Stubs::CanaryTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
+        data['Status'] = CanaryStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Timeline'] = CanaryTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
         data['ArtifactS3Location'] = stub[:artifact_s3_location] unless stub[:artifact_s3_location].nil?
         data['EngineArn'] = stub[:engine_arn] unless stub[:engine_arn].nil?
         data['RuntimeVersion'] = stub[:runtime_version] unless stub[:runtime_version].nil?
-        data['VpcConfig'] = Stubs::VpcConfigOutput.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['VisualReference'] = Stubs::VisualReferenceOutput.stub(stub[:visual_reference]) unless stub[:visual_reference].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ArtifactConfig'] = Stubs::ArtifactConfigOutput.stub(stub[:artifact_config]) unless stub[:artifact_config].nil?
+        data['VpcConfig'] = VpcConfigOutput.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VisualReference'] = VisualReferenceOutput.stub(stub[:visual_reference]) unless stub[:visual_reference].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ArtifactConfig'] = ArtifactConfigOutput.stub(stub[:artifact_config]) unless stub[:artifact_config].nil?
         data
       end
     end
@@ -90,7 +92,7 @@ module AWS::SDK::Synthetics
       def self.stub(stub)
         stub ||= Types::ArtifactConfigOutput.new
         data = {}
-        data['S3Encryption'] = Stubs::S3EncryptionConfig.stub(stub[:s3_encryption]) unless stub[:s3_encryption].nil?
+        data['S3Encryption'] = S3EncryptionConfig.stub(stub[:s3_encryption]) unless stub[:s3_encryption].nil?
         data
       end
     end
@@ -149,7 +151,7 @@ module AWS::SDK::Synthetics
       def self.stub(stub)
         stub ||= Types::VisualReferenceOutput.new
         data = {}
-        data['BaseScreenshots'] = Stubs::BaseScreenshots.stub(stub[:base_screenshots]) unless stub[:base_screenshots].nil?
+        data['BaseScreenshots'] = BaseScreenshots.stub(stub[:base_screenshots]) unless stub[:base_screenshots].nil?
         data['BaseCanaryRunId'] = stub[:base_canary_run_id] unless stub[:base_canary_run_id].nil?
         data
       end
@@ -169,7 +171,7 @@ module AWS::SDK::Synthetics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BaseScreenshot.stub(element) unless element.nil?
+          data << BaseScreenshot.stub(element) unless element.nil?
         end
         data
       end
@@ -190,7 +192,7 @@ module AWS::SDK::Synthetics
         stub ||= Types::BaseScreenshot.new
         data = {}
         data['ScreenshotName'] = stub[:screenshot_name] unless stub[:screenshot_name].nil?
-        data['IgnoreCoordinates'] = Stubs::BaseScreenshotIgnoreCoordinates.stub(stub[:ignore_coordinates]) unless stub[:ignore_coordinates].nil?
+        data['IgnoreCoordinates'] = BaseScreenshotIgnoreCoordinates.stub(stub[:ignore_coordinates]) unless stub[:ignore_coordinates].nil?
         data
       end
     end
@@ -231,8 +233,8 @@ module AWS::SDK::Synthetics
         stub ||= Types::VpcConfigOutput.new
         data = {}
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -411,9 +413,9 @@ module AWS::SDK::Synthetics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Canaries'] = Stubs::Canaries.stub(stub[:canaries]) unless stub[:canaries].nil?
+        data['Canaries'] = Canaries.stub(stub[:canaries]) unless stub[:canaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::Synthetics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Canary.stub(element) unless element.nil?
+          data << Canary.stub(element) unless element.nil?
         end
         data
       end
@@ -450,9 +452,9 @@ module AWS::SDK::Synthetics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CanariesLastRun'] = Stubs::CanariesLastRun.stub(stub[:canaries_last_run]) unless stub[:canaries_last_run].nil?
+        data['CanariesLastRun'] = CanariesLastRun.stub(stub[:canaries_last_run]) unless stub[:canaries_last_run].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::Synthetics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CanaryLastRun.stub(element) unless element.nil?
+          data << CanaryLastRun.stub(element) unless element.nil?
         end
         data
       end
@@ -491,7 +493,7 @@ module AWS::SDK::Synthetics
         stub ||= Types::CanaryLastRun.new
         data = {}
         data['CanaryName'] = stub[:canary_name] unless stub[:canary_name].nil?
-        data['LastRun'] = Stubs::CanaryRun.stub(stub[:last_run]) unless stub[:last_run].nil?
+        data['LastRun'] = CanaryRun.stub(stub[:last_run]) unless stub[:last_run].nil?
         data
       end
     end
@@ -515,8 +517,8 @@ module AWS::SDK::Synthetics
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Status'] = Stubs::CanaryRunStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Timeline'] = Stubs::CanaryRunTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
+        data['Status'] = CanaryRunStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Timeline'] = CanaryRunTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
         data['ArtifactS3Location'] = stub[:artifact_s3_location] unless stub[:artifact_s3_location].nil?
         data
       end
@@ -577,9 +579,9 @@ module AWS::SDK::Synthetics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RuntimeVersions'] = Stubs::RuntimeVersionList.stub(stub[:runtime_versions]) unless stub[:runtime_versions].nil?
+        data['RuntimeVersions'] = RuntimeVersionList.stub(stub[:runtime_versions]) unless stub[:runtime_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -597,7 +599,7 @@ module AWS::SDK::Synthetics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuntimeVersion.stub(element) unless element.nil?
+          data << RuntimeVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -639,8 +641,8 @@ module AWS::SDK::Synthetics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Canary'] = Stubs::Canary.stub(stub[:canary]) unless stub[:canary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Canary'] = Canary.stub(stub[:canary]) unless stub[:canary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -657,9 +659,9 @@ module AWS::SDK::Synthetics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CanaryRuns'] = Stubs::CanaryRuns.stub(stub[:canary_runs]) unless stub[:canary_runs].nil?
+        data['CanaryRuns'] = CanaryRuns.stub(stub[:canary_runs]) unless stub[:canary_runs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -677,7 +679,7 @@ module AWS::SDK::Synthetics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CanaryRun.stub(element) unless element.nil?
+          data << CanaryRun.stub(element) unless element.nil?
         end
         data
       end
@@ -695,8 +697,8 @@ module AWS::SDK::Synthetics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

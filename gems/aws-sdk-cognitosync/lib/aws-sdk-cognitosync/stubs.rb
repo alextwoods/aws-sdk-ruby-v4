@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CognitoSync
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::CognitoSync
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['IdentityPoolId'] = stub[:identity_pool_id] unless stub[:identity_pool_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -39,8 +41,8 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Dataset'] = Stubs::Dataset.stub(stub[:dataset]) unless stub[:dataset].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Dataset'] = Dataset.stub(stub[:dataset]) unless stub[:dataset].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -86,8 +88,8 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Dataset'] = Stubs::Dataset.stub(stub[:dataset]) unless stub[:dataset].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Dataset'] = Dataset.stub(stub[:dataset]) unless stub[:dataset].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -103,8 +105,8 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IdentityPoolUsage'] = Stubs::IdentityPoolUsage.stub(stub[:identity_pool_usage]) unless stub[:identity_pool_usage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IdentityPoolUsage'] = IdentityPoolUsage.stub(stub[:identity_pool_usage]) unless stub[:identity_pool_usage].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -144,8 +146,8 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IdentityUsage'] = Stubs::IdentityUsage.stub(stub[:identity_usage]) unless stub[:identity_usage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IdentityUsage'] = IdentityUsage.stub(stub[:identity_usage]) unless stub[:identity_usage].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::CognitoSync
         data['BulkPublishCompleteTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:bulk_publish_complete_time]).to_i unless stub[:bulk_publish_complete_time].nil?
         data['BulkPublishStatus'] = stub[:bulk_publish_status] unless stub[:bulk_publish_status].nil?
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,8 +214,8 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Events'] = Stubs::Events.stub(stub[:events]) unless stub[:events].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Events'] = Events.stub(stub[:events]) unless stub[:events].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -252,9 +254,9 @@ module AWS::SDK::CognitoSync
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['IdentityPoolId'] = stub[:identity_pool_id] unless stub[:identity_pool_id].nil?
-        data['PushSync'] = Stubs::PushSync.stub(stub[:push_sync]) unless stub[:push_sync].nil?
-        data['CognitoStreams'] = Stubs::CognitoStreams.stub(stub[:cognito_streams]) unless stub[:cognito_streams].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PushSync'] = PushSync.stub(stub[:push_sync]) unless stub[:push_sync].nil?
+        data['CognitoStreams'] = CognitoStreams.stub(stub[:cognito_streams]) unless stub[:cognito_streams].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -294,7 +296,7 @@ module AWS::SDK::CognitoSync
       def self.stub(stub)
         stub ||= Types::PushSync.new
         data = {}
-        data['ApplicationArns'] = Stubs::ApplicationArnList.stub(stub[:application_arns]) unless stub[:application_arns].nil?
+        data['ApplicationArns'] = ApplicationArnList.stub(stub[:application_arns]) unless stub[:application_arns].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data
       end
@@ -334,10 +336,10 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Datasets'] = Stubs::DatasetList.stub(stub[:datasets]) unless stub[:datasets].nil?
+        data['Datasets'] = DatasetList.stub(stub[:datasets]) unless stub[:datasets].nil?
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::CognitoSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Dataset.stub(element) unless element.nil?
+          data << Dataset.stub(element) unless element.nil?
         end
         data
       end
@@ -376,11 +378,11 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IdentityPoolUsages'] = Stubs::IdentityPoolUsageList.stub(stub[:identity_pool_usages]) unless stub[:identity_pool_usages].nil?
+        data['IdentityPoolUsages'] = IdentityPoolUsageList.stub(stub[:identity_pool_usages]) unless stub[:identity_pool_usages].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -398,7 +400,7 @@ module AWS::SDK::CognitoSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityPoolUsage.stub(element) unless element.nil?
+          data << IdentityPoolUsage.stub(element) unless element.nil?
         end
         data
       end
@@ -424,16 +426,16 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Records'] = Stubs::RecordList.stub(stub[:records]) unless stub[:records].nil?
+        data['Records'] = RecordList.stub(stub[:records]) unless stub[:records].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['DatasetSyncCount'] = stub[:dataset_sync_count] unless stub[:dataset_sync_count].nil?
         data['LastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
-        data['MergedDatasetNames'] = Stubs::MergedDatasetNameList.stub(stub[:merged_dataset_names]) unless stub[:merged_dataset_names].nil?
+        data['MergedDatasetNames'] = MergedDatasetNameList.stub(stub[:merged_dataset_names]) unless stub[:merged_dataset_names].nil?
         data['DatasetExists'] = stub[:dataset_exists] unless stub[:dataset_exists].nil?
         data['DatasetDeletedAfterRequestedSyncCount'] = stub[:dataset_deleted_after_requested_sync_count] unless stub[:dataset_deleted_after_requested_sync_count].nil?
         data['SyncSessionToken'] = stub[:sync_session_token] unless stub[:sync_session_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,7 +473,7 @@ module AWS::SDK::CognitoSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Record.stub(element) unless element.nil?
+          data << Record.stub(element) unless element.nil?
         end
         data
       end
@@ -518,7 +520,7 @@ module AWS::SDK::CognitoSync
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -550,9 +552,9 @@ module AWS::SDK::CognitoSync
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['IdentityPoolId'] = stub[:identity_pool_id] unless stub[:identity_pool_id].nil?
-        data['PushSync'] = Stubs::PushSync.stub(stub[:push_sync]) unless stub[:push_sync].nil?
-        data['CognitoStreams'] = Stubs::CognitoStreams.stub(stub[:cognito_streams]) unless stub[:cognito_streams].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PushSync'] = PushSync.stub(stub[:push_sync]) unless stub[:push_sync].nil?
+        data['CognitoStreams'] = CognitoStreams.stub(stub[:cognito_streams]) unless stub[:cognito_streams].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,8 +596,8 @@ module AWS::SDK::CognitoSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Records'] = Stubs::RecordList.stub(stub[:records]) unless stub[:records].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Records'] = RecordList.stub(stub[:records]) unless stub[:records].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

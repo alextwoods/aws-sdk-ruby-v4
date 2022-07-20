@@ -152,7 +152,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AddSourceIdentifierToSubscriptionResult')
         xml.at('EventSubscription') do |node|
-          data.event_subscription = Parsers::EventSubscription.parse(node)
+          data.event_subscription = EventSubscription.parse(node)
         end
         data
       end
@@ -181,11 +181,11 @@ module AWS::SDK::RDS
         end
         xml.at('SourceIdsList') do |node|
           children = node.children('SourceId')
-          data.source_ids_list = Parsers::SourceIdsList.parse(children)
+          data.source_ids_list = SourceIdsList.parse(children)
         end
         xml.at('EventCategoriesList') do |node|
           children = node.children('EventCategory')
-          data.event_categories_list = Parsers::EventCategoriesList.parse(children)
+          data.event_categories_list = EventCategoriesList.parse(children)
         end
         xml.at('Enabled') do |node|
           data.enabled = (node.text == 'true')
@@ -306,7 +306,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ApplyPendingMaintenanceActionResult')
         xml.at('ResourcePendingMaintenanceActions') do |node|
-          data.resource_pending_maintenance_actions = Parsers::ResourcePendingMaintenanceActions.parse(node)
+          data.resource_pending_maintenance_actions = ResourcePendingMaintenanceActions.parse(node)
         end
         data
       end
@@ -320,7 +320,7 @@ module AWS::SDK::RDS
         end
         xml.at('PendingMaintenanceActionDetails') do |node|
           children = node.children('PendingMaintenanceAction')
-          data.pending_maintenance_action_details = Parsers::PendingMaintenanceActionDetails.parse(children)
+          data.pending_maintenance_action_details = PendingMaintenanceActionDetails.parse(children)
         end
         return data
       end
@@ -330,7 +330,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PendingMaintenanceAction.parse(node)
+          data << PendingMaintenanceAction.parse(node)
         end
         data
       end
@@ -383,7 +383,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AuthorizeDBSecurityGroupIngressResult')
         xml.at('DBSecurityGroup') do |node|
-          data.db_security_group = Parsers::DBSecurityGroup.parse(node)
+          data.db_security_group = DBSecurityGroup.parse(node)
         end
         data
       end
@@ -406,11 +406,11 @@ module AWS::SDK::RDS
         end
         xml.at('EC2SecurityGroups') do |node|
           children = node.children('EC2SecurityGroup')
-          data.ec2_security_groups = Parsers::EC2SecurityGroupList.parse(children)
+          data.ec2_security_groups = EC2SecurityGroupList.parse(children)
         end
         xml.at('IPRanges') do |node|
           children = node.children('IPRange')
-          data.ip_ranges = Parsers::IPRangeList.parse(children)
+          data.ip_ranges = IPRangeList.parse(children)
         end
         xml.at('DBSecurityGroupArn') do |node|
           data.db_security_group_arn = (node.text || '')
@@ -423,7 +423,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IPRange.parse(node)
+          data << IPRange.parse(node)
         end
         data
       end
@@ -446,7 +446,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EC2SecurityGroup.parse(node)
+          data << EC2SecurityGroup.parse(node)
         end
         data
       end
@@ -571,7 +571,7 @@ module AWS::SDK::RDS
         end
         xml.at('ExportOnly') do |node|
           children = node.children('member')
-          data.export_only = Parsers::StringList.parse(children)
+          data.export_only = StringList.parse(children)
         end
         xml.at('SnapshotTime') do |node|
           data.snapshot_time = Time.parse(node.text) if node.text
@@ -659,7 +659,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CopyDBClusterParameterGroupResult')
         xml.at('DBClusterParameterGroup') do |node|
-          data.db_cluster_parameter_group = Parsers::DBClusterParameterGroup.parse(node)
+          data.db_cluster_parameter_group = DBClusterParameterGroup.parse(node)
         end
         data
       end
@@ -734,7 +734,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CopyDBClusterSnapshotResult')
         xml.at('DBClusterSnapshot') do |node|
-          data.db_cluster_snapshot = Parsers::DBClusterSnapshot.parse(node)
+          data.db_cluster_snapshot = DBClusterSnapshot.parse(node)
         end
         data
       end
@@ -745,7 +745,7 @@ module AWS::SDK::RDS
         data = Types::DBClusterSnapshot.new
         xml.at('AvailabilityZones') do |node|
           children = node.children('AvailabilityZone')
-          data.availability_zones = Parsers::AvailabilityZones.parse(children)
+          data.availability_zones = AvailabilityZones.parse(children)
         end
         xml.at('DBClusterSnapshotIdentifier') do |node|
           data.db_cluster_snapshot_identifier = (node.text || '')
@@ -809,7 +809,7 @@ module AWS::SDK::RDS
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         return data
       end
@@ -819,7 +819,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -926,7 +926,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CopyDBParameterGroupResult')
         xml.at('DBParameterGroup') do |node|
-          data.db_parameter_group = Parsers::DBParameterGroup.parse(node)
+          data.db_parameter_group = DBParameterGroup.parse(node)
         end
         data
       end
@@ -959,7 +959,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CopyDBSnapshotResult')
         xml.at('DBSnapshot') do |node|
-          data.db_snapshot = Parsers::DBSnapshot.parse(node)
+          data.db_snapshot = DBSnapshot.parse(node)
         end
         data
       end
@@ -1048,14 +1048,14 @@ module AWS::SDK::RDS
         end
         xml.at('ProcessorFeatures') do |node|
           children = node.children('ProcessorFeature')
-          data.processor_features = Parsers::ProcessorFeatureList.parse(children)
+          data.processor_features = ProcessorFeatureList.parse(children)
         end
         xml.at('DbiResourceId') do |node|
           data.dbi_resource_id = (node.text || '')
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         xml.at('OriginalSnapshotCreateTime') do |node|
           data.original_snapshot_create_time = Time.parse(node.text) if node.text
@@ -1071,7 +1071,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ProcessorFeature.parse(node)
+          data << ProcessorFeature.parse(node)
         end
         data
       end
@@ -1140,7 +1140,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CopyOptionGroupResult')
         xml.at('OptionGroup') do |node|
-          data.option_group = Parsers::OptionGroup.parse(node)
+          data.option_group = OptionGroup.parse(node)
         end
         data
       end
@@ -1163,7 +1163,7 @@ module AWS::SDK::RDS
         end
         xml.at('Options') do |node|
           children = node.children('Option')
-          data.options = Parsers::OptionsList.parse(children)
+          data.options = OptionsList.parse(children)
         end
         xml.at('AllowsVpcAndNonVpcInstanceMemberships') do |node|
           data.allows_vpc_and_non_vpc_instance_memberships = (node.text == 'true')
@@ -1182,7 +1182,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Option.parse(node)
+          data << Option.parse(node)
         end
         data
       end
@@ -1211,15 +1211,15 @@ module AWS::SDK::RDS
         end
         xml.at('OptionSettings') do |node|
           children = node.children('OptionSetting')
-          data.option_settings = Parsers::OptionSettingConfigurationList.parse(children)
+          data.option_settings = OptionSettingConfigurationList.parse(children)
         end
         xml.at('DBSecurityGroupMemberships') do |node|
           children = node.children('DBSecurityGroup')
-          data.db_security_group_memberships = Parsers::DBSecurityGroupMembershipList.parse(children)
+          data.db_security_group_memberships = DBSecurityGroupMembershipList.parse(children)
         end
         xml.at('VpcSecurityGroupMemberships') do |node|
           children = node.children('VpcSecurityGroupMembership')
-          data.vpc_security_group_memberships = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_group_memberships = VpcSecurityGroupMembershipList.parse(children)
         end
         return data
       end
@@ -1229,7 +1229,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcSecurityGroupMembership.parse(node)
+          data << VpcSecurityGroupMembership.parse(node)
         end
         data
       end
@@ -1252,7 +1252,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBSecurityGroupMembership.parse(node)
+          data << DBSecurityGroupMembership.parse(node)
         end
         data
       end
@@ -1275,7 +1275,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OptionSetting.parse(node)
+          data << OptionSetting.parse(node)
         end
         data
       end
@@ -1380,27 +1380,27 @@ module AWS::SDK::RDS
           data.db_engine_version_description = (node.text || '')
         end
         xml.at('DefaultCharacterSet') do |node|
-          data.default_character_set = Parsers::CharacterSet.parse(node)
+          data.default_character_set = CharacterSet.parse(node)
         end
         xml.at('SupportedCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('SupportedNcharCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_nchar_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_nchar_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('ValidUpgradeTarget') do |node|
           children = node.children('UpgradeTarget')
-          data.valid_upgrade_target = Parsers::ValidUpgradeTargetList.parse(children)
+          data.valid_upgrade_target = ValidUpgradeTargetList.parse(children)
         end
         xml.at('SupportedTimezones') do |node|
           children = node.children('Timezone')
-          data.supported_timezones = Parsers::SupportedTimezonesList.parse(children)
+          data.supported_timezones = SupportedTimezonesList.parse(children)
         end
         xml.at('ExportableLogTypes') do |node|
           children = node.children('member')
-          data.exportable_log_types = Parsers::LogTypeList.parse(children)
+          data.exportable_log_types = LogTypeList.parse(children)
         end
         xml.at('SupportsLogExportsToCloudwatchLogs') do |node|
           data.supports_log_exports_to_cloudwatch_logs = (node.text == 'true')
@@ -1410,11 +1410,11 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedEngineModes') do |node|
           children = node.children('member')
-          data.supported_engine_modes = Parsers::EngineModeList.parse(children)
+          data.supported_engine_modes = EngineModeList.parse(children)
         end
         xml.at('SupportedFeatureNames') do |node|
           children = node.children('member')
-          data.supported_feature_names = Parsers::FeatureNameList.parse(children)
+          data.supported_feature_names = FeatureNameList.parse(children)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -1445,7 +1445,7 @@ module AWS::SDK::RDS
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         xml.at('SupportsBabelfish') do |node|
           data.supports_babelfish = (node.text == 'true')
@@ -1488,7 +1488,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Timezone.parse(node)
+          data << Timezone.parse(node)
         end
         data
       end
@@ -1508,7 +1508,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UpgradeTarget.parse(node)
+          data << UpgradeTarget.parse(node)
         end
         data
       end
@@ -1534,7 +1534,7 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedEngineModes') do |node|
           children = node.children('member')
-          data.supported_engine_modes = Parsers::EngineModeList.parse(children)
+          data.supported_engine_modes = EngineModeList.parse(children)
         end
         xml.at('SupportsParallelQuery') do |node|
           data.supports_parallel_query = (node.text == 'true')
@@ -1553,7 +1553,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CharacterSet.parse(node)
+          data << CharacterSet.parse(node)
         end
         data
       end
@@ -1608,7 +1608,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -1622,7 +1622,7 @@ module AWS::SDK::RDS
         end
         xml.at('AvailabilityZones') do |node|
           children = node.children('AvailabilityZone')
-          data.availability_zones = Parsers::AvailabilityZones.parse(children)
+          data.availability_zones = AvailabilityZones.parse(children)
         end
         xml.at('BackupRetentionPeriod') do |node|
           data.backup_retention_period = node.text&.to_i
@@ -1662,7 +1662,7 @@ module AWS::SDK::RDS
         end
         xml.at('CustomEndpoints') do |node|
           children = node.children('member')
-          data.custom_endpoints = Parsers::StringList.parse(children)
+          data.custom_endpoints = StringList.parse(children)
         end
         xml.at('MultiAZ') do |node|
           data.multi_az = (node.text == 'true')
@@ -1684,7 +1684,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBClusterOptionGroupMemberships') do |node|
           children = node.children('DBClusterOptionGroup')
-          data.db_cluster_option_group_memberships = Parsers::DBClusterOptionGroupMemberships.parse(children)
+          data.db_cluster_option_group_memberships = DBClusterOptionGroupMemberships.parse(children)
         end
         xml.at('PreferredBackupWindow') do |node|
           data.preferred_backup_window = (node.text || '')
@@ -1697,15 +1697,15 @@ module AWS::SDK::RDS
         end
         xml.at('ReadReplicaIdentifiers') do |node|
           children = node.children('ReadReplicaIdentifier')
-          data.read_replica_identifiers = Parsers::ReadReplicaIdentifierList.parse(children)
+          data.read_replica_identifiers = ReadReplicaIdentifierList.parse(children)
         end
         xml.at('DBClusterMembers') do |node|
           children = node.children('DBClusterMember')
-          data.db_cluster_members = Parsers::DBClusterMemberList.parse(children)
+          data.db_cluster_members = DBClusterMemberList.parse(children)
         end
         xml.at('VpcSecurityGroups') do |node|
           children = node.children('VpcSecurityGroupMembership')
-          data.vpc_security_groups = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_groups = VpcSecurityGroupMembershipList.parse(children)
         end
         xml.at('HostedZoneId') do |node|
           data.hosted_zone_id = (node.text || '')
@@ -1724,7 +1724,7 @@ module AWS::SDK::RDS
         end
         xml.at('AssociatedRoles') do |node|
           children = node.children('DBClusterRole')
-          data.associated_roles = Parsers::DBClusterRoles.parse(children)
+          data.associated_roles = DBClusterRoles.parse(children)
         end
         xml.at('IAMDatabaseAuthenticationEnabled') do |node|
           data.iam_database_authentication_enabled = (node.text == 'true')
@@ -1746,7 +1746,7 @@ module AWS::SDK::RDS
         end
         xml.at('EnabledCloudwatchLogsExports') do |node|
           children = node.children('member')
-          data.enabled_cloudwatch_logs_exports = Parsers::LogTypeList.parse(children)
+          data.enabled_cloudwatch_logs_exports = LogTypeList.parse(children)
         end
         xml.at('Capacity') do |node|
           data.capacity = node.text&.to_i
@@ -1755,7 +1755,7 @@ module AWS::SDK::RDS
           data.engine_mode = (node.text || '')
         end
         xml.at('ScalingConfigurationInfo') do |node|
-          data.scaling_configuration_info = Parsers::ScalingConfigurationInfo.parse(node)
+          data.scaling_configuration_info = ScalingConfigurationInfo.parse(node)
         end
         xml.at('DeletionProtection') do |node|
           data.deletion_protection = (node.text == 'true')
@@ -1783,11 +1783,11 @@ module AWS::SDK::RDS
         end
         xml.at('DomainMemberships') do |node|
           children = node.children('DomainMembership')
-          data.domain_memberships = Parsers::DomainMembershipList.parse(children)
+          data.domain_memberships = DomainMembershipList.parse(children)
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         xml.at('GlobalWriteForwardingStatus') do |node|
           data.global_write_forwarding_status = (node.text || '')
@@ -1796,7 +1796,7 @@ module AWS::SDK::RDS
           data.global_write_forwarding_requested = (node.text == 'true')
         end
         xml.at('PendingModifiedValues') do |node|
-          data.pending_modified_values = Parsers::ClusterPendingModifiedValues.parse(node)
+          data.pending_modified_values = ClusterPendingModifiedValues.parse(node)
         end
         xml.at('DBClusterInstanceClass') do |node|
           data.db_cluster_instance_class = (node.text || '')
@@ -1829,7 +1829,7 @@ module AWS::SDK::RDS
           data.performance_insights_retention_period = node.text&.to_i
         end
         xml.at('ServerlessV2ScalingConfiguration') do |node|
-          data.serverless_v2_scaling_configuration = Parsers::ServerlessV2ScalingConfigurationInfo.parse(node)
+          data.serverless_v2_scaling_configuration = ServerlessV2ScalingConfigurationInfo.parse(node)
         end
         return data
       end
@@ -1852,7 +1852,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = Types::ClusterPendingModifiedValues.new
         xml.at('PendingCloudwatchLogsExports') do |node|
-          data.pending_cloudwatch_logs_exports = Parsers::PendingCloudwatchLogsExports.parse(node)
+          data.pending_cloudwatch_logs_exports = PendingCloudwatchLogsExports.parse(node)
         end
         xml.at('DBClusterIdentifier') do |node|
           data.db_cluster_identifier = (node.text || '')
@@ -1875,11 +1875,11 @@ module AWS::SDK::RDS
         data = Types::PendingCloudwatchLogsExports.new
         xml.at('LogTypesToEnable') do |node|
           children = node.children('member')
-          data.log_types_to_enable = Parsers::LogTypeList.parse(children)
+          data.log_types_to_enable = LogTypeList.parse(children)
         end
         xml.at('LogTypesToDisable') do |node|
           children = node.children('member')
-          data.log_types_to_disable = Parsers::LogTypeList.parse(children)
+          data.log_types_to_disable = LogTypeList.parse(children)
         end
         return data
       end
@@ -1889,7 +1889,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DomainMembership.parse(node)
+          data << DomainMembership.parse(node)
         end
         data
       end
@@ -1943,7 +1943,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterRole.parse(node)
+          data << DBClusterRole.parse(node)
         end
         data
       end
@@ -1969,7 +1969,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterMember.parse(node)
+          data << DBClusterMember.parse(node)
         end
         data
       end
@@ -2008,7 +2008,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterOptionGroupStatus.parse(node)
+          data << DBClusterOptionGroupStatus.parse(node)
         end
         data
       end
@@ -2239,11 +2239,11 @@ module AWS::SDK::RDS
         end
         xml.at('StaticMembers') do |node|
           children = node.children('member')
-          data.static_members = Parsers::StringList.parse(children)
+          data.static_members = StringList.parse(children)
         end
         xml.at('ExcludedMembers') do |node|
           children = node.children('member')
-          data.excluded_members = Parsers::StringList.parse(children)
+          data.excluded_members = StringList.parse(children)
         end
         xml.at('DBClusterEndpointArn') do |node|
           data.db_cluster_endpoint_arn = (node.text || '')
@@ -2288,7 +2288,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBClusterParameterGroupResult')
         xml.at('DBClusterParameterGroup') do |node|
-          data.db_cluster_parameter_group = Parsers::DBClusterParameterGroup.parse(node)
+          data.db_cluster_parameter_group = DBClusterParameterGroup.parse(node)
         end
         data
       end
@@ -2302,7 +2302,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBClusterSnapshotResult')
         xml.at('DBClusterSnapshot') do |node|
-          data.db_cluster_snapshot = Parsers::DBClusterSnapshot.parse(node)
+          data.db_cluster_snapshot = DBClusterSnapshot.parse(node)
         end
         data
       end
@@ -2316,7 +2316,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBInstanceResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -2347,7 +2347,7 @@ module AWS::SDK::RDS
           data.db_name = (node.text || '')
         end
         xml.at('Endpoint') do |node|
-          data.endpoint = Parsers::Endpoint.parse(node)
+          data.endpoint = Endpoint.parse(node)
         end
         xml.at('AllocatedStorage') do |node|
           data.allocated_storage = node.text&.to_i
@@ -2363,27 +2363,27 @@ module AWS::SDK::RDS
         end
         xml.at('DBSecurityGroups') do |node|
           children = node.children('DBSecurityGroup')
-          data.db_security_groups = Parsers::DBSecurityGroupMembershipList.parse(children)
+          data.db_security_groups = DBSecurityGroupMembershipList.parse(children)
         end
         xml.at('VpcSecurityGroups') do |node|
           children = node.children('VpcSecurityGroupMembership')
-          data.vpc_security_groups = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_groups = VpcSecurityGroupMembershipList.parse(children)
         end
         xml.at('DBParameterGroups') do |node|
           children = node.children('DBParameterGroup')
-          data.db_parameter_groups = Parsers::DBParameterGroupStatusList.parse(children)
+          data.db_parameter_groups = DBParameterGroupStatusList.parse(children)
         end
         xml.at('AvailabilityZone') do |node|
           data.availability_zone = (node.text || '')
         end
         xml.at('DBSubnetGroup') do |node|
-          data.db_subnet_group = Parsers::DBSubnetGroup.parse(node)
+          data.db_subnet_group = DBSubnetGroup.parse(node)
         end
         xml.at('PreferredMaintenanceWindow') do |node|
           data.preferred_maintenance_window = (node.text || '')
         end
         xml.at('PendingModifiedValues') do |node|
-          data.pending_modified_values = Parsers::PendingModifiedValues.parse(node)
+          data.pending_modified_values = PendingModifiedValues.parse(node)
         end
         xml.at('LatestRestorableTime') do |node|
           data.latest_restorable_time = Time.parse(node.text) if node.text
@@ -2402,11 +2402,11 @@ module AWS::SDK::RDS
         end
         xml.at('ReadReplicaDBInstanceIdentifiers') do |node|
           children = node.children('ReadReplicaDBInstanceIdentifier')
-          data.read_replica_db_instance_identifiers = Parsers::ReadReplicaDBInstanceIdentifierList.parse(children)
+          data.read_replica_db_instance_identifiers = ReadReplicaDBInstanceIdentifierList.parse(children)
         end
         xml.at('ReadReplicaDBClusterIdentifiers') do |node|
           children = node.children('ReadReplicaDBClusterIdentifier')
-          data.read_replica_db_cluster_identifiers = Parsers::ReadReplicaDBClusterIdentifierList.parse(children)
+          data.read_replica_db_cluster_identifiers = ReadReplicaDBClusterIdentifierList.parse(children)
         end
         xml.at('ReplicaMode') do |node|
           data.replica_mode = (node.text || '')
@@ -2419,7 +2419,7 @@ module AWS::SDK::RDS
         end
         xml.at('OptionGroupMemberships') do |node|
           children = node.children('OptionGroupMembership')
-          data.option_group_memberships = Parsers::OptionGroupMembershipList.parse(children)
+          data.option_group_memberships = OptionGroupMembershipList.parse(children)
         end
         xml.at('CharacterSetName') do |node|
           data.character_set_name = (node.text || '')
@@ -2435,7 +2435,7 @@ module AWS::SDK::RDS
         end
         xml.at('StatusInfos') do |node|
           children = node.children('DBInstanceStatusInfo')
-          data.status_infos = Parsers::DBInstanceStatusInfoList.parse(children)
+          data.status_infos = DBInstanceStatusInfoList.parse(children)
         end
         xml.at('StorageType') do |node|
           data.storage_type = (node.text || '')
@@ -2463,7 +2463,7 @@ module AWS::SDK::RDS
         end
         xml.at('DomainMemberships') do |node|
           children = node.children('DomainMembership')
-          data.domain_memberships = Parsers::DomainMembershipList.parse(children)
+          data.domain_memberships = DomainMembershipList.parse(children)
         end
         xml.at('CopyTagsToSnapshot') do |node|
           data.copy_tags_to_snapshot = (node.text == 'true')
@@ -2500,32 +2500,32 @@ module AWS::SDK::RDS
         end
         xml.at('EnabledCloudwatchLogsExports') do |node|
           children = node.children('member')
-          data.enabled_cloudwatch_logs_exports = Parsers::LogTypeList.parse(children)
+          data.enabled_cloudwatch_logs_exports = LogTypeList.parse(children)
         end
         xml.at('ProcessorFeatures') do |node|
           children = node.children('ProcessorFeature')
-          data.processor_features = Parsers::ProcessorFeatureList.parse(children)
+          data.processor_features = ProcessorFeatureList.parse(children)
         end
         xml.at('DeletionProtection') do |node|
           data.deletion_protection = (node.text == 'true')
         end
         xml.at('AssociatedRoles') do |node|
           children = node.children('DBInstanceRole')
-          data.associated_roles = Parsers::DBInstanceRoles.parse(children)
+          data.associated_roles = DBInstanceRoles.parse(children)
         end
         xml.at('ListenerEndpoint') do |node|
-          data.listener_endpoint = Parsers::Endpoint.parse(node)
+          data.listener_endpoint = Endpoint.parse(node)
         end
         xml.at('MaxAllocatedStorage') do |node|
           data.max_allocated_storage = node.text&.to_i
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         xml.at('DBInstanceAutomatedBackupsReplications') do |node|
           children = node.children('DBInstanceAutomatedBackupsReplication')
-          data.db_instance_automated_backups_replications = Parsers::DBInstanceAutomatedBackupsReplicationList.parse(children)
+          data.db_instance_automated_backups_replications = DBInstanceAutomatedBackupsReplicationList.parse(children)
         end
         xml.at('CustomerOwnedIpEnabled') do |node|
           data.customer_owned_ip_enabled = (node.text == 'true')
@@ -2571,7 +2571,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBInstanceAutomatedBackupsReplication.parse(node)
+          data << DBInstanceAutomatedBackupsReplication.parse(node)
         end
         data
       end
@@ -2607,7 +2607,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBInstanceRole.parse(node)
+          data << DBInstanceRole.parse(node)
         end
         data
       end
@@ -2633,7 +2633,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBInstanceStatusInfo.parse(node)
+          data << DBInstanceStatusInfo.parse(node)
         end
         data
       end
@@ -2662,7 +2662,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OptionGroupMembership.parse(node)
+          data << OptionGroupMembership.parse(node)
         end
         data
       end
@@ -2744,11 +2744,11 @@ module AWS::SDK::RDS
           data.db_subnet_group_name = (node.text || '')
         end
         xml.at('PendingCloudwatchLogsExports') do |node|
-          data.pending_cloudwatch_logs_exports = Parsers::PendingCloudwatchLogsExports.parse(node)
+          data.pending_cloudwatch_logs_exports = PendingCloudwatchLogsExports.parse(node)
         end
         xml.at('ProcessorFeatures') do |node|
           children = node.children('ProcessorFeature')
-          data.processor_features = Parsers::ProcessorFeatureList.parse(children)
+          data.processor_features = ProcessorFeatureList.parse(children)
         end
         xml.at('IAMDatabaseAuthenticationEnabled') do |node|
           data.iam_database_authentication_enabled = (node.text == 'true')
@@ -2780,14 +2780,14 @@ module AWS::SDK::RDS
         end
         xml.at('Subnets') do |node|
           children = node.children('Subnet')
-          data.subnets = Parsers::SubnetList.parse(children)
+          data.subnets = SubnetList.parse(children)
         end
         xml.at('DBSubnetGroupArn') do |node|
           data.db_subnet_group_arn = (node.text || '')
         end
         xml.at('SupportedNetworkTypes') do |node|
           children = node.children('member')
-          data.supported_network_types = Parsers::StringList.parse(children)
+          data.supported_network_types = StringList.parse(children)
         end
         return data
       end
@@ -2797,7 +2797,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Subnet.parse(node)
+          data << Subnet.parse(node)
         end
         data
       end
@@ -2810,10 +2810,10 @@ module AWS::SDK::RDS
           data.subnet_identifier = (node.text || '')
         end
         xml.at('SubnetAvailabilityZone') do |node|
-          data.subnet_availability_zone = Parsers::AvailabilityZone.parse(node)
+          data.subnet_availability_zone = AvailabilityZone.parse(node)
         end
         xml.at('SubnetOutpost') do |node|
-          data.subnet_outpost = Parsers::Outpost.parse(node)
+          data.subnet_outpost = Outpost.parse(node)
         end
         xml.at('SubnetStatus') do |node|
           data.subnet_status = (node.text || '')
@@ -2846,7 +2846,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBParameterGroupStatus.parse(node)
+          data << DBParameterGroupStatus.parse(node)
         end
         data
       end
@@ -2985,7 +2985,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBInstanceReadReplicaResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -3027,7 +3027,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBParameterGroupResult')
         xml.at('DBParameterGroup') do |node|
-          data.db_parameter_group = Parsers::DBParameterGroup.parse(node)
+          data.db_parameter_group = DBParameterGroup.parse(node)
         end
         data
       end
@@ -3041,7 +3041,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBProxyResult')
         xml.at('DBProxy') do |node|
-          data.db_proxy = Parsers::DBProxy.parse(node)
+          data.db_proxy = DBProxy.parse(node)
         end
         data
       end
@@ -3067,15 +3067,15 @@ module AWS::SDK::RDS
         end
         xml.at('VpcSecurityGroupIds') do |node|
           children = node.children('member')
-          data.vpc_security_group_ids = Parsers::StringList.parse(children)
+          data.vpc_security_group_ids = StringList.parse(children)
         end
         xml.at('VpcSubnetIds') do |node|
           children = node.children('member')
-          data.vpc_subnet_ids = Parsers::StringList.parse(children)
+          data.vpc_subnet_ids = StringList.parse(children)
         end
         xml.at('Auth') do |node|
           children = node.children('member')
-          data.auth = Parsers::UserAuthConfigInfoList.parse(children)
+          data.auth = UserAuthConfigInfoList.parse(children)
         end
         xml.at('RoleArn') do |node|
           data.role_arn = (node.text || '')
@@ -3106,7 +3106,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UserAuthConfigInfo.parse(node)
+          data << UserAuthConfigInfo.parse(node)
         end
         data
       end
@@ -3170,7 +3170,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBProxyEndpointResult')
         xml.at('DBProxyEndpoint') do |node|
-          data.db_proxy_endpoint = Parsers::DBProxyEndpoint.parse(node)
+          data.db_proxy_endpoint = DBProxyEndpoint.parse(node)
         end
         data
       end
@@ -3196,11 +3196,11 @@ module AWS::SDK::RDS
         end
         xml.at('VpcSecurityGroupIds') do |node|
           children = node.children('member')
-          data.vpc_security_group_ids = Parsers::StringList.parse(children)
+          data.vpc_security_group_ids = StringList.parse(children)
         end
         xml.at('VpcSubnetIds') do |node|
           children = node.children('member')
-          data.vpc_subnet_ids = Parsers::StringList.parse(children)
+          data.vpc_subnet_ids = StringList.parse(children)
         end
         xml.at('Endpoint') do |node|
           data.endpoint = (node.text || '')
@@ -3268,7 +3268,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBSecurityGroupResult')
         xml.at('DBSecurityGroup') do |node|
-          data.db_security_group = Parsers::DBSecurityGroup.parse(node)
+          data.db_security_group = DBSecurityGroup.parse(node)
         end
         data
       end
@@ -3324,7 +3324,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBSnapshotResult')
         xml.at('DBSnapshot') do |node|
-          data.db_snapshot = Parsers::DBSnapshot.parse(node)
+          data.db_snapshot = DBSnapshot.parse(node)
         end
         data
       end
@@ -3338,7 +3338,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDBSubnetGroupResult')
         xml.at('DBSubnetGroup') do |node|
-          data.db_subnet_group = Parsers::DBSubnetGroup.parse(node)
+          data.db_subnet_group = DBSubnetGroup.parse(node)
         end
         data
       end
@@ -3394,7 +3394,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateEventSubscriptionResult')
         xml.at('EventSubscription') do |node|
-          data.event_subscription = Parsers::EventSubscription.parse(node)
+          data.event_subscription = EventSubscription.parse(node)
         end
         data
       end
@@ -3492,7 +3492,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateGlobalClusterResult')
         xml.at('GlobalCluster') do |node|
-          data.global_cluster = Parsers::GlobalCluster.parse(node)
+          data.global_cluster = GlobalCluster.parse(node)
         end
         data
       end
@@ -3530,10 +3530,10 @@ module AWS::SDK::RDS
         end
         xml.at('GlobalClusterMembers') do |node|
           children = node.children('GlobalClusterMember')
-          data.global_cluster_members = Parsers::GlobalClusterMemberList.parse(children)
+          data.global_cluster_members = GlobalClusterMemberList.parse(children)
         end
         xml.at('FailoverState') do |node|
-          data.failover_state = Parsers::FailoverState.parse(node)
+          data.failover_state = FailoverState.parse(node)
         end
         return data
       end
@@ -3559,7 +3559,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GlobalClusterMember.parse(node)
+          data << GlobalClusterMember.parse(node)
         end
         data
       end
@@ -3573,7 +3573,7 @@ module AWS::SDK::RDS
         end
         xml.at('Readers') do |node|
           children = node.children('member')
-          data.readers = Parsers::ReadersArnList.parse(children)
+          data.readers = ReadersArnList.parse(children)
         end
         xml.at('IsWriter') do |node|
           data.is_writer = (node.text == 'true')
@@ -3631,7 +3631,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateOptionGroupResult')
         xml.at('OptionGroup') do |node|
-          data.option_group = Parsers::OptionGroup.parse(node)
+          data.option_group = OptionGroup.parse(node)
         end
         data
       end
@@ -3660,27 +3660,27 @@ module AWS::SDK::RDS
           data.db_engine_version_description = (node.text || '')
         end
         xml.at('DefaultCharacterSet') do |node|
-          data.default_character_set = Parsers::CharacterSet.parse(node)
+          data.default_character_set = CharacterSet.parse(node)
         end
         xml.at('SupportedCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('SupportedNcharCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_nchar_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_nchar_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('ValidUpgradeTarget') do |node|
           children = node.children('UpgradeTarget')
-          data.valid_upgrade_target = Parsers::ValidUpgradeTargetList.parse(children)
+          data.valid_upgrade_target = ValidUpgradeTargetList.parse(children)
         end
         xml.at('SupportedTimezones') do |node|
           children = node.children('Timezone')
-          data.supported_timezones = Parsers::SupportedTimezonesList.parse(children)
+          data.supported_timezones = SupportedTimezonesList.parse(children)
         end
         xml.at('ExportableLogTypes') do |node|
           children = node.children('member')
-          data.exportable_log_types = Parsers::LogTypeList.parse(children)
+          data.exportable_log_types = LogTypeList.parse(children)
         end
         xml.at('SupportsLogExportsToCloudwatchLogs') do |node|
           data.supports_log_exports_to_cloudwatch_logs = (node.text == 'true')
@@ -3690,11 +3690,11 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedEngineModes') do |node|
           children = node.children('member')
-          data.supported_engine_modes = Parsers::EngineModeList.parse(children)
+          data.supported_engine_modes = EngineModeList.parse(children)
         end
         xml.at('SupportedFeatureNames') do |node|
           children = node.children('member')
-          data.supported_feature_names = Parsers::FeatureNameList.parse(children)
+          data.supported_feature_names = FeatureNameList.parse(children)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -3725,7 +3725,7 @@ module AWS::SDK::RDS
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         xml.at('SupportsBabelfish') do |node|
           data.supports_babelfish = (node.text == 'true')
@@ -3770,7 +3770,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -3806,11 +3806,11 @@ module AWS::SDK::RDS
         end
         xml.at('StaticMembers') do |node|
           children = node.children('member')
-          data.static_members = Parsers::StringList.parse(children)
+          data.static_members = StringList.parse(children)
         end
         xml.at('ExcludedMembers') do |node|
           children = node.children('member')
-          data.excluded_members = Parsers::StringList.parse(children)
+          data.excluded_members = StringList.parse(children)
         end
         xml.at('DBClusterEndpointArn') do |node|
           data.db_cluster_endpoint_arn = (node.text || '')
@@ -3880,7 +3880,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDBClusterSnapshotResult')
         xml.at('DBClusterSnapshot') do |node|
-          data.db_cluster_snapshot = Parsers::DBClusterSnapshot.parse(node)
+          data.db_cluster_snapshot = DBClusterSnapshot.parse(node)
         end
         data
       end
@@ -3894,7 +3894,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDBInstanceResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -3922,7 +3922,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDBInstanceAutomatedBackupResult')
         xml.at('DBInstanceAutomatedBackup') do |node|
-          data.db_instance_automated_backup = Parsers::DBInstanceAutomatedBackup.parse(node)
+          data.db_instance_automated_backup = DBInstanceAutomatedBackup.parse(node)
         end
         data
       end
@@ -3944,7 +3944,7 @@ module AWS::SDK::RDS
           data.db_instance_identifier = (node.text || '')
         end
         xml.at('RestoreWindow') do |node|
-          data.restore_window = Parsers::RestoreWindow.parse(node)
+          data.restore_window = RestoreWindow.parse(node)
         end
         xml.at('AllocatedStorage') do |node|
           data.allocated_storage = node.text&.to_i
@@ -4008,7 +4008,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBInstanceAutomatedBackupsReplications') do |node|
           children = node.children('DBInstanceAutomatedBackupsReplication')
-          data.db_instance_automated_backups_replications = Parsers::DBInstanceAutomatedBackupsReplicationList.parse(children)
+          data.db_instance_automated_backups_replications = DBInstanceAutomatedBackupsReplicationList.parse(children)
         end
         xml.at('BackupTarget') do |node|
           data.backup_target = (node.text || '')
@@ -4077,7 +4077,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDBProxyResult')
         xml.at('DBProxy') do |node|
-          data.db_proxy = Parsers::DBProxy.parse(node)
+          data.db_proxy = DBProxy.parse(node)
         end
         data
       end
@@ -4091,7 +4091,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDBProxyEndpointResult')
         xml.at('DBProxyEndpoint') do |node|
-          data.db_proxy_endpoint = Parsers::DBProxyEndpoint.parse(node)
+          data.db_proxy_endpoint = DBProxyEndpoint.parse(node)
         end
         data
       end
@@ -4144,7 +4144,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDBSnapshotResult')
         xml.at('DBSnapshot') do |node|
-          data.db_snapshot = Parsers::DBSnapshot.parse(node)
+          data.db_snapshot = DBSnapshot.parse(node)
         end
         data
       end
@@ -4183,7 +4183,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteEventSubscriptionResult')
         xml.at('EventSubscription') do |node|
-          data.event_subscription = Parsers::EventSubscription.parse(node)
+          data.event_subscription = EventSubscription.parse(node)
         end
         data
       end
@@ -4211,7 +4211,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteGlobalClusterResult')
         xml.at('GlobalCluster') do |node|
-          data.global_cluster = Parsers::GlobalCluster.parse(node)
+          data.global_cluster = GlobalCluster.parse(node)
         end
         data
       end
@@ -4276,7 +4276,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeAccountAttributesResult')
         xml.at('AccountQuotas') do |node|
           children = node.children('AccountQuota')
-          data.account_quotas = Parsers::AccountQuotaList.parse(children)
+          data.account_quotas = AccountQuotaList.parse(children)
         end
         data
       end
@@ -4286,7 +4286,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccountQuota.parse(node)
+          data << AccountQuota.parse(node)
         end
         data
       end
@@ -4317,7 +4317,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeCertificatesResult')
         xml.at('Certificates') do |node|
           children = node.children('Certificate')
-          data.certificates = Parsers::CertificateList.parse(children)
+          data.certificates = CertificateList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4330,7 +4330,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Certificate.parse(node)
+          data << Certificate.parse(node)
         end
         data
       end
@@ -4393,7 +4393,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBClusterBacktracks') do |node|
           children = node.children('DBClusterBacktrack')
-          data.db_cluster_backtracks = Parsers::DBClusterBacktrackList.parse(children)
+          data.db_cluster_backtracks = DBClusterBacktrackList.parse(children)
         end
         data
       end
@@ -4403,7 +4403,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterBacktrack.parse(node)
+          data << DBClusterBacktrack.parse(node)
         end
         data
       end
@@ -4460,7 +4460,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBClusterEndpoints') do |node|
           children = node.children('DBClusterEndpointList')
-          data.db_cluster_endpoints = Parsers::DBClusterEndpointList.parse(children)
+          data.db_cluster_endpoints = DBClusterEndpointList.parse(children)
         end
         data
       end
@@ -4470,7 +4470,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterEndpoint.parse(node)
+          data << DBClusterEndpoint.parse(node)
         end
         data
       end
@@ -4502,11 +4502,11 @@ module AWS::SDK::RDS
         end
         xml.at('StaticMembers') do |node|
           children = node.children('member')
-          data.static_members = Parsers::StringList.parse(children)
+          data.static_members = StringList.parse(children)
         end
         xml.at('ExcludedMembers') do |node|
           children = node.children('member')
-          data.excluded_members = Parsers::StringList.parse(children)
+          data.excluded_members = StringList.parse(children)
         end
         xml.at('DBClusterEndpointArn') do |node|
           data.db_cluster_endpoint_arn = (node.text || '')
@@ -4527,7 +4527,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBClusterParameterGroups') do |node|
           children = node.children('DBClusterParameterGroup')
-          data.db_cluster_parameter_groups = Parsers::DBClusterParameterGroupList.parse(children)
+          data.db_cluster_parameter_groups = DBClusterParameterGroupList.parse(children)
         end
         data
       end
@@ -4537,7 +4537,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterParameterGroup.parse(node)
+          data << DBClusterParameterGroup.parse(node)
         end
         data
       end
@@ -4552,7 +4552,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeDBClusterParametersResult')
         xml.at('Parameters') do |node|
           children = node.children('Parameter')
-          data.parameters = Parsers::ParametersList.parse(children)
+          data.parameters = ParametersList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4565,7 +4565,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Parameter.parse(node)
+          data << Parameter.parse(node)
         end
         data
       end
@@ -4606,7 +4606,7 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedEngineModes') do |node|
           children = node.children('member')
-          data.supported_engine_modes = Parsers::EngineModeList.parse(children)
+          data.supported_engine_modes = EngineModeList.parse(children)
         end
         return data
       end
@@ -4620,7 +4620,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeDBClusterSnapshotAttributesResult')
         xml.at('DBClusterSnapshotAttributesResult') do |node|
-          data.db_cluster_snapshot_attributes_result = Parsers::DBClusterSnapshotAttributesResult.parse(node)
+          data.db_cluster_snapshot_attributes_result = DBClusterSnapshotAttributesResult.parse(node)
         end
         data
       end
@@ -4634,7 +4634,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBClusterSnapshotAttributes') do |node|
           children = node.children('DBClusterSnapshotAttribute')
-          data.db_cluster_snapshot_attributes = Parsers::DBClusterSnapshotAttributeList.parse(children)
+          data.db_cluster_snapshot_attributes = DBClusterSnapshotAttributeList.parse(children)
         end
         return data
       end
@@ -4644,7 +4644,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterSnapshotAttribute.parse(node)
+          data << DBClusterSnapshotAttribute.parse(node)
         end
         data
       end
@@ -4658,7 +4658,7 @@ module AWS::SDK::RDS
         end
         xml.at('AttributeValues') do |node|
           children = node.children('AttributeValue')
-          data.attribute_values = Parsers::AttributeValueList.parse(children)
+          data.attribute_values = AttributeValueList.parse(children)
         end
         return data
       end
@@ -4686,7 +4686,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBClusterSnapshots') do |node|
           children = node.children('DBClusterSnapshot')
-          data.db_cluster_snapshots = Parsers::DBClusterSnapshotList.parse(children)
+          data.db_cluster_snapshots = DBClusterSnapshotList.parse(children)
         end
         data
       end
@@ -4696,7 +4696,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBClusterSnapshot.parse(node)
+          data << DBClusterSnapshot.parse(node)
         end
         data
       end
@@ -4714,7 +4714,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBClusters') do |node|
           children = node.children('DBCluster')
-          data.db_clusters = Parsers::DBClusterList.parse(children)
+          data.db_clusters = DBClusterList.parse(children)
         end
         data
       end
@@ -4724,7 +4724,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBCluster.parse(node)
+          data << DBCluster.parse(node)
         end
         data
       end
@@ -4742,7 +4742,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBEngineVersions') do |node|
           children = node.children('DBEngineVersion')
-          data.db_engine_versions = Parsers::DBEngineVersionList.parse(children)
+          data.db_engine_versions = DBEngineVersionList.parse(children)
         end
         data
       end
@@ -4752,7 +4752,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBEngineVersion.parse(node)
+          data << DBEngineVersion.parse(node)
         end
         data
       end
@@ -4777,27 +4777,27 @@ module AWS::SDK::RDS
           data.db_engine_version_description = (node.text || '')
         end
         xml.at('DefaultCharacterSet') do |node|
-          data.default_character_set = Parsers::CharacterSet.parse(node)
+          data.default_character_set = CharacterSet.parse(node)
         end
         xml.at('SupportedCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('SupportedNcharCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_nchar_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_nchar_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('ValidUpgradeTarget') do |node|
           children = node.children('UpgradeTarget')
-          data.valid_upgrade_target = Parsers::ValidUpgradeTargetList.parse(children)
+          data.valid_upgrade_target = ValidUpgradeTargetList.parse(children)
         end
         xml.at('SupportedTimezones') do |node|
           children = node.children('Timezone')
-          data.supported_timezones = Parsers::SupportedTimezonesList.parse(children)
+          data.supported_timezones = SupportedTimezonesList.parse(children)
         end
         xml.at('ExportableLogTypes') do |node|
           children = node.children('member')
-          data.exportable_log_types = Parsers::LogTypeList.parse(children)
+          data.exportable_log_types = LogTypeList.parse(children)
         end
         xml.at('SupportsLogExportsToCloudwatchLogs') do |node|
           data.supports_log_exports_to_cloudwatch_logs = (node.text == 'true')
@@ -4807,11 +4807,11 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedEngineModes') do |node|
           children = node.children('member')
-          data.supported_engine_modes = Parsers::EngineModeList.parse(children)
+          data.supported_engine_modes = EngineModeList.parse(children)
         end
         xml.at('SupportedFeatureNames') do |node|
           children = node.children('member')
-          data.supported_feature_names = Parsers::FeatureNameList.parse(children)
+          data.supported_feature_names = FeatureNameList.parse(children)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -4842,7 +4842,7 @@ module AWS::SDK::RDS
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         xml.at('SupportsBabelfish') do |node|
           data.supports_babelfish = (node.text == 'true')
@@ -4863,7 +4863,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBInstanceAutomatedBackups') do |node|
           children = node.children('DBInstanceAutomatedBackup')
-          data.db_instance_automated_backups = Parsers::DBInstanceAutomatedBackupList.parse(children)
+          data.db_instance_automated_backups = DBInstanceAutomatedBackupList.parse(children)
         end
         data
       end
@@ -4873,7 +4873,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBInstanceAutomatedBackup.parse(node)
+          data << DBInstanceAutomatedBackup.parse(node)
         end
         data
       end
@@ -4891,7 +4891,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBInstances') do |node|
           children = node.children('DBInstance')
-          data.db_instances = Parsers::DBInstanceList.parse(children)
+          data.db_instances = DBInstanceList.parse(children)
         end
         data
       end
@@ -4901,7 +4901,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBInstance.parse(node)
+          data << DBInstance.parse(node)
         end
         data
       end
@@ -4916,7 +4916,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeDBLogFilesResult')
         xml.at('DescribeDBLogFiles') do |node|
           children = node.children('DescribeDBLogFilesDetails')
-          data.describe_db_log_files = Parsers::DescribeDBLogFilesList.parse(children)
+          data.describe_db_log_files = DescribeDBLogFilesList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4929,7 +4929,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DescribeDBLogFilesDetails.parse(node)
+          data << DescribeDBLogFilesDetails.parse(node)
         end
         data
       end
@@ -4963,7 +4963,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBParameterGroups') do |node|
           children = node.children('DBParameterGroup')
-          data.db_parameter_groups = Parsers::DBParameterGroupList.parse(children)
+          data.db_parameter_groups = DBParameterGroupList.parse(children)
         end
         data
       end
@@ -4973,7 +4973,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBParameterGroup.parse(node)
+          data << DBParameterGroup.parse(node)
         end
         data
       end
@@ -4988,7 +4988,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeDBParametersResult')
         xml.at('Parameters') do |node|
           children = node.children('Parameter')
-          data.parameters = Parsers::ParametersList.parse(children)
+          data.parameters = ParametersList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5006,7 +5006,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeDBProxiesResult')
         xml.at('DBProxies') do |node|
           children = node.children('member')
-          data.db_proxies = Parsers::DBProxyList.parse(children)
+          data.db_proxies = DBProxyList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5019,7 +5019,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBProxy.parse(node)
+          data << DBProxy.parse(node)
         end
         data
       end
@@ -5034,7 +5034,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeDBProxyEndpointsResult')
         xml.at('DBProxyEndpoints') do |node|
           children = node.children('member')
-          data.db_proxy_endpoints = Parsers::DBProxyEndpointList.parse(children)
+          data.db_proxy_endpoints = DBProxyEndpointList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5047,7 +5047,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBProxyEndpoint.parse(node)
+          data << DBProxyEndpoint.parse(node)
         end
         data
       end
@@ -5062,7 +5062,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeDBProxyTargetGroupsResult')
         xml.at('TargetGroups') do |node|
           children = node.children('member')
-          data.target_groups = Parsers::TargetGroupList.parse(children)
+          data.target_groups = TargetGroupList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5075,7 +5075,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBProxyTargetGroup.parse(node)
+          data << DBProxyTargetGroup.parse(node)
         end
         data
       end
@@ -5100,7 +5100,7 @@ module AWS::SDK::RDS
           data.status = (node.text || '')
         end
         xml.at('ConnectionPoolConfig') do |node|
-          data.connection_pool_config = Parsers::ConnectionPoolConfigurationInfo.parse(node)
+          data.connection_pool_config = ConnectionPoolConfigurationInfo.parse(node)
         end
         xml.at('CreatedDate') do |node|
           data.created_date = Time.parse(node.text) if node.text
@@ -5126,7 +5126,7 @@ module AWS::SDK::RDS
         end
         xml.at('SessionPinningFilters') do |node|
           children = node.children('member')
-          data.session_pinning_filters = Parsers::StringList.parse(children)
+          data.session_pinning_filters = StringList.parse(children)
         end
         xml.at('InitQuery') do |node|
           data.init_query = (node.text || '')
@@ -5144,7 +5144,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeDBProxyTargetsResult')
         xml.at('Targets') do |node|
           children = node.children('member')
-          data.targets = Parsers::TargetList.parse(children)
+          data.targets = TargetList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5157,7 +5157,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBProxyTarget.parse(node)
+          data << DBProxyTarget.parse(node)
         end
         data
       end
@@ -5188,7 +5188,7 @@ module AWS::SDK::RDS
           data.role = (node.text || '')
         end
         xml.at('TargetHealth') do |node|
-          data.target_health = Parsers::TargetHealth.parse(node)
+          data.target_health = TargetHealth.parse(node)
         end
         return data
       end
@@ -5222,7 +5222,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBSecurityGroups') do |node|
           children = node.children('DBSecurityGroup')
-          data.db_security_groups = Parsers::DBSecurityGroups.parse(children)
+          data.db_security_groups = DBSecurityGroups.parse(children)
         end
         data
       end
@@ -5232,7 +5232,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBSecurityGroup.parse(node)
+          data << DBSecurityGroup.parse(node)
         end
         data
       end
@@ -5246,7 +5246,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeDBSnapshotAttributesResult')
         xml.at('DBSnapshotAttributesResult') do |node|
-          data.db_snapshot_attributes_result = Parsers::DBSnapshotAttributesResult.parse(node)
+          data.db_snapshot_attributes_result = DBSnapshotAttributesResult.parse(node)
         end
         data
       end
@@ -5260,7 +5260,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBSnapshotAttributes') do |node|
           children = node.children('DBSnapshotAttribute')
-          data.db_snapshot_attributes = Parsers::DBSnapshotAttributeList.parse(children)
+          data.db_snapshot_attributes = DBSnapshotAttributeList.parse(children)
         end
         return data
       end
@@ -5270,7 +5270,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBSnapshotAttribute.parse(node)
+          data << DBSnapshotAttribute.parse(node)
         end
         data
       end
@@ -5284,7 +5284,7 @@ module AWS::SDK::RDS
         end
         xml.at('AttributeValues') do |node|
           children = node.children('AttributeValue')
-          data.attribute_values = Parsers::AttributeValueList.parse(children)
+          data.attribute_values = AttributeValueList.parse(children)
         end
         return data
       end
@@ -5302,7 +5302,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBSnapshots') do |node|
           children = node.children('DBSnapshot')
-          data.db_snapshots = Parsers::DBSnapshotList.parse(children)
+          data.db_snapshots = DBSnapshotList.parse(children)
         end
         data
       end
@@ -5312,7 +5312,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBSnapshot.parse(node)
+          data << DBSnapshot.parse(node)
         end
         data
       end
@@ -5330,7 +5330,7 @@ module AWS::SDK::RDS
         end
         xml.at('DBSubnetGroups') do |node|
           children = node.children('DBSubnetGroup')
-          data.db_subnet_groups = Parsers::DBSubnetGroups.parse(children)
+          data.db_subnet_groups = DBSubnetGroups.parse(children)
         end
         data
       end
@@ -5340,7 +5340,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DBSubnetGroup.parse(node)
+          data << DBSubnetGroup.parse(node)
         end
         data
       end
@@ -5354,7 +5354,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeEngineDefaultClusterParametersResult')
         xml.at('EngineDefaults') do |node|
-          data.engine_defaults = Parsers::EngineDefaults.parse(node)
+          data.engine_defaults = EngineDefaults.parse(node)
         end
         data
       end
@@ -5371,7 +5371,7 @@ module AWS::SDK::RDS
         end
         xml.at('Parameters') do |node|
           children = node.children('Parameter')
-          data.parameters = Parsers::ParametersList.parse(children)
+          data.parameters = ParametersList.parse(children)
         end
         return data
       end
@@ -5385,7 +5385,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeEngineDefaultParametersResult')
         xml.at('EngineDefaults') do |node|
-          data.engine_defaults = Parsers::EngineDefaults.parse(node)
+          data.engine_defaults = EngineDefaults.parse(node)
         end
         data
       end
@@ -5400,7 +5400,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeEventCategoriesResult')
         xml.at('EventCategoriesMapList') do |node|
           children = node.children('EventCategoriesMap')
-          data.event_categories_map_list = Parsers::EventCategoriesMapList.parse(children)
+          data.event_categories_map_list = EventCategoriesMapList.parse(children)
         end
         data
       end
@@ -5410,7 +5410,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EventCategoriesMap.parse(node)
+          data << EventCategoriesMap.parse(node)
         end
         data
       end
@@ -5424,7 +5424,7 @@ module AWS::SDK::RDS
         end
         xml.at('EventCategories') do |node|
           children = node.children('EventCategory')
-          data.event_categories = Parsers::EventCategoriesList.parse(children)
+          data.event_categories = EventCategoriesList.parse(children)
         end
         return data
       end
@@ -5442,7 +5442,7 @@ module AWS::SDK::RDS
         end
         xml.at('EventSubscriptionsList') do |node|
           children = node.children('EventSubscription')
-          data.event_subscriptions_list = Parsers::EventSubscriptionsList.parse(children)
+          data.event_subscriptions_list = EventSubscriptionsList.parse(children)
         end
         data
       end
@@ -5452,7 +5452,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EventSubscription.parse(node)
+          data << EventSubscription.parse(node)
         end
         data
       end
@@ -5470,7 +5470,7 @@ module AWS::SDK::RDS
         end
         xml.at('Events') do |node|
           children = node.children('Event')
-          data.events = Parsers::EventList.parse(children)
+          data.events = EventList.parse(children)
         end
         data
       end
@@ -5480,7 +5480,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Event.parse(node)
+          data << Event.parse(node)
         end
         data
       end
@@ -5500,7 +5500,7 @@ module AWS::SDK::RDS
         end
         xml.at('EventCategories') do |node|
           children = node.children('EventCategory')
-          data.event_categories = Parsers::EventCategoriesList.parse(children)
+          data.event_categories = EventCategoriesList.parse(children)
         end
         xml.at('Date') do |node|
           data.date = Time.parse(node.text) if node.text
@@ -5524,7 +5524,7 @@ module AWS::SDK::RDS
         end
         xml.at('ExportTasks') do |node|
           children = node.children('ExportTask')
-          data.export_tasks = Parsers::ExportTasksList.parse(children)
+          data.export_tasks = ExportTasksList.parse(children)
         end
         data
       end
@@ -5534,7 +5534,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ExportTask.parse(node)
+          data << ExportTask.parse(node)
         end
         data
       end
@@ -5551,7 +5551,7 @@ module AWS::SDK::RDS
         end
         xml.at('ExportOnly') do |node|
           children = node.children('member')
-          data.export_only = Parsers::StringList.parse(children)
+          data.export_only = StringList.parse(children)
         end
         xml.at('SnapshotTime') do |node|
           data.snapshot_time = Time.parse(node.text) if node.text
@@ -5605,7 +5605,7 @@ module AWS::SDK::RDS
         end
         xml.at('GlobalClusters') do |node|
           children = node.children('GlobalClusterMember')
-          data.global_clusters = Parsers::GlobalClusterList.parse(children)
+          data.global_clusters = GlobalClusterList.parse(children)
         end
         data
       end
@@ -5615,7 +5615,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GlobalCluster.parse(node)
+          data << GlobalCluster.parse(node)
         end
         data
       end
@@ -5630,7 +5630,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeOptionGroupOptionsResult')
         xml.at('OptionGroupOptions') do |node|
           children = node.children('OptionGroupOption')
-          data.option_group_options = Parsers::OptionGroupOptionsList.parse(children)
+          data.option_group_options = OptionGroupOptionsList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5643,7 +5643,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OptionGroupOption.parse(node)
+          data << OptionGroupOption.parse(node)
         end
         data
       end
@@ -5675,11 +5675,11 @@ module AWS::SDK::RDS
         end
         xml.at('OptionsDependedOn') do |node|
           children = node.children('OptionName')
-          data.options_depended_on = Parsers::OptionsDependedOn.parse(children)
+          data.options_depended_on = OptionsDependedOn.parse(children)
         end
         xml.at('OptionsConflictsWith') do |node|
           children = node.children('OptionConflictName')
-          data.options_conflicts_with = Parsers::OptionsConflictsWith.parse(children)
+          data.options_conflicts_with = OptionsConflictsWith.parse(children)
         end
         xml.at('Persistent') do |node|
           data.persistent = (node.text == 'true')
@@ -5698,11 +5698,11 @@ module AWS::SDK::RDS
         end
         xml.at('OptionGroupOptionSettings') do |node|
           children = node.children('OptionGroupOptionSetting')
-          data.option_group_option_settings = Parsers::OptionGroupOptionSettingsList.parse(children)
+          data.option_group_option_settings = OptionGroupOptionSettingsList.parse(children)
         end
         xml.at('OptionGroupOptionVersions') do |node|
           children = node.children('OptionVersion')
-          data.option_group_option_versions = Parsers::OptionGroupOptionVersionsList.parse(children)
+          data.option_group_option_versions = OptionGroupOptionVersionsList.parse(children)
         end
         return data
       end
@@ -5712,7 +5712,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OptionVersion.parse(node)
+          data << OptionVersion.parse(node)
         end
         data
       end
@@ -5735,7 +5735,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OptionGroupOptionSetting.parse(node)
+          data << OptionGroupOptionSetting.parse(node)
         end
         data
       end
@@ -5767,7 +5767,7 @@ module AWS::SDK::RDS
         end
         xml.at('MinimumEngineVersionPerAllowedValue') do |node|
           children = node.children('MinimumEngineVersionPerAllowedValue')
-          data.minimum_engine_version_per_allowed_value = Parsers::MinimumEngineVersionPerAllowedValueList.parse(children)
+          data.minimum_engine_version_per_allowed_value = MinimumEngineVersionPerAllowedValueList.parse(children)
         end
         return data
       end
@@ -5777,7 +5777,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MinimumEngineVersionPerAllowedValue.parse(node)
+          data << MinimumEngineVersionPerAllowedValue.parse(node)
         end
         data
       end
@@ -5825,7 +5825,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeOptionGroupsResult')
         xml.at('OptionGroupsList') do |node|
           children = node.children('OptionGroup')
-          data.option_groups_list = Parsers::OptionGroupsList.parse(children)
+          data.option_groups_list = OptionGroupsList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5838,7 +5838,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OptionGroup.parse(node)
+          data << OptionGroup.parse(node)
         end
         data
       end
@@ -5853,7 +5853,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribeOrderableDBInstanceOptionsResult')
         xml.at('OrderableDBInstanceOptions') do |node|
           children = node.children('OrderableDBInstanceOption')
-          data.orderable_db_instance_options = Parsers::OrderableDBInstanceOptionsList.parse(children)
+          data.orderable_db_instance_options = OrderableDBInstanceOptionsList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5866,7 +5866,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OrderableDBInstanceOption.parse(node)
+          data << OrderableDBInstanceOption.parse(node)
         end
         data
       end
@@ -5892,7 +5892,7 @@ module AWS::SDK::RDS
         end
         xml.at('AvailabilityZones') do |node|
           children = node.children('AvailabilityZone')
-          data.availability_zones = Parsers::AvailabilityZoneList.parse(children)
+          data.availability_zones = AvailabilityZoneList.parse(children)
         end
         xml.at('MultiAZCapable') do |node|
           data.multi_az_capable = (node.text == 'true')
@@ -5941,11 +5941,11 @@ module AWS::SDK::RDS
         end
         xml.at('AvailableProcessorFeatures') do |node|
           children = node.children('AvailableProcessorFeature')
-          data.available_processor_features = Parsers::AvailableProcessorFeatureList.parse(children)
+          data.available_processor_features = AvailableProcessorFeatureList.parse(children)
         end
         xml.at('SupportedEngineModes') do |node|
           children = node.children('member')
-          data.supported_engine_modes = Parsers::EngineModeList.parse(children)
+          data.supported_engine_modes = EngineModeList.parse(children)
         end
         xml.at('SupportsStorageAutoscaling') do |node|
           data.supports_storage_autoscaling = (node.text == 'true')
@@ -5958,7 +5958,7 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedActivityStreamModes') do |node|
           children = node.children('member')
-          data.supported_activity_stream_modes = Parsers::ActivityStreamModeList.parse(children)
+          data.supported_activity_stream_modes = ActivityStreamModeList.parse(children)
         end
         xml.at('SupportsGlobalDatabases') do |node|
           data.supports_global_databases = (node.text == 'true')
@@ -5968,7 +5968,7 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedNetworkTypes') do |node|
           children = node.children('member')
-          data.supported_network_types = Parsers::StringList.parse(children)
+          data.supported_network_types = StringList.parse(children)
         end
         return data
       end
@@ -5988,7 +5988,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AvailableProcessorFeature.parse(node)
+          data << AvailableProcessorFeature.parse(node)
         end
         data
       end
@@ -6014,7 +6014,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AvailabilityZone.parse(node)
+          data << AvailabilityZone.parse(node)
         end
         data
       end
@@ -6029,7 +6029,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('DescribePendingMaintenanceActionsResult')
         xml.at('PendingMaintenanceActions') do |node|
           children = node.children('ResourcePendingMaintenanceActions')
-          data.pending_maintenance_actions = Parsers::PendingMaintenanceActions.parse(children)
+          data.pending_maintenance_actions = PendingMaintenanceActions.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -6042,7 +6042,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResourcePendingMaintenanceActions.parse(node)
+          data << ResourcePendingMaintenanceActions.parse(node)
         end
         data
       end
@@ -6060,7 +6060,7 @@ module AWS::SDK::RDS
         end
         xml.at('ReservedDBInstances') do |node|
           children = node.children('ReservedDBInstance')
-          data.reserved_db_instances = Parsers::ReservedDBInstanceList.parse(children)
+          data.reserved_db_instances = ReservedDBInstanceList.parse(children)
         end
         data
       end
@@ -6070,7 +6070,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedDBInstance.parse(node)
+          data << ReservedDBInstance.parse(node)
         end
         data
       end
@@ -6120,7 +6120,7 @@ module AWS::SDK::RDS
         end
         xml.at('RecurringCharges') do |node|
           children = node.children('RecurringCharge')
-          data.recurring_charges = Parsers::RecurringChargeList.parse(children)
+          data.recurring_charges = RecurringChargeList.parse(children)
         end
         xml.at('ReservedDBInstanceArn') do |node|
           data.reserved_db_instance_arn = (node.text || '')
@@ -6136,7 +6136,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RecurringCharge.parse(node)
+          data << RecurringCharge.parse(node)
         end
         data
       end
@@ -6181,7 +6181,7 @@ module AWS::SDK::RDS
         end
         xml.at('ReservedDBInstancesOfferings') do |node|
           children = node.children('ReservedDBInstancesOffering')
-          data.reserved_db_instances_offerings = Parsers::ReservedDBInstancesOfferingList.parse(children)
+          data.reserved_db_instances_offerings = ReservedDBInstancesOfferingList.parse(children)
         end
         data
       end
@@ -6191,7 +6191,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedDBInstancesOffering.parse(node)
+          data << ReservedDBInstancesOffering.parse(node)
         end
         data
       end
@@ -6229,7 +6229,7 @@ module AWS::SDK::RDS
         end
         xml.at('RecurringCharges') do |node|
           children = node.children('RecurringCharge')
-          data.recurring_charges = Parsers::RecurringChargeList.parse(children)
+          data.recurring_charges = RecurringChargeList.parse(children)
         end
         return data
       end
@@ -6261,7 +6261,7 @@ module AWS::SDK::RDS
         end
         xml.at('SourceRegions') do |node|
           children = node.children('SourceRegion')
-          data.source_regions = Parsers::SourceRegionList.parse(children)
+          data.source_regions = SourceRegionList.parse(children)
         end
         data
       end
@@ -6271,7 +6271,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SourceRegion.parse(node)
+          data << SourceRegion.parse(node)
         end
         data
       end
@@ -6304,7 +6304,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeValidDBInstanceModificationsResult')
         xml.at('ValidDBInstanceModificationsMessage') do |node|
-          data.valid_db_instance_modifications_message = Parsers::ValidDBInstanceModificationsMessage.parse(node)
+          data.valid_db_instance_modifications_message = ValidDBInstanceModificationsMessage.parse(node)
         end
         data
       end
@@ -6315,11 +6315,11 @@ module AWS::SDK::RDS
         data = Types::ValidDBInstanceModificationsMessage.new
         xml.at('Storage') do |node|
           children = node.children('ValidStorageOptions')
-          data.storage = Parsers::ValidStorageOptionsList.parse(children)
+          data.storage = ValidStorageOptionsList.parse(children)
         end
         xml.at('ValidProcessorFeatures') do |node|
           children = node.children('AvailableProcessorFeature')
-          data.valid_processor_features = Parsers::AvailableProcessorFeatureList.parse(children)
+          data.valid_processor_features = AvailableProcessorFeatureList.parse(children)
         end
         return data
       end
@@ -6329,7 +6329,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ValidStorageOptions.parse(node)
+          data << ValidStorageOptions.parse(node)
         end
         data
       end
@@ -6343,15 +6343,15 @@ module AWS::SDK::RDS
         end
         xml.at('StorageSize') do |node|
           children = node.children('Range')
-          data.storage_size = Parsers::RangeList.parse(children)
+          data.storage_size = RangeList.parse(children)
         end
         xml.at('ProvisionedIops') do |node|
           children = node.children('Range')
-          data.provisioned_iops = Parsers::RangeList.parse(children)
+          data.provisioned_iops = RangeList.parse(children)
         end
         xml.at('IopsToStorageRatio') do |node|
           children = node.children('DoubleRange')
-          data.iops_to_storage_ratio = Parsers::DoubleRangeList.parse(children)
+          data.iops_to_storage_ratio = DoubleRangeList.parse(children)
         end
         xml.at('SupportsStorageAutoscaling') do |node|
           data.supports_storage_autoscaling = (node.text == 'true')
@@ -6364,7 +6364,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DoubleRange.parse(node)
+          data << DoubleRange.parse(node)
         end
         data
       end
@@ -6387,7 +6387,7 @@ module AWS::SDK::RDS
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Range.parse(node)
+          data << Range.parse(node)
         end
         data
       end
@@ -6451,7 +6451,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('FailoverDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -6465,7 +6465,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('FailoverGlobalClusterResult')
         xml.at('GlobalCluster') do |node|
-          data.global_cluster = Parsers::GlobalCluster.parse(node)
+          data.global_cluster = GlobalCluster.parse(node)
         end
         data
       end
@@ -6480,7 +6480,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('ListTagsForResourceResult')
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         data
       end
@@ -6494,7 +6494,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyCertificatesResult')
         xml.at('Certificate') do |node|
-          data.certificate = Parsers::Certificate.parse(node)
+          data.certificate = Certificate.parse(node)
         end
         data
       end
@@ -6563,27 +6563,27 @@ module AWS::SDK::RDS
           data.db_engine_version_description = (node.text || '')
         end
         xml.at('DefaultCharacterSet') do |node|
-          data.default_character_set = Parsers::CharacterSet.parse(node)
+          data.default_character_set = CharacterSet.parse(node)
         end
         xml.at('SupportedCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('SupportedNcharCharacterSets') do |node|
           children = node.children('CharacterSet')
-          data.supported_nchar_character_sets = Parsers::SupportedCharacterSetsList.parse(children)
+          data.supported_nchar_character_sets = SupportedCharacterSetsList.parse(children)
         end
         xml.at('ValidUpgradeTarget') do |node|
           children = node.children('UpgradeTarget')
-          data.valid_upgrade_target = Parsers::ValidUpgradeTargetList.parse(children)
+          data.valid_upgrade_target = ValidUpgradeTargetList.parse(children)
         end
         xml.at('SupportedTimezones') do |node|
           children = node.children('Timezone')
-          data.supported_timezones = Parsers::SupportedTimezonesList.parse(children)
+          data.supported_timezones = SupportedTimezonesList.parse(children)
         end
         xml.at('ExportableLogTypes') do |node|
           children = node.children('member')
-          data.exportable_log_types = Parsers::LogTypeList.parse(children)
+          data.exportable_log_types = LogTypeList.parse(children)
         end
         xml.at('SupportsLogExportsToCloudwatchLogs') do |node|
           data.supports_log_exports_to_cloudwatch_logs = (node.text == 'true')
@@ -6593,11 +6593,11 @@ module AWS::SDK::RDS
         end
         xml.at('SupportedEngineModes') do |node|
           children = node.children('member')
-          data.supported_engine_modes = Parsers::EngineModeList.parse(children)
+          data.supported_engine_modes = EngineModeList.parse(children)
         end
         xml.at('SupportedFeatureNames') do |node|
           children = node.children('member')
-          data.supported_feature_names = Parsers::FeatureNameList.parse(children)
+          data.supported_feature_names = FeatureNameList.parse(children)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
@@ -6628,7 +6628,7 @@ module AWS::SDK::RDS
         end
         xml.at('TagList') do |node|
           children = node.children('Tag')
-          data.tag_list = Parsers::TagList.parse(children)
+          data.tag_list = TagList.parse(children)
         end
         xml.at('SupportsBabelfish') do |node|
           data.supports_babelfish = (node.text == 'true')
@@ -6645,7 +6645,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -6681,11 +6681,11 @@ module AWS::SDK::RDS
         end
         xml.at('StaticMembers') do |node|
           children = node.children('member')
-          data.static_members = Parsers::StringList.parse(children)
+          data.static_members = StringList.parse(children)
         end
         xml.at('ExcludedMembers') do |node|
           children = node.children('member')
-          data.excluded_members = Parsers::StringList.parse(children)
+          data.excluded_members = StringList.parse(children)
         end
         xml.at('DBClusterEndpointArn') do |node|
           data.db_cluster_endpoint_arn = (node.text || '')
@@ -6716,7 +6716,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBClusterSnapshotAttributeResult')
         xml.at('DBClusterSnapshotAttributesResult') do |node|
-          data.db_cluster_snapshot_attributes_result = Parsers::DBClusterSnapshotAttributesResult.parse(node)
+          data.db_cluster_snapshot_attributes_result = DBClusterSnapshotAttributesResult.parse(node)
         end
         data
       end
@@ -6744,7 +6744,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBInstanceResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -6786,7 +6786,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBProxyResult')
         xml.at('DBProxy') do |node|
-          data.db_proxy = Parsers::DBProxy.parse(node)
+          data.db_proxy = DBProxy.parse(node)
         end
         data
       end
@@ -6800,7 +6800,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBProxyEndpointResult')
         xml.at('DBProxyEndpoint') do |node|
-          data.db_proxy_endpoint = Parsers::DBProxyEndpoint.parse(node)
+          data.db_proxy_endpoint = DBProxyEndpoint.parse(node)
         end
         data
       end
@@ -6814,7 +6814,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBProxyTargetGroupResult')
         xml.at('DBProxyTargetGroup') do |node|
-          data.db_proxy_target_group = Parsers::DBProxyTargetGroup.parse(node)
+          data.db_proxy_target_group = DBProxyTargetGroup.parse(node)
         end
         data
       end
@@ -6828,7 +6828,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBSnapshotResult')
         xml.at('DBSnapshot') do |node|
-          data.db_snapshot = Parsers::DBSnapshot.parse(node)
+          data.db_snapshot = DBSnapshot.parse(node)
         end
         data
       end
@@ -6842,7 +6842,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBSnapshotAttributeResult')
         xml.at('DBSnapshotAttributesResult') do |node|
-          data.db_snapshot_attributes_result = Parsers::DBSnapshotAttributesResult.parse(node)
+          data.db_snapshot_attributes_result = DBSnapshotAttributesResult.parse(node)
         end
         data
       end
@@ -6856,7 +6856,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyDBSubnetGroupResult')
         xml.at('DBSubnetGroup') do |node|
-          data.db_subnet_group = Parsers::DBSubnetGroup.parse(node)
+          data.db_subnet_group = DBSubnetGroup.parse(node)
         end
         data
       end
@@ -6884,7 +6884,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyEventSubscriptionResult')
         xml.at('EventSubscription') do |node|
-          data.event_subscription = Parsers::EventSubscription.parse(node)
+          data.event_subscription = EventSubscription.parse(node)
         end
         data
       end
@@ -6898,7 +6898,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyGlobalClusterResult')
         xml.at('GlobalCluster') do |node|
-          data.global_cluster = Parsers::GlobalCluster.parse(node)
+          data.global_cluster = GlobalCluster.parse(node)
         end
         data
       end
@@ -6912,7 +6912,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyOptionGroupResult')
         xml.at('OptionGroup') do |node|
-          data.option_group = Parsers::OptionGroup.parse(node)
+          data.option_group = OptionGroup.parse(node)
         end
         data
       end
@@ -6926,7 +6926,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('PromoteReadReplicaResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -6940,7 +6940,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('PromoteReadReplicaDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -6954,7 +6954,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('PurchaseReservedDBInstancesOfferingResult')
         xml.at('ReservedDBInstance') do |node|
-          data.reserved_db_instance = Parsers::ReservedDBInstance.parse(node)
+          data.reserved_db_instance = ReservedDBInstance.parse(node)
         end
         data
       end
@@ -6996,7 +6996,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RebootDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -7010,7 +7010,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RebootDBInstanceResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -7025,7 +7025,7 @@ module AWS::SDK::RDS
         xml = Hearth::XML.parse(body).at('RegisterDBProxyTargetsResult')
         xml.at('DBProxyTargets') do |node|
           children = node.children('member')
-          data.db_proxy_targets = Parsers::TargetList.parse(children)
+          data.db_proxy_targets = TargetList.parse(children)
         end
         data
       end
@@ -7067,7 +7067,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RemoveFromGlobalClusterResult')
         xml.at('GlobalCluster') do |node|
-          data.global_cluster = Parsers::GlobalCluster.parse(node)
+          data.global_cluster = GlobalCluster.parse(node)
         end
         data
       end
@@ -7131,7 +7131,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RemoveSourceIdentifierFromSubscriptionResult')
         xml.at('EventSubscription') do |node|
-          data.event_subscription = Parsers::EventSubscription.parse(node)
+          data.event_subscription = EventSubscription.parse(node)
         end
         data
       end
@@ -7184,7 +7184,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreDBClusterFromS3Result')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -7212,7 +7212,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreDBClusterFromSnapshotResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -7254,7 +7254,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreDBClusterToPointInTimeResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -7268,7 +7268,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreDBInstanceFromDBSnapshotResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -7282,7 +7282,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreDBInstanceFromS3Result')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -7296,7 +7296,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreDBInstanceToPointInTimeResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -7324,7 +7324,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RevokeDBSecurityGroupIngressResult')
         xml.at('DBSecurityGroup') do |node|
-          data.db_security_group = Parsers::DBSecurityGroup.parse(node)
+          data.db_security_group = DBSecurityGroup.parse(node)
         end
         data
       end
@@ -7367,7 +7367,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('StartDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -7381,7 +7381,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('StartDBInstanceResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -7395,7 +7395,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('StartDBInstanceAutomatedBackupsReplicationResult')
         xml.at('DBInstanceAutomatedBackup') do |node|
-          data.db_instance_automated_backup = Parsers::DBInstanceAutomatedBackup.parse(node)
+          data.db_instance_automated_backup = DBInstanceAutomatedBackup.parse(node)
         end
         data
       end
@@ -7416,7 +7416,7 @@ module AWS::SDK::RDS
         end
         xml.at('ExportOnly') do |node|
           children = node.children('member')
-          data.export_only = Parsers::StringList.parse(children)
+          data.export_only = StringList.parse(children)
         end
         xml.at('SnapshotTime') do |node|
           data.snapshot_time = Time.parse(node.text) if node.text
@@ -7556,7 +7556,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('StopDBClusterResult')
         xml.at('DBCluster') do |node|
-          data.db_cluster = Parsers::DBCluster.parse(node)
+          data.db_cluster = DBCluster.parse(node)
         end
         data
       end
@@ -7570,7 +7570,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('StopDBInstanceResult')
         xml.at('DBInstance') do |node|
-          data.db_instance = Parsers::DBInstance.parse(node)
+          data.db_instance = DBInstance.parse(node)
         end
         data
       end
@@ -7584,7 +7584,7 @@ module AWS::SDK::RDS
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('StopDBInstanceAutomatedBackupsReplicationResult')
         xml.at('DBInstanceAutomatedBackup') do |node|
-          data.db_instance_automated_backup = Parsers::DBInstanceAutomatedBackup.parse(node)
+          data.db_instance_automated_backup = DBInstanceAutomatedBackup.parse(node)
         end
         data
       end

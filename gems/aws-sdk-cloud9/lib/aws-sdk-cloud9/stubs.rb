@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Cloud9
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::Cloud9
       def self.stub(http_resp, stub:)
         data = {}
         data['environmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -36,8 +38,8 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['membership'] = Stubs::EnvironmentMember.stub(stub[:membership]) unless stub[:membership].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['membership'] = EnvironmentMember.stub(stub[:membership]) unless stub[:membership].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -107,9 +109,9 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['memberships'] = Stubs::EnvironmentMembersList.stub(stub[:memberships]) unless stub[:memberships].nil?
+        data['memberships'] = EnvironmentMembersList.stub(stub[:memberships]) unless stub[:memberships].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -128,7 +130,7 @@ module AWS::SDK::Cloud9
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentMember.stub(element) unless element.nil?
+          data << EnvironmentMember.stub(element) unless element.nil?
         end
         data
       end
@@ -147,7 +149,7 @@ module AWS::SDK::Cloud9
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -162,8 +164,8 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['environments'] = Stubs::EnvironmentList.stub(stub[:environments]) unless stub[:environments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environments'] = EnvironmentList.stub(stub[:environments]) unless stub[:environments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -182,7 +184,7 @@ module AWS::SDK::Cloud9
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Environment.stub(element) unless element.nil?
+          data << Environment.stub(element) unless element.nil?
         end
         data
       end
@@ -216,7 +218,7 @@ module AWS::SDK::Cloud9
         data['connectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['ownerArn'] = stub[:owner_arn] unless stub[:owner_arn].nil?
-        data['lifecycle'] = Stubs::EnvironmentLifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
+        data['lifecycle'] = EnvironmentLifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
         data['managedCredentialsStatus'] = stub[:managed_credentials_status] unless stub[:managed_credentials_status].nil?
         data
       end
@@ -256,8 +258,8 @@ module AWS::SDK::Cloud9
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['environmentIds'] = Stubs::EnvironmentIdList.stub(stub[:environment_ids]) unless stub[:environment_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentIds'] = EnvironmentIdList.stub(stub[:environment_ids]) unless stub[:environment_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -292,8 +294,8 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -312,7 +314,7 @@ module AWS::SDK::Cloud9
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -347,7 +349,7 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -390,8 +392,8 @@ module AWS::SDK::Cloud9
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['membership'] = Stubs::EnvironmentMember.stub(stub[:membership]) unless stub[:membership].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['membership'] = EnvironmentMember.stub(stub[:membership]) unless stub[:membership].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

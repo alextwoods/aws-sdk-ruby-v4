@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSO
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::SSO
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['roleCredentials'] = Stubs::RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['roleCredentials'] = RoleCredentials.stub(stub[:role_credentials]) unless stub[:role_credentials].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -65,8 +67,8 @@ module AWS::SDK::SSO
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['roleList'] = Stubs::RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['roleList'] = RoleListType.stub(stub[:role_list]) unless stub[:role_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::SSO
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoleInfo.stub(element) unless element.nil?
+          data << RoleInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -124,8 +126,8 @@ module AWS::SDK::SSO
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['accountList'] = Stubs::AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountList'] = AccountListType.stub(stub[:account_list]) unless stub[:account_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::SSO
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountInfo.stub(element) unless element.nil?
+          data << AccountInfo.stub(element) unless element.nil?
         end
         data
       end

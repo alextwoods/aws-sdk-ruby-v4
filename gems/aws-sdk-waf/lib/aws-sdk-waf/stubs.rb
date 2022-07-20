@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::WAF
   module Stubs
 
@@ -21,9 +24,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ByteMatchSet'] = Stubs::ByteMatchSet.stub(stub[:byte_match_set]) unless stub[:byte_match_set].nil?
+        data['ByteMatchSet'] = ByteMatchSet.stub(stub[:byte_match_set]) unless stub[:byte_match_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -45,7 +48,7 @@ module AWS::SDK::WAF
         data = {}
         data['ByteMatchSetId'] = stub[:byte_match_set_id] unless stub[:byte_match_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ByteMatchTuples'] = Stubs::ByteMatchTuples.stub(stub[:byte_match_tuples]) unless stub[:byte_match_tuples].nil?
+        data['ByteMatchTuples'] = ByteMatchTuples.stub(stub[:byte_match_tuples]) unless stub[:byte_match_tuples].nil?
         data
       end
     end
@@ -64,7 +67,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ByteMatchTuple.stub(element) unless element.nil?
+          data << ByteMatchTuple.stub(element) unless element.nil?
         end
         data
       end
@@ -86,8 +89,8 @@ module AWS::SDK::WAF
       def self.stub(stub)
         stub ||= Types::ByteMatchTuple.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
-        data['TargetString'] = Base64::encode64(stub[:target_string]) unless stub[:target_string].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['TargetString'] = ::Base64::encode64(stub[:target_string]) unless stub[:target_string].nil?
         data['TextTransformation'] = stub[:text_transformation] unless stub[:text_transformation].nil?
         data['PositionalConstraint'] = stub[:positional_constraint] unless stub[:positional_constraint].nil?
         data
@@ -125,9 +128,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GeoMatchSet'] = Stubs::GeoMatchSet.stub(stub[:geo_match_set]) unless stub[:geo_match_set].nil?
+        data['GeoMatchSet'] = GeoMatchSet.stub(stub[:geo_match_set]) unless stub[:geo_match_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -149,7 +152,7 @@ module AWS::SDK::WAF
         data = {}
         data['GeoMatchSetId'] = stub[:geo_match_set_id] unless stub[:geo_match_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['GeoMatchConstraints'] = Stubs::GeoMatchConstraints.stub(stub[:geo_match_constraints]) unless stub[:geo_match_constraints].nil?
+        data['GeoMatchConstraints'] = GeoMatchConstraints.stub(stub[:geo_match_constraints]) unless stub[:geo_match_constraints].nil?
         data
       end
     end
@@ -168,7 +171,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GeoMatchConstraint.stub(element) unless element.nil?
+          data << GeoMatchConstraint.stub(element) unless element.nil?
         end
         data
       end
@@ -205,9 +208,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IPSet'] = Stubs::IPSet.stub(stub[:ip_set]) unless stub[:ip_set].nil?
+        data['IPSet'] = IPSet.stub(stub[:ip_set]) unless stub[:ip_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -229,7 +232,7 @@ module AWS::SDK::WAF
         data = {}
         data['IPSetId'] = stub[:ip_set_id] unless stub[:ip_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['IPSetDescriptors'] = Stubs::IPSetDescriptors.stub(stub[:ip_set_descriptors]) unless stub[:ip_set_descriptors].nil?
+        data['IPSetDescriptors'] = IPSetDescriptors.stub(stub[:ip_set_descriptors]) unless stub[:ip_set_descriptors].nil?
         data
       end
     end
@@ -248,7 +251,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IPSetDescriptor.stub(element) unless element.nil?
+          data << IPSetDescriptor.stub(element) unless element.nil?
         end
         data
       end
@@ -285,9 +288,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rule'] = Stubs::RateBasedRule.stub(stub[:rule]) unless stub[:rule].nil?
+        data['Rule'] = RateBasedRule.stub(stub[:rule]) unless stub[:rule].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -313,7 +316,7 @@ module AWS::SDK::WAF
         data['RuleId'] = stub[:rule_id] unless stub[:rule_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['MatchPredicates'] = Stubs::Predicates.stub(stub[:match_predicates]) unless stub[:match_predicates].nil?
+        data['MatchPredicates'] = Predicates.stub(stub[:match_predicates]) unless stub[:match_predicates].nil?
         data['RateKey'] = stub[:rate_key] unless stub[:rate_key].nil?
         data['RateLimit'] = stub[:rate_limit] unless stub[:rate_limit].nil?
         data
@@ -334,7 +337,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Predicate.stub(element) unless element.nil?
+          data << Predicate.stub(element) unless element.nil?
         end
         data
       end
@@ -373,9 +376,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RegexMatchSet'] = Stubs::RegexMatchSet.stub(stub[:regex_match_set]) unless stub[:regex_match_set].nil?
+        data['RegexMatchSet'] = RegexMatchSet.stub(stub[:regex_match_set]) unless stub[:regex_match_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -397,7 +400,7 @@ module AWS::SDK::WAF
         data = {}
         data['RegexMatchSetId'] = stub[:regex_match_set_id] unless stub[:regex_match_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['RegexMatchTuples'] = Stubs::RegexMatchTuples.stub(stub[:regex_match_tuples]) unless stub[:regex_match_tuples].nil?
+        data['RegexMatchTuples'] = RegexMatchTuples.stub(stub[:regex_match_tuples]) unless stub[:regex_match_tuples].nil?
         data
       end
     end
@@ -416,7 +419,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegexMatchTuple.stub(element) unless element.nil?
+          data << RegexMatchTuple.stub(element) unless element.nil?
         end
         data
       end
@@ -437,7 +440,7 @@ module AWS::SDK::WAF
       def self.stub(stub)
         stub ||= Types::RegexMatchTuple.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
         data['TextTransformation'] = stub[:text_transformation] unless stub[:text_transformation].nil?
         data['RegexPatternSetId'] = stub[:regex_pattern_set_id] unless stub[:regex_pattern_set_id].nil?
         data
@@ -455,9 +458,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RegexPatternSet'] = Stubs::RegexPatternSet.stub(stub[:regex_pattern_set]) unless stub[:regex_pattern_set].nil?
+        data['RegexPatternSet'] = RegexPatternSet.stub(stub[:regex_pattern_set]) unless stub[:regex_pattern_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -479,7 +482,7 @@ module AWS::SDK::WAF
         data = {}
         data['RegexPatternSetId'] = stub[:regex_pattern_set_id] unless stub[:regex_pattern_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['RegexPatternStrings'] = Stubs::RegexPatternStrings.stub(stub[:regex_pattern_strings]) unless stub[:regex_pattern_strings].nil?
+        data['RegexPatternStrings'] = RegexPatternStrings.stub(stub[:regex_pattern_strings]) unless stub[:regex_pattern_strings].nil?
         data
       end
     end
@@ -515,9 +518,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rule'] = Stubs::Rule.stub(stub[:rule]) unless stub[:rule].nil?
+        data['Rule'] = Rule.stub(stub[:rule]) unless stub[:rule].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -541,7 +544,7 @@ module AWS::SDK::WAF
         data['RuleId'] = stub[:rule_id] unless stub[:rule_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['Predicates'] = Stubs::Predicates.stub(stub[:predicates]) unless stub[:predicates].nil?
+        data['Predicates'] = Predicates.stub(stub[:predicates]) unless stub[:predicates].nil?
         data
       end
     end
@@ -557,9 +560,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuleGroup'] = Stubs::RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
+        data['RuleGroup'] = RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -597,9 +600,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SizeConstraintSet'] = Stubs::SizeConstraintSet.stub(stub[:size_constraint_set]) unless stub[:size_constraint_set].nil?
+        data['SizeConstraintSet'] = SizeConstraintSet.stub(stub[:size_constraint_set]) unless stub[:size_constraint_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -621,7 +624,7 @@ module AWS::SDK::WAF
         data = {}
         data['SizeConstraintSetId'] = stub[:size_constraint_set_id] unless stub[:size_constraint_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['SizeConstraints'] = Stubs::SizeConstraints.stub(stub[:size_constraints]) unless stub[:size_constraints].nil?
+        data['SizeConstraints'] = SizeConstraints.stub(stub[:size_constraints]) unless stub[:size_constraints].nil?
         data
       end
     end
@@ -640,7 +643,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SizeConstraint.stub(element) unless element.nil?
+          data << SizeConstraint.stub(element) unless element.nil?
         end
         data
       end
@@ -662,7 +665,7 @@ module AWS::SDK::WAF
       def self.stub(stub)
         stub ||= Types::SizeConstraint.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
         data['TextTransformation'] = stub[:text_transformation] unless stub[:text_transformation].nil?
         data['ComparisonOperator'] = stub[:comparison_operator] unless stub[:comparison_operator].nil?
         data['Size'] = stub[:size] unless stub[:size].nil?
@@ -681,9 +684,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SqlInjectionMatchSet'] = Stubs::SqlInjectionMatchSet.stub(stub[:sql_injection_match_set]) unless stub[:sql_injection_match_set].nil?
+        data['SqlInjectionMatchSet'] = SqlInjectionMatchSet.stub(stub[:sql_injection_match_set]) unless stub[:sql_injection_match_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -705,7 +708,7 @@ module AWS::SDK::WAF
         data = {}
         data['SqlInjectionMatchSetId'] = stub[:sql_injection_match_set_id] unless stub[:sql_injection_match_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['SqlInjectionMatchTuples'] = Stubs::SqlInjectionMatchTuples.stub(stub[:sql_injection_match_tuples]) unless stub[:sql_injection_match_tuples].nil?
+        data['SqlInjectionMatchTuples'] = SqlInjectionMatchTuples.stub(stub[:sql_injection_match_tuples]) unless stub[:sql_injection_match_tuples].nil?
         data
       end
     end
@@ -724,7 +727,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SqlInjectionMatchTuple.stub(element) unless element.nil?
+          data << SqlInjectionMatchTuple.stub(element) unless element.nil?
         end
         data
       end
@@ -744,7 +747,7 @@ module AWS::SDK::WAF
       def self.stub(stub)
         stub ||= Types::SqlInjectionMatchTuple.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
         data['TextTransformation'] = stub[:text_transformation] unless stub[:text_transformation].nil?
         data
       end
@@ -761,9 +764,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WebACL'] = Stubs::WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
+        data['WebACL'] = WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -789,8 +792,8 @@ module AWS::SDK::WAF
         data['WebACLId'] = stub[:web_acl_id] unless stub[:web_acl_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['DefaultAction'] = Stubs::WafAction.stub(stub[:default_action]) unless stub[:default_action].nil?
-        data['Rules'] = Stubs::ActivatedRules.stub(stub[:rules]) unless stub[:rules].nil?
+        data['DefaultAction'] = WafAction.stub(stub[:default_action]) unless stub[:default_action].nil?
+        data['Rules'] = ActivatedRules.stub(stub[:rules]) unless stub[:rules].nil?
         data['WebACLArn'] = stub[:web_acl_arn] unless stub[:web_acl_arn].nil?
         data
       end
@@ -810,7 +813,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActivatedRule.stub(element) unless element.nil?
+          data << ActivatedRule.stub(element) unless element.nil?
         end
         data
       end
@@ -836,10 +839,10 @@ module AWS::SDK::WAF
         data = {}
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
         data['RuleId'] = stub[:rule_id] unless stub[:rule_id].nil?
-        data['Action'] = Stubs::WafAction.stub(stub[:action]) unless stub[:action].nil?
-        data['OverrideAction'] = Stubs::WafOverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
+        data['Action'] = WafAction.stub(stub[:action]) unless stub[:action].nil?
+        data['OverrideAction'] = WafOverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['ExcludedRules'] = Stubs::ExcludedRules.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
+        data['ExcludedRules'] = ExcludedRules.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
         data
       end
     end
@@ -858,7 +861,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExcludedRule.stub(element) unless element.nil?
+          data << ExcludedRule.stub(element) unless element.nil?
         end
         data
       end
@@ -929,7 +932,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['S3ObjectUrl'] = stub[:s3_object_url] unless stub[:s3_object_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -945,9 +948,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['XssMatchSet'] = Stubs::XssMatchSet.stub(stub[:xss_match_set]) unless stub[:xss_match_set].nil?
+        data['XssMatchSet'] = XssMatchSet.stub(stub[:xss_match_set]) unless stub[:xss_match_set].nil?
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -969,7 +972,7 @@ module AWS::SDK::WAF
         data = {}
         data['XssMatchSetId'] = stub[:xss_match_set_id] unless stub[:xss_match_set_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['XssMatchTuples'] = Stubs::XssMatchTuples.stub(stub[:xss_match_tuples]) unless stub[:xss_match_tuples].nil?
+        data['XssMatchTuples'] = XssMatchTuples.stub(stub[:xss_match_tuples]) unless stub[:xss_match_tuples].nil?
         data
       end
     end
@@ -988,7 +991,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::XssMatchTuple.stub(element) unless element.nil?
+          data << XssMatchTuple.stub(element) unless element.nil?
         end
         data
       end
@@ -1008,7 +1011,7 @@ module AWS::SDK::WAF
       def self.stub(stub)
         stub ||= Types::XssMatchTuple.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
         data['TextTransformation'] = stub[:text_transformation] unless stub[:text_transformation].nil?
         data
       end
@@ -1025,7 +1028,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1041,7 +1044,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1057,7 +1060,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1071,7 +1074,7 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1085,7 +1088,7 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1101,7 +1104,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1117,7 +1120,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1133,7 +1136,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1149,7 +1152,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1165,7 +1168,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1181,7 +1184,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1197,7 +1200,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1213,7 +1216,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1229,7 +1232,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1244,8 +1247,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ByteMatchSet'] = Stubs::ByteMatchSet.stub(stub[:byte_match_set]) unless stub[:byte_match_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ByteMatchSet'] = ByteMatchSet.stub(stub[:byte_match_set]) unless stub[:byte_match_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1261,7 +1264,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1277,7 +1280,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeTokenStatus'] = stub[:change_token_status] unless stub[:change_token_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1292,8 +1295,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GeoMatchSet'] = Stubs::GeoMatchSet.stub(stub[:geo_match_set]) unless stub[:geo_match_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GeoMatchSet'] = GeoMatchSet.stub(stub[:geo_match_set]) unless stub[:geo_match_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1308,8 +1311,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IPSet'] = Stubs::IPSet.stub(stub[:ip_set]) unless stub[:ip_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IPSet'] = IPSet.stub(stub[:ip_set]) unless stub[:ip_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1324,8 +1327,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1346,8 +1349,8 @@ module AWS::SDK::WAF
         stub ||= Types::LoggingConfiguration.new
         data = {}
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['LogDestinationConfigs'] = Stubs::LogDestinationConfigs.stub(stub[:log_destination_configs]) unless stub[:log_destination_configs].nil?
-        data['RedactedFields'] = Stubs::RedactedFields.stub(stub[:redacted_fields]) unless stub[:redacted_fields].nil?
+        data['LogDestinationConfigs'] = LogDestinationConfigs.stub(stub[:log_destination_configs]) unless stub[:log_destination_configs].nil?
+        data['RedactedFields'] = RedactedFields.stub(stub[:redacted_fields]) unless stub[:redacted_fields].nil?
         data
       end
     end
@@ -1366,7 +1369,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FieldToMatch.stub(element) unless element.nil?
+          data << FieldToMatch.stub(element) unless element.nil?
         end
         data
       end
@@ -1403,7 +1406,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1418,8 +1421,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rule'] = Stubs::RateBasedRule.stub(stub[:rule]) unless stub[:rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rule'] = RateBasedRule.stub(stub[:rule]) unless stub[:rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1435,9 +1438,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ManagedKeys'] = Stubs::ManagedKeys.stub(stub[:managed_keys]) unless stub[:managed_keys].nil?
+        data['ManagedKeys'] = ManagedKeys.stub(stub[:managed_keys]) unless stub[:managed_keys].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1472,8 +1475,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RegexMatchSet'] = Stubs::RegexMatchSet.stub(stub[:regex_match_set]) unless stub[:regex_match_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegexMatchSet'] = RegexMatchSet.stub(stub[:regex_match_set]) unless stub[:regex_match_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1488,8 +1491,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RegexPatternSet'] = Stubs::RegexPatternSet.stub(stub[:regex_pattern_set]) unless stub[:regex_pattern_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegexPatternSet'] = RegexPatternSet.stub(stub[:regex_pattern_set]) unless stub[:regex_pattern_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1504,8 +1507,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rule'] = Stubs::Rule.stub(stub[:rule]) unless stub[:rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rule'] = Rule.stub(stub[:rule]) unless stub[:rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1520,8 +1523,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuleGroup'] = Stubs::RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroup'] = RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1538,10 +1541,10 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SampledRequests'] = Stubs::SampledHTTPRequests.stub(stub[:sampled_requests]) unless stub[:sampled_requests].nil?
+        data['SampledRequests'] = SampledHTTPRequests.stub(stub[:sampled_requests]) unless stub[:sampled_requests].nil?
         data['PopulationSize'] = stub[:population_size] unless stub[:population_size].nil?
-        data['TimeWindow'] = Stubs::TimeWindow.stub(stub[:time_window]) unless stub[:time_window].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeWindow'] = TimeWindow.stub(stub[:time_window]) unless stub[:time_window].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1580,7 +1583,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SampledHTTPRequest.stub(element) unless element.nil?
+          data << SampledHTTPRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -1603,7 +1606,7 @@ module AWS::SDK::WAF
       def self.stub(stub)
         stub ||= Types::SampledHTTPRequest.new
         data = {}
-        data['Request'] = Stubs::HTTPRequest.stub(stub[:request]) unless stub[:request].nil?
+        data['Request'] = HTTPRequest.stub(stub[:request]) unless stub[:request].nil?
         data['Weight'] = stub[:weight] unless stub[:weight].nil?
         data['Timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
         data['Action'] = stub[:action] unless stub[:action].nil?
@@ -1635,7 +1638,7 @@ module AWS::SDK::WAF
         data['URI'] = stub[:uri] unless stub[:uri].nil?
         data['Method'] = stub[:member_method] unless stub[:member_method].nil?
         data['HTTPVersion'] = stub[:http_version] unless stub[:http_version].nil?
-        data['Headers'] = Stubs::HTTPHeaders.stub(stub[:headers]) unless stub[:headers].nil?
+        data['Headers'] = HTTPHeaders.stub(stub[:headers]) unless stub[:headers].nil?
         data
       end
     end
@@ -1654,7 +1657,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HTTPHeader.stub(element) unless element.nil?
+          data << HTTPHeader.stub(element) unless element.nil?
         end
         data
       end
@@ -1690,8 +1693,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SizeConstraintSet'] = Stubs::SizeConstraintSet.stub(stub[:size_constraint_set]) unless stub[:size_constraint_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SizeConstraintSet'] = SizeConstraintSet.stub(stub[:size_constraint_set]) unless stub[:size_constraint_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1706,8 +1709,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SqlInjectionMatchSet'] = Stubs::SqlInjectionMatchSet.stub(stub[:sql_injection_match_set]) unless stub[:sql_injection_match_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SqlInjectionMatchSet'] = SqlInjectionMatchSet.stub(stub[:sql_injection_match_set]) unless stub[:sql_injection_match_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1722,8 +1725,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WebACL'] = Stubs::WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WebACL'] = WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1738,8 +1741,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['XssMatchSet'] = Stubs::XssMatchSet.stub(stub[:xss_match_set]) unless stub[:xss_match_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['XssMatchSet'] = XssMatchSet.stub(stub[:xss_match_set]) unless stub[:xss_match_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1756,8 +1759,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['ActivatedRules'] = Stubs::ActivatedRules.stub(stub[:activated_rules]) unless stub[:activated_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ActivatedRules'] = ActivatedRules.stub(stub[:activated_rules]) unless stub[:activated_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1774,8 +1777,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['ByteMatchSets'] = Stubs::ByteMatchSetSummaries.stub(stub[:byte_match_sets]) unless stub[:byte_match_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ByteMatchSets'] = ByteMatchSetSummaries.stub(stub[:byte_match_sets]) unless stub[:byte_match_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1794,7 +1797,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ByteMatchSetSummary.stub(element) unless element.nil?
+          data << ByteMatchSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1832,8 +1835,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['GeoMatchSets'] = Stubs::GeoMatchSetSummaries.stub(stub[:geo_match_sets]) unless stub[:geo_match_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GeoMatchSets'] = GeoMatchSetSummaries.stub(stub[:geo_match_sets]) unless stub[:geo_match_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1852,7 +1855,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GeoMatchSetSummary.stub(element) unless element.nil?
+          data << GeoMatchSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1890,8 +1893,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['IPSets'] = Stubs::IPSetSummaries.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IPSets'] = IPSetSummaries.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1910,7 +1913,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IPSetSummary.stub(element) unless element.nil?
+          data << IPSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1947,9 +1950,9 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LoggingConfigurations'] = Stubs::LoggingConfigurations.stub(stub[:logging_configurations]) unless stub[:logging_configurations].nil?
+        data['LoggingConfigurations'] = LoggingConfigurations.stub(stub[:logging_configurations]) unless stub[:logging_configurations].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1968,7 +1971,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoggingConfiguration.stub(element) unless element.nil?
+          data << LoggingConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1986,8 +1989,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Rules'] = Stubs::RuleSummaries.stub(stub[:rules]) unless stub[:rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = RuleSummaries.stub(stub[:rules]) unless stub[:rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2006,7 +2009,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleSummary.stub(element) unless element.nil?
+          data << RuleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2044,8 +2047,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['RegexMatchSets'] = Stubs::RegexMatchSetSummaries.stub(stub[:regex_match_sets]) unless stub[:regex_match_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegexMatchSets'] = RegexMatchSetSummaries.stub(stub[:regex_match_sets]) unless stub[:regex_match_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2064,7 +2067,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegexMatchSetSummary.stub(element) unless element.nil?
+          data << RegexMatchSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2102,8 +2105,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['RegexPatternSets'] = Stubs::RegexPatternSetSummaries.stub(stub[:regex_pattern_sets]) unless stub[:regex_pattern_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegexPatternSets'] = RegexPatternSetSummaries.stub(stub[:regex_pattern_sets]) unless stub[:regex_pattern_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2122,7 +2125,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegexPatternSetSummary.stub(element) unless element.nil?
+          data << RegexPatternSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2160,8 +2163,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['RuleGroups'] = Stubs::RuleGroupSummaries.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroups'] = RuleGroupSummaries.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2180,7 +2183,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSummary.stub(element) unless element.nil?
+          data << RuleGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2218,8 +2221,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Rules'] = Stubs::RuleSummaries.stub(stub[:rules]) unless stub[:rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = RuleSummaries.stub(stub[:rules]) unless stub[:rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2236,8 +2239,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['SizeConstraintSets'] = Stubs::SizeConstraintSetSummaries.stub(stub[:size_constraint_sets]) unless stub[:size_constraint_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SizeConstraintSets'] = SizeConstraintSetSummaries.stub(stub[:size_constraint_sets]) unless stub[:size_constraint_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2256,7 +2259,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SizeConstraintSetSummary.stub(element) unless element.nil?
+          data << SizeConstraintSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2294,8 +2297,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['SqlInjectionMatchSets'] = Stubs::SqlInjectionMatchSetSummaries.stub(stub[:sql_injection_match_sets]) unless stub[:sql_injection_match_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SqlInjectionMatchSets'] = SqlInjectionMatchSetSummaries.stub(stub[:sql_injection_match_sets]) unless stub[:sql_injection_match_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2314,7 +2317,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SqlInjectionMatchSetSummary.stub(element) unless element.nil?
+          data << SqlInjectionMatchSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2352,8 +2355,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['RuleGroups'] = Stubs::SubscribedRuleGroupSummaries.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroups'] = SubscribedRuleGroupSummaries.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2372,7 +2375,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubscribedRuleGroupSummary.stub(element) unless element.nil?
+          data << SubscribedRuleGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2412,8 +2415,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['TagInfoForResource'] = Stubs::TagInfoForResource.stub(stub[:tag_info_for_resource]) unless stub[:tag_info_for_resource].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagInfoForResource'] = TagInfoForResource.stub(stub[:tag_info_for_resource]) unless stub[:tag_info_for_resource].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2433,7 +2436,7 @@ module AWS::SDK::WAF
         stub ||= Types::TagInfoForResource.new
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data
       end
     end
@@ -2452,7 +2455,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2490,8 +2493,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['WebACLs'] = Stubs::WebACLSummaries.stub(stub[:web_ac_ls]) unless stub[:web_ac_ls].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WebACLs'] = WebACLSummaries.stub(stub[:web_ac_ls]) unless stub[:web_ac_ls].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2510,7 +2513,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WebACLSummary.stub(element) unless element.nil?
+          data << WebACLSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2548,8 +2551,8 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['XssMatchSets'] = Stubs::XssMatchSetSummaries.stub(stub[:xss_match_sets]) unless stub[:xss_match_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['XssMatchSets'] = XssMatchSetSummaries.stub(stub[:xss_match_sets]) unless stub[:xss_match_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2568,7 +2571,7 @@ module AWS::SDK::WAF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::XssMatchSetSummary.stub(element) unless element.nil?
+          data << XssMatchSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2604,8 +2607,8 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2619,7 +2622,7 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2633,7 +2636,7 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2647,7 +2650,7 @@ module AWS::SDK::WAF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2663,7 +2666,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2679,7 +2682,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2695,7 +2698,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2711,7 +2714,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2727,7 +2730,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2743,7 +2746,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2759,7 +2762,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2775,7 +2778,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2791,7 +2794,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2807,7 +2810,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2823,7 +2826,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2839,7 +2842,7 @@ module AWS::SDK::WAF
       def self.stub(http_resp, stub:)
         data = {}
         data['ChangeToken'] = stub[:change_token] unless stub[:change_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

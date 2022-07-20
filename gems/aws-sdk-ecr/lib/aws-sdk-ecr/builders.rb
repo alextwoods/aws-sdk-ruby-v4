@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::ECR
   module Builders
 
@@ -20,8 +23,8 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['layerDigests'] = Builders::BatchedOperationLayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layerDigests'] = BatchedOperationLayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,8 +49,8 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageIds'] = Builders::ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageIds'] = ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,7 +59,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ImageIdentifier.build(element) unless element.nil?
+          data << ImageIdentifier.build(element) unless element.nil?
         end
         data
       end
@@ -82,9 +85,9 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageIds'] = Builders::ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
-        data['acceptedMediaTypes'] = Builders::MediaTypeList.build(input[:accepted_media_types]) unless input[:accepted_media_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageIds'] = ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
+        data['acceptedMediaTypes'] = MediaTypeList.build(input[:accepted_media_types]) unless input[:accepted_media_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -107,8 +110,8 @@ module AWS::SDK::ECR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.BatchGetRepositoryScanningConfiguration'
         data = {}
-        data['repositoryNames'] = Builders::ScanningConfigurationRepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositoryNames'] = ScanningConfigurationRepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -134,8 +137,8 @@ module AWS::SDK::ECR
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['uploadId'] = input[:upload_id] unless input[:upload_id].nil?
-        data['layerDigests'] = Builders::LayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layerDigests'] = LayerDigestList.build(input[:layer_digests]) unless input[:layer_digests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +164,7 @@ module AWS::SDK::ECR
         data['ecrRepositoryPrefix'] = input[:ecr_repository_prefix] unless input[:ecr_repository_prefix].nil?
         data['upstreamRegistryUrl'] = input[:upstream_registry_url] unless input[:upstream_registry_url].nil?
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -175,11 +178,11 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['imageTagMutability'] = input[:image_tag_mutability] unless input[:image_tag_mutability].nil?
-        data['imageScanningConfiguration'] = Builders::ImageScanningConfiguration.build(input[:image_scanning_configuration]) unless input[:image_scanning_configuration].nil?
-        data['encryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageScanningConfiguration'] = ImageScanningConfiguration.build(input[:image_scanning_configuration]) unless input[:image_scanning_configuration].nil?
+        data['encryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -207,7 +210,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -233,7 +236,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -247,7 +250,7 @@ module AWS::SDK::ECR
         data = {}
         data['ecrRepositoryPrefix'] = input[:ecr_repository_prefix] unless input[:ecr_repository_prefix].nil?
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -259,7 +262,7 @@ module AWS::SDK::ECR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.DeleteRegistryPolicy'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -274,7 +277,7 @@ module AWS::SDK::ECR
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -288,7 +291,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,9 +304,9 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.DescribeImageReplicationStatus'
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageId'] = Builders::ImageIdentifier.build(input[:image_id]) unless input[:image_id].nil?
+        data['imageId'] = ImageIdentifier.build(input[:image_id]) unless input[:image_id].nil?
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,10 +320,10 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageId'] = Builders::ImageIdentifier.build(input[:image_id]) unless input[:image_id].nil?
+        data['imageId'] = ImageIdentifier.build(input[:image_id]) unless input[:image_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -334,11 +337,11 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageIds'] = Builders::ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
+        data['imageIds'] = ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filter'] = Builders::DescribeImagesFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filter'] = DescribeImagesFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,10 +363,10 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.DescribePullThroughCacheRules'
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
-        data['ecrRepositoryPrefixes'] = Builders::PullThroughCacheRuleRepositoryPrefixList.build(input[:ecr_repository_prefixes]) unless input[:ecr_repository_prefixes].nil?
+        data['ecrRepositoryPrefixes'] = PullThroughCacheRuleRepositoryPrefixList.build(input[:ecr_repository_prefixes]) unless input[:ecr_repository_prefixes].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -386,7 +389,7 @@ module AWS::SDK::ECR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.DescribeRegistry'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,10 +402,10 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.DescribeRepositories'
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
-        data['repositoryNames'] = Builders::RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
+        data['repositoryNames'] = RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -425,8 +428,8 @@ module AWS::SDK::ECR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.GetAuthorizationToken'
         data = {}
-        data['registryIds'] = Builders::GetAuthorizationTokenRegistryIdList.build(input[:registry_ids]) unless input[:registry_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['registryIds'] = GetAuthorizationTokenRegistryIdList.build(input[:registry_ids]) unless input[:registry_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +455,7 @@ module AWS::SDK::ECR
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['layerDigest'] = input[:layer_digest] unless input[:layer_digest].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -466,7 +469,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -480,11 +483,11 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageIds'] = Builders::ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
+        data['imageIds'] = ImageIdentifierList.build(input[:image_ids]) unless input[:image_ids].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filter'] = Builders::LifecyclePolicyPreviewFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filter'] = LifecyclePolicyPreviewFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -505,7 +508,7 @@ module AWS::SDK::ECR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.GetRegistryPolicy'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -517,7 +520,7 @@ module AWS::SDK::ECR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.GetRegistryScanningConfiguration'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,7 +534,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,7 +548,7 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -561,8 +564,8 @@ module AWS::SDK::ECR
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filter'] = Builders::ListImagesFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filter'] = ListImagesFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,7 +587,7 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.ListTagsForResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -602,7 +605,7 @@ module AWS::SDK::ECR
         data['imageManifestMediaType'] = input[:image_manifest_media_type] unless input[:image_manifest_media_type].nil?
         data['imageTag'] = input[:image_tag] unless input[:image_tag].nil?
         data['imageDigest'] = input[:image_digest] unless input[:image_digest].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -616,8 +619,8 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageScanningConfiguration'] = Builders::ImageScanningConfiguration.build(input[:image_scanning_configuration]) unless input[:image_scanning_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageScanningConfiguration'] = ImageScanningConfiguration.build(input[:image_scanning_configuration]) unless input[:image_scanning_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -632,7 +635,7 @@ module AWS::SDK::ECR
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['imageTagMutability'] = input[:image_tag_mutability] unless input[:image_tag_mutability].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -647,7 +650,7 @@ module AWS::SDK::ECR
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['lifecyclePolicyText'] = input[:lifecycle_policy_text] unless input[:lifecycle_policy_text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -660,7 +663,7 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.PutRegistryPolicy'
         data = {}
         data['policyText'] = input[:policy_text] unless input[:policy_text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -673,8 +676,8 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.PutRegistryScanningConfiguration'
         data = {}
         data['scanType'] = input[:scan_type] unless input[:scan_type].nil?
-        data['rules'] = Builders::RegistryScanningRuleList.build(input[:rules]) unless input[:rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rules'] = RegistryScanningRuleList.build(input[:rules]) unless input[:rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -683,7 +686,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RegistryScanningRule.build(element) unless element.nil?
+          data << RegistryScanningRule.build(element) unless element.nil?
         end
         data
       end
@@ -694,7 +697,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = {}
         data['scanFrequency'] = input[:scan_frequency] unless input[:scan_frequency].nil?
-        data['repositoryFilters'] = Builders::ScanningRepositoryFilterList.build(input[:repository_filters]) unless input[:repository_filters].nil?
+        data['repositoryFilters'] = ScanningRepositoryFilterList.build(input[:repository_filters]) unless input[:repository_filters].nil?
         data
       end
     end
@@ -704,7 +707,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ScanningRepositoryFilter.build(element) unless element.nil?
+          data << ScanningRepositoryFilter.build(element) unless element.nil?
         end
         data
       end
@@ -728,8 +731,8 @@ module AWS::SDK::ECR
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.PutReplicationConfiguration'
         data = {}
-        data['replicationConfiguration'] = Builders::ReplicationConfiguration.build(input[:replication_configuration]) unless input[:replication_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['replicationConfiguration'] = ReplicationConfiguration.build(input[:replication_configuration]) unless input[:replication_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -737,7 +740,7 @@ module AWS::SDK::ECR
     class ReplicationConfiguration
       def self.build(input)
         data = {}
-        data['rules'] = Builders::ReplicationRuleList.build(input[:rules]) unless input[:rules].nil?
+        data['rules'] = ReplicationRuleList.build(input[:rules]) unless input[:rules].nil?
         data
       end
     end
@@ -747,7 +750,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicationRule.build(element) unless element.nil?
+          data << ReplicationRule.build(element) unless element.nil?
         end
         data
       end
@@ -757,8 +760,8 @@ module AWS::SDK::ECR
     class ReplicationRule
       def self.build(input)
         data = {}
-        data['destinations'] = Builders::ReplicationDestinationList.build(input[:destinations]) unless input[:destinations].nil?
-        data['repositoryFilters'] = Builders::RepositoryFilterList.build(input[:repository_filters]) unless input[:repository_filters].nil?
+        data['destinations'] = ReplicationDestinationList.build(input[:destinations]) unless input[:destinations].nil?
+        data['repositoryFilters'] = RepositoryFilterList.build(input[:repository_filters]) unless input[:repository_filters].nil?
         data
       end
     end
@@ -768,7 +771,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RepositoryFilter.build(element) unless element.nil?
+          data << RepositoryFilter.build(element) unless element.nil?
         end
         data
       end
@@ -789,7 +792,7 @@ module AWS::SDK::ECR
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicationDestination.build(element) unless element.nil?
+          data << ReplicationDestination.build(element) unless element.nil?
         end
         data
       end
@@ -817,7 +820,7 @@ module AWS::SDK::ECR
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['policyText'] = input[:policy_text] unless input[:policy_text].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -831,8 +834,8 @@ module AWS::SDK::ECR
         data = {}
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['imageId'] = Builders::ImageIdentifier.build(input[:image_id]) unless input[:image_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageId'] = ImageIdentifier.build(input[:image_id]) unless input[:image_id].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -847,7 +850,7 @@ module AWS::SDK::ECR
         data['registryId'] = input[:registry_id] unless input[:registry_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['lifecyclePolicyText'] = input[:lifecycle_policy_text] unless input[:lifecycle_policy_text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -860,8 +863,8 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -874,8 +877,8 @@ module AWS::SDK::ECR
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerRegistry_V20150921.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -903,8 +906,8 @@ module AWS::SDK::ECR
         data['uploadId'] = input[:upload_id] unless input[:upload_id].nil?
         data['partFirstByte'] = input[:part_first_byte] unless input[:part_first_byte].nil?
         data['partLastByte'] = input[:part_last_byte] unless input[:part_last_byte].nil?
-        data['layerPartBlob'] = Base64::encode64(input[:layer_part_blob]).strip unless input[:layer_part_blob].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layerPartBlob'] = ::Base64::encode64(input[:layer_part_blob]).strip unless input[:layer_part_blob].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

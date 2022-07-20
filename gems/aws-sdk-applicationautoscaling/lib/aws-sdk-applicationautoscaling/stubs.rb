@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApplicationAutoScaling
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,9 +65,9 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScalableTargets'] = Stubs::ScalableTargets.stub(stub[:scalable_targets]) unless stub[:scalable_targets].nil?
+        data['ScalableTargets'] = ScalableTargets.stub(stub[:scalable_targets]) unless stub[:scalable_targets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -84,7 +86,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalableTarget.stub(element) unless element.nil?
+          data << ScalableTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -117,7 +119,7 @@ module AWS::SDK::ApplicationAutoScaling
         data['MaxCapacity'] = stub[:max_capacity] unless stub[:max_capacity].nil?
         data['RoleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['SuspendedState'] = Stubs::SuspendedState.stub(stub[:suspended_state]) unless stub[:suspended_state].nil?
+        data['SuspendedState'] = SuspendedState.stub(stub[:suspended_state]) unless stub[:suspended_state].nil?
         data
       end
     end
@@ -155,9 +157,9 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScalingActivities'] = Stubs::ScalingActivities.stub(stub[:scaling_activities]) unless stub[:scaling_activities].nil?
+        data['ScalingActivities'] = ScalingActivities.stub(stub[:scaling_activities]) unless stub[:scaling_activities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -176,7 +178,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingActivity.stub(element) unless element.nil?
+          data << ScalingActivity.stub(element) unless element.nil?
         end
         data
       end
@@ -231,9 +233,9 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScalingPolicies'] = Stubs::ScalingPolicies.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
+        data['ScalingPolicies'] = ScalingPolicies.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -252,7 +254,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingPolicy.stub(element) unless element.nil?
+          data << ScalingPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -286,9 +288,9 @@ module AWS::SDK::ApplicationAutoScaling
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ScalableDimension'] = stub[:scalable_dimension] unless stub[:scalable_dimension].nil?
         data['PolicyType'] = stub[:policy_type] unless stub[:policy_type].nil?
-        data['StepScalingPolicyConfiguration'] = Stubs::StepScalingPolicyConfiguration.stub(stub[:step_scaling_policy_configuration]) unless stub[:step_scaling_policy_configuration].nil?
-        data['TargetTrackingScalingPolicyConfiguration'] = Stubs::TargetTrackingScalingPolicyConfiguration.stub(stub[:target_tracking_scaling_policy_configuration]) unless stub[:target_tracking_scaling_policy_configuration].nil?
-        data['Alarms'] = Stubs::Alarms.stub(stub[:alarms]) unless stub[:alarms].nil?
+        data['StepScalingPolicyConfiguration'] = StepScalingPolicyConfiguration.stub(stub[:step_scaling_policy_configuration]) unless stub[:step_scaling_policy_configuration].nil?
+        data['TargetTrackingScalingPolicyConfiguration'] = TargetTrackingScalingPolicyConfiguration.stub(stub[:target_tracking_scaling_policy_configuration]) unless stub[:target_tracking_scaling_policy_configuration].nil?
+        data['Alarms'] = Alarms.stub(stub[:alarms]) unless stub[:alarms].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data
       end
@@ -308,7 +310,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alarm.stub(element) unless element.nil?
+          data << Alarm.stub(element) unless element.nil?
         end
         data
       end
@@ -353,8 +355,8 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= Types::TargetTrackingScalingPolicyConfiguration.new
         data = {}
         data['TargetValue'] = Hearth::NumberHelper.serialize(stub[:target_value])
-        data['PredefinedMetricSpecification'] = Stubs::PredefinedMetricSpecification.stub(stub[:predefined_metric_specification]) unless stub[:predefined_metric_specification].nil?
-        data['CustomizedMetricSpecification'] = Stubs::CustomizedMetricSpecification.stub(stub[:customized_metric_specification]) unless stub[:customized_metric_specification].nil?
+        data['PredefinedMetricSpecification'] = PredefinedMetricSpecification.stub(stub[:predefined_metric_specification]) unless stub[:predefined_metric_specification].nil?
+        data['CustomizedMetricSpecification'] = CustomizedMetricSpecification.stub(stub[:customized_metric_specification]) unless stub[:customized_metric_specification].nil?
         data['ScaleOutCooldown'] = stub[:scale_out_cooldown] unless stub[:scale_out_cooldown].nil?
         data['ScaleInCooldown'] = stub[:scale_in_cooldown] unless stub[:scale_in_cooldown].nil?
         data['DisableScaleIn'] = stub[:disable_scale_in] unless stub[:disable_scale_in].nil?
@@ -381,7 +383,7 @@ module AWS::SDK::ApplicationAutoScaling
         data = {}
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['Namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['Dimensions'] = Stubs::MetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = MetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['Statistic'] = stub[:statistic] unless stub[:statistic].nil?
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
         data
@@ -402,7 +404,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDimension.stub(element) unless element.nil?
+          data << MetricDimension.stub(element) unless element.nil?
         end
         data
       end
@@ -466,7 +468,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= Types::StepScalingPolicyConfiguration.new
         data = {}
         data['AdjustmentType'] = stub[:adjustment_type] unless stub[:adjustment_type].nil?
-        data['StepAdjustments'] = Stubs::StepAdjustments.stub(stub[:step_adjustments]) unless stub[:step_adjustments].nil?
+        data['StepAdjustments'] = StepAdjustments.stub(stub[:step_adjustments]) unless stub[:step_adjustments].nil?
         data['MinAdjustmentMagnitude'] = stub[:min_adjustment_magnitude] unless stub[:min_adjustment_magnitude].nil?
         data['Cooldown'] = stub[:cooldown] unless stub[:cooldown].nil?
         data['MetricAggregationType'] = stub[:metric_aggregation_type] unless stub[:metric_aggregation_type].nil?
@@ -488,7 +490,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StepAdjustment.stub(element) unless element.nil?
+          data << StepAdjustment.stub(element) unless element.nil?
         end
         data
       end
@@ -527,9 +529,9 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScheduledActions'] = Stubs::ScheduledActions.stub(stub[:scheduled_actions]) unless stub[:scheduled_actions].nil?
+        data['ScheduledActions'] = ScheduledActions.stub(stub[:scheduled_actions]) unless stub[:scheduled_actions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -548,7 +550,7 @@ module AWS::SDK::ApplicationAutoScaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduledAction.stub(element) unless element.nil?
+          data << ScheduledAction.stub(element) unless element.nil?
         end
         data
       end
@@ -586,7 +588,7 @@ module AWS::SDK::ApplicationAutoScaling
         data['ScalableDimension'] = stub[:scalable_dimension] unless stub[:scalable_dimension].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['ScalableTargetAction'] = Stubs::ScalableTargetAction.stub(stub[:scalable_target_action]) unless stub[:scalable_target_action].nil?
+        data['ScalableTargetAction'] = ScalableTargetAction.stub(stub[:scalable_target_action]) unless stub[:scalable_target_action].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data
       end
@@ -624,8 +626,8 @@ module AWS::SDK::ApplicationAutoScaling
       def self.stub(http_resp, stub:)
         data = {}
         data['PolicyARN'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        data['Alarms'] = Stubs::Alarms.stub(stub[:alarms]) unless stub[:alarms].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Alarms'] = Alarms.stub(stub[:alarms]) unless stub[:alarms].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -639,7 +641,7 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -653,7 +655,7 @@ module AWS::SDK::ApplicationAutoScaling
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

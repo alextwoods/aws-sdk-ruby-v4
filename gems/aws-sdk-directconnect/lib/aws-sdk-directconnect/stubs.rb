@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::DirectConnect
   module Stubs
 
@@ -20,8 +23,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociation'] = Stubs::DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGatewayAssociation'] = DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -52,9 +55,9 @@ module AWS::SDK::DirectConnect
         data['directConnectGatewayOwnerAccount'] = stub[:direct_connect_gateway_owner_account] unless stub[:direct_connect_gateway_owner_account].nil?
         data['associationState'] = stub[:association_state] unless stub[:association_state].nil?
         data['stateChangeError'] = stub[:state_change_error] unless stub[:state_change_error].nil?
-        data['associatedGateway'] = Stubs::AssociatedGateway.stub(stub[:associated_gateway]) unless stub[:associated_gateway].nil?
+        data['associatedGateway'] = AssociatedGateway.stub(stub[:associated_gateway]) unless stub[:associated_gateway].nil?
         data['associationId'] = stub[:association_id] unless stub[:association_id].nil?
-        data['allowedPrefixesToDirectConnectGateway'] = Stubs::RouteFilterPrefixList.stub(stub[:allowed_prefixes_to_direct_connect_gateway]) unless stub[:allowed_prefixes_to_direct_connect_gateway].nil?
+        data['allowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.stub(stub[:allowed_prefixes_to_direct_connect_gateway]) unless stub[:allowed_prefixes_to_direct_connect_gateway].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['virtualGatewayRegion'] = stub[:virtual_gateway_region] unless stub[:virtual_gateway_region].nil?
         data['virtualGatewayOwnerAccount'] = stub[:virtual_gateway_owner_account] unless stub[:virtual_gateway_owner_account].nil?
@@ -76,7 +79,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RouteFilterPrefix.stub(element) unless element.nil?
+          data << RouteFilterPrefix.stub(element) unless element.nil?
         end
         data
       end
@@ -171,13 +174,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -196,7 +199,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MacSecKey.stub(element) unless element.nil?
+          data << MacSecKey.stub(element) unless element.nil?
         end
         data
       end
@@ -240,7 +243,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -313,13 +316,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -378,14 +381,14 @@ module AWS::SDK::DirectConnect
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
-        data['routeFilterPrefixes'] = Stubs::RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
-        data['bgpPeers'] = Stubs::BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
+        data['bgpPeers'] = BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['siteLinkEnabled'] = stub[:site_link_enabled] unless stub[:site_link_enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -404,7 +407,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BGPPeer.stub(element) unless element.nil?
+          data << BGPPeer.stub(element) unless element.nil?
         end
         data
       end
@@ -500,14 +503,14 @@ module AWS::SDK::DirectConnect
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
-        data['routeFilterPrefixes'] = Stubs::RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
-        data['bgpPeers'] = Stubs::BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
+        data['bgpPeers'] = BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['siteLinkEnabled'] = stub[:site_link_enabled] unless stub[:site_link_enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -522,8 +525,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterface'] = Stubs::VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualInterface'] = VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -585,12 +588,12 @@ module AWS::SDK::DirectConnect
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
-        data['routeFilterPrefixes'] = Stubs::RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
-        data['bgpPeers'] = Stubs::BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
+        data['bgpPeers'] = BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['siteLinkEnabled'] = stub[:site_link_enabled] unless stub[:site_link_enabled].nil?
         data
       end
@@ -643,13 +646,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -701,13 +704,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -724,8 +727,8 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['connectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -784,14 +787,14 @@ module AWS::SDK::DirectConnect
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
-        data['routeFilterPrefixes'] = Stubs::RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
-        data['bgpPeers'] = Stubs::BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
+        data['bgpPeers'] = BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['siteLinkEnabled'] = stub[:site_link_enabled] unless stub[:site_link_enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -807,7 +810,7 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['connectionState'] = stub[:connection_state] unless stub[:connection_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -823,7 +826,7 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -839,7 +842,7 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['virtualInterfaceState'] = stub[:virtual_interface_state] unless stub[:virtual_interface_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -855,7 +858,7 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['virtualInterfaceState'] = stub[:virtual_interface_state] unless stub[:virtual_interface_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -871,7 +874,7 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['virtualInterfaceState'] = stub[:virtual_interface_state] unless stub[:virtual_interface_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -886,8 +889,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterface'] = Stubs::VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualInterface'] = VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -939,13 +942,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -960,8 +963,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGateway'] = Stubs::DirectConnectGateway.stub(stub[:direct_connect_gateway]) unless stub[:direct_connect_gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGateway'] = DirectConnectGateway.stub(stub[:direct_connect_gateway]) unless stub[:direct_connect_gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1004,8 +1007,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociation'] = Stubs::DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGatewayAssociation'] = DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1020,8 +1023,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociationProposal'] = Stubs::DirectConnectGatewayAssociationProposal.stub(stub[:direct_connect_gateway_association_proposal]) unless stub[:direct_connect_gateway_association_proposal].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGatewayAssociationProposal'] = DirectConnectGatewayAssociationProposal.stub(stub[:direct_connect_gateway_association_proposal]) unless stub[:direct_connect_gateway_association_proposal].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1049,9 +1052,9 @@ module AWS::SDK::DirectConnect
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
         data['directConnectGatewayOwnerAccount'] = stub[:direct_connect_gateway_owner_account] unless stub[:direct_connect_gateway_owner_account].nil?
         data['proposalState'] = stub[:proposal_state] unless stub[:proposal_state].nil?
-        data['associatedGateway'] = Stubs::AssociatedGateway.stub(stub[:associated_gateway]) unless stub[:associated_gateway].nil?
-        data['existingAllowedPrefixesToDirectConnectGateway'] = Stubs::RouteFilterPrefixList.stub(stub[:existing_allowed_prefixes_to_direct_connect_gateway]) unless stub[:existing_allowed_prefixes_to_direct_connect_gateway].nil?
-        data['requestedAllowedPrefixesToDirectConnectGateway'] = Stubs::RouteFilterPrefixList.stub(stub[:requested_allowed_prefixes_to_direct_connect_gateway]) unless stub[:requested_allowed_prefixes_to_direct_connect_gateway].nil?
+        data['associatedGateway'] = AssociatedGateway.stub(stub[:associated_gateway]) unless stub[:associated_gateway].nil?
+        data['existingAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.stub(stub[:existing_allowed_prefixes_to_direct_connect_gateway]) unless stub[:existing_allowed_prefixes_to_direct_connect_gateway].nil?
+        data['requestedAllowedPrefixesToDirectConnectGateway'] = RouteFilterPrefixList.stub(stub[:requested_allowed_prefixes_to_direct_connect_gateway]) unless stub[:requested_allowed_prefixes_to_direct_connect_gateway].nil?
         data
       end
     end
@@ -1093,9 +1096,9 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1142,16 +1145,16 @@ module AWS::SDK::DirectConnect
         data['awsDevice'] = stub[:aws_device] unless stub[:aws_device].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
         data['allowsHostedConnections'] = stub[:allows_hosted_connections] unless stub[:allows_hosted_connections].nil?
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1170,7 +1173,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connection.stub(element) unless element.nil?
+          data << Connection.stub(element) unless element.nil?
         end
         data
       end
@@ -1226,12 +1229,12 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
         data
       end
     end
@@ -1290,14 +1293,14 @@ module AWS::SDK::DirectConnect
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
-        data['routeFilterPrefixes'] = Stubs::RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
-        data['bgpPeers'] = Stubs::BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
+        data['bgpPeers'] = BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['siteLinkEnabled'] = stub[:site_link_enabled] unless stub[:site_link_enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1356,14 +1359,14 @@ module AWS::SDK::DirectConnect
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
-        data['routeFilterPrefixes'] = Stubs::RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
-        data['bgpPeers'] = Stubs::BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
+        data['bgpPeers'] = BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['siteLinkEnabled'] = stub[:site_link_enabled] unless stub[:site_link_enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1378,8 +1381,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterface'] = Stubs::VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualInterface'] = VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1394,8 +1397,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterface'] = Stubs::VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualInterface'] = VirtualInterface.stub(stub[:virtual_interface]) unless stub[:virtual_interface].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1447,13 +1450,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1468,8 +1471,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGateway'] = Stubs::DirectConnectGateway.stub(stub[:direct_connect_gateway]) unless stub[:direct_connect_gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGateway'] = DirectConnectGateway.stub(stub[:direct_connect_gateway]) unless stub[:direct_connect_gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1484,8 +1487,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociation'] = Stubs::DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGatewayAssociation'] = DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1500,8 +1503,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociationProposal'] = Stubs::DirectConnectGatewayAssociationProposal.stub(stub[:direct_connect_gateway_association_proposal]) unless stub[:direct_connect_gateway_association_proposal].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGatewayAssociationProposal'] = DirectConnectGatewayAssociationProposal.stub(stub[:direct_connect_gateway_association_proposal]) unless stub[:direct_connect_gateway_association_proposal].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1517,7 +1520,7 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['interconnectState'] = stub[:interconnect_state] unless stub[:interconnect_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1564,16 +1567,16 @@ module AWS::SDK::DirectConnect
         data['awsDevice'] = stub[:aws_device] unless stub[:aws_device].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
         data['allowsHostedConnections'] = stub[:allows_hosted_connections] unless stub[:allows_hosted_connections].nil?
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1589,7 +1592,7 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['virtualInterfaceState'] = stub[:virtual_interface_state] unless stub[:virtual_interface_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1604,8 +1607,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['loa'] = Stubs::Loa.stub(stub[:loa]) unless stub[:loa].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loa'] = Loa.stub(stub[:loa]) unless stub[:loa].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1624,7 +1627,7 @@ module AWS::SDK::DirectConnect
       def self.stub(stub)
         stub ||= Types::Loa.new
         data = {}
-        data['loaContent'] = Base64::encode64(stub[:loa_content]) unless stub[:loa_content].nil?
+        data['loaContent'] = ::Base64::encode64(stub[:loa_content]) unless stub[:loa_content].nil?
         data['loaContentType'] = stub[:loa_content_type] unless stub[:loa_content_type].nil?
         data
       end
@@ -1640,8 +1643,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1656,8 +1659,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1673,9 +1676,9 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['agreements'] = Stubs::AgreementList.stub(stub[:agreements]) unless stub[:agreements].nil?
+        data['agreements'] = AgreementList.stub(stub[:agreements]) unless stub[:agreements].nil?
         data['nniPartnerType'] = stub[:nni_partner_type] unless stub[:nni_partner_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1694,7 +1697,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomerAgreement.stub(element) unless element.nil?
+          data << CustomerAgreement.stub(element) unless element.nil?
         end
         data
       end
@@ -1731,9 +1734,9 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociationProposals'] = Stubs::DirectConnectGatewayAssociationProposalList.stub(stub[:direct_connect_gateway_association_proposals]) unless stub[:direct_connect_gateway_association_proposals].nil?
+        data['directConnectGatewayAssociationProposals'] = DirectConnectGatewayAssociationProposalList.stub(stub[:direct_connect_gateway_association_proposals]) unless stub[:direct_connect_gateway_association_proposals].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1752,7 +1755,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DirectConnectGatewayAssociationProposal.stub(element) unless element.nil?
+          data << DirectConnectGatewayAssociationProposal.stub(element) unless element.nil?
         end
         data
       end
@@ -1769,9 +1772,9 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociations'] = Stubs::DirectConnectGatewayAssociationList.stub(stub[:direct_connect_gateway_associations]) unless stub[:direct_connect_gateway_associations].nil?
+        data['directConnectGatewayAssociations'] = DirectConnectGatewayAssociationList.stub(stub[:direct_connect_gateway_associations]) unless stub[:direct_connect_gateway_associations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1790,7 +1793,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DirectConnectGatewayAssociation.stub(element) unless element.nil?
+          data << DirectConnectGatewayAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1807,9 +1810,9 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAttachments'] = Stubs::DirectConnectGatewayAttachmentList.stub(stub[:direct_connect_gateway_attachments]) unless stub[:direct_connect_gateway_attachments].nil?
+        data['directConnectGatewayAttachments'] = DirectConnectGatewayAttachmentList.stub(stub[:direct_connect_gateway_attachments]) unless stub[:direct_connect_gateway_attachments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1828,7 +1831,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DirectConnectGatewayAttachment.stub(element) unless element.nil?
+          data << DirectConnectGatewayAttachment.stub(element) unless element.nil?
         end
         data
       end
@@ -1875,9 +1878,9 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGateways'] = Stubs::DirectConnectGatewayList.stub(stub[:direct_connect_gateways]) unless stub[:direct_connect_gateways].nil?
+        data['directConnectGateways'] = DirectConnectGatewayList.stub(stub[:direct_connect_gateways]) unless stub[:direct_connect_gateways].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1896,7 +1899,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DirectConnectGateway.stub(element) unless element.nil?
+          data << DirectConnectGateway.stub(element) unless element.nil?
         end
         data
       end
@@ -1912,8 +1915,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1928,8 +1931,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['loa'] = Stubs::Loa.stub(stub[:loa]) unless stub[:loa].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loa'] = Loa.stub(stub[:loa]) unless stub[:loa].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1944,8 +1947,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['interconnects'] = Stubs::InterconnectList.stub(stub[:interconnects]) unless stub[:interconnects].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['interconnects'] = InterconnectList.stub(stub[:interconnects]) unless stub[:interconnects].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1964,7 +1967,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Interconnect.stub(element) unless element.nil?
+          data << Interconnect.stub(element) unless element.nil?
         end
         data
       end
@@ -2010,7 +2013,7 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data
       end
@@ -2026,8 +2029,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['lags'] = Stubs::LagList.stub(stub[:lags]) unless stub[:lags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['lags'] = LagList.stub(stub[:lags]) unless stub[:lags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2046,7 +2049,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Lag.stub(element) unless element.nil?
+          data << Lag.stub(element) unless element.nil?
         end
         data
       end
@@ -2097,15 +2100,15 @@ module AWS::SDK::DirectConnect
         data['awsDevice'] = stub[:aws_device] unless stub[:aws_device].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
         data['allowsHostedConnections'] = stub[:allows_hosted_connections] unless stub[:allows_hosted_connections].nil?
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
         data
       end
     end
@@ -2121,9 +2124,9 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['loaContent'] = Base64::encode64(stub[:loa_content]) unless stub[:loa_content].nil?
+        data['loaContent'] = ::Base64::encode64(stub[:loa_content]) unless stub[:loa_content].nil?
         data['loaContentType'] = stub[:loa_content_type] unless stub[:loa_content_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2138,8 +2141,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['locations'] = Stubs::LocationList.stub(stub[:locations]) unless stub[:locations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['locations'] = LocationList.stub(stub[:locations]) unless stub[:locations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2158,7 +2161,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Location.stub(element) unless element.nil?
+          data << Location.stub(element) unless element.nil?
         end
         data
       end
@@ -2185,9 +2188,9 @@ module AWS::SDK::DirectConnect
         data['locationCode'] = stub[:location_code] unless stub[:location_code].nil?
         data['locationName'] = stub[:location_name] unless stub[:location_name].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['availablePortSpeeds'] = Stubs::AvailablePortSpeeds.stub(stub[:available_port_speeds]) unless stub[:available_port_speeds].nil?
-        data['availableProviders'] = Stubs::ProviderList.stub(stub[:available_providers]) unless stub[:available_providers].nil?
-        data['availableMacSecPortSpeeds'] = Stubs::AvailableMacSecPortSpeeds.stub(stub[:available_mac_sec_port_speeds]) unless stub[:available_mac_sec_port_speeds].nil?
+        data['availablePortSpeeds'] = AvailablePortSpeeds.stub(stub[:available_port_speeds]) unless stub[:available_port_speeds].nil?
+        data['availableProviders'] = ProviderList.stub(stub[:available_providers]) unless stub[:available_providers].nil?
+        data['availableMacSecPortSpeeds'] = AvailableMacSecPortSpeeds.stub(stub[:available_mac_sec_port_speeds]) unless stub[:available_mac_sec_port_speeds].nil?
         data
       end
     end
@@ -2266,10 +2269,10 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['customerRouterConfig'] = stub[:customer_router_config] unless stub[:customer_router_config].nil?
-        data['router'] = Stubs::RouterType.stub(stub[:router]) unless stub[:router].nil?
+        data['router'] = RouterType.stub(stub[:router]) unless stub[:router].nil?
         data['virtualInterfaceId'] = stub[:virtual_interface_id] unless stub[:virtual_interface_id].nil?
         data['virtualInterfaceName'] = stub[:virtual_interface_name] unless stub[:virtual_interface_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2312,8 +2315,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['resourceTags'] = Stubs::ResourceTagList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceTags'] = ResourceTagList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2332,7 +2335,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceTag.stub(element) unless element.nil?
+          data << ResourceTag.stub(element) unless element.nil?
         end
         data
       end
@@ -2353,7 +2356,7 @@ module AWS::SDK::DirectConnect
         stub ||= Types::ResourceTag.new
         data = {}
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2368,8 +2371,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualGateways'] = Stubs::VirtualGatewayList.stub(stub[:virtual_gateways]) unless stub[:virtual_gateways].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualGateways'] = VirtualGatewayList.stub(stub[:virtual_gateways]) unless stub[:virtual_gateways].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2388,7 +2391,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualGateway.stub(element) unless element.nil?
+          data << VirtualGateway.stub(element) unless element.nil?
         end
         data
       end
@@ -2424,8 +2427,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterfaces'] = Stubs::VirtualInterfaceList.stub(stub[:virtual_interfaces]) unless stub[:virtual_interfaces].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualInterfaces'] = VirtualInterfaceList.stub(stub[:virtual_interfaces]) unless stub[:virtual_interfaces].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2444,7 +2447,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualInterface.stub(element) unless element.nil?
+          data << VirtualInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -2497,13 +2500,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2520,8 +2523,8 @@ module AWS::SDK::DirectConnect
       def self.stub(http_resp, stub:)
         data = {}
         data['connectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2537,9 +2540,9 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterfaceTestHistory'] = Stubs::VirtualInterfaceTestHistoryList.stub(stub[:virtual_interface_test_history]) unless stub[:virtual_interface_test_history].nil?
+        data['virtualInterfaceTestHistory'] = VirtualInterfaceTestHistoryList.stub(stub[:virtual_interface_test_history]) unless stub[:virtual_interface_test_history].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2558,7 +2561,7 @@ module AWS::SDK::DirectConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualInterfaceTestHistory.stub(element) unless element.nil?
+          data << VirtualInterfaceTestHistory.stub(element) unless element.nil?
         end
         data
       end
@@ -2586,7 +2589,7 @@ module AWS::SDK::DirectConnect
         data = {}
         data['testId'] = stub[:test_id] unless stub[:test_id].nil?
         data['virtualInterfaceId'] = stub[:virtual_interface_id] unless stub[:virtual_interface_id].nil?
-        data['bgpPeers'] = Stubs::BGPPeerIdList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['bgpPeers'] = BGPPeerIdList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['ownerAccount'] = stub[:owner_account] unless stub[:owner_account].nil?
         data['testDurationInMinutes'] = stub[:test_duration_in_minutes] unless stub[:test_duration_in_minutes].nil?
@@ -2626,8 +2629,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterfaceTest'] = Stubs::VirtualInterfaceTestHistory.stub(stub[:virtual_interface_test]) unless stub[:virtual_interface_test].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualInterfaceTest'] = VirtualInterfaceTestHistory.stub(stub[:virtual_interface_test]) unless stub[:virtual_interface_test].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2642,8 +2645,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['virtualInterfaceTest'] = Stubs::VirtualInterfaceTestHistory.stub(stub[:virtual_interface_test]) unless stub[:virtual_interface_test].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualInterfaceTest'] = VirtualInterfaceTestHistory.stub(stub[:virtual_interface_test]) unless stub[:virtual_interface_test].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2657,7 +2660,7 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2671,7 +2674,7 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2723,13 +2726,13 @@ module AWS::SDK::DirectConnect
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['portEncryptionStatus'] = stub[:port_encryption_status] unless stub[:port_encryption_status].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2744,8 +2747,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGateway'] = Stubs::DirectConnectGateway.stub(stub[:direct_connect_gateway]) unless stub[:direct_connect_gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGateway'] = DirectConnectGateway.stub(stub[:direct_connect_gateway]) unless stub[:direct_connect_gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2760,8 +2763,8 @@ module AWS::SDK::DirectConnect
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['directConnectGatewayAssociation'] = Stubs::DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['directConnectGatewayAssociation'] = DirectConnectGatewayAssociation.stub(stub[:direct_connect_gateway_association]) unless stub[:direct_connect_gateway_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2808,16 +2811,16 @@ module AWS::SDK::DirectConnect
         data['awsDevice'] = stub[:aws_device] unless stub[:aws_device].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
         data['allowsHostedConnections'] = stub[:allows_hosted_connections] unless stub[:allows_hosted_connections].nil?
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['hasLogicalRedundancy'] = stub[:has_logical_redundancy] unless stub[:has_logical_redundancy].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['providerName'] = stub[:provider_name] unless stub[:provider_name].nil?
         data['macSecCapable'] = stub[:mac_sec_capable] unless stub[:mac_sec_capable].nil?
         data['encryptionMode'] = stub[:encryption_mode] unless stub[:encryption_mode].nil?
-        data['macSecKeys'] = Stubs::MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['macSecKeys'] = MacSecKeyList.stub(stub[:mac_sec_keys]) unless stub[:mac_sec_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2876,14 +2879,14 @@ module AWS::SDK::DirectConnect
         data['jumboFrameCapable'] = stub[:jumbo_frame_capable] unless stub[:jumbo_frame_capable].nil?
         data['virtualGatewayId'] = stub[:virtual_gateway_id] unless stub[:virtual_gateway_id].nil?
         data['directConnectGatewayId'] = stub[:direct_connect_gateway_id] unless stub[:direct_connect_gateway_id].nil?
-        data['routeFilterPrefixes'] = Stubs::RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
-        data['bgpPeers'] = Stubs::BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
+        data['routeFilterPrefixes'] = RouteFilterPrefixList.stub(stub[:route_filter_prefixes]) unless stub[:route_filter_prefixes].nil?
+        data['bgpPeers'] = BGPPeerList.stub(stub[:bgp_peers]) unless stub[:bgp_peers].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['awsDeviceV2'] = stub[:aws_device_v2] unless stub[:aws_device_v2].nil?
         data['awsLogicalDeviceId'] = stub[:aws_logical_device_id] unless stub[:aws_logical_device_id].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['siteLinkEnabled'] = stub[:site_link_enabled] unless stub[:site_link_enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTSecureTunneling
   module Builders
 
@@ -20,7 +22,7 @@ module AWS::SDK::IoTSecureTunneling
         data = {}
         data['tunnelId'] = input[:tunnel_id] unless input[:tunnel_id].nil?
         data['delete'] = input[:delete] unless input[:delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::IoTSecureTunneling
         http_req.headers['X-Amz-Target'] = 'IoTSecuredTunneling.DescribeTunnel'
         data = {}
         data['tunnelId'] = input[:tunnel_id] unless input[:tunnel_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,7 +48,7 @@ module AWS::SDK::IoTSecureTunneling
         http_req.headers['X-Amz-Target'] = 'IoTSecuredTunneling.ListTagsForResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::IoTSecureTunneling
         data['thingName'] = input[:thing_name] unless input[:thing_name].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,10 +76,10 @@ module AWS::SDK::IoTSecureTunneling
         http_req.headers['X-Amz-Target'] = 'IoTSecuredTunneling.OpenTunnel'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['destinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
-        data['timeoutConfig'] = Builders::TimeoutConfig.build(input[:timeout_config]) unless input[:timeout_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['destinationConfig'] = DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        data['timeoutConfig'] = TimeoutConfig.build(input[:timeout_config]) unless input[:timeout_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -95,7 +97,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.build(input)
         data = {}
         data['thingName'] = input[:thing_name] unless input[:thing_name].nil?
-        data['services'] = Builders::ServiceList.build(input[:services]) unless input[:services].nil?
+        data['services'] = ServiceList.build(input[:services]) unless input[:services].nil?
         data
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::IoTSecureTunneling
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -142,8 +144,8 @@ module AWS::SDK::IoTSecureTunneling
         data = {}
         data['tunnelId'] = input[:tunnel_id] unless input[:tunnel_id].nil?
         data['clientMode'] = input[:client_mode] unless input[:client_mode].nil?
-        data['destinationConfig'] = Builders::DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinationConfig'] = DestinationConfig.build(input[:destination_config]) unless input[:destination_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,8 +158,8 @@ module AWS::SDK::IoTSecureTunneling
         http_req.headers['X-Amz-Target'] = 'IoTSecuredTunneling.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -170,8 +172,8 @@ module AWS::SDK::IoTSecureTunneling
         http_req.headers['X-Amz-Target'] = 'IoTSecuredTunneling.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

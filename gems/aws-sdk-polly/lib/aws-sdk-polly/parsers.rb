@@ -44,7 +44,7 @@ module AWS::SDK::Polly
       def self.parse(http_resp)
         data = Types::DescribeVoicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voices = (Parsers::VoiceList.parse(map['Voices']) unless map['Voices'].nil?)
+        data.voices = (VoiceList.parse(map['Voices']) unless map['Voices'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -54,7 +54,7 @@ module AWS::SDK::Polly
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Voice.parse(value) unless value.nil?
+          data << Voice.parse(value) unless value.nil?
         end
         data
       end
@@ -68,8 +68,8 @@ module AWS::SDK::Polly
         data.language_code = map['LanguageCode']
         data.language_name = map['LanguageName']
         data.name = map['Name']
-        data.additional_language_codes = (Parsers::LanguageCodeList.parse(map['AdditionalLanguageCodes']) unless map['AdditionalLanguageCodes'].nil?)
-        data.supported_engines = (Parsers::EngineList.parse(map['SupportedEngines']) unless map['SupportedEngines'].nil?)
+        data.additional_language_codes = (LanguageCodeList.parse(map['AdditionalLanguageCodes']) unless map['AdditionalLanguageCodes'].nil?)
+        data.supported_engines = (EngineList.parse(map['SupportedEngines']) unless map['SupportedEngines'].nil?)
         return data
       end
     end
@@ -109,8 +109,8 @@ module AWS::SDK::Polly
       def self.parse(http_resp)
         data = Types::GetLexiconOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lexicon = (Parsers::Lexicon.parse(map['Lexicon']) unless map['Lexicon'].nil?)
-        data.lexicon_attributes = (Parsers::LexiconAttributes.parse(map['LexiconAttributes']) unless map['LexiconAttributes'].nil?)
+        data.lexicon = (Lexicon.parse(map['Lexicon']) unless map['Lexicon'].nil?)
+        data.lexicon_attributes = (LexiconAttributes.parse(map['LexiconAttributes']) unless map['LexiconAttributes'].nil?)
         data
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::Polly
       def self.parse(http_resp)
         data = Types::GetSpeechSynthesisTaskOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.synthesis_task = (Parsers::SynthesisTask.parse(map['SynthesisTask']) unless map['SynthesisTask'].nil?)
+        data.synthesis_task = (SynthesisTask.parse(map['SynthesisTask']) unless map['SynthesisTask'].nil?)
         data
       end
     end
@@ -158,10 +158,10 @@ module AWS::SDK::Polly
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.request_characters = map['RequestCharacters']
         data.sns_topic_arn = map['SnsTopicArn']
-        data.lexicon_names = (Parsers::LexiconNameList.parse(map['LexiconNames']) unless map['LexiconNames'].nil?)
+        data.lexicon_names = (LexiconNameList.parse(map['LexiconNames']) unless map['LexiconNames'].nil?)
         data.output_format = map['OutputFormat']
         data.sample_rate = map['SampleRate']
-        data.speech_mark_types = (Parsers::SpeechMarkTypeList.parse(map['SpeechMarkTypes']) unless map['SpeechMarkTypes'].nil?)
+        data.speech_mark_types = (SpeechMarkTypeList.parse(map['SpeechMarkTypes']) unless map['SpeechMarkTypes'].nil?)
         data.text_type = map['TextType']
         data.voice_id = map['VoiceId']
         data.language_code = map['LanguageCode']
@@ -214,7 +214,7 @@ module AWS::SDK::Polly
       def self.parse(http_resp)
         data = Types::ListLexiconsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lexicons = (Parsers::LexiconDescriptionList.parse(map['Lexicons']) unless map['Lexicons'].nil?)
+        data.lexicons = (LexiconDescriptionList.parse(map['Lexicons']) unless map['Lexicons'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -224,7 +224,7 @@ module AWS::SDK::Polly
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LexiconDescription.parse(value) unless value.nil?
+          data << LexiconDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -234,7 +234,7 @@ module AWS::SDK::Polly
       def self.parse(map)
         data = Types::LexiconDescription.new
         data.name = map['Name']
-        data.attributes = (Parsers::LexiconAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (LexiconAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -245,7 +245,7 @@ module AWS::SDK::Polly
         data = Types::ListSpeechSynthesisTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.synthesis_tasks = (Parsers::SynthesisTasks.parse(map['SynthesisTasks']) unless map['SynthesisTasks'].nil?)
+        data.synthesis_tasks = (SynthesisTasks.parse(map['SynthesisTasks']) unless map['SynthesisTasks'].nil?)
         data
       end
     end
@@ -254,7 +254,7 @@ module AWS::SDK::Polly
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SynthesisTask.parse(value) unless value.nil?
+          data << SynthesisTask.parse(value) unless value.nil?
         end
         data
       end
@@ -334,7 +334,7 @@ module AWS::SDK::Polly
       def self.parse(http_resp)
         data = Types::StartSpeechSynthesisTaskOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.synthesis_task = (Parsers::SynthesisTask.parse(map['SynthesisTask']) unless map['SynthesisTask'].nil?)
+        data.synthesis_task = (SynthesisTask.parse(map['SynthesisTask']) unless map['SynthesisTask'].nil?)
         data
       end
     end

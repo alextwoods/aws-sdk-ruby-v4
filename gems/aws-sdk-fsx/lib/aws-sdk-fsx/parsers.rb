@@ -17,7 +17,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aliases = (Parsers::Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.aliases = (Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::FSx
     class Aliases
       def self.parse(list)
         list.map do |value|
-          Parsers::Alias.parse(value) unless value.nil?
+          Alias.parse(value) unless value.nil?
         end
       end
     end
@@ -131,7 +131,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backup = (Parsers::Backup.parse(map['Backup']) unless map['Backup'].nil?)
+        data.backup = (Backup.parse(map['Backup']) unless map['Backup'].nil?)
         data
       end
     end
@@ -141,20 +141,20 @@ module AWS::SDK::FSx
         data = Types::Backup.new
         data.backup_id = map['BackupId']
         data.lifecycle = map['Lifecycle']
-        data.failure_details = (Parsers::BackupFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.failure_details = (BackupFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
         data.type = map['Type']
         data.progress_percent = map['ProgressPercent']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.kms_key_id = map['KmsKeyId']
         data.resource_arn = map['ResourceARN']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.file_system = (Parsers::FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
-        data.directory_information = (Parsers::ActiveDirectoryBackupAttributes.parse(map['DirectoryInformation']) unless map['DirectoryInformation'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.file_system = (FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
+        data.directory_information = (ActiveDirectoryBackupAttributes.parse(map['DirectoryInformation']) unless map['DirectoryInformation'].nil?)
         data.owner_id = map['OwnerId']
         data.source_backup_id = map['SourceBackupId']
         data.source_backup_region = map['SourceBackupRegion']
         data.resource_type = map['ResourceType']
-        data.volume = (Parsers::Volume.parse(map['Volume']) unless map['Volume'].nil?)
+        data.volume = (Volume.parse(map['Volume']) unless map['Volume'].nil?)
         return data
       end
     end
@@ -166,14 +166,14 @@ module AWS::SDK::FSx
         data.file_system_id = map['FileSystemId']
         data.lifecycle = map['Lifecycle']
         data.name = map['Name']
-        data.ontap_configuration = (Parsers::OntapVolumeConfiguration.parse(map['OntapConfiguration']) unless map['OntapConfiguration'].nil?)
+        data.ontap_configuration = (OntapVolumeConfiguration.parse(map['OntapConfiguration']) unless map['OntapConfiguration'].nil?)
         data.resource_arn = map['ResourceARN']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.volume_id = map['VolumeId']
         data.volume_type = map['VolumeType']
-        data.lifecycle_transition_reason = (Parsers::LifecycleTransitionReason.parse(map['LifecycleTransitionReason']) unless map['LifecycleTransitionReason'].nil?)
-        data.administrative_actions = (Parsers::AdministrativeActions.parse(map['AdministrativeActions']) unless map['AdministrativeActions'].nil?)
-        data.open_zfs_configuration = (Parsers::OpenZFSVolumeConfiguration.parse(map['OpenZFSConfiguration']) unless map['OpenZFSConfiguration'].nil?)
+        data.lifecycle_transition_reason = (LifecycleTransitionReason.parse(map['LifecycleTransitionReason']) unless map['LifecycleTransitionReason'].nil?)
+        data.administrative_actions = (AdministrativeActions.parse(map['AdministrativeActions']) unless map['AdministrativeActions'].nil?)
+        data.open_zfs_configuration = (OpenZFSVolumeConfiguration.parse(map['OpenZFSConfiguration']) unless map['OpenZFSConfiguration'].nil?)
         return data
       end
     end
@@ -188,10 +188,10 @@ module AWS::SDK::FSx
         data.record_size_ki_b = map['RecordSizeKiB']
         data.data_compression_type = map['DataCompressionType']
         data.copy_tags_to_snapshots = map['CopyTagsToSnapshots']
-        data.origin_snapshot = (Parsers::OpenZFSOriginSnapshotConfiguration.parse(map['OriginSnapshot']) unless map['OriginSnapshot'].nil?)
+        data.origin_snapshot = (OpenZFSOriginSnapshotConfiguration.parse(map['OriginSnapshot']) unless map['OriginSnapshot'].nil?)
         data.read_only = map['ReadOnly']
-        data.nfs_exports = (Parsers::OpenZFSNfsExports.parse(map['NfsExports']) unless map['NfsExports'].nil?)
-        data.user_and_group_quotas = (Parsers::OpenZFSUserAndGroupQuotas.parse(map['UserAndGroupQuotas']) unless map['UserAndGroupQuotas'].nil?)
+        data.nfs_exports = (OpenZFSNfsExports.parse(map['NfsExports']) unless map['NfsExports'].nil?)
+        data.user_and_group_quotas = (OpenZFSUserAndGroupQuotas.parse(map['UserAndGroupQuotas']) unless map['UserAndGroupQuotas'].nil?)
         return data
       end
     end
@@ -199,7 +199,7 @@ module AWS::SDK::FSx
     class OpenZFSUserAndGroupQuotas
       def self.parse(list)
         list.map do |value|
-          Parsers::OpenZFSUserOrGroupQuota.parse(value) unless value.nil?
+          OpenZFSUserOrGroupQuota.parse(value) unless value.nil?
         end
       end
     end
@@ -217,7 +217,7 @@ module AWS::SDK::FSx
     class OpenZFSNfsExports
       def self.parse(list)
         list.map do |value|
-          Parsers::OpenZFSNfsExport.parse(value) unless value.nil?
+          OpenZFSNfsExport.parse(value) unless value.nil?
         end
       end
     end
@@ -225,7 +225,7 @@ module AWS::SDK::FSx
     class OpenZFSNfsExport
       def self.parse(map)
         data = Types::OpenZFSNfsExport.new
-        data.client_configurations = (Parsers::OpenZFSClientConfigurations.parse(map['ClientConfigurations']) unless map['ClientConfigurations'].nil?)
+        data.client_configurations = (OpenZFSClientConfigurations.parse(map['ClientConfigurations']) unless map['ClientConfigurations'].nil?)
         return data
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::FSx
     class OpenZFSClientConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::OpenZFSClientConfiguration.parse(value) unless value.nil?
+          OpenZFSClientConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -242,7 +242,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::OpenZFSClientConfiguration.new
         data.clients = map['Clients']
-        data.options = (Parsers::OpenZFSNfsExportOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.options = (OpenZFSNfsExportOptions.parse(map['Options']) unless map['Options'].nil?)
         return data
       end
     end
@@ -267,7 +267,7 @@ module AWS::SDK::FSx
     class AdministrativeActions
       def self.parse(list)
         list.map do |value|
-          Parsers::AdministrativeAction.parse(value) unless value.nil?
+          AdministrativeAction.parse(value) unless value.nil?
         end
       end
     end
@@ -279,10 +279,10 @@ module AWS::SDK::FSx
         data.progress_percent = map['ProgressPercent']
         data.request_time = Time.at(map['RequestTime'].to_i) if map['RequestTime']
         data.status = map['Status']
-        data.target_file_system_values = (Parsers::FileSystem.parse(map['TargetFileSystemValues']) unless map['TargetFileSystemValues'].nil?)
-        data.failure_details = (Parsers::AdministrativeActionFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
-        data.target_volume_values = (Parsers::Volume.parse(map['TargetVolumeValues']) unless map['TargetVolumeValues'].nil?)
-        data.target_snapshot_values = (Parsers::Snapshot.parse(map['TargetSnapshotValues']) unless map['TargetSnapshotValues'].nil?)
+        data.target_file_system_values = (FileSystem.parse(map['TargetFileSystemValues']) unless map['TargetFileSystemValues'].nil?)
+        data.failure_details = (AdministrativeActionFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.target_volume_values = (Volume.parse(map['TargetVolumeValues']) unless map['TargetVolumeValues'].nil?)
+        data.target_snapshot_values = (Snapshot.parse(map['TargetSnapshotValues']) unless map['TargetSnapshotValues'].nil?)
         return data
       end
     end
@@ -296,9 +296,9 @@ module AWS::SDK::FSx
         data.volume_id = map['VolumeId']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.lifecycle = map['Lifecycle']
-        data.lifecycle_transition_reason = (Parsers::LifecycleTransitionReason.parse(map['LifecycleTransitionReason']) unless map['LifecycleTransitionReason'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.administrative_actions = (Parsers::AdministrativeActions.parse(map['AdministrativeActions']) unless map['AdministrativeActions'].nil?)
+        data.lifecycle_transition_reason = (LifecycleTransitionReason.parse(map['LifecycleTransitionReason']) unless map['LifecycleTransitionReason'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.administrative_actions = (AdministrativeActions.parse(map['AdministrativeActions']) unless map['AdministrativeActions'].nil?)
         return data
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::FSx
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -344,22 +344,22 @@ module AWS::SDK::FSx
         data.file_system_id = map['FileSystemId']
         data.file_system_type = map['FileSystemType']
         data.lifecycle = map['Lifecycle']
-        data.failure_details = (Parsers::FileSystemFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.failure_details = (FileSystemFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
         data.storage_capacity = map['StorageCapacity']
         data.storage_type = map['StorageType']
         data.vpc_id = map['VpcId']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.network_interface_ids = (Parsers::NetworkInterfaceIds.parse(map['NetworkInterfaceIds']) unless map['NetworkInterfaceIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.network_interface_ids = (NetworkInterfaceIds.parse(map['NetworkInterfaceIds']) unless map['NetworkInterfaceIds'].nil?)
         data.dns_name = map['DNSName']
         data.kms_key_id = map['KmsKeyId']
         data.resource_arn = map['ResourceARN']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.windows_configuration = (Parsers::WindowsFileSystemConfiguration.parse(map['WindowsConfiguration']) unless map['WindowsConfiguration'].nil?)
-        data.lustre_configuration = (Parsers::LustreFileSystemConfiguration.parse(map['LustreConfiguration']) unless map['LustreConfiguration'].nil?)
-        data.administrative_actions = (Parsers::AdministrativeActions.parse(map['AdministrativeActions']) unless map['AdministrativeActions'].nil?)
-        data.ontap_configuration = (Parsers::OntapFileSystemConfiguration.parse(map['OntapConfiguration']) unless map['OntapConfiguration'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.windows_configuration = (WindowsFileSystemConfiguration.parse(map['WindowsConfiguration']) unless map['WindowsConfiguration'].nil?)
+        data.lustre_configuration = (LustreFileSystemConfiguration.parse(map['LustreConfiguration']) unless map['LustreConfiguration'].nil?)
+        data.administrative_actions = (AdministrativeActions.parse(map['AdministrativeActions']) unless map['AdministrativeActions'].nil?)
+        data.ontap_configuration = (OntapFileSystemConfiguration.parse(map['OntapConfiguration']) unless map['OntapConfiguration'].nil?)
         data.file_system_type_version = map['FileSystemTypeVersion']
-        data.open_zfs_configuration = (Parsers::OpenZFSFileSystemConfiguration.parse(map['OpenZFSConfiguration']) unless map['OpenZFSConfiguration'].nil?)
+        data.open_zfs_configuration = (OpenZFSFileSystemConfiguration.parse(map['OpenZFSConfiguration']) unless map['OpenZFSConfiguration'].nil?)
         return data
       end
     end
@@ -374,7 +374,7 @@ module AWS::SDK::FSx
         data.deployment_type = map['DeploymentType']
         data.throughput_capacity = map['ThroughputCapacity']
         data.weekly_maintenance_start_time = map['WeeklyMaintenanceStartTime']
-        data.disk_iops_configuration = (Parsers::DiskIopsConfiguration.parse(map['DiskIopsConfiguration']) unless map['DiskIopsConfiguration'].nil?)
+        data.disk_iops_configuration = (DiskIopsConfiguration.parse(map['DiskIopsConfiguration']) unless map['DiskIopsConfiguration'].nil?)
         data.root_volume_id = map['RootVolumeId']
         return data
       end
@@ -396,10 +396,10 @@ module AWS::SDK::FSx
         data.daily_automatic_backup_start_time = map['DailyAutomaticBackupStartTime']
         data.deployment_type = map['DeploymentType']
         data.endpoint_ip_address_range = map['EndpointIpAddressRange']
-        data.endpoints = (Parsers::FileSystemEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
-        data.disk_iops_configuration = (Parsers::DiskIopsConfiguration.parse(map['DiskIopsConfiguration']) unless map['DiskIopsConfiguration'].nil?)
+        data.endpoints = (FileSystemEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.disk_iops_configuration = (DiskIopsConfiguration.parse(map['DiskIopsConfiguration']) unless map['DiskIopsConfiguration'].nil?)
         data.preferred_subnet_id = map['PreferredSubnetId']
-        data.route_table_ids = (Parsers::RouteTableIds.parse(map['RouteTableIds']) unless map['RouteTableIds'].nil?)
+        data.route_table_ids = (RouteTableIds.parse(map['RouteTableIds']) unless map['RouteTableIds'].nil?)
         data.throughput_capacity = map['ThroughputCapacity']
         data.weekly_maintenance_start_time = map['WeeklyMaintenanceStartTime']
         return data
@@ -417,8 +417,8 @@ module AWS::SDK::FSx
     class FileSystemEndpoints
       def self.parse(map)
         data = Types::FileSystemEndpoints.new
-        data.intercluster = (Parsers::FileSystemEndpoint.parse(map['Intercluster']) unless map['Intercluster'].nil?)
-        data.management = (Parsers::FileSystemEndpoint.parse(map['Management']) unless map['Management'].nil?)
+        data.intercluster = (FileSystemEndpoint.parse(map['Intercluster']) unless map['Intercluster'].nil?)
+        data.management = (FileSystemEndpoint.parse(map['Management']) unless map['Management'].nil?)
         return data
       end
     end
@@ -427,7 +427,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::FileSystemEndpoint.new
         data.dns_name = map['DNSName']
-        data.ip_addresses = (Parsers::OntapEndpointIpAddresses.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
+        data.ip_addresses = (OntapEndpointIpAddresses.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
         return data
       end
     end
@@ -444,7 +444,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::LustreFileSystemConfiguration.new
         data.weekly_maintenance_start_time = map['WeeklyMaintenanceStartTime']
-        data.data_repository_configuration = (Parsers::DataRepositoryConfiguration.parse(map['DataRepositoryConfiguration']) unless map['DataRepositoryConfiguration'].nil?)
+        data.data_repository_configuration = (DataRepositoryConfiguration.parse(map['DataRepositoryConfiguration']) unless map['DataRepositoryConfiguration'].nil?)
         data.deployment_type = map['DeploymentType']
         data.per_unit_storage_throughput = map['PerUnitStorageThroughput']
         data.mount_name = map['MountName']
@@ -453,8 +453,8 @@ module AWS::SDK::FSx
         data.copy_tags_to_backups = map['CopyTagsToBackups']
         data.drive_cache_type = map['DriveCacheType']
         data.data_compression_type = map['DataCompressionType']
-        data.log_configuration = (Parsers::LustreLogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
-        data.root_squash_configuration = (Parsers::LustreRootSquashConfiguration.parse(map['RootSquashConfiguration']) unless map['RootSquashConfiguration'].nil?)
+        data.log_configuration = (LustreLogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
+        data.root_squash_configuration = (LustreRootSquashConfiguration.parse(map['RootSquashConfiguration']) unless map['RootSquashConfiguration'].nil?)
         return data
       end
     end
@@ -463,7 +463,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::LustreRootSquashConfiguration.new
         data.root_squash = map['RootSquash']
-        data.no_squash_nids = (Parsers::LustreNoSquashNids.parse(map['NoSquashNids']) unless map['NoSquashNids'].nil?)
+        data.no_squash_nids = (LustreNoSquashNids.parse(map['NoSquashNids']) unless map['NoSquashNids'].nil?)
         return data
       end
     end
@@ -493,7 +493,7 @@ module AWS::SDK::FSx
         data.export_path = map['ExportPath']
         data.imported_file_chunk_size = map['ImportedFileChunkSize']
         data.auto_import_policy = map['AutoImportPolicy']
-        data.failure_details = (Parsers::DataRepositoryFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.failure_details = (DataRepositoryFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
         return data
       end
     end
@@ -510,19 +510,19 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::WindowsFileSystemConfiguration.new
         data.active_directory_id = map['ActiveDirectoryId']
-        data.self_managed_active_directory_configuration = (Parsers::SelfManagedActiveDirectoryAttributes.parse(map['SelfManagedActiveDirectoryConfiguration']) unless map['SelfManagedActiveDirectoryConfiguration'].nil?)
+        data.self_managed_active_directory_configuration = (SelfManagedActiveDirectoryAttributes.parse(map['SelfManagedActiveDirectoryConfiguration']) unless map['SelfManagedActiveDirectoryConfiguration'].nil?)
         data.deployment_type = map['DeploymentType']
         data.remote_administration_endpoint = map['RemoteAdministrationEndpoint']
         data.preferred_subnet_id = map['PreferredSubnetId']
         data.preferred_file_server_ip = map['PreferredFileServerIp']
         data.throughput_capacity = map['ThroughputCapacity']
-        data.maintenance_operations_in_progress = (Parsers::FileSystemMaintenanceOperations.parse(map['MaintenanceOperationsInProgress']) unless map['MaintenanceOperationsInProgress'].nil?)
+        data.maintenance_operations_in_progress = (FileSystemMaintenanceOperations.parse(map['MaintenanceOperationsInProgress']) unless map['MaintenanceOperationsInProgress'].nil?)
         data.weekly_maintenance_start_time = map['WeeklyMaintenanceStartTime']
         data.daily_automatic_backup_start_time = map['DailyAutomaticBackupStartTime']
         data.automatic_backup_retention_days = map['AutomaticBackupRetentionDays']
         data.copy_tags_to_backups = map['CopyTagsToBackups']
-        data.aliases = (Parsers::Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
-        data.audit_log_configuration = (Parsers::WindowsAuditLogConfiguration.parse(map['AuditLogConfiguration']) unless map['AuditLogConfiguration'].nil?)
+        data.aliases = (Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.audit_log_configuration = (WindowsAuditLogConfiguration.parse(map['AuditLogConfiguration']) unless map['AuditLogConfiguration'].nil?)
         return data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::FSx
         data.organizational_unit_distinguished_name = map['OrganizationalUnitDistinguishedName']
         data.file_system_administrators_group = map['FileSystemAdministratorsGroup']
         data.user_name = map['UserName']
-        data.dns_ips = (Parsers::DnsIps.parse(map['DnsIps']) unless map['DnsIps'].nil?)
+        data.dns_ips = (DnsIps.parse(map['DnsIps']) unless map['DnsIps'].nil?)
         return data
       end
     end
@@ -599,7 +599,7 @@ module AWS::SDK::FSx
         data.storage_efficiency_enabled = map['StorageEfficiencyEnabled']
         data.storage_virtual_machine_id = map['StorageVirtualMachineId']
         data.storage_virtual_machine_root = map['StorageVirtualMachineRoot']
-        data.tiering_policy = (Parsers::TieringPolicy.parse(map['TieringPolicy']) unless map['TieringPolicy'].nil?)
+        data.tiering_policy = (TieringPolicy.parse(map['TieringPolicy']) unless map['TieringPolicy'].nil?)
         data.uuid = map['UUID']
         data.ontap_volume_type = map['OntapVolumeType']
         return data
@@ -739,7 +739,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backup = (Parsers::Backup.parse(map['Backup']) unless map['Backup'].nil?)
+        data.backup = (Backup.parse(map['Backup']) unless map['Backup'].nil?)
         data
       end
     end
@@ -775,7 +775,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association = (Parsers::DataRepositoryAssociation.parse(map['Association']) unless map['Association'].nil?)
+        data.association = (DataRepositoryAssociation.parse(map['Association']) unless map['Association'].nil?)
         data
       end
     end
@@ -787,13 +787,13 @@ module AWS::SDK::FSx
         data.resource_arn = map['ResourceARN']
         data.file_system_id = map['FileSystemId']
         data.lifecycle = map['Lifecycle']
-        data.failure_details = (Parsers::DataRepositoryFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.failure_details = (DataRepositoryFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
         data.file_system_path = map['FileSystemPath']
         data.data_repository_path = map['DataRepositoryPath']
         data.batch_import_meta_data_on_create = map['BatchImportMetaDataOnCreate']
         data.imported_file_chunk_size = map['ImportedFileChunkSize']
-        data.s3 = (Parsers::S3DataRepositoryConfiguration.parse(map['S3']) unless map['S3'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.s3 = (S3DataRepositoryConfiguration.parse(map['S3']) unless map['S3'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         return data
       end
@@ -802,8 +802,8 @@ module AWS::SDK::FSx
     class S3DataRepositoryConfiguration
       def self.parse(map)
         data = Types::S3DataRepositoryConfiguration.new
-        data.auto_import_policy = (Parsers::AutoImportPolicy.parse(map['AutoImportPolicy']) unless map['AutoImportPolicy'].nil?)
-        data.auto_export_policy = (Parsers::AutoExportPolicy.parse(map['AutoExportPolicy']) unless map['AutoExportPolicy'].nil?)
+        data.auto_import_policy = (AutoImportPolicy.parse(map['AutoImportPolicy']) unless map['AutoImportPolicy'].nil?)
+        data.auto_export_policy = (AutoExportPolicy.parse(map['AutoExportPolicy']) unless map['AutoExportPolicy'].nil?)
         return data
       end
     end
@@ -811,7 +811,7 @@ module AWS::SDK::FSx
     class AutoExportPolicy
       def self.parse(map)
         data = Types::AutoExportPolicy.new
-        data.events = (Parsers::EventTypes.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventTypes.parse(map['Events']) unless map['Events'].nil?)
         return data
       end
     end
@@ -827,7 +827,7 @@ module AWS::SDK::FSx
     class AutoImportPolicy
       def self.parse(map)
         data = Types::AutoImportPolicy.new
-        data.events = (Parsers::EventTypes.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventTypes.parse(map['Events']) unless map['Events'].nil?)
         return data
       end
     end
@@ -839,7 +839,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.data_repository_task = (Parsers::DataRepositoryTask.parse(map['DataRepositoryTask']) unless map['DataRepositoryTask'].nil?)
+        data.data_repository_task = (DataRepositoryTask.parse(map['DataRepositoryTask']) unless map['DataRepositoryTask'].nil?)
         data
       end
     end
@@ -854,12 +854,12 @@ module AWS::SDK::FSx
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.resource_arn = map['ResourceARN']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.file_system_id = map['FileSystemId']
-        data.paths = (Parsers::DataRepositoryTaskPaths.parse(map['Paths']) unless map['Paths'].nil?)
-        data.failure_details = (Parsers::DataRepositoryTaskFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
-        data.status = (Parsers::DataRepositoryTaskStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.report = (Parsers::CompletionReport.parse(map['Report']) unless map['Report'].nil?)
+        data.paths = (DataRepositoryTaskPaths.parse(map['Paths']) unless map['Paths'].nil?)
+        data.failure_details = (DataRepositoryTaskFailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.status = (DataRepositoryTaskStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.report = (CompletionReport.parse(map['Report']) unless map['Report'].nil?)
         return data
       end
     end
@@ -921,7 +921,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.file_system = (Parsers::FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
+        data.file_system = (FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
         data
       end
     end
@@ -1010,7 +1010,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.file_system = (Parsers::FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
+        data.file_system = (FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
         data
       end
     end
@@ -1022,7 +1022,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshot = (Parsers::Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.storage_virtual_machine = (Parsers::StorageVirtualMachine.parse(map['StorageVirtualMachine']) unless map['StorageVirtualMachine'].nil?)
+        data.storage_virtual_machine = (StorageVirtualMachine.parse(map['StorageVirtualMachine']) unless map['StorageVirtualMachine'].nil?)
         data
       end
     end
@@ -1042,9 +1042,9 @@ module AWS::SDK::FSx
     class StorageVirtualMachine
       def self.parse(map)
         data = Types::StorageVirtualMachine.new
-        data.active_directory_configuration = (Parsers::SvmActiveDirectoryConfiguration.parse(map['ActiveDirectoryConfiguration']) unless map['ActiveDirectoryConfiguration'].nil?)
+        data.active_directory_configuration = (SvmActiveDirectoryConfiguration.parse(map['ActiveDirectoryConfiguration']) unless map['ActiveDirectoryConfiguration'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.endpoints = (Parsers::SvmEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (SvmEndpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.file_system_id = map['FileSystemId']
         data.lifecycle = map['Lifecycle']
         data.name = map['Name']
@@ -1052,8 +1052,8 @@ module AWS::SDK::FSx
         data.storage_virtual_machine_id = map['StorageVirtualMachineId']
         data.subtype = map['Subtype']
         data.uuid = map['UUID']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.lifecycle_transition_reason = (Parsers::LifecycleTransitionReason.parse(map['LifecycleTransitionReason']) unless map['LifecycleTransitionReason'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.lifecycle_transition_reason = (LifecycleTransitionReason.parse(map['LifecycleTransitionReason']) unless map['LifecycleTransitionReason'].nil?)
         data.root_volume_security_style = map['RootVolumeSecurityStyle']
         return data
       end
@@ -1062,10 +1062,10 @@ module AWS::SDK::FSx
     class SvmEndpoints
       def self.parse(map)
         data = Types::SvmEndpoints.new
-        data.iscsi = (Parsers::SvmEndpoint.parse(map['Iscsi']) unless map['Iscsi'].nil?)
-        data.management = (Parsers::SvmEndpoint.parse(map['Management']) unless map['Management'].nil?)
-        data.nfs = (Parsers::SvmEndpoint.parse(map['Nfs']) unless map['Nfs'].nil?)
-        data.smb = (Parsers::SvmEndpoint.parse(map['Smb']) unless map['Smb'].nil?)
+        data.iscsi = (SvmEndpoint.parse(map['Iscsi']) unless map['Iscsi'].nil?)
+        data.management = (SvmEndpoint.parse(map['Management']) unless map['Management'].nil?)
+        data.nfs = (SvmEndpoint.parse(map['Nfs']) unless map['Nfs'].nil?)
+        data.smb = (SvmEndpoint.parse(map['Smb']) unless map['Smb'].nil?)
         return data
       end
     end
@@ -1074,7 +1074,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::SvmEndpoint.new
         data.dns_name = map['DNSName']
-        data.ip_addresses = (Parsers::OntapEndpointIpAddresses.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
+        data.ip_addresses = (OntapEndpointIpAddresses.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
         return data
       end
     end
@@ -1083,7 +1083,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::SvmActiveDirectoryConfiguration.new
         data.net_bios_name = map['NetBiosName']
-        data.self_managed_active_directory_configuration = (Parsers::SelfManagedActiveDirectoryAttributes.parse(map['SelfManagedActiveDirectoryConfiguration']) unless map['SelfManagedActiveDirectoryConfiguration'].nil?)
+        data.self_managed_active_directory_configuration = (SelfManagedActiveDirectoryAttributes.parse(map['SelfManagedActiveDirectoryConfiguration']) unless map['SelfManagedActiveDirectoryConfiguration'].nil?)
         return data
       end
     end
@@ -1095,7 +1095,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.volume = (Parsers::Volume.parse(map['Volume']) unless map['Volume'].nil?)
+        data.volume = (Volume.parse(map['Volume']) unless map['Volume'].nil?)
         data
       end
     end
@@ -1131,7 +1131,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.volume = (Parsers::Volume.parse(map['Volume']) unless map['Volume'].nil?)
+        data.volume = (Volume.parse(map['Volume']) unless map['Volume'].nil?)
         data
       end
     end
@@ -1210,9 +1210,9 @@ module AWS::SDK::FSx
         map = Hearth::JSON.load(body)
         data.file_system_id = map['FileSystemId']
         data.lifecycle = map['Lifecycle']
-        data.windows_response = (Parsers::DeleteFileSystemWindowsResponse.parse(map['WindowsResponse']) unless map['WindowsResponse'].nil?)
-        data.lustre_response = (Parsers::DeleteFileSystemLustreResponse.parse(map['LustreResponse']) unless map['LustreResponse'].nil?)
-        data.open_zfs_response = (Parsers::DeleteFileSystemOpenZFSResponse.parse(map['OpenZFSResponse']) unless map['OpenZFSResponse'].nil?)
+        data.windows_response = (DeleteFileSystemWindowsResponse.parse(map['WindowsResponse']) unless map['WindowsResponse'].nil?)
+        data.lustre_response = (DeleteFileSystemLustreResponse.parse(map['LustreResponse']) unless map['LustreResponse'].nil?)
+        data.open_zfs_response = (DeleteFileSystemOpenZFSResponse.parse(map['OpenZFSResponse']) unless map['OpenZFSResponse'].nil?)
         data
       end
     end
@@ -1221,7 +1221,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::DeleteFileSystemOpenZFSResponse.new
         data.final_backup_id = map['FinalBackupId']
-        data.final_backup_tags = (Parsers::Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
+        data.final_backup_tags = (Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
         return data
       end
     end
@@ -1230,7 +1230,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::DeleteFileSystemLustreResponse.new
         data.final_backup_id = map['FinalBackupId']
-        data.final_backup_tags = (Parsers::Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
+        data.final_backup_tags = (Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
         return data
       end
     end
@@ -1239,7 +1239,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::DeleteFileSystemWindowsResponse.new
         data.final_backup_id = map['FinalBackupId']
-        data.final_backup_tags = (Parsers::Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
+        data.final_backup_tags = (Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
         return data
       end
     end
@@ -1291,7 +1291,7 @@ module AWS::SDK::FSx
         map = Hearth::JSON.load(body)
         data.volume_id = map['VolumeId']
         data.lifecycle = map['Lifecycle']
-        data.ontap_response = (Parsers::DeleteVolumeOntapResponse.parse(map['OntapResponse']) unless map['OntapResponse'].nil?)
+        data.ontap_response = (DeleteVolumeOntapResponse.parse(map['OntapResponse']) unless map['OntapResponse'].nil?)
         data
       end
     end
@@ -1300,7 +1300,7 @@ module AWS::SDK::FSx
       def self.parse(map)
         data = Types::DeleteVolumeOntapResponse.new
         data.final_backup_id = map['FinalBackupId']
-        data.final_backup_tags = (Parsers::Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
+        data.final_backup_tags = (Tags.parse(map['FinalBackupTags']) unless map['FinalBackupTags'].nil?)
         return data
       end
     end
@@ -1312,7 +1312,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backups = (Parsers::Backups.parse(map['Backups']) unless map['Backups'].nil?)
+        data.backups = (Backups.parse(map['Backups']) unless map['Backups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1321,7 +1321,7 @@ module AWS::SDK::FSx
     class Backups
       def self.parse(list)
         list.map do |value|
-          Parsers::Backup.parse(value) unless value.nil?
+          Backup.parse(value) unless value.nil?
         end
       end
     end
@@ -1333,7 +1333,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.associations = (Parsers::DataRepositoryAssociations.parse(map['Associations']) unless map['Associations'].nil?)
+        data.associations = (DataRepositoryAssociations.parse(map['Associations']) unless map['Associations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1342,7 +1342,7 @@ module AWS::SDK::FSx
     class DataRepositoryAssociations
       def self.parse(list)
         list.map do |value|
-          Parsers::DataRepositoryAssociation.parse(value) unless value.nil?
+          DataRepositoryAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -1366,7 +1366,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.data_repository_tasks = (Parsers::DataRepositoryTasks.parse(map['DataRepositoryTasks']) unless map['DataRepositoryTasks'].nil?)
+        data.data_repository_tasks = (DataRepositoryTasks.parse(map['DataRepositoryTasks']) unless map['DataRepositoryTasks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1375,7 +1375,7 @@ module AWS::SDK::FSx
     class DataRepositoryTasks
       def self.parse(list)
         list.map do |value|
-          Parsers::DataRepositoryTask.parse(value) unless value.nil?
+          DataRepositoryTask.parse(value) unless value.nil?
         end
       end
     end
@@ -1387,7 +1387,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aliases = (Parsers::Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.aliases = (Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1400,7 +1400,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.file_systems = (Parsers::FileSystems.parse(map['FileSystems']) unless map['FileSystems'].nil?)
+        data.file_systems = (FileSystems.parse(map['FileSystems']) unless map['FileSystems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1409,7 +1409,7 @@ module AWS::SDK::FSx
     class FileSystems
       def self.parse(list)
         list.map do |value|
-          Parsers::FileSystem.parse(value) unless value.nil?
+          FileSystem.parse(value) unless value.nil?
         end
       end
     end
@@ -1421,7 +1421,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshots = (Parsers::Snapshots.parse(map['Snapshots']) unless map['Snapshots'].nil?)
+        data.snapshots = (Snapshots.parse(map['Snapshots']) unless map['Snapshots'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1430,7 +1430,7 @@ module AWS::SDK::FSx
     class Snapshots
       def self.parse(list)
         list.map do |value|
-          Parsers::Snapshot.parse(value) unless value.nil?
+          Snapshot.parse(value) unless value.nil?
         end
       end
     end
@@ -1442,7 +1442,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.storage_virtual_machines = (Parsers::StorageVirtualMachines.parse(map['StorageVirtualMachines']) unless map['StorageVirtualMachines'].nil?)
+        data.storage_virtual_machines = (StorageVirtualMachines.parse(map['StorageVirtualMachines']) unless map['StorageVirtualMachines'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1451,7 +1451,7 @@ module AWS::SDK::FSx
     class StorageVirtualMachines
       def self.parse(list)
         list.map do |value|
-          Parsers::StorageVirtualMachine.parse(value) unless value.nil?
+          StorageVirtualMachine.parse(value) unless value.nil?
         end
       end
     end
@@ -1463,7 +1463,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.volumes = (Parsers::Volumes.parse(map['Volumes']) unless map['Volumes'].nil?)
+        data.volumes = (Volumes.parse(map['Volumes']) unless map['Volumes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1472,7 +1472,7 @@ module AWS::SDK::FSx
     class Volumes
       def self.parse(list)
         list.map do |value|
-          Parsers::Volume.parse(value) unless value.nil?
+          Volume.parse(value) unless value.nil?
         end
       end
     end
@@ -1484,7 +1484,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aliases = (Parsers::Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.aliases = (Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
         data
       end
     end
@@ -1496,7 +1496,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1548,7 +1548,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.file_system = (Parsers::FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
+        data.file_system = (FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
         data
       end
     end
@@ -1595,7 +1595,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association = (Parsers::DataRepositoryAssociation.parse(map['Association']) unless map['Association'].nil?)
+        data.association = (DataRepositoryAssociation.parse(map['Association']) unless map['Association'].nil?)
         data
       end
     end
@@ -1607,7 +1607,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.file_system = (Parsers::FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
+        data.file_system = (FileSystem.parse(map['FileSystem']) unless map['FileSystem'].nil?)
         data
       end
     end
@@ -1619,7 +1619,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshot = (Parsers::Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -1631,7 +1631,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.storage_virtual_machine = (Parsers::StorageVirtualMachine.parse(map['StorageVirtualMachine']) unless map['StorageVirtualMachine'].nil?)
+        data.storage_virtual_machine = (StorageVirtualMachine.parse(map['StorageVirtualMachine']) unless map['StorageVirtualMachine'].nil?)
         data
       end
     end
@@ -1643,7 +1643,7 @@ module AWS::SDK::FSx
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.volume = (Parsers::Volume.parse(map['Volume']) unless map['Volume'].nil?)
+        data.volume = (Volume.parse(map['Volume']) unless map['Volume'].nil?)
         data
       end
     end

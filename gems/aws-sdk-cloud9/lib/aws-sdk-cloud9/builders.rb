@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Cloud9
   module Builders
 
@@ -26,10 +28,10 @@ module AWS::SDK::Cloud9
         data['imageId'] = input[:image_id] unless input[:image_id].nil?
         data['automaticStopTimeMinutes'] = input[:automatic_stop_time_minutes] unless input[:automatic_stop_time_minutes].nil?
         data['ownerArn'] = input[:owner_arn] unless input[:owner_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['connectionType'] = input[:connection_type] unless input[:connection_type].nil?
         data['dryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::Cloud9
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -65,7 +67,7 @@ module AWS::SDK::Cloud9
         data['environmentId'] = input[:environment_id] unless input[:environment_id].nil?
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
         data['permissions'] = input[:permissions] unless input[:permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -78,7 +80,7 @@ module AWS::SDK::Cloud9
         http_req.headers['X-Amz-Target'] = 'AWSCloud9WorkspaceManagementService.DeleteEnvironment'
         data = {}
         data['environmentId'] = input[:environment_id] unless input[:environment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -92,7 +94,7 @@ module AWS::SDK::Cloud9
         data = {}
         data['environmentId'] = input[:environment_id] unless input[:environment_id].nil?
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,10 +108,10 @@ module AWS::SDK::Cloud9
         data = {}
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
         data['environmentId'] = input[:environment_id] unless input[:environment_id].nil?
-        data['permissions'] = Builders::PermissionsList.build(input[:permissions]) unless input[:permissions].nil?
+        data['permissions'] = PermissionsList.build(input[:permissions]) unless input[:permissions].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,7 +135,7 @@ module AWS::SDK::Cloud9
         http_req.headers['X-Amz-Target'] = 'AWSCloud9WorkspaceManagementService.DescribeEnvironmentStatus'
         data = {}
         data['environmentId'] = input[:environment_id] unless input[:environment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,8 +147,8 @@ module AWS::SDK::Cloud9
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSCloud9WorkspaceManagementService.DescribeEnvironments'
         data = {}
-        data['environmentIds'] = Builders::BoundedEnvironmentIdList.build(input[:environment_ids]) unless input[:environment_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentIds'] = BoundedEnvironmentIdList.build(input[:environment_ids]) unless input[:environment_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::Cloud9
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -184,7 +186,7 @@ module AWS::SDK::Cloud9
         http_req.headers['X-Amz-Target'] = 'AWSCloud9WorkspaceManagementService.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -197,8 +199,8 @@ module AWS::SDK::Cloud9
         http_req.headers['X-Amz-Target'] = 'AWSCloud9WorkspaceManagementService.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -211,8 +213,8 @@ module AWS::SDK::Cloud9
         http_req.headers['X-Amz-Target'] = 'AWSCloud9WorkspaceManagementService.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,7 +241,7 @@ module AWS::SDK::Cloud9
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['managedCredentialsAction'] = input[:managed_credentials_action] unless input[:managed_credentials_action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -254,7 +256,7 @@ module AWS::SDK::Cloud9
         data['environmentId'] = input[:environment_id] unless input[:environment_id].nil?
         data['userArn'] = input[:user_arn] unless input[:user_arn].nil?
         data['permissions'] = input[:permissions] unless input[:permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

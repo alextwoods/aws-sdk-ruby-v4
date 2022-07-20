@@ -142,7 +142,7 @@ module AWS::SDK::BackupGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.gateway = (Parsers::GatewayDetails.parse(map['Gateway']) unless map['Gateway'].nil?)
+        data.gateway = (GatewayDetails.parse(map['Gateway']) unless map['Gateway'].nil?)
         data
       end
     end
@@ -180,7 +180,7 @@ module AWS::SDK::BackupGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.gateways = (Parsers::Gateways.parse(map['Gateways']) unless map['Gateways'].nil?)
+        data.gateways = (Gateways.parse(map['Gateways']) unless map['Gateways'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -189,7 +189,7 @@ module AWS::SDK::BackupGateway
     class Gateways
       def self.parse(list)
         list.map do |value|
-          Parsers::Gateway.parse(value) unless value.nil?
+          Gateway.parse(value) unless value.nil?
         end
       end
     end
@@ -213,7 +213,7 @@ module AWS::SDK::BackupGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hypervisors = (Parsers::Hypervisors.parse(map['Hypervisors']) unless map['Hypervisors'].nil?)
+        data.hypervisors = (Hypervisors.parse(map['Hypervisors']) unless map['Hypervisors'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -222,7 +222,7 @@ module AWS::SDK::BackupGateway
     class Hypervisors
       def self.parse(list)
         list.map do |value|
-          Parsers::Hypervisor.parse(value) unless value.nil?
+          Hypervisor.parse(value) unless value.nil?
         end
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::BackupGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_arn = map['ResourceArn']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -255,7 +255,7 @@ module AWS::SDK::BackupGateway
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -276,7 +276,7 @@ module AWS::SDK::BackupGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_machines = (Parsers::VirtualMachines.parse(map['VirtualMachines']) unless map['VirtualMachines'].nil?)
+        data.virtual_machines = (VirtualMachines.parse(map['VirtualMachines']) unless map['VirtualMachines'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -285,7 +285,7 @@ module AWS::SDK::BackupGateway
     class VirtualMachines
       def self.parse(list)
         list.map do |value|
-          Parsers::VirtualMachine.parse(value) unless value.nil?
+          VirtualMachine.parse(value) unless value.nil?
         end
       end
     end

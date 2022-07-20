@@ -82,7 +82,7 @@ module AWS::SDK::WellArchitected
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -91,7 +91,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -238,7 +238,7 @@ module AWS::SDK::WellArchitected
         data.milestone_number = map['MilestoneNumber']
         data.lens_alias = map['LensAlias']
         data.lens_arn = map['LensArn']
-        data.answer = (Parsers::Answer.parse(map['Answer']) unless map['Answer'].nil?)
+        data.answer = (Answer.parse(map['Answer']) unless map['Answer'].nil?)
         data
       end
     end
@@ -253,9 +253,9 @@ module AWS::SDK::WellArchitected
         data.improvement_plan_url = map['ImprovementPlanUrl']
         data.helpful_resource_url = map['HelpfulResourceUrl']
         data.helpful_resource_display_text = map['HelpfulResourceDisplayText']
-        data.choices = (Parsers::Choices.parse(map['Choices']) unless map['Choices'].nil?)
-        data.selected_choices = (Parsers::SelectedChoices.parse(map['SelectedChoices']) unless map['SelectedChoices'].nil?)
-        data.choice_answers = (Parsers::ChoiceAnswers.parse(map['ChoiceAnswers']) unless map['ChoiceAnswers'].nil?)
+        data.choices = (Choices.parse(map['Choices']) unless map['Choices'].nil?)
+        data.selected_choices = (SelectedChoices.parse(map['SelectedChoices']) unless map['SelectedChoices'].nil?)
+        data.choice_answers = (ChoiceAnswers.parse(map['ChoiceAnswers']) unless map['ChoiceAnswers'].nil?)
         data.is_applicable = map['IsApplicable']
         data.risk = map['Risk']
         data.notes = map['Notes']
@@ -268,7 +268,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChoiceAnswer.parse(value) unless value.nil?
+          data << ChoiceAnswer.parse(value) unless value.nil?
         end
         data
       end
@@ -299,7 +299,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Choice.parse(value) unless value.nil?
+          data << Choice.parse(value) unless value.nil?
         end
         data
       end
@@ -311,8 +311,8 @@ module AWS::SDK::WellArchitected
         data.choice_id = map['ChoiceId']
         data.title = map['Title']
         data.description = map['Description']
-        data.helpful_resource = (Parsers::ChoiceContent.parse(map['HelpfulResource']) unless map['HelpfulResource'].nil?)
-        data.improvement_plan = (Parsers::ChoiceContent.parse(map['ImprovementPlan']) unless map['ImprovementPlan'].nil?)
+        data.helpful_resource = (ChoiceContent.parse(map['HelpfulResource']) unless map['HelpfulResource'].nil?)
+        data.improvement_plan = (ChoiceContent.parse(map['ImprovementPlan']) unless map['ImprovementPlan'].nil?)
         return data
       end
     end
@@ -331,7 +331,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::GetLensOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lens = (Parsers::Lens.parse(map['Lens']) unless map['Lens'].nil?)
+        data.lens = (Lens.parse(map['Lens']) unless map['Lens'].nil?)
         data
       end
     end
@@ -356,7 +356,7 @@ module AWS::SDK::WellArchitected
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
         data.milestone_number = map['MilestoneNumber']
-        data.lens_review = (Parsers::LensReview.parse(map['LensReview']) unless map['LensReview'].nil?)
+        data.lens_review = (LensReview.parse(map['LensReview']) unless map['LensReview'].nil?)
         data
       end
     end
@@ -369,10 +369,10 @@ module AWS::SDK::WellArchitected
         data.lens_version = map['LensVersion']
         data.lens_name = map['LensName']
         data.lens_status = map['LensStatus']
-        data.pillar_review_summaries = (Parsers::PillarReviewSummaries.parse(map['PillarReviewSummaries']) unless map['PillarReviewSummaries'].nil?)
+        data.pillar_review_summaries = (PillarReviewSummaries.parse(map['PillarReviewSummaries']) unless map['PillarReviewSummaries'].nil?)
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
         data.notes = map['Notes']
-        data.risk_counts = (Parsers::RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
+        data.risk_counts = (RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -392,7 +392,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PillarReviewSummary.parse(value) unless value.nil?
+          data << PillarReviewSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -404,7 +404,7 @@ module AWS::SDK::WellArchitected
         data.pillar_id = map['PillarId']
         data.pillar_name = map['PillarName']
         data.notes = map['Notes']
-        data.risk_counts = (Parsers::RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
+        data.risk_counts = (RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
         return data
       end
     end
@@ -416,7 +416,7 @@ module AWS::SDK::WellArchitected
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
         data.milestone_number = map['MilestoneNumber']
-        data.lens_review_report = (Parsers::LensReviewReport.parse(map['LensReviewReport']) unless map['LensReviewReport'].nil?)
+        data.lens_review_report = (LensReviewReport.parse(map['LensReviewReport']) unless map['LensReviewReport'].nil?)
         data
       end
     end
@@ -441,7 +441,7 @@ module AWS::SDK::WellArchitected
         data.base_lens_version = map['BaseLensVersion']
         data.target_lens_version = map['TargetLensVersion']
         data.latest_lens_version = map['LatestLensVersion']
-        data.version_differences = (Parsers::VersionDifferences.parse(map['VersionDifferences']) unless map['VersionDifferences'].nil?)
+        data.version_differences = (VersionDifferences.parse(map['VersionDifferences']) unless map['VersionDifferences'].nil?)
         data
       end
     end
@@ -449,7 +449,7 @@ module AWS::SDK::WellArchitected
     class VersionDifferences
       def self.parse(map)
         data = Types::VersionDifferences.new
-        data.pillar_differences = (Parsers::PillarDifferences.parse(map['PillarDifferences']) unless map['PillarDifferences'].nil?)
+        data.pillar_differences = (PillarDifferences.parse(map['PillarDifferences']) unless map['PillarDifferences'].nil?)
         return data
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PillarDifference.parse(value) unless value.nil?
+          data << PillarDifference.parse(value) unless value.nil?
         end
         data
       end
@@ -470,7 +470,7 @@ module AWS::SDK::WellArchitected
         data.pillar_id = map['PillarId']
         data.pillar_name = map['PillarName']
         data.difference_status = map['DifferenceStatus']
-        data.question_differences = (Parsers::QuestionDifferences.parse(map['QuestionDifferences']) unless map['QuestionDifferences'].nil?)
+        data.question_differences = (QuestionDifferences.parse(map['QuestionDifferences']) unless map['QuestionDifferences'].nil?)
         return data
       end
     end
@@ -479,7 +479,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::QuestionDifference.parse(value) unless value.nil?
+          data << QuestionDifference.parse(value) unless value.nil?
         end
         data
       end
@@ -501,7 +501,7 @@ module AWS::SDK::WellArchitected
         data = Types::GetMilestoneOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
-        data.milestone = (Parsers::Milestone.parse(map['Milestone']) unless map['Milestone'].nil?)
+        data.milestone = (Milestone.parse(map['Milestone']) unless map['Milestone'].nil?)
         data
       end
     end
@@ -512,7 +512,7 @@ module AWS::SDK::WellArchitected
         data.milestone_number = map['MilestoneNumber']
         data.milestone_name = map['MilestoneName']
         data.recorded_at = Time.at(map['RecordedAt'].to_i) if map['RecordedAt']
-        data.workload = (Parsers::Workload.parse(map['Workload']) unless map['Workload'].nil?)
+        data.workload = (Workload.parse(map['Workload']) unless map['Workload'].nil?)
         return data
       end
     end
@@ -526,9 +526,9 @@ module AWS::SDK::WellArchitected
         data.description = map['Description']
         data.environment = map['Environment']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.account_ids = (Parsers::WorkloadAccountIds.parse(map['AccountIds']) unless map['AccountIds'].nil?)
-        data.aws_regions = (Parsers::WorkloadAwsRegions.parse(map['AwsRegions']) unless map['AwsRegions'].nil?)
-        data.non_aws_regions = (Parsers::WorkloadNonAwsRegions.parse(map['NonAwsRegions']) unless map['NonAwsRegions'].nil?)
+        data.account_ids = (WorkloadAccountIds.parse(map['AccountIds']) unless map['AccountIds'].nil?)
+        data.aws_regions = (WorkloadAwsRegions.parse(map['AwsRegions']) unless map['AwsRegions'].nil?)
+        data.non_aws_regions = (WorkloadNonAwsRegions.parse(map['NonAwsRegions']) unless map['NonAwsRegions'].nil?)
         data.architectural_design = map['ArchitecturalDesign']
         data.review_owner = map['ReviewOwner']
         data.review_restriction_date = Time.at(map['ReviewRestrictionDate'].to_i) if map['ReviewRestrictionDate']
@@ -537,12 +537,12 @@ module AWS::SDK::WellArchitected
         data.industry = map['Industry']
         data.notes = map['Notes']
         data.improvement_status = map['ImprovementStatus']
-        data.risk_counts = (Parsers::RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
-        data.pillar_priorities = (Parsers::WorkloadPillarPriorities.parse(map['PillarPriorities']) unless map['PillarPriorities'].nil?)
-        data.lenses = (Parsers::WorkloadLenses.parse(map['Lenses']) unless map['Lenses'].nil?)
+        data.risk_counts = (RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
+        data.pillar_priorities = (WorkloadPillarPriorities.parse(map['PillarPriorities']) unless map['PillarPriorities'].nil?)
+        data.lenses = (WorkloadLenses.parse(map['Lenses']) unless map['Lenses'].nil?)
         data.owner = map['Owner']
         data.share_invitation_id = map['ShareInvitationId']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -612,7 +612,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::GetWorkloadOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workload = (Parsers::Workload.parse(map['Workload']) unless map['Workload'].nil?)
+        data.workload = (Workload.parse(map['Workload']) unless map['Workload'].nil?)
         data
       end
     end
@@ -637,7 +637,7 @@ module AWS::SDK::WellArchitected
         data.milestone_number = map['MilestoneNumber']
         data.lens_alias = map['LensAlias']
         data.lens_arn = map['LensArn']
-        data.answer_summaries = (Parsers::AnswerSummaries.parse(map['AnswerSummaries']) unless map['AnswerSummaries'].nil?)
+        data.answer_summaries = (AnswerSummaries.parse(map['AnswerSummaries']) unless map['AnswerSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -647,7 +647,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnswerSummary.parse(value) unless value.nil?
+          data << AnswerSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -659,9 +659,9 @@ module AWS::SDK::WellArchitected
         data.question_id = map['QuestionId']
         data.pillar_id = map['PillarId']
         data.question_title = map['QuestionTitle']
-        data.choices = (Parsers::Choices.parse(map['Choices']) unless map['Choices'].nil?)
-        data.selected_choices = (Parsers::SelectedChoices.parse(map['SelectedChoices']) unless map['SelectedChoices'].nil?)
-        data.choice_answer_summaries = (Parsers::ChoiceAnswerSummaries.parse(map['ChoiceAnswerSummaries']) unless map['ChoiceAnswerSummaries'].nil?)
+        data.choices = (Choices.parse(map['Choices']) unless map['Choices'].nil?)
+        data.selected_choices = (SelectedChoices.parse(map['SelectedChoices']) unless map['SelectedChoices'].nil?)
+        data.choice_answer_summaries = (ChoiceAnswerSummaries.parse(map['ChoiceAnswerSummaries']) unless map['ChoiceAnswerSummaries'].nil?)
         data.is_applicable = map['IsApplicable']
         data.risk = map['Risk']
         data.reason = map['Reason']
@@ -673,7 +673,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChoiceAnswerSummary.parse(value) unless value.nil?
+          data << ChoiceAnswerSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -698,7 +698,7 @@ module AWS::SDK::WellArchitected
         data.milestone_number = map['MilestoneNumber']
         data.lens_alias = map['LensAlias']
         data.lens_arn = map['LensArn']
-        data.improvement_summaries = (Parsers::ImprovementSummaries.parse(map['ImprovementSummaries']) unless map['ImprovementSummaries'].nil?)
+        data.improvement_summaries = (ImprovementSummaries.parse(map['ImprovementSummaries']) unless map['ImprovementSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -708,7 +708,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImprovementSummary.parse(value) unless value.nil?
+          data << ImprovementSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -722,7 +722,7 @@ module AWS::SDK::WellArchitected
         data.question_title = map['QuestionTitle']
         data.risk = map['Risk']
         data.improvement_plan_url = map['ImprovementPlanUrl']
-        data.improvement_plans = (Parsers::ChoiceImprovementPlans.parse(map['ImprovementPlans']) unless map['ImprovementPlans'].nil?)
+        data.improvement_plans = (ChoiceImprovementPlans.parse(map['ImprovementPlans']) unless map['ImprovementPlans'].nil?)
         return data
       end
     end
@@ -731,7 +731,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChoiceImprovementPlan.parse(value) unless value.nil?
+          data << ChoiceImprovementPlan.parse(value) unless value.nil?
         end
         data
       end
@@ -754,7 +754,7 @@ module AWS::SDK::WellArchitected
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
         data.milestone_number = map['MilestoneNumber']
-        data.lens_review_summaries = (Parsers::LensReviewSummaries.parse(map['LensReviewSummaries']) unless map['LensReviewSummaries'].nil?)
+        data.lens_review_summaries = (LensReviewSummaries.parse(map['LensReviewSummaries']) unless map['LensReviewSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -764,7 +764,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LensReviewSummary.parse(value) unless value.nil?
+          data << LensReviewSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -779,7 +779,7 @@ module AWS::SDK::WellArchitected
         data.lens_name = map['LensName']
         data.lens_status = map['LensStatus']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.risk_counts = (Parsers::RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
+        data.risk_counts = (RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
         return data
       end
     end
@@ -789,7 +789,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::ListLensSharesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lens_share_summaries = (Parsers::LensShareSummaries.parse(map['LensShareSummaries']) unless map['LensShareSummaries'].nil?)
+        data.lens_share_summaries = (LensShareSummaries.parse(map['LensShareSummaries']) unless map['LensShareSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -799,7 +799,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LensShareSummary.parse(value) unless value.nil?
+          data << LensShareSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -820,7 +820,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::ListLensesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lens_summaries = (Parsers::LensSummaries.parse(map['LensSummaries']) unless map['LensSummaries'].nil?)
+        data.lens_summaries = (LensSummaries.parse(map['LensSummaries']) unless map['LensSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -830,7 +830,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LensSummary.parse(value) unless value.nil?
+          data << LensSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -859,7 +859,7 @@ module AWS::SDK::WellArchitected
         data = Types::ListMilestonesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
-        data.milestone_summaries = (Parsers::MilestoneSummaries.parse(map['MilestoneSummaries']) unless map['MilestoneSummaries'].nil?)
+        data.milestone_summaries = (MilestoneSummaries.parse(map['MilestoneSummaries']) unless map['MilestoneSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -869,7 +869,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MilestoneSummary.parse(value) unless value.nil?
+          data << MilestoneSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -881,7 +881,7 @@ module AWS::SDK::WellArchitected
         data.milestone_number = map['MilestoneNumber']
         data.milestone_name = map['MilestoneName']
         data.recorded_at = Time.at(map['RecordedAt'].to_i) if map['RecordedAt']
-        data.workload_summary = (Parsers::WorkloadSummary.parse(map['WorkloadSummary']) unless map['WorkloadSummary'].nil?)
+        data.workload_summary = (WorkloadSummary.parse(map['WorkloadSummary']) unless map['WorkloadSummary'].nil?)
         return data
       end
     end
@@ -894,8 +894,8 @@ module AWS::SDK::WellArchitected
         data.workload_name = map['WorkloadName']
         data.owner = map['Owner']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.lenses = (Parsers::WorkloadLenses.parse(map['Lenses']) unless map['Lenses'].nil?)
-        data.risk_counts = (Parsers::RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
+        data.lenses = (WorkloadLenses.parse(map['Lenses']) unless map['Lenses'].nil?)
+        data.risk_counts = (RiskCounts.parse(map['RiskCounts']) unless map['RiskCounts'].nil?)
         data.improvement_status = map['ImprovementStatus']
         return data
       end
@@ -906,7 +906,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::ListNotificationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.notification_summaries = (Parsers::NotificationSummaries.parse(map['NotificationSummaries']) unless map['NotificationSummaries'].nil?)
+        data.notification_summaries = (NotificationSummaries.parse(map['NotificationSummaries']) unless map['NotificationSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -916,7 +916,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NotificationSummary.parse(value) unless value.nil?
+          data << NotificationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -926,7 +926,7 @@ module AWS::SDK::WellArchitected
       def self.parse(map)
         data = Types::NotificationSummary.new
         data.type = map['Type']
-        data.lens_upgrade_summary = (Parsers::LensUpgradeSummary.parse(map['LensUpgradeSummary']) unless map['LensUpgradeSummary'].nil?)
+        data.lens_upgrade_summary = (LensUpgradeSummary.parse(map['LensUpgradeSummary']) unless map['LensUpgradeSummary'].nil?)
         return data
       end
     end
@@ -949,7 +949,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::ListShareInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.share_invitation_summaries = (Parsers::ShareInvitationSummaries.parse(map['ShareInvitationSummaries']) unless map['ShareInvitationSummaries'].nil?)
+        data.share_invitation_summaries = (ShareInvitationSummaries.parse(map['ShareInvitationSummaries']) unless map['ShareInvitationSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -959,7 +959,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ShareInvitationSummary.parse(value) unless value.nil?
+          data << ShareInvitationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -986,7 +986,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -997,7 +997,7 @@ module AWS::SDK::WellArchitected
         data = Types::ListWorkloadSharesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
-        data.workload_share_summaries = (Parsers::WorkloadShareSummaries.parse(map['WorkloadShareSummaries']) unless map['WorkloadShareSummaries'].nil?)
+        data.workload_share_summaries = (WorkloadShareSummaries.parse(map['WorkloadShareSummaries']) unless map['WorkloadShareSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1007,7 +1007,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkloadShareSummary.parse(value) unless value.nil?
+          data << WorkloadShareSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1029,7 +1029,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::ListWorkloadsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workload_summaries = (Parsers::WorkloadSummaries.parse(map['WorkloadSummaries']) unless map['WorkloadSummaries'].nil?)
+        data.workload_summaries = (WorkloadSummaries.parse(map['WorkloadSummaries']) unless map['WorkloadSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1039,7 +1039,7 @@ module AWS::SDK::WellArchitected
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkloadSummary.parse(value) unless value.nil?
+          data << WorkloadSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1071,7 +1071,7 @@ module AWS::SDK::WellArchitected
         data.workload_id = map['WorkloadId']
         data.lens_alias = map['LensAlias']
         data.lens_arn = map['LensArn']
-        data.answer = (Parsers::Answer.parse(map['Answer']) unless map['Answer'].nil?)
+        data.answer = (Answer.parse(map['Answer']) unless map['Answer'].nil?)
         data
       end
     end
@@ -1082,7 +1082,7 @@ module AWS::SDK::WellArchitected
         data = Types::UpdateLensReviewOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
-        data.lens_review = (Parsers::LensReview.parse(map['LensReview']) unless map['LensReview'].nil?)
+        data.lens_review = (LensReview.parse(map['LensReview']) unless map['LensReview'].nil?)
         data
       end
     end
@@ -1092,7 +1092,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::UpdateShareInvitationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.share_invitation = (Parsers::ShareInvitation.parse(map['ShareInvitation']) unless map['ShareInvitation'].nil?)
+        data.share_invitation = (ShareInvitation.parse(map['ShareInvitation']) unless map['ShareInvitation'].nil?)
         data
       end
     end
@@ -1114,7 +1114,7 @@ module AWS::SDK::WellArchitected
       def self.parse(http_resp)
         data = Types::UpdateWorkloadOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workload = (Parsers::Workload.parse(map['Workload']) unless map['Workload'].nil?)
+        data.workload = (Workload.parse(map['Workload']) unless map['Workload'].nil?)
         data
       end
     end
@@ -1125,7 +1125,7 @@ module AWS::SDK::WellArchitected
         data = Types::UpdateWorkloadShareOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workload_id = map['WorkloadId']
-        data.workload_share = (Parsers::WorkloadShare.parse(map['WorkloadShare']) unless map['WorkloadShare'].nil?)
+        data.workload_share = (WorkloadShare.parse(map['WorkloadShare']) unless map['WorkloadShare'].nil?)
         data
       end
     end

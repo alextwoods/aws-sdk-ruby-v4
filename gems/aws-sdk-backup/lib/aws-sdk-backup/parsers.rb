@@ -19,7 +19,7 @@ module AWS::SDK::Backup
         data.backup_plan_arn = map['BackupPlanArn']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.version_id = map['VersionId']
-        data.advanced_backup_settings = (Parsers::AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
+        data.advanced_backup_settings = (AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
         data
       end
     end
@@ -28,7 +28,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AdvancedBackupSetting.parse(value) unless value.nil?
+          data << AdvancedBackupSetting.parse(value) unless value.nil?
         end
         data
       end
@@ -38,7 +38,7 @@ module AWS::SDK::Backup
       def self.parse(map)
         data = Types::AdvancedBackupSetting.new
         data.resource_type = map['ResourceType']
-        data.backup_options = (Parsers::BackupOptions.parse(map['BackupOptions']) unless map['BackupOptions'].nil?)
+        data.backup_options = (BackupOptions.parse(map['BackupOptions']) unless map['BackupOptions'].nil?)
         return data
       end
     end
@@ -322,12 +322,12 @@ module AWS::SDK::Backup
         data.percent_done = map['PercentDone']
         data.backup_size_in_bytes = map['BackupSizeInBytes']
         data.iam_role_arn = map['IamRoleArn']
-        data.created_by = (Parsers::RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.resource_type = map['ResourceType']
         data.bytes_transferred = map['BytesTransferred']
         data.expected_completion_date = Time.at(map['ExpectedCompletionDate'].to_i) if map['ExpectedCompletionDate']
         data.start_by = Time.at(map['StartBy'].to_i) if map['StartBy']
-        data.backup_options = (Parsers::BackupOptions.parse(map['BackupOptions']) unless map['BackupOptions'].nil?)
+        data.backup_options = (BackupOptions.parse(map['BackupOptions']) unless map['BackupOptions'].nil?)
         data.backup_type = map['BackupType']
         data
       end
@@ -381,7 +381,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::DescribeCopyJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.copy_job = (Parsers::CopyJob.parse(map['CopyJob']) unless map['CopyJob'].nil?)
+        data.copy_job = (CopyJob.parse(map['CopyJob']) unless map['CopyJob'].nil?)
         data
       end
     end
@@ -402,7 +402,7 @@ module AWS::SDK::Backup
         data.status_message = map['StatusMessage']
         data.backup_size_in_bytes = map['BackupSizeInBytes']
         data.iam_role_arn = map['IamRoleArn']
-        data.created_by = (Parsers::RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.resource_type = map['ResourceType']
         return data
       end
@@ -416,7 +416,7 @@ module AWS::SDK::Backup
         data.framework_name = map['FrameworkName']
         data.framework_arn = map['FrameworkArn']
         data.framework_description = map['FrameworkDescription']
-        data.framework_controls = (Parsers::FrameworkControls.parse(map['FrameworkControls']) unless map['FrameworkControls'].nil?)
+        data.framework_controls = (FrameworkControls.parse(map['FrameworkControls']) unless map['FrameworkControls'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.deployment_status = map['DeploymentStatus']
         data.framework_status = map['FrameworkStatus']
@@ -429,7 +429,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FrameworkControl.parse(value) unless value.nil?
+          data << FrameworkControl.parse(value) unless value.nil?
         end
         data
       end
@@ -439,8 +439,8 @@ module AWS::SDK::Backup
       def self.parse(map)
         data = Types::FrameworkControl.new
         data.control_name = map['ControlName']
-        data.control_input_parameters = (Parsers::ControlInputParameters.parse(map['ControlInputParameters']) unless map['ControlInputParameters'].nil?)
-        data.control_scope = (Parsers::ControlScope.parse(map['ControlScope']) unless map['ControlScope'].nil?)
+        data.control_input_parameters = (ControlInputParameters.parse(map['ControlInputParameters']) unless map['ControlInputParameters'].nil?)
+        data.control_scope = (ControlScope.parse(map['ControlScope']) unless map['ControlScope'].nil?)
         return data
       end
     end
@@ -448,9 +448,9 @@ module AWS::SDK::Backup
     class ControlScope
       def self.parse(map)
         data = Types::ControlScope.new
-        data.compliance_resource_ids = (Parsers::ComplianceResourceIdList.parse(map['ComplianceResourceIds']) unless map['ComplianceResourceIds'].nil?)
-        data.compliance_resource_types = (Parsers::ResourceTypeList.parse(map['ComplianceResourceTypes']) unless map['ComplianceResourceTypes'].nil?)
-        data.tags = (Parsers::StringMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.compliance_resource_ids = (ComplianceResourceIdList.parse(map['ComplianceResourceIds']) unless map['ComplianceResourceIds'].nil?)
+        data.compliance_resource_types = (ResourceTypeList.parse(map['ComplianceResourceTypes']) unless map['ComplianceResourceTypes'].nil?)
+        data.tags = (StringMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -489,7 +489,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlInputParameter.parse(value) unless value.nil?
+          data << ControlInputParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -509,7 +509,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::DescribeGlobalSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.global_settings = (Parsers::GlobalSettings.parse(map['GlobalSettings']) unless map['GlobalSettings'].nil?)
+        data.global_settings = (GlobalSettings.parse(map['GlobalSettings']) unless map['GlobalSettings'].nil?)
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
         data
       end
@@ -548,15 +548,15 @@ module AWS::SDK::Backup
         data.source_backup_vault_arn = map['SourceBackupVaultArn']
         data.resource_arn = map['ResourceArn']
         data.resource_type = map['ResourceType']
-        data.created_by = (Parsers::RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.iam_role_arn = map['IamRoleArn']
         data.status = map['Status']
         data.status_message = map['StatusMessage']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.completion_date = Time.at(map['CompletionDate'].to_i) if map['CompletionDate']
         data.backup_size_in_bytes = map['BackupSizeInBytes']
-        data.calculated_lifecycle = (Parsers::CalculatedLifecycle.parse(map['CalculatedLifecycle']) unless map['CalculatedLifecycle'].nil?)
-        data.lifecycle = (Parsers::Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
+        data.calculated_lifecycle = (CalculatedLifecycle.parse(map['CalculatedLifecycle']) unless map['CalculatedLifecycle'].nil?)
+        data.lifecycle = (Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
         data.encryption_key_arn = map['EncryptionKeyArn']
         data.is_encrypted = map['IsEncrypted']
         data.storage_class = map['StorageClass']
@@ -588,8 +588,8 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::DescribeRegionSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_type_opt_in_preference = (Parsers::ResourceTypeOptInPreference.parse(map['ResourceTypeOptInPreference']) unless map['ResourceTypeOptInPreference'].nil?)
-        data.resource_type_management_preference = (Parsers::ResourceTypeManagementPreference.parse(map['ResourceTypeManagementPreference']) unless map['ResourceTypeManagementPreference'].nil?)
+        data.resource_type_opt_in_preference = (ResourceTypeOptInPreference.parse(map['ResourceTypeOptInPreference']) unless map['ResourceTypeOptInPreference'].nil?)
+        data.resource_type_management_preference = (ResourceTypeManagementPreference.parse(map['ResourceTypeManagementPreference']) unless map['ResourceTypeManagementPreference'].nil?)
         data
       end
     end
@@ -619,7 +619,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::DescribeReportJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.report_job = (Parsers::ReportJob.parse(map['ReportJob']) unless map['ReportJob'].nil?)
+        data.report_job = (ReportJob.parse(map['ReportJob']) unless map['ReportJob'].nil?)
         data
       end
     end
@@ -634,7 +634,7 @@ module AWS::SDK::Backup
         data.completion_time = Time.at(map['CompletionTime'].to_i) if map['CompletionTime']
         data.status = map['Status']
         data.status_message = map['StatusMessage']
-        data.report_destination = (Parsers::ReportDestination.parse(map['ReportDestination']) unless map['ReportDestination'].nil?)
+        data.report_destination = (ReportDestination.parse(map['ReportDestination']) unless map['ReportDestination'].nil?)
         return data
       end
     end
@@ -643,7 +643,7 @@ module AWS::SDK::Backup
       def self.parse(map)
         data = Types::ReportDestination.new
         data.s3_bucket_name = map['S3BucketName']
-        data.s3_keys = (Parsers::StringList.parse(map['S3Keys']) unless map['S3Keys'].nil?)
+        data.s3_keys = (StringList.parse(map['S3Keys']) unless map['S3Keys'].nil?)
         return data
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::DescribeReportPlanOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.report_plan = (Parsers::ReportPlan.parse(map['ReportPlan']) unless map['ReportPlan'].nil?)
+        data.report_plan = (ReportPlan.parse(map['ReportPlan']) unless map['ReportPlan'].nil?)
         data
       end
     end
@@ -674,8 +674,8 @@ module AWS::SDK::Backup
         data.report_plan_arn = map['ReportPlanArn']
         data.report_plan_name = map['ReportPlanName']
         data.report_plan_description = map['ReportPlanDescription']
-        data.report_setting = (Parsers::ReportSetting.parse(map['ReportSetting']) unless map['ReportSetting'].nil?)
-        data.report_delivery_channel = (Parsers::ReportDeliveryChannel.parse(map['ReportDeliveryChannel']) unless map['ReportDeliveryChannel'].nil?)
+        data.report_setting = (ReportSetting.parse(map['ReportSetting']) unless map['ReportSetting'].nil?)
+        data.report_delivery_channel = (ReportDeliveryChannel.parse(map['ReportDeliveryChannel']) unless map['ReportDeliveryChannel'].nil?)
         data.deployment_status = map['DeploymentStatus']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_attempted_execution_time = Time.at(map['LastAttemptedExecutionTime'].to_i) if map['LastAttemptedExecutionTime']
@@ -689,7 +689,7 @@ module AWS::SDK::Backup
         data = Types::ReportDeliveryChannel.new
         data.s3_bucket_name = map['S3BucketName']
         data.s3_key_prefix = map['S3KeyPrefix']
-        data.formats = (Parsers::FormatList.parse(map['Formats']) unless map['Formats'].nil?)
+        data.formats = (FormatList.parse(map['Formats']) unless map['Formats'].nil?)
         return data
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::Backup
       def self.parse(map)
         data = Types::ReportSetting.new
         data.report_template = map['ReportTemplate']
-        data.framework_arns = (Parsers::StringList.parse(map['FrameworkArns']) unless map['FrameworkArns'].nil?)
+        data.framework_arns = (StringList.parse(map['FrameworkArns']) unless map['FrameworkArns'].nil?)
         data.number_of_frameworks = map['NumberOfFrameworks']
         return data
       end
@@ -760,7 +760,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::GetBackupPlanOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_plan = (Parsers::BackupPlan.parse(map['BackupPlan']) unless map['BackupPlan'].nil?)
+        data.backup_plan = (BackupPlan.parse(map['BackupPlan']) unless map['BackupPlan'].nil?)
         data.backup_plan_id = map['BackupPlanId']
         data.backup_plan_arn = map['BackupPlanArn']
         data.version_id = map['VersionId']
@@ -768,7 +768,7 @@ module AWS::SDK::Backup
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.deletion_date = Time.at(map['DeletionDate'].to_i) if map['DeletionDate']
         data.last_execution_date = Time.at(map['LastExecutionDate'].to_i) if map['LastExecutionDate']
-        data.advanced_backup_settings = (Parsers::AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
+        data.advanced_backup_settings = (AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
         data
       end
     end
@@ -777,8 +777,8 @@ module AWS::SDK::Backup
       def self.parse(map)
         data = Types::BackupPlan.new
         data.backup_plan_name = map['BackupPlanName']
-        data.rules = (Parsers::BackupRules.parse(map['Rules']) unless map['Rules'].nil?)
-        data.advanced_backup_settings = (Parsers::AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
+        data.rules = (BackupRules.parse(map['Rules']) unless map['Rules'].nil?)
+        data.advanced_backup_settings = (AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
         return data
       end
     end
@@ -787,7 +787,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackupRule.parse(value) unless value.nil?
+          data << BackupRule.parse(value) unless value.nil?
         end
         data
       end
@@ -801,10 +801,10 @@ module AWS::SDK::Backup
         data.schedule_expression = map['ScheduleExpression']
         data.start_window_minutes = map['StartWindowMinutes']
         data.completion_window_minutes = map['CompletionWindowMinutes']
-        data.lifecycle = (Parsers::Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
-        data.recovery_point_tags = (Parsers::Tags.parse(map['RecoveryPointTags']) unless map['RecoveryPointTags'].nil?)
+        data.lifecycle = (Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
+        data.recovery_point_tags = (Tags.parse(map['RecoveryPointTags']) unless map['RecoveryPointTags'].nil?)
         data.rule_id = map['RuleId']
-        data.copy_actions = (Parsers::CopyActions.parse(map['CopyActions']) unless map['CopyActions'].nil?)
+        data.copy_actions = (CopyActions.parse(map['CopyActions']) unless map['CopyActions'].nil?)
         data.enable_continuous_backup = map['EnableContinuousBackup']
         return data
       end
@@ -814,7 +814,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CopyAction.parse(value) unless value.nil?
+          data << CopyAction.parse(value) unless value.nil?
         end
         data
       end
@@ -823,7 +823,7 @@ module AWS::SDK::Backup
     class CopyAction
       def self.parse(map)
         data = Types::CopyAction.new
-        data.lifecycle = (Parsers::Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
+        data.lifecycle = (Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
         data.destination_backup_vault_arn = map['DestinationBackupVaultArn']
         return data
       end
@@ -844,7 +844,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::GetBackupPlanFromJSONOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_plan = (Parsers::BackupPlan.parse(map['BackupPlan']) unless map['BackupPlan'].nil?)
+        data.backup_plan = (BackupPlan.parse(map['BackupPlan']) unless map['BackupPlan'].nil?)
         data
       end
     end
@@ -854,7 +854,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::GetBackupPlanFromTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_plan_document = (Parsers::BackupPlan.parse(map['BackupPlanDocument']) unless map['BackupPlanDocument'].nil?)
+        data.backup_plan_document = (BackupPlan.parse(map['BackupPlanDocument']) unless map['BackupPlanDocument'].nil?)
         data
       end
     end
@@ -864,7 +864,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::GetBackupSelectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_selection = (Parsers::BackupSelection.parse(map['BackupSelection']) unless map['BackupSelection'].nil?)
+        data.backup_selection = (BackupSelection.parse(map['BackupSelection']) unless map['BackupSelection'].nil?)
         data.selection_id = map['SelectionId']
         data.backup_plan_id = map['BackupPlanId']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
@@ -878,10 +878,10 @@ module AWS::SDK::Backup
         data = Types::BackupSelection.new
         data.selection_name = map['SelectionName']
         data.iam_role_arn = map['IamRoleArn']
-        data.resources = (Parsers::ResourceArns.parse(map['Resources']) unless map['Resources'].nil?)
-        data.list_of_tags = (Parsers::ListOfTags.parse(map['ListOfTags']) unless map['ListOfTags'].nil?)
-        data.not_resources = (Parsers::ResourceArns.parse(map['NotResources']) unless map['NotResources'].nil?)
-        data.conditions = (Parsers::Conditions.parse(map['Conditions']) unless map['Conditions'].nil?)
+        data.resources = (ResourceArns.parse(map['Resources']) unless map['Resources'].nil?)
+        data.list_of_tags = (ListOfTags.parse(map['ListOfTags']) unless map['ListOfTags'].nil?)
+        data.not_resources = (ResourceArns.parse(map['NotResources']) unless map['NotResources'].nil?)
+        data.conditions = (Conditions.parse(map['Conditions']) unless map['Conditions'].nil?)
         return data
       end
     end
@@ -889,10 +889,10 @@ module AWS::SDK::Backup
     class Conditions
       def self.parse(map)
         data = Types::Conditions.new
-        data.string_equals = (Parsers::ConditionParameters.parse(map['StringEquals']) unless map['StringEquals'].nil?)
-        data.string_not_equals = (Parsers::ConditionParameters.parse(map['StringNotEquals']) unless map['StringNotEquals'].nil?)
-        data.string_like = (Parsers::ConditionParameters.parse(map['StringLike']) unless map['StringLike'].nil?)
-        data.string_not_like = (Parsers::ConditionParameters.parse(map['StringNotLike']) unless map['StringNotLike'].nil?)
+        data.string_equals = (ConditionParameters.parse(map['StringEquals']) unless map['StringEquals'].nil?)
+        data.string_not_equals = (ConditionParameters.parse(map['StringNotEquals']) unless map['StringNotEquals'].nil?)
+        data.string_like = (ConditionParameters.parse(map['StringLike']) unless map['StringLike'].nil?)
+        data.string_not_like = (ConditionParameters.parse(map['StringNotLike']) unless map['StringNotLike'].nil?)
         return data
       end
     end
@@ -901,7 +901,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConditionParameter.parse(value) unless value.nil?
+          data << ConditionParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -930,7 +930,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Condition.parse(value) unless value.nil?
+          data << Condition.parse(value) unless value.nil?
         end
         data
       end
@@ -966,7 +966,7 @@ module AWS::SDK::Backup
         data.backup_vault_name = map['BackupVaultName']
         data.backup_vault_arn = map['BackupVaultArn']
         data.sns_topic_arn = map['SNSTopicArn']
-        data.backup_vault_events = (Parsers::BackupVaultEvents.parse(map['BackupVaultEvents']) unless map['BackupVaultEvents'].nil?)
+        data.backup_vault_events = (BackupVaultEvents.parse(map['BackupVaultEvents']) unless map['BackupVaultEvents'].nil?)
         data
       end
     end
@@ -988,7 +988,7 @@ module AWS::SDK::Backup
         map = Hearth::JSON.load(http_resp.body)
         data.backup_vault_arn = map['BackupVaultArn']
         data.recovery_point_arn = map['RecoveryPointArn']
-        data.restore_metadata = (Parsers::Metadata.parse(map['RestoreMetadata']) unless map['RestoreMetadata'].nil?)
+        data.restore_metadata = (Metadata.parse(map['RestoreMetadata']) unless map['RestoreMetadata'].nil?)
         data
       end
     end
@@ -1008,7 +1008,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::GetSupportedResourceTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_types = (Parsers::ResourceTypes.parse(map['ResourceTypes']) unless map['ResourceTypes'].nil?)
+        data.resource_types = (ResourceTypes.parse(map['ResourceTypes']) unless map['ResourceTypes'].nil?)
         data
       end
     end
@@ -1028,7 +1028,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListBackupJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_jobs = (Parsers::BackupJobsList.parse(map['BackupJobs']) unless map['BackupJobs'].nil?)
+        data.backup_jobs = (BackupJobsList.parse(map['BackupJobs']) unless map['BackupJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1038,7 +1038,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackupJob.parse(value) unless value.nil?
+          data << BackupJob.parse(value) unless value.nil?
         end
         data
       end
@@ -1060,12 +1060,12 @@ module AWS::SDK::Backup
         data.percent_done = map['PercentDone']
         data.backup_size_in_bytes = map['BackupSizeInBytes']
         data.iam_role_arn = map['IamRoleArn']
-        data.created_by = (Parsers::RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.expected_completion_date = Time.at(map['ExpectedCompletionDate'].to_i) if map['ExpectedCompletionDate']
         data.start_by = Time.at(map['StartBy'].to_i) if map['StartBy']
         data.resource_type = map['ResourceType']
         data.bytes_transferred = map['BytesTransferred']
-        data.backup_options = (Parsers::BackupOptions.parse(map['BackupOptions']) unless map['BackupOptions'].nil?)
+        data.backup_options = (BackupOptions.parse(map['BackupOptions']) unless map['BackupOptions'].nil?)
         data.backup_type = map['BackupType']
         return data
       end
@@ -1077,7 +1077,7 @@ module AWS::SDK::Backup
         data = Types::ListBackupPlanTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.backup_plan_templates_list = (Parsers::BackupPlanTemplatesList.parse(map['BackupPlanTemplatesList']) unless map['BackupPlanTemplatesList'].nil?)
+        data.backup_plan_templates_list = (BackupPlanTemplatesList.parse(map['BackupPlanTemplatesList']) unless map['BackupPlanTemplatesList'].nil?)
         data
       end
     end
@@ -1086,7 +1086,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackupPlanTemplatesListMember.parse(value) unless value.nil?
+          data << BackupPlanTemplatesListMember.parse(value) unless value.nil?
         end
         data
       end
@@ -1107,7 +1107,7 @@ module AWS::SDK::Backup
         data = Types::ListBackupPlanVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.backup_plan_versions_list = (Parsers::BackupPlanVersionsList.parse(map['BackupPlanVersionsList']) unless map['BackupPlanVersionsList'].nil?)
+        data.backup_plan_versions_list = (BackupPlanVersionsList.parse(map['BackupPlanVersionsList']) unless map['BackupPlanVersionsList'].nil?)
         data
       end
     end
@@ -1116,7 +1116,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackupPlansListMember.parse(value) unless value.nil?
+          data << BackupPlansListMember.parse(value) unless value.nil?
         end
         data
       end
@@ -1133,7 +1133,7 @@ module AWS::SDK::Backup
         data.backup_plan_name = map['BackupPlanName']
         data.creator_request_id = map['CreatorRequestId']
         data.last_execution_date = Time.at(map['LastExecutionDate'].to_i) if map['LastExecutionDate']
-        data.advanced_backup_settings = (Parsers::AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
+        data.advanced_backup_settings = (AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
         return data
       end
     end
@@ -1144,7 +1144,7 @@ module AWS::SDK::Backup
         data = Types::ListBackupPlansOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.backup_plans_list = (Parsers::BackupPlansList.parse(map['BackupPlansList']) unless map['BackupPlansList'].nil?)
+        data.backup_plans_list = (BackupPlansList.parse(map['BackupPlansList']) unless map['BackupPlansList'].nil?)
         data
       end
     end
@@ -1153,7 +1153,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackupPlansListMember.parse(value) unless value.nil?
+          data << BackupPlansListMember.parse(value) unless value.nil?
         end
         data
       end
@@ -1165,7 +1165,7 @@ module AWS::SDK::Backup
         data = Types::ListBackupSelectionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.backup_selections_list = (Parsers::BackupSelectionsList.parse(map['BackupSelectionsList']) unless map['BackupSelectionsList'].nil?)
+        data.backup_selections_list = (BackupSelectionsList.parse(map['BackupSelectionsList']) unless map['BackupSelectionsList'].nil?)
         data
       end
     end
@@ -1174,7 +1174,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackupSelectionsListMember.parse(value) unless value.nil?
+          data << BackupSelectionsListMember.parse(value) unless value.nil?
         end
         data
       end
@@ -1198,7 +1198,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListBackupVaultsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_vault_list = (Parsers::BackupVaultList.parse(map['BackupVaultList']) unless map['BackupVaultList'].nil?)
+        data.backup_vault_list = (BackupVaultList.parse(map['BackupVaultList']) unless map['BackupVaultList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1208,7 +1208,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BackupVaultListMember.parse(value) unless value.nil?
+          data << BackupVaultListMember.parse(value) unless value.nil?
         end
         data
       end
@@ -1236,7 +1236,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListCopyJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.copy_jobs = (Parsers::CopyJobsList.parse(map['CopyJobs']) unless map['CopyJobs'].nil?)
+        data.copy_jobs = (CopyJobsList.parse(map['CopyJobs']) unless map['CopyJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1246,7 +1246,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CopyJob.parse(value) unless value.nil?
+          data << CopyJob.parse(value) unless value.nil?
         end
         data
       end
@@ -1257,7 +1257,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListFrameworksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.frameworks = (Parsers::FrameworkList.parse(map['Frameworks']) unless map['Frameworks'].nil?)
+        data.frameworks = (FrameworkList.parse(map['Frameworks']) unless map['Frameworks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1267,7 +1267,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Framework.parse(value) unless value.nil?
+          data << Framework.parse(value) unless value.nil?
         end
         data
       end
@@ -1291,7 +1291,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListProtectedResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.results = (Parsers::ProtectedResourcesList.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (ProtectedResourcesList.parse(map['Results']) unless map['Results'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1301,7 +1301,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProtectedResource.parse(value) unless value.nil?
+          data << ProtectedResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1323,7 +1323,7 @@ module AWS::SDK::Backup
         data = Types::ListRecoveryPointsByBackupVaultOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.recovery_points = (Parsers::RecoveryPointByBackupVaultList.parse(map['RecoveryPoints']) unless map['RecoveryPoints'].nil?)
+        data.recovery_points = (RecoveryPointByBackupVaultList.parse(map['RecoveryPoints']) unless map['RecoveryPoints'].nil?)
         data
       end
     end
@@ -1332,7 +1332,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoveryPointByBackupVault.parse(value) unless value.nil?
+          data << RecoveryPointByBackupVault.parse(value) unless value.nil?
         end
         data
       end
@@ -1347,15 +1347,15 @@ module AWS::SDK::Backup
         data.source_backup_vault_arn = map['SourceBackupVaultArn']
         data.resource_arn = map['ResourceArn']
         data.resource_type = map['ResourceType']
-        data.created_by = (Parsers::RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (RecoveryPointCreator.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.iam_role_arn = map['IamRoleArn']
         data.status = map['Status']
         data.status_message = map['StatusMessage']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.completion_date = Time.at(map['CompletionDate'].to_i) if map['CompletionDate']
         data.backup_size_in_bytes = map['BackupSizeInBytes']
-        data.calculated_lifecycle = (Parsers::CalculatedLifecycle.parse(map['CalculatedLifecycle']) unless map['CalculatedLifecycle'].nil?)
-        data.lifecycle = (Parsers::Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
+        data.calculated_lifecycle = (CalculatedLifecycle.parse(map['CalculatedLifecycle']) unless map['CalculatedLifecycle'].nil?)
+        data.lifecycle = (Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
         data.encryption_key_arn = map['EncryptionKeyArn']
         data.is_encrypted = map['IsEncrypted']
         data.last_restore_time = Time.at(map['LastRestoreTime'].to_i) if map['LastRestoreTime']
@@ -1369,7 +1369,7 @@ module AWS::SDK::Backup
         data = Types::ListRecoveryPointsByResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.recovery_points = (Parsers::RecoveryPointByResourceList.parse(map['RecoveryPoints']) unless map['RecoveryPoints'].nil?)
+        data.recovery_points = (RecoveryPointByResourceList.parse(map['RecoveryPoints']) unless map['RecoveryPoints'].nil?)
         data
       end
     end
@@ -1378,7 +1378,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoveryPointByResource.parse(value) unless value.nil?
+          data << RecoveryPointByResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1403,7 +1403,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListReportJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.report_jobs = (Parsers::ReportJobList.parse(map['ReportJobs']) unless map['ReportJobs'].nil?)
+        data.report_jobs = (ReportJobList.parse(map['ReportJobs']) unless map['ReportJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1413,7 +1413,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReportJob.parse(value) unless value.nil?
+          data << ReportJob.parse(value) unless value.nil?
         end
         data
       end
@@ -1424,7 +1424,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListReportPlansOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.report_plans = (Parsers::ReportPlanList.parse(map['ReportPlans']) unless map['ReportPlans'].nil?)
+        data.report_plans = (ReportPlanList.parse(map['ReportPlans']) unless map['ReportPlans'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1434,7 +1434,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReportPlan.parse(value) unless value.nil?
+          data << ReportPlan.parse(value) unless value.nil?
         end
         data
       end
@@ -1445,7 +1445,7 @@ module AWS::SDK::Backup
       def self.parse(http_resp)
         data = Types::ListRestoreJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.restore_jobs = (Parsers::RestoreJobsList.parse(map['RestoreJobs']) unless map['RestoreJobs'].nil?)
+        data.restore_jobs = (RestoreJobsList.parse(map['RestoreJobs']) unless map['RestoreJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1455,7 +1455,7 @@ module AWS::SDK::Backup
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RestoreJobsListMember.parse(value) unless value.nil?
+          data << RestoreJobsListMember.parse(value) unless value.nil?
         end
         data
       end
@@ -1487,7 +1487,7 @@ module AWS::SDK::Backup
         data = Types::ListTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1598,7 +1598,7 @@ module AWS::SDK::Backup
         data.backup_plan_arn = map['BackupPlanArn']
         data.creation_date = Time.at(map['CreationDate'].to_i) if map['CreationDate']
         data.version_id = map['VersionId']
-        data.advanced_backup_settings = (Parsers::AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
+        data.advanced_backup_settings = (AdvancedBackupSettings.parse(map['AdvancedBackupSettings']) unless map['AdvancedBackupSettings'].nil?)
         data
       end
     end
@@ -1631,8 +1631,8 @@ module AWS::SDK::Backup
         map = Hearth::JSON.load(http_resp.body)
         data.backup_vault_arn = map['BackupVaultArn']
         data.recovery_point_arn = map['RecoveryPointArn']
-        data.lifecycle = (Parsers::Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
-        data.calculated_lifecycle = (Parsers::CalculatedLifecycle.parse(map['CalculatedLifecycle']) unless map['CalculatedLifecycle'].nil?)
+        data.lifecycle = (Lifecycle.parse(map['Lifecycle']) unless map['Lifecycle'].nil?)
+        data.calculated_lifecycle = (CalculatedLifecycle.parse(map['CalculatedLifecycle']) unless map['CalculatedLifecycle'].nil?)
         data
       end
     end

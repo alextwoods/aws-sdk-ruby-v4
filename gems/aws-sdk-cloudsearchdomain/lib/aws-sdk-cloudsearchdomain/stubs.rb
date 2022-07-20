@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudSearchDomain
   module Stubs
 
@@ -25,11 +27,11 @@ module AWS::SDK::CloudSearchDomain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['status'] = Stubs::SearchStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['hits'] = Stubs::Hits.stub(stub[:hits]) unless stub[:hits].nil?
-        data['facets'] = Stubs::Facets.stub(stub[:facets]) unless stub[:facets].nil?
-        data['stats'] = Stubs::Stats.stub(stub[:stats]) unless stub[:stats].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = SearchStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['hits'] = Hits.stub(stub[:hits]) unless stub[:hits].nil?
+        data['facets'] = Facets.stub(stub[:facets]) unless stub[:facets].nil?
+        data['stats'] = Stats.stub(stub[:stats]) unless stub[:stats].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -47,7 +49,7 @@ module AWS::SDK::CloudSearchDomain
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FieldStats.stub(value) unless value.nil?
+          data[key] = FieldStats.stub(value) unless value.nil?
         end
         data
       end
@@ -99,7 +101,7 @@ module AWS::SDK::CloudSearchDomain
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::BucketInfo.stub(value) unless value.nil?
+          data[key] = BucketInfo.stub(value) unless value.nil?
         end
         data
       end
@@ -118,7 +120,7 @@ module AWS::SDK::CloudSearchDomain
       def self.stub(stub)
         stub ||= Types::BucketInfo.new
         data = {}
-        data['buckets'] = Stubs::BucketList.stub(stub[:buckets]) unless stub[:buckets].nil?
+        data['buckets'] = BucketList.stub(stub[:buckets]) unless stub[:buckets].nil?
         data
       end
     end
@@ -137,7 +139,7 @@ module AWS::SDK::CloudSearchDomain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Bucket.stub(element) unless element.nil?
+          data << Bucket.stub(element) unless element.nil?
         end
         data
       end
@@ -182,7 +184,7 @@ module AWS::SDK::CloudSearchDomain
         data['found'] = stub[:found] unless stub[:found].nil?
         data['start'] = stub[:start] unless stub[:start].nil?
         data['cursor'] = stub[:cursor] unless stub[:cursor].nil?
-        data['hit'] = Stubs::HitList.stub(stub[:hit]) unless stub[:hit].nil?
+        data['hit'] = HitList.stub(stub[:hit]) unless stub[:hit].nil?
         data
       end
     end
@@ -201,7 +203,7 @@ module AWS::SDK::CloudSearchDomain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Hit.stub(element) unless element.nil?
+          data << Hit.stub(element) unless element.nil?
         end
         data
       end
@@ -224,9 +226,9 @@ module AWS::SDK::CloudSearchDomain
         stub ||= Types::Hit.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['fields'] = Stubs::Fields.stub(stub[:fields]) unless stub[:fields].nil?
-        data['exprs'] = Stubs::Exprs.stub(stub[:exprs]) unless stub[:exprs].nil?
-        data['highlights'] = Stubs::Highlights.stub(stub[:highlights]) unless stub[:highlights].nil?
+        data['fields'] = Fields.stub(stub[:fields]) unless stub[:fields].nil?
+        data['exprs'] = Exprs.stub(stub[:exprs]) unless stub[:exprs].nil?
+        data['highlights'] = Highlights.stub(stub[:highlights]) unless stub[:highlights].nil?
         data
       end
     end
@@ -285,7 +287,7 @@ module AWS::SDK::CloudSearchDomain
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FieldValue.stub(value) unless value.nil?
+          data[key] = FieldValue.stub(value) unless value.nil?
         end
         data
       end
@@ -344,9 +346,9 @@ module AWS::SDK::CloudSearchDomain
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['status'] = Stubs::SuggestStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['suggest'] = Stubs::SuggestModel.stub(stub[:suggest]) unless stub[:suggest].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = SuggestStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['suggest'] = SuggestModel.stub(stub[:suggest]) unless stub[:suggest].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -367,7 +369,7 @@ module AWS::SDK::CloudSearchDomain
         data = {}
         data['query'] = stub[:query] unless stub[:query].nil?
         data['found'] = stub[:found] unless stub[:found].nil?
-        data['suggestions'] = Stubs::Suggestions.stub(stub[:suggestions]) unless stub[:suggestions].nil?
+        data['suggestions'] = Suggestions.stub(stub[:suggestions]) unless stub[:suggestions].nil?
         data
       end
     end
@@ -386,7 +388,7 @@ module AWS::SDK::CloudSearchDomain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SuggestionMatch.stub(element) unless element.nil?
+          data << SuggestionMatch.stub(element) unless element.nil?
         end
         data
       end
@@ -452,8 +454,8 @@ module AWS::SDK::CloudSearchDomain
         data['status'] = stub[:status] unless stub[:status].nil?
         data['adds'] = stub[:adds] unless stub[:adds].nil?
         data['deletes'] = stub[:deletes] unless stub[:deletes].nil?
-        data['warnings'] = Stubs::DocumentServiceWarnings.stub(stub[:warnings]) unless stub[:warnings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['warnings'] = DocumentServiceWarnings.stub(stub[:warnings]) unless stub[:warnings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,7 +473,7 @@ module AWS::SDK::CloudSearchDomain
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentServiceWarning.stub(element) unless element.nil?
+          data << DocumentServiceWarning.stub(element) unless element.nil?
         end
         data
       end

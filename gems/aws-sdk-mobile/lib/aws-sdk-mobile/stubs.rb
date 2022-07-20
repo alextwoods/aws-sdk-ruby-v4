@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Mobile
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Mobile
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['details'] = Stubs::ProjectDetails.stub(stub[:details]) unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['details'] = ProjectDetails.stub(stub[:details]) unless stub[:details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,7 +56,7 @@ module AWS::SDK::Mobile
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data['consoleUrl'] = stub[:console_url] unless stub[:console_url].nil?
-        data['resources'] = Stubs::Resources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = Resources.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -73,7 +75,7 @@ module AWS::SDK::Mobile
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -100,7 +102,7 @@ module AWS::SDK::Mobile
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['feature'] = stub[:feature] unless stub[:feature].nil?
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -138,9 +140,9 @@ module AWS::SDK::Mobile
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['deletedResources'] = Stubs::Resources.stub(stub[:deleted_resources]) unless stub[:deleted_resources].nil?
-        data['orphanedResources'] = Stubs::Resources.stub(stub[:orphaned_resources]) unless stub[:orphaned_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deletedResources'] = Resources.stub(stub[:deleted_resources]) unless stub[:deleted_resources].nil?
+        data['orphanedResources'] = Resources.stub(stub[:orphaned_resources]) unless stub[:orphaned_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,8 +158,8 @@ module AWS::SDK::Mobile
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['details'] = Stubs::BundleDetails.stub(stub[:details]) unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['details'] = BundleDetails.stub(stub[:details]) unless stub[:details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -184,7 +186,7 @@ module AWS::SDK::Mobile
         data['version'] = stub[:version] unless stub[:version].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['iconUrl'] = stub[:icon_url] unless stub[:icon_url].nil?
-        data['availablePlatforms'] = Stubs::Platforms.stub(stub[:available_platforms]) unless stub[:available_platforms].nil?
+        data['availablePlatforms'] = Platforms.stub(stub[:available_platforms]) unless stub[:available_platforms].nil?
         data
       end
     end
@@ -221,8 +223,8 @@ module AWS::SDK::Mobile
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['details'] = Stubs::ProjectDetails.stub(stub[:details]) unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['details'] = ProjectDetails.stub(stub[:details]) unless stub[:details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,7 +241,7 @@ module AWS::SDK::Mobile
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['downloadUrl'] = stub[:download_url] unless stub[:download_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -260,7 +262,7 @@ module AWS::SDK::Mobile
         data['downloadUrl'] = stub[:download_url] unless stub[:download_url].nil?
         data['shareUrl'] = stub[:share_url] unless stub[:share_url].nil?
         data['snapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,9 +279,9 @@ module AWS::SDK::Mobile
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['bundleList'] = Stubs::BundleList.stub(stub[:bundle_list]) unless stub[:bundle_list].nil?
+        data['bundleList'] = BundleList.stub(stub[:bundle_list]) unless stub[:bundle_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -297,7 +299,7 @@ module AWS::SDK::Mobile
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BundleDetails.stub(element) unless element.nil?
+          data << BundleDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -316,9 +318,9 @@ module AWS::SDK::Mobile
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['projects'] = Stubs::ProjectSummaries.stub(stub[:projects]) unless stub[:projects].nil?
+        data['projects'] = ProjectSummaries.stub(stub[:projects]) unless stub[:projects].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,7 +338,7 @@ module AWS::SDK::Mobile
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSummary.stub(element) unless element.nil?
+          data << ProjectSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -374,8 +376,8 @@ module AWS::SDK::Mobile
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['details'] = Stubs::ProjectDetails.stub(stub[:details]) unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['details'] = ProjectDetails.stub(stub[:details]) unless stub[:details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

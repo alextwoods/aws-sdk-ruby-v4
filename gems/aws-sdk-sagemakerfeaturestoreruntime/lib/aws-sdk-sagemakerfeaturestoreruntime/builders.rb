@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMakerFeatureStoreRuntime
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Identifiers'] = Builders::BatchGetRecordIdentifiers.build(input[:identifiers]) unless input[:identifiers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Identifiers'] = BatchGetRecordIdentifiers.build(input[:identifiers]) unless input[:identifiers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchGetRecordIdentifier.build(element) unless element.nil?
+          data << BatchGetRecordIdentifier.build(element) unless element.nil?
         end
         data
       end
@@ -41,8 +43,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.build(input)
         data = {}
         data['FeatureGroupName'] = input[:feature_group_name] unless input[:feature_group_name].nil?
-        data['RecordIdentifiersValueAsString'] = Builders::RecordIdentifiers.build(input[:record_identifiers_value_as_string]) unless input[:record_identifiers_value_as_string].nil?
-        data['FeatureNames'] = Builders::FeatureNames.build(input[:feature_names]) unless input[:feature_names].nil?
+        data['RecordIdentifiersValueAsString'] = RecordIdentifiers.build(input[:record_identifiers_value_as_string]) unless input[:record_identifiers_value_as_string].nil?
+        data['FeatureNames'] = FeatureNames.build(input[:feature_names]) unless input[:feature_names].nil?
         data
       end
     end
@@ -128,8 +130,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Record'] = Builders::Record.build(input[:record]) unless input[:record].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Record'] = Record.build(input[:record]) unless input[:record].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,7 +140,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FeatureValue.build(element) unless element.nil?
+          data << FeatureValue.build(element) unless element.nil?
         end
         data
       end

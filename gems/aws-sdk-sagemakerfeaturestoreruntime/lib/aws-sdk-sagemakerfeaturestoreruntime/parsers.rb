@@ -15,9 +15,9 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.parse(http_resp)
         data = Types::BatchGetRecordOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.records = (Parsers::BatchGetRecordResultDetails.parse(map['Records']) unless map['Records'].nil?)
-        data.errors = (Parsers::BatchGetRecordErrors.parse(map['Errors']) unless map['Errors'].nil?)
-        data.unprocessed_identifiers = (Parsers::UnprocessedIdentifiers.parse(map['UnprocessedIdentifiers']) unless map['UnprocessedIdentifiers'].nil?)
+        data.records = (BatchGetRecordResultDetails.parse(map['Records']) unless map['Records'].nil?)
+        data.errors = (BatchGetRecordErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.unprocessed_identifiers = (UnprocessedIdentifiers.parse(map['UnprocessedIdentifiers']) unless map['UnprocessedIdentifiers'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetRecordIdentifier.parse(value) unless value.nil?
+          data << BatchGetRecordIdentifier.parse(value) unless value.nil?
         end
         data
       end
@@ -36,8 +36,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.parse(map)
         data = Types::BatchGetRecordIdentifier.new
         data.feature_group_name = map['FeatureGroupName']
-        data.record_identifiers_value_as_string = (Parsers::RecordIdentifiers.parse(map['RecordIdentifiersValueAsString']) unless map['RecordIdentifiersValueAsString'].nil?)
-        data.feature_names = (Parsers::FeatureNames.parse(map['FeatureNames']) unless map['FeatureNames'].nil?)
+        data.record_identifiers_value_as_string = (RecordIdentifiers.parse(map['RecordIdentifiersValueAsString']) unless map['RecordIdentifiersValueAsString'].nil?)
+        data.feature_names = (FeatureNames.parse(map['FeatureNames']) unless map['FeatureNames'].nil?)
         return data
       end
     end
@@ -66,7 +66,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetRecordError.parse(value) unless value.nil?
+          data << BatchGetRecordError.parse(value) unless value.nil?
         end
         data
       end
@@ -87,7 +87,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetRecordResultDetail.parse(value) unless value.nil?
+          data << BatchGetRecordResultDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -98,7 +98,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         data = Types::BatchGetRecordResultDetail.new
         data.feature_group_name = map['FeatureGroupName']
         data.record_identifier_value_as_string = map['RecordIdentifierValueAsString']
-        data.record = (Parsers::Record.parse(map['Record']) unless map['Record'].nil?)
+        data.record = (Record.parse(map['Record']) unless map['Record'].nil?)
         return data
       end
     end
@@ -107,7 +107,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FeatureValue.parse(value) unless value.nil?
+          data << FeatureValue.parse(value) unless value.nil?
         end
         data
       end
@@ -176,7 +176,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
       def self.parse(http_resp)
         data = Types::GetRecordOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.record = (Parsers::Record.parse(map['Record']) unless map['Record'].nil?)
+        data.record = (Record.parse(map['Record']) unless map['Record'].nil?)
         data
       end
     end

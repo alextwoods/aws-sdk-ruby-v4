@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudFormation
   module Builders
 
@@ -26,11 +28,11 @@ module AWS::SDK::CloudFormation
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'TypeNameAlias'] = input[:type_name_alias].to_s unless input[:type_name_alias].nil?
         params[context + 'AutoUpdate'] = input[:auto_update].to_s unless input[:auto_update].nil?
-        Builders::LoggingConfig.build(input[:logging_config], params, context: context + 'LoggingConfig' + '.') unless input[:logging_config].nil?
+        LoggingConfig.build(input[:logging_config], params, context: context + 'LoggingConfig' + '.') unless input[:logging_config].nil?
         params[context + 'ExecutionRoleArn'] = input[:execution_role_arn].to_s unless input[:execution_role_arn].nil?
         params[context + 'VersionBump'] = input[:version_bump].to_s unless input[:version_bump].nil?
         params[context + 'MajorVersion'] = input[:major_version].to_s unless input[:major_version].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -52,8 +54,8 @@ module AWS::SDK::CloudFormation
         params = Hearth::Query::ParamList.new
         params['Action'] = 'BatchDescribeTypeConfigurations'
         params['Version'] = '2010-05-15'
-        Builders::TypeConfigurationIdentifiers.build(input[:type_configuration_identifiers], params, context: context + 'TypeConfigurationIdentifiers' + '.member') unless input[:type_configuration_identifiers].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TypeConfigurationIdentifiers.build(input[:type_configuration_identifiers], params, context: context + 'TypeConfigurationIdentifiers' + '.member') unless input[:type_configuration_identifiers].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::CloudFormation
     class TypeConfigurationIdentifiers
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::TypeConfigurationIdentifier.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          TypeConfigurationIdentifier.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -89,7 +91,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -105,9 +107,9 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'RoleARN'] = input[:role_arn].to_s unless input[:role_arn].nil?
-        Builders::ResourcesToSkip.build(input[:resources_to_skip], params, context: context + 'ResourcesToSkip' + '.member') unless input[:resources_to_skip].nil?
+        ResourcesToSkip.build(input[:resources_to_skip], params, context: context + 'ResourcesToSkip' + '.member') unless input[:resources_to_skip].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -134,20 +136,20 @@ module AWS::SDK::CloudFormation
         params[context + 'TemplateBody'] = input[:template_body].to_s unless input[:template_body].nil?
         params[context + 'TemplateURL'] = input[:template_url].to_s unless input[:template_url].nil?
         params[context + 'UsePreviousTemplate'] = input[:use_previous_template].to_s unless input[:use_previous_template].nil?
-        Builders::Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
-        Builders::Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
-        Builders::ResourceTypes.build(input[:resource_types], params, context: context + 'ResourceTypes' + '.member') unless input[:resource_types].nil?
+        Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
+        Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
+        ResourceTypes.build(input[:resource_types], params, context: context + 'ResourceTypes' + '.member') unless input[:resource_types].nil?
         params[context + 'RoleARN'] = input[:role_arn].to_s unless input[:role_arn].nil?
-        Builders::RollbackConfiguration.build(input[:rollback_configuration], params, context: context + 'RollbackConfiguration' + '.') unless input[:rollback_configuration].nil?
-        Builders::NotificationARNs.build(input[:notification_ar_ns], params, context: context + 'NotificationARNs' + '.member') unless input[:notification_ar_ns].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        RollbackConfiguration.build(input[:rollback_configuration], params, context: context + 'RollbackConfiguration' + '.') unless input[:rollback_configuration].nil?
+        NotificationARNs.build(input[:notification_ar_ns], params, context: context + 'NotificationARNs' + '.member') unless input[:notification_ar_ns].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'ChangeSetName'] = input[:change_set_name].to_s unless input[:change_set_name].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'ChangeSetType'] = input[:change_set_type].to_s unless input[:change_set_type].nil?
-        Builders::ResourcesToImport.build(input[:resources_to_import], params, context: context + 'ResourcesToImport' + '.member') unless input[:resources_to_import].nil?
+        ResourcesToImport.build(input[:resources_to_import], params, context: context + 'ResourcesToImport' + '.member') unless input[:resources_to_import].nil?
         params[context + 'IncludeNestedStacks'] = input[:include_nested_stacks].to_s unless input[:include_nested_stacks].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -155,7 +157,7 @@ module AWS::SDK::CloudFormation
     class ResourcesToImport
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ResourceToImport.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ResourceToImport.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -165,7 +167,7 @@ module AWS::SDK::CloudFormation
       def self.build(input, params, context: nil)
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
         params[context + 'LogicalResourceId'] = input[:logical_resource_id].to_s unless input[:logical_resource_id].nil?
-        Builders::ResourceIdentifierProperties.build(input[:resource_identifier], params, context: context + 'ResourceIdentifier' + '.entry') unless input[:resource_identifier].nil?
+        ResourceIdentifierProperties.build(input[:resource_identifier], params, context: context + 'ResourceIdentifier' + '.entry') unless input[:resource_identifier].nil?
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::CloudFormation
     class Tags
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -208,7 +210,7 @@ module AWS::SDK::CloudFormation
     # Structure Builder for RollbackConfiguration
     class RollbackConfiguration
       def self.build(input, params, context: nil)
-        Builders::RollbackTriggers.build(input[:rollback_triggers], params, context: context + 'RollbackTriggers' + '.member') unless input[:rollback_triggers].nil?
+        RollbackTriggers.build(input[:rollback_triggers], params, context: context + 'RollbackTriggers' + '.member') unless input[:rollback_triggers].nil?
         params[context + 'MonitoringTimeInMinutes'] = input[:monitoring_time_in_minutes].to_s unless input[:monitoring_time_in_minutes].nil?
       end
     end
@@ -217,7 +219,7 @@ module AWS::SDK::CloudFormation
     class RollbackTriggers
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::RollbackTrigger.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          RollbackTrigger.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -252,7 +254,7 @@ module AWS::SDK::CloudFormation
     class Parameters
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Parameter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Parameter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -280,21 +282,21 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'TemplateBody'] = input[:template_body].to_s unless input[:template_body].nil?
         params[context + 'TemplateURL'] = input[:template_url].to_s unless input[:template_url].nil?
-        Builders::Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
+        Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
         params[context + 'DisableRollback'] = input[:disable_rollback].to_s unless input[:disable_rollback].nil?
-        Builders::RollbackConfiguration.build(input[:rollback_configuration], params, context: context + 'RollbackConfiguration' + '.') unless input[:rollback_configuration].nil?
+        RollbackConfiguration.build(input[:rollback_configuration], params, context: context + 'RollbackConfiguration' + '.') unless input[:rollback_configuration].nil?
         params[context + 'TimeoutInMinutes'] = input[:timeout_in_minutes].to_s unless input[:timeout_in_minutes].nil?
-        Builders::NotificationARNs.build(input[:notification_ar_ns], params, context: context + 'NotificationARNs' + '.member') unless input[:notification_ar_ns].nil?
-        Builders::Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
-        Builders::ResourceTypes.build(input[:resource_types], params, context: context + 'ResourceTypes' + '.member') unless input[:resource_types].nil?
+        NotificationARNs.build(input[:notification_ar_ns], params, context: context + 'NotificationARNs' + '.member') unless input[:notification_ar_ns].nil?
+        Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
+        ResourceTypes.build(input[:resource_types], params, context: context + 'ResourceTypes' + '.member') unless input[:resource_types].nil?
         params[context + 'RoleARN'] = input[:role_arn].to_s unless input[:role_arn].nil?
         params[context + 'OnFailure'] = input[:on_failure].to_s unless input[:on_failure].nil?
         params[context + 'StackPolicyBody'] = input[:stack_policy_body].to_s unless input[:stack_policy_body].nil?
         params[context + 'StackPolicyURL'] = input[:stack_policy_url].to_s unless input[:stack_policy_url].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
         params[context + 'EnableTerminationProtection'] = input[:enable_termination_protection].to_s unless input[:enable_termination_protection].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -309,14 +311,14 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'CreateStackInstances'
         params['Version'] = '2010-05-15'
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
-        Builders::AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
-        Builders::DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
-        Builders::RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
-        Builders::Parameters.build(input[:parameter_overrides], params, context: context + 'ParameterOverrides' + '.member') unless input[:parameter_overrides].nil?
-        Builders::StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
+        AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
+        DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
+        RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
+        Parameters.build(input[:parameter_overrides], params, context: context + 'ParameterOverrides' + '.member') unless input[:parameter_overrides].nil?
+        StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::CloudFormation
     class StackSetOperationPreferences
       def self.build(input, params, context: nil)
         params[context + 'RegionConcurrencyType'] = input[:region_concurrency_type].to_s unless input[:region_concurrency_type].nil?
-        Builders::RegionList.build(input[:region_order], params, context: context + 'RegionOrder' + '.member') unless input[:region_order].nil?
+        RegionList.build(input[:region_order], params, context: context + 'RegionOrder' + '.member') unless input[:region_order].nil?
         params[context + 'FailureToleranceCount'] = input[:failure_tolerance_count].to_s unless input[:failure_tolerance_count].nil?
         params[context + 'FailureTolerancePercentage'] = input[:failure_tolerance_percentage].to_s unless input[:failure_tolerance_percentage].nil?
         params[context + 'MaxConcurrentCount'] = input[:max_concurrent_count].to_s unless input[:max_concurrent_count].nil?
@@ -344,9 +346,9 @@ module AWS::SDK::CloudFormation
     # Structure Builder for DeploymentTargets
     class DeploymentTargets
       def self.build(input, params, context: nil)
-        Builders::AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
+        AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
         params[context + 'AccountsUrl'] = input[:accounts_url].to_s unless input[:accounts_url].nil?
-        Builders::OrganizationalUnitIdList.build(input[:organizational_unit_ids], params, context: context + 'OrganizationalUnitIds' + '.member') unless input[:organizational_unit_ids].nil?
+        OrganizationalUnitIdList.build(input[:organizational_unit_ids], params, context: context + 'OrganizationalUnitIds' + '.member') unless input[:organizational_unit_ids].nil?
       end
     end
 
@@ -383,17 +385,17 @@ module AWS::SDK::CloudFormation
         params[context + 'TemplateBody'] = input[:template_body].to_s unless input[:template_body].nil?
         params[context + 'TemplateURL'] = input[:template_url].to_s unless input[:template_url].nil?
         params[context + 'StackId'] = input[:stack_id].to_s unless input[:stack_id].nil?
-        Builders::Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
-        Builders::Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
+        Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'AdministrationRoleARN'] = input[:administration_role_arn].to_s unless input[:administration_role_arn].nil?
         params[context + 'ExecutionRoleName'] = input[:execution_role_name].to_s unless input[:execution_role_name].nil?
         params[context + 'PermissionModel'] = input[:permission_model].to_s unless input[:permission_model].nil?
-        Builders::AutoDeployment.build(input[:auto_deployment], params, context: context + 'AutoDeployment' + '.') unless input[:auto_deployment].nil?
+        AutoDeployment.build(input[:auto_deployment], params, context: context + 'AutoDeployment' + '.') unless input[:auto_deployment].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        Builders::ManagedExecution.build(input[:managed_execution], params, context: context + 'ManagedExecution' + '.') unless input[:managed_execution].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ManagedExecution.build(input[:managed_execution], params, context: context + 'ManagedExecution' + '.') unless input[:managed_execution].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -425,7 +427,7 @@ module AWS::SDK::CloudFormation
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'Arn'] = input[:arn].to_s unless input[:arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'ChangeSetName'] = input[:change_set_name].to_s unless input[:change_set_name].nil?
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -456,10 +458,10 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DeleteStack'
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
-        Builders::RetainResources.build(input[:retain_resources], params, context: context + 'RetainResources' + '.member') unless input[:retain_resources].nil?
+        RetainResources.build(input[:retain_resources], params, context: context + 'RetainResources' + '.member') unless input[:retain_resources].nil?
         params[context + 'RoleARN'] = input[:role_arn].to_s unless input[:role_arn].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -483,14 +485,14 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DeleteStackInstances'
         params['Version'] = '2010-05-15'
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
-        Builders::AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
-        Builders::DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
-        Builders::RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
-        Builders::StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
+        AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
+        DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
+        RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
+        StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
         params[context + 'RetainStacks'] = input[:retain_stacks].to_s unless input[:retain_stacks].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -506,7 +508,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -524,7 +526,7 @@ module AWS::SDK::CloudFormation
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'VersionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -539,7 +541,7 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DescribeAccountLimits'
         params['Version'] = '2010-05-15'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -556,7 +558,7 @@ module AWS::SDK::CloudFormation
         params[context + 'ChangeSetName'] = input[:change_set_name].to_s unless input[:change_set_name].nil?
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'LogicalResourceId'] = input[:logical_resource_id].to_s unless input[:logical_resource_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DescribePublisher'
         params['Version'] = '2010-05-15'
         params[context + 'PublisherId'] = input[:publisher_id].to_s unless input[:publisher_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -604,7 +606,7 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DescribeStackDriftDetectionStatus'
         params['Version'] = '2010-05-15'
         params[context + 'StackDriftDetectionId'] = input[:stack_drift_detection_id].to_s unless input[:stack_drift_detection_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -620,7 +622,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -638,7 +640,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackInstanceAccount'] = input[:stack_instance_account].to_s unless input[:stack_instance_account].nil?
         params[context + 'StackInstanceRegion'] = input[:stack_instance_region].to_s unless input[:stack_instance_region].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -654,7 +656,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'LogicalResourceId'] = input[:logical_resource_id].to_s unless input[:logical_resource_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -669,10 +671,10 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DescribeStackResourceDrifts'
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
-        Builders::StackResourceDriftStatusFilters.build(input[:stack_resource_drift_status_filters], params, context: context + 'StackResourceDriftStatusFilters' + '.member') unless input[:stack_resource_drift_status_filters].nil?
+        StackResourceDriftStatusFilters.build(input[:stack_resource_drift_status_filters], params, context: context + 'StackResourceDriftStatusFilters' + '.member') unless input[:stack_resource_drift_status_filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -698,7 +700,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'LogicalResourceId'] = input[:logical_resource_id].to_s unless input[:logical_resource_id].nil?
         params[context + 'PhysicalResourceId'] = input[:physical_resource_id].to_s unless input[:physical_resource_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -714,7 +716,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -731,7 +733,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -767,7 +769,7 @@ module AWS::SDK::CloudFormation
         params[context + 'VersionId'] = input[:version_id].to_s unless input[:version_id].nil?
         params[context + 'PublisherId'] = input[:publisher_id].to_s unless input[:publisher_id].nil?
         params[context + 'PublicVersionNumber'] = input[:public_version_number].to_s unless input[:public_version_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -782,7 +784,7 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DescribeTypeRegistration'
         params['Version'] = '2010-05-15'
         params[context + 'RegistrationToken'] = input[:registration_token].to_s unless input[:registration_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -797,8 +799,8 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DetectStackDrift'
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
-        Builders::LogicalResourceIds.build(input[:logical_resource_ids], params, context: context + 'LogicalResourceIds' + '.member') unless input[:logical_resource_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LogicalResourceIds.build(input[:logical_resource_ids], params, context: context + 'LogicalResourceIds' + '.member') unless input[:logical_resource_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -823,7 +825,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'LogicalResourceId'] = input[:logical_resource_id].to_s unless input[:logical_resource_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -838,10 +840,10 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'DetectStackSetDrift'
         params['Version'] = '2010-05-15'
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
-        Builders::StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
+        StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -857,8 +859,8 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'TemplateBody'] = input[:template_body].to_s unless input[:template_body].nil?
         params[context + 'TemplateURL'] = input[:template_url].to_s unless input[:template_url].nil?
-        Builders::Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -876,7 +878,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
         params[context + 'DisableRollback'] = input[:disable_rollback].to_s unless input[:disable_rollback].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -891,7 +893,7 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'GetStackPolicy'
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -908,7 +910,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'ChangeSetName'] = input[:change_set_name].to_s unless input[:change_set_name].nil?
         params[context + 'TemplateStage'] = input[:template_stage].to_s unless input[:template_stage].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -927,7 +929,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -942,13 +944,13 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'ImportStacksToStackSet'
         params['Version'] = '2010-05-15'
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
-        Builders::StackIdList.build(input[:stack_ids], params, context: context + 'StackIds' + '.member') unless input[:stack_ids].nil?
+        StackIdList.build(input[:stack_ids], params, context: context + 'StackIds' + '.member') unless input[:stack_ids].nil?
         params[context + 'StackIdsUrl'] = input[:stack_ids_url].to_s unless input[:stack_ids_url].nil?
-        Builders::OrganizationalUnitIdList.build(input[:organizational_unit_ids], params, context: context + 'OrganizationalUnitIds' + '.member') unless input[:organizational_unit_ids].nil?
-        Builders::StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
+        OrganizationalUnitIdList.build(input[:organizational_unit_ids], params, context: context + 'OrganizationalUnitIds' + '.member') unless input[:organizational_unit_ids].nil?
+        StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -973,7 +975,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -988,7 +990,7 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'ListExports'
         params['Version'] = '2010-05-15'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1004,7 +1006,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'ExportName'] = input[:export_name].to_s unless input[:export_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1021,11 +1023,11 @@ module AWS::SDK::CloudFormation
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        Builders::StackInstanceFilters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
+        StackInstanceFilters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
         params[context + 'StackInstanceAccount'] = input[:stack_instance_account].to_s unless input[:stack_instance_account].nil?
         params[context + 'StackInstanceRegion'] = input[:stack_instance_region].to_s unless input[:stack_instance_region].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1033,7 +1035,7 @@ module AWS::SDK::CloudFormation
     class StackInstanceFilters
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::StackInstanceFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          StackInstanceFilter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1058,7 +1060,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1077,7 +1079,7 @@ module AWS::SDK::CloudFormation
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::CloudFormation
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1113,7 +1115,7 @@ module AWS::SDK::CloudFormation
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1128,8 +1130,8 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'ListStacks'
         params['Version'] = '2010-05-15'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::StackStatusFilter.build(input[:stack_status_filter], params, context: context + 'StackStatusFilter' + '.member') unless input[:stack_status_filter].nil?
-        http_req.body = StringIO.new(params.to_s)
+        StackStatusFilter.build(input[:stack_status_filter], params, context: context + 'StackStatusFilter' + '.member') unless input[:stack_status_filter].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1158,7 +1160,7 @@ module AWS::SDK::CloudFormation
         params[context + 'RegistrationStatusFilter'] = input[:registration_status_filter].to_s unless input[:registration_status_filter].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1179,7 +1181,7 @@ module AWS::SDK::CloudFormation
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DeprecatedStatus'] = input[:deprecated_status].to_s unless input[:deprecated_status].nil?
         params[context + 'PublisherId'] = input[:publisher_id].to_s unless input[:publisher_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1197,10 +1199,10 @@ module AWS::SDK::CloudFormation
         params[context + 'ProvisioningType'] = input[:provisioning_type].to_s unless input[:provisioning_type].nil?
         params[context + 'DeprecatedStatus'] = input[:deprecated_status].to_s unless input[:deprecated_status].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
-        Builders::TypeFilters.build(input[:filters], params, context: context + 'Filters' + '.') unless input[:filters].nil?
+        TypeFilters.build(input[:filters], params, context: context + 'Filters' + '.') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1227,7 +1229,7 @@ module AWS::SDK::CloudFormation
         params[context + 'Arn'] = input[:arn].to_s unless input[:arn].nil?
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'PublicVersionNumber'] = input[:public_version_number].to_s unless input[:public_version_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1248,7 +1250,7 @@ module AWS::SDK::CloudFormation
         params[context + 'ErrorCode'] = input[:error_code].to_s unless input[:error_code].nil?
         params[context + 'ResourceModel'] = input[:resource_model].to_s unless input[:resource_model].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1264,7 +1266,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'AcceptTermsAndConditions'] = input[:accept_terms_and_conditions].to_s unless input[:accept_terms_and_conditions].nil?
         params[context + 'ConnectionArn'] = input[:connection_arn].to_s unless input[:connection_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1281,10 +1283,10 @@ module AWS::SDK::CloudFormation
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'SchemaHandlerPackage'] = input[:schema_handler_package].to_s unless input[:schema_handler_package].nil?
-        Builders::LoggingConfig.build(input[:logging_config], params, context: context + 'LoggingConfig' + '.') unless input[:logging_config].nil?
+        LoggingConfig.build(input[:logging_config], params, context: context + 'LoggingConfig' + '.') unless input[:logging_config].nil?
         params[context + 'ExecutionRoleArn'] = input[:execution_role_arn].to_s unless input[:execution_role_arn].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1301,7 +1303,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'RoleARN'] = input[:role_arn].to_s unless input[:role_arn].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1318,7 +1320,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
         params[context + 'StackPolicyBody'] = input[:stack_policy_body].to_s unless input[:stack_policy_body].nil?
         params[context + 'StackPolicyURL'] = input[:stack_policy_url].to_s unless input[:stack_policy_url].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1337,7 +1339,7 @@ module AWS::SDK::CloudFormation
         params[context + 'ConfigurationAlias'] = input[:configuration_alias].to_s unless input[:configuration_alias].nil?
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1355,7 +1357,7 @@ module AWS::SDK::CloudFormation
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'VersionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1373,7 +1375,7 @@ module AWS::SDK::CloudFormation
         params[context + 'LogicalResourceId'] = input[:logical_resource_id].to_s unless input[:logical_resource_id].nil?
         params[context + 'UniqueId'] = input[:unique_id].to_s unless input[:unique_id].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1390,7 +1392,7 @@ module AWS::SDK::CloudFormation
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1409,7 +1411,7 @@ module AWS::SDK::CloudFormation
         params[context + 'TypeName'] = input[:type_name].to_s unless input[:type_name].nil?
         params[context + 'VersionId'] = input[:version_id].to_s unless input[:version_id].nil?
         params[context + 'LogDeliveryBucket'] = input[:log_delivery_bucket].to_s unless input[:log_delivery_bucket].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1429,18 +1431,18 @@ module AWS::SDK::CloudFormation
         params[context + 'UsePreviousTemplate'] = input[:use_previous_template].to_s unless input[:use_previous_template].nil?
         params[context + 'StackPolicyDuringUpdateBody'] = input[:stack_policy_during_update_body].to_s unless input[:stack_policy_during_update_body].nil?
         params[context + 'StackPolicyDuringUpdateURL'] = input[:stack_policy_during_update_url].to_s unless input[:stack_policy_during_update_url].nil?
-        Builders::Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
-        Builders::Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
-        Builders::ResourceTypes.build(input[:resource_types], params, context: context + 'ResourceTypes' + '.member') unless input[:resource_types].nil?
+        Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
+        Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
+        ResourceTypes.build(input[:resource_types], params, context: context + 'ResourceTypes' + '.member') unless input[:resource_types].nil?
         params[context + 'RoleARN'] = input[:role_arn].to_s unless input[:role_arn].nil?
-        Builders::RollbackConfiguration.build(input[:rollback_configuration], params, context: context + 'RollbackConfiguration' + '.') unless input[:rollback_configuration].nil?
+        RollbackConfiguration.build(input[:rollback_configuration], params, context: context + 'RollbackConfiguration' + '.') unless input[:rollback_configuration].nil?
         params[context + 'StackPolicyBody'] = input[:stack_policy_body].to_s unless input[:stack_policy_body].nil?
         params[context + 'StackPolicyURL'] = input[:stack_policy_url].to_s unless input[:stack_policy_url].nil?
-        Builders::NotificationARNs.build(input[:notification_ar_ns], params, context: context + 'NotificationARNs' + '.member') unless input[:notification_ar_ns].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        NotificationARNs.build(input[:notification_ar_ns], params, context: context + 'NotificationARNs' + '.member') unless input[:notification_ar_ns].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'DisableRollback'] = input[:disable_rollback].to_s unless input[:disable_rollback].nil?
         params[context + 'ClientRequestToken'] = input[:client_request_token].to_s unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1455,14 +1457,14 @@ module AWS::SDK::CloudFormation
         params['Action'] = 'UpdateStackInstances'
         params['Version'] = '2010-05-15'
         params[context + 'StackSetName'] = input[:stack_set_name].to_s unless input[:stack_set_name].nil?
-        Builders::AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
-        Builders::DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
-        Builders::RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
-        Builders::Parameters.build(input[:parameter_overrides], params, context: context + 'ParameterOverrides' + '.member') unless input[:parameter_overrides].nil?
-        Builders::StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
+        AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
+        DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
+        RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
+        Parameters.build(input[:parameter_overrides], params, context: context + 'ParameterOverrides' + '.member') unless input[:parameter_overrides].nil?
+        StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1481,21 +1483,21 @@ module AWS::SDK::CloudFormation
         params[context + 'TemplateBody'] = input[:template_body].to_s unless input[:template_body].nil?
         params[context + 'TemplateURL'] = input[:template_url].to_s unless input[:template_url].nil?
         params[context + 'UsePreviousTemplate'] = input[:use_previous_template].to_s unless input[:use_previous_template].nil?
-        Builders::Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
-        Builders::Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        Builders::StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
+        Parameters.build(input[:parameters], params, context: context + 'Parameters' + '.member') unless input[:parameters].nil?
+        Capabilities.build(input[:capabilities], params, context: context + 'Capabilities' + '.member') unless input[:capabilities].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        StackSetOperationPreferences.build(input[:operation_preferences], params, context: context + 'OperationPreferences' + '.') unless input[:operation_preferences].nil?
         params[context + 'AdministrationRoleARN'] = input[:administration_role_arn].to_s unless input[:administration_role_arn].nil?
         params[context + 'ExecutionRoleName'] = input[:execution_role_name].to_s unless input[:execution_role_name].nil?
-        Builders::DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
+        DeploymentTargets.build(input[:deployment_targets], params, context: context + 'DeploymentTargets' + '.') unless input[:deployment_targets].nil?
         params[context + 'PermissionModel'] = input[:permission_model].to_s unless input[:permission_model].nil?
-        Builders::AutoDeployment.build(input[:auto_deployment], params, context: context + 'AutoDeployment' + '.') unless input[:auto_deployment].nil?
+        AutoDeployment.build(input[:auto_deployment], params, context: context + 'AutoDeployment' + '.') unless input[:auto_deployment].nil?
         params[context + 'OperationId'] = input[:operation_id].to_s unless input[:operation_id].nil?
-        Builders::AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
-        Builders::RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
+        AccountList.build(input[:accounts], params, context: context + 'Accounts' + '.member') unless input[:accounts].nil?
+        RegionList.build(input[:regions], params, context: context + 'Regions' + '.member') unless input[:regions].nil?
         params[context + 'CallAs'] = input[:call_as].to_s unless input[:call_as].nil?
-        Builders::ManagedExecution.build(input[:managed_execution], params, context: context + 'ManagedExecution' + '.') unless input[:managed_execution].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ManagedExecution.build(input[:managed_execution], params, context: context + 'ManagedExecution' + '.') unless input[:managed_execution].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1511,7 +1513,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'EnableTerminationProtection'] = input[:enable_termination_protection].to_s unless input[:enable_termination_protection].nil?
         params[context + 'StackName'] = input[:stack_name].to_s unless input[:stack_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1527,7 +1529,7 @@ module AWS::SDK::CloudFormation
         params['Version'] = '2010-05-15'
         params[context + 'TemplateBody'] = input[:template_body].to_s unless input[:template_body].nil?
         params[context + 'TemplateURL'] = input[:template_url].to_s unless input[:template_url].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

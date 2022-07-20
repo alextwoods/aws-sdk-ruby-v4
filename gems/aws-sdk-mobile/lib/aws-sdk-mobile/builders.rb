@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Mobile
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::Mobile
         params['snapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:contents] || '')
+        http_req.body = ::StringIO.new(input[:contents] || '')
       end
     end
 
@@ -140,7 +142,7 @@ module AWS::SDK::Mobile
         params['projectId'] = input[:project_id].to_s unless input[:project_id].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:contents] || '')
+        http_req.body = ::StringIO.new(input[:contents] || '')
       end
     end
   end

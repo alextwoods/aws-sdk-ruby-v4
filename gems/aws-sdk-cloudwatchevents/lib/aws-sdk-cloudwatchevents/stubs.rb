@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudWatchEvents
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::CloudWatchEvents
         data['ReplayArn'] = stub[:replay_arn] unless stub[:replay_arn].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::CloudWatchEvents
         data['ApiDestinationState'] = stub[:api_destination_state] unless stub[:api_destination_state].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::CloudWatchEvents
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::CloudWatchEvents
         data['ConnectionState'] = stub[:connection_state] unless stub[:connection_state].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -121,7 +123,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['EventBusArn'] = stub[:event_bus_arn] unless stub[:event_bus_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -137,7 +139,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -175,7 +177,7 @@ module AWS::SDK::CloudWatchEvents
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LastAuthorizedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_authorized_time]).to_i unless stub[:last_authorized_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -227,7 +229,7 @@ module AWS::SDK::CloudWatchEvents
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LastAuthorizedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_authorized_time]).to_i unless stub[:last_authorized_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -241,7 +243,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -269,7 +271,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::CloudWatchEvents
         data['InvocationRateLimitPerSecond'] = stub[:invocation_rate_limit_per_second] unless stub[:invocation_rate_limit_per_second].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -339,7 +341,7 @@ module AWS::SDK::CloudWatchEvents
         data['SizeBytes'] = stub[:size_bytes] unless stub[:size_bytes].nil?
         data['EventCount'] = stub[:event_count] unless stub[:event_count].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -371,11 +373,11 @@ module AWS::SDK::CloudWatchEvents
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['AuthorizationType'] = stub[:authorization_type] unless stub[:authorization_type].nil?
         data['SecretArn'] = stub[:secret_arn] unless stub[:secret_arn].nil?
-        data['AuthParameters'] = Stubs::ConnectionAuthResponseParameters.stub(stub[:auth_parameters]) unless stub[:auth_parameters].nil?
+        data['AuthParameters'] = ConnectionAuthResponseParameters.stub(stub[:auth_parameters]) unless stub[:auth_parameters].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LastAuthorizedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_authorized_time]).to_i unless stub[:last_authorized_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -396,10 +398,10 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::ConnectionAuthResponseParameters.new
         data = {}
-        data['BasicAuthParameters'] = Stubs::ConnectionBasicAuthResponseParameters.stub(stub[:basic_auth_parameters]) unless stub[:basic_auth_parameters].nil?
-        data['OAuthParameters'] = Stubs::ConnectionOAuthResponseParameters.stub(stub[:o_auth_parameters]) unless stub[:o_auth_parameters].nil?
-        data['ApiKeyAuthParameters'] = Stubs::ConnectionApiKeyAuthResponseParameters.stub(stub[:api_key_auth_parameters]) unless stub[:api_key_auth_parameters].nil?
-        data['InvocationHttpParameters'] = Stubs::ConnectionHttpParameters.stub(stub[:invocation_http_parameters]) unless stub[:invocation_http_parameters].nil?
+        data['BasicAuthParameters'] = ConnectionBasicAuthResponseParameters.stub(stub[:basic_auth_parameters]) unless stub[:basic_auth_parameters].nil?
+        data['OAuthParameters'] = ConnectionOAuthResponseParameters.stub(stub[:o_auth_parameters]) unless stub[:o_auth_parameters].nil?
+        data['ApiKeyAuthParameters'] = ConnectionApiKeyAuthResponseParameters.stub(stub[:api_key_auth_parameters]) unless stub[:api_key_auth_parameters].nil?
+        data['InvocationHttpParameters'] = ConnectionHttpParameters.stub(stub[:invocation_http_parameters]) unless stub[:invocation_http_parameters].nil?
         data
       end
     end
@@ -419,9 +421,9 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::ConnectionHttpParameters.new
         data = {}
-        data['HeaderParameters'] = Stubs::ConnectionHeaderParametersList.stub(stub[:header_parameters]) unless stub[:header_parameters].nil?
-        data['QueryStringParameters'] = Stubs::ConnectionQueryStringParametersList.stub(stub[:query_string_parameters]) unless stub[:query_string_parameters].nil?
-        data['BodyParameters'] = Stubs::ConnectionBodyParametersList.stub(stub[:body_parameters]) unless stub[:body_parameters].nil?
+        data['HeaderParameters'] = ConnectionHeaderParametersList.stub(stub[:header_parameters]) unless stub[:header_parameters].nil?
+        data['QueryStringParameters'] = ConnectionQueryStringParametersList.stub(stub[:query_string_parameters]) unless stub[:query_string_parameters].nil?
+        data['BodyParameters'] = ConnectionBodyParametersList.stub(stub[:body_parameters]) unless stub[:body_parameters].nil?
         data
       end
     end
@@ -440,7 +442,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectionBodyParameter.stub(element) unless element.nil?
+          data << ConnectionBodyParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -482,7 +484,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectionQueryStringParameter.stub(element) unless element.nil?
+          data << ConnectionQueryStringParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -524,7 +526,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectionHeaderParameter.stub(element) unless element.nil?
+          data << ConnectionHeaderParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -586,10 +588,10 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::ConnectionOAuthResponseParameters.new
         data = {}
-        data['ClientParameters'] = Stubs::ConnectionOAuthClientResponseParameters.stub(stub[:client_parameters]) unless stub[:client_parameters].nil?
+        data['ClientParameters'] = ConnectionOAuthClientResponseParameters.stub(stub[:client_parameters]) unless stub[:client_parameters].nil?
         data['AuthorizationEndpoint'] = stub[:authorization_endpoint] unless stub[:authorization_endpoint].nil?
         data['HttpMethod'] = stub[:http_method] unless stub[:http_method].nil?
-        data['OAuthHttpParameters'] = Stubs::ConnectionHttpParameters.stub(stub[:o_auth_http_parameters]) unless stub[:o_auth_http_parameters].nil?
+        data['OAuthHttpParameters'] = ConnectionHttpParameters.stub(stub[:o_auth_http_parameters]) unless stub[:o_auth_http_parameters].nil?
         data
       end
     end
@@ -645,7 +647,7 @@ module AWS::SDK::CloudWatchEvents
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -671,7 +673,7 @@ module AWS::SDK::CloudWatchEvents
         data['ExpirationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_time]).to_i unless stub[:expiration_time].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -689,7 +691,7 @@ module AWS::SDK::CloudWatchEvents
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -721,13 +723,13 @@ module AWS::SDK::CloudWatchEvents
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['EventSourceArn'] = stub[:event_source_arn] unless stub[:event_source_arn].nil?
-        data['Destination'] = Stubs::ReplayDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Destination'] = ReplayDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['EventStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:event_start_time]).to_i unless stub[:event_start_time].nil?
         data['EventEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:event_end_time]).to_i unless stub[:event_end_time].nil?
         data['EventLastReplayedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:event_last_replayed_time]).to_i unless stub[:event_last_replayed_time].nil?
         data['ReplayStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:replay_start_time]).to_i unless stub[:replay_start_time].nil?
         data['ReplayEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:replay_end_time]).to_i unless stub[:replay_end_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -747,7 +749,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= Types::ReplayDestination.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['FilterArns'] = Stubs::ReplayDestinationFilters.stub(stub[:filter_arns]) unless stub[:filter_arns].nil?
+        data['FilterArns'] = ReplayDestinationFilters.stub(stub[:filter_arns]) unless stub[:filter_arns].nil?
         data
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::CloudWatchEvents
         data['ManagedBy'] = stub[:managed_by] unless stub[:managed_by].nil?
         data['EventBusName'] = stub[:event_bus_name] unless stub[:event_bus_name].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -815,7 +817,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -829,7 +831,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -845,9 +847,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApiDestinations'] = Stubs::ApiDestinationResponseList.stub(stub[:api_destinations]) unless stub[:api_destinations].nil?
+        data['ApiDestinations'] = ApiDestinationResponseList.stub(stub[:api_destinations]) unless stub[:api_destinations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -866,7 +868,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApiDestination.stub(element) unless element.nil?
+          data << ApiDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -917,9 +919,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Archives'] = Stubs::ArchiveResponseList.stub(stub[:archives]) unless stub[:archives].nil?
+        data['Archives'] = ArchiveResponseList.stub(stub[:archives]) unless stub[:archives].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Archive.stub(element) unless element.nil?
+          data << Archive.stub(element) unless element.nil?
         end
         data
       end
@@ -987,9 +989,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connections'] = Stubs::ConnectionResponseList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['Connections'] = ConnectionResponseList.stub(stub[:connections]) unless stub[:connections].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1008,7 +1010,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connection.stub(element) unless element.nil?
+          data << Connection.stub(element) unless element.nil?
         end
         data
       end
@@ -1057,9 +1059,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventBuses'] = Stubs::EventBusList.stub(stub[:event_buses]) unless stub[:event_buses].nil?
+        data['EventBuses'] = EventBusList.stub(stub[:event_buses]) unless stub[:event_buses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1078,7 +1080,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventBus.stub(element) unless element.nil?
+          data << EventBus.stub(element) unless element.nil?
         end
         data
       end
@@ -1117,9 +1119,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventSources'] = Stubs::EventSourceList.stub(stub[:event_sources]) unless stub[:event_sources].nil?
+        data['EventSources'] = EventSourceList.stub(stub[:event_sources]) unless stub[:event_sources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventSource.stub(element) unless element.nil?
+          data << EventSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1183,9 +1185,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PartnerEventSourceAccounts'] = Stubs::PartnerEventSourceAccountList.stub(stub[:partner_event_source_accounts]) unless stub[:partner_event_source_accounts].nil?
+        data['PartnerEventSourceAccounts'] = PartnerEventSourceAccountList.stub(stub[:partner_event_source_accounts]) unless stub[:partner_event_source_accounts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1204,7 +1206,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartnerEventSourceAccount.stub(element) unless element.nil?
+          data << PartnerEventSourceAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -1245,9 +1247,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PartnerEventSources'] = Stubs::PartnerEventSourceList.stub(stub[:partner_event_sources]) unless stub[:partner_event_sources].nil?
+        data['PartnerEventSources'] = PartnerEventSourceList.stub(stub[:partner_event_sources]) unless stub[:partner_event_sources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1266,7 +1268,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartnerEventSource.stub(element) unless element.nil?
+          data << PartnerEventSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1303,9 +1305,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Replays'] = Stubs::ReplayList.stub(stub[:replays]) unless stub[:replays].nil?
+        data['Replays'] = ReplayList.stub(stub[:replays]) unless stub[:replays].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1324,7 +1326,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Replay.stub(element) unless element.nil?
+          data << Replay.stub(element) unless element.nil?
         end
         data
       end
@@ -1375,9 +1377,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuleNames'] = Stubs::RuleNameList.stub(stub[:rule_names]) unless stub[:rule_names].nil?
+        data['RuleNames'] = RuleNameList.stub(stub[:rule_names]) unless stub[:rule_names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1413,9 +1415,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rules'] = Stubs::RuleResponseList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = RuleResponseList.stub(stub[:rules]) unless stub[:rules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1434,7 +1436,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Rule.stub(element) unless element.nil?
+          data << Rule.stub(element) unless element.nil?
         end
         data
       end
@@ -1484,8 +1486,8 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1504,7 +1506,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1541,9 +1543,9 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Targets'] = Stubs::TargetList.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = TargetList.stub(stub[:targets]) unless stub[:targets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1562,7 +1564,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Target.stub(element) unless element.nil?
+          data << Target.stub(element) unless element.nil?
         end
         data
       end
@@ -1601,17 +1603,17 @@ module AWS::SDK::CloudWatchEvents
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['Input'] = stub[:input] unless stub[:input].nil?
         data['InputPath'] = stub[:input_path] unless stub[:input_path].nil?
-        data['InputTransformer'] = Stubs::InputTransformer.stub(stub[:input_transformer]) unless stub[:input_transformer].nil?
-        data['KinesisParameters'] = Stubs::KinesisParameters.stub(stub[:kinesis_parameters]) unless stub[:kinesis_parameters].nil?
-        data['RunCommandParameters'] = Stubs::RunCommandParameters.stub(stub[:run_command_parameters]) unless stub[:run_command_parameters].nil?
-        data['EcsParameters'] = Stubs::EcsParameters.stub(stub[:ecs_parameters]) unless stub[:ecs_parameters].nil?
-        data['BatchParameters'] = Stubs::BatchParameters.stub(stub[:batch_parameters]) unless stub[:batch_parameters].nil?
-        data['SqsParameters'] = Stubs::SqsParameters.stub(stub[:sqs_parameters]) unless stub[:sqs_parameters].nil?
-        data['HttpParameters'] = Stubs::HttpParameters.stub(stub[:http_parameters]) unless stub[:http_parameters].nil?
-        data['RedshiftDataParameters'] = Stubs::RedshiftDataParameters.stub(stub[:redshift_data_parameters]) unless stub[:redshift_data_parameters].nil?
-        data['SageMakerPipelineParameters'] = Stubs::SageMakerPipelineParameters.stub(stub[:sage_maker_pipeline_parameters]) unless stub[:sage_maker_pipeline_parameters].nil?
-        data['DeadLetterConfig'] = Stubs::DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['RetryPolicy'] = Stubs::RetryPolicy.stub(stub[:retry_policy]) unless stub[:retry_policy].nil?
+        data['InputTransformer'] = InputTransformer.stub(stub[:input_transformer]) unless stub[:input_transformer].nil?
+        data['KinesisParameters'] = KinesisParameters.stub(stub[:kinesis_parameters]) unless stub[:kinesis_parameters].nil?
+        data['RunCommandParameters'] = RunCommandParameters.stub(stub[:run_command_parameters]) unless stub[:run_command_parameters].nil?
+        data['EcsParameters'] = EcsParameters.stub(stub[:ecs_parameters]) unless stub[:ecs_parameters].nil?
+        data['BatchParameters'] = BatchParameters.stub(stub[:batch_parameters]) unless stub[:batch_parameters].nil?
+        data['SqsParameters'] = SqsParameters.stub(stub[:sqs_parameters]) unless stub[:sqs_parameters].nil?
+        data['HttpParameters'] = HttpParameters.stub(stub[:http_parameters]) unless stub[:http_parameters].nil?
+        data['RedshiftDataParameters'] = RedshiftDataParameters.stub(stub[:redshift_data_parameters]) unless stub[:redshift_data_parameters].nil?
+        data['SageMakerPipelineParameters'] = SageMakerPipelineParameters.stub(stub[:sage_maker_pipeline_parameters]) unless stub[:sage_maker_pipeline_parameters].nil?
+        data['DeadLetterConfig'] = DeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['RetryPolicy'] = RetryPolicy.stub(stub[:retry_policy]) unless stub[:retry_policy].nil?
         data
       end
     end
@@ -1667,7 +1669,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::SageMakerPipelineParameters.new
         data = {}
-        data['PipelineParameterList'] = Stubs::SageMakerPipelineParameterList.stub(stub[:pipeline_parameter_list]) unless stub[:pipeline_parameter_list].nil?
+        data['PipelineParameterList'] = SageMakerPipelineParameterList.stub(stub[:pipeline_parameter_list]) unless stub[:pipeline_parameter_list].nil?
         data
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SageMakerPipelineParameter.stub(element) unless element.nil?
+          data << SageMakerPipelineParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1755,9 +1757,9 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::HttpParameters.new
         data = {}
-        data['PathParameterValues'] = Stubs::PathParameterList.stub(stub[:path_parameter_values]) unless stub[:path_parameter_values].nil?
-        data['HeaderParameters'] = Stubs::HeaderParametersMap.stub(stub[:header_parameters]) unless stub[:header_parameters].nil?
-        data['QueryStringParameters'] = Stubs::QueryStringParametersMap.stub(stub[:query_string_parameters]) unless stub[:query_string_parameters].nil?
+        data['PathParameterValues'] = PathParameterList.stub(stub[:path_parameter_values]) unless stub[:path_parameter_values].nil?
+        data['HeaderParameters'] = HeaderParametersMap.stub(stub[:header_parameters]) unless stub[:header_parameters].nil?
+        data['QueryStringParameters'] = QueryStringParametersMap.stub(stub[:query_string_parameters]) unless stub[:query_string_parameters].nil?
         data
       end
     end
@@ -1858,8 +1860,8 @@ module AWS::SDK::CloudWatchEvents
         data = {}
         data['JobDefinition'] = stub[:job_definition] unless stub[:job_definition].nil?
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
-        data['ArrayProperties'] = Stubs::BatchArrayProperties.stub(stub[:array_properties]) unless stub[:array_properties].nil?
-        data['RetryStrategy'] = Stubs::BatchRetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
+        data['ArrayProperties'] = BatchArrayProperties.stub(stub[:array_properties]) unless stub[:array_properties].nil?
+        data['RetryStrategy'] = BatchRetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
         data
       end
     end
@@ -1929,17 +1931,17 @@ module AWS::SDK::CloudWatchEvents
         data['TaskDefinitionArn'] = stub[:task_definition_arn] unless stub[:task_definition_arn].nil?
         data['TaskCount'] = stub[:task_count] unless stub[:task_count].nil?
         data['LaunchType'] = stub[:launch_type] unless stub[:launch_type].nil?
-        data['NetworkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['NetworkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
         data['PlatformVersion'] = stub[:platform_version] unless stub[:platform_version].nil?
         data['Group'] = stub[:group] unless stub[:group].nil?
-        data['CapacityProviderStrategy'] = Stubs::CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
+        data['CapacityProviderStrategy'] = CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
         data['EnableECSManagedTags'] = stub[:enable_ecs_managed_tags] unless stub[:enable_ecs_managed_tags].nil?
         data['EnableExecuteCommand'] = stub[:enable_execute_command] unless stub[:enable_execute_command].nil?
-        data['PlacementConstraints'] = Stubs::PlacementConstraints.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
-        data['PlacementStrategy'] = Stubs::PlacementStrategies.stub(stub[:placement_strategy]) unless stub[:placement_strategy].nil?
+        data['PlacementConstraints'] = PlacementConstraints.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
+        data['PlacementStrategy'] = PlacementStrategies.stub(stub[:placement_strategy]) unless stub[:placement_strategy].nil?
         data['PropagateTags'] = stub[:propagate_tags] unless stub[:propagate_tags].nil?
         data['ReferenceId'] = stub[:reference_id] unless stub[:reference_id].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1958,7 +1960,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlacementStrategy.stub(element) unless element.nil?
+          data << PlacementStrategy.stub(element) unless element.nil?
         end
         data
       end
@@ -1998,7 +2000,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlacementConstraint.stub(element) unless element.nil?
+          data << PlacementConstraint.stub(element) unless element.nil?
         end
         data
       end
@@ -2038,7 +2040,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CapacityProviderStrategyItem.stub(element) unless element.nil?
+          data << CapacityProviderStrategyItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2079,7 +2081,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::NetworkConfiguration.new
         data = {}
-        data['awsvpcConfiguration'] = Stubs::AwsVpcConfiguration.stub(stub[:awsvpc_configuration]) unless stub[:awsvpc_configuration].nil?
+        data['awsvpcConfiguration'] = AwsVpcConfiguration.stub(stub[:awsvpc_configuration]) unless stub[:awsvpc_configuration].nil?
         data
       end
     end
@@ -2099,8 +2101,8 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::AwsVpcConfiguration.new
         data = {}
-        data['Subnets'] = Stubs::StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['SecurityGroups'] = Stubs::StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['Subnets'] = StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroups'] = StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['AssignPublicIp'] = stub[:assign_public_ip] unless stub[:assign_public_ip].nil?
         data
       end
@@ -2139,7 +2141,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::RunCommandParameters.new
         data = {}
-        data['RunCommandTargets'] = Stubs::RunCommandTargets.stub(stub[:run_command_targets]) unless stub[:run_command_targets].nil?
+        data['RunCommandTargets'] = RunCommandTargets.stub(stub[:run_command_targets]) unless stub[:run_command_targets].nil?
         data
       end
     end
@@ -2158,7 +2160,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RunCommandTarget.stub(element) unless element.nil?
+          data << RunCommandTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -2179,7 +2181,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= Types::RunCommandTarget.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::RunCommandTargetValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = RunCommandTargetValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -2236,7 +2238,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(stub)
         stub ||= Types::InputTransformer.new
         data = {}
-        data['InputPathsMap'] = Stubs::TransformerPaths.stub(stub[:input_paths_map]) unless stub[:input_paths_map].nil?
+        data['InputPathsMap'] = TransformerPaths.stub(stub[:input_paths_map]) unless stub[:input_paths_map].nil?
         data['InputTemplate'] = stub[:input_template] unless stub[:input_template].nil?
         data
       end
@@ -2274,8 +2276,8 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['FailedEntryCount'] = stub[:failed_entry_count] unless stub[:failed_entry_count].nil?
-        data['Entries'] = Stubs::PutEventsResultEntryList.stub(stub[:entries]) unless stub[:entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entries'] = PutEventsResultEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2294,7 +2296,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PutEventsResultEntry.stub(element) unless element.nil?
+          data << PutEventsResultEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -2334,8 +2336,8 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['FailedEntryCount'] = stub[:failed_entry_count] unless stub[:failed_entry_count].nil?
-        data['Entries'] = Stubs::PutPartnerEventsResultEntryList.stub(stub[:entries]) unless stub[:entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entries'] = PutPartnerEventsResultEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2354,7 +2356,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PutPartnerEventsResultEntry.stub(element) unless element.nil?
+          data << PutPartnerEventsResultEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -2391,7 +2393,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2407,7 +2409,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['RuleArn'] = stub[:rule_arn] unless stub[:rule_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2424,8 +2426,8 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['FailedEntryCount'] = stub[:failed_entry_count] unless stub[:failed_entry_count].nil?
-        data['FailedEntries'] = Stubs::PutTargetsResultEntryList.stub(stub[:failed_entries]) unless stub[:failed_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedEntries'] = PutTargetsResultEntryList.stub(stub[:failed_entries]) unless stub[:failed_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2444,7 +2446,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PutTargetsResultEntry.stub(element) unless element.nil?
+          data << PutTargetsResultEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -2481,7 +2483,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2498,8 +2500,8 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['FailedEntryCount'] = stub[:failed_entry_count] unless stub[:failed_entry_count].nil?
-        data['FailedEntries'] = Stubs::RemoveTargetsResultEntryList.stub(stub[:failed_entries]) unless stub[:failed_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedEntries'] = RemoveTargetsResultEntryList.stub(stub[:failed_entries]) unless stub[:failed_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2518,7 +2520,7 @@ module AWS::SDK::CloudWatchEvents
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemoveTargetsResultEntry.stub(element) unless element.nil?
+          data << RemoveTargetsResultEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -2563,7 +2565,7 @@ module AWS::SDK::CloudWatchEvents
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['ReplayStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:replay_start_time]).to_i unless stub[:replay_start_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2577,7 +2579,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2593,7 +2595,7 @@ module AWS::SDK::CloudWatchEvents
       def self.stub(http_resp, stub:)
         data = {}
         data['Result'] = stub[:result] unless stub[:result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2607,7 +2609,7 @@ module AWS::SDK::CloudWatchEvents
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2629,7 +2631,7 @@ module AWS::SDK::CloudWatchEvents
         data['ApiDestinationState'] = stub[:api_destination_state] unless stub[:api_destination_state].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2651,7 +2653,7 @@ module AWS::SDK::CloudWatchEvents
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateReason'] = stub[:state_reason] unless stub[:state_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2675,7 +2677,7 @@ module AWS::SDK::CloudWatchEvents
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LastAuthorizedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_authorized_time]).to_i unless stub[:last_authorized_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

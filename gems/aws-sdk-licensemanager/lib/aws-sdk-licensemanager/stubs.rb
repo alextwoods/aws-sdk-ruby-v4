@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LicenseManager
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::LicenseManager
         data['GrantArn'] = stub[:grant_arn] unless stub[:grant_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,13 +65,13 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseArn'] = stub[:license_arn] unless stub[:license_arn].nil?
         data['LicenseConsumptionToken'] = stub[:license_consumption_token] unless stub[:license_consumption_token].nil?
-        data['EntitlementsAllowed'] = Stubs::EntitlementDataList.stub(stub[:entitlements_allowed]) unless stub[:entitlements_allowed].nil?
+        data['EntitlementsAllowed'] = EntitlementDataList.stub(stub[:entitlements_allowed]) unless stub[:entitlements_allowed].nil?
         data['NodeId'] = stub[:node_id] unless stub[:node_id].nil?
         data['SignedToken'] = stub[:signed_token] unless stub[:signed_token].nil?
         data['IssuedAt'] = stub[:issued_at] unless stub[:issued_at].nil?
         data['Expiration'] = stub[:expiration] unless stub[:expiration].nil?
-        data['CheckoutMetadata'] = Stubs::MetadataList.stub(stub[:checkout_metadata]) unless stub[:checkout_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CheckoutMetadata'] = MetadataList.stub(stub[:checkout_metadata]) unless stub[:checkout_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -88,7 +90,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Metadata.stub(element) unless element.nil?
+          data << Metadata.stub(element) unless element.nil?
         end
         data
       end
@@ -128,7 +130,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntitlementData.stub(element) unless element.nil?
+          data << EntitlementData.stub(element) unless element.nil?
         end
         data
       end
@@ -175,13 +177,13 @@ module AWS::SDK::LicenseManager
         data = {}
         data['CheckoutType'] = stub[:checkout_type] unless stub[:checkout_type].nil?
         data['LicenseConsumptionToken'] = stub[:license_consumption_token] unless stub[:license_consumption_token].nil?
-        data['EntitlementsAllowed'] = Stubs::EntitlementDataList.stub(stub[:entitlements_allowed]) unless stub[:entitlements_allowed].nil?
+        data['EntitlementsAllowed'] = EntitlementDataList.stub(stub[:entitlements_allowed]) unless stub[:entitlements_allowed].nil?
         data['SignedToken'] = stub[:signed_token] unless stub[:signed_token].nil?
         data['NodeId'] = stub[:node_id] unless stub[:node_id].nil?
         data['IssuedAt'] = stub[:issued_at] unless stub[:issued_at].nil?
         data['Expiration'] = stub[:expiration] unless stub[:expiration].nil?
         data['LicenseArn'] = stub[:license_arn] unless stub[:license_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -201,7 +203,7 @@ module AWS::SDK::LicenseManager
         data['GrantArn'] = stub[:grant_arn] unless stub[:grant_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::LicenseManager
         data['GrantArn'] = stub[:grant_arn] unless stub[:grant_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -241,7 +243,7 @@ module AWS::SDK::LicenseManager
         data['LicenseArn'] = stub[:license_arn] unless stub[:license_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::LicenseManager
       def self.stub(http_resp, stub:)
         data = {}
         data['LicenseConfigurationArn'] = stub[:license_configuration_arn] unless stub[:license_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -273,7 +275,7 @@ module AWS::SDK::LicenseManager
       def self.stub(http_resp, stub:)
         data = {}
         data['LicenseConversionTaskId'] = stub[:license_conversion_task_id] unless stub[:license_conversion_task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::LicenseManager
       def self.stub(http_resp, stub:)
         data = {}
         data['LicenseManagerReportGeneratorArn'] = stub[:license_manager_report_generator_arn] unless stub[:license_manager_report_generator_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::LicenseManager
         data['LicenseArn'] = stub[:license_arn] unless stub[:license_arn].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::LicenseManager
         data['TokenId'] = stub[:token_id] unless stub[:token_id].nil?
         data['TokenType'] = stub[:token_type] unless stub[:token_type].nil?
         data['Token'] = stub[:token] unless stub[:token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -349,7 +351,7 @@ module AWS::SDK::LicenseManager
         data['GrantArn'] = stub[:grant_arn] unless stub[:grant_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -367,7 +369,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['DeletionDate'] = stub[:deletion_date] unless stub[:deletion_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -381,7 +383,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -395,7 +397,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -409,7 +411,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseConsumptionToken'] = stub[:license_consumption_token] unless stub[:license_consumption_token].nil?
         data['Expiration'] = stub[:expiration] unless stub[:expiration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::LicenseManager
       def self.stub(http_resp, stub:)
         data = {}
         data['AccessToken'] = stub[:access_token] unless stub[:access_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -458,8 +460,8 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Grant'] = Stubs::Grant.stub(stub[:grant]) unless stub[:grant].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Grant'] = Grant.stub(stub[:grant]) unless stub[:grant].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -495,7 +497,7 @@ module AWS::SDK::LicenseManager
         data['GrantStatus'] = stub[:grant_status] unless stub[:grant_status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['GrantedOperations'] = Stubs::AllowedOperationList.stub(stub[:granted_operations]) unless stub[:granted_operations].nil?
+        data['GrantedOperations'] = AllowedOperationList.stub(stub[:granted_operations]) unless stub[:granted_operations].nil?
         data
       end
     end
@@ -530,8 +532,8 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['License'] = Stubs::License.stub(stub[:license]) unless stub[:license].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['License'] = License.stub(stub[:license]) unless stub[:license].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -566,14 +568,14 @@ module AWS::SDK::LicenseManager
         data['LicenseName'] = stub[:license_name] unless stub[:license_name].nil?
         data['ProductName'] = stub[:product_name] unless stub[:product_name].nil?
         data['ProductSKU'] = stub[:product_sku] unless stub[:product_sku].nil?
-        data['Issuer'] = Stubs::IssuerDetails.stub(stub[:issuer]) unless stub[:issuer].nil?
+        data['Issuer'] = IssuerDetails.stub(stub[:issuer]) unless stub[:issuer].nil?
         data['HomeRegion'] = stub[:home_region] unless stub[:home_region].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Validity'] = Stubs::DatetimeRange.stub(stub[:validity]) unless stub[:validity].nil?
+        data['Validity'] = DatetimeRange.stub(stub[:validity]) unless stub[:validity].nil?
         data['Beneficiary'] = stub[:beneficiary] unless stub[:beneficiary].nil?
-        data['Entitlements'] = Stubs::EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
-        data['ConsumptionConfiguration'] = Stubs::ConsumptionConfiguration.stub(stub[:consumption_configuration]) unless stub[:consumption_configuration].nil?
-        data['LicenseMetadata'] = Stubs::MetadataList.stub(stub[:license_metadata]) unless stub[:license_metadata].nil?
+        data['Entitlements'] = EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
+        data['ConsumptionConfiguration'] = ConsumptionConfiguration.stub(stub[:consumption_configuration]) unless stub[:consumption_configuration].nil?
+        data['LicenseMetadata'] = MetadataList.stub(stub[:license_metadata]) unless stub[:license_metadata].nil?
         data['CreateTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data
@@ -596,8 +598,8 @@ module AWS::SDK::LicenseManager
         stub ||= Types::ConsumptionConfiguration.new
         data = {}
         data['RenewType'] = stub[:renew_type] unless stub[:renew_type].nil?
-        data['ProvisionalConfiguration'] = Stubs::ProvisionalConfiguration.stub(stub[:provisional_configuration]) unless stub[:provisional_configuration].nil?
-        data['BorrowConfiguration'] = Stubs::BorrowConfiguration.stub(stub[:borrow_configuration]) unless stub[:borrow_configuration].nil?
+        data['ProvisionalConfiguration'] = ProvisionalConfiguration.stub(stub[:provisional_configuration]) unless stub[:provisional_configuration].nil?
+        data['BorrowConfiguration'] = BorrowConfiguration.stub(stub[:borrow_configuration]) unless stub[:borrow_configuration].nil?
         data
       end
     end
@@ -654,7 +656,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entitlement.stub(element) unless element.nil?
+          data << Entitlement.stub(element) unless element.nil?
         end
         data
       end
@@ -761,19 +763,19 @@ module AWS::SDK::LicenseManager
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LicenseCountingType'] = stub[:license_counting_type] unless stub[:license_counting_type].nil?
-        data['LicenseRules'] = Stubs::StringList.stub(stub[:license_rules]) unless stub[:license_rules].nil?
+        data['LicenseRules'] = StringList.stub(stub[:license_rules]) unless stub[:license_rules].nil?
         data['LicenseCount'] = stub[:license_count] unless stub[:license_count].nil?
         data['LicenseCountHardLimit'] = stub[:license_count_hard_limit] unless stub[:license_count_hard_limit].nil?
         data['ConsumedLicenses'] = stub[:consumed_licenses] unless stub[:consumed_licenses].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
-        data['ConsumedLicenseSummaryList'] = Stubs::ConsumedLicenseSummaryList.stub(stub[:consumed_license_summary_list]) unless stub[:consumed_license_summary_list].nil?
-        data['ManagedResourceSummaryList'] = Stubs::ManagedResourceSummaryList.stub(stub[:managed_resource_summary_list]) unless stub[:managed_resource_summary_list].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ProductInformationList'] = Stubs::ProductInformationList.stub(stub[:product_information_list]) unless stub[:product_information_list].nil?
-        data['AutomatedDiscoveryInformation'] = Stubs::AutomatedDiscoveryInformation.stub(stub[:automated_discovery_information]) unless stub[:automated_discovery_information].nil?
+        data['ConsumedLicenseSummaryList'] = ConsumedLicenseSummaryList.stub(stub[:consumed_license_summary_list]) unless stub[:consumed_license_summary_list].nil?
+        data['ManagedResourceSummaryList'] = ManagedResourceSummaryList.stub(stub[:managed_resource_summary_list]) unless stub[:managed_resource_summary_list].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ProductInformationList'] = ProductInformationList.stub(stub[:product_information_list]) unless stub[:product_information_list].nil?
+        data['AutomatedDiscoveryInformation'] = AutomatedDiscoveryInformation.stub(stub[:automated_discovery_information]) unless stub[:automated_discovery_information].nil?
         data['DisassociateWhenNotFound'] = stub[:disassociate_when_not_found] unless stub[:disassociate_when_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -810,7 +812,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductInformation.stub(element) unless element.nil?
+          data << ProductInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -831,7 +833,7 @@ module AWS::SDK::LicenseManager
         stub ||= Types::ProductInformation.new
         data = {}
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['ProductInformationFilterList'] = Stubs::ProductInformationFilterList.stub(stub[:product_information_filter_list]) unless stub[:product_information_filter_list].nil?
+        data['ProductInformationFilterList'] = ProductInformationFilterList.stub(stub[:product_information_filter_list]) unless stub[:product_information_filter_list].nil?
         data
       end
     end
@@ -850,7 +852,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductInformationFilter.stub(element) unless element.nil?
+          data << ProductInformationFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -872,7 +874,7 @@ module AWS::SDK::LicenseManager
         stub ||= Types::ProductInformationFilter.new
         data = {}
         data['ProductInformationFilterName'] = stub[:product_information_filter_name] unless stub[:product_information_filter_name].nil?
-        data['ProductInformationFilterValue'] = Stubs::StringList.stub(stub[:product_information_filter_value]) unless stub[:product_information_filter_value].nil?
+        data['ProductInformationFilterValue'] = StringList.stub(stub[:product_information_filter_value]) unless stub[:product_information_filter_value].nil?
         data['ProductInformationFilterComparator'] = stub[:product_information_filter_comparator] unless stub[:product_information_filter_comparator].nil?
         data
       end
@@ -912,7 +914,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -952,7 +954,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedResourceSummary.stub(element) unless element.nil?
+          data << ManagedResourceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -992,7 +994,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConsumedLicenseSummary.stub(element) unless element.nil?
+          data << ConsumedLicenseSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1038,14 +1040,14 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseConversionTaskId'] = stub[:license_conversion_task_id] unless stub[:license_conversion_task_id].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['SourceLicenseContext'] = Stubs::LicenseConversionContext.stub(stub[:source_license_context]) unless stub[:source_license_context].nil?
-        data['DestinationLicenseContext'] = Stubs::LicenseConversionContext.stub(stub[:destination_license_context]) unless stub[:destination_license_context].nil?
+        data['SourceLicenseContext'] = LicenseConversionContext.stub(stub[:source_license_context]) unless stub[:source_license_context].nil?
+        data['DestinationLicenseContext'] = LicenseConversionContext.stub(stub[:destination_license_context]) unless stub[:destination_license_context].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['LicenseConversionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:license_conversion_time]).to_i unless stub[:license_conversion_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1078,8 +1080,8 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReportGenerator'] = Stubs::ReportGenerator.stub(stub[:report_generator]) unless stub[:report_generator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReportGenerator'] = ReportGenerator.stub(stub[:report_generator]) unless stub[:report_generator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1110,18 +1112,18 @@ module AWS::SDK::LicenseManager
         stub ||= Types::ReportGenerator.new
         data = {}
         data['ReportGeneratorName'] = stub[:report_generator_name] unless stub[:report_generator_name].nil?
-        data['ReportType'] = Stubs::ReportTypeList.stub(stub[:report_type]) unless stub[:report_type].nil?
-        data['ReportContext'] = Stubs::ReportContext.stub(stub[:report_context]) unless stub[:report_context].nil?
-        data['ReportFrequency'] = Stubs::ReportFrequency.stub(stub[:report_frequency]) unless stub[:report_frequency].nil?
+        data['ReportType'] = ReportTypeList.stub(stub[:report_type]) unless stub[:report_type].nil?
+        data['ReportContext'] = ReportContext.stub(stub[:report_context]) unless stub[:report_context].nil?
+        data['ReportFrequency'] = ReportFrequency.stub(stub[:report_frequency]) unless stub[:report_frequency].nil?
         data['LicenseManagerReportGeneratorArn'] = stub[:license_manager_report_generator_arn] unless stub[:license_manager_report_generator_arn].nil?
         data['LastRunStatus'] = stub[:last_run_status] unless stub[:last_run_status].nil?
         data['LastRunFailureReason'] = stub[:last_run_failure_reason] unless stub[:last_run_failure_reason].nil?
         data['LastReportGenerationTime'] = stub[:last_report_generation_time] unless stub[:last_report_generation_time].nil?
         data['ReportCreatorAccount'] = stub[:report_creator_account] unless stub[:report_creator_account].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['S3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['S3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data['CreateTime'] = stub[:create_time] unless stub[:create_time].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1179,7 +1181,7 @@ module AWS::SDK::LicenseManager
       def self.stub(stub)
         stub ||= Types::ReportContext.new
         data = {}
-        data['licenseConfigurationArns'] = Stubs::ArnList.stub(stub[:license_configuration_arns]) unless stub[:license_configuration_arns].nil?
+        data['licenseConfigurationArns'] = ArnList.stub(stub[:license_configuration_arns]) unless stub[:license_configuration_arns].nil?
         data
       end
     end
@@ -1234,8 +1236,8 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LicenseUsage'] = Stubs::LicenseUsage.stub(stub[:license_usage]) unless stub[:license_usage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LicenseUsage'] = LicenseUsage.stub(stub[:license_usage]) unless stub[:license_usage].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1253,7 +1255,7 @@ module AWS::SDK::LicenseManager
       def self.stub(stub)
         stub ||= Types::LicenseUsage.new
         data = {}
-        data['EntitlementUsages'] = Stubs::EntitlementUsageList.stub(stub[:entitlement_usages]) unless stub[:entitlement_usages].nil?
+        data['EntitlementUsages'] = EntitlementUsageList.stub(stub[:entitlement_usages]) unless stub[:entitlement_usages].nil?
         data
       end
     end
@@ -1272,7 +1274,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntitlementUsage.stub(element) unless element.nil?
+          data << EntitlementUsage.stub(element) unless element.nil?
         end
         data
       end
@@ -1318,10 +1320,10 @@ module AWS::SDK::LicenseManager
         data = {}
         data['S3BucketArn'] = stub[:s3_bucket_arn] unless stub[:s3_bucket_arn].nil?
         data['SnsTopicArn'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
-        data['OrganizationConfiguration'] = Stubs::OrganizationConfiguration.stub(stub[:organization_configuration]) unless stub[:organization_configuration].nil?
+        data['OrganizationConfiguration'] = OrganizationConfiguration.stub(stub[:organization_configuration]) unless stub[:organization_configuration].nil?
         data['EnableCrossAccountsDiscovery'] = stub[:enable_cross_accounts_discovery] unless stub[:enable_cross_accounts_discovery].nil?
         data['LicenseManagerResourceShareArn'] = stub[:license_manager_resource_share_arn] unless stub[:license_manager_resource_share_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1355,9 +1357,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LicenseConfigurationAssociations'] = Stubs::LicenseConfigurationAssociations.stub(stub[:license_configuration_associations]) unless stub[:license_configuration_associations].nil?
+        data['LicenseConfigurationAssociations'] = LicenseConfigurationAssociations.stub(stub[:license_configuration_associations]) unless stub[:license_configuration_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1376,7 +1378,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LicenseConfigurationAssociation.stub(element) unless element.nil?
+          data << LicenseConfigurationAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1419,9 +1421,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Grants'] = Stubs::GrantList.stub(stub[:grants]) unless stub[:grants].nil?
+        data['Grants'] = GrantList.stub(stub[:grants]) unless stub[:grants].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1440,7 +1442,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Grant.stub(element) unless element.nil?
+          data << Grant.stub(element) unless element.nil?
         end
         data
       end
@@ -1457,9 +1459,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LicenseOperationFailureList'] = Stubs::LicenseOperationFailureList.stub(stub[:license_operation_failure_list]) unless stub[:license_operation_failure_list].nil?
+        data['LicenseOperationFailureList'] = LicenseOperationFailureList.stub(stub[:license_operation_failure_list]) unless stub[:license_operation_failure_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1478,7 +1480,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LicenseOperationFailure.stub(element) unless element.nil?
+          data << LicenseOperationFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -1511,7 +1513,7 @@ module AWS::SDK::LicenseManager
         data['OperationName'] = stub[:operation_name] unless stub[:operation_name].nil?
         data['ResourceOwnerId'] = stub[:resource_owner_id] unless stub[:resource_owner_id].nil?
         data['OperationRequestedBy'] = stub[:operation_requested_by] unless stub[:operation_requested_by].nil?
-        data['MetadataList'] = Stubs::MetadataList.stub(stub[:metadata_list]) unless stub[:metadata_list].nil?
+        data['MetadataList'] = MetadataList.stub(stub[:metadata_list]) unless stub[:metadata_list].nil?
         data
       end
     end
@@ -1527,9 +1529,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LicenseConfigurations'] = Stubs::LicenseConfigurations.stub(stub[:license_configurations]) unless stub[:license_configurations].nil?
+        data['LicenseConfigurations'] = LicenseConfigurations.stub(stub[:license_configurations]) unless stub[:license_configurations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1548,7 +1550,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LicenseConfiguration.stub(element) unless element.nil?
+          data << LicenseConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1587,17 +1589,17 @@ module AWS::SDK::LicenseManager
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LicenseCountingType'] = stub[:license_counting_type] unless stub[:license_counting_type].nil?
-        data['LicenseRules'] = Stubs::StringList.stub(stub[:license_rules]) unless stub[:license_rules].nil?
+        data['LicenseRules'] = StringList.stub(stub[:license_rules]) unless stub[:license_rules].nil?
         data['LicenseCount'] = stub[:license_count] unless stub[:license_count].nil?
         data['LicenseCountHardLimit'] = stub[:license_count_hard_limit] unless stub[:license_count_hard_limit].nil?
         data['DisassociateWhenNotFound'] = stub[:disassociate_when_not_found] unless stub[:disassociate_when_not_found].nil?
         data['ConsumedLicenses'] = stub[:consumed_licenses] unless stub[:consumed_licenses].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
-        data['ConsumedLicenseSummaryList'] = Stubs::ConsumedLicenseSummaryList.stub(stub[:consumed_license_summary_list]) unless stub[:consumed_license_summary_list].nil?
-        data['ManagedResourceSummaryList'] = Stubs::ManagedResourceSummaryList.stub(stub[:managed_resource_summary_list]) unless stub[:managed_resource_summary_list].nil?
-        data['ProductInformationList'] = Stubs::ProductInformationList.stub(stub[:product_information_list]) unless stub[:product_information_list].nil?
-        data['AutomatedDiscoveryInformation'] = Stubs::AutomatedDiscoveryInformation.stub(stub[:automated_discovery_information]) unless stub[:automated_discovery_information].nil?
+        data['ConsumedLicenseSummaryList'] = ConsumedLicenseSummaryList.stub(stub[:consumed_license_summary_list]) unless stub[:consumed_license_summary_list].nil?
+        data['ManagedResourceSummaryList'] = ManagedResourceSummaryList.stub(stub[:managed_resource_summary_list]) unless stub[:managed_resource_summary_list].nil?
+        data['ProductInformationList'] = ProductInformationList.stub(stub[:product_information_list]) unless stub[:product_information_list].nil?
+        data['AutomatedDiscoveryInformation'] = AutomatedDiscoveryInformation.stub(stub[:automated_discovery_information]) unless stub[:automated_discovery_information].nil?
         data
       end
     end
@@ -1613,9 +1615,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LicenseConversionTasks'] = Stubs::LicenseConversionTasks.stub(stub[:license_conversion_tasks]) unless stub[:license_conversion_tasks].nil?
+        data['LicenseConversionTasks'] = LicenseConversionTasks.stub(stub[:license_conversion_tasks]) unless stub[:license_conversion_tasks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1634,7 +1636,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LicenseConversionTask.stub(element) unless element.nil?
+          data << LicenseConversionTask.stub(element) unless element.nil?
         end
         data
       end
@@ -1663,8 +1665,8 @@ module AWS::SDK::LicenseManager
         data = {}
         data['LicenseConversionTaskId'] = stub[:license_conversion_task_id] unless stub[:license_conversion_task_id].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['SourceLicenseContext'] = Stubs::LicenseConversionContext.stub(stub[:source_license_context]) unless stub[:source_license_context].nil?
-        data['DestinationLicenseContext'] = Stubs::LicenseConversionContext.stub(stub[:destination_license_context]) unless stub[:destination_license_context].nil?
+        data['SourceLicenseContext'] = LicenseConversionContext.stub(stub[:source_license_context]) unless stub[:source_license_context].nil?
+        data['DestinationLicenseContext'] = LicenseConversionContext.stub(stub[:destination_license_context]) unless stub[:destination_license_context].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
@@ -1685,9 +1687,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReportGenerators'] = Stubs::ReportGeneratorList.stub(stub[:report_generators]) unless stub[:report_generators].nil?
+        data['ReportGenerators'] = ReportGeneratorList.stub(stub[:report_generators]) unless stub[:report_generators].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1706,7 +1708,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReportGenerator.stub(element) unless element.nil?
+          data << ReportGenerator.stub(element) unless element.nil?
         end
         data
       end
@@ -1723,9 +1725,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LicenseSpecifications'] = Stubs::LicenseSpecifications.stub(stub[:license_specifications]) unless stub[:license_specifications].nil?
+        data['LicenseSpecifications'] = LicenseSpecifications.stub(stub[:license_specifications]) unless stub[:license_specifications].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1744,7 +1746,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LicenseSpecification.stub(element) unless element.nil?
+          data << LicenseSpecification.stub(element) unless element.nil?
         end
         data
       end
@@ -1781,9 +1783,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Licenses'] = Stubs::LicenseList.stub(stub[:licenses]) unless stub[:licenses].nil?
+        data['Licenses'] = LicenseList.stub(stub[:licenses]) unless stub[:licenses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1802,7 +1804,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::License.stub(element) unless element.nil?
+          data << License.stub(element) unless element.nil?
         end
         data
       end
@@ -1819,9 +1821,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Licenses'] = Stubs::LicenseList.stub(stub[:licenses]) unless stub[:licenses].nil?
+        data['Licenses'] = LicenseList.stub(stub[:licenses]) unless stub[:licenses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1837,9 +1839,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Grants'] = Stubs::GrantList.stub(stub[:grants]) unless stub[:grants].nil?
+        data['Grants'] = GrantList.stub(stub[:grants]) unless stub[:grants].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1855,9 +1857,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Licenses'] = Stubs::GrantedLicenseList.stub(stub[:licenses]) unless stub[:licenses].nil?
+        data['Licenses'] = GrantedLicenseList.stub(stub[:licenses]) unless stub[:licenses].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1876,7 +1878,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GrantedLicense.stub(element) unless element.nil?
+          data << GrantedLicense.stub(element) unless element.nil?
         end
         data
       end
@@ -1913,17 +1915,17 @@ module AWS::SDK::LicenseManager
         data['LicenseName'] = stub[:license_name] unless stub[:license_name].nil?
         data['ProductName'] = stub[:product_name] unless stub[:product_name].nil?
         data['ProductSKU'] = stub[:product_sku] unless stub[:product_sku].nil?
-        data['Issuer'] = Stubs::IssuerDetails.stub(stub[:issuer]) unless stub[:issuer].nil?
+        data['Issuer'] = IssuerDetails.stub(stub[:issuer]) unless stub[:issuer].nil?
         data['HomeRegion'] = stub[:home_region] unless stub[:home_region].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Validity'] = Stubs::DatetimeRange.stub(stub[:validity]) unless stub[:validity].nil?
+        data['Validity'] = DatetimeRange.stub(stub[:validity]) unless stub[:validity].nil?
         data['Beneficiary'] = stub[:beneficiary] unless stub[:beneficiary].nil?
-        data['Entitlements'] = Stubs::EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
-        data['ConsumptionConfiguration'] = Stubs::ConsumptionConfiguration.stub(stub[:consumption_configuration]) unless stub[:consumption_configuration].nil?
-        data['LicenseMetadata'] = Stubs::MetadataList.stub(stub[:license_metadata]) unless stub[:license_metadata].nil?
+        data['Entitlements'] = EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
+        data['ConsumptionConfiguration'] = ConsumptionConfiguration.stub(stub[:consumption_configuration]) unless stub[:consumption_configuration].nil?
+        data['LicenseMetadata'] = MetadataList.stub(stub[:license_metadata]) unless stub[:license_metadata].nil?
         data['CreateTime'] = stub[:create_time] unless stub[:create_time].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['ReceivedMetadata'] = Stubs::ReceivedMetadata.stub(stub[:received_metadata]) unless stub[:received_metadata].nil?
+        data['ReceivedMetadata'] = ReceivedMetadata.stub(stub[:received_metadata]) unless stub[:received_metadata].nil?
         data
       end
     end
@@ -1945,7 +1947,7 @@ module AWS::SDK::LicenseManager
         data = {}
         data['ReceivedStatus'] = stub[:received_status] unless stub[:received_status].nil?
         data['ReceivedStatusReason'] = stub[:received_status_reason] unless stub[:received_status_reason].nil?
-        data['AllowedOperations'] = Stubs::AllowedOperationList.stub(stub[:allowed_operations]) unless stub[:allowed_operations].nil?
+        data['AllowedOperations'] = AllowedOperationList.stub(stub[:allowed_operations]) unless stub[:allowed_operations].nil?
         data
       end
     end
@@ -1961,9 +1963,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceInventoryList'] = Stubs::ResourceInventoryList.stub(stub[:resource_inventory_list]) unless stub[:resource_inventory_list].nil?
+        data['ResourceInventoryList'] = ResourceInventoryList.stub(stub[:resource_inventory_list]) unless stub[:resource_inventory_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1982,7 +1984,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceInventory.stub(element) unless element.nil?
+          data << ResourceInventory.stub(element) unless element.nil?
         end
         data
       end
@@ -2026,8 +2028,8 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2043,9 +2045,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tokens'] = Stubs::TokenList.stub(stub[:tokens]) unless stub[:tokens].nil?
+        data['Tokens'] = TokenList.stub(stub[:tokens]) unless stub[:tokens].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2064,7 +2066,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TokenData.stub(element) unless element.nil?
+          data << TokenData.stub(element) unless element.nil?
         end
         data
       end
@@ -2093,8 +2095,8 @@ module AWS::SDK::LicenseManager
         data['TokenType'] = stub[:token_type] unless stub[:token_type].nil?
         data['LicenseArn'] = stub[:license_arn] unless stub[:license_arn].nil?
         data['ExpirationTime'] = stub[:expiration_time] unless stub[:expiration_time].nil?
-        data['TokenProperties'] = Stubs::MaxSize3StringList.stub(stub[:token_properties]) unless stub[:token_properties].nil?
-        data['RoleArns'] = Stubs::ArnList.stub(stub[:role_arns]) unless stub[:role_arns].nil?
+        data['TokenProperties'] = MaxSize3StringList.stub(stub[:token_properties]) unless stub[:token_properties].nil?
+        data['RoleArns'] = ArnList.stub(stub[:role_arns]) unless stub[:role_arns].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -2131,9 +2133,9 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LicenseConfigurationUsageList'] = Stubs::LicenseConfigurationUsageList.stub(stub[:license_configuration_usage_list]) unless stub[:license_configuration_usage_list].nil?
+        data['LicenseConfigurationUsageList'] = LicenseConfigurationUsageList.stub(stub[:license_configuration_usage_list]) unless stub[:license_configuration_usage_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2152,7 +2154,7 @@ module AWS::SDK::LicenseManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LicenseConfigurationUsage.stub(element) unless element.nil?
+          data << LicenseConfigurationUsage.stub(element) unless element.nil?
         end
         data
       end
@@ -2201,7 +2203,7 @@ module AWS::SDK::LicenseManager
         data['GrantArn'] = stub[:grant_arn] unless stub[:grant_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2215,7 +2217,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2229,7 +2231,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2243,7 +2245,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2257,7 +2259,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2271,7 +2273,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2285,7 +2287,7 @@ module AWS::SDK::LicenseManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

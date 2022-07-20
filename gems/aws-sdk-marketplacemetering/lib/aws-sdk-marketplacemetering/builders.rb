@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceMetering
   module Builders
 
@@ -18,9 +20,9 @@ module AWS::SDK::MarketplaceMetering
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSMPMeteringService.BatchMeterUsage'
         data = {}
-        data['UsageRecords'] = Builders::UsageRecordList.build(input[:usage_records]) unless input[:usage_records].nil?
+        data['UsageRecords'] = UsageRecordList.build(input[:usage_records]) unless input[:usage_records].nil?
         data['ProductCode'] = input[:product_code] unless input[:product_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::MarketplaceMetering
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UsageRecord.build(element) unless element.nil?
+          data << UsageRecord.build(element) unless element.nil?
         end
         data
       end
@@ -43,7 +45,7 @@ module AWS::SDK::MarketplaceMetering
         data['CustomerIdentifier'] = input[:customer_identifier] unless input[:customer_identifier].nil?
         data['Dimension'] = input[:dimension] unless input[:dimension].nil?
         data['Quantity'] = input[:quantity] unless input[:quantity].nil?
-        data['UsageAllocations'] = Builders::UsageAllocations.build(input[:usage_allocations]) unless input[:usage_allocations].nil?
+        data['UsageAllocations'] = UsageAllocations.build(input[:usage_allocations]) unless input[:usage_allocations].nil?
         data
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::MarketplaceMetering
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UsageAllocation.build(element) unless element.nil?
+          data << UsageAllocation.build(element) unless element.nil?
         end
         data
       end
@@ -64,7 +66,7 @@ module AWS::SDK::MarketplaceMetering
       def self.build(input)
         data = {}
         data['AllocatedUsageQuantity'] = input[:allocated_usage_quantity] unless input[:allocated_usage_quantity].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -74,7 +76,7 @@ module AWS::SDK::MarketplaceMetering
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -103,8 +105,8 @@ module AWS::SDK::MarketplaceMetering
         data['UsageDimension'] = input[:usage_dimension] unless input[:usage_dimension].nil?
         data['UsageQuantity'] = input[:usage_quantity] unless input[:usage_quantity].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        data['UsageAllocations'] = Builders::UsageAllocations.build(input[:usage_allocations]) unless input[:usage_allocations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UsageAllocations'] = UsageAllocations.build(input[:usage_allocations]) unless input[:usage_allocations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::MarketplaceMetering
         data['ProductCode'] = input[:product_code] unless input[:product_code].nil?
         data['PublicKeyVersion'] = input[:public_key_version] unless input[:public_key_version].nil?
         data['Nonce'] = input[:nonce] unless input[:nonce].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::MarketplaceMetering
         http_req.headers['X-Amz-Target'] = 'AWSMPMeteringService.ResolveCustomer'
         data = {}
         data['RegistrationToken'] = input[:registration_token] unless input[:registration_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::SecretsManager
   module Parsers
 
@@ -82,7 +84,7 @@ module AWS::SDK::SecretsManager
         data.arn = map['ARN']
         data.name = map['Name']
         data.version_id = map['VersionId']
-        data.replication_status = (Parsers::ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
+        data.replication_status = (ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
         data
       end
     end
@@ -90,7 +92,7 @@ module AWS::SDK::SecretsManager
     class ReplicationStatusListType
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationStatusType.parse(value) unless value.nil?
+          ReplicationStatusType.parse(value) unless value.nil?
         end
       end
     end
@@ -219,17 +221,17 @@ module AWS::SDK::SecretsManager
         data.kms_key_id = map['KmsKeyId']
         data.rotation_enabled = map['RotationEnabled']
         data.rotation_lambda_arn = map['RotationLambdaARN']
-        data.rotation_rules = (Parsers::RotationRulesType.parse(map['RotationRules']) unless map['RotationRules'].nil?)
+        data.rotation_rules = (RotationRulesType.parse(map['RotationRules']) unless map['RotationRules'].nil?)
         data.last_rotated_date = Time.at(map['LastRotatedDate'].to_i) if map['LastRotatedDate']
         data.last_changed_date = Time.at(map['LastChangedDate'].to_i) if map['LastChangedDate']
         data.last_accessed_date = Time.at(map['LastAccessedDate'].to_i) if map['LastAccessedDate']
         data.deleted_date = Time.at(map['DeletedDate'].to_i) if map['DeletedDate']
-        data.tags = (Parsers::TagListType.parse(map['Tags']) unless map['Tags'].nil?)
-        data.version_ids_to_stages = (Parsers::SecretVersionsToStagesMapType.parse(map['VersionIdsToStages']) unless map['VersionIdsToStages'].nil?)
+        data.tags = (TagListType.parse(map['Tags']) unless map['Tags'].nil?)
+        data.version_ids_to_stages = (SecretVersionsToStagesMapType.parse(map['VersionIdsToStages']) unless map['VersionIdsToStages'].nil?)
         data.owning_service = map['OwningService']
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data.primary_region = map['PrimaryRegion']
-        data.replication_status = (Parsers::ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
+        data.replication_status = (ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
         data
       end
     end
@@ -238,7 +240,7 @@ module AWS::SDK::SecretsManager
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::SecretVersionStagesType.parse(value) unless value.nil?
+          data[key] = SecretVersionStagesType.parse(value) unless value.nil?
         end
         data
       end
@@ -255,7 +257,7 @@ module AWS::SDK::SecretsManager
     class TagListType
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -315,9 +317,9 @@ module AWS::SDK::SecretsManager
         data.arn = map['ARN']
         data.name = map['Name']
         data.version_id = map['VersionId']
-        data.secret_binary = Base64::decode64(map['SecretBinary']) unless map['SecretBinary'].nil?
+        data.secret_binary = ::Base64::decode64(map['SecretBinary']) unless map['SecretBinary'].nil?
         data.secret_string = map['SecretString']
-        data.version_stages = (Parsers::SecretVersionStagesType.parse(map['VersionStages']) unless map['VersionStages'].nil?)
+        data.version_stages = (SecretVersionStagesType.parse(map['VersionStages']) unless map['VersionStages'].nil?)
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data
       end
@@ -330,7 +332,7 @@ module AWS::SDK::SecretsManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.versions = (Parsers::SecretVersionsListType.parse(map['Versions']) unless map['Versions'].nil?)
+        data.versions = (SecretVersionsListType.parse(map['Versions']) unless map['Versions'].nil?)
         data.next_token = map['NextToken']
         data.arn = map['ARN']
         data.name = map['Name']
@@ -341,7 +343,7 @@ module AWS::SDK::SecretsManager
     class SecretVersionsListType
       def self.parse(list)
         list.map do |value|
-          Parsers::SecretVersionsListEntry.parse(value) unless value.nil?
+          SecretVersionsListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -350,10 +352,10 @@ module AWS::SDK::SecretsManager
       def self.parse(map)
         data = Types::SecretVersionsListEntry.new
         data.version_id = map['VersionId']
-        data.version_stages = (Parsers::SecretVersionStagesType.parse(map['VersionStages']) unless map['VersionStages'].nil?)
+        data.version_stages = (SecretVersionStagesType.parse(map['VersionStages']) unless map['VersionStages'].nil?)
         data.last_accessed_date = Time.at(map['LastAccessedDate'].to_i) if map['LastAccessedDate']
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
-        data.kms_key_ids = (Parsers::KmsKeyIdListType.parse(map['KmsKeyIds']) unless map['KmsKeyIds'].nil?)
+        data.kms_key_ids = (KmsKeyIdListType.parse(map['KmsKeyIds']) unless map['KmsKeyIds'].nil?)
         return data
       end
     end
@@ -385,7 +387,7 @@ module AWS::SDK::SecretsManager
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.secret_list = (Parsers::SecretListType.parse(map['SecretList']) unless map['SecretList'].nil?)
+        data.secret_list = (SecretListType.parse(map['SecretList']) unless map['SecretList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -394,7 +396,7 @@ module AWS::SDK::SecretsManager
     class SecretListType
       def self.parse(list)
         list.map do |value|
-          Parsers::SecretListEntry.parse(value) unless value.nil?
+          SecretListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -408,13 +410,13 @@ module AWS::SDK::SecretsManager
         data.kms_key_id = map['KmsKeyId']
         data.rotation_enabled = map['RotationEnabled']
         data.rotation_lambda_arn = map['RotationLambdaARN']
-        data.rotation_rules = (Parsers::RotationRulesType.parse(map['RotationRules']) unless map['RotationRules'].nil?)
+        data.rotation_rules = (RotationRulesType.parse(map['RotationRules']) unless map['RotationRules'].nil?)
         data.last_rotated_date = Time.at(map['LastRotatedDate'].to_i) if map['LastRotatedDate']
         data.last_changed_date = Time.at(map['LastChangedDate'].to_i) if map['LastChangedDate']
         data.last_accessed_date = Time.at(map['LastAccessedDate'].to_i) if map['LastAccessedDate']
         data.deleted_date = Time.at(map['DeletedDate'].to_i) if map['DeletedDate']
-        data.tags = (Parsers::TagListType.parse(map['Tags']) unless map['Tags'].nil?)
-        data.secret_versions_to_stages = (Parsers::SecretVersionsToStagesMapType.parse(map['SecretVersionsToStages']) unless map['SecretVersionsToStages'].nil?)
+        data.tags = (TagListType.parse(map['Tags']) unless map['Tags'].nil?)
+        data.secret_versions_to_stages = (SecretVersionsToStagesMapType.parse(map['SecretVersionsToStages']) unless map['SecretVersionsToStages'].nil?)
         data.owning_service = map['OwningService']
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data.primary_region = map['PrimaryRegion']
@@ -457,7 +459,7 @@ module AWS::SDK::SecretsManager
         data.arn = map['ARN']
         data.name = map['Name']
         data.version_id = map['VersionId']
-        data.version_stages = (Parsers::SecretVersionStagesType.parse(map['VersionStages']) unless map['VersionStages'].nil?)
+        data.version_stages = (SecretVersionStagesType.parse(map['VersionStages']) unless map['VersionStages'].nil?)
         data
       end
     end
@@ -470,7 +472,7 @@ module AWS::SDK::SecretsManager
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.arn = map['ARN']
-        data.replication_status = (Parsers::ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
+        data.replication_status = (ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
         data
       end
     end
@@ -483,7 +485,7 @@ module AWS::SDK::SecretsManager
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.arn = map['ARN']
-        data.replication_status = (Parsers::ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
+        data.replication_status = (ReplicationStatusListType.parse(map['ReplicationStatus']) unless map['ReplicationStatus'].nil?)
         data
       end
     end
@@ -584,7 +586,7 @@ module AWS::SDK::SecretsManager
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.policy_validation_passed = map['PolicyValidationPassed']
-        data.validation_errors = (Parsers::ValidationErrorsType.parse(map['ValidationErrors']) unless map['ValidationErrors'].nil?)
+        data.validation_errors = (ValidationErrorsType.parse(map['ValidationErrors']) unless map['ValidationErrors'].nil?)
         data
       end
     end
@@ -592,7 +594,7 @@ module AWS::SDK::SecretsManager
     class ValidationErrorsType
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationErrorsEntry.parse(value) unless value.nil?
+          ValidationErrorsEntry.parse(value) unless value.nil?
         end
       end
     end

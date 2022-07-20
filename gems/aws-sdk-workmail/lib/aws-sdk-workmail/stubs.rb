@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkMail
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['MobileDeviceAccessRuleId'] = stub[:mobile_device_access_rule_id] unless stub[:mobile_device_access_rule_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -109,7 +111,7 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['OrganizationId'] = stub[:organization_id] unless stub[:organization_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -125,7 +127,7 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -141,7 +143,7 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['UserId'] = stub[:user_id] unless stub[:user_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -155,7 +157,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -169,7 +171,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -197,7 +199,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -211,7 +213,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -239,7 +241,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['OrganizationId'] = stub[:organization_id] unless stub[:organization_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -271,7 +273,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -285,7 +287,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -299,7 +301,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -313,7 +315,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -327,7 +329,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['LogGroupArn'] = stub[:log_group_arn] unless stub[:log_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -371,7 +373,7 @@ module AWS::SDK::WorkMail
         data['State'] = stub[:state] unless stub[:state].nil?
         data['EnabledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:enabled_date]).to_i unless stub[:enabled_date].nil?
         data['DisabledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:disabled_date]).to_i unless stub[:disabled_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -387,7 +389,7 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['Enforced'] = stub[:enforced] unless stub[:enforced].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -425,7 +427,7 @@ module AWS::SDK::WorkMail
         data['ErrorInfo'] = stub[:error_info] unless stub[:error_info].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -457,7 +459,7 @@ module AWS::SDK::WorkMail
         data['CompletedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_date]).to_i unless stub[:completed_date].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -483,11 +485,11 @@ module AWS::SDK::WorkMail
         data['Email'] = stub[:email] unless stub[:email].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['BookingOptions'] = Stubs::BookingOptions.stub(stub[:booking_options]) unless stub[:booking_options].nil?
+        data['BookingOptions'] = BookingOptions.stub(stub[:booking_options]) unless stub[:booking_options].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['EnabledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:enabled_date]).to_i unless stub[:enabled_date].nil?
         data['DisabledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:disabled_date]).to_i unless stub[:disabled_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -539,7 +541,7 @@ module AWS::SDK::WorkMail
         data['UserRole'] = stub[:user_role] unless stub[:user_role].nil?
         data['EnabledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:enabled_date]).to_i unless stub[:enabled_date].nil?
         data['DisabledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:disabled_date]).to_i unless stub[:disabled_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -553,7 +555,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -567,7 +569,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -584,8 +586,8 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['Effect'] = stub[:effect] unless stub[:effect].nil?
-        data['MatchedRules'] = Stubs::AccessControlRuleNameList.stub(stub[:matched_rules]) unless stub[:matched_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MatchedRules'] = AccessControlRuleNameList.stub(stub[:matched_rules]) unless stub[:matched_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -626,8 +628,8 @@ module AWS::SDK::WorkMail
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['FolderConfigurations'] = Stubs::FolderConfigurations.stub(stub[:folder_configurations]) unless stub[:folder_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FolderConfigurations'] = FolderConfigurations.stub(stub[:folder_configurations]) unless stub[:folder_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -646,7 +648,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FolderConfiguration.stub(element) unless element.nil?
+          data << FolderConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -688,12 +690,12 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Records'] = Stubs::DnsRecords.stub(stub[:records]) unless stub[:records].nil?
+        data['Records'] = DnsRecords.stub(stub[:records]) unless stub[:records].nil?
         data['IsTestDomain'] = stub[:is_test_domain] unless stub[:is_test_domain].nil?
         data['IsDefault'] = stub[:is_default] unless stub[:is_default].nil?
         data['OwnershipVerificationStatus'] = stub[:ownership_verification_status] unless stub[:ownership_verification_status].nil?
         data['DkimVerificationStatus'] = stub[:dkim_verification_status] unless stub[:dkim_verification_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -712,7 +714,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DnsRecord.stub(element) unless element.nil?
+          data << DnsRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -753,7 +755,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['MailboxQuota'] = stub[:mailbox_quota] unless stub[:mailbox_quota].nil?
         data['MailboxSize'] = Hearth::NumberHelper.serialize(stub[:mailbox_size])
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -770,8 +772,8 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['Effect'] = stub[:effect] unless stub[:effect].nil?
-        data['MatchedRules'] = Stubs::MobileDeviceAccessMatchedRuleList.stub(stub[:matched_rules]) unless stub[:matched_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MatchedRules'] = MobileDeviceAccessMatchedRuleList.stub(stub[:matched_rules]) unless stub[:matched_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -790,7 +792,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MobileDeviceAccessMatchedRule.stub(element) unless element.nil?
+          data << MobileDeviceAccessMatchedRule.stub(element) unless element.nil?
         end
         data
       end
@@ -837,7 +839,7 @@ module AWS::SDK::WorkMail
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['DateCreated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_created]).to_i unless stub[:date_created].nil?
         data['DateModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_modified]).to_i unless stub[:date_modified].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -852,8 +854,8 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rules'] = Stubs::AccessControlRulesList.stub(stub[:rules]) unless stub[:rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = AccessControlRulesList.stub(stub[:rules]) unless stub[:rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -872,7 +874,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessControlRule.stub(element) unless element.nil?
+          data << AccessControlRule.stub(element) unless element.nil?
         end
         data
       end
@@ -904,12 +906,12 @@ module AWS::SDK::WorkMail
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Effect'] = stub[:effect] unless stub[:effect].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['IpRanges'] = Stubs::IpRangeList.stub(stub[:ip_ranges]) unless stub[:ip_ranges].nil?
-        data['NotIpRanges'] = Stubs::IpRangeList.stub(stub[:not_ip_ranges]) unless stub[:not_ip_ranges].nil?
-        data['Actions'] = Stubs::ActionsList.stub(stub[:actions]) unless stub[:actions].nil?
-        data['NotActions'] = Stubs::ActionsList.stub(stub[:not_actions]) unless stub[:not_actions].nil?
-        data['UserIds'] = Stubs::UserIdList.stub(stub[:user_ids]) unless stub[:user_ids].nil?
-        data['NotUserIds'] = Stubs::UserIdList.stub(stub[:not_user_ids]) unless stub[:not_user_ids].nil?
+        data['IpRanges'] = IpRangeList.stub(stub[:ip_ranges]) unless stub[:ip_ranges].nil?
+        data['NotIpRanges'] = IpRangeList.stub(stub[:not_ip_ranges]) unless stub[:not_ip_ranges].nil?
+        data['Actions'] = ActionsList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['NotActions'] = ActionsList.stub(stub[:not_actions]) unless stub[:not_actions].nil?
+        data['UserIds'] = UserIdList.stub(stub[:user_ids]) unless stub[:user_ids].nil?
+        data['NotUserIds'] = UserIdList.stub(stub[:not_user_ids]) unless stub[:not_user_ids].nil?
         data['DateCreated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_created]).to_i unless stub[:date_created].nil?
         data['DateModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_modified]).to_i unless stub[:date_modified].nil?
         data
@@ -987,9 +989,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Aliases'] = Stubs::Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
+        data['Aliases'] = Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1025,9 +1027,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Members'] = Stubs::Members.stub(stub[:members]) unless stub[:members].nil?
+        data['Members'] = Members.stub(stub[:members]) unless stub[:members].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1046,7 +1048,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Member.stub(element) unless element.nil?
+          data << Member.stub(element) unless element.nil?
         end
         data
       end
@@ -1091,9 +1093,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Groups'] = Stubs::Groups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = Groups.stub(stub[:groups]) unless stub[:groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1112,7 +1114,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Group.stub(element) unless element.nil?
+          data << Group.stub(element) unless element.nil?
         end
         data
       end
@@ -1157,9 +1159,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MailDomains'] = Stubs::MailDomains.stub(stub[:mail_domains]) unless stub[:mail_domains].nil?
+        data['MailDomains'] = MailDomains.stub(stub[:mail_domains]) unless stub[:mail_domains].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1178,7 +1180,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MailDomainSummary.stub(element) unless element.nil?
+          data << MailDomainSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1215,9 +1217,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Jobs'] = Stubs::Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['Jobs'] = Jobs.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1236,7 +1238,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MailboxExportJob.stub(element) unless element.nil?
+          data << MailboxExportJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1287,9 +1289,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Permissions'] = Stubs::Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1308,7 +1310,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Permission.stub(element) unless element.nil?
+          data << Permission.stub(element) unless element.nil?
         end
         data
       end
@@ -1331,7 +1333,7 @@ module AWS::SDK::WorkMail
         data = {}
         data['GranteeId'] = stub[:grantee_id] unless stub[:grantee_id].nil?
         data['GranteeType'] = stub[:grantee_type] unless stub[:grantee_type].nil?
-        data['PermissionValues'] = Stubs::PermissionValues.stub(stub[:permission_values]) unless stub[:permission_values].nil?
+        data['PermissionValues'] = PermissionValues.stub(stub[:permission_values]) unless stub[:permission_values].nil?
         data
       end
     end
@@ -1367,9 +1369,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Overrides'] = Stubs::MobileDeviceAccessOverridesList.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['Overrides'] = MobileDeviceAccessOverridesList.stub(stub[:overrides]) unless stub[:overrides].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1388,7 +1390,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MobileDeviceAccessOverride.stub(element) unless element.nil?
+          data << MobileDeviceAccessOverride.stub(element) unless element.nil?
         end
         data
       end
@@ -1432,8 +1434,8 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rules'] = Stubs::MobileDeviceAccessRulesList.stub(stub[:rules]) unless stub[:rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = MobileDeviceAccessRulesList.stub(stub[:rules]) unless stub[:rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1452,7 +1454,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MobileDeviceAccessRule.stub(element) unless element.nil?
+          data << MobileDeviceAccessRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1488,14 +1490,14 @@ module AWS::SDK::WorkMail
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Effect'] = stub[:effect] unless stub[:effect].nil?
-        data['DeviceTypes'] = Stubs::DeviceTypeList.stub(stub[:device_types]) unless stub[:device_types].nil?
-        data['NotDeviceTypes'] = Stubs::DeviceTypeList.stub(stub[:not_device_types]) unless stub[:not_device_types].nil?
-        data['DeviceModels'] = Stubs::DeviceModelList.stub(stub[:device_models]) unless stub[:device_models].nil?
-        data['NotDeviceModels'] = Stubs::DeviceModelList.stub(stub[:not_device_models]) unless stub[:not_device_models].nil?
-        data['DeviceOperatingSystems'] = Stubs::DeviceOperatingSystemList.stub(stub[:device_operating_systems]) unless stub[:device_operating_systems].nil?
-        data['NotDeviceOperatingSystems'] = Stubs::DeviceOperatingSystemList.stub(stub[:not_device_operating_systems]) unless stub[:not_device_operating_systems].nil?
-        data['DeviceUserAgents'] = Stubs::DeviceUserAgentList.stub(stub[:device_user_agents]) unless stub[:device_user_agents].nil?
-        data['NotDeviceUserAgents'] = Stubs::DeviceUserAgentList.stub(stub[:not_device_user_agents]) unless stub[:not_device_user_agents].nil?
+        data['DeviceTypes'] = DeviceTypeList.stub(stub[:device_types]) unless stub[:device_types].nil?
+        data['NotDeviceTypes'] = DeviceTypeList.stub(stub[:not_device_types]) unless stub[:not_device_types].nil?
+        data['DeviceModels'] = DeviceModelList.stub(stub[:device_models]) unless stub[:device_models].nil?
+        data['NotDeviceModels'] = DeviceModelList.stub(stub[:not_device_models]) unless stub[:not_device_models].nil?
+        data['DeviceOperatingSystems'] = DeviceOperatingSystemList.stub(stub[:device_operating_systems]) unless stub[:device_operating_systems].nil?
+        data['NotDeviceOperatingSystems'] = DeviceOperatingSystemList.stub(stub[:not_device_operating_systems]) unless stub[:not_device_operating_systems].nil?
+        data['DeviceUserAgents'] = DeviceUserAgentList.stub(stub[:device_user_agents]) unless stub[:device_user_agents].nil?
+        data['NotDeviceUserAgents'] = DeviceUserAgentList.stub(stub[:not_device_user_agents]) unless stub[:not_device_user_agents].nil?
         data['DateCreated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_created]).to_i unless stub[:date_created].nil?
         data['DateModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_modified]).to_i unless stub[:date_modified].nil?
         data
@@ -1593,9 +1595,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationSummaries'] = Stubs::OrganizationSummaries.stub(stub[:organization_summaries]) unless stub[:organization_summaries].nil?
+        data['OrganizationSummaries'] = OrganizationSummaries.stub(stub[:organization_summaries]) unless stub[:organization_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1614,7 +1616,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationSummary.stub(element) unless element.nil?
+          data << OrganizationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1657,9 +1659,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Delegates'] = Stubs::ResourceDelegates.stub(stub[:delegates]) unless stub[:delegates].nil?
+        data['Delegates'] = ResourceDelegates.stub(stub[:delegates]) unless stub[:delegates].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1678,7 +1680,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Delegate.stub(element) unless element.nil?
+          data << Delegate.stub(element) unless element.nil?
         end
         data
       end
@@ -1715,9 +1717,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Resources'] = Stubs::Resources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = Resources.stub(stub[:resources]) unless stub[:resources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1736,7 +1738,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -1782,8 +1784,8 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1802,7 +1804,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1839,9 +1841,9 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Users'] = Stubs::Users.stub(stub[:users]) unless stub[:users].nil?
+        data['Users'] = Users.stub(stub[:users]) unless stub[:users].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1860,7 +1862,7 @@ module AWS::SDK::WorkMail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end
@@ -1907,7 +1909,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1921,7 +1923,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1935,7 +1937,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1949,7 +1951,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1963,7 +1965,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1977,7 +1979,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1991,7 +1993,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2005,7 +2007,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2019,7 +2021,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2035,7 +2037,7 @@ module AWS::SDK::WorkMail
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2049,7 +2051,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2063,7 +2065,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2077,7 +2079,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2091,7 +2093,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2105,7 +2107,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2119,7 +2121,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2133,7 +2135,7 @@ module AWS::SDK::WorkMail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

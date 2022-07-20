@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SFN
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::SFN
         data = {}
         data['activityArn'] = stub[:activity_arn] unless stub[:activity_arn].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::SFN
         data = {}
         data['stateMachineArn'] = stub[:state_machine_arn] unless stub[:state_machine_arn].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -55,7 +57,7 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -89,7 +91,7 @@ module AWS::SDK::SFN
         data['activityArn'] = stub[:activity_arn] unless stub[:activity_arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -121,11 +123,11 @@ module AWS::SDK::SFN
         data['startDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_date]).to_i unless stub[:start_date].nil?
         data['stopDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stop_date]).to_i unless stub[:stop_date].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        data['inputDetails'] = Stubs::CloudWatchEventsExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
+        data['inputDetails'] = CloudWatchEventsExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::CloudWatchEventsExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = CloudWatchEventsExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data['traceHeader'] = stub[:trace_header] unless stub[:trace_header].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -173,9 +175,9 @@ module AWS::SDK::SFN
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        data['loggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        data['tracingConfiguration'] = Stubs::TracingConfiguration.stub(stub[:tracing_configuration]) unless stub[:tracing_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        data['tracingConfiguration'] = TracingConfiguration.stub(stub[:tracing_configuration]) unless stub[:tracing_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -215,7 +217,7 @@ module AWS::SDK::SFN
         data = {}
         data['level'] = stub[:level] unless stub[:level].nil?
         data['includeExecutionData'] = stub[:include_execution_data] unless stub[:include_execution_data].nil?
-        data['destinations'] = Stubs::LogDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['destinations'] = LogDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
         data
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::SFN
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogDestination.stub(element) unless element.nil?
+          data << LogDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -253,7 +255,7 @@ module AWS::SDK::SFN
       def self.stub(stub)
         stub ||= Types::LogDestination.new
         data = {}
-        data['cloudWatchLogsLogGroup'] = Stubs::CloudWatchLogsLogGroup.stub(stub[:cloud_watch_logs_log_group]) unless stub[:cloud_watch_logs_log_group].nil?
+        data['cloudWatchLogsLogGroup'] = CloudWatchLogsLogGroup.stub(stub[:cloud_watch_logs_log_group]) unless stub[:cloud_watch_logs_log_group].nil?
         data
       end
     end
@@ -297,9 +299,9 @@ module AWS::SDK::SFN
         data['definition'] = stub[:definition] unless stub[:definition].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['updateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date]).to_i unless stub[:update_date].nil?
-        data['loggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        data['tracingConfiguration'] = Stubs::TracingConfiguration.stub(stub[:tracing_configuration]) unless stub[:tracing_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        data['tracingConfiguration'] = TracingConfiguration.stub(stub[:tracing_configuration]) unless stub[:tracing_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -317,7 +319,7 @@ module AWS::SDK::SFN
         data = {}
         data['taskToken'] = stub[:task_token] unless stub[:task_token].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -333,9 +335,9 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['events'] = Stubs::HistoryEventList.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = HistoryEventList.stub(stub[:events]) unless stub[:events].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -354,7 +356,7 @@ module AWS::SDK::SFN
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HistoryEvent.stub(element) unless element.nil?
+          data << HistoryEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -412,38 +414,38 @@ module AWS::SDK::SFN
         data['type'] = stub[:type] unless stub[:type].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['previousEventId'] = stub[:previous_event_id] unless stub[:previous_event_id].nil?
-        data['activityFailedEventDetails'] = Stubs::ActivityFailedEventDetails.stub(stub[:activity_failed_event_details]) unless stub[:activity_failed_event_details].nil?
-        data['activityScheduleFailedEventDetails'] = Stubs::ActivityScheduleFailedEventDetails.stub(stub[:activity_schedule_failed_event_details]) unless stub[:activity_schedule_failed_event_details].nil?
-        data['activityScheduledEventDetails'] = Stubs::ActivityScheduledEventDetails.stub(stub[:activity_scheduled_event_details]) unless stub[:activity_scheduled_event_details].nil?
-        data['activityStartedEventDetails'] = Stubs::ActivityStartedEventDetails.stub(stub[:activity_started_event_details]) unless stub[:activity_started_event_details].nil?
-        data['activitySucceededEventDetails'] = Stubs::ActivitySucceededEventDetails.stub(stub[:activity_succeeded_event_details]) unless stub[:activity_succeeded_event_details].nil?
-        data['activityTimedOutEventDetails'] = Stubs::ActivityTimedOutEventDetails.stub(stub[:activity_timed_out_event_details]) unless stub[:activity_timed_out_event_details].nil?
-        data['taskFailedEventDetails'] = Stubs::TaskFailedEventDetails.stub(stub[:task_failed_event_details]) unless stub[:task_failed_event_details].nil?
-        data['taskScheduledEventDetails'] = Stubs::TaskScheduledEventDetails.stub(stub[:task_scheduled_event_details]) unless stub[:task_scheduled_event_details].nil?
-        data['taskStartFailedEventDetails'] = Stubs::TaskStartFailedEventDetails.stub(stub[:task_start_failed_event_details]) unless stub[:task_start_failed_event_details].nil?
-        data['taskStartedEventDetails'] = Stubs::TaskStartedEventDetails.stub(stub[:task_started_event_details]) unless stub[:task_started_event_details].nil?
-        data['taskSubmitFailedEventDetails'] = Stubs::TaskSubmitFailedEventDetails.stub(stub[:task_submit_failed_event_details]) unless stub[:task_submit_failed_event_details].nil?
-        data['taskSubmittedEventDetails'] = Stubs::TaskSubmittedEventDetails.stub(stub[:task_submitted_event_details]) unless stub[:task_submitted_event_details].nil?
-        data['taskSucceededEventDetails'] = Stubs::TaskSucceededEventDetails.stub(stub[:task_succeeded_event_details]) unless stub[:task_succeeded_event_details].nil?
-        data['taskTimedOutEventDetails'] = Stubs::TaskTimedOutEventDetails.stub(stub[:task_timed_out_event_details]) unless stub[:task_timed_out_event_details].nil?
-        data['executionFailedEventDetails'] = Stubs::ExecutionFailedEventDetails.stub(stub[:execution_failed_event_details]) unless stub[:execution_failed_event_details].nil?
-        data['executionStartedEventDetails'] = Stubs::ExecutionStartedEventDetails.stub(stub[:execution_started_event_details]) unless stub[:execution_started_event_details].nil?
-        data['executionSucceededEventDetails'] = Stubs::ExecutionSucceededEventDetails.stub(stub[:execution_succeeded_event_details]) unless stub[:execution_succeeded_event_details].nil?
-        data['executionAbortedEventDetails'] = Stubs::ExecutionAbortedEventDetails.stub(stub[:execution_aborted_event_details]) unless stub[:execution_aborted_event_details].nil?
-        data['executionTimedOutEventDetails'] = Stubs::ExecutionTimedOutEventDetails.stub(stub[:execution_timed_out_event_details]) unless stub[:execution_timed_out_event_details].nil?
-        data['mapStateStartedEventDetails'] = Stubs::MapStateStartedEventDetails.stub(stub[:map_state_started_event_details]) unless stub[:map_state_started_event_details].nil?
-        data['mapIterationStartedEventDetails'] = Stubs::MapIterationEventDetails.stub(stub[:map_iteration_started_event_details]) unless stub[:map_iteration_started_event_details].nil?
-        data['mapIterationSucceededEventDetails'] = Stubs::MapIterationEventDetails.stub(stub[:map_iteration_succeeded_event_details]) unless stub[:map_iteration_succeeded_event_details].nil?
-        data['mapIterationFailedEventDetails'] = Stubs::MapIterationEventDetails.stub(stub[:map_iteration_failed_event_details]) unless stub[:map_iteration_failed_event_details].nil?
-        data['mapIterationAbortedEventDetails'] = Stubs::MapIterationEventDetails.stub(stub[:map_iteration_aborted_event_details]) unless stub[:map_iteration_aborted_event_details].nil?
-        data['lambdaFunctionFailedEventDetails'] = Stubs::LambdaFunctionFailedEventDetails.stub(stub[:lambda_function_failed_event_details]) unless stub[:lambda_function_failed_event_details].nil?
-        data['lambdaFunctionScheduleFailedEventDetails'] = Stubs::LambdaFunctionScheduleFailedEventDetails.stub(stub[:lambda_function_schedule_failed_event_details]) unless stub[:lambda_function_schedule_failed_event_details].nil?
-        data['lambdaFunctionScheduledEventDetails'] = Stubs::LambdaFunctionScheduledEventDetails.stub(stub[:lambda_function_scheduled_event_details]) unless stub[:lambda_function_scheduled_event_details].nil?
-        data['lambdaFunctionStartFailedEventDetails'] = Stubs::LambdaFunctionStartFailedEventDetails.stub(stub[:lambda_function_start_failed_event_details]) unless stub[:lambda_function_start_failed_event_details].nil?
-        data['lambdaFunctionSucceededEventDetails'] = Stubs::LambdaFunctionSucceededEventDetails.stub(stub[:lambda_function_succeeded_event_details]) unless stub[:lambda_function_succeeded_event_details].nil?
-        data['lambdaFunctionTimedOutEventDetails'] = Stubs::LambdaFunctionTimedOutEventDetails.stub(stub[:lambda_function_timed_out_event_details]) unless stub[:lambda_function_timed_out_event_details].nil?
-        data['stateEnteredEventDetails'] = Stubs::StateEnteredEventDetails.stub(stub[:state_entered_event_details]) unless stub[:state_entered_event_details].nil?
-        data['stateExitedEventDetails'] = Stubs::StateExitedEventDetails.stub(stub[:state_exited_event_details]) unless stub[:state_exited_event_details].nil?
+        data['activityFailedEventDetails'] = ActivityFailedEventDetails.stub(stub[:activity_failed_event_details]) unless stub[:activity_failed_event_details].nil?
+        data['activityScheduleFailedEventDetails'] = ActivityScheduleFailedEventDetails.stub(stub[:activity_schedule_failed_event_details]) unless stub[:activity_schedule_failed_event_details].nil?
+        data['activityScheduledEventDetails'] = ActivityScheduledEventDetails.stub(stub[:activity_scheduled_event_details]) unless stub[:activity_scheduled_event_details].nil?
+        data['activityStartedEventDetails'] = ActivityStartedEventDetails.stub(stub[:activity_started_event_details]) unless stub[:activity_started_event_details].nil?
+        data['activitySucceededEventDetails'] = ActivitySucceededEventDetails.stub(stub[:activity_succeeded_event_details]) unless stub[:activity_succeeded_event_details].nil?
+        data['activityTimedOutEventDetails'] = ActivityTimedOutEventDetails.stub(stub[:activity_timed_out_event_details]) unless stub[:activity_timed_out_event_details].nil?
+        data['taskFailedEventDetails'] = TaskFailedEventDetails.stub(stub[:task_failed_event_details]) unless stub[:task_failed_event_details].nil?
+        data['taskScheduledEventDetails'] = TaskScheduledEventDetails.stub(stub[:task_scheduled_event_details]) unless stub[:task_scheduled_event_details].nil?
+        data['taskStartFailedEventDetails'] = TaskStartFailedEventDetails.stub(stub[:task_start_failed_event_details]) unless stub[:task_start_failed_event_details].nil?
+        data['taskStartedEventDetails'] = TaskStartedEventDetails.stub(stub[:task_started_event_details]) unless stub[:task_started_event_details].nil?
+        data['taskSubmitFailedEventDetails'] = TaskSubmitFailedEventDetails.stub(stub[:task_submit_failed_event_details]) unless stub[:task_submit_failed_event_details].nil?
+        data['taskSubmittedEventDetails'] = TaskSubmittedEventDetails.stub(stub[:task_submitted_event_details]) unless stub[:task_submitted_event_details].nil?
+        data['taskSucceededEventDetails'] = TaskSucceededEventDetails.stub(stub[:task_succeeded_event_details]) unless stub[:task_succeeded_event_details].nil?
+        data['taskTimedOutEventDetails'] = TaskTimedOutEventDetails.stub(stub[:task_timed_out_event_details]) unless stub[:task_timed_out_event_details].nil?
+        data['executionFailedEventDetails'] = ExecutionFailedEventDetails.stub(stub[:execution_failed_event_details]) unless stub[:execution_failed_event_details].nil?
+        data['executionStartedEventDetails'] = ExecutionStartedEventDetails.stub(stub[:execution_started_event_details]) unless stub[:execution_started_event_details].nil?
+        data['executionSucceededEventDetails'] = ExecutionSucceededEventDetails.stub(stub[:execution_succeeded_event_details]) unless stub[:execution_succeeded_event_details].nil?
+        data['executionAbortedEventDetails'] = ExecutionAbortedEventDetails.stub(stub[:execution_aborted_event_details]) unless stub[:execution_aborted_event_details].nil?
+        data['executionTimedOutEventDetails'] = ExecutionTimedOutEventDetails.stub(stub[:execution_timed_out_event_details]) unless stub[:execution_timed_out_event_details].nil?
+        data['mapStateStartedEventDetails'] = MapStateStartedEventDetails.stub(stub[:map_state_started_event_details]) unless stub[:map_state_started_event_details].nil?
+        data['mapIterationStartedEventDetails'] = MapIterationEventDetails.stub(stub[:map_iteration_started_event_details]) unless stub[:map_iteration_started_event_details].nil?
+        data['mapIterationSucceededEventDetails'] = MapIterationEventDetails.stub(stub[:map_iteration_succeeded_event_details]) unless stub[:map_iteration_succeeded_event_details].nil?
+        data['mapIterationFailedEventDetails'] = MapIterationEventDetails.stub(stub[:map_iteration_failed_event_details]) unless stub[:map_iteration_failed_event_details].nil?
+        data['mapIterationAbortedEventDetails'] = MapIterationEventDetails.stub(stub[:map_iteration_aborted_event_details]) unless stub[:map_iteration_aborted_event_details].nil?
+        data['lambdaFunctionFailedEventDetails'] = LambdaFunctionFailedEventDetails.stub(stub[:lambda_function_failed_event_details]) unless stub[:lambda_function_failed_event_details].nil?
+        data['lambdaFunctionScheduleFailedEventDetails'] = LambdaFunctionScheduleFailedEventDetails.stub(stub[:lambda_function_schedule_failed_event_details]) unless stub[:lambda_function_schedule_failed_event_details].nil?
+        data['lambdaFunctionScheduledEventDetails'] = LambdaFunctionScheduledEventDetails.stub(stub[:lambda_function_scheduled_event_details]) unless stub[:lambda_function_scheduled_event_details].nil?
+        data['lambdaFunctionStartFailedEventDetails'] = LambdaFunctionStartFailedEventDetails.stub(stub[:lambda_function_start_failed_event_details]) unless stub[:lambda_function_start_failed_event_details].nil?
+        data['lambdaFunctionSucceededEventDetails'] = LambdaFunctionSucceededEventDetails.stub(stub[:lambda_function_succeeded_event_details]) unless stub[:lambda_function_succeeded_event_details].nil?
+        data['lambdaFunctionTimedOutEventDetails'] = LambdaFunctionTimedOutEventDetails.stub(stub[:lambda_function_timed_out_event_details]) unless stub[:lambda_function_timed_out_event_details].nil?
+        data['stateEnteredEventDetails'] = StateEnteredEventDetails.stub(stub[:state_entered_event_details]) unless stub[:state_entered_event_details].nil?
+        data['stateExitedEventDetails'] = StateExitedEventDetails.stub(stub[:state_exited_event_details]) unless stub[:state_exited_event_details].nil?
         data
       end
     end
@@ -465,7 +467,7 @@ module AWS::SDK::SFN
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data
       end
     end
@@ -505,7 +507,7 @@ module AWS::SDK::SFN
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        data['inputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
+        data['inputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
         data
       end
     end
@@ -545,7 +547,7 @@ module AWS::SDK::SFN
         stub ||= Types::LambdaFunctionSucceededEventDetails.new
         data = {}
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data
       end
     end
@@ -588,7 +590,7 @@ module AWS::SDK::SFN
         data = {}
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        data['inputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
+        data['inputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
         data['timeoutInSeconds'] = stub[:timeout_in_seconds] unless stub[:timeout_in_seconds].nil?
         data
       end
@@ -727,7 +729,7 @@ module AWS::SDK::SFN
         stub ||= Types::ExecutionSucceededEventDetails.new
         data = {}
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data
       end
     end
@@ -748,7 +750,7 @@ module AWS::SDK::SFN
         stub ||= Types::ExecutionStartedEventDetails.new
         data = {}
         data['input'] = stub[:input] unless stub[:input].nil?
-        data['inputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
+        data['inputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data
       end
@@ -817,7 +819,7 @@ module AWS::SDK::SFN
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data
       end
     end
@@ -841,7 +843,7 @@ module AWS::SDK::SFN
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data
       end
     end
@@ -1001,7 +1003,7 @@ module AWS::SDK::SFN
         stub ||= Types::ActivitySucceededEventDetails.new
         data = {}
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data
       end
     end
@@ -1043,7 +1045,7 @@ module AWS::SDK::SFN
         data = {}
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        data['inputDetails'] = Stubs::HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
+        data['inputDetails'] = HistoryEventExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
         data['timeoutInSeconds'] = stub[:timeout_in_seconds] unless stub[:timeout_in_seconds].nil?
         data['heartbeatInSeconds'] = stub[:heartbeat_in_seconds] unless stub[:heartbeat_in_seconds].nil?
         data
@@ -1101,9 +1103,9 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['activities'] = Stubs::ActivityList.stub(stub[:activities]) unless stub[:activities].nil?
+        data['activities'] = ActivityList.stub(stub[:activities]) unless stub[:activities].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1122,7 +1124,7 @@ module AWS::SDK::SFN
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActivityListItem.stub(element) unless element.nil?
+          data << ActivityListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1161,9 +1163,9 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['executions'] = Stubs::ExecutionList.stub(stub[:executions]) unless stub[:executions].nil?
+        data['executions'] = ExecutionList.stub(stub[:executions]) unless stub[:executions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1182,7 +1184,7 @@ module AWS::SDK::SFN
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExecutionListItem.stub(element) unless element.nil?
+          data << ExecutionListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1227,9 +1229,9 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['stateMachines'] = Stubs::StateMachineList.stub(stub[:state_machines]) unless stub[:state_machines].nil?
+        data['stateMachines'] = StateMachineList.stub(stub[:state_machines]) unless stub[:state_machines].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1248,7 +1250,7 @@ module AWS::SDK::SFN
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StateMachineListItem.stub(element) unless element.nil?
+          data << StateMachineListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1288,8 +1290,8 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1308,7 +1310,7 @@ module AWS::SDK::SFN
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1343,7 +1345,7 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1357,7 +1359,7 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1371,7 +1373,7 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1389,7 +1391,7 @@ module AWS::SDK::SFN
         data = {}
         data['executionArn'] = stub[:execution_arn] unless stub[:execution_arn].nil?
         data['startDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_date]).to_i unless stub[:start_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1426,12 +1428,12 @@ module AWS::SDK::SFN
         data['error'] = stub[:error] unless stub[:error].nil?
         data['cause'] = stub[:cause] unless stub[:cause].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        data['inputDetails'] = Stubs::CloudWatchEventsExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
+        data['inputDetails'] = CloudWatchEventsExecutionDataDetails.stub(stub[:input_details]) unless stub[:input_details].nil?
         data['output'] = stub[:output] unless stub[:output].nil?
-        data['outputDetails'] = Stubs::CloudWatchEventsExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
+        data['outputDetails'] = CloudWatchEventsExecutionDataDetails.stub(stub[:output_details]) unless stub[:output_details].nil?
         data['traceHeader'] = stub[:trace_header] unless stub[:trace_header].nil?
-        data['billingDetails'] = Stubs::BillingDetails.stub(stub[:billing_details]) unless stub[:billing_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['billingDetails'] = BillingDetails.stub(stub[:billing_details]) unless stub[:billing_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1467,7 +1469,7 @@ module AWS::SDK::SFN
       def self.stub(http_resp, stub:)
         data = {}
         data['stopDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stop_date]).to_i unless stub[:stop_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1481,7 +1483,7 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1495,7 +1497,7 @@ module AWS::SDK::SFN
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1511,7 +1513,7 @@ module AWS::SDK::SFN
       def self.stub(http_resp, stub:)
         data = {}
         data['updateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date]).to_i unless stub[:update_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

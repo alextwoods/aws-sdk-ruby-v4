@@ -17,7 +17,7 @@ module AWS::SDK::MigrationHubConfig
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.home_region_control = (Parsers::HomeRegionControl.parse(map['HomeRegionControl']) unless map['HomeRegionControl'].nil?)
+        data.home_region_control = (HomeRegionControl.parse(map['HomeRegionControl']) unless map['HomeRegionControl'].nil?)
         data
       end
     end
@@ -27,7 +27,7 @@ module AWS::SDK::MigrationHubConfig
         data = Types::HomeRegionControl.new
         data.control_id = map['ControlId']
         data.home_region = map['HomeRegion']
-        data.target = (Parsers::Target.parse(map['Target']) unless map['Target'].nil?)
+        data.target = (Target.parse(map['Target']) unless map['Target'].nil?)
         data.requested_time = Time.at(map['RequestedTime'].to_i) if map['RequestedTime']
         return data
       end
@@ -122,7 +122,7 @@ module AWS::SDK::MigrationHubConfig
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.home_region_controls = (Parsers::HomeRegionControls.parse(map['HomeRegionControls']) unless map['HomeRegionControls'].nil?)
+        data.home_region_controls = (HomeRegionControls.parse(map['HomeRegionControls']) unless map['HomeRegionControls'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -131,7 +131,7 @@ module AWS::SDK::MigrationHubConfig
     class HomeRegionControls
       def self.parse(list)
         list.map do |value|
-          Parsers::HomeRegionControl.parse(value) unless value.nil?
+          HomeRegionControl.parse(value) unless value.nil?
         end
       end
     end

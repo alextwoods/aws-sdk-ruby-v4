@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::Support
   module Parsers
 
@@ -138,7 +140,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attachment = (Parsers::Attachment.parse(map['attachment']) unless map['attachment'].nil?)
+        data.attachment = (Attachment.parse(map['attachment']) unless map['attachment'].nil?)
         data
       end
     end
@@ -147,7 +149,7 @@ module AWS::SDK::Support
       def self.parse(map)
         data = Types::Attachment.new
         data.file_name = map['fileName']
-        data.data = Base64::decode64(map['data']) unless map['data'].nil?
+        data.data = ::Base64::decode64(map['data']) unless map['data'].nil?
         return data
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cases = (Parsers::CaseList.parse(map['cases']) unless map['cases'].nil?)
+        data.cases = (CaseList.parse(map['cases']) unless map['cases'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -192,7 +194,7 @@ module AWS::SDK::Support
     class CaseList
       def self.parse(list)
         list.map do |value|
-          Parsers::CaseDetails.parse(value) unless value.nil?
+          CaseDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -209,8 +211,8 @@ module AWS::SDK::Support
         data.severity_code = map['severityCode']
         data.submitted_by = map['submittedBy']
         data.time_created = map['timeCreated']
-        data.recent_communications = (Parsers::RecentCaseCommunications.parse(map['recentCommunications']) unless map['recentCommunications'].nil?)
-        data.cc_email_addresses = (Parsers::CcEmailAddressList.parse(map['ccEmailAddresses']) unless map['ccEmailAddresses'].nil?)
+        data.recent_communications = (RecentCaseCommunications.parse(map['recentCommunications']) unless map['recentCommunications'].nil?)
+        data.cc_email_addresses = (CcEmailAddressList.parse(map['ccEmailAddresses']) unless map['ccEmailAddresses'].nil?)
         data.language = map['language']
         return data
       end
@@ -227,7 +229,7 @@ module AWS::SDK::Support
     class RecentCaseCommunications
       def self.parse(map)
         data = Types::RecentCaseCommunications.new
-        data.communications = (Parsers::CommunicationList.parse(map['communications']) unless map['communications'].nil?)
+        data.communications = (CommunicationList.parse(map['communications']) unless map['communications'].nil?)
         data.next_token = map['nextToken']
         return data
       end
@@ -236,7 +238,7 @@ module AWS::SDK::Support
     class CommunicationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Communication.parse(value) unless value.nil?
+          Communication.parse(value) unless value.nil?
         end
       end
     end
@@ -248,7 +250,7 @@ module AWS::SDK::Support
         data.body = map['body']
         data.submitted_by = map['submittedBy']
         data.time_created = map['timeCreated']
-        data.attachment_set = (Parsers::AttachmentSet.parse(map['attachmentSet']) unless map['attachmentSet'].nil?)
+        data.attachment_set = (AttachmentSet.parse(map['attachmentSet']) unless map['attachmentSet'].nil?)
         return data
       end
     end
@@ -256,7 +258,7 @@ module AWS::SDK::Support
     class AttachmentSet
       def self.parse(list)
         list.map do |value|
-          Parsers::AttachmentDetails.parse(value) unless value.nil?
+          AttachmentDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -277,7 +279,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.communications = (Parsers::CommunicationList.parse(map['communications']) unless map['communications'].nil?)
+        data.communications = (CommunicationList.parse(map['communications']) unless map['communications'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -290,7 +292,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.services = (Parsers::ServiceList.parse(map['services']) unless map['services'].nil?)
+        data.services = (ServiceList.parse(map['services']) unless map['services'].nil?)
         data
       end
     end
@@ -298,7 +300,7 @@ module AWS::SDK::Support
     class ServiceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Service.parse(value) unless value.nil?
+          Service.parse(value) unless value.nil?
         end
       end
     end
@@ -308,7 +310,7 @@ module AWS::SDK::Support
         data = Types::Service.new
         data.code = map['code']
         data.name = map['name']
-        data.categories = (Parsers::CategoryList.parse(map['categories']) unless map['categories'].nil?)
+        data.categories = (CategoryList.parse(map['categories']) unless map['categories'].nil?)
         return data
       end
     end
@@ -316,7 +318,7 @@ module AWS::SDK::Support
     class CategoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::Category.parse(value) unless value.nil?
+          Category.parse(value) unless value.nil?
         end
       end
     end
@@ -337,7 +339,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.severity_levels = (Parsers::SeverityLevelsList.parse(map['severityLevels']) unless map['severityLevels'].nil?)
+        data.severity_levels = (SeverityLevelsList.parse(map['severityLevels']) unless map['severityLevels'].nil?)
         data
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::Support
     class SeverityLevelsList
       def self.parse(list)
         list.map do |value|
-          Parsers::SeverityLevel.parse(value) unless value.nil?
+          SeverityLevel.parse(value) unless value.nil?
         end
       end
     end
@@ -366,7 +368,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.statuses = (Parsers::TrustedAdvisorCheckRefreshStatusList.parse(map['statuses']) unless map['statuses'].nil?)
+        data.statuses = (TrustedAdvisorCheckRefreshStatusList.parse(map['statuses']) unless map['statuses'].nil?)
         data
       end
     end
@@ -374,7 +376,7 @@ module AWS::SDK::Support
     class TrustedAdvisorCheckRefreshStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::TrustedAdvisorCheckRefreshStatus.parse(value) unless value.nil?
+          TrustedAdvisorCheckRefreshStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -396,7 +398,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.result = (Parsers::TrustedAdvisorCheckResult.parse(map['result']) unless map['result'].nil?)
+        data.result = (TrustedAdvisorCheckResult.parse(map['result']) unless map['result'].nil?)
         data
       end
     end
@@ -407,9 +409,9 @@ module AWS::SDK::Support
         data.check_id = map['checkId']
         data.timestamp = map['timestamp']
         data.status = map['status']
-        data.resources_summary = (Parsers::TrustedAdvisorResourcesSummary.parse(map['resourcesSummary']) unless map['resourcesSummary'].nil?)
-        data.category_specific_summary = (Parsers::TrustedAdvisorCategorySpecificSummary.parse(map['categorySpecificSummary']) unless map['categorySpecificSummary'].nil?)
-        data.flagged_resources = (Parsers::TrustedAdvisorResourceDetailList.parse(map['flaggedResources']) unless map['flaggedResources'].nil?)
+        data.resources_summary = (TrustedAdvisorResourcesSummary.parse(map['resourcesSummary']) unless map['resourcesSummary'].nil?)
+        data.category_specific_summary = (TrustedAdvisorCategorySpecificSummary.parse(map['categorySpecificSummary']) unless map['categorySpecificSummary'].nil?)
+        data.flagged_resources = (TrustedAdvisorResourceDetailList.parse(map['flaggedResources']) unless map['flaggedResources'].nil?)
         return data
       end
     end
@@ -417,7 +419,7 @@ module AWS::SDK::Support
     class TrustedAdvisorResourceDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::TrustedAdvisorResourceDetail.parse(value) unless value.nil?
+          TrustedAdvisorResourceDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -429,7 +431,7 @@ module AWS::SDK::Support
         data.region = map['region']
         data.resource_id = map['resourceId']
         data.is_suppressed = map['isSuppressed']
-        data.metadata = (Parsers::StringList.parse(map['metadata']) unless map['metadata'].nil?)
+        data.metadata = (StringList.parse(map['metadata']) unless map['metadata'].nil?)
         return data
       end
     end
@@ -445,7 +447,7 @@ module AWS::SDK::Support
     class TrustedAdvisorCategorySpecificSummary
       def self.parse(map)
         data = Types::TrustedAdvisorCategorySpecificSummary.new
-        data.cost_optimizing = (Parsers::TrustedAdvisorCostOptimizingSummary.parse(map['costOptimizing']) unless map['costOptimizing'].nil?)
+        data.cost_optimizing = (TrustedAdvisorCostOptimizingSummary.parse(map['costOptimizing']) unless map['costOptimizing'].nil?)
         return data
       end
     end
@@ -477,7 +479,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summaries = (Parsers::TrustedAdvisorCheckSummaryList.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (TrustedAdvisorCheckSummaryList.parse(map['summaries']) unless map['summaries'].nil?)
         data
       end
     end
@@ -485,7 +487,7 @@ module AWS::SDK::Support
     class TrustedAdvisorCheckSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::TrustedAdvisorCheckSummary.parse(value) unless value.nil?
+          TrustedAdvisorCheckSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -497,8 +499,8 @@ module AWS::SDK::Support
         data.timestamp = map['timestamp']
         data.status = map['status']
         data.has_flagged_resources = map['hasFlaggedResources']
-        data.resources_summary = (Parsers::TrustedAdvisorResourcesSummary.parse(map['resourcesSummary']) unless map['resourcesSummary'].nil?)
-        data.category_specific_summary = (Parsers::TrustedAdvisorCategorySpecificSummary.parse(map['categorySpecificSummary']) unless map['categorySpecificSummary'].nil?)
+        data.resources_summary = (TrustedAdvisorResourcesSummary.parse(map['resourcesSummary']) unless map['resourcesSummary'].nil?)
+        data.category_specific_summary = (TrustedAdvisorCategorySpecificSummary.parse(map['categorySpecificSummary']) unless map['categorySpecificSummary'].nil?)
         return data
       end
     end
@@ -510,7 +512,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.checks = (Parsers::TrustedAdvisorCheckList.parse(map['checks']) unless map['checks'].nil?)
+        data.checks = (TrustedAdvisorCheckList.parse(map['checks']) unless map['checks'].nil?)
         data
       end
     end
@@ -518,7 +520,7 @@ module AWS::SDK::Support
     class TrustedAdvisorCheckList
       def self.parse(list)
         list.map do |value|
-          Parsers::TrustedAdvisorCheckDescription.parse(value) unless value.nil?
+          TrustedAdvisorCheckDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -530,7 +532,7 @@ module AWS::SDK::Support
         data.name = map['name']
         data.description = map['description']
         data.category = map['category']
-        data.metadata = (Parsers::StringList.parse(map['metadata']) unless map['metadata'].nil?)
+        data.metadata = (StringList.parse(map['metadata']) unless map['metadata'].nil?)
         return data
       end
     end
@@ -542,7 +544,7 @@ module AWS::SDK::Support
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.status = (Parsers::TrustedAdvisorCheckRefreshStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (TrustedAdvisorCheckRefreshStatus.parse(map['status']) unless map['status'].nil?)
         data
       end
     end

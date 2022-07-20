@@ -80,7 +80,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('BatchDeleteScheduledActionResult')
         xml.at('FailedScheduledActions') do |node|
           children = node.children('member')
-          data.failed_scheduled_actions = Parsers::FailedScheduledUpdateGroupActionRequests.parse(children)
+          data.failed_scheduled_actions = FailedScheduledUpdateGroupActionRequests.parse(children)
         end
         data
       end
@@ -90,7 +90,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FailedScheduledUpdateGroupActionRequest.parse(node)
+          data << FailedScheduledUpdateGroupActionRequest.parse(node)
         end
         data
       end
@@ -121,7 +121,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('BatchPutScheduledUpdateGroupActionResult')
         xml.at('FailedScheduledUpdateGroupActions') do |node|
           children = node.children('member')
-          data.failed_scheduled_update_group_actions = Parsers::FailedScheduledUpdateGroupActionRequests.parse(children)
+          data.failed_scheduled_update_group_actions = FailedScheduledUpdateGroupActionRequests.parse(children)
         end
         data
       end
@@ -375,7 +375,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeAdjustmentTypesResult')
         xml.at('AdjustmentTypes') do |node|
           children = node.children('member')
-          data.adjustment_types = Parsers::AdjustmentTypes.parse(children)
+          data.adjustment_types = AdjustmentTypes.parse(children)
         end
         data
       end
@@ -385,7 +385,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AdjustmentType.parse(node)
+          data << AdjustmentType.parse(node)
         end
         data
       end
@@ -410,7 +410,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeAutoScalingGroupsResult')
         xml.at('AutoScalingGroups') do |node|
           children = node.children('member')
-          data.auto_scaling_groups = Parsers::AutoScalingGroups.parse(children)
+          data.auto_scaling_groups = AutoScalingGroups.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -423,7 +423,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AutoScalingGroup.parse(node)
+          data << AutoScalingGroup.parse(node)
         end
         data
       end
@@ -442,10 +442,10 @@ module AWS::SDK::AutoScaling
           data.launch_configuration_name = (node.text || '')
         end
         xml.at('LaunchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplateSpecification.parse(node)
+          data.launch_template = LaunchTemplateSpecification.parse(node)
         end
         xml.at('MixedInstancesPolicy') do |node|
-          data.mixed_instances_policy = Parsers::MixedInstancesPolicy.parse(node)
+          data.mixed_instances_policy = MixedInstancesPolicy.parse(node)
         end
         xml.at('MinSize') do |node|
           data.min_size = node.text&.to_i
@@ -464,15 +464,15 @@ module AWS::SDK::AutoScaling
         end
         xml.at('AvailabilityZones') do |node|
           children = node.children('member')
-          data.availability_zones = Parsers::AvailabilityZones.parse(children)
+          data.availability_zones = AvailabilityZones.parse(children)
         end
         xml.at('LoadBalancerNames') do |node|
           children = node.children('member')
-          data.load_balancer_names = Parsers::LoadBalancerNames.parse(children)
+          data.load_balancer_names = LoadBalancerNames.parse(children)
         end
         xml.at('TargetGroupARNs') do |node|
           children = node.children('member')
-          data.target_group_ar_ns = Parsers::TargetGroupARNs.parse(children)
+          data.target_group_ar_ns = TargetGroupARNs.parse(children)
         end
         xml.at('HealthCheckType') do |node|
           data.health_check_type = (node.text || '')
@@ -482,14 +482,14 @@ module AWS::SDK::AutoScaling
         end
         xml.at('Instances') do |node|
           children = node.children('member')
-          data.instances = Parsers::Instances.parse(children)
+          data.instances = Instances.parse(children)
         end
         xml.at('CreatedTime') do |node|
           data.created_time = Time.parse(node.text) if node.text
         end
         xml.at('SuspendedProcesses') do |node|
           children = node.children('member')
-          data.suspended_processes = Parsers::SuspendedProcesses.parse(children)
+          data.suspended_processes = SuspendedProcesses.parse(children)
         end
         xml.at('PlacementGroup') do |node|
           data.placement_group = (node.text || '')
@@ -499,18 +499,18 @@ module AWS::SDK::AutoScaling
         end
         xml.at('EnabledMetrics') do |node|
           children = node.children('member')
-          data.enabled_metrics = Parsers::EnabledMetrics.parse(children)
+          data.enabled_metrics = EnabledMetrics.parse(children)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagDescriptionList.parse(children)
+          data.tags = TagDescriptionList.parse(children)
         end
         xml.at('TerminationPolicies') do |node|
           children = node.children('member')
-          data.termination_policies = Parsers::TerminationPolicies.parse(children)
+          data.termination_policies = TerminationPolicies.parse(children)
         end
         xml.at('NewInstancesProtectedFromScaleIn') do |node|
           data.new_instances_protected_from_scale_in = (node.text == 'true')
@@ -525,7 +525,7 @@ module AWS::SDK::AutoScaling
           data.capacity_rebalance = (node.text == 'true')
         end
         xml.at('WarmPoolConfiguration') do |node|
-          data.warm_pool_configuration = Parsers::WarmPoolConfiguration.parse(node)
+          data.warm_pool_configuration = WarmPoolConfiguration.parse(node)
         end
         xml.at('WarmPoolSize') do |node|
           data.warm_pool_size = node.text&.to_i
@@ -559,7 +559,7 @@ module AWS::SDK::AutoScaling
           data.status = (node.text || '')
         end
         xml.at('InstanceReusePolicy') do |node|
-          data.instance_reuse_policy = Parsers::InstanceReusePolicy.parse(node)
+          data.instance_reuse_policy = InstanceReusePolicy.parse(node)
         end
         return data
       end
@@ -589,7 +589,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TagDescription.parse(node)
+          data << TagDescription.parse(node)
         end
         data
       end
@@ -621,7 +621,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EnabledMetric.parse(node)
+          data << EnabledMetric.parse(node)
         end
         data
       end
@@ -644,7 +644,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SuspendedProcess.parse(node)
+          data << SuspendedProcess.parse(node)
         end
         data
       end
@@ -667,7 +667,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Instance.parse(node)
+          data << Instance.parse(node)
         end
         data
       end
@@ -695,7 +695,7 @@ module AWS::SDK::AutoScaling
           data.launch_configuration_name = (node.text || '')
         end
         xml.at('LaunchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplateSpecification.parse(node)
+          data.launch_template = LaunchTemplateSpecification.parse(node)
         end
         xml.at('ProtectedFromScaleIn') do |node|
           data.protected_from_scale_in = (node.text == 'true')
@@ -757,10 +757,10 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = Types::MixedInstancesPolicy.new
         xml.at('LaunchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplate.parse(node)
+          data.launch_template = LaunchTemplate.parse(node)
         end
         xml.at('InstancesDistribution') do |node|
-          data.instances_distribution = Parsers::InstancesDistribution.parse(node)
+          data.instances_distribution = InstancesDistribution.parse(node)
         end
         return data
       end
@@ -795,11 +795,11 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = Types::LaunchTemplate.new
         xml.at('LaunchTemplateSpecification') do |node|
-          data.launch_template_specification = Parsers::LaunchTemplateSpecification.parse(node)
+          data.launch_template_specification = LaunchTemplateSpecification.parse(node)
         end
         xml.at('Overrides') do |node|
           children = node.children('member')
-          data.overrides = Parsers::Overrides.parse(children)
+          data.overrides = Overrides.parse(children)
         end
         return data
       end
@@ -809,7 +809,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateOverrides.parse(node)
+          data << LaunchTemplateOverrides.parse(node)
         end
         data
       end
@@ -825,10 +825,10 @@ module AWS::SDK::AutoScaling
           data.weighted_capacity = (node.text || '')
         end
         xml.at('LaunchTemplateSpecification') do |node|
-          data.launch_template_specification = Parsers::LaunchTemplateSpecification.parse(node)
+          data.launch_template_specification = LaunchTemplateSpecification.parse(node)
         end
         xml.at('InstanceRequirements') do |node|
-          data.instance_requirements = Parsers::InstanceRequirements.parse(node)
+          data.instance_requirements = InstanceRequirements.parse(node)
         end
         return data
       end
@@ -838,25 +838,25 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = Types::InstanceRequirements.new
         xml.at('VCpuCount') do |node|
-          data.v_cpu_count = Parsers::VCpuCountRequest.parse(node)
+          data.v_cpu_count = VCpuCountRequest.parse(node)
         end
         xml.at('MemoryMiB') do |node|
-          data.memory_mi_b = Parsers::MemoryMiBRequest.parse(node)
+          data.memory_mi_b = MemoryMiBRequest.parse(node)
         end
         xml.at('CpuManufacturers') do |node|
           children = node.children('member')
-          data.cpu_manufacturers = Parsers::CpuManufacturers.parse(children)
+          data.cpu_manufacturers = CpuManufacturers.parse(children)
         end
         xml.at('MemoryGiBPerVCpu') do |node|
-          data.memory_gi_b_per_v_cpu = Parsers::MemoryGiBPerVCpuRequest.parse(node)
+          data.memory_gi_b_per_v_cpu = MemoryGiBPerVCpuRequest.parse(node)
         end
         xml.at('ExcludedInstanceTypes') do |node|
           children = node.children('member')
-          data.excluded_instance_types = Parsers::ExcludedInstanceTypes.parse(children)
+          data.excluded_instance_types = ExcludedInstanceTypes.parse(children)
         end
         xml.at('InstanceGenerations') do |node|
           children = node.children('member')
-          data.instance_generations = Parsers::InstanceGenerations.parse(children)
+          data.instance_generations = InstanceGenerations.parse(children)
         end
         xml.at('SpotMaxPricePercentageOverLowestPrice') do |node|
           data.spot_max_price_percentage_over_lowest_price = node.text&.to_i
@@ -874,38 +874,38 @@ module AWS::SDK::AutoScaling
           data.require_hibernate_support = (node.text == 'true')
         end
         xml.at('NetworkInterfaceCount') do |node|
-          data.network_interface_count = Parsers::NetworkInterfaceCountRequest.parse(node)
+          data.network_interface_count = NetworkInterfaceCountRequest.parse(node)
         end
         xml.at('LocalStorage') do |node|
           data.local_storage = (node.text || '')
         end
         xml.at('LocalStorageTypes') do |node|
           children = node.children('member')
-          data.local_storage_types = Parsers::LocalStorageTypes.parse(children)
+          data.local_storage_types = LocalStorageTypes.parse(children)
         end
         xml.at('TotalLocalStorageGB') do |node|
-          data.total_local_storage_gb = Parsers::TotalLocalStorageGBRequest.parse(node)
+          data.total_local_storage_gb = TotalLocalStorageGBRequest.parse(node)
         end
         xml.at('BaselineEbsBandwidthMbps') do |node|
-          data.baseline_ebs_bandwidth_mbps = Parsers::BaselineEbsBandwidthMbpsRequest.parse(node)
+          data.baseline_ebs_bandwidth_mbps = BaselineEbsBandwidthMbpsRequest.parse(node)
         end
         xml.at('AcceleratorTypes') do |node|
           children = node.children('member')
-          data.accelerator_types = Parsers::AcceleratorTypes.parse(children)
+          data.accelerator_types = AcceleratorTypes.parse(children)
         end
         xml.at('AcceleratorCount') do |node|
-          data.accelerator_count = Parsers::AcceleratorCountRequest.parse(node)
+          data.accelerator_count = AcceleratorCountRequest.parse(node)
         end
         xml.at('AcceleratorManufacturers') do |node|
           children = node.children('member')
-          data.accelerator_manufacturers = Parsers::AcceleratorManufacturers.parse(children)
+          data.accelerator_manufacturers = AcceleratorManufacturers.parse(children)
         end
         xml.at('AcceleratorNames') do |node|
           children = node.children('member')
-          data.accelerator_names = Parsers::AcceleratorNames.parse(children)
+          data.accelerator_names = AcceleratorNames.parse(children)
         end
         xml.at('AcceleratorTotalMemoryMiB') do |node|
-          data.accelerator_total_memory_mi_b = Parsers::AcceleratorTotalMemoryMiBRequest.parse(node)
+          data.accelerator_total_memory_mi_b = AcceleratorTotalMemoryMiBRequest.parse(node)
         end
         return data
       end
@@ -1108,7 +1108,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeAutoScalingInstancesResult')
         xml.at('AutoScalingInstances') do |node|
           children = node.children('member')
-          data.auto_scaling_instances = Parsers::AutoScalingInstances.parse(children)
+          data.auto_scaling_instances = AutoScalingInstances.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1121,7 +1121,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AutoScalingInstanceDetails.parse(node)
+          data << AutoScalingInstanceDetails.parse(node)
         end
         data
       end
@@ -1152,7 +1152,7 @@ module AWS::SDK::AutoScaling
           data.launch_configuration_name = (node.text || '')
         end
         xml.at('LaunchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplateSpecification.parse(node)
+          data.launch_template = LaunchTemplateSpecification.parse(node)
         end
         xml.at('ProtectedFromScaleIn') do |node|
           data.protected_from_scale_in = (node.text == 'true')
@@ -1173,7 +1173,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeAutoScalingNotificationTypesResult')
         xml.at('AutoScalingNotificationTypes') do |node|
           children = node.children('member')
-          data.auto_scaling_notification_types = Parsers::AutoScalingNotificationTypes.parse(children)
+          data.auto_scaling_notification_types = AutoScalingNotificationTypes.parse(children)
         end
         data
       end
@@ -1198,7 +1198,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeInstanceRefreshesResult')
         xml.at('InstanceRefreshes') do |node|
           children = node.children('member')
-          data.instance_refreshes = Parsers::InstanceRefreshes.parse(children)
+          data.instance_refreshes = InstanceRefreshes.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1211,7 +1211,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceRefresh.parse(node)
+          data << InstanceRefresh.parse(node)
         end
         data
       end
@@ -1245,13 +1245,13 @@ module AWS::SDK::AutoScaling
           data.instances_to_update = node.text&.to_i
         end
         xml.at('ProgressDetails') do |node|
-          data.progress_details = Parsers::InstanceRefreshProgressDetails.parse(node)
+          data.progress_details = InstanceRefreshProgressDetails.parse(node)
         end
         xml.at('Preferences') do |node|
-          data.preferences = Parsers::RefreshPreferences.parse(node)
+          data.preferences = RefreshPreferences.parse(node)
         end
         xml.at('DesiredConfiguration') do |node|
-          data.desired_configuration = Parsers::DesiredConfiguration.parse(node)
+          data.desired_configuration = DesiredConfiguration.parse(node)
         end
         return data
       end
@@ -1261,10 +1261,10 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = Types::DesiredConfiguration.new
         xml.at('LaunchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplateSpecification.parse(node)
+          data.launch_template = LaunchTemplateSpecification.parse(node)
         end
         xml.at('MixedInstancesPolicy') do |node|
-          data.mixed_instances_policy = Parsers::MixedInstancesPolicy.parse(node)
+          data.mixed_instances_policy = MixedInstancesPolicy.parse(node)
         end
         return data
       end
@@ -1281,7 +1281,7 @@ module AWS::SDK::AutoScaling
         end
         xml.at('CheckpointPercentages') do |node|
           children = node.children('member')
-          data.checkpoint_percentages = Parsers::CheckpointPercentages.parse(children)
+          data.checkpoint_percentages = CheckpointPercentages.parse(children)
         end
         xml.at('CheckpointDelay') do |node|
           data.checkpoint_delay = node.text&.to_i
@@ -1307,10 +1307,10 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = Types::InstanceRefreshProgressDetails.new
         xml.at('LivePoolProgress') do |node|
-          data.live_pool_progress = Parsers::InstanceRefreshLivePoolProgress.parse(node)
+          data.live_pool_progress = InstanceRefreshLivePoolProgress.parse(node)
         end
         xml.at('WarmPoolProgress') do |node|
-          data.warm_pool_progress = Parsers::InstanceRefreshWarmPoolProgress.parse(node)
+          data.warm_pool_progress = InstanceRefreshWarmPoolProgress.parse(node)
         end
         return data
       end
@@ -1351,7 +1351,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeLaunchConfigurationsResult')
         xml.at('LaunchConfigurations') do |node|
           children = node.children('member')
-          data.launch_configurations = Parsers::LaunchConfigurations.parse(children)
+          data.launch_configurations = LaunchConfigurations.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1364,7 +1364,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchConfiguration.parse(node)
+          data << LaunchConfiguration.parse(node)
         end
         data
       end
@@ -1387,14 +1387,14 @@ module AWS::SDK::AutoScaling
         end
         xml.at('SecurityGroups') do |node|
           children = node.children('member')
-          data.security_groups = Parsers::SecurityGroups.parse(children)
+          data.security_groups = SecurityGroups.parse(children)
         end
         xml.at('ClassicLinkVPCId') do |node|
           data.classic_link_vpc_id = (node.text || '')
         end
         xml.at('ClassicLinkVPCSecurityGroups') do |node|
           children = node.children('member')
-          data.classic_link_vpc_security_groups = Parsers::ClassicLinkVPCSecurityGroups.parse(children)
+          data.classic_link_vpc_security_groups = ClassicLinkVPCSecurityGroups.parse(children)
         end
         xml.at('UserData') do |node|
           data.user_data = (node.text || '')
@@ -1410,10 +1410,10 @@ module AWS::SDK::AutoScaling
         end
         xml.at('BlockDeviceMappings') do |node|
           children = node.children('member')
-          data.block_device_mappings = Parsers::BlockDeviceMappings.parse(children)
+          data.block_device_mappings = BlockDeviceMappings.parse(children)
         end
         xml.at('InstanceMonitoring') do |node|
-          data.instance_monitoring = Parsers::InstanceMonitoring.parse(node)
+          data.instance_monitoring = InstanceMonitoring.parse(node)
         end
         xml.at('SpotPrice') do |node|
           data.spot_price = (node.text || '')
@@ -1434,7 +1434,7 @@ module AWS::SDK::AutoScaling
           data.placement_tenancy = (node.text || '')
         end
         xml.at('MetadataOptions') do |node|
-          data.metadata_options = Parsers::InstanceMetadataOptions.parse(node)
+          data.metadata_options = InstanceMetadataOptions.parse(node)
         end
         return data
       end
@@ -1470,7 +1470,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::BlockDeviceMapping.parse(node)
+          data << BlockDeviceMapping.parse(node)
         end
         data
       end
@@ -1486,7 +1486,7 @@ module AWS::SDK::AutoScaling
           data.device_name = (node.text || '')
         end
         xml.at('Ebs') do |node|
-          data.ebs = Parsers::Ebs.parse(node)
+          data.ebs = Ebs.parse(node)
         end
         xml.at('NoDevice') do |node|
           data.no_device = (node.text == 'true')
@@ -1552,7 +1552,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeLifecycleHookTypesResult')
         xml.at('LifecycleHookTypes') do |node|
           children = node.children('member')
-          data.lifecycle_hook_types = Parsers::AutoScalingNotificationTypes.parse(children)
+          data.lifecycle_hook_types = AutoScalingNotificationTypes.parse(children)
         end
         data
       end
@@ -1567,7 +1567,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeLifecycleHooksResult')
         xml.at('LifecycleHooks') do |node|
           children = node.children('member')
-          data.lifecycle_hooks = Parsers::LifecycleHooks.parse(children)
+          data.lifecycle_hooks = LifecycleHooks.parse(children)
         end
         data
       end
@@ -1577,7 +1577,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LifecycleHook.parse(node)
+          data << LifecycleHook.parse(node)
         end
         data
       end
@@ -1626,7 +1626,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeLoadBalancerTargetGroupsResult')
         xml.at('LoadBalancerTargetGroups') do |node|
           children = node.children('member')
-          data.load_balancer_target_groups = Parsers::LoadBalancerTargetGroupStates.parse(children)
+          data.load_balancer_target_groups = LoadBalancerTargetGroupStates.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1639,7 +1639,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LoadBalancerTargetGroupState.parse(node)
+          data << LoadBalancerTargetGroupState.parse(node)
         end
         data
       end
@@ -1667,7 +1667,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeLoadBalancersResult')
         xml.at('LoadBalancers') do |node|
           children = node.children('member')
-          data.load_balancers = Parsers::LoadBalancerStates.parse(children)
+          data.load_balancers = LoadBalancerStates.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1680,7 +1680,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LoadBalancerState.parse(node)
+          data << LoadBalancerState.parse(node)
         end
         data
       end
@@ -1708,11 +1708,11 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeMetricCollectionTypesResult')
         xml.at('Metrics') do |node|
           children = node.children('member')
-          data.metrics = Parsers::MetricCollectionTypes.parse(children)
+          data.metrics = MetricCollectionTypes.parse(children)
         end
         xml.at('Granularities') do |node|
           children = node.children('member')
-          data.granularities = Parsers::MetricGranularityTypes.parse(children)
+          data.granularities = MetricGranularityTypes.parse(children)
         end
         data
       end
@@ -1722,7 +1722,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricGranularityType.parse(node)
+          data << MetricGranularityType.parse(node)
         end
         data
       end
@@ -1742,7 +1742,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricCollectionType.parse(node)
+          data << MetricCollectionType.parse(node)
         end
         data
       end
@@ -1767,7 +1767,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeNotificationConfigurationsResult')
         xml.at('NotificationConfigurations') do |node|
           children = node.children('member')
-          data.notification_configurations = Parsers::NotificationConfigurations.parse(children)
+          data.notification_configurations = NotificationConfigurations.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1780,7 +1780,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NotificationConfiguration.parse(node)
+          data << NotificationConfiguration.parse(node)
         end
         data
       end
@@ -1811,7 +1811,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribePoliciesResult')
         xml.at('ScalingPolicies') do |node|
           children = node.children('member')
-          data.scaling_policies = Parsers::ScalingPolicies.parse(children)
+          data.scaling_policies = ScalingPolicies.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1824,7 +1824,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ScalingPolicy.parse(node)
+          data << ScalingPolicy.parse(node)
         end
         data
       end
@@ -1862,7 +1862,7 @@ module AWS::SDK::AutoScaling
         end
         xml.at('StepAdjustments') do |node|
           children = node.children('member')
-          data.step_adjustments = Parsers::StepAdjustments.parse(children)
+          data.step_adjustments = StepAdjustments.parse(children)
         end
         xml.at('MetricAggregationType') do |node|
           data.metric_aggregation_type = (node.text || '')
@@ -1872,16 +1872,16 @@ module AWS::SDK::AutoScaling
         end
         xml.at('Alarms') do |node|
           children = node.children('member')
-          data.alarms = Parsers::Alarms.parse(children)
+          data.alarms = Alarms.parse(children)
         end
         xml.at('TargetTrackingConfiguration') do |node|
-          data.target_tracking_configuration = Parsers::TargetTrackingConfiguration.parse(node)
+          data.target_tracking_configuration = TargetTrackingConfiguration.parse(node)
         end
         xml.at('Enabled') do |node|
           data.enabled = (node.text == 'true')
         end
         xml.at('PredictiveScalingConfiguration') do |node|
-          data.predictive_scaling_configuration = Parsers::PredictiveScalingConfiguration.parse(node)
+          data.predictive_scaling_configuration = PredictiveScalingConfiguration.parse(node)
         end
         return data
       end
@@ -1892,7 +1892,7 @@ module AWS::SDK::AutoScaling
         data = Types::PredictiveScalingConfiguration.new
         xml.at('MetricSpecifications') do |node|
           children = node.children('member')
-          data.metric_specifications = Parsers::PredictiveScalingMetricSpecifications.parse(children)
+          data.metric_specifications = PredictiveScalingMetricSpecifications.parse(children)
         end
         xml.at('Mode') do |node|
           data.mode = (node.text || '')
@@ -1914,7 +1914,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PredictiveScalingMetricSpecification.parse(node)
+          data << PredictiveScalingMetricSpecification.parse(node)
         end
         data
       end
@@ -1927,22 +1927,22 @@ module AWS::SDK::AutoScaling
           data.target_value = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('PredefinedMetricPairSpecification') do |node|
-          data.predefined_metric_pair_specification = Parsers::PredictiveScalingPredefinedMetricPair.parse(node)
+          data.predefined_metric_pair_specification = PredictiveScalingPredefinedMetricPair.parse(node)
         end
         xml.at('PredefinedScalingMetricSpecification') do |node|
-          data.predefined_scaling_metric_specification = Parsers::PredictiveScalingPredefinedScalingMetric.parse(node)
+          data.predefined_scaling_metric_specification = PredictiveScalingPredefinedScalingMetric.parse(node)
         end
         xml.at('PredefinedLoadMetricSpecification') do |node|
-          data.predefined_load_metric_specification = Parsers::PredictiveScalingPredefinedLoadMetric.parse(node)
+          data.predefined_load_metric_specification = PredictiveScalingPredefinedLoadMetric.parse(node)
         end
         xml.at('CustomizedScalingMetricSpecification') do |node|
-          data.customized_scaling_metric_specification = Parsers::PredictiveScalingCustomizedScalingMetric.parse(node)
+          data.customized_scaling_metric_specification = PredictiveScalingCustomizedScalingMetric.parse(node)
         end
         xml.at('CustomizedLoadMetricSpecification') do |node|
-          data.customized_load_metric_specification = Parsers::PredictiveScalingCustomizedLoadMetric.parse(node)
+          data.customized_load_metric_specification = PredictiveScalingCustomizedLoadMetric.parse(node)
         end
         xml.at('CustomizedCapacityMetricSpecification') do |node|
-          data.customized_capacity_metric_specification = Parsers::PredictiveScalingCustomizedCapacityMetric.parse(node)
+          data.customized_capacity_metric_specification = PredictiveScalingCustomizedCapacityMetric.parse(node)
         end
         return data
       end
@@ -1953,7 +1953,7 @@ module AWS::SDK::AutoScaling
         data = Types::PredictiveScalingCustomizedCapacityMetric.new
         xml.at('MetricDataQueries') do |node|
           children = node.children('member')
-          data.metric_data_queries = Parsers::MetricDataQueries.parse(children)
+          data.metric_data_queries = MetricDataQueries.parse(children)
         end
         return data
       end
@@ -1963,7 +1963,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricDataQuery.parse(node)
+          data << MetricDataQuery.parse(node)
         end
         data
       end
@@ -1979,7 +1979,7 @@ module AWS::SDK::AutoScaling
           data.expression = (node.text || '')
         end
         xml.at('MetricStat') do |node|
-          data.metric_stat = Parsers::MetricStat.parse(node)
+          data.metric_stat = MetricStat.parse(node)
         end
         xml.at('Label') do |node|
           data.label = (node.text || '')
@@ -1995,7 +1995,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = Types::MetricStat.new
         xml.at('Metric') do |node|
-          data.metric = Parsers::Metric.parse(node)
+          data.metric = Metric.parse(node)
         end
         xml.at('Stat') do |node|
           data.stat = (node.text || '')
@@ -2018,7 +2018,7 @@ module AWS::SDK::AutoScaling
         end
         xml.at('Dimensions') do |node|
           children = node.children('member')
-          data.dimensions = Parsers::MetricDimensions.parse(children)
+          data.dimensions = MetricDimensions.parse(children)
         end
         return data
       end
@@ -2028,7 +2028,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricDimension.parse(node)
+          data << MetricDimension.parse(node)
         end
         data
       end
@@ -2052,7 +2052,7 @@ module AWS::SDK::AutoScaling
         data = Types::PredictiveScalingCustomizedLoadMetric.new
         xml.at('MetricDataQueries') do |node|
           children = node.children('member')
-          data.metric_data_queries = Parsers::MetricDataQueries.parse(children)
+          data.metric_data_queries = MetricDataQueries.parse(children)
         end
         return data
       end
@@ -2063,7 +2063,7 @@ module AWS::SDK::AutoScaling
         data = Types::PredictiveScalingCustomizedScalingMetric.new
         xml.at('MetricDataQueries') do |node|
           children = node.children('member')
-          data.metric_data_queries = Parsers::MetricDataQueries.parse(children)
+          data.metric_data_queries = MetricDataQueries.parse(children)
         end
         return data
       end
@@ -2112,10 +2112,10 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = Types::TargetTrackingConfiguration.new
         xml.at('PredefinedMetricSpecification') do |node|
-          data.predefined_metric_specification = Parsers::PredefinedMetricSpecification.parse(node)
+          data.predefined_metric_specification = PredefinedMetricSpecification.parse(node)
         end
         xml.at('CustomizedMetricSpecification') do |node|
-          data.customized_metric_specification = Parsers::CustomizedMetricSpecification.parse(node)
+          data.customized_metric_specification = CustomizedMetricSpecification.parse(node)
         end
         xml.at('TargetValue') do |node|
           data.target_value = Hearth::NumberHelper.deserialize(node.text)
@@ -2138,7 +2138,7 @@ module AWS::SDK::AutoScaling
         end
         xml.at('Dimensions') do |node|
           children = node.children('member')
-          data.dimensions = Parsers::MetricDimensions.parse(children)
+          data.dimensions = MetricDimensions.parse(children)
         end
         xml.at('Statistic') do |node|
           data.statistic = (node.text || '')
@@ -2167,7 +2167,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Alarm.parse(node)
+          data << Alarm.parse(node)
         end
         data
       end
@@ -2190,7 +2190,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StepAdjustment.parse(node)
+          data << StepAdjustment.parse(node)
         end
         data
       end
@@ -2221,7 +2221,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeScalingActivitiesResult')
         xml.at('Activities') do |node|
           children = node.children('member')
-          data.activities = Parsers::Activities.parse(children)
+          data.activities = Activities.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2234,7 +2234,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Activity.parse(node)
+          data << Activity.parse(node)
         end
         data
       end
@@ -2292,7 +2292,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeScalingProcessTypesResult')
         xml.at('Processes') do |node|
           children = node.children('member')
-          data.processes = Parsers::Processes.parse(children)
+          data.processes = Processes.parse(children)
         end
         data
       end
@@ -2302,7 +2302,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ProcessType.parse(node)
+          data << ProcessType.parse(node)
         end
         data
       end
@@ -2327,7 +2327,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeScheduledActionsResult')
         xml.at('ScheduledUpdateGroupActions') do |node|
           children = node.children('member')
-          data.scheduled_update_group_actions = Parsers::ScheduledUpdateGroupActions.parse(children)
+          data.scheduled_update_group_actions = ScheduledUpdateGroupActions.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2340,7 +2340,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ScheduledUpdateGroupAction.parse(node)
+          data << ScheduledUpdateGroupAction.parse(node)
         end
         data
       end
@@ -2395,7 +2395,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeTagsResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagDescriptionList.parse(children)
+          data.tags = TagDescriptionList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2413,7 +2413,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DescribeTerminationPolicyTypesResult')
         xml.at('TerminationPolicyTypes') do |node|
           children = node.children('member')
-          data.termination_policy_types = Parsers::TerminationPolicies.parse(children)
+          data.termination_policy_types = TerminationPolicies.parse(children)
         end
         data
       end
@@ -2427,11 +2427,11 @@ module AWS::SDK::AutoScaling
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeWarmPoolResult')
         xml.at('WarmPoolConfiguration') do |node|
-          data.warm_pool_configuration = Parsers::WarmPoolConfiguration.parse(node)
+          data.warm_pool_configuration = WarmPoolConfiguration.parse(node)
         end
         xml.at('Instances') do |node|
           children = node.children('member')
-          data.instances = Parsers::Instances.parse(children)
+          data.instances = Instances.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2449,7 +2449,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('DetachInstancesResult')
         xml.at('Activities') do |node|
           children = node.children('member')
-          data.activities = Parsers::Activities.parse(children)
+          data.activities = Activities.parse(children)
         end
         data
       end
@@ -2508,7 +2508,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('EnterStandbyResult')
         xml.at('Activities') do |node|
           children = node.children('member')
-          data.activities = Parsers::Activities.parse(children)
+          data.activities = Activities.parse(children)
         end
         data
       end
@@ -2534,7 +2534,7 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('ExitStandbyResult')
         xml.at('Activities') do |node|
           children = node.children('member')
-          data.activities = Parsers::Activities.parse(children)
+          data.activities = Activities.parse(children)
         end
         data
       end
@@ -2549,10 +2549,10 @@ module AWS::SDK::AutoScaling
         xml = Hearth::XML.parse(body).at('GetPredictiveScalingForecastResult')
         xml.at('LoadForecast') do |node|
           children = node.children('member')
-          data.load_forecast = Parsers::LoadForecasts.parse(children)
+          data.load_forecast = LoadForecasts.parse(children)
         end
         xml.at('CapacityForecast') do |node|
-          data.capacity_forecast = Parsers::CapacityForecast.parse(node)
+          data.capacity_forecast = CapacityForecast.parse(node)
         end
         xml.at('UpdateTime') do |node|
           data.update_time = Time.parse(node.text) if node.text
@@ -2566,11 +2566,11 @@ module AWS::SDK::AutoScaling
         data = Types::CapacityForecast.new
         xml.at('Timestamps') do |node|
           children = node.children('member')
-          data.timestamps = Parsers::PredictiveScalingForecastTimestamps.parse(children)
+          data.timestamps = PredictiveScalingForecastTimestamps.parse(children)
         end
         xml.at('Values') do |node|
           children = node.children('member')
-          data.values = Parsers::PredictiveScalingForecastValues.parse(children)
+          data.values = PredictiveScalingForecastValues.parse(children)
         end
         return data
       end
@@ -2600,7 +2600,7 @@ module AWS::SDK::AutoScaling
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LoadForecast.parse(node)
+          data << LoadForecast.parse(node)
         end
         data
       end
@@ -2611,14 +2611,14 @@ module AWS::SDK::AutoScaling
         data = Types::LoadForecast.new
         xml.at('Timestamps') do |node|
           children = node.children('member')
-          data.timestamps = Parsers::PredictiveScalingForecastTimestamps.parse(children)
+          data.timestamps = PredictiveScalingForecastTimestamps.parse(children)
         end
         xml.at('Values') do |node|
           children = node.children('member')
-          data.values = Parsers::PredictiveScalingForecastValues.parse(children)
+          data.values = PredictiveScalingForecastValues.parse(children)
         end
         xml.at('MetricSpecification') do |node|
-          data.metric_specification = Parsers::PredictiveScalingMetricSpecification.parse(node)
+          data.metric_specification = PredictiveScalingMetricSpecification.parse(node)
         end
         return data
       end
@@ -2658,7 +2658,7 @@ module AWS::SDK::AutoScaling
         end
         xml.at('Alarms') do |node|
           children = node.children('member')
-          data.alarms = Parsers::Alarms.parse(children)
+          data.alarms = Alarms.parse(children)
         end
         data
       end
@@ -2788,7 +2788,7 @@ module AWS::SDK::AutoScaling
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('TerminateInstanceInAutoScalingGroupResult')
         xml.at('Activity') do |node|
-          data.activity = Parsers::Activity.parse(node)
+          data.activity = Activity.parse(node)
         end
         data
       end

@@ -27,7 +27,7 @@ module AWS::SDK::DevOpsGuru
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.fields = (Parsers::ValidationExceptionFields.parse(map['Fields']) unless map['Fields'].nil?)
+        data.fields = (ValidationExceptionFields.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -36,7 +36,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -158,8 +158,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::DescribeAnomalyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proactive_anomaly = (Parsers::ProactiveAnomaly.parse(map['ProactiveAnomaly']) unless map['ProactiveAnomaly'].nil?)
-        data.reactive_anomaly = (Parsers::ReactiveAnomaly.parse(map['ReactiveAnomaly']) unless map['ReactiveAnomaly'].nil?)
+        data.proactive_anomaly = (ProactiveAnomaly.parse(map['ProactiveAnomaly']) unless map['ProactiveAnomaly'].nil?)
+        data.reactive_anomaly = (ReactiveAnomaly.parse(map['ReactiveAnomaly']) unless map['ReactiveAnomaly'].nil?)
         data
       end
     end
@@ -170,16 +170,16 @@ module AWS::SDK::DevOpsGuru
         data.id = map['Id']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.anomaly_time_range = (Parsers::AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
-        data.anomaly_reported_time_range = (Parsers::AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
-        data.source_details = (Parsers::AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
+        data.anomaly_time_range = (AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
+        data.anomaly_reported_time_range = (AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
+        data.source_details = (AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
         data.associated_insight_id = map['AssociatedInsightId']
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.type = map['Type']
         data.name = map['Name']
         data.description = map['Description']
         data.causal_anomaly_id = map['CausalAnomalyId']
-        data.anomaly_resources = (Parsers::AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
+        data.anomaly_resources = (AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
         return data
       end
     end
@@ -188,7 +188,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnomalyResource.parse(value) unless value.nil?
+          data << AnomalyResource.parse(value) unless value.nil?
         end
         data
       end
@@ -206,8 +206,8 @@ module AWS::SDK::DevOpsGuru
     class ResourceCollection
       def self.parse(map)
         data = Types::ResourceCollection.new
-        data.cloud_formation = (Parsers::CloudFormationCollection.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
-        data.tags = (Parsers::TagCollections.parse(map['Tags']) unless map['Tags'].nil?)
+        data.cloud_formation = (CloudFormationCollection.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
+        data.tags = (TagCollections.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TagCollection.parse(value) unless value.nil?
+          data << TagCollection.parse(value) unless value.nil?
         end
         data
       end
@@ -226,7 +226,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::TagCollection.new
         data.app_boundary_key = map['AppBoundaryKey']
-        data.tag_values = (Parsers::TagValues.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (TagValues.parse(map['TagValues']) unless map['TagValues'].nil?)
         return data
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::DevOpsGuru
     class CloudFormationCollection
       def self.parse(map)
         data = Types::CloudFormationCollection.new
-        data.stack_names = (Parsers::StackNames.parse(map['StackNames']) unless map['StackNames'].nil?)
+        data.stack_names = (StackNames.parse(map['StackNames']) unless map['StackNames'].nil?)
         return data
       end
     end
@@ -262,8 +262,8 @@ module AWS::SDK::DevOpsGuru
     class AnomalySourceDetails
       def self.parse(map)
         data = Types::AnomalySourceDetails.new
-        data.cloud_watch_metrics = (Parsers::CloudWatchMetricsDetails.parse(map['CloudWatchMetrics']) unless map['CloudWatchMetrics'].nil?)
-        data.performance_insights_metrics = (Parsers::PerformanceInsightsMetricsDetails.parse(map['PerformanceInsightsMetrics']) unless map['PerformanceInsightsMetrics'].nil?)
+        data.cloud_watch_metrics = (CloudWatchMetricsDetails.parse(map['CloudWatchMetrics']) unless map['CloudWatchMetrics'].nil?)
+        data.performance_insights_metrics = (PerformanceInsightsMetricsDetails.parse(map['PerformanceInsightsMetrics']) unless map['PerformanceInsightsMetrics'].nil?)
         return data
       end
     end
@@ -272,7 +272,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PerformanceInsightsMetricsDetail.parse(value) unless value.nil?
+          data << PerformanceInsightsMetricsDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -283,10 +283,10 @@ module AWS::SDK::DevOpsGuru
         data = Types::PerformanceInsightsMetricsDetail.new
         data.metric_display_name = map['MetricDisplayName']
         data.unit = map['Unit']
-        data.metric_query = (Parsers::PerformanceInsightsMetricQuery.parse(map['MetricQuery']) unless map['MetricQuery'].nil?)
-        data.reference_data = (Parsers::PerformanceInsightsReferenceDataList.parse(map['ReferenceData']) unless map['ReferenceData'].nil?)
-        data.stats_at_anomaly = (Parsers::PerformanceInsightsStats.parse(map['StatsAtAnomaly']) unless map['StatsAtAnomaly'].nil?)
-        data.stats_at_baseline = (Parsers::PerformanceInsightsStats.parse(map['StatsAtBaseline']) unless map['StatsAtBaseline'].nil?)
+        data.metric_query = (PerformanceInsightsMetricQuery.parse(map['MetricQuery']) unless map['MetricQuery'].nil?)
+        data.reference_data = (PerformanceInsightsReferenceDataList.parse(map['ReferenceData']) unless map['ReferenceData'].nil?)
+        data.stats_at_anomaly = (PerformanceInsightsStats.parse(map['StatsAtAnomaly']) unless map['StatsAtAnomaly'].nil?)
+        data.stats_at_baseline = (PerformanceInsightsStats.parse(map['StatsAtBaseline']) unless map['StatsAtBaseline'].nil?)
         return data
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PerformanceInsightsStat.parse(value) unless value.nil?
+          data << PerformanceInsightsStat.parse(value) unless value.nil?
         end
         data
       end
@@ -314,7 +314,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PerformanceInsightsReferenceData.parse(value) unless value.nil?
+          data << PerformanceInsightsReferenceData.parse(value) unless value.nil?
         end
         data
       end
@@ -324,7 +324,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::PerformanceInsightsReferenceData.new
         data.name = map['Name']
-        data.comparison_values = (Parsers::PerformanceInsightsReferenceComparisonValues.parse(map['ComparisonValues']) unless map['ComparisonValues'].nil?)
+        data.comparison_values = (PerformanceInsightsReferenceComparisonValues.parse(map['ComparisonValues']) unless map['ComparisonValues'].nil?)
         return data
       end
     end
@@ -332,8 +332,8 @@ module AWS::SDK::DevOpsGuru
     class PerformanceInsightsReferenceComparisonValues
       def self.parse(map)
         data = Types::PerformanceInsightsReferenceComparisonValues.new
-        data.reference_scalar = (Parsers::PerformanceInsightsReferenceScalar.parse(map['ReferenceScalar']) unless map['ReferenceScalar'].nil?)
-        data.reference_metric = (Parsers::PerformanceInsightsReferenceMetric.parse(map['ReferenceMetric']) unless map['ReferenceMetric'].nil?)
+        data.reference_scalar = (PerformanceInsightsReferenceScalar.parse(map['ReferenceScalar']) unless map['ReferenceScalar'].nil?)
+        data.reference_metric = (PerformanceInsightsReferenceMetric.parse(map['ReferenceMetric']) unless map['ReferenceMetric'].nil?)
         return data
       end
     end
@@ -341,7 +341,7 @@ module AWS::SDK::DevOpsGuru
     class PerformanceInsightsReferenceMetric
       def self.parse(map)
         data = Types::PerformanceInsightsReferenceMetric.new
-        data.metric_query = (Parsers::PerformanceInsightsMetricQuery.parse(map['MetricQuery']) unless map['MetricQuery'].nil?)
+        data.metric_query = (PerformanceInsightsMetricQuery.parse(map['MetricQuery']) unless map['MetricQuery'].nil?)
         return data
       end
     end
@@ -350,8 +350,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::PerformanceInsightsMetricQuery.new
         data.metric = map['Metric']
-        data.group_by = (Parsers::PerformanceInsightsMetricDimensionGroup.parse(map['GroupBy']) unless map['GroupBy'].nil?)
-        data.filter = (Parsers::PerformanceInsightsMetricFilterMap.parse(map['Filter']) unless map['Filter'].nil?)
+        data.group_by = (PerformanceInsightsMetricDimensionGroup.parse(map['GroupBy']) unless map['GroupBy'].nil?)
+        data.filter = (PerformanceInsightsMetricFilterMap.parse(map['Filter']) unless map['Filter'].nil?)
         return data
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::PerformanceInsightsMetricDimensionGroup.new
         data.group = map['Group']
-        data.dimensions = (Parsers::PerformanceInsightsMetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (PerformanceInsightsMetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.limit = map['Limit']
         return data
       end
@@ -398,7 +398,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CloudWatchMetricsDetail.parse(value) unless value.nil?
+          data << CloudWatchMetricsDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -409,11 +409,11 @@ module AWS::SDK::DevOpsGuru
         data = Types::CloudWatchMetricsDetail.new
         data.metric_name = map['MetricName']
         data.namespace = map['Namespace']
-        data.dimensions = (Parsers::CloudWatchMetricsDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (CloudWatchMetricsDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.stat = map['Stat']
         data.unit = map['Unit']
         data.period = map['Period']
-        data.metric_data_summary = (Parsers::CloudWatchMetricsDataSummary.parse(map['MetricDataSummary']) unless map['MetricDataSummary'].nil?)
+        data.metric_data_summary = (CloudWatchMetricsDataSummary.parse(map['MetricDataSummary']) unless map['MetricDataSummary'].nil?)
         return data
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::DevOpsGuru
     class CloudWatchMetricsDataSummary
       def self.parse(map)
         data = Types::CloudWatchMetricsDataSummary.new
-        data.timestamp_metric_value_pair_list = (Parsers::TimestampMetricValuePairList.parse(map['TimestampMetricValuePairList']) unless map['TimestampMetricValuePairList'].nil?)
+        data.timestamp_metric_value_pair_list = (TimestampMetricValuePairList.parse(map['TimestampMetricValuePairList']) unless map['TimestampMetricValuePairList'].nil?)
         data.status_code = map['StatusCode']
         return data
       end
@@ -431,7 +431,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TimestampMetricValuePair.parse(value) unless value.nil?
+          data << TimestampMetricValuePair.parse(value) unless value.nil?
         end
         data
       end
@@ -450,7 +450,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CloudWatchMetricsDimension.parse(value) unless value.nil?
+          data << CloudWatchMetricsDimension.parse(value) unless value.nil?
         end
         data
       end
@@ -490,15 +490,15 @@ module AWS::SDK::DevOpsGuru
         data.severity = map['Severity']
         data.status = map['Status']
         data.update_time = Time.at(map['UpdateTime'].to_i) if map['UpdateTime']
-        data.anomaly_time_range = (Parsers::AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
-        data.anomaly_reported_time_range = (Parsers::AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
-        data.prediction_time_range = (Parsers::PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
-        data.source_details = (Parsers::AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
+        data.anomaly_time_range = (AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
+        data.anomaly_reported_time_range = (AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
+        data.prediction_time_range = (PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
+        data.source_details = (AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
         data.associated_insight_id = map['AssociatedInsightId']
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.limit = Hearth::NumberHelper.deserialize(map['Limit'])
-        data.source_metadata = (Parsers::AnomalySourceMetadata.parse(map['SourceMetadata']) unless map['SourceMetadata'].nil?)
-        data.anomaly_resources = (Parsers::AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
+        data.source_metadata = (AnomalySourceMetadata.parse(map['SourceMetadata']) unless map['SourceMetadata'].nil?)
+        data.anomaly_resources = (AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
         return data
       end
     end
@@ -527,7 +527,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::DescribeEventSourcesConfigOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_sources = (Parsers::EventSourcesConfig.parse(map['EventSources']) unless map['EventSources'].nil?)
+        data.event_sources = (EventSourcesConfig.parse(map['EventSources']) unless map['EventSources'].nil?)
         data
       end
     end
@@ -535,7 +535,7 @@ module AWS::SDK::DevOpsGuru
     class EventSourcesConfig
       def self.parse(map)
         data = Types::EventSourcesConfig.new
-        data.amazon_code_guru_profiler = (Parsers::AmazonCodeGuruProfilerIntegration.parse(map['AmazonCodeGuruProfiler']) unless map['AmazonCodeGuruProfiler'].nil?)
+        data.amazon_code_guru_profiler = (AmazonCodeGuruProfilerIntegration.parse(map['AmazonCodeGuruProfiler']) unless map['AmazonCodeGuruProfiler'].nil?)
         return data
       end
     end
@@ -553,7 +553,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::DescribeFeedbackOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insight_feedback = (Parsers::InsightFeedback.parse(map['InsightFeedback']) unless map['InsightFeedback'].nil?)
+        data.insight_feedback = (InsightFeedback.parse(map['InsightFeedback']) unless map['InsightFeedback'].nil?)
         data
       end
     end
@@ -572,8 +572,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::DescribeInsightOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proactive_insight = (Parsers::ProactiveInsight.parse(map['ProactiveInsight']) unless map['ProactiveInsight'].nil?)
-        data.reactive_insight = (Parsers::ReactiveInsight.parse(map['ReactiveInsight']) unless map['ReactiveInsight'].nil?)
+        data.proactive_insight = (ProactiveInsight.parse(map['ProactiveInsight']) unless map['ProactiveInsight'].nil?)
+        data.reactive_insight = (ReactiveInsight.parse(map['ReactiveInsight']) unless map['ReactiveInsight'].nil?)
         data
       end
     end
@@ -585,8 +585,8 @@ module AWS::SDK::DevOpsGuru
         data.name = map['Name']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.insight_time_range = (Parsers::InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.insight_time_range = (InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.ssm_ops_item_id = map['SsmOpsItemId']
         data.description = map['Description']
         return data
@@ -609,9 +609,9 @@ module AWS::SDK::DevOpsGuru
         data.name = map['Name']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.insight_time_range = (Parsers::InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
-        data.prediction_time_range = (Parsers::PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.insight_time_range = (InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
+        data.prediction_time_range = (PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.ssm_ops_item_id = map['SsmOpsItemId']
         data.description = map['Description']
         return data
@@ -647,11 +647,11 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::DescribeOrganizationResourceCollectionHealthOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cloud_formation = (Parsers::CloudFormationHealths.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
-        data.service = (Parsers::ServiceHealths.parse(map['Service']) unless map['Service'].nil?)
-        data.account = (Parsers::AccountHealths.parse(map['Account']) unless map['Account'].nil?)
+        data.cloud_formation = (CloudFormationHealths.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
+        data.service = (ServiceHealths.parse(map['Service']) unless map['Service'].nil?)
+        data.account = (AccountHealths.parse(map['Account']) unless map['Account'].nil?)
         data.next_token = map['NextToken']
-        data.tags = (Parsers::TagHealths.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagHealths.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -660,7 +660,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TagHealth.parse(value) unless value.nil?
+          data << TagHealth.parse(value) unless value.nil?
         end
         data
       end
@@ -671,7 +671,7 @@ module AWS::SDK::DevOpsGuru
         data = Types::TagHealth.new
         data.app_boundary_key = map['AppBoundaryKey']
         data.tag_value = map['TagValue']
-        data.insight = (Parsers::InsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
+        data.insight = (InsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
         return data
       end
     end
@@ -690,7 +690,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AccountHealth.parse(value) unless value.nil?
+          data << AccountHealth.parse(value) unless value.nil?
         end
         data
       end
@@ -700,7 +700,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::AccountHealth.new
         data.account_id = map['AccountId']
-        data.insight = (Parsers::AccountInsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
+        data.insight = (AccountInsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
         return data
       end
     end
@@ -718,7 +718,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServiceHealth.parse(value) unless value.nil?
+          data << ServiceHealth.parse(value) unless value.nil?
         end
         data
       end
@@ -728,7 +728,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::ServiceHealth.new
         data.service_name = map['ServiceName']
-        data.insight = (Parsers::ServiceInsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
+        data.insight = (ServiceInsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
         return data
       end
     end
@@ -746,7 +746,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CloudFormationHealth.parse(value) unless value.nil?
+          data << CloudFormationHealth.parse(value) unless value.nil?
         end
         data
       end
@@ -756,7 +756,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::CloudFormationHealth.new
         data.stack_name = map['StackName']
-        data.insight = (Parsers::InsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
+        data.insight = (InsightHealth.parse(map['Insight']) unless map['Insight'].nil?)
         return data
       end
     end
@@ -766,10 +766,10 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::DescribeResourceCollectionHealthOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cloud_formation = (Parsers::CloudFormationHealths.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
-        data.service = (Parsers::ServiceHealths.parse(map['Service']) unless map['Service'].nil?)
+        data.cloud_formation = (CloudFormationHealths.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
+        data.service = (ServiceHealths.parse(map['Service']) unless map['Service'].nil?)
         data.next_token = map['NextToken']
-        data.tags = (Parsers::TagHealths.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagHealths.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -779,7 +779,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::DescribeServiceIntegrationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.service_integration = (Parsers::ServiceIntegrationConfig.parse(map['ServiceIntegration']) unless map['ServiceIntegration'].nil?)
+        data.service_integration = (ServiceIntegrationConfig.parse(map['ServiceIntegration']) unless map['ServiceIntegration'].nil?)
         data
       end
     end
@@ -787,7 +787,7 @@ module AWS::SDK::DevOpsGuru
     class ServiceIntegrationConfig
       def self.parse(map)
         data = Types::ServiceIntegrationConfig.new
-        data.ops_center = (Parsers::OpsCenterIntegration.parse(map['OpsCenter']) unless map['OpsCenter'].nil?)
+        data.ops_center = (OpsCenterIntegration.parse(map['OpsCenter']) unless map['OpsCenter'].nil?)
         return data
       end
     end
@@ -805,10 +805,10 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::GetCostEstimationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_collection = (Parsers::CostEstimationResourceCollectionFilter.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.resource_collection = (CostEstimationResourceCollectionFilter.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.status = map['Status']
-        data.costs = (Parsers::ServiceResourceCosts.parse(map['Costs']) unless map['Costs'].nil?)
-        data.time_range = (Parsers::CostEstimationTimeRange.parse(map['TimeRange']) unless map['TimeRange'].nil?)
+        data.costs = (ServiceResourceCosts.parse(map['Costs']) unless map['Costs'].nil?)
+        data.time_range = (CostEstimationTimeRange.parse(map['TimeRange']) unless map['TimeRange'].nil?)
         data.total_cost = Hearth::NumberHelper.deserialize(map['TotalCost'])
         data.next_token = map['NextToken']
         data
@@ -828,7 +828,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServiceResourceCost.parse(value) unless value.nil?
+          data << ServiceResourceCost.parse(value) unless value.nil?
         end
         data
       end
@@ -849,8 +849,8 @@ module AWS::SDK::DevOpsGuru
     class CostEstimationResourceCollectionFilter
       def self.parse(map)
         data = Types::CostEstimationResourceCollectionFilter.new
-        data.cloud_formation = (Parsers::CloudFormationCostEstimationResourceCollectionFilter.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
-        data.tags = (Parsers::TagCostEstimationResourceCollectionFilters.parse(map['Tags']) unless map['Tags'].nil?)
+        data.cloud_formation = (CloudFormationCostEstimationResourceCollectionFilter.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
+        data.tags = (TagCostEstimationResourceCollectionFilters.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -859,7 +859,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TagCostEstimationResourceCollectionFilter.parse(value) unless value.nil?
+          data << TagCostEstimationResourceCollectionFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -869,7 +869,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::TagCostEstimationResourceCollectionFilter.new
         data.app_boundary_key = map['AppBoundaryKey']
-        data.tag_values = (Parsers::CostEstimationTagValues.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (CostEstimationTagValues.parse(map['TagValues']) unless map['TagValues'].nil?)
         return data
       end
     end
@@ -887,7 +887,7 @@ module AWS::SDK::DevOpsGuru
     class CloudFormationCostEstimationResourceCollectionFilter
       def self.parse(map)
         data = Types::CloudFormationCostEstimationResourceCollectionFilter.new
-        data.stack_names = (Parsers::CostEstimationStackNames.parse(map['StackNames']) unless map['StackNames'].nil?)
+        data.stack_names = (CostEstimationStackNames.parse(map['StackNames']) unless map['StackNames'].nil?)
         return data
       end
     end
@@ -907,7 +907,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::GetResourceCollectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_collection = (Parsers::ResourceCollectionFilter.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.resource_collection = (ResourceCollectionFilter.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -916,8 +916,8 @@ module AWS::SDK::DevOpsGuru
     class ResourceCollectionFilter
       def self.parse(map)
         data = Types::ResourceCollectionFilter.new
-        data.cloud_formation = (Parsers::CloudFormationCollectionFilter.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
-        data.tags = (Parsers::TagCollectionFilters.parse(map['Tags']) unless map['Tags'].nil?)
+        data.cloud_formation = (CloudFormationCollectionFilter.parse(map['CloudFormation']) unless map['CloudFormation'].nil?)
+        data.tags = (TagCollectionFilters.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -926,7 +926,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TagCollectionFilter.parse(value) unless value.nil?
+          data << TagCollectionFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -936,7 +936,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::TagCollectionFilter.new
         data.app_boundary_key = map['AppBoundaryKey']
-        data.tag_values = (Parsers::TagValues.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (TagValues.parse(map['TagValues']) unless map['TagValues'].nil?)
         return data
       end
     end
@@ -944,7 +944,7 @@ module AWS::SDK::DevOpsGuru
     class CloudFormationCollectionFilter
       def self.parse(map)
         data = Types::CloudFormationCollectionFilter.new
-        data.stack_names = (Parsers::StackNames.parse(map['StackNames']) unless map['StackNames'].nil?)
+        data.stack_names = (StackNames.parse(map['StackNames']) unless map['StackNames'].nil?)
         return data
       end
     end
@@ -954,8 +954,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::ListAnomaliesForInsightOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proactive_anomalies = (Parsers::ProactiveAnomalies.parse(map['ProactiveAnomalies']) unless map['ProactiveAnomalies'].nil?)
-        data.reactive_anomalies = (Parsers::ReactiveAnomalies.parse(map['ReactiveAnomalies']) unless map['ReactiveAnomalies'].nil?)
+        data.proactive_anomalies = (ProactiveAnomalies.parse(map['ProactiveAnomalies']) unless map['ProactiveAnomalies'].nil?)
+        data.reactive_anomalies = (ReactiveAnomalies.parse(map['ReactiveAnomalies']) unless map['ReactiveAnomalies'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -965,7 +965,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReactiveAnomalySummary.parse(value) unless value.nil?
+          data << ReactiveAnomalySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -977,16 +977,16 @@ module AWS::SDK::DevOpsGuru
         data.id = map['Id']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.anomaly_time_range = (Parsers::AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
-        data.anomaly_reported_time_range = (Parsers::AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
-        data.source_details = (Parsers::AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
+        data.anomaly_time_range = (AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
+        data.anomaly_reported_time_range = (AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
+        data.source_details = (AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
         data.associated_insight_id = map['AssociatedInsightId']
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.type = map['Type']
         data.name = map['Name']
         data.description = map['Description']
         data.causal_anomaly_id = map['CausalAnomalyId']
-        data.anomaly_resources = (Parsers::AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
+        data.anomaly_resources = (AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
         return data
       end
     end
@@ -995,7 +995,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProactiveAnomalySummary.parse(value) unless value.nil?
+          data << ProactiveAnomalySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1008,15 +1008,15 @@ module AWS::SDK::DevOpsGuru
         data.severity = map['Severity']
         data.status = map['Status']
         data.update_time = Time.at(map['UpdateTime'].to_i) if map['UpdateTime']
-        data.anomaly_time_range = (Parsers::AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
-        data.anomaly_reported_time_range = (Parsers::AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
-        data.prediction_time_range = (Parsers::PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
-        data.source_details = (Parsers::AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
+        data.anomaly_time_range = (AnomalyTimeRange.parse(map['AnomalyTimeRange']) unless map['AnomalyTimeRange'].nil?)
+        data.anomaly_reported_time_range = (AnomalyReportedTimeRange.parse(map['AnomalyReportedTimeRange']) unless map['AnomalyReportedTimeRange'].nil?)
+        data.prediction_time_range = (PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
+        data.source_details = (AnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
         data.associated_insight_id = map['AssociatedInsightId']
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.limit = Hearth::NumberHelper.deserialize(map['Limit'])
-        data.source_metadata = (Parsers::AnomalySourceMetadata.parse(map['SourceMetadata']) unless map['SourceMetadata'].nil?)
-        data.anomaly_resources = (Parsers::AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
+        data.source_metadata = (AnomalySourceMetadata.parse(map['SourceMetadata']) unless map['SourceMetadata'].nil?)
+        data.anomaly_resources = (AnomalyResources.parse(map['AnomalyResources']) unless map['AnomalyResources'].nil?)
         return data
       end
     end
@@ -1026,7 +1026,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::ListEventsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.events = (Parsers::Events.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (Events.parse(map['Events']) unless map['Events'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1036,7 +1036,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Event.parse(value) unless value.nil?
+          data << Event.parse(value) unless value.nil?
         end
         data
       end
@@ -1045,14 +1045,14 @@ module AWS::SDK::DevOpsGuru
     class Event
       def self.parse(map)
         data = Types::Event.new
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
         data.id = map['Id']
         data.time = Time.at(map['Time'].to_i) if map['Time']
         data.event_source = map['EventSource']
         data.name = map['Name']
         data.data_source = map['DataSource']
         data.event_class = map['EventClass']
-        data.resources = (Parsers::EventResources.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (EventResources.parse(map['Resources']) unless map['Resources'].nil?)
         return data
       end
     end
@@ -1061,7 +1061,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventResource.parse(value) unless value.nil?
+          data << EventResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1082,8 +1082,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::ListInsightsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proactive_insights = (Parsers::ProactiveInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
-        data.reactive_insights = (Parsers::ReactiveInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
+        data.proactive_insights = (ProactiveInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
+        data.reactive_insights = (ReactiveInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1093,7 +1093,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReactiveInsightSummary.parse(value) unless value.nil?
+          data << ReactiveInsightSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1106,10 +1106,10 @@ module AWS::SDK::DevOpsGuru
         data.name = map['Name']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.insight_time_range = (Parsers::InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
-        data.service_collection = (Parsers::ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
-        data.associated_resource_arns = (Parsers::AssociatedResourceArns.parse(map['AssociatedResourceArns']) unless map['AssociatedResourceArns'].nil?)
+        data.insight_time_range = (InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.service_collection = (ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
+        data.associated_resource_arns = (AssociatedResourceArns.parse(map['AssociatedResourceArns']) unless map['AssociatedResourceArns'].nil?)
         return data
       end
     end
@@ -1127,7 +1127,7 @@ module AWS::SDK::DevOpsGuru
     class ServiceCollection
       def self.parse(map)
         data = Types::ServiceCollection.new
-        data.service_names = (Parsers::ServiceNames.parse(map['ServiceNames']) unless map['ServiceNames'].nil?)
+        data.service_names = (ServiceNames.parse(map['ServiceNames']) unless map['ServiceNames'].nil?)
         return data
       end
     end
@@ -1146,7 +1146,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProactiveInsightSummary.parse(value) unless value.nil?
+          data << ProactiveInsightSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1159,11 +1159,11 @@ module AWS::SDK::DevOpsGuru
         data.name = map['Name']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.insight_time_range = (Parsers::InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
-        data.prediction_time_range = (Parsers::PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
-        data.service_collection = (Parsers::ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
-        data.associated_resource_arns = (Parsers::AssociatedResourceArns.parse(map['AssociatedResourceArns']) unless map['AssociatedResourceArns'].nil?)
+        data.insight_time_range = (InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
+        data.prediction_time_range = (PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.service_collection = (ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
+        data.associated_resource_arns = (AssociatedResourceArns.parse(map['AssociatedResourceArns']) unless map['AssociatedResourceArns'].nil?)
         return data
       end
     end
@@ -1173,7 +1173,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::ListNotificationChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channels = (Parsers::Channels.parse(map['Channels']) unless map['Channels'].nil?)
+        data.channels = (Channels.parse(map['Channels']) unless map['Channels'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1183,7 +1183,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NotificationChannel.parse(value) unless value.nil?
+          data << NotificationChannel.parse(value) unless value.nil?
         end
         data
       end
@@ -1193,7 +1193,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::NotificationChannel.new
         data.id = map['Id']
-        data.config = (Parsers::NotificationChannelConfig.parse(map['Config']) unless map['Config'].nil?)
+        data.config = (NotificationChannelConfig.parse(map['Config']) unless map['Config'].nil?)
         return data
       end
     end
@@ -1201,7 +1201,7 @@ module AWS::SDK::DevOpsGuru
     class NotificationChannelConfig
       def self.parse(map)
         data = Types::NotificationChannelConfig.new
-        data.sns = (Parsers::SnsChannelConfig.parse(map['Sns']) unless map['Sns'].nil?)
+        data.sns = (SnsChannelConfig.parse(map['Sns']) unless map['Sns'].nil?)
         return data
       end
     end
@@ -1219,8 +1219,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::ListOrganizationInsightsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proactive_insights = (Parsers::ProactiveOrganizationInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
-        data.reactive_insights = (Parsers::ReactiveOrganizationInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
+        data.proactive_insights = (ProactiveOrganizationInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
+        data.reactive_insights = (ReactiveOrganizationInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1230,7 +1230,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReactiveOrganizationInsightSummary.parse(value) unless value.nil?
+          data << ReactiveOrganizationInsightSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1245,9 +1245,9 @@ module AWS::SDK::DevOpsGuru
         data.name = map['Name']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.insight_time_range = (Parsers::InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
-        data.service_collection = (Parsers::ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
+        data.insight_time_range = (InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.service_collection = (ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
         return data
       end
     end
@@ -1256,7 +1256,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProactiveOrganizationInsightSummary.parse(value) unless value.nil?
+          data << ProactiveOrganizationInsightSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1271,10 +1271,10 @@ module AWS::SDK::DevOpsGuru
         data.name = map['Name']
         data.severity = map['Severity']
         data.status = map['Status']
-        data.insight_time_range = (Parsers::InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
-        data.prediction_time_range = (Parsers::PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
-        data.resource_collection = (Parsers::ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
-        data.service_collection = (Parsers::ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
+        data.insight_time_range = (InsightTimeRange.parse(map['InsightTimeRange']) unless map['InsightTimeRange'].nil?)
+        data.prediction_time_range = (PredictionTimeRange.parse(map['PredictionTimeRange']) unless map['PredictionTimeRange'].nil?)
+        data.resource_collection = (ResourceCollection.parse(map['ResourceCollection']) unless map['ResourceCollection'].nil?)
+        data.service_collection = (ServiceCollection.parse(map['ServiceCollection']) unless map['ServiceCollection'].nil?)
         return data
       end
     end
@@ -1284,7 +1284,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::ListRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recommendations = (Parsers::Recommendations.parse(map['Recommendations']) unless map['Recommendations'].nil?)
+        data.recommendations = (Recommendations.parse(map['Recommendations']) unless map['Recommendations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1294,7 +1294,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Recommendation.parse(value) unless value.nil?
+          data << Recommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -1307,8 +1307,8 @@ module AWS::SDK::DevOpsGuru
         data.link = map['Link']
         data.name = map['Name']
         data.reason = map['Reason']
-        data.related_events = (Parsers::RecommendationRelatedEvents.parse(map['RelatedEvents']) unless map['RelatedEvents'].nil?)
-        data.related_anomalies = (Parsers::RecommendationRelatedAnomalies.parse(map['RelatedAnomalies']) unless map['RelatedAnomalies'].nil?)
+        data.related_events = (RecommendationRelatedEvents.parse(map['RelatedEvents']) unless map['RelatedEvents'].nil?)
+        data.related_anomalies = (RecommendationRelatedAnomalies.parse(map['RelatedAnomalies']) unless map['RelatedAnomalies'].nil?)
         data.category = map['Category']
         return data
       end
@@ -1318,7 +1318,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationRelatedAnomaly.parse(value) unless value.nil?
+          data << RecommendationRelatedAnomaly.parse(value) unless value.nil?
         end
         data
       end
@@ -1327,8 +1327,8 @@ module AWS::SDK::DevOpsGuru
     class RecommendationRelatedAnomaly
       def self.parse(map)
         data = Types::RecommendationRelatedAnomaly.new
-        data.resources = (Parsers::RecommendationRelatedAnomalyResources.parse(map['Resources']) unless map['Resources'].nil?)
-        data.source_details = (Parsers::RelatedAnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
+        data.resources = (RecommendationRelatedAnomalyResources.parse(map['Resources']) unless map['Resources'].nil?)
+        data.source_details = (RelatedAnomalySourceDetails.parse(map['SourceDetails']) unless map['SourceDetails'].nil?)
         data.anomaly_id = map['AnomalyId']
         return data
       end
@@ -1338,7 +1338,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationRelatedAnomalySourceDetail.parse(value) unless value.nil?
+          data << RecommendationRelatedAnomalySourceDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -1347,7 +1347,7 @@ module AWS::SDK::DevOpsGuru
     class RecommendationRelatedAnomalySourceDetail
       def self.parse(map)
         data = Types::RecommendationRelatedAnomalySourceDetail.new
-        data.cloud_watch_metrics = (Parsers::RecommendationRelatedCloudWatchMetricsSourceDetails.parse(map['CloudWatchMetrics']) unless map['CloudWatchMetrics'].nil?)
+        data.cloud_watch_metrics = (RecommendationRelatedCloudWatchMetricsSourceDetails.parse(map['CloudWatchMetrics']) unless map['CloudWatchMetrics'].nil?)
         return data
       end
     end
@@ -1356,7 +1356,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationRelatedCloudWatchMetricsSourceDetail.parse(value) unless value.nil?
+          data << RecommendationRelatedCloudWatchMetricsSourceDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -1375,7 +1375,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationRelatedAnomalyResource.parse(value) unless value.nil?
+          data << RecommendationRelatedAnomalyResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1394,7 +1394,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationRelatedEvent.parse(value) unless value.nil?
+          data << RecommendationRelatedEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -1404,7 +1404,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(map)
         data = Types::RecommendationRelatedEvent.new
         data.name = map['Name']
-        data.resources = (Parsers::RecommendationRelatedEventResources.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (RecommendationRelatedEventResources.parse(map['Resources']) unless map['Resources'].nil?)
         return data
       end
     end
@@ -1413,7 +1413,7 @@ module AWS::SDK::DevOpsGuru
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationRelatedEventResource.parse(value) unless value.nil?
+          data << RecommendationRelatedEventResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1451,8 +1451,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::SearchInsightsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proactive_insights = (Parsers::ProactiveInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
-        data.reactive_insights = (Parsers::ReactiveInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
+        data.proactive_insights = (ProactiveInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
+        data.reactive_insights = (ReactiveInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1463,8 +1463,8 @@ module AWS::SDK::DevOpsGuru
       def self.parse(http_resp)
         data = Types::SearchOrganizationInsightsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proactive_insights = (Parsers::ProactiveInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
-        data.reactive_insights = (Parsers::ReactiveInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
+        data.proactive_insights = (ProactiveInsights.parse(map['ProactiveInsights']) unless map['ProactiveInsights'].nil?)
+        data.reactive_insights = (ReactiveInsights.parse(map['ReactiveInsights']) unless map['ReactiveInsights'].nil?)
         data.next_token = map['NextToken']
         data
       end

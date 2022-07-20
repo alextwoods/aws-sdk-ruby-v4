@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::S3Control
   module Builders
 
@@ -29,9 +31,9 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('CreateAccessPointRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Bucket', input[:bucket].to_s) unless input[:bucket].nil?
-        xml << Builders::VpcConfiguration.build('VpcConfiguration', input[:vpc_configuration]) unless input[:vpc_configuration].nil?
-        xml << Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', input[:public_access_block_configuration]) unless input[:public_access_block_configuration].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << VpcConfiguration.build('VpcConfiguration', input[:vpc_configuration]) unless input[:vpc_configuration].nil?
+        xml << PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', input[:public_access_block_configuration]) unless input[:public_access_block_configuration].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -75,8 +77,8 @@ module AWS::SDK::S3Control
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateAccessPointForObjectLambdaRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
-        xml << Builders::ObjectLambdaConfiguration.build('Configuration', input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << ObjectLambdaConfiguration.build('Configuration', input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -87,8 +89,8 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SupportingAccessPoint', input[:supporting_access_point].to_s) unless input[:supporting_access_point].nil?
         xml << Hearth::XML::Node.new('CloudWatchMetricsEnabled', input[:cloud_watch_metrics_enabled].to_s) unless input[:cloud_watch_metrics_enabled].nil?
-        xml << Hearth::XML::Node.new('AllowedFeatures', Builders::ObjectLambdaAllowedFeaturesList.build('AllowedFeature', input[:allowed_features])) unless input[:allowed_features].nil?
-        xml << Hearth::XML::Node.new('TransformationConfigurations', Builders::ObjectLambdaTransformationConfigurationsList.build('TransformationConfiguration', input[:transformation_configurations])) unless input[:transformation_configurations].nil?
+        xml << Hearth::XML::Node.new('AllowedFeatures', ObjectLambdaAllowedFeaturesList.build('AllowedFeature', input[:allowed_features])) unless input[:allowed_features].nil?
+        xml << Hearth::XML::Node.new('TransformationConfigurations', ObjectLambdaTransformationConfigurationsList.build('TransformationConfiguration', input[:transformation_configurations])) unless input[:transformation_configurations].nil?
         xml
       end
     end
@@ -98,7 +100,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::ObjectLambdaTransformationConfiguration.build(node_name, element) unless element.nil?
+          xml << ObjectLambdaTransformationConfiguration.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -108,8 +110,8 @@ module AWS::SDK::S3Control
     class ObjectLambdaTransformationConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Actions', Builders::ObjectLambdaTransformationConfigurationActionsList.build('Action', input[:actions])) unless input[:actions].nil?
-        xml << Builders::ObjectLambdaContentTransformation.build('ContentTransformation', input[:content_transformation]) unless input[:content_transformation].nil?
+        xml << Hearth::XML::Node.new('Actions', ObjectLambdaTransformationConfigurationActionsList.build('Action', input[:actions])) unless input[:actions].nil?
+        xml << ObjectLambdaContentTransformation.build('ContentTransformation', input[:content_transformation]) unless input[:content_transformation].nil?
         xml
       end
     end
@@ -120,7 +122,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new(node_name)
         case input
         when Types::ObjectLambdaContentTransformation::AwsLambda
-          xml << Builders::AwsLambdaTransformation.build('AwsLambda', input.__getobj__) unless input.__getobj__.nil?
+          xml << AwsLambdaTransformation.build('AwsLambda', input.__getobj__) unless input.__getobj__.nil?
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ObjectLambdaContentTransformation"
@@ -178,7 +180,7 @@ module AWS::SDK::S3Control
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CreateBucketConfiguration.build('CreateBucketConfiguration', input[:create_bucket_configuration]) unless input[:create_bucket_configuration].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-acl'] = input[:acl] unless input[:acl].nil? || input[:acl].empty?
         http_req.headers['x-amz-grant-full-control'] = input[:grant_full_control] unless input[:grant_full_control].nil? || input[:grant_full_control].empty?
         http_req.headers['x-amz-grant-read'] = input[:grant_read] unless input[:grant_read].nil? || input[:grant_read].empty?
@@ -211,16 +213,16 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('CreateJobRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('ConfirmationRequired', input[:confirmation_required].to_s) unless input[:confirmation_required].nil?
-        xml << Builders::JobOperation.build('Operation', input[:operation]) unless input[:operation].nil?
-        xml << Builders::JobReport.build('Report', input[:report]) unless input[:report].nil?
+        xml << JobOperation.build('Operation', input[:operation]) unless input[:operation].nil?
+        xml << JobReport.build('Report', input[:report]) unless input[:report].nil?
         xml << Hearth::XML::Node.new('ClientRequestToken', input[:client_request_token].to_s) unless input[:client_request_token].nil?
-        xml << Builders::JobManifest.build('Manifest', input[:manifest]) unless input[:manifest].nil?
+        xml << JobManifest.build('Manifest', input[:manifest]) unless input[:manifest].nil?
         xml << Hearth::XML::Node.new('Description', input[:description].to_s) unless input[:description].nil?
         xml << Hearth::XML::Node.new('Priority', input[:priority].to_s) unless input[:priority].nil?
         xml << Hearth::XML::Node.new('RoleArn', input[:role_arn].to_s) unless input[:role_arn].nil?
-        xml << Hearth::XML::Node.new('Tags', Builders::S3TagSet.build('member', input[:tags])) unless input[:tags].nil?
-        xml << Builders::JobManifestGenerator.build('ManifestGenerator', input[:manifest_generator]) unless input[:manifest_generator].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('Tags', S3TagSet.build('member', input[:tags])) unless input[:tags].nil?
+        xml << JobManifestGenerator.build('ManifestGenerator', input[:manifest_generator]) unless input[:manifest_generator].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -231,7 +233,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new(node_name)
         case input
         when Types::JobManifestGenerator::S3JobManifestGenerator
-          xml << Builders::S3JobManifestGenerator.build('S3JobManifestGenerator', input.__getobj__) unless input.__getobj__.nil?
+          xml << S3JobManifestGenerator.build('S3JobManifestGenerator', input.__getobj__) unless input.__getobj__.nil?
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::JobManifestGenerator"
@@ -247,8 +249,8 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ExpectedBucketOwner', input[:expected_bucket_owner].to_s) unless input[:expected_bucket_owner].nil?
         xml << Hearth::XML::Node.new('SourceBucket', input[:source_bucket].to_s) unless input[:source_bucket].nil?
-        xml << Builders::S3ManifestOutputLocation.build('ManifestOutputLocation', input[:manifest_output_location]) unless input[:manifest_output_location].nil?
-        xml << Builders::JobManifestGeneratorFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << S3ManifestOutputLocation.build('ManifestOutputLocation', input[:manifest_output_location]) unless input[:manifest_output_location].nil?
+        xml << JobManifestGeneratorFilter.build('Filter', input[:filter]) unless input[:filter].nil?
         xml << Hearth::XML::Node.new('EnableManifestOutput', input[:enable_manifest_output].to_s) unless input[:enable_manifest_output].nil?
         xml
       end
@@ -261,7 +263,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('EligibleForReplication', input[:eligible_for_replication].to_s) unless input[:eligible_for_replication].nil?
         xml << Hearth::XML::Node.new('CreatedAfter', Hearth::TimeHelper.to_date_time(input[:created_after])) unless input[:created_after].nil?
         xml << Hearth::XML::Node.new('CreatedBefore', Hearth::TimeHelper.to_date_time(input[:created_before])) unless input[:created_before].nil?
-        xml << Hearth::XML::Node.new('ObjectReplicationStatuses', Builders::ReplicationStatusFilterList.build('member', input[:object_replication_statuses])) unless input[:object_replication_statuses].nil?
+        xml << Hearth::XML::Node.new('ObjectReplicationStatuses', ReplicationStatusFilterList.build('member', input[:object_replication_statuses])) unless input[:object_replication_statuses].nil?
         xml
       end
     end
@@ -284,7 +286,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('ExpectedManifestBucketOwner', input[:expected_manifest_bucket_owner].to_s) unless input[:expected_manifest_bucket_owner].nil?
         xml << Hearth::XML::Node.new('Bucket', input[:bucket].to_s) unless input[:bucket].nil?
         xml << Hearth::XML::Node.new('ManifestPrefix', input[:manifest_prefix].to_s) unless input[:manifest_prefix].nil?
-        xml << Builders::GeneratedManifestEncryption.build('ManifestEncryption', input[:manifest_encryption]) unless input[:manifest_encryption].nil?
+        xml << GeneratedManifestEncryption.build('ManifestEncryption', input[:manifest_encryption]) unless input[:manifest_encryption].nil?
         xml << Hearth::XML::Node.new('ManifestFormat', input[:manifest_format].to_s) unless input[:manifest_format].nil?
         xml
       end
@@ -294,8 +296,8 @@ module AWS::SDK::S3Control
     class GeneratedManifestEncryption
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::SSES3Encryption.build('SSE-S3', input[:sses3]) unless input[:sses3].nil?
-        xml << Builders::SSEKMSEncryption.build('SSE-KMS', input[:ssekms]) unless input[:ssekms].nil?
+        xml << SSES3Encryption.build('SSE-S3', input[:sses3]) unless input[:sses3].nil?
+        xml << SSEKMSEncryption.build('SSE-KMS', input[:ssekms]) unless input[:ssekms].nil?
         xml
       end
     end
@@ -322,7 +324,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::S3Tag.build(node_name, element) unless element.nil?
+          xml << S3Tag.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -342,8 +344,8 @@ module AWS::SDK::S3Control
     class JobManifest
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::JobManifestSpec.build('Spec', input[:spec]) unless input[:spec].nil?
-        xml << Builders::JobManifestLocation.build('Location', input[:location]) unless input[:location].nil?
+        xml << JobManifestSpec.build('Spec', input[:spec]) unless input[:spec].nil?
+        xml << JobManifestLocation.build('Location', input[:location]) unless input[:location].nil?
         xml
       end
     end
@@ -364,7 +366,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Format', input[:format].to_s) unless input[:format].nil?
-        xml << Hearth::XML::Node.new('Fields', Builders::JobManifestFieldList.build('member', input[:fields])) unless input[:fields].nil?
+        xml << Hearth::XML::Node.new('Fields', JobManifestFieldList.build('member', input[:fields])) unless input[:fields].nil?
         xml
       end
     end
@@ -397,15 +399,15 @@ module AWS::SDK::S3Control
     class JobOperation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::LambdaInvokeOperation.build('LambdaInvoke', input[:lambda_invoke]) unless input[:lambda_invoke].nil?
-        xml << Builders::S3CopyObjectOperation.build('S3PutObjectCopy', input[:s3_put_object_copy]) unless input[:s3_put_object_copy].nil?
-        xml << Builders::S3SetObjectAclOperation.build('S3PutObjectAcl', input[:s3_put_object_acl]) unless input[:s3_put_object_acl].nil?
-        xml << Builders::S3SetObjectTaggingOperation.build('S3PutObjectTagging', input[:s3_put_object_tagging]) unless input[:s3_put_object_tagging].nil?
-        xml << Builders::S3DeleteObjectTaggingOperation.build('S3DeleteObjectTagging', input[:s3_delete_object_tagging]) unless input[:s3_delete_object_tagging].nil?
-        xml << Builders::S3InitiateRestoreObjectOperation.build('S3InitiateRestoreObject', input[:s3_initiate_restore_object]) unless input[:s3_initiate_restore_object].nil?
-        xml << Builders::S3SetObjectLegalHoldOperation.build('S3PutObjectLegalHold', input[:s3_put_object_legal_hold]) unless input[:s3_put_object_legal_hold].nil?
-        xml << Builders::S3SetObjectRetentionOperation.build('S3PutObjectRetention', input[:s3_put_object_retention]) unless input[:s3_put_object_retention].nil?
-        xml << Builders::S3ReplicateObjectOperation.build('S3ReplicateObject', input[:s3_replicate_object]) unless input[:s3_replicate_object].nil?
+        xml << LambdaInvokeOperation.build('LambdaInvoke', input[:lambda_invoke]) unless input[:lambda_invoke].nil?
+        xml << S3CopyObjectOperation.build('S3PutObjectCopy', input[:s3_put_object_copy]) unless input[:s3_put_object_copy].nil?
+        xml << S3SetObjectAclOperation.build('S3PutObjectAcl', input[:s3_put_object_acl]) unless input[:s3_put_object_acl].nil?
+        xml << S3SetObjectTaggingOperation.build('S3PutObjectTagging', input[:s3_put_object_tagging]) unless input[:s3_put_object_tagging].nil?
+        xml << S3DeleteObjectTaggingOperation.build('S3DeleteObjectTagging', input[:s3_delete_object_tagging]) unless input[:s3_delete_object_tagging].nil?
+        xml << S3InitiateRestoreObjectOperation.build('S3InitiateRestoreObject', input[:s3_initiate_restore_object]) unless input[:s3_initiate_restore_object].nil?
+        xml << S3SetObjectLegalHoldOperation.build('S3PutObjectLegalHold', input[:s3_put_object_legal_hold]) unless input[:s3_put_object_legal_hold].nil?
+        xml << S3SetObjectRetentionOperation.build('S3PutObjectRetention', input[:s3_put_object_retention]) unless input[:s3_put_object_retention].nil?
+        xml << S3ReplicateObjectOperation.build('S3ReplicateObject', input[:s3_replicate_object]) unless input[:s3_replicate_object].nil?
         xml
       end
     end
@@ -423,7 +425,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('BypassGovernanceRetention', input[:bypass_governance_retention].to_s) unless input[:bypass_governance_retention].nil?
-        xml << Builders::S3Retention.build('Retention', input[:retention]) unless input[:retention].nil?
+        xml << S3Retention.build('Retention', input[:retention]) unless input[:retention].nil?
         xml
       end
     end
@@ -442,7 +444,7 @@ module AWS::SDK::S3Control
     class S3SetObjectLegalHoldOperation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::S3ObjectLockLegalHold.build('LegalHold', input[:legal_hold]) unless input[:legal_hold].nil?
+        xml << S3ObjectLockLegalHold.build('LegalHold', input[:legal_hold]) unless input[:legal_hold].nil?
         xml
       end
     end
@@ -478,7 +480,7 @@ module AWS::SDK::S3Control
     class S3SetObjectTaggingOperation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('TagSet', Builders::S3TagSet.build('member', input[:tag_set])) unless input[:tag_set].nil?
+        xml << Hearth::XML::Node.new('TagSet', S3TagSet.build('member', input[:tag_set])) unless input[:tag_set].nil?
         xml
       end
     end
@@ -487,7 +489,7 @@ module AWS::SDK::S3Control
     class S3SetObjectAclOperation
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::S3AccessControlPolicy.build('AccessControlPolicy', input[:access_control_policy]) unless input[:access_control_policy].nil?
+        xml << S3AccessControlPolicy.build('AccessControlPolicy', input[:access_control_policy]) unless input[:access_control_policy].nil?
         xml
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::S3Control
     class S3AccessControlPolicy
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::S3AccessControlList.build('AccessControlList', input[:access_control_list]) unless input[:access_control_list].nil?
+        xml << S3AccessControlList.build('AccessControlList', input[:access_control_list]) unless input[:access_control_list].nil?
         xml << Hearth::XML::Node.new('CannedAccessControlList', input[:canned_access_control_list].to_s) unless input[:canned_access_control_list].nil?
         xml
       end
@@ -506,8 +508,8 @@ module AWS::SDK::S3Control
     class S3AccessControlList
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::S3ObjectOwner.build('Owner', input[:owner]) unless input[:owner].nil?
-        xml << Hearth::XML::Node.new('Grants', Builders::S3GrantList.build('member', input[:grants])) unless input[:grants].nil?
+        xml << S3ObjectOwner.build('Owner', input[:owner]) unless input[:owner].nil?
+        xml << Hearth::XML::Node.new('Grants', S3GrantList.build('member', input[:grants])) unless input[:grants].nil?
         xml
       end
     end
@@ -517,7 +519,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::S3Grant.build(node_name, element) unless element.nil?
+          xml << S3Grant.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -527,7 +529,7 @@ module AWS::SDK::S3Control
     class S3Grant
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::S3Grantee.build('Grantee', input[:grantee]) unless input[:grantee].nil?
+        xml << S3Grantee.build('Grantee', input[:grantee]) unless input[:grantee].nil?
         xml << Hearth::XML::Node.new('Permission', input[:permission].to_s) unless input[:permission].nil?
         xml
       end
@@ -560,11 +562,11 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('TargetResource', input[:target_resource].to_s) unless input[:target_resource].nil?
         xml << Hearth::XML::Node.new('CannedAccessControlList', input[:canned_access_control_list].to_s) unless input[:canned_access_control_list].nil?
-        xml << Hearth::XML::Node.new('AccessControlGrants', Builders::S3GrantList.build('member', input[:access_control_grants])) unless input[:access_control_grants].nil?
+        xml << Hearth::XML::Node.new('AccessControlGrants', S3GrantList.build('member', input[:access_control_grants])) unless input[:access_control_grants].nil?
         xml << Hearth::XML::Node.new('MetadataDirective', input[:metadata_directive].to_s) unless input[:metadata_directive].nil?
         xml << Hearth::XML::Node.new('ModifiedSinceConstraint', Hearth::TimeHelper.to_date_time(input[:modified_since_constraint])) unless input[:modified_since_constraint].nil?
-        xml << Builders::S3ObjectMetadata.build('NewObjectMetadata', input[:new_object_metadata]) unless input[:new_object_metadata].nil?
-        xml << Hearth::XML::Node.new('NewObjectTagging', Builders::S3TagSet.build('member', input[:new_object_tagging])) unless input[:new_object_tagging].nil?
+        xml << S3ObjectMetadata.build('NewObjectMetadata', input[:new_object_metadata]) unless input[:new_object_metadata].nil?
+        xml << Hearth::XML::Node.new('NewObjectTagging', S3TagSet.build('member', input[:new_object_tagging])) unless input[:new_object_tagging].nil?
         xml << Hearth::XML::Node.new('RedirectLocation', input[:redirect_location].to_s) unless input[:redirect_location].nil?
         xml << Hearth::XML::Node.new('RequesterPays', input[:requester_pays].to_s) unless input[:requester_pays].nil?
         xml << Hearth::XML::Node.new('StorageClass', input[:storage_class].to_s) unless input[:storage_class].nil?
@@ -588,7 +590,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('ContentDisposition', input[:content_disposition].to_s) unless input[:content_disposition].nil?
         xml << Hearth::XML::Node.new('ContentEncoding', input[:content_encoding].to_s) unless input[:content_encoding].nil?
         xml << Hearth::XML::Node.new('ContentLanguage', input[:content_language].to_s) unless input[:content_language].nil?
-        xml << Hearth::XML::Node.new('UserMetadata', Builders::S3UserMetadata.build('entry', input[:user_metadata])) unless input[:user_metadata].nil?
+        xml << Hearth::XML::Node.new('UserMetadata', S3UserMetadata.build('entry', input[:user_metadata])) unless input[:user_metadata].nil?
         xml << Hearth::XML::Node.new('ContentLength', input[:content_length].to_s) unless input[:content_length].nil?
         xml << Hearth::XML::Node.new('ContentMD5', input[:content_md5].to_s) unless input[:content_md5].nil?
         xml << Hearth::XML::Node.new('ContentType', input[:content_type].to_s) unless input[:content_type].nil?
@@ -634,8 +636,8 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('CreateMultiRegionAccessPointRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('ClientToken', input[:client_token].to_s) unless input[:client_token].nil?
-        xml << Builders::CreateMultiRegionAccessPointInput.build('Details', input[:details]) unless input[:details].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << CreateMultiRegionAccessPointInput.build('Details', input[:details]) unless input[:details].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -645,8 +647,8 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::PublicAccessBlockConfiguration.build('PublicAccessBlock', input[:public_access_block]) unless input[:public_access_block].nil?
-        xml << Hearth::XML::Node.new('Regions', Builders::RegionCreationList.build('Region', input[:regions])) unless input[:regions].nil?
+        xml << PublicAccessBlockConfiguration.build('PublicAccessBlock', input[:public_access_block]) unless input[:public_access_block].nil?
+        xml << Hearth::XML::Node.new('Regions', RegionCreationList.build('Region', input[:regions])) unless input[:regions].nil?
         xml
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::Region.build(node_name, element) unless element.nil?
+          xml << Region.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -845,8 +847,8 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('DeleteMultiRegionAccessPointRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('ClientToken', input[:client_token].to_s) unless input[:client_token].nil?
-        xml << Builders::DeleteMultiRegionAccessPointInput.build('Details', input[:details]) unless input[:details].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << DeleteMultiRegionAccessPointInput.build('Details', input[:details]) unless input[:details].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1373,8 +1375,8 @@ module AWS::SDK::S3Control
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('PutAccessPointConfigurationForObjectLambdaRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
-        xml << Builders::ObjectLambdaConfiguration.build('Configuration', input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << ObjectLambdaConfiguration.build('Configuration', input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1398,7 +1400,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('PutAccessPointPolicyRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Policy', input[:policy].to_s) unless input[:policy].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1422,7 +1424,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('PutAccessPointPolicyForObjectLambdaRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Policy', input[:policy].to_s) unless input[:policy].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1443,7 +1445,7 @@ module AWS::SDK::S3Control
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::LifecycleConfiguration.build('LifecycleConfiguration', input[:lifecycle_configuration]) unless input[:lifecycle_configuration].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1452,7 +1454,7 @@ module AWS::SDK::S3Control
     class LifecycleConfiguration
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Rules', Builders::LifecycleRules.build('Rule', input[:rules])) unless input[:rules].nil?
+        xml << Hearth::XML::Node.new('Rules', LifecycleRules.build('Rule', input[:rules])) unless input[:rules].nil?
         xml
       end
     end
@@ -1462,7 +1464,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::LifecycleRule.build(node_name, element) unless element.nil?
+          xml << LifecycleRule.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1472,14 +1474,14 @@ module AWS::SDK::S3Control
     class LifecycleRule
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::LifecycleExpiration.build('Expiration', input[:expiration]) unless input[:expiration].nil?
+        xml << LifecycleExpiration.build('Expiration', input[:expiration]) unless input[:expiration].nil?
         xml << Hearth::XML::Node.new('ID', input[:id].to_s) unless input[:id].nil?
-        xml << Builders::LifecycleRuleFilter.build('Filter', input[:filter]) unless input[:filter].nil?
+        xml << LifecycleRuleFilter.build('Filter', input[:filter]) unless input[:filter].nil?
         xml << Hearth::XML::Node.new('Status', input[:status].to_s) unless input[:status].nil?
-        xml << Hearth::XML::Node.new('Transitions', Builders::TransitionList.build('Transition', input[:transitions])) unless input[:transitions].nil?
-        xml << Hearth::XML::Node.new('NoncurrentVersionTransitions', Builders::NoncurrentVersionTransitionList.build('NoncurrentVersionTransition', input[:noncurrent_version_transitions])) unless input[:noncurrent_version_transitions].nil?
-        xml << Builders::NoncurrentVersionExpiration.build('NoncurrentVersionExpiration', input[:noncurrent_version_expiration]) unless input[:noncurrent_version_expiration].nil?
-        xml << Builders::AbortIncompleteMultipartUpload.build('AbortIncompleteMultipartUpload', input[:abort_incomplete_multipart_upload]) unless input[:abort_incomplete_multipart_upload].nil?
+        xml << Hearth::XML::Node.new('Transitions', TransitionList.build('Transition', input[:transitions])) unless input[:transitions].nil?
+        xml << Hearth::XML::Node.new('NoncurrentVersionTransitions', NoncurrentVersionTransitionList.build('NoncurrentVersionTransition', input[:noncurrent_version_transitions])) unless input[:noncurrent_version_transitions].nil?
+        xml << NoncurrentVersionExpiration.build('NoncurrentVersionExpiration', input[:noncurrent_version_expiration]) unless input[:noncurrent_version_expiration].nil?
+        xml << AbortIncompleteMultipartUpload.build('AbortIncompleteMultipartUpload', input[:abort_incomplete_multipart_upload]) unless input[:abort_incomplete_multipart_upload].nil?
         xml
       end
     end
@@ -1507,7 +1509,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::NoncurrentVersionTransition.build(node_name, element) unless element.nil?
+          xml << NoncurrentVersionTransition.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1528,7 +1530,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::Transition.build(node_name, element) unless element.nil?
+          xml << Transition.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1550,8 +1552,8 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Prefix', input[:prefix].to_s) unless input[:prefix].nil?
-        xml << Builders::S3Tag.build('Tag', input[:tag]) unless input[:tag].nil?
-        xml << Builders::LifecycleRuleAndOperator.build('And', input[:and]) unless input[:and].nil?
+        xml << S3Tag.build('Tag', input[:tag]) unless input[:tag].nil?
+        xml << LifecycleRuleAndOperator.build('And', input[:and]) unless input[:and].nil?
         xml
       end
     end
@@ -1561,7 +1563,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Prefix', input[:prefix].to_s) unless input[:prefix].nil?
-        xml << Hearth::XML::Node.new('Tags', Builders::S3TagSet.build('member', input[:tags])) unless input[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', S3TagSet.build('member', input[:tags])) unless input[:tags].nil?
         xml
       end
     end
@@ -1596,7 +1598,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('PutBucketPolicyRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('Policy', input[:policy].to_s) unless input[:policy].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
         http_req.headers['x-amz-confirm-remove-self-bucket-access'] = input[:confirm_remove_self_bucket_access].to_s unless input[:confirm_remove_self_bucket_access].nil?
       end
@@ -1618,7 +1620,7 @@ module AWS::SDK::S3Control
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tagging.build('Tagging', input[:tagging]) unless input[:tagging].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1627,7 +1629,7 @@ module AWS::SDK::S3Control
     class Tagging
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('TagSet', Builders::S3TagSet.build('member', input[:tag_set])) unless input[:tag_set].nil?
+        xml << Hearth::XML::Node.new('TagSet', S3TagSet.build('member', input[:tag_set])) unless input[:tag_set].nil?
         xml
       end
     end
@@ -1650,8 +1652,8 @@ module AWS::SDK::S3Control
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('PutJobTaggingRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
-        xml << Hearth::XML::Node.new('Tags', Builders::S3TagSet.build('member', input[:tags])) unless input[:tags].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('Tags', S3TagSet.build('member', input[:tags])) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1668,8 +1670,8 @@ module AWS::SDK::S3Control
         xml = Hearth::XML::Node.new('PutMultiRegionAccessPointPolicyRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
         xml << Hearth::XML::Node.new('ClientToken', input[:client_token].to_s) unless input[:client_token].nil?
-        xml << Builders::PutMultiRegionAccessPointPolicyInput.build('Details', input[:details]) unless input[:details].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << PutMultiRegionAccessPointPolicyInput.build('Details', input[:details]) unless input[:details].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1693,7 +1695,7 @@ module AWS::SDK::S3Control
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicAccessBlockConfiguration.build('PublicAccessBlockConfiguration', input[:public_access_block_configuration]) unless input[:public_access_block_configuration].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1716,9 +1718,9 @@ module AWS::SDK::S3Control
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('PutStorageLensConfigurationRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
-        xml << Builders::StorageLensConfiguration.build('StorageLensConfiguration', input[:storage_lens_configuration]) unless input[:storage_lens_configuration].nil?
-        xml << Hearth::XML::Node.new('Tags', Builders::StorageLensTags.build('Tag', input[:tags])) unless input[:tags].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << StorageLensConfiguration.build('StorageLensConfiguration', input[:storage_lens_configuration]) unless input[:storage_lens_configuration].nil?
+        xml << Hearth::XML::Node.new('Tags', StorageLensTags.build('Tag', input[:tags])) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end
@@ -1728,7 +1730,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::StorageLensTag.build(node_name, element) unless element.nil?
+          xml << StorageLensTag.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1749,12 +1751,12 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
-        xml << Builders::AccountLevel.build('AccountLevel', input[:account_level]) unless input[:account_level].nil?
-        xml << Builders::Include.build('Include', input[:include]) unless input[:include].nil?
-        xml << Builders::Exclude.build('Exclude', input[:exclude]) unless input[:exclude].nil?
-        xml << Builders::StorageLensDataExport.build('DataExport', input[:data_export]) unless input[:data_export].nil?
+        xml << AccountLevel.build('AccountLevel', input[:account_level]) unless input[:account_level].nil?
+        xml << Include.build('Include', input[:include]) unless input[:include].nil?
+        xml << Exclude.build('Exclude', input[:exclude]) unless input[:exclude].nil?
+        xml << StorageLensDataExport.build('DataExport', input[:data_export]) unless input[:data_export].nil?
         xml << Hearth::XML::Node.new('IsEnabled', input[:is_enabled].to_s) unless input[:is_enabled].nil?
-        xml << Builders::StorageLensAwsOrg.build('AwsOrg', input[:aws_org]) unless input[:aws_org].nil?
+        xml << StorageLensAwsOrg.build('AwsOrg', input[:aws_org]) unless input[:aws_org].nil?
         xml << Hearth::XML::Node.new('StorageLensArn', input[:storage_lens_arn].to_s) unless input[:storage_lens_arn].nil?
         xml
       end
@@ -1773,8 +1775,8 @@ module AWS::SDK::S3Control
     class StorageLensDataExport
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::S3BucketDestination.build('S3BucketDestination', input[:s3_bucket_destination]) unless input[:s3_bucket_destination].nil?
-        xml << Builders::CloudWatchMetrics.build('CloudWatchMetrics', input[:cloud_watch_metrics]) unless input[:cloud_watch_metrics].nil?
+        xml << S3BucketDestination.build('S3BucketDestination', input[:s3_bucket_destination]) unless input[:s3_bucket_destination].nil?
+        xml << CloudWatchMetrics.build('CloudWatchMetrics', input[:cloud_watch_metrics]) unless input[:cloud_watch_metrics].nil?
         xml
       end
     end
@@ -1797,7 +1799,7 @@ module AWS::SDK::S3Control
         xml << Hearth::XML::Node.new('AccountId', input[:account_id].to_s) unless input[:account_id].nil?
         xml << Hearth::XML::Node.new('Arn', input[:arn].to_s) unless input[:arn].nil?
         xml << Hearth::XML::Node.new('Prefix', input[:prefix].to_s) unless input[:prefix].nil?
-        xml << Builders::StorageLensDataExportEncryption.build('Encryption', input[:encryption]) unless input[:encryption].nil?
+        xml << StorageLensDataExportEncryption.build('Encryption', input[:encryption]) unless input[:encryption].nil?
         xml
       end
     end
@@ -1806,8 +1808,8 @@ module AWS::SDK::S3Control
     class StorageLensDataExportEncryption
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::SSES3.build('SSE-S3', input[:sses3]) unless input[:sses3].nil?
-        xml << Builders::SSEKMS.build('SSE-KMS', input[:ssekms]) unless input[:ssekms].nil?
+        xml << SSES3.build('SSE-S3', input[:sses3]) unless input[:sses3].nil?
+        xml << SSEKMS.build('SSE-KMS', input[:ssekms]) unless input[:ssekms].nil?
         xml
       end
     end
@@ -1833,8 +1835,8 @@ module AWS::SDK::S3Control
     class Exclude
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Buckets', Builders::Buckets.build('Arn', input[:buckets])) unless input[:buckets].nil?
-        xml << Hearth::XML::Node.new('Regions', Builders::Regions.build('Region', input[:regions])) unless input[:regions].nil?
+        xml << Hearth::XML::Node.new('Buckets', Buckets.build('Arn', input[:buckets])) unless input[:buckets].nil?
+        xml << Hearth::XML::Node.new('Regions', Regions.build('Region', input[:regions])) unless input[:regions].nil?
         xml
       end
     end
@@ -1865,8 +1867,8 @@ module AWS::SDK::S3Control
     class Include
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Buckets', Builders::Buckets.build('Arn', input[:buckets])) unless input[:buckets].nil?
-        xml << Hearth::XML::Node.new('Regions', Builders::Regions.build('Region', input[:regions])) unless input[:regions].nil?
+        xml << Hearth::XML::Node.new('Buckets', Buckets.build('Arn', input[:buckets])) unless input[:buckets].nil?
+        xml << Hearth::XML::Node.new('Regions', Regions.build('Region', input[:regions])) unless input[:regions].nil?
         xml
       end
     end
@@ -1875,8 +1877,8 @@ module AWS::SDK::S3Control
     class AccountLevel
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::ActivityMetrics.build('ActivityMetrics', input[:activity_metrics]) unless input[:activity_metrics].nil?
-        xml << Builders::BucketLevel.build('BucketLevel', input[:bucket_level]) unless input[:bucket_level].nil?
+        xml << ActivityMetrics.build('ActivityMetrics', input[:activity_metrics]) unless input[:activity_metrics].nil?
+        xml << BucketLevel.build('BucketLevel', input[:bucket_level]) unless input[:bucket_level].nil?
         xml
       end
     end
@@ -1885,8 +1887,8 @@ module AWS::SDK::S3Control
     class BucketLevel
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::ActivityMetrics.build('ActivityMetrics', input[:activity_metrics]) unless input[:activity_metrics].nil?
-        xml << Builders::PrefixLevel.build('PrefixLevel', input[:prefix_level]) unless input[:prefix_level].nil?
+        xml << ActivityMetrics.build('ActivityMetrics', input[:activity_metrics]) unless input[:activity_metrics].nil?
+        xml << PrefixLevel.build('PrefixLevel', input[:prefix_level]) unless input[:prefix_level].nil?
         xml
       end
     end
@@ -1895,7 +1897,7 @@ module AWS::SDK::S3Control
     class PrefixLevel
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::PrefixLevelStorageMetrics.build('StorageMetrics', input[:storage_metrics]) unless input[:storage_metrics].nil?
+        xml << PrefixLevelStorageMetrics.build('StorageMetrics', input[:storage_metrics]) unless input[:storage_metrics].nil?
         xml
       end
     end
@@ -1905,7 +1907,7 @@ module AWS::SDK::S3Control
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('IsEnabled', input[:is_enabled].to_s) unless input[:is_enabled].nil?
-        xml << Builders::SelectionCriteria.build('SelectionCriteria', input[:selection_criteria]) unless input[:selection_criteria].nil?
+        xml << SelectionCriteria.build('SelectionCriteria', input[:selection_criteria]) unless input[:selection_criteria].nil?
         xml
       end
     end
@@ -1948,8 +1950,8 @@ module AWS::SDK::S3Control
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('PutStorageLensConfigurationTaggingRequest')
         xml.attributes['xmlns'] = 'http://awss3control.amazonaws.com/doc/2018-08-20/'
-        xml << Hearth::XML::Node.new('Tags', Builders::StorageLensTags.build('Tag', input[:tags])) unless input[:tags].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('Tags', StorageLensTags.build('Tag', input[:tags])) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['x-amz-account-id'] = input[:account_id] unless input[:account_id].nil? || input[:account_id].empty?
       end
     end

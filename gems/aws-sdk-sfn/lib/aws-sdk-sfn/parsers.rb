@@ -231,9 +231,9 @@ module AWS::SDK::SFN
         data.start_date = Time.at(map['startDate'].to_i) if map['startDate']
         data.stop_date = Time.at(map['stopDate'].to_i) if map['stopDate']
         data.input = map['input']
-        data.input_details = (Parsers::CloudWatchEventsExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
+        data.input_details = (CloudWatchEventsExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
         data.output = map['output']
-        data.output_details = (Parsers::CloudWatchEventsExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (CloudWatchEventsExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         data.trace_header = map['traceHeader']
         data
       end
@@ -273,8 +273,8 @@ module AWS::SDK::SFN
         data.role_arn = map['roleArn']
         data.type = map['type']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['loggingConfiguration']) unless map['loggingConfiguration'].nil?)
-        data.tracing_configuration = (Parsers::TracingConfiguration.parse(map['tracingConfiguration']) unless map['tracingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['loggingConfiguration']) unless map['loggingConfiguration'].nil?)
+        data.tracing_configuration = (TracingConfiguration.parse(map['tracingConfiguration']) unless map['tracingConfiguration'].nil?)
         data
       end
     end
@@ -292,7 +292,7 @@ module AWS::SDK::SFN
         data = Types::LoggingConfiguration.new
         data.level = map['level']
         data.include_execution_data = map['includeExecutionData']
-        data.destinations = (Parsers::LogDestinationList.parse(map['destinations']) unless map['destinations'].nil?)
+        data.destinations = (LogDestinationList.parse(map['destinations']) unless map['destinations'].nil?)
         return data
       end
     end
@@ -300,7 +300,7 @@ module AWS::SDK::SFN
     class LogDestinationList
       def self.parse(list)
         list.map do |value|
-          Parsers::LogDestination.parse(value) unless value.nil?
+          LogDestination.parse(value) unless value.nil?
         end
       end
     end
@@ -308,7 +308,7 @@ module AWS::SDK::SFN
     class LogDestination
       def self.parse(map)
         data = Types::LogDestination.new
-        data.cloud_watch_logs_log_group = (Parsers::CloudWatchLogsLogGroup.parse(map['cloudWatchLogsLogGroup']) unless map['cloudWatchLogsLogGroup'].nil?)
+        data.cloud_watch_logs_log_group = (CloudWatchLogsLogGroup.parse(map['cloudWatchLogsLogGroup']) unless map['cloudWatchLogsLogGroup'].nil?)
         return data
       end
     end
@@ -345,8 +345,8 @@ module AWS::SDK::SFN
         data.definition = map['definition']
         data.role_arn = map['roleArn']
         data.update_date = Time.at(map['updateDate'].to_i) if map['updateDate']
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['loggingConfiguration']) unless map['loggingConfiguration'].nil?)
-        data.tracing_configuration = (Parsers::TracingConfiguration.parse(map['tracingConfiguration']) unless map['tracingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['loggingConfiguration']) unless map['loggingConfiguration'].nil?)
+        data.tracing_configuration = (TracingConfiguration.parse(map['tracingConfiguration']) unless map['tracingConfiguration'].nil?)
         data
       end
     end
@@ -383,7 +383,7 @@ module AWS::SDK::SFN
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events = (Parsers::HistoryEventList.parse(map['events']) unless map['events'].nil?)
+        data.events = (HistoryEventList.parse(map['events']) unless map['events'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -392,7 +392,7 @@ module AWS::SDK::SFN
     class HistoryEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::HistoryEvent.parse(value) unless value.nil?
+          HistoryEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -404,38 +404,38 @@ module AWS::SDK::SFN
         data.type = map['type']
         data.id = map['id']
         data.previous_event_id = map['previousEventId']
-        data.activity_failed_event_details = (Parsers::ActivityFailedEventDetails.parse(map['activityFailedEventDetails']) unless map['activityFailedEventDetails'].nil?)
-        data.activity_schedule_failed_event_details = (Parsers::ActivityScheduleFailedEventDetails.parse(map['activityScheduleFailedEventDetails']) unless map['activityScheduleFailedEventDetails'].nil?)
-        data.activity_scheduled_event_details = (Parsers::ActivityScheduledEventDetails.parse(map['activityScheduledEventDetails']) unless map['activityScheduledEventDetails'].nil?)
-        data.activity_started_event_details = (Parsers::ActivityStartedEventDetails.parse(map['activityStartedEventDetails']) unless map['activityStartedEventDetails'].nil?)
-        data.activity_succeeded_event_details = (Parsers::ActivitySucceededEventDetails.parse(map['activitySucceededEventDetails']) unless map['activitySucceededEventDetails'].nil?)
-        data.activity_timed_out_event_details = (Parsers::ActivityTimedOutEventDetails.parse(map['activityTimedOutEventDetails']) unless map['activityTimedOutEventDetails'].nil?)
-        data.task_failed_event_details = (Parsers::TaskFailedEventDetails.parse(map['taskFailedEventDetails']) unless map['taskFailedEventDetails'].nil?)
-        data.task_scheduled_event_details = (Parsers::TaskScheduledEventDetails.parse(map['taskScheduledEventDetails']) unless map['taskScheduledEventDetails'].nil?)
-        data.task_start_failed_event_details = (Parsers::TaskStartFailedEventDetails.parse(map['taskStartFailedEventDetails']) unless map['taskStartFailedEventDetails'].nil?)
-        data.task_started_event_details = (Parsers::TaskStartedEventDetails.parse(map['taskStartedEventDetails']) unless map['taskStartedEventDetails'].nil?)
-        data.task_submit_failed_event_details = (Parsers::TaskSubmitFailedEventDetails.parse(map['taskSubmitFailedEventDetails']) unless map['taskSubmitFailedEventDetails'].nil?)
-        data.task_submitted_event_details = (Parsers::TaskSubmittedEventDetails.parse(map['taskSubmittedEventDetails']) unless map['taskSubmittedEventDetails'].nil?)
-        data.task_succeeded_event_details = (Parsers::TaskSucceededEventDetails.parse(map['taskSucceededEventDetails']) unless map['taskSucceededEventDetails'].nil?)
-        data.task_timed_out_event_details = (Parsers::TaskTimedOutEventDetails.parse(map['taskTimedOutEventDetails']) unless map['taskTimedOutEventDetails'].nil?)
-        data.execution_failed_event_details = (Parsers::ExecutionFailedEventDetails.parse(map['executionFailedEventDetails']) unless map['executionFailedEventDetails'].nil?)
-        data.execution_started_event_details = (Parsers::ExecutionStartedEventDetails.parse(map['executionStartedEventDetails']) unless map['executionStartedEventDetails'].nil?)
-        data.execution_succeeded_event_details = (Parsers::ExecutionSucceededEventDetails.parse(map['executionSucceededEventDetails']) unless map['executionSucceededEventDetails'].nil?)
-        data.execution_aborted_event_details = (Parsers::ExecutionAbortedEventDetails.parse(map['executionAbortedEventDetails']) unless map['executionAbortedEventDetails'].nil?)
-        data.execution_timed_out_event_details = (Parsers::ExecutionTimedOutEventDetails.parse(map['executionTimedOutEventDetails']) unless map['executionTimedOutEventDetails'].nil?)
-        data.map_state_started_event_details = (Parsers::MapStateStartedEventDetails.parse(map['mapStateStartedEventDetails']) unless map['mapStateStartedEventDetails'].nil?)
-        data.map_iteration_started_event_details = (Parsers::MapIterationEventDetails.parse(map['mapIterationStartedEventDetails']) unless map['mapIterationStartedEventDetails'].nil?)
-        data.map_iteration_succeeded_event_details = (Parsers::MapIterationEventDetails.parse(map['mapIterationSucceededEventDetails']) unless map['mapIterationSucceededEventDetails'].nil?)
-        data.map_iteration_failed_event_details = (Parsers::MapIterationEventDetails.parse(map['mapIterationFailedEventDetails']) unless map['mapIterationFailedEventDetails'].nil?)
-        data.map_iteration_aborted_event_details = (Parsers::MapIterationEventDetails.parse(map['mapIterationAbortedEventDetails']) unless map['mapIterationAbortedEventDetails'].nil?)
-        data.lambda_function_failed_event_details = (Parsers::LambdaFunctionFailedEventDetails.parse(map['lambdaFunctionFailedEventDetails']) unless map['lambdaFunctionFailedEventDetails'].nil?)
-        data.lambda_function_schedule_failed_event_details = (Parsers::LambdaFunctionScheduleFailedEventDetails.parse(map['lambdaFunctionScheduleFailedEventDetails']) unless map['lambdaFunctionScheduleFailedEventDetails'].nil?)
-        data.lambda_function_scheduled_event_details = (Parsers::LambdaFunctionScheduledEventDetails.parse(map['lambdaFunctionScheduledEventDetails']) unless map['lambdaFunctionScheduledEventDetails'].nil?)
-        data.lambda_function_start_failed_event_details = (Parsers::LambdaFunctionStartFailedEventDetails.parse(map['lambdaFunctionStartFailedEventDetails']) unless map['lambdaFunctionStartFailedEventDetails'].nil?)
-        data.lambda_function_succeeded_event_details = (Parsers::LambdaFunctionSucceededEventDetails.parse(map['lambdaFunctionSucceededEventDetails']) unless map['lambdaFunctionSucceededEventDetails'].nil?)
-        data.lambda_function_timed_out_event_details = (Parsers::LambdaFunctionTimedOutEventDetails.parse(map['lambdaFunctionTimedOutEventDetails']) unless map['lambdaFunctionTimedOutEventDetails'].nil?)
-        data.state_entered_event_details = (Parsers::StateEnteredEventDetails.parse(map['stateEnteredEventDetails']) unless map['stateEnteredEventDetails'].nil?)
-        data.state_exited_event_details = (Parsers::StateExitedEventDetails.parse(map['stateExitedEventDetails']) unless map['stateExitedEventDetails'].nil?)
+        data.activity_failed_event_details = (ActivityFailedEventDetails.parse(map['activityFailedEventDetails']) unless map['activityFailedEventDetails'].nil?)
+        data.activity_schedule_failed_event_details = (ActivityScheduleFailedEventDetails.parse(map['activityScheduleFailedEventDetails']) unless map['activityScheduleFailedEventDetails'].nil?)
+        data.activity_scheduled_event_details = (ActivityScheduledEventDetails.parse(map['activityScheduledEventDetails']) unless map['activityScheduledEventDetails'].nil?)
+        data.activity_started_event_details = (ActivityStartedEventDetails.parse(map['activityStartedEventDetails']) unless map['activityStartedEventDetails'].nil?)
+        data.activity_succeeded_event_details = (ActivitySucceededEventDetails.parse(map['activitySucceededEventDetails']) unless map['activitySucceededEventDetails'].nil?)
+        data.activity_timed_out_event_details = (ActivityTimedOutEventDetails.parse(map['activityTimedOutEventDetails']) unless map['activityTimedOutEventDetails'].nil?)
+        data.task_failed_event_details = (TaskFailedEventDetails.parse(map['taskFailedEventDetails']) unless map['taskFailedEventDetails'].nil?)
+        data.task_scheduled_event_details = (TaskScheduledEventDetails.parse(map['taskScheduledEventDetails']) unless map['taskScheduledEventDetails'].nil?)
+        data.task_start_failed_event_details = (TaskStartFailedEventDetails.parse(map['taskStartFailedEventDetails']) unless map['taskStartFailedEventDetails'].nil?)
+        data.task_started_event_details = (TaskStartedEventDetails.parse(map['taskStartedEventDetails']) unless map['taskStartedEventDetails'].nil?)
+        data.task_submit_failed_event_details = (TaskSubmitFailedEventDetails.parse(map['taskSubmitFailedEventDetails']) unless map['taskSubmitFailedEventDetails'].nil?)
+        data.task_submitted_event_details = (TaskSubmittedEventDetails.parse(map['taskSubmittedEventDetails']) unless map['taskSubmittedEventDetails'].nil?)
+        data.task_succeeded_event_details = (TaskSucceededEventDetails.parse(map['taskSucceededEventDetails']) unless map['taskSucceededEventDetails'].nil?)
+        data.task_timed_out_event_details = (TaskTimedOutEventDetails.parse(map['taskTimedOutEventDetails']) unless map['taskTimedOutEventDetails'].nil?)
+        data.execution_failed_event_details = (ExecutionFailedEventDetails.parse(map['executionFailedEventDetails']) unless map['executionFailedEventDetails'].nil?)
+        data.execution_started_event_details = (ExecutionStartedEventDetails.parse(map['executionStartedEventDetails']) unless map['executionStartedEventDetails'].nil?)
+        data.execution_succeeded_event_details = (ExecutionSucceededEventDetails.parse(map['executionSucceededEventDetails']) unless map['executionSucceededEventDetails'].nil?)
+        data.execution_aborted_event_details = (ExecutionAbortedEventDetails.parse(map['executionAbortedEventDetails']) unless map['executionAbortedEventDetails'].nil?)
+        data.execution_timed_out_event_details = (ExecutionTimedOutEventDetails.parse(map['executionTimedOutEventDetails']) unless map['executionTimedOutEventDetails'].nil?)
+        data.map_state_started_event_details = (MapStateStartedEventDetails.parse(map['mapStateStartedEventDetails']) unless map['mapStateStartedEventDetails'].nil?)
+        data.map_iteration_started_event_details = (MapIterationEventDetails.parse(map['mapIterationStartedEventDetails']) unless map['mapIterationStartedEventDetails'].nil?)
+        data.map_iteration_succeeded_event_details = (MapIterationEventDetails.parse(map['mapIterationSucceededEventDetails']) unless map['mapIterationSucceededEventDetails'].nil?)
+        data.map_iteration_failed_event_details = (MapIterationEventDetails.parse(map['mapIterationFailedEventDetails']) unless map['mapIterationFailedEventDetails'].nil?)
+        data.map_iteration_aborted_event_details = (MapIterationEventDetails.parse(map['mapIterationAbortedEventDetails']) unless map['mapIterationAbortedEventDetails'].nil?)
+        data.lambda_function_failed_event_details = (LambdaFunctionFailedEventDetails.parse(map['lambdaFunctionFailedEventDetails']) unless map['lambdaFunctionFailedEventDetails'].nil?)
+        data.lambda_function_schedule_failed_event_details = (LambdaFunctionScheduleFailedEventDetails.parse(map['lambdaFunctionScheduleFailedEventDetails']) unless map['lambdaFunctionScheduleFailedEventDetails'].nil?)
+        data.lambda_function_scheduled_event_details = (LambdaFunctionScheduledEventDetails.parse(map['lambdaFunctionScheduledEventDetails']) unless map['lambdaFunctionScheduledEventDetails'].nil?)
+        data.lambda_function_start_failed_event_details = (LambdaFunctionStartFailedEventDetails.parse(map['lambdaFunctionStartFailedEventDetails']) unless map['lambdaFunctionStartFailedEventDetails'].nil?)
+        data.lambda_function_succeeded_event_details = (LambdaFunctionSucceededEventDetails.parse(map['lambdaFunctionSucceededEventDetails']) unless map['lambdaFunctionSucceededEventDetails'].nil?)
+        data.lambda_function_timed_out_event_details = (LambdaFunctionTimedOutEventDetails.parse(map['lambdaFunctionTimedOutEventDetails']) unless map['lambdaFunctionTimedOutEventDetails'].nil?)
+        data.state_entered_event_details = (StateEnteredEventDetails.parse(map['stateEnteredEventDetails']) unless map['stateEnteredEventDetails'].nil?)
+        data.state_exited_event_details = (StateExitedEventDetails.parse(map['stateExitedEventDetails']) unless map['stateExitedEventDetails'].nil?)
         return data
       end
     end
@@ -445,7 +445,7 @@ module AWS::SDK::SFN
         data = Types::StateExitedEventDetails.new
         data.name = map['name']
         data.output = map['output']
-        data.output_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         return data
       end
     end
@@ -463,7 +463,7 @@ module AWS::SDK::SFN
         data = Types::StateEnteredEventDetails.new
         data.name = map['name']
         data.input = map['input']
-        data.input_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
+        data.input_details = (HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
         return data
       end
     end
@@ -481,7 +481,7 @@ module AWS::SDK::SFN
       def self.parse(map)
         data = Types::LambdaFunctionSucceededEventDetails.new
         data.output = map['output']
-        data.output_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         return data
       end
     end
@@ -500,7 +500,7 @@ module AWS::SDK::SFN
         data = Types::LambdaFunctionScheduledEventDetails.new
         data.resource = map['resource']
         data.input = map['input']
-        data.input_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
+        data.input_details = (HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
         data.timeout_in_seconds = map['timeoutInSeconds']
         return data
       end
@@ -563,7 +563,7 @@ module AWS::SDK::SFN
       def self.parse(map)
         data = Types::ExecutionSucceededEventDetails.new
         data.output = map['output']
-        data.output_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         return data
       end
     end
@@ -572,7 +572,7 @@ module AWS::SDK::SFN
       def self.parse(map)
         data = Types::ExecutionStartedEventDetails.new
         data.input = map['input']
-        data.input_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
+        data.input_details = (HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
         data.role_arn = map['roleArn']
         return data
       end
@@ -604,7 +604,7 @@ module AWS::SDK::SFN
         data.resource_type = map['resourceType']
         data.resource = map['resource']
         data.output = map['output']
-        data.output_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         return data
       end
     end
@@ -615,7 +615,7 @@ module AWS::SDK::SFN
         data.resource_type = map['resourceType']
         data.resource = map['resource']
         data.output = map['output']
-        data.output_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         return data
       end
     end
@@ -688,7 +688,7 @@ module AWS::SDK::SFN
       def self.parse(map)
         data = Types::ActivitySucceededEventDetails.new
         data.output = map['output']
-        data.output_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (HistoryEventExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         return data
       end
     end
@@ -706,7 +706,7 @@ module AWS::SDK::SFN
         data = Types::ActivityScheduledEventDetails.new
         data.resource = map['resource']
         data.input = map['input']
-        data.input_details = (Parsers::HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
+        data.input_details = (HistoryEventExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
         data.timeout_in_seconds = map['timeoutInSeconds']
         data.heartbeat_in_seconds = map['heartbeatInSeconds']
         return data
@@ -750,7 +750,7 @@ module AWS::SDK::SFN
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.activities = (Parsers::ActivityList.parse(map['activities']) unless map['activities'].nil?)
+        data.activities = (ActivityList.parse(map['activities']) unless map['activities'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -759,7 +759,7 @@ module AWS::SDK::SFN
     class ActivityList
       def self.parse(list)
         list.map do |value|
-          Parsers::ActivityListItem.parse(value) unless value.nil?
+          ActivityListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -781,7 +781,7 @@ module AWS::SDK::SFN
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.executions = (Parsers::ExecutionList.parse(map['executions']) unless map['executions'].nil?)
+        data.executions = (ExecutionList.parse(map['executions']) unless map['executions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -790,7 +790,7 @@ module AWS::SDK::SFN
     class ExecutionList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExecutionListItem.parse(value) unless value.nil?
+          ExecutionListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -815,7 +815,7 @@ module AWS::SDK::SFN
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.state_machines = (Parsers::StateMachineList.parse(map['stateMachines']) unless map['stateMachines'].nil?)
+        data.state_machines = (StateMachineList.parse(map['stateMachines']) unless map['stateMachines'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -824,7 +824,7 @@ module AWS::SDK::SFN
     class StateMachineList
       def self.parse(list)
         list.map do |value|
-          Parsers::StateMachineListItem.parse(value) unless value.nil?
+          StateMachineListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -847,7 +847,7 @@ module AWS::SDK::SFN
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -855,7 +855,7 @@ module AWS::SDK::SFN
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1016,11 +1016,11 @@ module AWS::SDK::SFN
         data.error = map['error']
         data.cause = map['cause']
         data.input = map['input']
-        data.input_details = (Parsers::CloudWatchEventsExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
+        data.input_details = (CloudWatchEventsExecutionDataDetails.parse(map['inputDetails']) unless map['inputDetails'].nil?)
         data.output = map['output']
-        data.output_details = (Parsers::CloudWatchEventsExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (CloudWatchEventsExecutionDataDetails.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         data.trace_header = map['traceHeader']
-        data.billing_details = (Parsers::BillingDetails.parse(map['billingDetails']) unless map['billingDetails'].nil?)
+        data.billing_details = (BillingDetails.parse(map['billingDetails']) unless map['billingDetails'].nil?)
         data
       end
     end

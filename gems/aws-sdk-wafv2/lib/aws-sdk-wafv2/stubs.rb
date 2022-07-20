@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::WAFV2
   module Stubs
 
@@ -19,7 +22,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,7 +38,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['Capacity'] = stub[:capacity] unless stub[:capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -50,8 +53,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Summary'] = Stubs::IPSetSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summary'] = IPSetSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -92,8 +95,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Summary'] = Stubs::RegexPatternSetSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summary'] = RegexPatternSetSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -134,8 +137,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Summary'] = Stubs::RuleGroupSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summary'] = RuleGroupSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -176,8 +179,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Summary'] = Stubs::WebACLSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summary'] = WebACLSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -219,7 +222,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextWebACLLockToken'] = stub[:next_web_acl_lock_token] unless stub[:next_web_acl_lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -233,7 +236,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -247,7 +250,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -261,7 +264,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -275,7 +278,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -289,7 +292,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -303,7 +306,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -327,11 +330,11 @@ module AWS::SDK::WAFV2
         data['VersionName'] = stub[:version_name] unless stub[:version_name].nil?
         data['SnsTopicArn'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
         data['Capacity'] = stub[:capacity] unless stub[:capacity].nil?
-        data['Rules'] = Stubs::RuleSummaries.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = RuleSummaries.stub(stub[:rules]) unless stub[:rules].nil?
         data['LabelNamespace'] = stub[:label_namespace] unless stub[:label_namespace].nil?
-        data['AvailableLabels'] = Stubs::LabelSummaries.stub(stub[:available_labels]) unless stub[:available_labels].nil?
-        data['ConsumedLabels'] = Stubs::LabelSummaries.stub(stub[:consumed_labels]) unless stub[:consumed_labels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AvailableLabels'] = LabelSummaries.stub(stub[:available_labels]) unless stub[:available_labels].nil?
+        data['ConsumedLabels'] = LabelSummaries.stub(stub[:consumed_labels]) unless stub[:consumed_labels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -350,7 +353,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LabelSummary.stub(element) unless element.nil?
+          data << LabelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -388,7 +391,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleSummary.stub(element) unless element.nil?
+          data << RuleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -409,7 +412,7 @@ module AWS::SDK::WAFV2
         stub ||= Types::RuleSummary.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Action'] = Stubs::RuleAction.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = RuleAction.stub(stub[:action]) unless stub[:action].nil?
         data
       end
     end
@@ -430,10 +433,10 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::RuleAction.new
         data = {}
-        data['Block'] = Stubs::BlockAction.stub(stub[:block]) unless stub[:block].nil?
-        data['Allow'] = Stubs::AllowAction.stub(stub[:allow]) unless stub[:allow].nil?
-        data['Count'] = Stubs::CountAction.stub(stub[:count]) unless stub[:count].nil?
-        data['Captcha'] = Stubs::CaptchaAction.stub(stub[:captcha]) unless stub[:captcha].nil?
+        data['Block'] = BlockAction.stub(stub[:block]) unless stub[:block].nil?
+        data['Allow'] = AllowAction.stub(stub[:allow]) unless stub[:allow].nil?
+        data['Count'] = CountAction.stub(stub[:count]) unless stub[:count].nil?
+        data['Captcha'] = CaptchaAction.stub(stub[:captcha]) unless stub[:captcha].nil?
         data
       end
     end
@@ -451,7 +454,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::CaptchaAction.new
         data = {}
-        data['CustomRequestHandling'] = Stubs::CustomRequestHandling.stub(stub[:custom_request_handling]) unless stub[:custom_request_handling].nil?
+        data['CustomRequestHandling'] = CustomRequestHandling.stub(stub[:custom_request_handling]) unless stub[:custom_request_handling].nil?
         data
       end
     end
@@ -469,7 +472,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::CustomRequestHandling.new
         data = {}
-        data['InsertHeaders'] = Stubs::CustomHTTPHeaders.stub(stub[:insert_headers]) unless stub[:insert_headers].nil?
+        data['InsertHeaders'] = CustomHTTPHeaders.stub(stub[:insert_headers]) unless stub[:insert_headers].nil?
         data
       end
     end
@@ -488,7 +491,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomHTTPHeader.stub(element) unless element.nil?
+          data << CustomHTTPHeader.stub(element) unless element.nil?
         end
         data
       end
@@ -527,7 +530,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::CountAction.new
         data = {}
-        data['CustomRequestHandling'] = Stubs::CustomRequestHandling.stub(stub[:custom_request_handling]) unless stub[:custom_request_handling].nil?
+        data['CustomRequestHandling'] = CustomRequestHandling.stub(stub[:custom_request_handling]) unless stub[:custom_request_handling].nil?
         data
       end
     end
@@ -545,7 +548,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::AllowAction.new
         data = {}
-        data['CustomRequestHandling'] = Stubs::CustomRequestHandling.stub(stub[:custom_request_handling]) unless stub[:custom_request_handling].nil?
+        data['CustomRequestHandling'] = CustomRequestHandling.stub(stub[:custom_request_handling]) unless stub[:custom_request_handling].nil?
         data
       end
     end
@@ -563,7 +566,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::BlockAction.new
         data = {}
-        data['CustomResponse'] = Stubs::CustomResponse.stub(stub[:custom_response]) unless stub[:custom_response].nil?
+        data['CustomResponse'] = CustomResponse.stub(stub[:custom_response]) unless stub[:custom_response].nil?
         data
       end
     end
@@ -585,7 +588,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['ResponseCode'] = stub[:response_code] unless stub[:response_code].nil?
         data['CustomResponseBodyKey'] = stub[:custom_response_body_key] unless stub[:custom_response_body_key].nil?
-        data['ResponseHeaders'] = Stubs::CustomHTTPHeaders.stub(stub[:response_headers]) unless stub[:response_headers].nil?
+        data['ResponseHeaders'] = CustomHTTPHeaders.stub(stub[:response_headers]) unless stub[:response_headers].nil?
         data
       end
     end
@@ -599,7 +602,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -615,7 +618,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['Url'] = stub[:url] unless stub[:url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -631,9 +634,9 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IPSet'] = Stubs::IPSet.stub(stub[:ip_set]) unless stub[:ip_set].nil?
+        data['IPSet'] = IPSet.stub(stub[:ip_set]) unless stub[:ip_set].nil?
         data['LockToken'] = stub[:lock_token] unless stub[:lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -661,7 +664,7 @@ module AWS::SDK::WAFV2
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['IPAddressVersion'] = stub[:ip_address_version] unless stub[:ip_address_version].nil?
-        data['Addresses'] = Stubs::IPAddresses.stub(stub[:addresses]) unless stub[:addresses].nil?
+        data['Addresses'] = IPAddresses.stub(stub[:addresses]) unless stub[:addresses].nil?
         data
       end
     end
@@ -696,8 +699,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -720,10 +723,10 @@ module AWS::SDK::WAFV2
         stub ||= Types::LoggingConfiguration.new
         data = {}
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['LogDestinationConfigs'] = Stubs::LogDestinationConfigs.stub(stub[:log_destination_configs]) unless stub[:log_destination_configs].nil?
-        data['RedactedFields'] = Stubs::RedactedFields.stub(stub[:redacted_fields]) unless stub[:redacted_fields].nil?
+        data['LogDestinationConfigs'] = LogDestinationConfigs.stub(stub[:log_destination_configs]) unless stub[:log_destination_configs].nil?
+        data['RedactedFields'] = RedactedFields.stub(stub[:redacted_fields]) unless stub[:redacted_fields].nil?
         data['ManagedByFirewallManager'] = stub[:managed_by_firewall_manager] unless stub[:managed_by_firewall_manager].nil?
-        data['LoggingFilter'] = Stubs::LoggingFilter.stub(stub[:logging_filter]) unless stub[:logging_filter].nil?
+        data['LoggingFilter'] = LoggingFilter.stub(stub[:logging_filter]) unless stub[:logging_filter].nil?
         data
       end
     end
@@ -742,7 +745,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::LoggingFilter.new
         data = {}
-        data['Filters'] = Stubs::Filters.stub(stub[:filters]) unless stub[:filters].nil?
+        data['Filters'] = Filters.stub(stub[:filters]) unless stub[:filters].nil?
         data['DefaultBehavior'] = stub[:default_behavior] unless stub[:default_behavior].nil?
         data
       end
@@ -762,7 +765,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Filter.stub(element) unless element.nil?
+          data << Filter.stub(element) unless element.nil?
         end
         data
       end
@@ -785,7 +788,7 @@ module AWS::SDK::WAFV2
         data = {}
         data['Behavior'] = stub[:behavior] unless stub[:behavior].nil?
         data['Requirement'] = stub[:requirement] unless stub[:requirement].nil?
-        data['Conditions'] = Stubs::Conditions.stub(stub[:conditions]) unless stub[:conditions].nil?
+        data['Conditions'] = Conditions.stub(stub[:conditions]) unless stub[:conditions].nil?
         data
       end
     end
@@ -804,7 +807,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Condition.stub(element) unless element.nil?
+          data << Condition.stub(element) unless element.nil?
         end
         data
       end
@@ -824,8 +827,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::Condition.new
         data = {}
-        data['ActionCondition'] = Stubs::ActionCondition.stub(stub[:action_condition]) unless stub[:action_condition].nil?
-        data['LabelNameCondition'] = Stubs::LabelNameCondition.stub(stub[:label_name_condition]) unless stub[:label_name_condition].nil?
+        data['ActionCondition'] = ActionCondition.stub(stub[:action_condition]) unless stub[:action_condition].nil?
+        data['LabelNameCondition'] = LabelNameCondition.stub(stub[:label_name_condition]) unless stub[:label_name_condition].nil?
         data
       end
     end
@@ -880,7 +883,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FieldToMatch.stub(element) unless element.nil?
+          data << FieldToMatch.stub(element) unless element.nil?
         end
         data
       end
@@ -908,16 +911,16 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::FieldToMatch.new
         data = {}
-        data['SingleHeader'] = Stubs::SingleHeader.stub(stub[:single_header]) unless stub[:single_header].nil?
-        data['SingleQueryArgument'] = Stubs::SingleQueryArgument.stub(stub[:single_query_argument]) unless stub[:single_query_argument].nil?
-        data['AllQueryArguments'] = Stubs::AllQueryArguments.stub(stub[:all_query_arguments]) unless stub[:all_query_arguments].nil?
-        data['UriPath'] = Stubs::UriPath.stub(stub[:uri_path]) unless stub[:uri_path].nil?
-        data['QueryString'] = Stubs::QueryString.stub(stub[:query_string]) unless stub[:query_string].nil?
-        data['Body'] = Stubs::Body.stub(stub[:body]) unless stub[:body].nil?
-        data['Method'] = Stubs::Method.stub(stub[:member_method]) unless stub[:member_method].nil?
-        data['JsonBody'] = Stubs::JsonBody.stub(stub[:json_body]) unless stub[:json_body].nil?
-        data['Headers'] = Stubs::Headers.stub(stub[:headers]) unless stub[:headers].nil?
-        data['Cookies'] = Stubs::Cookies.stub(stub[:cookies]) unless stub[:cookies].nil?
+        data['SingleHeader'] = SingleHeader.stub(stub[:single_header]) unless stub[:single_header].nil?
+        data['SingleQueryArgument'] = SingleQueryArgument.stub(stub[:single_query_argument]) unless stub[:single_query_argument].nil?
+        data['AllQueryArguments'] = AllQueryArguments.stub(stub[:all_query_arguments]) unless stub[:all_query_arguments].nil?
+        data['UriPath'] = UriPath.stub(stub[:uri_path]) unless stub[:uri_path].nil?
+        data['QueryString'] = QueryString.stub(stub[:query_string]) unless stub[:query_string].nil?
+        data['Body'] = Body.stub(stub[:body]) unless stub[:body].nil?
+        data['Method'] = Method.stub(stub[:member_method]) unless stub[:member_method].nil?
+        data['JsonBody'] = JsonBody.stub(stub[:json_body]) unless stub[:json_body].nil?
+        data['Headers'] = Headers.stub(stub[:headers]) unless stub[:headers].nil?
+        data['Cookies'] = Cookies.stub(stub[:cookies]) unless stub[:cookies].nil?
         data
       end
     end
@@ -937,7 +940,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::Cookies.new
         data = {}
-        data['MatchPattern'] = Stubs::CookieMatchPattern.stub(stub[:match_pattern]) unless stub[:match_pattern].nil?
+        data['MatchPattern'] = CookieMatchPattern.stub(stub[:match_pattern]) unless stub[:match_pattern].nil?
         data['MatchScope'] = stub[:match_scope] unless stub[:match_scope].nil?
         data['OversizeHandling'] = stub[:oversize_handling] unless stub[:oversize_handling].nil?
         data
@@ -959,9 +962,9 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::CookieMatchPattern.new
         data = {}
-        data['All'] = Stubs::All.stub(stub[:all]) unless stub[:all].nil?
-        data['IncludedCookies'] = Stubs::CookieNames.stub(stub[:included_cookies]) unless stub[:included_cookies].nil?
-        data['ExcludedCookies'] = Stubs::CookieNames.stub(stub[:excluded_cookies]) unless stub[:excluded_cookies].nil?
+        data['All'] = All.stub(stub[:all]) unless stub[:all].nil?
+        data['IncludedCookies'] = CookieNames.stub(stub[:included_cookies]) unless stub[:included_cookies].nil?
+        data['ExcludedCookies'] = CookieNames.stub(stub[:excluded_cookies]) unless stub[:excluded_cookies].nil?
         data
       end
     end
@@ -1017,7 +1020,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::Headers.new
         data = {}
-        data['MatchPattern'] = Stubs::HeaderMatchPattern.stub(stub[:match_pattern]) unless stub[:match_pattern].nil?
+        data['MatchPattern'] = HeaderMatchPattern.stub(stub[:match_pattern]) unless stub[:match_pattern].nil?
         data['MatchScope'] = stub[:match_scope] unless stub[:match_scope].nil?
         data['OversizeHandling'] = stub[:oversize_handling] unless stub[:oversize_handling].nil?
         data
@@ -1039,9 +1042,9 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::HeaderMatchPattern.new
         data = {}
-        data['All'] = Stubs::All.stub(stub[:all]) unless stub[:all].nil?
-        data['IncludedHeaders'] = Stubs::HeaderNames.stub(stub[:included_headers]) unless stub[:included_headers].nil?
-        data['ExcludedHeaders'] = Stubs::HeaderNames.stub(stub[:excluded_headers]) unless stub[:excluded_headers].nil?
+        data['All'] = All.stub(stub[:all]) unless stub[:all].nil?
+        data['IncludedHeaders'] = HeaderNames.stub(stub[:included_headers]) unless stub[:included_headers].nil?
+        data['ExcludedHeaders'] = HeaderNames.stub(stub[:excluded_headers]) unless stub[:excluded_headers].nil?
         data
       end
     end
@@ -1082,7 +1085,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::JsonBody.new
         data = {}
-        data['MatchPattern'] = Stubs::JsonMatchPattern.stub(stub[:match_pattern]) unless stub[:match_pattern].nil?
+        data['MatchPattern'] = JsonMatchPattern.stub(stub[:match_pattern]) unless stub[:match_pattern].nil?
         data['MatchScope'] = stub[:match_scope] unless stub[:match_scope].nil?
         data['InvalidFallbackBehavior'] = stub[:invalid_fallback_behavior] unless stub[:invalid_fallback_behavior].nil?
         data['OversizeHandling'] = stub[:oversize_handling] unless stub[:oversize_handling].nil?
@@ -1104,8 +1107,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::JsonMatchPattern.new
         data = {}
-        data['All'] = Stubs::All.stub(stub[:all]) unless stub[:all].nil?
-        data['IncludedPaths'] = Stubs::JsonPointerPaths.stub(stub[:included_paths]) unless stub[:included_paths].nil?
+        data['All'] = All.stub(stub[:all]) unless stub[:all].nil?
+        data['IncludedPaths'] = JsonPointerPaths.stub(stub[:included_paths]) unless stub[:included_paths].nil?
         data
       end
     end
@@ -1279,9 +1282,9 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ManagedRuleSet'] = Stubs::ManagedRuleSet.stub(stub[:managed_rule_set]) unless stub[:managed_rule_set].nil?
+        data['ManagedRuleSet'] = ManagedRuleSet.stub(stub[:managed_rule_set]) unless stub[:managed_rule_set].nil?
         data['LockToken'] = stub[:lock_token] unless stub[:lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1309,7 +1312,7 @@ module AWS::SDK::WAFV2
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['PublishedVersions'] = Stubs::PublishedVersions.stub(stub[:published_versions]) unless stub[:published_versions].nil?
+        data['PublishedVersions'] = PublishedVersions.stub(stub[:published_versions]) unless stub[:published_versions].nil?
         data['RecommendedVersion'] = stub[:recommended_version] unless stub[:recommended_version].nil?
         data['LabelNamespace'] = stub[:label_namespace] unless stub[:label_namespace].nil?
         data
@@ -1330,7 +1333,7 @@ module AWS::SDK::WAFV2
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ManagedRuleSetVersion.stub(value) unless value.nil?
+          data[key] = ManagedRuleSetVersion.stub(value) unless value.nil?
         end
         data
       end
@@ -1374,8 +1377,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MobileSdkRelease'] = Stubs::MobileSdkRelease.stub(stub[:mobile_sdk_release]) unless stub[:mobile_sdk_release].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MobileSdkRelease'] = MobileSdkRelease.stub(stub[:mobile_sdk_release]) unless stub[:mobile_sdk_release].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1399,7 +1402,7 @@ module AWS::SDK::WAFV2
         data['ReleaseVersion'] = stub[:release_version] unless stub[:release_version].nil?
         data['Timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
         data['ReleaseNotes'] = stub[:release_notes] unless stub[:release_notes].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1418,7 +1421,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1455,7 +1458,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1471,9 +1474,9 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ManagedKeysIPV4'] = Stubs::RateBasedStatementManagedKeysIPSet.stub(stub[:managed_keys_ipv4]) unless stub[:managed_keys_ipv4].nil?
-        data['ManagedKeysIPV6'] = Stubs::RateBasedStatementManagedKeysIPSet.stub(stub[:managed_keys_ipv6]) unless stub[:managed_keys_ipv6].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ManagedKeysIPV4'] = RateBasedStatementManagedKeysIPSet.stub(stub[:managed_keys_ipv4]) unless stub[:managed_keys_ipv4].nil?
+        data['ManagedKeysIPV6'] = RateBasedStatementManagedKeysIPSet.stub(stub[:managed_keys_ipv6]) unless stub[:managed_keys_ipv6].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1493,7 +1496,7 @@ module AWS::SDK::WAFV2
         stub ||= Types::RateBasedStatementManagedKeysIPSet.new
         data = {}
         data['IPAddressVersion'] = stub[:ip_address_version] unless stub[:ip_address_version].nil?
-        data['Addresses'] = Stubs::IPAddresses.stub(stub[:addresses]) unless stub[:addresses].nil?
+        data['Addresses'] = IPAddresses.stub(stub[:addresses]) unless stub[:addresses].nil?
         data
       end
     end
@@ -1509,9 +1512,9 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RegexPatternSet'] = Stubs::RegexPatternSet.stub(stub[:regex_pattern_set]) unless stub[:regex_pattern_set].nil?
+        data['RegexPatternSet'] = RegexPatternSet.stub(stub[:regex_pattern_set]) unless stub[:regex_pattern_set].nil?
         data['LockToken'] = stub[:lock_token] unless stub[:lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1537,7 +1540,7 @@ module AWS::SDK::WAFV2
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RegularExpressionList'] = Stubs::RegularExpressionList.stub(stub[:regular_expression_list]) unless stub[:regular_expression_list].nil?
+        data['RegularExpressionList'] = RegularExpressionList.stub(stub[:regular_expression_list]) unless stub[:regular_expression_list].nil?
         data
       end
     end
@@ -1556,7 +1559,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Regex.stub(element) unless element.nil?
+          data << Regex.stub(element) unless element.nil?
         end
         data
       end
@@ -1591,9 +1594,9 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuleGroup'] = Stubs::RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
+        data['RuleGroup'] = RuleGroup.stub(stub[:rule_group]) unless stub[:rule_group].nil?
         data['LockToken'] = stub[:lock_token] unless stub[:lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1626,12 +1629,12 @@ module AWS::SDK::WAFV2
         data['Capacity'] = stub[:capacity] unless stub[:capacity].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Rules'] = Stubs::Rules.stub(stub[:rules]) unless stub[:rules].nil?
-        data['VisibilityConfig'] = Stubs::VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
+        data['Rules'] = Rules.stub(stub[:rules]) unless stub[:rules].nil?
+        data['VisibilityConfig'] = VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
         data['LabelNamespace'] = stub[:label_namespace] unless stub[:label_namespace].nil?
-        data['CustomResponseBodies'] = Stubs::CustomResponseBodies.stub(stub[:custom_response_bodies]) unless stub[:custom_response_bodies].nil?
-        data['AvailableLabels'] = Stubs::LabelSummaries.stub(stub[:available_labels]) unless stub[:available_labels].nil?
-        data['ConsumedLabels'] = Stubs::LabelSummaries.stub(stub[:consumed_labels]) unless stub[:consumed_labels].nil?
+        data['CustomResponseBodies'] = CustomResponseBodies.stub(stub[:custom_response_bodies]) unless stub[:custom_response_bodies].nil?
+        data['AvailableLabels'] = LabelSummaries.stub(stub[:available_labels]) unless stub[:available_labels].nil?
+        data['ConsumedLabels'] = LabelSummaries.stub(stub[:consumed_labels]) unless stub[:consumed_labels].nil?
         data
       end
     end
@@ -1650,7 +1653,7 @@ module AWS::SDK::WAFV2
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::CustomResponseBody.stub(value) unless value.nil?
+          data[key] = CustomResponseBody.stub(value) unless value.nil?
         end
         data
       end
@@ -1712,7 +1715,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Rule.stub(element) unless element.nil?
+          data << Rule.stub(element) unless element.nil?
         end
         data
       end
@@ -1740,12 +1743,12 @@ module AWS::SDK::WAFV2
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
-        data['Statement'] = Stubs::Statement.stub(stub[:statement]) unless stub[:statement].nil?
-        data['Action'] = Stubs::RuleAction.stub(stub[:action]) unless stub[:action].nil?
-        data['OverrideAction'] = Stubs::OverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
-        data['RuleLabels'] = Stubs::Labels.stub(stub[:rule_labels]) unless stub[:rule_labels].nil?
-        data['VisibilityConfig'] = Stubs::VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
-        data['CaptchaConfig'] = Stubs::CaptchaConfig.stub(stub[:captcha_config]) unless stub[:captcha_config].nil?
+        data['Statement'] = Statement.stub(stub[:statement]) unless stub[:statement].nil?
+        data['Action'] = RuleAction.stub(stub[:action]) unless stub[:action].nil?
+        data['OverrideAction'] = OverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
+        data['RuleLabels'] = Labels.stub(stub[:rule_labels]) unless stub[:rule_labels].nil?
+        data['VisibilityConfig'] = VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
+        data['CaptchaConfig'] = CaptchaConfig.stub(stub[:captcha_config]) unless stub[:captcha_config].nil?
         data
       end
     end
@@ -1763,7 +1766,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::CaptchaConfig.new
         data = {}
-        data['ImmunityTimeProperty'] = Stubs::ImmunityTimeProperty.stub(stub[:immunity_time_property]) unless stub[:immunity_time_property].nil?
+        data['ImmunityTimeProperty'] = ImmunityTimeProperty.stub(stub[:immunity_time_property]) unless stub[:immunity_time_property].nil?
         data
       end
     end
@@ -1800,7 +1803,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Label.stub(element) unless element.nil?
+          data << Label.stub(element) unless element.nil?
         end
         data
       end
@@ -1838,8 +1841,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::OverrideAction.new
         data = {}
-        data['Count'] = Stubs::CountAction.stub(stub[:count]) unless stub[:count].nil?
-        data['None'] = Stubs::NoneAction.stub(stub[:none]) unless stub[:none].nil?
+        data['Count'] = CountAction.stub(stub[:count]) unless stub[:count].nil?
+        data['None'] = NoneAction.stub(stub[:none]) unless stub[:none].nil?
         data
       end
     end
@@ -1887,21 +1890,21 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::Statement.new
         data = {}
-        data['ByteMatchStatement'] = Stubs::ByteMatchStatement.stub(stub[:byte_match_statement]) unless stub[:byte_match_statement].nil?
-        data['SqliMatchStatement'] = Stubs::SqliMatchStatement.stub(stub[:sqli_match_statement]) unless stub[:sqli_match_statement].nil?
-        data['XssMatchStatement'] = Stubs::XssMatchStatement.stub(stub[:xss_match_statement]) unless stub[:xss_match_statement].nil?
-        data['SizeConstraintStatement'] = Stubs::SizeConstraintStatement.stub(stub[:size_constraint_statement]) unless stub[:size_constraint_statement].nil?
-        data['GeoMatchStatement'] = Stubs::GeoMatchStatement.stub(stub[:geo_match_statement]) unless stub[:geo_match_statement].nil?
-        data['RuleGroupReferenceStatement'] = Stubs::RuleGroupReferenceStatement.stub(stub[:rule_group_reference_statement]) unless stub[:rule_group_reference_statement].nil?
-        data['IPSetReferenceStatement'] = Stubs::IPSetReferenceStatement.stub(stub[:ip_set_reference_statement]) unless stub[:ip_set_reference_statement].nil?
-        data['RegexPatternSetReferenceStatement'] = Stubs::RegexPatternSetReferenceStatement.stub(stub[:regex_pattern_set_reference_statement]) unless stub[:regex_pattern_set_reference_statement].nil?
-        data['RateBasedStatement'] = Stubs::RateBasedStatement.stub(stub[:rate_based_statement]) unless stub[:rate_based_statement].nil?
-        data['AndStatement'] = Stubs::AndStatement.stub(stub[:and_statement]) unless stub[:and_statement].nil?
-        data['OrStatement'] = Stubs::OrStatement.stub(stub[:or_statement]) unless stub[:or_statement].nil?
-        data['NotStatement'] = Stubs::NotStatement.stub(stub[:not_statement]) unless stub[:not_statement].nil?
-        data['ManagedRuleGroupStatement'] = Stubs::ManagedRuleGroupStatement.stub(stub[:managed_rule_group_statement]) unless stub[:managed_rule_group_statement].nil?
-        data['LabelMatchStatement'] = Stubs::LabelMatchStatement.stub(stub[:label_match_statement]) unless stub[:label_match_statement].nil?
-        data['RegexMatchStatement'] = Stubs::RegexMatchStatement.stub(stub[:regex_match_statement]) unless stub[:regex_match_statement].nil?
+        data['ByteMatchStatement'] = ByteMatchStatement.stub(stub[:byte_match_statement]) unless stub[:byte_match_statement].nil?
+        data['SqliMatchStatement'] = SqliMatchStatement.stub(stub[:sqli_match_statement]) unless stub[:sqli_match_statement].nil?
+        data['XssMatchStatement'] = XssMatchStatement.stub(stub[:xss_match_statement]) unless stub[:xss_match_statement].nil?
+        data['SizeConstraintStatement'] = SizeConstraintStatement.stub(stub[:size_constraint_statement]) unless stub[:size_constraint_statement].nil?
+        data['GeoMatchStatement'] = GeoMatchStatement.stub(stub[:geo_match_statement]) unless stub[:geo_match_statement].nil?
+        data['RuleGroupReferenceStatement'] = RuleGroupReferenceStatement.stub(stub[:rule_group_reference_statement]) unless stub[:rule_group_reference_statement].nil?
+        data['IPSetReferenceStatement'] = IPSetReferenceStatement.stub(stub[:ip_set_reference_statement]) unless stub[:ip_set_reference_statement].nil?
+        data['RegexPatternSetReferenceStatement'] = RegexPatternSetReferenceStatement.stub(stub[:regex_pattern_set_reference_statement]) unless stub[:regex_pattern_set_reference_statement].nil?
+        data['RateBasedStatement'] = RateBasedStatement.stub(stub[:rate_based_statement]) unless stub[:rate_based_statement].nil?
+        data['AndStatement'] = AndStatement.stub(stub[:and_statement]) unless stub[:and_statement].nil?
+        data['OrStatement'] = OrStatement.stub(stub[:or_statement]) unless stub[:or_statement].nil?
+        data['NotStatement'] = NotStatement.stub(stub[:not_statement]) unless stub[:not_statement].nil?
+        data['ManagedRuleGroupStatement'] = ManagedRuleGroupStatement.stub(stub[:managed_rule_group_statement]) unless stub[:managed_rule_group_statement].nil?
+        data['LabelMatchStatement'] = LabelMatchStatement.stub(stub[:label_match_statement]) unless stub[:label_match_statement].nil?
+        data['RegexMatchStatement'] = RegexMatchStatement.stub(stub[:regex_match_statement]) unless stub[:regex_match_statement].nil?
         data
       end
     end
@@ -1922,8 +1925,8 @@ module AWS::SDK::WAFV2
         stub ||= Types::RegexMatchStatement.new
         data = {}
         data['RegexString'] = stub[:regex_string] unless stub[:regex_string].nil?
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
-        data['TextTransformations'] = Stubs::TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
         data
       end
     end
@@ -1942,7 +1945,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TextTransformation.stub(element) unless element.nil?
+          data << TextTransformation.stub(element) unless element.nil?
         end
         data
       end
@@ -2009,9 +2012,9 @@ module AWS::SDK::WAFV2
         data['VendorName'] = stub[:vendor_name] unless stub[:vendor_name].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['ExcludedRules'] = Stubs::ExcludedRules.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
-        data['ScopeDownStatement'] = Stubs::Statement.stub(stub[:scope_down_statement]) unless stub[:scope_down_statement].nil?
-        data['ManagedRuleGroupConfigs'] = Stubs::ManagedRuleGroupConfigs.stub(stub[:managed_rule_group_configs]) unless stub[:managed_rule_group_configs].nil?
+        data['ExcludedRules'] = ExcludedRules.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
+        data['ScopeDownStatement'] = Statement.stub(stub[:scope_down_statement]) unless stub[:scope_down_statement].nil?
+        data['ManagedRuleGroupConfigs'] = ManagedRuleGroupConfigs.stub(stub[:managed_rule_group_configs]) unless stub[:managed_rule_group_configs].nil?
         data
       end
     end
@@ -2030,7 +2033,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedRuleGroupConfig.stub(element) unless element.nil?
+          data << ManagedRuleGroupConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -2054,8 +2057,8 @@ module AWS::SDK::WAFV2
         data = {}
         data['LoginPath'] = stub[:login_path] unless stub[:login_path].nil?
         data['PayloadType'] = stub[:payload_type] unless stub[:payload_type].nil?
-        data['UsernameField'] = Stubs::UsernameField.stub(stub[:username_field]) unless stub[:username_field].nil?
-        data['PasswordField'] = Stubs::PasswordField.stub(stub[:password_field]) unless stub[:password_field].nil?
+        data['UsernameField'] = UsernameField.stub(stub[:username_field]) unless stub[:username_field].nil?
+        data['PasswordField'] = PasswordField.stub(stub[:password_field]) unless stub[:password_field].nil?
         data
       end
     end
@@ -2110,7 +2113,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExcludedRule.stub(element) unless element.nil?
+          data << ExcludedRule.stub(element) unless element.nil?
         end
         data
       end
@@ -2147,7 +2150,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::NotStatement.new
         data = {}
-        data['Statement'] = Stubs::Statement.stub(stub[:statement]) unless stub[:statement].nil?
+        data['Statement'] = Statement.stub(stub[:statement]) unless stub[:statement].nil?
         data
       end
     end
@@ -2165,7 +2168,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::OrStatement.new
         data = {}
-        data['Statements'] = Stubs::Statements.stub(stub[:statements]) unless stub[:statements].nil?
+        data['Statements'] = Statements.stub(stub[:statements]) unless stub[:statements].nil?
         data
       end
     end
@@ -2184,7 +2187,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Statement.stub(element) unless element.nil?
+          data << Statement.stub(element) unless element.nil?
         end
         data
       end
@@ -2203,7 +2206,7 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::AndStatement.new
         data = {}
-        data['Statements'] = Stubs::Statements.stub(stub[:statements]) unless stub[:statements].nil?
+        data['Statements'] = Statements.stub(stub[:statements]) unless stub[:statements].nil?
         data
       end
     end
@@ -2226,8 +2229,8 @@ module AWS::SDK::WAFV2
         data = {}
         data['Limit'] = stub[:limit] unless stub[:limit].nil?
         data['AggregateKeyType'] = stub[:aggregate_key_type] unless stub[:aggregate_key_type].nil?
-        data['ScopeDownStatement'] = Stubs::Statement.stub(stub[:scope_down_statement]) unless stub[:scope_down_statement].nil?
-        data['ForwardedIPConfig'] = Stubs::ForwardedIPConfig.stub(stub[:forwarded_ip_config]) unless stub[:forwarded_ip_config].nil?
+        data['ScopeDownStatement'] = Statement.stub(stub[:scope_down_statement]) unless stub[:scope_down_statement].nil?
+        data['ForwardedIPConfig'] = ForwardedIPConfig.stub(stub[:forwarded_ip_config]) unless stub[:forwarded_ip_config].nil?
         data
       end
     end
@@ -2268,8 +2271,8 @@ module AWS::SDK::WAFV2
         stub ||= Types::RegexPatternSetReferenceStatement.new
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
-        data['TextTransformations'] = Stubs::TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
         data
       end
     end
@@ -2289,7 +2292,7 @@ module AWS::SDK::WAFV2
         stub ||= Types::IPSetReferenceStatement.new
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['IPSetForwardedIPConfig'] = Stubs::IPSetForwardedIPConfig.stub(stub[:ip_set_forwarded_ip_config]) unless stub[:ip_set_forwarded_ip_config].nil?
+        data['IPSetForwardedIPConfig'] = IPSetForwardedIPConfig.stub(stub[:ip_set_forwarded_ip_config]) unless stub[:ip_set_forwarded_ip_config].nil?
         data
       end
     end
@@ -2331,7 +2334,7 @@ module AWS::SDK::WAFV2
         stub ||= Types::RuleGroupReferenceStatement.new
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['ExcludedRules'] = Stubs::ExcludedRules.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
+        data['ExcludedRules'] = ExcludedRules.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
         data
       end
     end
@@ -2350,8 +2353,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::GeoMatchStatement.new
         data = {}
-        data['CountryCodes'] = Stubs::CountryCodes.stub(stub[:country_codes]) unless stub[:country_codes].nil?
-        data['ForwardedIPConfig'] = Stubs::ForwardedIPConfig.stub(stub[:forwarded_ip_config]) unless stub[:forwarded_ip_config].nil?
+        data['CountryCodes'] = CountryCodes.stub(stub[:country_codes]) unless stub[:country_codes].nil?
+        data['ForwardedIPConfig'] = ForwardedIPConfig.stub(stub[:forwarded_ip_config]) unless stub[:forwarded_ip_config].nil?
         data
       end
     end
@@ -2392,10 +2395,10 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::SizeConstraintStatement.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
         data['ComparisonOperator'] = stub[:comparison_operator] unless stub[:comparison_operator].nil?
         data['Size'] = stub[:size] unless stub[:size].nil?
-        data['TextTransformations'] = Stubs::TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
+        data['TextTransformations'] = TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
         data
       end
     end
@@ -2414,8 +2417,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::XssMatchStatement.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
-        data['TextTransformations'] = Stubs::TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
         data
       end
     end
@@ -2434,8 +2437,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::SqliMatchStatement.new
         data = {}
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
-        data['TextTransformations'] = Stubs::TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
         data
       end
     end
@@ -2456,9 +2459,9 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::ByteMatchStatement.new
         data = {}
-        data['SearchString'] = Base64::encode64(stub[:search_string]) unless stub[:search_string].nil?
-        data['FieldToMatch'] = Stubs::FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
-        data['TextTransformations'] = Stubs::TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
+        data['SearchString'] = ::Base64::encode64(stub[:search_string]) unless stub[:search_string].nil?
+        data['FieldToMatch'] = FieldToMatch.stub(stub[:field_to_match]) unless stub[:field_to_match].nil?
+        data['TextTransformations'] = TextTransformations.stub(stub[:text_transformations]) unless stub[:text_transformations].nil?
         data['PositionalConstraint'] = stub[:positional_constraint] unless stub[:positional_constraint].nil?
         data
       end
@@ -2476,10 +2479,10 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SampledRequests'] = Stubs::SampledHTTPRequests.stub(stub[:sampled_requests]) unless stub[:sampled_requests].nil?
+        data['SampledRequests'] = SampledHTTPRequests.stub(stub[:sampled_requests]) unless stub[:sampled_requests].nil?
         data['PopulationSize'] = stub[:population_size] unless stub[:population_size].nil?
-        data['TimeWindow'] = Stubs::TimeWindow.stub(stub[:time_window]) unless stub[:time_window].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeWindow'] = TimeWindow.stub(stub[:time_window]) unless stub[:time_window].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2518,7 +2521,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SampledHTTPRequest.stub(element) unless element.nil?
+          data << SampledHTTPRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -2545,15 +2548,15 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::SampledHTTPRequest.new
         data = {}
-        data['Request'] = Stubs::HTTPRequest.stub(stub[:request]) unless stub[:request].nil?
+        data['Request'] = HTTPRequest.stub(stub[:request]) unless stub[:request].nil?
         data['Weight'] = stub[:weight] unless stub[:weight].nil?
         data['Timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
         data['Action'] = stub[:action] unless stub[:action].nil?
         data['RuleNameWithinRuleGroup'] = stub[:rule_name_within_rule_group] unless stub[:rule_name_within_rule_group].nil?
-        data['RequestHeadersInserted'] = Stubs::HTTPHeaders.stub(stub[:request_headers_inserted]) unless stub[:request_headers_inserted].nil?
+        data['RequestHeadersInserted'] = HTTPHeaders.stub(stub[:request_headers_inserted]) unless stub[:request_headers_inserted].nil?
         data['ResponseCodeSent'] = stub[:response_code_sent] unless stub[:response_code_sent].nil?
-        data['Labels'] = Stubs::Labels.stub(stub[:labels]) unless stub[:labels].nil?
-        data['CaptchaResponse'] = Stubs::CaptchaResponse.stub(stub[:captcha_response]) unless stub[:captcha_response].nil?
+        data['Labels'] = Labels.stub(stub[:labels]) unless stub[:labels].nil?
+        data['CaptchaResponse'] = CaptchaResponse.stub(stub[:captcha_response]) unless stub[:captcha_response].nil?
         data
       end
     end
@@ -2594,7 +2597,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HTTPHeader.stub(element) unless element.nil?
+          data << HTTPHeader.stub(element) unless element.nil?
         end
         data
       end
@@ -2643,7 +2646,7 @@ module AWS::SDK::WAFV2
         data['URI'] = stub[:uri] unless stub[:uri].nil?
         data['Method'] = stub[:member_method] unless stub[:member_method].nil?
         data['HTTPVersion'] = stub[:http_version] unless stub[:http_version].nil?
-        data['Headers'] = Stubs::HTTPHeaders.stub(stub[:headers]) unless stub[:headers].nil?
+        data['Headers'] = HTTPHeaders.stub(stub[:headers]) unless stub[:headers].nil?
         data
       end
     end
@@ -2660,10 +2663,10 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WebACL'] = Stubs::WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
+        data['WebACL'] = WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
         data['LockToken'] = stub[:lock_token] unless stub[:lock_token].nil?
         data['ApplicationIntegrationURL'] = stub[:application_integration_url] unless stub[:application_integration_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2697,17 +2700,17 @@ module AWS::SDK::WAFV2
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['DefaultAction'] = Stubs::DefaultAction.stub(stub[:default_action]) unless stub[:default_action].nil?
+        data['DefaultAction'] = DefaultAction.stub(stub[:default_action]) unless stub[:default_action].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Rules'] = Stubs::Rules.stub(stub[:rules]) unless stub[:rules].nil?
-        data['VisibilityConfig'] = Stubs::VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
+        data['Rules'] = Rules.stub(stub[:rules]) unless stub[:rules].nil?
+        data['VisibilityConfig'] = VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
         data['Capacity'] = stub[:capacity] unless stub[:capacity].nil?
-        data['PreProcessFirewallManagerRuleGroups'] = Stubs::FirewallManagerRuleGroups.stub(stub[:pre_process_firewall_manager_rule_groups]) unless stub[:pre_process_firewall_manager_rule_groups].nil?
-        data['PostProcessFirewallManagerRuleGroups'] = Stubs::FirewallManagerRuleGroups.stub(stub[:post_process_firewall_manager_rule_groups]) unless stub[:post_process_firewall_manager_rule_groups].nil?
+        data['PreProcessFirewallManagerRuleGroups'] = FirewallManagerRuleGroups.stub(stub[:pre_process_firewall_manager_rule_groups]) unless stub[:pre_process_firewall_manager_rule_groups].nil?
+        data['PostProcessFirewallManagerRuleGroups'] = FirewallManagerRuleGroups.stub(stub[:post_process_firewall_manager_rule_groups]) unless stub[:post_process_firewall_manager_rule_groups].nil?
         data['ManagedByFirewallManager'] = stub[:managed_by_firewall_manager] unless stub[:managed_by_firewall_manager].nil?
         data['LabelNamespace'] = stub[:label_namespace] unless stub[:label_namespace].nil?
-        data['CustomResponseBodies'] = Stubs::CustomResponseBodies.stub(stub[:custom_response_bodies]) unless stub[:custom_response_bodies].nil?
-        data['CaptchaConfig'] = Stubs::CaptchaConfig.stub(stub[:captcha_config]) unless stub[:captcha_config].nil?
+        data['CustomResponseBodies'] = CustomResponseBodies.stub(stub[:custom_response_bodies]) unless stub[:custom_response_bodies].nil?
+        data['CaptchaConfig'] = CaptchaConfig.stub(stub[:captcha_config]) unless stub[:captcha_config].nil?
         data
       end
     end
@@ -2726,7 +2729,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallManagerRuleGroup.stub(element) unless element.nil?
+          data << FirewallManagerRuleGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2751,9 +2754,9 @@ module AWS::SDK::WAFV2
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
-        data['FirewallManagerStatement'] = Stubs::FirewallManagerStatement.stub(stub[:firewall_manager_statement]) unless stub[:firewall_manager_statement].nil?
-        data['OverrideAction'] = Stubs::OverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
-        data['VisibilityConfig'] = Stubs::VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
+        data['FirewallManagerStatement'] = FirewallManagerStatement.stub(stub[:firewall_manager_statement]) unless stub[:firewall_manager_statement].nil?
+        data['OverrideAction'] = OverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
+        data['VisibilityConfig'] = VisibilityConfig.stub(stub[:visibility_config]) unless stub[:visibility_config].nil?
         data
       end
     end
@@ -2772,8 +2775,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::FirewallManagerStatement.new
         data = {}
-        data['ManagedRuleGroupStatement'] = Stubs::ManagedRuleGroupStatement.stub(stub[:managed_rule_group_statement]) unless stub[:managed_rule_group_statement].nil?
-        data['RuleGroupReferenceStatement'] = Stubs::RuleGroupReferenceStatement.stub(stub[:rule_group_reference_statement]) unless stub[:rule_group_reference_statement].nil?
+        data['ManagedRuleGroupStatement'] = ManagedRuleGroupStatement.stub(stub[:managed_rule_group_statement]) unless stub[:managed_rule_group_statement].nil?
+        data['RuleGroupReferenceStatement'] = RuleGroupReferenceStatement.stub(stub[:rule_group_reference_statement]) unless stub[:rule_group_reference_statement].nil?
         data
       end
     end
@@ -2792,8 +2795,8 @@ module AWS::SDK::WAFV2
       def self.stub(stub)
         stub ||= Types::DefaultAction.new
         data = {}
-        data['Block'] = Stubs::BlockAction.stub(stub[:block]) unless stub[:block].nil?
-        data['Allow'] = Stubs::AllowAction.stub(stub[:allow]) unless stub[:allow].nil?
+        data['Block'] = BlockAction.stub(stub[:block]) unless stub[:block].nil?
+        data['Allow'] = AllowAction.stub(stub[:allow]) unless stub[:allow].nil?
         data
       end
     end
@@ -2808,8 +2811,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WebACL'] = Stubs::WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WebACL'] = WebACL.stub(stub[:web_acl]) unless stub[:web_acl].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2827,9 +2830,9 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['Versions'] = Stubs::ManagedRuleGroupVersions.stub(stub[:versions]) unless stub[:versions].nil?
+        data['Versions'] = ManagedRuleGroupVersions.stub(stub[:versions]) unless stub[:versions].nil?
         data['CurrentDefaultVersion'] = stub[:current_default_version] unless stub[:current_default_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2848,7 +2851,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedRuleGroupVersion.stub(element) unless element.nil?
+          data << ManagedRuleGroupVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -2886,8 +2889,8 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['ManagedRuleGroups'] = Stubs::ManagedRuleGroupSummaries.stub(stub[:managed_rule_groups]) unless stub[:managed_rule_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ManagedRuleGroups'] = ManagedRuleGroupSummaries.stub(stub[:managed_rule_groups]) unless stub[:managed_rule_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2906,7 +2909,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedRuleGroupSummary.stub(element) unless element.nil?
+          data << ManagedRuleGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2948,8 +2951,8 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['IPSets'] = Stubs::IPSetSummaries.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IPSets'] = IPSetSummaries.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2968,7 +2971,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IPSetSummary.stub(element) unless element.nil?
+          data << IPSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2985,9 +2988,9 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LoggingConfigurations'] = Stubs::LoggingConfigurations.stub(stub[:logging_configurations]) unless stub[:logging_configurations].nil?
+        data['LoggingConfigurations'] = LoggingConfigurations.stub(stub[:logging_configurations]) unless stub[:logging_configurations].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3006,7 +3009,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoggingConfiguration.stub(element) unless element.nil?
+          data << LoggingConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -3024,8 +3027,8 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['ManagedRuleSets'] = Stubs::ManagedRuleSetSummaries.stub(stub[:managed_rule_sets]) unless stub[:managed_rule_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ManagedRuleSets'] = ManagedRuleSetSummaries.stub(stub[:managed_rule_sets]) unless stub[:managed_rule_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3044,7 +3047,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedRuleSetSummary.stub(element) unless element.nil?
+          data << ManagedRuleSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3089,9 +3092,9 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReleaseSummaries'] = Stubs::ReleaseSummaries.stub(stub[:release_summaries]) unless stub[:release_summaries].nil?
+        data['ReleaseSummaries'] = ReleaseSummaries.stub(stub[:release_summaries]) unless stub[:release_summaries].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3110,7 +3113,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReleaseSummary.stub(element) unless element.nil?
+          data << ReleaseSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3148,8 +3151,8 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['RegexPatternSets'] = Stubs::RegexPatternSetSummaries.stub(stub[:regex_pattern_sets]) unless stub[:regex_pattern_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegexPatternSets'] = RegexPatternSetSummaries.stub(stub[:regex_pattern_sets]) unless stub[:regex_pattern_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3168,7 +3171,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegexPatternSetSummary.stub(element) unless element.nil?
+          data << RegexPatternSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3184,8 +3187,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceArns'] = Stubs::ResourceArns.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceArns'] = ResourceArns.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3222,8 +3225,8 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['RuleGroups'] = Stubs::RuleGroupSummaries.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleGroups'] = RuleGroupSummaries.stub(stub[:rule_groups]) unless stub[:rule_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3242,7 +3245,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSummary.stub(element) unless element.nil?
+          data << RuleGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3260,8 +3263,8 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['TagInfoForResource'] = Stubs::TagInfoForResource.stub(stub[:tag_info_for_resource]) unless stub[:tag_info_for_resource].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagInfoForResource'] = TagInfoForResource.stub(stub[:tag_info_for_resource]) unless stub[:tag_info_for_resource].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3281,7 +3284,7 @@ module AWS::SDK::WAFV2
         stub ||= Types::TagInfoForResource.new
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data
       end
     end
@@ -3298,8 +3301,8 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['WebACLs'] = Stubs::WebACLSummaries.stub(stub[:web_ac_ls]) unless stub[:web_ac_ls].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WebACLs'] = WebACLSummaries.stub(stub[:web_ac_ls]) unless stub[:web_ac_ls].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3318,7 +3321,7 @@ module AWS::SDK::WAFV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WebACLSummary.stub(element) unless element.nil?
+          data << WebACLSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3334,8 +3337,8 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3351,7 +3354,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextLockToken'] = stub[:next_lock_token] unless stub[:next_lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3365,7 +3368,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3379,7 +3382,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3393,7 +3396,7 @@ module AWS::SDK::WAFV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3409,7 +3412,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextLockToken'] = stub[:next_lock_token] unless stub[:next_lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3429,7 +3432,7 @@ module AWS::SDK::WAFV2
         data['ExpiringVersion'] = stub[:expiring_version] unless stub[:expiring_version].nil?
         data['ExpiryTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiry_timestamp]).to_i unless stub[:expiry_timestamp].nil?
         data['NextLockToken'] = stub[:next_lock_token] unless stub[:next_lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3445,7 +3448,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextLockToken'] = stub[:next_lock_token] unless stub[:next_lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3461,7 +3464,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextLockToken'] = stub[:next_lock_token] unless stub[:next_lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3477,7 +3480,7 @@ module AWS::SDK::WAFV2
       def self.stub(http_resp, stub:)
         data = {}
         data['NextLockToken'] = stub[:next_lock_token] unless stub[:next_lock_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

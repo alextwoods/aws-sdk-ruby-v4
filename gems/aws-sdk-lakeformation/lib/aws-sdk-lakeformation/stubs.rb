@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LakeFormation
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Failures'] = Stubs::LFTagErrors.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Failures'] = LFTagErrors.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LFTagError.stub(element) unless element.nil?
+          data << LFTagError.stub(element) unless element.nil?
         end
         data
       end
@@ -61,8 +63,8 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::LFTagError.new
         data = {}
-        data['LFTag'] = Stubs::LFTagPair.stub(stub[:lf_tag]) unless stub[:lf_tag].nil?
-        data['Error'] = Stubs::ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
+        data['LFTag'] = LFTagPair.stub(stub[:lf_tag]) unless stub[:lf_tag].nil?
+        data['Error'] = ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['TagKey'] = stub[:tag_key] unless stub[:tag_key].nil?
-        data['TagValues'] = Stubs::TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['TagValues'] = TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data
       end
     end
@@ -141,8 +143,8 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Failures'] = Stubs::BatchPermissionsFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Failures'] = BatchPermissionsFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPermissionsFailureEntry.stub(element) unless element.nil?
+          data << BatchPermissionsFailureEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -180,8 +182,8 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::BatchPermissionsFailureEntry.new
         data = {}
-        data['RequestEntry'] = Stubs::BatchPermissionsRequestEntry.stub(stub[:request_entry]) unless stub[:request_entry].nil?
-        data['Error'] = Stubs::ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
+        data['RequestEntry'] = BatchPermissionsRequestEntry.stub(stub[:request_entry]) unless stub[:request_entry].nil?
+        data['Error'] = ErrorDetail.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -204,10 +206,10 @@ module AWS::SDK::LakeFormation
         stub ||= Types::BatchPermissionsRequestEntry.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Principal'] = Stubs::DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
-        data['Resource'] = Stubs::Resource.stub(stub[:resource]) unless stub[:resource].nil?
-        data['Permissions'] = Stubs::PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
-        data['PermissionsWithGrantOption'] = Stubs::PermissionList.stub(stub[:permissions_with_grant_option]) unless stub[:permissions_with_grant_option].nil?
+        data['Principal'] = DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
+        data['Resource'] = Resource.stub(stub[:resource]) unless stub[:resource].nil?
+        data['Permissions'] = PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['PermissionsWithGrantOption'] = PermissionList.stub(stub[:permissions_with_grant_option]) unless stub[:permissions_with_grant_option].nil?
         data
       end
     end
@@ -252,14 +254,14 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::Resource.new
         data = {}
-        data['Catalog'] = Stubs::CatalogResource.stub(stub[:catalog]) unless stub[:catalog].nil?
-        data['Database'] = Stubs::DatabaseResource.stub(stub[:database]) unless stub[:database].nil?
-        data['Table'] = Stubs::TableResource.stub(stub[:table]) unless stub[:table].nil?
-        data['TableWithColumns'] = Stubs::TableWithColumnsResource.stub(stub[:table_with_columns]) unless stub[:table_with_columns].nil?
-        data['DataLocation'] = Stubs::DataLocationResource.stub(stub[:data_location]) unless stub[:data_location].nil?
-        data['DataCellsFilter'] = Stubs::DataCellsFilterResource.stub(stub[:data_cells_filter]) unless stub[:data_cells_filter].nil?
-        data['LFTag'] = Stubs::LFTagKeyResource.stub(stub[:lf_tag]) unless stub[:lf_tag].nil?
-        data['LFTagPolicy'] = Stubs::LFTagPolicyResource.stub(stub[:lf_tag_policy]) unless stub[:lf_tag_policy].nil?
+        data['Catalog'] = CatalogResource.stub(stub[:catalog]) unless stub[:catalog].nil?
+        data['Database'] = DatabaseResource.stub(stub[:database]) unless stub[:database].nil?
+        data['Table'] = TableResource.stub(stub[:table]) unless stub[:table].nil?
+        data['TableWithColumns'] = TableWithColumnsResource.stub(stub[:table_with_columns]) unless stub[:table_with_columns].nil?
+        data['DataLocation'] = DataLocationResource.stub(stub[:data_location]) unless stub[:data_location].nil?
+        data['DataCellsFilter'] = DataCellsFilterResource.stub(stub[:data_cells_filter]) unless stub[:data_cells_filter].nil?
+        data['LFTag'] = LFTagKeyResource.stub(stub[:lf_tag]) unless stub[:lf_tag].nil?
+        data['LFTagPolicy'] = LFTagPolicyResource.stub(stub[:lf_tag_policy]) unless stub[:lf_tag_policy].nil?
         data
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['Expression'] = Stubs::Expression.stub(stub[:expression]) unless stub[:expression].nil?
+        data['Expression'] = Expression.stub(stub[:expression]) unless stub[:expression].nil?
         data
       end
     end
@@ -300,7 +302,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LFTag.stub(element) unless element.nil?
+          data << LFTag.stub(element) unless element.nil?
         end
         data
       end
@@ -321,7 +323,7 @@ module AWS::SDK::LakeFormation
         stub ||= Types::LFTag.new
         data = {}
         data['TagKey'] = stub[:tag_key] unless stub[:tag_key].nil?
-        data['TagValues'] = Stubs::TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['TagValues'] = TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data
       end
     end
@@ -343,7 +345,7 @@ module AWS::SDK::LakeFormation
         data = {}
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['TagKey'] = stub[:tag_key] unless stub[:tag_key].nil?
-        data['TagValues'] = Stubs::TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['TagValues'] = TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data
       end
     end
@@ -412,8 +414,8 @@ module AWS::SDK::LakeFormation
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ColumnNames'] = Stubs::ColumnNames.stub(stub[:column_names]) unless stub[:column_names].nil?
-        data['ColumnWildcard'] = Stubs::ColumnWildcard.stub(stub[:column_wildcard]) unless stub[:column_wildcard].nil?
+        data['ColumnNames'] = ColumnNames.stub(stub[:column_names]) unless stub[:column_names].nil?
+        data['ColumnWildcard'] = ColumnWildcard.stub(stub[:column_wildcard]) unless stub[:column_wildcard].nil?
         data
       end
     end
@@ -431,7 +433,7 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::ColumnWildcard.new
         data = {}
-        data['ExcludedColumnNames'] = Stubs::ColumnNames.stub(stub[:excluded_column_names]) unless stub[:excluded_column_names].nil?
+        data['ExcludedColumnNames'] = ColumnNames.stub(stub[:excluded_column_names]) unless stub[:excluded_column_names].nil?
         data
       end
     end
@@ -475,7 +477,7 @@ module AWS::SDK::LakeFormation
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['TableWildcard'] = Stubs::TableWildcard.stub(stub[:table_wildcard]) unless stub[:table_wildcard].nil?
+        data['TableWildcard'] = TableWildcard.stub(stub[:table_wildcard]) unless stub[:table_wildcard].nil?
         data
       end
     end
@@ -562,8 +564,8 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Failures'] = Stubs::BatchPermissionsFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Failures'] = BatchPermissionsFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -593,7 +595,7 @@ module AWS::SDK::LakeFormation
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['TransactionStatus'] = stub[:transaction_status] unless stub[:transaction_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,8 +689,8 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceInfo'] = Stubs::ResourceInfo.stub(stub[:resource_info]) unless stub[:resource_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceInfo'] = ResourceInfo.stub(stub[:resource_info]) unless stub[:resource_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -726,8 +728,8 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TransactionDescription'] = Stubs::TransactionDescription.stub(stub[:transaction_description]) unless stub[:transaction_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TransactionDescription'] = TransactionDescription.stub(stub[:transaction_description]) unless stub[:transaction_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -780,8 +782,8 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataLakeSettings'] = Stubs::DataLakeSettings.stub(stub[:data_lake_settings]) unless stub[:data_lake_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataLakeSettings'] = DataLakeSettings.stub(stub[:data_lake_settings]) unless stub[:data_lake_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -804,13 +806,13 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::DataLakeSettings.new
         data = {}
-        data['DataLakeAdmins'] = Stubs::DataLakePrincipalList.stub(stub[:data_lake_admins]) unless stub[:data_lake_admins].nil?
-        data['CreateDatabaseDefaultPermissions'] = Stubs::PrincipalPermissionsList.stub(stub[:create_database_default_permissions]) unless stub[:create_database_default_permissions].nil?
-        data['CreateTableDefaultPermissions'] = Stubs::PrincipalPermissionsList.stub(stub[:create_table_default_permissions]) unless stub[:create_table_default_permissions].nil?
-        data['TrustedResourceOwners'] = Stubs::TrustedResourceOwners.stub(stub[:trusted_resource_owners]) unless stub[:trusted_resource_owners].nil?
+        data['DataLakeAdmins'] = DataLakePrincipalList.stub(stub[:data_lake_admins]) unless stub[:data_lake_admins].nil?
+        data['CreateDatabaseDefaultPermissions'] = PrincipalPermissionsList.stub(stub[:create_database_default_permissions]) unless stub[:create_database_default_permissions].nil?
+        data['CreateTableDefaultPermissions'] = PrincipalPermissionsList.stub(stub[:create_table_default_permissions]) unless stub[:create_table_default_permissions].nil?
+        data['TrustedResourceOwners'] = TrustedResourceOwners.stub(stub[:trusted_resource_owners]) unless stub[:trusted_resource_owners].nil?
         data['AllowExternalDataFiltering'] = stub[:allow_external_data_filtering] unless stub[:allow_external_data_filtering].nil?
-        data['ExternalDataFilteringAllowList'] = Stubs::DataLakePrincipalList.stub(stub[:external_data_filtering_allow_list]) unless stub[:external_data_filtering_allow_list].nil?
-        data['AuthorizedSessionTagValueList'] = Stubs::AuthorizedSessionTagValueList.stub(stub[:authorized_session_tag_value_list]) unless stub[:authorized_session_tag_value_list].nil?
+        data['ExternalDataFilteringAllowList'] = DataLakePrincipalList.stub(stub[:external_data_filtering_allow_list]) unless stub[:external_data_filtering_allow_list].nil?
+        data['AuthorizedSessionTagValueList'] = AuthorizedSessionTagValueList.stub(stub[:authorized_session_tag_value_list]) unless stub[:authorized_session_tag_value_list].nil?
         data
       end
     end
@@ -849,7 +851,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataLakePrincipal.stub(element) unless element.nil?
+          data << DataLakePrincipal.stub(element) unless element.nil?
         end
         data
       end
@@ -889,7 +891,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PrincipalPermissions.stub(element) unless element.nil?
+          data << PrincipalPermissions.stub(element) unless element.nil?
         end
         data
       end
@@ -909,8 +911,8 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::PrincipalPermissions.new
         data = {}
-        data['Principal'] = Stubs::DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
-        data['Permissions'] = Stubs::PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Principal'] = DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
+        data['Permissions'] = PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data
       end
     end
@@ -928,9 +930,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Permissions'] = Stubs::PrincipalResourcePermissionsList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = PrincipalResourcePermissionsList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -948,7 +950,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PrincipalResourcePermissions.stub(element) unless element.nil?
+          data << PrincipalResourcePermissions.stub(element) unless element.nil?
         end
         data
       end
@@ -971,11 +973,11 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::PrincipalResourcePermissions.new
         data = {}
-        data['Principal'] = Stubs::DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
-        data['Resource'] = Stubs::Resource.stub(stub[:resource]) unless stub[:resource].nil?
-        data['Permissions'] = Stubs::PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
-        data['PermissionsWithGrantOption'] = Stubs::PermissionList.stub(stub[:permissions_with_grant_option]) unless stub[:permissions_with_grant_option].nil?
-        data['AdditionalDetails'] = Stubs::DetailsMap.stub(stub[:additional_details]) unless stub[:additional_details].nil?
+        data['Principal'] = DataLakePrincipal.stub(stub[:principal]) unless stub[:principal].nil?
+        data['Resource'] = Resource.stub(stub[:resource]) unless stub[:resource].nil?
+        data['Permissions'] = PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['PermissionsWithGrantOption'] = PermissionList.stub(stub[:permissions_with_grant_option]) unless stub[:permissions_with_grant_option].nil?
+        data['AdditionalDetails'] = DetailsMap.stub(stub[:additional_details]) unless stub[:additional_details].nil?
         data
       end
     end
@@ -993,7 +995,7 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::DetailsMap.new
         data = {}
-        data['ResourceShare'] = Stubs::ResourceShareList.stub(stub[:resource_share]) unless stub[:resource_share].nil?
+        data['ResourceShare'] = ResourceShareList.stub(stub[:resource_share]) unless stub[:resource_share].nil?
         data
       end
     end
@@ -1034,8 +1036,8 @@ module AWS::SDK::LakeFormation
         http_resp.headers['Content-Type'] = 'application/json'
         data['CatalogId'] = stub[:catalog_id] unless stub[:catalog_id].nil?
         data['TagKey'] = stub[:tag_key] unless stub[:tag_key].nil?
-        data['TagValues'] = Stubs::TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagValues'] = TagValueList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1054,7 +1056,7 @@ module AWS::SDK::LakeFormation
         http_resp.headers['Content-Type'] = 'application/json'
         data['Error'] = stub[:error] unless stub[:error].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1072,10 +1074,10 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ExecutionStatistics'] = Stubs::ExecutionStatistics.stub(stub[:execution_statistics]) unless stub[:execution_statistics].nil?
-        data['PlanningStatistics'] = Stubs::PlanningStatistics.stub(stub[:planning_statistics]) unless stub[:planning_statistics].nil?
+        data['ExecutionStatistics'] = ExecutionStatistics.stub(stub[:execution_statistics]) unless stub[:execution_statistics].nil?
+        data['PlanningStatistics'] = PlanningStatistics.stub(stub[:planning_statistics]) unless stub[:planning_statistics].nil?
         data['QuerySubmissionTime'] = Hearth::TimeHelper.to_date_time(stub[:query_submission_time]) unless stub[:query_submission_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1139,10 +1141,10 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LFTagOnDatabase'] = Stubs::LFTagsList.stub(stub[:lf_tag_on_database]) unless stub[:lf_tag_on_database].nil?
-        data['LFTagsOnTable'] = Stubs::LFTagsList.stub(stub[:lf_tags_on_table]) unless stub[:lf_tags_on_table].nil?
-        data['LFTagsOnColumns'] = Stubs::ColumnLFTagsList.stub(stub[:lf_tags_on_columns]) unless stub[:lf_tags_on_columns].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LFTagOnDatabase'] = LFTagsList.stub(stub[:lf_tag_on_database]) unless stub[:lf_tag_on_database].nil?
+        data['LFTagsOnTable'] = LFTagsList.stub(stub[:lf_tags_on_table]) unless stub[:lf_tags_on_table].nil?
+        data['LFTagsOnColumns'] = ColumnLFTagsList.stub(stub[:lf_tags_on_columns]) unless stub[:lf_tags_on_columns].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1160,7 +1162,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnLFTag.stub(element) unless element.nil?
+          data << ColumnLFTag.stub(element) unless element.nil?
         end
         data
       end
@@ -1181,7 +1183,7 @@ module AWS::SDK::LakeFormation
         stub ||= Types::ColumnLFTag.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['LFTags'] = Stubs::LFTagsList.stub(stub[:lf_tags]) unless stub[:lf_tags].nil?
+        data['LFTags'] = LFTagsList.stub(stub[:lf_tags]) unless stub[:lf_tags].nil?
         data
       end
     end
@@ -1200,7 +1202,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LFTagPair.stub(element) unless element.nil?
+          data << LFTagPair.stub(element) unless element.nil?
         end
         data
       end
@@ -1219,9 +1221,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Objects'] = Stubs::PartitionedTableObjectsList.stub(stub[:objects]) unless stub[:objects].nil?
+        data['Objects'] = PartitionedTableObjectsList.stub(stub[:objects]) unless stub[:objects].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1239,7 +1241,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartitionObjects.stub(element) unless element.nil?
+          data << PartitionObjects.stub(element) unless element.nil?
         end
         data
       end
@@ -1259,8 +1261,8 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::PartitionObjects.new
         data = {}
-        data['PartitionValues'] = Stubs::PartitionValuesList.stub(stub[:partition_values]) unless stub[:partition_values].nil?
-        data['Objects'] = Stubs::TableObjectList.stub(stub[:objects]) unless stub[:objects].nil?
+        data['PartitionValues'] = PartitionValuesList.stub(stub[:partition_values]) unless stub[:partition_values].nil?
+        data['Objects'] = TableObjectList.stub(stub[:objects]) unless stub[:objects].nil?
         data
       end
     end
@@ -1279,7 +1281,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableObject.stub(element) unless element.nil?
+          data << TableObject.stub(element) unless element.nil?
         end
         data
       end
@@ -1346,7 +1348,7 @@ module AWS::SDK::LakeFormation
         data['SecretAccessKey'] = stub[:secret_access_key] unless stub[:secret_access_key].nil?
         data['SessionToken'] = stub[:session_token] unless stub[:session_token].nil?
         data['Expiration'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration]).to_i unless stub[:expiration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1369,7 +1371,7 @@ module AWS::SDK::LakeFormation
         data['SecretAccessKey'] = stub[:secret_access_key] unless stub[:secret_access_key].nil?
         data['SessionToken'] = stub[:session_token] unless stub[:session_token].nil?
         data['Expiration'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration]).to_i unless stub[:expiration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1404,8 +1406,8 @@ module AWS::SDK::LakeFormation
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['QueryId'] = stub[:query_id] unless stub[:query_id].nil?
-        data['WorkUnitRanges'] = Stubs::WorkUnitRangeList.stub(stub[:work_unit_ranges]) unless stub[:work_unit_ranges].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkUnitRanges'] = WorkUnitRangeList.stub(stub[:work_unit_ranges]) unless stub[:work_unit_ranges].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1423,7 +1425,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkUnitRange.stub(element) unless element.nil?
+          data << WorkUnitRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1477,9 +1479,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataCellsFilters'] = Stubs::DataCellsFilterList.stub(stub[:data_cells_filters]) unless stub[:data_cells_filters].nil?
+        data['DataCellsFilters'] = DataCellsFilterList.stub(stub[:data_cells_filters]) unless stub[:data_cells_filters].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1497,7 +1499,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataCellsFilter.stub(element) unless element.nil?
+          data << DataCellsFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -1526,9 +1528,9 @@ module AWS::SDK::LakeFormation
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['RowFilter'] = Stubs::RowFilter.stub(stub[:row_filter]) unless stub[:row_filter].nil?
-        data['ColumnNames'] = Stubs::ColumnNames.stub(stub[:column_names]) unless stub[:column_names].nil?
-        data['ColumnWildcard'] = Stubs::ColumnWildcard.stub(stub[:column_wildcard]) unless stub[:column_wildcard].nil?
+        data['RowFilter'] = RowFilter.stub(stub[:row_filter]) unless stub[:row_filter].nil?
+        data['ColumnNames'] = ColumnNames.stub(stub[:column_names]) unless stub[:column_names].nil?
+        data['ColumnWildcard'] = ColumnWildcard.stub(stub[:column_wildcard]) unless stub[:column_wildcard].nil?
         data
       end
     end
@@ -1548,7 +1550,7 @@ module AWS::SDK::LakeFormation
         stub ||= Types::RowFilter.new
         data = {}
         data['FilterExpression'] = stub[:filter_expression] unless stub[:filter_expression].nil?
-        data['AllRowsWildcard'] = Stubs::AllRowsWildcard.stub(stub[:all_rows_wildcard]) unless stub[:all_rows_wildcard].nil?
+        data['AllRowsWildcard'] = AllRowsWildcard.stub(stub[:all_rows_wildcard]) unless stub[:all_rows_wildcard].nil?
         data
       end
     end
@@ -1582,9 +1584,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LFTags'] = Stubs::LFTagsList.stub(stub[:lf_tags]) unless stub[:lf_tags].nil?
+        data['LFTags'] = LFTagsList.stub(stub[:lf_tags]) unless stub[:lf_tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1601,9 +1603,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PrincipalResourcePermissions'] = Stubs::PrincipalResourcePermissionsList.stub(stub[:principal_resource_permissions]) unless stub[:principal_resource_permissions].nil?
+        data['PrincipalResourcePermissions'] = PrincipalResourcePermissionsList.stub(stub[:principal_resource_permissions]) unless stub[:principal_resource_permissions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1620,9 +1622,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceInfoList'] = Stubs::ResourceInfoList.stub(stub[:resource_info_list]) unless stub[:resource_info_list].nil?
+        data['ResourceInfoList'] = ResourceInfoList.stub(stub[:resource_info_list]) unless stub[:resource_info_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1640,7 +1642,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceInfo.stub(element) unless element.nil?
+          data << ResourceInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1659,9 +1661,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StorageOptimizerList'] = Stubs::StorageOptimizerList.stub(stub[:storage_optimizer_list]) unless stub[:storage_optimizer_list].nil?
+        data['StorageOptimizerList'] = StorageOptimizerList.stub(stub[:storage_optimizer_list]) unless stub[:storage_optimizer_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1679,7 +1681,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StorageOptimizer.stub(element) unless element.nil?
+          data << StorageOptimizer.stub(element) unless element.nil?
         end
         data
       end
@@ -1703,7 +1705,7 @@ module AWS::SDK::LakeFormation
         stub ||= Types::StorageOptimizer.new
         data = {}
         data['StorageOptimizerType'] = stub[:storage_optimizer_type] unless stub[:storage_optimizer_type].nil?
-        data['Config'] = Stubs::StorageOptimizerConfig.stub(stub[:config]) unless stub[:config].nil?
+        data['Config'] = StorageOptimizerConfig.stub(stub[:config]) unless stub[:config].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['Warnings'] = stub[:warnings] unless stub[:warnings].nil?
         data['LastRunDetails'] = stub[:last_run_details] unless stub[:last_run_details].nil?
@@ -1744,9 +1746,9 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Transactions'] = Stubs::TransactionDescriptionList.stub(stub[:transactions]) unless stub[:transactions].nil?
+        data['Transactions'] = TransactionDescriptionList.stub(stub[:transactions]) unless stub[:transactions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1764,7 +1766,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TransactionDescription.stub(element) unless element.nil?
+          data << TransactionDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1808,8 +1810,8 @@ module AWS::SDK::LakeFormation
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Failures'] = Stubs::LFTagErrors.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Failures'] = LFTagErrors.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1840,8 +1842,8 @@ module AWS::SDK::LakeFormation
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['DatabaseList'] = Stubs::DatabaseLFTagsList.stub(stub[:database_list]) unless stub[:database_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatabaseList'] = DatabaseLFTagsList.stub(stub[:database_list]) unless stub[:database_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1859,7 +1861,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaggedDatabase.stub(element) unless element.nil?
+          data << TaggedDatabase.stub(element) unless element.nil?
         end
         data
       end
@@ -1879,8 +1881,8 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::TaggedDatabase.new
         data = {}
-        data['Database'] = Stubs::DatabaseResource.stub(stub[:database]) unless stub[:database].nil?
-        data['LFTags'] = Stubs::LFTagsList.stub(stub[:lf_tags]) unless stub[:lf_tags].nil?
+        data['Database'] = DatabaseResource.stub(stub[:database]) unless stub[:database].nil?
+        data['LFTags'] = LFTagsList.stub(stub[:lf_tags]) unless stub[:lf_tags].nil?
         data
       end
     end
@@ -1899,8 +1901,8 @@ module AWS::SDK::LakeFormation
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['TableList'] = Stubs::TableLFTagsList.stub(stub[:table_list]) unless stub[:table_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableList'] = TableLFTagsList.stub(stub[:table_list]) unless stub[:table_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1918,7 +1920,7 @@ module AWS::SDK::LakeFormation
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaggedTable.stub(element) unless element.nil?
+          data << TaggedTable.stub(element) unless element.nil?
         end
         data
       end
@@ -1940,10 +1942,10 @@ module AWS::SDK::LakeFormation
       def self.stub(stub)
         stub ||= Types::TaggedTable.new
         data = {}
-        data['Table'] = Stubs::TableResource.stub(stub[:table]) unless stub[:table].nil?
-        data['LFTagOnDatabase'] = Stubs::LFTagsList.stub(stub[:lf_tag_on_database]) unless stub[:lf_tag_on_database].nil?
-        data['LFTagsOnTable'] = Stubs::LFTagsList.stub(stub[:lf_tags_on_table]) unless stub[:lf_tags_on_table].nil?
-        data['LFTagsOnColumns'] = Stubs::ColumnLFTagsList.stub(stub[:lf_tags_on_columns]) unless stub[:lf_tags_on_columns].nil?
+        data['Table'] = TableResource.stub(stub[:table]) unless stub[:table].nil?
+        data['LFTagOnDatabase'] = LFTagsList.stub(stub[:lf_tag_on_database]) unless stub[:lf_tag_on_database].nil?
+        data['LFTagsOnTable'] = LFTagsList.stub(stub[:lf_tags_on_table]) unless stub[:lf_tags_on_table].nil?
+        data['LFTagsOnColumns'] = ColumnLFTagsList.stub(stub[:lf_tags_on_columns]) unless stub[:lf_tags_on_columns].nil?
         data
       end
     end
@@ -1961,7 +1963,7 @@ module AWS::SDK::LakeFormation
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['QueryId'] = stub[:query_id] unless stub[:query_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1978,7 +1980,7 @@ module AWS::SDK::LakeFormation
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['TransactionId'] = stub[:transaction_id] unless stub[:transaction_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2034,7 +2036,7 @@ module AWS::SDK::LakeFormation
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Result'] = stub[:result] unless stub[:result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Location
   module Stubs
 
@@ -35,8 +37,8 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Errors'] = Stubs::BatchDeleteDevicePositionHistoryErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = BatchDeleteDevicePositionHistoryErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,7 +56,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDeleteDevicePositionHistoryError.stub(element) unless element.nil?
+          data << BatchDeleteDevicePositionHistoryError.stub(element) unless element.nil?
         end
         data
       end
@@ -75,7 +77,7 @@ module AWS::SDK::Location
         stub ||= Types::BatchDeleteDevicePositionHistoryError.new
         data = {}
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
-        data['Error'] = Stubs::BatchItemError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = BatchItemError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -112,8 +114,8 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Errors'] = Stubs::BatchDeleteGeofenceErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = BatchDeleteGeofenceErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDeleteGeofenceError.stub(element) unless element.nil?
+          data << BatchDeleteGeofenceError.stub(element) unless element.nil?
         end
         data
       end
@@ -152,7 +154,7 @@ module AWS::SDK::Location
         stub ||= Types::BatchDeleteGeofenceError.new
         data = {}
         data['GeofenceId'] = stub[:geofence_id] unless stub[:geofence_id].nil?
-        data['Error'] = Stubs::BatchItemError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = BatchItemError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -169,8 +171,8 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Errors'] = Stubs::BatchEvaluateGeofencesErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = BatchEvaluateGeofencesErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,7 +190,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchEvaluateGeofencesError.stub(element) unless element.nil?
+          data << BatchEvaluateGeofencesError.stub(element) unless element.nil?
         end
         data
       end
@@ -211,7 +213,7 @@ module AWS::SDK::Location
         data = {}
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['SampleTime'] = Hearth::TimeHelper.to_date_time(stub[:sample_time]) unless stub[:sample_time].nil?
-        data['Error'] = Stubs::BatchItemError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = BatchItemError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -229,9 +231,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Errors'] = Stubs::BatchGetDevicePositionErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        data['DevicePositions'] = Stubs::DevicePositionList.stub(stub[:device_positions]) unless stub[:device_positions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = BatchGetDevicePositionErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        data['DevicePositions'] = DevicePositionList.stub(stub[:device_positions]) unless stub[:device_positions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -249,7 +251,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DevicePosition.stub(element) unless element.nil?
+          data << DevicePosition.stub(element) unless element.nil?
         end
         data
       end
@@ -276,9 +278,9 @@ module AWS::SDK::Location
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['SampleTime'] = Hearth::TimeHelper.to_date_time(stub[:sample_time]) unless stub[:sample_time].nil?
         data['ReceivedTime'] = Hearth::TimeHelper.to_date_time(stub[:received_time]) unless stub[:received_time].nil?
-        data['Position'] = Stubs::Position.stub(stub[:position]) unless stub[:position].nil?
-        data['Accuracy'] = Stubs::PositionalAccuracy.stub(stub[:accuracy]) unless stub[:accuracy].nil?
-        data['PositionProperties'] = Stubs::PropertyMap.stub(stub[:position_properties]) unless stub[:position_properties].nil?
+        data['Position'] = Position.stub(stub[:position]) unless stub[:position].nil?
+        data['Accuracy'] = PositionalAccuracy.stub(stub[:accuracy]) unless stub[:accuracy].nil?
+        data['PositionProperties'] = PropertyMap.stub(stub[:position_properties]) unless stub[:position_properties].nil?
         data
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetDevicePositionError.stub(element) unless element.nil?
+          data << BatchGetDevicePositionError.stub(element) unless element.nil?
         end
         data
       end
@@ -376,7 +378,7 @@ module AWS::SDK::Location
         stub ||= Types::BatchGetDevicePositionError.new
         data = {}
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
-        data['Error'] = Stubs::BatchItemError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = BatchItemError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -394,9 +396,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Successes'] = Stubs::BatchPutGeofenceSuccessList.stub(stub[:successes]) unless stub[:successes].nil?
-        data['Errors'] = Stubs::BatchPutGeofenceErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Successes'] = BatchPutGeofenceSuccessList.stub(stub[:successes]) unless stub[:successes].nil?
+        data['Errors'] = BatchPutGeofenceErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -414,7 +416,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutGeofenceError.stub(element) unless element.nil?
+          data << BatchPutGeofenceError.stub(element) unless element.nil?
         end
         data
       end
@@ -435,7 +437,7 @@ module AWS::SDK::Location
         stub ||= Types::BatchPutGeofenceError.new
         data = {}
         data['GeofenceId'] = stub[:geofence_id] unless stub[:geofence_id].nil?
-        data['Error'] = Stubs::BatchItemError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = BatchItemError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -454,7 +456,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutGeofenceSuccess.stub(element) unless element.nil?
+          data << BatchPutGeofenceSuccess.stub(element) unless element.nil?
         end
         data
       end
@@ -494,8 +496,8 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Errors'] = Stubs::BatchUpdateDevicePositionErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = BatchUpdateDevicePositionErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -513,7 +515,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchUpdateDevicePositionError.stub(element) unless element.nil?
+          data << BatchUpdateDevicePositionError.stub(element) unless element.nil?
         end
         data
       end
@@ -536,7 +538,7 @@ module AWS::SDK::Location
         data = {}
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['SampleTime'] = Hearth::TimeHelper.to_date_time(stub[:sample_time]) unless stub[:sample_time].nil?
-        data['Error'] = Stubs::BatchItemError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = BatchItemError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -554,9 +556,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Legs'] = Stubs::LegList.stub(stub[:legs]) unless stub[:legs].nil?
-        data['Summary'] = Stubs::CalculateRouteSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Legs'] = LegList.stub(stub[:legs]) unless stub[:legs].nil?
+        data['Summary'] = CalculateRouteSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -577,7 +579,7 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::CalculateRouteSummary.new
         data = {}
-        data['RouteBBox'] = Stubs::BoundingBox.stub(stub[:route_b_box]) unless stub[:route_b_box].nil?
+        data['RouteBBox'] = BoundingBox.stub(stub[:route_b_box]) unless stub[:route_b_box].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
         data['Distance'] = Hearth::NumberHelper.serialize(stub[:distance])
         data['DurationSeconds'] = Hearth::NumberHelper.serialize(stub[:duration_seconds])
@@ -620,7 +622,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Leg.stub(element) unless element.nil?
+          data << Leg.stub(element) unless element.nil?
         end
         data
       end
@@ -644,12 +646,12 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::Leg.new
         data = {}
-        data['StartPosition'] = Stubs::Position.stub(stub[:start_position]) unless stub[:start_position].nil?
-        data['EndPosition'] = Stubs::Position.stub(stub[:end_position]) unless stub[:end_position].nil?
+        data['StartPosition'] = Position.stub(stub[:start_position]) unless stub[:start_position].nil?
+        data['EndPosition'] = Position.stub(stub[:end_position]) unless stub[:end_position].nil?
         data['Distance'] = Hearth::NumberHelper.serialize(stub[:distance])
         data['DurationSeconds'] = Hearth::NumberHelper.serialize(stub[:duration_seconds])
-        data['Geometry'] = Stubs::LegGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
-        data['Steps'] = Stubs::StepList.stub(stub[:steps]) unless stub[:steps].nil?
+        data['Geometry'] = LegGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Steps'] = StepList.stub(stub[:steps]) unless stub[:steps].nil?
         data
       end
     end
@@ -668,7 +670,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Step.stub(element) unless element.nil?
+          data << Step.stub(element) unless element.nil?
         end
         data
       end
@@ -691,8 +693,8 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::Step.new
         data = {}
-        data['StartPosition'] = Stubs::Position.stub(stub[:start_position]) unless stub[:start_position].nil?
-        data['EndPosition'] = Stubs::Position.stub(stub[:end_position]) unless stub[:end_position].nil?
+        data['StartPosition'] = Position.stub(stub[:start_position]) unless stub[:start_position].nil?
+        data['EndPosition'] = Position.stub(stub[:end_position]) unless stub[:end_position].nil?
         data['Distance'] = Hearth::NumberHelper.serialize(stub[:distance])
         data['DurationSeconds'] = Hearth::NumberHelper.serialize(stub[:duration_seconds])
         data['GeometryOffset'] = stub[:geometry_offset] unless stub[:geometry_offset].nil?
@@ -713,7 +715,7 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::LegGeometry.new
         data = {}
-        data['LineString'] = Stubs::LineString.stub(stub[:line_string]) unless stub[:line_string].nil?
+        data['LineString'] = LineString.stub(stub[:line_string]) unless stub[:line_string].nil?
         data
       end
     end
@@ -732,7 +734,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Position.stub(element) unless element.nil?
+          data << Position.stub(element) unless element.nil?
         end
         data
       end
@@ -753,11 +755,11 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RouteMatrix'] = Stubs::RouteMatrix.stub(stub[:route_matrix]) unless stub[:route_matrix].nil?
-        data['SnappedDeparturePositions'] = Stubs::PositionList.stub(stub[:snapped_departure_positions]) unless stub[:snapped_departure_positions].nil?
-        data['SnappedDestinationPositions'] = Stubs::PositionList.stub(stub[:snapped_destination_positions]) unless stub[:snapped_destination_positions].nil?
-        data['Summary'] = Stubs::CalculateRouteMatrixSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RouteMatrix'] = RouteMatrix.stub(stub[:route_matrix]) unless stub[:route_matrix].nil?
+        data['SnappedDeparturePositions'] = PositionList.stub(stub[:snapped_departure_positions]) unless stub[:snapped_departure_positions].nil?
+        data['SnappedDestinationPositions'] = PositionList.stub(stub[:snapped_destination_positions]) unless stub[:snapped_destination_positions].nil?
+        data['Summary'] = CalculateRouteMatrixSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -799,7 +801,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Position.stub(element) unless element.nil?
+          data << Position.stub(element) unless element.nil?
         end
         data
       end
@@ -819,7 +821,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RouteMatrixRow.stub(element) unless element.nil?
+          data << RouteMatrixRow.stub(element) unless element.nil?
         end
         data
       end
@@ -839,7 +841,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RouteMatrixEntry.stub(element) unless element.nil?
+          data << RouteMatrixEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -862,7 +864,7 @@ module AWS::SDK::Location
         data = {}
         data['Distance'] = Hearth::NumberHelper.serialize(stub[:distance])
         data['DurationSeconds'] = Hearth::NumberHelper.serialize(stub[:duration_seconds])
-        data['Error'] = Stubs::RouteMatrixEntryError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = RouteMatrixEntryError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -904,7 +906,7 @@ module AWS::SDK::Location
         data['CollectionName'] = stub[:collection_name] unless stub[:collection_name].nil?
         data['CollectionArn'] = stub[:collection_arn] unless stub[:collection_arn].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -925,7 +927,7 @@ module AWS::SDK::Location
         data['MapName'] = stub[:map_name] unless stub[:map_name].nil?
         data['MapArn'] = stub[:map_arn] unless stub[:map_arn].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -946,7 +948,7 @@ module AWS::SDK::Location
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['IndexArn'] = stub[:index_arn] unless stub[:index_arn].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -967,7 +969,7 @@ module AWS::SDK::Location
         data['CalculatorName'] = stub[:calculator_name] unless stub[:calculator_name].nil?
         data['CalculatorArn'] = stub[:calculator_arn] unless stub[:calculator_arn].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -988,7 +990,7 @@ module AWS::SDK::Location
         data['TrackerName'] = stub[:tracker_name] unless stub[:tracker_name].nil?
         data['TrackerArn'] = stub[:tracker_arn] unless stub[:tracker_arn].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1083,10 +1085,10 @@ module AWS::SDK::Location
         data['PricingPlan'] = stub[:pricing_plan] unless stub[:pricing_plan].nil?
         data['PricingPlanDataSource'] = stub[:pricing_plan_data_source] unless stub[:pricing_plan_data_source].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1134,12 +1136,12 @@ module AWS::SDK::Location
         data['MapArn'] = stub[:map_arn] unless stub[:map_arn].nil?
         data['PricingPlan'] = stub[:pricing_plan] unless stub[:pricing_plan].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
-        data['Configuration'] = Stubs::MapConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = MapConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,9 +1190,9 @@ module AWS::SDK::Location
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
-        data['DataSourceConfiguration'] = Stubs::DataSourceConfiguration.stub(stub[:data_source_configuration]) unless stub[:data_source_configuration].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataSourceConfiguration'] = DataSourceConfiguration.stub(stub[:data_source_configuration]) unless stub[:data_source_configuration].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1238,8 +1240,8 @@ module AWS::SDK::Location
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1269,12 +1271,12 @@ module AWS::SDK::Location
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['PricingPlan'] = stub[:pricing_plan] unless stub[:pricing_plan].nil?
         data['PricingPlanDataSource'] = stub[:pricing_plan_data_source] unless stub[:pricing_plan_data_source].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['PositionFiltering'] = stub[:position_filtering] unless stub[:position_filtering].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1311,10 +1313,10 @@ module AWS::SDK::Location
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['SampleTime'] = Hearth::TimeHelper.to_date_time(stub[:sample_time]) unless stub[:sample_time].nil?
         data['ReceivedTime'] = Hearth::TimeHelper.to_date_time(stub[:received_time]) unless stub[:received_time].nil?
-        data['Position'] = Stubs::Position.stub(stub[:position]) unless stub[:position].nil?
-        data['Accuracy'] = Stubs::PositionalAccuracy.stub(stub[:accuracy]) unless stub[:accuracy].nil?
-        data['PositionProperties'] = Stubs::PropertyMap.stub(stub[:position_properties]) unless stub[:position_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Position'] = Position.stub(stub[:position]) unless stub[:position].nil?
+        data['Accuracy'] = PositionalAccuracy.stub(stub[:accuracy]) unless stub[:accuracy].nil?
+        data['PositionProperties'] = PropertyMap.stub(stub[:position_properties]) unless stub[:position_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1331,9 +1333,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DevicePositions'] = Stubs::DevicePositionList.stub(stub[:device_positions]) unless stub[:device_positions].nil?
+        data['DevicePositions'] = DevicePositionList.stub(stub[:device_positions]) unless stub[:device_positions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1354,11 +1356,11 @@ module AWS::SDK::Location
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['GeofenceId'] = stub[:geofence_id] unless stub[:geofence_id].nil?
-        data['Geometry'] = Stubs::GeofenceGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Geometry'] = GeofenceGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1375,7 +1377,7 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::GeofenceGeometry.new
         data = {}
-        data['Polygon'] = Stubs::LinearRings.stub(stub[:polygon]) unless stub[:polygon].nil?
+        data['Polygon'] = LinearRings.stub(stub[:polygon]) unless stub[:polygon].nil?
         data
       end
     end
@@ -1394,7 +1396,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LinearRing.stub(element) unless element.nil?
+          data << LinearRing.stub(element) unless element.nil?
         end
         data
       end
@@ -1414,7 +1416,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Position.stub(element) unless element.nil?
+          data << Position.stub(element) unless element.nil?
         end
         data
       end
@@ -1434,7 +1436,7 @@ module AWS::SDK::Location
         http_resp.status = 200
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:blob] || '')
+        http_resp.body = ::StringIO.new(stub[:blob] || '')
       end
     end
 
@@ -1452,7 +1454,7 @@ module AWS::SDK::Location
         http_resp.status = 200
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:blob] || '')
+        http_resp.body = ::StringIO.new(stub[:blob] || '')
       end
     end
 
@@ -1470,7 +1472,7 @@ module AWS::SDK::Location
         http_resp.status = 200
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:blob] || '')
+        http_resp.body = ::StringIO.new(stub[:blob] || '')
       end
     end
 
@@ -1488,7 +1490,7 @@ module AWS::SDK::Location
         http_resp.status = 200
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:blob] || '')
+        http_resp.body = ::StringIO.new(stub[:blob] || '')
       end
     end
 
@@ -1505,9 +1507,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Entries'] = Stubs::ListDevicePositionsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = ListDevicePositionsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1525,7 +1527,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListDevicePositionsResponseEntry.stub(element) unless element.nil?
+          data << ListDevicePositionsResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1550,9 +1552,9 @@ module AWS::SDK::Location
         data = {}
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['SampleTime'] = Hearth::TimeHelper.to_date_time(stub[:sample_time]) unless stub[:sample_time].nil?
-        data['Position'] = Stubs::Position.stub(stub[:position]) unless stub[:position].nil?
-        data['Accuracy'] = Stubs::PositionalAccuracy.stub(stub[:accuracy]) unless stub[:accuracy].nil?
-        data['PositionProperties'] = Stubs::PropertyMap.stub(stub[:position_properties]) unless stub[:position_properties].nil?
+        data['Position'] = Position.stub(stub[:position]) unless stub[:position].nil?
+        data['Accuracy'] = PositionalAccuracy.stub(stub[:accuracy]) unless stub[:accuracy].nil?
+        data['PositionProperties'] = PropertyMap.stub(stub[:position_properties]) unless stub[:position_properties].nil?
         data
       end
     end
@@ -1570,9 +1572,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Entries'] = Stubs::ListGeofenceCollectionsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = ListGeofenceCollectionsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1590,7 +1592,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListGeofenceCollectionsResponseEntry.stub(element) unless element.nil?
+          data << ListGeofenceCollectionsResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1637,9 +1639,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Entries'] = Stubs::ListGeofenceResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = ListGeofenceResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1657,7 +1659,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListGeofenceResponseEntry.stub(element) unless element.nil?
+          data << ListGeofenceResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1681,7 +1683,7 @@ module AWS::SDK::Location
         stub ||= Types::ListGeofenceResponseEntry.new
         data = {}
         data['GeofenceId'] = stub[:geofence_id] unless stub[:geofence_id].nil?
-        data['Geometry'] = Stubs::GeofenceGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Geometry'] = GeofenceGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
@@ -1702,9 +1704,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Entries'] = Stubs::ListMapsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = ListMapsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1722,7 +1724,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListMapsResponseEntry.stub(element) unless element.nil?
+          data << ListMapsResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1769,9 +1771,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Entries'] = Stubs::ListPlaceIndexesResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = ListPlaceIndexesResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1789,7 +1791,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListPlaceIndexesResponseEntry.stub(element) unless element.nil?
+          data << ListPlaceIndexesResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1836,9 +1838,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Entries'] = Stubs::ListRouteCalculatorsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = ListRouteCalculatorsResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1856,7 +1858,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListRouteCalculatorsResponseEntry.stub(element) unless element.nil?
+          data << ListRouteCalculatorsResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1902,8 +1904,8 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1920,9 +1922,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConsumerArns'] = Stubs::ArnList.stub(stub[:consumer_arns]) unless stub[:consumer_arns].nil?
+        data['ConsumerArns'] = ArnList.stub(stub[:consumer_arns]) unless stub[:consumer_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1959,9 +1961,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Entries'] = Stubs::ListTrackersResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = ListTrackersResponseEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1979,7 +1981,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListTrackersResponseEntry.stub(element) unless element.nil?
+          data << ListTrackersResponseEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -2030,7 +2032,7 @@ module AWS::SDK::Location
         data['GeofenceId'] = stub[:geofence_id] unless stub[:geofence_id].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_date_time(stub[:create_time]) unless stub[:create_time].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2047,9 +2049,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Summary'] = Stubs::SearchPlaceIndexForPositionSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['Results'] = Stubs::SearchForPositionResultList.stub(stub[:results]) unless stub[:results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summary'] = SearchPlaceIndexForPositionSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['Results'] = SearchForPositionResultList.stub(stub[:results]) unless stub[:results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2067,7 +2069,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SearchForPositionResult.stub(element) unless element.nil?
+          data << SearchForPositionResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2087,7 +2089,7 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::SearchForPositionResult.new
         data = {}
-        data['Place'] = Stubs::Place.stub(stub[:place]) unless stub[:place].nil?
+        data['Place'] = Place.stub(stub[:place]) unless stub[:place].nil?
         data['Distance'] = Hearth::NumberHelper.serialize(stub[:distance])
         data
       end
@@ -2118,7 +2120,7 @@ module AWS::SDK::Location
         stub ||= Types::Place.new
         data = {}
         data['Label'] = stub[:label] unless stub[:label].nil?
-        data['Geometry'] = Stubs::PlaceGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Geometry'] = PlaceGeometry.stub(stub[:geometry]) unless stub[:geometry].nil?
         data['AddressNumber'] = stub[:address_number] unless stub[:address_number].nil?
         data['Street'] = stub[:street] unless stub[:street].nil?
         data['Neighborhood'] = stub[:neighborhood] unless stub[:neighborhood].nil?
@@ -2128,7 +2130,7 @@ module AWS::SDK::Location
         data['Country'] = stub[:country] unless stub[:country].nil?
         data['PostalCode'] = stub[:postal_code] unless stub[:postal_code].nil?
         data['Interpolated'] = stub[:interpolated] unless stub[:interpolated].nil?
-        data['TimeZone'] = Stubs::TimeZone.stub(stub[:time_zone]) unless stub[:time_zone].nil?
+        data['TimeZone'] = TimeZone.stub(stub[:time_zone]) unless stub[:time_zone].nil?
         data
       end
     end
@@ -2166,7 +2168,7 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::PlaceGeometry.new
         data = {}
-        data['Point'] = Stubs::Position.stub(stub[:point]) unless stub[:point].nil?
+        data['Point'] = Position.stub(stub[:point]) unless stub[:point].nil?
         data
       end
     end
@@ -2187,7 +2189,7 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::SearchPlaceIndexForPositionSummary.new
         data = {}
-        data['Position'] = Stubs::Position.stub(stub[:position]) unless stub[:position].nil?
+        data['Position'] = Position.stub(stub[:position]) unless stub[:position].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
         data['Language'] = stub[:language] unless stub[:language].nil?
@@ -2208,9 +2210,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Summary'] = Stubs::SearchPlaceIndexForSuggestionsSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['Results'] = Stubs::SearchForSuggestionsResultList.stub(stub[:results]) unless stub[:results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summary'] = SearchPlaceIndexForSuggestionsSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['Results'] = SearchForSuggestionsResultList.stub(stub[:results]) unless stub[:results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2228,7 +2230,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SearchForSuggestionsResult.stub(element) unless element.nil?
+          data << SearchForSuggestionsResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2272,9 +2274,9 @@ module AWS::SDK::Location
         stub ||= Types::SearchPlaceIndexForSuggestionsSummary.new
         data = {}
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['BiasPosition'] = Stubs::Position.stub(stub[:bias_position]) unless stub[:bias_position].nil?
-        data['FilterBBox'] = Stubs::BoundingBox.stub(stub[:filter_b_box]) unless stub[:filter_b_box].nil?
-        data['FilterCountries'] = Stubs::CountryCodeList.stub(stub[:filter_countries]) unless stub[:filter_countries].nil?
+        data['BiasPosition'] = Position.stub(stub[:bias_position]) unless stub[:bias_position].nil?
+        data['FilterBBox'] = BoundingBox.stub(stub[:filter_b_box]) unless stub[:filter_b_box].nil?
+        data['FilterCountries'] = CountryCodeList.stub(stub[:filter_countries]) unless stub[:filter_countries].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
         data['Language'] = stub[:language] unless stub[:language].nil?
@@ -2315,9 +2317,9 @@ module AWS::SDK::Location
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Summary'] = Stubs::SearchPlaceIndexForTextSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['Results'] = Stubs::SearchForTextResultList.stub(stub[:results]) unless stub[:results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summary'] = SearchPlaceIndexForTextSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['Results'] = SearchForTextResultList.stub(stub[:results]) unless stub[:results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2335,7 +2337,7 @@ module AWS::SDK::Location
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SearchForTextResult.stub(element) unless element.nil?
+          data << SearchForTextResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2356,7 +2358,7 @@ module AWS::SDK::Location
       def self.stub(stub)
         stub ||= Types::SearchForTextResult.new
         data = {}
-        data['Place'] = Stubs::Place.stub(stub[:place]) unless stub[:place].nil?
+        data['Place'] = Place.stub(stub[:place]) unless stub[:place].nil?
         data['Distance'] = Hearth::NumberHelper.serialize(stub[:distance])
         data['Relevance'] = Hearth::NumberHelper.serialize(stub[:relevance])
         data
@@ -2384,11 +2386,11 @@ module AWS::SDK::Location
         stub ||= Types::SearchPlaceIndexForTextSummary.new
         data = {}
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['BiasPosition'] = Stubs::Position.stub(stub[:bias_position]) unless stub[:bias_position].nil?
-        data['FilterBBox'] = Stubs::BoundingBox.stub(stub[:filter_b_box]) unless stub[:filter_b_box].nil?
-        data['FilterCountries'] = Stubs::CountryCodeList.stub(stub[:filter_countries]) unless stub[:filter_countries].nil?
+        data['BiasPosition'] = Position.stub(stub[:bias_position]) unless stub[:bias_position].nil?
+        data['FilterBBox'] = BoundingBox.stub(stub[:filter_b_box]) unless stub[:filter_b_box].nil?
+        data['FilterCountries'] = CountryCodeList.stub(stub[:filter_countries]) unless stub[:filter_countries].nil?
         data['MaxResults'] = stub[:max_results] unless stub[:max_results].nil?
-        data['ResultBBox'] = Stubs::BoundingBox.stub(stub[:result_b_box]) unless stub[:result_b_box].nil?
+        data['ResultBBox'] = BoundingBox.stub(stub[:result_b_box]) unless stub[:result_b_box].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
         data['Language'] = stub[:language] unless stub[:language].nil?
         data
@@ -2438,7 +2440,7 @@ module AWS::SDK::Location
         data['CollectionName'] = stub[:collection_name] unless stub[:collection_name].nil?
         data['CollectionArn'] = stub[:collection_arn] unless stub[:collection_arn].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2459,7 +2461,7 @@ module AWS::SDK::Location
         data['MapName'] = stub[:map_name] unless stub[:map_name].nil?
         data['MapArn'] = stub[:map_arn] unless stub[:map_arn].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2480,7 +2482,7 @@ module AWS::SDK::Location
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['IndexArn'] = stub[:index_arn] unless stub[:index_arn].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2501,7 +2503,7 @@ module AWS::SDK::Location
         data['CalculatorName'] = stub[:calculator_name] unless stub[:calculator_name].nil?
         data['CalculatorArn'] = stub[:calculator_arn] unless stub[:calculator_arn].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2522,7 +2524,7 @@ module AWS::SDK::Location
         data['TrackerName'] = stub[:tracker_name] unless stub[:tracker_name].nil?
         data['TrackerArn'] = stub[:tracker_arn] unless stub[:tracker_arn].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:update_time]) unless stub[:update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

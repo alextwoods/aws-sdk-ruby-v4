@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Glue
   module Builders
 
@@ -21,8 +24,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionInputList'] = Builders::PartitionInputList.build(input[:partition_input_list]) unless input[:partition_input_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionInputList'] = PartitionInputList.build(input[:partition_input_list]) unless input[:partition_input_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -31,7 +34,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PartitionInput.build(element) unless element.nil?
+          data << PartitionInput.build(element) unless element.nil?
         end
         data
       end
@@ -41,10 +44,10 @@ module AWS::SDK::Glue
     class PartitionInput
       def self.build(input)
         data = {}
-        data['Values'] = Builders::ValueStringList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ValueStringList.build(input[:values]) unless input[:values].nil?
         data['LastAccessTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_access_time]).to_i unless input[:last_access_time].nil?
-        data['StorageDescriptor'] = Builders::StorageDescriptor.build(input[:storage_descriptor]) unless input[:storage_descriptor].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['StorageDescriptor'] = StorageDescriptor.build(input[:storage_descriptor]) unless input[:storage_descriptor].nil?
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
         data['LastAnalyzedTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_analyzed_time]).to_i unless input[:last_analyzed_time].nil?
         data
       end
@@ -65,20 +68,20 @@ module AWS::SDK::Glue
     class StorageDescriptor
       def self.build(input)
         data = {}
-        data['Columns'] = Builders::ColumnList.build(input[:columns]) unless input[:columns].nil?
+        data['Columns'] = ColumnList.build(input[:columns]) unless input[:columns].nil?
         data['Location'] = input[:location] unless input[:location].nil?
-        data['AdditionalLocations'] = Builders::LocationStringList.build(input[:additional_locations]) unless input[:additional_locations].nil?
+        data['AdditionalLocations'] = LocationStringList.build(input[:additional_locations]) unless input[:additional_locations].nil?
         data['InputFormat'] = input[:input_format] unless input[:input_format].nil?
         data['OutputFormat'] = input[:output_format] unless input[:output_format].nil?
         data['Compressed'] = input[:compressed] unless input[:compressed].nil?
         data['NumberOfBuckets'] = input[:number_of_buckets] unless input[:number_of_buckets].nil?
-        data['SerdeInfo'] = Builders::SerDeInfo.build(input[:serde_info]) unless input[:serde_info].nil?
-        data['BucketColumns'] = Builders::NameStringList.build(input[:bucket_columns]) unless input[:bucket_columns].nil?
-        data['SortColumns'] = Builders::OrderList.build(input[:sort_columns]) unless input[:sort_columns].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
-        data['SkewedInfo'] = Builders::SkewedInfo.build(input[:skewed_info]) unless input[:skewed_info].nil?
+        data['SerdeInfo'] = SerDeInfo.build(input[:serde_info]) unless input[:serde_info].nil?
+        data['BucketColumns'] = NameStringList.build(input[:bucket_columns]) unless input[:bucket_columns].nil?
+        data['SortColumns'] = OrderList.build(input[:sort_columns]) unless input[:sort_columns].nil?
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['SkewedInfo'] = SkewedInfo.build(input[:skewed_info]) unless input[:skewed_info].nil?
         data['StoredAsSubDirectories'] = input[:stored_as_sub_directories] unless input[:stored_as_sub_directories].nil?
-        data['SchemaReference'] = Builders::SchemaReference.build(input[:schema_reference]) unless input[:schema_reference].nil?
+        data['SchemaReference'] = SchemaReference.build(input[:schema_reference]) unless input[:schema_reference].nil?
         data
       end
     end
@@ -87,7 +90,7 @@ module AWS::SDK::Glue
     class SchemaReference
       def self.build(input)
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
         data['SchemaVersionId'] = input[:schema_version_id] unless input[:schema_version_id].nil?
         data['SchemaVersionNumber'] = input[:schema_version_number] unless input[:schema_version_number].nil?
         data
@@ -109,9 +112,9 @@ module AWS::SDK::Glue
     class SkewedInfo
       def self.build(input)
         data = {}
-        data['SkewedColumnNames'] = Builders::NameStringList.build(input[:skewed_column_names]) unless input[:skewed_column_names].nil?
-        data['SkewedColumnValues'] = Builders::ColumnValueStringList.build(input[:skewed_column_values]) unless input[:skewed_column_values].nil?
-        data['SkewedColumnValueLocationMaps'] = Builders::LocationMap.build(input[:skewed_column_value_location_maps]) unless input[:skewed_column_value_location_maps].nil?
+        data['SkewedColumnNames'] = NameStringList.build(input[:skewed_column_names]) unless input[:skewed_column_names].nil?
+        data['SkewedColumnValues'] = ColumnValueStringList.build(input[:skewed_column_values]) unless input[:skewed_column_values].nil?
+        data['SkewedColumnValueLocationMaps'] = LocationMap.build(input[:skewed_column_value_location_maps]) unless input[:skewed_column_value_location_maps].nil?
         data
       end
     end
@@ -154,7 +157,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Order.build(element) unless element.nil?
+          data << Order.build(element) unless element.nil?
         end
         data
       end
@@ -176,7 +179,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['SerializationLibrary'] = input[:serialization_library] unless input[:serialization_library].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -197,7 +200,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Column.build(element) unless element.nil?
+          data << Column.build(element) unless element.nil?
         end
         data
       end
@@ -210,7 +213,7 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['Comment'] = input[:comment] unless input[:comment].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -235,8 +238,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchDeleteConnection'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['ConnectionNameList'] = Builders::DeleteConnectionNameList.build(input[:connection_name_list]) unless input[:connection_name_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectionNameList'] = DeleteConnectionNameList.build(input[:connection_name_list]) unless input[:connection_name_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -262,8 +265,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionsToDelete'] = Builders::BatchDeletePartitionValueList.build(input[:partitions_to_delete]) unless input[:partitions_to_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionsToDelete'] = BatchDeletePartitionValueList.build(input[:partitions_to_delete]) unless input[:partitions_to_delete].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,7 +275,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PartitionValueList.build(element) unless element.nil?
+          data << PartitionValueList.build(element) unless element.nil?
         end
         data
       end
@@ -282,7 +285,7 @@ module AWS::SDK::Glue
     class PartitionValueList
       def self.build(input)
         data = {}
-        data['Values'] = Builders::ValueStringList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ValueStringList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -297,9 +300,9 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        data['TablesToDelete'] = Builders::BatchDeleteTableNameList.build(input[:tables_to_delete]) unless input[:tables_to_delete].nil?
+        data['TablesToDelete'] = BatchDeleteTableNameList.build(input[:tables_to_delete]) unless input[:tables_to_delete].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,8 +328,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['VersionIds'] = Builders::BatchDeleteTableVersionList.build(input[:version_ids]) unless input[:version_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VersionIds'] = BatchDeleteTableVersionList.build(input[:version_ids]) unless input[:version_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -349,10 +352,10 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchGetBlueprints'
         data = {}
-        data['Names'] = Builders::BatchGetBlueprintNames.build(input[:names]) unless input[:names].nil?
+        data['Names'] = BatchGetBlueprintNames.build(input[:names]) unless input[:names].nil?
         data['IncludeBlueprint'] = input[:include_blueprint] unless input[:include_blueprint].nil?
         data['IncludeParameterSpec'] = input[:include_parameter_spec] unless input[:include_parameter_spec].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -375,8 +378,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchGetCrawlers'
         data = {}
-        data['CrawlerNames'] = Builders::CrawlerNameList.build(input[:crawler_names]) unless input[:crawler_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CrawlerNames'] = CrawlerNameList.build(input[:crawler_names]) unless input[:crawler_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,8 +402,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchGetCustomEntityTypes'
         data = {}
-        data['Names'] = Builders::CustomEntityTypeNames.build(input[:names]) unless input[:names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Names'] = CustomEntityTypeNames.build(input[:names]) unless input[:names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -423,8 +426,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchGetDevEndpoints'
         data = {}
-        data['DevEndpointNames'] = Builders::DevEndpointNames.build(input[:dev_endpoint_names]) unless input[:dev_endpoint_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DevEndpointNames'] = DevEndpointNames.build(input[:dev_endpoint_names]) unless input[:dev_endpoint_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -447,8 +450,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchGetJobs'
         data = {}
-        data['JobNames'] = Builders::JobNameList.build(input[:job_names]) unless input[:job_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobNames'] = JobNameList.build(input[:job_names]) unless input[:job_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -474,8 +477,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionsToGet'] = Builders::BatchGetPartitionValueList.build(input[:partitions_to_get]) unless input[:partitions_to_get].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionsToGet'] = BatchGetPartitionValueList.build(input[:partitions_to_get]) unless input[:partitions_to_get].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -484,7 +487,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PartitionValueList.build(element) unless element.nil?
+          data << PartitionValueList.build(element) unless element.nil?
         end
         data
       end
@@ -498,8 +501,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchGetTriggers'
         data = {}
-        data['TriggerNames'] = Builders::TriggerNameList.build(input[:trigger_names]) unless input[:trigger_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TriggerNames'] = TriggerNameList.build(input[:trigger_names]) unless input[:trigger_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -522,9 +525,9 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchGetWorkflows'
         data = {}
-        data['Names'] = Builders::WorkflowNames.build(input[:names]) unless input[:names].nil?
+        data['Names'] = WorkflowNames.build(input[:names]) unless input[:names].nil?
         data['IncludeGraph'] = input[:include_graph] unless input[:include_graph].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -548,8 +551,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.BatchStopJobRun'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['JobRunIds'] = Builders::BatchStopJobRunJobRunIdList.build(input[:job_run_ids]) unless input[:job_run_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobRunIds'] = BatchStopJobRunJobRunIdList.build(input[:job_run_ids]) unless input[:job_run_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,8 +578,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['Entries'] = Builders::BatchUpdatePartitionRequestEntryList.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entries'] = BatchUpdatePartitionRequestEntryList.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -585,7 +588,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchUpdatePartitionRequestEntry.build(element) unless element.nil?
+          data << BatchUpdatePartitionRequestEntry.build(element) unless element.nil?
         end
         data
       end
@@ -595,8 +598,8 @@ module AWS::SDK::Glue
     class BatchUpdatePartitionRequestEntry
       def self.build(input)
         data = {}
-        data['PartitionValueList'] = Builders::BoundedPartitionValueList.build(input[:partition_value_list]) unless input[:partition_value_list].nil?
-        data['PartitionInput'] = Builders::PartitionInput.build(input[:partition_input]) unless input[:partition_input].nil?
+        data['PartitionValueList'] = BoundedPartitionValueList.build(input[:partition_value_list]) unless input[:partition_value_list].nil?
+        data['PartitionInput'] = PartitionInput.build(input[:partition_input]) unless input[:partition_input].nil?
         data
       end
     end
@@ -622,7 +625,7 @@ module AWS::SDK::Glue
         data = {}
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
         data['TaskRunId'] = input[:task_run_id] unless input[:task_run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,7 +640,7 @@ module AWS::SDK::Glue
         data['SessionId'] = input[:session_id] unless input[:session_id].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -651,7 +654,7 @@ module AWS::SDK::Glue
         data = {}
         data['DataFormat'] = input[:data_format] unless input[:data_format].nil?
         data['SchemaDefinition'] = input[:schema_definition] unless input[:schema_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -666,8 +669,8 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['BlueprintLocation'] = input[:blueprint_location] unless input[:blueprint_location].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -690,11 +693,11 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.CreateClassifier'
         data = {}
-        data['GrokClassifier'] = Builders::CreateGrokClassifierRequest.build(input[:grok_classifier]) unless input[:grok_classifier].nil?
-        data['XMLClassifier'] = Builders::CreateXMLClassifierRequest.build(input[:xml_classifier]) unless input[:xml_classifier].nil?
-        data['JsonClassifier'] = Builders::CreateJsonClassifierRequest.build(input[:json_classifier]) unless input[:json_classifier].nil?
-        data['CsvClassifier'] = Builders::CreateCsvClassifierRequest.build(input[:csv_classifier]) unless input[:csv_classifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrokClassifier'] = CreateGrokClassifierRequest.build(input[:grok_classifier]) unless input[:grok_classifier].nil?
+        data['XMLClassifier'] = CreateXMLClassifierRequest.build(input[:xml_classifier]) unless input[:xml_classifier].nil?
+        data['JsonClassifier'] = CreateJsonClassifierRequest.build(input[:json_classifier]) unless input[:json_classifier].nil?
+        data['CsvClassifier'] = CreateCsvClassifierRequest.build(input[:csv_classifier]) unless input[:csv_classifier].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -706,7 +709,7 @@ module AWS::SDK::Glue
         data['Delimiter'] = input[:delimiter] unless input[:delimiter].nil?
         data['QuoteSymbol'] = input[:quote_symbol] unless input[:quote_symbol].nil?
         data['ContainsHeader'] = input[:contains_header] unless input[:contains_header].nil?
-        data['Header'] = Builders::CsvHeader.build(input[:header]) unless input[:header].nil?
+        data['Header'] = CsvHeader.build(input[:header]) unless input[:header].nil?
         data['DisableValueTrimming'] = input[:disable_value_trimming] unless input[:disable_value_trimming].nil?
         data['AllowSingleColumn'] = input[:allow_single_column] unless input[:allow_single_column].nil?
         data
@@ -766,9 +769,9 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.CreateConnection'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['ConnectionInput'] = Builders::ConnectionInput.build(input[:connection_input]) unless input[:connection_input].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectionInput'] = ConnectionInput.build(input[:connection_input]) unless input[:connection_input].nil?
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -779,9 +782,9 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
-        data['MatchCriteria'] = Builders::MatchCriteria.build(input[:match_criteria]) unless input[:match_criteria].nil?
-        data['ConnectionProperties'] = Builders::ConnectionProperties.build(input[:connection_properties]) unless input[:connection_properties].nil?
-        data['PhysicalConnectionRequirements'] = Builders::PhysicalConnectionRequirements.build(input[:physical_connection_requirements]) unless input[:physical_connection_requirements].nil?
+        data['MatchCriteria'] = MatchCriteria.build(input[:match_criteria]) unless input[:match_criteria].nil?
+        data['ConnectionProperties'] = ConnectionProperties.build(input[:connection_properties]) unless input[:connection_properties].nil?
+        data['PhysicalConnectionRequirements'] = PhysicalConnectionRequirements.build(input[:physical_connection_requirements]) unless input[:physical_connection_requirements].nil?
         data
       end
     end
@@ -791,7 +794,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['SubnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
-        data['SecurityGroupIdList'] = Builders::SecurityGroupIdList.build(input[:security_group_id_list]) unless input[:security_group_id_list].nil?
+        data['SecurityGroupIdList'] = SecurityGroupIdList.build(input[:security_group_id_list]) unless input[:security_group_id_list].nil?
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data
       end
@@ -842,18 +845,18 @@ module AWS::SDK::Glue
         data['Role'] = input[:role] unless input[:role].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Targets'] = Builders::CrawlerTargets.build(input[:targets]) unless input[:targets].nil?
+        data['Targets'] = CrawlerTargets.build(input[:targets]) unless input[:targets].nil?
         data['Schedule'] = input[:schedule] unless input[:schedule].nil?
-        data['Classifiers'] = Builders::ClassifierNameList.build(input[:classifiers]) unless input[:classifiers].nil?
+        data['Classifiers'] = ClassifierNameList.build(input[:classifiers]) unless input[:classifiers].nil?
         data['TablePrefix'] = input[:table_prefix] unless input[:table_prefix].nil?
-        data['SchemaChangePolicy'] = Builders::SchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
-        data['RecrawlPolicy'] = Builders::RecrawlPolicy.build(input[:recrawl_policy]) unless input[:recrawl_policy].nil?
-        data['LineageConfiguration'] = Builders::LineageConfiguration.build(input[:lineage_configuration]) unless input[:lineage_configuration].nil?
-        data['LakeFormationConfiguration'] = Builders::LakeFormationConfiguration.build(input[:lake_formation_configuration]) unless input[:lake_formation_configuration].nil?
+        data['SchemaChangePolicy'] = SchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
+        data['RecrawlPolicy'] = RecrawlPolicy.build(input[:recrawl_policy]) unless input[:recrawl_policy].nil?
+        data['LineageConfiguration'] = LineageConfiguration.build(input[:lineage_configuration]) unless input[:lineage_configuration].nil?
+        data['LakeFormationConfiguration'] = LakeFormationConfiguration.build(input[:lake_formation_configuration]) unless input[:lake_formation_configuration].nil?
         data['Configuration'] = input[:configuration] unless input[:configuration].nil?
         data['CrawlerSecurityConfiguration'] = input[:crawler_security_configuration] unless input[:crawler_security_configuration].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -910,12 +913,12 @@ module AWS::SDK::Glue
     class CrawlerTargets
       def self.build(input)
         data = {}
-        data['S3Targets'] = Builders::S3TargetList.build(input[:s3_targets]) unless input[:s3_targets].nil?
-        data['JdbcTargets'] = Builders::JdbcTargetList.build(input[:jdbc_targets]) unless input[:jdbc_targets].nil?
-        data['MongoDBTargets'] = Builders::MongoDBTargetList.build(input[:mongo_db_targets]) unless input[:mongo_db_targets].nil?
-        data['DynamoDBTargets'] = Builders::DynamoDBTargetList.build(input[:dynamo_db_targets]) unless input[:dynamo_db_targets].nil?
-        data['CatalogTargets'] = Builders::CatalogTargetList.build(input[:catalog_targets]) unless input[:catalog_targets].nil?
-        data['DeltaTargets'] = Builders::DeltaTargetList.build(input[:delta_targets]) unless input[:delta_targets].nil?
+        data['S3Targets'] = S3TargetList.build(input[:s3_targets]) unless input[:s3_targets].nil?
+        data['JdbcTargets'] = JdbcTargetList.build(input[:jdbc_targets]) unless input[:jdbc_targets].nil?
+        data['MongoDBTargets'] = MongoDBTargetList.build(input[:mongo_db_targets]) unless input[:mongo_db_targets].nil?
+        data['DynamoDBTargets'] = DynamoDBTargetList.build(input[:dynamo_db_targets]) unless input[:dynamo_db_targets].nil?
+        data['CatalogTargets'] = CatalogTargetList.build(input[:catalog_targets]) unless input[:catalog_targets].nil?
+        data['DeltaTargets'] = DeltaTargetList.build(input[:delta_targets]) unless input[:delta_targets].nil?
         data
       end
     end
@@ -925,7 +928,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DeltaTarget.build(element) unless element.nil?
+          data << DeltaTarget.build(element) unless element.nil?
         end
         data
       end
@@ -935,7 +938,7 @@ module AWS::SDK::Glue
     class DeltaTarget
       def self.build(input)
         data = {}
-        data['DeltaTables'] = Builders::PathList.build(input[:delta_tables]) unless input[:delta_tables].nil?
+        data['DeltaTables'] = PathList.build(input[:delta_tables]) unless input[:delta_tables].nil?
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['WriteManifest'] = input[:write_manifest] unless input[:write_manifest].nil?
         data
@@ -958,7 +961,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CatalogTarget.build(element) unless element.nil?
+          data << CatalogTarget.build(element) unless element.nil?
         end
         data
       end
@@ -969,7 +972,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        data['Tables'] = Builders::CatalogTablesList.build(input[:tables]) unless input[:tables].nil?
+        data['Tables'] = CatalogTablesList.build(input[:tables]) unless input[:tables].nil?
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data
       end
@@ -991,7 +994,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DynamoDBTarget.build(element) unless element.nil?
+          data << DynamoDBTarget.build(element) unless element.nil?
         end
         data
       end
@@ -1013,7 +1016,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MongoDBTarget.build(element) unless element.nil?
+          data << MongoDBTarget.build(element) unless element.nil?
         end
         data
       end
@@ -1035,7 +1038,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JdbcTarget.build(element) unless element.nil?
+          data << JdbcTarget.build(element) unless element.nil?
         end
         data
       end
@@ -1047,7 +1050,7 @@ module AWS::SDK::Glue
         data = {}
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['Path'] = input[:path] unless input[:path].nil?
-        data['Exclusions'] = Builders::PathList.build(input[:exclusions]) unless input[:exclusions].nil?
+        data['Exclusions'] = PathList.build(input[:exclusions]) unless input[:exclusions].nil?
         data
       end
     end
@@ -1057,7 +1060,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::S3Target.build(element) unless element.nil?
+          data << S3Target.build(element) unless element.nil?
         end
         data
       end
@@ -1068,7 +1071,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Path'] = input[:path] unless input[:path].nil?
-        data['Exclusions'] = Builders::PathList.build(input[:exclusions]) unless input[:exclusions].nil?
+        data['Exclusions'] = PathList.build(input[:exclusions]) unless input[:exclusions].nil?
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['SampleSize'] = input[:sample_size] unless input[:sample_size].nil?
         data['EventQueueArn'] = input[:event_queue_arn] unless input[:event_queue_arn].nil?
@@ -1087,8 +1090,8 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RegexString'] = input[:regex_string] unless input[:regex_string].nil?
-        data['ContextWords'] = Builders::ContextWords.build(input[:context_words]) unless input[:context_words].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ContextWords'] = ContextWords.build(input[:context_words]) unless input[:context_words].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1112,8 +1115,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.CreateDatabase'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['DatabaseInput'] = Builders::DatabaseInput.build(input[:database_input]) unless input[:database_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatabaseInput'] = DatabaseInput.build(input[:database_input]) unless input[:database_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1124,9 +1127,9 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['LocationUri'] = input[:location_uri] unless input[:location_uri].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
-        data['CreateTableDefaultPermissions'] = Builders::PrincipalPermissionsList.build(input[:create_table_default_permissions]) unless input[:create_table_default_permissions].nil?
-        data['TargetDatabase'] = Builders::DatabaseIdentifier.build(input[:target_database]) unless input[:target_database].nil?
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['CreateTableDefaultPermissions'] = PrincipalPermissionsList.build(input[:create_table_default_permissions]) unless input[:create_table_default_permissions].nil?
+        data['TargetDatabase'] = DatabaseIdentifier.build(input[:target_database]) unless input[:target_database].nil?
         data
       end
     end
@@ -1146,7 +1149,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PrincipalPermissions.build(element) unless element.nil?
+          data << PrincipalPermissions.build(element) unless element.nil?
         end
         data
       end
@@ -1156,8 +1159,8 @@ module AWS::SDK::Glue
     class PrincipalPermissions
       def self.build(input)
         data = {}
-        data['Principal'] = Builders::DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
-        data['Permissions'] = Builders::PermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Principal'] = DataLakePrincipal.build(input[:principal]) unless input[:principal].nil?
+        data['Permissions'] = PermissionList.build(input[:permissions]) unless input[:permissions].nil?
         data
       end
     end
@@ -1192,10 +1195,10 @@ module AWS::SDK::Glue
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['SecurityGroupIds'] = Builders::StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['SubnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
         data['PublicKey'] = input[:public_key] unless input[:public_key].nil?
-        data['PublicKeys'] = Builders::PublicKeysList.build(input[:public_keys]) unless input[:public_keys].nil?
+        data['PublicKeys'] = PublicKeysList.build(input[:public_keys]) unless input[:public_keys].nil?
         data['NumberOfNodes'] = input[:number_of_nodes] unless input[:number_of_nodes].nil?
         data['WorkerType'] = input[:worker_type] unless input[:worker_type].nil?
         data['GlueVersion'] = input[:glue_version] unless input[:glue_version].nil?
@@ -1203,9 +1206,9 @@ module AWS::SDK::Glue
         data['ExtraPythonLibsS3Path'] = input[:extra_python_libs_s3_path] unless input[:extra_python_libs_s3_path].nil?
         data['ExtraJarsS3Path'] = input[:extra_jars_s3_path] unless input[:extra_jars_s3_path].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        data['Arguments'] = Builders::MapValue.build(input[:arguments]) unless input[:arguments].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['Arguments'] = MapValue.build(input[:arguments]) unless input[:arguments].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1254,23 +1257,23 @@ module AWS::SDK::Glue
         data['Description'] = input[:description] unless input[:description].nil?
         data['LogUri'] = input[:log_uri] unless input[:log_uri].nil?
         data['Role'] = input[:role] unless input[:role].nil?
-        data['ExecutionProperty'] = Builders::ExecutionProperty.build(input[:execution_property]) unless input[:execution_property].nil?
-        data['Command'] = Builders::JobCommand.build(input[:command]) unless input[:command].nil?
-        data['DefaultArguments'] = Builders::GenericMap.build(input[:default_arguments]) unless input[:default_arguments].nil?
-        data['NonOverridableArguments'] = Builders::GenericMap.build(input[:non_overridable_arguments]) unless input[:non_overridable_arguments].nil?
-        data['Connections'] = Builders::ConnectionsList.build(input[:connections]) unless input[:connections].nil?
+        data['ExecutionProperty'] = ExecutionProperty.build(input[:execution_property]) unless input[:execution_property].nil?
+        data['Command'] = JobCommand.build(input[:command]) unless input[:command].nil?
+        data['DefaultArguments'] = GenericMap.build(input[:default_arguments]) unless input[:default_arguments].nil?
+        data['NonOverridableArguments'] = GenericMap.build(input[:non_overridable_arguments]) unless input[:non_overridable_arguments].nil?
+        data['Connections'] = ConnectionsList.build(input[:connections]) unless input[:connections].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
         data['AllocatedCapacity'] = input[:allocated_capacity] unless input[:allocated_capacity].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(input[:max_capacity]) unless input[:max_capacity].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        data['NotificationProperty'] = Builders::NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['NotificationProperty'] = NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
         data['GlueVersion'] = input[:glue_version] unless input[:glue_version].nil?
         data['NumberOfWorkers'] = input[:number_of_workers] unless input[:number_of_workers].nil?
         data['WorkerType'] = input[:worker_type] unless input[:worker_type].nil?
-        data['CodeGenConfigurationNodes'] = Builders::CodeGenConfigurationNodes.build(input[:code_gen_configuration_nodes]) unless input[:code_gen_configuration_nodes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CodeGenConfigurationNodes'] = CodeGenConfigurationNodes.build(input[:code_gen_configuration_nodes]) unless input[:code_gen_configuration_nodes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1279,7 +1282,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::CodeGenConfigurationNode.build(value) unless value.nil?
+          data[key] = CodeGenConfigurationNode.build(value) unless value.nil?
         end
         data
       end
@@ -1289,56 +1292,56 @@ module AWS::SDK::Glue
     class CodeGenConfigurationNode
       def self.build(input)
         data = {}
-        data['AthenaConnectorSource'] = Builders::AthenaConnectorSource.build(input[:athena_connector_source]) unless input[:athena_connector_source].nil?
-        data['JDBCConnectorSource'] = Builders::JDBCConnectorSource.build(input[:jdbc_connector_source]) unless input[:jdbc_connector_source].nil?
-        data['SparkConnectorSource'] = Builders::SparkConnectorSource.build(input[:spark_connector_source]) unless input[:spark_connector_source].nil?
-        data['CatalogSource'] = Builders::CatalogSource.build(input[:catalog_source]) unless input[:catalog_source].nil?
-        data['RedshiftSource'] = Builders::RedshiftSource.build(input[:redshift_source]) unless input[:redshift_source].nil?
-        data['S3CatalogSource'] = Builders::S3CatalogSource.build(input[:s3_catalog_source]) unless input[:s3_catalog_source].nil?
-        data['S3CsvSource'] = Builders::S3CsvSource.build(input[:s3_csv_source]) unless input[:s3_csv_source].nil?
-        data['S3JsonSource'] = Builders::S3JsonSource.build(input[:s3_json_source]) unless input[:s3_json_source].nil?
-        data['S3ParquetSource'] = Builders::S3ParquetSource.build(input[:s3_parquet_source]) unless input[:s3_parquet_source].nil?
-        data['RelationalCatalogSource'] = Builders::RelationalCatalogSource.build(input[:relational_catalog_source]) unless input[:relational_catalog_source].nil?
-        data['DynamoDBCatalogSource'] = Builders::DynamoDBCatalogSource.build(input[:dynamo_db_catalog_source]) unless input[:dynamo_db_catalog_source].nil?
-        data['JDBCConnectorTarget'] = Builders::JDBCConnectorTarget.build(input[:jdbc_connector_target]) unless input[:jdbc_connector_target].nil?
-        data['SparkConnectorTarget'] = Builders::SparkConnectorTarget.build(input[:spark_connector_target]) unless input[:spark_connector_target].nil?
-        data['CatalogTarget'] = Builders::BasicCatalogTarget.build(input[:catalog_target]) unless input[:catalog_target].nil?
-        data['RedshiftTarget'] = Builders::RedshiftTarget.build(input[:redshift_target]) unless input[:redshift_target].nil?
-        data['S3CatalogTarget'] = Builders::S3CatalogTarget.build(input[:s3_catalog_target]) unless input[:s3_catalog_target].nil?
-        data['S3GlueParquetTarget'] = Builders::S3GlueParquetTarget.build(input[:s3_glue_parquet_target]) unless input[:s3_glue_parquet_target].nil?
-        data['S3DirectTarget'] = Builders::S3DirectTarget.build(input[:s3_direct_target]) unless input[:s3_direct_target].nil?
-        data['ApplyMapping'] = Builders::ApplyMapping.build(input[:apply_mapping]) unless input[:apply_mapping].nil?
-        data['SelectFields'] = Builders::SelectFields.build(input[:select_fields]) unless input[:select_fields].nil?
-        data['DropFields'] = Builders::DropFields.build(input[:drop_fields]) unless input[:drop_fields].nil?
-        data['RenameField'] = Builders::RenameField.build(input[:rename_field]) unless input[:rename_field].nil?
-        data['Spigot'] = Builders::Spigot.build(input[:spigot]) unless input[:spigot].nil?
-        data['Join'] = Builders::Join.build(input[:join]) unless input[:join].nil?
-        data['SplitFields'] = Builders::SplitFields.build(input[:split_fields]) unless input[:split_fields].nil?
-        data['SelectFromCollection'] = Builders::SelectFromCollection.build(input[:select_from_collection]) unless input[:select_from_collection].nil?
-        data['FillMissingValues'] = Builders::FillMissingValues.build(input[:fill_missing_values]) unless input[:fill_missing_values].nil?
-        data['Filter'] = Builders::Filter.build(input[:filter]) unless input[:filter].nil?
-        data['CustomCode'] = Builders::CustomCode.build(input[:custom_code]) unless input[:custom_code].nil?
-        data['SparkSQL'] = Builders::SparkSQL.build(input[:spark_sql]) unless input[:spark_sql].nil?
-        data['DirectKinesisSource'] = Builders::DirectKinesisSource.build(input[:direct_kinesis_source]) unless input[:direct_kinesis_source].nil?
-        data['DirectKafkaSource'] = Builders::DirectKafkaSource.build(input[:direct_kafka_source]) unless input[:direct_kafka_source].nil?
-        data['CatalogKinesisSource'] = Builders::CatalogKinesisSource.build(input[:catalog_kinesis_source]) unless input[:catalog_kinesis_source].nil?
-        data['CatalogKafkaSource'] = Builders::CatalogKafkaSource.build(input[:catalog_kafka_source]) unless input[:catalog_kafka_source].nil?
-        data['DropNullFields'] = Builders::DropNullFields.build(input[:drop_null_fields]) unless input[:drop_null_fields].nil?
-        data['Merge'] = Builders::Merge.build(input[:merge]) unless input[:merge].nil?
-        data['Union'] = Builders::Union.build(input[:union]) unless input[:union].nil?
-        data['PIIDetection'] = Builders::PIIDetection.build(input[:pii_detection]) unless input[:pii_detection].nil?
-        data['Aggregate'] = Builders::Aggregate.build(input[:aggregate]) unless input[:aggregate].nil?
-        data['DropDuplicates'] = Builders::DropDuplicates.build(input[:drop_duplicates]) unless input[:drop_duplicates].nil?
-        data['GovernedCatalogTarget'] = Builders::GovernedCatalogTarget.build(input[:governed_catalog_target]) unless input[:governed_catalog_target].nil?
-        data['GovernedCatalogSource'] = Builders::GovernedCatalogSource.build(input[:governed_catalog_source]) unless input[:governed_catalog_source].nil?
-        data['MicrosoftSQLServerCatalogSource'] = Builders::MicrosoftSQLServerCatalogSource.build(input[:microsoft_sql_server_catalog_source]) unless input[:microsoft_sql_server_catalog_source].nil?
-        data['MySQLCatalogSource'] = Builders::MySQLCatalogSource.build(input[:my_sql_catalog_source]) unless input[:my_sql_catalog_source].nil?
-        data['OracleSQLCatalogSource'] = Builders::OracleSQLCatalogSource.build(input[:oracle_sql_catalog_source]) unless input[:oracle_sql_catalog_source].nil?
-        data['PostgreSQLCatalogSource'] = Builders::PostgreSQLCatalogSource.build(input[:postgre_sql_catalog_source]) unless input[:postgre_sql_catalog_source].nil?
-        data['MicrosoftSQLServerCatalogTarget'] = Builders::MicrosoftSQLServerCatalogTarget.build(input[:microsoft_sql_server_catalog_target]) unless input[:microsoft_sql_server_catalog_target].nil?
-        data['MySQLCatalogTarget'] = Builders::MySQLCatalogTarget.build(input[:my_sql_catalog_target]) unless input[:my_sql_catalog_target].nil?
-        data['OracleSQLCatalogTarget'] = Builders::OracleSQLCatalogTarget.build(input[:oracle_sql_catalog_target]) unless input[:oracle_sql_catalog_target].nil?
-        data['PostgreSQLCatalogTarget'] = Builders::PostgreSQLCatalogTarget.build(input[:postgre_sql_catalog_target]) unless input[:postgre_sql_catalog_target].nil?
+        data['AthenaConnectorSource'] = AthenaConnectorSource.build(input[:athena_connector_source]) unless input[:athena_connector_source].nil?
+        data['JDBCConnectorSource'] = JDBCConnectorSource.build(input[:jdbc_connector_source]) unless input[:jdbc_connector_source].nil?
+        data['SparkConnectorSource'] = SparkConnectorSource.build(input[:spark_connector_source]) unless input[:spark_connector_source].nil?
+        data['CatalogSource'] = CatalogSource.build(input[:catalog_source]) unless input[:catalog_source].nil?
+        data['RedshiftSource'] = RedshiftSource.build(input[:redshift_source]) unless input[:redshift_source].nil?
+        data['S3CatalogSource'] = S3CatalogSource.build(input[:s3_catalog_source]) unless input[:s3_catalog_source].nil?
+        data['S3CsvSource'] = S3CsvSource.build(input[:s3_csv_source]) unless input[:s3_csv_source].nil?
+        data['S3JsonSource'] = S3JsonSource.build(input[:s3_json_source]) unless input[:s3_json_source].nil?
+        data['S3ParquetSource'] = S3ParquetSource.build(input[:s3_parquet_source]) unless input[:s3_parquet_source].nil?
+        data['RelationalCatalogSource'] = RelationalCatalogSource.build(input[:relational_catalog_source]) unless input[:relational_catalog_source].nil?
+        data['DynamoDBCatalogSource'] = DynamoDBCatalogSource.build(input[:dynamo_db_catalog_source]) unless input[:dynamo_db_catalog_source].nil?
+        data['JDBCConnectorTarget'] = JDBCConnectorTarget.build(input[:jdbc_connector_target]) unless input[:jdbc_connector_target].nil?
+        data['SparkConnectorTarget'] = SparkConnectorTarget.build(input[:spark_connector_target]) unless input[:spark_connector_target].nil?
+        data['CatalogTarget'] = BasicCatalogTarget.build(input[:catalog_target]) unless input[:catalog_target].nil?
+        data['RedshiftTarget'] = RedshiftTarget.build(input[:redshift_target]) unless input[:redshift_target].nil?
+        data['S3CatalogTarget'] = S3CatalogTarget.build(input[:s3_catalog_target]) unless input[:s3_catalog_target].nil?
+        data['S3GlueParquetTarget'] = S3GlueParquetTarget.build(input[:s3_glue_parquet_target]) unless input[:s3_glue_parquet_target].nil?
+        data['S3DirectTarget'] = S3DirectTarget.build(input[:s3_direct_target]) unless input[:s3_direct_target].nil?
+        data['ApplyMapping'] = ApplyMapping.build(input[:apply_mapping]) unless input[:apply_mapping].nil?
+        data['SelectFields'] = SelectFields.build(input[:select_fields]) unless input[:select_fields].nil?
+        data['DropFields'] = DropFields.build(input[:drop_fields]) unless input[:drop_fields].nil?
+        data['RenameField'] = RenameField.build(input[:rename_field]) unless input[:rename_field].nil?
+        data['Spigot'] = Spigot.build(input[:spigot]) unless input[:spigot].nil?
+        data['Join'] = Join.build(input[:join]) unless input[:join].nil?
+        data['SplitFields'] = SplitFields.build(input[:split_fields]) unless input[:split_fields].nil?
+        data['SelectFromCollection'] = SelectFromCollection.build(input[:select_from_collection]) unless input[:select_from_collection].nil?
+        data['FillMissingValues'] = FillMissingValues.build(input[:fill_missing_values]) unless input[:fill_missing_values].nil?
+        data['Filter'] = Filter.build(input[:filter]) unless input[:filter].nil?
+        data['CustomCode'] = CustomCode.build(input[:custom_code]) unless input[:custom_code].nil?
+        data['SparkSQL'] = SparkSQL.build(input[:spark_sql]) unless input[:spark_sql].nil?
+        data['DirectKinesisSource'] = DirectKinesisSource.build(input[:direct_kinesis_source]) unless input[:direct_kinesis_source].nil?
+        data['DirectKafkaSource'] = DirectKafkaSource.build(input[:direct_kafka_source]) unless input[:direct_kafka_source].nil?
+        data['CatalogKinesisSource'] = CatalogKinesisSource.build(input[:catalog_kinesis_source]) unless input[:catalog_kinesis_source].nil?
+        data['CatalogKafkaSource'] = CatalogKafkaSource.build(input[:catalog_kafka_source]) unless input[:catalog_kafka_source].nil?
+        data['DropNullFields'] = DropNullFields.build(input[:drop_null_fields]) unless input[:drop_null_fields].nil?
+        data['Merge'] = Merge.build(input[:merge]) unless input[:merge].nil?
+        data['Union'] = Union.build(input[:union]) unless input[:union].nil?
+        data['PIIDetection'] = PIIDetection.build(input[:pii_detection]) unless input[:pii_detection].nil?
+        data['Aggregate'] = Aggregate.build(input[:aggregate]) unless input[:aggregate].nil?
+        data['DropDuplicates'] = DropDuplicates.build(input[:drop_duplicates]) unless input[:drop_duplicates].nil?
+        data['GovernedCatalogTarget'] = GovernedCatalogTarget.build(input[:governed_catalog_target]) unless input[:governed_catalog_target].nil?
+        data['GovernedCatalogSource'] = GovernedCatalogSource.build(input[:governed_catalog_source]) unless input[:governed_catalog_source].nil?
+        data['MicrosoftSQLServerCatalogSource'] = MicrosoftSQLServerCatalogSource.build(input[:microsoft_sql_server_catalog_source]) unless input[:microsoft_sql_server_catalog_source].nil?
+        data['MySQLCatalogSource'] = MySQLCatalogSource.build(input[:my_sql_catalog_source]) unless input[:my_sql_catalog_source].nil?
+        data['OracleSQLCatalogSource'] = OracleSQLCatalogSource.build(input[:oracle_sql_catalog_source]) unless input[:oracle_sql_catalog_source].nil?
+        data['PostgreSQLCatalogSource'] = PostgreSQLCatalogSource.build(input[:postgre_sql_catalog_source]) unless input[:postgre_sql_catalog_source].nil?
+        data['MicrosoftSQLServerCatalogTarget'] = MicrosoftSQLServerCatalogTarget.build(input[:microsoft_sql_server_catalog_target]) unless input[:microsoft_sql_server_catalog_target].nil?
+        data['MySQLCatalogTarget'] = MySQLCatalogTarget.build(input[:my_sql_catalog_target]) unless input[:my_sql_catalog_target].nil?
+        data['OracleSQLCatalogTarget'] = OracleSQLCatalogTarget.build(input[:oracle_sql_catalog_target]) unless input[:oracle_sql_catalog_target].nil?
+        data['PostgreSQLCatalogTarget'] = PostgreSQLCatalogTarget.build(input[:postgre_sql_catalog_target]) unless input[:postgre_sql_catalog_target].nil?
         data
       end
     end
@@ -1348,7 +1351,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data
@@ -1371,7 +1374,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data
@@ -1383,7 +1386,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data
@@ -1395,7 +1398,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data
@@ -1454,7 +1457,7 @@ module AWS::SDK::Glue
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data['PartitionPredicate'] = input[:partition_predicate] unless input[:partition_predicate].nil?
-        data['AdditionalOptions'] = Builders::S3SourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['AdditionalOptions'] = S3SourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
         data
       end
     end
@@ -1474,11 +1477,11 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['PartitionKeys'] = Builders::GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data['Database'] = input[:database] unless input[:database].nil?
-        data['SchemaChangePolicy'] = Builders::CatalogSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = CatalogSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
         data
       end
     end
@@ -1498,7 +1501,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EnclosedInStringProperties.build(element) unless element.nil?
+          data << EnclosedInStringProperties.build(element) unless element.nil?
         end
         data
       end
@@ -1520,8 +1523,8 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['Columns'] = Builders::LimitedPathList.build(input[:columns]) unless input[:columns].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Columns'] = LimitedPathList.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -1531,7 +1534,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LimitedStringList.build(element) unless element.nil?
+          data << LimitedStringList.build(element) unless element.nil?
         end
         data
       end
@@ -1553,9 +1556,9 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['Groups'] = Builders::GlueStudioPathList.build(input[:groups]) unless input[:groups].nil?
-        data['Aggs'] = Builders::AggregateOperations.build(input[:aggs]) unless input[:aggs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Groups'] = GlueStudioPathList.build(input[:groups]) unless input[:groups].nil?
+        data['Aggs'] = AggregateOperations.build(input[:aggs]) unless input[:aggs].nil?
         data
       end
     end
@@ -1565,7 +1568,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AggregateOperation.build(element) unless element.nil?
+          data << AggregateOperation.build(element) unless element.nil?
         end
         data
       end
@@ -1575,7 +1578,7 @@ module AWS::SDK::Glue
     class AggregateOperation
       def self.build(input)
         data = {}
-        data['Column'] = Builders::EnclosedInStringProperties.build(input[:column]) unless input[:column].nil?
+        data['Column'] = EnclosedInStringProperties.build(input[:column]) unless input[:column].nil?
         data['AggFunc'] = input[:agg_func] unless input[:agg_func].nil?
         data
       end
@@ -1586,9 +1589,9 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['PiiType'] = input[:pii_type] unless input[:pii_type].nil?
-        data['EntityTypesToDetect'] = Builders::EnclosedInStringProperties.build(input[:entity_types_to_detect]) unless input[:entity_types_to_detect].nil?
+        data['EntityTypesToDetect'] = EnclosedInStringProperties.build(input[:entity_types_to_detect]) unless input[:entity_types_to_detect].nil?
         data['OutputColumnName'] = input[:output_column_name] unless input[:output_column_name].nil?
         data['SampleFraction'] = Hearth::NumberHelper.serialize(input[:sample_fraction]) unless input[:sample_fraction].nil?
         data['ThresholdFraction'] = Hearth::NumberHelper.serialize(input[:threshold_fraction]) unless input[:threshold_fraction].nil?
@@ -1602,7 +1605,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::TwoInputs.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = TwoInputs.build(input[:inputs]) unless input[:inputs].nil?
         data['UnionType'] = input[:union_type] unless input[:union_type].nil?
         data
       end
@@ -1624,9 +1627,9 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::TwoInputs.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = TwoInputs.build(input[:inputs]) unless input[:inputs].nil?
         data['Source'] = input[:source] unless input[:source].nil?
-        data['PrimaryKeys'] = Builders::GlueStudioPathList.build(input[:primary_keys]) unless input[:primary_keys].nil?
+        data['PrimaryKeys'] = GlueStudioPathList.build(input[:primary_keys]) unless input[:primary_keys].nil?
         data
       end
     end
@@ -1636,9 +1639,9 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['NullCheckBoxList'] = Builders::NullCheckBoxList.build(input[:null_check_box_list]) unless input[:null_check_box_list].nil?
-        data['NullTextList'] = Builders::NullValueFields.build(input[:null_text_list]) unless input[:null_text_list].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['NullCheckBoxList'] = NullCheckBoxList.build(input[:null_check_box_list]) unless input[:null_check_box_list].nil?
+        data['NullTextList'] = NullValueFields.build(input[:null_text_list]) unless input[:null_text_list].nil?
         data
       end
     end
@@ -1648,7 +1651,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NullValueField.build(element) unless element.nil?
+          data << NullValueField.build(element) unless element.nil?
         end
         data
       end
@@ -1659,7 +1662,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Value'] = input[:value] unless input[:value].nil?
-        data['Datatype'] = Builders::Datatype.build(input[:datatype]) unless input[:datatype].nil?
+        data['Datatype'] = Datatype.build(input[:datatype]) unless input[:datatype].nil?
         data
       end
     end
@@ -1694,8 +1697,8 @@ module AWS::SDK::Glue
         data['DetectSchema'] = input[:detect_schema] unless input[:detect_schema].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data['Database'] = input[:database] unless input[:database].nil?
-        data['StreamingOptions'] = Builders::KafkaStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
-        data['DataPreviewOptions'] = Builders::StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
+        data['StreamingOptions'] = KafkaStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
         data
       end
     end
@@ -1742,8 +1745,8 @@ module AWS::SDK::Glue
         data['DetectSchema'] = input[:detect_schema] unless input[:detect_schema].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data['Database'] = input[:database] unless input[:database].nil?
-        data['StreamingOptions'] = Builders::KinesisStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
-        data['DataPreviewOptions'] = Builders::StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
+        data['StreamingOptions'] = KinesisStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
         data
       end
     end
@@ -1779,10 +1782,10 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['StreamingOptions'] = Builders::KafkaStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
+        data['StreamingOptions'] = KafkaStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
         data['WindowSize'] = input[:window_size] unless input[:window_size].nil?
         data['DetectSchema'] = input[:detect_schema] unless input[:detect_schema].nil?
-        data['DataPreviewOptions'] = Builders::StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
         data
       end
     end
@@ -1794,8 +1797,8 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['WindowSize'] = input[:window_size] unless input[:window_size].nil?
         data['DetectSchema'] = input[:detect_schema] unless input[:detect_schema].nil?
-        data['StreamingOptions'] = Builders::KinesisStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
-        data['DataPreviewOptions'] = Builders::StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
+        data['StreamingOptions'] = KinesisStreamingSourceOptions.build(input[:streaming_options]) unless input[:streaming_options].nil?
+        data['DataPreviewOptions'] = StreamingDataPreviewOptions.build(input[:data_preview_options]) unless input[:data_preview_options].nil?
         data
       end
     end
@@ -1805,10 +1808,10 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::ManyInputs.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = ManyInputs.build(input[:inputs]) unless input[:inputs].nil?
         data['SqlQuery'] = input[:sql_query] unless input[:sql_query].nil?
-        data['SqlAliases'] = Builders::SqlAliases.build(input[:sql_aliases]) unless input[:sql_aliases].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['SqlAliases'] = SqlAliases.build(input[:sql_aliases]) unless input[:sql_aliases].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -1818,7 +1821,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GlueSchema.build(element) unless element.nil?
+          data << GlueSchema.build(element) unless element.nil?
         end
         data
       end
@@ -1828,7 +1831,7 @@ module AWS::SDK::Glue
     class GlueSchema
       def self.build(input)
         data = {}
-        data['Columns'] = Builders::GlueStudioSchemaColumnList.build(input[:columns]) unless input[:columns].nil?
+        data['Columns'] = GlueStudioSchemaColumnList.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -1838,7 +1841,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GlueStudioSchemaColumn.build(element) unless element.nil?
+          data << GlueStudioSchemaColumn.build(element) unless element.nil?
         end
         data
       end
@@ -1859,7 +1862,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SqlAlias.build(element) unless element.nil?
+          data << SqlAlias.build(element) unless element.nil?
         end
         data
       end
@@ -1891,10 +1894,10 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::ManyInputs.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = ManyInputs.build(input[:inputs]) unless input[:inputs].nil?
         data['Code'] = input[:code] unless input[:code].nil?
         data['ClassName'] = input[:class_name] unless input[:class_name].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -1904,9 +1907,9 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['LogicalOperator'] = input[:logical_operator] unless input[:logical_operator].nil?
-        data['Filters'] = Builders::FilterExpressions.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterExpressions.build(input[:filters]) unless input[:filters].nil?
         data
       end
     end
@@ -1916,7 +1919,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FilterExpression.build(element) unless element.nil?
+          data << FilterExpression.build(element) unless element.nil?
         end
         data
       end
@@ -1928,7 +1931,7 @@ module AWS::SDK::Glue
         data = {}
         data['Operation'] = input[:operation] unless input[:operation].nil?
         data['Negated'] = input[:negated] unless input[:negated].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1938,7 +1941,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FilterValue.build(element) unless element.nil?
+          data << FilterValue.build(element) unless element.nil?
         end
         data
       end
@@ -1949,7 +1952,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Value'] = Builders::EnclosedInStringProperties.build(input[:value]) unless input[:value].nil?
+        data['Value'] = EnclosedInStringProperties.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -1959,7 +1962,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['ImputedPath'] = input[:imputed_path] unless input[:imputed_path].nil?
         data['FilledPath'] = input[:filled_path] unless input[:filled_path].nil?
         data
@@ -1971,7 +1974,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Index'] = input[:index] unless input[:index].nil?
         data
       end
@@ -1982,8 +1985,8 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['Paths'] = Builders::GlueStudioPathList.build(input[:paths]) unless input[:paths].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Paths'] = GlueStudioPathList.build(input[:paths]) unless input[:paths].nil?
         data
       end
     end
@@ -1993,9 +1996,9 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::TwoInputs.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = TwoInputs.build(input[:inputs]) unless input[:inputs].nil?
         data['JoinType'] = input[:join_type] unless input[:join_type].nil?
-        data['Columns'] = Builders::JoinColumns.build(input[:columns]) unless input[:columns].nil?
+        data['Columns'] = JoinColumns.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -2005,7 +2008,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JoinColumn.build(element) unless element.nil?
+          data << JoinColumn.build(element) unless element.nil?
         end
         data
       end
@@ -2016,7 +2019,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['From'] = input[:from] unless input[:from].nil?
-        data['Keys'] = Builders::GlueStudioPathList.build(input[:keys]) unless input[:keys].nil?
+        data['Keys'] = GlueStudioPathList.build(input[:keys]) unless input[:keys].nil?
         data
       end
     end
@@ -2026,7 +2029,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Path'] = input[:path] unless input[:path].nil?
         data['Topk'] = input[:topk] unless input[:topk].nil?
         data['Prob'] = Hearth::NumberHelper.serialize(input[:prob]) unless input[:prob].nil?
@@ -2039,9 +2042,9 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['SourcePath'] = Builders::EnclosedInStringProperties.build(input[:source_path]) unless input[:source_path].nil?
-        data['TargetPath'] = Builders::EnclosedInStringProperties.build(input[:target_path]) unless input[:target_path].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['SourcePath'] = EnclosedInStringProperties.build(input[:source_path]) unless input[:source_path].nil?
+        data['TargetPath'] = EnclosedInStringProperties.build(input[:target_path]) unless input[:target_path].nil?
         data
       end
     end
@@ -2051,8 +2054,8 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['Paths'] = Builders::GlueStudioPathList.build(input[:paths]) unless input[:paths].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Paths'] = GlueStudioPathList.build(input[:paths]) unless input[:paths].nil?
         data
       end
     end
@@ -2062,8 +2065,8 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['Paths'] = Builders::GlueStudioPathList.build(input[:paths]) unless input[:paths].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Paths'] = GlueStudioPathList.build(input[:paths]) unless input[:paths].nil?
         data
       end
     end
@@ -2073,8 +2076,8 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['Mapping'] = Builders::Mappings.build(input[:mapping]) unless input[:mapping].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Mapping'] = Mappings.build(input[:mapping]) unless input[:mapping].nil?
         data
       end
     end
@@ -2084,7 +2087,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Mapping.build(element) unless element.nil?
+          data << Mapping.build(element) unless element.nil?
         end
         data
       end
@@ -2095,11 +2098,11 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['ToKey'] = input[:to_key] unless input[:to_key].nil?
-        data['FromPath'] = Builders::EnclosedInStringProperties.build(input[:from_path]) unless input[:from_path].nil?
+        data['FromPath'] = EnclosedInStringProperties.build(input[:from_path]) unless input[:from_path].nil?
         data['FromType'] = input[:from_type] unless input[:from_type].nil?
         data['ToType'] = input[:to_type] unless input[:to_type].nil?
         data['Dropped'] = input[:dropped] unless input[:dropped].nil?
-        data['Children'] = Builders::Mappings.build(input[:children]) unless input[:children].nil?
+        data['Children'] = Mappings.build(input[:children]) unless input[:children].nil?
         data
       end
     end
@@ -2109,12 +2112,12 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['PartitionKeys'] = Builders::GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
         data['Path'] = input[:path] unless input[:path].nil?
         data['Compression'] = input[:compression] unless input[:compression].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        data['SchemaChangePolicy'] = Builders::DirectSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = DirectSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
         data
       end
     end
@@ -2136,11 +2139,11 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['PartitionKeys'] = Builders::GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
         data['Path'] = input[:path] unless input[:path].nil?
         data['Compression'] = input[:compression] unless input[:compression].nil?
-        data['SchemaChangePolicy'] = Builders::DirectSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = DirectSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
         data
       end
     end
@@ -2150,11 +2153,11 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
-        data['PartitionKeys'] = Builders::GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['PartitionKeys'] = GlueStudioPathList.build(input[:partition_keys]) unless input[:partition_keys].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data['Database'] = input[:database] unless input[:database].nil?
-        data['SchemaChangePolicy'] = Builders::CatalogSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
+        data['SchemaChangePolicy'] = CatalogSchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
         data
       end
     end
@@ -2164,12 +2167,12 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data['RedshiftTmpDir'] = input[:redshift_tmp_dir] unless input[:redshift_tmp_dir].nil?
         data['TmpDirIAMRole'] = input[:tmp_dir_iam_role] unless input[:tmp_dir_iam_role].nil?
-        data['UpsertRedshiftOptions'] = Builders::UpsertRedshiftTargetOptions.build(input[:upsert_redshift_options]) unless input[:upsert_redshift_options].nil?
+        data['UpsertRedshiftOptions'] = UpsertRedshiftTargetOptions.build(input[:upsert_redshift_options]) unless input[:upsert_redshift_options].nil?
         data
       end
     end
@@ -2180,7 +2183,7 @@ module AWS::SDK::Glue
         data = {}
         data['TableLocation'] = input[:table_location] unless input[:table_location].nil?
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
-        data['UpsertKeys'] = Builders::EnclosedInStringPropertiesMinOne.build(input[:upsert_keys]) unless input[:upsert_keys].nil?
+        data['UpsertKeys'] = EnclosedInStringPropertiesMinOne.build(input[:upsert_keys]) unless input[:upsert_keys].nil?
         data
       end
     end
@@ -2201,7 +2204,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data
@@ -2213,12 +2216,12 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['ConnectorName'] = input[:connector_name] unless input[:connector_name].nil?
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
-        data['AdditionalOptions'] = Builders::AdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['AdditionalOptions'] = AdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2239,13 +2242,13 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Inputs'] = Builders::OneInput.build(input[:inputs]) unless input[:inputs].nil?
+        data['Inputs'] = OneInput.build(input[:inputs]) unless input[:inputs].nil?
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['ConnectionTable'] = input[:connection_table] unless input[:connection_table].nil?
         data['ConnectorName'] = input[:connector_name] unless input[:connector_name].nil?
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
-        data['AdditionalOptions'] = Builders::AdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['AdditionalOptions'] = AdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2277,16 +2280,16 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Paths'] = Builders::EnclosedInStringProperties.build(input[:paths]) unless input[:paths].nil?
+        data['Paths'] = EnclosedInStringProperties.build(input[:paths]) unless input[:paths].nil?
         data['CompressionType'] = input[:compression_type] unless input[:compression_type].nil?
-        data['Exclusions'] = Builders::EnclosedInStringProperties.build(input[:exclusions]) unless input[:exclusions].nil?
+        data['Exclusions'] = EnclosedInStringProperties.build(input[:exclusions]) unless input[:exclusions].nil?
         data['GroupSize'] = input[:group_size] unless input[:group_size].nil?
         data['GroupFiles'] = input[:group_files] unless input[:group_files].nil?
         data['Recurse'] = input[:recurse] unless input[:recurse].nil?
         data['MaxBand'] = input[:max_band] unless input[:max_band].nil?
         data['MaxFilesInBand'] = input[:max_files_in_band] unless input[:max_files_in_band].nil?
-        data['AdditionalOptions'] = Builders::S3DirectSourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['AdditionalOptions'] = S3DirectSourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2308,18 +2311,18 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Paths'] = Builders::EnclosedInStringProperties.build(input[:paths]) unless input[:paths].nil?
+        data['Paths'] = EnclosedInStringProperties.build(input[:paths]) unless input[:paths].nil?
         data['CompressionType'] = input[:compression_type] unless input[:compression_type].nil?
-        data['Exclusions'] = Builders::EnclosedInStringProperties.build(input[:exclusions]) unless input[:exclusions].nil?
+        data['Exclusions'] = EnclosedInStringProperties.build(input[:exclusions]) unless input[:exclusions].nil?
         data['GroupSize'] = input[:group_size] unless input[:group_size].nil?
         data['GroupFiles'] = input[:group_files] unless input[:group_files].nil?
         data['Recurse'] = input[:recurse] unless input[:recurse].nil?
         data['MaxBand'] = input[:max_band] unless input[:max_band].nil?
         data['MaxFilesInBand'] = input[:max_files_in_band] unless input[:max_files_in_band].nil?
-        data['AdditionalOptions'] = Builders::S3DirectSourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['AdditionalOptions'] = S3DirectSourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
         data['JsonPath'] = input[:json_path] unless input[:json_path].nil?
         data['Multiline'] = input[:multiline] unless input[:multiline].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2329,15 +2332,15 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Paths'] = Builders::EnclosedInStringProperties.build(input[:paths]) unless input[:paths].nil?
+        data['Paths'] = EnclosedInStringProperties.build(input[:paths]) unless input[:paths].nil?
         data['CompressionType'] = input[:compression_type] unless input[:compression_type].nil?
-        data['Exclusions'] = Builders::EnclosedInStringProperties.build(input[:exclusions]) unless input[:exclusions].nil?
+        data['Exclusions'] = EnclosedInStringProperties.build(input[:exclusions]) unless input[:exclusions].nil?
         data['GroupSize'] = input[:group_size] unless input[:group_size].nil?
         data['GroupFiles'] = input[:group_files] unless input[:group_files].nil?
         data['Recurse'] = input[:recurse] unless input[:recurse].nil?
         data['MaxBand'] = input[:max_band] unless input[:max_band].nil?
         data['MaxFilesInBand'] = input[:max_files_in_band] unless input[:max_files_in_band].nil?
-        data['AdditionalOptions'] = Builders::S3DirectSourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['AdditionalOptions'] = S3DirectSourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
         data['Separator'] = input[:separator] unless input[:separator].nil?
         data['Escaper'] = input[:escaper] unless input[:escaper].nil?
         data['QuoteChar'] = input[:quote_char] unless input[:quote_char].nil?
@@ -2346,7 +2349,7 @@ module AWS::SDK::Glue
         data['WriteHeader'] = input[:write_header] unless input[:write_header].nil?
         data['SkipFirst'] = input[:skip_first] unless input[:skip_first].nil?
         data['OptimizePerformance'] = input[:optimize_performance] unless input[:optimize_performance].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2359,7 +2362,7 @@ module AWS::SDK::Glue
         data['Database'] = input[:database] unless input[:database].nil?
         data['Table'] = input[:table] unless input[:table].nil?
         data['PartitionPredicate'] = input[:partition_predicate] unless input[:partition_predicate].nil?
-        data['AdditionalOptions'] = Builders::S3SourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['AdditionalOptions'] = S3SourceAdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
         data
       end
     end
@@ -2396,8 +2399,8 @@ module AWS::SDK::Glue
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['ConnectorName'] = input[:connector_name] unless input[:connector_name].nil?
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
-        data['AdditionalOptions'] = Builders::AdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['AdditionalOptions'] = AdditionalOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2410,10 +2413,10 @@ module AWS::SDK::Glue
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['ConnectorName'] = input[:connector_name] unless input[:connector_name].nil?
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
-        data['AdditionalOptions'] = Builders::JDBCConnectorOptions.build(input[:additional_options]) unless input[:additional_options].nil?
+        data['AdditionalOptions'] = JDBCConnectorOptions.build(input[:additional_options]) unless input[:additional_options].nil?
         data['ConnectionTable'] = input[:connection_table] unless input[:connection_table].nil?
         data['Query'] = input[:query] unless input[:query].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2427,9 +2430,9 @@ module AWS::SDK::Glue
         data['LowerBound'] = input[:lower_bound] unless input[:lower_bound].nil?
         data['UpperBound'] = input[:upper_bound] unless input[:upper_bound].nil?
         data['NumPartitions'] = input[:num_partitions] unless input[:num_partitions].nil?
-        data['JobBookmarkKeys'] = Builders::EnclosedInStringProperties.build(input[:job_bookmark_keys]) unless input[:job_bookmark_keys].nil?
+        data['JobBookmarkKeys'] = EnclosedInStringProperties.build(input[:job_bookmark_keys]) unless input[:job_bookmark_keys].nil?
         data['JobBookmarkKeysSortOrder'] = input[:job_bookmark_keys_sort_order] unless input[:job_bookmark_keys_sort_order].nil?
-        data['DataTypeMapping'] = Builders::JDBCDataTypeMapping.build(input[:data_type_mapping]) unless input[:data_type_mapping].nil?
+        data['DataTypeMapping'] = JDBCDataTypeMapping.build(input[:data_type_mapping]) unless input[:data_type_mapping].nil?
         data
       end
     end
@@ -2455,7 +2458,7 @@ module AWS::SDK::Glue
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
         data['ConnectionTable'] = input[:connection_table] unless input[:connection_table].nil?
         data['SchemaName'] = input[:schema_name] unless input[:schema_name].nil?
-        data['OutputSchemas'] = Builders::GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
+        data['OutputSchemas'] = GlueSchemas.build(input[:output_schemas]) unless input[:output_schemas].nil?
         data
       end
     end
@@ -2473,7 +2476,7 @@ module AWS::SDK::Glue
     class ConnectionsList
       def self.build(input)
         data = {}
-        data['Connections'] = Builders::OrchestrationStringList.build(input[:connections]) unless input[:connections].nil?
+        data['Connections'] = OrchestrationStringList.build(input[:connections]) unless input[:connections].nil?
         data
       end
     end
@@ -2530,8 +2533,8 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['InputRecordTables'] = Builders::GlueTables.build(input[:input_record_tables]) unless input[:input_record_tables].nil?
-        data['Parameters'] = Builders::TransformParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['InputRecordTables'] = GlueTables.build(input[:input_record_tables]) unless input[:input_record_tables].nil?
+        data['Parameters'] = TransformParameters.build(input[:parameters]) unless input[:parameters].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data['GlueVersion'] = input[:glue_version] unless input[:glue_version].nil?
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(input[:max_capacity]) unless input[:max_capacity].nil?
@@ -2539,9 +2542,9 @@ module AWS::SDK::Glue
         data['NumberOfWorkers'] = input[:number_of_workers] unless input[:number_of_workers].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        data['TransformEncryption'] = Builders::TransformEncryption.build(input[:transform_encryption]) unless input[:transform_encryption].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['TransformEncryption'] = TransformEncryption.build(input[:transform_encryption]) unless input[:transform_encryption].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2549,7 +2552,7 @@ module AWS::SDK::Glue
     class TransformEncryption
       def self.build(input)
         data = {}
-        data['MlUserDataEncryption'] = Builders::MLUserDataEncryption.build(input[:ml_user_data_encryption]) unless input[:ml_user_data_encryption].nil?
+        data['MlUserDataEncryption'] = MLUserDataEncryption.build(input[:ml_user_data_encryption]) unless input[:ml_user_data_encryption].nil?
         data['TaskRunSecurityConfigurationName'] = input[:task_run_security_configuration_name] unless input[:task_run_security_configuration_name].nil?
         data
       end
@@ -2570,7 +2573,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['TransformType'] = input[:transform_type] unless input[:transform_type].nil?
-        data['FindMatchesParameters'] = Builders::FindMatchesParameters.build(input[:find_matches_parameters]) unless input[:find_matches_parameters].nil?
+        data['FindMatchesParameters'] = FindMatchesParameters.build(input[:find_matches_parameters]) unless input[:find_matches_parameters].nil?
         data
       end
     end
@@ -2592,7 +2595,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GlueTable.build(element) unless element.nil?
+          data << GlueTable.build(element) unless element.nil?
         end
         data
       end
@@ -2621,8 +2624,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionInput'] = Builders::PartitionInput.build(input[:partition_input]) unless input[:partition_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionInput'] = PartitionInput.build(input[:partition_input]) unless input[:partition_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2637,8 +2640,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionIndex'] = Builders::PartitionIndex.build(input[:partition_index]) unless input[:partition_index].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionIndex'] = PartitionIndex.build(input[:partition_index]) unless input[:partition_index].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2646,7 +2649,7 @@ module AWS::SDK::Glue
     class PartitionIndex
       def self.build(input)
         data = {}
-        data['Keys'] = Builders::KeyList.build(input[:keys]) unless input[:keys].nil?
+        data['Keys'] = KeyList.build(input[:keys]) unless input[:keys].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data
       end
@@ -2673,8 +2676,8 @@ module AWS::SDK::Glue
         data = {}
         data['RegistryName'] = input[:registry_name] unless input[:registry_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2686,14 +2689,14 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.CreateSchema'
         data = {}
-        data['RegistryId'] = Builders::RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
+        data['RegistryId'] = RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
         data['SchemaName'] = input[:schema_name] unless input[:schema_name].nil?
         data['DataFormat'] = input[:data_format] unless input[:data_format].nil?
         data['Compatibility'] = input[:compatibility] unless input[:compatibility].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['SchemaDefinition'] = input[:schema_definition] unless input[:schema_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2715,10 +2718,10 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.CreateScript'
         data = {}
-        data['DagNodes'] = Builders::DagNodes.build(input[:dag_nodes]) unless input[:dag_nodes].nil?
-        data['DagEdges'] = Builders::DagEdges.build(input[:dag_edges]) unless input[:dag_edges].nil?
+        data['DagNodes'] = DagNodes.build(input[:dag_nodes]) unless input[:dag_nodes].nil?
+        data['DagEdges'] = DagEdges.build(input[:dag_edges]) unless input[:dag_edges].nil?
         data['Language'] = input[:language] unless input[:language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2727,7 +2730,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CodeGenEdge.build(element) unless element.nil?
+          data << CodeGenEdge.build(element) unless element.nil?
         end
         data
       end
@@ -2749,7 +2752,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CodeGenNode.build(element) unless element.nil?
+          data << CodeGenNode.build(element) unless element.nil?
         end
         data
       end
@@ -2761,7 +2764,7 @@ module AWS::SDK::Glue
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['NodeType'] = input[:node_type] unless input[:node_type].nil?
-        data['Args'] = Builders::CodeGenNodeArgs.build(input[:args]) unless input[:args].nil?
+        data['Args'] = CodeGenNodeArgs.build(input[:args]) unless input[:args].nil?
         data['LineNumber'] = input[:line_number] unless input[:line_number].nil?
         data
       end
@@ -2772,7 +2775,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CodeGenNodeArg.build(element) unless element.nil?
+          data << CodeGenNodeArg.build(element) unless element.nil?
         end
         data
       end
@@ -2798,8 +2801,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.CreateSecurityConfiguration'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2807,9 +2810,9 @@ module AWS::SDK::Glue
     class EncryptionConfiguration
       def self.build(input)
         data = {}
-        data['S3Encryption'] = Builders::S3EncryptionList.build(input[:s3_encryption]) unless input[:s3_encryption].nil?
-        data['CloudWatchEncryption'] = Builders::CloudWatchEncryption.build(input[:cloud_watch_encryption]) unless input[:cloud_watch_encryption].nil?
-        data['JobBookmarksEncryption'] = Builders::JobBookmarksEncryption.build(input[:job_bookmarks_encryption]) unless input[:job_bookmarks_encryption].nil?
+        data['S3Encryption'] = S3EncryptionList.build(input[:s3_encryption]) unless input[:s3_encryption].nil?
+        data['CloudWatchEncryption'] = CloudWatchEncryption.build(input[:cloud_watch_encryption]) unless input[:cloud_watch_encryption].nil?
+        data['JobBookmarksEncryption'] = JobBookmarksEncryption.build(input[:job_bookmarks_encryption]) unless input[:job_bookmarks_encryption].nil?
         data
       end
     end
@@ -2839,7 +2842,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::S3Encryption.build(element) unless element.nil?
+          data << S3Encryption.build(element) unless element.nil?
         end
         data
       end
@@ -2866,19 +2869,19 @@ module AWS::SDK::Glue
         data['Id'] = input[:id] unless input[:id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Role'] = input[:role] unless input[:role].nil?
-        data['Command'] = Builders::SessionCommand.build(input[:command]) unless input[:command].nil?
+        data['Command'] = SessionCommand.build(input[:command]) unless input[:command].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['IdleTimeout'] = input[:idle_timeout] unless input[:idle_timeout].nil?
-        data['DefaultArguments'] = Builders::OrchestrationArgumentsMap.build(input[:default_arguments]) unless input[:default_arguments].nil?
-        data['Connections'] = Builders::ConnectionsList.build(input[:connections]) unless input[:connections].nil?
+        data['DefaultArguments'] = OrchestrationArgumentsMap.build(input[:default_arguments]) unless input[:default_arguments].nil?
+        data['Connections'] = ConnectionsList.build(input[:connections]) unless input[:connections].nil?
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(input[:max_capacity]) unless input[:max_capacity].nil?
         data['NumberOfWorkers'] = input[:number_of_workers] unless input[:number_of_workers].nil?
         data['WorkerType'] = input[:worker_type] unless input[:worker_type].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
         data['GlueVersion'] = input[:glue_version] unless input[:glue_version].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2913,10 +2916,10 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        data['TableInput'] = Builders::TableInput.build(input[:table_input]) unless input[:table_input].nil?
-        data['PartitionIndexes'] = Builders::PartitionIndexList.build(input[:partition_indexes]) unless input[:partition_indexes].nil?
+        data['TableInput'] = TableInput.build(input[:table_input]) unless input[:table_input].nil?
+        data['PartitionIndexes'] = PartitionIndexList.build(input[:partition_indexes]) unless input[:partition_indexes].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2925,7 +2928,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PartitionIndex.build(element) unless element.nil?
+          data << PartitionIndex.build(element) unless element.nil?
         end
         data
       end
@@ -2941,13 +2944,13 @@ module AWS::SDK::Glue
         data['LastAccessTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_access_time]).to_i unless input[:last_access_time].nil?
         data['LastAnalyzedTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_analyzed_time]).to_i unless input[:last_analyzed_time].nil?
         data['Retention'] = input[:retention] unless input[:retention].nil?
-        data['StorageDescriptor'] = Builders::StorageDescriptor.build(input[:storage_descriptor]) unless input[:storage_descriptor].nil?
-        data['PartitionKeys'] = Builders::ColumnList.build(input[:partition_keys]) unless input[:partition_keys].nil?
+        data['StorageDescriptor'] = StorageDescriptor.build(input[:storage_descriptor]) unless input[:storage_descriptor].nil?
+        data['PartitionKeys'] = ColumnList.build(input[:partition_keys]) unless input[:partition_keys].nil?
         data['ViewOriginalText'] = input[:view_original_text] unless input[:view_original_text].nil?
         data['ViewExpandedText'] = input[:view_expanded_text] unless input[:view_expanded_text].nil?
         data['TableType'] = input[:table_type] unless input[:table_type].nil?
-        data['Parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
-        data['TargetTable'] = Builders::TableIdentifier.build(input[:target_table]) unless input[:target_table].nil?
+        data['Parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['TargetTable'] = TableIdentifier.build(input[:target_table]) unless input[:target_table].nil?
         data
       end
     end
@@ -2975,13 +2978,13 @@ module AWS::SDK::Glue
         data['WorkflowName'] = input[:workflow_name] unless input[:workflow_name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['Schedule'] = input[:schedule] unless input[:schedule].nil?
-        data['Predicate'] = Builders::Predicate.build(input[:predicate]) unless input[:predicate].nil?
-        data['Actions'] = Builders::ActionList.build(input[:actions]) unless input[:actions].nil?
+        data['Predicate'] = Predicate.build(input[:predicate]) unless input[:predicate].nil?
+        data['Actions'] = ActionList.build(input[:actions]) unless input[:actions].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['StartOnCreation'] = input[:start_on_creation] unless input[:start_on_creation].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        data['EventBatchingCondition'] = Builders::EventBatchingCondition.build(input[:event_batching_condition]) unless input[:event_batching_condition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['EventBatchingCondition'] = EventBatchingCondition.build(input[:event_batching_condition]) unless input[:event_batching_condition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3000,7 +3003,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Action.build(element) unless element.nil?
+          data << Action.build(element) unless element.nil?
         end
         data
       end
@@ -3011,10 +3014,10 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['Arguments'] = Builders::GenericMap.build(input[:arguments]) unless input[:arguments].nil?
+        data['Arguments'] = GenericMap.build(input[:arguments]) unless input[:arguments].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
-        data['NotificationProperty'] = Builders::NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
+        data['NotificationProperty'] = NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
         data['CrawlerName'] = input[:crawler_name] unless input[:crawler_name].nil?
         data
       end
@@ -3025,7 +3028,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Logical'] = input[:logical] unless input[:logical].nil?
-        data['Conditions'] = Builders::ConditionList.build(input[:conditions]) unless input[:conditions].nil?
+        data['Conditions'] = ConditionList.build(input[:conditions]) unless input[:conditions].nil?
         data
       end
     end
@@ -3035,7 +3038,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Condition.build(element) unless element.nil?
+          data << Condition.build(element) unless element.nil?
         end
         data
       end
@@ -3064,8 +3067,8 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        data['FunctionInput'] = Builders::UserDefinedFunctionInput.build(input[:function_input]) unless input[:function_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FunctionInput'] = UserDefinedFunctionInput.build(input[:function_input]) unless input[:function_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3077,7 +3080,7 @@ module AWS::SDK::Glue
         data['ClassName'] = input[:class_name] unless input[:class_name].nil?
         data['OwnerName'] = input[:owner_name] unless input[:owner_name].nil?
         data['OwnerType'] = input[:owner_type] unless input[:owner_type].nil?
-        data['ResourceUris'] = Builders::ResourceUriList.build(input[:resource_uris]) unless input[:resource_uris].nil?
+        data['ResourceUris'] = ResourceUriList.build(input[:resource_uris]) unless input[:resource_uris].nil?
         data
       end
     end
@@ -3087,7 +3090,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceUri.build(element) unless element.nil?
+          data << ResourceUri.build(element) unless element.nil?
         end
         data
       end
@@ -3113,10 +3116,10 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['DefaultRunProperties'] = Builders::WorkflowRunProperties.build(input[:default_run_properties]) unless input[:default_run_properties].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['DefaultRunProperties'] = WorkflowRunProperties.build(input[:default_run_properties]) unless input[:default_run_properties].nil?
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['MaxConcurrentRuns'] = input[:max_concurrent_runs] unless input[:max_concurrent_runs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3140,7 +3143,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteBlueprint'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3153,7 +3156,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteClassifier'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3168,9 +3171,9 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionValues'] = Builders::ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
+        data['PartitionValues'] = ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
         data['ColumnName'] = input[:column_name] unless input[:column_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3186,7 +3189,7 @@ module AWS::SDK::Glue
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['ColumnName'] = input[:column_name] unless input[:column_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3200,7 +3203,7 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3213,7 +3216,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteCrawler'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3226,7 +3229,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteCustomEntityType'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3240,7 +3243,7 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3253,7 +3256,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteDevEndpoint'
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3266,7 +3269,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3279,7 +3282,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteMLTransform'
         data = {}
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3294,8 +3297,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionValues'] = Builders::ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionValues'] = ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3311,7 +3314,7 @@ module AWS::SDK::Glue
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3323,8 +3326,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteRegistry'
         data = {}
-        data['RegistryId'] = Builders::RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegistryId'] = RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3338,7 +3341,7 @@ module AWS::SDK::Glue
         data = {}
         data['PolicyHashCondition'] = input[:policy_hash_condition] unless input[:policy_hash_condition].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3350,8 +3353,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteSchema'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3363,9 +3366,9 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteSchemaVersions'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
         data['Versions'] = input[:versions] unless input[:versions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3378,7 +3381,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteSecurityConfiguration'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3392,7 +3395,7 @@ module AWS::SDK::Glue
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3408,7 +3411,7 @@ module AWS::SDK::Glue
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3424,7 +3427,7 @@ module AWS::SDK::Glue
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['VersionId'] = input[:version_id] unless input[:version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3437,7 +3440,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteTrigger'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3452,7 +3455,7 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3465,7 +3468,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.DeleteWorkflow'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3480,7 +3483,7 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['IncludeBlueprint'] = input[:include_blueprint] unless input[:include_blueprint].nil?
         data['IncludeParameterSpec'] = input[:include_parameter_spec] unless input[:include_parameter_spec].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3494,7 +3497,7 @@ module AWS::SDK::Glue
         data = {}
         data['BlueprintName'] = input[:blueprint_name] unless input[:blueprint_name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3509,7 +3512,7 @@ module AWS::SDK::Glue
         data['BlueprintName'] = input[:blueprint_name] unless input[:blueprint_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3522,7 +3525,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetCatalogImportStatus'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3535,7 +3538,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetClassifier'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3549,7 +3552,7 @@ module AWS::SDK::Glue
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3564,9 +3567,9 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionValues'] = Builders::ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
-        data['ColumnNames'] = Builders::GetColumnNamesList.build(input[:column_names]) unless input[:column_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionValues'] = ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
+        data['ColumnNames'] = GetColumnNamesList.build(input[:column_names]) unless input[:column_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3592,8 +3595,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['ColumnNames'] = Builders::GetColumnNamesList.build(input[:column_names]) unless input[:column_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ColumnNames'] = GetColumnNamesList.build(input[:column_names]) unless input[:column_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3608,7 +3611,7 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['HidePassword'] = input[:hide_password] unless input[:hide_password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3621,11 +3624,11 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetConnections'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['Filter'] = Builders::GetConnectionsFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = GetConnectionsFilter.build(input[:filter]) unless input[:filter].nil?
         data['HidePassword'] = input[:hide_password] unless input[:hide_password].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3633,7 +3636,7 @@ module AWS::SDK::Glue
     class GetConnectionsFilter
       def self.build(input)
         data = {}
-        data['MatchCriteria'] = Builders::MatchCriteria.build(input[:match_criteria]) unless input[:match_criteria].nil?
+        data['MatchCriteria'] = MatchCriteria.build(input[:match_criteria]) unless input[:match_criteria].nil?
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
         data
       end
@@ -3648,7 +3651,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetCrawler'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3660,10 +3663,10 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetCrawlerMetrics'
         data = {}
-        data['CrawlerNameList'] = Builders::CrawlerNameList.build(input[:crawler_name_list]) unless input[:crawler_name_list].nil?
+        data['CrawlerNameList'] = CrawlerNameList.build(input[:crawler_name_list]) unless input[:crawler_name_list].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3677,7 +3680,7 @@ module AWS::SDK::Glue
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3690,7 +3693,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetCustomEntityType'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3703,7 +3706,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetDataCatalogEncryptionSettings'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3717,7 +3720,7 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3733,7 +3736,7 @@ module AWS::SDK::Glue
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ResourceShareType'] = input[:resource_share_type] unless input[:resource_share_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3746,7 +3749,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetDataflowGraph'
         data = {}
         data['PythonScript'] = input[:python_script] unless input[:python_script].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3759,7 +3762,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetDevEndpoint'
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3773,7 +3776,7 @@ module AWS::SDK::Glue
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3786,7 +3789,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3800,7 +3803,7 @@ module AWS::SDK::Glue
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3815,7 +3818,7 @@ module AWS::SDK::Glue
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
         data['PredecessorsIncluded'] = input[:predecessors_included] unless input[:predecessors_included].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3830,7 +3833,7 @@ module AWS::SDK::Glue
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3844,7 +3847,7 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3858,7 +3861,7 @@ module AWS::SDK::Glue
         data = {}
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
         data['TaskRunId'] = input[:task_run_id] unless input[:task_run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3873,9 +3876,9 @@ module AWS::SDK::Glue
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filter'] = Builders::TaskRunFilterCriteria.build(input[:filter]) unless input[:filter].nil?
-        data['Sort'] = Builders::TaskRunSortCriteria.build(input[:sort]) unless input[:sort].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = TaskRunFilterCriteria.build(input[:filter]) unless input[:filter].nil?
+        data['Sort'] = TaskRunSortCriteria.build(input[:sort]) unless input[:sort].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3910,7 +3913,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetMLTransform'
         data = {}
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3924,9 +3927,9 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filter'] = Builders::TransformFilterCriteria.build(input[:filter]) unless input[:filter].nil?
-        data['Sort'] = Builders::TransformSortCriteria.build(input[:sort]) unless input[:sort].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = TransformFilterCriteria.build(input[:filter]) unless input[:filter].nil?
+        data['Sort'] = TransformSortCriteria.build(input[:sort]) unless input[:sort].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3952,7 +3955,7 @@ module AWS::SDK::Glue
         data['CreatedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:created_after]).to_i unless input[:created_after].nil?
         data['LastModifiedBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_before]).to_i unless input[:last_modified_before].nil?
         data['LastModifiedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_after]).to_i unless input[:last_modified_after].nil?
-        data['Schema'] = Builders::TransformSchema.build(input[:schema]) unless input[:schema].nil?
+        data['Schema'] = TransformSchema.build(input[:schema]) unless input[:schema].nil?
         data
       end
     end
@@ -3962,7 +3965,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SchemaColumn.build(element) unless element.nil?
+          data << SchemaColumn.build(element) unless element.nil?
         end
         data
       end
@@ -3986,10 +3989,10 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetMapping'
         data = {}
-        data['Source'] = Builders::CatalogEntry.build(input[:source]) unless input[:source].nil?
-        data['Sinks'] = Builders::CatalogEntries.build(input[:sinks]) unless input[:sinks].nil?
-        data['Location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Source'] = CatalogEntry.build(input[:source]) unless input[:source].nil?
+        data['Sinks'] = CatalogEntries.build(input[:sinks]) unless input[:sinks].nil?
+        data['Location'] = Location.build(input[:location]) unless input[:location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3997,9 +4000,9 @@ module AWS::SDK::Glue
     class Location
       def self.build(input)
         data = {}
-        data['Jdbc'] = Builders::CodeGenNodeArgs.build(input[:jdbc]) unless input[:jdbc].nil?
-        data['S3'] = Builders::CodeGenNodeArgs.build(input[:s3]) unless input[:s3].nil?
-        data['DynamoDB'] = Builders::CodeGenNodeArgs.build(input[:dynamo_db]) unless input[:dynamo_db].nil?
+        data['Jdbc'] = CodeGenNodeArgs.build(input[:jdbc]) unless input[:jdbc].nil?
+        data['S3'] = CodeGenNodeArgs.build(input[:s3]) unless input[:s3].nil?
+        data['DynamoDB'] = CodeGenNodeArgs.build(input[:dynamo_db]) unless input[:dynamo_db].nil?
         data
       end
     end
@@ -4009,7 +4012,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CatalogEntry.build(element) unless element.nil?
+          data << CatalogEntry.build(element) unless element.nil?
         end
         data
       end
@@ -4036,8 +4039,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionValues'] = Builders::ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionValues'] = ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4053,7 +4056,7 @@ module AWS::SDK::Glue
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4070,12 +4073,12 @@ module AWS::SDK::Glue
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['Expression'] = input[:expression] unless input[:expression].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Segment'] = Builders::Segment.build(input[:segment]) unless input[:segment].nil?
+        data['Segment'] = Segment.build(input[:segment]) unless input[:segment].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ExcludeColumnSchema'] = input[:exclude_column_schema] unless input[:exclude_column_schema].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
         data['QueryAsOfTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:query_as_of_time]).to_i unless input[:query_as_of_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4097,13 +4100,13 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetPlan'
         data = {}
-        data['Mapping'] = Builders::MappingList.build(input[:mapping]) unless input[:mapping].nil?
-        data['Source'] = Builders::CatalogEntry.build(input[:source]) unless input[:source].nil?
-        data['Sinks'] = Builders::CatalogEntries.build(input[:sinks]) unless input[:sinks].nil?
-        data['Location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
+        data['Mapping'] = MappingList.build(input[:mapping]) unless input[:mapping].nil?
+        data['Source'] = CatalogEntry.build(input[:source]) unless input[:source].nil?
+        data['Sinks'] = CatalogEntries.build(input[:sinks]) unless input[:sinks].nil?
+        data['Location'] = Location.build(input[:location]) unless input[:location].nil?
         data['Language'] = input[:language] unless input[:language].nil?
-        data['AdditionalPlanOptionsMap'] = Builders::AdditionalPlanOptionsMap.build(input[:additional_plan_options_map]) unless input[:additional_plan_options_map].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdditionalPlanOptionsMap'] = AdditionalPlanOptionsMap.build(input[:additional_plan_options_map]) unless input[:additional_plan_options_map].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4123,7 +4126,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MappingEntry.build(element) unless element.nil?
+          data << MappingEntry.build(element) unless element.nil?
         end
         data
       end
@@ -4151,8 +4154,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetRegistry'
         data = {}
-        data['RegistryId'] = Builders::RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegistryId'] = RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4166,7 +4169,7 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4179,7 +4182,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetResourcePolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4191,8 +4194,8 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetSchema'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4204,9 +4207,9 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetSchemaByDefinition'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
         data['SchemaDefinition'] = input[:schema_definition] unless input[:schema_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4218,10 +4221,10 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetSchemaVersion'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
         data['SchemaVersionId'] = input[:schema_version_id] unless input[:schema_version_id].nil?
-        data['SchemaVersionNumber'] = Builders::SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SchemaVersionNumber'] = SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4243,11 +4246,11 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetSchemaVersionsDiff'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
-        data['FirstSchemaVersionNumber'] = Builders::SchemaVersionNumber.build(input[:first_schema_version_number]) unless input[:first_schema_version_number].nil?
-        data['SecondSchemaVersionNumber'] = Builders::SchemaVersionNumber.build(input[:second_schema_version_number]) unless input[:second_schema_version_number].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['FirstSchemaVersionNumber'] = SchemaVersionNumber.build(input[:first_schema_version_number]) unless input[:first_schema_version_number].nil?
+        data['SecondSchemaVersionNumber'] = SchemaVersionNumber.build(input[:second_schema_version_number]) unless input[:second_schema_version_number].nil?
         data['SchemaDiffType'] = input[:schema_diff_type] unless input[:schema_diff_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4260,7 +4263,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetSecurityConfiguration'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4274,7 +4277,7 @@ module AWS::SDK::Glue
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4288,7 +4291,7 @@ module AWS::SDK::Glue
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4303,7 +4306,7 @@ module AWS::SDK::Glue
         data['SessionId'] = input[:session_id] unless input[:session_id].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4320,7 +4323,7 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
         data['QueryAsOfTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:query_as_of_time]).to_i unless input[:query_as_of_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4336,7 +4339,7 @@ module AWS::SDK::Glue
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['VersionId'] = input[:version_id] unless input[:version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4353,7 +4356,7 @@ module AWS::SDK::Glue
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4372,7 +4375,7 @@ module AWS::SDK::Glue
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
         data['QueryAsOfTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:query_as_of_time]).to_i unless input[:query_as_of_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4385,7 +4388,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetTags'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4398,7 +4401,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.GetTrigger'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4413,7 +4416,7 @@ module AWS::SDK::Glue
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['DependentJobName'] = input[:dependent_job_name] unless input[:dependent_job_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4428,10 +4431,10 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionValues'] = Builders::ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
-        data['AuditContext'] = Builders::AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
-        data['SupportedPermissionTypes'] = Builders::PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionValues'] = ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
+        data['AuditContext'] = AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
+        data['SupportedPermissionTypes'] = PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4451,7 +4454,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['AdditionalAuditContext'] = input[:additional_audit_context] unless input[:additional_audit_context].nil?
-        data['RequestedColumns'] = Builders::AuditColumnNamesList.build(input[:requested_columns]) unless input[:requested_columns].nil?
+        data['RequestedColumns'] = AuditColumnNamesList.build(input[:requested_columns]) unless input[:requested_columns].nil?
         data['AllColumnsRequested'] = input[:all_columns_requested] unless input[:all_columns_requested].nil?
         data
       end
@@ -4480,12 +4483,12 @@ module AWS::SDK::Glue
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['Expression'] = input[:expression] unless input[:expression].nil?
-        data['AuditContext'] = Builders::AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
-        data['SupportedPermissionTypes'] = Builders::PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
+        data['AuditContext'] = AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
+        data['SupportedPermissionTypes'] = PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Segment'] = Builders::Segment.build(input[:segment]) unless input[:segment].nil?
+        data['Segment'] = Segment.build(input[:segment]) unless input[:segment].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4500,9 +4503,9 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['AuditContext'] = Builders::AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
-        data['SupportedPermissionTypes'] = Builders::PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AuditContext'] = AuditContext.build(input[:audit_context]) unless input[:audit_context].nil?
+        data['SupportedPermissionTypes'] = PermissionTypeList.build(input[:supported_permission_types]) unless input[:supported_permission_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4517,7 +4520,7 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4534,7 +4537,7 @@ module AWS::SDK::Glue
         data['Pattern'] = input[:pattern] unless input[:pattern].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4548,7 +4551,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['IncludeGraph'] = input[:include_graph] unless input[:include_graph].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4563,7 +4566,7 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
         data['IncludeGraph'] = input[:include_graph] unless input[:include_graph].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4577,7 +4580,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4593,7 +4596,7 @@ module AWS::SDK::Glue
         data['IncludeGraph'] = input[:include_graph] unless input[:include_graph].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4606,7 +4609,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.ImportCatalogToGlue'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4620,8 +4623,8 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4635,8 +4638,8 @@ module AWS::SDK::Glue
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4650,7 +4653,7 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4664,8 +4667,8 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4679,8 +4682,8 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4694,10 +4697,10 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filter'] = Builders::TransformFilterCriteria.build(input[:filter]) unless input[:filter].nil?
-        data['Sort'] = Builders::TransformSortCriteria.build(input[:sort]) unless input[:sort].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = TransformFilterCriteria.build(input[:filter]) unless input[:filter].nil?
+        data['Sort'] = TransformSortCriteria.build(input[:sort]) unless input[:sort].nil?
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4711,7 +4714,7 @@ module AWS::SDK::Glue
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4723,10 +4726,10 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.ListSchemaVersions'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4738,10 +4741,10 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.ListSchemas'
         data = {}
-        data['RegistryId'] = Builders::RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
+        data['RegistryId'] = RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4755,9 +4758,9 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4772,7 +4775,7 @@ module AWS::SDK::Glue
         data['SessionId'] = input[:session_id] unless input[:session_id].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4787,8 +4790,8 @@ module AWS::SDK::Glue
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['DependentJobName'] = input[:dependent_job_name] unless input[:dependent_job_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4802,7 +4805,7 @@ module AWS::SDK::Glue
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4815,8 +4818,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.PutDataCatalogEncryptionSettings'
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
-        data['DataCatalogEncryptionSettings'] = Builders::DataCatalogEncryptionSettings.build(input[:data_catalog_encryption_settings]) unless input[:data_catalog_encryption_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataCatalogEncryptionSettings'] = DataCatalogEncryptionSettings.build(input[:data_catalog_encryption_settings]) unless input[:data_catalog_encryption_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4824,8 +4827,8 @@ module AWS::SDK::Glue
     class DataCatalogEncryptionSettings
       def self.build(input)
         data = {}
-        data['EncryptionAtRest'] = Builders::EncryptionAtRest.build(input[:encryption_at_rest]) unless input[:encryption_at_rest].nil?
-        data['ConnectionPasswordEncryption'] = Builders::ConnectionPasswordEncryption.build(input[:connection_password_encryption]) unless input[:connection_password_encryption].nil?
+        data['EncryptionAtRest'] = EncryptionAtRest.build(input[:encryption_at_rest]) unless input[:encryption_at_rest].nil?
+        data['ConnectionPasswordEncryption'] = ConnectionPasswordEncryption.build(input[:connection_password_encryption]) unless input[:connection_password_encryption].nil?
         data
       end
     end
@@ -4863,7 +4866,7 @@ module AWS::SDK::Glue
         data['PolicyHashCondition'] = input[:policy_hash_condition] unless input[:policy_hash_condition].nil?
         data['PolicyExistsCondition'] = input[:policy_exists_condition] unless input[:policy_exists_condition].nil?
         data['EnableHybrid'] = input[:enable_hybrid] unless input[:enable_hybrid].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4875,11 +4878,11 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.PutSchemaVersionMetadata'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
-        data['SchemaVersionNumber'] = Builders::SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaVersionNumber'] = SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
         data['SchemaVersionId'] = input[:schema_version_id] unless input[:schema_version_id].nil?
-        data['MetadataKeyValue'] = Builders::MetadataKeyValuePair.build(input[:metadata_key_value]) unless input[:metadata_key_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetadataKeyValue'] = MetadataKeyValuePair.build(input[:metadata_key_value]) unless input[:metadata_key_value].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4903,8 +4906,8 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
-        data['RunProperties'] = Builders::WorkflowRunProperties.build(input[:run_properties]) unless input[:run_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RunProperties'] = WorkflowRunProperties.build(input[:run_properties]) unless input[:run_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4916,13 +4919,13 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.QuerySchemaVersionMetadata'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
-        data['SchemaVersionNumber'] = Builders::SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaVersionNumber'] = SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
         data['SchemaVersionId'] = input[:schema_version_id] unless input[:schema_version_id].nil?
-        data['MetadataList'] = Builders::MetadataList.build(input[:metadata_list]) unless input[:metadata_list].nil?
+        data['MetadataList'] = MetadataList.build(input[:metadata_list]) unless input[:metadata_list].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4931,7 +4934,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetadataKeyValuePair.build(element) unless element.nil?
+          data << MetadataKeyValuePair.build(element) unless element.nil?
         end
         data
       end
@@ -4945,9 +4948,9 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.RegisterSchemaVersion'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
         data['SchemaDefinition'] = input[:schema_definition] unless input[:schema_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4959,11 +4962,11 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.RemoveSchemaVersionMetadata'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
-        data['SchemaVersionNumber'] = Builders::SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaVersionNumber'] = SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
         data['SchemaVersionId'] = input[:schema_version_id] unless input[:schema_version_id].nil?
-        data['MetadataKeyValue'] = Builders::MetadataKeyValuePair.build(input[:metadata_key_value]) unless input[:metadata_key_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetadataKeyValue'] = MetadataKeyValuePair.build(input[:metadata_key_value]) unless input[:metadata_key_value].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4977,7 +4980,7 @@ module AWS::SDK::Glue
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4991,8 +4994,8 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
-        data['NodeIds'] = Builders::NodeIdList.build(input[:node_ids]) unless input[:node_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NodeIds'] = NodeIdList.build(input[:node_ids]) unless input[:node_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5018,7 +5021,7 @@ module AWS::SDK::Glue
         data['SessionId'] = input[:session_id] unless input[:session_id].nil?
         data['Code'] = input[:code] unless input[:code].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5032,12 +5035,12 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::SearchPropertyPredicates.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = SearchPropertyPredicates.build(input[:filters]) unless input[:filters].nil?
         data['SearchText'] = input[:search_text] unless input[:search_text].nil?
-        data['SortCriteria'] = Builders::SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        data['SortCriteria'] = SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ResourceShareType'] = input[:resource_share_type] unless input[:resource_share_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5046,7 +5049,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SortCriterion.build(element) unless element.nil?
+          data << SortCriterion.build(element) unless element.nil?
         end
         data
       end
@@ -5067,7 +5070,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PropertyPredicate.build(element) unless element.nil?
+          data << PropertyPredicate.build(element) unless element.nil?
         end
         data
       end
@@ -5095,7 +5098,7 @@ module AWS::SDK::Glue
         data['BlueprintName'] = input[:blueprint_name] unless input[:blueprint_name].nil?
         data['Parameters'] = input[:parameters] unless input[:parameters].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5108,7 +5111,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StartCrawler'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5121,7 +5124,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StartCrawlerSchedule'
         data = {}
         data['CrawlerName'] = input[:crawler_name] unless input[:crawler_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5135,7 +5138,7 @@ module AWS::SDK::Glue
         data = {}
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
         data['OutputS3Path'] = input[:output_s3_path] unless input[:output_s3_path].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5150,7 +5153,7 @@ module AWS::SDK::Glue
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
         data['InputS3Path'] = input[:input_s3_path] unless input[:input_s3_path].nil?
         data['ReplaceAllLabels'] = input[:replace_all_labels] unless input[:replace_all_labels].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5164,15 +5167,15 @@ module AWS::SDK::Glue
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['JobRunId'] = input[:job_run_id] unless input[:job_run_id].nil?
-        data['Arguments'] = Builders::GenericMap.build(input[:arguments]) unless input[:arguments].nil?
+        data['Arguments'] = GenericMap.build(input[:arguments]) unless input[:arguments].nil?
         data['AllocatedCapacity'] = input[:allocated_capacity] unless input[:allocated_capacity].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(input[:max_capacity]) unless input[:max_capacity].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
-        data['NotificationProperty'] = Builders::NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
+        data['NotificationProperty'] = NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
         data['WorkerType'] = input[:worker_type] unless input[:worker_type].nil?
         data['NumberOfWorkers'] = input[:number_of_workers] unless input[:number_of_workers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5185,7 +5188,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StartMLEvaluationTaskRun'
         data = {}
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5199,7 +5202,7 @@ module AWS::SDK::Glue
         data = {}
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
         data['OutputS3Path'] = input[:output_s3_path] unless input[:output_s3_path].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5212,7 +5215,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StartTrigger'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5225,8 +5228,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StartWorkflowRun'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['RunProperties'] = Builders::WorkflowRunProperties.build(input[:run_properties]) unless input[:run_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RunProperties'] = WorkflowRunProperties.build(input[:run_properties]) unless input[:run_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5239,7 +5242,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StopCrawler'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5252,7 +5255,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StopCrawlerSchedule'
         data = {}
         data['CrawlerName'] = input[:crawler_name] unless input[:crawler_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5266,7 +5269,7 @@ module AWS::SDK::Glue
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['RequestOrigin'] = input[:request_origin] unless input[:request_origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5279,7 +5282,7 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.StopTrigger'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5293,7 +5296,7 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RunId'] = input[:run_id] unless input[:run_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5306,8 +5309,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagsToAdd'] = Builders::TagsMap.build(input[:tags_to_add]) unless input[:tags_to_add].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsToAdd'] = TagsMap.build(input[:tags_to_add]) unless input[:tags_to_add].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5320,8 +5323,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagsToRemove'] = Builders::TagKeysList.build(input[:tags_to_remove]) unless input[:tags_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsToRemove'] = TagKeysList.build(input[:tags_to_remove]) unless input[:tags_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5347,7 +5350,7 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['BlueprintLocation'] = input[:blueprint_location] unless input[:blueprint_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5359,11 +5362,11 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.UpdateClassifier'
         data = {}
-        data['GrokClassifier'] = Builders::UpdateGrokClassifierRequest.build(input[:grok_classifier]) unless input[:grok_classifier].nil?
-        data['XMLClassifier'] = Builders::UpdateXMLClassifierRequest.build(input[:xml_classifier]) unless input[:xml_classifier].nil?
-        data['JsonClassifier'] = Builders::UpdateJsonClassifierRequest.build(input[:json_classifier]) unless input[:json_classifier].nil?
-        data['CsvClassifier'] = Builders::UpdateCsvClassifierRequest.build(input[:csv_classifier]) unless input[:csv_classifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrokClassifier'] = UpdateGrokClassifierRequest.build(input[:grok_classifier]) unless input[:grok_classifier].nil?
+        data['XMLClassifier'] = UpdateXMLClassifierRequest.build(input[:xml_classifier]) unless input[:xml_classifier].nil?
+        data['JsonClassifier'] = UpdateJsonClassifierRequest.build(input[:json_classifier]) unless input[:json_classifier].nil?
+        data['CsvClassifier'] = UpdateCsvClassifierRequest.build(input[:csv_classifier]) unless input[:csv_classifier].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5375,7 +5378,7 @@ module AWS::SDK::Glue
         data['Delimiter'] = input[:delimiter] unless input[:delimiter].nil?
         data['QuoteSymbol'] = input[:quote_symbol] unless input[:quote_symbol].nil?
         data['ContainsHeader'] = input[:contains_header] unless input[:contains_header].nil?
-        data['Header'] = Builders::CsvHeader.build(input[:header]) unless input[:header].nil?
+        data['Header'] = CsvHeader.build(input[:header]) unless input[:header].nil?
         data['DisableValueTrimming'] = input[:disable_value_trimming] unless input[:disable_value_trimming].nil?
         data['AllowSingleColumn'] = input[:allow_single_column] unless input[:allow_single_column].nil?
         data
@@ -5426,9 +5429,9 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionValues'] = Builders::ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
-        data['ColumnStatisticsList'] = Builders::UpdateColumnStatisticsList.build(input[:column_statistics_list]) unless input[:column_statistics_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionValues'] = ValueStringList.build(input[:partition_values]) unless input[:partition_values].nil?
+        data['ColumnStatisticsList'] = UpdateColumnStatisticsList.build(input[:column_statistics_list]) unless input[:column_statistics_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5437,7 +5440,7 @@ module AWS::SDK::Glue
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnStatistics.build(element) unless element.nil?
+          data << ColumnStatistics.build(element) unless element.nil?
         end
         data
       end
@@ -5450,7 +5453,7 @@ module AWS::SDK::Glue
         data['ColumnName'] = input[:column_name] unless input[:column_name].nil?
         data['ColumnType'] = input[:column_type] unless input[:column_type].nil?
         data['AnalyzedTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:analyzed_time]).to_i unless input[:analyzed_time].nil?
-        data['StatisticsData'] = Builders::ColumnStatisticsData.build(input[:statistics_data]) unless input[:statistics_data].nil?
+        data['StatisticsData'] = ColumnStatisticsData.build(input[:statistics_data]) unless input[:statistics_data].nil?
         data
       end
     end
@@ -5460,13 +5463,13 @@ module AWS::SDK::Glue
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['BooleanColumnStatisticsData'] = Builders::BooleanColumnStatisticsData.build(input[:boolean_column_statistics_data]) unless input[:boolean_column_statistics_data].nil?
-        data['DateColumnStatisticsData'] = Builders::DateColumnStatisticsData.build(input[:date_column_statistics_data]) unless input[:date_column_statistics_data].nil?
-        data['DecimalColumnStatisticsData'] = Builders::DecimalColumnStatisticsData.build(input[:decimal_column_statistics_data]) unless input[:decimal_column_statistics_data].nil?
-        data['DoubleColumnStatisticsData'] = Builders::DoubleColumnStatisticsData.build(input[:double_column_statistics_data]) unless input[:double_column_statistics_data].nil?
-        data['LongColumnStatisticsData'] = Builders::LongColumnStatisticsData.build(input[:long_column_statistics_data]) unless input[:long_column_statistics_data].nil?
-        data['StringColumnStatisticsData'] = Builders::StringColumnStatisticsData.build(input[:string_column_statistics_data]) unless input[:string_column_statistics_data].nil?
-        data['BinaryColumnStatisticsData'] = Builders::BinaryColumnStatisticsData.build(input[:binary_column_statistics_data]) unless input[:binary_column_statistics_data].nil?
+        data['BooleanColumnStatisticsData'] = BooleanColumnStatisticsData.build(input[:boolean_column_statistics_data]) unless input[:boolean_column_statistics_data].nil?
+        data['DateColumnStatisticsData'] = DateColumnStatisticsData.build(input[:date_column_statistics_data]) unless input[:date_column_statistics_data].nil?
+        data['DecimalColumnStatisticsData'] = DecimalColumnStatisticsData.build(input[:decimal_column_statistics_data]) unless input[:decimal_column_statistics_data].nil?
+        data['DoubleColumnStatisticsData'] = DoubleColumnStatisticsData.build(input[:double_column_statistics_data]) unless input[:double_column_statistics_data].nil?
+        data['LongColumnStatisticsData'] = LongColumnStatisticsData.build(input[:long_column_statistics_data]) unless input[:long_column_statistics_data].nil?
+        data['StringColumnStatisticsData'] = StringColumnStatisticsData.build(input[:string_column_statistics_data]) unless input[:string_column_statistics_data].nil?
+        data['BinaryColumnStatisticsData'] = BinaryColumnStatisticsData.build(input[:binary_column_statistics_data]) unless input[:binary_column_statistics_data].nil?
         data
       end
     end
@@ -5522,8 +5525,8 @@ module AWS::SDK::Glue
     class DecimalColumnStatisticsData
       def self.build(input)
         data = {}
-        data['MinimumValue'] = Builders::DecimalNumber.build(input[:minimum_value]) unless input[:minimum_value].nil?
-        data['MaximumValue'] = Builders::DecimalNumber.build(input[:maximum_value]) unless input[:maximum_value].nil?
+        data['MinimumValue'] = DecimalNumber.build(input[:minimum_value]) unless input[:minimum_value].nil?
+        data['MaximumValue'] = DecimalNumber.build(input[:maximum_value]) unless input[:maximum_value].nil?
         data['NumberOfNulls'] = input[:number_of_nulls] unless input[:number_of_nulls].nil?
         data['NumberOfDistinctValues'] = input[:number_of_distinct_values] unless input[:number_of_distinct_values].nil?
         data
@@ -5534,7 +5537,7 @@ module AWS::SDK::Glue
     class DecimalNumber
       def self.build(input)
         data = {}
-        data['UnscaledValue'] = Base64::encode64(input[:unscaled_value]).strip unless input[:unscaled_value].nil?
+        data['UnscaledValue'] = ::Base64::encode64(input[:unscaled_value]).strip unless input[:unscaled_value].nil?
         data['Scale'] = input[:scale] unless input[:scale].nil?
         data
       end
@@ -5574,8 +5577,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['ColumnStatisticsList'] = Builders::UpdateColumnStatisticsList.build(input[:column_statistics_list]) unless input[:column_statistics_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ColumnStatisticsList'] = UpdateColumnStatisticsList.build(input[:column_statistics_list]) unless input[:column_statistics_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5589,8 +5592,8 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['ConnectionInput'] = Builders::ConnectionInput.build(input[:connection_input]) unless input[:connection_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectionInput'] = ConnectionInput.build(input[:connection_input]) unless input[:connection_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5606,17 +5609,17 @@ module AWS::SDK::Glue
         data['Role'] = input[:role] unless input[:role].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Targets'] = Builders::CrawlerTargets.build(input[:targets]) unless input[:targets].nil?
+        data['Targets'] = CrawlerTargets.build(input[:targets]) unless input[:targets].nil?
         data['Schedule'] = input[:schedule] unless input[:schedule].nil?
-        data['Classifiers'] = Builders::ClassifierNameList.build(input[:classifiers]) unless input[:classifiers].nil?
+        data['Classifiers'] = ClassifierNameList.build(input[:classifiers]) unless input[:classifiers].nil?
         data['TablePrefix'] = input[:table_prefix] unless input[:table_prefix].nil?
-        data['SchemaChangePolicy'] = Builders::SchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
-        data['RecrawlPolicy'] = Builders::RecrawlPolicy.build(input[:recrawl_policy]) unless input[:recrawl_policy].nil?
-        data['LineageConfiguration'] = Builders::LineageConfiguration.build(input[:lineage_configuration]) unless input[:lineage_configuration].nil?
-        data['LakeFormationConfiguration'] = Builders::LakeFormationConfiguration.build(input[:lake_formation_configuration]) unless input[:lake_formation_configuration].nil?
+        data['SchemaChangePolicy'] = SchemaChangePolicy.build(input[:schema_change_policy]) unless input[:schema_change_policy].nil?
+        data['RecrawlPolicy'] = RecrawlPolicy.build(input[:recrawl_policy]) unless input[:recrawl_policy].nil?
+        data['LineageConfiguration'] = LineageConfiguration.build(input[:lineage_configuration]) unless input[:lineage_configuration].nil?
+        data['LakeFormationConfiguration'] = LakeFormationConfiguration.build(input[:lake_formation_configuration]) unless input[:lake_formation_configuration].nil?
         data['Configuration'] = input[:configuration] unless input[:configuration].nil?
         data['CrawlerSecurityConfiguration'] = input[:crawler_security_configuration] unless input[:crawler_security_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5630,7 +5633,7 @@ module AWS::SDK::Glue
         data = {}
         data['CrawlerName'] = input[:crawler_name] unless input[:crawler_name].nil?
         data['Schedule'] = input[:schedule] unless input[:schedule].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5644,8 +5647,8 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['DatabaseInput'] = Builders::DatabaseInput.build(input[:database_input]) unless input[:database_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatabaseInput'] = DatabaseInput.build(input[:database_input]) unless input[:database_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5659,13 +5662,13 @@ module AWS::SDK::Glue
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
         data['PublicKey'] = input[:public_key] unless input[:public_key].nil?
-        data['AddPublicKeys'] = Builders::PublicKeysList.build(input[:add_public_keys]) unless input[:add_public_keys].nil?
-        data['DeletePublicKeys'] = Builders::PublicKeysList.build(input[:delete_public_keys]) unless input[:delete_public_keys].nil?
-        data['CustomLibraries'] = Builders::DevEndpointCustomLibraries.build(input[:custom_libraries]) unless input[:custom_libraries].nil?
+        data['AddPublicKeys'] = PublicKeysList.build(input[:add_public_keys]) unless input[:add_public_keys].nil?
+        data['DeletePublicKeys'] = PublicKeysList.build(input[:delete_public_keys]) unless input[:delete_public_keys].nil?
+        data['CustomLibraries'] = DevEndpointCustomLibraries.build(input[:custom_libraries]) unless input[:custom_libraries].nil?
         data['UpdateEtlLibraries'] = input[:update_etl_libraries] unless input[:update_etl_libraries].nil?
-        data['DeleteArguments'] = Builders::StringList.build(input[:delete_arguments]) unless input[:delete_arguments].nil?
-        data['AddArguments'] = Builders::MapValue.build(input[:add_arguments]) unless input[:add_arguments].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeleteArguments'] = StringList.build(input[:delete_arguments]) unless input[:delete_arguments].nil?
+        data['AddArguments'] = MapValue.build(input[:add_arguments]) unless input[:add_arguments].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5688,8 +5691,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.UpdateJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['JobUpdate'] = Builders::JobUpdate.build(input[:job_update]) unless input[:job_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobUpdate'] = JobUpdate.build(input[:job_update]) unless input[:job_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5700,11 +5703,11 @@ module AWS::SDK::Glue
         data['Description'] = input[:description] unless input[:description].nil?
         data['LogUri'] = input[:log_uri] unless input[:log_uri].nil?
         data['Role'] = input[:role] unless input[:role].nil?
-        data['ExecutionProperty'] = Builders::ExecutionProperty.build(input[:execution_property]) unless input[:execution_property].nil?
-        data['Command'] = Builders::JobCommand.build(input[:command]) unless input[:command].nil?
-        data['DefaultArguments'] = Builders::GenericMap.build(input[:default_arguments]) unless input[:default_arguments].nil?
-        data['NonOverridableArguments'] = Builders::GenericMap.build(input[:non_overridable_arguments]) unless input[:non_overridable_arguments].nil?
-        data['Connections'] = Builders::ConnectionsList.build(input[:connections]) unless input[:connections].nil?
+        data['ExecutionProperty'] = ExecutionProperty.build(input[:execution_property]) unless input[:execution_property].nil?
+        data['Command'] = JobCommand.build(input[:command]) unless input[:command].nil?
+        data['DefaultArguments'] = GenericMap.build(input[:default_arguments]) unless input[:default_arguments].nil?
+        data['NonOverridableArguments'] = GenericMap.build(input[:non_overridable_arguments]) unless input[:non_overridable_arguments].nil?
+        data['Connections'] = ConnectionsList.build(input[:connections]) unless input[:connections].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
         data['AllocatedCapacity'] = input[:allocated_capacity] unless input[:allocated_capacity].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
@@ -5712,9 +5715,9 @@ module AWS::SDK::Glue
         data['WorkerType'] = input[:worker_type] unless input[:worker_type].nil?
         data['NumberOfWorkers'] = input[:number_of_workers] unless input[:number_of_workers].nil?
         data['SecurityConfiguration'] = input[:security_configuration] unless input[:security_configuration].nil?
-        data['NotificationProperty'] = Builders::NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
+        data['NotificationProperty'] = NotificationProperty.build(input[:notification_property]) unless input[:notification_property].nil?
         data['GlueVersion'] = input[:glue_version] unless input[:glue_version].nil?
-        data['CodeGenConfigurationNodes'] = Builders::CodeGenConfigurationNodes.build(input[:code_gen_configuration_nodes]) unless input[:code_gen_configuration_nodes].nil?
+        data['CodeGenConfigurationNodes'] = CodeGenConfigurationNodes.build(input[:code_gen_configuration_nodes]) unless input[:code_gen_configuration_nodes].nil?
         data
       end
     end
@@ -5730,7 +5733,7 @@ module AWS::SDK::Glue
         data['TransformId'] = input[:transform_id] unless input[:transform_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Parameters'] = Builders::TransformParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = TransformParameters.build(input[:parameters]) unless input[:parameters].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data['GlueVersion'] = input[:glue_version] unless input[:glue_version].nil?
         data['MaxCapacity'] = Hearth::NumberHelper.serialize(input[:max_capacity]) unless input[:max_capacity].nil?
@@ -5738,7 +5741,7 @@ module AWS::SDK::Glue
         data['NumberOfWorkers'] = input[:number_of_workers] unless input[:number_of_workers].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5753,9 +5756,9 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PartitionValueList'] = Builders::BoundedPartitionValueList.build(input[:partition_value_list]) unless input[:partition_value_list].nil?
-        data['PartitionInput'] = Builders::PartitionInput.build(input[:partition_input]) unless input[:partition_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionValueList'] = BoundedPartitionValueList.build(input[:partition_value_list]) unless input[:partition_value_list].nil?
+        data['PartitionInput'] = PartitionInput.build(input[:partition_input]) unless input[:partition_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5767,9 +5770,9 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.UpdateRegistry'
         data = {}
-        data['RegistryId'] = Builders::RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
+        data['RegistryId'] = RegistryId.build(input[:registry_id]) unless input[:registry_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5781,11 +5784,11 @@ module AWS::SDK::Glue
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSGlue.UpdateSchema'
         data = {}
-        data['SchemaId'] = Builders::SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
-        data['SchemaVersionNumber'] = Builders::SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
+        data['SchemaId'] = SchemaId.build(input[:schema_id]) unless input[:schema_id].nil?
+        data['SchemaVersionNumber'] = SchemaVersionNumber.build(input[:schema_version_number]) unless input[:schema_version_number].nil?
         data['Compatibility'] = input[:compatibility] unless input[:compatibility].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5799,11 +5802,11 @@ module AWS::SDK::Glue
         data = {}
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        data['TableInput'] = Builders::TableInput.build(input[:table_input]) unless input[:table_input].nil?
+        data['TableInput'] = TableInput.build(input[:table_input]) unless input[:table_input].nil?
         data['SkipArchive'] = input[:skip_archive] unless input[:skip_archive].nil?
         data['TransactionId'] = input[:transaction_id] unless input[:transaction_id].nil?
         data['VersionId'] = input[:version_id] unless input[:version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5816,8 +5819,8 @@ module AWS::SDK::Glue
         http_req.headers['X-Amz-Target'] = 'AWSGlue.UpdateTrigger'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['TriggerUpdate'] = Builders::TriggerUpdate.build(input[:trigger_update]) unless input[:trigger_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TriggerUpdate'] = TriggerUpdate.build(input[:trigger_update]) unless input[:trigger_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5828,9 +5831,9 @@ module AWS::SDK::Glue
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Schedule'] = input[:schedule] unless input[:schedule].nil?
-        data['Actions'] = Builders::ActionList.build(input[:actions]) unless input[:actions].nil?
-        data['Predicate'] = Builders::Predicate.build(input[:predicate]) unless input[:predicate].nil?
-        data['EventBatchingCondition'] = Builders::EventBatchingCondition.build(input[:event_batching_condition]) unless input[:event_batching_condition].nil?
+        data['Actions'] = ActionList.build(input[:actions]) unless input[:actions].nil?
+        data['Predicate'] = Predicate.build(input[:predicate]) unless input[:predicate].nil?
+        data['EventBatchingCondition'] = EventBatchingCondition.build(input[:event_batching_condition]) unless input[:event_batching_condition].nil?
         data
       end
     end
@@ -5846,8 +5849,8 @@ module AWS::SDK::Glue
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
-        data['FunctionInput'] = Builders::UserDefinedFunctionInput.build(input[:function_input]) unless input[:function_input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FunctionInput'] = UserDefinedFunctionInput.build(input[:function_input]) unless input[:function_input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5861,9 +5864,9 @@ module AWS::SDK::Glue
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['DefaultRunProperties'] = Builders::WorkflowRunProperties.build(input[:default_run_properties]) unless input[:default_run_properties].nil?
+        data['DefaultRunProperties'] = WorkflowRunProperties.build(input[:default_run_properties]) unless input[:default_run_properties].nil?
         data['MaxConcurrentRuns'] = input[:max_concurrent_runs] unless input[:max_concurrent_runs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

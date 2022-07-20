@@ -211,7 +211,7 @@ module AWS::SDK::Transfer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.server_id = map['ServerId']
-        data.access = (Parsers::DescribedAccess.parse(map['Access']) unless map['Access'].nil?)
+        data.access = (DescribedAccess.parse(map['Access']) unless map['Access'].nil?)
         data
       end
     end
@@ -220,10 +220,10 @@ module AWS::SDK::Transfer
       def self.parse(map)
         data = Types::DescribedAccess.new
         data.home_directory = map['HomeDirectory']
-        data.home_directory_mappings = (Parsers::HomeDirectoryMappings.parse(map['HomeDirectoryMappings']) unless map['HomeDirectoryMappings'].nil?)
+        data.home_directory_mappings = (HomeDirectoryMappings.parse(map['HomeDirectoryMappings']) unless map['HomeDirectoryMappings'].nil?)
         data.home_directory_type = map['HomeDirectoryType']
         data.policy = map['Policy']
-        data.posix_profile = (Parsers::PosixProfile.parse(map['PosixProfile']) unless map['PosixProfile'].nil?)
+        data.posix_profile = (PosixProfile.parse(map['PosixProfile']) unless map['PosixProfile'].nil?)
         data.role = map['Role']
         data.external_id = map['ExternalId']
         return data
@@ -235,7 +235,7 @@ module AWS::SDK::Transfer
         data = Types::PosixProfile.new
         data.uid = map['Uid']
         data.gid = map['Gid']
-        data.secondary_gids = (Parsers::SecondaryGids.parse(map['SecondaryGids']) unless map['SecondaryGids'].nil?)
+        data.secondary_gids = (SecondaryGids.parse(map['SecondaryGids']) unless map['SecondaryGids'].nil?)
         return data
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::Transfer
     class HomeDirectoryMappings
       def self.parse(list)
         list.map do |value|
-          Parsers::HomeDirectoryMapEntry.parse(value) unless value.nil?
+          HomeDirectoryMapEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -273,7 +273,7 @@ module AWS::SDK::Transfer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.workflow_id = map['WorkflowId']
-        data.execution = (Parsers::DescribedExecution.parse(map['Execution']) unless map['Execution'].nil?)
+        data.execution = (DescribedExecution.parse(map['Execution']) unless map['Execution'].nil?)
         data
       end
     end
@@ -282,13 +282,13 @@ module AWS::SDK::Transfer
       def self.parse(map)
         data = Types::DescribedExecution.new
         data.execution_id = map['ExecutionId']
-        data.initial_file_location = (Parsers::FileLocation.parse(map['InitialFileLocation']) unless map['InitialFileLocation'].nil?)
-        data.service_metadata = (Parsers::ServiceMetadata.parse(map['ServiceMetadata']) unless map['ServiceMetadata'].nil?)
+        data.initial_file_location = (FileLocation.parse(map['InitialFileLocation']) unless map['InitialFileLocation'].nil?)
+        data.service_metadata = (ServiceMetadata.parse(map['ServiceMetadata']) unless map['ServiceMetadata'].nil?)
         data.execution_role = map['ExecutionRole']
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
-        data.posix_profile = (Parsers::PosixProfile.parse(map['PosixProfile']) unless map['PosixProfile'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.posix_profile = (PosixProfile.parse(map['PosixProfile']) unless map['PosixProfile'].nil?)
         data.status = map['Status']
-        data.results = (Parsers::ExecutionResults.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (ExecutionResults.parse(map['Results']) unless map['Results'].nil?)
         return data
       end
     end
@@ -296,8 +296,8 @@ module AWS::SDK::Transfer
     class ExecutionResults
       def self.parse(map)
         data = Types::ExecutionResults.new
-        data.steps = (Parsers::ExecutionStepResults.parse(map['Steps']) unless map['Steps'].nil?)
-        data.on_exception_steps = (Parsers::ExecutionStepResults.parse(map['OnExceptionSteps']) unless map['OnExceptionSteps'].nil?)
+        data.steps = (ExecutionStepResults.parse(map['Steps']) unless map['Steps'].nil?)
+        data.on_exception_steps = (ExecutionStepResults.parse(map['OnExceptionSteps']) unless map['OnExceptionSteps'].nil?)
         return data
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::Transfer
     class ExecutionStepResults
       def self.parse(list)
         list.map do |value|
-          Parsers::ExecutionStepResult.parse(value) unless value.nil?
+          ExecutionStepResult.parse(value) unless value.nil?
         end
       end
     end
@@ -315,7 +315,7 @@ module AWS::SDK::Transfer
         data = Types::ExecutionStepResult.new
         data.step_type = map['StepType']
         data.outputs = map['Outputs']
-        data.error = (Parsers::ExecutionError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (ExecutionError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -341,7 +341,7 @@ module AWS::SDK::Transfer
     class ServiceMetadata
       def self.parse(map)
         data = Types::ServiceMetadata.new
-        data.user_details = (Parsers::UserDetails.parse(map['UserDetails']) unless map['UserDetails'].nil?)
+        data.user_details = (UserDetails.parse(map['UserDetails']) unless map['UserDetails'].nil?)
         return data
       end
     end
@@ -359,8 +359,8 @@ module AWS::SDK::Transfer
     class FileLocation
       def self.parse(map)
         data = Types::FileLocation.new
-        data.s3_file_location = (Parsers::S3FileLocation.parse(map['S3FileLocation']) unless map['S3FileLocation'].nil?)
-        data.efs_file_location = (Parsers::EfsFileLocation.parse(map['EfsFileLocation']) unless map['EfsFileLocation'].nil?)
+        data.s3_file_location = (S3FileLocation.parse(map['S3FileLocation']) unless map['S3FileLocation'].nil?)
+        data.efs_file_location = (EfsFileLocation.parse(map['EfsFileLocation']) unless map['EfsFileLocation'].nil?)
         return data
       end
     end
@@ -392,7 +392,7 @@ module AWS::SDK::Transfer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.security_policy = (Parsers::DescribedSecurityPolicy.parse(map['SecurityPolicy']) unless map['SecurityPolicy'].nil?)
+        data.security_policy = (DescribedSecurityPolicy.parse(map['SecurityPolicy']) unless map['SecurityPolicy'].nil?)
         data
       end
     end
@@ -402,10 +402,10 @@ module AWS::SDK::Transfer
         data = Types::DescribedSecurityPolicy.new
         data.fips = map['Fips']
         data.security_policy_name = map['SecurityPolicyName']
-        data.ssh_ciphers = (Parsers::SecurityPolicyOptions.parse(map['SshCiphers']) unless map['SshCiphers'].nil?)
-        data.ssh_kexs = (Parsers::SecurityPolicyOptions.parse(map['SshKexs']) unless map['SshKexs'].nil?)
-        data.ssh_macs = (Parsers::SecurityPolicyOptions.parse(map['SshMacs']) unless map['SshMacs'].nil?)
-        data.tls_ciphers = (Parsers::SecurityPolicyOptions.parse(map['TlsCiphers']) unless map['TlsCiphers'].nil?)
+        data.ssh_ciphers = (SecurityPolicyOptions.parse(map['SshCiphers']) unless map['SshCiphers'].nil?)
+        data.ssh_kexs = (SecurityPolicyOptions.parse(map['SshKexs']) unless map['SshKexs'].nil?)
+        data.ssh_macs = (SecurityPolicyOptions.parse(map['SshMacs']) unless map['SshMacs'].nil?)
+        data.tls_ciphers = (SecurityPolicyOptions.parse(map['TlsCiphers']) unless map['TlsCiphers'].nil?)
         return data
       end
     end
@@ -425,7 +425,7 @@ module AWS::SDK::Transfer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server = (Parsers::DescribedServer.parse(map['Server']) unless map['Server'].nil?)
+        data.server = (DescribedServer.parse(map['Server']) unless map['Server'].nil?)
         data
       end
     end
@@ -435,23 +435,23 @@ module AWS::SDK::Transfer
         data = Types::DescribedServer.new
         data.arn = map['Arn']
         data.certificate = map['Certificate']
-        data.protocol_details = (Parsers::ProtocolDetails.parse(map['ProtocolDetails']) unless map['ProtocolDetails'].nil?)
+        data.protocol_details = (ProtocolDetails.parse(map['ProtocolDetails']) unless map['ProtocolDetails'].nil?)
         data.domain = map['Domain']
-        data.endpoint_details = (Parsers::EndpointDetails.parse(map['EndpointDetails']) unless map['EndpointDetails'].nil?)
+        data.endpoint_details = (EndpointDetails.parse(map['EndpointDetails']) unless map['EndpointDetails'].nil?)
         data.endpoint_type = map['EndpointType']
         data.host_key_fingerprint = map['HostKeyFingerprint']
-        data.identity_provider_details = (Parsers::IdentityProviderDetails.parse(map['IdentityProviderDetails']) unless map['IdentityProviderDetails'].nil?)
+        data.identity_provider_details = (IdentityProviderDetails.parse(map['IdentityProviderDetails']) unless map['IdentityProviderDetails'].nil?)
         data.identity_provider_type = map['IdentityProviderType']
         data.logging_role = map['LoggingRole']
         data.post_authentication_login_banner = map['PostAuthenticationLoginBanner']
         data.pre_authentication_login_banner = map['PreAuthenticationLoginBanner']
-        data.protocols = (Parsers::Protocols.parse(map['Protocols']) unless map['Protocols'].nil?)
+        data.protocols = (Protocols.parse(map['Protocols']) unless map['Protocols'].nil?)
         data.security_policy_name = map['SecurityPolicyName']
         data.server_id = map['ServerId']
         data.state = map['State']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.user_count = map['UserCount']
-        data.workflow_details = (Parsers::WorkflowDetails.parse(map['WorkflowDetails']) unless map['WorkflowDetails'].nil?)
+        data.workflow_details = (WorkflowDetails.parse(map['WorkflowDetails']) unless map['WorkflowDetails'].nil?)
         return data
       end
     end
@@ -459,7 +459,7 @@ module AWS::SDK::Transfer
     class WorkflowDetails
       def self.parse(map)
         data = Types::WorkflowDetails.new
-        data.on_upload = (Parsers::OnUploadWorkflowDetails.parse(map['OnUpload']) unless map['OnUpload'].nil?)
+        data.on_upload = (OnUploadWorkflowDetails.parse(map['OnUpload']) unless map['OnUpload'].nil?)
         return data
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::Transfer
     class OnUploadWorkflowDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkflowDetail.parse(value) unless value.nil?
+          WorkflowDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -484,7 +484,7 @@ module AWS::SDK::Transfer
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -520,11 +520,11 @@ module AWS::SDK::Transfer
     class EndpointDetails
       def self.parse(map)
         data = Types::EndpointDetails.new
-        data.address_allocation_ids = (Parsers::AddressAllocationIds.parse(map['AddressAllocationIds']) unless map['AddressAllocationIds'].nil?)
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.address_allocation_ids = (AddressAllocationIds.parse(map['AddressAllocationIds']) unless map['AddressAllocationIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.vpc_endpoint_id = map['VpcEndpointId']
         data.vpc_id = map['VpcId']
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         return data
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::Transfer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.server_id = map['ServerId']
-        data.user = (Parsers::DescribedUser.parse(map['User']) unless map['User'].nil?)
+        data.user = (DescribedUser.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -581,13 +581,13 @@ module AWS::SDK::Transfer
         data = Types::DescribedUser.new
         data.arn = map['Arn']
         data.home_directory = map['HomeDirectory']
-        data.home_directory_mappings = (Parsers::HomeDirectoryMappings.parse(map['HomeDirectoryMappings']) unless map['HomeDirectoryMappings'].nil?)
+        data.home_directory_mappings = (HomeDirectoryMappings.parse(map['HomeDirectoryMappings']) unless map['HomeDirectoryMappings'].nil?)
         data.home_directory_type = map['HomeDirectoryType']
         data.policy = map['Policy']
-        data.posix_profile = (Parsers::PosixProfile.parse(map['PosixProfile']) unless map['PosixProfile'].nil?)
+        data.posix_profile = (PosixProfile.parse(map['PosixProfile']) unless map['PosixProfile'].nil?)
         data.role = map['Role']
-        data.ssh_public_keys = (Parsers::SshPublicKeys.parse(map['SshPublicKeys']) unless map['SshPublicKeys'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.ssh_public_keys = (SshPublicKeys.parse(map['SshPublicKeys']) unless map['SshPublicKeys'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.user_name = map['UserName']
         return data
       end
@@ -596,7 +596,7 @@ module AWS::SDK::Transfer
     class SshPublicKeys
       def self.parse(list)
         list.map do |value|
-          Parsers::SshPublicKey.parse(value) unless value.nil?
+          SshPublicKey.parse(value) unless value.nil?
         end
       end
     end
@@ -618,7 +618,7 @@ module AWS::SDK::Transfer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workflow = (Parsers::DescribedWorkflow.parse(map['Workflow']) unless map['Workflow'].nil?)
+        data.workflow = (DescribedWorkflow.parse(map['Workflow']) unless map['Workflow'].nil?)
         data
       end
     end
@@ -628,10 +628,10 @@ module AWS::SDK::Transfer
         data = Types::DescribedWorkflow.new
         data.arn = map['Arn']
         data.description = map['Description']
-        data.steps = (Parsers::WorkflowSteps.parse(map['Steps']) unless map['Steps'].nil?)
-        data.on_exception_steps = (Parsers::WorkflowSteps.parse(map['OnExceptionSteps']) unless map['OnExceptionSteps'].nil?)
+        data.steps = (WorkflowSteps.parse(map['Steps']) unless map['Steps'].nil?)
+        data.on_exception_steps = (WorkflowSteps.parse(map['OnExceptionSteps']) unless map['OnExceptionSteps'].nil?)
         data.workflow_id = map['WorkflowId']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -639,7 +639,7 @@ module AWS::SDK::Transfer
     class WorkflowSteps
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkflowStep.parse(value) unless value.nil?
+          WorkflowStep.parse(value) unless value.nil?
         end
       end
     end
@@ -648,10 +648,10 @@ module AWS::SDK::Transfer
       def self.parse(map)
         data = Types::WorkflowStep.new
         data.type = map['Type']
-        data.copy_step_details = (Parsers::CopyStepDetails.parse(map['CopyStepDetails']) unless map['CopyStepDetails'].nil?)
-        data.custom_step_details = (Parsers::CustomStepDetails.parse(map['CustomStepDetails']) unless map['CustomStepDetails'].nil?)
-        data.delete_step_details = (Parsers::DeleteStepDetails.parse(map['DeleteStepDetails']) unless map['DeleteStepDetails'].nil?)
-        data.tag_step_details = (Parsers::TagStepDetails.parse(map['TagStepDetails']) unless map['TagStepDetails'].nil?)
+        data.copy_step_details = (CopyStepDetails.parse(map['CopyStepDetails']) unless map['CopyStepDetails'].nil?)
+        data.custom_step_details = (CustomStepDetails.parse(map['CustomStepDetails']) unless map['CustomStepDetails'].nil?)
+        data.delete_step_details = (DeleteStepDetails.parse(map['DeleteStepDetails']) unless map['DeleteStepDetails'].nil?)
+        data.tag_step_details = (TagStepDetails.parse(map['TagStepDetails']) unless map['TagStepDetails'].nil?)
         return data
       end
     end
@@ -660,7 +660,7 @@ module AWS::SDK::Transfer
       def self.parse(map)
         data = Types::TagStepDetails.new
         data.name = map['Name']
-        data.tags = (Parsers::S3Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (S3Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.source_file_location = map['SourceFileLocation']
         return data
       end
@@ -669,7 +669,7 @@ module AWS::SDK::Transfer
     class S3Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::S3Tag.parse(value) unless value.nil?
+          S3Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::Transfer
       def self.parse(map)
         data = Types::CopyStepDetails.new
         data.name = map['Name']
-        data.destination_file_location = (Parsers::InputFileLocation.parse(map['DestinationFileLocation']) unless map['DestinationFileLocation'].nil?)
+        data.destination_file_location = (InputFileLocation.parse(map['DestinationFileLocation']) unless map['DestinationFileLocation'].nil?)
         data.overwrite_existing = map['OverwriteExisting']
         data.source_file_location = map['SourceFileLocation']
         return data
@@ -717,8 +717,8 @@ module AWS::SDK::Transfer
     class InputFileLocation
       def self.parse(map)
         data = Types::InputFileLocation.new
-        data.s3_file_location = (Parsers::S3InputFileLocation.parse(map['S3FileLocation']) unless map['S3FileLocation'].nil?)
-        data.efs_file_location = (Parsers::EfsFileLocation.parse(map['EfsFileLocation']) unless map['EfsFileLocation'].nil?)
+        data.s3_file_location = (S3InputFileLocation.parse(map['S3FileLocation']) unless map['S3FileLocation'].nil?)
+        data.efs_file_location = (EfsFileLocation.parse(map['EfsFileLocation']) unless map['EfsFileLocation'].nil?)
         return data
       end
     end
@@ -755,7 +755,7 @@ module AWS::SDK::Transfer
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
         data.server_id = map['ServerId']
-        data.accesses = (Parsers::ListedAccesses.parse(map['Accesses']) unless map['Accesses'].nil?)
+        data.accesses = (ListedAccesses.parse(map['Accesses']) unless map['Accesses'].nil?)
         data
       end
     end
@@ -763,7 +763,7 @@ module AWS::SDK::Transfer
     class ListedAccesses
       def self.parse(list)
         list.map do |value|
-          Parsers::ListedAccess.parse(value) unless value.nil?
+          ListedAccess.parse(value) unless value.nil?
         end
       end
     end
@@ -800,7 +800,7 @@ module AWS::SDK::Transfer
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
         data.workflow_id = map['WorkflowId']
-        data.executions = (Parsers::ListedExecutions.parse(map['Executions']) unless map['Executions'].nil?)
+        data.executions = (ListedExecutions.parse(map['Executions']) unless map['Executions'].nil?)
         data
       end
     end
@@ -808,7 +808,7 @@ module AWS::SDK::Transfer
     class ListedExecutions
       def self.parse(list)
         list.map do |value|
-          Parsers::ListedExecution.parse(value) unless value.nil?
+          ListedExecution.parse(value) unless value.nil?
         end
       end
     end
@@ -817,8 +817,8 @@ module AWS::SDK::Transfer
       def self.parse(map)
         data = Types::ListedExecution.new
         data.execution_id = map['ExecutionId']
-        data.initial_file_location = (Parsers::FileLocation.parse(map['InitialFileLocation']) unless map['InitialFileLocation'].nil?)
-        data.service_metadata = (Parsers::ServiceMetadata.parse(map['ServiceMetadata']) unless map['ServiceMetadata'].nil?)
+        data.initial_file_location = (FileLocation.parse(map['InitialFileLocation']) unless map['InitialFileLocation'].nil?)
+        data.service_metadata = (ServiceMetadata.parse(map['ServiceMetadata']) unless map['ServiceMetadata'].nil?)
         data.status = map['Status']
         return data
       end
@@ -832,7 +832,7 @@ module AWS::SDK::Transfer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.security_policy_names = (Parsers::SecurityPolicyNames.parse(map['SecurityPolicyNames']) unless map['SecurityPolicyNames'].nil?)
+        data.security_policy_names = (SecurityPolicyNames.parse(map['SecurityPolicyNames']) unless map['SecurityPolicyNames'].nil?)
         data
       end
     end
@@ -853,7 +853,7 @@ module AWS::SDK::Transfer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.servers = (Parsers::ListedServers.parse(map['Servers']) unless map['Servers'].nil?)
+        data.servers = (ListedServers.parse(map['Servers']) unless map['Servers'].nil?)
         data
       end
     end
@@ -861,7 +861,7 @@ module AWS::SDK::Transfer
     class ListedServers
       def self.parse(list)
         list.map do |value|
-          Parsers::ListedServer.parse(value) unless value.nil?
+          ListedServer.parse(value) unless value.nil?
         end
       end
     end
@@ -890,7 +890,7 @@ module AWS::SDK::Transfer
         map = Hearth::JSON.load(body)
         data.arn = map['Arn']
         data.next_token = map['NextToken']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -904,7 +904,7 @@ module AWS::SDK::Transfer
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
         data.server_id = map['ServerId']
-        data.users = (Parsers::ListedUsers.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (ListedUsers.parse(map['Users']) unless map['Users'].nil?)
         data
       end
     end
@@ -912,7 +912,7 @@ module AWS::SDK::Transfer
     class ListedUsers
       def self.parse(list)
         list.map do |value|
-          Parsers::ListedUser.parse(value) unless value.nil?
+          ListedUser.parse(value) unless value.nil?
         end
       end
     end
@@ -938,7 +938,7 @@ module AWS::SDK::Transfer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.workflows = (Parsers::ListedWorkflows.parse(map['Workflows']) unless map['Workflows'].nil?)
+        data.workflows = (ListedWorkflows.parse(map['Workflows']) unless map['Workflows'].nil?)
         data
       end
     end
@@ -946,7 +946,7 @@ module AWS::SDK::Transfer
     class ListedWorkflows
       def self.parse(list)
         list.map do |value|
-          Parsers::ListedWorkflow.parse(value) unless value.nil?
+          ListedWorkflow.parse(value) unless value.nil?
         end
       end
     end

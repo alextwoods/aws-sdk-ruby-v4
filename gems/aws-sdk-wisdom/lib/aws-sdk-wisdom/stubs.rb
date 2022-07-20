@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Wisdom
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assistant'] = Stubs::AssistantData.stub(stub[:assistant]) unless stub[:assistant].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assistant'] = AssistantData.stub(stub[:assistant]) unless stub[:assistant].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,8 +55,8 @@ module AWS::SDK::Wisdom
         data['type'] = stub[:type] unless stub[:type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['serverSideEncryptionConfiguration'] = Stubs::ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['serverSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         data
       end
     end
@@ -109,8 +111,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assistantAssociation'] = Stubs::AssistantAssociationData.stub(stub[:assistant_association]) unless stub[:assistant_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assistantAssociation'] = AssistantAssociationData.stub(stub[:assistant_association]) unless stub[:assistant_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,8 +140,8 @@ module AWS::SDK::Wisdom
         data['assistantId'] = stub[:assistant_id] unless stub[:assistant_id].nil?
         data['assistantArn'] = stub[:assistant_arn] unless stub[:assistant_arn].nil?
         data['associationType'] = stub[:association_type] unless stub[:association_type].nil?
-        data['associationData'] = Stubs::AssistantAssociationOutputData.stub(stub[:association_data]) unless stub[:association_data].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['associationData'] = AssistantAssociationOutputData.stub(stub[:association_data]) unless stub[:association_data].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -158,7 +160,7 @@ module AWS::SDK::Wisdom
         data = {}
         case stub
         when Types::AssistantAssociationOutputData::KnowledgeBaseAssociation
-          data['knowledgeBaseAssociation'] = (Stubs::KnowledgeBaseAssociationData.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['knowledgeBaseAssociation'] = (KnowledgeBaseAssociationData.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::AssistantAssociationOutputData"
@@ -200,8 +202,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['content'] = Stubs::ContentData.stub(stub[:content]) unless stub[:content].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['content'] = ContentData.stub(stub[:content]) unless stub[:content].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -240,8 +242,8 @@ module AWS::SDK::Wisdom
         data['title'] = stub[:title] unless stub[:title].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['metadata'] = Stubs::ContentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['metadata'] = ContentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['linkOutUri'] = stub[:link_out_uri] unless stub[:link_out_uri].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
         data['urlExpiry'] = Hearth::TimeHelper.to_epoch_seconds(stub[:url_expiry]).to_i unless stub[:url_expiry].nil?
@@ -281,8 +283,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['knowledgeBase'] = Stubs::KnowledgeBaseData.stub(stub[:knowledge_base]) unless stub[:knowledge_base].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['knowledgeBase'] = KnowledgeBaseData.stub(stub[:knowledge_base]) unless stub[:knowledge_base].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,11 +317,11 @@ module AWS::SDK::Wisdom
         data['knowledgeBaseType'] = stub[:knowledge_base_type] unless stub[:knowledge_base_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['lastContentModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_content_modification_time]).to_i unless stub[:last_content_modification_time].nil?
-        data['sourceConfiguration'] = Stubs::SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
-        data['renderingConfiguration'] = Stubs::RenderingConfiguration.stub(stub[:rendering_configuration]) unless stub[:rendering_configuration].nil?
-        data['serverSideEncryptionConfiguration'] = Stubs::ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['sourceConfiguration'] = SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
+        data['renderingConfiguration'] = RenderingConfiguration.stub(stub[:rendering_configuration]) unless stub[:rendering_configuration].nil?
+        data['serverSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -356,7 +358,7 @@ module AWS::SDK::Wisdom
         data = {}
         case stub
         when Types::SourceConfiguration::AppIntegrations
-          data['appIntegrations'] = (Stubs::AppIntegrationsConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['appIntegrations'] = (AppIntegrationsConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::SourceConfiguration"
@@ -381,7 +383,7 @@ module AWS::SDK::Wisdom
         stub ||= Types::AppIntegrationsConfiguration.new
         data = {}
         data['appIntegrationArn'] = stub[:app_integration_arn] unless stub[:app_integration_arn].nil?
-        data['objectFields'] = Stubs::ObjectFieldsList.stub(stub[:object_fields]) unless stub[:object_fields].nil?
+        data['objectFields'] = ObjectFieldsList.stub(stub[:object_fields]) unless stub[:object_fields].nil?
         data
       end
     end
@@ -418,8 +420,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['session'] = Stubs::SessionData.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['session'] = SessionData.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,7 +446,7 @@ module AWS::SDK::Wisdom
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -513,8 +515,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assistant'] = Stubs::AssistantData.stub(stub[:assistant]) unless stub[:assistant].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assistant'] = AssistantData.stub(stub[:assistant]) unless stub[:assistant].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -530,8 +532,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assistantAssociation'] = Stubs::AssistantAssociationData.stub(stub[:assistant_association]) unless stub[:assistant_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assistantAssociation'] = AssistantAssociationData.stub(stub[:assistant_association]) unless stub[:assistant_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -547,8 +549,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['content'] = Stubs::ContentData.stub(stub[:content]) unless stub[:content].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['content'] = ContentData.stub(stub[:content]) unless stub[:content].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -564,8 +566,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['contentSummary'] = Stubs::ContentSummary.stub(stub[:content_summary]) unless stub[:content_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['contentSummary'] = ContentSummary.stub(stub[:content_summary]) unless stub[:content_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -601,8 +603,8 @@ module AWS::SDK::Wisdom
         data['title'] = stub[:title] unless stub[:title].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['metadata'] = Stubs::ContentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['metadata'] = ContentMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -619,8 +621,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['knowledgeBase'] = Stubs::KnowledgeBaseData.stub(stub[:knowledge_base]) unless stub[:knowledge_base].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['knowledgeBase'] = KnowledgeBaseData.stub(stub[:knowledge_base]) unless stub[:knowledge_base].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,9 +639,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['recommendations'] = Stubs::RecommendationList.stub(stub[:recommendations]) unless stub[:recommendations].nil?
-        data['triggers'] = Stubs::RecommendationTriggerList.stub(stub[:triggers]) unless stub[:triggers].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendations'] = RecommendationList.stub(stub[:recommendations]) unless stub[:recommendations].nil?
+        data['triggers'] = RecommendationTriggerList.stub(stub[:triggers]) unless stub[:triggers].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -657,7 +659,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationTrigger.stub(element) unless element.nil?
+          data << RecommendationTrigger.stub(element) unless element.nil?
         end
         data
       end
@@ -683,8 +685,8 @@ module AWS::SDK::Wisdom
         data['id'] = stub[:id] unless stub[:id].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['source'] = stub[:source] unless stub[:source].nil?
-        data['data'] = Stubs::RecommendationTriggerData.stub(stub[:data]) unless stub[:data].nil?
-        data['recommendationIds'] = Stubs::RecommendationIdList.stub(stub[:recommendation_ids]) unless stub[:recommendation_ids].nil?
+        data['data'] = RecommendationTriggerData.stub(stub[:data]) unless stub[:data].nil?
+        data['recommendationIds'] = RecommendationIdList.stub(stub[:recommendation_ids]) unless stub[:recommendation_ids].nil?
         data
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::Wisdom
         data = {}
         case stub
         when Types::RecommendationTriggerData::Query
-          data['query'] = (Stubs::QueryRecommendationTriggerData.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['query'] = (QueryRecommendationTriggerData.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::RecommendationTriggerData"
@@ -765,7 +767,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationData.stub(element) unless element.nil?
+          data << RecommendationData.stub(element) unless element.nil?
         end
         data
       end
@@ -789,7 +791,7 @@ module AWS::SDK::Wisdom
         stub ||= Types::RecommendationData.new
         data = {}
         data['recommendationId'] = stub[:recommendation_id] unless stub[:recommendation_id].nil?
-        data['document'] = Stubs::Document.stub(stub[:document]) unless stub[:document].nil?
+        data['document'] = Document.stub(stub[:document]) unless stub[:document].nil?
         data['relevanceScore'] = Hearth::NumberHelper.serialize(stub[:relevance_score])
         data['relevanceLevel'] = stub[:relevance_level] unless stub[:relevance_level].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
@@ -812,9 +814,9 @@ module AWS::SDK::Wisdom
       def self.stub(stub)
         stub ||= Types::Document.new
         data = {}
-        data['contentReference'] = Stubs::ContentReference.stub(stub[:content_reference]) unless stub[:content_reference].nil?
-        data['title'] = Stubs::DocumentText.stub(stub[:title]) unless stub[:title].nil?
-        data['excerpt'] = Stubs::DocumentText.stub(stub[:excerpt]) unless stub[:excerpt].nil?
+        data['contentReference'] = ContentReference.stub(stub[:content_reference]) unless stub[:content_reference].nil?
+        data['title'] = DocumentText.stub(stub[:title]) unless stub[:title].nil?
+        data['excerpt'] = DocumentText.stub(stub[:excerpt]) unless stub[:excerpt].nil?
         data
       end
     end
@@ -834,7 +836,7 @@ module AWS::SDK::Wisdom
         stub ||= Types::DocumentText.new
         data = {}
         data['text'] = stub[:text] unless stub[:text].nil?
-        data['highlights'] = Stubs::Highlights.stub(stub[:highlights]) unless stub[:highlights].nil?
+        data['highlights'] = Highlights.stub(stub[:highlights]) unless stub[:highlights].nil?
         data
       end
     end
@@ -853,7 +855,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Highlight.stub(element) unless element.nil?
+          data << Highlight.stub(element) unless element.nil?
         end
         data
       end
@@ -915,8 +917,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['session'] = Stubs::SessionData.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['session'] = SessionData.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -933,9 +935,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assistantAssociationSummaries'] = Stubs::AssistantAssociationSummaryList.stub(stub[:assistant_association_summaries]) unless stub[:assistant_association_summaries].nil?
+        data['assistantAssociationSummaries'] = AssistantAssociationSummaryList.stub(stub[:assistant_association_summaries]) unless stub[:assistant_association_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -953,7 +955,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssistantAssociationSummary.stub(element) unless element.nil?
+          data << AssistantAssociationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -983,8 +985,8 @@ module AWS::SDK::Wisdom
         data['assistantId'] = stub[:assistant_id] unless stub[:assistant_id].nil?
         data['assistantArn'] = stub[:assistant_arn] unless stub[:assistant_arn].nil?
         data['associationType'] = stub[:association_type] unless stub[:association_type].nil?
-        data['associationData'] = Stubs::AssistantAssociationOutputData.stub(stub[:association_data]) unless stub[:association_data].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['associationData'] = AssistantAssociationOutputData.stub(stub[:association_data]) unless stub[:association_data].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1002,9 +1004,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assistantSummaries'] = Stubs::AssistantList.stub(stub[:assistant_summaries]) unless stub[:assistant_summaries].nil?
+        data['assistantSummaries'] = AssistantList.stub(stub[:assistant_summaries]) unless stub[:assistant_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1022,7 +1024,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssistantSummary.stub(element) unless element.nil?
+          data << AssistantSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1054,8 +1056,8 @@ module AWS::SDK::Wisdom
         data['type'] = stub[:type] unless stub[:type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['serverSideEncryptionConfiguration'] = Stubs::ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['serverSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         data
       end
     end
@@ -1073,9 +1075,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['contentSummaries'] = Stubs::ContentSummaryList.stub(stub[:content_summaries]) unless stub[:content_summaries].nil?
+        data['contentSummaries'] = ContentSummaryList.stub(stub[:content_summaries]) unless stub[:content_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1093,7 +1095,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContentSummary.stub(element) unless element.nil?
+          data << ContentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1112,9 +1114,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['knowledgeBaseSummaries'] = Stubs::KnowledgeBaseList.stub(stub[:knowledge_base_summaries]) unless stub[:knowledge_base_summaries].nil?
+        data['knowledgeBaseSummaries'] = KnowledgeBaseList.stub(stub[:knowledge_base_summaries]) unless stub[:knowledge_base_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1132,7 +1134,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KnowledgeBaseSummary.stub(element) unless element.nil?
+          data << KnowledgeBaseSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1165,11 +1167,11 @@ module AWS::SDK::Wisdom
         data['name'] = stub[:name] unless stub[:name].nil?
         data['knowledgeBaseType'] = stub[:knowledge_base_type] unless stub[:knowledge_base_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['sourceConfiguration'] = Stubs::SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
-        data['renderingConfiguration'] = Stubs::RenderingConfiguration.stub(stub[:rendering_configuration]) unless stub[:rendering_configuration].nil?
-        data['serverSideEncryptionConfiguration'] = Stubs::ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['sourceConfiguration'] = SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
+        data['renderingConfiguration'] = RenderingConfiguration.stub(stub[:rendering_configuration]) unless stub[:rendering_configuration].nil?
+        data['serverSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1186,8 +1188,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1204,9 +1206,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['recommendationIds'] = Stubs::RecommendationIdList.stub(stub[:recommendation_ids]) unless stub[:recommendation_ids].nil?
-        data['errors'] = Stubs::NotifyRecommendationsReceivedErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationIds'] = RecommendationIdList.stub(stub[:recommendation_ids]) unless stub[:recommendation_ids].nil?
+        data['errors'] = NotifyRecommendationsReceivedErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1224,7 +1226,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotifyRecommendationsReceivedError.stub(element) unless element.nil?
+          data << NotifyRecommendationsReceivedError.stub(element) unless element.nil?
         end
         data
       end
@@ -1263,9 +1265,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['results'] = Stubs::QueryResultsList.stub(stub[:results]) unless stub[:results].nil?
+        data['results'] = QueryResultsList.stub(stub[:results]) unless stub[:results].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1283,7 +1285,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResultData.stub(element) unless element.nil?
+          data << ResultData.stub(element) unless element.nil?
         end
         data
       end
@@ -1305,7 +1307,7 @@ module AWS::SDK::Wisdom
         stub ||= Types::ResultData.new
         data = {}
         data['resultId'] = stub[:result_id] unless stub[:result_id].nil?
-        data['document'] = Stubs::Document.stub(stub[:document]) unless stub[:document].nil?
+        data['document'] = Document.stub(stub[:document]) unless stub[:document].nil?
         data['relevanceScore'] = Hearth::NumberHelper.serialize(stub[:relevance_score])
         data
       end
@@ -1337,9 +1339,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['contentSummaries'] = Stubs::ContentSummaryList.stub(stub[:content_summaries]) unless stub[:content_summaries].nil?
+        data['contentSummaries'] = ContentSummaryList.stub(stub[:content_summaries]) unless stub[:content_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1356,9 +1358,9 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['sessionSummaries'] = Stubs::SessionSummaries.stub(stub[:session_summaries]) unless stub[:session_summaries].nil?
+        data['sessionSummaries'] = SessionSummaries.stub(stub[:session_summaries]) unless stub[:session_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1376,7 +1378,7 @@ module AWS::SDK::Wisdom
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SessionSummary.stub(element) unless element.nil?
+          data << SessionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1424,8 +1426,8 @@ module AWS::SDK::Wisdom
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
         data['urlExpiry'] = Hearth::TimeHelper.to_epoch_seconds(stub[:url_expiry]).to_i unless stub[:url_expiry].nil?
-        data['headersToInclude'] = Stubs::Headers.stub(stub[:headers_to_include]) unless stub[:headers_to_include].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['headersToInclude'] = Headers.stub(stub[:headers_to_include]) unless stub[:headers_to_include].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1487,8 +1489,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['content'] = Stubs::ContentData.stub(stub[:content]) unless stub[:content].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['content'] = ContentData.stub(stub[:content]) unless stub[:content].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1504,8 +1506,8 @@ module AWS::SDK::Wisdom
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['knowledgeBase'] = Stubs::KnowledgeBaseData.stub(stub[:knowledge_base]) unless stub[:knowledge_base].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['knowledgeBase'] = KnowledgeBaseData.stub(stub[:knowledge_base]) unless stub[:knowledge_base].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

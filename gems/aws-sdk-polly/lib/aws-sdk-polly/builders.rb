@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Polly
   module Builders
 
@@ -117,7 +119,7 @@ module AWS::SDK::Polly
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Content'] = input[:content] unless input[:content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,17 +135,17 @@ module AWS::SDK::Polly
         data = {}
         data['Engine'] = input[:engine] unless input[:engine].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        data['LexiconNames'] = Builders::LexiconNameList.build(input[:lexicon_names]) unless input[:lexicon_names].nil?
+        data['LexiconNames'] = LexiconNameList.build(input[:lexicon_names]) unless input[:lexicon_names].nil?
         data['OutputFormat'] = input[:output_format] unless input[:output_format].nil?
         data['OutputS3BucketName'] = input[:output_s3_bucket_name] unless input[:output_s3_bucket_name].nil?
         data['OutputS3KeyPrefix'] = input[:output_s3_key_prefix] unless input[:output_s3_key_prefix].nil?
         data['SampleRate'] = input[:sample_rate] unless input[:sample_rate].nil?
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
-        data['SpeechMarkTypes'] = Builders::SpeechMarkTypeList.build(input[:speech_mark_types]) unless input[:speech_mark_types].nil?
+        data['SpeechMarkTypes'] = SpeechMarkTypeList.build(input[:speech_mark_types]) unless input[:speech_mark_types].nil?
         data['Text'] = input[:text] unless input[:text].nil?
         data['TextType'] = input[:text_type] unless input[:text_type].nil?
         data['VoiceId'] = input[:voice_id] unless input[:voice_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -181,14 +183,14 @@ module AWS::SDK::Polly
         data = {}
         data['Engine'] = input[:engine] unless input[:engine].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        data['LexiconNames'] = Builders::LexiconNameList.build(input[:lexicon_names]) unless input[:lexicon_names].nil?
+        data['LexiconNames'] = LexiconNameList.build(input[:lexicon_names]) unless input[:lexicon_names].nil?
         data['OutputFormat'] = input[:output_format] unless input[:output_format].nil?
         data['SampleRate'] = input[:sample_rate] unless input[:sample_rate].nil?
-        data['SpeechMarkTypes'] = Builders::SpeechMarkTypeList.build(input[:speech_mark_types]) unless input[:speech_mark_types].nil?
+        data['SpeechMarkTypes'] = SpeechMarkTypeList.build(input[:speech_mark_types]) unless input[:speech_mark_types].nil?
         data['Text'] = input[:text] unless input[:text].nil?
         data['TextType'] = input[:text_type] unless input[:text_type].nil?
         data['VoiceId'] = input[:voice_id] unless input[:voice_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

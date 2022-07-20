@@ -30,11 +30,11 @@ module AWS::SDK::MediaTailor
         data.channel_name = map['ChannelName']
         data.channel_state = map['ChannelState']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.filler_slate = (Parsers::SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
+        data.filler_slate = (SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.outputs = (Parsers::ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.outputs = (ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.playback_mode = map['PlaybackMode']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.tier = map['Tier']
         data
       end
@@ -54,7 +54,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResponseOutputItem.parse(value) unless value.nil?
+          data << ResponseOutputItem.parse(value) unless value.nil?
         end
         data
       end
@@ -63,8 +63,8 @@ module AWS::SDK::MediaTailor
     class ResponseOutputItem
       def self.parse(map)
         data = Types::ResponseOutputItem.new
-        data.dash_playlist_settings = (Parsers::DashPlaylistSettings.parse(map['DashPlaylistSettings']) unless map['DashPlaylistSettings'].nil?)
-        data.hls_playlist_settings = (Parsers::HlsPlaylistSettings.parse(map['HlsPlaylistSettings']) unless map['HlsPlaylistSettings'].nil?)
+        data.dash_playlist_settings = (DashPlaylistSettings.parse(map['DashPlaylistSettings']) unless map['DashPlaylistSettings'].nil?)
+        data.hls_playlist_settings = (HlsPlaylistSettings.parse(map['HlsPlaylistSettings']) unless map['HlsPlaylistSettings'].nil?)
         data.manifest_name = map['ManifestName']
         data.playback_url = map['PlaybackUrl']
         data.source_group = map['SourceGroup']
@@ -107,11 +107,11 @@ module AWS::SDK::MediaTailor
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.live_source_name = map['LiveSourceName']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -120,7 +120,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HttpPackageConfiguration.parse(value) unless value.nil?
+          data << HttpPackageConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -142,10 +142,10 @@ module AWS::SDK::MediaTailor
         data = Types::CreatePrefetchScheduleOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.consumption = (Parsers::PrefetchConsumption.parse(map['Consumption']) unless map['Consumption'].nil?)
+        data.consumption = (PrefetchConsumption.parse(map['Consumption']) unless map['Consumption'].nil?)
         data.name = map['Name']
         data.playback_configuration_name = map['PlaybackConfigurationName']
-        data.retrieval = (Parsers::PrefetchRetrieval.parse(map['Retrieval']) unless map['Retrieval'].nil?)
+        data.retrieval = (PrefetchRetrieval.parse(map['Retrieval']) unless map['Retrieval'].nil?)
         data.stream_id = map['StreamId']
         data
       end
@@ -154,7 +154,7 @@ module AWS::SDK::MediaTailor
     class PrefetchRetrieval
       def self.parse(map)
         data = Types::PrefetchRetrieval.new
-        data.dynamic_variables = (Parsers::Map____mapOf__string.parse(map['DynamicVariables']) unless map['DynamicVariables'].nil?)
+        data.dynamic_variables = (Map____mapOf__string.parse(map['DynamicVariables']) unless map['DynamicVariables'].nil?)
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         return data
@@ -164,7 +164,7 @@ module AWS::SDK::MediaTailor
     class PrefetchConsumption
       def self.parse(map)
         data = Types::PrefetchConsumption.new
-        data.avail_matching_criteria = (Parsers::List____listOfAvailMatchingCriteria.parse(map['AvailMatchingCriteria']) unless map['AvailMatchingCriteria'].nil?)
+        data.avail_matching_criteria = (List____listOfAvailMatchingCriteria.parse(map['AvailMatchingCriteria']) unless map['AvailMatchingCriteria'].nil?)
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         return data
@@ -175,7 +175,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AvailMatchingCriteria.parse(value) unless value.nil?
+          data << AvailMatchingCriteria.parse(value) unless value.nil?
         end
         data
       end
@@ -195,7 +195,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::CreateProgramOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.ad_breaks = (Parsers::List____listOfAdBreak.parse(map['AdBreaks']) unless map['AdBreaks'].nil?)
+        data.ad_breaks = (List____listOfAdBreak.parse(map['AdBreaks']) unless map['AdBreaks'].nil?)
         data.arn = map['Arn']
         data.channel_name = map['ChannelName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -212,7 +212,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AdBreak.parse(value) unless value.nil?
+          data << AdBreak.parse(value) unless value.nil?
         end
         data
       end
@@ -223,8 +223,8 @@ module AWS::SDK::MediaTailor
         data = Types::AdBreak.new
         data.message_type = map['MessageType']
         data.offset_millis = map['OffsetMillis']
-        data.slate = (Parsers::SlateSource.parse(map['Slate']) unless map['Slate'].nil?)
-        data.splice_insert_message = (Parsers::SpliceInsertMessage.parse(map['SpliceInsertMessage']) unless map['SpliceInsertMessage'].nil?)
+        data.slate = (SlateSource.parse(map['Slate']) unless map['Slate'].nil?)
+        data.splice_insert_message = (SpliceInsertMessage.parse(map['SpliceInsertMessage']) unless map['SpliceInsertMessage'].nil?)
         return data
       end
     end
@@ -245,15 +245,15 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::CreateSourceLocationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_configuration = (Parsers::AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
+        data.access_configuration = (AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.default_segment_delivery_configuration = (Parsers::DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
-        data.http_configuration = (Parsers::HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
+        data.default_segment_delivery_configuration = (DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
+        data.http_configuration = (HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.segment_delivery_configurations = (Parsers::List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
+        data.segment_delivery_configurations = (List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -262,7 +262,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SegmentDeliveryConfiguration.parse(value) unless value.nil?
+          data << SegmentDeliveryConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -297,7 +297,7 @@ module AWS::SDK::MediaTailor
       def self.parse(map)
         data = Types::AccessConfiguration.new
         data.access_type = map['AccessType']
-        data.secrets_manager_access_token_configuration = (Parsers::SecretsManagerAccessTokenConfiguration.parse(map['SecretsManagerAccessTokenConfiguration']) unless map['SecretsManagerAccessTokenConfiguration'].nil?)
+        data.secrets_manager_access_token_configuration = (SecretsManagerAccessTokenConfiguration.parse(map['SecretsManagerAccessTokenConfiguration']) unless map['SecretsManagerAccessTokenConfiguration'].nil?)
         return data
       end
     end
@@ -319,10 +319,10 @@ module AWS::SDK::MediaTailor
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.vod_source_name = map['VodSourceName']
         data
       end
@@ -409,11 +409,11 @@ module AWS::SDK::MediaTailor
         data.channel_name = map['ChannelName']
         data.channel_state = map['ChannelState']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.filler_slate = (Parsers::SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
+        data.filler_slate = (SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.outputs = (Parsers::ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.outputs = (ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.playback_mode = map['PlaybackMode']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.tier = map['Tier']
         data
       end
@@ -426,11 +426,11 @@ module AWS::SDK::MediaTailor
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.live_source_name = map['LiveSourceName']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -440,7 +440,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::DescribeProgramOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.ad_breaks = (Parsers::List____listOfAdBreak.parse(map['AdBreaks']) unless map['AdBreaks'].nil?)
+        data.ad_breaks = (List____listOfAdBreak.parse(map['AdBreaks']) unless map['AdBreaks'].nil?)
         data.arn = map['Arn']
         data.channel_name = map['ChannelName']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
@@ -458,15 +458,15 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::DescribeSourceLocationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_configuration = (Parsers::AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
+        data.access_configuration = (AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.default_segment_delivery_configuration = (Parsers::DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
-        data.http_configuration = (Parsers::HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
+        data.default_segment_delivery_configuration = (DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
+        data.http_configuration = (HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.segment_delivery_configurations = (Parsers::List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
+        data.segment_delivery_configurations = (List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -478,10 +478,10 @@ module AWS::SDK::MediaTailor
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.vod_source_name = map['VodSourceName']
         data
       end
@@ -502,7 +502,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::GetChannelScheduleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfScheduleEntry.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfScheduleEntry.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -512,7 +512,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ScheduleEntry.parse(value) unless value.nil?
+          data << ScheduleEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -527,7 +527,7 @@ module AWS::SDK::MediaTailor
         data.channel_name = map['ChannelName']
         data.live_source_name = map['LiveSourceName']
         data.program_name = map['ProgramName']
-        data.schedule_ad_breaks = (Parsers::List____listOfScheduleAdBreak.parse(map['ScheduleAdBreaks']) unless map['ScheduleAdBreaks'].nil?)
+        data.schedule_ad_breaks = (List____listOfScheduleAdBreak.parse(map['ScheduleAdBreaks']) unless map['ScheduleAdBreaks'].nil?)
         data.schedule_entry_type = map['ScheduleEntryType']
         data.source_location_name = map['SourceLocationName']
         data.vod_source_name = map['VodSourceName']
@@ -539,7 +539,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ScheduleAdBreak.parse(value) unless value.nil?
+          data << ScheduleAdBreak.parse(value) unless value.nil?
         end
         data
       end
@@ -562,22 +562,22 @@ module AWS::SDK::MediaTailor
         data = Types::GetPlaybackConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.ad_decision_server_url = map['AdDecisionServerUrl']
-        data.avail_suppression = (Parsers::AvailSuppression.parse(map['AvailSuppression']) unless map['AvailSuppression'].nil?)
-        data.bumper = (Parsers::Bumper.parse(map['Bumper']) unless map['Bumper'].nil?)
-        data.cdn_configuration = (Parsers::CdnConfiguration.parse(map['CdnConfiguration']) unless map['CdnConfiguration'].nil?)
-        data.configuration_aliases = (Parsers::ConfigurationAliasesResponse.parse(map['ConfigurationAliases']) unless map['ConfigurationAliases'].nil?)
-        data.dash_configuration = (Parsers::DashConfiguration.parse(map['DashConfiguration']) unless map['DashConfiguration'].nil?)
-        data.hls_configuration = (Parsers::HlsConfiguration.parse(map['HlsConfiguration']) unless map['HlsConfiguration'].nil?)
-        data.live_pre_roll_configuration = (Parsers::LivePreRollConfiguration.parse(map['LivePreRollConfiguration']) unless map['LivePreRollConfiguration'].nil?)
-        data.log_configuration = (Parsers::LogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
-        data.manifest_processing_rules = (Parsers::ManifestProcessingRules.parse(map['ManifestProcessingRules']) unless map['ManifestProcessingRules'].nil?)
+        data.avail_suppression = (AvailSuppression.parse(map['AvailSuppression']) unless map['AvailSuppression'].nil?)
+        data.bumper = (Bumper.parse(map['Bumper']) unless map['Bumper'].nil?)
+        data.cdn_configuration = (CdnConfiguration.parse(map['CdnConfiguration']) unless map['CdnConfiguration'].nil?)
+        data.configuration_aliases = (ConfigurationAliasesResponse.parse(map['ConfigurationAliases']) unless map['ConfigurationAliases'].nil?)
+        data.dash_configuration = (DashConfiguration.parse(map['DashConfiguration']) unless map['DashConfiguration'].nil?)
+        data.hls_configuration = (HlsConfiguration.parse(map['HlsConfiguration']) unless map['HlsConfiguration'].nil?)
+        data.live_pre_roll_configuration = (LivePreRollConfiguration.parse(map['LivePreRollConfiguration']) unless map['LivePreRollConfiguration'].nil?)
+        data.log_configuration = (LogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
+        data.manifest_processing_rules = (ManifestProcessingRules.parse(map['ManifestProcessingRules']) unless map['ManifestProcessingRules'].nil?)
         data.name = map['Name']
         data.personalization_threshold_seconds = map['PersonalizationThresholdSeconds']
         data.playback_configuration_arn = map['PlaybackConfigurationArn']
         data.playback_endpoint_prefix = map['PlaybackEndpointPrefix']
         data.session_initialization_endpoint_prefix = map['SessionInitializationEndpointPrefix']
         data.slate_ad_url = map['SlateAdUrl']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.transcode_profile_name = map['TranscodeProfileName']
         data.video_content_source_url = map['VideoContentSourceUrl']
         data
@@ -587,7 +587,7 @@ module AWS::SDK::MediaTailor
     class ManifestProcessingRules
       def self.parse(map)
         data = Types::ManifestProcessingRules.new
-        data.ad_marker_passthrough = (Parsers::AdMarkerPassthrough.parse(map['AdMarkerPassthrough']) unless map['AdMarkerPassthrough'].nil?)
+        data.ad_marker_passthrough = (AdMarkerPassthrough.parse(map['AdMarkerPassthrough']) unless map['AdMarkerPassthrough'].nil?)
         return data
       end
     end
@@ -639,7 +639,7 @@ module AWS::SDK::MediaTailor
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Map____mapOf__string.parse(value) unless value.nil?
+          data[key] = Map____mapOf__string.parse(value) unless value.nil?
         end
         data
       end
@@ -678,10 +678,10 @@ module AWS::SDK::MediaTailor
         data = Types::GetPrefetchScheduleOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.consumption = (Parsers::PrefetchConsumption.parse(map['Consumption']) unless map['Consumption'].nil?)
+        data.consumption = (PrefetchConsumption.parse(map['Consumption']) unless map['Consumption'].nil?)
         data.name = map['Name']
         data.playback_configuration_name = map['PlaybackConfigurationName']
-        data.retrieval = (Parsers::PrefetchRetrieval.parse(map['Retrieval']) unless map['Retrieval'].nil?)
+        data.retrieval = (PrefetchRetrieval.parse(map['Retrieval']) unless map['Retrieval'].nil?)
         data.stream_id = map['StreamId']
         data
       end
@@ -692,7 +692,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListAlertsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfAlert.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfAlert.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -702,7 +702,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Alert.parse(value) unless value.nil?
+          data << Alert.parse(value) unless value.nil?
         end
         data
       end
@@ -714,7 +714,7 @@ module AWS::SDK::MediaTailor
         data.alert_code = map['AlertCode']
         data.alert_message = map['AlertMessage']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.related_resource_arns = (Parsers::List____listOf__string.parse(map['RelatedResourceArns']) unless map['RelatedResourceArns'].nil?)
+        data.related_resource_arns = (List____listOf__string.parse(map['RelatedResourceArns']) unless map['RelatedResourceArns'].nil?)
         data.resource_arn = map['ResourceArn']
         return data
       end
@@ -735,7 +735,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfChannel.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfChannel.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -745,7 +745,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Channel.parse(value) unless value.nil?
+          data << Channel.parse(value) unless value.nil?
         end
         data
       end
@@ -758,11 +758,11 @@ module AWS::SDK::MediaTailor
         data.channel_name = map['ChannelName']
         data.channel_state = map['ChannelState']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.filler_slate = (Parsers::SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
+        data.filler_slate = (SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.outputs = (Parsers::ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.outputs = (ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.playback_mode = map['PlaybackMode']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.tier = map['Tier']
         return data
       end
@@ -773,7 +773,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListLiveSourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfLiveSource.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfLiveSource.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -783,7 +783,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LiveSource.parse(value) unless value.nil?
+          data << LiveSource.parse(value) unless value.nil?
         end
         data
       end
@@ -794,11 +794,11 @@ module AWS::SDK::MediaTailor
         data = Types::LiveSource.new
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.live_source_name = map['LiveSourceName']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -808,7 +808,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListPlaybackConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfPlaybackConfiguration.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfPlaybackConfiguration.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -818,7 +818,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PlaybackConfiguration.parse(value) unless value.nil?
+          data << PlaybackConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -828,22 +828,22 @@ module AWS::SDK::MediaTailor
       def self.parse(map)
         data = Types::PlaybackConfiguration.new
         data.ad_decision_server_url = map['AdDecisionServerUrl']
-        data.avail_suppression = (Parsers::AvailSuppression.parse(map['AvailSuppression']) unless map['AvailSuppression'].nil?)
-        data.bumper = (Parsers::Bumper.parse(map['Bumper']) unless map['Bumper'].nil?)
-        data.cdn_configuration = (Parsers::CdnConfiguration.parse(map['CdnConfiguration']) unless map['CdnConfiguration'].nil?)
-        data.configuration_aliases = (Parsers::ConfigurationAliasesResponse.parse(map['ConfigurationAliases']) unless map['ConfigurationAliases'].nil?)
-        data.dash_configuration = (Parsers::DashConfiguration.parse(map['DashConfiguration']) unless map['DashConfiguration'].nil?)
-        data.hls_configuration = (Parsers::HlsConfiguration.parse(map['HlsConfiguration']) unless map['HlsConfiguration'].nil?)
-        data.live_pre_roll_configuration = (Parsers::LivePreRollConfiguration.parse(map['LivePreRollConfiguration']) unless map['LivePreRollConfiguration'].nil?)
-        data.log_configuration = (Parsers::LogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
-        data.manifest_processing_rules = (Parsers::ManifestProcessingRules.parse(map['ManifestProcessingRules']) unless map['ManifestProcessingRules'].nil?)
+        data.avail_suppression = (AvailSuppression.parse(map['AvailSuppression']) unless map['AvailSuppression'].nil?)
+        data.bumper = (Bumper.parse(map['Bumper']) unless map['Bumper'].nil?)
+        data.cdn_configuration = (CdnConfiguration.parse(map['CdnConfiguration']) unless map['CdnConfiguration'].nil?)
+        data.configuration_aliases = (ConfigurationAliasesResponse.parse(map['ConfigurationAliases']) unless map['ConfigurationAliases'].nil?)
+        data.dash_configuration = (DashConfiguration.parse(map['DashConfiguration']) unless map['DashConfiguration'].nil?)
+        data.hls_configuration = (HlsConfiguration.parse(map['HlsConfiguration']) unless map['HlsConfiguration'].nil?)
+        data.live_pre_roll_configuration = (LivePreRollConfiguration.parse(map['LivePreRollConfiguration']) unless map['LivePreRollConfiguration'].nil?)
+        data.log_configuration = (LogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
+        data.manifest_processing_rules = (ManifestProcessingRules.parse(map['ManifestProcessingRules']) unless map['ManifestProcessingRules'].nil?)
         data.name = map['Name']
         data.personalization_threshold_seconds = map['PersonalizationThresholdSeconds']
         data.playback_configuration_arn = map['PlaybackConfigurationArn']
         data.playback_endpoint_prefix = map['PlaybackEndpointPrefix']
         data.session_initialization_endpoint_prefix = map['SessionInitializationEndpointPrefix']
         data.slate_ad_url = map['SlateAdUrl']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.transcode_profile_name = map['TranscodeProfileName']
         data.video_content_source_url = map['VideoContentSourceUrl']
         return data
@@ -855,7 +855,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListPrefetchSchedulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfPrefetchSchedule.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfPrefetchSchedule.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -865,7 +865,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PrefetchSchedule.parse(value) unless value.nil?
+          data << PrefetchSchedule.parse(value) unless value.nil?
         end
         data
       end
@@ -875,10 +875,10 @@ module AWS::SDK::MediaTailor
       def self.parse(map)
         data = Types::PrefetchSchedule.new
         data.arn = map['Arn']
-        data.consumption = (Parsers::PrefetchConsumption.parse(map['Consumption']) unless map['Consumption'].nil?)
+        data.consumption = (PrefetchConsumption.parse(map['Consumption']) unless map['Consumption'].nil?)
         data.name = map['Name']
         data.playback_configuration_name = map['PlaybackConfigurationName']
-        data.retrieval = (Parsers::PrefetchRetrieval.parse(map['Retrieval']) unless map['Retrieval'].nil?)
+        data.retrieval = (PrefetchRetrieval.parse(map['Retrieval']) unless map['Retrieval'].nil?)
         data.stream_id = map['StreamId']
         return data
       end
@@ -889,7 +889,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListSourceLocationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfSourceLocation.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfSourceLocation.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -899,7 +899,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SourceLocation.parse(value) unless value.nil?
+          data << SourceLocation.parse(value) unless value.nil?
         end
         data
       end
@@ -908,15 +908,15 @@ module AWS::SDK::MediaTailor
     class SourceLocation
       def self.parse(map)
         data = Types::SourceLocation.new
-        data.access_configuration = (Parsers::AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
+        data.access_configuration = (AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.default_segment_delivery_configuration = (Parsers::DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
-        data.http_configuration = (Parsers::HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
+        data.default_segment_delivery_configuration = (DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
+        data.http_configuration = (HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.segment_delivery_configurations = (Parsers::List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
+        data.segment_delivery_configurations = (List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -926,7 +926,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -946,7 +946,7 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::ListVodSourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfVodSource.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (List____listOfVodSource.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -956,7 +956,7 @@ module AWS::SDK::MediaTailor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VodSource.parse(value) unless value.nil?
+          data << VodSource.parse(value) unless value.nil?
         end
         data
       end
@@ -967,10 +967,10 @@ module AWS::SDK::MediaTailor
         data = Types::VodSource.new
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.vod_source_name = map['VodSourceName']
         return data
       end
@@ -991,22 +991,22 @@ module AWS::SDK::MediaTailor
         data = Types::PutPlaybackConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.ad_decision_server_url = map['AdDecisionServerUrl']
-        data.avail_suppression = (Parsers::AvailSuppression.parse(map['AvailSuppression']) unless map['AvailSuppression'].nil?)
-        data.bumper = (Parsers::Bumper.parse(map['Bumper']) unless map['Bumper'].nil?)
-        data.cdn_configuration = (Parsers::CdnConfiguration.parse(map['CdnConfiguration']) unless map['CdnConfiguration'].nil?)
-        data.configuration_aliases = (Parsers::ConfigurationAliasesResponse.parse(map['ConfigurationAliases']) unless map['ConfigurationAliases'].nil?)
-        data.dash_configuration = (Parsers::DashConfiguration.parse(map['DashConfiguration']) unless map['DashConfiguration'].nil?)
-        data.hls_configuration = (Parsers::HlsConfiguration.parse(map['HlsConfiguration']) unless map['HlsConfiguration'].nil?)
-        data.live_pre_roll_configuration = (Parsers::LivePreRollConfiguration.parse(map['LivePreRollConfiguration']) unless map['LivePreRollConfiguration'].nil?)
-        data.log_configuration = (Parsers::LogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
-        data.manifest_processing_rules = (Parsers::ManifestProcessingRules.parse(map['ManifestProcessingRules']) unless map['ManifestProcessingRules'].nil?)
+        data.avail_suppression = (AvailSuppression.parse(map['AvailSuppression']) unless map['AvailSuppression'].nil?)
+        data.bumper = (Bumper.parse(map['Bumper']) unless map['Bumper'].nil?)
+        data.cdn_configuration = (CdnConfiguration.parse(map['CdnConfiguration']) unless map['CdnConfiguration'].nil?)
+        data.configuration_aliases = (ConfigurationAliasesResponse.parse(map['ConfigurationAliases']) unless map['ConfigurationAliases'].nil?)
+        data.dash_configuration = (DashConfiguration.parse(map['DashConfiguration']) unless map['DashConfiguration'].nil?)
+        data.hls_configuration = (HlsConfiguration.parse(map['HlsConfiguration']) unless map['HlsConfiguration'].nil?)
+        data.live_pre_roll_configuration = (LivePreRollConfiguration.parse(map['LivePreRollConfiguration']) unless map['LivePreRollConfiguration'].nil?)
+        data.log_configuration = (LogConfiguration.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
+        data.manifest_processing_rules = (ManifestProcessingRules.parse(map['ManifestProcessingRules']) unless map['ManifestProcessingRules'].nil?)
         data.name = map['Name']
         data.personalization_threshold_seconds = map['PersonalizationThresholdSeconds']
         data.playback_configuration_arn = map['PlaybackConfigurationArn']
         data.playback_endpoint_prefix = map['PlaybackEndpointPrefix']
         data.session_initialization_endpoint_prefix = map['SessionInitializationEndpointPrefix']
         data.slate_ad_url = map['SlateAdUrl']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.transcode_profile_name = map['TranscodeProfileName']
         data.video_content_source_url = map['VideoContentSourceUrl']
         data
@@ -1058,11 +1058,11 @@ module AWS::SDK::MediaTailor
         data.channel_name = map['ChannelName']
         data.channel_state = map['ChannelState']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.filler_slate = (Parsers::SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
+        data.filler_slate = (SlateSource.parse(map['FillerSlate']) unless map['FillerSlate'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.outputs = (Parsers::ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.outputs = (ResponseOutputs.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.playback_mode = map['PlaybackMode']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.tier = map['Tier']
         data
       end
@@ -1075,11 +1075,11 @@ module AWS::SDK::MediaTailor
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.live_source_name = map['LiveSourceName']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1089,15 +1089,15 @@ module AWS::SDK::MediaTailor
       def self.parse(http_resp)
         data = Types::UpdateSourceLocationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_configuration = (Parsers::AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
+        data.access_configuration = (AccessConfiguration.parse(map['AccessConfiguration']) unless map['AccessConfiguration'].nil?)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.default_segment_delivery_configuration = (Parsers::DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
-        data.http_configuration = (Parsers::HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
+        data.default_segment_delivery_configuration = (DefaultSegmentDeliveryConfiguration.parse(map['DefaultSegmentDeliveryConfiguration']) unless map['DefaultSegmentDeliveryConfiguration'].nil?)
+        data.http_configuration = (HttpConfiguration.parse(map['HttpConfiguration']) unless map['HttpConfiguration'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.segment_delivery_configurations = (Parsers::List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
+        data.segment_delivery_configurations = (List____listOfSegmentDeliveryConfiguration.parse(map['SegmentDeliveryConfigurations']) unless map['SegmentDeliveryConfigurations'].nil?)
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1109,10 +1109,10 @@ module AWS::SDK::MediaTailor
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.http_package_configurations = (Parsers::HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
+        data.http_package_configurations = (HttpPackageConfigurations.parse(map['HttpPackageConfigurations']) unless map['HttpPackageConfigurations'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         data.source_location_name = map['SourceLocationName']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.vod_source_name = map['VodSourceName']
         data
       end

@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::EC2
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AcceptReservedInstancesExchangeQuoteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('exchangeId', stub[:exchange_id].to_s) unless stub[:exchange_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -40,8 +43,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AcceptTransitGatewayMulticastDomainAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -68,7 +71,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('resourceId', stub[:resource_id].to_s) unless stub[:resource_id].nil?
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
         xml << Hearth::XML::Node.new('resourceOwnerId', stub[:resource_owner_id].to_s) unless stub[:resource_owner_id].nil?
-        xml << Hearth::XML::Node.new('subnets', Stubs::SubnetAssociationList.stub('item', stub[:subnets])) unless stub[:subnets].nil?
+        xml << Hearth::XML::Node.new('subnets', SubnetAssociationList.stub('item', stub[:subnets])) unless stub[:subnets].nil?
         xml
       end
     end
@@ -86,7 +89,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SubnetAssociation.stub(node_name, element) unless element.nil?
+          xml << SubnetAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -123,8 +126,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AcceptTransitGatewayPeeringAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -148,12 +151,12 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('transitGatewayAttachmentId', stub[:transit_gateway_attachment_id].to_s) unless stub[:transit_gateway_attachment_id].nil?
-        xml << Stubs::PeeringTgwInfo.stub('requesterTgwInfo', stub[:requester_tgw_info]) unless stub[:requester_tgw_info].nil?
-        xml << Stubs::PeeringTgwInfo.stub('accepterTgwInfo', stub[:accepter_tgw_info]) unless stub[:accepter_tgw_info].nil?
-        xml << Stubs::PeeringAttachmentStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << PeeringTgwInfo.stub('requesterTgwInfo', stub[:requester_tgw_info]) unless stub[:requester_tgw_info].nil?
+        xml << PeeringTgwInfo.stub('accepterTgwInfo', stub[:accepter_tgw_info]) unless stub[:accepter_tgw_info].nil?
+        xml << PeeringAttachmentStatus.stub('status', stub[:status]) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -171,7 +174,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -248,8 +251,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AcceptTransitGatewayVpcAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -279,10 +282,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('vpcOwnerId', stub[:vpc_owner_id].to_s) unless stub[:vpc_owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('subnetIds', Stubs::ValueStringList.stub('item', stub[:subnet_ids])) unless stub[:subnet_ids].nil?
+        xml << Hearth::XML::Node.new('subnetIds', ValueStringList.stub('item', stub[:subnet_ids])) unless stub[:subnet_ids].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Stubs::TransitGatewayVpcAttachmentOptions.stub('options', stub[:options]) unless stub[:options].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << TransitGatewayVpcAttachmentOptions.stub('options', stub[:options]) unless stub[:options].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -339,8 +342,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AcceptVpcEndpointConnectionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -358,7 +361,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::UnsuccessfulItem.stub(node_name, element) unless element.nil?
+          xml << UnsuccessfulItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -377,7 +380,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::UnsuccessfulItemError.stub('error', stub[:error]) unless stub[:error].nil?
+        xml << UnsuccessfulItemError.stub('error', stub[:error]) unless stub[:error].nil?
         xml << Hearth::XML::Node.new('resourceId', stub[:resource_id].to_s) unless stub[:resource_id].nil?
         xml
       end
@@ -414,8 +417,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AcceptVpcPeeringConnectionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpcPeeringConnection.stub('vpcPeeringConnection', stub[:vpc_peering_connection]) unless stub[:vpc_peering_connection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpcPeeringConnection.stub('vpcPeeringConnection', stub[:vpc_peering_connection]) unless stub[:vpc_peering_connection].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -437,11 +440,11 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::VpcPeeringConnectionVpcInfo.stub('accepterVpcInfo', stub[:accepter_vpc_info]) unless stub[:accepter_vpc_info].nil?
+        xml << VpcPeeringConnectionVpcInfo.stub('accepterVpcInfo', stub[:accepter_vpc_info]) unless stub[:accepter_vpc_info].nil?
         xml << Hearth::XML::Node.new('expirationTime', Hearth::TimeHelper.to_date_time(stub[:expiration_time])) unless stub[:expiration_time].nil?
-        xml << Stubs::VpcPeeringConnectionVpcInfo.stub('requesterVpcInfo', stub[:requester_vpc_info]) unless stub[:requester_vpc_info].nil?
-        xml << Stubs::VpcPeeringConnectionStateReason.stub('status', stub[:status]) unless stub[:status].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << VpcPeeringConnectionVpcInfo.stub('requesterVpcInfo', stub[:requester_vpc_info]) unless stub[:requester_vpc_info].nil?
+        xml << VpcPeeringConnectionStateReason.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('vpcPeeringConnectionId', stub[:vpc_peering_connection_id].to_s) unless stub[:vpc_peering_connection_id].nil?
         xml
       end
@@ -485,10 +488,10 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('cidrBlock', stub[:cidr_block].to_s) unless stub[:cidr_block].nil?
-        xml << Hearth::XML::Node.new('ipv6CidrBlockSet', Stubs::Ipv6CidrBlockSet.stub('item', stub[:ipv6_cidr_block_set])) unless stub[:ipv6_cidr_block_set].nil?
-        xml << Hearth::XML::Node.new('cidrBlockSet', Stubs::CidrBlockSet.stub('item', stub[:cidr_block_set])) unless stub[:cidr_block_set].nil?
+        xml << Hearth::XML::Node.new('ipv6CidrBlockSet', Ipv6CidrBlockSet.stub('item', stub[:ipv6_cidr_block_set])) unless stub[:ipv6_cidr_block_set].nil?
+        xml << Hearth::XML::Node.new('cidrBlockSet', CidrBlockSet.stub('item', stub[:cidr_block_set])) unless stub[:cidr_block_set].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Stubs::VpcPeeringConnectionOptionsDescription.stub('peeringOptions', stub[:peering_options]) unless stub[:peering_options].nil?
+        xml << VpcPeeringConnectionOptionsDescription.stub('peeringOptions', stub[:peering_options]) unless stub[:peering_options].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('region', stub[:region].to_s) unless stub[:region].nil?
         xml
@@ -529,7 +532,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CidrBlock.stub(node_name, element) unless element.nil?
+          xml << CidrBlock.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -565,7 +568,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv6CidrBlock.stub(node_name, element) unless element.nil?
+          xml << Ipv6CidrBlock.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -600,8 +603,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AdvertiseByoipCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -656,7 +659,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('customerOwnedIp', stub[:customer_owned_ip].to_s) unless stub[:customer_owned_ip].nil?
         xml << Hearth::XML::Node.new('customerOwnedIpv4Pool', stub[:customer_owned_ipv4_pool].to_s) unless stub[:customer_owned_ipv4_pool].nil?
         xml << Hearth::XML::Node.new('carrierIp', stub[:carrier_ip].to_s) unless stub[:carrier_ip].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -673,8 +676,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AllocateHostsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('hostIdSet', Stubs::ResponseHostIdList.stub('item', stub[:host_ids])) unless stub[:host_ids].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('hostIdSet', ResponseHostIdList.stub('item', stub[:host_ids])) unless stub[:host_ids].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -710,8 +713,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AllocateIpamPoolCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamPoolAllocation.stub('ipamPoolAllocation', stub[:ipam_pool_allocation]) unless stub[:ipam_pool_allocation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamPoolAllocation.stub('ipamPoolAllocation', stub[:ipam_pool_allocation]) unless stub[:ipam_pool_allocation].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -757,8 +760,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ApplySecurityGroupsToClientVpnTargetNetworkResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('securityGroupIds', Stubs::ClientVpnSecurityGroupIdSet.stub('item', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('securityGroupIds', ClientVpnSecurityGroupIdSet.stub('item', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -796,10 +799,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssignIpv6AddressesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('assignedIpv6Addresses', Stubs::Ipv6AddressList.stub('item', stub[:assigned_ipv6_addresses])) unless stub[:assigned_ipv6_addresses].nil?
-        xml << Hearth::XML::Node.new('assignedIpv6PrefixSet', Stubs::IpPrefixList.stub('item', stub[:assigned_ipv6_prefixes])) unless stub[:assigned_ipv6_prefixes].nil?
+        xml << Hearth::XML::Node.new('assignedIpv6Addresses', Ipv6AddressList.stub('item', stub[:assigned_ipv6_addresses])) unless stub[:assigned_ipv6_addresses].nil?
+        xml << Hearth::XML::Node.new('assignedIpv6PrefixSet', IpPrefixList.stub('item', stub[:assigned_ipv6_prefixes])) unless stub[:assigned_ipv6_prefixes].nil?
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -857,9 +860,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AssignPrivateIpAddressesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
-        xml << Hearth::XML::Node.new('assignedPrivateIpAddressesSet', Stubs::AssignedPrivateIpAddressList.stub('item', stub[:assigned_private_ip_addresses])) unless stub[:assigned_private_ip_addresses].nil?
-        xml << Hearth::XML::Node.new('assignedIpv4PrefixSet', Stubs::Ipv4PrefixesList.stub('item', stub[:assigned_ipv4_prefixes])) unless stub[:assigned_ipv4_prefixes].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('assignedPrivateIpAddressesSet', AssignedPrivateIpAddressList.stub('item', stub[:assigned_private_ip_addresses])) unless stub[:assigned_private_ip_addresses].nil?
+        xml << Hearth::XML::Node.new('assignedIpv4PrefixSet', Ipv4PrefixesList.stub('item', stub[:assigned_ipv4_prefixes])) unless stub[:assigned_ipv4_prefixes].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -877,7 +880,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv4PrefixSpecification.stub(node_name, element) unless element.nil?
+          xml << Ipv4PrefixSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -913,7 +916,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AssignedPrivateIpAddress.stub(node_name, element) unless element.nil?
+          xml << AssignedPrivateIpAddress.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -949,7 +952,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AssociateAddressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -968,8 +971,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AssociateClientVpnTargetNetworkResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
-        xml << Stubs::AssociationStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << AssociationStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1004,7 +1007,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateDhcpOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1026,7 +1029,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('certificateS3BucketName', stub[:certificate_s3_bucket_name].to_s) unless stub[:certificate_s3_bucket_name].nil?
         xml << Hearth::XML::Node.new('certificateS3ObjectKey', stub[:certificate_s3_object_key].to_s) unless stub[:certificate_s3_object_key].nil?
         xml << Hearth::XML::Node.new('encryptionKmsKeyId', stub[:encryption_kms_key_id].to_s) unless stub[:encryption_kms_key_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1043,8 +1046,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateIamInstanceProfileResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IamInstanceProfileAssociation.stub('iamInstanceProfileAssociation', stub[:iam_instance_profile_association]) unless stub[:iam_instance_profile_association].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IamInstanceProfileAssociation.stub('iamInstanceProfileAssociation', stub[:iam_instance_profile_association]) unless stub[:iam_instance_profile_association].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1067,7 +1070,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Stubs::IamInstanceProfile.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
+        xml << IamInstanceProfile.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
         xml
@@ -1105,8 +1108,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateInstanceEventWindowResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1130,12 +1133,12 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('instanceEventWindowId', stub[:instance_event_window_id].to_s) unless stub[:instance_event_window_id].nil?
-        xml << Hearth::XML::Node.new('timeRangeSet', Stubs::InstanceEventWindowTimeRangeList.stub('item', stub[:time_ranges])) unless stub[:time_ranges].nil?
+        xml << Hearth::XML::Node.new('timeRangeSet', InstanceEventWindowTimeRangeList.stub('item', stub[:time_ranges])) unless stub[:time_ranges].nil?
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('cronExpression', stub[:cron_expression].to_s) unless stub[:cron_expression].nil?
-        xml << Stubs::InstanceEventWindowAssociationTarget.stub('associationTarget', stub[:association_target]) unless stub[:association_target].nil?
+        xml << InstanceEventWindowAssociationTarget.stub('associationTarget', stub[:association_target]) unless stub[:association_target].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -1154,9 +1157,9 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('instanceIdSet', Stubs::InstanceIdList.stub('item', stub[:instance_ids])) unless stub[:instance_ids].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('dedicatedHostIdSet', Stubs::DedicatedHostIdList.stub('item', stub[:dedicated_host_ids])) unless stub[:dedicated_host_ids].nil?
+        xml << Hearth::XML::Node.new('instanceIdSet', InstanceIdList.stub('item', stub[:instance_ids])) unless stub[:instance_ids].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('dedicatedHostIdSet', DedicatedHostIdList.stub('item', stub[:dedicated_host_ids])) unless stub[:dedicated_host_ids].nil?
         xml
       end
     end
@@ -1212,7 +1215,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceEventWindowTimeRange.stub(node_name, element) unless element.nil?
+          xml << InstanceEventWindowTimeRange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1255,8 +1258,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AssociateRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
-        xml << Stubs::RouteTableAssociationState.stub('associationState', stub[:association_state]) unless stub[:association_state].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << RouteTableAssociationState.stub('associationState', stub[:association_state]) unless stub[:association_state].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1293,9 +1296,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateSubnetCidrBlockResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::SubnetIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
+        xml << SubnetIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1316,7 +1319,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
         xml << Hearth::XML::Node.new('ipv6CidrBlock', stub[:ipv6_cidr_block].to_s) unless stub[:ipv6_cidr_block].nil?
-        xml << Stubs::SubnetCidrBlockState.stub('ipv6CidrBlockState', stub[:ipv6_cidr_block_state]) unless stub[:ipv6_cidr_block_state].nil?
+        xml << SubnetCidrBlockState.stub('ipv6CidrBlockState', stub[:ipv6_cidr_block_state]) unless stub[:ipv6_cidr_block_state].nil?
         xml
       end
     end
@@ -1352,8 +1355,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateTransitGatewayMulticastDomainResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1370,8 +1373,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateTransitGatewayRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayAssociation.stub('association', stub[:association]) unless stub[:association].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayAssociation.stub('association', stub[:association]) unless stub[:association].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1414,9 +1417,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateTrunkInterfaceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrunkInterfaceAssociation.stub('interfaceAssociation', stub[:interface_association]) unless stub[:interface_association].nil?
+        xml << TrunkInterfaceAssociation.stub('interfaceAssociation', stub[:interface_association]) unless stub[:interface_association].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1445,7 +1448,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('interfaceProtocol', stub[:interface_protocol].to_s) unless stub[:interface_protocol].nil?
         xml << Hearth::XML::Node.new('vlanId', stub[:vlan_id].to_s) unless stub[:vlan_id].nil?
         xml << Hearth::XML::Node.new('greKey', stub[:gre_key].to_s) unless stub[:gre_key].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -1464,10 +1467,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AssociateVpcCidrBlockResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpcIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
-        xml << Stubs::VpcCidrBlockAssociation.stub('cidrBlockAssociation', stub[:cidr_block_association]) unless stub[:cidr_block_association].nil?
+        xml << VpcIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
+        xml << VpcCidrBlockAssociation.stub('cidrBlockAssociation', stub[:cidr_block_association]) unless stub[:cidr_block_association].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1488,7 +1491,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
         xml << Hearth::XML::Node.new('cidrBlock', stub[:cidr_block].to_s) unless stub[:cidr_block].nil?
-        xml << Stubs::VpcCidrBlockState.stub('cidrBlockState', stub[:cidr_block_state]) unless stub[:cidr_block_state].nil?
+        xml << VpcCidrBlockState.stub('cidrBlockState', stub[:cidr_block_state]) unless stub[:cidr_block_state].nil?
         xml
       end
     end
@@ -1530,7 +1533,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
         xml << Hearth::XML::Node.new('ipv6CidrBlock', stub[:ipv6_cidr_block].to_s) unless stub[:ipv6_cidr_block].nil?
-        xml << Stubs::VpcCidrBlockState.stub('ipv6CidrBlockState', stub[:ipv6_cidr_block_state]) unless stub[:ipv6_cidr_block_state].nil?
+        xml << VpcCidrBlockState.stub('ipv6CidrBlockState', stub[:ipv6_cidr_block_state]) unless stub[:ipv6_cidr_block_state].nil?
         xml << Hearth::XML::Node.new('networkBorderGroup', stub[:network_border_group].to_s) unless stub[:network_border_group].nil?
         xml << Hearth::XML::Node.new('ipv6Pool', stub[:ipv6_pool].to_s) unless stub[:ipv6_pool].nil?
         xml
@@ -1550,7 +1553,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AttachClassicLinkVpcResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1566,7 +1569,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AttachInternetGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1586,7 +1589,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('attachmentId', stub[:attachment_id].to_s) unless stub[:attachment_id].nil?
         xml << Hearth::XML::Node.new('networkCardIndex', stub[:network_card_index].to_s) unless stub[:network_card_index].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1614,7 +1617,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('status', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
         xml << Hearth::XML::Node.new('deleteOnTermination', stub[:delete_on_termination].to_s) unless stub[:delete_on_termination].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1631,8 +1634,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AttachVpnGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpcAttachment.stub('attachment', stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpcAttachment.stub('attachment', stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1668,8 +1671,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('AuthorizeClientVpnIngressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ClientVpnAuthorizationRuleStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ClientVpnAuthorizationRuleStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1707,8 +1710,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AuthorizeSecurityGroupEgressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        xml << Hearth::XML::Node.new('securityGroupRuleSet', Stubs::SecurityGroupRuleList.stub('item', stub[:security_group_rules])) unless stub[:security_group_rules].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('securityGroupRuleSet', SecurityGroupRuleList.stub('item', stub[:security_group_rules])) unless stub[:security_group_rules].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1726,7 +1729,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SecurityGroupRule.stub(node_name, element) unless element.nil?
+          xml << SecurityGroupRule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1766,9 +1769,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('cidrIpv4', stub[:cidr_ipv4].to_s) unless stub[:cidr_ipv4].nil?
         xml << Hearth::XML::Node.new('cidrIpv6', stub[:cidr_ipv6].to_s) unless stub[:cidr_ipv6].nil?
         xml << Hearth::XML::Node.new('prefixListId', stub[:prefix_list_id].to_s) unless stub[:prefix_list_id].nil?
-        xml << Stubs::ReferencedSecurityGroup.stub('referencedGroupInfo', stub[:referenced_group_info]) unless stub[:referenced_group_info].nil?
+        xml << ReferencedSecurityGroup.stub('referencedGroupInfo', stub[:referenced_group_info]) unless stub[:referenced_group_info].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -1812,8 +1815,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('AuthorizeSecurityGroupIngressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        xml << Hearth::XML::Node.new('securityGroupRuleSet', Stubs::SecurityGroupRuleList.stub('item', stub[:security_group_rules])) unless stub[:security_group_rules].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('securityGroupRuleSet', SecurityGroupRuleList.stub('item', stub[:security_group_rules])) unless stub[:security_group_rules].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1830,8 +1833,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('BundleInstanceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::BundleTask.stub('bundleInstanceTask', stub[:bundle_task]) unless stub[:bundle_task].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << BundleTask.stub('bundleInstanceTask', stub[:bundle_task]) unless stub[:bundle_task].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1856,12 +1859,12 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('bundleId', stub[:bundle_id].to_s) unless stub[:bundle_id].nil?
-        xml << Stubs::BundleTaskError.stub('error', stub[:bundle_task_error]) unless stub[:bundle_task_error].nil?
+        xml << BundleTaskError.stub('error', stub[:bundle_task_error]) unless stub[:bundle_task_error].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('progress', stub[:progress].to_s) unless stub[:progress].nil?
         xml << Hearth::XML::Node.new('startTime', Hearth::TimeHelper.to_date_time(stub[:start_time])) unless stub[:start_time].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Stubs::Storage.stub('storage', stub[:storage]) unless stub[:storage].nil?
+        xml << Storage.stub('storage', stub[:storage]) unless stub[:storage].nil?
         xml << Hearth::XML::Node.new('updateTime', Hearth::TimeHelper.to_date_time(stub[:update_time])) unless stub[:update_time].nil?
         xml
       end
@@ -1879,7 +1882,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::S3Storage.stub('S3', stub[:s3]) unless stub[:s3].nil?
+        xml << S3Storage.stub('S3', stub[:s3]) unless stub[:s3].nil?
         xml
       end
     end
@@ -1903,7 +1906,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('AWSAccessKeyId', stub[:aws_access_key_id].to_s) unless stub[:aws_access_key_id].nil?
         xml << Hearth::XML::Node.new('bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
         xml << Hearth::XML::Node.new('prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
-        xml << Hearth::XML::Node.new('uploadPolicy', Base64::encode64(stub[:upload_policy]).strip) unless stub[:upload_policy].nil?
+        xml << Hearth::XML::Node.new('uploadPolicy', ::Base64::encode64(stub[:upload_policy]).strip) unless stub[:upload_policy].nil?
         xml << Hearth::XML::Node.new('uploadPolicySignature', stub[:upload_policy_signature].to_s) unless stub[:upload_policy_signature].nil?
         xml
       end
@@ -1940,8 +1943,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CancelBundleTaskResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::BundleTask.stub('bundleInstanceTask', stub[:bundle_task]) unless stub[:bundle_task].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << BundleTask.stub('bundleInstanceTask', stub[:bundle_task]) unless stub[:bundle_task].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1959,7 +1962,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CancelCapacityReservationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1977,9 +1980,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CancelCapacityReservationFleetsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successfulFleetCancellationSet', Stubs::CapacityReservationFleetCancellationStateSet.stub('item', stub[:successful_fleet_cancellations])) unless stub[:successful_fleet_cancellations].nil?
-        xml << Hearth::XML::Node.new('failedFleetCancellationSet', Stubs::FailedCapacityReservationFleetCancellationResultSet.stub('item', stub[:failed_fleet_cancellations])) unless stub[:failed_fleet_cancellations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successfulFleetCancellationSet', CapacityReservationFleetCancellationStateSet.stub('item', stub[:successful_fleet_cancellations])) unless stub[:successful_fleet_cancellations].nil?
+        xml << Hearth::XML::Node.new('failedFleetCancellationSet', FailedCapacityReservationFleetCancellationResultSet.stub('item', stub[:failed_fleet_cancellations])) unless stub[:failed_fleet_cancellations].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -1997,7 +2000,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FailedCapacityReservationFleetCancellationResult.stub(node_name, element) unless element.nil?
+          xml << FailedCapacityReservationFleetCancellationResult.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2017,7 +2020,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('capacityReservationFleetId', stub[:capacity_reservation_fleet_id].to_s) unless stub[:capacity_reservation_fleet_id].nil?
-        xml << Stubs::CancelCapacityReservationFleetError.stub('cancelCapacityReservationFleetError', stub[:cancel_capacity_reservation_fleet_error]) unless stub[:cancel_capacity_reservation_fleet_error].nil?
+        xml << CancelCapacityReservationFleetError.stub('cancelCapacityReservationFleetError', stub[:cancel_capacity_reservation_fleet_error]) unless stub[:cancel_capacity_reservation_fleet_error].nil?
         xml
       end
     end
@@ -2054,7 +2057,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CapacityReservationFleetCancellationState.stub(node_name, element) unless element.nil?
+          xml << CapacityReservationFleetCancellationState.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2092,7 +2095,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CancelConversionTaskResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2108,7 +2111,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CancelExportTaskResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2130,7 +2133,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('importTaskId', stub[:import_task_id].to_s) unless stub[:import_task_id].nil?
         xml << Hearth::XML::Node.new('previousState', stub[:previous_state].to_s) unless stub[:previous_state].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2147,8 +2150,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CancelReservedInstancesListingResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('reservedInstancesListingsSet', Stubs::ReservedInstancesListingList.stub('item', stub[:reserved_instances_listings])) unless stub[:reserved_instances_listings].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('reservedInstancesListingsSet', ReservedInstancesListingList.stub('item', stub[:reserved_instances_listings])) unless stub[:reserved_instances_listings].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2166,7 +2169,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedInstancesListing.stub(node_name, element) unless element.nil?
+          xml << ReservedInstancesListing.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2195,13 +2198,13 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
         xml << Hearth::XML::Node.new('createDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
-        xml << Hearth::XML::Node.new('instanceCounts', Stubs::InstanceCountList.stub('item', stub[:instance_counts])) unless stub[:instance_counts].nil?
-        xml << Hearth::XML::Node.new('priceSchedules', Stubs::PriceScheduleList.stub('item', stub[:price_schedules])) unless stub[:price_schedules].nil?
+        xml << Hearth::XML::Node.new('instanceCounts', InstanceCountList.stub('item', stub[:instance_counts])) unless stub[:instance_counts].nil?
+        xml << Hearth::XML::Node.new('priceSchedules', PriceScheduleList.stub('item', stub[:price_schedules])) unless stub[:price_schedules].nil?
         xml << Hearth::XML::Node.new('reservedInstancesId', stub[:reserved_instances_id].to_s) unless stub[:reserved_instances_id].nil?
         xml << Hearth::XML::Node.new('reservedInstancesListingId', stub[:reserved_instances_listing_id].to_s) unless stub[:reserved_instances_listing_id].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('updateDate', Hearth::TimeHelper.to_date_time(stub[:update_date])) unless stub[:update_date].nil?
         xml
       end
@@ -2220,7 +2223,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PriceSchedule.stub(node_name, element) unless element.nil?
+          xml << PriceSchedule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2262,7 +2265,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceCount.stub(node_name, element) unless element.nil?
+          xml << InstanceCount.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2300,9 +2303,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CancelSpotFleetRequestsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successfulFleetRequestSet', Stubs::CancelSpotFleetRequestsSuccessSet.stub('item', stub[:successful_fleet_requests])) unless stub[:successful_fleet_requests].nil?
-        xml << Hearth::XML::Node.new('unsuccessfulFleetRequestSet', Stubs::CancelSpotFleetRequestsErrorSet.stub('item', stub[:unsuccessful_fleet_requests])) unless stub[:unsuccessful_fleet_requests].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successfulFleetRequestSet', CancelSpotFleetRequestsSuccessSet.stub('item', stub[:successful_fleet_requests])) unless stub[:successful_fleet_requests].nil?
+        xml << Hearth::XML::Node.new('unsuccessfulFleetRequestSet', CancelSpotFleetRequestsErrorSet.stub('item', stub[:unsuccessful_fleet_requests])) unless stub[:unsuccessful_fleet_requests].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2320,7 +2323,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CancelSpotFleetRequestsErrorItem.stub(node_name, element) unless element.nil?
+          xml << CancelSpotFleetRequestsErrorItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2339,7 +2342,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::CancelSpotFleetRequestsError.stub('error', stub[:error]) unless stub[:error].nil?
+        xml << CancelSpotFleetRequestsError.stub('error', stub[:error]) unless stub[:error].nil?
         xml << Hearth::XML::Node.new('spotFleetRequestId', stub[:spot_fleet_request_id].to_s) unless stub[:spot_fleet_request_id].nil?
         xml
       end
@@ -2377,7 +2380,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CancelSpotFleetRequestsSuccessItem.stub(node_name, element) unless element.nil?
+          xml << CancelSpotFleetRequestsSuccessItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2416,8 +2419,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CancelSpotInstanceRequestsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('spotInstanceRequestSet', Stubs::CancelledSpotInstanceRequestList.stub('item', stub[:cancelled_spot_instance_requests])) unless stub[:cancelled_spot_instance_requests].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('spotInstanceRequestSet', CancelledSpotInstanceRequestList.stub('item', stub[:cancelled_spot_instance_requests])) unless stub[:cancelled_spot_instance_requests].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2435,7 +2438,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CancelledSpotInstanceRequest.stub(node_name, element) unless element.nil?
+          xml << CancelledSpotInstanceRequest.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2475,7 +2478,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2493,7 +2496,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CopyFpgaImageResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('fpgaImageId', stub[:fpga_image_id].to_s) unless stub[:fpga_image_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2511,7 +2514,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CopyImageResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2530,8 +2533,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CopySnapshotResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('snapshotId', stub[:snapshot_id].to_s) unless stub[:snapshot_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2548,8 +2551,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateCapacityReservationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::CapacityReservation.stub('capacityReservation', stub[:capacity_reservation]) unless stub[:capacity_reservation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << CapacityReservation.stub('capacityReservation', stub[:capacity_reservation]) unless stub[:capacity_reservation].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2605,7 +2608,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('endDateType', stub[:end_date_type].to_s) unless stub[:end_date_type].nil?
         xml << Hearth::XML::Node.new('instanceMatchCriteria', stub[:instance_match_criteria].to_s) unless stub[:instance_match_criteria].nil?
         xml << Hearth::XML::Node.new('createDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
         xml << Hearth::XML::Node.new('capacityReservationFleetId', stub[:capacity_reservation_fleet_id].to_s) unless stub[:capacity_reservation_fleet_id].nil?
         xml << Hearth::XML::Node.new('placementGroupArn', stub[:placement_group_arn].to_s) unless stub[:placement_group_arn].nil?
@@ -2644,9 +2647,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
         xml << Hearth::XML::Node.new('endDate', Hearth::TimeHelper.to_date_time(stub[:end_date])) unless stub[:end_date].nil?
         xml << Hearth::XML::Node.new('tenancy', stub[:tenancy].to_s) unless stub[:tenancy].nil?
-        xml << Hearth::XML::Node.new('fleetCapacityReservationSet', Stubs::FleetCapacityReservationSet.stub('item', stub[:fleet_capacity_reservations])) unless stub[:fleet_capacity_reservations].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('fleetCapacityReservationSet', FleetCapacityReservationSet.stub('item', stub[:fleet_capacity_reservations])) unless stub[:fleet_capacity_reservations].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2664,7 +2667,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FleetCapacityReservation.stub(node_name, element) unless element.nil?
+          xml << FleetCapacityReservation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2719,8 +2722,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateCarrierGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::CarrierGateway.stub('carrierGateway', stub[:carrier_gateway]) unless stub[:carrier_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << CarrierGateway.stub('carrierGateway', stub[:carrier_gateway]) unless stub[:carrier_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2745,7 +2748,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -2765,9 +2768,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateClientVpnEndpointResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('clientVpnEndpointId', stub[:client_vpn_endpoint_id].to_s) unless stub[:client_vpn_endpoint_id].nil?
-        xml << Stubs::ClientVpnEndpointStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << ClientVpnEndpointStatus.stub('status', stub[:status]) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('dnsName', stub[:dns_name].to_s) unless stub[:dns_name].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2803,8 +2806,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateClientVpnRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ClientVpnRouteStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ClientVpnRouteStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2840,8 +2843,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateCustomerGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::CustomerGateway.stub('customerGateway', stub[:customer_gateway]) unless stub[:customer_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << CustomerGateway.stub('customerGateway', stub[:customer_gateway]) unless stub[:customer_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2872,7 +2875,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('deviceName', stub[:device_name].to_s) unless stub[:device_name].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -2889,8 +2892,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateDefaultSubnetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::Subnet.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Subnet.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -2941,13 +2944,13 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('assignIpv6AddressOnCreation', stub[:assign_ipv6_address_on_creation].to_s) unless stub[:assign_ipv6_address_on_creation].nil?
-        xml << Hearth::XML::Node.new('ipv6CidrBlockAssociationSet', Stubs::SubnetIpv6CidrBlockAssociationSet.stub('item', stub[:ipv6_cidr_block_association_set])) unless stub[:ipv6_cidr_block_association_set].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('ipv6CidrBlockAssociationSet', SubnetIpv6CidrBlockAssociationSet.stub('item', stub[:ipv6_cidr_block_association_set])) unless stub[:ipv6_cidr_block_association_set].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('subnetArn', stub[:subnet_arn].to_s) unless stub[:subnet_arn].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
         xml << Hearth::XML::Node.new('enableDns64', stub[:enable_dns64].to_s) unless stub[:enable_dns64].nil?
         xml << Hearth::XML::Node.new('ipv6Native', stub[:ipv6_native].to_s) unless stub[:ipv6_native].nil?
-        xml << Stubs::PrivateDnsNameOptionsOnLaunch.stub('privateDnsNameOptionsOnLaunch', stub[:private_dns_name_options_on_launch]) unless stub[:private_dns_name_options_on_launch].nil?
+        xml << PrivateDnsNameOptionsOnLaunch.stub('privateDnsNameOptionsOnLaunch', stub[:private_dns_name_options_on_launch]) unless stub[:private_dns_name_options_on_launch].nil?
         xml
       end
     end
@@ -2986,7 +2989,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SubnetIpv6CidrBlockAssociation.stub(node_name, element) unless element.nil?
+          xml << SubnetIpv6CidrBlockAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3004,8 +3007,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateDefaultVpcResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::Vpc.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Vpc.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3037,10 +3040,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('instanceTenancy', stub[:instance_tenancy].to_s) unless stub[:instance_tenancy].nil?
-        xml << Hearth::XML::Node.new('ipv6CidrBlockAssociationSet', Stubs::VpcIpv6CidrBlockAssociationSet.stub('item', stub[:ipv6_cidr_block_association_set])) unless stub[:ipv6_cidr_block_association_set].nil?
-        xml << Hearth::XML::Node.new('cidrBlockAssociationSet', Stubs::VpcCidrBlockAssociationSet.stub('item', stub[:cidr_block_association_set])) unless stub[:cidr_block_association_set].nil?
+        xml << Hearth::XML::Node.new('ipv6CidrBlockAssociationSet', VpcIpv6CidrBlockAssociationSet.stub('item', stub[:ipv6_cidr_block_association_set])) unless stub[:ipv6_cidr_block_association_set].nil?
+        xml << Hearth::XML::Node.new('cidrBlockAssociationSet', VpcCidrBlockAssociationSet.stub('item', stub[:cidr_block_association_set])) unless stub[:cidr_block_association_set].nil?
         xml << Hearth::XML::Node.new('isDefault', stub[:is_default].to_s) unless stub[:is_default].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -3058,7 +3061,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcCidrBlockAssociation.stub(node_name, element) unless element.nil?
+          xml << VpcCidrBlockAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3077,7 +3080,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcIpv6CidrBlockAssociation.stub(node_name, element) unless element.nil?
+          xml << VpcIpv6CidrBlockAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3095,8 +3098,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateDhcpOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::DhcpOptions.stub('dhcpOptions', stub[:dhcp_options]) unless stub[:dhcp_options].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << DhcpOptions.stub('dhcpOptions', stub[:dhcp_options]) unless stub[:dhcp_options].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3116,10 +3119,10 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('dhcpConfigurationSet', Stubs::DhcpConfigurationList.stub('item', stub[:dhcp_configurations])) unless stub[:dhcp_configurations].nil?
+        xml << Hearth::XML::Node.new('dhcpConfigurationSet', DhcpConfigurationList.stub('item', stub[:dhcp_configurations])) unless stub[:dhcp_configurations].nil?
         xml << Hearth::XML::Node.new('dhcpOptionsId', stub[:dhcp_options_id].to_s) unless stub[:dhcp_options_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -3137,7 +3140,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DhcpConfiguration.stub(node_name, element) unless element.nil?
+          xml << DhcpConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3157,7 +3160,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('key', stub[:key].to_s) unless stub[:key].nil?
-        xml << Hearth::XML::Node.new('valueSet', Stubs::DhcpConfigurationValueList.stub('item', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('valueSet', DhcpConfigurationValueList.stub('item', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -3175,7 +3178,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AttributeValue.stub(node_name, element) unless element.nil?
+          xml << AttributeValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3212,8 +3215,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateEgressOnlyInternetGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        xml << Stubs::EgressOnlyInternetGateway.stub('egressOnlyInternetGateway', stub[:egress_only_internet_gateway]) unless stub[:egress_only_internet_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << EgressOnlyInternetGateway.stub('egressOnlyInternetGateway', stub[:egress_only_internet_gateway]) unless stub[:egress_only_internet_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3232,9 +3235,9 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('attachmentSet', Stubs::InternetGatewayAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
+        xml << Hearth::XML::Node.new('attachmentSet', InternetGatewayAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
         xml << Hearth::XML::Node.new('egressOnlyInternetGatewayId', stub[:egress_only_internet_gateway_id].to_s) unless stub[:egress_only_internet_gateway_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -3252,7 +3255,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InternetGatewayAttachment.stub(node_name, element) unless element.nil?
+          xml << InternetGatewayAttachment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3292,9 +3295,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateFleetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('fleetId', stub[:fleet_id].to_s) unless stub[:fleet_id].nil?
-        xml << Hearth::XML::Node.new('errorSet', Stubs::CreateFleetErrorsSet.stub('item', stub[:errors])) unless stub[:errors].nil?
-        xml << Hearth::XML::Node.new('fleetInstanceSet', Stubs::CreateFleetInstancesSet.stub('item', stub[:instances])) unless stub[:instances].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('errorSet', CreateFleetErrorsSet.stub('item', stub[:errors])) unless stub[:errors].nil?
+        xml << Hearth::XML::Node.new('fleetInstanceSet', CreateFleetInstancesSet.stub('item', stub[:instances])) unless stub[:instances].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3312,7 +3315,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CreateFleetInstance.stub(node_name, element) unless element.nil?
+          xml << CreateFleetInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3334,9 +3337,9 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
+        xml << LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
         xml << Hearth::XML::Node.new('lifecycle', stub[:lifecycle].to_s) unless stub[:lifecycle].nil?
-        xml << Hearth::XML::Node.new('instanceIds', Stubs::InstanceIdsSet.stub('item', stub[:instance_ids])) unless stub[:instance_ids].nil?
+        xml << Hearth::XML::Node.new('instanceIds', InstanceIdsSet.stub('item', stub[:instance_ids])) unless stub[:instance_ids].nil?
         xml << Hearth::XML::Node.new('instanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml
@@ -3375,8 +3378,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::FleetLaunchTemplateSpecification.stub('launchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
-        xml << Stubs::FleetLaunchTemplateOverrides.stub('overrides', stub[:overrides]) unless stub[:overrides].nil?
+        xml << FleetLaunchTemplateSpecification.stub('launchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
+        xml << FleetLaunchTemplateOverrides.stub('overrides', stub[:overrides]) unless stub[:overrides].nil?
         xml
       end
     end
@@ -3406,8 +3409,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('weightedCapacity', Hearth::NumberHelper.serialize(stub[:weighted_capacity]).to_s) unless stub[:weighted_capacity].nil?
         xml << Hearth::XML::Node.new('priority', Hearth::NumberHelper.serialize(stub[:priority]).to_s) unless stub[:priority].nil?
-        xml << Stubs::PlacementResponse.stub('placement', stub[:placement]) unless stub[:placement].nil?
-        xml << Stubs::InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
+        xml << PlacementResponse.stub('placement', stub[:placement]) unless stub[:placement].nil?
+        xml << InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
         xml
       end
     end
@@ -3444,27 +3447,27 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::VCpuCountRange.stub('vCpuCount', stub[:v_cpu_count]) unless stub[:v_cpu_count].nil?
-        xml << Stubs::MemoryMiB.stub('memoryMiB', stub[:memory_mi_b]) unless stub[:memory_mi_b].nil?
-        xml << Hearth::XML::Node.new('cpuManufacturerSet', Stubs::CpuManufacturerSet.stub('item', stub[:cpu_manufacturers])) unless stub[:cpu_manufacturers].nil?
-        xml << Stubs::MemoryGiBPerVCpu.stub('memoryGiBPerVCpu', stub[:memory_gi_b_per_v_cpu]) unless stub[:memory_gi_b_per_v_cpu].nil?
-        xml << Hearth::XML::Node.new('excludedInstanceTypeSet', Stubs::ExcludedInstanceTypeSet.stub('item', stub[:excluded_instance_types])) unless stub[:excluded_instance_types].nil?
-        xml << Hearth::XML::Node.new('instanceGenerationSet', Stubs::InstanceGenerationSet.stub('item', stub[:instance_generations])) unless stub[:instance_generations].nil?
+        xml << VCpuCountRange.stub('vCpuCount', stub[:v_cpu_count]) unless stub[:v_cpu_count].nil?
+        xml << MemoryMiB.stub('memoryMiB', stub[:memory_mi_b]) unless stub[:memory_mi_b].nil?
+        xml << Hearth::XML::Node.new('cpuManufacturerSet', CpuManufacturerSet.stub('item', stub[:cpu_manufacturers])) unless stub[:cpu_manufacturers].nil?
+        xml << MemoryGiBPerVCpu.stub('memoryGiBPerVCpu', stub[:memory_gi_b_per_v_cpu]) unless stub[:memory_gi_b_per_v_cpu].nil?
+        xml << Hearth::XML::Node.new('excludedInstanceTypeSet', ExcludedInstanceTypeSet.stub('item', stub[:excluded_instance_types])) unless stub[:excluded_instance_types].nil?
+        xml << Hearth::XML::Node.new('instanceGenerationSet', InstanceGenerationSet.stub('item', stub[:instance_generations])) unless stub[:instance_generations].nil?
         xml << Hearth::XML::Node.new('spotMaxPricePercentageOverLowestPrice', stub[:spot_max_price_percentage_over_lowest_price].to_s) unless stub[:spot_max_price_percentage_over_lowest_price].nil?
         xml << Hearth::XML::Node.new('onDemandMaxPricePercentageOverLowestPrice', stub[:on_demand_max_price_percentage_over_lowest_price].to_s) unless stub[:on_demand_max_price_percentage_over_lowest_price].nil?
         xml << Hearth::XML::Node.new('bareMetal', stub[:bare_metal].to_s) unless stub[:bare_metal].nil?
         xml << Hearth::XML::Node.new('burstablePerformance', stub[:burstable_performance].to_s) unless stub[:burstable_performance].nil?
         xml << Hearth::XML::Node.new('requireHibernateSupport', stub[:require_hibernate_support].to_s) unless stub[:require_hibernate_support].nil?
-        xml << Stubs::NetworkInterfaceCount.stub('networkInterfaceCount', stub[:network_interface_count]) unless stub[:network_interface_count].nil?
+        xml << NetworkInterfaceCount.stub('networkInterfaceCount', stub[:network_interface_count]) unless stub[:network_interface_count].nil?
         xml << Hearth::XML::Node.new('localStorage', stub[:local_storage].to_s) unless stub[:local_storage].nil?
-        xml << Hearth::XML::Node.new('localStorageTypeSet', Stubs::LocalStorageTypeSet.stub('item', stub[:local_storage_types])) unless stub[:local_storage_types].nil?
-        xml << Stubs::TotalLocalStorageGB.stub('totalLocalStorageGB', stub[:total_local_storage_gb]) unless stub[:total_local_storage_gb].nil?
-        xml << Stubs::BaselineEbsBandwidthMbps.stub('baselineEbsBandwidthMbps', stub[:baseline_ebs_bandwidth_mbps]) unless stub[:baseline_ebs_bandwidth_mbps].nil?
-        xml << Hearth::XML::Node.new('acceleratorTypeSet', Stubs::AcceleratorTypeSet.stub('item', stub[:accelerator_types])) unless stub[:accelerator_types].nil?
-        xml << Stubs::AcceleratorCount.stub('acceleratorCount', stub[:accelerator_count]) unless stub[:accelerator_count].nil?
-        xml << Hearth::XML::Node.new('acceleratorManufacturerSet', Stubs::AcceleratorManufacturerSet.stub('item', stub[:accelerator_manufacturers])) unless stub[:accelerator_manufacturers].nil?
-        xml << Hearth::XML::Node.new('acceleratorNameSet', Stubs::AcceleratorNameSet.stub('item', stub[:accelerator_names])) unless stub[:accelerator_names].nil?
-        xml << Stubs::AcceleratorTotalMemoryMiB.stub('acceleratorTotalMemoryMiB', stub[:accelerator_total_memory_mi_b]) unless stub[:accelerator_total_memory_mi_b].nil?
+        xml << Hearth::XML::Node.new('localStorageTypeSet', LocalStorageTypeSet.stub('item', stub[:local_storage_types])) unless stub[:local_storage_types].nil?
+        xml << TotalLocalStorageGB.stub('totalLocalStorageGB', stub[:total_local_storage_gb]) unless stub[:total_local_storage_gb].nil?
+        xml << BaselineEbsBandwidthMbps.stub('baselineEbsBandwidthMbps', stub[:baseline_ebs_bandwidth_mbps]) unless stub[:baseline_ebs_bandwidth_mbps].nil?
+        xml << Hearth::XML::Node.new('acceleratorTypeSet', AcceleratorTypeSet.stub('item', stub[:accelerator_types])) unless stub[:accelerator_types].nil?
+        xml << AcceleratorCount.stub('acceleratorCount', stub[:accelerator_count]) unless stub[:accelerator_count].nil?
+        xml << Hearth::XML::Node.new('acceleratorManufacturerSet', AcceleratorManufacturerSet.stub('item', stub[:accelerator_manufacturers])) unless stub[:accelerator_manufacturers].nil?
+        xml << Hearth::XML::Node.new('acceleratorNameSet', AcceleratorNameSet.stub('item', stub[:accelerator_names])) unless stub[:accelerator_names].nil?
+        xml << AcceleratorTotalMemoryMiB.stub('acceleratorTotalMemoryMiB', stub[:accelerator_total_memory_mi_b]) unless stub[:accelerator_total_memory_mi_b].nil?
         xml
       end
     end
@@ -3805,7 +3808,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CreateFleetError.stub(node_name, element) unless element.nil?
+          xml << CreateFleetError.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3826,7 +3829,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
+        xml << LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
         xml << Hearth::XML::Node.new('lifecycle', stub[:lifecycle].to_s) unless stub[:lifecycle].nil?
         xml << Hearth::XML::Node.new('errorCode', stub[:error_code].to_s) unless stub[:error_code].nil?
         xml << Hearth::XML::Node.new('errorMessage', stub[:error_message].to_s) unless stub[:error_message].nil?
@@ -3849,9 +3852,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateFlowLogsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        xml << Hearth::XML::Node.new('flowLogIdSet', Stubs::ValueStringList.stub('item', stub[:flow_log_ids])) unless stub[:flow_log_ids].nil?
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('flowLogIdSet', ValueStringList.stub('item', stub[:flow_log_ids])) unless stub[:flow_log_ids].nil?
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3871,7 +3874,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('fpgaImageId', stub[:fpga_image_id].to_s) unless stub[:fpga_image_id].nil?
         xml << Hearth::XML::Node.new('fpgaImageGlobalId', stub[:fpga_image_global_id].to_s) unless stub[:fpga_image_global_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3889,7 +3892,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateImageResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3906,8 +3909,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateInstanceEventWindowResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3924,8 +3927,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateInstanceExportTaskResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ExportTask.stub('exportTask', stub[:export_task]) unless stub[:export_task].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ExportTask.stub('exportTask', stub[:export_task]) unless stub[:export_task].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -3950,11 +3953,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('exportTaskId', stub[:export_task_id].to_s) unless stub[:export_task_id].nil?
-        xml << Stubs::ExportToS3Task.stub('exportToS3', stub[:export_to_s3_task]) unless stub[:export_to_s3_task].nil?
-        xml << Stubs::InstanceExportDetails.stub('instanceExport', stub[:instance_export_details]) unless stub[:instance_export_details].nil?
+        xml << ExportToS3Task.stub('exportToS3', stub[:export_to_s3_task]) unless stub[:export_to_s3_task].nil?
+        xml << InstanceExportDetails.stub('instanceExport', stub[:instance_export_details]) unless stub[:instance_export_details].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -4013,8 +4016,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateInternetGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InternetGateway.stub('internetGateway', stub[:internet_gateway]) unless stub[:internet_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InternetGateway.stub('internetGateway', stub[:internet_gateway]) unless stub[:internet_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -4034,10 +4037,10 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('attachmentSet', Stubs::InternetGatewayAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
+        xml << Hearth::XML::Node.new('attachmentSet', InternetGatewayAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
         xml << Hearth::XML::Node.new('internetGatewayId', stub[:internet_gateway_id].to_s) unless stub[:internet_gateway_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -4054,8 +4057,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateIpamResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::Ipam.stub('ipam', stub[:ipam]) unless stub[:ipam].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Ipam.stub('ipam', stub[:ipam]) unless stub[:ipam].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -4090,9 +4093,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('privateDefaultScopeId', stub[:private_default_scope_id].to_s) unless stub[:private_default_scope_id].nil?
         xml << Hearth::XML::Node.new('scopeCount', stub[:scope_count].to_s) unless stub[:scope_count].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('operatingRegionSet', Stubs::IpamOperatingRegionSet.stub('item', stub[:operating_regions])) unless stub[:operating_regions].nil?
+        xml << Hearth::XML::Node.new('operatingRegionSet', IpamOperatingRegionSet.stub('item', stub[:operating_regions])) unless stub[:operating_regions].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -4110,7 +4113,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamOperatingRegion.stub(node_name, element) unless element.nil?
+          xml << IpamOperatingRegion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4145,8 +4148,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateIpamPoolResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamPool.stub('ipamPool', stub[:ipam_pool]) unless stub[:ipam_pool].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamPool.stub('ipamPool', stub[:ipam_pool]) unless stub[:ipam_pool].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -4203,8 +4206,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('allocationMinNetmaskLength', stub[:allocation_min_netmask_length].to_s) unless stub[:allocation_min_netmask_length].nil?
         xml << Hearth::XML::Node.new('allocationMaxNetmaskLength', stub[:allocation_max_netmask_length].to_s) unless stub[:allocation_max_netmask_length].nil?
         xml << Hearth::XML::Node.new('allocationDefaultNetmaskLength', stub[:allocation_default_netmask_length].to_s) unless stub[:allocation_default_netmask_length].nil?
-        xml << Hearth::XML::Node.new('allocationResourceTagSet', Stubs::IpamResourceTagList.stub('item', stub[:allocation_resource_tags])) unless stub[:allocation_resource_tags].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('allocationResourceTagSet', IpamResourceTagList.stub('item', stub[:allocation_resource_tags])) unless stub[:allocation_resource_tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('awsService', stub[:aws_service].to_s) unless stub[:aws_service].nil?
         xml
       end
@@ -4223,7 +4226,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamResourceTag.stub(node_name, element) unless element.nil?
+          xml << IpamResourceTag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4260,8 +4263,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateIpamScopeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamScope.stub('ipamScope', stub[:ipam_scope]) unless stub[:ipam_scope].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamScope.stub('ipamScope', stub[:ipam_scope]) unless stub[:ipam_scope].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -4298,7 +4301,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('poolCount', stub[:pool_count].to_s) unless stub[:pool_count].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -4323,8 +4326,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('keyMaterial', stub[:key_material].to_s) unless stub[:key_material].nil?
         xml << Hearth::XML::Node.new('keyName', stub[:key_name].to_s) unless stub[:key_name].nil?
         xml << Hearth::XML::Node.new('keyPairId', stub[:key_pair_id].to_s) unless stub[:key_pair_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -4342,9 +4345,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateLaunchTemplateResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LaunchTemplate.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
-        xml << Stubs::ValidationWarning.stub('warning', stub[:warning]) unless stub[:warning].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LaunchTemplate.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << ValidationWarning.stub('warning', stub[:warning]) unless stub[:warning].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -4361,7 +4364,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('errorSet', Stubs::ErrorSet.stub('item', stub[:errors])) unless stub[:errors].nil?
+        xml << Hearth::XML::Node.new('errorSet', ErrorSet.stub('item', stub[:errors])) unless stub[:errors].nil?
         xml
       end
     end
@@ -4379,7 +4382,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ValidationError.stub(node_name, element) unless element.nil?
+          xml << ValidationError.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4428,7 +4431,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('createdBy', stub[:created_by].to_s) unless stub[:created_by].nil?
         xml << Hearth::XML::Node.new('defaultVersionNumber', stub[:default_version_number].to_s) unless stub[:default_version_number].nil?
         xml << Hearth::XML::Node.new('latestVersionNumber', stub[:latest_version_number].to_s) unless stub[:latest_version_number].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -4446,9 +4449,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateLaunchTemplateVersionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LaunchTemplateVersion.stub('launchTemplateVersion', stub[:launch_template_version]) unless stub[:launch_template_version].nil?
-        xml << Stubs::ValidationWarning.stub('warning', stub[:warning]) unless stub[:warning].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LaunchTemplateVersion.stub('launchTemplateVersion', stub[:launch_template_version]) unless stub[:launch_template_version].nil?
+        xml << ValidationWarning.stub('warning', stub[:warning]) unless stub[:warning].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -4479,7 +4482,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
         xml << Hearth::XML::Node.new('createdBy', stub[:created_by].to_s) unless stub[:created_by].nil?
         xml << Hearth::XML::Node.new('defaultVersion', stub[:default_version].to_s) unless stub[:default_version].nil?
-        xml << Stubs::ResponseLaunchTemplateData.stub('launchTemplateData', stub[:launch_template_data]) unless stub[:launch_template_data].nil?
+        xml << ResponseLaunchTemplateData.stub('launchTemplateData', stub[:launch_template_data]) unless stub[:launch_template_data].nil?
         xml
       end
     end
@@ -4528,34 +4531,34 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('kernelId', stub[:kernel_id].to_s) unless stub[:kernel_id].nil?
         xml << Hearth::XML::Node.new('ebsOptimized', stub[:ebs_optimized].to_s) unless stub[:ebs_optimized].nil?
-        xml << Stubs::LaunchTemplateIamInstanceProfileSpecification.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
-        xml << Hearth::XML::Node.new('blockDeviceMappingSet', Stubs::LaunchTemplateBlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
-        xml << Hearth::XML::Node.new('networkInterfaceSet', Stubs::LaunchTemplateInstanceNetworkInterfaceSpecificationList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
+        xml << LaunchTemplateIamInstanceProfileSpecification.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
+        xml << Hearth::XML::Node.new('blockDeviceMappingSet', LaunchTemplateBlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << Hearth::XML::Node.new('networkInterfaceSet', LaunchTemplateInstanceNetworkInterfaceSpecificationList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('instanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('keyName', stub[:key_name].to_s) unless stub[:key_name].nil?
-        xml << Stubs::LaunchTemplatesMonitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
-        xml << Stubs::LaunchTemplatePlacement.stub('placement', stub[:placement]) unless stub[:placement].nil?
+        xml << LaunchTemplatesMonitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
+        xml << LaunchTemplatePlacement.stub('placement', stub[:placement]) unless stub[:placement].nil?
         xml << Hearth::XML::Node.new('ramDiskId', stub[:ram_disk_id].to_s) unless stub[:ram_disk_id].nil?
         xml << Hearth::XML::Node.new('disableApiTermination', stub[:disable_api_termination].to_s) unless stub[:disable_api_termination].nil?
         xml << Hearth::XML::Node.new('instanceInitiatedShutdownBehavior', stub[:instance_initiated_shutdown_behavior].to_s) unless stub[:instance_initiated_shutdown_behavior].nil?
         xml << Hearth::XML::Node.new('userData', stub[:user_data].to_s) unless stub[:user_data].nil?
-        xml << Hearth::XML::Node.new('tagSpecificationSet', Stubs::LaunchTemplateTagSpecificationList.stub('item', stub[:tag_specifications])) unless stub[:tag_specifications].nil?
-        xml << Hearth::XML::Node.new('elasticGpuSpecificationSet', Stubs::ElasticGpuSpecificationResponseList.stub('item', stub[:elastic_gpu_specifications])) unless stub[:elastic_gpu_specifications].nil?
-        xml << Hearth::XML::Node.new('elasticInferenceAcceleratorSet', Stubs::LaunchTemplateElasticInferenceAcceleratorResponseList.stub('item', stub[:elastic_inference_accelerators])) unless stub[:elastic_inference_accelerators].nil?
-        xml << Hearth::XML::Node.new('securityGroupIdSet', Stubs::ValueStringList.stub('item', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
-        xml << Hearth::XML::Node.new('securityGroupSet', Stubs::ValueStringList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
-        xml << Stubs::LaunchTemplateInstanceMarketOptions.stub('instanceMarketOptions', stub[:instance_market_options]) unless stub[:instance_market_options].nil?
-        xml << Stubs::CreditSpecification.stub('creditSpecification', stub[:credit_specification]) unless stub[:credit_specification].nil?
-        xml << Stubs::LaunchTemplateCpuOptions.stub('cpuOptions', stub[:cpu_options]) unless stub[:cpu_options].nil?
-        xml << Stubs::LaunchTemplateCapacityReservationSpecificationResponse.stub('capacityReservationSpecification', stub[:capacity_reservation_specification]) unless stub[:capacity_reservation_specification].nil?
-        xml << Hearth::XML::Node.new('licenseSet', Stubs::LaunchTemplateLicenseList.stub('item', stub[:license_specifications])) unless stub[:license_specifications].nil?
-        xml << Stubs::LaunchTemplateHibernationOptions.stub('hibernationOptions', stub[:hibernation_options]) unless stub[:hibernation_options].nil?
-        xml << Stubs::LaunchTemplateInstanceMetadataOptions.stub('metadataOptions', stub[:metadata_options]) unless stub[:metadata_options].nil?
-        xml << Stubs::LaunchTemplateEnclaveOptions.stub('enclaveOptions', stub[:enclave_options]) unless stub[:enclave_options].nil?
-        xml << Stubs::InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
-        xml << Stubs::LaunchTemplatePrivateDnsNameOptions.stub('privateDnsNameOptions', stub[:private_dns_name_options]) unless stub[:private_dns_name_options].nil?
-        xml << Stubs::LaunchTemplateInstanceMaintenanceOptions.stub('maintenanceOptions', stub[:maintenance_options]) unless stub[:maintenance_options].nil?
+        xml << Hearth::XML::Node.new('tagSpecificationSet', LaunchTemplateTagSpecificationList.stub('item', stub[:tag_specifications])) unless stub[:tag_specifications].nil?
+        xml << Hearth::XML::Node.new('elasticGpuSpecificationSet', ElasticGpuSpecificationResponseList.stub('item', stub[:elastic_gpu_specifications])) unless stub[:elastic_gpu_specifications].nil?
+        xml << Hearth::XML::Node.new('elasticInferenceAcceleratorSet', LaunchTemplateElasticInferenceAcceleratorResponseList.stub('item', stub[:elastic_inference_accelerators])) unless stub[:elastic_inference_accelerators].nil?
+        xml << Hearth::XML::Node.new('securityGroupIdSet', ValueStringList.stub('item', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
+        xml << Hearth::XML::Node.new('securityGroupSet', ValueStringList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << LaunchTemplateInstanceMarketOptions.stub('instanceMarketOptions', stub[:instance_market_options]) unless stub[:instance_market_options].nil?
+        xml << CreditSpecification.stub('creditSpecification', stub[:credit_specification]) unless stub[:credit_specification].nil?
+        xml << LaunchTemplateCpuOptions.stub('cpuOptions', stub[:cpu_options]) unless stub[:cpu_options].nil?
+        xml << LaunchTemplateCapacityReservationSpecificationResponse.stub('capacityReservationSpecification', stub[:capacity_reservation_specification]) unless stub[:capacity_reservation_specification].nil?
+        xml << Hearth::XML::Node.new('licenseSet', LaunchTemplateLicenseList.stub('item', stub[:license_specifications])) unless stub[:license_specifications].nil?
+        xml << LaunchTemplateHibernationOptions.stub('hibernationOptions', stub[:hibernation_options]) unless stub[:hibernation_options].nil?
+        xml << LaunchTemplateInstanceMetadataOptions.stub('metadataOptions', stub[:metadata_options]) unless stub[:metadata_options].nil?
+        xml << LaunchTemplateEnclaveOptions.stub('enclaveOptions', stub[:enclave_options]) unless stub[:enclave_options].nil?
+        xml << InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
+        xml << LaunchTemplatePrivateDnsNameOptions.stub('privateDnsNameOptions', stub[:private_dns_name_options]) unless stub[:private_dns_name_options].nil?
+        xml << LaunchTemplateInstanceMaintenanceOptions.stub('maintenanceOptions', stub[:maintenance_options]) unless stub[:maintenance_options].nil?
         xml << Hearth::XML::Node.new('disableApiStop', stub[:disable_api_stop].to_s) unless stub[:disable_api_stop].nil?
         xml
       end
@@ -4673,7 +4676,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateLicenseConfiguration.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateLicenseConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4710,7 +4713,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('capacityReservationPreference', stub[:capacity_reservation_preference].to_s) unless stub[:capacity_reservation_preference].nil?
-        xml << Stubs::CapacityReservationTargetResponse.stub('capacityReservationTarget', stub[:capacity_reservation_target]) unless stub[:capacity_reservation_target].nil?
+        xml << CapacityReservationTargetResponse.stub('capacityReservationTarget', stub[:capacity_reservation_target]) unless stub[:capacity_reservation_target].nil?
         xml
       end
     end
@@ -4784,7 +4787,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('marketType', stub[:market_type].to_s) unless stub[:market_type].nil?
-        xml << Stubs::LaunchTemplateSpotMarketOptions.stub('spotOptions', stub[:spot_options]) unless stub[:spot_options].nil?
+        xml << LaunchTemplateSpotMarketOptions.stub('spotOptions', stub[:spot_options]) unless stub[:spot_options].nil?
         xml
       end
     end
@@ -4827,7 +4830,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateElasticInferenceAcceleratorResponse.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateElasticInferenceAcceleratorResponse.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4865,7 +4868,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ElasticGpuSpecificationResponse.stub(node_name, element) unless element.nil?
+          xml << ElasticGpuSpecificationResponse.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4901,7 +4904,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateTagSpecification.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateTagSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4921,7 +4924,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -4987,7 +4990,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateInstanceNetworkInterfaceSpecification.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateInstanceNetworkInterfaceSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5028,19 +5031,19 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('deleteOnTermination', stub[:delete_on_termination].to_s) unless stub[:delete_on_termination].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('deviceIndex', stub[:device_index].to_s) unless stub[:device_index].nil?
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdStringList.stub('groupId', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdStringList.stub('groupId', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('interfaceType', stub[:interface_type].to_s) unless stub[:interface_type].nil?
         xml << Hearth::XML::Node.new('ipv6AddressCount', stub[:ipv6_address_count].to_s) unless stub[:ipv6_address_count].nil?
-        xml << Hearth::XML::Node.new('ipv6AddressesSet', Stubs::InstanceIpv6AddressList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
+        xml << Hearth::XML::Node.new('ipv6AddressesSet', InstanceIpv6AddressList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
-        xml << Hearth::XML::Node.new('privateIpAddressesSet', Stubs::PrivateIpAddressSpecificationList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
+        xml << Hearth::XML::Node.new('privateIpAddressesSet', PrivateIpAddressSpecificationList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
         xml << Hearth::XML::Node.new('secondaryPrivateIpAddressCount', stub[:secondary_private_ip_address_count].to_s) unless stub[:secondary_private_ip_address_count].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('networkCardIndex', stub[:network_card_index].to_s) unless stub[:network_card_index].nil?
-        xml << Hearth::XML::Node.new('ipv4PrefixSet', Stubs::Ipv4PrefixListResponse.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
+        xml << Hearth::XML::Node.new('ipv4PrefixSet', Ipv4PrefixListResponse.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
         xml << Hearth::XML::Node.new('ipv4PrefixCount', stub[:ipv4_prefix_count].to_s) unless stub[:ipv4_prefix_count].nil?
-        xml << Hearth::XML::Node.new('ipv6PrefixSet', Stubs::Ipv6PrefixListResponse.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
+        xml << Hearth::XML::Node.new('ipv6PrefixSet', Ipv6PrefixListResponse.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
         xml << Hearth::XML::Node.new('ipv6PrefixCount', stub[:ipv6_prefix_count].to_s) unless stub[:ipv6_prefix_count].nil?
         xml
       end
@@ -5059,7 +5062,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv6PrefixSpecificationResponse.stub(node_name, element) unless element.nil?
+          xml << Ipv6PrefixSpecificationResponse.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5095,7 +5098,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv4PrefixSpecificationResponse.stub(node_name, element) unless element.nil?
+          xml << Ipv4PrefixSpecificationResponse.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5131,7 +5134,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PrivateIpAddressSpecification.stub(node_name, element) unless element.nil?
+          xml << PrivateIpAddressSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5169,7 +5172,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceIpv6Address.stub(node_name, element) unless element.nil?
+          xml << InstanceIpv6Address.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5224,7 +5227,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateBlockDeviceMapping.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateBlockDeviceMapping.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5247,7 +5250,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('deviceName', stub[:device_name].to_s) unless stub[:device_name].nil?
         xml << Hearth::XML::Node.new('virtualName', stub[:virtual_name].to_s) unless stub[:virtual_name].nil?
-        xml << Stubs::LaunchTemplateEbsBlockDevice.stub('ebs', stub[:ebs]) unless stub[:ebs].nil?
+        xml << LaunchTemplateEbsBlockDevice.stub('ebs', stub[:ebs]) unless stub[:ebs].nil?
         xml << Hearth::XML::Node.new('noDevice', stub[:no_device].to_s) unless stub[:no_device].nil?
         xml
       end
@@ -5315,8 +5318,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateLocalGatewayRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LocalGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LocalGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -5362,8 +5365,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateLocalGatewayRouteTableVpcAssociationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LocalGatewayRouteTableVpcAssociation.stub('localGatewayRouteTableVpcAssociation', stub[:local_gateway_route_table_vpc_association]) unless stub[:local_gateway_route_table_vpc_association].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LocalGatewayRouteTableVpcAssociation.stub('localGatewayRouteTableVpcAssociation', stub[:local_gateway_route_table_vpc_association]) unless stub[:local_gateway_route_table_vpc_association].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -5394,7 +5397,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -5411,8 +5414,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateManagedPrefixListResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -5446,7 +5449,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('prefixListName', stub[:prefix_list_name].to_s) unless stub[:prefix_list_name].nil?
         xml << Hearth::XML::Node.new('maxEntries', stub[:max_entries].to_s) unless stub[:max_entries].nil?
         xml << Hearth::XML::Node.new('version', stub[:version].to_s) unless stub[:version].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml
       end
@@ -5466,8 +5469,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateNatGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        xml << Stubs::NatGateway.stub('natGateway', stub[:nat_gateway]) unless stub[:nat_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NatGateway.stub('natGateway', stub[:nat_gateway]) unless stub[:nat_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -5499,13 +5502,13 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('deleteTime', Hearth::TimeHelper.to_date_time(stub[:delete_time])) unless stub[:delete_time].nil?
         xml << Hearth::XML::Node.new('failureCode', stub[:failure_code].to_s) unless stub[:failure_code].nil?
         xml << Hearth::XML::Node.new('failureMessage', stub[:failure_message].to_s) unless stub[:failure_message].nil?
-        xml << Hearth::XML::Node.new('natGatewayAddressSet', Stubs::NatGatewayAddressList.stub('item', stub[:nat_gateway_addresses])) unless stub[:nat_gateway_addresses].nil?
+        xml << Hearth::XML::Node.new('natGatewayAddressSet', NatGatewayAddressList.stub('item', stub[:nat_gateway_addresses])) unless stub[:nat_gateway_addresses].nil?
         xml << Hearth::XML::Node.new('natGatewayId', stub[:nat_gateway_id].to_s) unless stub[:nat_gateway_id].nil?
-        xml << Stubs::ProvisionedBandwidth.stub('provisionedBandwidth', stub[:provisioned_bandwidth]) unless stub[:provisioned_bandwidth].nil?
+        xml << ProvisionedBandwidth.stub('provisionedBandwidth', stub[:provisioned_bandwidth]) unless stub[:provisioned_bandwidth].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('connectivityType', stub[:connectivity_type].to_s) unless stub[:connectivity_type].nil?
         xml
       end
@@ -5549,7 +5552,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NatGatewayAddress.stub(node_name, element) unless element.nil?
+          xml << NatGatewayAddress.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5590,8 +5593,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateNetworkAclResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkAcl.stub('networkAcl', stub[:network_acl]) unless stub[:network_acl].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NetworkAcl.stub('networkAcl', stub[:network_acl]) unless stub[:network_acl].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -5614,11 +5617,11 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('associationSet', Stubs::NetworkAclAssociationList.stub('item', stub[:associations])) unless stub[:associations].nil?
-        xml << Hearth::XML::Node.new('entrySet', Stubs::NetworkAclEntryList.stub('item', stub[:entries])) unless stub[:entries].nil?
+        xml << Hearth::XML::Node.new('associationSet', NetworkAclAssociationList.stub('item', stub[:associations])) unless stub[:associations].nil?
+        xml << Hearth::XML::Node.new('entrySet', NetworkAclEntryList.stub('item', stub[:entries])) unless stub[:entries].nil?
         xml << Hearth::XML::Node.new('default', stub[:is_default].to_s) unless stub[:is_default].nil?
         xml << Hearth::XML::Node.new('networkAclId', stub[:network_acl_id].to_s) unless stub[:network_acl_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml
@@ -5638,7 +5641,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkAclEntry.stub(node_name, element) unless element.nil?
+          xml << NetworkAclEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5665,9 +5668,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('cidrBlock', stub[:cidr_block].to_s) unless stub[:cidr_block].nil?
         xml << Hearth::XML::Node.new('egress', stub[:egress].to_s) unless stub[:egress].nil?
-        xml << Stubs::IcmpTypeCode.stub('icmpTypeCode', stub[:icmp_type_code]) unless stub[:icmp_type_code].nil?
+        xml << IcmpTypeCode.stub('icmpTypeCode', stub[:icmp_type_code]) unless stub[:icmp_type_code].nil?
         xml << Hearth::XML::Node.new('ipv6CidrBlock', stub[:ipv6_cidr_block].to_s) unless stub[:ipv6_cidr_block].nil?
-        xml << Stubs::PortRange.stub('portRange', stub[:port_range]) unless stub[:port_range].nil?
+        xml << PortRange.stub('portRange', stub[:port_range]) unless stub[:port_range].nil?
         xml << Hearth::XML::Node.new('protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
         xml << Hearth::XML::Node.new('ruleAction', stub[:rule_action].to_s) unless stub[:rule_action].nil?
         xml << Hearth::XML::Node.new('ruleNumber', stub[:rule_number].to_s) unless stub[:rule_number].nil?
@@ -5726,7 +5729,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkAclAssociation.stub(node_name, element) unless element.nil?
+          xml << NetworkAclAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5764,7 +5767,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateNetworkAclEntryResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -5782,9 +5785,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateNetworkInsightsAccessScopeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInsightsAccessScope.stub('networkInsightsAccessScope', stub[:network_insights_access_scope]) unless stub[:network_insights_access_scope].nil?
-        xml << Stubs::NetworkInsightsAccessScopeContent.stub('networkInsightsAccessScopeContent', stub[:network_insights_access_scope_content]) unless stub[:network_insights_access_scope_content].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NetworkInsightsAccessScope.stub('networkInsightsAccessScope', stub[:network_insights_access_scope]) unless stub[:network_insights_access_scope].nil?
+        xml << NetworkInsightsAccessScopeContent.stub('networkInsightsAccessScopeContent', stub[:network_insights_access_scope_content]) unless stub[:network_insights_access_scope_content].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -5804,8 +5807,8 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('networkInsightsAccessScopeId', stub[:network_insights_access_scope_id].to_s) unless stub[:network_insights_access_scope_id].nil?
-        xml << Hearth::XML::Node.new('matchPathSet', Stubs::AccessScopePathList.stub('item', stub[:match_paths])) unless stub[:match_paths].nil?
-        xml << Hearth::XML::Node.new('excludePathSet', Stubs::AccessScopePathList.stub('item', stub[:exclude_paths])) unless stub[:exclude_paths].nil?
+        xml << Hearth::XML::Node.new('matchPathSet', AccessScopePathList.stub('item', stub[:match_paths])) unless stub[:match_paths].nil?
+        xml << Hearth::XML::Node.new('excludePathSet', AccessScopePathList.stub('item', stub[:exclude_paths])) unless stub[:exclude_paths].nil?
         xml
       end
     end
@@ -5823,7 +5826,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AccessScopePath.stub(node_name, element) unless element.nil?
+          xml << AccessScopePath.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5843,9 +5846,9 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::PathStatement.stub('source', stub[:source]) unless stub[:source].nil?
-        xml << Stubs::PathStatement.stub('destination', stub[:destination]) unless stub[:destination].nil?
-        xml << Hearth::XML::Node.new('throughResourceSet', Stubs::ThroughResourcesStatementList.stub('item', stub[:through_resources])) unless stub[:through_resources].nil?
+        xml << PathStatement.stub('source', stub[:source]) unless stub[:source].nil?
+        xml << PathStatement.stub('destination', stub[:destination]) unless stub[:destination].nil?
+        xml << Hearth::XML::Node.new('throughResourceSet', ThroughResourcesStatementList.stub('item', stub[:through_resources])) unless stub[:through_resources].nil?
         xml
       end
     end
@@ -5863,7 +5866,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ThroughResourcesStatement.stub(node_name, element) unless element.nil?
+          xml << ThroughResourcesStatement.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5881,7 +5884,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ResourceStatement.stub('resourceStatement', stub[:resource_statement]) unless stub[:resource_statement].nil?
+        xml << ResourceStatement.stub('resourceStatement', stub[:resource_statement]) unless stub[:resource_statement].nil?
         xml
       end
     end
@@ -5899,8 +5902,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('resourceSet', Stubs::ValueStringList.stub('item', stub[:resources])) unless stub[:resources].nil?
-        xml << Hearth::XML::Node.new('resourceTypeSet', Stubs::ValueStringList.stub('item', stub[:resource_types])) unless stub[:resource_types].nil?
+        xml << Hearth::XML::Node.new('resourceSet', ValueStringList.stub('item', stub[:resources])) unless stub[:resources].nil?
+        xml << Hearth::XML::Node.new('resourceTypeSet', ValueStringList.stub('item', stub[:resource_types])) unless stub[:resource_types].nil?
         xml
       end
     end
@@ -5918,8 +5921,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::PacketHeaderStatement.stub('packetHeaderStatement', stub[:packet_header_statement]) unless stub[:packet_header_statement].nil?
-        xml << Stubs::ResourceStatement.stub('resourceStatement', stub[:resource_statement]) unless stub[:resource_statement].nil?
+        xml << PacketHeaderStatement.stub('packetHeaderStatement', stub[:packet_header_statement]) unless stub[:packet_header_statement].nil?
+        xml << ResourceStatement.stub('resourceStatement', stub[:resource_statement]) unless stub[:resource_statement].nil?
         xml
       end
     end
@@ -5942,13 +5945,13 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('sourceAddressSet', Stubs::ValueStringList.stub('item', stub[:source_addresses])) unless stub[:source_addresses].nil?
-        xml << Hearth::XML::Node.new('destinationAddressSet', Stubs::ValueStringList.stub('item', stub[:destination_addresses])) unless stub[:destination_addresses].nil?
-        xml << Hearth::XML::Node.new('sourcePortSet', Stubs::ValueStringList.stub('item', stub[:source_ports])) unless stub[:source_ports].nil?
-        xml << Hearth::XML::Node.new('destinationPortSet', Stubs::ValueStringList.stub('item', stub[:destination_ports])) unless stub[:destination_ports].nil?
-        xml << Hearth::XML::Node.new('sourcePrefixListSet', Stubs::ValueStringList.stub('item', stub[:source_prefix_lists])) unless stub[:source_prefix_lists].nil?
-        xml << Hearth::XML::Node.new('destinationPrefixListSet', Stubs::ValueStringList.stub('item', stub[:destination_prefix_lists])) unless stub[:destination_prefix_lists].nil?
-        xml << Hearth::XML::Node.new('protocolSet', Stubs::ProtocolList.stub('item', stub[:protocols])) unless stub[:protocols].nil?
+        xml << Hearth::XML::Node.new('sourceAddressSet', ValueStringList.stub('item', stub[:source_addresses])) unless stub[:source_addresses].nil?
+        xml << Hearth::XML::Node.new('destinationAddressSet', ValueStringList.stub('item', stub[:destination_addresses])) unless stub[:destination_addresses].nil?
+        xml << Hearth::XML::Node.new('sourcePortSet', ValueStringList.stub('item', stub[:source_ports])) unless stub[:source_ports].nil?
+        xml << Hearth::XML::Node.new('destinationPortSet', ValueStringList.stub('item', stub[:destination_ports])) unless stub[:destination_ports].nil?
+        xml << Hearth::XML::Node.new('sourcePrefixListSet', ValueStringList.stub('item', stub[:source_prefix_lists])) unless stub[:source_prefix_lists].nil?
+        xml << Hearth::XML::Node.new('destinationPrefixListSet', ValueStringList.stub('item', stub[:destination_prefix_lists])) unless stub[:destination_prefix_lists].nil?
+        xml << Hearth::XML::Node.new('protocolSet', ProtocolList.stub('item', stub[:protocols])) unless stub[:protocols].nil?
         xml
       end
     end
@@ -5992,7 +5995,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('networkInsightsAccessScopeArn', stub[:network_insights_access_scope_arn].to_s) unless stub[:network_insights_access_scope_arn].nil?
         xml << Hearth::XML::Node.new('createdDate', Hearth::TimeHelper.to_date_time(stub[:created_date])) unless stub[:created_date].nil?
         xml << Hearth::XML::Node.new('updatedDate', Hearth::TimeHelper.to_date_time(stub[:updated_date])) unless stub[:updated_date].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -6009,8 +6012,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateNetworkInsightsPathResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInsightsPath.stub('networkInsightsPath', stub[:network_insights_path]) unless stub[:network_insights_path].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NetworkInsightsPath.stub('networkInsightsPath', stub[:network_insights_path]) unless stub[:network_insights_path].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6045,7 +6048,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('destinationIp', stub[:destination_ip].to_s) unless stub[:destination_ip].nil?
         xml << Hearth::XML::Node.new('protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
         xml << Hearth::XML::Node.new('destinationPort', stub[:destination_port].to_s) unless stub[:destination_port].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -6063,9 +6066,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateNetworkInterfaceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInterface.stub('networkInterface', stub[:network_interface]) unless stub[:network_interface].nil?
+        xml << NetworkInterface.stub('networkInterface', stub[:network_interface]) unless stub[:network_interface].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6107,28 +6110,28 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::NetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
-        xml << Stubs::NetworkInterfaceAttachment.stub('attachment', stub[:attachment]) unless stub[:attachment].nil?
+        xml << NetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
+        xml << NetworkInterfaceAttachment.stub('attachment', stub[:attachment]) unless stub[:attachment].nil?
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('interfaceType', stub[:interface_type].to_s) unless stub[:interface_type].nil?
-        xml << Hearth::XML::Node.new('ipv6AddressesSet', Stubs::NetworkInterfaceIpv6AddressesList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
+        xml << Hearth::XML::Node.new('ipv6AddressesSet', NetworkInterfaceIpv6AddressesList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
         xml << Hearth::XML::Node.new('macAddress', stub[:mac_address].to_s) unless stub[:mac_address].nil?
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('privateDnsName', stub[:private_dns_name].to_s) unless stub[:private_dns_name].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
-        xml << Hearth::XML::Node.new('privateIpAddressesSet', Stubs::NetworkInterfacePrivateIpAddressList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
-        xml << Hearth::XML::Node.new('ipv4PrefixSet', Stubs::Ipv4PrefixesList.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
-        xml << Hearth::XML::Node.new('ipv6PrefixSet', Stubs::Ipv6PrefixesList.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
+        xml << Hearth::XML::Node.new('privateIpAddressesSet', NetworkInterfacePrivateIpAddressList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
+        xml << Hearth::XML::Node.new('ipv4PrefixSet', Ipv4PrefixesList.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
+        xml << Hearth::XML::Node.new('ipv6PrefixSet', Ipv6PrefixesList.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
         xml << Hearth::XML::Node.new('requesterId', stub[:requester_id].to_s) unless stub[:requester_id].nil?
         xml << Hearth::XML::Node.new('requesterManaged', stub[:requester_managed].to_s) unless stub[:requester_managed].nil?
         xml << Hearth::XML::Node.new('sourceDestCheck', stub[:source_dest_check].to_s) unless stub[:source_dest_check].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tag_set])) unless stub[:tag_set].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tag_set])) unless stub[:tag_set].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('denyAllIgwTraffic', stub[:deny_all_igw_traffic].to_s) unless stub[:deny_all_igw_traffic].nil?
         xml << Hearth::XML::Node.new('ipv6Native', stub[:ipv6_native].to_s) unless stub[:ipv6_native].nil?
@@ -6150,7 +6153,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv6PrefixSpecification.stub(node_name, element) unless element.nil?
+          xml << Ipv6PrefixSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6186,7 +6189,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInterfacePrivateIpAddress.stub(node_name, element) unless element.nil?
+          xml << NetworkInterfacePrivateIpAddress.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6207,7 +6210,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::NetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
+        xml << NetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
         xml << Hearth::XML::Node.new('primary', stub[:primary].to_s) unless stub[:primary].nil?
         xml << Hearth::XML::Node.new('privateDnsName', stub[:private_dns_name].to_s) unless stub[:private_dns_name].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
@@ -6257,7 +6260,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInterfaceIpv6Address.stub(node_name, element) unless element.nil?
+          xml << NetworkInterfaceIpv6Address.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6293,7 +6296,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::GroupIdentifier.stub(node_name, element) unless element.nil?
+          xml << GroupIdentifier.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6361,8 +6364,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateNetworkInterfacePermissionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInterfacePermission.stub('interfacePermission', stub[:interface_permission]) unless stub[:interface_permission].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NetworkInterfacePermission.stub('interfacePermission', stub[:interface_permission]) unless stub[:interface_permission].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6389,7 +6392,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('awsAccountId', stub[:aws_account_id].to_s) unless stub[:aws_account_id].nil?
         xml << Hearth::XML::Node.new('awsService', stub[:aws_service].to_s) unless stub[:aws_service].nil?
         xml << Hearth::XML::Node.new('permission', stub[:permission].to_s) unless stub[:permission].nil?
-        xml << Stubs::NetworkInterfacePermissionState.stub('permissionState', stub[:permission_state]) unless stub[:permission_state].nil?
+        xml << NetworkInterfacePermissionState.stub('permissionState', stub[:permission_state]) unless stub[:permission_state].nil?
         xml
       end
     end
@@ -6425,8 +6428,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreatePlacementGroupResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::PlacementGroup.stub('placementGroup', stub[:placement_group]) unless stub[:placement_group].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << PlacementGroup.stub('placementGroup', stub[:placement_group]) unless stub[:placement_group].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6454,7 +6457,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('strategy', stub[:strategy].to_s) unless stub[:strategy].nil?
         xml << Hearth::XML::Node.new('partitionCount', stub[:partition_count].to_s) unless stub[:partition_count].nil?
         xml << Hearth::XML::Node.new('groupId', stub[:group_id].to_s) unless stub[:group_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('groupArn', stub[:group_arn].to_s) unless stub[:group_arn].nil?
         xml
       end
@@ -6473,7 +6476,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreatePublicIpv4PoolResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('poolId', stub[:pool_id].to_s) unless stub[:pool_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6490,8 +6493,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateReplaceRootVolumeTaskResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ReplaceRootVolumeTask.stub('replaceRootVolumeTask', stub[:replace_root_volume_task]) unless stub[:replace_root_volume_task].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ReplaceRootVolumeTask.stub('replaceRootVolumeTask', stub[:replace_root_volume_task]) unless stub[:replace_root_volume_task].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6518,7 +6521,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('taskState', stub[:task_state].to_s) unless stub[:task_state].nil?
         xml << Hearth::XML::Node.new('startTime', stub[:start_time].to_s) unless stub[:start_time].nil?
         xml << Hearth::XML::Node.new('completeTime', stub[:complete_time].to_s) unless stub[:complete_time].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -6535,8 +6538,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateReservedInstancesListingResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('reservedInstancesListingsSet', Stubs::ReservedInstancesListingList.stub('item', stub[:reserved_instances_listings])) unless stub[:reserved_instances_listings].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('reservedInstancesListingsSet', ReservedInstancesListingList.stub('item', stub[:reserved_instances_listings])) unless stub[:reserved_instances_listings].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6554,7 +6557,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateRestoreImageTaskResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6572,7 +6575,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6589,8 +6592,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::RouteTable.stub('routeTable', stub[:route_table]) unless stub[:route_table].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << RouteTable.stub('routeTable', stub[:route_table]) unless stub[:route_table].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6613,11 +6616,11 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('associationSet', Stubs::RouteTableAssociationList.stub('item', stub[:associations])) unless stub[:associations].nil?
-        xml << Hearth::XML::Node.new('propagatingVgwSet', Stubs::PropagatingVgwList.stub('item', stub[:propagating_vgws])) unless stub[:propagating_vgws].nil?
+        xml << Hearth::XML::Node.new('associationSet', RouteTableAssociationList.stub('item', stub[:associations])) unless stub[:associations].nil?
+        xml << Hearth::XML::Node.new('propagatingVgwSet', PropagatingVgwList.stub('item', stub[:propagating_vgws])) unless stub[:propagating_vgws].nil?
         xml << Hearth::XML::Node.new('routeTableId', stub[:route_table_id].to_s) unless stub[:route_table_id].nil?
-        xml << Hearth::XML::Node.new('routeSet', Stubs::RouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('routeSet', RouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml
@@ -6637,7 +6640,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Route.stub(node_name, element) unless element.nil?
+          xml << Route.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6703,7 +6706,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PropagatingVgw.stub(node_name, element) unless element.nil?
+          xml << PropagatingVgw.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6739,7 +6742,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::RouteTableAssociation.stub(node_name, element) unless element.nil?
+          xml << RouteTableAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6767,7 +6770,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('routeTableId', stub[:route_table_id].to_s) unless stub[:route_table_id].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('gatewayId', stub[:gateway_id].to_s) unless stub[:gateway_id].nil?
-        xml << Stubs::RouteTableAssociationState.stub('associationState', stub[:association_state]) unless stub[:association_state].nil?
+        xml << RouteTableAssociationState.stub('associationState', stub[:association_state]) unless stub[:association_state].nil?
         xml
       end
     end
@@ -6786,8 +6789,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateSecurityGroupResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('groupId', stub[:group_id].to_s) unless stub[:group_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6834,10 +6837,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('volumeSize', stub[:volume_size].to_s) unless stub[:volume_size].nil?
         xml << Hearth::XML::Node.new('ownerAlias', stub[:owner_alias].to_s) unless stub[:owner_alias].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('storageTier', stub[:storage_tier].to_s) unless stub[:storage_tier].nil?
         xml << Hearth::XML::Node.new('restoreExpiryTime', Hearth::TimeHelper.to_date_time(stub[:restore_expiry_time])) unless stub[:restore_expiry_time].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6854,8 +6857,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateSnapshotsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('snapshotSet', Stubs::SnapshotSet.stub('item', stub[:snapshots])) unless stub[:snapshots].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('snapshotSet', SnapshotSet.stub('item', stub[:snapshots])) unless stub[:snapshots].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6873,7 +6876,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotInfo.stub(node_name, element) unless element.nil?
+          xml << SnapshotInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -6902,7 +6905,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('encrypted', stub[:encrypted].to_s) unless stub[:encrypted].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
@@ -6928,8 +6931,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateSpotDatafeedSubscriptionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::SpotDatafeedSubscription.stub('spotDatafeedSubscription', stub[:spot_datafeed_subscription]) unless stub[:spot_datafeed_subscription].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << SpotDatafeedSubscription.stub('spotDatafeedSubscription', stub[:spot_datafeed_subscription]) unless stub[:spot_datafeed_subscription].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -6951,7 +6954,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('bucket', stub[:bucket].to_s) unless stub[:bucket].nil?
-        xml << Stubs::SpotInstanceStateFault.stub('fault', stub[:fault]) unless stub[:fault].nil?
+        xml << SpotInstanceStateFault.stub('fault', stub[:fault]) unless stub[:fault].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('prefix', stub[:prefix].to_s) unless stub[:prefix].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
@@ -6991,7 +6994,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('CreateStoreImageTaskResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('objectKey', stub[:object_key].to_s) unless stub[:object_key].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7008,8 +7011,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateSubnetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::Subnet.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Subnet.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7026,8 +7029,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateSubnetCidrReservationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::SubnetCidrReservation.stub('subnetCidrReservation', stub[:subnet_cidr_reservation]) unless stub[:subnet_cidr_reservation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << SubnetCidrReservation.stub('subnetCidrReservation', stub[:subnet_cidr_reservation]) unless stub[:subnet_cidr_reservation].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7056,7 +7059,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('reservationType', stub[:reservation_type].to_s) unless stub[:reservation_type].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7072,7 +7075,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTagsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7090,9 +7093,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTrafficMirrorFilterResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrafficMirrorFilter.stub('trafficMirrorFilter', stub[:traffic_mirror_filter]) unless stub[:traffic_mirror_filter].nil?
+        xml << TrafficMirrorFilter.stub('trafficMirrorFilter', stub[:traffic_mirror_filter]) unless stub[:traffic_mirror_filter].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7115,11 +7118,11 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('trafficMirrorFilterId', stub[:traffic_mirror_filter_id].to_s) unless stub[:traffic_mirror_filter_id].nil?
-        xml << Hearth::XML::Node.new('ingressFilterRuleSet', Stubs::TrafficMirrorFilterRuleList.stub('item', stub[:ingress_filter_rules])) unless stub[:ingress_filter_rules].nil?
-        xml << Hearth::XML::Node.new('egressFilterRuleSet', Stubs::TrafficMirrorFilterRuleList.stub('item', stub[:egress_filter_rules])) unless stub[:egress_filter_rules].nil?
-        xml << Hearth::XML::Node.new('networkServiceSet', Stubs::TrafficMirrorNetworkServiceList.stub('item', stub[:network_services])) unless stub[:network_services].nil?
+        xml << Hearth::XML::Node.new('ingressFilterRuleSet', TrafficMirrorFilterRuleList.stub('item', stub[:ingress_filter_rules])) unless stub[:ingress_filter_rules].nil?
+        xml << Hearth::XML::Node.new('egressFilterRuleSet', TrafficMirrorFilterRuleList.stub('item', stub[:egress_filter_rules])) unless stub[:egress_filter_rules].nil?
+        xml << Hearth::XML::Node.new('networkServiceSet', TrafficMirrorNetworkServiceList.stub('item', stub[:network_services])) unless stub[:network_services].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7156,7 +7159,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TrafficMirrorFilterRule.stub(node_name, element) unless element.nil?
+          xml << TrafficMirrorFilterRule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -7190,8 +7193,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('ruleNumber', stub[:rule_number].to_s) unless stub[:rule_number].nil?
         xml << Hearth::XML::Node.new('ruleAction', stub[:rule_action].to_s) unless stub[:rule_action].nil?
         xml << Hearth::XML::Node.new('protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
-        xml << Stubs::TrafficMirrorPortRange.stub('destinationPortRange', stub[:destination_port_range]) unless stub[:destination_port_range].nil?
-        xml << Stubs::TrafficMirrorPortRange.stub('sourcePortRange', stub[:source_port_range]) unless stub[:source_port_range].nil?
+        xml << TrafficMirrorPortRange.stub('destinationPortRange', stub[:destination_port_range]) unless stub[:destination_port_range].nil?
+        xml << TrafficMirrorPortRange.stub('sourcePortRange', stub[:source_port_range]) unless stub[:source_port_range].nil?
         xml << Hearth::XML::Node.new('destinationCidrBlock', stub[:destination_cidr_block].to_s) unless stub[:destination_cidr_block].nil?
         xml << Hearth::XML::Node.new('sourceCidrBlock', stub[:source_cidr_block].to_s) unless stub[:source_cidr_block].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
@@ -7231,9 +7234,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTrafficMirrorFilterRuleResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrafficMirrorFilterRule.stub('trafficMirrorFilterRule', stub[:traffic_mirror_filter_rule]) unless stub[:traffic_mirror_filter_rule].nil?
+        xml << TrafficMirrorFilterRule.stub('trafficMirrorFilterRule', stub[:traffic_mirror_filter_rule]) unless stub[:traffic_mirror_filter_rule].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7251,9 +7254,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTrafficMirrorSessionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrafficMirrorSession.stub('trafficMirrorSession', stub[:traffic_mirror_session]) unless stub[:traffic_mirror_session].nil?
+        xml << TrafficMirrorSession.stub('trafficMirrorSession', stub[:traffic_mirror_session]) unless stub[:traffic_mirror_session].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7288,7 +7291,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('sessionNumber', stub[:session_number].to_s) unless stub[:session_number].nil?
         xml << Hearth::XML::Node.new('virtualNetworkId', stub[:virtual_network_id].to_s) unless stub[:virtual_network_id].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7306,9 +7309,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTrafficMirrorTargetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrafficMirrorTarget.stub('trafficMirrorTarget', stub[:traffic_mirror_target]) unless stub[:traffic_mirror_target].nil?
+        xml << TrafficMirrorTarget.stub('trafficMirrorTarget', stub[:traffic_mirror_target]) unless stub[:traffic_mirror_target].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7338,7 +7341,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('gatewayLoadBalancerEndpointId', stub[:gateway_load_balancer_endpoint_id].to_s) unless stub[:gateway_load_balancer_endpoint_id].nil?
         xml
       end
@@ -7356,8 +7359,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGateway.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGateway.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7387,8 +7390,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Stubs::TransitGatewayOptions.stub('options', stub[:options]) unless stub[:options].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << TransitGatewayOptions.stub('options', stub[:options]) unless stub[:options].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7415,7 +7418,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('amazonSideAsn', stub[:amazon_side_asn].to_s) unless stub[:amazon_side_asn].nil?
-        xml << Hearth::XML::Node.new('transitGatewayCidrBlocks', Stubs::ValueStringList.stub('item', stub[:transit_gateway_cidr_blocks])) unless stub[:transit_gateway_cidr_blocks].nil?
+        xml << Hearth::XML::Node.new('transitGatewayCidrBlocks', ValueStringList.stub('item', stub[:transit_gateway_cidr_blocks])) unless stub[:transit_gateway_cidr_blocks].nil?
         xml << Hearth::XML::Node.new('autoAcceptSharedAttachments', stub[:auto_accept_shared_attachments].to_s) unless stub[:auto_accept_shared_attachments].nil?
         xml << Hearth::XML::Node.new('defaultRouteTableAssociation', stub[:default_route_table_association].to_s) unless stub[:default_route_table_association].nil?
         xml << Hearth::XML::Node.new('associationDefaultRouteTableId', stub[:association_default_route_table_id].to_s) unless stub[:association_default_route_table_id].nil?
@@ -7440,8 +7443,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayConnectResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayConnect.stub('transitGatewayConnect', stub[:transit_gateway_connect]) unless stub[:transit_gateway_connect].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayConnect.stub('transitGatewayConnect', stub[:transit_gateway_connect]) unless stub[:transit_gateway_connect].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7469,8 +7472,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('transitGatewayId', stub[:transit_gateway_id].to_s) unless stub[:transit_gateway_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Stubs::TransitGatewayConnectOptions.stub('options', stub[:options]) unless stub[:options].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << TransitGatewayConnectOptions.stub('options', stub[:options]) unless stub[:options].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7504,8 +7507,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayConnectPeerResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayConnectPeer.stub('transitGatewayConnectPeer', stub[:transit_gateway_connect_peer]) unless stub[:transit_gateway_connect_peer].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayConnectPeer.stub('transitGatewayConnectPeer', stub[:transit_gateway_connect_peer]) unless stub[:transit_gateway_connect_peer].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7531,8 +7534,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('transitGatewayConnectPeerId', stub[:transit_gateway_connect_peer_id].to_s) unless stub[:transit_gateway_connect_peer_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Stubs::TransitGatewayConnectPeerConfiguration.stub('connectPeerConfiguration', stub[:connect_peer_configuration]) unless stub[:connect_peer_configuration].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << TransitGatewayConnectPeerConfiguration.stub('connectPeerConfiguration', stub[:connect_peer_configuration]) unless stub[:connect_peer_configuration].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7555,9 +7558,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('transitGatewayAddress', stub[:transit_gateway_address].to_s) unless stub[:transit_gateway_address].nil?
         xml << Hearth::XML::Node.new('peerAddress', stub[:peer_address].to_s) unless stub[:peer_address].nil?
-        xml << Hearth::XML::Node.new('insideCidrBlocks', Stubs::InsideCidrBlocksStringList.stub('item', stub[:inside_cidr_blocks])) unless stub[:inside_cidr_blocks].nil?
+        xml << Hearth::XML::Node.new('insideCidrBlocks', InsideCidrBlocksStringList.stub('item', stub[:inside_cidr_blocks])) unless stub[:inside_cidr_blocks].nil?
         xml << Hearth::XML::Node.new('protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
-        xml << Hearth::XML::Node.new('bgpConfigurations', Stubs::TransitGatewayAttachmentBgpConfigurationList.stub('item', stub[:bgp_configurations])) unless stub[:bgp_configurations].nil?
+        xml << Hearth::XML::Node.new('bgpConfigurations', TransitGatewayAttachmentBgpConfigurationList.stub('item', stub[:bgp_configurations])) unless stub[:bgp_configurations].nil?
         xml
       end
     end
@@ -7575,7 +7578,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayAttachmentBgpConfiguration.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayAttachmentBgpConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -7637,8 +7640,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayMulticastDomainResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDomain.stub('transitGatewayMulticastDomain', stub[:transit_gateway_multicast_domain]) unless stub[:transit_gateway_multicast_domain].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDomain.stub('transitGatewayMulticastDomain', stub[:transit_gateway_multicast_domain]) unless stub[:transit_gateway_multicast_domain].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7666,10 +7669,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('transitGatewayId', stub[:transit_gateway_id].to_s) unless stub[:transit_gateway_id].nil?
         xml << Hearth::XML::Node.new('transitGatewayMulticastDomainArn', stub[:transit_gateway_multicast_domain_arn].to_s) unless stub[:transit_gateway_multicast_domain_arn].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Stubs::TransitGatewayMulticastDomainOptions.stub('options', stub[:options]) unless stub[:options].nil?
+        xml << TransitGatewayMulticastDomainOptions.stub('options', stub[:options]) unless stub[:options].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7707,8 +7710,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayPeeringAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7725,8 +7728,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayPrefixListReferenceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPrefixListReference.stub('transitGatewayPrefixListReference', stub[:transit_gateway_prefix_list_reference]) unless stub[:transit_gateway_prefix_list_reference].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPrefixListReference.stub('transitGatewayPrefixListReference', stub[:transit_gateway_prefix_list_reference]) unless stub[:transit_gateway_prefix_list_reference].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7753,7 +7756,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('prefixListOwnerId', stub[:prefix_list_owner_id].to_s) unless stub[:prefix_list_owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('blackhole', stub[:blackhole].to_s) unless stub[:blackhole].nil?
-        xml << Stubs::TransitGatewayPrefixListAttachment.stub('transitGatewayAttachment', stub[:transit_gateway_attachment]) unless stub[:transit_gateway_attachment].nil?
+        xml << TransitGatewayPrefixListAttachment.stub('transitGatewayAttachment', stub[:transit_gateway_attachment]) unless stub[:transit_gateway_attachment].nil?
         xml
       end
     end
@@ -7791,8 +7794,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7815,7 +7818,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('destinationCidrBlock', stub[:destination_cidr_block].to_s) unless stub[:destination_cidr_block].nil?
         xml << Hearth::XML::Node.new('prefixListId', stub[:prefix_list_id].to_s) unless stub[:prefix_list_id].nil?
-        xml << Hearth::XML::Node.new('transitGatewayAttachments', Stubs::TransitGatewayRouteAttachmentList.stub('item', stub[:transit_gateway_attachments])) unless stub[:transit_gateway_attachments].nil?
+        xml << Hearth::XML::Node.new('transitGatewayAttachments', TransitGatewayRouteAttachmentList.stub('item', stub[:transit_gateway_attachments])) unless stub[:transit_gateway_attachments].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml
@@ -7835,7 +7838,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayRouteAttachment.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayRouteAttachment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -7874,8 +7877,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayRouteTable.stub('transitGatewayRouteTable', stub[:transit_gateway_route_table]) unless stub[:transit_gateway_route_table].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayRouteTable.stub('transitGatewayRouteTable', stub[:transit_gateway_route_table]) unless stub[:transit_gateway_route_table].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7904,7 +7907,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('defaultAssociationRouteTable', stub[:default_association_route_table].to_s) unless stub[:default_association_route_table].nil?
         xml << Hearth::XML::Node.new('defaultPropagationRouteTable', stub[:default_propagation_route_table].to_s) unless stub[:default_propagation_route_table].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -7921,8 +7924,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateTransitGatewayVpcAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7954,7 +7957,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVolumeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('attachmentSet', Stubs::VolumeAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
+        xml << Hearth::XML::Node.new('attachmentSet', VolumeAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
         xml << Hearth::XML::Node.new('encrypted', stub[:encrypted].to_s) unless stub[:encrypted].nil?
@@ -7965,12 +7968,12 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('status', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
         xml << Hearth::XML::Node.new('iops', stub[:iops].to_s) unless stub[:iops].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('volumeType', stub[:volume_type].to_s) unless stub[:volume_type].nil?
         xml << Hearth::XML::Node.new('fastRestored', stub[:fast_restored].to_s) unless stub[:fast_restored].nil?
         xml << Hearth::XML::Node.new('multiAttachEnabled', stub[:multi_attach_enabled].to_s) unless stub[:multi_attach_enabled].nil?
         xml << Hearth::XML::Node.new('throughput', stub[:throughput].to_s) unless stub[:throughput].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -7988,7 +7991,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VolumeAttachment.stub(node_name, element) unless element.nil?
+          xml << VolumeAttachment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8033,8 +8036,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpcResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::Vpc.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Vpc.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8052,9 +8055,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpcEndpointResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpcEndpoint.stub('vpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
+        xml << VpcEndpoint.stub('vpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8095,19 +8098,19 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('serviceName', stub[:service_name].to_s) unless stub[:service_name].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('policyDocument', stub[:policy_document].to_s) unless stub[:policy_document].nil?
-        xml << Hearth::XML::Node.new('routeTableIdSet', Stubs::ValueStringList.stub('item', stub[:route_table_ids])) unless stub[:route_table_ids].nil?
-        xml << Hearth::XML::Node.new('subnetIdSet', Stubs::ValueStringList.stub('item', stub[:subnet_ids])) unless stub[:subnet_ids].nil?
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierSet.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('routeTableIdSet', ValueStringList.stub('item', stub[:route_table_ids])) unless stub[:route_table_ids].nil?
+        xml << Hearth::XML::Node.new('subnetIdSet', ValueStringList.stub('item', stub[:subnet_ids])) unless stub[:subnet_ids].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierSet.stub('item', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('ipAddressType', stub[:ip_address_type].to_s) unless stub[:ip_address_type].nil?
-        xml << Stubs::DnsOptions.stub('dnsOptions', stub[:dns_options]) unless stub[:dns_options].nil?
+        xml << DnsOptions.stub('dnsOptions', stub[:dns_options]) unless stub[:dns_options].nil?
         xml << Hearth::XML::Node.new('privateDnsEnabled', stub[:private_dns_enabled].to_s) unless stub[:private_dns_enabled].nil?
         xml << Hearth::XML::Node.new('requesterManaged', stub[:requester_managed].to_s) unless stub[:requester_managed].nil?
-        xml << Hearth::XML::Node.new('networkInterfaceIdSet', Stubs::ValueStringList.stub('item', stub[:network_interface_ids])) unless stub[:network_interface_ids].nil?
-        xml << Hearth::XML::Node.new('dnsEntrySet', Stubs::DnsEntrySet.stub('item', stub[:dns_entries])) unless stub[:dns_entries].nil?
+        xml << Hearth::XML::Node.new('networkInterfaceIdSet', ValueStringList.stub('item', stub[:network_interface_ids])) unless stub[:network_interface_ids].nil?
+        xml << Hearth::XML::Node.new('dnsEntrySet', DnsEntrySet.stub('item', stub[:dns_entries])) unless stub[:dns_entries].nil?
         xml << Hearth::XML::Node.new('creationTimestamp', Hearth::TimeHelper.to_date_time(stub[:creation_timestamp])) unless stub[:creation_timestamp].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Stubs::LastError.stub('lastError', stub[:last_error]) unless stub[:last_error].nil?
+        xml << LastError.stub('lastError', stub[:last_error]) unless stub[:last_error].nil?
         xml
       end
     end
@@ -8144,7 +8147,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DnsEntry.stub(node_name, element) unless element.nil?
+          xml << DnsEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8199,7 +8202,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SecurityGroupIdentifier.stub(node_name, element) unless element.nil?
+          xml << SecurityGroupIdentifier.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8237,9 +8240,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpcEndpointConnectionNotificationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ConnectionNotification.stub('connectionNotification', stub[:connection_notification]) unless stub[:connection_notification].nil?
+        xml << ConnectionNotification.stub('connectionNotification', stub[:connection_notification]) unless stub[:connection_notification].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8267,7 +8270,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcEndpointId', stub[:vpc_endpoint_id].to_s) unless stub[:vpc_endpoint_id].nil?
         xml << Hearth::XML::Node.new('connectionNotificationType', stub[:connection_notification_type].to_s) unless stub[:connection_notification_type].nil?
         xml << Hearth::XML::Node.new('connectionNotificationArn', stub[:connection_notification_arn].to_s) unless stub[:connection_notification_arn].nil?
-        xml << Hearth::XML::Node.new('connectionEvents', Stubs::ValueStringList.stub('item', stub[:connection_events])) unless stub[:connection_events].nil?
+        xml << Hearth::XML::Node.new('connectionEvents', ValueStringList.stub('item', stub[:connection_events])) unless stub[:connection_events].nil?
         xml << Hearth::XML::Node.new('connectionNotificationState', stub[:connection_notification_state].to_s) unless stub[:connection_notification_state].nil?
         xml
       end
@@ -8286,9 +8289,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpcEndpointServiceConfigurationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ServiceConfiguration.stub('serviceConfiguration', stub[:service_configuration]) unless stub[:service_configuration].nil?
+        xml << ServiceConfiguration.stub('serviceConfiguration', stub[:service_configuration]) unless stub[:service_configuration].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8319,21 +8322,21 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('serviceType', Stubs::ServiceTypeDetailSet.stub('item', stub[:service_type])) unless stub[:service_type].nil?
+        xml << Hearth::XML::Node.new('serviceType', ServiceTypeDetailSet.stub('item', stub[:service_type])) unless stub[:service_type].nil?
         xml << Hearth::XML::Node.new('serviceId', stub[:service_id].to_s) unless stub[:service_id].nil?
         xml << Hearth::XML::Node.new('serviceName', stub[:service_name].to_s) unless stub[:service_name].nil?
         xml << Hearth::XML::Node.new('serviceState', stub[:service_state].to_s) unless stub[:service_state].nil?
-        xml << Hearth::XML::Node.new('availabilityZoneSet', Stubs::ValueStringList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('availabilityZoneSet', ValueStringList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
         xml << Hearth::XML::Node.new('acceptanceRequired', stub[:acceptance_required].to_s) unless stub[:acceptance_required].nil?
         xml << Hearth::XML::Node.new('managesVpcEndpoints', stub[:manages_vpc_endpoints].to_s) unless stub[:manages_vpc_endpoints].nil?
-        xml << Hearth::XML::Node.new('networkLoadBalancerArnSet', Stubs::ValueStringList.stub('item', stub[:network_load_balancer_arns])) unless stub[:network_load_balancer_arns].nil?
-        xml << Hearth::XML::Node.new('gatewayLoadBalancerArnSet', Stubs::ValueStringList.stub('item', stub[:gateway_load_balancer_arns])) unless stub[:gateway_load_balancer_arns].nil?
-        xml << Hearth::XML::Node.new('supportedIpAddressTypeSet', Stubs::SupportedIpAddressTypes.stub('item', stub[:supported_ip_address_types])) unless stub[:supported_ip_address_types].nil?
-        xml << Hearth::XML::Node.new('baseEndpointDnsNameSet', Stubs::ValueStringList.stub('item', stub[:base_endpoint_dns_names])) unless stub[:base_endpoint_dns_names].nil?
+        xml << Hearth::XML::Node.new('networkLoadBalancerArnSet', ValueStringList.stub('item', stub[:network_load_balancer_arns])) unless stub[:network_load_balancer_arns].nil?
+        xml << Hearth::XML::Node.new('gatewayLoadBalancerArnSet', ValueStringList.stub('item', stub[:gateway_load_balancer_arns])) unless stub[:gateway_load_balancer_arns].nil?
+        xml << Hearth::XML::Node.new('supportedIpAddressTypeSet', SupportedIpAddressTypes.stub('item', stub[:supported_ip_address_types])) unless stub[:supported_ip_address_types].nil?
+        xml << Hearth::XML::Node.new('baseEndpointDnsNameSet', ValueStringList.stub('item', stub[:base_endpoint_dns_names])) unless stub[:base_endpoint_dns_names].nil?
         xml << Hearth::XML::Node.new('privateDnsName', stub[:private_dns_name].to_s) unless stub[:private_dns_name].nil?
-        xml << Stubs::PrivateDnsNameConfiguration.stub('privateDnsNameConfiguration', stub[:private_dns_name_configuration]) unless stub[:private_dns_name_configuration].nil?
+        xml << PrivateDnsNameConfiguration.stub('privateDnsNameConfiguration', stub[:private_dns_name_configuration]) unless stub[:private_dns_name_configuration].nil?
         xml << Hearth::XML::Node.new('payerResponsibility', stub[:payer_responsibility].to_s) unless stub[:payer_responsibility].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -8393,7 +8396,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ServiceTypeDetail.stub(node_name, element) unless element.nil?
+          xml << ServiceTypeDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8428,8 +8431,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpcPeeringConnectionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpcPeeringConnection.stub('vpcPeeringConnection', stub[:vpc_peering_connection]) unless stub[:vpc_peering_connection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpcPeeringConnection.stub('vpcPeeringConnection', stub[:vpc_peering_connection]) unless stub[:vpc_peering_connection].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8446,8 +8449,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpnConnectionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8489,10 +8492,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('coreNetworkArn', stub[:core_network_arn].to_s) unless stub[:core_network_arn].nil?
         xml << Hearth::XML::Node.new('coreNetworkAttachmentArn', stub[:core_network_attachment_arn].to_s) unless stub[:core_network_attachment_arn].nil?
         xml << Hearth::XML::Node.new('gatewayAssociationState', stub[:gateway_association_state].to_s) unless stub[:gateway_association_state].nil?
-        xml << Stubs::VpnConnectionOptions.stub('options', stub[:options]) unless stub[:options].nil?
-        xml << Hearth::XML::Node.new('routes', Stubs::VpnStaticRouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('vgwTelemetry', Stubs::VgwTelemetryList.stub('item', stub[:vgw_telemetry])) unless stub[:vgw_telemetry].nil?
+        xml << VpnConnectionOptions.stub('options', stub[:options]) unless stub[:options].nil?
+        xml << Hearth::XML::Node.new('routes', VpnStaticRouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('vgwTelemetry', VgwTelemetryList.stub('item', stub[:vgw_telemetry])) unless stub[:vgw_telemetry].nil?
         xml
       end
     end
@@ -8510,7 +8513,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VgwTelemetry.stub(node_name, element) unless element.nil?
+          xml << VgwTelemetry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8556,7 +8559,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpnStaticRoute.stub(node_name, element) unless element.nil?
+          xml << VpnStaticRoute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8609,7 +8612,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('localIpv6NetworkCidr', stub[:local_ipv6_network_cidr].to_s) unless stub[:local_ipv6_network_cidr].nil?
         xml << Hearth::XML::Node.new('remoteIpv6NetworkCidr', stub[:remote_ipv6_network_cidr].to_s) unless stub[:remote_ipv6_network_cidr].nil?
         xml << Hearth::XML::Node.new('tunnelInsideIpVersion', stub[:tunnel_inside_ip_version].to_s) unless stub[:tunnel_inside_ip_version].nil?
-        xml << Hearth::XML::Node.new('tunnelOptionSet', Stubs::TunnelOptionsList.stub('item', stub[:tunnel_options])) unless stub[:tunnel_options].nil?
+        xml << Hearth::XML::Node.new('tunnelOptionSet', TunnelOptionsList.stub('item', stub[:tunnel_options])) unless stub[:tunnel_options].nil?
         xml
       end
     end
@@ -8627,7 +8630,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TunnelOption.stub(node_name, element) unless element.nil?
+          xml << TunnelOption.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8674,13 +8677,13 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('replayWindowSize', stub[:replay_window_size].to_s) unless stub[:replay_window_size].nil?
         xml << Hearth::XML::Node.new('dpdTimeoutSeconds', stub[:dpd_timeout_seconds].to_s) unless stub[:dpd_timeout_seconds].nil?
         xml << Hearth::XML::Node.new('dpdTimeoutAction', stub[:dpd_timeout_action].to_s) unless stub[:dpd_timeout_action].nil?
-        xml << Hearth::XML::Node.new('phase1EncryptionAlgorithmSet', Stubs::Phase1EncryptionAlgorithmsList.stub('item', stub[:phase1_encryption_algorithms])) unless stub[:phase1_encryption_algorithms].nil?
-        xml << Hearth::XML::Node.new('phase2EncryptionAlgorithmSet', Stubs::Phase2EncryptionAlgorithmsList.stub('item', stub[:phase2_encryption_algorithms])) unless stub[:phase2_encryption_algorithms].nil?
-        xml << Hearth::XML::Node.new('phase1IntegrityAlgorithmSet', Stubs::Phase1IntegrityAlgorithmsList.stub('item', stub[:phase1_integrity_algorithms])) unless stub[:phase1_integrity_algorithms].nil?
-        xml << Hearth::XML::Node.new('phase2IntegrityAlgorithmSet', Stubs::Phase2IntegrityAlgorithmsList.stub('item', stub[:phase2_integrity_algorithms])) unless stub[:phase2_integrity_algorithms].nil?
-        xml << Hearth::XML::Node.new('phase1DHGroupNumberSet', Stubs::Phase1DHGroupNumbersList.stub('item', stub[:phase1_dh_group_numbers])) unless stub[:phase1_dh_group_numbers].nil?
-        xml << Hearth::XML::Node.new('phase2DHGroupNumberSet', Stubs::Phase2DHGroupNumbersList.stub('item', stub[:phase2_dh_group_numbers])) unless stub[:phase2_dh_group_numbers].nil?
-        xml << Hearth::XML::Node.new('ikeVersionSet', Stubs::IKEVersionsList.stub('item', stub[:ike_versions])) unless stub[:ike_versions].nil?
+        xml << Hearth::XML::Node.new('phase1EncryptionAlgorithmSet', Phase1EncryptionAlgorithmsList.stub('item', stub[:phase1_encryption_algorithms])) unless stub[:phase1_encryption_algorithms].nil?
+        xml << Hearth::XML::Node.new('phase2EncryptionAlgorithmSet', Phase2EncryptionAlgorithmsList.stub('item', stub[:phase2_encryption_algorithms])) unless stub[:phase2_encryption_algorithms].nil?
+        xml << Hearth::XML::Node.new('phase1IntegrityAlgorithmSet', Phase1IntegrityAlgorithmsList.stub('item', stub[:phase1_integrity_algorithms])) unless stub[:phase1_integrity_algorithms].nil?
+        xml << Hearth::XML::Node.new('phase2IntegrityAlgorithmSet', Phase2IntegrityAlgorithmsList.stub('item', stub[:phase2_integrity_algorithms])) unless stub[:phase2_integrity_algorithms].nil?
+        xml << Hearth::XML::Node.new('phase1DHGroupNumberSet', Phase1DHGroupNumbersList.stub('item', stub[:phase1_dh_group_numbers])) unless stub[:phase1_dh_group_numbers].nil?
+        xml << Hearth::XML::Node.new('phase2DHGroupNumberSet', Phase2DHGroupNumbersList.stub('item', stub[:phase2_dh_group_numbers])) unless stub[:phase2_dh_group_numbers].nil?
+        xml << Hearth::XML::Node.new('ikeVersionSet', IKEVersionsList.stub('item', stub[:ike_versions])) unless stub[:ike_versions].nil?
         xml << Hearth::XML::Node.new('startupAction', stub[:startup_action].to_s) unless stub[:startup_action].nil?
         xml
       end
@@ -8699,7 +8702,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IKEVersionsListValue.stub(node_name, element) unless element.nil?
+          xml << IKEVersionsListValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8735,7 +8738,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Phase2DHGroupNumbersListValue.stub(node_name, element) unless element.nil?
+          xml << Phase2DHGroupNumbersListValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8771,7 +8774,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Phase1DHGroupNumbersListValue.stub(node_name, element) unless element.nil?
+          xml << Phase1DHGroupNumbersListValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8807,7 +8810,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Phase2IntegrityAlgorithmsListValue.stub(node_name, element) unless element.nil?
+          xml << Phase2IntegrityAlgorithmsListValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8843,7 +8846,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Phase1IntegrityAlgorithmsListValue.stub(node_name, element) unless element.nil?
+          xml << Phase1IntegrityAlgorithmsListValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8879,7 +8882,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Phase2EncryptionAlgorithmsListValue.stub(node_name, element) unless element.nil?
+          xml << Phase2EncryptionAlgorithmsListValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8915,7 +8918,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Phase1EncryptionAlgorithmsListValue.stub(node_name, element) unless element.nil?
+          xml << Phase1EncryptionAlgorithmsListValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -8949,7 +8952,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpnConnectionRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8966,8 +8969,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateVpnGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpnGateway.stub('vpnGateway', stub[:vpn_gateway]) unless stub[:vpn_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpnGateway.stub('vpnGateway', stub[:vpn_gateway]) unless stub[:vpn_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -8993,10 +8996,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
-        xml << Hearth::XML::Node.new('attachments', Stubs::VpcAttachmentList.stub('item', stub[:vpc_attachments])) unless stub[:vpc_attachments].nil?
+        xml << Hearth::XML::Node.new('attachments', VpcAttachmentList.stub('item', stub[:vpc_attachments])) unless stub[:vpc_attachments].nil?
         xml << Hearth::XML::Node.new('vpnGatewayId', stub[:vpn_gateway_id].to_s) unless stub[:vpn_gateway_id].nil?
         xml << Hearth::XML::Node.new('amazonSideAsn', stub[:amazon_side_asn].to_s) unless stub[:amazon_side_asn].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -9014,7 +9017,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcAttachment.stub(node_name, element) unless element.nil?
+          xml << VpcAttachment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -9032,8 +9035,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteCarrierGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::CarrierGateway.stub('carrierGateway', stub[:carrier_gateway]) unless stub[:carrier_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << CarrierGateway.stub('carrierGateway', stub[:carrier_gateway]) unless stub[:carrier_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9050,8 +9053,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteClientVpnEndpointResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ClientVpnEndpointStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ClientVpnEndpointStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9068,8 +9071,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteClientVpnRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ClientVpnRouteStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ClientVpnRouteStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9085,7 +9088,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteCustomerGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9101,7 +9104,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteDhcpOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9119,7 +9122,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteEgressOnlyInternetGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('returnCode', stub[:return_code].to_s) unless stub[:return_code].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9137,9 +9140,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteFleetsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successfulFleetDeletionSet', Stubs::DeleteFleetSuccessSet.stub('item', stub[:successful_fleet_deletions])) unless stub[:successful_fleet_deletions].nil?
-        xml << Hearth::XML::Node.new('unsuccessfulFleetDeletionSet', Stubs::DeleteFleetErrorSet.stub('item', stub[:unsuccessful_fleet_deletions])) unless stub[:unsuccessful_fleet_deletions].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successfulFleetDeletionSet', DeleteFleetSuccessSet.stub('item', stub[:successful_fleet_deletions])) unless stub[:successful_fleet_deletions].nil?
+        xml << Hearth::XML::Node.new('unsuccessfulFleetDeletionSet', DeleteFleetErrorSet.stub('item', stub[:unsuccessful_fleet_deletions])) unless stub[:unsuccessful_fleet_deletions].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9157,7 +9160,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DeleteFleetErrorItem.stub(node_name, element) unless element.nil?
+          xml << DeleteFleetErrorItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -9176,7 +9179,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::DeleteFleetError.stub('error', stub[:error]) unless stub[:error].nil?
+        xml << DeleteFleetError.stub('error', stub[:error]) unless stub[:error].nil?
         xml << Hearth::XML::Node.new('fleetId', stub[:fleet_id].to_s) unless stub[:fleet_id].nil?
         xml
       end
@@ -9214,7 +9217,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DeleteFleetSuccessItem.stub(node_name, element) unless element.nil?
+          xml << DeleteFleetSuccessItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -9253,8 +9256,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteFlowLogsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9272,7 +9275,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteFpgaImageResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9289,8 +9292,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteInstanceEventWindowResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceEventWindowStateChange.stub('instanceEventWindowState', stub[:instance_event_window_state]) unless stub[:instance_event_window_state].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceEventWindowStateChange.stub('instanceEventWindowState', stub[:instance_event_window_state]) unless stub[:instance_event_window_state].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9325,7 +9328,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteInternetGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9342,8 +9345,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteIpamResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::Ipam.stub('ipam', stub[:ipam]) unless stub[:ipam].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Ipam.stub('ipam', stub[:ipam]) unless stub[:ipam].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9360,8 +9363,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteIpamPoolResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamPool.stub('ipamPool', stub[:ipam_pool]) unless stub[:ipam_pool].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamPool.stub('ipamPool', stub[:ipam_pool]) unless stub[:ipam_pool].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9378,8 +9381,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteIpamScopeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamScope.stub('ipamScope', stub[:ipam_scope]) unless stub[:ipam_scope].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamScope.stub('ipamScope', stub[:ipam_scope]) unless stub[:ipam_scope].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9395,7 +9398,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteKeyPairResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9412,8 +9415,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteLaunchTemplateResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LaunchTemplate.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LaunchTemplate.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9431,9 +9434,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteLaunchTemplateVersionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successfullyDeletedLaunchTemplateVersionSet', Stubs::DeleteLaunchTemplateVersionsResponseSuccessSet.stub('item', stub[:successfully_deleted_launch_template_versions])) unless stub[:successfully_deleted_launch_template_versions].nil?
-        xml << Hearth::XML::Node.new('unsuccessfullyDeletedLaunchTemplateVersionSet', Stubs::DeleteLaunchTemplateVersionsResponseErrorSet.stub('item', stub[:unsuccessfully_deleted_launch_template_versions])) unless stub[:unsuccessfully_deleted_launch_template_versions].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successfullyDeletedLaunchTemplateVersionSet', DeleteLaunchTemplateVersionsResponseSuccessSet.stub('item', stub[:successfully_deleted_launch_template_versions])) unless stub[:successfully_deleted_launch_template_versions].nil?
+        xml << Hearth::XML::Node.new('unsuccessfullyDeletedLaunchTemplateVersionSet', DeleteLaunchTemplateVersionsResponseErrorSet.stub('item', stub[:unsuccessfully_deleted_launch_template_versions])) unless stub[:unsuccessfully_deleted_launch_template_versions].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9451,7 +9454,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DeleteLaunchTemplateVersionsResponseErrorItem.stub(node_name, element) unless element.nil?
+          xml << DeleteLaunchTemplateVersionsResponseErrorItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -9475,7 +9478,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('launchTemplateId', stub[:launch_template_id].to_s) unless stub[:launch_template_id].nil?
         xml << Hearth::XML::Node.new('launchTemplateName', stub[:launch_template_name].to_s) unless stub[:launch_template_name].nil?
         xml << Hearth::XML::Node.new('versionNumber', stub[:version_number].to_s) unless stub[:version_number].nil?
-        xml << Stubs::ResponseError.stub('responseError', stub[:response_error]) unless stub[:response_error].nil?
+        xml << ResponseError.stub('responseError', stub[:response_error]) unless stub[:response_error].nil?
         xml
       end
     end
@@ -9512,7 +9515,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DeleteLaunchTemplateVersionsResponseSuccessItem.stub(node_name, element) unless element.nil?
+          xml << DeleteLaunchTemplateVersionsResponseSuccessItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -9551,8 +9554,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteLocalGatewayRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LocalGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LocalGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9569,8 +9572,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteLocalGatewayRouteTableVpcAssociationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LocalGatewayRouteTableVpcAssociation.stub('localGatewayRouteTableVpcAssociation', stub[:local_gateway_route_table_vpc_association]) unless stub[:local_gateway_route_table_vpc_association].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LocalGatewayRouteTableVpcAssociation.stub('localGatewayRouteTableVpcAssociation', stub[:local_gateway_route_table_vpc_association]) unless stub[:local_gateway_route_table_vpc_association].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9587,8 +9590,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteManagedPrefixListResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9606,7 +9609,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteNatGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('natGatewayId', stub[:nat_gateway_id].to_s) unless stub[:nat_gateway_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9622,7 +9625,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteNetworkAclResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9638,7 +9641,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteNetworkAclEntryResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9656,7 +9659,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteNetworkInsightsAccessScopeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('networkInsightsAccessScopeId', stub[:network_insights_access_scope_id].to_s) unless stub[:network_insights_access_scope_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9674,7 +9677,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteNetworkInsightsAccessScopeAnalysisResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('networkInsightsAccessScopeAnalysisId', stub[:network_insights_access_scope_analysis_id].to_s) unless stub[:network_insights_access_scope_analysis_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9692,7 +9695,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteNetworkInsightsAnalysisResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('networkInsightsAnalysisId', stub[:network_insights_analysis_id].to_s) unless stub[:network_insights_analysis_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9710,7 +9713,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteNetworkInsightsPathResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('networkInsightsPathId', stub[:network_insights_path_id].to_s) unless stub[:network_insights_path_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9726,7 +9729,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteNetworkInterfaceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9744,7 +9747,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteNetworkInterfacePermissionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9760,7 +9763,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeletePlacementGroupResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9778,7 +9781,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeletePublicIpv4PoolResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('returnValue', stub[:return_value].to_s) unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9796,9 +9799,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteQueuedReservedInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successfulQueuedPurchaseDeletionSet', Stubs::SuccessfulQueuedPurchaseDeletionSet.stub('item', stub[:successful_queued_purchase_deletions])) unless stub[:successful_queued_purchase_deletions].nil?
-        xml << Hearth::XML::Node.new('failedQueuedPurchaseDeletionSet', Stubs::FailedQueuedPurchaseDeletionSet.stub('item', stub[:failed_queued_purchase_deletions])) unless stub[:failed_queued_purchase_deletions].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successfulQueuedPurchaseDeletionSet', SuccessfulQueuedPurchaseDeletionSet.stub('item', stub[:successful_queued_purchase_deletions])) unless stub[:successful_queued_purchase_deletions].nil?
+        xml << Hearth::XML::Node.new('failedQueuedPurchaseDeletionSet', FailedQueuedPurchaseDeletionSet.stub('item', stub[:failed_queued_purchase_deletions])) unless stub[:failed_queued_purchase_deletions].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9816,7 +9819,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FailedQueuedPurchaseDeletion.stub(node_name, element) unless element.nil?
+          xml << FailedQueuedPurchaseDeletion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -9835,7 +9838,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::DeleteQueuedReservedInstancesError.stub('error', stub[:error]) unless stub[:error].nil?
+        xml << DeleteQueuedReservedInstancesError.stub('error', stub[:error]) unless stub[:error].nil?
         xml << Hearth::XML::Node.new('reservedInstancesId', stub[:reserved_instances_id].to_s) unless stub[:reserved_instances_id].nil?
         xml
       end
@@ -9873,7 +9876,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SuccessfulQueuedPurchaseDeletion.stub(node_name, element) unless element.nil?
+          xml << SuccessfulQueuedPurchaseDeletion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -9907,7 +9910,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9923,7 +9926,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9939,7 +9942,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteSecurityGroupResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9955,7 +9958,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteSnapshotResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9971,7 +9974,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteSpotDatafeedSubscriptionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -9987,7 +9990,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteSubnetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10004,8 +10007,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteSubnetCidrReservationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::SubnetCidrReservation.stub('deletedSubnetCidrReservation', stub[:deleted_subnet_cidr_reservation]) unless stub[:deleted_subnet_cidr_reservation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << SubnetCidrReservation.stub('deletedSubnetCidrReservation', stub[:deleted_subnet_cidr_reservation]) unless stub[:deleted_subnet_cidr_reservation].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10021,7 +10024,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTagsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10039,7 +10042,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteTrafficMirrorFilterResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('trafficMirrorFilterId', stub[:traffic_mirror_filter_id].to_s) unless stub[:traffic_mirror_filter_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10057,7 +10060,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteTrafficMirrorFilterRuleResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('trafficMirrorFilterRuleId', stub[:traffic_mirror_filter_rule_id].to_s) unless stub[:traffic_mirror_filter_rule_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10075,7 +10078,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteTrafficMirrorSessionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('trafficMirrorSessionId', stub[:traffic_mirror_session_id].to_s) unless stub[:traffic_mirror_session_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10093,7 +10096,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteTrafficMirrorTargetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('trafficMirrorTargetId', stub[:traffic_mirror_target_id].to_s) unless stub[:traffic_mirror_target_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10110,8 +10113,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGateway.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGateway.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10128,8 +10131,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayConnectResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayConnect.stub('transitGatewayConnect', stub[:transit_gateway_connect]) unless stub[:transit_gateway_connect].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayConnect.stub('transitGatewayConnect', stub[:transit_gateway_connect]) unless stub[:transit_gateway_connect].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10146,8 +10149,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayConnectPeerResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayConnectPeer.stub('transitGatewayConnectPeer', stub[:transit_gateway_connect_peer]) unless stub[:transit_gateway_connect_peer].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayConnectPeer.stub('transitGatewayConnectPeer', stub[:transit_gateway_connect_peer]) unless stub[:transit_gateway_connect_peer].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10164,8 +10167,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayMulticastDomainResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDomain.stub('transitGatewayMulticastDomain', stub[:transit_gateway_multicast_domain]) unless stub[:transit_gateway_multicast_domain].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDomain.stub('transitGatewayMulticastDomain', stub[:transit_gateway_multicast_domain]) unless stub[:transit_gateway_multicast_domain].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10182,8 +10185,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayPeeringAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10200,8 +10203,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayPrefixListReferenceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPrefixListReference.stub('transitGatewayPrefixListReference', stub[:transit_gateway_prefix_list_reference]) unless stub[:transit_gateway_prefix_list_reference].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPrefixListReference.stub('transitGatewayPrefixListReference', stub[:transit_gateway_prefix_list_reference]) unless stub[:transit_gateway_prefix_list_reference].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10218,8 +10221,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10236,8 +10239,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayRouteTable.stub('transitGatewayRouteTable', stub[:transit_gateway_route_table]) unless stub[:transit_gateway_route_table].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayRouteTable.stub('transitGatewayRouteTable', stub[:transit_gateway_route_table]) unless stub[:transit_gateway_route_table].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10254,8 +10257,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteTransitGatewayVpcAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10271,7 +10274,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVolumeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10287,7 +10290,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVpcResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10304,8 +10307,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVpcEndpointConnectionNotificationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10322,8 +10325,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVpcEndpointServiceConfigurationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10340,8 +10343,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVpcEndpointsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10359,7 +10362,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeleteVpcPeeringConnectionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10375,7 +10378,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVpnConnectionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10391,7 +10394,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVpnConnectionRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10407,7 +10410,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeleteVpnGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10424,8 +10427,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeprovisionByoipCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10442,8 +10445,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeprovisionIpamPoolCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamPoolCidr.stub('ipamPoolCidr', stub[:ipam_pool_cidr]) unless stub[:ipam_pool_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamPoolCidr.stub('ipamPoolCidr', stub[:ipam_pool_cidr]) unless stub[:ipam_pool_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10464,7 +10467,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('cidr', stub[:cidr].to_s) unless stub[:cidr].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Stubs::IpamPoolCidrFailureReason.stub('failureReason', stub[:failure_reason]) unless stub[:failure_reason].nil?
+        xml << IpamPoolCidrFailureReason.stub('failureReason', stub[:failure_reason]) unless stub[:failure_reason].nil?
         xml
       end
     end
@@ -10502,8 +10505,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DeprovisionPublicIpv4PoolCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('poolId', stub[:pool_id].to_s) unless stub[:pool_id].nil?
-        xml << Hearth::XML::Node.new('deprovisionedAddressSet', Stubs::DeprovisionedAddressSet.stub('item', stub[:deprovisioned_addresses])) unless stub[:deprovisioned_addresses].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('deprovisionedAddressSet', DeprovisionedAddressSet.stub('item', stub[:deprovisioned_addresses])) unless stub[:deprovisioned_addresses].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10538,7 +10541,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeregisterImageResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10555,8 +10558,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeregisterInstanceEventNotificationAttributesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceTagNotificationAttribute.stub('instanceTagAttribute', stub[:instance_tag_attribute]) unless stub[:instance_tag_attribute].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceTagNotificationAttribute.stub('instanceTagAttribute', stub[:instance_tag_attribute]) unless stub[:instance_tag_attribute].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10574,7 +10577,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('instanceTagKeySet', Stubs::InstanceTagKeySet.stub('item', stub[:instance_tag_keys])) unless stub[:instance_tag_keys].nil?
+        xml << Hearth::XML::Node.new('instanceTagKeySet', InstanceTagKeySet.stub('item', stub[:instance_tag_keys])) unless stub[:instance_tag_keys].nil?
         xml << Hearth::XML::Node.new('includeAllTagsOfInstance', stub[:include_all_tags_of_instance].to_s) unless stub[:include_all_tags_of_instance].nil?
         xml
       end
@@ -10611,8 +10614,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeregisterTransitGatewayMulticastGroupMembersResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDeregisteredGroupMembers.stub('deregisteredMulticastGroupMembers', stub[:deregistered_multicast_group_members]) unless stub[:deregistered_multicast_group_members].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDeregisteredGroupMembers.stub('deregisteredMulticastGroupMembers', stub[:deregistered_multicast_group_members]) unless stub[:deregistered_multicast_group_members].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10632,7 +10635,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('transitGatewayMulticastDomainId', stub[:transit_gateway_multicast_domain_id].to_s) unless stub[:transit_gateway_multicast_domain_id].nil?
-        xml << Hearth::XML::Node.new('deregisteredNetworkInterfaceIds', Stubs::ValueStringList.stub('item', stub[:deregistered_network_interface_ids])) unless stub[:deregistered_network_interface_ids].nil?
+        xml << Hearth::XML::Node.new('deregisteredNetworkInterfaceIds', ValueStringList.stub('item', stub[:deregistered_network_interface_ids])) unless stub[:deregistered_network_interface_ids].nil?
         xml << Hearth::XML::Node.new('groupIpAddress', stub[:group_ip_address].to_s) unless stub[:group_ip_address].nil?
         xml
       end
@@ -10650,8 +10653,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DeregisterTransitGatewayMulticastGroupSourcesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDeregisteredGroupSources.stub('deregisteredMulticastGroupSources', stub[:deregistered_multicast_group_sources]) unless stub[:deregistered_multicast_group_sources].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDeregisteredGroupSources.stub('deregisteredMulticastGroupSources', stub[:deregistered_multicast_group_sources]) unless stub[:deregistered_multicast_group_sources].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10671,7 +10674,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('transitGatewayMulticastDomainId', stub[:transit_gateway_multicast_domain_id].to_s) unless stub[:transit_gateway_multicast_domain_id].nil?
-        xml << Hearth::XML::Node.new('deregisteredNetworkInterfaceIds', Stubs::ValueStringList.stub('item', stub[:deregistered_network_interface_ids])) unless stub[:deregistered_network_interface_ids].nil?
+        xml << Hearth::XML::Node.new('deregisteredNetworkInterfaceIds', ValueStringList.stub('item', stub[:deregistered_network_interface_ids])) unless stub[:deregistered_network_interface_ids].nil?
         xml << Hearth::XML::Node.new('groupIpAddress', stub[:group_ip_address].to_s) unless stub[:group_ip_address].nil?
         xml
       end
@@ -10689,8 +10692,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeAccountAttributesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('accountAttributeSet', Stubs::AccountAttributeList.stub('item', stub[:account_attributes])) unless stub[:account_attributes].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('accountAttributeSet', AccountAttributeList.stub('item', stub[:account_attributes])) unless stub[:account_attributes].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10708,7 +10711,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AccountAttribute.stub(node_name, element) unless element.nil?
+          xml << AccountAttribute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -10728,7 +10731,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('attributeName', stub[:attribute_name].to_s) unless stub[:attribute_name].nil?
-        xml << Hearth::XML::Node.new('attributeValueSet', Stubs::AccountAttributeValueList.stub('item', stub[:attribute_values])) unless stub[:attribute_values].nil?
+        xml << Hearth::XML::Node.new('attributeValueSet', AccountAttributeValueList.stub('item', stub[:attribute_values])) unless stub[:attribute_values].nil?
         xml
       end
     end
@@ -10746,7 +10749,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AccountAttributeValue.stub(node_name, element) unless element.nil?
+          xml << AccountAttributeValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -10781,8 +10784,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeAddressesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('addressesSet', Stubs::AddressList.stub('item', stub[:addresses])) unless stub[:addresses].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('addressesSet', AddressList.stub('item', stub[:addresses])) unless stub[:addresses].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10800,7 +10803,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Address.stub(node_name, element) unless element.nil?
+          xml << Address.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -10839,7 +10842,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
         xml << Hearth::XML::Node.new('networkInterfaceOwnerId', stub[:network_interface_owner_id].to_s) unless stub[:network_interface_owner_id].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('publicIpv4Pool', stub[:public_ipv4_pool].to_s) unless stub[:public_ipv4_pool].nil?
         xml << Hearth::XML::Node.new('networkBorderGroup', stub[:network_border_group].to_s) unless stub[:network_border_group].nil?
         xml << Hearth::XML::Node.new('customerOwnedIp', stub[:customer_owned_ip].to_s) unless stub[:customer_owned_ip].nil?
@@ -10862,9 +10865,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeAddressesAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('addressSet', Stubs::AddressSet.stub('item', stub[:addresses])) unless stub[:addresses].nil?
+        xml << Hearth::XML::Node.new('addressSet', AddressSet.stub('item', stub[:addresses])) unless stub[:addresses].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10882,7 +10885,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AddressAttribute.stub(node_name, element) unless element.nil?
+          xml << AddressAttribute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -10906,7 +10909,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('publicIp', stub[:public_ip].to_s) unless stub[:public_ip].nil?
         xml << Hearth::XML::Node.new('allocationId', stub[:allocation_id].to_s) unless stub[:allocation_id].nil?
         xml << Hearth::XML::Node.new('ptrRecord', stub[:ptr_record].to_s) unless stub[:ptr_record].nil?
-        xml << Stubs::PtrUpdateStatus.stub('ptrRecordUpdate', stub[:ptr_record_update]) unless stub[:ptr_record_update].nil?
+        xml << PtrUpdateStatus.stub('ptrRecordUpdate', stub[:ptr_record_update]) unless stub[:ptr_record_update].nil?
         xml
       end
     end
@@ -10946,8 +10949,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeAggregateIdFormatResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('useLongIdsAggregated', stub[:use_long_ids_aggregated].to_s) unless stub[:use_long_ids_aggregated].nil?
-        xml << Hearth::XML::Node.new('statusSet', Stubs::IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('statusSet', IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -10965,7 +10968,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IdFormat.stub(node_name, element) unless element.nil?
+          xml << IdFormat.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11004,8 +11007,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeAvailabilityZonesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('availabilityZoneInfo', Stubs::AvailabilityZoneList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('availabilityZoneInfo', AvailabilityZoneList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11023,7 +11026,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AvailabilityZone.stub(node_name, element) unless element.nil?
+          xml << AvailabilityZone.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11053,7 +11056,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('zoneState', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('optInStatus', stub[:opt_in_status].to_s) unless stub[:opt_in_status].nil?
-        xml << Hearth::XML::Node.new('messageSet', Stubs::AvailabilityZoneMessageList.stub('item', stub[:messages])) unless stub[:messages].nil?
+        xml << Hearth::XML::Node.new('messageSet', AvailabilityZoneMessageList.stub('item', stub[:messages])) unless stub[:messages].nil?
         xml << Hearth::XML::Node.new('regionName', stub[:region_name].to_s) unless stub[:region_name].nil?
         xml << Hearth::XML::Node.new('zoneName', stub[:zone_name].to_s) unless stub[:zone_name].nil?
         xml << Hearth::XML::Node.new('zoneId', stub[:zone_id].to_s) unless stub[:zone_id].nil?
@@ -11079,7 +11082,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AvailabilityZoneMessage.stub(node_name, element) unless element.nil?
+          xml << AvailabilityZoneMessage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11114,8 +11117,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeBundleTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('bundleInstanceTasksSet', Stubs::BundleTaskList.stub('item', stub[:bundle_tasks])) unless stub[:bundle_tasks].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('bundleInstanceTasksSet', BundleTaskList.stub('item', stub[:bundle_tasks])) unless stub[:bundle_tasks].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11133,7 +11136,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::BundleTask.stub(node_name, element) unless element.nil?
+          xml << BundleTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11152,9 +11155,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeByoipCidrsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('byoipCidrSet', Stubs::ByoipCidrSet.stub('item', stub[:byoip_cidrs])) unless stub[:byoip_cidrs].nil?
+        xml << Hearth::XML::Node.new('byoipCidrSet', ByoipCidrSet.stub('item', stub[:byoip_cidrs])) unless stub[:byoip_cidrs].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11172,7 +11175,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ByoipCidr.stub(node_name, element) unless element.nil?
+          xml << ByoipCidr.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11191,9 +11194,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeCapacityReservationFleetsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('capacityReservationFleetSet', Stubs::CapacityReservationFleetSet.stub('item', stub[:capacity_reservation_fleets])) unless stub[:capacity_reservation_fleets].nil?
+        xml << Hearth::XML::Node.new('capacityReservationFleetSet', CapacityReservationFleetSet.stub('item', stub[:capacity_reservation_fleets])) unless stub[:capacity_reservation_fleets].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11211,7 +11214,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CapacityReservationFleet.stub(node_name, element) unless element.nil?
+          xml << CapacityReservationFleet.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11250,8 +11253,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
         xml << Hearth::XML::Node.new('instanceMatchCriteria', stub[:instance_match_criteria].to_s) unless stub[:instance_match_criteria].nil?
         xml << Hearth::XML::Node.new('allocationStrategy', stub[:allocation_strategy].to_s) unless stub[:allocation_strategy].nil?
-        xml << Hearth::XML::Node.new('instanceTypeSpecificationSet', Stubs::FleetCapacityReservationSet.stub('item', stub[:instance_type_specifications])) unless stub[:instance_type_specifications].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('instanceTypeSpecificationSet', FleetCapacityReservationSet.stub('item', stub[:instance_type_specifications])) unless stub[:instance_type_specifications].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -11270,8 +11273,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeCapacityReservationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('capacityReservationSet', Stubs::CapacityReservationSet.stub('item', stub[:capacity_reservations])) unless stub[:capacity_reservations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('capacityReservationSet', CapacityReservationSet.stub('item', stub[:capacity_reservations])) unless stub[:capacity_reservations].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11289,7 +11292,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CapacityReservation.stub(node_name, element) unless element.nil?
+          xml << CapacityReservation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11308,9 +11311,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeCarrierGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('carrierGatewaySet', Stubs::CarrierGatewaySet.stub('item', stub[:carrier_gateways])) unless stub[:carrier_gateways].nil?
+        xml << Hearth::XML::Node.new('carrierGatewaySet', CarrierGatewaySet.stub('item', stub[:carrier_gateways])) unless stub[:carrier_gateways].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11328,7 +11331,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CarrierGateway.stub(node_name, element) unless element.nil?
+          xml << CarrierGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11347,9 +11350,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeClassicLinkInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::ClassicLinkInstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
+        xml << Hearth::XML::Node.new('instancesSet', ClassicLinkInstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11367,7 +11370,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ClassicLinkInstance.stub(node_name, element) unless element.nil?
+          xml << ClassicLinkInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11388,9 +11391,9 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml
       end
@@ -11409,9 +11412,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeClientVpnAuthorizationRulesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('authorizationRule', Stubs::AuthorizationRuleSet.stub('item', stub[:authorization_rules])) unless stub[:authorization_rules].nil?
+        xml << Hearth::XML::Node.new('authorizationRule', AuthorizationRuleSet.stub('item', stub[:authorization_rules])) unless stub[:authorization_rules].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11429,7 +11432,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AuthorizationRule.stub(node_name, element) unless element.nil?
+          xml << AuthorizationRule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11457,7 +11460,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('groupId', stub[:group_id].to_s) unless stub[:group_id].nil?
         xml << Hearth::XML::Node.new('accessAll', stub[:access_all].to_s) unless stub[:access_all].nil?
         xml << Hearth::XML::Node.new('destinationCidr', stub[:destination_cidr].to_s) unless stub[:destination_cidr].nil?
-        xml << Stubs::ClientVpnAuthorizationRuleStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << ClientVpnAuthorizationRuleStatus.stub('status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -11475,9 +11478,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeClientVpnConnectionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('connections', Stubs::ClientVpnConnectionSet.stub('item', stub[:connections])) unless stub[:connections].nil?
+        xml << Hearth::XML::Node.new('connections', ClientVpnConnectionSet.stub('item', stub[:connections])) unless stub[:connections].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11495,7 +11498,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ClientVpnConnection.stub(node_name, element) unless element.nil?
+          xml << ClientVpnConnection.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11537,9 +11540,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('egressPackets', stub[:egress_packets].to_s) unless stub[:egress_packets].nil?
         xml << Hearth::XML::Node.new('clientIp', stub[:client_ip].to_s) unless stub[:client_ip].nil?
         xml << Hearth::XML::Node.new('commonName', stub[:common_name].to_s) unless stub[:common_name].nil?
-        xml << Stubs::ClientVpnConnectionStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << ClientVpnConnectionStatus.stub('status', stub[:status]) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('connectionEndTime', stub[:connection_end_time].to_s) unless stub[:connection_end_time].nil?
-        xml << Hearth::XML::Node.new('postureComplianceStatusSet', Stubs::ValueStringList.stub('item', stub[:posture_compliance_statuses])) unless stub[:posture_compliance_statuses].nil?
+        xml << Hearth::XML::Node.new('postureComplianceStatusSet', ValueStringList.stub('item', stub[:posture_compliance_statuses])) unless stub[:posture_compliance_statuses].nil?
         xml
       end
     end
@@ -11576,9 +11579,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeClientVpnEndpointsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('clientVpnEndpoint', Stubs::EndpointSet.stub('item', stub[:client_vpn_endpoints])) unless stub[:client_vpn_endpoints].nil?
+        xml << Hearth::XML::Node.new('clientVpnEndpoint', EndpointSet.stub('item', stub[:client_vpn_endpoints])) unless stub[:client_vpn_endpoints].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11596,7 +11599,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ClientVpnEndpoint.stub(node_name, element) unless element.nil?
+          xml << ClientVpnEndpoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11638,27 +11641,27 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('clientVpnEndpointId', stub[:client_vpn_endpoint_id].to_s) unless stub[:client_vpn_endpoint_id].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Stubs::ClientVpnEndpointStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << ClientVpnEndpointStatus.stub('status', stub[:status]) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('creationTime', stub[:creation_time].to_s) unless stub[:creation_time].nil?
         xml << Hearth::XML::Node.new('deletionTime', stub[:deletion_time].to_s) unless stub[:deletion_time].nil?
         xml << Hearth::XML::Node.new('dnsName', stub[:dns_name].to_s) unless stub[:dns_name].nil?
         xml << Hearth::XML::Node.new('clientCidrBlock', stub[:client_cidr_block].to_s) unless stub[:client_cidr_block].nil?
-        xml << Hearth::XML::Node.new('dnsServer', Stubs::ValueStringList.stub('item', stub[:dns_servers])) unless stub[:dns_servers].nil?
+        xml << Hearth::XML::Node.new('dnsServer', ValueStringList.stub('item', stub[:dns_servers])) unless stub[:dns_servers].nil?
         xml << Hearth::XML::Node.new('splitTunnel', stub[:split_tunnel].to_s) unless stub[:split_tunnel].nil?
         xml << Hearth::XML::Node.new('vpnProtocol', stub[:vpn_protocol].to_s) unless stub[:vpn_protocol].nil?
         xml << Hearth::XML::Node.new('transportProtocol', stub[:transport_protocol].to_s) unless stub[:transport_protocol].nil?
         xml << Hearth::XML::Node.new('vpnPort', stub[:vpn_port].to_s) unless stub[:vpn_port].nil?
-        xml << Hearth::XML::Node.new('associatedTargetNetwork', Stubs::AssociatedTargetNetworkSet.stub('item', stub[:associated_target_networks])) unless stub[:associated_target_networks].nil?
+        xml << Hearth::XML::Node.new('associatedTargetNetwork', AssociatedTargetNetworkSet.stub('item', stub[:associated_target_networks])) unless stub[:associated_target_networks].nil?
         xml << Hearth::XML::Node.new('serverCertificateArn', stub[:server_certificate_arn].to_s) unless stub[:server_certificate_arn].nil?
-        xml << Hearth::XML::Node.new('authenticationOptions', Stubs::ClientVpnAuthenticationList.stub('item', stub[:authentication_options])) unless stub[:authentication_options].nil?
-        xml << Stubs::ConnectionLogResponseOptions.stub('connectionLogOptions', stub[:connection_log_options]) unless stub[:connection_log_options].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('securityGroupIdSet', Stubs::ClientVpnSecurityGroupIdSet.stub('item', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
+        xml << Hearth::XML::Node.new('authenticationOptions', ClientVpnAuthenticationList.stub('item', stub[:authentication_options])) unless stub[:authentication_options].nil?
+        xml << ConnectionLogResponseOptions.stub('connectionLogOptions', stub[:connection_log_options]) unless stub[:connection_log_options].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('securityGroupIdSet', ClientVpnSecurityGroupIdSet.stub('item', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('selfServicePortalUrl', stub[:self_service_portal_url].to_s) unless stub[:self_service_portal_url].nil?
-        xml << Stubs::ClientConnectResponseOptions.stub('clientConnectOptions', stub[:client_connect_options]) unless stub[:client_connect_options].nil?
+        xml << ClientConnectResponseOptions.stub('clientConnectOptions', stub[:client_connect_options]) unless stub[:client_connect_options].nil?
         xml << Hearth::XML::Node.new('sessionTimeoutHours', stub[:session_timeout_hours].to_s) unless stub[:session_timeout_hours].nil?
-        xml << Stubs::ClientLoginBannerResponseOptions.stub('clientLoginBannerOptions', stub[:client_login_banner_options]) unless stub[:client_login_banner_options].nil?
+        xml << ClientLoginBannerResponseOptions.stub('clientLoginBannerOptions', stub[:client_login_banner_options]) unless stub[:client_login_banner_options].nil?
         xml
       end
     end
@@ -11698,7 +11701,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('lambdaFunctionArn', stub[:lambda_function_arn].to_s) unless stub[:lambda_function_arn].nil?
-        xml << Stubs::ClientVpnEndpointAttributeStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << ClientVpnEndpointAttributeStatus.stub('status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -11756,7 +11759,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ClientVpnAuthentication.stub(node_name, element) unless element.nil?
+          xml << ClientVpnAuthentication.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11778,9 +11781,9 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
-        xml << Stubs::DirectoryServiceAuthentication.stub('activeDirectory', stub[:active_directory]) unless stub[:active_directory].nil?
-        xml << Stubs::CertificateAuthentication.stub('mutualAuthentication', stub[:mutual_authentication]) unless stub[:mutual_authentication].nil?
-        xml << Stubs::FederatedAuthentication.stub('federatedAuthentication', stub[:federated_authentication]) unless stub[:federated_authentication].nil?
+        xml << DirectoryServiceAuthentication.stub('activeDirectory', stub[:active_directory]) unless stub[:active_directory].nil?
+        xml << CertificateAuthentication.stub('mutualAuthentication', stub[:mutual_authentication]) unless stub[:mutual_authentication].nil?
+        xml << FederatedAuthentication.stub('federatedAuthentication', stub[:federated_authentication]) unless stub[:federated_authentication].nil?
         xml
       end
     end
@@ -11851,7 +11854,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AssociatedTargetNetwork.stub(node_name, element) unless element.nil?
+          xml << AssociatedTargetNetwork.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11889,9 +11892,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeClientVpnRoutesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('routes', Stubs::ClientVpnRouteSet.stub('item', stub[:routes])) unless stub[:routes].nil?
+        xml << Hearth::XML::Node.new('routes', ClientVpnRouteSet.stub('item', stub[:routes])) unless stub[:routes].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11909,7 +11912,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ClientVpnRoute.stub(node_name, element) unless element.nil?
+          xml << ClientVpnRoute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -11938,7 +11941,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('targetSubnet', stub[:target_subnet].to_s) unless stub[:target_subnet].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('origin', stub[:origin].to_s) unless stub[:origin].nil?
-        xml << Stubs::ClientVpnRouteStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << ClientVpnRouteStatus.stub('status', stub[:status]) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml
       end
@@ -11957,9 +11960,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeClientVpnTargetNetworksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('clientVpnTargetNetworks', Stubs::TargetNetworkSet.stub('item', stub[:client_vpn_target_networks])) unless stub[:client_vpn_target_networks].nil?
+        xml << Hearth::XML::Node.new('clientVpnTargetNetworks', TargetNetworkSet.stub('item', stub[:client_vpn_target_networks])) unless stub[:client_vpn_target_networks].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -11977,7 +11980,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TargetNetwork.stub(node_name, element) unless element.nil?
+          xml << TargetNetwork.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12004,8 +12007,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('targetNetworkId', stub[:target_network_id].to_s) unless stub[:target_network_id].nil?
         xml << Hearth::XML::Node.new('clientVpnEndpointId', stub[:client_vpn_endpoint_id].to_s) unless stub[:client_vpn_endpoint_id].nil?
-        xml << Stubs::AssociationStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        xml << Hearth::XML::Node.new('securityGroups', Stubs::ValueStringList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << AssociationStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << Hearth::XML::Node.new('securityGroups', ValueStringList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
         xml
       end
     end
@@ -12023,9 +12026,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeCoipPoolsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('coipPoolSet', Stubs::CoipPoolSet.stub('item', stub[:coip_pools])) unless stub[:coip_pools].nil?
+        xml << Hearth::XML::Node.new('coipPoolSet', CoipPoolSet.stub('item', stub[:coip_pools])) unless stub[:coip_pools].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12043,7 +12046,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CoipPool.stub(node_name, element) unless element.nil?
+          xml << CoipPool.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12066,9 +12069,9 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('poolId', stub[:pool_id].to_s) unless stub[:pool_id].nil?
-        xml << Hearth::XML::Node.new('poolCidrSet', Stubs::ValueStringList.stub('item', stub[:pool_cidrs])) unless stub[:pool_cidrs].nil?
+        xml << Hearth::XML::Node.new('poolCidrSet', ValueStringList.stub('item', stub[:pool_cidrs])) unless stub[:pool_cidrs].nil?
         xml << Hearth::XML::Node.new('localGatewayRouteTableId', stub[:local_gateway_route_table_id].to_s) unless stub[:local_gateway_route_table_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('poolArn', stub[:pool_arn].to_s) unless stub[:pool_arn].nil?
         xml
       end
@@ -12086,8 +12089,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeConversionTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('conversionTasks', Stubs::DescribeConversionTaskList.stub('item', stub[:conversion_tasks])) unless stub[:conversion_tasks].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('conversionTasks', DescribeConversionTaskList.stub('item', stub[:conversion_tasks])) unless stub[:conversion_tasks].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12105,7 +12108,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ConversionTask.stub(node_name, element) unless element.nil?
+          xml << ConversionTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12131,11 +12134,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('conversionTaskId', stub[:conversion_task_id].to_s) unless stub[:conversion_task_id].nil?
         xml << Hearth::XML::Node.new('expirationTime', stub[:expiration_time].to_s) unless stub[:expiration_time].nil?
-        xml << Stubs::ImportInstanceTaskDetails.stub('importInstance', stub[:import_instance]) unless stub[:import_instance].nil?
-        xml << Stubs::ImportVolumeTaskDetails.stub('importVolume', stub[:import_volume]) unless stub[:import_volume].nil?
+        xml << ImportInstanceTaskDetails.stub('importInstance', stub[:import_instance]) unless stub[:import_instance].nil?
+        xml << ImportVolumeTaskDetails.stub('importVolume', stub[:import_volume]) unless stub[:import_volume].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -12159,8 +12162,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('bytesConverted', stub[:bytes_converted].to_s) unless stub[:bytes_converted].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Stubs::DiskImageDescription.stub('image', stub[:image]) unless stub[:image].nil?
-        xml << Stubs::DiskImageVolumeDescription.stub('volume', stub[:volume]) unless stub[:volume].nil?
+        xml << DiskImageDescription.stub('image', stub[:image]) unless stub[:image].nil?
+        xml << DiskImageVolumeDescription.stub('volume', stub[:volume]) unless stub[:volume].nil?
         xml
       end
     end
@@ -12225,7 +12228,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
-        xml << Hearth::XML::Node.new('volumes', Stubs::ImportInstanceVolumeDetailSet.stub('item', stub[:volumes])) unless stub[:volumes].nil?
+        xml << Hearth::XML::Node.new('volumes', ImportInstanceVolumeDetailSet.stub('item', stub[:volumes])) unless stub[:volumes].nil?
         xml
       end
     end
@@ -12243,7 +12246,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ImportInstanceVolumeDetailItem.stub(node_name, element) unless element.nil?
+          xml << ImportInstanceVolumeDetailItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12270,10 +12273,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('bytesConverted', stub[:bytes_converted].to_s) unless stub[:bytes_converted].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Stubs::DiskImageDescription.stub('image', stub[:image]) unless stub[:image].nil?
+        xml << DiskImageDescription.stub('image', stub[:image]) unless stub[:image].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Stubs::DiskImageVolumeDescription.stub('volume', stub[:volume]) unless stub[:volume].nil?
+        xml << DiskImageVolumeDescription.stub('volume', stub[:volume]) unless stub[:volume].nil?
         xml
       end
     end
@@ -12290,8 +12293,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeCustomerGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('customerGatewaySet', Stubs::CustomerGatewayList.stub('item', stub[:customer_gateways])) unless stub[:customer_gateways].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('customerGatewaySet', CustomerGatewayList.stub('item', stub[:customer_gateways])) unless stub[:customer_gateways].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12309,7 +12312,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CustomerGateway.stub(node_name, element) unless element.nil?
+          xml << CustomerGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12328,9 +12331,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeDhcpOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('dhcpOptionsSet', Stubs::DhcpOptionsList.stub('item', stub[:dhcp_options])) unless stub[:dhcp_options].nil?
+        xml << Hearth::XML::Node.new('dhcpOptionsSet', DhcpOptionsList.stub('item', stub[:dhcp_options])) unless stub[:dhcp_options].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12348,7 +12351,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DhcpOptions.stub(node_name, element) unless element.nil?
+          xml << DhcpOptions.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12367,9 +12370,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeEgressOnlyInternetGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('egressOnlyInternetGatewaySet', Stubs::EgressOnlyInternetGatewayList.stub('item', stub[:egress_only_internet_gateways])) unless stub[:egress_only_internet_gateways].nil?
+        xml << Hearth::XML::Node.new('egressOnlyInternetGatewaySet', EgressOnlyInternetGatewayList.stub('item', stub[:egress_only_internet_gateways])) unless stub[:egress_only_internet_gateways].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12387,7 +12390,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::EgressOnlyInternetGateway.stub(node_name, element) unless element.nil?
+          xml << EgressOnlyInternetGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12407,10 +12410,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeElasticGpusResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('elasticGpuSet', Stubs::ElasticGpuSet.stub('item', stub[:elastic_gpu_set])) unless stub[:elastic_gpu_set].nil?
+        xml << Hearth::XML::Node.new('elasticGpuSet', ElasticGpuSet.stub('item', stub[:elastic_gpu_set])) unless stub[:elastic_gpu_set].nil?
         xml << Hearth::XML::Node.new('maxResults', stub[:max_results].to_s) unless stub[:max_results].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12428,7 +12431,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ElasticGpus.stub(node_name, element) unless element.nil?
+          xml << ElasticGpus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12455,10 +12458,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('elasticGpuId', stub[:elastic_gpu_id].to_s) unless stub[:elastic_gpu_id].nil?
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('elasticGpuType', stub[:elastic_gpu_type].to_s) unless stub[:elastic_gpu_type].nil?
-        xml << Stubs::ElasticGpuHealth.stub('elasticGpuHealth', stub[:elastic_gpu_health]) unless stub[:elastic_gpu_health].nil?
+        xml << ElasticGpuHealth.stub('elasticGpuHealth', stub[:elastic_gpu_health]) unless stub[:elastic_gpu_health].nil?
         xml << Hearth::XML::Node.new('elasticGpuState', stub[:elastic_gpu_state].to_s) unless stub[:elastic_gpu_state].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -12493,9 +12496,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeExportImageTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('exportImageTaskSet', Stubs::ExportImageTaskList.stub('item', stub[:export_image_tasks])) unless stub[:export_image_tasks].nil?
+        xml << Hearth::XML::Node.new('exportImageTaskSet', ExportImageTaskList.stub('item', stub[:export_image_tasks])) unless stub[:export_image_tasks].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12513,7 +12516,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ExportImageTask.stub(node_name, element) unless element.nil?
+          xml << ExportImageTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12542,10 +12545,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('exportImageTaskId', stub[:export_image_task_id].to_s) unless stub[:export_image_task_id].nil?
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('progress', stub[:progress].to_s) unless stub[:progress].nil?
-        xml << Stubs::ExportTaskS3Location.stub('s3ExportLocation', stub[:s3_export_location]) unless stub[:s3_export_location].nil?
+        xml << ExportTaskS3Location.stub('s3ExportLocation', stub[:s3_export_location]) unless stub[:s3_export_location].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -12581,8 +12584,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeExportTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('exportTaskSet', Stubs::ExportTaskList.stub('item', stub[:export_tasks])) unless stub[:export_tasks].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('exportTaskSet', ExportTaskList.stub('item', stub[:export_tasks])) unless stub[:export_tasks].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12600,7 +12603,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ExportTask.stub(node_name, element) unless element.nil?
+          xml << ExportTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12619,9 +12622,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeFastLaunchImagesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('fastLaunchImageSet', Stubs::DescribeFastLaunchImagesSuccessSet.stub('item', stub[:fast_launch_images])) unless stub[:fast_launch_images].nil?
+        xml << Hearth::XML::Node.new('fastLaunchImageSet', DescribeFastLaunchImagesSuccessSet.stub('item', stub[:fast_launch_images])) unless stub[:fast_launch_images].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12639,7 +12642,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DescribeFastLaunchImagesSuccessItem.stub(node_name, element) unless element.nil?
+          xml << DescribeFastLaunchImagesSuccessItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12667,8 +12670,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Stubs::FastLaunchSnapshotConfigurationResponse.stub('snapshotConfiguration', stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
-        xml << Stubs::FastLaunchLaunchTemplateSpecificationResponse.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << FastLaunchSnapshotConfigurationResponse.stub('snapshotConfiguration', stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
+        xml << FastLaunchLaunchTemplateSpecificationResponse.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
         xml << Hearth::XML::Node.new('maxParallelLaunches', stub[:max_parallel_launches].to_s) unless stub[:max_parallel_launches].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
@@ -12729,9 +12732,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeFastSnapshotRestoresResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('fastSnapshotRestoreSet', Stubs::DescribeFastSnapshotRestoreSuccessSet.stub('item', stub[:fast_snapshot_restores])) unless stub[:fast_snapshot_restores].nil?
+        xml << Hearth::XML::Node.new('fastSnapshotRestoreSet', DescribeFastSnapshotRestoreSuccessSet.stub('item', stub[:fast_snapshot_restores])) unless stub[:fast_snapshot_restores].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12749,7 +12752,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DescribeFastSnapshotRestoreSuccessItem.stub(node_name, element) unless element.nil?
+          xml << DescribeFastSnapshotRestoreSuccessItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12808,12 +12811,12 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeFleetHistoryResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('historyRecordSet', Stubs::HistoryRecordSet.stub('item', stub[:history_records])) unless stub[:history_records].nil?
+        xml << Hearth::XML::Node.new('historyRecordSet', HistoryRecordSet.stub('item', stub[:history_records])) unless stub[:history_records].nil?
         xml << Hearth::XML::Node.new('lastEvaluatedTime', Hearth::TimeHelper.to_date_time(stub[:last_evaluated_time])) unless stub[:last_evaluated_time].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('fleetId', stub[:fleet_id].to_s) unless stub[:fleet_id].nil?
         xml << Hearth::XML::Node.new('startTime', Hearth::TimeHelper.to_date_time(stub[:start_time])) unless stub[:start_time].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12831,7 +12834,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::HistoryRecordEntry.stub(node_name, element) unless element.nil?
+          xml << HistoryRecordEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12851,7 +12854,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::EventInformation.stub('eventInformation', stub[:event_information]) unless stub[:event_information].nil?
+        xml << EventInformation.stub('eventInformation', stub[:event_information]) unless stub[:event_information].nil?
         xml << Hearth::XML::Node.new('eventType', stub[:event_type].to_s) unless stub[:event_type].nil?
         xml << Hearth::XML::Node.new('timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
         xml
@@ -12893,10 +12896,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeFleetInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('activeInstanceSet', Stubs::ActiveInstanceSet.stub('item', stub[:active_instances])) unless stub[:active_instances].nil?
+        xml << Hearth::XML::Node.new('activeInstanceSet', ActiveInstanceSet.stub('item', stub[:active_instances])) unless stub[:active_instances].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('fleetId', stub[:fleet_id].to_s) unless stub[:fleet_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12914,7 +12917,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ActiveInstance.stub(node_name, element) unless element.nil?
+          xml << ActiveInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -12957,8 +12960,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeFleetsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('fleetSet', Stubs::FleetSet.stub('item', stub[:fleets])) unless stub[:fleets].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('fleetSet', FleetSet.stub('item', stub[:fleets])) unless stub[:fleets].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -12976,7 +12979,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FleetData.stub(node_name, element) unless element.nil?
+          xml << FleetData.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13022,18 +13025,18 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('excessCapacityTerminationPolicy', stub[:excess_capacity_termination_policy].to_s) unless stub[:excess_capacity_termination_policy].nil?
         xml << Hearth::XML::Node.new('fulfilledCapacity', Hearth::NumberHelper.serialize(stub[:fulfilled_capacity]).to_s) unless stub[:fulfilled_capacity].nil?
         xml << Hearth::XML::Node.new('fulfilledOnDemandCapacity', Hearth::NumberHelper.serialize(stub[:fulfilled_on_demand_capacity]).to_s) unless stub[:fulfilled_on_demand_capacity].nil?
-        xml << Hearth::XML::Node.new('launchTemplateConfigs', Stubs::FleetLaunchTemplateConfigList.stub('item', stub[:launch_template_configs])) unless stub[:launch_template_configs].nil?
-        xml << Stubs::TargetCapacitySpecification.stub('targetCapacitySpecification', stub[:target_capacity_specification]) unless stub[:target_capacity_specification].nil?
+        xml << Hearth::XML::Node.new('launchTemplateConfigs', FleetLaunchTemplateConfigList.stub('item', stub[:launch_template_configs])) unless stub[:launch_template_configs].nil?
+        xml << TargetCapacitySpecification.stub('targetCapacitySpecification', stub[:target_capacity_specification]) unless stub[:target_capacity_specification].nil?
         xml << Hearth::XML::Node.new('terminateInstancesWithExpiration', stub[:terminate_instances_with_expiration].to_s) unless stub[:terminate_instances_with_expiration].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('validFrom', Hearth::TimeHelper.to_date_time(stub[:valid_from])) unless stub[:valid_from].nil?
         xml << Hearth::XML::Node.new('validUntil', Hearth::TimeHelper.to_date_time(stub[:valid_until])) unless stub[:valid_until].nil?
         xml << Hearth::XML::Node.new('replaceUnhealthyInstances', stub[:replace_unhealthy_instances].to_s) unless stub[:replace_unhealthy_instances].nil?
-        xml << Stubs::SpotOptions.stub('spotOptions', stub[:spot_options]) unless stub[:spot_options].nil?
-        xml << Stubs::OnDemandOptions.stub('onDemandOptions', stub[:on_demand_options]) unless stub[:on_demand_options].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('errorSet', Stubs::DescribeFleetsErrorSet.stub('item', stub[:errors])) unless stub[:errors].nil?
-        xml << Hearth::XML::Node.new('fleetInstanceSet', Stubs::DescribeFleetsInstancesSet.stub('item', stub[:instances])) unless stub[:instances].nil?
+        xml << SpotOptions.stub('spotOptions', stub[:spot_options]) unless stub[:spot_options].nil?
+        xml << OnDemandOptions.stub('onDemandOptions', stub[:on_demand_options]) unless stub[:on_demand_options].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('errorSet', DescribeFleetsErrorSet.stub('item', stub[:errors])) unless stub[:errors].nil?
+        xml << Hearth::XML::Node.new('fleetInstanceSet', DescribeFleetsInstancesSet.stub('item', stub[:instances])) unless stub[:instances].nil?
         xml << Hearth::XML::Node.new('context', stub[:context].to_s) unless stub[:context].nil?
         xml
       end
@@ -13052,7 +13055,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DescribeFleetsInstances.stub(node_name, element) unless element.nil?
+          xml << DescribeFleetsInstances.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13074,9 +13077,9 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
+        xml << LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
         xml << Hearth::XML::Node.new('lifecycle', stub[:lifecycle].to_s) unless stub[:lifecycle].nil?
-        xml << Hearth::XML::Node.new('instanceIds', Stubs::InstanceIdsSet.stub('item', stub[:instance_ids])) unless stub[:instance_ids].nil?
+        xml << Hearth::XML::Node.new('instanceIds', InstanceIdsSet.stub('item', stub[:instance_ids])) unless stub[:instance_ids].nil?
         xml << Hearth::XML::Node.new('instanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml
@@ -13096,7 +13099,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DescribeFleetError.stub(node_name, element) unless element.nil?
+          xml << DescribeFleetError.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13117,7 +13120,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
+        xml << LaunchTemplateAndOverridesResponse.stub('launchTemplateAndOverrides', stub[:launch_template_and_overrides]) unless stub[:launch_template_and_overrides].nil?
         xml << Hearth::XML::Node.new('lifecycle', stub[:lifecycle].to_s) unless stub[:lifecycle].nil?
         xml << Hearth::XML::Node.new('errorCode', stub[:error_code].to_s) unless stub[:error_code].nil?
         xml << Hearth::XML::Node.new('errorMessage', stub[:error_message].to_s) unless stub[:error_message].nil?
@@ -13143,7 +13146,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('allocationStrategy', stub[:allocation_strategy].to_s) unless stub[:allocation_strategy].nil?
-        xml << Stubs::CapacityReservationOptions.stub('capacityReservationOptions', stub[:capacity_reservation_options]) unless stub[:capacity_reservation_options].nil?
+        xml << CapacityReservationOptions.stub('capacityReservationOptions', stub[:capacity_reservation_options]) unless stub[:capacity_reservation_options].nil?
         xml << Hearth::XML::Node.new('singleInstanceType', stub[:single_instance_type].to_s) unless stub[:single_instance_type].nil?
         xml << Hearth::XML::Node.new('singleAvailabilityZone', stub[:single_availability_zone].to_s) unless stub[:single_availability_zone].nil?
         xml << Hearth::XML::Node.new('minTargetCapacity', stub[:min_target_capacity].to_s) unless stub[:min_target_capacity].nil?
@@ -13189,7 +13192,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('allocationStrategy', stub[:allocation_strategy].to_s) unless stub[:allocation_strategy].nil?
-        xml << Stubs::FleetSpotMaintenanceStrategies.stub('maintenanceStrategies', stub[:maintenance_strategies]) unless stub[:maintenance_strategies].nil?
+        xml << FleetSpotMaintenanceStrategies.stub('maintenanceStrategies', stub[:maintenance_strategies]) unless stub[:maintenance_strategies].nil?
         xml << Hearth::XML::Node.new('instanceInterruptionBehavior', stub[:instance_interruption_behavior].to_s) unless stub[:instance_interruption_behavior].nil?
         xml << Hearth::XML::Node.new('instancePoolsToUseCount', stub[:instance_pools_to_use_count].to_s) unless stub[:instance_pools_to_use_count].nil?
         xml << Hearth::XML::Node.new('singleInstanceType', stub[:single_instance_type].to_s) unless stub[:single_instance_type].nil?
@@ -13212,7 +13215,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::FleetSpotCapacityRebalance.stub('capacityRebalance', stub[:capacity_rebalance]) unless stub[:capacity_rebalance].nil?
+        xml << FleetSpotCapacityRebalance.stub('capacityRebalance', stub[:capacity_rebalance]) unless stub[:capacity_rebalance].nil?
         xml
       end
     end
@@ -13274,7 +13277,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FleetLaunchTemplateConfig.stub(node_name, element) unless element.nil?
+          xml << FleetLaunchTemplateConfig.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13293,8 +13296,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::FleetLaunchTemplateSpecification.stub('launchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
-        xml << Hearth::XML::Node.new('overrides', Stubs::FleetLaunchTemplateOverridesList.stub('item', stub[:overrides])) unless stub[:overrides].nil?
+        xml << FleetLaunchTemplateSpecification.stub('launchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
+        xml << Hearth::XML::Node.new('overrides', FleetLaunchTemplateOverridesList.stub('item', stub[:overrides])) unless stub[:overrides].nil?
         xml
       end
     end
@@ -13312,7 +13315,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FleetLaunchTemplateOverrides.stub(node_name, element) unless element.nil?
+          xml << FleetLaunchTemplateOverrides.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13331,9 +13334,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeFlowLogsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('flowLogSet', Stubs::FlowLogSet.stub('item', stub[:flow_logs])) unless stub[:flow_logs].nil?
+        xml << Hearth::XML::Node.new('flowLogSet', FlowLogSet.stub('item', stub[:flow_logs])) unless stub[:flow_logs].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -13351,7 +13354,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FlowLog.stub(node_name, element) unless element.nil?
+          xml << FlowLog.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13395,9 +13398,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('logDestinationType', stub[:log_destination_type].to_s) unless stub[:log_destination_type].nil?
         xml << Hearth::XML::Node.new('logDestination', stub[:log_destination].to_s) unless stub[:log_destination].nil?
         xml << Hearth::XML::Node.new('logFormat', stub[:log_format].to_s) unless stub[:log_format].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('maxAggregationInterval', stub[:max_aggregation_interval].to_s) unless stub[:max_aggregation_interval].nil?
-        xml << Stubs::DestinationOptionsResponse.stub('destinationOptions', stub[:destination_options]) unless stub[:destination_options].nil?
+        xml << DestinationOptionsResponse.stub('destinationOptions', stub[:destination_options]) unless stub[:destination_options].nil?
         xml
       end
     end
@@ -13435,8 +13438,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeFpgaImageAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::FpgaImageAttribute.stub('fpgaImageAttribute', stub[:fpga_image_attribute]) unless stub[:fpga_image_attribute].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << FpgaImageAttribute.stub('fpgaImageAttribute', stub[:fpga_image_attribute]) unless stub[:fpga_image_attribute].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -13460,8 +13463,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('fpgaImageId', stub[:fpga_image_id].to_s) unless stub[:fpga_image_id].nil?
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('loadPermissions', Stubs::LoadPermissionList.stub('item', stub[:load_permissions])) unless stub[:load_permissions].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << Hearth::XML::Node.new('loadPermissions', LoadPermissionList.stub('item', stub[:load_permissions])) unless stub[:load_permissions].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
         xml
       end
     end
@@ -13479,7 +13482,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ProductCode.stub(node_name, element) unless element.nil?
+          xml << ProductCode.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13517,7 +13520,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadPermission.stub(node_name, element) unless element.nil?
+          xml << LoadPermission.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13555,9 +13558,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeFpgaImagesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('fpgaImageSet', Stubs::FpgaImageList.stub('item', stub[:fpga_images])) unless stub[:fpga_images].nil?
+        xml << Hearth::XML::Node.new('fpgaImageSet', FpgaImageList.stub('item', stub[:fpga_images])) unless stub[:fpga_images].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -13575,7 +13578,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FpgaImage.stub(node_name, element) unless element.nil?
+          xml << FpgaImage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13612,14 +13615,14 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('shellVersion', stub[:shell_version].to_s) unless stub[:shell_version].nil?
-        xml << Stubs::PciId.stub('pciId', stub[:pci_id]) unless stub[:pci_id].nil?
-        xml << Stubs::FpgaImageState.stub('state', stub[:state]) unless stub[:state].nil?
+        xml << PciId.stub('pciId', stub[:pci_id]) unless stub[:pci_id].nil?
+        xml << FpgaImageState.stub('state', stub[:state]) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
         xml << Hearth::XML::Node.new('updateTime', Hearth::TimeHelper.to_date_time(stub[:update_time])) unless stub[:update_time].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('ownerAlias', stub[:owner_alias].to_s) unless stub[:owner_alias].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
-        xml << Hearth::XML::Node.new('tags', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << Hearth::XML::Node.new('tags', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('public', stub[:public].to_s) unless stub[:public].nil?
         xml << Hearth::XML::Node.new('dataRetentionSupport', stub[:data_retention_support].to_s) unless stub[:data_retention_support].nil?
         xml
@@ -13682,8 +13685,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeHostReservationOfferingsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('offeringSet', Stubs::HostOfferingSet.stub('item', stub[:offering_set])) unless stub[:offering_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('offeringSet', HostOfferingSet.stub('item', stub[:offering_set])) unless stub[:offering_set].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -13701,7 +13704,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::HostOffering.stub(node_name, element) unless element.nil?
+          xml << HostOffering.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13749,9 +13752,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeHostReservationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('hostReservationSet', Stubs::HostReservationSet.stub('item', stub[:host_reservation_set])) unless stub[:host_reservation_set].nil?
+        xml << Hearth::XML::Node.new('hostReservationSet', HostReservationSet.stub('item', stub[:host_reservation_set])) unless stub[:host_reservation_set].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -13769,7 +13772,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::HostReservation.stub(node_name, element) unless element.nil?
+          xml << HostReservation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13804,7 +13807,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('currencyCode', stub[:currency_code].to_s) unless stub[:currency_code].nil?
         xml << Hearth::XML::Node.new('duration', stub[:duration].to_s) unless stub[:duration].nil?
         xml << Hearth::XML::Node.new('end', Hearth::TimeHelper.to_date_time(stub[:end])) unless stub[:end].nil?
-        xml << Hearth::XML::Node.new('hostIdSet', Stubs::ResponseHostIdSet.stub('item', stub[:host_id_set])) unless stub[:host_id_set].nil?
+        xml << Hearth::XML::Node.new('hostIdSet', ResponseHostIdSet.stub('item', stub[:host_id_set])) unless stub[:host_id_set].nil?
         xml << Hearth::XML::Node.new('hostReservationId', stub[:host_reservation_id].to_s) unless stub[:host_reservation_id].nil?
         xml << Hearth::XML::Node.new('hourlyPrice', stub[:hourly_price].to_s) unless stub[:hourly_price].nil?
         xml << Hearth::XML::Node.new('instanceFamily', stub[:instance_family].to_s) unless stub[:instance_family].nil?
@@ -13813,7 +13816,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('start', Hearth::TimeHelper.to_date_time(stub[:start])) unless stub[:start].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('upfrontPrice', stub[:upfront_price].to_s) unless stub[:upfront_price].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -13850,9 +13853,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeHostsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('hostSet', Stubs::HostList.stub('item', stub[:hosts])) unless stub[:hosts].nil?
+        xml << Hearth::XML::Node.new('hostSet', HostList.stub('item', stub[:hosts])) unless stub[:hosts].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -13870,7 +13873,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Host.stub(node_name, element) unless element.nil?
+          xml << Host.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -13907,16 +13910,16 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('autoPlacement', stub[:auto_placement].to_s) unless stub[:auto_placement].nil?
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
-        xml << Stubs::AvailableCapacity.stub('availableCapacity', stub[:available_capacity]) unless stub[:available_capacity].nil?
+        xml << AvailableCapacity.stub('availableCapacity', stub[:available_capacity]) unless stub[:available_capacity].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
         xml << Hearth::XML::Node.new('hostId', stub[:host_id].to_s) unless stub[:host_id].nil?
-        xml << Stubs::HostProperties.stub('hostProperties', stub[:host_properties]) unless stub[:host_properties].nil?
+        xml << HostProperties.stub('hostProperties', stub[:host_properties]) unless stub[:host_properties].nil?
         xml << Hearth::XML::Node.new('hostReservationId', stub[:host_reservation_id].to_s) unless stub[:host_reservation_id].nil?
-        xml << Hearth::XML::Node.new('instances', Stubs::HostInstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
+        xml << Hearth::XML::Node.new('instances', HostInstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('allocationTime', Hearth::TimeHelper.to_date_time(stub[:allocation_time])) unless stub[:allocation_time].nil?
         xml << Hearth::XML::Node.new('releaseTime', Hearth::TimeHelper.to_date_time(stub[:release_time])) unless stub[:release_time].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('hostRecovery', stub[:host_recovery].to_s) unless stub[:host_recovery].nil?
         xml << Hearth::XML::Node.new('allowsMultipleInstanceTypes', stub[:allows_multiple_instance_types].to_s) unless stub[:allows_multiple_instance_types].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
@@ -13940,7 +13943,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::HostInstance.stub(node_name, element) unless element.nil?
+          xml << HostInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14005,7 +14008,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('availableInstanceCapacity', Stubs::AvailableInstanceCapacityList.stub('item', stub[:available_instance_capacity])) unless stub[:available_instance_capacity].nil?
+        xml << Hearth::XML::Node.new('availableInstanceCapacity', AvailableInstanceCapacityList.stub('item', stub[:available_instance_capacity])) unless stub[:available_instance_capacity].nil?
         xml << Hearth::XML::Node.new('availableVCpus', stub[:available_v_cpus].to_s) unless stub[:available_v_cpus].nil?
         xml
       end
@@ -14024,7 +14027,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceCapacity.stub(node_name, element) unless element.nil?
+          xml << InstanceCapacity.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14064,9 +14067,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeIamInstanceProfileAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('iamInstanceProfileAssociationSet', Stubs::IamInstanceProfileAssociationSet.stub('item', stub[:iam_instance_profile_associations])) unless stub[:iam_instance_profile_associations].nil?
+        xml << Hearth::XML::Node.new('iamInstanceProfileAssociationSet', IamInstanceProfileAssociationSet.stub('item', stub[:iam_instance_profile_associations])) unless stub[:iam_instance_profile_associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14084,7 +14087,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IamInstanceProfileAssociation.stub(node_name, element) unless element.nil?
+          xml << IamInstanceProfileAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14102,8 +14105,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeIdFormatResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('statusSet', Stubs::IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('statusSet', IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14120,8 +14123,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeIdentityIdFormatResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('statusSet', Stubs::IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('statusSet', IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14149,19 +14152,19 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeImageAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('blockDeviceMapping', Stubs::BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << Hearth::XML::Node.new('blockDeviceMapping', BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
-        xml << Hearth::XML::Node.new('launchPermission', Stubs::LaunchPermissionList.stub('item', stub[:launch_permissions])) unless stub[:launch_permissions].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
-        xml << Stubs::AttributeValue.stub('description', stub[:description]) unless stub[:description].nil?
-        xml << Stubs::AttributeValue.stub('kernel', stub[:kernel_id]) unless stub[:kernel_id].nil?
-        xml << Stubs::AttributeValue.stub('ramdisk', stub[:ramdisk_id]) unless stub[:ramdisk_id].nil?
-        xml << Stubs::AttributeValue.stub('sriovNetSupport', stub[:sriov_net_support]) unless stub[:sriov_net_support].nil?
-        xml << Stubs::AttributeValue.stub('bootMode', stub[:boot_mode]) unless stub[:boot_mode].nil?
-        xml << Stubs::AttributeValue.stub('tpmSupport', stub[:tpm_support]) unless stub[:tpm_support].nil?
-        xml << Stubs::AttributeValue.stub('uefiData', stub[:uefi_data]) unless stub[:uefi_data].nil?
-        xml << Stubs::AttributeValue.stub('lastLaunchedTime', stub[:last_launched_time]) unless stub[:last_launched_time].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('launchPermission', LaunchPermissionList.stub('item', stub[:launch_permissions])) unless stub[:launch_permissions].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << AttributeValue.stub('description', stub[:description]) unless stub[:description].nil?
+        xml << AttributeValue.stub('kernel', stub[:kernel_id]) unless stub[:kernel_id].nil?
+        xml << AttributeValue.stub('ramdisk', stub[:ramdisk_id]) unless stub[:ramdisk_id].nil?
+        xml << AttributeValue.stub('sriovNetSupport', stub[:sriov_net_support]) unless stub[:sriov_net_support].nil?
+        xml << AttributeValue.stub('bootMode', stub[:boot_mode]) unless stub[:boot_mode].nil?
+        xml << AttributeValue.stub('tpmSupport', stub[:tpm_support]) unless stub[:tpm_support].nil?
+        xml << AttributeValue.stub('uefiData', stub[:uefi_data]) unless stub[:uefi_data].nil?
+        xml << AttributeValue.stub('lastLaunchedTime', stub[:last_launched_time]) unless stub[:last_launched_time].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14179,7 +14182,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchPermission.stub(node_name, element) unless element.nil?
+          xml << LaunchPermission.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14221,7 +14224,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::BlockDeviceMapping.stub(node_name, element) unless element.nil?
+          xml << BlockDeviceMapping.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14244,7 +14247,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('deviceName', stub[:device_name].to_s) unless stub[:device_name].nil?
         xml << Hearth::XML::Node.new('virtualName', stub[:virtual_name].to_s) unless stub[:virtual_name].nil?
-        xml << Stubs::EbsBlockDevice.stub('ebs', stub[:ebs]) unless stub[:ebs].nil?
+        xml << EbsBlockDevice.stub('ebs', stub[:ebs]) unless stub[:ebs].nil?
         xml << Hearth::XML::Node.new('noDevice', stub[:no_device].to_s) unless stub[:no_device].nil?
         xml
       end
@@ -14295,8 +14298,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeImagesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('imagesSet', Stubs::ImageList.stub('item', stub[:images])) unless stub[:images].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('imagesSet', ImageList.stub('item', stub[:images])) unless stub[:images].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14314,7 +14317,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Image.stub(node_name, element) unless element.nil?
+          xml << Image.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14371,10 +14374,10 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml << Hearth::XML::Node.new('platformDetails', stub[:platform_details].to_s) unless stub[:platform_details].nil?
         xml << Hearth::XML::Node.new('usageOperation', stub[:usage_operation].to_s) unless stub[:usage_operation].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
         xml << Hearth::XML::Node.new('ramdiskId', stub[:ramdisk_id].to_s) unless stub[:ramdisk_id].nil?
         xml << Hearth::XML::Node.new('imageState', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('blockDeviceMapping', Stubs::BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << Hearth::XML::Node.new('blockDeviceMapping', BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('enaSupport', stub[:ena_support].to_s) unless stub[:ena_support].nil?
         xml << Hearth::XML::Node.new('hypervisor', stub[:hypervisor].to_s) unless stub[:hypervisor].nil?
@@ -14383,8 +14386,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('rootDeviceName', stub[:root_device_name].to_s) unless stub[:root_device_name].nil?
         xml << Hearth::XML::Node.new('rootDeviceType', stub[:root_device_type].to_s) unless stub[:root_device_type].nil?
         xml << Hearth::XML::Node.new('sriovNetSupport', stub[:sriov_net_support].to_s) unless stub[:sriov_net_support].nil?
-        xml << Stubs::StateReason.stub('stateReason', stub[:state_reason]) unless stub[:state_reason].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << StateReason.stub('stateReason', stub[:state_reason]) unless stub[:state_reason].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('virtualizationType', stub[:virtualization_type].to_s) unless stub[:virtualization_type].nil?
         xml << Hearth::XML::Node.new('bootMode', stub[:boot_mode].to_s) unless stub[:boot_mode].nil?
         xml << Hearth::XML::Node.new('tpmSupport', stub[:tpm_support].to_s) unless stub[:tpm_support].nil?
@@ -14425,9 +14428,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeImportImageTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('importImageTaskSet', Stubs::ImportImageTaskList.stub('item', stub[:import_image_tasks])) unless stub[:import_image_tasks].nil?
+        xml << Hearth::XML::Node.new('importImageTaskSet', ImportImageTaskList.stub('item', stub[:import_image_tasks])) unless stub[:import_image_tasks].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14445,7 +14448,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ImportImageTask.stub(node_name, element) unless element.nil?
+          xml << ImportImageTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14489,11 +14492,11 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('licenseType', stub[:license_type].to_s) unless stub[:license_type].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml << Hearth::XML::Node.new('progress', stub[:progress].to_s) unless stub[:progress].nil?
-        xml << Hearth::XML::Node.new('snapshotDetailSet', Stubs::SnapshotDetailList.stub('item', stub[:snapshot_details])) unless stub[:snapshot_details].nil?
+        xml << Hearth::XML::Node.new('snapshotDetailSet', SnapshotDetailList.stub('item', stub[:snapshot_details])) unless stub[:snapshot_details].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('licenseSpecifications', Stubs::ImportImageLicenseSpecificationListResponse.stub('item', stub[:license_specifications])) unless stub[:license_specifications].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('licenseSpecifications', ImportImageLicenseSpecificationListResponse.stub('item', stub[:license_specifications])) unless stub[:license_specifications].nil?
         xml << Hearth::XML::Node.new('usageOperation', stub[:usage_operation].to_s) unless stub[:usage_operation].nil?
         xml << Hearth::XML::Node.new('bootMode', stub[:boot_mode].to_s) unless stub[:boot_mode].nil?
         xml
@@ -14513,7 +14516,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ImportImageLicenseConfigurationResponse.stub(node_name, element) unless element.nil?
+          xml << ImportImageLicenseConfigurationResponse.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14549,7 +14552,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotDetail.stub(node_name, element) unless element.nil?
+          xml << SnapshotDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14585,7 +14588,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
         xml << Hearth::XML::Node.new('url', stub[:url].to_s) unless stub[:url].nil?
-        xml << Stubs::UserBucketDetails.stub('userBucket', stub[:user_bucket]) unless stub[:user_bucket].nil?
+        xml << UserBucketDetails.stub('userBucket', stub[:user_bucket]) unless stub[:user_bucket].nil?
         xml
       end
     end
@@ -14622,9 +14625,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeImportSnapshotTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('importSnapshotTaskSet', Stubs::ImportSnapshotTaskList.stub('item', stub[:import_snapshot_tasks])) unless stub[:import_snapshot_tasks].nil?
+        xml << Hearth::XML::Node.new('importSnapshotTaskSet', ImportSnapshotTaskList.stub('item', stub[:import_snapshot_tasks])) unless stub[:import_snapshot_tasks].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14642,7 +14645,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ImportSnapshotTask.stub(node_name, element) unless element.nil?
+          xml << ImportSnapshotTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14665,8 +14668,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('importTaskId', stub[:import_task_id].to_s) unless stub[:import_task_id].nil?
-        xml << Stubs::SnapshotTaskDetail.stub('snapshotTaskDetail', stub[:snapshot_task_detail]) unless stub[:snapshot_task_detail].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << SnapshotTaskDetail.stub('snapshotTaskDetail', stub[:snapshot_task_detail]) unless stub[:snapshot_task_detail].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -14703,7 +14706,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
         xml << Hearth::XML::Node.new('url', stub[:url].to_s) unless stub[:url].nil?
-        xml << Stubs::UserBucketDetails.stub('userBucket', stub[:user_bucket]) unless stub[:user_bucket].nil?
+        xml << UserBucketDetails.stub('userBucket', stub[:user_bucket]) unless stub[:user_bucket].nil?
         xml
       end
     end
@@ -14736,24 +14739,24 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstanceAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
-        xml << Hearth::XML::Node.new('blockDeviceMapping', Stubs::InstanceBlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
-        xml << Stubs::AttributeBooleanValue.stub('disableApiTermination', stub[:disable_api_termination]) unless stub[:disable_api_termination].nil?
-        xml << Stubs::AttributeBooleanValue.stub('enaSupport', stub[:ena_support]) unless stub[:ena_support].nil?
-        xml << Stubs::EnclaveOptions.stub('enclaveOptions', stub[:enclave_options]) unless stub[:enclave_options].nil?
-        xml << Stubs::AttributeBooleanValue.stub('ebsOptimized', stub[:ebs_optimized]) unless stub[:ebs_optimized].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('blockDeviceMapping', InstanceBlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << AttributeBooleanValue.stub('disableApiTermination', stub[:disable_api_termination]) unless stub[:disable_api_termination].nil?
+        xml << AttributeBooleanValue.stub('enaSupport', stub[:ena_support]) unless stub[:ena_support].nil?
+        xml << EnclaveOptions.stub('enclaveOptions', stub[:enclave_options]) unless stub[:enclave_options].nil?
+        xml << AttributeBooleanValue.stub('ebsOptimized', stub[:ebs_optimized]) unless stub[:ebs_optimized].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Stubs::AttributeValue.stub('instanceInitiatedShutdownBehavior', stub[:instance_initiated_shutdown_behavior]) unless stub[:instance_initiated_shutdown_behavior].nil?
-        xml << Stubs::AttributeValue.stub('instanceType', stub[:instance_type]) unless stub[:instance_type].nil?
-        xml << Stubs::AttributeValue.stub('kernel', stub[:kernel_id]) unless stub[:kernel_id].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
-        xml << Stubs::AttributeValue.stub('ramdisk', stub[:ramdisk_id]) unless stub[:ramdisk_id].nil?
-        xml << Stubs::AttributeValue.stub('rootDeviceName', stub[:root_device_name]) unless stub[:root_device_name].nil?
-        xml << Stubs::AttributeBooleanValue.stub('sourceDestCheck', stub[:source_dest_check]) unless stub[:source_dest_check].nil?
-        xml << Stubs::AttributeValue.stub('sriovNetSupport', stub[:sriov_net_support]) unless stub[:sriov_net_support].nil?
-        xml << Stubs::AttributeValue.stub('userData', stub[:user_data]) unless stub[:user_data].nil?
-        xml << Stubs::AttributeBooleanValue.stub('disableApiStop', stub[:disable_api_stop]) unless stub[:disable_api_stop].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << AttributeValue.stub('instanceInitiatedShutdownBehavior', stub[:instance_initiated_shutdown_behavior]) unless stub[:instance_initiated_shutdown_behavior].nil?
+        xml << AttributeValue.stub('instanceType', stub[:instance_type]) unless stub[:instance_type].nil?
+        xml << AttributeValue.stub('kernel', stub[:kernel_id]) unless stub[:kernel_id].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << AttributeValue.stub('ramdisk', stub[:ramdisk_id]) unless stub[:ramdisk_id].nil?
+        xml << AttributeValue.stub('rootDeviceName', stub[:root_device_name]) unless stub[:root_device_name].nil?
+        xml << AttributeBooleanValue.stub('sourceDestCheck', stub[:source_dest_check]) unless stub[:source_dest_check].nil?
+        xml << AttributeValue.stub('sriovNetSupport', stub[:sriov_net_support]) unless stub[:sriov_net_support].nil?
+        xml << AttributeValue.stub('userData', stub[:user_data]) unless stub[:user_data].nil?
+        xml << AttributeBooleanValue.stub('disableApiStop', stub[:disable_api_stop]) unless stub[:disable_api_stop].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14805,7 +14808,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceBlockDeviceMapping.stub(node_name, element) unless element.nil?
+          xml << InstanceBlockDeviceMapping.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14825,7 +14828,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('deviceName', stub[:device_name].to_s) unless stub[:device_name].nil?
-        xml << Stubs::EbsInstanceBlockDevice.stub('ebs', stub[:ebs]) unless stub[:ebs].nil?
+        xml << EbsInstanceBlockDevice.stub('ebs', stub[:ebs]) unless stub[:ebs].nil?
         xml
       end
     end
@@ -14866,9 +14869,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstanceCreditSpecificationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instanceCreditSpecificationSet', Stubs::InstanceCreditSpecificationList.stub('item', stub[:instance_credit_specifications])) unless stub[:instance_credit_specifications].nil?
+        xml << Hearth::XML::Node.new('instanceCreditSpecificationSet', InstanceCreditSpecificationList.stub('item', stub[:instance_credit_specifications])) unless stub[:instance_credit_specifications].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14886,7 +14889,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceCreditSpecification.stub(node_name, element) unless element.nil?
+          xml << InstanceCreditSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14923,8 +14926,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstanceEventNotificationAttributesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceTagNotificationAttribute.stub('instanceTagAttribute', stub[:instance_tag_attribute]) unless stub[:instance_tag_attribute].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceTagNotificationAttribute.stub('instanceTagAttribute', stub[:instance_tag_attribute]) unless stub[:instance_tag_attribute].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14942,9 +14945,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstanceEventWindowsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instanceEventWindowSet', Stubs::InstanceEventWindowSet.stub('item', stub[:instance_event_windows])) unless stub[:instance_event_windows].nil?
+        xml << Hearth::XML::Node.new('instanceEventWindowSet', InstanceEventWindowSet.stub('item', stub[:instance_event_windows])) unless stub[:instance_event_windows].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -14962,7 +14965,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceEventWindow.stub(node_name, element) unless element.nil?
+          xml << InstanceEventWindow.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -14981,9 +14984,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstanceStatusResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instanceStatusSet', Stubs::InstanceStatusList.stub('item', stub[:instance_statuses])) unless stub[:instance_statuses].nil?
+        xml << Hearth::XML::Node.new('instanceStatusSet', InstanceStatusList.stub('item', stub[:instance_statuses])) unless stub[:instance_statuses].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -15001,7 +15004,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceStatus.stub(node_name, element) unless element.nil?
+          xml << InstanceStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15027,11 +15030,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
-        xml << Hearth::XML::Node.new('eventsSet', Stubs::InstanceStatusEventList.stub('item', stub[:events])) unless stub[:events].nil?
+        xml << Hearth::XML::Node.new('eventsSet', InstanceStatusEventList.stub('item', stub[:events])) unless stub[:events].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Stubs::InstanceState.stub('instanceState', stub[:instance_state]) unless stub[:instance_state].nil?
-        xml << Stubs::InstanceStatusSummary.stub('instanceStatus', stub[:instance_status]) unless stub[:instance_status].nil?
-        xml << Stubs::InstanceStatusSummary.stub('systemStatus', stub[:system_status]) unless stub[:system_status].nil?
+        xml << InstanceState.stub('instanceState', stub[:instance_state]) unless stub[:instance_state].nil?
+        xml << InstanceStatusSummary.stub('instanceStatus', stub[:instance_status]) unless stub[:instance_status].nil?
+        xml << InstanceStatusSummary.stub('systemStatus', stub[:system_status]) unless stub[:system_status].nil?
         xml
       end
     end
@@ -15049,7 +15052,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('details', Stubs::InstanceStatusDetailsList.stub('item', stub[:details])) unless stub[:details].nil?
+        xml << Hearth::XML::Node.new('details', InstanceStatusDetailsList.stub('item', stub[:details])) unless stub[:details].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml
       end
@@ -15068,7 +15071,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceStatusDetails.stub(node_name, element) unless element.nil?
+          xml << InstanceStatusDetails.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15127,7 +15130,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceStatusEvent.stub(node_name, element) unless element.nil?
+          xml << InstanceStatusEvent.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15173,9 +15176,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstanceTypeOfferingsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instanceTypeOfferingSet', Stubs::InstanceTypeOfferingsList.stub('item', stub[:instance_type_offerings])) unless stub[:instance_type_offerings].nil?
+        xml << Hearth::XML::Node.new('instanceTypeOfferingSet', InstanceTypeOfferingsList.stub('item', stub[:instance_type_offerings])) unless stub[:instance_type_offerings].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -15193,7 +15196,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceTypeOffering.stub(node_name, element) unless element.nil?
+          xml << InstanceTypeOffering.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15233,9 +15236,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstanceTypesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instanceTypeSet', Stubs::InstanceTypeInfoList.stub('item', stub[:instance_types])) unless stub[:instance_types].nil?
+        xml << Hearth::XML::Node.new('instanceTypeSet', InstanceTypeInfoList.stub('item', stub[:instance_types])) unless stub[:instance_types].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -15253,7 +15256,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceTypeInfo.stub(node_name, element) unless element.nil?
+          xml << InstanceTypeInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15297,27 +15300,27 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('instanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('currentGeneration', stub[:current_generation].to_s) unless stub[:current_generation].nil?
         xml << Hearth::XML::Node.new('freeTierEligible', stub[:free_tier_eligible].to_s) unless stub[:free_tier_eligible].nil?
-        xml << Hearth::XML::Node.new('supportedUsageClasses', Stubs::UsageClassTypeList.stub('item', stub[:supported_usage_classes])) unless stub[:supported_usage_classes].nil?
-        xml << Hearth::XML::Node.new('supportedRootDeviceTypes', Stubs::RootDeviceTypeList.stub('item', stub[:supported_root_device_types])) unless stub[:supported_root_device_types].nil?
-        xml << Hearth::XML::Node.new('supportedVirtualizationTypes', Stubs::VirtualizationTypeList.stub('item', stub[:supported_virtualization_types])) unless stub[:supported_virtualization_types].nil?
+        xml << Hearth::XML::Node.new('supportedUsageClasses', UsageClassTypeList.stub('item', stub[:supported_usage_classes])) unless stub[:supported_usage_classes].nil?
+        xml << Hearth::XML::Node.new('supportedRootDeviceTypes', RootDeviceTypeList.stub('item', stub[:supported_root_device_types])) unless stub[:supported_root_device_types].nil?
+        xml << Hearth::XML::Node.new('supportedVirtualizationTypes', VirtualizationTypeList.stub('item', stub[:supported_virtualization_types])) unless stub[:supported_virtualization_types].nil?
         xml << Hearth::XML::Node.new('bareMetal', stub[:bare_metal].to_s) unless stub[:bare_metal].nil?
         xml << Hearth::XML::Node.new('hypervisor', stub[:hypervisor].to_s) unless stub[:hypervisor].nil?
-        xml << Stubs::ProcessorInfo.stub('processorInfo', stub[:processor_info]) unless stub[:processor_info].nil?
-        xml << Stubs::VCpuInfo.stub('vCpuInfo', stub[:v_cpu_info]) unless stub[:v_cpu_info].nil?
-        xml << Stubs::MemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
+        xml << ProcessorInfo.stub('processorInfo', stub[:processor_info]) unless stub[:processor_info].nil?
+        xml << VCpuInfo.stub('vCpuInfo', stub[:v_cpu_info]) unless stub[:v_cpu_info].nil?
+        xml << MemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
         xml << Hearth::XML::Node.new('instanceStorageSupported', stub[:instance_storage_supported].to_s) unless stub[:instance_storage_supported].nil?
-        xml << Stubs::InstanceStorageInfo.stub('instanceStorageInfo', stub[:instance_storage_info]) unless stub[:instance_storage_info].nil?
-        xml << Stubs::EbsInfo.stub('ebsInfo', stub[:ebs_info]) unless stub[:ebs_info].nil?
-        xml << Stubs::NetworkInfo.stub('networkInfo', stub[:network_info]) unless stub[:network_info].nil?
-        xml << Stubs::GpuInfo.stub('gpuInfo', stub[:gpu_info]) unless stub[:gpu_info].nil?
-        xml << Stubs::FpgaInfo.stub('fpgaInfo', stub[:fpga_info]) unless stub[:fpga_info].nil?
-        xml << Stubs::PlacementGroupInfo.stub('placementGroupInfo', stub[:placement_group_info]) unless stub[:placement_group_info].nil?
-        xml << Stubs::InferenceAcceleratorInfo.stub('inferenceAcceleratorInfo', stub[:inference_accelerator_info]) unless stub[:inference_accelerator_info].nil?
+        xml << InstanceStorageInfo.stub('instanceStorageInfo', stub[:instance_storage_info]) unless stub[:instance_storage_info].nil?
+        xml << EbsInfo.stub('ebsInfo', stub[:ebs_info]) unless stub[:ebs_info].nil?
+        xml << NetworkInfo.stub('networkInfo', stub[:network_info]) unless stub[:network_info].nil?
+        xml << GpuInfo.stub('gpuInfo', stub[:gpu_info]) unless stub[:gpu_info].nil?
+        xml << FpgaInfo.stub('fpgaInfo', stub[:fpga_info]) unless stub[:fpga_info].nil?
+        xml << PlacementGroupInfo.stub('placementGroupInfo', stub[:placement_group_info]) unless stub[:placement_group_info].nil?
+        xml << InferenceAcceleratorInfo.stub('inferenceAcceleratorInfo', stub[:inference_accelerator_info]) unless stub[:inference_accelerator_info].nil?
         xml << Hearth::XML::Node.new('hibernationSupported', stub[:hibernation_supported].to_s) unless stub[:hibernation_supported].nil?
         xml << Hearth::XML::Node.new('burstablePerformanceSupported', stub[:burstable_performance_supported].to_s) unless stub[:burstable_performance_supported].nil?
         xml << Hearth::XML::Node.new('dedicatedHostsSupported', stub[:dedicated_hosts_supported].to_s) unless stub[:dedicated_hosts_supported].nil?
         xml << Hearth::XML::Node.new('autoRecoverySupported', stub[:auto_recovery_supported].to_s) unless stub[:auto_recovery_supported].nil?
-        xml << Hearth::XML::Node.new('supportedBootModes', Stubs::BootModeTypeList.stub('item', stub[:supported_boot_modes])) unless stub[:supported_boot_modes].nil?
+        xml << Hearth::XML::Node.new('supportedBootModes', BootModeTypeList.stub('item', stub[:supported_boot_modes])) unless stub[:supported_boot_modes].nil?
         xml
       end
     end
@@ -15353,7 +15356,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('accelerators', Stubs::InferenceDeviceInfoList.stub('member', stub[:accelerators])) unless stub[:accelerators].nil?
+        xml << Hearth::XML::Node.new('accelerators', InferenceDeviceInfoList.stub('member', stub[:accelerators])) unless stub[:accelerators].nil?
         xml
       end
     end
@@ -15371,7 +15374,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InferenceDeviceInfo.stub(node_name, element) unless element.nil?
+          xml << InferenceDeviceInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15410,7 +15413,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('supportedStrategies', Stubs::PlacementGroupStrategyList.stub('item', stub[:supported_strategies])) unless stub[:supported_strategies].nil?
+        xml << Hearth::XML::Node.new('supportedStrategies', PlacementGroupStrategyList.stub('item', stub[:supported_strategies])) unless stub[:supported_strategies].nil?
         xml
       end
     end
@@ -15447,7 +15450,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('fpgas', Stubs::FpgaDeviceInfoList.stub('item', stub[:fpgas])) unless stub[:fpgas].nil?
+        xml << Hearth::XML::Node.new('fpgas', FpgaDeviceInfoList.stub('item', stub[:fpgas])) unless stub[:fpgas].nil?
         xml << Hearth::XML::Node.new('totalFpgaMemoryInMiB', stub[:total_fpga_memory_in_mi_b].to_s) unless stub[:total_fpga_memory_in_mi_b].nil?
         xml
       end
@@ -15466,7 +15469,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::FpgaDeviceInfo.stub(node_name, element) unless element.nil?
+          xml << FpgaDeviceInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15490,7 +15493,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
         xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
-        xml << Stubs::FpgaDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
+        xml << FpgaDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
         xml
       end
     end
@@ -15525,7 +15528,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('gpus', Stubs::GpuDeviceInfoList.stub('item', stub[:gpus])) unless stub[:gpus].nil?
+        xml << Hearth::XML::Node.new('gpus', GpuDeviceInfoList.stub('item', stub[:gpus])) unless stub[:gpus].nil?
         xml << Hearth::XML::Node.new('totalGpuMemoryInMiB', stub[:total_gpu_memory_in_mi_b].to_s) unless stub[:total_gpu_memory_in_mi_b].nil?
         xml
       end
@@ -15544,7 +15547,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::GpuDeviceInfo.stub(node_name, element) unless element.nil?
+          xml << GpuDeviceInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15568,7 +15571,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('manufacturer', stub[:manufacturer].to_s) unless stub[:manufacturer].nil?
         xml << Hearth::XML::Node.new('count', stub[:count].to_s) unless stub[:count].nil?
-        xml << Stubs::GpuDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
+        xml << GpuDeviceMemoryInfo.stub('memoryInfo', stub[:memory_info]) unless stub[:memory_info].nil?
         xml
       end
     end
@@ -15617,13 +15620,13 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('maximumNetworkInterfaces', stub[:maximum_network_interfaces].to_s) unless stub[:maximum_network_interfaces].nil?
         xml << Hearth::XML::Node.new('maximumNetworkCards', stub[:maximum_network_cards].to_s) unless stub[:maximum_network_cards].nil?
         xml << Hearth::XML::Node.new('defaultNetworkCardIndex', stub[:default_network_card_index].to_s) unless stub[:default_network_card_index].nil?
-        xml << Hearth::XML::Node.new('networkCards', Stubs::NetworkCardInfoList.stub('item', stub[:network_cards])) unless stub[:network_cards].nil?
+        xml << Hearth::XML::Node.new('networkCards', NetworkCardInfoList.stub('item', stub[:network_cards])) unless stub[:network_cards].nil?
         xml << Hearth::XML::Node.new('ipv4AddressesPerInterface', stub[:ipv4_addresses_per_interface].to_s) unless stub[:ipv4_addresses_per_interface].nil?
         xml << Hearth::XML::Node.new('ipv6AddressesPerInterface', stub[:ipv6_addresses_per_interface].to_s) unless stub[:ipv6_addresses_per_interface].nil?
         xml << Hearth::XML::Node.new('ipv6Supported', stub[:ipv6_supported].to_s) unless stub[:ipv6_supported].nil?
         xml << Hearth::XML::Node.new('enaSupport', stub[:ena_support].to_s) unless stub[:ena_support].nil?
         xml << Hearth::XML::Node.new('efaSupported', stub[:efa_supported].to_s) unless stub[:efa_supported].nil?
-        xml << Stubs::EfaInfo.stub('efaInfo', stub[:efa_info]) unless stub[:efa_info].nil?
+        xml << EfaInfo.stub('efaInfo', stub[:efa_info]) unless stub[:efa_info].nil?
         xml << Hearth::XML::Node.new('encryptionInTransitSupported', stub[:encryption_in_transit_supported].to_s) unless stub[:encryption_in_transit_supported].nil?
         xml
       end
@@ -15659,7 +15662,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkCardInfo.stub(node_name, element) unless element.nil?
+          xml << NetworkCardInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15703,7 +15706,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ebsOptimizedSupport', stub[:ebs_optimized_support].to_s) unless stub[:ebs_optimized_support].nil?
         xml << Hearth::XML::Node.new('encryptionSupport', stub[:encryption_support].to_s) unless stub[:encryption_support].nil?
-        xml << Stubs::EbsOptimizedInfo.stub('ebsOptimizedInfo', stub[:ebs_optimized_info]) unless stub[:ebs_optimized_info].nil?
+        xml << EbsOptimizedInfo.stub('ebsOptimizedInfo', stub[:ebs_optimized_info]) unless stub[:ebs_optimized_info].nil?
         xml << Hearth::XML::Node.new('nvmeSupport', stub[:nvme_support].to_s) unless stub[:nvme_support].nil?
         xml
       end
@@ -15752,7 +15755,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('totalSizeInGB', stub[:total_size_in_gb].to_s) unless stub[:total_size_in_gb].nil?
-        xml << Hearth::XML::Node.new('disks', Stubs::DiskInfoList.stub('item', stub[:disks])) unless stub[:disks].nil?
+        xml << Hearth::XML::Node.new('disks', DiskInfoList.stub('item', stub[:disks])) unless stub[:disks].nil?
         xml << Hearth::XML::Node.new('nvmeSupport', stub[:nvme_support].to_s) unless stub[:nvme_support].nil?
         xml << Hearth::XML::Node.new('encryptionSupport', stub[:encryption_support].to_s) unless stub[:encryption_support].nil?
         xml
@@ -15772,7 +15775,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DiskInfo.stub(node_name, element) unless element.nil?
+          xml << DiskInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -15835,8 +15838,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('defaultVCpus', stub[:default_v_cpus].to_s) unless stub[:default_v_cpus].nil?
         xml << Hearth::XML::Node.new('defaultCores', stub[:default_cores].to_s) unless stub[:default_cores].nil?
         xml << Hearth::XML::Node.new('defaultThreadsPerCore', stub[:default_threads_per_core].to_s) unless stub[:default_threads_per_core].nil?
-        xml << Hearth::XML::Node.new('validCores', Stubs::CoreCountList.stub('item', stub[:valid_cores])) unless stub[:valid_cores].nil?
-        xml << Hearth::XML::Node.new('validThreadsPerCore', Stubs::ThreadsPerCoreList.stub('item', stub[:valid_threads_per_core])) unless stub[:valid_threads_per_core].nil?
+        xml << Hearth::XML::Node.new('validCores', CoreCountList.stub('item', stub[:valid_cores])) unless stub[:valid_cores].nil?
+        xml << Hearth::XML::Node.new('validThreadsPerCore', ThreadsPerCoreList.stub('item', stub[:valid_threads_per_core])) unless stub[:valid_threads_per_core].nil?
         xml
       end
     end
@@ -15892,7 +15895,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('supportedArchitectures', Stubs::ArchitectureTypeList.stub('item', stub[:supported_architectures])) unless stub[:supported_architectures].nil?
+        xml << Hearth::XML::Node.new('supportedArchitectures', ArchitectureTypeList.stub('item', stub[:supported_architectures])) unless stub[:supported_architectures].nil?
         xml << Hearth::XML::Node.new('sustainedClockSpeedInGhz', Hearth::NumberHelper.serialize(stub[:sustained_clock_speed_in_ghz]).to_s) unless stub[:sustained_clock_speed_in_ghz].nil?
         xml
       end
@@ -15987,9 +15990,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('reservationSet', Stubs::ReservationList.stub('item', stub[:reservations])) unless stub[:reservations].nil?
+        xml << Hearth::XML::Node.new('reservationSet', ReservationList.stub('item', stub[:reservations])) unless stub[:reservations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -16007,7 +16010,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Reservation.stub(node_name, element) unless element.nil?
+          xml << Reservation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16029,8 +16032,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::InstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('instancesSet', InstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('requesterId', stub[:requester_id].to_s) unless stub[:requester_id].nil?
         xml << Hearth::XML::Node.new('reservationId', stub[:reservation_id].to_s) unless stub[:reservation_id].nil?
@@ -16051,7 +16054,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Instance.stub(node_name, element) unless element.nil?
+          xml << Instance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16131,55 +16134,55 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('kernelId', stub[:kernel_id].to_s) unless stub[:kernel_id].nil?
         xml << Hearth::XML::Node.new('keyName', stub[:key_name].to_s) unless stub[:key_name].nil?
         xml << Hearth::XML::Node.new('launchTime', Hearth::TimeHelper.to_date_time(stub[:launch_time])) unless stub[:launch_time].nil?
-        xml << Stubs::Monitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
-        xml << Stubs::Placement.stub('placement', stub[:placement]) unless stub[:placement].nil?
+        xml << Monitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
+        xml << Placement.stub('placement', stub[:placement]) unless stub[:placement].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml << Hearth::XML::Node.new('privateDnsName', stub[:private_dns_name].to_s) unless stub[:private_dns_name].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
         xml << Hearth::XML::Node.new('dnsName', stub[:public_dns_name].to_s) unless stub[:public_dns_name].nil?
         xml << Hearth::XML::Node.new('ipAddress', stub[:public_ip_address].to_s) unless stub[:public_ip_address].nil?
         xml << Hearth::XML::Node.new('ramdiskId', stub[:ramdisk_id].to_s) unless stub[:ramdisk_id].nil?
-        xml << Stubs::InstanceState.stub('instanceState', stub[:state]) unless stub[:state].nil?
+        xml << InstanceState.stub('instanceState', stub[:state]) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('reason', stub[:state_transition_reason].to_s) unless stub[:state_transition_reason].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('architecture', stub[:architecture].to_s) unless stub[:architecture].nil?
-        xml << Hearth::XML::Node.new('blockDeviceMapping', Stubs::InstanceBlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << Hearth::XML::Node.new('blockDeviceMapping', InstanceBlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
         xml << Hearth::XML::Node.new('ebsOptimized', stub[:ebs_optimized].to_s) unless stub[:ebs_optimized].nil?
         xml << Hearth::XML::Node.new('enaSupport', stub[:ena_support].to_s) unless stub[:ena_support].nil?
         xml << Hearth::XML::Node.new('hypervisor', stub[:hypervisor].to_s) unless stub[:hypervisor].nil?
-        xml << Stubs::IamInstanceProfile.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
+        xml << IamInstanceProfile.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
         xml << Hearth::XML::Node.new('instanceLifecycle', stub[:instance_lifecycle].to_s) unless stub[:instance_lifecycle].nil?
-        xml << Hearth::XML::Node.new('elasticGpuAssociationSet', Stubs::ElasticGpuAssociationList.stub('item', stub[:elastic_gpu_associations])) unless stub[:elastic_gpu_associations].nil?
-        xml << Hearth::XML::Node.new('elasticInferenceAcceleratorAssociationSet', Stubs::ElasticInferenceAcceleratorAssociationList.stub('item', stub[:elastic_inference_accelerator_associations])) unless stub[:elastic_inference_accelerator_associations].nil?
-        xml << Hearth::XML::Node.new('networkInterfaceSet', Stubs::InstanceNetworkInterfaceList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
+        xml << Hearth::XML::Node.new('elasticGpuAssociationSet', ElasticGpuAssociationList.stub('item', stub[:elastic_gpu_associations])) unless stub[:elastic_gpu_associations].nil?
+        xml << Hearth::XML::Node.new('elasticInferenceAcceleratorAssociationSet', ElasticInferenceAcceleratorAssociationList.stub('item', stub[:elastic_inference_accelerator_associations])) unless stub[:elastic_inference_accelerator_associations].nil?
+        xml << Hearth::XML::Node.new('networkInterfaceSet', InstanceNetworkInterfaceList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
         xml << Hearth::XML::Node.new('rootDeviceName', stub[:root_device_name].to_s) unless stub[:root_device_name].nil?
         xml << Hearth::XML::Node.new('rootDeviceType', stub[:root_device_type].to_s) unless stub[:root_device_type].nil?
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
         xml << Hearth::XML::Node.new('sourceDestCheck', stub[:source_dest_check].to_s) unless stub[:source_dest_check].nil?
         xml << Hearth::XML::Node.new('spotInstanceRequestId', stub[:spot_instance_request_id].to_s) unless stub[:spot_instance_request_id].nil?
         xml << Hearth::XML::Node.new('sriovNetSupport', stub[:sriov_net_support].to_s) unless stub[:sriov_net_support].nil?
-        xml << Stubs::StateReason.stub('stateReason', stub[:state_reason]) unless stub[:state_reason].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << StateReason.stub('stateReason', stub[:state_reason]) unless stub[:state_reason].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('virtualizationType', stub[:virtualization_type].to_s) unless stub[:virtualization_type].nil?
-        xml << Stubs::CpuOptions.stub('cpuOptions', stub[:cpu_options]) unless stub[:cpu_options].nil?
+        xml << CpuOptions.stub('cpuOptions', stub[:cpu_options]) unless stub[:cpu_options].nil?
         xml << Hearth::XML::Node.new('capacityReservationId', stub[:capacity_reservation_id].to_s) unless stub[:capacity_reservation_id].nil?
-        xml << Stubs::CapacityReservationSpecificationResponse.stub('capacityReservationSpecification', stub[:capacity_reservation_specification]) unless stub[:capacity_reservation_specification].nil?
-        xml << Stubs::HibernationOptions.stub('hibernationOptions', stub[:hibernation_options]) unless stub[:hibernation_options].nil?
-        xml << Hearth::XML::Node.new('licenseSet', Stubs::LicenseList.stub('item', stub[:licenses])) unless stub[:licenses].nil?
-        xml << Stubs::InstanceMetadataOptionsResponse.stub('metadataOptions', stub[:metadata_options]) unless stub[:metadata_options].nil?
-        xml << Stubs::EnclaveOptions.stub('enclaveOptions', stub[:enclave_options]) unless stub[:enclave_options].nil?
+        xml << CapacityReservationSpecificationResponse.stub('capacityReservationSpecification', stub[:capacity_reservation_specification]) unless stub[:capacity_reservation_specification].nil?
+        xml << HibernationOptions.stub('hibernationOptions', stub[:hibernation_options]) unless stub[:hibernation_options].nil?
+        xml << Hearth::XML::Node.new('licenseSet', LicenseList.stub('item', stub[:licenses])) unless stub[:licenses].nil?
+        xml << InstanceMetadataOptionsResponse.stub('metadataOptions', stub[:metadata_options]) unless stub[:metadata_options].nil?
+        xml << EnclaveOptions.stub('enclaveOptions', stub[:enclave_options]) unless stub[:enclave_options].nil?
         xml << Hearth::XML::Node.new('bootMode', stub[:boot_mode].to_s) unless stub[:boot_mode].nil?
         xml << Hearth::XML::Node.new('platformDetails', stub[:platform_details].to_s) unless stub[:platform_details].nil?
         xml << Hearth::XML::Node.new('usageOperation', stub[:usage_operation].to_s) unless stub[:usage_operation].nil?
         xml << Hearth::XML::Node.new('usageOperationUpdateTime', Hearth::TimeHelper.to_date_time(stub[:usage_operation_update_time])) unless stub[:usage_operation_update_time].nil?
-        xml << Stubs::PrivateDnsNameOptionsResponse.stub('privateDnsNameOptions', stub[:private_dns_name_options]) unless stub[:private_dns_name_options].nil?
+        xml << PrivateDnsNameOptionsResponse.stub('privateDnsNameOptions', stub[:private_dns_name_options]) unless stub[:private_dns_name_options].nil?
         xml << Hearth::XML::Node.new('ipv6Address', stub[:ipv6_address].to_s) unless stub[:ipv6_address].nil?
         xml << Hearth::XML::Node.new('tpmSupport', stub[:tpm_support].to_s) unless stub[:tpm_support].nil?
-        xml << Stubs::InstanceMaintenanceOptions.stub('maintenanceOptions', stub[:maintenance_options]) unless stub[:maintenance_options].nil?
+        xml << InstanceMaintenanceOptions.stub('maintenanceOptions', stub[:maintenance_options]) unless stub[:maintenance_options].nil?
         xml
       end
     end
@@ -16262,7 +16265,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LicenseConfiguration.stub(node_name, element) unless element.nil?
+          xml << LicenseConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16316,7 +16319,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('capacityReservationPreference', stub[:capacity_reservation_preference].to_s) unless stub[:capacity_reservation_preference].nil?
-        xml << Stubs::CapacityReservationTargetResponse.stub('capacityReservationTarget', stub[:capacity_reservation_target]) unless stub[:capacity_reservation_target].nil?
+        xml << CapacityReservationTargetResponse.stub('capacityReservationTarget', stub[:capacity_reservation_target]) unless stub[:capacity_reservation_target].nil?
         xml
       end
     end
@@ -16353,7 +16356,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceNetworkInterface.stub(node_name, element) unless element.nil?
+          xml << InstanceNetworkInterface.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16388,24 +16391,24 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::InstanceNetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
-        xml << Stubs::InstanceNetworkInterfaceAttachment.stub('attachment', stub[:attachment]) unless stub[:attachment].nil?
+        xml << InstanceNetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
+        xml << InstanceNetworkInterfaceAttachment.stub('attachment', stub[:attachment]) unless stub[:attachment].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
-        xml << Hearth::XML::Node.new('ipv6AddressesSet', Stubs::InstanceIpv6AddressList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('ipv6AddressesSet', InstanceIpv6AddressList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
         xml << Hearth::XML::Node.new('macAddress', stub[:mac_address].to_s) unless stub[:mac_address].nil?
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('privateDnsName', stub[:private_dns_name].to_s) unless stub[:private_dns_name].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
-        xml << Hearth::XML::Node.new('privateIpAddressesSet', Stubs::InstancePrivateIpAddressList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
+        xml << Hearth::XML::Node.new('privateIpAddressesSet', InstancePrivateIpAddressList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
         xml << Hearth::XML::Node.new('sourceDestCheck', stub[:source_dest_check].to_s) unless stub[:source_dest_check].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('interfaceType', stub[:interface_type].to_s) unless stub[:interface_type].nil?
-        xml << Hearth::XML::Node.new('ipv4PrefixSet', Stubs::InstanceIpv4PrefixList.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
-        xml << Hearth::XML::Node.new('ipv6PrefixSet', Stubs::InstanceIpv6PrefixList.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
+        xml << Hearth::XML::Node.new('ipv4PrefixSet', InstanceIpv4PrefixList.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
+        xml << Hearth::XML::Node.new('ipv6PrefixSet', InstanceIpv6PrefixList.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
         xml
       end
     end
@@ -16423,7 +16426,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceIpv6Prefix.stub(node_name, element) unless element.nil?
+          xml << InstanceIpv6Prefix.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16459,7 +16462,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceIpv4Prefix.stub(node_name, element) unless element.nil?
+          xml << InstanceIpv4Prefix.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16495,7 +16498,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstancePrivateIpAddress.stub(node_name, element) unless element.nil?
+          xml << InstancePrivateIpAddress.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16516,7 +16519,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::InstanceNetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
+        xml << InstanceNetworkInterfaceAssociation.stub('association', stub[:association]) unless stub[:association].nil?
         xml << Hearth::XML::Node.new('primary', stub[:primary].to_s) unless stub[:primary].nil?
         xml << Hearth::XML::Node.new('privateDnsName', stub[:private_dns_name].to_s) unless stub[:private_dns_name].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
@@ -16589,7 +16592,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ElasticInferenceAcceleratorAssociation.stub(node_name, element) unless element.nil?
+          xml << ElasticInferenceAcceleratorAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16631,7 +16634,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ElasticGpuAssociation.stub(node_name, element) unless element.nil?
+          xml << ElasticGpuAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16721,9 +16724,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeInternetGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('internetGatewaySet', Stubs::InternetGatewayList.stub('item', stub[:internet_gateways])) unless stub[:internet_gateways].nil?
+        xml << Hearth::XML::Node.new('internetGatewaySet', InternetGatewayList.stub('item', stub[:internet_gateways])) unless stub[:internet_gateways].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -16741,7 +16744,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InternetGateway.stub(node_name, element) unless element.nil?
+          xml << InternetGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16761,8 +16764,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeIpamPoolsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('ipamPoolSet', Stubs::IpamPoolSet.stub('item', stub[:ipam_pools])) unless stub[:ipam_pools].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('ipamPoolSet', IpamPoolSet.stub('item', stub[:ipam_pools])) unless stub[:ipam_pools].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -16780,7 +16783,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamPool.stub(node_name, element) unless element.nil?
+          xml << IpamPool.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16800,8 +16803,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeIpamScopesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('ipamScopeSet', Stubs::IpamScopeSet.stub('item', stub[:ipam_scopes])) unless stub[:ipam_scopes].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('ipamScopeSet', IpamScopeSet.stub('item', stub[:ipam_scopes])) unless stub[:ipam_scopes].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -16819,7 +16822,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamScope.stub(node_name, element) unless element.nil?
+          xml << IpamScope.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16839,8 +16842,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeIpamsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('ipamSet', Stubs::IpamSet.stub('item', stub[:ipams])) unless stub[:ipams].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('ipamSet', IpamSet.stub('item', stub[:ipams])) unless stub[:ipams].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -16858,7 +16861,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipam.stub(node_name, element) unless element.nil?
+          xml << Ipam.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16877,9 +16880,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeIpv6PoolsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('ipv6PoolSet', Stubs::Ipv6PoolSet.stub('item', stub[:ipv6_pools])) unless stub[:ipv6_pools].nil?
+        xml << Hearth::XML::Node.new('ipv6PoolSet', Ipv6PoolSet.stub('item', stub[:ipv6_pools])) unless stub[:ipv6_pools].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -16897,7 +16900,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv6Pool.stub(node_name, element) unless element.nil?
+          xml << Ipv6Pool.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16920,8 +16923,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('poolId', stub[:pool_id].to_s) unless stub[:pool_id].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('poolCidrBlockSet', Stubs::PoolCidrBlocksSet.stub('item', stub[:pool_cidr_blocks])) unless stub[:pool_cidr_blocks].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('poolCidrBlockSet', PoolCidrBlocksSet.stub('item', stub[:pool_cidr_blocks])) unless stub[:pool_cidr_blocks].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -16939,7 +16942,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PoolCidrBlock.stub(node_name, element) unless element.nil?
+          xml << PoolCidrBlock.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -16974,8 +16977,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeKeyPairsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('keySet', Stubs::KeyPairList.stub('item', stub[:key_pairs])) unless stub[:key_pairs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('keySet', KeyPairList.stub('item', stub[:key_pairs])) unless stub[:key_pairs].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -16993,7 +16996,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::KeyPairInfo.stub(node_name, element) unless element.nil?
+          xml << KeyPairInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17021,7 +17024,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('keyFingerprint', stub[:key_fingerprint].to_s) unless stub[:key_fingerprint].nil?
         xml << Hearth::XML::Node.new('keyName', stub[:key_name].to_s) unless stub[:key_name].nil?
         xml << Hearth::XML::Node.new('keyType', stub[:key_type].to_s) unless stub[:key_type].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('publicKey', stub[:public_key].to_s) unless stub[:public_key].nil?
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
         xml
@@ -17041,9 +17044,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLaunchTemplateVersionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('launchTemplateVersionSet', Stubs::LaunchTemplateVersionSet.stub('item', stub[:launch_template_versions])) unless stub[:launch_template_versions].nil?
+        xml << Hearth::XML::Node.new('launchTemplateVersionSet', LaunchTemplateVersionSet.stub('item', stub[:launch_template_versions])) unless stub[:launch_template_versions].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17061,7 +17064,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateVersion.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateVersion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17080,9 +17083,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLaunchTemplatesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('launchTemplates', Stubs::LaunchTemplateSet.stub('item', stub[:launch_templates])) unless stub[:launch_templates].nil?
+        xml << Hearth::XML::Node.new('launchTemplates', LaunchTemplateSet.stub('item', stub[:launch_templates])) unless stub[:launch_templates].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17100,7 +17103,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplate.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplate.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17119,9 +17122,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('localGatewayRouteTableVirtualInterfaceGroupAssociationSet', Stubs::LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet.stub('item', stub[:local_gateway_route_table_virtual_interface_group_associations])) unless stub[:local_gateway_route_table_virtual_interface_group_associations].nil?
+        xml << Hearth::XML::Node.new('localGatewayRouteTableVirtualInterfaceGroupAssociationSet', LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet.stub('item', stub[:local_gateway_route_table_virtual_interface_group_associations])) unless stub[:local_gateway_route_table_virtual_interface_group_associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17139,7 +17142,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LocalGatewayRouteTableVirtualInterfaceGroupAssociation.stub(node_name, element) unless element.nil?
+          xml << LocalGatewayRouteTableVirtualInterfaceGroupAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17171,7 +17174,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('localGatewayRouteTableArn', stub[:local_gateway_route_table_arn].to_s) unless stub[:local_gateway_route_table_arn].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -17189,9 +17192,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLocalGatewayRouteTableVpcAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('localGatewayRouteTableVpcAssociationSet', Stubs::LocalGatewayRouteTableVpcAssociationSet.stub('item', stub[:local_gateway_route_table_vpc_associations])) unless stub[:local_gateway_route_table_vpc_associations].nil?
+        xml << Hearth::XML::Node.new('localGatewayRouteTableVpcAssociationSet', LocalGatewayRouteTableVpcAssociationSet.stub('item', stub[:local_gateway_route_table_vpc_associations])) unless stub[:local_gateway_route_table_vpc_associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17209,7 +17212,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LocalGatewayRouteTableVpcAssociation.stub(node_name, element) unless element.nil?
+          xml << LocalGatewayRouteTableVpcAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17228,9 +17231,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLocalGatewayRouteTablesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('localGatewayRouteTableSet', Stubs::LocalGatewayRouteTableSet.stub('item', stub[:local_gateway_route_tables])) unless stub[:local_gateway_route_tables].nil?
+        xml << Hearth::XML::Node.new('localGatewayRouteTableSet', LocalGatewayRouteTableSet.stub('item', stub[:local_gateway_route_tables])) unless stub[:local_gateway_route_tables].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17248,7 +17251,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LocalGatewayRouteTable.stub(node_name, element) unless element.nil?
+          xml << LocalGatewayRouteTable.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17278,7 +17281,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -17296,9 +17299,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLocalGatewayVirtualInterfaceGroupsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('localGatewayVirtualInterfaceGroupSet', Stubs::LocalGatewayVirtualInterfaceGroupSet.stub('item', stub[:local_gateway_virtual_interface_groups])) unless stub[:local_gateway_virtual_interface_groups].nil?
+        xml << Hearth::XML::Node.new('localGatewayVirtualInterfaceGroupSet', LocalGatewayVirtualInterfaceGroupSet.stub('item', stub[:local_gateway_virtual_interface_groups])) unless stub[:local_gateway_virtual_interface_groups].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17316,7 +17319,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LocalGatewayVirtualInterfaceGroup.stub(node_name, element) unless element.nil?
+          xml << LocalGatewayVirtualInterfaceGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17339,10 +17342,10 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('localGatewayVirtualInterfaceGroupId', stub[:local_gateway_virtual_interface_group_id].to_s) unless stub[:local_gateway_virtual_interface_group_id].nil?
-        xml << Hearth::XML::Node.new('localGatewayVirtualInterfaceIdSet', Stubs::LocalGatewayVirtualInterfaceIdSet.stub('item', stub[:local_gateway_virtual_interface_ids])) unless stub[:local_gateway_virtual_interface_ids].nil?
+        xml << Hearth::XML::Node.new('localGatewayVirtualInterfaceIdSet', LocalGatewayVirtualInterfaceIdSet.stub('item', stub[:local_gateway_virtual_interface_ids])) unless stub[:local_gateway_virtual_interface_ids].nil?
         xml << Hearth::XML::Node.new('localGatewayId', stub[:local_gateway_id].to_s) unless stub[:local_gateway_id].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -17379,9 +17382,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLocalGatewayVirtualInterfacesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('localGatewayVirtualInterfaceSet', Stubs::LocalGatewayVirtualInterfaceSet.stub('item', stub[:local_gateway_virtual_interfaces])) unless stub[:local_gateway_virtual_interfaces].nil?
+        xml << Hearth::XML::Node.new('localGatewayVirtualInterfaceSet', LocalGatewayVirtualInterfaceSet.stub('item', stub[:local_gateway_virtual_interfaces])) unless stub[:local_gateway_virtual_interfaces].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17399,7 +17402,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LocalGatewayVirtualInterface.stub(node_name, element) unless element.nil?
+          xml << LocalGatewayVirtualInterface.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17433,7 +17436,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('localBgpAsn', stub[:local_bgp_asn].to_s) unless stub[:local_bgp_asn].nil?
         xml << Hearth::XML::Node.new('peerBgpAsn', stub[:peer_bgp_asn].to_s) unless stub[:peer_bgp_asn].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -17451,9 +17454,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeLocalGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('localGatewaySet', Stubs::LocalGatewaySet.stub('item', stub[:local_gateways])) unless stub[:local_gateways].nil?
+        xml << Hearth::XML::Node.new('localGatewaySet', LocalGatewaySet.stub('item', stub[:local_gateways])) unless stub[:local_gateways].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17471,7 +17474,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LocalGateway.stub(node_name, element) unless element.nil?
+          xml << LocalGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17497,7 +17500,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -17516,8 +17519,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeManagedPrefixListsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('prefixListSet', Stubs::ManagedPrefixListSet.stub('item', stub[:prefix_lists])) unless stub[:prefix_lists].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('prefixListSet', ManagedPrefixListSet.stub('item', stub[:prefix_lists])) unless stub[:prefix_lists].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17535,7 +17538,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ManagedPrefixList.stub(node_name, element) unless element.nil?
+          xml << ManagedPrefixList.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17554,9 +17557,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeMovingAddressesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('movingAddressStatusSet', Stubs::MovingAddressStatusSet.stub('item', stub[:moving_address_statuses])) unless stub[:moving_address_statuses].nil?
+        xml << Hearth::XML::Node.new('movingAddressStatusSet', MovingAddressStatusSet.stub('item', stub[:moving_address_statuses])) unless stub[:moving_address_statuses].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17574,7 +17577,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::MovingAddressStatus.stub(node_name, element) unless element.nil?
+          xml << MovingAddressStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17612,9 +17615,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNatGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('natGatewaySet', Stubs::NatGatewayList.stub('item', stub[:nat_gateways])) unless stub[:nat_gateways].nil?
+        xml << Hearth::XML::Node.new('natGatewaySet', NatGatewayList.stub('item', stub[:nat_gateways])) unless stub[:nat_gateways].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17632,7 +17635,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NatGateway.stub(node_name, element) unless element.nil?
+          xml << NatGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17651,9 +17654,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkAclsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('networkAclSet', Stubs::NetworkAclList.stub('item', stub[:network_acls])) unless stub[:network_acls].nil?
+        xml << Hearth::XML::Node.new('networkAclSet', NetworkAclList.stub('item', stub[:network_acls])) unless stub[:network_acls].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17671,7 +17674,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkAcl.stub(node_name, element) unless element.nil?
+          xml << NetworkAcl.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17690,9 +17693,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkInsightsAccessScopeAnalysesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('networkInsightsAccessScopeAnalysisSet', Stubs::NetworkInsightsAccessScopeAnalysisList.stub('item', stub[:network_insights_access_scope_analyses])) unless stub[:network_insights_access_scope_analyses].nil?
+        xml << Hearth::XML::Node.new('networkInsightsAccessScopeAnalysisSet', NetworkInsightsAccessScopeAnalysisList.stub('item', stub[:network_insights_access_scope_analyses])) unless stub[:network_insights_access_scope_analyses].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17710,7 +17713,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInsightsAccessScopeAnalysis.stub(node_name, element) unless element.nil?
+          xml << NetworkInsightsAccessScopeAnalysis.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17748,7 +17751,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('endDate', Hearth::TimeHelper.to_date_time(stub[:end_date])) unless stub[:end_date].nil?
         xml << Hearth::XML::Node.new('findingsFound', stub[:findings_found].to_s) unless stub[:findings_found].nil?
         xml << Hearth::XML::Node.new('analyzedEniCount', stub[:analyzed_eni_count].to_s) unless stub[:analyzed_eni_count].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -17766,9 +17769,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkInsightsAccessScopesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('networkInsightsAccessScopeSet', Stubs::NetworkInsightsAccessScopeList.stub('item', stub[:network_insights_access_scopes])) unless stub[:network_insights_access_scopes].nil?
+        xml << Hearth::XML::Node.new('networkInsightsAccessScopeSet', NetworkInsightsAccessScopeList.stub('item', stub[:network_insights_access_scopes])) unless stub[:network_insights_access_scopes].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17786,7 +17789,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInsightsAccessScope.stub(node_name, element) unless element.nil?
+          xml << NetworkInsightsAccessScope.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17805,9 +17808,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkInsightsAnalysesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('networkInsightsAnalysisSet', Stubs::NetworkInsightsAnalysisList.stub('item', stub[:network_insights_analyses])) unless stub[:network_insights_analyses].nil?
+        xml << Hearth::XML::Node.new('networkInsightsAnalysisSet', NetworkInsightsAnalysisList.stub('item', stub[:network_insights_analyses])) unless stub[:network_insights_analyses].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -17825,7 +17828,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInsightsAnalysis.stub(node_name, element) unless element.nil?
+          xml << NetworkInsightsAnalysis.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17859,17 +17862,17 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('networkInsightsAnalysisId', stub[:network_insights_analysis_id].to_s) unless stub[:network_insights_analysis_id].nil?
         xml << Hearth::XML::Node.new('networkInsightsAnalysisArn', stub[:network_insights_analysis_arn].to_s) unless stub[:network_insights_analysis_arn].nil?
         xml << Hearth::XML::Node.new('networkInsightsPathId', stub[:network_insights_path_id].to_s) unless stub[:network_insights_path_id].nil?
-        xml << Hearth::XML::Node.new('filterInArnSet', Stubs::ArnList.stub('item', stub[:filter_in_arns])) unless stub[:filter_in_arns].nil?
+        xml << Hearth::XML::Node.new('filterInArnSet', ArnList.stub('item', stub[:filter_in_arns])) unless stub[:filter_in_arns].nil?
         xml << Hearth::XML::Node.new('startDate', Hearth::TimeHelper.to_date_time(stub[:start_date])) unless stub[:start_date].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
         xml << Hearth::XML::Node.new('warningMessage', stub[:warning_message].to_s) unless stub[:warning_message].nil?
         xml << Hearth::XML::Node.new('networkPathFound', stub[:network_path_found].to_s) unless stub[:network_path_found].nil?
-        xml << Hearth::XML::Node.new('forwardPathComponentSet', Stubs::PathComponentList.stub('item', stub[:forward_path_components])) unless stub[:forward_path_components].nil?
-        xml << Hearth::XML::Node.new('returnPathComponentSet', Stubs::PathComponentList.stub('item', stub[:return_path_components])) unless stub[:return_path_components].nil?
-        xml << Hearth::XML::Node.new('explanationSet', Stubs::ExplanationList.stub('item', stub[:explanations])) unless stub[:explanations].nil?
-        xml << Hearth::XML::Node.new('alternatePathHintSet', Stubs::AlternatePathHintList.stub('item', stub[:alternate_path_hints])) unless stub[:alternate_path_hints].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('forwardPathComponentSet', PathComponentList.stub('item', stub[:forward_path_components])) unless stub[:forward_path_components].nil?
+        xml << Hearth::XML::Node.new('returnPathComponentSet', PathComponentList.stub('item', stub[:return_path_components])) unless stub[:return_path_components].nil?
+        xml << Hearth::XML::Node.new('explanationSet', ExplanationList.stub('item', stub[:explanations])) unless stub[:explanations].nil?
+        xml << Hearth::XML::Node.new('alternatePathHintSet', AlternatePathHintList.stub('item', stub[:alternate_path_hints])) unless stub[:alternate_path_hints].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -17887,7 +17890,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AlternatePathHint.stub(node_name, element) unless element.nil?
+          xml << AlternatePathHint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17925,7 +17928,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Explanation.stub(node_name, element) unless element.nil?
+          xml << Explanation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -17991,55 +17994,55 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::AnalysisComponent.stub('acl', stub[:acl]) unless stub[:acl].nil?
-        xml << Stubs::AnalysisAclRule.stub('aclRule', stub[:acl_rule]) unless stub[:acl_rule].nil?
+        xml << AnalysisComponent.stub('acl', stub[:acl]) unless stub[:acl].nil?
+        xml << AnalysisAclRule.stub('aclRule', stub[:acl_rule]) unless stub[:acl_rule].nil?
         xml << Hearth::XML::Node.new('address', stub[:address].to_s) unless stub[:address].nil?
-        xml << Hearth::XML::Node.new('addressSet', Stubs::IpAddressList.stub('item', stub[:addresses])) unless stub[:addresses].nil?
-        xml << Stubs::AnalysisComponent.stub('attachedTo', stub[:attached_to]) unless stub[:attached_to].nil?
-        xml << Hearth::XML::Node.new('availabilityZoneSet', Stubs::ValueStringList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
-        xml << Hearth::XML::Node.new('cidrSet', Stubs::ValueStringList.stub('item', stub[:cidrs])) unless stub[:cidrs].nil?
-        xml << Stubs::AnalysisComponent.stub('component', stub[:component]) unless stub[:component].nil?
-        xml << Stubs::AnalysisComponent.stub('customerGateway', stub[:customer_gateway]) unless stub[:customer_gateway].nil?
-        xml << Stubs::AnalysisComponent.stub('destination', stub[:destination]) unless stub[:destination].nil?
-        xml << Stubs::AnalysisComponent.stub('destinationVpc', stub[:destination_vpc]) unless stub[:destination_vpc].nil?
+        xml << Hearth::XML::Node.new('addressSet', IpAddressList.stub('item', stub[:addresses])) unless stub[:addresses].nil?
+        xml << AnalysisComponent.stub('attachedTo', stub[:attached_to]) unless stub[:attached_to].nil?
+        xml << Hearth::XML::Node.new('availabilityZoneSet', ValueStringList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('cidrSet', ValueStringList.stub('item', stub[:cidrs])) unless stub[:cidrs].nil?
+        xml << AnalysisComponent.stub('component', stub[:component]) unless stub[:component].nil?
+        xml << AnalysisComponent.stub('customerGateway', stub[:customer_gateway]) unless stub[:customer_gateway].nil?
+        xml << AnalysisComponent.stub('destination', stub[:destination]) unless stub[:destination].nil?
+        xml << AnalysisComponent.stub('destinationVpc', stub[:destination_vpc]) unless stub[:destination_vpc].nil?
         xml << Hearth::XML::Node.new('direction', stub[:direction].to_s) unless stub[:direction].nil?
         xml << Hearth::XML::Node.new('explanationCode', stub[:explanation_code].to_s) unless stub[:explanation_code].nil?
-        xml << Stubs::AnalysisComponent.stub('ingressRouteTable', stub[:ingress_route_table]) unless stub[:ingress_route_table].nil?
-        xml << Stubs::AnalysisComponent.stub('internetGateway', stub[:internet_gateway]) unless stub[:internet_gateway].nil?
+        xml << AnalysisComponent.stub('ingressRouteTable', stub[:ingress_route_table]) unless stub[:ingress_route_table].nil?
+        xml << AnalysisComponent.stub('internetGateway', stub[:internet_gateway]) unless stub[:internet_gateway].nil?
         xml << Hearth::XML::Node.new('loadBalancerArn', stub[:load_balancer_arn].to_s) unless stub[:load_balancer_arn].nil?
-        xml << Stubs::AnalysisLoadBalancerListener.stub('classicLoadBalancerListener', stub[:classic_load_balancer_listener]) unless stub[:classic_load_balancer_listener].nil?
+        xml << AnalysisLoadBalancerListener.stub('classicLoadBalancerListener', stub[:classic_load_balancer_listener]) unless stub[:classic_load_balancer_listener].nil?
         xml << Hearth::XML::Node.new('loadBalancerListenerPort', stub[:load_balancer_listener_port].to_s) unless stub[:load_balancer_listener_port].nil?
-        xml << Stubs::AnalysisLoadBalancerTarget.stub('loadBalancerTarget', stub[:load_balancer_target]) unless stub[:load_balancer_target].nil?
-        xml << Stubs::AnalysisComponent.stub('loadBalancerTargetGroup', stub[:load_balancer_target_group]) unless stub[:load_balancer_target_group].nil?
-        xml << Hearth::XML::Node.new('loadBalancerTargetGroupSet', Stubs::AnalysisComponentList.stub('item', stub[:load_balancer_target_groups])) unless stub[:load_balancer_target_groups].nil?
+        xml << AnalysisLoadBalancerTarget.stub('loadBalancerTarget', stub[:load_balancer_target]) unless stub[:load_balancer_target].nil?
+        xml << AnalysisComponent.stub('loadBalancerTargetGroup', stub[:load_balancer_target_group]) unless stub[:load_balancer_target_group].nil?
+        xml << Hearth::XML::Node.new('loadBalancerTargetGroupSet', AnalysisComponentList.stub('item', stub[:load_balancer_target_groups])) unless stub[:load_balancer_target_groups].nil?
         xml << Hearth::XML::Node.new('loadBalancerTargetPort', stub[:load_balancer_target_port].to_s) unless stub[:load_balancer_target_port].nil?
-        xml << Stubs::AnalysisComponent.stub('elasticLoadBalancerListener', stub[:elastic_load_balancer_listener]) unless stub[:elastic_load_balancer_listener].nil?
+        xml << AnalysisComponent.stub('elasticLoadBalancerListener', stub[:elastic_load_balancer_listener]) unless stub[:elastic_load_balancer_listener].nil?
         xml << Hearth::XML::Node.new('missingComponent', stub[:missing_component].to_s) unless stub[:missing_component].nil?
-        xml << Stubs::AnalysisComponent.stub('natGateway', stub[:nat_gateway]) unless stub[:nat_gateway].nil?
-        xml << Stubs::AnalysisComponent.stub('networkInterface', stub[:network_interface]) unless stub[:network_interface].nil?
+        xml << AnalysisComponent.stub('natGateway', stub[:nat_gateway]) unless stub[:nat_gateway].nil?
+        xml << AnalysisComponent.stub('networkInterface', stub[:network_interface]) unless stub[:network_interface].nil?
         xml << Hearth::XML::Node.new('packetField', stub[:packet_field].to_s) unless stub[:packet_field].nil?
-        xml << Stubs::AnalysisComponent.stub('vpcPeeringConnection', stub[:vpc_peering_connection]) unless stub[:vpc_peering_connection].nil?
+        xml << AnalysisComponent.stub('vpcPeeringConnection', stub[:vpc_peering_connection]) unless stub[:vpc_peering_connection].nil?
         xml << Hearth::XML::Node.new('port', stub[:port].to_s) unless stub[:port].nil?
-        xml << Hearth::XML::Node.new('portRangeSet', Stubs::PortRangeList.stub('item', stub[:port_ranges])) unless stub[:port_ranges].nil?
-        xml << Stubs::AnalysisComponent.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
-        xml << Hearth::XML::Node.new('protocolSet', Stubs::StringList.stub('item', stub[:protocols])) unless stub[:protocols].nil?
-        xml << Stubs::AnalysisRouteTableRoute.stub('routeTableRoute', stub[:route_table_route]) unless stub[:route_table_route].nil?
-        xml << Stubs::AnalysisComponent.stub('routeTable', stub[:route_table]) unless stub[:route_table].nil?
-        xml << Stubs::AnalysisComponent.stub('securityGroup', stub[:security_group]) unless stub[:security_group].nil?
-        xml << Stubs::AnalysisSecurityGroupRule.stub('securityGroupRule', stub[:security_group_rule]) unless stub[:security_group_rule].nil?
-        xml << Hearth::XML::Node.new('securityGroupSet', Stubs::AnalysisComponentList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
-        xml << Stubs::AnalysisComponent.stub('sourceVpc', stub[:source_vpc]) unless stub[:source_vpc].nil?
+        xml << Hearth::XML::Node.new('portRangeSet', PortRangeList.stub('item', stub[:port_ranges])) unless stub[:port_ranges].nil?
+        xml << AnalysisComponent.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
+        xml << Hearth::XML::Node.new('protocolSet', StringList.stub('item', stub[:protocols])) unless stub[:protocols].nil?
+        xml << AnalysisRouteTableRoute.stub('routeTableRoute', stub[:route_table_route]) unless stub[:route_table_route].nil?
+        xml << AnalysisComponent.stub('routeTable', stub[:route_table]) unless stub[:route_table].nil?
+        xml << AnalysisComponent.stub('securityGroup', stub[:security_group]) unless stub[:security_group].nil?
+        xml << AnalysisSecurityGroupRule.stub('securityGroupRule', stub[:security_group_rule]) unless stub[:security_group_rule].nil?
+        xml << Hearth::XML::Node.new('securityGroupSet', AnalysisComponentList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << AnalysisComponent.stub('sourceVpc', stub[:source_vpc]) unless stub[:source_vpc].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Stubs::AnalysisComponent.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
-        xml << Stubs::AnalysisComponent.stub('subnetRouteTable', stub[:subnet_route_table]) unless stub[:subnet_route_table].nil?
-        xml << Stubs::AnalysisComponent.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
-        xml << Stubs::AnalysisComponent.stub('vpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
-        xml << Stubs::AnalysisComponent.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
-        xml << Stubs::AnalysisComponent.stub('vpnGateway', stub[:vpn_gateway]) unless stub[:vpn_gateway].nil?
-        xml << Stubs::AnalysisComponent.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
-        xml << Stubs::AnalysisComponent.stub('transitGatewayRouteTable', stub[:transit_gateway_route_table]) unless stub[:transit_gateway_route_table].nil?
-        xml << Stubs::TransitGatewayRouteTableRoute.stub('transitGatewayRouteTableRoute', stub[:transit_gateway_route_table_route]) unless stub[:transit_gateway_route_table_route].nil?
-        xml << Stubs::AnalysisComponent.stub('transitGatewayAttachment', stub[:transit_gateway_attachment]) unless stub[:transit_gateway_attachment].nil?
+        xml << AnalysisComponent.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
+        xml << AnalysisComponent.stub('subnetRouteTable', stub[:subnet_route_table]) unless stub[:subnet_route_table].nil?
+        xml << AnalysisComponent.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
+        xml << AnalysisComponent.stub('vpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
+        xml << AnalysisComponent.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
+        xml << AnalysisComponent.stub('vpnGateway', stub[:vpn_gateway]) unless stub[:vpn_gateway].nil?
+        xml << AnalysisComponent.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
+        xml << AnalysisComponent.stub('transitGatewayRouteTable', stub[:transit_gateway_route_table]) unless stub[:transit_gateway_route_table].nil?
+        xml << TransitGatewayRouteTableRoute.stub('transitGatewayRouteTableRoute', stub[:transit_gateway_route_table_route]) unless stub[:transit_gateway_route_table_route].nil?
+        xml << AnalysisComponent.stub('transitGatewayAttachment', stub[:transit_gateway_attachment]) unless stub[:transit_gateway_attachment].nil?
         xml
       end
     end
@@ -18107,7 +18110,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AnalysisComponent.stub(node_name, element) unless element.nil?
+          xml << AnalysisComponent.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18133,7 +18136,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('cidr', stub[:cidr].to_s) unless stub[:cidr].nil?
         xml << Hearth::XML::Node.new('direction', stub[:direction].to_s) unless stub[:direction].nil?
         xml << Hearth::XML::Node.new('securityGroupId', stub[:security_group_id].to_s) unless stub[:security_group_id].nil?
-        xml << Stubs::PortRange.stub('portRange', stub[:port_range]) unless stub[:port_range].nil?
+        xml << PortRange.stub('portRange', stub[:port_range]) unless stub[:port_range].nil?
         xml << Hearth::XML::Node.new('prefixListId', stub[:prefix_list_id].to_s) unless stub[:prefix_list_id].nil?
         xml << Hearth::XML::Node.new('protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
         xml
@@ -18207,7 +18210,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PortRange.stub(node_name, element) unless element.nil?
+          xml << PortRange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18230,7 +18233,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('address', stub[:address].to_s) unless stub[:address].nil?
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
-        xml << Stubs::AnalysisComponent.stub('instance', stub[:instance]) unless stub[:instance].nil?
+        xml << AnalysisComponent.stub('instance', stub[:instance]) unless stub[:instance].nil?
         xml << Hearth::XML::Node.new('port', stub[:port].to_s) unless stub[:port].nil?
         xml
       end
@@ -18293,7 +18296,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('cidr', stub[:cidr].to_s) unless stub[:cidr].nil?
         xml << Hearth::XML::Node.new('egress', stub[:egress].to_s) unless stub[:egress].nil?
-        xml << Stubs::PortRange.stub('portRange', stub[:port_range]) unless stub[:port_range].nil?
+        xml << PortRange.stub('portRange', stub[:port_range]) unless stub[:port_range].nil?
         xml << Hearth::XML::Node.new('protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
         xml << Hearth::XML::Node.new('ruleAction', stub[:rule_action].to_s) unless stub[:rule_action].nil?
         xml << Hearth::XML::Node.new('ruleNumber', stub[:rule_number].to_s) unless stub[:rule_number].nil?
@@ -18314,7 +18317,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PathComponent.stub(node_name, element) unless element.nil?
+          xml << PathComponent.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18347,20 +18350,20 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('sequenceNumber', stub[:sequence_number].to_s) unless stub[:sequence_number].nil?
-        xml << Stubs::AnalysisAclRule.stub('aclRule', stub[:acl_rule]) unless stub[:acl_rule].nil?
-        xml << Stubs::AnalysisComponent.stub('attachedTo', stub[:attached_to]) unless stub[:attached_to].nil?
-        xml << Stubs::AnalysisComponent.stub('component', stub[:component]) unless stub[:component].nil?
-        xml << Stubs::AnalysisComponent.stub('destinationVpc', stub[:destination_vpc]) unless stub[:destination_vpc].nil?
-        xml << Stubs::AnalysisPacketHeader.stub('outboundHeader', stub[:outbound_header]) unless stub[:outbound_header].nil?
-        xml << Stubs::AnalysisPacketHeader.stub('inboundHeader', stub[:inbound_header]) unless stub[:inbound_header].nil?
-        xml << Stubs::AnalysisRouteTableRoute.stub('routeTableRoute', stub[:route_table_route]) unless stub[:route_table_route].nil?
-        xml << Stubs::AnalysisSecurityGroupRule.stub('securityGroupRule', stub[:security_group_rule]) unless stub[:security_group_rule].nil?
-        xml << Stubs::AnalysisComponent.stub('sourceVpc', stub[:source_vpc]) unless stub[:source_vpc].nil?
-        xml << Stubs::AnalysisComponent.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
-        xml << Stubs::AnalysisComponent.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
-        xml << Hearth::XML::Node.new('additionalDetailSet', Stubs::AdditionalDetailList.stub('item', stub[:additional_details])) unless stub[:additional_details].nil?
-        xml << Stubs::AnalysisComponent.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
-        xml << Stubs::TransitGatewayRouteTableRoute.stub('transitGatewayRouteTableRoute', stub[:transit_gateway_route_table_route]) unless stub[:transit_gateway_route_table_route].nil?
+        xml << AnalysisAclRule.stub('aclRule', stub[:acl_rule]) unless stub[:acl_rule].nil?
+        xml << AnalysisComponent.stub('attachedTo', stub[:attached_to]) unless stub[:attached_to].nil?
+        xml << AnalysisComponent.stub('component', stub[:component]) unless stub[:component].nil?
+        xml << AnalysisComponent.stub('destinationVpc', stub[:destination_vpc]) unless stub[:destination_vpc].nil?
+        xml << AnalysisPacketHeader.stub('outboundHeader', stub[:outbound_header]) unless stub[:outbound_header].nil?
+        xml << AnalysisPacketHeader.stub('inboundHeader', stub[:inbound_header]) unless stub[:inbound_header].nil?
+        xml << AnalysisRouteTableRoute.stub('routeTableRoute', stub[:route_table_route]) unless stub[:route_table_route].nil?
+        xml << AnalysisSecurityGroupRule.stub('securityGroupRule', stub[:security_group_rule]) unless stub[:security_group_rule].nil?
+        xml << AnalysisComponent.stub('sourceVpc', stub[:source_vpc]) unless stub[:source_vpc].nil?
+        xml << AnalysisComponent.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
+        xml << AnalysisComponent.stub('vpc', stub[:vpc]) unless stub[:vpc].nil?
+        xml << Hearth::XML::Node.new('additionalDetailSet', AdditionalDetailList.stub('item', stub[:additional_details])) unless stub[:additional_details].nil?
+        xml << AnalysisComponent.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
+        xml << TransitGatewayRouteTableRoute.stub('transitGatewayRouteTableRoute', stub[:transit_gateway_route_table_route]) unless stub[:transit_gateway_route_table_route].nil?
         xml
       end
     end
@@ -18378,7 +18381,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AdditionalDetail.stub(node_name, element) unless element.nil?
+          xml << AdditionalDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18398,7 +18401,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('additionalDetailType', stub[:additional_detail_type].to_s) unless stub[:additional_detail_type].nil?
-        xml << Stubs::AnalysisComponent.stub('component', stub[:component]) unless stub[:component].nil?
+        xml << AnalysisComponent.stub('component', stub[:component]) unless stub[:component].nil?
         xml
       end
     end
@@ -18419,11 +18422,11 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('destinationAddressSet', Stubs::IpAddressList.stub('item', stub[:destination_addresses])) unless stub[:destination_addresses].nil?
-        xml << Hearth::XML::Node.new('destinationPortRangeSet', Stubs::PortRangeList.stub('item', stub[:destination_port_ranges])) unless stub[:destination_port_ranges].nil?
+        xml << Hearth::XML::Node.new('destinationAddressSet', IpAddressList.stub('item', stub[:destination_addresses])) unless stub[:destination_addresses].nil?
+        xml << Hearth::XML::Node.new('destinationPortRangeSet', PortRangeList.stub('item', stub[:destination_port_ranges])) unless stub[:destination_port_ranges].nil?
         xml << Hearth::XML::Node.new('protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
-        xml << Hearth::XML::Node.new('sourceAddressSet', Stubs::IpAddressList.stub('item', stub[:source_addresses])) unless stub[:source_addresses].nil?
-        xml << Hearth::XML::Node.new('sourcePortRangeSet', Stubs::PortRangeList.stub('item', stub[:source_port_ranges])) unless stub[:source_port_ranges].nil?
+        xml << Hearth::XML::Node.new('sourceAddressSet', IpAddressList.stub('item', stub[:source_addresses])) unless stub[:source_addresses].nil?
+        xml << Hearth::XML::Node.new('sourcePortRangeSet', PortRangeList.stub('item', stub[:source_port_ranges])) unless stub[:source_port_ranges].nil?
         xml
       end
     end
@@ -18460,9 +18463,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkInsightsPathsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('networkInsightsPathSet', Stubs::NetworkInsightsPathList.stub('item', stub[:network_insights_paths])) unless stub[:network_insights_paths].nil?
+        xml << Hearth::XML::Node.new('networkInsightsPathSet', NetworkInsightsPathList.stub('item', stub[:network_insights_paths])) unless stub[:network_insights_paths].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18480,7 +18483,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInsightsPath.stub(node_name, element) unless element.nil?
+          xml << NetworkInsightsPath.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18502,12 +18505,12 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkInterfaceAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInterfaceAttachment.stub('attachment', stub[:attachment]) unless stub[:attachment].nil?
-        xml << Stubs::AttributeValue.stub('description', stub[:description]) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << NetworkInterfaceAttachment.stub('attachment', stub[:attachment]) unless stub[:attachment].nil?
+        xml << AttributeValue.stub('description', stub[:description]) unless stub[:description].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
-        xml << Stubs::AttributeBooleanValue.stub('sourceDestCheck', stub[:source_dest_check]) unless stub[:source_dest_check].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << AttributeBooleanValue.stub('sourceDestCheck', stub[:source_dest_check]) unless stub[:source_dest_check].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18525,9 +18528,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkInterfacePermissionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('networkInterfacePermissions', Stubs::NetworkInterfacePermissionList.stub('item', stub[:network_interface_permissions])) unless stub[:network_interface_permissions].nil?
+        xml << Hearth::XML::Node.new('networkInterfacePermissions', NetworkInterfacePermissionList.stub('item', stub[:network_interface_permissions])) unless stub[:network_interface_permissions].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18545,7 +18548,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInterfacePermission.stub(node_name, element) unless element.nil?
+          xml << NetworkInterfacePermission.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18564,9 +18567,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeNetworkInterfacesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('networkInterfaceSet', Stubs::NetworkInterfaceList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
+        xml << Hearth::XML::Node.new('networkInterfaceSet', NetworkInterfaceList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18584,7 +18587,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInterface.stub(node_name, element) unless element.nil?
+          xml << NetworkInterface.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18602,8 +18605,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribePlacementGroupsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('placementGroupSet', Stubs::PlacementGroupList.stub('item', stub[:placement_groups])) unless stub[:placement_groups].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('placementGroupSet', PlacementGroupList.stub('item', stub[:placement_groups])) unless stub[:placement_groups].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18621,7 +18624,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PlacementGroup.stub(node_name, element) unless element.nil?
+          xml << PlacementGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18641,8 +18644,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribePrefixListsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('prefixListSet', Stubs::PrefixListSet.stub('item', stub[:prefix_lists])) unless stub[:prefix_lists].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('prefixListSet', PrefixListSet.stub('item', stub[:prefix_lists])) unless stub[:prefix_lists].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18660,7 +18663,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PrefixList.stub(node_name, element) unless element.nil?
+          xml << PrefixList.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18680,7 +18683,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('cidrSet', Stubs::ValueStringList.stub('item', stub[:cidrs])) unless stub[:cidrs].nil?
+        xml << Hearth::XML::Node.new('cidrSet', ValueStringList.stub('item', stub[:cidrs])) unless stub[:cidrs].nil?
         xml << Hearth::XML::Node.new('prefixListId', stub[:prefix_list_id].to_s) unless stub[:prefix_list_id].nil?
         xml << Hearth::XML::Node.new('prefixListName', stub[:prefix_list_name].to_s) unless stub[:prefix_list_name].nil?
         xml
@@ -18700,9 +18703,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribePrincipalIdFormatResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('principalSet', Stubs::PrincipalIdFormatList.stub('item', stub[:principals])) unless stub[:principals].nil?
+        xml << Hearth::XML::Node.new('principalSet', PrincipalIdFormatList.stub('item', stub[:principals])) unless stub[:principals].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18720,7 +18723,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PrincipalIdFormat.stub(node_name, element) unless element.nil?
+          xml << PrincipalIdFormat.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18740,7 +18743,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('arn', stub[:arn].to_s) unless stub[:arn].nil?
-        xml << Hearth::XML::Node.new('statusSet', Stubs::IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
+        xml << Hearth::XML::Node.new('statusSet', IdFormatList.stub('item', stub[:statuses])) unless stub[:statuses].nil?
         xml
       end
     end
@@ -18758,9 +18761,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribePublicIpv4PoolsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('publicIpv4PoolSet', Stubs::PublicIpv4PoolSet.stub('item', stub[:public_ipv4_pools])) unless stub[:public_ipv4_pools].nil?
+        xml << Hearth::XML::Node.new('publicIpv4PoolSet', PublicIpv4PoolSet.stub('item', stub[:public_ipv4_pools])) unless stub[:public_ipv4_pools].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18778,7 +18781,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PublicIpv4Pool.stub(node_name, element) unless element.nil?
+          xml << PublicIpv4Pool.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18804,11 +18807,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('poolId', stub[:pool_id].to_s) unless stub[:pool_id].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('poolAddressRangeSet', Stubs::PublicIpv4PoolRangeSet.stub('item', stub[:pool_address_ranges])) unless stub[:pool_address_ranges].nil?
+        xml << Hearth::XML::Node.new('poolAddressRangeSet', PublicIpv4PoolRangeSet.stub('item', stub[:pool_address_ranges])) unless stub[:pool_address_ranges].nil?
         xml << Hearth::XML::Node.new('totalAddressCount', stub[:total_address_count].to_s) unless stub[:total_address_count].nil?
         xml << Hearth::XML::Node.new('totalAvailableAddressCount', stub[:total_available_address_count].to_s) unless stub[:total_available_address_count].nil?
         xml << Hearth::XML::Node.new('networkBorderGroup', stub[:network_border_group].to_s) unless stub[:network_border_group].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -18826,7 +18829,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PublicIpv4PoolRange.stub(node_name, element) unless element.nil?
+          xml << PublicIpv4PoolRange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18867,8 +18870,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeRegionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('regionInfo', Stubs::RegionList.stub('item', stub[:regions])) unless stub[:regions].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('regionInfo', RegionList.stub('item', stub[:regions])) unless stub[:regions].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18886,7 +18889,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Region.stub(node_name, element) unless element.nil?
+          xml << Region.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18926,9 +18929,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeReplaceRootVolumeTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('replaceRootVolumeTaskSet', Stubs::ReplaceRootVolumeTasks.stub('item', stub[:replace_root_volume_tasks])) unless stub[:replace_root_volume_tasks].nil?
+        xml << Hearth::XML::Node.new('replaceRootVolumeTaskSet', ReplaceRootVolumeTasks.stub('item', stub[:replace_root_volume_tasks])) unless stub[:replace_root_volume_tasks].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18946,7 +18949,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReplaceRootVolumeTask.stub(node_name, element) unless element.nil?
+          xml << ReplaceRootVolumeTask.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -18964,8 +18967,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeReservedInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('reservedInstancesSet', Stubs::ReservedInstancesList.stub('item', stub[:reserved_instances])) unless stub[:reserved_instances].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('reservedInstancesSet', ReservedInstancesList.stub('item', stub[:reserved_instances])) unless stub[:reserved_instances].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -18983,7 +18986,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedInstances.stub(node_name, element) unless element.nil?
+          xml << ReservedInstances.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19033,9 +19036,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('instanceTenancy', stub[:instance_tenancy].to_s) unless stub[:instance_tenancy].nil?
         xml << Hearth::XML::Node.new('offeringClass', stub[:offering_class].to_s) unless stub[:offering_class].nil?
         xml << Hearth::XML::Node.new('offeringType', stub[:offering_type].to_s) unless stub[:offering_type].nil?
-        xml << Hearth::XML::Node.new('recurringCharges', Stubs::RecurringChargesList.stub('item', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
+        xml << Hearth::XML::Node.new('recurringCharges', RecurringChargesList.stub('item', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
         xml << Hearth::XML::Node.new('scope', stub[:scope].to_s) unless stub[:scope].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -19053,7 +19056,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::RecurringCharge.stub(node_name, element) unless element.nil?
+          xml << RecurringCharge.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19090,8 +19093,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeReservedInstancesListingsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('reservedInstancesListingsSet', Stubs::ReservedInstancesListingList.stub('item', stub[:reserved_instances_listings])) unless stub[:reserved_instances_listings].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('reservedInstancesListingsSet', ReservedInstancesListingList.stub('item', stub[:reserved_instances_listings])) unless stub[:reserved_instances_listings].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19110,8 +19113,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeReservedInstancesModificationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('reservedInstancesModificationsSet', Stubs::ReservedInstancesModificationList.stub('item', stub[:reserved_instances_modifications])) unless stub[:reserved_instances_modifications].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('reservedInstancesModificationsSet', ReservedInstancesModificationList.stub('item', stub[:reserved_instances_modifications])) unless stub[:reserved_instances_modifications].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19129,7 +19132,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedInstancesModification.stub(node_name, element) unless element.nil?
+          xml << ReservedInstancesModification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19158,8 +19161,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
         xml << Hearth::XML::Node.new('createDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
         xml << Hearth::XML::Node.new('effectiveDate', Hearth::TimeHelper.to_date_time(stub[:effective_date])) unless stub[:effective_date].nil?
-        xml << Hearth::XML::Node.new('modificationResultSet', Stubs::ReservedInstancesModificationResultList.stub('item', stub[:modification_results])) unless stub[:modification_results].nil?
-        xml << Hearth::XML::Node.new('reservedInstancesSet', Stubs::ReservedIntancesIds.stub('item', stub[:reserved_instances_ids])) unless stub[:reserved_instances_ids].nil?
+        xml << Hearth::XML::Node.new('modificationResultSet', ReservedInstancesModificationResultList.stub('item', stub[:modification_results])) unless stub[:modification_results].nil?
+        xml << Hearth::XML::Node.new('reservedInstancesSet', ReservedIntancesIds.stub('item', stub[:reserved_instances_ids])) unless stub[:reserved_instances_ids].nil?
         xml << Hearth::XML::Node.new('reservedInstancesModificationId', stub[:reserved_instances_modification_id].to_s) unless stub[:reserved_instances_modification_id].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
@@ -19181,7 +19184,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedInstancesId.stub(node_name, element) unless element.nil?
+          xml << ReservedInstancesId.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19217,7 +19220,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedInstancesModificationResult.stub(node_name, element) unless element.nil?
+          xml << ReservedInstancesModificationResult.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19237,7 +19240,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('reservedInstancesId', stub[:reserved_instances_id].to_s) unless stub[:reserved_instances_id].nil?
-        xml << Stubs::ReservedInstancesConfiguration.stub('targetConfiguration', stub[:target_configuration]) unless stub[:target_configuration].nil?
+        xml << ReservedInstancesConfiguration.stub('targetConfiguration', stub[:target_configuration]) unless stub[:target_configuration].nil?
         xml
       end
     end
@@ -19280,9 +19283,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeReservedInstancesOfferingsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('reservedInstancesOfferingsSet', Stubs::ReservedInstancesOfferingList.stub('item', stub[:reserved_instances_offerings])) unless stub[:reserved_instances_offerings].nil?
+        xml << Hearth::XML::Node.new('reservedInstancesOfferingsSet', ReservedInstancesOfferingList.stub('item', stub[:reserved_instances_offerings])) unless stub[:reserved_instances_offerings].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19300,7 +19303,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedInstancesOffering.stub(node_name, element) unless element.nil?
+          xml << ReservedInstancesOffering.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19344,8 +19347,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('marketplace', stub[:marketplace].to_s) unless stub[:marketplace].nil?
         xml << Hearth::XML::Node.new('offeringClass', stub[:offering_class].to_s) unless stub[:offering_class].nil?
         xml << Hearth::XML::Node.new('offeringType', stub[:offering_type].to_s) unless stub[:offering_type].nil?
-        xml << Hearth::XML::Node.new('pricingDetailsSet', Stubs::PricingDetailsList.stub('item', stub[:pricing_details])) unless stub[:pricing_details].nil?
-        xml << Hearth::XML::Node.new('recurringCharges', Stubs::RecurringChargesList.stub('item', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
+        xml << Hearth::XML::Node.new('pricingDetailsSet', PricingDetailsList.stub('item', stub[:pricing_details])) unless stub[:pricing_details].nil?
+        xml << Hearth::XML::Node.new('recurringCharges', RecurringChargesList.stub('item', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
         xml << Hearth::XML::Node.new('scope', stub[:scope].to_s) unless stub[:scope].nil?
         xml
       end
@@ -19364,7 +19367,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PricingDetail.stub(node_name, element) unless element.nil?
+          xml << PricingDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19402,9 +19405,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeRouteTablesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('routeTableSet', Stubs::RouteTableList.stub('item', stub[:route_tables])) unless stub[:route_tables].nil?
+        xml << Hearth::XML::Node.new('routeTableSet', RouteTableList.stub('item', stub[:route_tables])) unless stub[:route_tables].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19422,7 +19425,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::RouteTable.stub(node_name, element) unless element.nil?
+          xml << RouteTable.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19442,8 +19445,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeScheduledInstanceAvailabilityResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('scheduledInstanceAvailabilitySet', Stubs::ScheduledInstanceAvailabilitySet.stub('item', stub[:scheduled_instance_availability_set])) unless stub[:scheduled_instance_availability_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('scheduledInstanceAvailabilitySet', ScheduledInstanceAvailabilitySet.stub('item', stub[:scheduled_instance_availability_set])) unless stub[:scheduled_instance_availability_set].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19461,7 +19464,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ScheduledInstanceAvailability.stub(node_name, element) unless element.nil?
+          xml << ScheduledInstanceAvailability.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19501,7 +19504,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('networkPlatform', stub[:network_platform].to_s) unless stub[:network_platform].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml << Hearth::XML::Node.new('purchaseToken', stub[:purchase_token].to_s) unless stub[:purchase_token].nil?
-        xml << Stubs::ScheduledInstanceRecurrence.stub('recurrence', stub[:recurrence]) unless stub[:recurrence].nil?
+        xml << ScheduledInstanceRecurrence.stub('recurrence', stub[:recurrence]) unless stub[:recurrence].nil?
         xml << Hearth::XML::Node.new('slotDurationInHours', stub[:slot_duration_in_hours].to_s) unless stub[:slot_duration_in_hours].nil?
         xml << Hearth::XML::Node.new('totalScheduledInstanceHours', stub[:total_scheduled_instance_hours].to_s) unless stub[:total_scheduled_instance_hours].nil?
         xml
@@ -19526,7 +19529,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('frequency', stub[:frequency].to_s) unless stub[:frequency].nil?
         xml << Hearth::XML::Node.new('interval', stub[:interval].to_s) unless stub[:interval].nil?
-        xml << Hearth::XML::Node.new('occurrenceDaySet', Stubs::OccurrenceDaySet.stub('item', stub[:occurrence_day_set])) unless stub[:occurrence_day_set].nil?
+        xml << Hearth::XML::Node.new('occurrenceDaySet', OccurrenceDaySet.stub('item', stub[:occurrence_day_set])) unless stub[:occurrence_day_set].nil?
         xml << Hearth::XML::Node.new('occurrenceRelativeToEnd', stub[:occurrence_relative_to_end].to_s) unless stub[:occurrence_relative_to_end].nil?
         xml << Hearth::XML::Node.new('occurrenceUnit', stub[:occurrence_unit].to_s) unless stub[:occurrence_unit].nil?
         xml
@@ -19566,8 +19569,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeScheduledInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('scheduledInstanceSet', Stubs::ScheduledInstanceSet.stub('item', stub[:scheduled_instance_set])) unless stub[:scheduled_instance_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('scheduledInstanceSet', ScheduledInstanceSet.stub('item', stub[:scheduled_instance_set])) unless stub[:scheduled_instance_set].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19585,7 +19588,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ScheduledInstance.stub(node_name, element) unless element.nil?
+          xml << ScheduledInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19626,7 +19629,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('nextSlotStartTime', Hearth::TimeHelper.to_date_time(stub[:next_slot_start_time])) unless stub[:next_slot_start_time].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml << Hearth::XML::Node.new('previousSlotEndTime', Hearth::TimeHelper.to_date_time(stub[:previous_slot_end_time])) unless stub[:previous_slot_end_time].nil?
-        xml << Stubs::ScheduledInstanceRecurrence.stub('recurrence', stub[:recurrence]) unless stub[:recurrence].nil?
+        xml << ScheduledInstanceRecurrence.stub('recurrence', stub[:recurrence]) unless stub[:recurrence].nil?
         xml << Hearth::XML::Node.new('scheduledInstanceId', stub[:scheduled_instance_id].to_s) unless stub[:scheduled_instance_id].nil?
         xml << Hearth::XML::Node.new('slotDurationInHours', stub[:slot_duration_in_hours].to_s) unless stub[:slot_duration_in_hours].nil?
         xml << Hearth::XML::Node.new('termEndDate', Hearth::TimeHelper.to_date_time(stub[:term_end_date])) unless stub[:term_end_date].nil?
@@ -19648,8 +19651,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSecurityGroupReferencesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('securityGroupReferenceSet', Stubs::SecurityGroupReferences.stub('item', stub[:security_group_reference_set])) unless stub[:security_group_reference_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('securityGroupReferenceSet', SecurityGroupReferences.stub('item', stub[:security_group_reference_set])) unless stub[:security_group_reference_set].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19667,7 +19670,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SecurityGroupReference.stub(node_name, element) unless element.nil?
+          xml << SecurityGroupReference.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19707,9 +19710,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSecurityGroupRulesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('securityGroupRuleSet', Stubs::SecurityGroupRuleList.stub('item', stub[:security_group_rules])) unless stub[:security_group_rules].nil?
+        xml << Hearth::XML::Node.new('securityGroupRuleSet', SecurityGroupRuleList.stub('item', stub[:security_group_rules])) unless stub[:security_group_rules].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19727,9 +19730,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSecurityGroupsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('securityGroupInfo', Stubs::SecurityGroupList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << Hearth::XML::Node.new('securityGroupInfo', SecurityGroupList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -19747,7 +19750,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SecurityGroup.stub(node_name, element) unless element.nil?
+          xml << SecurityGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19774,11 +19777,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('groupDescription', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('groupName', stub[:group_name].to_s) unless stub[:group_name].nil?
-        xml << Hearth::XML::Node.new('ipPermissions', Stubs::IpPermissionList.stub('item', stub[:ip_permissions])) unless stub[:ip_permissions].nil?
+        xml << Hearth::XML::Node.new('ipPermissions', IpPermissionList.stub('item', stub[:ip_permissions])) unless stub[:ip_permissions].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('groupId', stub[:group_id].to_s) unless stub[:group_id].nil?
-        xml << Hearth::XML::Node.new('ipPermissionsEgress', Stubs::IpPermissionList.stub('item', stub[:ip_permissions_egress])) unless stub[:ip_permissions_egress].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('ipPermissionsEgress', IpPermissionList.stub('item', stub[:ip_permissions_egress])) unless stub[:ip_permissions_egress].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml
       end
@@ -19797,7 +19800,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpPermission.stub(node_name, element) unless element.nil?
+          xml << IpPermission.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19823,11 +19826,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('fromPort', stub[:from_port].to_s) unless stub[:from_port].nil?
         xml << Hearth::XML::Node.new('ipProtocol', stub[:ip_protocol].to_s) unless stub[:ip_protocol].nil?
-        xml << Hearth::XML::Node.new('ipRanges', Stubs::IpRangeList.stub('item', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
-        xml << Hearth::XML::Node.new('ipv6Ranges', Stubs::Ipv6RangeList.stub('item', stub[:ipv6_ranges])) unless stub[:ipv6_ranges].nil?
-        xml << Hearth::XML::Node.new('prefixListIds', Stubs::PrefixListIdList.stub('item', stub[:prefix_list_ids])) unless stub[:prefix_list_ids].nil?
+        xml << Hearth::XML::Node.new('ipRanges', IpRangeList.stub('item', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
+        xml << Hearth::XML::Node.new('ipv6Ranges', Ipv6RangeList.stub('item', stub[:ipv6_ranges])) unless stub[:ipv6_ranges].nil?
+        xml << Hearth::XML::Node.new('prefixListIds', PrefixListIdList.stub('item', stub[:prefix_list_ids])) unless stub[:prefix_list_ids].nil?
         xml << Hearth::XML::Node.new('toPort', stub[:to_port].to_s) unless stub[:to_port].nil?
-        xml << Hearth::XML::Node.new('groups', Stubs::UserIdGroupPairList.stub('item', stub[:user_id_group_pairs])) unless stub[:user_id_group_pairs].nil?
+        xml << Hearth::XML::Node.new('groups', UserIdGroupPairList.stub('item', stub[:user_id_group_pairs])) unless stub[:user_id_group_pairs].nil?
         xml
       end
     end
@@ -19845,7 +19848,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::UserIdGroupPair.stub(node_name, element) unless element.nil?
+          xml << UserIdGroupPair.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19893,7 +19896,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PrefixListId.stub(node_name, element) unless element.nil?
+          xml << PrefixListId.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19931,7 +19934,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv6Range.stub(node_name, element) unless element.nil?
+          xml << Ipv6Range.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -19969,7 +19972,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpRange.stub(node_name, element) unless element.nil?
+          xml << IpRange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20008,10 +20011,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSnapshotAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('createVolumePermission', Stubs::CreateVolumePermissionList.stub('item', stub[:create_volume_permissions])) unless stub[:create_volume_permissions].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << Hearth::XML::Node.new('createVolumePermission', CreateVolumePermissionList.stub('item', stub[:create_volume_permissions])) unless stub[:create_volume_permissions].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
         xml << Hearth::XML::Node.new('snapshotId', stub[:snapshot_id].to_s) unless stub[:snapshot_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -20029,7 +20032,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CreateVolumePermission.stub(node_name, element) unless element.nil?
+          xml << CreateVolumePermission.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20067,9 +20070,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSnapshotTierStatusResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('snapshotTierStatusSet', Stubs::SnapshotTierStatusSet.stub('item', stub[:snapshot_tier_statuses])) unless stub[:snapshot_tier_statuses].nil?
+        xml << Hearth::XML::Node.new('snapshotTierStatusSet', SnapshotTierStatusSet.stub('item', stub[:snapshot_tier_statuses])) unless stub[:snapshot_tier_statuses].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -20087,7 +20090,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotTierStatus.stub(node_name, element) unless element.nil?
+          xml << SnapshotTierStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20120,7 +20123,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('storageTier', stub[:storage_tier].to_s) unless stub[:storage_tier].nil?
         xml << Hearth::XML::Node.new('lastTieringStartTime', Hearth::TimeHelper.to_date_time(stub[:last_tiering_start_time])) unless stub[:last_tiering_start_time].nil?
         xml << Hearth::XML::Node.new('lastTieringProgress', stub[:last_tiering_progress].to_s) unless stub[:last_tiering_progress].nil?
@@ -20145,9 +20148,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSnapshotsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('snapshotSet', Stubs::SnapshotList.stub('item', stub[:snapshots])) unless stub[:snapshots].nil?
+        xml << Hearth::XML::Node.new('snapshotSet', SnapshotList.stub('item', stub[:snapshots])) unless stub[:snapshots].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -20165,7 +20168,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Snapshot.stub(node_name, element) unless element.nil?
+          xml << Snapshot.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20213,7 +20216,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('volumeSize', stub[:volume_size].to_s) unless stub[:volume_size].nil?
         xml << Hearth::XML::Node.new('ownerAlias', stub[:owner_alias].to_s) unless stub[:owner_alias].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('storageTier', stub[:storage_tier].to_s) unless stub[:storage_tier].nil?
         xml << Hearth::XML::Node.new('restoreExpiryTime', Hearth::TimeHelper.to_date_time(stub[:restore_expiry_time])) unless stub[:restore_expiry_time].nil?
         xml
@@ -20232,8 +20235,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSpotDatafeedSubscriptionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::SpotDatafeedSubscription.stub('spotDatafeedSubscription', stub[:spot_datafeed_subscription]) unless stub[:spot_datafeed_subscription].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << SpotDatafeedSubscription.stub('spotDatafeedSubscription', stub[:spot_datafeed_subscription]) unless stub[:spot_datafeed_subscription].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -20252,10 +20255,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSpotFleetInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('activeInstanceSet', Stubs::ActiveInstanceSet.stub('item', stub[:active_instances])) unless stub[:active_instances].nil?
+        xml << Hearth::XML::Node.new('activeInstanceSet', ActiveInstanceSet.stub('item', stub[:active_instances])) unless stub[:active_instances].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('spotFleetRequestId', stub[:spot_fleet_request_id].to_s) unless stub[:spot_fleet_request_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -20276,12 +20279,12 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSpotFleetRequestHistoryResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('historyRecordSet', Stubs::HistoryRecords.stub('item', stub[:history_records])) unless stub[:history_records].nil?
+        xml << Hearth::XML::Node.new('historyRecordSet', HistoryRecords.stub('item', stub[:history_records])) unless stub[:history_records].nil?
         xml << Hearth::XML::Node.new('lastEvaluatedTime', Hearth::TimeHelper.to_date_time(stub[:last_evaluated_time])) unless stub[:last_evaluated_time].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('spotFleetRequestId', stub[:spot_fleet_request_id].to_s) unless stub[:spot_fleet_request_id].nil?
         xml << Hearth::XML::Node.new('startTime', Hearth::TimeHelper.to_date_time(stub[:start_time])) unless stub[:start_time].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -20299,7 +20302,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::HistoryRecord.stub(node_name, element) unless element.nil?
+          xml << HistoryRecord.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20319,7 +20322,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::EventInformation.stub('eventInformation', stub[:event_information]) unless stub[:event_information].nil?
+        xml << EventInformation.stub('eventInformation', stub[:event_information]) unless stub[:event_information].nil?
         xml << Hearth::XML::Node.new('eventType', stub[:event_type].to_s) unless stub[:event_type].nil?
         xml << Hearth::XML::Node.new('timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
         xml
@@ -20340,8 +20343,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeSpotFleetRequestsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('spotFleetRequestConfigSet', Stubs::SpotFleetRequestConfigSet.stub('item', stub[:spot_fleet_request_configs])) unless stub[:spot_fleet_request_configs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('spotFleetRequestConfigSet', SpotFleetRequestConfigSet.stub('item', stub[:spot_fleet_request_configs])) unless stub[:spot_fleet_request_configs].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -20359,7 +20362,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SpotFleetRequestConfig.stub(node_name, element) unless element.nil?
+          xml << SpotFleetRequestConfig.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20384,10 +20387,10 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('activityStatus', stub[:activity_status].to_s) unless stub[:activity_status].nil?
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
-        xml << Stubs::SpotFleetRequestConfigData.stub('spotFleetRequestConfig', stub[:spot_fleet_request_config]) unless stub[:spot_fleet_request_config].nil?
+        xml << SpotFleetRequestConfigData.stub('spotFleetRequestConfig', stub[:spot_fleet_request_config]) unless stub[:spot_fleet_request_config].nil?
         xml << Hearth::XML::Node.new('spotFleetRequestId', stub[:spot_fleet_request_id].to_s) unless stub[:spot_fleet_request_id].nil?
         xml << Hearth::XML::Node.new('spotFleetRequestState', stub[:spot_fleet_request_state].to_s) unless stub[:spot_fleet_request_state].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -20431,14 +20434,14 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('allocationStrategy', stub[:allocation_strategy].to_s) unless stub[:allocation_strategy].nil?
         xml << Hearth::XML::Node.new('onDemandAllocationStrategy', stub[:on_demand_allocation_strategy].to_s) unless stub[:on_demand_allocation_strategy].nil?
-        xml << Stubs::SpotMaintenanceStrategies.stub('spotMaintenanceStrategies', stub[:spot_maintenance_strategies]) unless stub[:spot_maintenance_strategies].nil?
+        xml << SpotMaintenanceStrategies.stub('spotMaintenanceStrategies', stub[:spot_maintenance_strategies]) unless stub[:spot_maintenance_strategies].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
         xml << Hearth::XML::Node.new('excessCapacityTerminationPolicy', stub[:excess_capacity_termination_policy].to_s) unless stub[:excess_capacity_termination_policy].nil?
         xml << Hearth::XML::Node.new('fulfilledCapacity', Hearth::NumberHelper.serialize(stub[:fulfilled_capacity]).to_s) unless stub[:fulfilled_capacity].nil?
         xml << Hearth::XML::Node.new('onDemandFulfilledCapacity', Hearth::NumberHelper.serialize(stub[:on_demand_fulfilled_capacity]).to_s) unless stub[:on_demand_fulfilled_capacity].nil?
         xml << Hearth::XML::Node.new('iamFleetRole', stub[:iam_fleet_role].to_s) unless stub[:iam_fleet_role].nil?
-        xml << Hearth::XML::Node.new('launchSpecifications', Stubs::LaunchSpecsList.stub('item', stub[:launch_specifications])) unless stub[:launch_specifications].nil?
-        xml << Hearth::XML::Node.new('launchTemplateConfigs', Stubs::LaunchTemplateConfigList.stub('item', stub[:launch_template_configs])) unless stub[:launch_template_configs].nil?
+        xml << Hearth::XML::Node.new('launchSpecifications', LaunchSpecsList.stub('item', stub[:launch_specifications])) unless stub[:launch_specifications].nil?
+        xml << Hearth::XML::Node.new('launchTemplateConfigs', LaunchTemplateConfigList.stub('item', stub[:launch_template_configs])) unless stub[:launch_template_configs].nil?
         xml << Hearth::XML::Node.new('spotPrice', stub[:spot_price].to_s) unless stub[:spot_price].nil?
         xml << Hearth::XML::Node.new('targetCapacity', stub[:target_capacity].to_s) unless stub[:target_capacity].nil?
         xml << Hearth::XML::Node.new('onDemandTargetCapacity', stub[:on_demand_target_capacity].to_s) unless stub[:on_demand_target_capacity].nil?
@@ -20450,11 +20453,11 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('validUntil', Hearth::TimeHelper.to_date_time(stub[:valid_until])) unless stub[:valid_until].nil?
         xml << Hearth::XML::Node.new('replaceUnhealthyInstances', stub[:replace_unhealthy_instances].to_s) unless stub[:replace_unhealthy_instances].nil?
         xml << Hearth::XML::Node.new('instanceInterruptionBehavior', stub[:instance_interruption_behavior].to_s) unless stub[:instance_interruption_behavior].nil?
-        xml << Stubs::LoadBalancersConfig.stub('loadBalancersConfig', stub[:load_balancers_config]) unless stub[:load_balancers_config].nil?
+        xml << LoadBalancersConfig.stub('loadBalancersConfig', stub[:load_balancers_config]) unless stub[:load_balancers_config].nil?
         xml << Hearth::XML::Node.new('instancePoolsToUseCount', stub[:instance_pools_to_use_count].to_s) unless stub[:instance_pools_to_use_count].nil?
         xml << Hearth::XML::Node.new('context', stub[:context].to_s) unless stub[:context].nil?
         xml << Hearth::XML::Node.new('targetCapacityUnitType', stub[:target_capacity_unit_type].to_s) unless stub[:target_capacity_unit_type].nil?
-        xml << Hearth::XML::Node.new('TagSpecification', Stubs::TagSpecificationList.stub('item', stub[:tag_specifications])) unless stub[:tag_specifications].nil?
+        xml << Hearth::XML::Node.new('TagSpecification', TagSpecificationList.stub('item', stub[:tag_specifications])) unless stub[:tag_specifications].nil?
         xml
       end
     end
@@ -20472,7 +20475,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TagSpecification.stub(node_name, element) unless element.nil?
+          xml << TagSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20492,7 +20495,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Hearth::XML::Node.new('Tag', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tag', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -20510,8 +20513,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ClassicLoadBalancersConfig.stub('classicLoadBalancersConfig', stub[:classic_load_balancers_config]) unless stub[:classic_load_balancers_config].nil?
-        xml << Stubs::TargetGroupsConfig.stub('targetGroupsConfig', stub[:target_groups_config]) unless stub[:target_groups_config].nil?
+        xml << ClassicLoadBalancersConfig.stub('classicLoadBalancersConfig', stub[:classic_load_balancers_config]) unless stub[:classic_load_balancers_config].nil?
+        xml << TargetGroupsConfig.stub('targetGroupsConfig', stub[:target_groups_config]) unless stub[:target_groups_config].nil?
         xml
       end
     end
@@ -20528,7 +20531,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('targetGroups', Stubs::TargetGroups.stub('item', stub[:target_groups])) unless stub[:target_groups].nil?
+        xml << Hearth::XML::Node.new('targetGroups', TargetGroups.stub('item', stub[:target_groups])) unless stub[:target_groups].nil?
         xml
       end
     end
@@ -20546,7 +20549,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TargetGroup.stub(node_name, element) unless element.nil?
+          xml << TargetGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20581,7 +20584,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('classicLoadBalancers', Stubs::ClassicLoadBalancers.stub('item', stub[:classic_load_balancers])) unless stub[:classic_load_balancers].nil?
+        xml << Hearth::XML::Node.new('classicLoadBalancers', ClassicLoadBalancers.stub('item', stub[:classic_load_balancers])) unless stub[:classic_load_balancers].nil?
         xml
       end
     end
@@ -20599,7 +20602,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ClassicLoadBalancer.stub(node_name, element) unless element.nil?
+          xml << ClassicLoadBalancer.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20635,7 +20638,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateConfig.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateConfig.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20654,8 +20657,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::FleetLaunchTemplateSpecification.stub('launchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
-        xml << Hearth::XML::Node.new('overrides', Stubs::LaunchTemplateOverridesList.stub('item', stub[:overrides])) unless stub[:overrides].nil?
+        xml << FleetLaunchTemplateSpecification.stub('launchTemplateSpecification', stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
+        xml << Hearth::XML::Node.new('overrides', LaunchTemplateOverridesList.stub('item', stub[:overrides])) unless stub[:overrides].nil?
         xml
       end
     end
@@ -20673,7 +20676,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplateOverrides.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplateOverrides.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20703,7 +20706,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('weightedCapacity', Hearth::NumberHelper.serialize(stub[:weighted_capacity]).to_s) unless stub[:weighted_capacity].nil?
         xml << Hearth::XML::Node.new('priority', Hearth::NumberHelper.serialize(stub[:priority]).to_s) unless stub[:priority].nil?
-        xml << Stubs::InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
+        xml << InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
         xml
       end
     end
@@ -20721,7 +20724,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SpotFleetLaunchSpecification.stub(node_name, element) unless element.nil?
+          xml << SpotFleetLaunchSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20757,25 +20760,25 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
         xml << Hearth::XML::Node.new('addressingType', stub[:addressing_type].to_s) unless stub[:addressing_type].nil?
-        xml << Hearth::XML::Node.new('blockDeviceMapping', Stubs::BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << Hearth::XML::Node.new('blockDeviceMapping', BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
         xml << Hearth::XML::Node.new('ebsOptimized', stub[:ebs_optimized].to_s) unless stub[:ebs_optimized].nil?
-        xml << Stubs::IamInstanceProfileSpecification.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
+        xml << IamInstanceProfileSpecification.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('instanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('kernelId', stub[:kernel_id].to_s) unless stub[:kernel_id].nil?
         xml << Hearth::XML::Node.new('keyName', stub[:key_name].to_s) unless stub[:key_name].nil?
-        xml << Stubs::SpotFleetMonitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
-        xml << Hearth::XML::Node.new('networkInterfaceSet', Stubs::InstanceNetworkInterfaceSpecificationList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
-        xml << Stubs::SpotPlacement.stub('placement', stub[:placement]) unless stub[:placement].nil?
+        xml << SpotFleetMonitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
+        xml << Hearth::XML::Node.new('networkInterfaceSet', InstanceNetworkInterfaceSpecificationList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
+        xml << SpotPlacement.stub('placement', stub[:placement]) unless stub[:placement].nil?
         xml << Hearth::XML::Node.new('ramdiskId', stub[:ramdisk_id].to_s) unless stub[:ramdisk_id].nil?
         xml << Hearth::XML::Node.new('spotPrice', stub[:spot_price].to_s) unless stub[:spot_price].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('userData', stub[:user_data].to_s) unless stub[:user_data].nil?
         xml << Hearth::XML::Node.new('weightedCapacity', Hearth::NumberHelper.serialize(stub[:weighted_capacity]).to_s) unless stub[:weighted_capacity].nil?
-        xml << Hearth::XML::Node.new('tagSpecificationSet', Stubs::SpotFleetTagSpecificationList.stub('item', stub[:tag_specifications])) unless stub[:tag_specifications].nil?
-        xml << Stubs::InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
+        xml << Hearth::XML::Node.new('tagSpecificationSet', SpotFleetTagSpecificationList.stub('item', stub[:tag_specifications])) unless stub[:tag_specifications].nil?
+        xml << InstanceRequirements.stub('instanceRequirements', stub[:instance_requirements]) unless stub[:instance_requirements].nil?
         xml
       end
     end
@@ -20793,7 +20796,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SpotFleetTagSpecification.stub(node_name, element) unless element.nil?
+          xml << SpotFleetTagSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20813,7 +20816,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Hearth::XML::Node.new('tag', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tag', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -20852,7 +20855,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceNetworkInterfaceSpecification.stub(node_name, element) unless element.nil?
+          xml << InstanceNetworkInterfaceSpecification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20892,20 +20895,20 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('deleteOnTermination', stub[:delete_on_termination].to_s) unless stub[:delete_on_termination].nil?
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('deviceIndex', stub[:device_index].to_s) unless stub[:device_index].nil?
-        xml << Hearth::XML::Node.new('SecurityGroupId', Stubs::SecurityGroupIdStringList.stub('SecurityGroupId', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('SecurityGroupId', SecurityGroupIdStringList.stub('SecurityGroupId', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('ipv6AddressCount', stub[:ipv6_address_count].to_s) unless stub[:ipv6_address_count].nil?
-        xml << Hearth::XML::Node.new('ipv6AddressesSet', Stubs::InstanceIpv6AddressList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
+        xml << Hearth::XML::Node.new('ipv6AddressesSet', InstanceIpv6AddressList.stub('item', stub[:ipv6_addresses])) unless stub[:ipv6_addresses].nil?
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
         xml << Hearth::XML::Node.new('privateIpAddress', stub[:private_ip_address].to_s) unless stub[:private_ip_address].nil?
-        xml << Hearth::XML::Node.new('privateIpAddressesSet', Stubs::PrivateIpAddressSpecificationList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
+        xml << Hearth::XML::Node.new('privateIpAddressesSet', PrivateIpAddressSpecificationList.stub('item', stub[:private_ip_addresses])) unless stub[:private_ip_addresses].nil?
         xml << Hearth::XML::Node.new('secondaryPrivateIpAddressCount', stub[:secondary_private_ip_address_count].to_s) unless stub[:secondary_private_ip_address_count].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('AssociateCarrierIpAddress', stub[:associate_carrier_ip_address].to_s) unless stub[:associate_carrier_ip_address].nil?
         xml << Hearth::XML::Node.new('InterfaceType', stub[:interface_type].to_s) unless stub[:interface_type].nil?
         xml << Hearth::XML::Node.new('NetworkCardIndex', stub[:network_card_index].to_s) unless stub[:network_card_index].nil?
-        xml << Hearth::XML::Node.new('Ipv4Prefix', Stubs::Ipv4PrefixList.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
+        xml << Hearth::XML::Node.new('Ipv4Prefix', Ipv4PrefixList.stub('item', stub[:ipv4_prefixes])) unless stub[:ipv4_prefixes].nil?
         xml << Hearth::XML::Node.new('Ipv4PrefixCount', stub[:ipv4_prefix_count].to_s) unless stub[:ipv4_prefix_count].nil?
-        xml << Hearth::XML::Node.new('Ipv6Prefix', Stubs::Ipv6PrefixList.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
+        xml << Hearth::XML::Node.new('Ipv6Prefix', Ipv6PrefixList.stub('item', stub[:ipv6_prefixes])) unless stub[:ipv6_prefixes].nil?
         xml << Hearth::XML::Node.new('Ipv6PrefixCount', stub[:ipv6_prefix_count].to_s) unless stub[:ipv6_prefix_count].nil?
         xml
       end
@@ -20924,7 +20927,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv6PrefixSpecificationRequest.stub(node_name, element) unless element.nil?
+          xml << Ipv6PrefixSpecificationRequest.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -20960,7 +20963,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv4PrefixSpecificationRequest.stub(node_name, element) unless element.nil?
+          xml << Ipv4PrefixSpecificationRequest.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21050,7 +21053,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::SpotCapacityRebalance.stub('capacityRebalance', stub[:capacity_rebalance]) unless stub[:capacity_rebalance].nil?
+        xml << SpotCapacityRebalance.stub('capacityRebalance', stub[:capacity_rebalance]) unless stub[:capacity_rebalance].nil?
         xml
       end
     end
@@ -21087,9 +21090,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSpotInstanceRequestsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('spotInstanceRequestSet', Stubs::SpotInstanceRequestList.stub('item', stub[:spot_instance_requests])) unless stub[:spot_instance_requests].nil?
+        xml << Hearth::XML::Node.new('spotInstanceRequestSet', SpotInstanceRequestList.stub('item', stub[:spot_instance_requests])) unless stub[:spot_instance_requests].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21107,7 +21110,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SpotInstanceRequest.stub(node_name, element) unless element.nil?
+          xml << SpotInstanceRequest.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21147,17 +21150,17 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('availabilityZoneGroup', stub[:availability_zone_group].to_s) unless stub[:availability_zone_group].nil?
         xml << Hearth::XML::Node.new('blockDurationMinutes', stub[:block_duration_minutes].to_s) unless stub[:block_duration_minutes].nil?
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
-        xml << Stubs::SpotInstanceStateFault.stub('fault', stub[:fault]) unless stub[:fault].nil?
+        xml << SpotInstanceStateFault.stub('fault', stub[:fault]) unless stub[:fault].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('launchGroup', stub[:launch_group].to_s) unless stub[:launch_group].nil?
-        xml << Stubs::LaunchSpecification.stub('launchSpecification', stub[:launch_specification]) unless stub[:launch_specification].nil?
+        xml << LaunchSpecification.stub('launchSpecification', stub[:launch_specification]) unless stub[:launch_specification].nil?
         xml << Hearth::XML::Node.new('launchedAvailabilityZone', stub[:launched_availability_zone].to_s) unless stub[:launched_availability_zone].nil?
         xml << Hearth::XML::Node.new('productDescription', stub[:product_description].to_s) unless stub[:product_description].nil?
         xml << Hearth::XML::Node.new('spotInstanceRequestId', stub[:spot_instance_request_id].to_s) unless stub[:spot_instance_request_id].nil?
         xml << Hearth::XML::Node.new('spotPrice', stub[:spot_price].to_s) unless stub[:spot_price].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Stubs::SpotInstanceStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << SpotInstanceStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('validFrom', Hearth::TimeHelper.to_date_time(stub[:valid_from])) unless stub[:valid_from].nil?
         xml << Hearth::XML::Node.new('validUntil', Hearth::TimeHelper.to_date_time(stub[:valid_until])) unless stub[:valid_until].nil?
@@ -21214,20 +21217,20 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('userData', stub[:user_data].to_s) unless stub[:user_data].nil?
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:security_groups])) unless stub[:security_groups].nil?
         xml << Hearth::XML::Node.new('addressingType', stub[:addressing_type].to_s) unless stub[:addressing_type].nil?
-        xml << Hearth::XML::Node.new('blockDeviceMapping', Stubs::BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
+        xml << Hearth::XML::Node.new('blockDeviceMapping', BlockDeviceMappingList.stub('item', stub[:block_device_mappings])) unless stub[:block_device_mappings].nil?
         xml << Hearth::XML::Node.new('ebsOptimized', stub[:ebs_optimized].to_s) unless stub[:ebs_optimized].nil?
-        xml << Stubs::IamInstanceProfileSpecification.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
+        xml << IamInstanceProfileSpecification.stub('iamInstanceProfile', stub[:iam_instance_profile]) unless stub[:iam_instance_profile].nil?
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('instanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml << Hearth::XML::Node.new('kernelId', stub[:kernel_id].to_s) unless stub[:kernel_id].nil?
         xml << Hearth::XML::Node.new('keyName', stub[:key_name].to_s) unless stub[:key_name].nil?
-        xml << Hearth::XML::Node.new('networkInterfaceSet', Stubs::InstanceNetworkInterfaceSpecificationList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
-        xml << Stubs::SpotPlacement.stub('placement', stub[:placement]) unless stub[:placement].nil?
+        xml << Hearth::XML::Node.new('networkInterfaceSet', InstanceNetworkInterfaceSpecificationList.stub('item', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
+        xml << SpotPlacement.stub('placement', stub[:placement]) unless stub[:placement].nil?
         xml << Hearth::XML::Node.new('ramdiskId', stub[:ramdisk_id].to_s) unless stub[:ramdisk_id].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
-        xml << Stubs::RunInstancesMonitoringEnabled.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
+        xml << RunInstancesMonitoringEnabled.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
         xml
       end
     end
@@ -21263,8 +21266,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeSpotPriceHistoryResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('spotPriceHistorySet', Stubs::SpotPriceHistoryList.stub('item', stub[:spot_price_history])) unless stub[:spot_price_history].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('spotPriceHistorySet', SpotPriceHistoryList.stub('item', stub[:spot_price_history])) unless stub[:spot_price_history].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21282,7 +21285,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SpotPrice.stub(node_name, element) unless element.nil?
+          xml << SpotPrice.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21327,8 +21330,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeStaleSecurityGroupsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('staleSecurityGroupSet', Stubs::StaleSecurityGroupSet.stub('item', stub[:stale_security_group_set])) unless stub[:stale_security_group_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('staleSecurityGroupSet', StaleSecurityGroupSet.stub('item', stub[:stale_security_group_set])) unless stub[:stale_security_group_set].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21346,7 +21349,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::StaleSecurityGroup.stub(node_name, element) unless element.nil?
+          xml << StaleSecurityGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21372,8 +21375,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('groupId', stub[:group_id].to_s) unless stub[:group_id].nil?
         xml << Hearth::XML::Node.new('groupName', stub[:group_name].to_s) unless stub[:group_name].nil?
-        xml << Hearth::XML::Node.new('staleIpPermissions', Stubs::StaleIpPermissionSet.stub('item', stub[:stale_ip_permissions])) unless stub[:stale_ip_permissions].nil?
-        xml << Hearth::XML::Node.new('staleIpPermissionsEgress', Stubs::StaleIpPermissionSet.stub('item', stub[:stale_ip_permissions_egress])) unless stub[:stale_ip_permissions_egress].nil?
+        xml << Hearth::XML::Node.new('staleIpPermissions', StaleIpPermissionSet.stub('item', stub[:stale_ip_permissions])) unless stub[:stale_ip_permissions].nil?
+        xml << Hearth::XML::Node.new('staleIpPermissionsEgress', StaleIpPermissionSet.stub('item', stub[:stale_ip_permissions_egress])) unless stub[:stale_ip_permissions_egress].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml
       end
@@ -21392,7 +21395,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::StaleIpPermission.stub(node_name, element) unless element.nil?
+          xml << StaleIpPermission.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21417,10 +21420,10 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('fromPort', stub[:from_port].to_s) unless stub[:from_port].nil?
         xml << Hearth::XML::Node.new('ipProtocol', stub[:ip_protocol].to_s) unless stub[:ip_protocol].nil?
-        xml << Hearth::XML::Node.new('ipRanges', Stubs::IpRanges.stub('item', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
-        xml << Hearth::XML::Node.new('prefixListIds', Stubs::PrefixListIdSet.stub('item', stub[:prefix_list_ids])) unless stub[:prefix_list_ids].nil?
+        xml << Hearth::XML::Node.new('ipRanges', IpRanges.stub('item', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
+        xml << Hearth::XML::Node.new('prefixListIds', PrefixListIdSet.stub('item', stub[:prefix_list_ids])) unless stub[:prefix_list_ids].nil?
         xml << Hearth::XML::Node.new('toPort', stub[:to_port].to_s) unless stub[:to_port].nil?
-        xml << Hearth::XML::Node.new('groups', Stubs::UserIdGroupPairSet.stub('item', stub[:user_id_group_pairs])) unless stub[:user_id_group_pairs].nil?
+        xml << Hearth::XML::Node.new('groups', UserIdGroupPairSet.stub('item', stub[:user_id_group_pairs])) unless stub[:user_id_group_pairs].nil?
         xml
       end
     end
@@ -21438,7 +21441,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::UserIdGroupPair.stub(node_name, element) unless element.nil?
+          xml << UserIdGroupPair.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21495,9 +21498,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeStoreImageTasksResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('storeImageTaskResultSet', Stubs::StoreImageTaskResultSet.stub('item', stub[:store_image_task_results])) unless stub[:store_image_task_results].nil?
+        xml << Hearth::XML::Node.new('storeImageTaskResultSet', StoreImageTaskResultSet.stub('item', stub[:store_image_task_results])) unless stub[:store_image_task_results].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21515,7 +21518,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::StoreImageTaskResult.stub(node_name, element) unless element.nil?
+          xml << StoreImageTaskResult.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21563,9 +21566,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeSubnetsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('subnetSet', Stubs::SubnetList.stub('item', stub[:subnets])) unless stub[:subnets].nil?
+        xml << Hearth::XML::Node.new('subnetSet', SubnetList.stub('item', stub[:subnets])) unless stub[:subnets].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21583,7 +21586,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Subnet.stub(node_name, element) unless element.nil?
+          xml << Subnet.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21603,8 +21606,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeTagsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagDescriptionList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('tagSet', TagDescriptionList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21622,7 +21625,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TagDescription.stub(node_name, element) unless element.nil?
+          xml << TagDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21664,9 +21667,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTrafficMirrorFiltersResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('trafficMirrorFilterSet', Stubs::TrafficMirrorFilterSet.stub('item', stub[:traffic_mirror_filters])) unless stub[:traffic_mirror_filters].nil?
+        xml << Hearth::XML::Node.new('trafficMirrorFilterSet', TrafficMirrorFilterSet.stub('item', stub[:traffic_mirror_filters])) unless stub[:traffic_mirror_filters].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21684,7 +21687,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TrafficMirrorFilter.stub(node_name, element) unless element.nil?
+          xml << TrafficMirrorFilter.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21703,9 +21706,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTrafficMirrorSessionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('trafficMirrorSessionSet', Stubs::TrafficMirrorSessionSet.stub('item', stub[:traffic_mirror_sessions])) unless stub[:traffic_mirror_sessions].nil?
+        xml << Hearth::XML::Node.new('trafficMirrorSessionSet', TrafficMirrorSessionSet.stub('item', stub[:traffic_mirror_sessions])) unless stub[:traffic_mirror_sessions].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21723,7 +21726,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TrafficMirrorSession.stub(node_name, element) unless element.nil?
+          xml << TrafficMirrorSession.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21742,9 +21745,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTrafficMirrorTargetsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('trafficMirrorTargetSet', Stubs::TrafficMirrorTargetSet.stub('item', stub[:traffic_mirror_targets])) unless stub[:traffic_mirror_targets].nil?
+        xml << Hearth::XML::Node.new('trafficMirrorTargetSet', TrafficMirrorTargetSet.stub('item', stub[:traffic_mirror_targets])) unless stub[:traffic_mirror_targets].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21762,7 +21765,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TrafficMirrorTarget.stub(node_name, element) unless element.nil?
+          xml << TrafficMirrorTarget.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21781,9 +21784,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewayAttachmentsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayAttachments', Stubs::TransitGatewayAttachmentList.stub('item', stub[:transit_gateway_attachments])) unless stub[:transit_gateway_attachments].nil?
+        xml << Hearth::XML::Node.new('transitGatewayAttachments', TransitGatewayAttachmentList.stub('item', stub[:transit_gateway_attachments])) unless stub[:transit_gateway_attachments].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21801,7 +21804,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayAttachment.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayAttachment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21835,9 +21838,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
         xml << Hearth::XML::Node.new('resourceId', stub[:resource_id].to_s) unless stub[:resource_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Stubs::TransitGatewayAttachmentAssociation.stub('association', stub[:association]) unless stub[:association].nil?
+        xml << TransitGatewayAttachmentAssociation.stub('association', stub[:association]) unless stub[:association].nil?
         xml << Hearth::XML::Node.new('creationTime', Hearth::TimeHelper.to_date_time(stub[:creation_time])) unless stub[:creation_time].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -21874,9 +21877,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewayConnectPeersResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayConnectPeerSet', Stubs::TransitGatewayConnectPeerList.stub('item', stub[:transit_gateway_connect_peers])) unless stub[:transit_gateway_connect_peers].nil?
+        xml << Hearth::XML::Node.new('transitGatewayConnectPeerSet', TransitGatewayConnectPeerList.stub('item', stub[:transit_gateway_connect_peers])) unless stub[:transit_gateway_connect_peers].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21894,7 +21897,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayConnectPeer.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayConnectPeer.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21913,9 +21916,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewayConnectsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayConnectSet', Stubs::TransitGatewayConnectList.stub('item', stub[:transit_gateway_connects])) unless stub[:transit_gateway_connects].nil?
+        xml << Hearth::XML::Node.new('transitGatewayConnectSet', TransitGatewayConnectList.stub('item', stub[:transit_gateway_connects])) unless stub[:transit_gateway_connects].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21933,7 +21936,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayConnect.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayConnect.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21952,9 +21955,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewayMulticastDomainsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayMulticastDomains', Stubs::TransitGatewayMulticastDomainList.stub('item', stub[:transit_gateway_multicast_domains])) unless stub[:transit_gateway_multicast_domains].nil?
+        xml << Hearth::XML::Node.new('transitGatewayMulticastDomains', TransitGatewayMulticastDomainList.stub('item', stub[:transit_gateway_multicast_domains])) unless stub[:transit_gateway_multicast_domains].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -21972,7 +21975,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayMulticastDomain.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayMulticastDomain.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -21991,9 +21994,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewayPeeringAttachmentsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayPeeringAttachments', Stubs::TransitGatewayPeeringAttachmentList.stub('item', stub[:transit_gateway_peering_attachments])) unless stub[:transit_gateway_peering_attachments].nil?
+        xml << Hearth::XML::Node.new('transitGatewayPeeringAttachments', TransitGatewayPeeringAttachmentList.stub('item', stub[:transit_gateway_peering_attachments])) unless stub[:transit_gateway_peering_attachments].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22011,7 +22014,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayPeeringAttachment.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayPeeringAttachment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22030,9 +22033,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewayRouteTablesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayRouteTables', Stubs::TransitGatewayRouteTableList.stub('item', stub[:transit_gateway_route_tables])) unless stub[:transit_gateway_route_tables].nil?
+        xml << Hearth::XML::Node.new('transitGatewayRouteTables', TransitGatewayRouteTableList.stub('item', stub[:transit_gateway_route_tables])) unless stub[:transit_gateway_route_tables].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22050,7 +22053,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayRouteTable.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayRouteTable.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22069,9 +22072,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewayVpcAttachmentsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayVpcAttachments', Stubs::TransitGatewayVpcAttachmentList.stub('item', stub[:transit_gateway_vpc_attachments])) unless stub[:transit_gateway_vpc_attachments].nil?
+        xml << Hearth::XML::Node.new('transitGatewayVpcAttachments', TransitGatewayVpcAttachmentList.stub('item', stub[:transit_gateway_vpc_attachments])) unless stub[:transit_gateway_vpc_attachments].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22089,7 +22092,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayVpcAttachment.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayVpcAttachment.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22108,9 +22111,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTransitGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewaySet', Stubs::TransitGatewayList.stub('item', stub[:transit_gateways])) unless stub[:transit_gateways].nil?
+        xml << Hearth::XML::Node.new('transitGatewaySet', TransitGatewayList.stub('item', stub[:transit_gateways])) unless stub[:transit_gateways].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22128,7 +22131,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGateway.stub(node_name, element) unless element.nil?
+          xml << TransitGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22147,9 +22150,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeTrunkInterfaceAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('interfaceAssociationSet', Stubs::TrunkInterfaceAssociationList.stub('item', stub[:interface_associations])) unless stub[:interface_associations].nil?
+        xml << Hearth::XML::Node.new('interfaceAssociationSet', TrunkInterfaceAssociationList.stub('item', stub[:interface_associations])) unless stub[:interface_associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22167,7 +22170,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TrunkInterfaceAssociation.stub(node_name, element) unless element.nil?
+          xml << TrunkInterfaceAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22187,10 +22190,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVolumeAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::AttributeBooleanValue.stub('autoEnableIO', stub[:auto_enable_io]) unless stub[:auto_enable_io].nil?
-        xml << Hearth::XML::Node.new('productCodes', Stubs::ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
+        xml << AttributeBooleanValue.stub('autoEnableIO', stub[:auto_enable_io]) unless stub[:auto_enable_io].nil?
+        xml << Hearth::XML::Node.new('productCodes', ProductCodeList.stub('item', stub[:product_codes])) unless stub[:product_codes].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22209,8 +22212,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeVolumeStatusResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('volumeStatusSet', Stubs::VolumeStatusList.stub('item', stub[:volume_statuses])) unless stub[:volume_statuses].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('volumeStatusSet', VolumeStatusList.stub('item', stub[:volume_statuses])) unless stub[:volume_statuses].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22228,7 +22231,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VolumeStatusItem.stub(node_name, element) unless element.nil?
+          xml << VolumeStatusItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22252,13 +22255,13 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('actionsSet', Stubs::VolumeStatusActionsList.stub('item', stub[:actions])) unless stub[:actions].nil?
+        xml << Hearth::XML::Node.new('actionsSet', VolumeStatusActionsList.stub('item', stub[:actions])) unless stub[:actions].nil?
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('outpostArn', stub[:outpost_arn].to_s) unless stub[:outpost_arn].nil?
-        xml << Hearth::XML::Node.new('eventsSet', Stubs::VolumeStatusEventsList.stub('item', stub[:events])) unless stub[:events].nil?
+        xml << Hearth::XML::Node.new('eventsSet', VolumeStatusEventsList.stub('item', stub[:events])) unless stub[:events].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
-        xml << Stubs::VolumeStatusInfo.stub('volumeStatus', stub[:volume_status]) unless stub[:volume_status].nil?
-        xml << Hearth::XML::Node.new('attachmentStatuses', Stubs::VolumeStatusAttachmentStatusList.stub('item', stub[:attachment_statuses])) unless stub[:attachment_statuses].nil?
+        xml << VolumeStatusInfo.stub('volumeStatus', stub[:volume_status]) unless stub[:volume_status].nil?
+        xml << Hearth::XML::Node.new('attachmentStatuses', VolumeStatusAttachmentStatusList.stub('item', stub[:attachment_statuses])) unless stub[:attachment_statuses].nil?
         xml
       end
     end
@@ -22276,7 +22279,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VolumeStatusAttachmentStatus.stub(node_name, element) unless element.nil?
+          xml << VolumeStatusAttachmentStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22314,7 +22317,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('details', Stubs::VolumeStatusDetailsList.stub('item', stub[:details])) unless stub[:details].nil?
+        xml << Hearth::XML::Node.new('details', VolumeStatusDetailsList.stub('item', stub[:details])) unless stub[:details].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml
       end
@@ -22333,7 +22336,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VolumeStatusDetails.stub(node_name, element) unless element.nil?
+          xml << VolumeStatusDetails.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22371,7 +22374,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VolumeStatusEvent.stub(node_name, element) unless element.nil?
+          xml << VolumeStatusEvent.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22417,7 +22420,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VolumeStatusAction.stub(node_name, element) unless element.nil?
+          xml << VolumeStatusAction.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22459,9 +22462,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVolumesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('volumeSet', Stubs::VolumeList.stub('item', stub[:volumes])) unless stub[:volumes].nil?
+        xml << Hearth::XML::Node.new('volumeSet', VolumeList.stub('item', stub[:volumes])) unless stub[:volumes].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22479,7 +22482,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Volume.stub(node_name, element) unless element.nil?
+          xml << Volume.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22512,7 +22515,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('attachmentSet', Stubs::VolumeAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
+        xml << Hearth::XML::Node.new('attachmentSet', VolumeAttachmentList.stub('item', stub[:attachments])) unless stub[:attachments].nil?
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('createTime', Hearth::TimeHelper.to_date_time(stub[:create_time])) unless stub[:create_time].nil?
         xml << Hearth::XML::Node.new('encrypted', stub[:encrypted].to_s) unless stub[:encrypted].nil?
@@ -22523,7 +22526,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('status', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
         xml << Hearth::XML::Node.new('iops', stub[:iops].to_s) unless stub[:iops].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('volumeType', stub[:volume_type].to_s) unless stub[:volume_type].nil?
         xml << Hearth::XML::Node.new('fastRestored', stub[:fast_restored].to_s) unless stub[:fast_restored].nil?
         xml << Hearth::XML::Node.new('multiAttachEnabled', stub[:multi_attach_enabled].to_s) unless stub[:multi_attach_enabled].nil?
@@ -22545,9 +22548,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVolumesModificationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('volumeModificationSet', Stubs::VolumeModificationList.stub('item', stub[:volumes_modifications])) unless stub[:volumes_modifications].nil?
+        xml << Hearth::XML::Node.new('volumeModificationSet', VolumeModificationList.stub('item', stub[:volumes_modifications])) unless stub[:volumes_modifications].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22565,7 +22568,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VolumeModification.stub(node_name, element) unless element.nil?
+          xml << VolumeModification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22633,9 +22636,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeVpcAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        xml << Stubs::AttributeBooleanValue.stub('enableDnsHostnames', stub[:enable_dns_hostnames]) unless stub[:enable_dns_hostnames].nil?
-        xml << Stubs::AttributeBooleanValue.stub('enableDnsSupport', stub[:enable_dns_support]) unless stub[:enable_dns_support].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << AttributeBooleanValue.stub('enableDnsHostnames', stub[:enable_dns_hostnames]) unless stub[:enable_dns_hostnames].nil?
+        xml << AttributeBooleanValue.stub('enableDnsSupport', stub[:enable_dns_support]) unless stub[:enable_dns_support].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22652,8 +22655,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcClassicLinkResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpcSet', Stubs::VpcClassicLinkList.stub('item', stub[:vpcs])) unless stub[:vpcs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('vpcSet', VpcClassicLinkList.stub('item', stub[:vpcs])) unless stub[:vpcs].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22671,7 +22674,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcClassicLink.stub(node_name, element) unless element.nil?
+          xml << VpcClassicLink.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22692,7 +22695,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('classicLinkEnabled', stub[:classic_link_enabled].to_s) unless stub[:classic_link_enabled].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml
       end
@@ -22712,8 +22715,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DescribeVpcClassicLinkDnsSupportResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('vpcs', Stubs::ClassicLinkDnsSupportList.stub('item', stub[:vpcs])) unless stub[:vpcs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('vpcs', ClassicLinkDnsSupportList.stub('item', stub[:vpcs])) unless stub[:vpcs].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22731,7 +22734,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ClassicLinkDnsSupport.stub(node_name, element) unless element.nil?
+          xml << ClassicLinkDnsSupport.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22769,9 +22772,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcEndpointConnectionNotificationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('connectionNotificationSet', Stubs::ConnectionNotificationSet.stub('item', stub[:connection_notification_set])) unless stub[:connection_notification_set].nil?
+        xml << Hearth::XML::Node.new('connectionNotificationSet', ConnectionNotificationSet.stub('item', stub[:connection_notification_set])) unless stub[:connection_notification_set].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22789,7 +22792,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ConnectionNotification.stub(node_name, element) unless element.nil?
+          xml << ConnectionNotification.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22808,9 +22811,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcEndpointConnectionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpcEndpointConnectionSet', Stubs::VpcEndpointConnectionSet.stub('item', stub[:vpc_endpoint_connections])) unless stub[:vpc_endpoint_connections].nil?
+        xml << Hearth::XML::Node.new('vpcEndpointConnectionSet', VpcEndpointConnectionSet.stub('item', stub[:vpc_endpoint_connections])) unless stub[:vpc_endpoint_connections].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22828,7 +22831,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcEndpointConnection.stub(node_name, element) unless element.nil?
+          xml << VpcEndpointConnection.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22859,9 +22862,9 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('vpcEndpointOwner', stub[:vpc_endpoint_owner].to_s) unless stub[:vpc_endpoint_owner].nil?
         xml << Hearth::XML::Node.new('vpcEndpointState', stub[:vpc_endpoint_state].to_s) unless stub[:vpc_endpoint_state].nil?
         xml << Hearth::XML::Node.new('creationTimestamp', Hearth::TimeHelper.to_date_time(stub[:creation_timestamp])) unless stub[:creation_timestamp].nil?
-        xml << Hearth::XML::Node.new('dnsEntrySet', Stubs::DnsEntrySet.stub('item', stub[:dns_entries])) unless stub[:dns_entries].nil?
-        xml << Hearth::XML::Node.new('networkLoadBalancerArnSet', Stubs::ValueStringList.stub('item', stub[:network_load_balancer_arns])) unless stub[:network_load_balancer_arns].nil?
-        xml << Hearth::XML::Node.new('gatewayLoadBalancerArnSet', Stubs::ValueStringList.stub('item', stub[:gateway_load_balancer_arns])) unless stub[:gateway_load_balancer_arns].nil?
+        xml << Hearth::XML::Node.new('dnsEntrySet', DnsEntrySet.stub('item', stub[:dns_entries])) unless stub[:dns_entries].nil?
+        xml << Hearth::XML::Node.new('networkLoadBalancerArnSet', ValueStringList.stub('item', stub[:network_load_balancer_arns])) unless stub[:network_load_balancer_arns].nil?
+        xml << Hearth::XML::Node.new('gatewayLoadBalancerArnSet', ValueStringList.stub('item', stub[:gateway_load_balancer_arns])) unless stub[:gateway_load_balancer_arns].nil?
         xml << Hearth::XML::Node.new('ipAddressType', stub[:ip_address_type].to_s) unless stub[:ip_address_type].nil?
         xml
       end
@@ -22880,9 +22883,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcEndpointServiceConfigurationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('serviceConfigurationSet', Stubs::ServiceConfigurationSet.stub('item', stub[:service_configurations])) unless stub[:service_configurations].nil?
+        xml << Hearth::XML::Node.new('serviceConfigurationSet', ServiceConfigurationSet.stub('item', stub[:service_configurations])) unless stub[:service_configurations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22900,7 +22903,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ServiceConfiguration.stub(node_name, element) unless element.nil?
+          xml << ServiceConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22919,9 +22922,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcEndpointServicePermissionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('allowedPrincipals', Stubs::AllowedPrincipalSet.stub('item', stub[:allowed_principals])) unless stub[:allowed_principals].nil?
+        xml << Hearth::XML::Node.new('allowedPrincipals', AllowedPrincipalSet.stub('item', stub[:allowed_principals])) unless stub[:allowed_principals].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22939,7 +22942,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AllowedPrincipal.stub(node_name, element) unless element.nil?
+          xml << AllowedPrincipal.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -22978,10 +22981,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcEndpointServicesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('serviceNameSet', Stubs::ValueStringList.stub('item', stub[:service_names])) unless stub[:service_names].nil?
-        xml << Hearth::XML::Node.new('serviceDetailSet', Stubs::ServiceDetailSet.stub('item', stub[:service_details])) unless stub[:service_details].nil?
+        xml << Hearth::XML::Node.new('serviceNameSet', ValueStringList.stub('item', stub[:service_names])) unless stub[:service_names].nil?
+        xml << Hearth::XML::Node.new('serviceDetailSet', ServiceDetailSet.stub('item', stub[:service_details])) unless stub[:service_details].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -22999,7 +23002,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ServiceDetail.stub(node_name, element) unless element.nil?
+          xml << ServiceDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23033,19 +23036,19 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('serviceName', stub[:service_name].to_s) unless stub[:service_name].nil?
         xml << Hearth::XML::Node.new('serviceId', stub[:service_id].to_s) unless stub[:service_id].nil?
-        xml << Hearth::XML::Node.new('serviceType', Stubs::ServiceTypeDetailSet.stub('item', stub[:service_type])) unless stub[:service_type].nil?
-        xml << Hearth::XML::Node.new('availabilityZoneSet', Stubs::ValueStringList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('serviceType', ServiceTypeDetailSet.stub('item', stub[:service_type])) unless stub[:service_type].nil?
+        xml << Hearth::XML::Node.new('availabilityZoneSet', ValueStringList.stub('item', stub[:availability_zones])) unless stub[:availability_zones].nil?
         xml << Hearth::XML::Node.new('owner', stub[:owner].to_s) unless stub[:owner].nil?
-        xml << Hearth::XML::Node.new('baseEndpointDnsNameSet', Stubs::ValueStringList.stub('item', stub[:base_endpoint_dns_names])) unless stub[:base_endpoint_dns_names].nil?
+        xml << Hearth::XML::Node.new('baseEndpointDnsNameSet', ValueStringList.stub('item', stub[:base_endpoint_dns_names])) unless stub[:base_endpoint_dns_names].nil?
         xml << Hearth::XML::Node.new('privateDnsName', stub[:private_dns_name].to_s) unless stub[:private_dns_name].nil?
-        xml << Hearth::XML::Node.new('privateDnsNameSet', Stubs::PrivateDnsDetailsSet.stub('item', stub[:private_dns_names])) unless stub[:private_dns_names].nil?
+        xml << Hearth::XML::Node.new('privateDnsNameSet', PrivateDnsDetailsSet.stub('item', stub[:private_dns_names])) unless stub[:private_dns_names].nil?
         xml << Hearth::XML::Node.new('vpcEndpointPolicySupported', stub[:vpc_endpoint_policy_supported].to_s) unless stub[:vpc_endpoint_policy_supported].nil?
         xml << Hearth::XML::Node.new('acceptanceRequired', stub[:acceptance_required].to_s) unless stub[:acceptance_required].nil?
         xml << Hearth::XML::Node.new('managesVpcEndpoints', stub[:manages_vpc_endpoints].to_s) unless stub[:manages_vpc_endpoints].nil?
         xml << Hearth::XML::Node.new('payerResponsibility', stub[:payer_responsibility].to_s) unless stub[:payer_responsibility].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('privateDnsNameVerificationState', stub[:private_dns_name_verification_state].to_s) unless stub[:private_dns_name_verification_state].nil?
-        xml << Hearth::XML::Node.new('supportedIpAddressTypeSet', Stubs::SupportedIpAddressTypes.stub('item', stub[:supported_ip_address_types])) unless stub[:supported_ip_address_types].nil?
+        xml << Hearth::XML::Node.new('supportedIpAddressTypeSet', SupportedIpAddressTypes.stub('item', stub[:supported_ip_address_types])) unless stub[:supported_ip_address_types].nil?
         xml
       end
     end
@@ -23063,7 +23066,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PrivateDnsDetails.stub(node_name, element) unless element.nil?
+          xml << PrivateDnsDetails.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23099,9 +23102,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcEndpointsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpcEndpointSet', Stubs::VpcEndpointSet.stub('item', stub[:vpc_endpoints])) unless stub[:vpc_endpoints].nil?
+        xml << Hearth::XML::Node.new('vpcEndpointSet', VpcEndpointSet.stub('item', stub[:vpc_endpoints])) unless stub[:vpc_endpoints].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23119,7 +23122,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcEndpoint.stub(node_name, element) unless element.nil?
+          xml << VpcEndpoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23138,9 +23141,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcPeeringConnectionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpcPeeringConnectionSet', Stubs::VpcPeeringConnectionList.stub('item', stub[:vpc_peering_connections])) unless stub[:vpc_peering_connections].nil?
+        xml << Hearth::XML::Node.new('vpcPeeringConnectionSet', VpcPeeringConnectionList.stub('item', stub[:vpc_peering_connections])) unless stub[:vpc_peering_connections].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23158,7 +23161,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcPeeringConnection.stub(node_name, element) unless element.nil?
+          xml << VpcPeeringConnection.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23177,9 +23180,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpcsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpcSet', Stubs::VpcList.stub('item', stub[:vpcs])) unless stub[:vpcs].nil?
+        xml << Hearth::XML::Node.new('vpcSet', VpcList.stub('item', stub[:vpcs])) unless stub[:vpcs].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23197,7 +23200,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Vpc.stub(node_name, element) unless element.nil?
+          xml << Vpc.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23215,8 +23218,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpnConnectionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpnConnectionSet', Stubs::VpnConnectionList.stub('item', stub[:vpn_connections])) unless stub[:vpn_connections].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('vpnConnectionSet', VpnConnectionList.stub('item', stub[:vpn_connections])) unless stub[:vpn_connections].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23234,7 +23237,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpnConnection.stub(node_name, element) unless element.nil?
+          xml << VpnConnection.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23252,8 +23255,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DescribeVpnGatewaysResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpnGatewaySet', Stubs::VpnGatewayList.stub('item', stub[:vpn_gateways])) unless stub[:vpn_gateways].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('vpnGatewaySet', VpnGatewayList.stub('item', stub[:vpn_gateways])) unless stub[:vpn_gateways].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23271,7 +23274,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpnGateway.stub(node_name, element) unless element.nil?
+          xml << VpnGateway.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23290,7 +23293,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DetachClassicLinkVpcResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23306,7 +23309,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DetachInternetGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23322,7 +23325,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DetachNetworkInterfaceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23350,7 +23353,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('status', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
         xml << Hearth::XML::Node.new('deleteOnTermination', stub[:delete_on_termination].to_s) unless stub[:delete_on_termination].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23366,7 +23369,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DetachVpnGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23384,7 +23387,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisableEbsEncryptionByDefaultResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('ebsEncryptionByDefault', stub[:ebs_encryption_by_default].to_s) unless stub[:ebs_encryption_by_default].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23411,14 +23414,14 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Stubs::FastLaunchSnapshotConfigurationResponse.stub('snapshotConfiguration', stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
-        xml << Stubs::FastLaunchLaunchTemplateSpecificationResponse.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << FastLaunchSnapshotConfigurationResponse.stub('snapshotConfiguration', stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
+        xml << FastLaunchLaunchTemplateSpecificationResponse.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
         xml << Hearth::XML::Node.new('maxParallelLaunches', stub[:max_parallel_launches].to_s) unless stub[:max_parallel_launches].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('stateTransitionReason', stub[:state_transition_reason].to_s) unless stub[:state_transition_reason].nil?
         xml << Hearth::XML::Node.new('stateTransitionTime', Hearth::TimeHelper.to_date_time(stub[:state_transition_time])) unless stub[:state_transition_time].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23436,9 +23439,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisableFastSnapshotRestoresResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successful', Stubs::DisableFastSnapshotRestoreSuccessSet.stub('item', stub[:successful])) unless stub[:successful].nil?
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::DisableFastSnapshotRestoreErrorSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successful', DisableFastSnapshotRestoreSuccessSet.stub('item', stub[:successful])) unless stub[:successful].nil?
+        xml << Hearth::XML::Node.new('unsuccessful', DisableFastSnapshotRestoreErrorSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23456,7 +23459,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DisableFastSnapshotRestoreErrorItem.stub(node_name, element) unless element.nil?
+          xml << DisableFastSnapshotRestoreErrorItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23476,7 +23479,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('snapshotId', stub[:snapshot_id].to_s) unless stub[:snapshot_id].nil?
-        xml << Hearth::XML::Node.new('fastSnapshotRestoreStateErrorSet', Stubs::DisableFastSnapshotRestoreStateErrorSet.stub('item', stub[:fast_snapshot_restore_state_errors])) unless stub[:fast_snapshot_restore_state_errors].nil?
+        xml << Hearth::XML::Node.new('fastSnapshotRestoreStateErrorSet', DisableFastSnapshotRestoreStateErrorSet.stub('item', stub[:fast_snapshot_restore_state_errors])) unless stub[:fast_snapshot_restore_state_errors].nil?
         xml
       end
     end
@@ -23494,7 +23497,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DisableFastSnapshotRestoreStateErrorItem.stub(node_name, element) unless element.nil?
+          xml << DisableFastSnapshotRestoreStateErrorItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23514,7 +23517,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
-        xml << Stubs::DisableFastSnapshotRestoreStateError.stub('error', stub[:error]) unless stub[:error].nil?
+        xml << DisableFastSnapshotRestoreStateError.stub('error', stub[:error]) unless stub[:error].nil?
         xml
       end
     end
@@ -23551,7 +23554,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::DisableFastSnapshotRestoreSuccessItem.stub(node_name, element) unless element.nil?
+          xml << DisableFastSnapshotRestoreSuccessItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -23607,7 +23610,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisableImageDeprecationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23625,7 +23628,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisableIpamOrganizationAdminAccountResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('success', stub[:success].to_s) unless stub[:success].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23643,7 +23646,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisableSerialConsoleAccessResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('serialConsoleAccessEnabled', stub[:serial_console_access_enabled].to_s) unless stub[:serial_console_access_enabled].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23660,8 +23663,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisableTransitGatewayRouteTablePropagationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPropagation.stub('propagation', stub[:propagation]) unless stub[:propagation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPropagation.stub('propagation', stub[:propagation]) unless stub[:propagation].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23702,7 +23705,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisableVgwRoutePropagationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23720,7 +23723,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisableVpcClassicLinkResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23738,7 +23741,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisableVpcClassicLinkDnsSupportResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23754,7 +23757,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateAddressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23773,8 +23776,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisassociateClientVpnTargetNetworkResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('associationId', stub[:association_id].to_s) unless stub[:association_id].nil?
-        xml << Stubs::AssociationStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << AssociationStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23792,7 +23795,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('DisassociateEnclaveCertificateIamRoleResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23809,8 +23812,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateIamInstanceProfileResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IamInstanceProfileAssociation.stub('iamInstanceProfileAssociation', stub[:iam_instance_profile_association]) unless stub[:iam_instance_profile_association].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IamInstanceProfileAssociation.stub('iamInstanceProfileAssociation', stub[:iam_instance_profile_association]) unless stub[:iam_instance_profile_association].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23827,8 +23830,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateInstanceEventWindowResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23844,7 +23847,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23862,9 +23865,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateSubnetCidrBlockResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::SubnetIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
+        xml << SubnetIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
         xml << Hearth::XML::Node.new('subnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23881,8 +23884,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateTransitGatewayMulticastDomainResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23899,8 +23902,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateTransitGatewayRouteTableResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayAssociation.stub('association', stub[:association]) unless stub[:association].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayAssociation.stub('association', stub[:association]) unless stub[:association].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23920,7 +23923,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23939,10 +23942,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('DisassociateVpcCidrBlockResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpcIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
-        xml << Stubs::VpcCidrBlockAssociation.stub('cidrBlockAssociation', stub[:cidr_block_association]) unless stub[:cidr_block_association].nil?
+        xml << VpcIpv6CidrBlockAssociation.stub('ipv6CidrBlockAssociation', stub[:ipv6_cidr_block_association]) unless stub[:ipv6_cidr_block_association].nil?
+        xml << VpcCidrBlockAssociation.stub('cidrBlockAssociation', stub[:cidr_block_association]) unless stub[:cidr_block_association].nil?
         xml << Hearth::XML::Node.new('vpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23960,7 +23963,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('EnableEbsEncryptionByDefaultResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('ebsEncryptionByDefault', stub[:ebs_encryption_by_default].to_s) unless stub[:ebs_encryption_by_default].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -23987,14 +23990,14 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Stubs::FastLaunchSnapshotConfigurationResponse.stub('snapshotConfiguration', stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
-        xml << Stubs::FastLaunchLaunchTemplateSpecificationResponse.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        xml << FastLaunchSnapshotConfigurationResponse.stub('snapshotConfiguration', stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
+        xml << FastLaunchLaunchTemplateSpecificationResponse.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
         xml << Hearth::XML::Node.new('maxParallelLaunches', stub[:max_parallel_launches].to_s) unless stub[:max_parallel_launches].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('stateTransitionReason', stub[:state_transition_reason].to_s) unless stub[:state_transition_reason].nil?
         xml << Hearth::XML::Node.new('stateTransitionTime', Hearth::TimeHelper.to_date_time(stub[:state_transition_time])) unless stub[:state_transition_time].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24012,9 +24015,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('EnableFastSnapshotRestoresResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successful', Stubs::EnableFastSnapshotRestoreSuccessSet.stub('item', stub[:successful])) unless stub[:successful].nil?
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::EnableFastSnapshotRestoreErrorSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successful', EnableFastSnapshotRestoreSuccessSet.stub('item', stub[:successful])) unless stub[:successful].nil?
+        xml << Hearth::XML::Node.new('unsuccessful', EnableFastSnapshotRestoreErrorSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24032,7 +24035,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::EnableFastSnapshotRestoreErrorItem.stub(node_name, element) unless element.nil?
+          xml << EnableFastSnapshotRestoreErrorItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24052,7 +24055,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('snapshotId', stub[:snapshot_id].to_s) unless stub[:snapshot_id].nil?
-        xml << Hearth::XML::Node.new('fastSnapshotRestoreStateErrorSet', Stubs::EnableFastSnapshotRestoreStateErrorSet.stub('item', stub[:fast_snapshot_restore_state_errors])) unless stub[:fast_snapshot_restore_state_errors].nil?
+        xml << Hearth::XML::Node.new('fastSnapshotRestoreStateErrorSet', EnableFastSnapshotRestoreStateErrorSet.stub('item', stub[:fast_snapshot_restore_state_errors])) unless stub[:fast_snapshot_restore_state_errors].nil?
         xml
       end
     end
@@ -24070,7 +24073,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::EnableFastSnapshotRestoreStateErrorItem.stub(node_name, element) unless element.nil?
+          xml << EnableFastSnapshotRestoreStateErrorItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24090,7 +24093,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('availabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
-        xml << Stubs::EnableFastSnapshotRestoreStateError.stub('error', stub[:error]) unless stub[:error].nil?
+        xml << EnableFastSnapshotRestoreStateError.stub('error', stub[:error]) unless stub[:error].nil?
         xml
       end
     end
@@ -24127,7 +24130,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::EnableFastSnapshotRestoreSuccessItem.stub(node_name, element) unless element.nil?
+          xml << EnableFastSnapshotRestoreSuccessItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24183,7 +24186,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('EnableImageDeprecationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24201,7 +24204,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('EnableIpamOrganizationAdminAccountResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('success', stub[:success].to_s) unless stub[:success].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24219,7 +24222,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('EnableSerialConsoleAccessResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('serialConsoleAccessEnabled', stub[:serial_console_access_enabled].to_s) unless stub[:serial_console_access_enabled].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24236,8 +24239,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('EnableTransitGatewayRouteTablePropagationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPropagation.stub('propagation', stub[:propagation]) unless stub[:propagation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPropagation.stub('propagation', stub[:propagation]) unless stub[:propagation].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24253,7 +24256,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('EnableVgwRoutePropagationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24269,7 +24272,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('EnableVolumeIOResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24287,7 +24290,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('EnableVpcClassicLinkResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24305,7 +24308,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('EnableVpcClassicLinkDnsSupportResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24324,8 +24327,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ExportClientVpnClientCertificateRevocationListResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('certificateRevocationList', stub[:certificate_revocation_list].to_s) unless stub[:certificate_revocation_list].nil?
-        xml << Stubs::ClientCertificateRevocationListStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ClientCertificateRevocationListStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24362,7 +24365,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ExportClientVpnClientConfigurationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('clientConfiguration', stub[:client_configuration].to_s) unless stub[:client_configuration].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24394,11 +24397,11 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
         xml << Hearth::XML::Node.new('roleName', stub[:role_name].to_s) unless stub[:role_name].nil?
         xml << Hearth::XML::Node.new('progress', stub[:progress].to_s) unless stub[:progress].nil?
-        xml << Stubs::ExportTaskS3Location.stub('s3ExportLocation', stub[:s3_export_location]) unless stub[:s3_export_location].nil?
+        xml << ExportTaskS3Location.stub('s3ExportLocation', stub[:s3_export_location]) unless stub[:s3_export_location].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24416,7 +24419,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ExportTransitGatewayRoutesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('s3Location', stub[:s3_location].to_s) unless stub[:s3_location].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24433,8 +24436,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetAssociatedEnclaveCertificateIamRolesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('associatedRoleSet', Stubs::AssociatedRolesList.stub('item', stub[:associated_roles])) unless stub[:associated_roles].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('associatedRoleSet', AssociatedRolesList.stub('item', stub[:associated_roles])) unless stub[:associated_roles].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24452,7 +24455,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AssociatedRole.stub(node_name, element) unless element.nil?
+          xml << AssociatedRole.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24494,9 +24497,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetAssociatedIpv6PoolCidrsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('ipv6CidrAssociationSet', Stubs::Ipv6CidrAssociationSet.stub('item', stub[:ipv6_cidr_associations])) unless stub[:ipv6_cidr_associations].nil?
+        xml << Hearth::XML::Node.new('ipv6CidrAssociationSet', Ipv6CidrAssociationSet.stub('item', stub[:ipv6_cidr_associations])) unless stub[:ipv6_cidr_associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24514,7 +24517,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Ipv6CidrAssociation.stub(node_name, element) unless element.nil?
+          xml << Ipv6CidrAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24563,8 +24566,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('totalInstanceCount', stub[:total_instance_count].to_s) unless stub[:total_instance_count].nil?
         xml << Hearth::XML::Node.new('availableInstanceCount', stub[:available_instance_count].to_s) unless stub[:available_instance_count].nil?
         xml << Hearth::XML::Node.new('state', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('instanceUsageSet', Stubs::InstanceUsageSet.stub('item', stub[:instance_usages])) unless stub[:instance_usages].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('instanceUsageSet', InstanceUsageSet.stub('item', stub[:instance_usages])) unless stub[:instance_usages].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24582,7 +24585,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceUsage.stub(node_name, element) unless element.nil?
+          xml << InstanceUsage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24622,9 +24625,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetCoipPoolUsageResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('coipPoolId', stub[:coip_pool_id].to_s) unless stub[:coip_pool_id].nil?
-        xml << Hearth::XML::Node.new('coipAddressUsageSet', Stubs::CoipAddressUsageSet.stub('item', stub[:coip_address_usages])) unless stub[:coip_address_usages].nil?
+        xml << Hearth::XML::Node.new('coipAddressUsageSet', CoipAddressUsageSet.stub('item', stub[:coip_address_usages])) unless stub[:coip_address_usages].nil?
         xml << Hearth::XML::Node.new('localGatewayRouteTableId', stub[:local_gateway_route_table_id].to_s) unless stub[:local_gateway_route_table_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24642,7 +24645,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CoipAddressUsage.stub(node_name, element) unless element.nil?
+          xml << CoipAddressUsage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24688,7 +24691,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('output', stub[:output].to_s) unless stub[:output].nil?
         xml << Hearth::XML::Node.new('timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24708,7 +24711,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('imageData', stub[:image_data].to_s) unless stub[:image_data].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24725,8 +24728,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetDefaultCreditSpecificationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceFamilyCreditSpecification.stub('instanceFamilyCreditSpecification', stub[:instance_family_credit_specification]) unless stub[:instance_family_credit_specification].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceFamilyCreditSpecification.stub('instanceFamilyCreditSpecification', stub[:instance_family_credit_specification]) unless stub[:instance_family_credit_specification].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24763,7 +24766,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetEbsDefaultKmsKeyIdResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('kmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24781,7 +24784,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetEbsEncryptionByDefaultResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('ebsEncryptionByDefault', stub[:ebs_encryption_by_default].to_s) unless stub[:ebs_encryption_by_default].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24799,7 +24802,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetFlowLogsIntegrationTemplateResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('result', stub[:result].to_s) unless stub[:result].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24818,8 +24821,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetGroupsForCapacityReservationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('capacityReservationGroupSet', Stubs::CapacityReservationGroupSet.stub('item', stub[:capacity_reservation_groups])) unless stub[:capacity_reservation_groups].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('capacityReservationGroupSet', CapacityReservationGroupSet.stub('item', stub[:capacity_reservation_groups])) unless stub[:capacity_reservation_groups].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24837,7 +24840,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::CapacityReservationGroup.stub(node_name, element) unless element.nil?
+          xml << CapacityReservationGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24878,10 +24881,10 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetHostReservationPurchasePreviewResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('currencyCode', stub[:currency_code].to_s) unless stub[:currency_code].nil?
-        xml << Hearth::XML::Node.new('purchase', Stubs::PurchaseSet.stub('item', stub[:purchase])) unless stub[:purchase].nil?
+        xml << Hearth::XML::Node.new('purchase', PurchaseSet.stub('item', stub[:purchase])) unless stub[:purchase].nil?
         xml << Hearth::XML::Node.new('totalHourlyPrice', stub[:total_hourly_price].to_s) unless stub[:total_hourly_price].nil?
         xml << Hearth::XML::Node.new('totalUpfrontPrice', stub[:total_upfront_price].to_s) unless stub[:total_upfront_price].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24899,7 +24902,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::Purchase.stub(node_name, element) unless element.nil?
+          xml << Purchase.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -24926,7 +24929,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('currencyCode', stub[:currency_code].to_s) unless stub[:currency_code].nil?
         xml << Hearth::XML::Node.new('duration', stub[:duration].to_s) unless stub[:duration].nil?
-        xml << Hearth::XML::Node.new('hostIdSet', Stubs::ResponseHostIdSet.stub('item', stub[:host_id_set])) unless stub[:host_id_set].nil?
+        xml << Hearth::XML::Node.new('hostIdSet', ResponseHostIdSet.stub('item', stub[:host_id_set])) unless stub[:host_id_set].nil?
         xml << Hearth::XML::Node.new('hostReservationId', stub[:host_reservation_id].to_s) unless stub[:host_reservation_id].nil?
         xml << Hearth::XML::Node.new('hourlyPrice', stub[:hourly_price].to_s) unless stub[:hourly_price].nil?
         xml << Hearth::XML::Node.new('instanceFamily', stub[:instance_family].to_s) unless stub[:instance_family].nil?
@@ -24949,9 +24952,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetInstanceTypesFromInstanceRequirementsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instanceTypeSet', Stubs::InstanceTypeInfoFromInstanceRequirementsSet.stub('item', stub[:instance_types])) unless stub[:instance_types].nil?
+        xml << Hearth::XML::Node.new('instanceTypeSet', InstanceTypeInfoFromInstanceRequirementsSet.stub('item', stub[:instance_types])) unless stub[:instance_types].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -24969,7 +24972,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceTypeInfoFromInstanceRequirements.stub(node_name, element) unless element.nil?
+          xml << InstanceTypeInfoFromInstanceRequirements.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25007,7 +25010,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('uefiData', stub[:uefi_data].to_s) unless stub[:uefi_data].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25025,9 +25028,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetIpamAddressHistoryResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('historyRecordSet', Stubs::IpamAddressHistoryRecordSet.stub('item', stub[:history_records])) unless stub[:history_records].nil?
+        xml << Hearth::XML::Node.new('historyRecordSet', IpamAddressHistoryRecordSet.stub('item', stub[:history_records])) unless stub[:history_records].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25045,7 +25048,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamAddressHistoryRecord.stub(node_name, element) unless element.nil?
+          xml << IpamAddressHistoryRecord.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25101,9 +25104,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetIpamPoolAllocationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('ipamPoolAllocationSet', Stubs::IpamPoolAllocationSet.stub('item', stub[:ipam_pool_allocations])) unless stub[:ipam_pool_allocations].nil?
+        xml << Hearth::XML::Node.new('ipamPoolAllocationSet', IpamPoolAllocationSet.stub('item', stub[:ipam_pool_allocations])) unless stub[:ipam_pool_allocations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25121,7 +25124,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamPoolAllocation.stub(node_name, element) unless element.nil?
+          xml << IpamPoolAllocation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25140,9 +25143,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetIpamPoolCidrsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('ipamPoolCidrSet', Stubs::IpamPoolCidrSet.stub('item', stub[:ipam_pool_cidrs])) unless stub[:ipam_pool_cidrs].nil?
+        xml << Hearth::XML::Node.new('ipamPoolCidrSet', IpamPoolCidrSet.stub('item', stub[:ipam_pool_cidrs])) unless stub[:ipam_pool_cidrs].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25160,7 +25163,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamPoolCidr.stub(node_name, element) unless element.nil?
+          xml << IpamPoolCidr.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25180,8 +25183,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetIpamResourceCidrsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('ipamResourceCidrSet', Stubs::IpamResourceCidrSet.stub('item', stub[:ipam_resource_cidrs])) unless stub[:ipam_resource_cidrs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('ipamResourceCidrSet', IpamResourceCidrSet.stub('item', stub[:ipam_resource_cidrs])) unless stub[:ipam_resource_cidrs].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25199,7 +25202,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::IpamResourceCidr.stub(node_name, element) unless element.nil?
+          xml << IpamResourceCidr.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25240,7 +25243,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('resourceName', stub[:resource_name].to_s) unless stub[:resource_name].nil?
         xml << Hearth::XML::Node.new('resourceCidr', stub[:resource_cidr].to_s) unless stub[:resource_cidr].nil?
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
-        xml << Hearth::XML::Node.new('resourceTagSet', Stubs::IpamResourceTagList.stub('item', stub[:resource_tags])) unless stub[:resource_tags].nil?
+        xml << Hearth::XML::Node.new('resourceTagSet', IpamResourceTagList.stub('item', stub[:resource_tags])) unless stub[:resource_tags].nil?
         xml << Hearth::XML::Node.new('ipUsage', Hearth::NumberHelper.serialize(stub[:ip_usage]).to_s) unless stub[:ip_usage].nil?
         xml << Hearth::XML::Node.new('complianceStatus', stub[:compliance_status].to_s) unless stub[:compliance_status].nil?
         xml << Hearth::XML::Node.new('managementState', stub[:management_state].to_s) unless stub[:management_state].nil?
@@ -25262,8 +25265,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetLaunchTemplateDataResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ResponseLaunchTemplateData.stub('launchTemplateData', stub[:launch_template_data]) unless stub[:launch_template_data].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ResponseLaunchTemplateData.stub('launchTemplateData', stub[:launch_template_data]) unless stub[:launch_template_data].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25281,9 +25284,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetManagedPrefixListAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('prefixListAssociationSet', Stubs::PrefixListAssociationSet.stub('item', stub[:prefix_list_associations])) unless stub[:prefix_list_associations].nil?
+        xml << Hearth::XML::Node.new('prefixListAssociationSet', PrefixListAssociationSet.stub('item', stub[:prefix_list_associations])) unless stub[:prefix_list_associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25301,7 +25304,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PrefixListAssociation.stub(node_name, element) unless element.nil?
+          xml << PrefixListAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25339,9 +25342,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetManagedPrefixListEntriesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('entrySet', Stubs::PrefixListEntrySet.stub('item', stub[:entries])) unless stub[:entries].nil?
+        xml << Hearth::XML::Node.new('entrySet', PrefixListEntrySet.stub('item', stub[:entries])) unless stub[:entries].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25359,7 +25362,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::PrefixListEntry.stub(node_name, element) unless element.nil?
+          xml << PrefixListEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25401,9 +25404,9 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('networkInsightsAccessScopeAnalysisId', stub[:network_insights_access_scope_analysis_id].to_s) unless stub[:network_insights_access_scope_analysis_id].nil?
         xml << Hearth::XML::Node.new('analysisStatus', stub[:analysis_status].to_s) unless stub[:analysis_status].nil?
-        xml << Hearth::XML::Node.new('analysisFindingSet', Stubs::AccessScopeAnalysisFindingList.stub('item', stub[:analysis_findings])) unless stub[:analysis_findings].nil?
+        xml << Hearth::XML::Node.new('analysisFindingSet', AccessScopeAnalysisFindingList.stub('item', stub[:analysis_findings])) unless stub[:analysis_findings].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25421,7 +25424,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::AccessScopeAnalysisFinding.stub(node_name, element) unless element.nil?
+          xml << AccessScopeAnalysisFinding.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25445,7 +25448,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('networkInsightsAccessScopeAnalysisId', stub[:network_insights_access_scope_analysis_id].to_s) unless stub[:network_insights_access_scope_analysis_id].nil?
         xml << Hearth::XML::Node.new('networkInsightsAccessScopeId', stub[:network_insights_access_scope_id].to_s) unless stub[:network_insights_access_scope_id].nil?
         xml << Hearth::XML::Node.new('findingId', stub[:finding_id].to_s) unless stub[:finding_id].nil?
-        xml << Hearth::XML::Node.new('findingComponentSet', Stubs::PathComponentList.stub('item', stub[:finding_components])) unless stub[:finding_components].nil?
+        xml << Hearth::XML::Node.new('findingComponentSet', PathComponentList.stub('item', stub[:finding_components])) unless stub[:finding_components].nil?
         xml
       end
     end
@@ -25462,8 +25465,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetNetworkInsightsAccessScopeContentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInsightsAccessScopeContent.stub('networkInsightsAccessScopeContent', stub[:network_insights_access_scope_content]) unless stub[:network_insights_access_scope_content].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NetworkInsightsAccessScopeContent.stub('networkInsightsAccessScopeContent', stub[:network_insights_access_scope_content]) unless stub[:network_insights_access_scope_content].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25485,7 +25488,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('passwordData', stub[:password_data].to_s) unless stub[:password_data].nil?
         xml << Hearth::XML::Node.new('timestamp', Hearth::TimeHelper.to_date_time(stub[:timestamp])) unless stub[:timestamp].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25514,12 +25517,12 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('isValidExchange', stub[:is_valid_exchange].to_s) unless stub[:is_valid_exchange].nil?
         xml << Hearth::XML::Node.new('outputReservedInstancesWillExpireAt', Hearth::TimeHelper.to_date_time(stub[:output_reserved_instances_will_expire_at])) unless stub[:output_reserved_instances_will_expire_at].nil?
         xml << Hearth::XML::Node.new('paymentDue', stub[:payment_due].to_s) unless stub[:payment_due].nil?
-        xml << Stubs::ReservationValue.stub('reservedInstanceValueRollup', stub[:reserved_instance_value_rollup]) unless stub[:reserved_instance_value_rollup].nil?
-        xml << Hearth::XML::Node.new('reservedInstanceValueSet', Stubs::ReservedInstanceReservationValueSet.stub('item', stub[:reserved_instance_value_set])) unless stub[:reserved_instance_value_set].nil?
-        xml << Stubs::ReservationValue.stub('targetConfigurationValueRollup', stub[:target_configuration_value_rollup]) unless stub[:target_configuration_value_rollup].nil?
-        xml << Hearth::XML::Node.new('targetConfigurationValueSet', Stubs::TargetReservationValueSet.stub('item', stub[:target_configuration_value_set])) unless stub[:target_configuration_value_set].nil?
+        xml << ReservationValue.stub('reservedInstanceValueRollup', stub[:reserved_instance_value_rollup]) unless stub[:reserved_instance_value_rollup].nil?
+        xml << Hearth::XML::Node.new('reservedInstanceValueSet', ReservedInstanceReservationValueSet.stub('item', stub[:reserved_instance_value_set])) unless stub[:reserved_instance_value_set].nil?
+        xml << ReservationValue.stub('targetConfigurationValueRollup', stub[:target_configuration_value_rollup]) unless stub[:target_configuration_value_rollup].nil?
+        xml << Hearth::XML::Node.new('targetConfigurationValueSet', TargetReservationValueSet.stub('item', stub[:target_configuration_value_set])) unless stub[:target_configuration_value_set].nil?
         xml << Hearth::XML::Node.new('validationFailureReason', stub[:validation_failure_reason].to_s) unless stub[:validation_failure_reason].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25537,7 +25540,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TargetReservationValue.stub(node_name, element) unless element.nil?
+          xml << TargetReservationValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25556,8 +25559,8 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ReservationValue.stub('reservationValue', stub[:reservation_value]) unless stub[:reservation_value].nil?
-        xml << Stubs::TargetConfiguration.stub('targetConfiguration', stub[:target_configuration]) unless stub[:target_configuration].nil?
+        xml << ReservationValue.stub('reservationValue', stub[:reservation_value]) unless stub[:reservation_value].nil?
+        xml << TargetConfiguration.stub('targetConfiguration', stub[:target_configuration]) unless stub[:target_configuration].nil?
         xml
       end
     end
@@ -25615,7 +25618,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedInstanceReservationValue.stub(node_name, element) unless element.nil?
+          xml << ReservedInstanceReservationValue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25634,7 +25637,7 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ReservationValue.stub('reservationValue', stub[:reservation_value]) unless stub[:reservation_value].nil?
+        xml << ReservationValue.stub('reservationValue', stub[:reservation_value]) unless stub[:reservation_value].nil?
         xml << Hearth::XML::Node.new('reservedInstanceId', stub[:reserved_instance_id].to_s) unless stub[:reserved_instance_id].nil?
         xml
       end
@@ -25653,7 +25656,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetSerialConsoleAccessStatusResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('serialConsoleAccessEnabled', stub[:serial_console_access_enabled].to_s) unless stub[:serial_console_access_enabled].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25671,9 +25674,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetSpotPlacementScoresResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('spotPlacementScoreSet', Stubs::SpotPlacementScores.stub('item', stub[:spot_placement_scores])) unless stub[:spot_placement_scores].nil?
+        xml << Hearth::XML::Node.new('spotPlacementScoreSet', SpotPlacementScores.stub('item', stub[:spot_placement_scores])) unless stub[:spot_placement_scores].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25691,7 +25694,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SpotPlacementScore.stub(node_name, element) unless element.nil?
+          xml << SpotPlacementScore.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25732,10 +25735,10 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetSubnetCidrReservationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('subnetIpv4CidrReservationSet', Stubs::SubnetCidrReservationList.stub('item', stub[:subnet_ipv4_cidr_reservations])) unless stub[:subnet_ipv4_cidr_reservations].nil?
-        xml << Hearth::XML::Node.new('subnetIpv6CidrReservationSet', Stubs::SubnetCidrReservationList.stub('item', stub[:subnet_ipv6_cidr_reservations])) unless stub[:subnet_ipv6_cidr_reservations].nil?
+        xml << Hearth::XML::Node.new('subnetIpv4CidrReservationSet', SubnetCidrReservationList.stub('item', stub[:subnet_ipv4_cidr_reservations])) unless stub[:subnet_ipv4_cidr_reservations].nil?
+        xml << Hearth::XML::Node.new('subnetIpv6CidrReservationSet', SubnetCidrReservationList.stub('item', stub[:subnet_ipv6_cidr_reservations])) unless stub[:subnet_ipv6_cidr_reservations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25753,7 +25756,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SubnetCidrReservation.stub(node_name, element) unless element.nil?
+          xml << SubnetCidrReservation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25772,9 +25775,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetTransitGatewayAttachmentPropagationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayAttachmentPropagations', Stubs::TransitGatewayAttachmentPropagationList.stub('item', stub[:transit_gateway_attachment_propagations])) unless stub[:transit_gateway_attachment_propagations].nil?
+        xml << Hearth::XML::Node.new('transitGatewayAttachmentPropagations', TransitGatewayAttachmentPropagationList.stub('item', stub[:transit_gateway_attachment_propagations])) unless stub[:transit_gateway_attachment_propagations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25792,7 +25795,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayAttachmentPropagation.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayAttachmentPropagation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25830,9 +25833,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetTransitGatewayMulticastDomainAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('multicastDomainAssociations', Stubs::TransitGatewayMulticastDomainAssociationList.stub('item', stub[:multicast_domain_associations])) unless stub[:multicast_domain_associations].nil?
+        xml << Hearth::XML::Node.new('multicastDomainAssociations', TransitGatewayMulticastDomainAssociationList.stub('item', stub[:multicast_domain_associations])) unless stub[:multicast_domain_associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25850,7 +25853,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayMulticastDomainAssociation.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayMulticastDomainAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25876,7 +25879,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('resourceId', stub[:resource_id].to_s) unless stub[:resource_id].nil?
         xml << Hearth::XML::Node.new('resourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
         xml << Hearth::XML::Node.new('resourceOwnerId', stub[:resource_owner_id].to_s) unless stub[:resource_owner_id].nil?
-        xml << Stubs::SubnetAssociation.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
+        xml << SubnetAssociation.stub('subnet', stub[:subnet]) unless stub[:subnet].nil?
         xml
       end
     end
@@ -25894,9 +25897,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetTransitGatewayPrefixListReferencesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayPrefixListReferenceSet', Stubs::TransitGatewayPrefixListReferenceSet.stub('item', stub[:transit_gateway_prefix_list_references])) unless stub[:transit_gateway_prefix_list_references].nil?
+        xml << Hearth::XML::Node.new('transitGatewayPrefixListReferenceSet', TransitGatewayPrefixListReferenceSet.stub('item', stub[:transit_gateway_prefix_list_references])) unless stub[:transit_gateway_prefix_list_references].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25914,7 +25917,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayPrefixListReference.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayPrefixListReference.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25933,9 +25936,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetTransitGatewayRouteTableAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('associations', Stubs::TransitGatewayRouteTableAssociationList.stub('item', stub[:associations])) unless stub[:associations].nil?
+        xml << Hearth::XML::Node.new('associations', TransitGatewayRouteTableAssociationList.stub('item', stub[:associations])) unless stub[:associations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -25953,7 +25956,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayRouteTableAssociation.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayRouteTableAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -25995,9 +25998,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetTransitGatewayRouteTablePropagationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('transitGatewayRouteTablePropagations', Stubs::TransitGatewayRouteTablePropagationList.stub('item', stub[:transit_gateway_route_table_propagations])) unless stub[:transit_gateway_route_table_propagations].nil?
+        xml << Hearth::XML::Node.new('transitGatewayRouteTablePropagations', TransitGatewayRouteTablePropagationList.stub('item', stub[:transit_gateway_route_table_propagations])) unless stub[:transit_gateway_route_table_propagations].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26015,7 +26018,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayRouteTablePropagation.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayRouteTablePropagation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -26057,7 +26060,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('GetVpnConnectionDeviceSampleConfigurationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('vpnConnectionDeviceSampleConfiguration', stub[:vpn_connection_device_sample_configuration].to_s) unless stub[:vpn_connection_device_sample_configuration].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26075,9 +26078,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('GetVpnConnectionDeviceTypesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('vpnConnectionDeviceTypeSet', Stubs::VpnConnectionDeviceTypeList.stub('item', stub[:vpn_connection_device_types])) unless stub[:vpn_connection_device_types].nil?
+        xml << Hearth::XML::Node.new('vpnConnectionDeviceTypeSet', VpnConnectionDeviceTypeList.stub('item', stub[:vpn_connection_device_types])) unless stub[:vpn_connection_device_types].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26095,7 +26098,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::VpnConnectionDeviceType.stub(node_name, element) unless element.nil?
+          xml << VpnConnectionDeviceType.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -26137,7 +26140,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ImportClientVpnClientCertificateRevocationListResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26179,13 +26182,13 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('licenseType', stub[:license_type].to_s) unless stub[:license_type].nil?
         xml << Hearth::XML::Node.new('platform', stub[:platform].to_s) unless stub[:platform].nil?
         xml << Hearth::XML::Node.new('progress', stub[:progress].to_s) unless stub[:progress].nil?
-        xml << Hearth::XML::Node.new('snapshotDetailSet', Stubs::SnapshotDetailList.stub('item', stub[:snapshot_details])) unless stub[:snapshot_details].nil?
+        xml << Hearth::XML::Node.new('snapshotDetailSet', SnapshotDetailList.stub('item', stub[:snapshot_details])) unless stub[:snapshot_details].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('statusMessage', stub[:status_message].to_s) unless stub[:status_message].nil?
-        xml << Hearth::XML::Node.new('licenseSpecifications', Stubs::ImportImageLicenseSpecificationListResponse.stub('item', stub[:license_specifications])) unless stub[:license_specifications].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('licenseSpecifications', ImportImageLicenseSpecificationListResponse.stub('item', stub[:license_specifications])) unless stub[:license_specifications].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('usageOperation', stub[:usage_operation].to_s) unless stub[:usage_operation].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26202,8 +26205,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ImportInstanceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ConversionTask.stub('conversionTask', stub[:conversion_task]) unless stub[:conversion_task].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ConversionTask.stub('conversionTask', stub[:conversion_task]) unless stub[:conversion_task].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26226,8 +26229,8 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('keyFingerprint', stub[:key_fingerprint].to_s) unless stub[:key_fingerprint].nil?
         xml << Hearth::XML::Node.new('keyName', stub[:key_name].to_s) unless stub[:key_name].nil?
         xml << Hearth::XML::Node.new('keyPairId', stub[:key_pair_id].to_s) unless stub[:key_pair_id].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26249,9 +26252,9 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('importTaskId', stub[:import_task_id].to_s) unless stub[:import_task_id].nil?
-        xml << Stubs::SnapshotTaskDetail.stub('snapshotTaskDetail', stub[:snapshot_task_detail]) unless stub[:snapshot_task_detail].nil?
-        xml << Hearth::XML::Node.new('tagSet', Stubs::TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << SnapshotTaskDetail.stub('snapshotTaskDetail', stub[:snapshot_task_detail]) unless stub[:snapshot_task_detail].nil?
+        xml << Hearth::XML::Node.new('tagSet', TagList.stub('item', stub[:tags])) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26268,8 +26271,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ImportVolumeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ConversionTask.stub('conversionTask', stub[:conversion_task]) unless stub[:conversion_task].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ConversionTask.stub('conversionTask', stub[:conversion_task]) unless stub[:conversion_task].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26287,9 +26290,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListImagesInRecycleBinResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('imageSet', Stubs::ImageRecycleBinInfoList.stub('item', stub[:images])) unless stub[:images].nil?
+        xml << Hearth::XML::Node.new('imageSet', ImageRecycleBinInfoList.stub('item', stub[:images])) unless stub[:images].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26307,7 +26310,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ImageRecycleBinInfo.stub(node_name, element) unless element.nil?
+          xml << ImageRecycleBinInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -26351,9 +26354,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ListSnapshotsInRecycleBinResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('snapshotSet', Stubs::SnapshotRecycleBinInfoList.stub('item', stub[:snapshots])) unless stub[:snapshots].nil?
+        xml << Hearth::XML::Node.new('snapshotSet', SnapshotRecycleBinInfoList.stub('item', stub[:snapshots])) unless stub[:snapshots].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26371,7 +26374,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotRecycleBinInfo.stub(node_name, element) unless element.nil?
+          xml << SnapshotRecycleBinInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -26414,8 +26417,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyAddressAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::AddressAttribute.stub('address', stub[:address]) unless stub[:address].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << AddressAttribute.stub('address', stub[:address]) unless stub[:address].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26433,7 +26436,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyAvailabilityZoneGroupResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26451,7 +26454,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyCapacityReservationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26469,7 +26472,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyCapacityReservationFleetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26487,7 +26490,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyClientVpnEndpointResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26504,8 +26507,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyDefaultCreditSpecificationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceFamilyCreditSpecification.stub('instanceFamilyCreditSpecification', stub[:instance_family_credit_specification]) unless stub[:instance_family_credit_specification].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceFamilyCreditSpecification.stub('instanceFamilyCreditSpecification', stub[:instance_family_credit_specification]) unless stub[:instance_family_credit_specification].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26523,7 +26526,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyEbsDefaultKmsKeyIdResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('kmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26541,7 +26544,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyFleetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26558,8 +26561,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyFpgaImageAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::FpgaImageAttribute.stub('fpgaImageAttribute', stub[:fpga_image_attribute]) unless stub[:fpga_image_attribute].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << FpgaImageAttribute.stub('fpgaImageAttribute', stub[:fpga_image_attribute]) unless stub[:fpga_image_attribute].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26577,9 +26580,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyHostsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successful', Stubs::ResponseHostIdList.stub('item', stub[:successful])) unless stub[:successful].nil?
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemList.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successful', ResponseHostIdList.stub('item', stub[:successful])) unless stub[:successful].nil?
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemList.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26597,7 +26600,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::UnsuccessfulItem.stub(node_name, element) unless element.nil?
+          xml << UnsuccessfulItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -26614,7 +26617,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyIdFormatResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26630,7 +26633,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyIdentityIdFormatResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26646,7 +26649,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyImageAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26662,7 +26665,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyInstanceAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26680,7 +26683,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyInstanceCapacityReservationAttributesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26698,9 +26701,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyInstanceCreditSpecificationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successfulInstanceCreditSpecificationSet', Stubs::SuccessfulInstanceCreditSpecificationSet.stub('item', stub[:successful_instance_credit_specifications])) unless stub[:successful_instance_credit_specifications].nil?
-        xml << Hearth::XML::Node.new('unsuccessfulInstanceCreditSpecificationSet', Stubs::UnsuccessfulInstanceCreditSpecificationSet.stub('item', stub[:unsuccessful_instance_credit_specifications])) unless stub[:unsuccessful_instance_credit_specifications].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successfulInstanceCreditSpecificationSet', SuccessfulInstanceCreditSpecificationSet.stub('item', stub[:successful_instance_credit_specifications])) unless stub[:successful_instance_credit_specifications].nil?
+        xml << Hearth::XML::Node.new('unsuccessfulInstanceCreditSpecificationSet', UnsuccessfulInstanceCreditSpecificationSet.stub('item', stub[:unsuccessful_instance_credit_specifications])) unless stub[:unsuccessful_instance_credit_specifications].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26718,7 +26721,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::UnsuccessfulInstanceCreditSpecificationItem.stub(node_name, element) unless element.nil?
+          xml << UnsuccessfulInstanceCreditSpecificationItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -26738,7 +26741,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Stubs::UnsuccessfulInstanceCreditSpecificationItemError.stub('error', stub[:error]) unless stub[:error].nil?
+        xml << UnsuccessfulInstanceCreditSpecificationItemError.stub('error', stub[:error]) unless stub[:error].nil?
         xml
       end
     end
@@ -26775,7 +26778,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::SuccessfulInstanceCreditSpecificationItem.stub(node_name, element) unless element.nil?
+          xml << SuccessfulInstanceCreditSpecificationItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -26810,8 +26813,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyInstanceEventStartTimeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceStatusEvent.stub('event', stub[:event]) unless stub[:event].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceStatusEvent.stub('event', stub[:event]) unless stub[:event].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26828,8 +26831,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyInstanceEventWindowResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceEventWindow.stub('instanceEventWindow', stub[:instance_event_window]) unless stub[:instance_event_window].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26849,7 +26852,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('autoRecovery', stub[:auto_recovery].to_s) unless stub[:auto_recovery].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26868,8 +26871,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyInstanceMetadataOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Stubs::InstanceMetadataOptionsResponse.stub('instanceMetadataOptions', stub[:instance_metadata_options]) unless stub[:instance_metadata_options].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceMetadataOptionsResponse.stub('instanceMetadataOptions', stub[:instance_metadata_options]) unless stub[:instance_metadata_options].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26887,7 +26890,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyInstancePlacementResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26904,8 +26907,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyIpamResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::Ipam.stub('ipam', stub[:ipam]) unless stub[:ipam].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Ipam.stub('ipam', stub[:ipam]) unless stub[:ipam].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26922,8 +26925,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyIpamPoolResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamPool.stub('ipamPool', stub[:ipam_pool]) unless stub[:ipam_pool].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamPool.stub('ipamPool', stub[:ipam_pool]) unless stub[:ipam_pool].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26940,8 +26943,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyIpamResourceCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamResourceCidr.stub('ipamResourceCidr', stub[:ipam_resource_cidr]) unless stub[:ipam_resource_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamResourceCidr.stub('ipamResourceCidr', stub[:ipam_resource_cidr]) unless stub[:ipam_resource_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26958,8 +26961,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyIpamScopeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamScope.stub('ipamScope', stub[:ipam_scope]) unless stub[:ipam_scope].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamScope.stub('ipamScope', stub[:ipam_scope]) unless stub[:ipam_scope].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26976,8 +26979,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyLaunchTemplateResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::LaunchTemplate.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << LaunchTemplate.stub('launchTemplate', stub[:launch_template]) unless stub[:launch_template].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -26994,8 +26997,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyManagedPrefixListResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27011,7 +27014,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyNetworkInterfaceAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27029,7 +27032,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyPrivateDnsNameOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27047,7 +27050,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyReservedInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('reservedInstancesModificationId', stub[:reserved_instances_modification_id].to_s) unless stub[:reserved_instances_modification_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27065,7 +27068,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifySecurityGroupRulesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27081,7 +27084,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifySnapshotAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27101,7 +27104,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('snapshotId', stub[:snapshot_id].to_s) unless stub[:snapshot_id].nil?
         xml << Hearth::XML::Node.new('tieringStartTime', Hearth::TimeHelper.to_date_time(stub[:tiering_start_time])) unless stub[:tiering_start_time].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27119,7 +27122,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifySpotFleetRequestResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27135,7 +27138,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifySubnetAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27152,8 +27155,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyTrafficMirrorFilterNetworkServicesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrafficMirrorFilter.stub('trafficMirrorFilter', stub[:traffic_mirror_filter]) unless stub[:traffic_mirror_filter].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TrafficMirrorFilter.stub('trafficMirrorFilter', stub[:traffic_mirror_filter]) unless stub[:traffic_mirror_filter].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27170,8 +27173,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyTrafficMirrorFilterRuleResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrafficMirrorFilterRule.stub('trafficMirrorFilterRule', stub[:traffic_mirror_filter_rule]) unless stub[:traffic_mirror_filter_rule].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TrafficMirrorFilterRule.stub('trafficMirrorFilterRule', stub[:traffic_mirror_filter_rule]) unless stub[:traffic_mirror_filter_rule].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27188,8 +27191,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyTrafficMirrorSessionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TrafficMirrorSession.stub('trafficMirrorSession', stub[:traffic_mirror_session]) unless stub[:traffic_mirror_session].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TrafficMirrorSession.stub('trafficMirrorSession', stub[:traffic_mirror_session]) unless stub[:traffic_mirror_session].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27206,8 +27209,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyTransitGatewayResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGateway.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGateway.stub('transitGateway', stub[:transit_gateway]) unless stub[:transit_gateway].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27224,8 +27227,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyTransitGatewayPrefixListReferenceResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPrefixListReference.stub('transitGatewayPrefixListReference', stub[:transit_gateway_prefix_list_reference]) unless stub[:transit_gateway_prefix_list_reference].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPrefixListReference.stub('transitGatewayPrefixListReference', stub[:transit_gateway_prefix_list_reference]) unless stub[:transit_gateway_prefix_list_reference].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27242,8 +27245,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyTransitGatewayVpcAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27260,8 +27263,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVolumeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VolumeModification.stub('volumeModification', stub[:volume_modification]) unless stub[:volume_modification].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VolumeModification.stub('volumeModification', stub[:volume_modification]) unless stub[:volume_modification].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27277,7 +27280,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVolumeAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27293,7 +27296,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVpcAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27311,7 +27314,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyVpcEndpointResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27329,7 +27332,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyVpcEndpointConnectionNotificationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return_value].to_s) unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27347,7 +27350,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyVpcEndpointServiceConfigurationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27365,7 +27368,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyVpcEndpointServicePayerResponsibilityResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return_value].to_s) unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27383,7 +27386,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyVpcEndpointServicePermissionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return_value].to_s) unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27401,9 +27404,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVpcPeeringConnectionOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::PeeringConnectionOptions.stub('accepterPeeringConnectionOptions', stub[:accepter_peering_connection_options]) unless stub[:accepter_peering_connection_options].nil?
-        xml << Stubs::PeeringConnectionOptions.stub('requesterPeeringConnectionOptions', stub[:requester_peering_connection_options]) unless stub[:requester_peering_connection_options].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << PeeringConnectionOptions.stub('accepterPeeringConnectionOptions', stub[:accepter_peering_connection_options]) unless stub[:accepter_peering_connection_options].nil?
+        xml << PeeringConnectionOptions.stub('requesterPeeringConnectionOptions', stub[:requester_peering_connection_options]) unless stub[:requester_peering_connection_options].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27442,7 +27445,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ModifyVpcTenancyResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return_value].to_s) unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27459,8 +27462,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVpnConnectionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27477,8 +27480,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVpnConnectionOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27495,8 +27498,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVpnTunnelCertificateResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27513,8 +27516,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ModifyVpnTunnelOptionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << VpnConnection.stub('vpnConnection', stub[:vpn_connection]) unless stub[:vpn_connection].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27531,8 +27534,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('MonitorInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::InstanceMonitoringList.stub('item', stub[:instance_monitorings])) unless stub[:instance_monitorings].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('instancesSet', InstanceMonitoringList.stub('item', stub[:instance_monitorings])) unless stub[:instance_monitorings].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27550,7 +27553,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceMonitoring.stub(node_name, element) unless element.nil?
+          xml << InstanceMonitoring.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -27570,7 +27573,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Stubs::Monitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
+        xml << Monitoring.stub('monitoring', stub[:monitoring]) unless stub[:monitoring].nil?
         xml
       end
     end
@@ -27590,7 +27593,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('allocationId', stub[:allocation_id].to_s) unless stub[:allocation_id].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27607,8 +27610,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('MoveByoipCidrToIpamResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27625,8 +27628,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ProvisionByoipCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27643,8 +27646,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ProvisionIpamPoolCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IpamPoolCidr.stub('ipamPoolCidr', stub[:ipam_pool_cidr]) unless stub[:ipam_pool_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IpamPoolCidr.stub('ipamPoolCidr', stub[:ipam_pool_cidr]) unless stub[:ipam_pool_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27663,8 +27666,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ProvisionPublicIpv4PoolCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('poolId', stub[:pool_id].to_s) unless stub[:pool_id].nil?
-        xml << Stubs::PublicIpv4PoolRange.stub('poolAddressRange', stub[:pool_address_range]) unless stub[:pool_address_range].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << PublicIpv4PoolRange.stub('poolAddressRange', stub[:pool_address_range]) unless stub[:pool_address_range].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27687,10 +27690,10 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('clientToken', stub[:client_token].to_s) unless stub[:client_token].nil?
         xml << Hearth::XML::Node.new('currencyCode', stub[:currency_code].to_s) unless stub[:currency_code].nil?
-        xml << Hearth::XML::Node.new('purchase', Stubs::PurchaseSet.stub('item', stub[:purchase])) unless stub[:purchase].nil?
+        xml << Hearth::XML::Node.new('purchase', PurchaseSet.stub('item', stub[:purchase])) unless stub[:purchase].nil?
         xml << Hearth::XML::Node.new('totalHourlyPrice', stub[:total_hourly_price].to_s) unless stub[:total_hourly_price].nil?
         xml << Hearth::XML::Node.new('totalUpfrontPrice', stub[:total_upfront_price].to_s) unless stub[:total_upfront_price].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27708,7 +27711,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('PurchaseReservedInstancesOfferingResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('reservedInstancesId', stub[:reserved_instances_id].to_s) unless stub[:reserved_instances_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27725,8 +27728,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('PurchaseScheduledInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('scheduledInstanceSet', Stubs::PurchasedScheduledInstanceSet.stub('item', stub[:scheduled_instance_set])) unless stub[:scheduled_instance_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('scheduledInstanceSet', PurchasedScheduledInstanceSet.stub('item', stub[:scheduled_instance_set])) unless stub[:scheduled_instance_set].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27744,7 +27747,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::ScheduledInstance.stub(node_name, element) unless element.nil?
+          xml << ScheduledInstance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -27761,7 +27764,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RebootInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27779,7 +27782,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('RegisterImageResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('imageId', stub[:image_id].to_s) unless stub[:image_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27796,8 +27799,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RegisterInstanceEventNotificationAttributesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::InstanceTagNotificationAttribute.stub('instanceTagAttribute', stub[:instance_tag_attribute]) unless stub[:instance_tag_attribute].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << InstanceTagNotificationAttribute.stub('instanceTagAttribute', stub[:instance_tag_attribute]) unless stub[:instance_tag_attribute].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27814,8 +27817,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RegisterTransitGatewayMulticastGroupMembersResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastRegisteredGroupMembers.stub('registeredMulticastGroupMembers', stub[:registered_multicast_group_members]) unless stub[:registered_multicast_group_members].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastRegisteredGroupMembers.stub('registeredMulticastGroupMembers', stub[:registered_multicast_group_members]) unless stub[:registered_multicast_group_members].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27835,7 +27838,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('transitGatewayMulticastDomainId', stub[:transit_gateway_multicast_domain_id].to_s) unless stub[:transit_gateway_multicast_domain_id].nil?
-        xml << Hearth::XML::Node.new('registeredNetworkInterfaceIds', Stubs::ValueStringList.stub('item', stub[:registered_network_interface_ids])) unless stub[:registered_network_interface_ids].nil?
+        xml << Hearth::XML::Node.new('registeredNetworkInterfaceIds', ValueStringList.stub('item', stub[:registered_network_interface_ids])) unless stub[:registered_network_interface_ids].nil?
         xml << Hearth::XML::Node.new('groupIpAddress', stub[:group_ip_address].to_s) unless stub[:group_ip_address].nil?
         xml
       end
@@ -27853,8 +27856,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RegisterTransitGatewayMulticastGroupSourcesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastRegisteredGroupSources.stub('registeredMulticastGroupSources', stub[:registered_multicast_group_sources]) unless stub[:registered_multicast_group_sources].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastRegisteredGroupSources.stub('registeredMulticastGroupSources', stub[:registered_multicast_group_sources]) unless stub[:registered_multicast_group_sources].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27874,7 +27877,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('transitGatewayMulticastDomainId', stub[:transit_gateway_multicast_domain_id].to_s) unless stub[:transit_gateway_multicast_domain_id].nil?
-        xml << Hearth::XML::Node.new('registeredNetworkInterfaceIds', Stubs::ValueStringList.stub('item', stub[:registered_network_interface_ids])) unless stub[:registered_network_interface_ids].nil?
+        xml << Hearth::XML::Node.new('registeredNetworkInterfaceIds', ValueStringList.stub('item', stub[:registered_network_interface_ids])) unless stub[:registered_network_interface_ids].nil?
         xml << Hearth::XML::Node.new('groupIpAddress', stub[:group_ip_address].to_s) unless stub[:group_ip_address].nil?
         xml
       end
@@ -27892,8 +27895,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RejectTransitGatewayMulticastDomainAssociationsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayMulticastDomainAssociations.stub('associations', stub[:associations]) unless stub[:associations].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27910,8 +27913,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RejectTransitGatewayPeeringAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayPeeringAttachment.stub('transitGatewayPeeringAttachment', stub[:transit_gateway_peering_attachment]) unless stub[:transit_gateway_peering_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27928,8 +27931,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RejectTransitGatewayVpcAttachmentResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayVpcAttachment.stub('transitGatewayVpcAttachment', stub[:transit_gateway_vpc_attachment]) unless stub[:transit_gateway_vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27946,8 +27949,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RejectVpcEndpointConnectionsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemSet.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27965,7 +27968,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('RejectVpcPeeringConnectionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27981,7 +27984,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ReleaseAddressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -27999,9 +28002,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ReleaseHostsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('successful', Stubs::ResponseHostIdList.stub('item', stub[:successful])) unless stub[:successful].nil?
-        xml << Hearth::XML::Node.new('unsuccessful', Stubs::UnsuccessfulItemList.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('successful', ResponseHostIdList.stub('item', stub[:successful])) unless stub[:successful].nil?
+        xml << Hearth::XML::Node.new('unsuccessful', UnsuccessfulItemList.stub('item', stub[:unsuccessful])) unless stub[:unsuccessful].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28019,7 +28022,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ReleaseIpamPoolAllocationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('success', stub[:success].to_s) unless stub[:success].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28036,8 +28039,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ReplaceIamInstanceProfileAssociationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::IamInstanceProfileAssociation.stub('iamInstanceProfileAssociation', stub[:iam_instance_profile_association]) unless stub[:iam_instance_profile_association].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << IamInstanceProfileAssociation.stub('iamInstanceProfileAssociation', stub[:iam_instance_profile_association]) unless stub[:iam_instance_profile_association].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28055,7 +28058,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ReplaceNetworkAclAssociationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('newAssociationId', stub[:new_association_id].to_s) unless stub[:new_association_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28071,7 +28074,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ReplaceNetworkAclEntryResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28087,7 +28090,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ReplaceRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28106,8 +28109,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ReplaceRouteTableAssociationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('newAssociationId', stub[:new_association_id].to_s) unless stub[:new_association_id].nil?
-        xml << Stubs::RouteTableAssociationState.stub('associationState', stub[:association_state]) unless stub[:association_state].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << RouteTableAssociationState.stub('associationState', stub[:association_state]) unless stub[:association_state].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28124,8 +28127,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ReplaceTransitGatewayRouteResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::TransitGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << TransitGatewayRoute.stub('route', stub[:route]) unless stub[:route].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28141,7 +28144,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ReportInstanceStatusResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28159,7 +28162,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('RequestSpotFleetResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('spotFleetRequestId', stub[:spot_fleet_request_id].to_s) unless stub[:spot_fleet_request_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28176,8 +28179,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RequestSpotInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('spotInstanceRequestSet', Stubs::SpotInstanceRequestList.stub('item', stub[:spot_instance_requests])) unless stub[:spot_instance_requests].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('spotInstanceRequestSet', SpotInstanceRequestList.stub('item', stub[:spot_instance_requests])) unless stub[:spot_instance_requests].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28194,8 +28197,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ResetAddressAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::AddressAttribute.stub('address', stub[:address]) unless stub[:address].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << AddressAttribute.stub('address', stub[:address]) unless stub[:address].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28213,7 +28216,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ResetEbsDefaultKmsKeyIdResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('kmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28231,7 +28234,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('ResetFpgaImageAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28247,7 +28250,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ResetImageAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28263,7 +28266,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ResetInstanceAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28279,7 +28282,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ResetNetworkInterfaceAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28295,7 +28298,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('ResetSnapshotAttributeResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28315,7 +28318,7 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('publicIp', stub[:public_ip].to_s) unless stub[:public_ip].nil?
         xml << Hearth::XML::Node.new('status', stub[:status].to_s) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28333,7 +28336,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('RestoreImageFromRecycleBinResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28350,8 +28353,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RestoreManagedPrefixListVersionResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ManagedPrefixList.stub('prefixList', stub[:prefix_list]) unless stub[:prefix_list].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28387,7 +28390,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('status', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('volumeId', stub[:volume_id].to_s) unless stub[:volume_id].nil?
         xml << Hearth::XML::Node.new('volumeSize', stub[:volume_size].to_s) unless stub[:volume_size].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28411,7 +28414,7 @@ module AWS::SDK::EC2
         xml << Hearth::XML::Node.new('restoreStartTime', Hearth::TimeHelper.to_date_time(stub[:restore_start_time])) unless stub[:restore_start_time].nil?
         xml << Hearth::XML::Node.new('restoreDuration', stub[:restore_duration].to_s) unless stub[:restore_duration].nil?
         xml << Hearth::XML::Node.new('isPermanentRestore', stub[:is_permanent_restore].to_s) unless stub[:is_permanent_restore].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28428,8 +28431,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RevokeClientVpnIngressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ClientVpnAuthorizationRuleStatus.stub('status', stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ClientVpnAuthorizationRuleStatus.stub('status', stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28448,8 +28451,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('RevokeSecurityGroupEgressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        xml << Hearth::XML::Node.new('unknownIpPermissionSet', Stubs::IpPermissionList.stub('item', stub[:unknown_ip_permissions])) unless stub[:unknown_ip_permissions].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unknownIpPermissionSet', IpPermissionList.stub('item', stub[:unknown_ip_permissions])) unless stub[:unknown_ip_permissions].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28468,8 +28471,8 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('RevokeSecurityGroupIngressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        xml << Hearth::XML::Node.new('unknownIpPermissionSet', Stubs::IpPermissionList.stub('item', stub[:unknown_ip_permissions])) unless stub[:unknown_ip_permissions].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unknownIpPermissionSet', IpPermissionList.stub('item', stub[:unknown_ip_permissions])) unless stub[:unknown_ip_permissions].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28490,12 +28493,12 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RunInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('groupSet', Stubs::GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::InstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
+        xml << Hearth::XML::Node.new('groupSet', GroupIdentifierList.stub('item', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('instancesSet', InstanceList.stub('item', stub[:instances])) unless stub[:instances].nil?
         xml << Hearth::XML::Node.new('ownerId', stub[:owner_id].to_s) unless stub[:owner_id].nil?
         xml << Hearth::XML::Node.new('requesterId', stub[:requester_id].to_s) unless stub[:requester_id].nil?
         xml << Hearth::XML::Node.new('reservationId', stub[:reservation_id].to_s) unless stub[:reservation_id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28512,8 +28515,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('RunScheduledInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instanceIdSet', Stubs::InstanceIdSet.stub('item', stub[:instance_id_set])) unless stub[:instance_id_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('instanceIdSet', InstanceIdSet.stub('item', stub[:instance_id_set])) unless stub[:instance_id_set].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28550,9 +28553,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('SearchLocalGatewayRoutesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('routeSet', Stubs::LocalGatewayRouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
+        xml << Hearth::XML::Node.new('routeSet', LocalGatewayRouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28570,7 +28573,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::LocalGatewayRoute.stub(node_name, element) unless element.nil?
+          xml << LocalGatewayRoute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -28589,9 +28592,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('SearchTransitGatewayMulticastGroupsResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('multicastGroups', Stubs::TransitGatewayMulticastGroupList.stub('item', stub[:multicast_groups])) unless stub[:multicast_groups].nil?
+        xml << Hearth::XML::Node.new('multicastGroups', TransitGatewayMulticastGroupList.stub('item', stub[:multicast_groups])) unless stub[:multicast_groups].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28609,7 +28612,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayMulticastGroup.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayMulticastGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -28665,9 +28668,9 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('SearchTransitGatewayRoutesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('routeSet', Stubs::TransitGatewayRouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
+        xml << Hearth::XML::Node.new('routeSet', TransitGatewayRouteList.stub('item', stub[:routes])) unless stub[:routes].nil?
         xml << Hearth::XML::Node.new('additionalRoutesAvailable', stub[:additional_routes_available].to_s) unless stub[:additional_routes_available].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28685,7 +28688,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TransitGatewayRoute.stub(node_name, element) unless element.nil?
+          xml << TransitGatewayRoute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -28702,7 +28705,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('SendDiagnosticInterruptResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28719,8 +28722,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('StartInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::InstanceStateChangeList.stub('item', stub[:starting_instances])) unless stub[:starting_instances].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('instancesSet', InstanceStateChangeList.stub('item', stub[:starting_instances])) unless stub[:starting_instances].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28738,7 +28741,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceStateChange.stub(node_name, element) unless element.nil?
+          xml << InstanceStateChange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -28758,9 +28761,9 @@ module AWS::SDK::EC2
 
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::InstanceState.stub('currentState', stub[:current_state]) unless stub[:current_state].nil?
+        xml << InstanceState.stub('currentState', stub[:current_state]) unless stub[:current_state].nil?
         xml << Hearth::XML::Node.new('instanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
-        xml << Stubs::InstanceState.stub('previousState', stub[:previous_state]) unless stub[:previous_state].nil?
+        xml << InstanceState.stub('previousState', stub[:previous_state]) unless stub[:previous_state].nil?
         xml
       end
     end
@@ -28777,8 +28780,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('StartNetworkInsightsAccessScopeAnalysisResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInsightsAccessScopeAnalysis.stub('networkInsightsAccessScopeAnalysis', stub[:network_insights_access_scope_analysis]) unless stub[:network_insights_access_scope_analysis].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NetworkInsightsAccessScopeAnalysis.stub('networkInsightsAccessScopeAnalysis', stub[:network_insights_access_scope_analysis]) unless stub[:network_insights_access_scope_analysis].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28795,8 +28798,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('StartNetworkInsightsAnalysisResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::NetworkInsightsAnalysis.stub('networkInsightsAnalysis', stub[:network_insights_analysis]) unless stub[:network_insights_analysis].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << NetworkInsightsAnalysis.stub('networkInsightsAnalysis', stub[:network_insights_analysis]) unless stub[:network_insights_analysis].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28814,7 +28817,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('StartVpcEndpointServicePrivateDnsVerificationResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return_value].to_s) unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28831,8 +28834,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('StopInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::InstanceStateChangeList.stub('item', stub[:stopping_instances])) unless stub[:stopping_instances].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('instancesSet', InstanceStateChangeList.stub('item', stub[:stopping_instances])) unless stub[:stopping_instances].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28853,8 +28856,8 @@ module AWS::SDK::EC2
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('clientVpnEndpointId', stub[:client_vpn_endpoint_id].to_s) unless stub[:client_vpn_endpoint_id].nil?
         xml << Hearth::XML::Node.new('username', stub[:username].to_s) unless stub[:username].nil?
-        xml << Hearth::XML::Node.new('connectionStatuses', Stubs::TerminateConnectionStatusSet.stub('item', stub[:connection_statuses])) unless stub[:connection_statuses].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('connectionStatuses', TerminateConnectionStatusSet.stub('item', stub[:connection_statuses])) unless stub[:connection_statuses].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28872,7 +28875,7 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = [])
         xml = []
         stub.each do |element|
-          xml << Stubs::TerminateConnectionStatus.stub(node_name, element) unless element.nil?
+          xml << TerminateConnectionStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -28893,8 +28896,8 @@ module AWS::SDK::EC2
       def self.stub(node_name, stub = {})
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('connectionId', stub[:connection_id].to_s) unless stub[:connection_id].nil?
-        xml << Stubs::ClientVpnConnectionStatus.stub('previousStatus', stub[:previous_status]) unless stub[:previous_status].nil?
-        xml << Stubs::ClientVpnConnectionStatus.stub('currentStatus', stub[:current_status]) unless stub[:current_status].nil?
+        xml << ClientVpnConnectionStatus.stub('previousStatus', stub[:previous_status]) unless stub[:previous_status].nil?
+        xml << ClientVpnConnectionStatus.stub('currentStatus', stub[:current_status]) unless stub[:current_status].nil?
         xml
       end
     end
@@ -28911,8 +28914,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('TerminateInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::InstanceStateChangeList.stub('item', stub[:terminating_instances])) unless stub[:terminating_instances].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('instancesSet', InstanceStateChangeList.stub('item', stub[:terminating_instances])) unless stub[:terminating_instances].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28932,9 +28935,9 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('UnassignIpv6AddressesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('networkInterfaceId', stub[:network_interface_id].to_s) unless stub[:network_interface_id].nil?
-        xml << Hearth::XML::Node.new('unassignedIpv6Addresses', Stubs::Ipv6AddressList.stub('item', stub[:unassigned_ipv6_addresses])) unless stub[:unassigned_ipv6_addresses].nil?
-        xml << Hearth::XML::Node.new('unassignedIpv6PrefixSet', Stubs::IpPrefixList.stub('item', stub[:unassigned_ipv6_prefixes])) unless stub[:unassigned_ipv6_prefixes].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('unassignedIpv6Addresses', Ipv6AddressList.stub('item', stub[:unassigned_ipv6_addresses])) unless stub[:unassigned_ipv6_addresses].nil?
+        xml << Hearth::XML::Node.new('unassignedIpv6PrefixSet', IpPrefixList.stub('item', stub[:unassigned_ipv6_prefixes])) unless stub[:unassigned_ipv6_prefixes].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28950,7 +28953,7 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UnassignPrivateIpAddressesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28967,8 +28970,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UnmonitorInstancesResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Hearth::XML::Node.new('instancesSet', Stubs::InstanceMonitoringList.stub('item', stub[:instance_monitorings])) unless stub[:instance_monitorings].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('instancesSet', InstanceMonitoringList.stub('item', stub[:instance_monitorings])) unless stub[:instance_monitorings].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -28986,7 +28989,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('UpdateSecurityGroupRuleDescriptionsEgressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -29004,7 +29007,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML::Node.new('UpdateSecurityGroupRuleDescriptionsIngressResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
         xml << Hearth::XML::Node.new('return', stub[:return].to_s) unless stub[:return].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end
@@ -29021,8 +29024,8 @@ module AWS::SDK::EC2
         http_resp.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('WithdrawByoipCidrResponse')
         xml.attributes['xmlns'] = 'http://ec2.amazonaws.com/doc/2016-11-15'
-        xml << Stubs::ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        xml << ByoipCidr.stub('byoipCidr', stub[:byoip_cidr]) unless stub[:byoip_cidr].nil?
+        http_resp.body = ::StringIO.new(xml.to_str)
         http_resp.status = 200
       end
     end

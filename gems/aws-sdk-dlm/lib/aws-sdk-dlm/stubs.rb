@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DLM
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::DLM
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['PolicyId'] = stub[:policy_id] unless stub[:policy_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,8 +54,8 @@ module AWS::SDK::DLM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Policies'] = Stubs::LifecyclePolicySummaryList.stub(stub[:policies]) unless stub[:policies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policies'] = LifecyclePolicySummaryList.stub(stub[:policies]) unless stub[:policies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LifecyclePolicySummary.stub(element) unless element.nil?
+          data << LifecyclePolicySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -97,7 +99,7 @@ module AWS::SDK::DLM
         data['PolicyId'] = stub[:policy_id] unless stub[:policy_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['PolicyType'] = stub[:policy_type] unless stub[:policy_type].nil?
         data
       end
@@ -135,8 +137,8 @@ module AWS::SDK::DLM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Policy'] = Stubs::LifecyclePolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policy'] = LifecyclePolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,8 +171,8 @@ module AWS::SDK::DLM
         data['ExecutionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
         data['DateCreated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_created]).to_i unless stub[:date_created].nil?
         data['DateModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date_modified]).to_i unless stub[:date_modified].nil?
-        data['PolicyDetails'] = Stubs::PolicyDetails.stub(stub[:policy_details]) unless stub[:policy_details].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['PolicyDetails'] = PolicyDetails.stub(stub[:policy_details]) unless stub[:policy_details].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['PolicyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
         data
       end
@@ -197,13 +199,13 @@ module AWS::SDK::DLM
         stub ||= Types::PolicyDetails.new
         data = {}
         data['PolicyType'] = stub[:policy_type] unless stub[:policy_type].nil?
-        data['ResourceTypes'] = Stubs::ResourceTypeValuesList.stub(stub[:resource_types]) unless stub[:resource_types].nil?
-        data['ResourceLocations'] = Stubs::ResourceLocationList.stub(stub[:resource_locations]) unless stub[:resource_locations].nil?
-        data['TargetTags'] = Stubs::TargetTagList.stub(stub[:target_tags]) unless stub[:target_tags].nil?
-        data['Schedules'] = Stubs::ScheduleList.stub(stub[:schedules]) unless stub[:schedules].nil?
-        data['Parameters'] = Stubs::Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['EventSource'] = Stubs::EventSource.stub(stub[:event_source]) unless stub[:event_source].nil?
-        data['Actions'] = Stubs::ActionList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['ResourceTypes'] = ResourceTypeValuesList.stub(stub[:resource_types]) unless stub[:resource_types].nil?
+        data['ResourceLocations'] = ResourceLocationList.stub(stub[:resource_locations]) unless stub[:resource_locations].nil?
+        data['TargetTags'] = TargetTagList.stub(stub[:target_tags]) unless stub[:target_tags].nil?
+        data['Schedules'] = ScheduleList.stub(stub[:schedules]) unless stub[:schedules].nil?
+        data['Parameters'] = Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['EventSource'] = EventSource.stub(stub[:event_source]) unless stub[:event_source].nil?
+        data['Actions'] = ActionList.stub(stub[:actions]) unless stub[:actions].nil?
         data
       end
     end
@@ -222,7 +224,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Action.stub(element) unless element.nil?
+          data << Action.stub(element) unless element.nil?
         end
         data
       end
@@ -243,7 +245,7 @@ module AWS::SDK::DLM
         stub ||= Types::Action.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['CrossRegionCopy'] = Stubs::CrossRegionCopyActionList.stub(stub[:cross_region_copy]) unless stub[:cross_region_copy].nil?
+        data['CrossRegionCopy'] = CrossRegionCopyActionList.stub(stub[:cross_region_copy]) unless stub[:cross_region_copy].nil?
         data
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CrossRegionCopyAction.stub(element) unless element.nil?
+          data << CrossRegionCopyAction.stub(element) unless element.nil?
         end
         data
       end
@@ -284,8 +286,8 @@ module AWS::SDK::DLM
         stub ||= Types::CrossRegionCopyAction.new
         data = {}
         data['Target'] = stub[:target] unless stub[:target].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        data['RetainRule'] = Stubs::CrossRegionCopyRetainRule.stub(stub[:retain_rule]) unless stub[:retain_rule].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['RetainRule'] = CrossRegionCopyRetainRule.stub(stub[:retain_rule]) unless stub[:retain_rule].nil?
         data
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::DLM
         stub ||= Types::EventSource.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Parameters'] = Stubs::EventParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = EventParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -366,7 +368,7 @@ module AWS::SDK::DLM
         stub ||= Types::EventParameters.new
         data = {}
         data['EventType'] = stub[:event_type] unless stub[:event_type].nil?
-        data['SnapshotOwner'] = Stubs::SnapshotOwnerList.stub(stub[:snapshot_owner]) unless stub[:snapshot_owner].nil?
+        data['SnapshotOwner'] = SnapshotOwnerList.stub(stub[:snapshot_owner]) unless stub[:snapshot_owner].nil?
         data['DescriptionRegex'] = stub[:description_regex] unless stub[:description_regex].nil?
         data
       end
@@ -426,7 +428,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Schedule.stub(element) unless element.nil?
+          data << Schedule.stub(element) unless element.nil?
         end
         data
       end
@@ -456,14 +458,14 @@ module AWS::SDK::DLM
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['CopyTags'] = stub[:copy_tags] unless stub[:copy_tags].nil?
-        data['TagsToAdd'] = Stubs::TagsToAddList.stub(stub[:tags_to_add]) unless stub[:tags_to_add].nil?
-        data['VariableTags'] = Stubs::VariableTagsList.stub(stub[:variable_tags]) unless stub[:variable_tags].nil?
-        data['CreateRule'] = Stubs::CreateRule.stub(stub[:create_rule]) unless stub[:create_rule].nil?
-        data['RetainRule'] = Stubs::RetainRule.stub(stub[:retain_rule]) unless stub[:retain_rule].nil?
-        data['FastRestoreRule'] = Stubs::FastRestoreRule.stub(stub[:fast_restore_rule]) unless stub[:fast_restore_rule].nil?
-        data['CrossRegionCopyRules'] = Stubs::CrossRegionCopyRules.stub(stub[:cross_region_copy_rules]) unless stub[:cross_region_copy_rules].nil?
-        data['ShareRules'] = Stubs::ShareRules.stub(stub[:share_rules]) unless stub[:share_rules].nil?
-        data['DeprecateRule'] = Stubs::DeprecateRule.stub(stub[:deprecate_rule]) unless stub[:deprecate_rule].nil?
+        data['TagsToAdd'] = TagsToAddList.stub(stub[:tags_to_add]) unless stub[:tags_to_add].nil?
+        data['VariableTags'] = VariableTagsList.stub(stub[:variable_tags]) unless stub[:variable_tags].nil?
+        data['CreateRule'] = CreateRule.stub(stub[:create_rule]) unless stub[:create_rule].nil?
+        data['RetainRule'] = RetainRule.stub(stub[:retain_rule]) unless stub[:retain_rule].nil?
+        data['FastRestoreRule'] = FastRestoreRule.stub(stub[:fast_restore_rule]) unless stub[:fast_restore_rule].nil?
+        data['CrossRegionCopyRules'] = CrossRegionCopyRules.stub(stub[:cross_region_copy_rules]) unless stub[:cross_region_copy_rules].nil?
+        data['ShareRules'] = ShareRules.stub(stub[:share_rules]) unless stub[:share_rules].nil?
+        data['DeprecateRule'] = DeprecateRule.stub(stub[:deprecate_rule]) unless stub[:deprecate_rule].nil?
         data
       end
     end
@@ -504,7 +506,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ShareRule.stub(element) unless element.nil?
+          data << ShareRule.stub(element) unless element.nil?
         end
         data
       end
@@ -525,7 +527,7 @@ module AWS::SDK::DLM
       def self.stub(stub)
         stub ||= Types::ShareRule.new
         data = {}
-        data['TargetAccounts'] = Stubs::ShareTargetAccountList.stub(stub[:target_accounts]) unless stub[:target_accounts].nil?
+        data['TargetAccounts'] = ShareTargetAccountList.stub(stub[:target_accounts]) unless stub[:target_accounts].nil?
         data['UnshareInterval'] = stub[:unshare_interval] unless stub[:unshare_interval].nil?
         data['UnshareIntervalUnit'] = stub[:unshare_interval_unit] unless stub[:unshare_interval_unit].nil?
         data
@@ -566,7 +568,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CrossRegionCopyRule.stub(element) unless element.nil?
+          data << CrossRegionCopyRule.stub(element) unless element.nil?
         end
         data
       end
@@ -596,8 +598,8 @@ module AWS::SDK::DLM
         data['Encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
         data['CmkArn'] = stub[:cmk_arn] unless stub[:cmk_arn].nil?
         data['CopyTags'] = stub[:copy_tags] unless stub[:copy_tags].nil?
-        data['RetainRule'] = Stubs::CrossRegionCopyRetainRule.stub(stub[:retain_rule]) unless stub[:retain_rule].nil?
-        data['DeprecateRule'] = Stubs::CrossRegionCopyDeprecateRule.stub(stub[:deprecate_rule]) unless stub[:deprecate_rule].nil?
+        data['RetainRule'] = CrossRegionCopyRetainRule.stub(stub[:retain_rule]) unless stub[:retain_rule].nil?
+        data['DeprecateRule'] = CrossRegionCopyDeprecateRule.stub(stub[:deprecate_rule]) unless stub[:deprecate_rule].nil?
         data
       end
     end
@@ -641,7 +643,7 @@ module AWS::SDK::DLM
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['Interval'] = stub[:interval] unless stub[:interval].nil?
         data['IntervalUnit'] = stub[:interval_unit] unless stub[:interval_unit].nil?
-        data['AvailabilityZones'] = Stubs::AvailabilityZoneList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['AvailabilityZones'] = AvailabilityZoneList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data
       end
     end
@@ -708,7 +710,7 @@ module AWS::SDK::DLM
         data['Location'] = stub[:location] unless stub[:location].nil?
         data['Interval'] = stub[:interval] unless stub[:interval].nil?
         data['IntervalUnit'] = stub[:interval_unit] unless stub[:interval_unit].nil?
-        data['Times'] = Stubs::TimesList.stub(stub[:times]) unless stub[:times].nil?
+        data['Times'] = TimesList.stub(stub[:times]) unless stub[:times].nil?
         data['CronExpression'] = stub[:cron_expression] unless stub[:cron_expression].nil?
         data
       end
@@ -748,7 +750,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -788,7 +790,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -808,7 +810,7 @@ module AWS::SDK::DLM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -866,8 +868,8 @@ module AWS::SDK::DLM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -69,7 +69,7 @@ module AWS::SDK::ApplicationCostProfiler
         data.report_description = map['reportDescription']
         data.report_frequency = map['reportFrequency']
         data.format = map['format']
-        data.destination_s3_location = (Parsers::S3Location.parse(map['destinationS3Location']) unless map['destinationS3Location'].nil?)
+        data.destination_s3_location = (S3Location.parse(map['destinationS3Location']) unless map['destinationS3Location'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         data
@@ -100,7 +100,7 @@ module AWS::SDK::ApplicationCostProfiler
       def self.parse(http_resp)
         data = Types::ListReportDefinitionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.report_definitions = (Parsers::ReportDefinitionList.parse(map['reportDefinitions']) unless map['reportDefinitions'].nil?)
+        data.report_definitions = (ReportDefinitionList.parse(map['reportDefinitions']) unless map['reportDefinitions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -110,7 +110,7 @@ module AWS::SDK::ApplicationCostProfiler
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReportDefinition.parse(value) unless value.nil?
+          data << ReportDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -123,7 +123,7 @@ module AWS::SDK::ApplicationCostProfiler
         data.report_description = map['reportDescription']
         data.report_frequency = map['reportFrequency']
         data.format = map['format']
-        data.destination_s3_location = (Parsers::S3Location.parse(map['destinationS3Location']) unless map['destinationS3Location'].nil?)
+        data.destination_s3_location = (S3Location.parse(map['destinationS3Location']) unless map['destinationS3Location'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         return data

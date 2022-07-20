@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KafkaConnect
   module Builders
 
@@ -20,19 +22,19 @@ module AWS::SDK::KafkaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['capacity'] = Builders::Capacity.build(input[:capacity]) unless input[:capacity].nil?
-        data['connectorConfiguration'] = Builders::Map____sensitive__mapOf__string.build(input[:connector_configuration]) unless input[:connector_configuration].nil?
+        data['capacity'] = Capacity.build(input[:capacity]) unless input[:capacity].nil?
+        data['connectorConfiguration'] = Map____sensitive__mapOf__string.build(input[:connector_configuration]) unless input[:connector_configuration].nil?
         data['connectorDescription'] = input[:connector_description] unless input[:connector_description].nil?
         data['connectorName'] = input[:connector_name] unless input[:connector_name].nil?
-        data['kafkaCluster'] = Builders::KafkaCluster.build(input[:kafka_cluster]) unless input[:kafka_cluster].nil?
-        data['kafkaClusterClientAuthentication'] = Builders::KafkaClusterClientAuthentication.build(input[:kafka_cluster_client_authentication]) unless input[:kafka_cluster_client_authentication].nil?
-        data['kafkaClusterEncryptionInTransit'] = Builders::KafkaClusterEncryptionInTransit.build(input[:kafka_cluster_encryption_in_transit]) unless input[:kafka_cluster_encryption_in_transit].nil?
+        data['kafkaCluster'] = KafkaCluster.build(input[:kafka_cluster]) unless input[:kafka_cluster].nil?
+        data['kafkaClusterClientAuthentication'] = KafkaClusterClientAuthentication.build(input[:kafka_cluster_client_authentication]) unless input[:kafka_cluster_client_authentication].nil?
+        data['kafkaClusterEncryptionInTransit'] = KafkaClusterEncryptionInTransit.build(input[:kafka_cluster_encryption_in_transit]) unless input[:kafka_cluster_encryption_in_transit].nil?
         data['kafkaConnectVersion'] = input[:kafka_connect_version] unless input[:kafka_connect_version].nil?
-        data['logDelivery'] = Builders::LogDelivery.build(input[:log_delivery]) unless input[:log_delivery].nil?
-        data['plugins'] = Builders::List____listOfPlugin.build(input[:plugins]) unless input[:plugins].nil?
+        data['logDelivery'] = LogDelivery.build(input[:log_delivery]) unless input[:log_delivery].nil?
+        data['plugins'] = List____listOfPlugin.build(input[:plugins]) unless input[:plugins].nil?
         data['serviceExecutionRoleArn'] = input[:service_execution_role_arn] unless input[:service_execution_role_arn].nil?
-        data['workerConfiguration'] = Builders::WorkerConfiguration.build(input[:worker_configuration]) unless input[:worker_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workerConfiguration'] = WorkerConfiguration.build(input[:worker_configuration]) unless input[:worker_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,7 +53,7 @@ module AWS::SDK::KafkaConnect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Plugin.build(element) unless element.nil?
+          data << Plugin.build(element) unless element.nil?
         end
         data
       end
@@ -61,7 +63,7 @@ module AWS::SDK::KafkaConnect
     class Plugin
       def self.build(input)
         data = {}
-        data['customPlugin'] = Builders::CustomPlugin.build(input[:custom_plugin]) unless input[:custom_plugin].nil?
+        data['customPlugin'] = CustomPlugin.build(input[:custom_plugin]) unless input[:custom_plugin].nil?
         data
       end
     end
@@ -80,7 +82,7 @@ module AWS::SDK::KafkaConnect
     class LogDelivery
       def self.build(input)
         data = {}
-        data['workerLogDelivery'] = Builders::WorkerLogDelivery.build(input[:worker_log_delivery]) unless input[:worker_log_delivery].nil?
+        data['workerLogDelivery'] = WorkerLogDelivery.build(input[:worker_log_delivery]) unless input[:worker_log_delivery].nil?
         data
       end
     end
@@ -89,9 +91,9 @@ module AWS::SDK::KafkaConnect
     class WorkerLogDelivery
       def self.build(input)
         data = {}
-        data['cloudWatchLogs'] = Builders::CloudWatchLogsLogDelivery.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
-        data['firehose'] = Builders::FirehoseLogDelivery.build(input[:firehose]) unless input[:firehose].nil?
-        data['s3'] = Builders::S3LogDelivery.build(input[:s3]) unless input[:s3].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsLogDelivery.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
+        data['firehose'] = FirehoseLogDelivery.build(input[:firehose]) unless input[:firehose].nil?
+        data['s3'] = S3LogDelivery.build(input[:s3]) unless input[:s3].nil?
         data
       end
     end
@@ -149,7 +151,7 @@ module AWS::SDK::KafkaConnect
     class KafkaCluster
       def self.build(input)
         data = {}
-        data['apacheKafkaCluster'] = Builders::ApacheKafkaCluster.build(input[:apache_kafka_cluster]) unless input[:apache_kafka_cluster].nil?
+        data['apacheKafkaCluster'] = ApacheKafkaCluster.build(input[:apache_kafka_cluster]) unless input[:apache_kafka_cluster].nil?
         data
       end
     end
@@ -159,7 +161,7 @@ module AWS::SDK::KafkaConnect
       def self.build(input)
         data = {}
         data['bootstrapServers'] = input[:bootstrap_servers] unless input[:bootstrap_servers].nil?
-        data['vpc'] = Builders::Vpc.build(input[:vpc]) unless input[:vpc].nil?
+        data['vpc'] = Vpc.build(input[:vpc]) unless input[:vpc].nil?
         data
       end
     end
@@ -168,8 +170,8 @@ module AWS::SDK::KafkaConnect
     class Vpc
       def self.build(input)
         data = {}
-        data['securityGroups'] = Builders::List____listOf__string.build(input[:security_groups]) unless input[:security_groups].nil?
-        data['subnets'] = Builders::List____listOf__string.build(input[:subnets]) unless input[:subnets].nil?
+        data['securityGroups'] = List____listOf__string.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['subnets'] = List____listOf__string.build(input[:subnets]) unless input[:subnets].nil?
         data
       end
     end
@@ -200,8 +202,8 @@ module AWS::SDK::KafkaConnect
     class Capacity
       def self.build(input)
         data = {}
-        data['autoScaling'] = Builders::AutoScaling.build(input[:auto_scaling]) unless input[:auto_scaling].nil?
-        data['provisionedCapacity'] = Builders::ProvisionedCapacity.build(input[:provisioned_capacity]) unless input[:provisioned_capacity].nil?
+        data['autoScaling'] = AutoScaling.build(input[:auto_scaling]) unless input[:auto_scaling].nil?
+        data['provisionedCapacity'] = ProvisionedCapacity.build(input[:provisioned_capacity]) unless input[:provisioned_capacity].nil?
         data
       end
     end
@@ -223,8 +225,8 @@ module AWS::SDK::KafkaConnect
         data['maxWorkerCount'] = input[:max_worker_count] unless input[:max_worker_count].nil?
         data['mcuCount'] = input[:mcu_count] unless input[:mcu_count].nil?
         data['minWorkerCount'] = input[:min_worker_count] unless input[:min_worker_count].nil?
-        data['scaleInPolicy'] = Builders::ScaleInPolicy.build(input[:scale_in_policy]) unless input[:scale_in_policy].nil?
-        data['scaleOutPolicy'] = Builders::ScaleOutPolicy.build(input[:scale_out_policy]) unless input[:scale_out_policy].nil?
+        data['scaleInPolicy'] = ScaleInPolicy.build(input[:scale_in_policy]) unless input[:scale_in_policy].nil?
+        data['scaleOutPolicy'] = ScaleOutPolicy.build(input[:scale_out_policy]) unless input[:scale_out_policy].nil?
         data
       end
     end
@@ -259,9 +261,9 @@ module AWS::SDK::KafkaConnect
         data = {}
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['location'] = Builders::CustomPluginLocation.build(input[:location]) unless input[:location].nil?
+        data['location'] = CustomPluginLocation.build(input[:location]) unless input[:location].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -269,7 +271,7 @@ module AWS::SDK::KafkaConnect
     class CustomPluginLocation
       def self.build(input)
         data = {}
-        data['s3Location'] = Builders::S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
+        data['s3Location'] = S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
         data
       end
     end
@@ -298,7 +300,7 @@ module AWS::SDK::KafkaConnect
         data['description'] = input[:description] unless input[:description].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['propertiesFileContent'] = input[:properties_file_content] unless input[:properties_file_content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -443,8 +445,8 @@ module AWS::SDK::KafkaConnect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['capacity'] = Builders::CapacityUpdate.build(input[:capacity]) unless input[:capacity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capacity'] = CapacityUpdate.build(input[:capacity]) unless input[:capacity].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,8 +454,8 @@ module AWS::SDK::KafkaConnect
     class CapacityUpdate
       def self.build(input)
         data = {}
-        data['autoScaling'] = Builders::AutoScalingUpdate.build(input[:auto_scaling]) unless input[:auto_scaling].nil?
-        data['provisionedCapacity'] = Builders::ProvisionedCapacityUpdate.build(input[:provisioned_capacity]) unless input[:provisioned_capacity].nil?
+        data['autoScaling'] = AutoScalingUpdate.build(input[:auto_scaling]) unless input[:auto_scaling].nil?
+        data['provisionedCapacity'] = ProvisionedCapacityUpdate.build(input[:provisioned_capacity]) unless input[:provisioned_capacity].nil?
         data
       end
     end
@@ -475,8 +477,8 @@ module AWS::SDK::KafkaConnect
         data['maxWorkerCount'] = input[:max_worker_count] unless input[:max_worker_count].nil?
         data['mcuCount'] = input[:mcu_count] unless input[:mcu_count].nil?
         data['minWorkerCount'] = input[:min_worker_count] unless input[:min_worker_count].nil?
-        data['scaleInPolicy'] = Builders::ScaleInPolicyUpdate.build(input[:scale_in_policy]) unless input[:scale_in_policy].nil?
-        data['scaleOutPolicy'] = Builders::ScaleOutPolicyUpdate.build(input[:scale_out_policy]) unless input[:scale_out_policy].nil?
+        data['scaleInPolicy'] = ScaleInPolicyUpdate.build(input[:scale_in_policy]) unless input[:scale_in_policy].nil?
+        data['scaleOutPolicy'] = ScaleOutPolicyUpdate.build(input[:scale_out_policy]) unless input[:scale_out_policy].nil?
         data
       end
     end

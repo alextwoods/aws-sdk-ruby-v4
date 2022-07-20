@@ -101,7 +101,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::CreateDetectorModelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector_model_configuration = (Parsers::DetectorModelConfiguration.parse(map['detectorModelConfiguration']) unless map['detectorModelConfiguration'].nil?)
+        data.detector_model_configuration = (DetectorModelConfiguration.parse(map['detectorModelConfiguration']) unless map['detectorModelConfiguration'].nil?)
         data
       end
     end
@@ -128,7 +128,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::CreateInputOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.input_configuration = (Parsers::InputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
+        data.input_configuration = (InputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
         data
       end
     end
@@ -199,10 +199,10 @@ module AWS::SDK::IoTEvents
         data.role_arn = map['roleArn']
         data.key = map['key']
         data.severity = map['severity']
-        data.alarm_rule = (Parsers::AlarmRule.parse(map['alarmRule']) unless map['alarmRule'].nil?)
-        data.alarm_notification = (Parsers::AlarmNotification.parse(map['alarmNotification']) unless map['alarmNotification'].nil?)
-        data.alarm_event_actions = (Parsers::AlarmEventActions.parse(map['alarmEventActions']) unless map['alarmEventActions'].nil?)
-        data.alarm_capabilities = (Parsers::AlarmCapabilities.parse(map['alarmCapabilities']) unless map['alarmCapabilities'].nil?)
+        data.alarm_rule = (AlarmRule.parse(map['alarmRule']) unless map['alarmRule'].nil?)
+        data.alarm_notification = (AlarmNotification.parse(map['alarmNotification']) unless map['alarmNotification'].nil?)
+        data.alarm_event_actions = (AlarmEventActions.parse(map['alarmEventActions']) unless map['alarmEventActions'].nil?)
+        data.alarm_capabilities = (AlarmCapabilities.parse(map['alarmCapabilities']) unless map['alarmCapabilities'].nil?)
         data
       end
     end
@@ -210,8 +210,8 @@ module AWS::SDK::IoTEvents
     class AlarmCapabilities
       def self.parse(map)
         data = Types::AlarmCapabilities.new
-        data.initialization_configuration = (Parsers::InitializationConfiguration.parse(map['initializationConfiguration']) unless map['initializationConfiguration'].nil?)
-        data.acknowledge_flow = (Parsers::AcknowledgeFlow.parse(map['acknowledgeFlow']) unless map['acknowledgeFlow'].nil?)
+        data.initialization_configuration = (InitializationConfiguration.parse(map['initializationConfiguration']) unless map['initializationConfiguration'].nil?)
+        data.acknowledge_flow = (AcknowledgeFlow.parse(map['acknowledgeFlow']) unless map['acknowledgeFlow'].nil?)
         return data
       end
     end
@@ -235,7 +235,7 @@ module AWS::SDK::IoTEvents
     class AlarmEventActions
       def self.parse(map)
         data = Types::AlarmEventActions.new
-        data.alarm_actions = (Parsers::AlarmActions.parse(map['alarmActions']) unless map['alarmActions'].nil?)
+        data.alarm_actions = (AlarmActions.parse(map['alarmActions']) unless map['alarmActions'].nil?)
         return data
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlarmAction.parse(value) unless value.nil?
+          data << AlarmAction.parse(value) unless value.nil?
         end
         data
       end
@@ -253,15 +253,15 @@ module AWS::SDK::IoTEvents
     class AlarmAction
       def self.parse(map)
         data = Types::AlarmAction.new
-        data.sns = (Parsers::SNSTopicPublishAction.parse(map['sns']) unless map['sns'].nil?)
-        data.iot_topic_publish = (Parsers::IotTopicPublishAction.parse(map['iotTopicPublish']) unless map['iotTopicPublish'].nil?)
-        data.lambda = (Parsers::LambdaAction.parse(map['lambda']) unless map['lambda'].nil?)
-        data.iot_events = (Parsers::IotEventsAction.parse(map['iotEvents']) unless map['iotEvents'].nil?)
-        data.sqs = (Parsers::SqsAction.parse(map['sqs']) unless map['sqs'].nil?)
-        data.firehose = (Parsers::FirehoseAction.parse(map['firehose']) unless map['firehose'].nil?)
-        data.dynamo_db = (Parsers::DynamoDBAction.parse(map['dynamoDB']) unless map['dynamoDB'].nil?)
-        data.dynamo_d_bv2 = (Parsers::DynamoDBv2Action.parse(map['dynamoDBv2']) unless map['dynamoDBv2'].nil?)
-        data.iot_site_wise = (Parsers::IotSiteWiseAction.parse(map['iotSiteWise']) unless map['iotSiteWise'].nil?)
+        data.sns = (SNSTopicPublishAction.parse(map['sns']) unless map['sns'].nil?)
+        data.iot_topic_publish = (IotTopicPublishAction.parse(map['iotTopicPublish']) unless map['iotTopicPublish'].nil?)
+        data.lambda = (LambdaAction.parse(map['lambda']) unless map['lambda'].nil?)
+        data.iot_events = (IotEventsAction.parse(map['iotEvents']) unless map['iotEvents'].nil?)
+        data.sqs = (SqsAction.parse(map['sqs']) unless map['sqs'].nil?)
+        data.firehose = (FirehoseAction.parse(map['firehose']) unless map['firehose'].nil?)
+        data.dynamo_db = (DynamoDBAction.parse(map['dynamoDB']) unless map['dynamoDB'].nil?)
+        data.dynamo_d_bv2 = (DynamoDBv2Action.parse(map['dynamoDBv2']) unless map['dynamoDBv2'].nil?)
+        data.iot_site_wise = (IotSiteWiseAction.parse(map['iotSiteWise']) unless map['iotSiteWise'].nil?)
         return data
       end
     end
@@ -273,7 +273,7 @@ module AWS::SDK::IoTEvents
         data.asset_id = map['assetId']
         data.property_id = map['propertyId']
         data.property_alias = map['propertyAlias']
-        data.property_value = (Parsers::AssetPropertyValue.parse(map['propertyValue']) unless map['propertyValue'].nil?)
+        data.property_value = (AssetPropertyValue.parse(map['propertyValue']) unless map['propertyValue'].nil?)
         return data
       end
     end
@@ -281,8 +281,8 @@ module AWS::SDK::IoTEvents
     class AssetPropertyValue
       def self.parse(map)
         data = Types::AssetPropertyValue.new
-        data.value = (Parsers::AssetPropertyVariant.parse(map['value']) unless map['value'].nil?)
-        data.timestamp = (Parsers::AssetPropertyTimestamp.parse(map['timestamp']) unless map['timestamp'].nil?)
+        data.value = (AssetPropertyVariant.parse(map['value']) unless map['value'].nil?)
+        data.timestamp = (AssetPropertyTimestamp.parse(map['timestamp']) unless map['timestamp'].nil?)
         data.quality = map['quality']
         return data
       end
@@ -312,7 +312,7 @@ module AWS::SDK::IoTEvents
       def self.parse(map)
         data = Types::DynamoDBv2Action.new
         data.table_name = map['tableName']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::IoTEvents
         data.operation = map['operation']
         data.payload_field = map['payloadField']
         data.table_name = map['tableName']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -348,7 +348,7 @@ module AWS::SDK::IoTEvents
         data = Types::FirehoseAction.new
         data.delivery_stream_name = map['deliveryStreamName']
         data.separator = map['separator']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -358,7 +358,7 @@ module AWS::SDK::IoTEvents
         data = Types::SqsAction.new
         data.queue_url = map['queueUrl']
         data.use_base64 = map['useBase64']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -367,7 +367,7 @@ module AWS::SDK::IoTEvents
       def self.parse(map)
         data = Types::IotEventsAction.new
         data.input_name = map['inputName']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -376,7 +376,7 @@ module AWS::SDK::IoTEvents
       def self.parse(map)
         data = Types::LambdaAction.new
         data.function_arn = map['functionArn']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -385,7 +385,7 @@ module AWS::SDK::IoTEvents
       def self.parse(map)
         data = Types::IotTopicPublishAction.new
         data.mqtt_topic = map['mqttTopic']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -394,7 +394,7 @@ module AWS::SDK::IoTEvents
       def self.parse(map)
         data = Types::SNSTopicPublishAction.new
         data.target_arn = map['targetArn']
-        data.payload = (Parsers::Payload.parse(map['payload']) unless map['payload'].nil?)
+        data.payload = (Payload.parse(map['payload']) unless map['payload'].nil?)
         return data
       end
     end
@@ -402,7 +402,7 @@ module AWS::SDK::IoTEvents
     class AlarmNotification
       def self.parse(map)
         data = Types::AlarmNotification.new
-        data.notification_actions = (Parsers::NotificationActions.parse(map['notificationActions']) unless map['notificationActions'].nil?)
+        data.notification_actions = (NotificationActions.parse(map['notificationActions']) unless map['notificationActions'].nil?)
         return data
       end
     end
@@ -411,7 +411,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NotificationAction.parse(value) unless value.nil?
+          data << NotificationAction.parse(value) unless value.nil?
         end
         data
       end
@@ -420,9 +420,9 @@ module AWS::SDK::IoTEvents
     class NotificationAction
       def self.parse(map)
         data = Types::NotificationAction.new
-        data.action = (Parsers::NotificationTargetActions.parse(map['action']) unless map['action'].nil?)
-        data.sms_configurations = (Parsers::SMSConfigurations.parse(map['smsConfigurations']) unless map['smsConfigurations'].nil?)
-        data.email_configurations = (Parsers::EmailConfigurations.parse(map['emailConfigurations']) unless map['emailConfigurations'].nil?)
+        data.action = (NotificationTargetActions.parse(map['action']) unless map['action'].nil?)
+        data.sms_configurations = (SMSConfigurations.parse(map['smsConfigurations']) unless map['smsConfigurations'].nil?)
+        data.email_configurations = (EmailConfigurations.parse(map['emailConfigurations']) unless map['emailConfigurations'].nil?)
         return data
       end
     end
@@ -431,7 +431,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EmailConfiguration.parse(value) unless value.nil?
+          data << EmailConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -441,8 +441,8 @@ module AWS::SDK::IoTEvents
       def self.parse(map)
         data = Types::EmailConfiguration.new
         data.from = map['from']
-        data.content = (Parsers::EmailContent.parse(map['content']) unless map['content'].nil?)
-        data.recipients = (Parsers::EmailRecipients.parse(map['recipients']) unless map['recipients'].nil?)
+        data.content = (EmailContent.parse(map['content']) unless map['content'].nil?)
+        data.recipients = (EmailRecipients.parse(map['recipients']) unless map['recipients'].nil?)
         return data
       end
     end
@@ -450,7 +450,7 @@ module AWS::SDK::IoTEvents
     class EmailRecipients
       def self.parse(map)
         data = Types::EmailRecipients.new
-        data.to = (Parsers::RecipientDetails.parse(map['to']) unless map['to'].nil?)
+        data.to = (RecipientDetails.parse(map['to']) unless map['to'].nil?)
         return data
       end
     end
@@ -459,7 +459,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecipientDetail.parse(value) unless value.nil?
+          data << RecipientDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -468,7 +468,7 @@ module AWS::SDK::IoTEvents
     class RecipientDetail
       def self.parse(map)
         data = Types::RecipientDetail.new
-        data.sso_identity = (Parsers::SSOIdentity.parse(map['ssoIdentity']) unless map['ssoIdentity'].nil?)
+        data.sso_identity = (SSOIdentity.parse(map['ssoIdentity']) unless map['ssoIdentity'].nil?)
         return data
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SMSConfiguration.parse(value) unless value.nil?
+          data << SMSConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -506,7 +506,7 @@ module AWS::SDK::IoTEvents
         data = Types::SMSConfiguration.new
         data.sender_id = map['senderId']
         data.additional_message = map['additionalMessage']
-        data.recipients = (Parsers::RecipientDetails.parse(map['recipients']) unless map['recipients'].nil?)
+        data.recipients = (RecipientDetails.parse(map['recipients']) unless map['recipients'].nil?)
         return data
       end
     end
@@ -514,7 +514,7 @@ module AWS::SDK::IoTEvents
     class NotificationTargetActions
       def self.parse(map)
         data = Types::NotificationTargetActions.new
-        data.lambda_action = (Parsers::LambdaAction.parse(map['lambdaAction']) unless map['lambdaAction'].nil?)
+        data.lambda_action = (LambdaAction.parse(map['lambdaAction']) unless map['lambdaAction'].nil?)
         return data
       end
     end
@@ -522,7 +522,7 @@ module AWS::SDK::IoTEvents
     class AlarmRule
       def self.parse(map)
         data = Types::AlarmRule.new
-        data.simple_rule = (Parsers::SimpleRule.parse(map['simpleRule']) unless map['simpleRule'].nil?)
+        data.simple_rule = (SimpleRule.parse(map['simpleRule']) unless map['simpleRule'].nil?)
         return data
       end
     end
@@ -542,7 +542,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::DescribeDetectorModelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector_model = (Parsers::DetectorModel.parse(map['detectorModel']) unless map['detectorModel'].nil?)
+        data.detector_model = (DetectorModel.parse(map['detectorModel']) unless map['detectorModel'].nil?)
         data
       end
     end
@@ -550,8 +550,8 @@ module AWS::SDK::IoTEvents
     class DetectorModel
       def self.parse(map)
         data = Types::DetectorModel.new
-        data.detector_model_definition = (Parsers::DetectorModelDefinition.parse(map['detectorModelDefinition']) unless map['detectorModelDefinition'].nil?)
-        data.detector_model_configuration = (Parsers::DetectorModelConfiguration.parse(map['detectorModelConfiguration']) unless map['detectorModelConfiguration'].nil?)
+        data.detector_model_definition = (DetectorModelDefinition.parse(map['detectorModelDefinition']) unless map['detectorModelDefinition'].nil?)
+        data.detector_model_configuration = (DetectorModelConfiguration.parse(map['detectorModelConfiguration']) unless map['detectorModelConfiguration'].nil?)
         return data
       end
     end
@@ -559,7 +559,7 @@ module AWS::SDK::IoTEvents
     class DetectorModelDefinition
       def self.parse(map)
         data = Types::DetectorModelDefinition.new
-        data.states = (Parsers::States.parse(map['states']) unless map['states'].nil?)
+        data.states = (States.parse(map['states']) unless map['states'].nil?)
         data.initial_state_name = map['initialStateName']
         return data
       end
@@ -569,7 +569,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::State.parse(value) unless value.nil?
+          data << State.parse(value) unless value.nil?
         end
         data
       end
@@ -579,9 +579,9 @@ module AWS::SDK::IoTEvents
       def self.parse(map)
         data = Types::State.new
         data.state_name = map['stateName']
-        data.on_input = (Parsers::OnInputLifecycle.parse(map['onInput']) unless map['onInput'].nil?)
-        data.on_enter = (Parsers::OnEnterLifecycle.parse(map['onEnter']) unless map['onEnter'].nil?)
-        data.on_exit = (Parsers::OnExitLifecycle.parse(map['onExit']) unless map['onExit'].nil?)
+        data.on_input = (OnInputLifecycle.parse(map['onInput']) unless map['onInput'].nil?)
+        data.on_enter = (OnEnterLifecycle.parse(map['onEnter']) unless map['onEnter'].nil?)
+        data.on_exit = (OnExitLifecycle.parse(map['onExit']) unless map['onExit'].nil?)
         return data
       end
     end
@@ -589,7 +589,7 @@ module AWS::SDK::IoTEvents
     class OnExitLifecycle
       def self.parse(map)
         data = Types::OnExitLifecycle.new
-        data.events = (Parsers::Events.parse(map['events']) unless map['events'].nil?)
+        data.events = (Events.parse(map['events']) unless map['events'].nil?)
         return data
       end
     end
@@ -598,7 +598,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Event.parse(value) unless value.nil?
+          data << Event.parse(value) unless value.nil?
         end
         data
       end
@@ -609,7 +609,7 @@ module AWS::SDK::IoTEvents
         data = Types::Event.new
         data.event_name = map['eventName']
         data.condition = map['condition']
-        data.actions = (Parsers::Actions.parse(map['actions']) unless map['actions'].nil?)
+        data.actions = (Actions.parse(map['actions']) unless map['actions'].nil?)
         return data
       end
     end
@@ -618,7 +618,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Action.parse(value) unless value.nil?
+          data << Action.parse(value) unless value.nil?
         end
         data
       end
@@ -627,19 +627,19 @@ module AWS::SDK::IoTEvents
     class Action
       def self.parse(map)
         data = Types::Action.new
-        data.set_variable = (Parsers::SetVariableAction.parse(map['setVariable']) unless map['setVariable'].nil?)
-        data.sns = (Parsers::SNSTopicPublishAction.parse(map['sns']) unless map['sns'].nil?)
-        data.iot_topic_publish = (Parsers::IotTopicPublishAction.parse(map['iotTopicPublish']) unless map['iotTopicPublish'].nil?)
-        data.set_timer = (Parsers::SetTimerAction.parse(map['setTimer']) unless map['setTimer'].nil?)
-        data.clear_timer = (Parsers::ClearTimerAction.parse(map['clearTimer']) unless map['clearTimer'].nil?)
-        data.reset_timer = (Parsers::ResetTimerAction.parse(map['resetTimer']) unless map['resetTimer'].nil?)
-        data.lambda = (Parsers::LambdaAction.parse(map['lambda']) unless map['lambda'].nil?)
-        data.iot_events = (Parsers::IotEventsAction.parse(map['iotEvents']) unless map['iotEvents'].nil?)
-        data.sqs = (Parsers::SqsAction.parse(map['sqs']) unless map['sqs'].nil?)
-        data.firehose = (Parsers::FirehoseAction.parse(map['firehose']) unless map['firehose'].nil?)
-        data.dynamo_db = (Parsers::DynamoDBAction.parse(map['dynamoDB']) unless map['dynamoDB'].nil?)
-        data.dynamo_d_bv2 = (Parsers::DynamoDBv2Action.parse(map['dynamoDBv2']) unless map['dynamoDBv2'].nil?)
-        data.iot_site_wise = (Parsers::IotSiteWiseAction.parse(map['iotSiteWise']) unless map['iotSiteWise'].nil?)
+        data.set_variable = (SetVariableAction.parse(map['setVariable']) unless map['setVariable'].nil?)
+        data.sns = (SNSTopicPublishAction.parse(map['sns']) unless map['sns'].nil?)
+        data.iot_topic_publish = (IotTopicPublishAction.parse(map['iotTopicPublish']) unless map['iotTopicPublish'].nil?)
+        data.set_timer = (SetTimerAction.parse(map['setTimer']) unless map['setTimer'].nil?)
+        data.clear_timer = (ClearTimerAction.parse(map['clearTimer']) unless map['clearTimer'].nil?)
+        data.reset_timer = (ResetTimerAction.parse(map['resetTimer']) unless map['resetTimer'].nil?)
+        data.lambda = (LambdaAction.parse(map['lambda']) unless map['lambda'].nil?)
+        data.iot_events = (IotEventsAction.parse(map['iotEvents']) unless map['iotEvents'].nil?)
+        data.sqs = (SqsAction.parse(map['sqs']) unless map['sqs'].nil?)
+        data.firehose = (FirehoseAction.parse(map['firehose']) unless map['firehose'].nil?)
+        data.dynamo_db = (DynamoDBAction.parse(map['dynamoDB']) unless map['dynamoDB'].nil?)
+        data.dynamo_d_bv2 = (DynamoDBv2Action.parse(map['dynamoDBv2']) unless map['dynamoDBv2'].nil?)
+        data.iot_site_wise = (IotSiteWiseAction.parse(map['iotSiteWise']) unless map['iotSiteWise'].nil?)
         return data
       end
     end
@@ -682,7 +682,7 @@ module AWS::SDK::IoTEvents
     class OnEnterLifecycle
       def self.parse(map)
         data = Types::OnEnterLifecycle.new
-        data.events = (Parsers::Events.parse(map['events']) unless map['events'].nil?)
+        data.events = (Events.parse(map['events']) unless map['events'].nil?)
         return data
       end
     end
@@ -690,8 +690,8 @@ module AWS::SDK::IoTEvents
     class OnInputLifecycle
       def self.parse(map)
         data = Types::OnInputLifecycle.new
-        data.events = (Parsers::Events.parse(map['events']) unless map['events'].nil?)
-        data.transition_events = (Parsers::TransitionEvents.parse(map['transitionEvents']) unless map['transitionEvents'].nil?)
+        data.events = (Events.parse(map['events']) unless map['events'].nil?)
+        data.transition_events = (TransitionEvents.parse(map['transitionEvents']) unless map['transitionEvents'].nil?)
         return data
       end
     end
@@ -700,7 +700,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TransitionEvent.parse(value) unless value.nil?
+          data << TransitionEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -711,7 +711,7 @@ module AWS::SDK::IoTEvents
         data = Types::TransitionEvent.new
         data.event_name = map['eventName']
         data.condition = map['condition']
-        data.actions = (Parsers::Actions.parse(map['actions']) unless map['actions'].nil?)
+        data.actions = (Actions.parse(map['actions']) unless map['actions'].nil?)
         data.next_state = map['nextState']
         return data
       end
@@ -732,7 +732,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::DescribeInputOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.input = (Parsers::Input.parse(map['input']) unless map['input'].nil?)
+        data.input = (Input.parse(map['input']) unless map['input'].nil?)
         data
       end
     end
@@ -740,8 +740,8 @@ module AWS::SDK::IoTEvents
     class Input
       def self.parse(map)
         data = Types::Input.new
-        data.input_configuration = (Parsers::InputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
-        data.input_definition = (Parsers::InputDefinition.parse(map['inputDefinition']) unless map['inputDefinition'].nil?)
+        data.input_configuration = (InputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
+        data.input_definition = (InputDefinition.parse(map['inputDefinition']) unless map['inputDefinition'].nil?)
         return data
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::IoTEvents
     class InputDefinition
       def self.parse(map)
         data = Types::InputDefinition.new
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -758,7 +758,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Attribute.parse(value) unless value.nil?
+          data << Attribute.parse(value) unless value.nil?
         end
         data
       end
@@ -777,7 +777,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::DescribeLoggingOptionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.logging_options = (Parsers::LoggingOptions.parse(map['loggingOptions']) unless map['loggingOptions'].nil?)
+        data.logging_options = (LoggingOptions.parse(map['loggingOptions']) unless map['loggingOptions'].nil?)
         data
       end
     end
@@ -788,7 +788,7 @@ module AWS::SDK::IoTEvents
         data.role_arn = map['roleArn']
         data.level = map['level']
         data.enabled = map['enabled']
-        data.detector_debug_options = (Parsers::DetectorDebugOptions.parse(map['detectorDebugOptions']) unless map['detectorDebugOptions'].nil?)
+        data.detector_debug_options = (DetectorDebugOptions.parse(map['detectorDebugOptions']) unless map['detectorDebugOptions'].nil?)
         return data
       end
     end
@@ -797,7 +797,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DetectorDebugOption.parse(value) unless value.nil?
+          data << DetectorDebugOption.parse(value) unless value.nil?
         end
         data
       end
@@ -827,7 +827,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::GetDetectorModelAnalysisResultsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.analysis_results = (Parsers::AnalysisResults.parse(map['analysisResults']) unless map['analysisResults'].nil?)
+        data.analysis_results = (AnalysisResults.parse(map['analysisResults']) unless map['analysisResults'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -837,7 +837,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnalysisResult.parse(value) unless value.nil?
+          data << AnalysisResult.parse(value) unless value.nil?
         end
         data
       end
@@ -849,7 +849,7 @@ module AWS::SDK::IoTEvents
         data.type = map['type']
         data.level = map['level']
         data.message = map['message'] || map['Message']
-        data.locations = (Parsers::AnalysisResultLocations.parse(map['locations']) unless map['locations'].nil?)
+        data.locations = (AnalysisResultLocations.parse(map['locations']) unless map['locations'].nil?)
         return data
       end
     end
@@ -858,7 +858,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnalysisResultLocation.parse(value) unless value.nil?
+          data << AnalysisResultLocation.parse(value) unless value.nil?
         end
         data
       end
@@ -877,7 +877,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::ListAlarmModelVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alarm_model_version_summaries = (Parsers::AlarmModelVersionSummaries.parse(map['alarmModelVersionSummaries']) unless map['alarmModelVersionSummaries'].nil?)
+        data.alarm_model_version_summaries = (AlarmModelVersionSummaries.parse(map['alarmModelVersionSummaries']) unless map['alarmModelVersionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -887,7 +887,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlarmModelVersionSummary.parse(value) unless value.nil?
+          data << AlarmModelVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -913,7 +913,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::ListAlarmModelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alarm_model_summaries = (Parsers::AlarmModelSummaries.parse(map['alarmModelSummaries']) unless map['alarmModelSummaries'].nil?)
+        data.alarm_model_summaries = (AlarmModelSummaries.parse(map['alarmModelSummaries']) unless map['alarmModelSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -923,7 +923,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlarmModelSummary.parse(value) unless value.nil?
+          data << AlarmModelSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -944,7 +944,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::ListDetectorModelVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector_model_version_summaries = (Parsers::DetectorModelVersionSummaries.parse(map['detectorModelVersionSummaries']) unless map['detectorModelVersionSummaries'].nil?)
+        data.detector_model_version_summaries = (DetectorModelVersionSummaries.parse(map['detectorModelVersionSummaries']) unless map['detectorModelVersionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -954,7 +954,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DetectorModelVersionSummary.parse(value) unless value.nil?
+          data << DetectorModelVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -980,7 +980,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::ListDetectorModelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector_model_summaries = (Parsers::DetectorModelSummaries.parse(map['detectorModelSummaries']) unless map['detectorModelSummaries'].nil?)
+        data.detector_model_summaries = (DetectorModelSummaries.parse(map['detectorModelSummaries']) unless map['detectorModelSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -990,7 +990,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DetectorModelSummary.parse(value) unless value.nil?
+          data << DetectorModelSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1011,7 +1011,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::ListInputRoutingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.routed_resources = (Parsers::RoutedResources.parse(map['routedResources']) unless map['routedResources'].nil?)
+        data.routed_resources = (RoutedResources.parse(map['routedResources']) unless map['routedResources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1021,7 +1021,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RoutedResource.parse(value) unless value.nil?
+          data << RoutedResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1041,7 +1041,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::ListInputsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.input_summaries = (Parsers::InputSummaries.parse(map['inputSummaries']) unless map['inputSummaries'].nil?)
+        data.input_summaries = (InputSummaries.parse(map['inputSummaries']) unless map['inputSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1051,7 +1051,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputSummary.parse(value) unless value.nil?
+          data << InputSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1075,7 +1075,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1084,7 +1084,7 @@ module AWS::SDK::IoTEvents
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -1155,7 +1155,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::UpdateDetectorModelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector_model_configuration = (Parsers::DetectorModelConfiguration.parse(map['detectorModelConfiguration']) unless map['detectorModelConfiguration'].nil?)
+        data.detector_model_configuration = (DetectorModelConfiguration.parse(map['detectorModelConfiguration']) unless map['detectorModelConfiguration'].nil?)
         data
       end
     end
@@ -1165,7 +1165,7 @@ module AWS::SDK::IoTEvents
       def self.parse(http_resp)
         data = Types::UpdateInputOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.input_configuration = (Parsers::InputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
+        data.input_configuration = (InputConfiguration.parse(map['inputConfiguration']) unless map['inputConfiguration'].nil?)
         data
       end
     end

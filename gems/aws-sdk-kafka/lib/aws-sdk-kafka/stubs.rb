@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Kafka
   module Stubs
 
@@ -24,8 +27,8 @@ module AWS::SDK::Kafka
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        data['unprocessedScramSecrets'] = Stubs::List____listOfUnprocessedScramSecret.stub(stub[:unprocessed_scram_secrets]) unless stub[:unprocessed_scram_secrets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedScramSecrets'] = List____listOfUnprocessedScramSecret.stub(stub[:unprocessed_scram_secrets]) unless stub[:unprocessed_scram_secrets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +46,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedScramSecret.stub(element) unless element.nil?
+          data << UnprocessedScramSecret.stub(element) unless element.nil?
         end
         data
       end
@@ -85,8 +88,8 @@ module AWS::SDK::Kafka
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        data['unprocessedScramSecrets'] = Stubs::List____listOfUnprocessedScramSecret.stub(stub[:unprocessed_scram_secrets]) unless stub[:unprocessed_scram_secrets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedScramSecrets'] = List____listOfUnprocessedScramSecret.stub(stub[:unprocessed_scram_secrets]) unless stub[:unprocessed_scram_secrets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -107,7 +110,7 @@ module AWS::SDK::Kafka
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterName'] = stub[:cluster_name] unless stub[:cluster_name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,7 +133,7 @@ module AWS::SDK::Kafka
         data['clusterName'] = stub[:cluster_name] unless stub[:cluster_name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['clusterType'] = stub[:cluster_type] unless stub[:cluster_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -152,10 +155,10 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +199,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -215,7 +218,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,8 +234,8 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clusterInfo'] = Stubs::ClusterInfo.stub(stub[:cluster_info]) unless stub[:cluster_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['clusterInfo'] = ClusterInfo.stub(stub[:cluster_info]) unless stub[:cluster_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -267,21 +270,21 @@ module AWS::SDK::Kafka
         stub ||= Types::ClusterInfo.new
         data = {}
         data['activeOperationArn'] = stub[:active_operation_arn] unless stub[:active_operation_arn].nil?
-        data['brokerNodeGroupInfo'] = Stubs::BrokerNodeGroupInfo.stub(stub[:broker_node_group_info]) unless stub[:broker_node_group_info].nil?
-        data['clientAuthentication'] = Stubs::ClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
+        data['brokerNodeGroupInfo'] = BrokerNodeGroupInfo.stub(stub[:broker_node_group_info]) unless stub[:broker_node_group_info].nil?
+        data['clientAuthentication'] = ClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterName'] = stub[:cluster_name] unless stub[:cluster_name].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
-        data['currentBrokerSoftwareInfo'] = Stubs::BrokerSoftwareInfo.stub(stub[:current_broker_software_info]) unless stub[:current_broker_software_info].nil?
+        data['currentBrokerSoftwareInfo'] = BrokerSoftwareInfo.stub(stub[:current_broker_software_info]) unless stub[:current_broker_software_info].nil?
         data['currentVersion'] = stub[:current_version] unless stub[:current_version].nil?
-        data['encryptionInfo'] = Stubs::EncryptionInfo.stub(stub[:encryption_info]) unless stub[:encryption_info].nil?
+        data['encryptionInfo'] = EncryptionInfo.stub(stub[:encryption_info]) unless stub[:encryption_info].nil?
         data['enhancedMonitoring'] = stub[:enhanced_monitoring] unless stub[:enhanced_monitoring].nil?
-        data['openMonitoring'] = Stubs::OpenMonitoring.stub(stub[:open_monitoring]) unless stub[:open_monitoring].nil?
-        data['loggingInfo'] = Stubs::LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
+        data['openMonitoring'] = OpenMonitoring.stub(stub[:open_monitoring]) unless stub[:open_monitoring].nil?
+        data['loggingInfo'] = LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
         data['numberOfBrokerNodes'] = stub[:number_of_broker_nodes] unless stub[:number_of_broker_nodes].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['stateInfo'] = Stubs::StateInfo.stub(stub[:state_info]) unless stub[:state_info].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['stateInfo'] = StateInfo.stub(stub[:state_info]) unless stub[:state_info].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['zookeeperConnectString'] = stub[:zookeeper_connect_string] unless stub[:zookeeper_connect_string].nil?
         data['zookeeperConnectStringTls'] = stub[:zookeeper_connect_string_tls] unless stub[:zookeeper_connect_string_tls].nil?
         data
@@ -341,7 +344,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::LoggingInfo.new
         data = {}
-        data['brokerLogs'] = Stubs::BrokerLogs.stub(stub[:broker_logs]) unless stub[:broker_logs].nil?
+        data['brokerLogs'] = BrokerLogs.stub(stub[:broker_logs]) unless stub[:broker_logs].nil?
         data
       end
     end
@@ -361,9 +364,9 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::BrokerLogs.new
         data = {}
-        data['cloudWatchLogs'] = Stubs::CloudWatchLogs.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
-        data['firehose'] = Stubs::Firehose.stub(stub[:firehose]) unless stub[:firehose].nil?
-        data['s3'] = Stubs::S3.stub(stub[:s3]) unless stub[:s3].nil?
+        data['cloudWatchLogs'] = CloudWatchLogs.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
+        data['firehose'] = Firehose.stub(stub[:firehose]) unless stub[:firehose].nil?
+        data['s3'] = S3.stub(stub[:s3]) unless stub[:s3].nil?
         data
       end
     end
@@ -443,7 +446,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::OpenMonitoring.new
         data = {}
-        data['prometheus'] = Stubs::Prometheus.stub(stub[:prometheus]) unless stub[:prometheus].nil?
+        data['prometheus'] = Prometheus.stub(stub[:prometheus]) unless stub[:prometheus].nil?
         data
       end
     end
@@ -462,8 +465,8 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::Prometheus.new
         data = {}
-        data['jmxExporter'] = Stubs::JmxExporter.stub(stub[:jmx_exporter]) unless stub[:jmx_exporter].nil?
-        data['nodeExporter'] = Stubs::NodeExporter.stub(stub[:node_exporter]) unless stub[:node_exporter].nil?
+        data['jmxExporter'] = JmxExporter.stub(stub[:jmx_exporter]) unless stub[:jmx_exporter].nil?
+        data['nodeExporter'] = NodeExporter.stub(stub[:node_exporter]) unless stub[:node_exporter].nil?
         data
       end
     end
@@ -518,8 +521,8 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::EncryptionInfo.new
         data = {}
-        data['encryptionAtRest'] = Stubs::EncryptionAtRest.stub(stub[:encryption_at_rest]) unless stub[:encryption_at_rest].nil?
-        data['encryptionInTransit'] = Stubs::EncryptionInTransit.stub(stub[:encryption_in_transit]) unless stub[:encryption_in_transit].nil?
+        data['encryptionAtRest'] = EncryptionAtRest.stub(stub[:encryption_at_rest]) unless stub[:encryption_at_rest].nil?
+        data['encryptionInTransit'] = EncryptionInTransit.stub(stub[:encryption_in_transit]) unless stub[:encryption_in_transit].nil?
         data
       end
     end
@@ -599,9 +602,9 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::ClientAuthentication.new
         data = {}
-        data['sasl'] = Stubs::Sasl.stub(stub[:sasl]) unless stub[:sasl].nil?
-        data['tls'] = Stubs::Tls.stub(stub[:tls]) unless stub[:tls].nil?
-        data['unauthenticated'] = Stubs::Unauthenticated.stub(stub[:unauthenticated]) unless stub[:unauthenticated].nil?
+        data['sasl'] = Sasl.stub(stub[:sasl]) unless stub[:sasl].nil?
+        data['tls'] = Tls.stub(stub[:tls]) unless stub[:tls].nil?
+        data['unauthenticated'] = Unauthenticated.stub(stub[:unauthenticated]) unless stub[:unauthenticated].nil?
         data
       end
     end
@@ -638,7 +641,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::Tls.new
         data = {}
-        data['certificateAuthorityArnList'] = Stubs::List____listOf__string.stub(stub[:certificate_authority_arn_list]) unless stub[:certificate_authority_arn_list].nil?
+        data['certificateAuthorityArnList'] = List____listOf__string.stub(stub[:certificate_authority_arn_list]) unless stub[:certificate_authority_arn_list].nil?
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data
       end
@@ -678,8 +681,8 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::Sasl.new
         data = {}
-        data['scram'] = Stubs::Scram.stub(stub[:scram]) unless stub[:scram].nil?
-        data['iam'] = Stubs::Iam.stub(stub[:iam]) unless stub[:iam].nil?
+        data['scram'] = Scram.stub(stub[:scram]) unless stub[:scram].nil?
+        data['iam'] = Iam.stub(stub[:iam]) unless stub[:iam].nil?
         data
       end
     end
@@ -739,11 +742,11 @@ module AWS::SDK::Kafka
         stub ||= Types::BrokerNodeGroupInfo.new
         data = {}
         data['brokerAZDistribution'] = stub[:broker_az_distribution] unless stub[:broker_az_distribution].nil?
-        data['clientSubnets'] = Stubs::List____listOf__string.stub(stub[:client_subnets]) unless stub[:client_subnets].nil?
+        data['clientSubnets'] = List____listOf__string.stub(stub[:client_subnets]) unless stub[:client_subnets].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['securityGroups'] = Stubs::List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['storageInfo'] = Stubs::StorageInfo.stub(stub[:storage_info]) unless stub[:storage_info].nil?
-        data['connectivityInfo'] = Stubs::ConnectivityInfo.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
+        data['securityGroups'] = List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['storageInfo'] = StorageInfo.stub(stub[:storage_info]) unless stub[:storage_info].nil?
+        data['connectivityInfo'] = ConnectivityInfo.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
         data
       end
     end
@@ -761,7 +764,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::ConnectivityInfo.new
         data = {}
-        data['publicAccess'] = Stubs::PublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
+        data['publicAccess'] = PublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
         data
       end
     end
@@ -797,7 +800,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::StorageInfo.new
         data = {}
-        data['ebsStorageInfo'] = Stubs::EBSStorageInfo.stub(stub[:ebs_storage_info]) unless stub[:ebs_storage_info].nil?
+        data['ebsStorageInfo'] = EBSStorageInfo.stub(stub[:ebs_storage_info]) unless stub[:ebs_storage_info].nil?
         data
       end
     end
@@ -816,7 +819,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::EBSStorageInfo.new
         data = {}
-        data['provisionedThroughput'] = Stubs::ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['provisionedThroughput'] = ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
         data['volumeSize'] = stub[:volume_size] unless stub[:volume_size].nil?
         data
       end
@@ -854,8 +857,8 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clusterOperationInfo'] = Stubs::ClusterOperationInfo.stub(stub[:cluster_operation_info]) unless stub[:cluster_operation_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['clusterOperationInfo'] = ClusterOperationInfo.stub(stub[:cluster_operation_info]) unless stub[:cluster_operation_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -886,13 +889,13 @@ module AWS::SDK::Kafka
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
-        data['errorInfo'] = Stubs::ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data['operationArn'] = stub[:operation_arn] unless stub[:operation_arn].nil?
         data['operationState'] = stub[:operation_state] unless stub[:operation_state].nil?
-        data['operationSteps'] = Stubs::List____listOfClusterOperationStep.stub(stub[:operation_steps]) unless stub[:operation_steps].nil?
+        data['operationSteps'] = List____listOfClusterOperationStep.stub(stub[:operation_steps]) unless stub[:operation_steps].nil?
         data['operationType'] = stub[:operation_type] unless stub[:operation_type].nil?
-        data['sourceClusterInfo'] = Stubs::MutableClusterInfo.stub(stub[:source_cluster_info]) unless stub[:source_cluster_info].nil?
-        data['targetClusterInfo'] = Stubs::MutableClusterInfo.stub(stub[:target_cluster_info]) unless stub[:target_cluster_info].nil?
+        data['sourceClusterInfo'] = MutableClusterInfo.stub(stub[:source_cluster_info]) unless stub[:source_cluster_info].nil?
+        data['targetClusterInfo'] = MutableClusterInfo.stub(stub[:target_cluster_info]) unless stub[:target_cluster_info].nil?
         data
       end
     end
@@ -920,17 +923,17 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::MutableClusterInfo.new
         data = {}
-        data['brokerEBSVolumeInfo'] = Stubs::List____listOfBrokerEBSVolumeInfo.stub(stub[:broker_ebs_volume_info]) unless stub[:broker_ebs_volume_info].nil?
-        data['configurationInfo'] = Stubs::ConfigurationInfo.stub(stub[:configuration_info]) unless stub[:configuration_info].nil?
+        data['brokerEBSVolumeInfo'] = List____listOfBrokerEBSVolumeInfo.stub(stub[:broker_ebs_volume_info]) unless stub[:broker_ebs_volume_info].nil?
+        data['configurationInfo'] = ConfigurationInfo.stub(stub[:configuration_info]) unless stub[:configuration_info].nil?
         data['numberOfBrokerNodes'] = stub[:number_of_broker_nodes] unless stub[:number_of_broker_nodes].nil?
         data['enhancedMonitoring'] = stub[:enhanced_monitoring] unless stub[:enhanced_monitoring].nil?
-        data['openMonitoring'] = Stubs::OpenMonitoring.stub(stub[:open_monitoring]) unless stub[:open_monitoring].nil?
+        data['openMonitoring'] = OpenMonitoring.stub(stub[:open_monitoring]) unless stub[:open_monitoring].nil?
         data['kafkaVersion'] = stub[:kafka_version] unless stub[:kafka_version].nil?
-        data['loggingInfo'] = Stubs::LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
+        data['loggingInfo'] = LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['clientAuthentication'] = Stubs::ClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
-        data['encryptionInfo'] = Stubs::EncryptionInfo.stub(stub[:encryption_info]) unless stub[:encryption_info].nil?
-        data['connectivityInfo'] = Stubs::ConnectivityInfo.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
+        data['clientAuthentication'] = ClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
+        data['encryptionInfo'] = EncryptionInfo.stub(stub[:encryption_info]) unless stub[:encryption_info].nil?
+        data['connectivityInfo'] = ConnectivityInfo.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
         data
       end
     end
@@ -969,7 +972,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BrokerEBSVolumeInfo.stub(element) unless element.nil?
+          data << BrokerEBSVolumeInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -991,7 +994,7 @@ module AWS::SDK::Kafka
         stub ||= Types::BrokerEBSVolumeInfo.new
         data = {}
         data['kafkaBrokerNodeId'] = stub[:kafka_broker_node_id] unless stub[:kafka_broker_node_id].nil?
-        data['provisionedThroughput'] = Stubs::ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['provisionedThroughput'] = ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
         data['volumeSizeGB'] = stub[:volume_size_gb] unless stub[:volume_size_gb].nil?
         data
       end
@@ -1011,7 +1014,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusterOperationStep.stub(element) unless element.nil?
+          data << ClusterOperationStep.stub(element) unless element.nil?
         end
         data
       end
@@ -1031,7 +1034,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::ClusterOperationStep.new
         data = {}
-        data['stepInfo'] = Stubs::ClusterOperationStepInfo.stub(stub[:step_info]) unless stub[:step_info].nil?
+        data['stepInfo'] = ClusterOperationStepInfo.stub(stub[:step_info]) unless stub[:step_info].nil?
         data['stepName'] = stub[:step_name] unless stub[:step_name].nil?
         data
       end
@@ -1087,8 +1090,8 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clusterInfo'] = Stubs::Cluster.stub(stub[:cluster_info]) unless stub[:cluster_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['clusterInfo'] = Cluster.stub(stub[:cluster_info]) unless stub[:cluster_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1122,10 +1125,10 @@ module AWS::SDK::Kafka
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['currentVersion'] = stub[:current_version] unless stub[:current_version].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['stateInfo'] = Stubs::StateInfo.stub(stub[:state_info]) unless stub[:state_info].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        data['provisioned'] = Stubs::Provisioned.stub(stub[:provisioned]) unless stub[:provisioned].nil?
-        data['serverless'] = Stubs::Serverless.stub(stub[:serverless]) unless stub[:serverless].nil?
+        data['stateInfo'] = StateInfo.stub(stub[:state_info]) unless stub[:state_info].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['provisioned'] = Provisioned.stub(stub[:provisioned]) unless stub[:provisioned].nil?
+        data['serverless'] = Serverless.stub(stub[:serverless]) unless stub[:serverless].nil?
         data
       end
     end
@@ -1144,8 +1147,8 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::Serverless.new
         data = {}
-        data['vpcConfigs'] = Stubs::List____listOfVpcConfig.stub(stub[:vpc_configs]) unless stub[:vpc_configs].nil?
-        data['clientAuthentication'] = Stubs::ServerlessClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
+        data['vpcConfigs'] = List____listOfVpcConfig.stub(stub[:vpc_configs]) unless stub[:vpc_configs].nil?
+        data['clientAuthentication'] = ServerlessClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
         data
       end
     end
@@ -1163,7 +1166,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::ServerlessClientAuthentication.new
         data = {}
-        data['sasl'] = Stubs::ServerlessSasl.stub(stub[:sasl]) unless stub[:sasl].nil?
+        data['sasl'] = ServerlessSasl.stub(stub[:sasl]) unless stub[:sasl].nil?
         data
       end
     end
@@ -1181,7 +1184,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::ServerlessSasl.new
         data = {}
-        data['iam'] = Stubs::Iam.stub(stub[:iam]) unless stub[:iam].nil?
+        data['iam'] = Iam.stub(stub[:iam]) unless stub[:iam].nil?
         data
       end
     end
@@ -1200,7 +1203,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VpcConfig.stub(element) unless element.nil?
+          data << VpcConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1220,8 +1223,8 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::VpcConfig.new
         data = {}
-        data['subnetIds'] = Stubs::List____listOf__string.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['securityGroupIds'] = Stubs::List____listOf__string.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnetIds'] = List____listOf__string.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroupIds'] = List____listOf__string.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -1248,13 +1251,13 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::Provisioned.new
         data = {}
-        data['brokerNodeGroupInfo'] = Stubs::BrokerNodeGroupInfo.stub(stub[:broker_node_group_info]) unless stub[:broker_node_group_info].nil?
-        data['currentBrokerSoftwareInfo'] = Stubs::BrokerSoftwareInfo.stub(stub[:current_broker_software_info]) unless stub[:current_broker_software_info].nil?
-        data['clientAuthentication'] = Stubs::ClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
-        data['encryptionInfo'] = Stubs::EncryptionInfo.stub(stub[:encryption_info]) unless stub[:encryption_info].nil?
+        data['brokerNodeGroupInfo'] = BrokerNodeGroupInfo.stub(stub[:broker_node_group_info]) unless stub[:broker_node_group_info].nil?
+        data['currentBrokerSoftwareInfo'] = BrokerSoftwareInfo.stub(stub[:current_broker_software_info]) unless stub[:current_broker_software_info].nil?
+        data['clientAuthentication'] = ClientAuthentication.stub(stub[:client_authentication]) unless stub[:client_authentication].nil?
+        data['encryptionInfo'] = EncryptionInfo.stub(stub[:encryption_info]) unless stub[:encryption_info].nil?
         data['enhancedMonitoring'] = stub[:enhanced_monitoring] unless stub[:enhanced_monitoring].nil?
-        data['openMonitoring'] = Stubs::OpenMonitoringInfo.stub(stub[:open_monitoring]) unless stub[:open_monitoring].nil?
-        data['loggingInfo'] = Stubs::LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
+        data['openMonitoring'] = OpenMonitoringInfo.stub(stub[:open_monitoring]) unless stub[:open_monitoring].nil?
+        data['loggingInfo'] = LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
         data['numberOfBrokerNodes'] = stub[:number_of_broker_nodes] unless stub[:number_of_broker_nodes].nil?
         data['zookeeperConnectString'] = stub[:zookeeper_connect_string] unless stub[:zookeeper_connect_string].nil?
         data['zookeeperConnectStringTls'] = stub[:zookeeper_connect_string_tls] unless stub[:zookeeper_connect_string_tls].nil?
@@ -1275,7 +1278,7 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::OpenMonitoringInfo.new
         data = {}
-        data['prometheus'] = Stubs::PrometheusInfo.stub(stub[:prometheus]) unless stub[:prometheus].nil?
+        data['prometheus'] = PrometheusInfo.stub(stub[:prometheus]) unless stub[:prometheus].nil?
         data
       end
     end
@@ -1294,8 +1297,8 @@ module AWS::SDK::Kafka
       def self.stub(stub)
         stub ||= Types::PrometheusInfo.new
         data = {}
-        data['jmxExporter'] = Stubs::JmxExporterInfo.stub(stub[:jmx_exporter]) unless stub[:jmx_exporter].nil?
-        data['nodeExporter'] = Stubs::NodeExporterInfo.stub(stub[:node_exporter]) unless stub[:node_exporter].nil?
+        data['jmxExporter'] = JmxExporterInfo.stub(stub[:jmx_exporter]) unless stub[:jmx_exporter].nil?
+        data['nodeExporter'] = NodeExporterInfo.stub(stub[:node_exporter]) unless stub[:node_exporter].nil?
         data
       end
     end
@@ -1357,11 +1360,11 @@ module AWS::SDK::Kafka
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['kafkaVersions'] = Stubs::List____listOf__string.stub(stub[:kafka_versions]) unless stub[:kafka_versions].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['kafkaVersions'] = List____listOf__string.stub(stub[:kafka_versions]) unless stub[:kafka_versions].nil?
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1385,8 +1388,8 @@ module AWS::SDK::Kafka
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['revision'] = stub[:revision] unless stub[:revision].nil?
-        data['serverProperties'] = Base64::encode64(stub[:server_properties]) unless stub[:server_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serverProperties'] = ::Base64::encode64(stub[:server_properties]) unless stub[:server_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1415,7 +1418,7 @@ module AWS::SDK::Kafka
         data['bootstrapBrokerStringPublicTls'] = stub[:bootstrap_broker_string_public_tls] unless stub[:bootstrap_broker_string_public_tls].nil?
         data['bootstrapBrokerStringPublicSaslScram'] = stub[:bootstrap_broker_string_public_sasl_scram] unless stub[:bootstrap_broker_string_public_sasl_scram].nil?
         data['bootstrapBrokerStringPublicSaslIam'] = stub[:bootstrap_broker_string_public_sasl_iam] unless stub[:bootstrap_broker_string_public_sasl_iam].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1431,8 +1434,8 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['compatibleKafkaVersions'] = Stubs::List____listOfCompatibleKafkaVersion.stub(stub[:compatible_kafka_versions]) unless stub[:compatible_kafka_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['compatibleKafkaVersions'] = List____listOfCompatibleKafkaVersion.stub(stub[:compatible_kafka_versions]) unless stub[:compatible_kafka_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1450,7 +1453,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CompatibleKafkaVersion.stub(element) unless element.nil?
+          data << CompatibleKafkaVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -1471,7 +1474,7 @@ module AWS::SDK::Kafka
         stub ||= Types::CompatibleKafkaVersion.new
         data = {}
         data['sourceVersion'] = stub[:source_version] unless stub[:source_version].nil?
-        data['targetVersions'] = Stubs::List____listOf__string.stub(stub[:target_versions]) unless stub[:target_versions].nil?
+        data['targetVersions'] = List____listOf__string.stub(stub[:target_versions]) unless stub[:target_versions].nil?
         data
       end
     end
@@ -1489,9 +1492,9 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clusterOperationInfoList'] = Stubs::List____listOfClusterOperationInfo.stub(stub[:cluster_operation_info_list]) unless stub[:cluster_operation_info_list].nil?
+        data['clusterOperationInfoList'] = List____listOfClusterOperationInfo.stub(stub[:cluster_operation_info_list]) unless stub[:cluster_operation_info_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1509,7 +1512,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusterOperationInfo.stub(element) unless element.nil?
+          data << ClusterOperationInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1528,9 +1531,9 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clusterInfoList'] = Stubs::List____listOfClusterInfo.stub(stub[:cluster_info_list]) unless stub[:cluster_info_list].nil?
+        data['clusterInfoList'] = List____listOfClusterInfo.stub(stub[:cluster_info_list]) unless stub[:cluster_info_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1548,7 +1551,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusterInfo.stub(element) unless element.nil?
+          data << ClusterInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1567,9 +1570,9 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clusterInfoList'] = Stubs::List____listOfCluster.stub(stub[:cluster_info_list]) unless stub[:cluster_info_list].nil?
+        data['clusterInfoList'] = List____listOfCluster.stub(stub[:cluster_info_list]) unless stub[:cluster_info_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1587,7 +1590,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cluster.stub(element) unless element.nil?
+          data << Cluster.stub(element) unless element.nil?
         end
         data
       end
@@ -1607,8 +1610,8 @@ module AWS::SDK::Kafka
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['revisions'] = Stubs::List____listOfConfigurationRevision.stub(stub[:revisions]) unless stub[:revisions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['revisions'] = List____listOfConfigurationRevision.stub(stub[:revisions]) unless stub[:revisions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1626,7 +1629,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationRevision.stub(element) unless element.nil?
+          data << ConfigurationRevision.stub(element) unless element.nil?
         end
         data
       end
@@ -1645,9 +1648,9 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['configurations'] = Stubs::List____listOfConfiguration.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['configurations'] = List____listOfConfiguration.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1665,7 +1668,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Configuration.stub(element) unless element.nil?
+          data << Configuration.stub(element) unless element.nil?
         end
         data
       end
@@ -1693,8 +1696,8 @@ module AWS::SDK::Kafka
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['kafkaVersions'] = Stubs::List____listOf__string.stub(stub[:kafka_versions]) unless stub[:kafka_versions].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['kafkaVersions'] = List____listOf__string.stub(stub[:kafka_versions]) unless stub[:kafka_versions].nil?
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data
@@ -1714,9 +1717,9 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['kafkaVersions'] = Stubs::List____listOfKafkaVersion.stub(stub[:kafka_versions]) unless stub[:kafka_versions].nil?
+        data['kafkaVersions'] = List____listOfKafkaVersion.stub(stub[:kafka_versions]) unless stub[:kafka_versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1734,7 +1737,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KafkaVersion.stub(element) unless element.nil?
+          data << KafkaVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -1774,8 +1777,8 @@ module AWS::SDK::Kafka
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['nodeInfoList'] = Stubs::List____listOfNodeInfo.stub(stub[:node_info_list]) unless stub[:node_info_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['nodeInfoList'] = List____listOfNodeInfo.stub(stub[:node_info_list]) unless stub[:node_info_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1793,7 +1796,7 @@ module AWS::SDK::Kafka
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeInfo.stub(element) unless element.nil?
+          data << NodeInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1818,11 +1821,11 @@ module AWS::SDK::Kafka
         stub ||= Types::NodeInfo.new
         data = {}
         data['addedToClusterTime'] = stub[:added_to_cluster_time] unless stub[:added_to_cluster_time].nil?
-        data['brokerNodeInfo'] = Stubs::BrokerNodeInfo.stub(stub[:broker_node_info]) unless stub[:broker_node_info].nil?
+        data['brokerNodeInfo'] = BrokerNodeInfo.stub(stub[:broker_node_info]) unless stub[:broker_node_info].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['nodeARN'] = stub[:node_arn] unless stub[:node_arn].nil?
         data['nodeType'] = stub[:node_type] unless stub[:node_type].nil?
-        data['zookeeperNodeInfo'] = Stubs::ZookeeperNodeInfo.stub(stub[:zookeeper_node_info]) unless stub[:zookeeper_node_info].nil?
+        data['zookeeperNodeInfo'] = ZookeeperNodeInfo.stub(stub[:zookeeper_node_info]) unless stub[:zookeeper_node_info].nil?
         data
       end
     end
@@ -1846,7 +1849,7 @@ module AWS::SDK::Kafka
         data = {}
         data['attachedENIId'] = stub[:attached_eni_id] unless stub[:attached_eni_id].nil?
         data['clientVpcIpAddress'] = stub[:client_vpc_ip_address] unless stub[:client_vpc_ip_address].nil?
-        data['endpoints'] = Stubs::List____listOf__string.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['endpoints'] = List____listOf__string.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['zookeeperId'] = Hearth::NumberHelper.serialize(stub[:zookeeper_id])
         data['zookeeperVersion'] = stub[:zookeeper_version] unless stub[:zookeeper_version].nil?
         data
@@ -1875,8 +1878,8 @@ module AWS::SDK::Kafka
         data['brokerId'] = Hearth::NumberHelper.serialize(stub[:broker_id])
         data['clientSubnet'] = stub[:client_subnet] unless stub[:client_subnet].nil?
         data['clientVpcIpAddress'] = stub[:client_vpc_ip_address] unless stub[:client_vpc_ip_address].nil?
-        data['currentBrokerSoftwareInfo'] = Stubs::BrokerSoftwareInfo.stub(stub[:current_broker_software_info]) unless stub[:current_broker_software_info].nil?
-        data['endpoints'] = Stubs::List____listOf__string.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['currentBrokerSoftwareInfo'] = BrokerSoftwareInfo.stub(stub[:current_broker_software_info]) unless stub[:current_broker_software_info].nil?
+        data['endpoints'] = List____listOf__string.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data
       end
     end
@@ -1895,8 +1898,8 @@ module AWS::SDK::Kafka
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['secretArnList'] = Stubs::List____listOf__string.stub(stub[:secret_arn_list]) unless stub[:secret_arn_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['secretArnList'] = List____listOf__string.stub(stub[:secret_arn_list]) unless stub[:secret_arn_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1912,8 +1915,8 @@ module AWS::SDK::Kafka
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1932,7 +1935,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1977,7 +1980,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1996,7 +1999,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2015,7 +2018,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2034,7 +2037,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2053,7 +2056,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2071,8 +2074,8 @@ module AWS::SDK::Kafka
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['latestRevision'] = Stubs::ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['latestRevision'] = ConfigurationRevision.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2091,7 +2094,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2110,7 +2113,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2129,7 +2132,7 @@ module AWS::SDK::Kafka
         http_resp.headers['Content-Type'] = 'application/json'
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterOperationArn'] = stub[:cluster_operation_arn] unless stub[:cluster_operation_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

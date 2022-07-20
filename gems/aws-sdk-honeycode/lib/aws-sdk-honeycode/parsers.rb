@@ -16,8 +16,8 @@ module AWS::SDK::Honeycode
         data = Types::BatchCreateTableRowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workbook_cursor = map['workbookCursor']
-        data.created_rows = (Parsers::CreatedRowsMap.parse(map['createdRows']) unless map['createdRows'].nil?)
-        data.failed_batch_items = (Parsers::FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
+        data.created_rows = (CreatedRowsMap.parse(map['createdRows']) unless map['createdRows'].nil?)
+        data.failed_batch_items = (FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FailedBatchItem.parse(value) unless value.nil?
+          data << FailedBatchItem.parse(value) unless value.nil?
         end
         data
       end
@@ -137,7 +137,7 @@ module AWS::SDK::Honeycode
         data = Types::BatchDeleteTableRowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workbook_cursor = map['workbookCursor']
-        data.failed_batch_items = (Parsers::FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
+        data.failed_batch_items = (FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
         data
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::Honeycode
         data = Types::BatchUpdateTableRowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.workbook_cursor = map['workbookCursor']
-        data.failed_batch_items = (Parsers::FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
+        data.failed_batch_items = (FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
         data
       end
     end
@@ -158,9 +158,9 @@ module AWS::SDK::Honeycode
       def self.parse(http_resp)
         data = Types::BatchUpsertTableRowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rows = (Parsers::UpsertRowsResultMap.parse(map['rows']) unless map['rows'].nil?)
+        data.rows = (UpsertRowsResultMap.parse(map['rows']) unless map['rows'].nil?)
         data.workbook_cursor = map['workbookCursor']
-        data.failed_batch_items = (Parsers::FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
+        data.failed_batch_items = (FailedBatchItems.parse(map['failedBatchItems']) unless map['failedBatchItems'].nil?)
         data
       end
     end
@@ -169,7 +169,7 @@ module AWS::SDK::Honeycode
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::UpsertRowsResult.parse(value) unless value.nil?
+          data[key] = UpsertRowsResult.parse(value) unless value.nil?
         end
         data
       end
@@ -178,7 +178,7 @@ module AWS::SDK::Honeycode
     class UpsertRowsResult
       def self.parse(map)
         data = Types::UpsertRowsResult.new
-        data.row_ids = (Parsers::RowIdList.parse(map['rowIds']) unless map['rowIds'].nil?)
+        data.row_ids = (RowIdList.parse(map['rowIds']) unless map['rowIds'].nil?)
         data.upsert_action = map['upsertAction']
         return data
       end
@@ -201,7 +201,7 @@ module AWS::SDK::Honeycode
         map = Hearth::JSON.load(http_resp.body)
         data.job_status = map['jobStatus']
         data.message = map['message'] || map['Message']
-        data.job_metadata = (Parsers::TableDataImportJobMetadata.parse(map['jobMetadata']) unless map['jobMetadata'].nil?)
+        data.job_metadata = (TableDataImportJobMetadata.parse(map['jobMetadata']) unless map['jobMetadata'].nil?)
         data.error_code = map['errorCode']
         data
       end
@@ -210,10 +210,10 @@ module AWS::SDK::Honeycode
     class TableDataImportJobMetadata
       def self.parse(map)
         data = Types::TableDataImportJobMetadata.new
-        data.submitter = (Parsers::ImportJobSubmitter.parse(map['submitter']) unless map['submitter'].nil?)
+        data.submitter = (ImportJobSubmitter.parse(map['submitter']) unless map['submitter'].nil?)
         data.submit_time = Time.at(map['submitTime'].to_i) if map['submitTime']
-        data.import_options = (Parsers::ImportOptions.parse(map['importOptions']) unless map['importOptions'].nil?)
-        data.data_source = (Parsers::ImportDataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
+        data.import_options = (ImportOptions.parse(map['importOptions']) unless map['importOptions'].nil?)
+        data.data_source = (ImportDataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
         return data
       end
     end
@@ -221,7 +221,7 @@ module AWS::SDK::Honeycode
     class ImportDataSource
       def self.parse(map)
         data = Types::ImportDataSource.new
-        data.data_source_config = (Parsers::ImportDataSourceConfig.parse(map['dataSourceConfig']) unless map['dataSourceConfig'].nil?)
+        data.data_source_config = (ImportDataSourceConfig.parse(map['dataSourceConfig']) unless map['dataSourceConfig'].nil?)
         return data
       end
     end
@@ -237,8 +237,8 @@ module AWS::SDK::Honeycode
     class ImportOptions
       def self.parse(map)
         data = Types::ImportOptions.new
-        data.destination_options = (Parsers::DestinationOptions.parse(map['destinationOptions']) unless map['destinationOptions'].nil?)
-        data.delimited_text_options = (Parsers::DelimitedTextImportOptions.parse(map['delimitedTextOptions']) unless map['delimitedTextOptions'].nil?)
+        data.destination_options = (DestinationOptions.parse(map['destinationOptions']) unless map['destinationOptions'].nil?)
+        data.delimited_text_options = (DelimitedTextImportOptions.parse(map['delimitedTextOptions']) unless map['delimitedTextOptions'].nil?)
         return data
       end
     end
@@ -257,7 +257,7 @@ module AWS::SDK::Honeycode
     class DestinationOptions
       def self.parse(map)
         data = Types::DestinationOptions.new
-        data.column_map = (Parsers::ImportColumnMap.parse(map['columnMap']) unless map['columnMap'].nil?)
+        data.column_map = (ImportColumnMap.parse(map['columnMap']) unless map['columnMap'].nil?)
         return data
       end
     end
@@ -266,7 +266,7 @@ module AWS::SDK::Honeycode
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::SourceDataColumnProperties.parse(value) unless value.nil?
+          data[key] = SourceDataColumnProperties.parse(value) unless value.nil?
         end
         data
       end
@@ -294,7 +294,7 @@ module AWS::SDK::Honeycode
       def self.parse(http_resp)
         data = Types::GetScreenDataOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.results = (Parsers::ResultSetMap.parse(map['results']) unless map['results'].nil?)
+        data.results = (ResultSetMap.parse(map['results']) unless map['results'].nil?)
         data.workbook_cursor = map['workbookCursor']
         data.next_token = map['nextToken']
         data
@@ -305,7 +305,7 @@ module AWS::SDK::Honeycode
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ResultSet.parse(value) unless value.nil?
+          data[key] = ResultSet.parse(value) unless value.nil?
         end
         data
       end
@@ -314,8 +314,8 @@ module AWS::SDK::Honeycode
     class ResultSet
       def self.parse(map)
         data = Types::ResultSet.new
-        data.headers = (Parsers::ResultHeader.parse(map['headers']) unless map['headers'].nil?)
-        data.rows = (Parsers::ResultRows.parse(map['rows']) unless map['rows'].nil?)
+        data.headers = (ResultHeader.parse(map['headers']) unless map['headers'].nil?)
+        data.rows = (ResultRows.parse(map['rows']) unless map['rows'].nil?)
         return data
       end
     end
@@ -324,7 +324,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResultRow.parse(value) unless value.nil?
+          data << ResultRow.parse(value) unless value.nil?
         end
         data
       end
@@ -334,7 +334,7 @@ module AWS::SDK::Honeycode
       def self.parse(map)
         data = Types::ResultRow.new
         data.row_id = map['rowId']
-        data.data_items = (Parsers::DataItems.parse(map['dataItems']) unless map['dataItems'].nil?)
+        data.data_items = (DataItems.parse(map['dataItems']) unless map['dataItems'].nil?)
         return data
       end
     end
@@ -343,7 +343,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataItem.parse(value) unless value.nil?
+          data << DataItem.parse(value) unless value.nil?
         end
         data
       end
@@ -363,7 +363,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnMetadata.parse(value) unless value.nil?
+          data << ColumnMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -413,7 +413,7 @@ module AWS::SDK::Honeycode
       def self.parse(http_resp)
         data = Types::ListTableColumnsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.table_columns = (Parsers::TableColumns.parse(map['tableColumns']) unless map['tableColumns'].nil?)
+        data.table_columns = (TableColumns.parse(map['tableColumns']) unless map['tableColumns'].nil?)
         data.next_token = map['nextToken']
         data.workbook_cursor = map['workbookCursor']
         data
@@ -424,7 +424,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TableColumn.parse(value) unless value.nil?
+          data << TableColumn.parse(value) unless value.nil?
         end
         data
       end
@@ -445,9 +445,9 @@ module AWS::SDK::Honeycode
       def self.parse(http_resp)
         data = Types::ListTableRowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.column_ids = (Parsers::ResourceIds.parse(map['columnIds']) unless map['columnIds'].nil?)
-        data.rows = (Parsers::TableRows.parse(map['rows']) unless map['rows'].nil?)
-        data.row_ids_not_found = (Parsers::RowIdList.parse(map['rowIdsNotFound']) unless map['rowIdsNotFound'].nil?)
+        data.column_ids = (ResourceIds.parse(map['columnIds']) unless map['columnIds'].nil?)
+        data.rows = (TableRows.parse(map['rows']) unless map['rows'].nil?)
+        data.row_ids_not_found = (RowIdList.parse(map['rowIdsNotFound']) unless map['rowIdsNotFound'].nil?)
         data.next_token = map['nextToken']
         data.workbook_cursor = map['workbookCursor']
         data
@@ -458,7 +458,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TableRow.parse(value) unless value.nil?
+          data << TableRow.parse(value) unless value.nil?
         end
         data
       end
@@ -468,7 +468,7 @@ module AWS::SDK::Honeycode
       def self.parse(map)
         data = Types::TableRow.new
         data.row_id = map['rowId']
-        data.cells = (Parsers::Cells.parse(map['cells']) unless map['cells'].nil?)
+        data.cells = (Cells.parse(map['cells']) unless map['cells'].nil?)
         return data
       end
     end
@@ -477,7 +477,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Cell.parse(value) unless value.nil?
+          data << Cell.parse(value) unless value.nil?
         end
         data
       end
@@ -490,7 +490,7 @@ module AWS::SDK::Honeycode
         data.format = map['format']
         data.raw_value = map['rawValue']
         data.formatted_value = map['formattedValue']
-        data.formatted_values = (Parsers::FormattedValuesList.parse(map['formattedValues']) unless map['formattedValues'].nil?)
+        data.formatted_values = (FormattedValuesList.parse(map['formattedValues']) unless map['formattedValues'].nil?)
         return data
       end
     end
@@ -520,7 +520,7 @@ module AWS::SDK::Honeycode
       def self.parse(http_resp)
         data = Types::ListTablesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tables = (Parsers::Tables.parse(map['tables']) unless map['tables'].nil?)
+        data.tables = (Tables.parse(map['tables']) unless map['tables'].nil?)
         data.next_token = map['nextToken']
         data.workbook_cursor = map['workbookCursor']
         data
@@ -531,7 +531,7 @@ module AWS::SDK::Honeycode
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Table.parse(value) unless value.nil?
+          data << Table.parse(value) unless value.nil?
         end
         data
       end
@@ -551,7 +551,7 @@ module AWS::SDK::Honeycode
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -571,8 +571,8 @@ module AWS::SDK::Honeycode
       def self.parse(http_resp)
         data = Types::QueryTableRowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.column_ids = (Parsers::ResourceIds.parse(map['columnIds']) unless map['columnIds'].nil?)
-        data.rows = (Parsers::TableRows.parse(map['rows']) unless map['rows'].nil?)
+        data.column_ids = (ResourceIds.parse(map['columnIds']) unless map['columnIds'].nil?)
+        data.rows = (TableRows.parse(map['rows']) unless map['rows'].nil?)
         data.next_token = map['nextToken']
         data.workbook_cursor = map['workbookCursor']
         data

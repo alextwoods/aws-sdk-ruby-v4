@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudSearch
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'BuildSuggesters'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'CreateDomain'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -51,8 +53,8 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DefineAnalysisScheme'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::AnalysisScheme.build(input[:analysis_scheme], params, context: context + 'AnalysisScheme' + '.') unless input[:analysis_scheme].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AnalysisScheme.build(input[:analysis_scheme], params, context: context + 'AnalysisScheme' + '.') unless input[:analysis_scheme].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::CloudSearch
       def self.build(input, params, context: nil)
         params[context + 'AnalysisSchemeName'] = input[:analysis_scheme_name].to_s unless input[:analysis_scheme_name].nil?
         params[context + 'AnalysisSchemeLanguage'] = input[:analysis_scheme_language].to_s unless input[:analysis_scheme_language].nil?
-        Builders::AnalysisOptions.build(input[:analysis_options], params, context: context + 'AnalysisOptions' + '.') unless input[:analysis_options].nil?
+        AnalysisOptions.build(input[:analysis_options], params, context: context + 'AnalysisOptions' + '.') unless input[:analysis_options].nil?
       end
     end
 
@@ -87,8 +89,8 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DefineExpression'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::Expression.build(input[:expression], params, context: context + 'Expression' + '.') unless input[:expression].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Expression.build(input[:expression], params, context: context + 'Expression' + '.') unless input[:expression].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -111,8 +113,8 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DefineIndexField'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::IndexField.build(input[:index_field], params, context: context + 'IndexField' + '.') unless input[:index_field].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IndexField.build(input[:index_field], params, context: context + 'IndexField' + '.') unless input[:index_field].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -121,17 +123,17 @@ module AWS::SDK::CloudSearch
       def self.build(input, params, context: nil)
         params[context + 'IndexFieldName'] = input[:index_field_name].to_s unless input[:index_field_name].nil?
         params[context + 'IndexFieldType'] = input[:index_field_type].to_s unless input[:index_field_type].nil?
-        Builders::IntOptions.build(input[:int_options], params, context: context + 'IntOptions' + '.') unless input[:int_options].nil?
-        Builders::DoubleOptions.build(input[:double_options], params, context: context + 'DoubleOptions' + '.') unless input[:double_options].nil?
-        Builders::LiteralOptions.build(input[:literal_options], params, context: context + 'LiteralOptions' + '.') unless input[:literal_options].nil?
-        Builders::TextOptions.build(input[:text_options], params, context: context + 'TextOptions' + '.') unless input[:text_options].nil?
-        Builders::DateOptions.build(input[:date_options], params, context: context + 'DateOptions' + '.') unless input[:date_options].nil?
-        Builders::LatLonOptions.build(input[:lat_lon_options], params, context: context + 'LatLonOptions' + '.') unless input[:lat_lon_options].nil?
-        Builders::IntArrayOptions.build(input[:int_array_options], params, context: context + 'IntArrayOptions' + '.') unless input[:int_array_options].nil?
-        Builders::DoubleArrayOptions.build(input[:double_array_options], params, context: context + 'DoubleArrayOptions' + '.') unless input[:double_array_options].nil?
-        Builders::LiteralArrayOptions.build(input[:literal_array_options], params, context: context + 'LiteralArrayOptions' + '.') unless input[:literal_array_options].nil?
-        Builders::TextArrayOptions.build(input[:text_array_options], params, context: context + 'TextArrayOptions' + '.') unless input[:text_array_options].nil?
-        Builders::DateArrayOptions.build(input[:date_array_options], params, context: context + 'DateArrayOptions' + '.') unless input[:date_array_options].nil?
+        IntOptions.build(input[:int_options], params, context: context + 'IntOptions' + '.') unless input[:int_options].nil?
+        DoubleOptions.build(input[:double_options], params, context: context + 'DoubleOptions' + '.') unless input[:double_options].nil?
+        LiteralOptions.build(input[:literal_options], params, context: context + 'LiteralOptions' + '.') unless input[:literal_options].nil?
+        TextOptions.build(input[:text_options], params, context: context + 'TextOptions' + '.') unless input[:text_options].nil?
+        DateOptions.build(input[:date_options], params, context: context + 'DateOptions' + '.') unless input[:date_options].nil?
+        LatLonOptions.build(input[:lat_lon_options], params, context: context + 'LatLonOptions' + '.') unless input[:lat_lon_options].nil?
+        IntArrayOptions.build(input[:int_array_options], params, context: context + 'IntArrayOptions' + '.') unless input[:int_array_options].nil?
+        DoubleArrayOptions.build(input[:double_array_options], params, context: context + 'DoubleArrayOptions' + '.') unless input[:double_array_options].nil?
+        LiteralArrayOptions.build(input[:literal_array_options], params, context: context + 'LiteralArrayOptions' + '.') unless input[:literal_array_options].nil?
+        TextArrayOptions.build(input[:text_array_options], params, context: context + 'TextArrayOptions' + '.') unless input[:text_array_options].nil?
+        DateArrayOptions.build(input[:date_array_options], params, context: context + 'DateArrayOptions' + '.') unless input[:date_array_options].nil?
       end
     end
 
@@ -273,8 +275,8 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DefineSuggester'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::Suggester.build(input[:suggester], params, context: context + 'Suggester' + '.') unless input[:suggester].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Suggester.build(input[:suggester], params, context: context + 'Suggester' + '.') unless input[:suggester].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -282,7 +284,7 @@ module AWS::SDK::CloudSearch
     class Suggester
       def self.build(input, params, context: nil)
         params[context + 'SuggesterName'] = input[:suggester_name].to_s unless input[:suggester_name].nil?
-        Builders::DocumentSuggesterOptions.build(input[:document_suggester_options], params, context: context + 'DocumentSuggesterOptions' + '.') unless input[:document_suggester_options].nil?
+        DocumentSuggesterOptions.build(input[:document_suggester_options], params, context: context + 'DocumentSuggesterOptions' + '.') unless input[:document_suggester_options].nil?
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'AnalysisSchemeName'] = input[:analysis_scheme_name].to_s unless input[:analysis_scheme_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DeleteDomain'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -338,7 +340,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'ExpressionName'] = input[:expression_name].to_s unless input[:expression_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -354,7 +356,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'IndexFieldName'] = input[:index_field_name].to_s unless input[:index_field_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -370,7 +372,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'SuggesterName'] = input[:suggester_name].to_s unless input[:suggester_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -385,9 +387,9 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DescribeAnalysisSchemes'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::StandardNameList.build(input[:analysis_scheme_names], params, context: context + 'AnalysisSchemeNames' + '.member') unless input[:analysis_scheme_names].nil?
+        StandardNameList.build(input[:analysis_scheme_names], params, context: context + 'AnalysisSchemeNames' + '.member') unless input[:analysis_scheme_names].nil?
         params[context + 'Deployed'] = input[:deployed].to_s unless input[:deployed].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -412,7 +414,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'Deployed'] = input[:deployed].to_s unless input[:deployed].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -428,7 +430,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'Deployed'] = input[:deployed].to_s unless input[:deployed].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -442,8 +444,8 @@ module AWS::SDK::CloudSearch
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeDomains'
         params['Version'] = '2013-01-01'
-        Builders::DomainNameList.build(input[:domain_names], params, context: context + 'DomainNames' + '.member') unless input[:domain_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DomainNameList.build(input[:domain_names], params, context: context + 'DomainNames' + '.member') unless input[:domain_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -467,9 +469,9 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DescribeExpressions'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::StandardNameList.build(input[:expression_names], params, context: context + 'ExpressionNames' + '.member') unless input[:expression_names].nil?
+        StandardNameList.build(input[:expression_names], params, context: context + 'ExpressionNames' + '.member') unless input[:expression_names].nil?
         params[context + 'Deployed'] = input[:deployed].to_s unless input[:deployed].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -484,9 +486,9 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DescribeIndexFields'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::DynamicFieldNameList.build(input[:field_names], params, context: context + 'FieldNames' + '.member') unless input[:field_names].nil?
+        DynamicFieldNameList.build(input[:field_names], params, context: context + 'FieldNames' + '.member') unless input[:field_names].nil?
         params[context + 'Deployed'] = input[:deployed].to_s unless input[:deployed].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -510,7 +512,7 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DescribeScalingParameters'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'Deployed'] = input[:deployed].to_s unless input[:deployed].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -541,9 +543,9 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'DescribeSuggesters'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::StandardNameList.build(input[:suggester_names], params, context: context + 'SuggesterNames' + '.member') unless input[:suggester_names].nil?
+        StandardNameList.build(input[:suggester_names], params, context: context + 'SuggesterNames' + '.member') unless input[:suggester_names].nil?
         params[context + 'Deployed'] = input[:deployed].to_s unless input[:deployed].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -558,7 +560,7 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'IndexDocuments'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -572,7 +574,7 @@ module AWS::SDK::CloudSearch
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListDomainNames'
         params['Version'] = '2013-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -588,7 +590,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'MultiAZ'] = input[:multi_az].to_s unless input[:multi_az].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -603,8 +605,8 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'UpdateDomainEndpointOptions'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::DomainEndpointOptions.build(input[:domain_endpoint_options], params, context: context + 'DomainEndpointOptions' + '.') unless input[:domain_endpoint_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DomainEndpointOptions.build(input[:domain_endpoint_options], params, context: context + 'DomainEndpointOptions' + '.') unless input[:domain_endpoint_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -627,8 +629,8 @@ module AWS::SDK::CloudSearch
         params['Action'] = 'UpdateScalingParameters'
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
-        Builders::ScalingParameters.build(input[:scaling_parameters], params, context: context + 'ScalingParameters' + '.') unless input[:scaling_parameters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ScalingParameters.build(input[:scaling_parameters], params, context: context + 'ScalingParameters' + '.') unless input[:scaling_parameters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -653,7 +655,7 @@ module AWS::SDK::CloudSearch
         params['Version'] = '2013-01-01'
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'AccessPolicies'] = input[:access_policies].to_s unless input[:access_policies].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

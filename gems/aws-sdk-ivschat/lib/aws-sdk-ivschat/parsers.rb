@@ -39,7 +39,7 @@ module AWS::SDK::Ivschat
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -48,7 +48,7 @@ module AWS::SDK::Ivschat
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -97,8 +97,8 @@ module AWS::SDK::Ivschat
         data.update_time = Time.parse(map['updateTime']) if map['updateTime']
         data.maximum_message_rate_per_second = map['maximumMessageRatePerSecond']
         data.maximum_message_length = map['maximumMessageLength']
-        data.message_review_handler = (Parsers::MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.message_review_handler = (MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -200,8 +200,8 @@ module AWS::SDK::Ivschat
         data.update_time = Time.parse(map['updateTime']) if map['updateTime']
         data.maximum_message_rate_per_second = map['maximumMessageRatePerSecond']
         data.maximum_message_length = map['maximumMessageLength']
-        data.message_review_handler = (Parsers::MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.message_review_handler = (MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -211,7 +211,7 @@ module AWS::SDK::Ivschat
       def self.parse(http_resp)
         data = Types::ListRoomsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rooms = (Parsers::RoomList.parse(map['rooms']) unless map['rooms'].nil?)
+        data.rooms = (RoomList.parse(map['rooms']) unless map['rooms'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -221,7 +221,7 @@ module AWS::SDK::Ivschat
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RoomSummary.parse(value) unless value.nil?
+          data << RoomSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -233,10 +233,10 @@ module AWS::SDK::Ivschat
         data.arn = map['arn']
         data.id = map['id']
         data.name = map['name']
-        data.message_review_handler = (Parsers::MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
+        data.message_review_handler = (MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
         data.create_time = Time.parse(map['createTime']) if map['createTime']
         data.update_time = Time.parse(map['updateTime']) if map['updateTime']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -246,7 +246,7 @@ module AWS::SDK::Ivschat
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -301,8 +301,8 @@ module AWS::SDK::Ivschat
         data.update_time = Time.parse(map['updateTime']) if map['updateTime']
         data.maximum_message_rate_per_second = map['maximumMessageRatePerSecond']
         data.maximum_message_length = map['maximumMessageLength']
-        data.message_review_handler = (Parsers::MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.message_review_handler = (MessageReviewHandler.parse(map['messageReviewHandler']) unless map['messageReviewHandler'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

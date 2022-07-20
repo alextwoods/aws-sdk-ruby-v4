@@ -69,7 +69,7 @@ module AWS::SDK::Macie
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_s3_resources = (Parsers::FailedS3Resources.parse(map['failedS3Resources']) unless map['failedS3Resources'].nil?)
+        data.failed_s3_resources = (FailedS3Resources.parse(map['failedS3Resources']) unless map['failedS3Resources'].nil?)
         data
       end
     end
@@ -77,7 +77,7 @@ module AWS::SDK::Macie
     class FailedS3Resources
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedS3Resource.parse(value) unless value.nil?
+          FailedS3Resource.parse(value) unless value.nil?
         end
       end
     end
@@ -85,7 +85,7 @@ module AWS::SDK::Macie
     class FailedS3Resource
       def self.parse(map)
         data = Types::FailedS3Resource.new
-        data.failed_item = (Parsers::S3Resource.parse(map['failedItem']) unless map['failedItem'].nil?)
+        data.failed_item = (S3Resource.parse(map['failedItem']) unless map['failedItem'].nil?)
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
         return data
@@ -132,7 +132,7 @@ module AWS::SDK::Macie
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_s3_resources = (Parsers::FailedS3Resources.parse(map['failedS3Resources']) unless map['failedS3Resources'].nil?)
+        data.failed_s3_resources = (FailedS3Resources.parse(map['failedS3Resources']) unless map['failedS3Resources'].nil?)
         data
       end
     end
@@ -144,7 +144,7 @@ module AWS::SDK::Macie
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.member_accounts = (Parsers::MemberAccounts.parse(map['memberAccounts']) unless map['memberAccounts'].nil?)
+        data.member_accounts = (MemberAccounts.parse(map['memberAccounts']) unless map['memberAccounts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -153,7 +153,7 @@ module AWS::SDK::Macie
     class MemberAccounts
       def self.parse(list)
         list.map do |value|
-          Parsers::MemberAccount.parse(value) unless value.nil?
+          MemberAccount.parse(value) unless value.nil?
         end
       end
     end
@@ -173,7 +173,7 @@ module AWS::SDK::Macie
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.s3_resources = (Parsers::S3ResourcesClassification.parse(map['s3Resources']) unless map['s3Resources'].nil?)
+        data.s3_resources = (S3ResourcesClassification.parse(map['s3Resources']) unless map['s3Resources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -182,7 +182,7 @@ module AWS::SDK::Macie
     class S3ResourcesClassification
       def self.parse(list)
         list.map do |value|
-          Parsers::S3ResourceClassification.parse(value) unless value.nil?
+          S3ResourceClassification.parse(value) unless value.nil?
         end
       end
     end
@@ -192,7 +192,7 @@ module AWS::SDK::Macie
         data = Types::S3ResourceClassification.new
         data.bucket_name = map['bucketName']
         data.prefix = map['prefix']
-        data.classification_type = (Parsers::ClassificationType.parse(map['classificationType']) unless map['classificationType'].nil?)
+        data.classification_type = (ClassificationType.parse(map['classificationType']) unless map['classificationType'].nil?)
         return data
       end
     end
@@ -213,7 +213,7 @@ module AWS::SDK::Macie
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_s3_resources = (Parsers::FailedS3Resources.parse(map['failedS3Resources']) unless map['failedS3Resources'].nil?)
+        data.failed_s3_resources = (FailedS3Resources.parse(map['failedS3Resources']) unless map['failedS3Resources'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Pinpoint
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ApplicationResponse.stub(stub[:application_response]) unless stub[:application_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ApplicationResponse.stub(stub[:application_response]) unless stub[:application_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -47,7 +49,7 @@ module AWS::SDK::Pinpoint
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
         data
       end
@@ -85,8 +87,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,27 +129,27 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::CampaignResponse.new
         data = {}
-        data['AdditionalTreatments'] = Stubs::ListOfTreatmentResource.stub(stub[:additional_treatments]) unless stub[:additional_treatments].nil?
+        data['AdditionalTreatments'] = ListOfTreatmentResource.stub(stub[:additional_treatments]) unless stub[:additional_treatments].nil?
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['CustomDeliveryConfiguration'] = Stubs::CustomDeliveryConfiguration.stub(stub[:custom_delivery_configuration]) unless stub[:custom_delivery_configuration].nil?
-        data['DefaultState'] = Stubs::CampaignState.stub(stub[:default_state]) unless stub[:default_state].nil?
+        data['CustomDeliveryConfiguration'] = CustomDeliveryConfiguration.stub(stub[:custom_delivery_configuration]) unless stub[:custom_delivery_configuration].nil?
+        data['DefaultState'] = CampaignState.stub(stub[:default_state]) unless stub[:default_state].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['HoldoutPercent'] = stub[:holdout_percent] unless stub[:holdout_percent].nil?
-        data['Hook'] = Stubs::CampaignHook.stub(stub[:hook]) unless stub[:hook].nil?
+        data['Hook'] = CampaignHook.stub(stub[:hook]) unless stub[:hook].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['IsPaused'] = stub[:is_paused] unless stub[:is_paused].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
-        data['Limits'] = Stubs::CampaignLimits.stub(stub[:limits]) unless stub[:limits].nil?
-        data['MessageConfiguration'] = Stubs::MessageConfiguration.stub(stub[:message_configuration]) unless stub[:message_configuration].nil?
+        data['Limits'] = CampaignLimits.stub(stub[:limits]) unless stub[:limits].nil?
+        data['MessageConfiguration'] = MessageConfiguration.stub(stub[:message_configuration]) unless stub[:message_configuration].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Schedule'] = Stubs::Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['Schedule'] = Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['SegmentId'] = stub[:segment_id] unless stub[:segment_id].nil?
         data['SegmentVersion'] = stub[:segment_version] unless stub[:segment_version].nil?
-        data['State'] = Stubs::CampaignState.stub(stub[:state]) unless stub[:state].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        data['TemplateConfiguration'] = Stubs::TemplateConfiguration.stub(stub[:template_configuration]) unless stub[:template_configuration].nil?
+        data['State'] = CampaignState.stub(stub[:state]) unless stub[:state].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['TemplateConfiguration'] = TemplateConfiguration.stub(stub[:template_configuration]) unless stub[:template_configuration].nil?
         data['TreatmentDescription'] = stub[:treatment_description] unless stub[:treatment_description].nil?
         data['TreatmentName'] = stub[:treatment_name] unless stub[:treatment_name].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
@@ -172,10 +174,10 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::TemplateConfiguration.new
         data = {}
-        data['EmailTemplate'] = Stubs::Template.stub(stub[:email_template]) unless stub[:email_template].nil?
-        data['PushTemplate'] = Stubs::Template.stub(stub[:push_template]) unless stub[:push_template].nil?
-        data['SMSTemplate'] = Stubs::Template.stub(stub[:sms_template]) unless stub[:sms_template].nil?
-        data['VoiceTemplate'] = Stubs::Template.stub(stub[:voice_template]) unless stub[:voice_template].nil?
+        data['EmailTemplate'] = Template.stub(stub[:email_template]) unless stub[:email_template].nil?
+        data['PushTemplate'] = Template.stub(stub[:push_template]) unless stub[:push_template].nil?
+        data['SMSTemplate'] = Template.stub(stub[:sms_template]) unless stub[:sms_template].nil?
+        data['VoiceTemplate'] = Template.stub(stub[:voice_template]) unless stub[:voice_template].nil?
         data
       end
     end
@@ -238,10 +240,10 @@ module AWS::SDK::Pinpoint
         stub ||= Types::Schedule.new
         data = {}
         data['EndTime'] = stub[:end_time] unless stub[:end_time].nil?
-        data['EventFilter'] = Stubs::CampaignEventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
+        data['EventFilter'] = CampaignEventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
         data['Frequency'] = stub[:frequency] unless stub[:frequency].nil?
         data['IsLocalTime'] = stub[:is_local_time] unless stub[:is_local_time].nil?
-        data['QuietTime'] = Stubs::QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
+        data['QuietTime'] = QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
         data['StartTime'] = stub[:start_time] unless stub[:start_time].nil?
         data['Timezone'] = stub[:timezone] unless stub[:timezone].nil?
         data
@@ -282,7 +284,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::CampaignEventFilter.new
         data = {}
-        data['Dimensions'] = Stubs::EventDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = EventDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['FilterType'] = stub[:filter_type] unless stub[:filter_type].nil?
         data
       end
@@ -303,9 +305,9 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EventDimensions.new
         data = {}
-        data['Attributes'] = Stubs::MapOfAttributeDimension.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['EventType'] = Stubs::SetDimension.stub(stub[:event_type]) unless stub[:event_type].nil?
-        data['Metrics'] = Stubs::MapOfMetricDimension.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Attributes'] = MapOfAttributeDimension.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['EventType'] = SetDimension.stub(stub[:event_type]) unless stub[:event_type].nil?
+        data['Metrics'] = MapOfMetricDimension.stub(stub[:metrics]) unless stub[:metrics].nil?
         data
       end
     end
@@ -324,7 +326,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MetricDimension.stub(value) unless value.nil?
+          data[key] = MetricDimension.stub(value) unless value.nil?
         end
         data
       end
@@ -365,7 +367,7 @@ module AWS::SDK::Pinpoint
         stub ||= Types::SetDimension.new
         data = {}
         data['DimensionType'] = stub[:dimension_type] unless stub[:dimension_type].nil?
-        data['Values'] = Stubs::ListOf__string.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = ListOf__string.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -404,7 +406,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeDimension.stub(value) unless value.nil?
+          data[key] = AttributeDimension.stub(value) unless value.nil?
         end
         data
       end
@@ -425,7 +427,7 @@ module AWS::SDK::Pinpoint
         stub ||= Types::AttributeDimension.new
         data = {}
         data['AttributeType'] = stub[:attribute_type] unless stub[:attribute_type].nil?
-        data['Values'] = Stubs::ListOf__string.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = ListOf__string.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -451,15 +453,15 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::MessageConfiguration.new
         data = {}
-        data['ADMMessage'] = Stubs::Message.stub(stub[:adm_message]) unless stub[:adm_message].nil?
-        data['APNSMessage'] = Stubs::Message.stub(stub[:apns_message]) unless stub[:apns_message].nil?
-        data['BaiduMessage'] = Stubs::Message.stub(stub[:baidu_message]) unless stub[:baidu_message].nil?
-        data['CustomMessage'] = Stubs::CampaignCustomMessage.stub(stub[:custom_message]) unless stub[:custom_message].nil?
-        data['DefaultMessage'] = Stubs::Message.stub(stub[:default_message]) unless stub[:default_message].nil?
-        data['EmailMessage'] = Stubs::CampaignEmailMessage.stub(stub[:email_message]) unless stub[:email_message].nil?
-        data['GCMMessage'] = Stubs::Message.stub(stub[:gcm_message]) unless stub[:gcm_message].nil?
-        data['SMSMessage'] = Stubs::CampaignSmsMessage.stub(stub[:sms_message]) unless stub[:sms_message].nil?
-        data['InAppMessage'] = Stubs::CampaignInAppMessage.stub(stub[:in_app_message]) unless stub[:in_app_message].nil?
+        data['ADMMessage'] = Message.stub(stub[:adm_message]) unless stub[:adm_message].nil?
+        data['APNSMessage'] = Message.stub(stub[:apns_message]) unless stub[:apns_message].nil?
+        data['BaiduMessage'] = Message.stub(stub[:baidu_message]) unless stub[:baidu_message].nil?
+        data['CustomMessage'] = CampaignCustomMessage.stub(stub[:custom_message]) unless stub[:custom_message].nil?
+        data['DefaultMessage'] = Message.stub(stub[:default_message]) unless stub[:default_message].nil?
+        data['EmailMessage'] = CampaignEmailMessage.stub(stub[:email_message]) unless stub[:email_message].nil?
+        data['GCMMessage'] = Message.stub(stub[:gcm_message]) unless stub[:gcm_message].nil?
+        data['SMSMessage'] = CampaignSmsMessage.stub(stub[:sms_message]) unless stub[:sms_message].nil?
+        data['InAppMessage'] = CampaignInAppMessage.stub(stub[:in_app_message]) unless stub[:in_app_message].nil?
         data
       end
     end
@@ -481,8 +483,8 @@ module AWS::SDK::Pinpoint
         stub ||= Types::CampaignInAppMessage.new
         data = {}
         data['Body'] = stub[:body] unless stub[:body].nil?
-        data['Content'] = Stubs::ListOfInAppMessageContent.stub(stub[:content]) unless stub[:content].nil?
-        data['CustomConfig'] = Stubs::MapOf__string.stub(stub[:custom_config]) unless stub[:custom_config].nil?
+        data['Content'] = ListOfInAppMessageContent.stub(stub[:content]) unless stub[:content].nil?
+        data['CustomConfig'] = MapOf__string.stub(stub[:custom_config]) unless stub[:custom_config].nil?
         data['Layout'] = stub[:layout] unless stub[:layout].nil?
         data
       end
@@ -502,7 +504,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InAppMessageContent.stub(element) unless element.nil?
+          data << InAppMessageContent.stub(element) unless element.nil?
         end
         data
       end
@@ -527,11 +529,11 @@ module AWS::SDK::Pinpoint
         stub ||= Types::InAppMessageContent.new
         data = {}
         data['BackgroundColor'] = stub[:background_color] unless stub[:background_color].nil?
-        data['BodyConfig'] = Stubs::InAppMessageBodyConfig.stub(stub[:body_config]) unless stub[:body_config].nil?
-        data['HeaderConfig'] = Stubs::InAppMessageHeaderConfig.stub(stub[:header_config]) unless stub[:header_config].nil?
+        data['BodyConfig'] = InAppMessageBodyConfig.stub(stub[:body_config]) unless stub[:body_config].nil?
+        data['HeaderConfig'] = InAppMessageHeaderConfig.stub(stub[:header_config]) unless stub[:header_config].nil?
         data['ImageUrl'] = stub[:image_url] unless stub[:image_url].nil?
-        data['PrimaryBtn'] = Stubs::InAppMessageButton.stub(stub[:primary_btn]) unless stub[:primary_btn].nil?
-        data['SecondaryBtn'] = Stubs::InAppMessageButton.stub(stub[:secondary_btn]) unless stub[:secondary_btn].nil?
+        data['PrimaryBtn'] = InAppMessageButton.stub(stub[:primary_btn]) unless stub[:primary_btn].nil?
+        data['SecondaryBtn'] = InAppMessageButton.stub(stub[:secondary_btn]) unless stub[:secondary_btn].nil?
         data
       end
     end
@@ -552,10 +554,10 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::InAppMessageButton.new
         data = {}
-        data['Android'] = Stubs::OverrideButtonConfiguration.stub(stub[:android]) unless stub[:android].nil?
-        data['DefaultConfig'] = Stubs::DefaultButtonConfiguration.stub(stub[:default_config]) unless stub[:default_config].nil?
-        data['IOS'] = Stubs::OverrideButtonConfiguration.stub(stub[:ios]) unless stub[:ios].nil?
-        data['Web'] = Stubs::OverrideButtonConfiguration.stub(stub[:web]) unless stub[:web].nil?
+        data['Android'] = OverrideButtonConfiguration.stub(stub[:android]) unless stub[:android].nil?
+        data['DefaultConfig'] = DefaultButtonConfiguration.stub(stub[:default_config]) unless stub[:default_config].nil?
+        data['IOS'] = OverrideButtonConfiguration.stub(stub[:ios]) unless stub[:ios].nil?
+        data['Web'] = OverrideButtonConfiguration.stub(stub[:web]) unless stub[:web].nil?
         data
       end
     end
@@ -825,7 +827,7 @@ module AWS::SDK::Pinpoint
         stub ||= Types::CustomDeliveryConfiguration.new
         data = {}
         data['DeliveryUri'] = stub[:delivery_uri] unless stub[:delivery_uri].nil?
-        data['EndpointTypes'] = Stubs::ListOf__EndpointTypesElement.stub(stub[:endpoint_types]) unless stub[:endpoint_types].nil?
+        data['EndpointTypes'] = ListOf__EndpointTypesElement.stub(stub[:endpoint_types]) unless stub[:endpoint_types].nil?
         data
       end
     end
@@ -864,7 +866,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TreatmentResource.stub(element) unless element.nil?
+          data << TreatmentResource.stub(element) unless element.nil?
         end
         data
       end
@@ -891,13 +893,13 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::TreatmentResource.new
         data = {}
-        data['CustomDeliveryConfiguration'] = Stubs::CustomDeliveryConfiguration.stub(stub[:custom_delivery_configuration]) unless stub[:custom_delivery_configuration].nil?
+        data['CustomDeliveryConfiguration'] = CustomDeliveryConfiguration.stub(stub[:custom_delivery_configuration]) unless stub[:custom_delivery_configuration].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['MessageConfiguration'] = Stubs::MessageConfiguration.stub(stub[:message_configuration]) unless stub[:message_configuration].nil?
-        data['Schedule'] = Stubs::Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['MessageConfiguration'] = MessageConfiguration.stub(stub[:message_configuration]) unless stub[:message_configuration].nil?
+        data['Schedule'] = Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['SizePercent'] = stub[:size_percent] unless stub[:size_percent].nil?
-        data['State'] = Stubs::CampaignState.stub(stub[:state]) unless stub[:state].nil?
-        data['TemplateConfiguration'] = Stubs::TemplateConfiguration.stub(stub[:template_configuration]) unless stub[:template_configuration].nil?
+        data['State'] = CampaignState.stub(stub[:state]) unless stub[:state].nil?
+        data['TemplateConfiguration'] = TemplateConfiguration.stub(stub[:template_configuration]) unless stub[:template_configuration].nil?
         data['TreatmentDescription'] = stub[:treatment_description] unless stub[:treatment_description].nil?
         data['TreatmentName'] = stub[:treatment_name] unless stub[:treatment_name].nil?
         data
@@ -916,8 +918,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -955,8 +957,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ExportJobResponse.stub(stub[:export_job_response]) unless stub[:export_job_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ExportJobResponse.stub(stub[:export_job_response]) unless stub[:export_job_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -989,9 +991,9 @@ module AWS::SDK::Pinpoint
         data['CompletedPieces'] = stub[:completed_pieces] unless stub[:completed_pieces].nil?
         data['CompletionDate'] = stub[:completion_date] unless stub[:completion_date].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['Definition'] = Stubs::ExportJobResource.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = ExportJobResource.stub(stub[:definition]) unless stub[:definition].nil?
         data['FailedPieces'] = stub[:failed_pieces] unless stub[:failed_pieces].nil?
-        data['Failures'] = Stubs::ListOf__string.stub(stub[:failures]) unless stub[:failures].nil?
+        data['Failures'] = ListOf__string.stub(stub[:failures]) unless stub[:failures].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['TotalFailures'] = stub[:total_failures] unless stub[:total_failures].nil?
@@ -1038,8 +1040,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ImportJobResponse.stub(stub[:import_job_response]) unless stub[:import_job_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ImportJobResponse.stub(stub[:import_job_response]) unless stub[:import_job_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1072,9 +1074,9 @@ module AWS::SDK::Pinpoint
         data['CompletedPieces'] = stub[:completed_pieces] unless stub[:completed_pieces].nil?
         data['CompletionDate'] = stub[:completion_date] unless stub[:completion_date].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['Definition'] = Stubs::ImportJobResource.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = ImportJobResource.stub(stub[:definition]) unless stub[:definition].nil?
         data['FailedPieces'] = stub[:failed_pieces] unless stub[:failed_pieces].nil?
-        data['Failures'] = Stubs::ListOf__string.stub(stub[:failures]) unless stub[:failures].nil?
+        data['Failures'] = ListOf__string.stub(stub[:failures]) unless stub[:failures].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['TotalFailures'] = stub[:total_failures] unless stub[:total_failures].nil?
@@ -1129,8 +1131,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::TemplateCreateMessageBody.stub(stub[:template_create_message_body]) unless stub[:template_create_message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = TemplateCreateMessageBody.stub(stub[:template_create_message_body]) unless stub[:template_create_message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1168,8 +1170,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1203,24 +1205,24 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::JourneyResponse.new
         data = {}
-        data['Activities'] = Stubs::MapOfActivity.stub(stub[:activities]) unless stub[:activities].nil?
+        data['Activities'] = MapOfActivity.stub(stub[:activities]) unless stub[:activities].nil?
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
-        data['Limits'] = Stubs::JourneyLimits.stub(stub[:limits]) unless stub[:limits].nil?
+        data['Limits'] = JourneyLimits.stub(stub[:limits]) unless stub[:limits].nil?
         data['LocalTime'] = stub[:local_time] unless stub[:local_time].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['QuietTime'] = Stubs::QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
+        data['QuietTime'] = QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
         data['RefreshFrequency'] = stub[:refresh_frequency] unless stub[:refresh_frequency].nil?
-        data['Schedule'] = Stubs::JourneySchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['Schedule'] = JourneySchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['StartActivity'] = stub[:start_activity] unless stub[:start_activity].nil?
-        data['StartCondition'] = Stubs::StartCondition.stub(stub[:start_condition]) unless stub[:start_condition].nil?
+        data['StartCondition'] = StartCondition.stub(stub[:start_condition]) unless stub[:start_condition].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['WaitForQuietTime'] = stub[:wait_for_quiet_time] unless stub[:wait_for_quiet_time].nil?
         data['RefreshOnSegmentUpdate'] = stub[:refresh_on_segment_update] unless stub[:refresh_on_segment_update].nil?
-        data['JourneyChannelSettings'] = Stubs::JourneyChannelSettings.stub(stub[:journey_channel_settings]) unless stub[:journey_channel_settings].nil?
+        data['JourneyChannelSettings'] = JourneyChannelSettings.stub(stub[:journey_channel_settings]) unless stub[:journey_channel_settings].nil?
         data
       end
     end
@@ -1261,8 +1263,8 @@ module AWS::SDK::Pinpoint
         stub ||= Types::StartCondition.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['EventStartCondition'] = Stubs::EventStartCondition.stub(stub[:event_start_condition]) unless stub[:event_start_condition].nil?
-        data['SegmentStartCondition'] = Stubs::SegmentCondition.stub(stub[:segment_start_condition]) unless stub[:segment_start_condition].nil?
+        data['EventStartCondition'] = EventStartCondition.stub(stub[:event_start_condition]) unless stub[:event_start_condition].nil?
+        data['SegmentStartCondition'] = SegmentCondition.stub(stub[:segment_start_condition]) unless stub[:segment_start_condition].nil?
         data
       end
     end
@@ -1299,7 +1301,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EventStartCondition.new
         data = {}
-        data['EventFilter'] = Stubs::EventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
+        data['EventFilter'] = EventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
         data['SegmentId'] = stub[:segment_id] unless stub[:segment_id].nil?
         data
       end
@@ -1319,7 +1321,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EventFilter.new
         data = {}
-        data['Dimensions'] = Stubs::EventDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = EventDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['FilterType'] = stub[:filter_type] unless stub[:filter_type].nil?
         data
       end
@@ -1385,7 +1387,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Activity.stub(value) unless value.nil?
+          data[key] = Activity.stub(value) unless value.nil?
         end
         data
       end
@@ -1414,17 +1416,17 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::Activity.new
         data = {}
-        data['CUSTOM'] = Stubs::CustomMessageActivity.stub(stub[:custom]) unless stub[:custom].nil?
-        data['ConditionalSplit'] = Stubs::ConditionalSplitActivity.stub(stub[:conditional_split]) unless stub[:conditional_split].nil?
+        data['CUSTOM'] = CustomMessageActivity.stub(stub[:custom]) unless stub[:custom].nil?
+        data['ConditionalSplit'] = ConditionalSplitActivity.stub(stub[:conditional_split]) unless stub[:conditional_split].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['EMAIL'] = Stubs::EmailMessageActivity.stub(stub[:email]) unless stub[:email].nil?
-        data['Holdout'] = Stubs::HoldoutActivity.stub(stub[:holdout]) unless stub[:holdout].nil?
-        data['MultiCondition'] = Stubs::MultiConditionalSplitActivity.stub(stub[:multi_condition]) unless stub[:multi_condition].nil?
-        data['PUSH'] = Stubs::PushMessageActivity.stub(stub[:push]) unless stub[:push].nil?
-        data['RandomSplit'] = Stubs::RandomSplitActivity.stub(stub[:random_split]) unless stub[:random_split].nil?
-        data['SMS'] = Stubs::SMSMessageActivity.stub(stub[:sms]) unless stub[:sms].nil?
-        data['Wait'] = Stubs::WaitActivity.stub(stub[:wait]) unless stub[:wait].nil?
-        data['ContactCenter'] = Stubs::ContactCenterActivity.stub(stub[:contact_center]) unless stub[:contact_center].nil?
+        data['EMAIL'] = EmailMessageActivity.stub(stub[:email]) unless stub[:email].nil?
+        data['Holdout'] = HoldoutActivity.stub(stub[:holdout]) unless stub[:holdout].nil?
+        data['MultiCondition'] = MultiConditionalSplitActivity.stub(stub[:multi_condition]) unless stub[:multi_condition].nil?
+        data['PUSH'] = PushMessageActivity.stub(stub[:push]) unless stub[:push].nil?
+        data['RandomSplit'] = RandomSplitActivity.stub(stub[:random_split]) unless stub[:random_split].nil?
+        data['SMS'] = SMSMessageActivity.stub(stub[:sms]) unless stub[:sms].nil?
+        data['Wait'] = WaitActivity.stub(stub[:wait]) unless stub[:wait].nil?
+        data['ContactCenter'] = ContactCenterActivity.stub(stub[:contact_center]) unless stub[:contact_center].nil?
         data
       end
     end
@@ -1462,7 +1464,7 @@ module AWS::SDK::Pinpoint
         stub ||= Types::WaitActivity.new
         data = {}
         data['NextActivity'] = stub[:next_activity] unless stub[:next_activity].nil?
-        data['WaitTime'] = Stubs::WaitTime.stub(stub[:wait_time]) unless stub[:wait_time].nil?
+        data['WaitTime'] = WaitTime.stub(stub[:wait_time]) unless stub[:wait_time].nil?
         data
       end
     end
@@ -1503,7 +1505,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SMSMessageActivity.new
         data = {}
-        data['MessageConfig'] = Stubs::JourneySMSMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
+        data['MessageConfig'] = JourneySMSMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
         data['NextActivity'] = stub[:next_activity] unless stub[:next_activity].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateVersion'] = stub[:template_version] unless stub[:template_version].nil?
@@ -1550,7 +1552,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::RandomSplitActivity.new
         data = {}
-        data['Branches'] = Stubs::ListOfRandomSplitEntry.stub(stub[:branches]) unless stub[:branches].nil?
+        data['Branches'] = ListOfRandomSplitEntry.stub(stub[:branches]) unless stub[:branches].nil?
         data
       end
     end
@@ -1569,7 +1571,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RandomSplitEntry.stub(element) unless element.nil?
+          data << RandomSplitEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1611,7 +1613,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::PushMessageActivity.new
         data = {}
-        data['MessageConfig'] = Stubs::JourneyPushMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
+        data['MessageConfig'] = JourneyPushMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
         data['NextActivity'] = stub[:next_activity] unless stub[:next_activity].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateVersion'] = stub[:template_version] unless stub[:template_version].nil?
@@ -1652,9 +1654,9 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::MultiConditionalSplitActivity.new
         data = {}
-        data['Branches'] = Stubs::ListOfMultiConditionalBranch.stub(stub[:branches]) unless stub[:branches].nil?
+        data['Branches'] = ListOfMultiConditionalBranch.stub(stub[:branches]) unless stub[:branches].nil?
         data['DefaultActivity'] = stub[:default_activity] unless stub[:default_activity].nil?
-        data['EvaluationWaitTime'] = Stubs::WaitTime.stub(stub[:evaluation_wait_time]) unless stub[:evaluation_wait_time].nil?
+        data['EvaluationWaitTime'] = WaitTime.stub(stub[:evaluation_wait_time]) unless stub[:evaluation_wait_time].nil?
         data
       end
     end
@@ -1673,7 +1675,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MultiConditionalBranch.stub(element) unless element.nil?
+          data << MultiConditionalBranch.stub(element) unless element.nil?
         end
         data
       end
@@ -1693,7 +1695,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::MultiConditionalBranch.new
         data = {}
-        data['Condition'] = Stubs::SimpleCondition.stub(stub[:condition]) unless stub[:condition].nil?
+        data['Condition'] = SimpleCondition.stub(stub[:condition]) unless stub[:condition].nil?
         data['NextActivity'] = stub[:next_activity] unless stub[:next_activity].nil?
         data
       end
@@ -1714,9 +1716,9 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SimpleCondition.new
         data = {}
-        data['EventCondition'] = Stubs::EventCondition.stub(stub[:event_condition]) unless stub[:event_condition].nil?
-        data['SegmentCondition'] = Stubs::SegmentCondition.stub(stub[:segment_condition]) unless stub[:segment_condition].nil?
-        data['segmentDimensions'] = Stubs::SegmentDimensions.stub(stub[:segment_dimensions]) unless stub[:segment_dimensions].nil?
+        data['EventCondition'] = EventCondition.stub(stub[:event_condition]) unless stub[:event_condition].nil?
+        data['SegmentCondition'] = SegmentCondition.stub(stub[:segment_condition]) unless stub[:segment_condition].nil?
+        data['segmentDimensions'] = SegmentDimensions.stub(stub[:segment_dimensions]) unless stub[:segment_dimensions].nil?
         data
       end
     end
@@ -1739,12 +1741,12 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentDimensions.new
         data = {}
-        data['Attributes'] = Stubs::MapOfAttributeDimension.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Behavior'] = Stubs::SegmentBehaviors.stub(stub[:behavior]) unless stub[:behavior].nil?
-        data['Demographic'] = Stubs::SegmentDemographics.stub(stub[:demographic]) unless stub[:demographic].nil?
-        data['Location'] = Stubs::SegmentLocation.stub(stub[:location]) unless stub[:location].nil?
-        data['Metrics'] = Stubs::MapOfMetricDimension.stub(stub[:metrics]) unless stub[:metrics].nil?
-        data['UserAttributes'] = Stubs::MapOfAttributeDimension.stub(stub[:user_attributes]) unless stub[:user_attributes].nil?
+        data['Attributes'] = MapOfAttributeDimension.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Behavior'] = SegmentBehaviors.stub(stub[:behavior]) unless stub[:behavior].nil?
+        data['Demographic'] = SegmentDemographics.stub(stub[:demographic]) unless stub[:demographic].nil?
+        data['Location'] = SegmentLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['Metrics'] = MapOfMetricDimension.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['UserAttributes'] = MapOfAttributeDimension.stub(stub[:user_attributes]) unless stub[:user_attributes].nil?
         data
       end
     end
@@ -1763,8 +1765,8 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentLocation.new
         data = {}
-        data['Country'] = Stubs::SetDimension.stub(stub[:country]) unless stub[:country].nil?
-        data['GPSPoint'] = Stubs::GPSPointDimension.stub(stub[:gps_point]) unless stub[:gps_point].nil?
+        data['Country'] = SetDimension.stub(stub[:country]) unless stub[:country].nil?
+        data['GPSPoint'] = GPSPointDimension.stub(stub[:gps_point]) unless stub[:gps_point].nil?
         data
       end
     end
@@ -1783,7 +1785,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::GPSPointDimension.new
         data = {}
-        data['Coordinates'] = Stubs::GPSCoordinates.stub(stub[:coordinates]) unless stub[:coordinates].nil?
+        data['Coordinates'] = GPSCoordinates.stub(stub[:coordinates]) unless stub[:coordinates].nil?
         data['RangeInKilometers'] = Hearth::NumberHelper.serialize(stub[:range_in_kilometers])
         data
       end
@@ -1827,12 +1829,12 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentDemographics.new
         data = {}
-        data['AppVersion'] = Stubs::SetDimension.stub(stub[:app_version]) unless stub[:app_version].nil?
-        data['Channel'] = Stubs::SetDimension.stub(stub[:channel]) unless stub[:channel].nil?
-        data['DeviceType'] = Stubs::SetDimension.stub(stub[:device_type]) unless stub[:device_type].nil?
-        data['Make'] = Stubs::SetDimension.stub(stub[:make]) unless stub[:make].nil?
-        data['Model'] = Stubs::SetDimension.stub(stub[:model]) unless stub[:model].nil?
-        data['Platform'] = Stubs::SetDimension.stub(stub[:platform]) unless stub[:platform].nil?
+        data['AppVersion'] = SetDimension.stub(stub[:app_version]) unless stub[:app_version].nil?
+        data['Channel'] = SetDimension.stub(stub[:channel]) unless stub[:channel].nil?
+        data['DeviceType'] = SetDimension.stub(stub[:device_type]) unless stub[:device_type].nil?
+        data['Make'] = SetDimension.stub(stub[:make]) unless stub[:make].nil?
+        data['Model'] = SetDimension.stub(stub[:model]) unless stub[:model].nil?
+        data['Platform'] = SetDimension.stub(stub[:platform]) unless stub[:platform].nil?
         data
       end
     end
@@ -1850,7 +1852,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentBehaviors.new
         data = {}
-        data['Recency'] = Stubs::RecencyDimension.stub(stub[:recency]) unless stub[:recency].nil?
+        data['Recency'] = RecencyDimension.stub(stub[:recency]) unless stub[:recency].nil?
         data
       end
     end
@@ -1889,7 +1891,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EventCondition.new
         data = {}
-        data['Dimensions'] = Stubs::EventDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = EventDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['MessageActivity'] = stub[:message_activity] unless stub[:message_activity].nil?
         data
       end
@@ -1931,7 +1933,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EmailMessageActivity.new
         data = {}
-        data['MessageConfig'] = Stubs::JourneyEmailMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
+        data['MessageConfig'] = JourneyEmailMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
         data['NextActivity'] = stub[:next_activity] unless stub[:next_activity].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateVersion'] = stub[:template_version] unless stub[:template_version].nil?
@@ -1973,8 +1975,8 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ConditionalSplitActivity.new
         data = {}
-        data['Condition'] = Stubs::Condition.stub(stub[:condition]) unless stub[:condition].nil?
-        data['EvaluationWaitTime'] = Stubs::WaitTime.stub(stub[:evaluation_wait_time]) unless stub[:evaluation_wait_time].nil?
+        data['Condition'] = Condition.stub(stub[:condition]) unless stub[:condition].nil?
+        data['EvaluationWaitTime'] = WaitTime.stub(stub[:evaluation_wait_time]) unless stub[:evaluation_wait_time].nil?
         data['FalseActivity'] = stub[:false_activity] unless stub[:false_activity].nil?
         data['TrueActivity'] = stub[:true_activity] unless stub[:true_activity].nil?
         data
@@ -1995,7 +1997,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::Condition.new
         data = {}
-        data['Conditions'] = Stubs::ListOfSimpleCondition.stub(stub[:conditions]) unless stub[:conditions].nil?
+        data['Conditions'] = ListOfSimpleCondition.stub(stub[:conditions]) unless stub[:conditions].nil?
         data['Operator'] = stub[:operator] unless stub[:operator].nil?
         data
       end
@@ -2015,7 +2017,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimpleCondition.stub(element) unless element.nil?
+          data << SimpleCondition.stub(element) unless element.nil?
         end
         data
       end
@@ -2040,8 +2042,8 @@ module AWS::SDK::Pinpoint
         stub ||= Types::CustomMessageActivity.new
         data = {}
         data['DeliveryUri'] = stub[:delivery_uri] unless stub[:delivery_uri].nil?
-        data['EndpointTypes'] = Stubs::ListOf__EndpointTypesElement.stub(stub[:endpoint_types]) unless stub[:endpoint_types].nil?
-        data['MessageConfig'] = Stubs::JourneyCustomMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
+        data['EndpointTypes'] = ListOf__EndpointTypesElement.stub(stub[:endpoint_types]) unless stub[:endpoint_types].nil?
+        data['MessageConfig'] = JourneyCustomMessage.stub(stub[:message_config]) unless stub[:message_config].nil?
         data['NextActivity'] = stub[:next_activity] unless stub[:next_activity].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateVersion'] = stub[:template_version] unless stub[:template_version].nil?
@@ -2079,8 +2081,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2096,8 +2098,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2125,7 +2127,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::RecommenderConfigurationResponse.new
         data = {}
-        data['Attributes'] = Stubs::MapOf__string.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = MapOf__string.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
@@ -2153,8 +2155,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2185,14 +2187,14 @@ module AWS::SDK::Pinpoint
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['Dimensions'] = Stubs::SegmentDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = SegmentDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['ImportDefinition'] = Stubs::SegmentImportResource.stub(stub[:import_definition]) unless stub[:import_definition].nil?
+        data['ImportDefinition'] = SegmentImportResource.stub(stub[:import_definition]) unless stub[:import_definition].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['SegmentGroups'] = Stubs::SegmentGroupList.stub(stub[:segment_groups]) unless stub[:segment_groups].nil?
+        data['SegmentGroups'] = SegmentGroupList.stub(stub[:segment_groups]) unless stub[:segment_groups].nil?
         data['SegmentType'] = stub[:segment_type] unless stub[:segment_type].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data
       end
@@ -2212,7 +2214,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentGroupList.new
         data = {}
-        data['Groups'] = Stubs::ListOfSegmentGroup.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = ListOfSegmentGroup.stub(stub[:groups]) unless stub[:groups].nil?
         data['Include'] = stub[:include] unless stub[:include].nil?
         data
       end
@@ -2232,7 +2234,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SegmentGroup.stub(element) unless element.nil?
+          data << SegmentGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2254,8 +2256,8 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentGroup.new
         data = {}
-        data['Dimensions'] = Stubs::ListOfSegmentDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
-        data['SourceSegments'] = Stubs::ListOfSegmentReference.stub(stub[:source_segments]) unless stub[:source_segments].nil?
+        data['Dimensions'] = ListOfSegmentDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['SourceSegments'] = ListOfSegmentReference.stub(stub[:source_segments]) unless stub[:source_segments].nil?
         data['SourceType'] = stub[:source_type] unless stub[:source_type].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
@@ -2276,7 +2278,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SegmentReference.stub(element) unless element.nil?
+          data << SegmentReference.stub(element) unless element.nil?
         end
         data
       end
@@ -2316,7 +2318,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SegmentDimensions.stub(element) unless element.nil?
+          data << SegmentDimensions.stub(element) unless element.nil?
         end
         data
       end
@@ -2340,7 +2342,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentImportResource.new
         data = {}
-        data['ChannelCounts'] = Stubs::MapOf__integer.stub(stub[:channel_counts]) unless stub[:channel_counts].nil?
+        data['ChannelCounts'] = MapOf__integer.stub(stub[:channel_counts]) unless stub[:channel_counts].nil?
         data['ExternalId'] = stub[:external_id] unless stub[:external_id].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
@@ -2382,8 +2384,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2399,8 +2401,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateTemplateMessageBody.stub(stub[:create_template_message_body]) unless stub[:create_template_message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2416,8 +2418,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ADMChannelResponse.stub(stub[:adm_channel_response]) unless stub[:adm_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ADMChannelResponse.stub(stub[:adm_channel_response]) unless stub[:adm_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2469,8 +2471,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSChannelResponse.stub(stub[:apns_channel_response]) unless stub[:apns_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSChannelResponse.stub(stub[:apns_channel_response]) unless stub[:apns_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2526,8 +2528,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSSandboxChannelResponse.stub(stub[:apns_sandbox_channel_response]) unless stub[:apns_sandbox_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSSandboxChannelResponse.stub(stub[:apns_sandbox_channel_response]) unless stub[:apns_sandbox_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2583,8 +2585,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSVoipChannelResponse.stub(stub[:apns_voip_channel_response]) unless stub[:apns_voip_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipChannelResponse.stub(stub[:apns_voip_channel_response]) unless stub[:apns_voip_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2640,8 +2642,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSVoipSandboxChannelResponse.stub(stub[:apns_voip_sandbox_channel_response]) unless stub[:apns_voip_sandbox_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipSandboxChannelResponse.stub(stub[:apns_voip_sandbox_channel_response]) unless stub[:apns_voip_sandbox_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2697,8 +2699,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ApplicationResponse.stub(stub[:application_response]) unless stub[:application_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ApplicationResponse.stub(stub[:application_response]) unless stub[:application_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2714,8 +2716,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::BaiduChannelResponse.stub(stub[:baidu_channel_response]) unless stub[:baidu_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = BaiduChannelResponse.stub(stub[:baidu_channel_response]) unless stub[:baidu_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2769,8 +2771,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2786,8 +2788,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EmailChannelResponse.stub(stub[:email_channel_response]) unless stub[:email_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EmailChannelResponse.stub(stub[:email_channel_response]) unless stub[:email_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2849,8 +2851,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2886,8 +2888,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EndpointResponse.stub(stub[:endpoint_response]) unless stub[:endpoint_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EndpointResponse.stub(stub[:endpoint_response]) unless stub[:endpoint_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2920,19 +2922,19 @@ module AWS::SDK::Pinpoint
         data = {}
         data['Address'] = stub[:address] unless stub[:address].nil?
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
-        data['Attributes'] = Stubs::MapOfListOf__string.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = MapOfListOf__string.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['ChannelType'] = stub[:channel_type] unless stub[:channel_type].nil?
         data['CohortId'] = stub[:cohort_id] unless stub[:cohort_id].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['Demographic'] = Stubs::EndpointDemographic.stub(stub[:demographic]) unless stub[:demographic].nil?
+        data['Demographic'] = EndpointDemographic.stub(stub[:demographic]) unless stub[:demographic].nil?
         data['EffectiveDate'] = stub[:effective_date] unless stub[:effective_date].nil?
         data['EndpointStatus'] = stub[:endpoint_status] unless stub[:endpoint_status].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Location'] = Stubs::EndpointLocation.stub(stub[:location]) unless stub[:location].nil?
-        data['Metrics'] = Stubs::MapOf__double.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Location'] = EndpointLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['Metrics'] = MapOf__double.stub(stub[:metrics]) unless stub[:metrics].nil?
         data['OptOut'] = stub[:opt_out] unless stub[:opt_out].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['User'] = Stubs::EndpointUser.stub(stub[:user]) unless stub[:user].nil?
+        data['User'] = EndpointUser.stub(stub[:user]) unless stub[:user].nil?
         data
       end
     end
@@ -2951,7 +2953,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EndpointUser.new
         data = {}
-        data['UserAttributes'] = Stubs::MapOfListOf__string.stub(stub[:user_attributes]) unless stub[:user_attributes].nil?
+        data['UserAttributes'] = MapOfListOf__string.stub(stub[:user_attributes]) unless stub[:user_attributes].nil?
         data['UserId'] = stub[:user_id] unless stub[:user_id].nil?
         data
       end
@@ -2971,7 +2973,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ListOf__string.stub(value) unless value.nil?
+          data[key] = ListOf__string.stub(value) unless value.nil?
         end
         data
       end
@@ -3069,8 +3071,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EventStream.stub(stub[:event_stream]) unless stub[:event_stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EventStream.stub(stub[:event_stream]) unless stub[:event_stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3114,8 +3116,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::GCMChannelResponse.stub(stub[:gcm_channel_response]) unless stub[:gcm_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GCMChannelResponse.stub(stub[:gcm_channel_response]) unless stub[:gcm_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3169,8 +3171,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3186,8 +3188,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3203,8 +3205,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3220,8 +3222,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3237,8 +3239,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3254,8 +3256,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SMSChannelResponse.stub(stub[:sms_channel_response]) unless stub[:sms_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SMSChannelResponse.stub(stub[:sms_channel_response]) unless stub[:sms_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3315,8 +3317,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3332,8 +3334,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EndpointsResponse.stub(stub[:endpoints_response]) unless stub[:endpoints_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EndpointsResponse.stub(stub[:endpoints_response]) unless stub[:endpoints_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3350,7 +3352,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EndpointsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfEndpointResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfEndpointResponse.stub(stub[:item]) unless stub[:item].nil?
         data
       end
     end
@@ -3369,7 +3371,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointResponse.stub(element) unless element.nil?
+          data << EndpointResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -3387,8 +3389,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VoiceChannelResponse.stub(stub[:voice_channel_response]) unless stub[:voice_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VoiceChannelResponse.stub(stub[:voice_channel_response]) unless stub[:voice_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3440,8 +3442,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3457,8 +3459,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ADMChannelResponse.stub(stub[:adm_channel_response]) unless stub[:adm_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ADMChannelResponse.stub(stub[:adm_channel_response]) unless stub[:adm_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3474,8 +3476,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSChannelResponse.stub(stub[:apns_channel_response]) unless stub[:apns_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSChannelResponse.stub(stub[:apns_channel_response]) unless stub[:apns_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3491,8 +3493,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSSandboxChannelResponse.stub(stub[:apns_sandbox_channel_response]) unless stub[:apns_sandbox_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSSandboxChannelResponse.stub(stub[:apns_sandbox_channel_response]) unless stub[:apns_sandbox_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3508,8 +3510,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSVoipChannelResponse.stub(stub[:apns_voip_channel_response]) unless stub[:apns_voip_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipChannelResponse.stub(stub[:apns_voip_channel_response]) unless stub[:apns_voip_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3525,8 +3527,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSVoipSandboxChannelResponse.stub(stub[:apns_voip_sandbox_channel_response]) unless stub[:apns_voip_sandbox_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipSandboxChannelResponse.stub(stub[:apns_voip_sandbox_channel_response]) unless stub[:apns_voip_sandbox_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3542,8 +3544,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ApplicationResponse.stub(stub[:application_response]) unless stub[:application_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ApplicationResponse.stub(stub[:application_response]) unless stub[:application_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3559,8 +3561,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ApplicationDateRangeKpiResponse.stub(stub[:application_date_range_kpi_response]) unless stub[:application_date_range_kpi_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ApplicationDateRangeKpiResponse.stub(stub[:application_date_range_kpi_response]) unless stub[:application_date_range_kpi_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3585,7 +3587,7 @@ module AWS::SDK::Pinpoint
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['EndTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
         data['KpiName'] = stub[:kpi_name] unless stub[:kpi_name].nil?
-        data['KpiResult'] = Stubs::BaseKpiResult.stub(stub[:kpi_result]) unless stub[:kpi_result].nil?
+        data['KpiResult'] = BaseKpiResult.stub(stub[:kpi_result]) unless stub[:kpi_result].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['StartTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data
@@ -3605,7 +3607,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::BaseKpiResult.new
         data = {}
-        data['Rows'] = Stubs::ListOfResultRow.stub(stub[:rows]) unless stub[:rows].nil?
+        data['Rows'] = ListOfResultRow.stub(stub[:rows]) unless stub[:rows].nil?
         data
       end
     end
@@ -3624,7 +3626,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResultRow.stub(element) unless element.nil?
+          data << ResultRow.stub(element) unless element.nil?
         end
         data
       end
@@ -3644,8 +3646,8 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ResultRow.new
         data = {}
-        data['GroupedBys'] = Stubs::ListOfResultRowValue.stub(stub[:grouped_bys]) unless stub[:grouped_bys].nil?
-        data['Values'] = Stubs::ListOfResultRowValue.stub(stub[:values]) unless stub[:values].nil?
+        data['GroupedBys'] = ListOfResultRowValue.stub(stub[:grouped_bys]) unless stub[:grouped_bys].nil?
+        data['Values'] = ListOfResultRowValue.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -3664,7 +3666,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResultRowValue.stub(element) unless element.nil?
+          data << ResultRowValue.stub(element) unless element.nil?
         end
         data
       end
@@ -3704,8 +3706,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ApplicationSettingsResource.stub(stub[:application_settings_resource]) unless stub[:application_settings_resource].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ApplicationSettingsResource.stub(stub[:application_settings_resource]) unless stub[:application_settings_resource].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3727,10 +3729,10 @@ module AWS::SDK::Pinpoint
         stub ||= Types::ApplicationSettingsResource.new
         data = {}
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
-        data['CampaignHook'] = Stubs::CampaignHook.stub(stub[:campaign_hook]) unless stub[:campaign_hook].nil?
+        data['CampaignHook'] = CampaignHook.stub(stub[:campaign_hook]) unless stub[:campaign_hook].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
-        data['Limits'] = Stubs::CampaignLimits.stub(stub[:limits]) unless stub[:limits].nil?
-        data['QuietTime'] = Stubs::QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
+        data['Limits'] = CampaignLimits.stub(stub[:limits]) unless stub[:limits].nil?
+        data['QuietTime'] = QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
         data
       end
     end
@@ -3747,8 +3749,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ApplicationsResponse.stub(stub[:applications_response]) unless stub[:applications_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ApplicationsResponse.stub(stub[:applications_response]) unless stub[:applications_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3766,7 +3768,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ApplicationsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfApplicationResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfApplicationResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -3786,7 +3788,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationResponse.stub(element) unless element.nil?
+          data << ApplicationResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -3804,8 +3806,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::BaiduChannelResponse.stub(stub[:baidu_channel_response]) unless stub[:baidu_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = BaiduChannelResponse.stub(stub[:baidu_channel_response]) unless stub[:baidu_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3821,8 +3823,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3838,8 +3840,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ActivitiesResponse.stub(stub[:activities_response]) unless stub[:activities_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ActivitiesResponse.stub(stub[:activities_response]) unless stub[:activities_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3857,7 +3859,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ActivitiesResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfActivityResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfActivityResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -3877,7 +3879,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActivityResponse.stub(element) unless element.nil?
+          data << ActivityResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -3937,8 +3939,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignDateRangeKpiResponse.stub(stub[:campaign_date_range_kpi_response]) unless stub[:campaign_date_range_kpi_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignDateRangeKpiResponse.stub(stub[:campaign_date_range_kpi_response]) unless stub[:campaign_date_range_kpi_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3965,7 +3967,7 @@ module AWS::SDK::Pinpoint
         data['CampaignId'] = stub[:campaign_id] unless stub[:campaign_id].nil?
         data['EndTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
         data['KpiName'] = stub[:kpi_name] unless stub[:kpi_name].nil?
-        data['KpiResult'] = Stubs::BaseKpiResult.stub(stub[:kpi_result]) unless stub[:kpi_result].nil?
+        data['KpiResult'] = BaseKpiResult.stub(stub[:kpi_result]) unless stub[:kpi_result].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['StartTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data
@@ -3984,8 +3986,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4001,8 +4003,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignsResponse.stub(stub[:campaigns_response]) unless stub[:campaigns_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignsResponse.stub(stub[:campaigns_response]) unless stub[:campaigns_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4020,7 +4022,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::CampaignsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfCampaignResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfCampaignResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -4040,7 +4042,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CampaignResponse.stub(element) unless element.nil?
+          data << CampaignResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -4058,8 +4060,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignsResponse.stub(stub[:campaigns_response]) unless stub[:campaigns_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignsResponse.stub(stub[:campaigns_response]) unless stub[:campaigns_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4075,8 +4077,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ChannelsResponse.stub(stub[:channels_response]) unless stub[:channels_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ChannelsResponse.stub(stub[:channels_response]) unless stub[:channels_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4093,7 +4095,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ChannelsResponse.new
         data = {}
-        data['Channels'] = Stubs::MapOfChannelResponse.stub(stub[:channels]) unless stub[:channels].nil?
+        data['Channels'] = MapOfChannelResponse.stub(stub[:channels]) unless stub[:channels].nil?
         data
       end
     end
@@ -4112,7 +4114,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ChannelResponse.stub(value) unless value.nil?
+          data[key] = ChannelResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -4164,8 +4166,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EmailChannelResponse.stub(stub[:email_channel_response]) unless stub[:email_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EmailChannelResponse.stub(stub[:email_channel_response]) unless stub[:email_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4181,8 +4183,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EmailTemplateResponse.stub(stub[:email_template_response]) unless stub[:email_template_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EmailTemplateResponse.stub(stub[:email_template_response]) unless stub[:email_template_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4218,7 +4220,7 @@ module AWS::SDK::Pinpoint
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
         data['RecommenderId'] = stub[:recommender_id] unless stub[:recommender_id].nil?
         data['Subject'] = stub[:subject] unless stub[:subject].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TemplateDescription'] = stub[:template_description] unless stub[:template_description].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateType'] = stub[:template_type] unless stub[:template_type].nil?
@@ -4240,8 +4242,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EndpointResponse.stub(stub[:endpoint_response]) unless stub[:endpoint_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EndpointResponse.stub(stub[:endpoint_response]) unless stub[:endpoint_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4257,8 +4259,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EventStream.stub(stub[:event_stream]) unless stub[:event_stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EventStream.stub(stub[:event_stream]) unless stub[:event_stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4274,8 +4276,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ExportJobResponse.stub(stub[:export_job_response]) unless stub[:export_job_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ExportJobResponse.stub(stub[:export_job_response]) unless stub[:export_job_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4291,8 +4293,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ExportJobsResponse.stub(stub[:export_jobs_response]) unless stub[:export_jobs_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ExportJobsResponse.stub(stub[:export_jobs_response]) unless stub[:export_jobs_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4310,7 +4312,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ExportJobsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfExportJobResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfExportJobResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -4330,7 +4332,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExportJobResponse.stub(element) unless element.nil?
+          data << ExportJobResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -4348,8 +4350,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::GCMChannelResponse.stub(stub[:gcm_channel_response]) unless stub[:gcm_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GCMChannelResponse.stub(stub[:gcm_channel_response]) unless stub[:gcm_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4365,8 +4367,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ImportJobResponse.stub(stub[:import_job_response]) unless stub[:import_job_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ImportJobResponse.stub(stub[:import_job_response]) unless stub[:import_job_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4382,8 +4384,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ImportJobsResponse.stub(stub[:import_jobs_response]) unless stub[:import_jobs_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ImportJobsResponse.stub(stub[:import_jobs_response]) unless stub[:import_jobs_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4401,7 +4403,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ImportJobsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfImportJobResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfImportJobResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -4421,7 +4423,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImportJobResponse.stub(element) unless element.nil?
+          data << ImportJobResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -4439,8 +4441,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::InAppMessagesResponse.stub(stub[:in_app_messages_response]) unless stub[:in_app_messages_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = InAppMessagesResponse.stub(stub[:in_app_messages_response]) unless stub[:in_app_messages_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4457,7 +4459,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::InAppMessagesResponse.new
         data = {}
-        data['InAppMessageCampaigns'] = Stubs::ListOfInAppMessageCampaign.stub(stub[:in_app_message_campaigns]) unless stub[:in_app_message_campaigns].nil?
+        data['InAppMessageCampaigns'] = ListOfInAppMessageCampaign.stub(stub[:in_app_message_campaigns]) unless stub[:in_app_message_campaigns].nil?
         data
       end
     end
@@ -4476,7 +4478,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InAppMessageCampaign.stub(element) unless element.nil?
+          data << InAppMessageCampaign.stub(element) unless element.nil?
         end
         data
       end
@@ -4504,9 +4506,9 @@ module AWS::SDK::Pinpoint
         data = {}
         data['CampaignId'] = stub[:campaign_id] unless stub[:campaign_id].nil?
         data['DailyCap'] = stub[:daily_cap] unless stub[:daily_cap].nil?
-        data['InAppMessage'] = Stubs::InAppMessage.stub(stub[:in_app_message]) unless stub[:in_app_message].nil?
+        data['InAppMessage'] = InAppMessage.stub(stub[:in_app_message]) unless stub[:in_app_message].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
-        data['Schedule'] = Stubs::InAppCampaignSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['Schedule'] = InAppCampaignSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['SessionCap'] = stub[:session_cap] unless stub[:session_cap].nil?
         data['TotalCap'] = stub[:total_cap] unless stub[:total_cap].nil?
         data['TreatmentId'] = stub[:treatment_id] unless stub[:treatment_id].nil?
@@ -4530,8 +4532,8 @@ module AWS::SDK::Pinpoint
         stub ||= Types::InAppCampaignSchedule.new
         data = {}
         data['EndDate'] = stub[:end_date] unless stub[:end_date].nil?
-        data['EventFilter'] = Stubs::CampaignEventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
-        data['QuietTime'] = Stubs::QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
+        data['EventFilter'] = CampaignEventFilter.stub(stub[:event_filter]) unless stub[:event_filter].nil?
+        data['QuietTime'] = QuietTime.stub(stub[:quiet_time]) unless stub[:quiet_time].nil?
         data
       end
     end
@@ -4551,8 +4553,8 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::InAppMessage.new
         data = {}
-        data['Content'] = Stubs::ListOfInAppMessageContent.stub(stub[:content]) unless stub[:content].nil?
-        data['CustomConfig'] = Stubs::MapOf__string.stub(stub[:custom_config]) unless stub[:custom_config].nil?
+        data['Content'] = ListOfInAppMessageContent.stub(stub[:content]) unless stub[:content].nil?
+        data['CustomConfig'] = MapOf__string.stub(stub[:custom_config]) unless stub[:custom_config].nil?
         data['Layout'] = stub[:layout] unless stub[:layout].nil?
         data
       end
@@ -4570,8 +4572,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::InAppTemplateResponse.stub(stub[:in_app_template_response]) unless stub[:in_app_template_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = InAppTemplateResponse.stub(stub[:in_app_template_response]) unless stub[:in_app_template_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4599,12 +4601,12 @@ module AWS::SDK::Pinpoint
         stub ||= Types::InAppTemplateResponse.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Content'] = Stubs::ListOfInAppMessageContent.stub(stub[:content]) unless stub[:content].nil?
+        data['Content'] = ListOfInAppMessageContent.stub(stub[:content]) unless stub[:content].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['CustomConfig'] = Stubs::MapOf__string.stub(stub[:custom_config]) unless stub[:custom_config].nil?
+        data['CustomConfig'] = MapOf__string.stub(stub[:custom_config]) unless stub[:custom_config].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
         data['Layout'] = stub[:layout] unless stub[:layout].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TemplateDescription'] = stub[:template_description] unless stub[:template_description].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateType'] = stub[:template_type] unless stub[:template_type].nil?
@@ -4625,8 +4627,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4642,8 +4644,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyDateRangeKpiResponse.stub(stub[:journey_date_range_kpi_response]) unless stub[:journey_date_range_kpi_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyDateRangeKpiResponse.stub(stub[:journey_date_range_kpi_response]) unless stub[:journey_date_range_kpi_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4670,7 +4672,7 @@ module AWS::SDK::Pinpoint
         data['EndTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
         data['JourneyId'] = stub[:journey_id] unless stub[:journey_id].nil?
         data['KpiName'] = stub[:kpi_name] unless stub[:kpi_name].nil?
-        data['KpiResult'] = Stubs::BaseKpiResult.stub(stub[:kpi_result]) unless stub[:kpi_result].nil?
+        data['KpiResult'] = BaseKpiResult.stub(stub[:kpi_result]) unless stub[:kpi_result].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['StartTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data
@@ -4689,8 +4691,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyExecutionActivityMetricsResponse.stub(stub[:journey_execution_activity_metrics_response]) unless stub[:journey_execution_activity_metrics_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyExecutionActivityMetricsResponse.stub(stub[:journey_execution_activity_metrics_response]) unless stub[:journey_execution_activity_metrics_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4717,7 +4719,7 @@ module AWS::SDK::Pinpoint
         data['JourneyActivityId'] = stub[:journey_activity_id] unless stub[:journey_activity_id].nil?
         data['JourneyId'] = stub[:journey_id] unless stub[:journey_id].nil?
         data['LastEvaluatedTime'] = stub[:last_evaluated_time] unless stub[:last_evaluated_time].nil?
-        data['Metrics'] = Stubs::MapOf__string.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Metrics'] = MapOf__string.stub(stub[:metrics]) unless stub[:metrics].nil?
         data
       end
     end
@@ -4734,8 +4736,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyExecutionMetricsResponse.stub(stub[:journey_execution_metrics_response]) unless stub[:journey_execution_metrics_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyExecutionMetricsResponse.stub(stub[:journey_execution_metrics_response]) unless stub[:journey_execution_metrics_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4758,7 +4760,7 @@ module AWS::SDK::Pinpoint
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['JourneyId'] = stub[:journey_id] unless stub[:journey_id].nil?
         data['LastEvaluatedTime'] = stub[:last_evaluated_time] unless stub[:last_evaluated_time].nil?
-        data['Metrics'] = Stubs::MapOf__string.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['Metrics'] = MapOf__string.stub(stub[:metrics]) unless stub[:metrics].nil?
         data
       end
     end
@@ -4775,8 +4777,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::PushNotificationTemplateResponse.stub(stub[:push_notification_template_response]) unless stub[:push_notification_template_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = PushNotificationTemplateResponse.stub(stub[:push_notification_template_response]) unless stub[:push_notification_template_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4807,17 +4809,17 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::PushNotificationTemplateResponse.new
         data = {}
-        data['ADM'] = Stubs::AndroidPushNotificationTemplate.stub(stub[:adm]) unless stub[:adm].nil?
-        data['APNS'] = Stubs::APNSPushNotificationTemplate.stub(stub[:apns]) unless stub[:apns].nil?
+        data['ADM'] = AndroidPushNotificationTemplate.stub(stub[:adm]) unless stub[:adm].nil?
+        data['APNS'] = APNSPushNotificationTemplate.stub(stub[:apns]) unless stub[:apns].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Baidu'] = Stubs::AndroidPushNotificationTemplate.stub(stub[:baidu]) unless stub[:baidu].nil?
+        data['Baidu'] = AndroidPushNotificationTemplate.stub(stub[:baidu]) unless stub[:baidu].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['Default'] = Stubs::DefaultPushNotificationTemplate.stub(stub[:default]) unless stub[:default].nil?
+        data['Default'] = DefaultPushNotificationTemplate.stub(stub[:default]) unless stub[:default].nil?
         data['DefaultSubstitutions'] = stub[:default_substitutions] unless stub[:default_substitutions].nil?
-        data['GCM'] = Stubs::AndroidPushNotificationTemplate.stub(stub[:gcm]) unless stub[:gcm].nil?
+        data['GCM'] = AndroidPushNotificationTemplate.stub(stub[:gcm]) unless stub[:gcm].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
         data['RecommenderId'] = stub[:recommender_id] unless stub[:recommender_id].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TemplateDescription'] = stub[:template_description] unless stub[:template_description].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateType'] = stub[:template_type] unless stub[:template_type].nil?
@@ -4928,8 +4930,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4945,8 +4947,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ListRecommenderConfigurationsResponse.stub(stub[:list_recommender_configurations_response]) unless stub[:list_recommender_configurations_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ListRecommenderConfigurationsResponse.stub(stub[:list_recommender_configurations_response]) unless stub[:list_recommender_configurations_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4964,7 +4966,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ListRecommenderConfigurationsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfRecommenderConfigurationResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfRecommenderConfigurationResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -4984,7 +4986,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommenderConfigurationResponse.stub(element) unless element.nil?
+          data << RecommenderConfigurationResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -5002,8 +5004,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5019,8 +5021,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ExportJobsResponse.stub(stub[:export_jobs_response]) unless stub[:export_jobs_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ExportJobsResponse.stub(stub[:export_jobs_response]) unless stub[:export_jobs_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5036,8 +5038,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ImportJobsResponse.stub(stub[:import_jobs_response]) unless stub[:import_jobs_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ImportJobsResponse.stub(stub[:import_jobs_response]) unless stub[:import_jobs_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5053,8 +5055,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5070,8 +5072,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SegmentsResponse.stub(stub[:segments_response]) unless stub[:segments_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SegmentsResponse.stub(stub[:segments_response]) unless stub[:segments_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5089,7 +5091,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::SegmentsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfSegmentResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfSegmentResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -5109,7 +5111,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SegmentResponse.stub(element) unless element.nil?
+          data << SegmentResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -5127,8 +5129,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SegmentsResponse.stub(stub[:segments_response]) unless stub[:segments_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SegmentsResponse.stub(stub[:segments_response]) unless stub[:segments_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5144,8 +5146,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SMSChannelResponse.stub(stub[:sms_channel_response]) unless stub[:sms_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SMSChannelResponse.stub(stub[:sms_channel_response]) unless stub[:sms_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5161,8 +5163,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SMSTemplateResponse.stub(stub[:sms_template_response]) unless stub[:sms_template_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SMSTemplateResponse.stub(stub[:sms_template_response]) unless stub[:sms_template_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5195,7 +5197,7 @@ module AWS::SDK::Pinpoint
         data['DefaultSubstitutions'] = stub[:default_substitutions] unless stub[:default_substitutions].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
         data['RecommenderId'] = stub[:recommender_id] unless stub[:recommender_id].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TemplateDescription'] = stub[:template_description] unless stub[:template_description].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateType'] = stub[:template_type] unless stub[:template_type].nil?
@@ -5216,8 +5218,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EndpointsResponse.stub(stub[:endpoints_response]) unless stub[:endpoints_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EndpointsResponse.stub(stub[:endpoints_response]) unless stub[:endpoints_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5233,8 +5235,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VoiceChannelResponse.stub(stub[:voice_channel_response]) unless stub[:voice_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VoiceChannelResponse.stub(stub[:voice_channel_response]) unless stub[:voice_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5250,8 +5252,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VoiceTemplateResponse.stub(stub[:voice_template_response]) unless stub[:voice_template_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VoiceTemplateResponse.stub(stub[:voice_template_response]) unless stub[:voice_template_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5285,7 +5287,7 @@ module AWS::SDK::Pinpoint
         data['DefaultSubstitutions'] = stub[:default_substitutions] unless stub[:default_substitutions].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TemplateDescription'] = stub[:template_description] unless stub[:template_description].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateType'] = stub[:template_type] unless stub[:template_type].nil?
@@ -5307,8 +5309,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneysResponse.stub(stub[:journeys_response]) unless stub[:journeys_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneysResponse.stub(stub[:journeys_response]) unless stub[:journeys_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5326,7 +5328,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::JourneysResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfJourneyResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfJourneyResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -5346,7 +5348,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JourneyResponse.stub(element) unless element.nil?
+          data << JourneyResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -5364,8 +5366,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::TagsModel.stub(stub[:tags_model]) unless stub[:tags_model].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = TagsModel.stub(stub[:tags_model]) unless stub[:tags_model].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5382,7 +5384,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::TagsModel.new
         data = {}
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -5399,8 +5401,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::TemplateVersionsResponse.stub(stub[:template_versions_response]) unless stub[:template_versions_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = TemplateVersionsResponse.stub(stub[:template_versions_response]) unless stub[:template_versions_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5420,7 +5422,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::TemplateVersionsResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfTemplateVersionResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfTemplateVersionResponse.stub(stub[:item]) unless stub[:item].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['RequestID'] = stub[:request_id] unless stub[:request_id].nil?
@@ -5442,7 +5444,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TemplateVersionResponse.stub(element) unless element.nil?
+          data << TemplateVersionResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -5490,8 +5492,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::TemplatesResponse.stub(stub[:templates_response]) unless stub[:templates_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = TemplatesResponse.stub(stub[:templates_response]) unless stub[:templates_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5509,7 +5511,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::TemplatesResponse.new
         data = {}
-        data['Item'] = Stubs::ListOfTemplateResponse.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = ListOfTemplateResponse.stub(stub[:item]) unless stub[:item].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -5529,7 +5531,7 @@ module AWS::SDK::Pinpoint
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TemplateResponse.stub(element) unless element.nil?
+          data << TemplateResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -5560,7 +5562,7 @@ module AWS::SDK::Pinpoint
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
         data['DefaultSubstitutions'] = stub[:default_substitutions] unless stub[:default_substitutions].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TemplateDescription'] = stub[:template_description] unless stub[:template_description].nil?
         data['TemplateName'] = stub[:template_name] unless stub[:template_name].nil?
         data['TemplateType'] = stub[:template_type] unless stub[:template_type].nil?
@@ -5581,8 +5583,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::NumberValidateResponse.stub(stub[:number_validate_response]) unless stub[:number_validate_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = NumberValidateResponse.stub(stub[:number_validate_response]) unless stub[:number_validate_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5642,8 +5644,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EventStream.stub(stub[:event_stream]) unless stub[:event_stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EventStream.stub(stub[:event_stream]) unless stub[:event_stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5659,8 +5661,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EventsResponse.stub(stub[:events_response]) unless stub[:events_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EventsResponse.stub(stub[:events_response]) unless stub[:events_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5677,7 +5679,7 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::EventsResponse.new
         data = {}
-        data['Results'] = Stubs::MapOfItemResponse.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = MapOfItemResponse.stub(stub[:results]) unless stub[:results].nil?
         data
       end
     end
@@ -5696,7 +5698,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ItemResponse.stub(value) unless value.nil?
+          data[key] = ItemResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -5716,8 +5718,8 @@ module AWS::SDK::Pinpoint
       def self.stub(stub)
         stub ||= Types::ItemResponse.new
         data = {}
-        data['EndpointItemResponse'] = Stubs::EndpointItemResponse.stub(stub[:endpoint_item_response]) unless stub[:endpoint_item_response].nil?
-        data['EventsItemResponse'] = Stubs::MapOfEventItemResponse.stub(stub[:events_item_response]) unless stub[:events_item_response].nil?
+        data['EndpointItemResponse'] = EndpointItemResponse.stub(stub[:endpoint_item_response]) unless stub[:endpoint_item_response].nil?
+        data['EventsItemResponse'] = MapOfEventItemResponse.stub(stub[:events_item_response]) unless stub[:events_item_response].nil?
         data
       end
     end
@@ -5736,7 +5738,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::EventItemResponse.stub(value) unless value.nil?
+          data[key] = EventItemResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -5794,8 +5796,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::AttributesResource.stub(stub[:attributes_resource]) unless stub[:attributes_resource].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = AttributesResource.stub(stub[:attributes_resource]) unless stub[:attributes_resource].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5816,7 +5818,7 @@ module AWS::SDK::Pinpoint
         data = {}
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['AttributeType'] = stub[:attribute_type] unless stub[:attribute_type].nil?
-        data['Attributes'] = Stubs::ListOf__string.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = ListOf__string.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -5833,8 +5835,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageResponse.stub(stub[:message_response]) unless stub[:message_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageResponse.stub(stub[:message_response]) unless stub[:message_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5855,9 +5857,9 @@ module AWS::SDK::Pinpoint
         stub ||= Types::MessageResponse.new
         data = {}
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
-        data['EndpointResult'] = Stubs::MapOfEndpointMessageResult.stub(stub[:endpoint_result]) unless stub[:endpoint_result].nil?
+        data['EndpointResult'] = MapOfEndpointMessageResult.stub(stub[:endpoint_result]) unless stub[:endpoint_result].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['Result'] = Stubs::MapOfMessageResult.stub(stub[:result]) unless stub[:result].nil?
+        data['Result'] = MapOfMessageResult.stub(stub[:result]) unless stub[:result].nil?
         data
       end
     end
@@ -5876,7 +5878,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MessageResult.stub(value) unless value.nil?
+          data[key] = MessageResult.stub(value) unless value.nil?
         end
         data
       end
@@ -5922,7 +5924,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::EndpointMessageResult.stub(value) unless value.nil?
+          data[key] = EndpointMessageResult.stub(value) unless value.nil?
         end
         data
       end
@@ -5968,8 +5970,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageResponse.stub(stub[:message_response]) unless stub[:message_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageResponse.stub(stub[:message_response]) unless stub[:message_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5985,8 +5987,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SendUsersMessageResponse.stub(stub[:send_users_message_response]) unless stub[:send_users_message_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SendUsersMessageResponse.stub(stub[:send_users_message_response]) unless stub[:send_users_message_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6007,7 +6009,7 @@ module AWS::SDK::Pinpoint
         data = {}
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['Result'] = Stubs::MapOfMapOfEndpointMessageResult.stub(stub[:result]) unless stub[:result].nil?
+        data['Result'] = MapOfMapOfEndpointMessageResult.stub(stub[:result]) unless stub[:result].nil?
         data
       end
     end
@@ -6026,7 +6028,7 @@ module AWS::SDK::Pinpoint
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MapOfEndpointMessageResult.stub(value) unless value.nil?
+          data[key] = MapOfEndpointMessageResult.stub(value) unless value.nil?
         end
         data
       end
@@ -6070,8 +6072,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ADMChannelResponse.stub(stub[:adm_channel_response]) unless stub[:adm_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ADMChannelResponse.stub(stub[:adm_channel_response]) unless stub[:adm_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6087,8 +6089,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSChannelResponse.stub(stub[:apns_channel_response]) unless stub[:apns_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSChannelResponse.stub(stub[:apns_channel_response]) unless stub[:apns_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6104,8 +6106,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSSandboxChannelResponse.stub(stub[:apns_sandbox_channel_response]) unless stub[:apns_sandbox_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSSandboxChannelResponse.stub(stub[:apns_sandbox_channel_response]) unless stub[:apns_sandbox_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6121,8 +6123,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSVoipChannelResponse.stub(stub[:apns_voip_channel_response]) unless stub[:apns_voip_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipChannelResponse.stub(stub[:apns_voip_channel_response]) unless stub[:apns_voip_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6138,8 +6140,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::APNSVoipSandboxChannelResponse.stub(stub[:apns_voip_sandbox_channel_response]) unless stub[:apns_voip_sandbox_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipSandboxChannelResponse.stub(stub[:apns_voip_sandbox_channel_response]) unless stub[:apns_voip_sandbox_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6155,8 +6157,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ApplicationSettingsResource.stub(stub[:application_settings_resource]) unless stub[:application_settings_resource].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ApplicationSettingsResource.stub(stub[:application_settings_resource]) unless stub[:application_settings_resource].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6172,8 +6174,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::BaiduChannelResponse.stub(stub[:baidu_channel_response]) unless stub[:baidu_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = BaiduChannelResponse.stub(stub[:baidu_channel_response]) unless stub[:baidu_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6189,8 +6191,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CampaignResponse.stub(stub[:campaign_response]) unless stub[:campaign_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6206,8 +6208,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::EmailChannelResponse.stub(stub[:email_channel_response]) unless stub[:email_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EmailChannelResponse.stub(stub[:email_channel_response]) unless stub[:email_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6223,8 +6225,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6240,8 +6242,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6257,8 +6259,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6274,8 +6276,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::GCMChannelResponse.stub(stub[:gcm_channel_response]) unless stub[:gcm_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GCMChannelResponse.stub(stub[:gcm_channel_response]) unless stub[:gcm_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6291,8 +6293,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6308,8 +6310,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6325,8 +6327,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyResponse.stub(stub[:journey_response]) unless stub[:journey_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6342,8 +6344,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6359,8 +6361,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = RecommenderConfigurationResponse.stub(stub[:recommender_configuration_response]) unless stub[:recommender_configuration_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6376,8 +6378,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SegmentResponse.stub(stub[:segment_response]) unless stub[:segment_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6393,8 +6395,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::SMSChannelResponse.stub(stub[:sms_channel_response]) unless stub[:sms_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SMSChannelResponse.stub(stub[:sms_channel_response]) unless stub[:sms_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6410,8 +6412,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6427,8 +6429,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6444,8 +6446,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VoiceChannelResponse.stub(stub[:voice_channel_response]) unless stub[:voice_channel_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VoiceChannelResponse.stub(stub[:voice_channel_response]) unless stub[:voice_channel_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6461,8 +6463,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageBody.stub(stub[:message_body]) unless stub[:message_body].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6478,8 +6480,8 @@ module AWS::SDK::Pinpoint
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VerificationResponse.stub(stub[:verification_response]) unless stub[:verification_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VerificationResponse.stub(stub[:verification_response]) unless stub[:verification_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

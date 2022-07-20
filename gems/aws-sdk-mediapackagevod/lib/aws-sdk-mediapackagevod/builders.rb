@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaPackageVod
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::MediaPackageVod
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['egressAccessLogs'] = Builders::EgressAccessLogs.build(input[:egress_access_logs]) unless input[:egress_access_logs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['egressAccessLogs'] = EgressAccessLogs.build(input[:egress_access_logs]) unless input[:egress_access_logs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,8 +58,8 @@ module AWS::SDK::MediaPackageVod
         data['resourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['sourceArn'] = input[:source_arn] unless input[:source_arn].nil?
         data['sourceRoleArn'] = input[:source_role_arn] unless input[:source_role_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,14 +84,14 @@ module AWS::SDK::MediaPackageVod
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['cmafPackage'] = Builders::CmafPackage.build(input[:cmaf_package]) unless input[:cmaf_package].nil?
-        data['dashPackage'] = Builders::DashPackage.build(input[:dash_package]) unless input[:dash_package].nil?
-        data['hlsPackage'] = Builders::HlsPackage.build(input[:hls_package]) unless input[:hls_package].nil?
+        data['cmafPackage'] = CmafPackage.build(input[:cmaf_package]) unless input[:cmaf_package].nil?
+        data['dashPackage'] = DashPackage.build(input[:dash_package]) unless input[:dash_package].nil?
+        data['hlsPackage'] = HlsPackage.build(input[:hls_package]) unless input[:hls_package].nil?
         data['id'] = input[:id] unless input[:id].nil?
-        data['mssPackage'] = Builders::MssPackage.build(input[:mss_package]) unless input[:mss_package].nil?
+        data['mssPackage'] = MssPackage.build(input[:mss_package]) unless input[:mss_package].nil?
         data['packagingGroupId'] = input[:packaging_group_id] unless input[:packaging_group_id].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,8 +99,8 @@ module AWS::SDK::MediaPackageVod
     class MssPackage
       def self.build(input)
         data = {}
-        data['encryption'] = Builders::MssEncryption.build(input[:encryption]) unless input[:encryption].nil?
-        data['mssManifests'] = Builders::List____listOfMssManifest.build(input[:mss_manifests]) unless input[:mss_manifests].nil?
+        data['encryption'] = MssEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['mssManifests'] = List____listOfMssManifest.build(input[:mss_manifests]) unless input[:mss_manifests].nil?
         data['segmentDurationSeconds'] = input[:segment_duration_seconds] unless input[:segment_duration_seconds].nil?
         data
       end
@@ -109,7 +111,7 @@ module AWS::SDK::MediaPackageVod
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MssManifest.build(element) unless element.nil?
+          data << MssManifest.build(element) unless element.nil?
         end
         data
       end
@@ -120,7 +122,7 @@ module AWS::SDK::MediaPackageVod
       def self.build(input)
         data = {}
         data['manifestName'] = input[:manifest_name] unless input[:manifest_name].nil?
-        data['streamSelection'] = Builders::StreamSelection.build(input[:stream_selection]) unless input[:stream_selection].nil?
+        data['streamSelection'] = StreamSelection.build(input[:stream_selection]) unless input[:stream_selection].nil?
         data
       end
     end
@@ -140,7 +142,7 @@ module AWS::SDK::MediaPackageVod
     class MssEncryption
       def self.build(input)
         data = {}
-        data['spekeKeyProvider'] = Builders::SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
         data
       end
     end
@@ -150,7 +152,7 @@ module AWS::SDK::MediaPackageVod
       def self.build(input)
         data = {}
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['systemIds'] = Builders::List____listOf__string.build(input[:system_ids]) unless input[:system_ids].nil?
+        data['systemIds'] = List____listOf__string.build(input[:system_ids]) unless input[:system_ids].nil?
         data['url'] = input[:url] unless input[:url].nil?
         data
       end
@@ -171,8 +173,8 @@ module AWS::SDK::MediaPackageVod
     class HlsPackage
       def self.build(input)
         data = {}
-        data['encryption'] = Builders::HlsEncryption.build(input[:encryption]) unless input[:encryption].nil?
-        data['hlsManifests'] = Builders::List____listOfHlsManifest.build(input[:hls_manifests]) unless input[:hls_manifests].nil?
+        data['encryption'] = HlsEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['hlsManifests'] = List____listOfHlsManifest.build(input[:hls_manifests]) unless input[:hls_manifests].nil?
         data['includeDvbSubtitles'] = input[:include_dvb_subtitles] unless input[:include_dvb_subtitles].nil?
         data['segmentDurationSeconds'] = input[:segment_duration_seconds] unless input[:segment_duration_seconds].nil?
         data['useAudioRenditionGroup'] = input[:use_audio_rendition_group] unless input[:use_audio_rendition_group].nil?
@@ -185,7 +187,7 @@ module AWS::SDK::MediaPackageVod
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HlsManifest.build(element) unless element.nil?
+          data << HlsManifest.build(element) unless element.nil?
         end
         data
       end
@@ -200,7 +202,7 @@ module AWS::SDK::MediaPackageVod
         data['manifestName'] = input[:manifest_name] unless input[:manifest_name].nil?
         data['programDateTimeIntervalSeconds'] = input[:program_date_time_interval_seconds] unless input[:program_date_time_interval_seconds].nil?
         data['repeatExtXKey'] = input[:repeat_ext_x_key] unless input[:repeat_ext_x_key].nil?
-        data['streamSelection'] = Builders::StreamSelection.build(input[:stream_selection]) unless input[:stream_selection].nil?
+        data['streamSelection'] = StreamSelection.build(input[:stream_selection]) unless input[:stream_selection].nil?
         data
       end
     end
@@ -211,7 +213,7 @@ module AWS::SDK::MediaPackageVod
         data = {}
         data['constantInitializationVector'] = input[:constant_initialization_vector] unless input[:constant_initialization_vector].nil?
         data['encryptionMethod'] = input[:encryption_method] unless input[:encryption_method].nil?
-        data['spekeKeyProvider'] = Builders::SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
         data
       end
     end
@@ -220,10 +222,10 @@ module AWS::SDK::MediaPackageVod
     class DashPackage
       def self.build(input)
         data = {}
-        data['dashManifests'] = Builders::List____listOfDashManifest.build(input[:dash_manifests]) unless input[:dash_manifests].nil?
-        data['encryption'] = Builders::DashEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['dashManifests'] = List____listOfDashManifest.build(input[:dash_manifests]) unless input[:dash_manifests].nil?
+        data['encryption'] = DashEncryption.build(input[:encryption]) unless input[:encryption].nil?
         data['includeEncoderConfigurationInSegments'] = input[:include_encoder_configuration_in_segments] unless input[:include_encoder_configuration_in_segments].nil?
-        data['periodTriggers'] = Builders::List____listOf__PeriodTriggersElement.build(input[:period_triggers]) unless input[:period_triggers].nil?
+        data['periodTriggers'] = List____listOf__PeriodTriggersElement.build(input[:period_triggers]) unless input[:period_triggers].nil?
         data['segmentDurationSeconds'] = input[:segment_duration_seconds] unless input[:segment_duration_seconds].nil?
         data['segmentTemplateFormat'] = input[:segment_template_format] unless input[:segment_template_format].nil?
         data
@@ -245,7 +247,7 @@ module AWS::SDK::MediaPackageVod
     class DashEncryption
       def self.build(input)
         data = {}
-        data['spekeKeyProvider'] = Builders::SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
         data
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::MediaPackageVod
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DashManifest.build(element) unless element.nil?
+          data << DashManifest.build(element) unless element.nil?
         end
         data
       end
@@ -270,7 +272,7 @@ module AWS::SDK::MediaPackageVod
         data['minBufferTimeSeconds'] = input[:min_buffer_time_seconds] unless input[:min_buffer_time_seconds].nil?
         data['profile'] = input[:profile] unless input[:profile].nil?
         data['scteMarkersSource'] = input[:scte_markers_source] unless input[:scte_markers_source].nil?
-        data['streamSelection'] = Builders::StreamSelection.build(input[:stream_selection]) unless input[:stream_selection].nil?
+        data['streamSelection'] = StreamSelection.build(input[:stream_selection]) unless input[:stream_selection].nil?
         data
       end
     end
@@ -279,8 +281,8 @@ module AWS::SDK::MediaPackageVod
     class CmafPackage
       def self.build(input)
         data = {}
-        data['encryption'] = Builders::CmafEncryption.build(input[:encryption]) unless input[:encryption].nil?
-        data['hlsManifests'] = Builders::List____listOfHlsManifest.build(input[:hls_manifests]) unless input[:hls_manifests].nil?
+        data['encryption'] = CmafEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['hlsManifests'] = List____listOfHlsManifest.build(input[:hls_manifests]) unless input[:hls_manifests].nil?
         data['includeEncoderConfigurationInSegments'] = input[:include_encoder_configuration_in_segments] unless input[:include_encoder_configuration_in_segments].nil?
         data['segmentDurationSeconds'] = input[:segment_duration_seconds] unless input[:segment_duration_seconds].nil?
         data
@@ -292,7 +294,7 @@ module AWS::SDK::MediaPackageVod
       def self.build(input)
         data = {}
         data['constantInitializationVector'] = input[:constant_initialization_vector] unless input[:constant_initialization_vector].nil?
-        data['spekeKeyProvider'] = Builders::SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.build(input[:speke_key_provider]) unless input[:speke_key_provider].nil?
         data
       end
     end
@@ -307,11 +309,11 @@ module AWS::SDK::MediaPackageVod
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['authorization'] = Builders::Authorization.build(input[:authorization]) unless input[:authorization].nil?
-        data['egressAccessLogs'] = Builders::EgressAccessLogs.build(input[:egress_access_logs]) unless input[:egress_access_logs].nil?
+        data['authorization'] = Authorization.build(input[:authorization]) unless input[:authorization].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.build(input[:egress_access_logs]) unless input[:egress_access_logs].nil?
         data['id'] = input[:id] unless input[:id].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -499,8 +501,8 @@ module AWS::SDK::MediaPackageVod
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -554,8 +556,8 @@ module AWS::SDK::MediaPackageVod
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['authorization'] = Builders::Authorization.build(input[:authorization]) unless input[:authorization].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authorization'] = Authorization.build(input[:authorization]) unless input[:authorization].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

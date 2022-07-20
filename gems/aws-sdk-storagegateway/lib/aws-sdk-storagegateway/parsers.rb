@@ -30,7 +30,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.message = map['message']
-        data.error = (Parsers::StorageGatewayError.parse(map['error']) unless map['error'].nil?)
+        data.error = (StorageGatewayError.parse(map['error']) unless map['error'].nil?)
         data
       end
     end
@@ -39,7 +39,7 @@ module AWS::SDK::StorageGateway
       def self.parse(map)
         data = Types::StorageGatewayError.new
         data.error_code = map['errorCode']
-        data.error_details = (Parsers::ErrorDetails.parse(map['errorDetails']) unless map['errorDetails'].nil?)
+        data.error_details = (ErrorDetails.parse(map['errorDetails']) unless map['errorDetails'].nil?)
         return data
       end
     end
@@ -62,7 +62,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.message = map['message']
-        data.error = (Parsers::StorageGatewayError.parse(map['error']) unless map['error'].nil?)
+        data.error = (StorageGatewayError.parse(map['error']) unless map['error'].nil?)
         data
       end
     end
@@ -234,7 +234,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.message = map['message']
-        data.error = (Parsers::StorageGatewayError.parse(map['error']) unless map['error'].nil?)
+        data.error = (StorageGatewayError.parse(map['error']) unless map['error'].nil?)
         data
       end
     end
@@ -298,7 +298,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tape_ar_ns = (Parsers::TapeARNs.parse(map['TapeARNs']) unless map['TapeARNs'].nil?)
+        data.tape_ar_ns = (TapeARNs.parse(map['TapeARNs']) unless map['TapeARNs'].nil?)
         data
       end
     end
@@ -468,7 +468,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.bandwidth_rate_limit_intervals = (Parsers::BandwidthRateLimitIntervals.parse(map['BandwidthRateLimitIntervals']) unless map['BandwidthRateLimitIntervals'].nil?)
+        data.bandwidth_rate_limit_intervals = (BandwidthRateLimitIntervals.parse(map['BandwidthRateLimitIntervals']) unless map['BandwidthRateLimitIntervals'].nil?)
         data
       end
     end
@@ -476,7 +476,7 @@ module AWS::SDK::StorageGateway
     class BandwidthRateLimitIntervals
       def self.parse(list)
         list.map do |value|
-          Parsers::BandwidthRateLimitInterval.parse(value) unless value.nil?
+          BandwidthRateLimitInterval.parse(value) unless value.nil?
         end
       end
     end
@@ -488,7 +488,7 @@ module AWS::SDK::StorageGateway
         data.start_minute_of_hour = map['StartMinuteOfHour']
         data.end_hour_of_day = map['EndHourOfDay']
         data.end_minute_of_hour = map['EndMinuteOfHour']
-        data.days_of_week = (Parsers::DaysOfWeek.parse(map['DaysOfWeek']) unless map['DaysOfWeek'].nil?)
+        data.days_of_week = (DaysOfWeek.parse(map['DaysOfWeek']) unless map['DaysOfWeek'].nil?)
         data.average_upload_rate_limit_in_bits_per_sec = map['AverageUploadRateLimitInBitsPerSec']
         data.average_download_rate_limit_in_bits_per_sec = map['AverageDownloadRateLimitInBitsPerSec']
         return data
@@ -511,7 +511,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.disk_ids = (Parsers::DiskIds.parse(map['DiskIds']) unless map['DiskIds'].nil?)
+        data.disk_ids = (DiskIds.parse(map['DiskIds']) unless map['DiskIds'].nil?)
         data.cache_allocated_in_bytes = map['CacheAllocatedInBytes']
         data.cache_used_percentage = Hearth::NumberHelper.deserialize(map['CacheUsedPercentage'])
         data.cache_dirty_percentage = Hearth::NumberHelper.deserialize(map['CacheDirtyPercentage'])
@@ -536,7 +536,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cachedi_scsi_volumes = (Parsers::CachediSCSIVolumes.parse(map['CachediSCSIVolumes']) unless map['CachediSCSIVolumes'].nil?)
+        data.cachedi_scsi_volumes = (CachediSCSIVolumes.parse(map['CachediSCSIVolumes']) unless map['CachediSCSIVolumes'].nil?)
         data
       end
     end
@@ -544,7 +544,7 @@ module AWS::SDK::StorageGateway
     class CachediSCSIVolumes
       def self.parse(list)
         list.map do |value|
-          Parsers::CachediSCSIVolume.parse(value) unless value.nil?
+          CachediSCSIVolume.parse(value) unless value.nil?
         end
       end
     end
@@ -560,7 +560,7 @@ module AWS::SDK::StorageGateway
         data.volume_size_in_bytes = map['VolumeSizeInBytes']
         data.volume_progress = Hearth::NumberHelper.deserialize(map['VolumeProgress'])
         data.source_snapshot_id = map['SourceSnapshotId']
-        data.volumei_scsi_attributes = (Parsers::VolumeiSCSIAttributes.parse(map['VolumeiSCSIAttributes']) unless map['VolumeiSCSIAttributes'].nil?)
+        data.volumei_scsi_attributes = (VolumeiSCSIAttributes.parse(map['VolumeiSCSIAttributes']) unless map['VolumeiSCSIAttributes'].nil?)
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data.volume_used_in_bytes = map['VolumeUsedInBytes']
         data.kms_key = map['KMSKey']
@@ -588,7 +588,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.chap_credentials = (Parsers::ChapCredentials.parse(map['ChapCredentials']) unless map['ChapCredentials'].nil?)
+        data.chap_credentials = (ChapCredentials.parse(map['ChapCredentials']) unless map['ChapCredentials'].nil?)
         data
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::StorageGateway
     class ChapCredentials
       def self.parse(list)
         list.map do |value|
-          Parsers::ChapInfo.parse(value) unless value.nil?
+          ChapInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -619,7 +619,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.file_system_association_info_list = (Parsers::FileSystemAssociationInfoList.parse(map['FileSystemAssociationInfoList']) unless map['FileSystemAssociationInfoList'].nil?)
+        data.file_system_association_info_list = (FileSystemAssociationInfoList.parse(map['FileSystemAssociationInfoList']) unless map['FileSystemAssociationInfoList'].nil?)
         data
       end
     end
@@ -627,7 +627,7 @@ module AWS::SDK::StorageGateway
     class FileSystemAssociationInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::FileSystemAssociationInfo.parse(value) unless value.nil?
+          FileSystemAssociationInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -640,10 +640,10 @@ module AWS::SDK::StorageGateway
         data.file_system_association_status = map['FileSystemAssociationStatus']
         data.audit_destination_arn = map['AuditDestinationARN']
         data.gateway_arn = map['GatewayARN']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.cache_attributes = (Parsers::CacheAttributes.parse(map['CacheAttributes']) unless map['CacheAttributes'].nil?)
-        data.endpoint_network_configuration = (Parsers::EndpointNetworkConfiguration.parse(map['EndpointNetworkConfiguration']) unless map['EndpointNetworkConfiguration'].nil?)
-        data.file_system_association_status_details = (Parsers::FileSystemAssociationStatusDetails.parse(map['FileSystemAssociationStatusDetails']) unless map['FileSystemAssociationStatusDetails'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.cache_attributes = (CacheAttributes.parse(map['CacheAttributes']) unless map['CacheAttributes'].nil?)
+        data.endpoint_network_configuration = (EndpointNetworkConfiguration.parse(map['EndpointNetworkConfiguration']) unless map['EndpointNetworkConfiguration'].nil?)
+        data.file_system_association_status_details = (FileSystemAssociationStatusDetails.parse(map['FileSystemAssociationStatusDetails']) unless map['FileSystemAssociationStatusDetails'].nil?)
         return data
       end
     end
@@ -651,7 +651,7 @@ module AWS::SDK::StorageGateway
     class FileSystemAssociationStatusDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::FileSystemAssociationStatusDetail.parse(value) unless value.nil?
+          FileSystemAssociationStatusDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -667,7 +667,7 @@ module AWS::SDK::StorageGateway
     class EndpointNetworkConfiguration
       def self.parse(map)
         data = Types::EndpointNetworkConfiguration.new
-        data.ip_addresses = (Parsers::IpAddressList.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
+        data.ip_addresses = (IpAddressList.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
         return data
       end
     end
@@ -691,7 +691,7 @@ module AWS::SDK::StorageGateway
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -717,13 +717,13 @@ module AWS::SDK::StorageGateway
         data.gateway_name = map['GatewayName']
         data.gateway_timezone = map['GatewayTimezone']
         data.gateway_state = map['GatewayState']
-        data.gateway_network_interfaces = (Parsers::GatewayNetworkInterfaces.parse(map['GatewayNetworkInterfaces']) unless map['GatewayNetworkInterfaces'].nil?)
+        data.gateway_network_interfaces = (GatewayNetworkInterfaces.parse(map['GatewayNetworkInterfaces']) unless map['GatewayNetworkInterfaces'].nil?)
         data.gateway_type = map['GatewayType']
         data.next_update_availability_date = map['NextUpdateAvailabilityDate']
         data.last_software_update = map['LastSoftwareUpdate']
         data.ec2_instance_id = map['Ec2InstanceId']
         data.ec2_instance_region = map['Ec2InstanceRegion']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.vpc_endpoint = map['VPCEndpoint']
         data.cloud_watch_log_group_arn = map['CloudWatchLogGroupARN']
         data.host_environment = map['HostEnvironment']
@@ -731,7 +731,7 @@ module AWS::SDK::StorageGateway
         data.software_updates_end_date = map['SoftwareUpdatesEndDate']
         data.deprecation_date = map['DeprecationDate']
         data.gateway_capacity = map['GatewayCapacity']
-        data.supported_gateway_capacities = (Parsers::SupportedGatewayCapacities.parse(map['SupportedGatewayCapacities']) unless map['SupportedGatewayCapacities'].nil?)
+        data.supported_gateway_capacities = (SupportedGatewayCapacities.parse(map['SupportedGatewayCapacities']) unless map['SupportedGatewayCapacities'].nil?)
         data.host_environment_id = map['HostEnvironmentId']
         data
       end
@@ -748,7 +748,7 @@ module AWS::SDK::StorageGateway
     class GatewayNetworkInterfaces
       def self.parse(list)
         list.map do |value|
-          Parsers::NetworkInterface.parse(value) unless value.nil?
+          NetworkInterface.parse(value) unless value.nil?
         end
       end
     end
@@ -787,7 +787,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.nfs_file_share_info_list = (Parsers::NFSFileShareInfoList.parse(map['NFSFileShareInfoList']) unless map['NFSFileShareInfoList'].nil?)
+        data.nfs_file_share_info_list = (NFSFileShareInfoList.parse(map['NFSFileShareInfoList']) unless map['NFSFileShareInfoList'].nil?)
         data
       end
     end
@@ -795,7 +795,7 @@ module AWS::SDK::StorageGateway
     class NFSFileShareInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::NFSFileShareInfo.parse(value) unless value.nil?
+          NFSFileShareInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -803,7 +803,7 @@ module AWS::SDK::StorageGateway
     class NFSFileShareInfo
       def self.parse(map)
         data = Types::NFSFileShareInfo.new
-        data.nfs_file_share_defaults = (Parsers::NFSFileShareDefaults.parse(map['NFSFileShareDefaults']) unless map['NFSFileShareDefaults'].nil?)
+        data.nfs_file_share_defaults = (NFSFileShareDefaults.parse(map['NFSFileShareDefaults']) unless map['NFSFileShareDefaults'].nil?)
         data.file_share_arn = map['FileShareARN']
         data.file_share_id = map['FileShareId']
         data.file_share_status = map['FileShareStatus']
@@ -815,14 +815,14 @@ module AWS::SDK::StorageGateway
         data.location_arn = map['LocationARN']
         data.default_storage_class = map['DefaultStorageClass']
         data.object_acl = map['ObjectACL']
-        data.client_list = (Parsers::FileShareClientList.parse(map['ClientList']) unless map['ClientList'].nil?)
+        data.client_list = (FileShareClientList.parse(map['ClientList']) unless map['ClientList'].nil?)
         data.squash = map['Squash']
         data.read_only = map['ReadOnly']
         data.guess_mime_type_enabled = map['GuessMIMETypeEnabled']
         data.requester_pays = map['RequesterPays']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.file_share_name = map['FileShareName']
-        data.cache_attributes = (Parsers::CacheAttributes.parse(map['CacheAttributes']) unless map['CacheAttributes'].nil?)
+        data.cache_attributes = (CacheAttributes.parse(map['CacheAttributes']) unless map['CacheAttributes'].nil?)
         data.notification_policy = map['NotificationPolicy']
         data.vpc_endpoint_dns_name = map['VPCEndpointDNSName']
         data.bucket_region = map['BucketRegion']
@@ -857,7 +857,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.smb_file_share_info_list = (Parsers::SMBFileShareInfoList.parse(map['SMBFileShareInfoList']) unless map['SMBFileShareInfoList'].nil?)
+        data.smb_file_share_info_list = (SMBFileShareInfoList.parse(map['SMBFileShareInfoList']) unless map['SMBFileShareInfoList'].nil?)
         data
       end
     end
@@ -865,7 +865,7 @@ module AWS::SDK::StorageGateway
     class SMBFileShareInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::SMBFileShareInfo.parse(value) unless value.nil?
+          SMBFileShareInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -889,15 +889,15 @@ module AWS::SDK::StorageGateway
         data.requester_pays = map['RequesterPays']
         data.smbacl_enabled = map['SMBACLEnabled']
         data.access_based_enumeration = map['AccessBasedEnumeration']
-        data.admin_user_list = (Parsers::UserList.parse(map['AdminUserList']) unless map['AdminUserList'].nil?)
-        data.valid_user_list = (Parsers::UserList.parse(map['ValidUserList']) unless map['ValidUserList'].nil?)
-        data.invalid_user_list = (Parsers::UserList.parse(map['InvalidUserList']) unless map['InvalidUserList'].nil?)
+        data.admin_user_list = (UserList.parse(map['AdminUserList']) unless map['AdminUserList'].nil?)
+        data.valid_user_list = (UserList.parse(map['ValidUserList']) unless map['ValidUserList'].nil?)
+        data.invalid_user_list = (UserList.parse(map['InvalidUserList']) unless map['InvalidUserList'].nil?)
         data.audit_destination_arn = map['AuditDestinationARN']
         data.authentication = map['Authentication']
         data.case_sensitivity = map['CaseSensitivity']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.file_share_name = map['FileShareName']
-        data.cache_attributes = (Parsers::CacheAttributes.parse(map['CacheAttributes']) unless map['CacheAttributes'].nil?)
+        data.cache_attributes = (CacheAttributes.parse(map['CacheAttributes']) unless map['CacheAttributes'].nil?)
         data.notification_policy = map['NotificationPolicy']
         data.vpc_endpoint_dns_name = map['VPCEndpointDNSName']
         data.bucket_region = map['BucketRegion']
@@ -927,7 +927,7 @@ module AWS::SDK::StorageGateway
         data.smb_guest_password_set = map['SMBGuestPasswordSet']
         data.smb_security_strategy = map['SMBSecurityStrategy']
         data.file_shares_visible = map['FileSharesVisible']
-        data.smb_local_groups = (Parsers::SMBLocalGroups.parse(map['SMBLocalGroups']) unless map['SMBLocalGroups'].nil?)
+        data.smb_local_groups = (SMBLocalGroups.parse(map['SMBLocalGroups']) unless map['SMBLocalGroups'].nil?)
         data
       end
     end
@@ -935,7 +935,7 @@ module AWS::SDK::StorageGateway
     class SMBLocalGroups
       def self.parse(map)
         data = Types::SMBLocalGroups.new
-        data.gateway_admins = (Parsers::UserList.parse(map['GatewayAdmins']) unless map['GatewayAdmins'].nil?)
+        data.gateway_admins = (UserList.parse(map['GatewayAdmins']) unless map['GatewayAdmins'].nil?)
         return data
       end
     end
@@ -952,7 +952,7 @@ module AWS::SDK::StorageGateway
         data.recurrence_in_hours = map['RecurrenceInHours']
         data.description = map['Description']
         data.timezone = map['Timezone']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -964,7 +964,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.storedi_scsi_volumes = (Parsers::StorediSCSIVolumes.parse(map['StorediSCSIVolumes']) unless map['StorediSCSIVolumes'].nil?)
+        data.storedi_scsi_volumes = (StorediSCSIVolumes.parse(map['StorediSCSIVolumes']) unless map['StorediSCSIVolumes'].nil?)
         data
       end
     end
@@ -972,7 +972,7 @@ module AWS::SDK::StorageGateway
     class StorediSCSIVolumes
       def self.parse(list)
         list.map do |value|
-          Parsers::StorediSCSIVolume.parse(value) unless value.nil?
+          StorediSCSIVolume.parse(value) unless value.nil?
         end
       end
     end
@@ -990,7 +990,7 @@ module AWS::SDK::StorageGateway
         data.volume_disk_id = map['VolumeDiskId']
         data.source_snapshot_id = map['SourceSnapshotId']
         data.preserved_existing_data = map['PreservedExistingData']
-        data.volumei_scsi_attributes = (Parsers::VolumeiSCSIAttributes.parse(map['VolumeiSCSIAttributes']) unless map['VolumeiSCSIAttributes'].nil?)
+        data.volumei_scsi_attributes = (VolumeiSCSIAttributes.parse(map['VolumeiSCSIAttributes']) unless map['VolumeiSCSIAttributes'].nil?)
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data.volume_used_in_bytes = map['VolumeUsedInBytes']
         data.kms_key = map['KMSKey']
@@ -1006,7 +1006,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tape_archives = (Parsers::TapeArchives.parse(map['TapeArchives']) unless map['TapeArchives'].nil?)
+        data.tape_archives = (TapeArchives.parse(map['TapeArchives']) unless map['TapeArchives'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1015,7 +1015,7 @@ module AWS::SDK::StorageGateway
     class TapeArchives
       def self.parse(list)
         list.map do |value|
-          Parsers::TapeArchive.parse(value) unless value.nil?
+          TapeArchive.parse(value) unless value.nil?
         end
       end
     end
@@ -1048,7 +1048,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.tape_recovery_point_infos = (Parsers::TapeRecoveryPointInfos.parse(map['TapeRecoveryPointInfos']) unless map['TapeRecoveryPointInfos'].nil?)
+        data.tape_recovery_point_infos = (TapeRecoveryPointInfos.parse(map['TapeRecoveryPointInfos']) unless map['TapeRecoveryPointInfos'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1057,7 +1057,7 @@ module AWS::SDK::StorageGateway
     class TapeRecoveryPointInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::TapeRecoveryPointInfo.parse(value) unless value.nil?
+          TapeRecoveryPointInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1080,7 +1080,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tapes = (Parsers::Tapes.parse(map['Tapes']) unless map['Tapes'].nil?)
+        data.tapes = (Tapes.parse(map['Tapes']) unless map['Tapes'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1089,7 +1089,7 @@ module AWS::SDK::StorageGateway
     class Tapes
       def self.parse(list)
         list.map do |value|
-          Parsers::Tape.parse(value) unless value.nil?
+          Tape.parse(value) unless value.nil?
         end
       end
     end
@@ -1122,7 +1122,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.disk_ids = (Parsers::DiskIds.parse(map['DiskIds']) unless map['DiskIds'].nil?)
+        data.disk_ids = (DiskIds.parse(map['DiskIds']) unless map['DiskIds'].nil?)
         data.upload_buffer_used_in_bytes = map['UploadBufferUsedInBytes']
         data.upload_buffer_allocated_in_bytes = map['UploadBufferAllocatedInBytes']
         data
@@ -1137,7 +1137,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.vtl_devices = (Parsers::VTLDevices.parse(map['VTLDevices']) unless map['VTLDevices'].nil?)
+        data.vtl_devices = (VTLDevices.parse(map['VTLDevices']) unless map['VTLDevices'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1146,7 +1146,7 @@ module AWS::SDK::StorageGateway
     class VTLDevices
       def self.parse(list)
         list.map do |value|
-          Parsers::VTLDevice.parse(value) unless value.nil?
+          VTLDevice.parse(value) unless value.nil?
         end
       end
     end
@@ -1158,7 +1158,7 @@ module AWS::SDK::StorageGateway
         data.vtl_device_type = map['VTLDeviceType']
         data.vtl_device_vendor = map['VTLDeviceVendor']
         data.vtl_device_product_identifier = map['VTLDeviceProductIdentifier']
-        data.devicei_scsi_attributes = (Parsers::DeviceiSCSIAttributes.parse(map['DeviceiSCSIAttributes']) unless map['DeviceiSCSIAttributes'].nil?)
+        data.devicei_scsi_attributes = (DeviceiSCSIAttributes.parse(map['DeviceiSCSIAttributes']) unless map['DeviceiSCSIAttributes'].nil?)
         return data
       end
     end
@@ -1182,7 +1182,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.disk_ids = (Parsers::DiskIds.parse(map['DiskIds']) unless map['DiskIds'].nil?)
+        data.disk_ids = (DiskIds.parse(map['DiskIds']) unless map['DiskIds'].nil?)
         data.working_storage_used_in_bytes = map['WorkingStorageUsedInBytes']
         data.working_storage_allocated_in_bytes = map['WorkingStorageAllocatedInBytes']
         data
@@ -1245,7 +1245,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.automatic_tape_creation_policy_infos = (Parsers::AutomaticTapeCreationPolicyInfos.parse(map['AutomaticTapeCreationPolicyInfos']) unless map['AutomaticTapeCreationPolicyInfos'].nil?)
+        data.automatic_tape_creation_policy_infos = (AutomaticTapeCreationPolicyInfos.parse(map['AutomaticTapeCreationPolicyInfos']) unless map['AutomaticTapeCreationPolicyInfos'].nil?)
         data
       end
     end
@@ -1253,7 +1253,7 @@ module AWS::SDK::StorageGateway
     class AutomaticTapeCreationPolicyInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::AutomaticTapeCreationPolicyInfo.parse(value) unless value.nil?
+          AutomaticTapeCreationPolicyInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1261,7 +1261,7 @@ module AWS::SDK::StorageGateway
     class AutomaticTapeCreationPolicyInfo
       def self.parse(map)
         data = Types::AutomaticTapeCreationPolicyInfo.new
-        data.automatic_tape_creation_rules = (Parsers::AutomaticTapeCreationRules.parse(map['AutomaticTapeCreationRules']) unless map['AutomaticTapeCreationRules'].nil?)
+        data.automatic_tape_creation_rules = (AutomaticTapeCreationRules.parse(map['AutomaticTapeCreationRules']) unless map['AutomaticTapeCreationRules'].nil?)
         data.gateway_arn = map['GatewayARN']
         return data
       end
@@ -1270,7 +1270,7 @@ module AWS::SDK::StorageGateway
     class AutomaticTapeCreationRules
       def self.parse(list)
         list.map do |value|
-          Parsers::AutomaticTapeCreationRule.parse(value) unless value.nil?
+          AutomaticTapeCreationRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1296,7 +1296,7 @@ module AWS::SDK::StorageGateway
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
         data.next_marker = map['NextMarker']
-        data.file_share_info_list = (Parsers::FileShareInfoList.parse(map['FileShareInfoList']) unless map['FileShareInfoList'].nil?)
+        data.file_share_info_list = (FileShareInfoList.parse(map['FileShareInfoList']) unless map['FileShareInfoList'].nil?)
         data
       end
     end
@@ -1304,7 +1304,7 @@ module AWS::SDK::StorageGateway
     class FileShareInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::FileShareInfo.parse(value) unless value.nil?
+          FileShareInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1330,7 +1330,7 @@ module AWS::SDK::StorageGateway
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
         data.next_marker = map['NextMarker']
-        data.file_system_association_summary_list = (Parsers::FileSystemAssociationSummaryList.parse(map['FileSystemAssociationSummaryList']) unless map['FileSystemAssociationSummaryList'].nil?)
+        data.file_system_association_summary_list = (FileSystemAssociationSummaryList.parse(map['FileSystemAssociationSummaryList']) unless map['FileSystemAssociationSummaryList'].nil?)
         data
       end
     end
@@ -1338,7 +1338,7 @@ module AWS::SDK::StorageGateway
     class FileSystemAssociationSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::FileSystemAssociationSummary.parse(value) unless value.nil?
+          FileSystemAssociationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1361,7 +1361,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.gateways = (Parsers::Gateways.parse(map['Gateways']) unless map['Gateways'].nil?)
+        data.gateways = (Gateways.parse(map['Gateways']) unless map['Gateways'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1370,7 +1370,7 @@ module AWS::SDK::StorageGateway
     class Gateways
       def self.parse(list)
         list.map do |value|
-          Parsers::GatewayInfo.parse(value) unless value.nil?
+          GatewayInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1399,7 +1399,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.disks = (Parsers::Disks.parse(map['Disks']) unless map['Disks'].nil?)
+        data.disks = (Disks.parse(map['Disks']) unless map['Disks'].nil?)
         data
       end
     end
@@ -1407,7 +1407,7 @@ module AWS::SDK::StorageGateway
     class Disks
       def self.parse(list)
         list.map do |value|
-          Parsers::Disk.parse(value) unless value.nil?
+          Disk.parse(value) unless value.nil?
         end
       end
     end
@@ -1422,7 +1422,7 @@ module AWS::SDK::StorageGateway
         data.disk_size_in_bytes = map['DiskSizeInBytes']
         data.disk_allocation_type = map['DiskAllocationType']
         data.disk_allocation_resource = map['DiskAllocationResource']
-        data.disk_attribute_list = (Parsers::DiskAttributeList.parse(map['DiskAttributeList']) unless map['DiskAttributeList'].nil?)
+        data.disk_attribute_list = (DiskAttributeList.parse(map['DiskAttributeList']) unless map['DiskAttributeList'].nil?)
         return data
       end
     end
@@ -1444,7 +1444,7 @@ module AWS::SDK::StorageGateway
         map = Hearth::JSON.load(body)
         data.resource_arn = map['ResourceARN']
         data.marker = map['Marker']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1456,7 +1456,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pool_infos = (Parsers::PoolInfos.parse(map['PoolInfos']) unless map['PoolInfos'].nil?)
+        data.pool_infos = (PoolInfos.parse(map['PoolInfos']) unless map['PoolInfos'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1465,7 +1465,7 @@ module AWS::SDK::StorageGateway
     class PoolInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::PoolInfo.parse(value) unless value.nil?
+          PoolInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1490,7 +1490,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tape_infos = (Parsers::TapeInfos.parse(map['TapeInfos']) unless map['TapeInfos'].nil?)
+        data.tape_infos = (TapeInfos.parse(map['TapeInfos']) unless map['TapeInfos'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1499,7 +1499,7 @@ module AWS::SDK::StorageGateway
     class TapeInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::TapeInfo.parse(value) unless value.nil?
+          TapeInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1526,7 +1526,7 @@ module AWS::SDK::StorageGateway
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.initiators = (Parsers::Initiators.parse(map['Initiators']) unless map['Initiators'].nil?)
+        data.initiators = (Initiators.parse(map['Initiators']) unless map['Initiators'].nil?)
         data
       end
     end
@@ -1547,7 +1547,7 @@ module AWS::SDK::StorageGateway
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
-        data.volume_recovery_point_infos = (Parsers::VolumeRecoveryPointInfos.parse(map['VolumeRecoveryPointInfos']) unless map['VolumeRecoveryPointInfos'].nil?)
+        data.volume_recovery_point_infos = (VolumeRecoveryPointInfos.parse(map['VolumeRecoveryPointInfos']) unless map['VolumeRecoveryPointInfos'].nil?)
         data
       end
     end
@@ -1555,7 +1555,7 @@ module AWS::SDK::StorageGateway
     class VolumeRecoveryPointInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::VolumeRecoveryPointInfo.parse(value) unless value.nil?
+          VolumeRecoveryPointInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1580,7 +1580,7 @@ module AWS::SDK::StorageGateway
         map = Hearth::JSON.load(body)
         data.gateway_arn = map['GatewayARN']
         data.marker = map['Marker']
-        data.volume_infos = (Parsers::VolumeInfos.parse(map['VolumeInfos']) unless map['VolumeInfos'].nil?)
+        data.volume_infos = (VolumeInfos.parse(map['VolumeInfos']) unless map['VolumeInfos'].nil?)
         data
       end
     end
@@ -1588,7 +1588,7 @@ module AWS::SDK::StorageGateway
     class VolumeInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::VolumeInfo.parse(value) unless value.nil?
+          VolumeInfo.parse(value) unless value.nil?
         end
       end
     end

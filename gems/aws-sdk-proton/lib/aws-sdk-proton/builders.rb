@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Proton
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.AcceptEnvironmentAccountConnection'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.CancelComponentDeployment'
         data = {}
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.CancelEnvironmentDeployment'
         data = {}
         data['environmentName'] = input[:environment_name] unless input[:environment_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::Proton
         data = {}
         data['serviceInstanceName'] = input[:service_instance_name] unless input[:service_instance_name].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,7 +74,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.CancelServicePipelineDeployment'
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -92,8 +94,8 @@ module AWS::SDK::Proton
         data['templateFile'] = input[:template_file] unless input[:template_file].nil?
         data['manifest'] = input[:manifest] unless input[:manifest].nil?
         data['serviceSpec'] = input[:service_spec] unless input[:service_spec].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -102,7 +104,7 @@ module AWS::SDK::Proton
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -134,10 +136,10 @@ module AWS::SDK::Proton
         data['spec'] = input[:spec] unless input[:spec].nil?
         data['protonServiceRoleArn'] = input[:proton_service_role_arn] unless input[:proton_service_role_arn].nil?
         data['environmentAccountConnectionId'] = input[:environment_account_connection_id] unless input[:environment_account_connection_id].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['provisioningRepository'] = Builders::RepositoryBranchInput.build(input[:provisioning_repository]) unless input[:provisioning_repository].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['provisioningRepository'] = RepositoryBranchInput.build(input[:provisioning_repository]) unless input[:provisioning_repository].nil?
         data['componentRoleArn'] = input[:component_role_arn] unless input[:component_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,9 +166,9 @@ module AWS::SDK::Proton
         data['managementAccountId'] = input[:management_account_id] unless input[:management_account_id].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['environmentName'] = input[:environment_name] unless input[:environment_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['componentRoleArn'] = input[:component_role_arn] unless input[:component_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -183,8 +185,8 @@ module AWS::SDK::Proton
         data['description'] = input[:description] unless input[:description].nil?
         data['encryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
         data['provisioning'] = input[:provisioning] unless input[:provisioning].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -200,9 +202,9 @@ module AWS::SDK::Proton
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
-        data['source'] = Builders::TemplateVersionSourceInput.build(input[:source]) unless input[:source].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['source'] = TemplateVersionSourceInput.build(input[:source]) unless input[:source].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,7 +214,7 @@ module AWS::SDK::Proton
         data = {}
         case input
         when Types::TemplateVersionSourceInput::S3
-          data['s3'] = (Builders::S3ObjectSource.build(input) unless input.nil?)
+          data['s3'] = (S3ObjectSource.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::TemplateVersionSourceInput"
@@ -244,8 +246,8 @@ module AWS::SDK::Proton
         data['name'] = input[:name] unless input[:name].nil?
         data['connectionArn'] = input[:connection_arn] unless input[:connection_arn].nil?
         data['encryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -266,8 +268,8 @@ module AWS::SDK::Proton
         data['repositoryConnectionArn'] = input[:repository_connection_arn] unless input[:repository_connection_arn].nil?
         data['repositoryId'] = input[:repository_id] unless input[:repository_id].nil?
         data['branchName'] = input[:branch_name] unless input[:branch_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,8 +286,8 @@ module AWS::SDK::Proton
         data['description'] = input[:description] unless input[:description].nil?
         data['encryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
         data['pipelineProvisioning'] = input[:pipeline_provisioning] unless input[:pipeline_provisioning].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,11 +303,11 @@ module AWS::SDK::Proton
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
-        data['source'] = Builders::TemplateVersionSourceInput.build(input[:source]) unless input[:source].nil?
-        data['compatibleEnvironmentTemplates'] = Builders::CompatibleEnvironmentTemplateInputList.build(input[:compatible_environment_templates]) unless input[:compatible_environment_templates].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['supportedComponentSources'] = Builders::ServiceTemplateSupportedComponentSourceInputList.build(input[:supported_component_sources]) unless input[:supported_component_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['source'] = TemplateVersionSourceInput.build(input[:source]) unless input[:source].nil?
+        data['compatibleEnvironmentTemplates'] = CompatibleEnvironmentTemplateInputList.build(input[:compatible_environment_templates]) unless input[:compatible_environment_templates].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['supportedComponentSources'] = ServiceTemplateSupportedComponentSourceInputList.build(input[:supported_component_sources]) unless input[:supported_component_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,7 +327,7 @@ module AWS::SDK::Proton
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CompatibleEnvironmentTemplateInput.build(element) unless element.nil?
+          data << CompatibleEnvironmentTemplateInput.build(element) unless element.nil?
         end
         data
       end
@@ -355,7 +357,7 @@ module AWS::SDK::Proton
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['branch'] = input[:branch] unless input[:branch].nil?
         data['subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -368,7 +370,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.DeleteComponent'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -381,7 +383,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.DeleteEnvironment'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.DeleteEnvironmentAccountConnection'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -407,7 +409,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.DeleteEnvironmentTemplate'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -422,7 +424,7 @@ module AWS::SDK::Proton
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
         data['minorVersion'] = input[:minor_version] unless input[:minor_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -436,7 +438,7 @@ module AWS::SDK::Proton
         data = {}
         data['provider'] = input[:provider] unless input[:provider].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -449,7 +451,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.DeleteService'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.DeleteServiceTemplate'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -477,7 +479,7 @@ module AWS::SDK::Proton
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
         data['minorVersion'] = input[:minor_version] unless input[:minor_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -491,7 +493,7 @@ module AWS::SDK::Proton
         data = {}
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['templateType'] = input[:template_type] unless input[:template_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -503,7 +505,7 @@ module AWS::SDK::Proton
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.GetAccountSettings'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -516,7 +518,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.GetComponent'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -529,7 +531,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.GetEnvironment'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -542,7 +544,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.GetEnvironmentAccountConnection'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -555,7 +557,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.GetEnvironmentTemplate'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,7 +572,7 @@ module AWS::SDK::Proton
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
         data['minorVersion'] = input[:minor_version] unless input[:minor_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,7 +586,7 @@ module AWS::SDK::Proton
         data = {}
         data['provider'] = input[:provider] unless input[:provider].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -600,7 +602,7 @@ module AWS::SDK::Proton
         data['repositoryProvider'] = input[:repository_provider] unless input[:repository_provider].nil?
         data['branch'] = input[:branch] unless input[:branch].nil?
         data['syncType'] = input[:sync_type] unless input[:sync_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -613,7 +615,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.GetService'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -627,7 +629,7 @@ module AWS::SDK::Proton
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -640,7 +642,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.GetServiceTemplate'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::Proton
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
         data['minorVersion'] = input[:minor_version] unless input[:minor_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -669,7 +671,7 @@ module AWS::SDK::Proton
         data = {}
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['templateType'] = input[:template_type] unless input[:template_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -684,7 +686,7 @@ module AWS::SDK::Proton
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['templateType'] = input[:template_type] unless input[:template_type].nil?
         data['templateVersion'] = input[:template_version] unless input[:template_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -698,7 +700,7 @@ module AWS::SDK::Proton
         data = {}
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -712,7 +714,7 @@ module AWS::SDK::Proton
         data = {}
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -729,7 +731,7 @@ module AWS::SDK::Proton
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['serviceInstanceName'] = input[:service_instance_name] unless input[:service_instance_name].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -743,10 +745,10 @@ module AWS::SDK::Proton
         data = {}
         data['requestedBy'] = input[:requested_by] unless input[:requested_by].nil?
         data['environmentName'] = input[:environment_name] unless input[:environment_name].nil?
-        data['statuses'] = Builders::EnvironmentAccountConnectionStatusList.build(input[:statuses]) unless input[:statuses].nil?
+        data['statuses'] = EnvironmentAccountConnectionStatusList.build(input[:statuses]) unless input[:statuses].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -771,7 +773,7 @@ module AWS::SDK::Proton
         data = {}
         data['environmentName'] = input[:environment_name] unless input[:environment_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -785,7 +787,7 @@ module AWS::SDK::Proton
         data = {}
         data['environmentName'] = input[:environment_name] unless input[:environment_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -801,7 +803,7 @@ module AWS::SDK::Proton
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -815,7 +817,7 @@ module AWS::SDK::Proton
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -829,8 +831,8 @@ module AWS::SDK::Proton
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['environmentTemplates'] = Builders::EnvironmentTemplateFilterList.build(input[:environment_templates]) unless input[:environment_templates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environmentTemplates'] = EnvironmentTemplateFilterList.build(input[:environment_templates]) unless input[:environment_templates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -839,7 +841,7 @@ module AWS::SDK::Proton
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EnvironmentTemplateFilter.build(element) unless element.nil?
+          data << EnvironmentTemplateFilter.build(element) unless element.nil?
         end
         data
       end
@@ -865,7 +867,7 @@ module AWS::SDK::Proton
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -881,7 +883,7 @@ module AWS::SDK::Proton
         data['repositoryProvider'] = input[:repository_provider] unless input[:repository_provider].nil?
         data['syncType'] = input[:sync_type] unless input[:sync_type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -896,7 +898,7 @@ module AWS::SDK::Proton
         data['serviceInstanceName'] = input[:service_instance_name] unless input[:service_instance_name].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -911,7 +913,7 @@ module AWS::SDK::Proton
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['serviceInstanceName'] = input[:service_instance_name] unless input[:service_instance_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -926,7 +928,7 @@ module AWS::SDK::Proton
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -940,7 +942,7 @@ module AWS::SDK::Proton
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,7 +956,7 @@ module AWS::SDK::Proton
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -970,7 +972,7 @@ module AWS::SDK::Proton
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['templateName'] = input[:template_name] unless input[:template_name].nil?
         data['majorVersion'] = input[:major_version] unless input[:major_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -984,7 +986,7 @@ module AWS::SDK::Proton
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -998,7 +1000,7 @@ module AWS::SDK::Proton
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1013,7 +1015,7 @@ module AWS::SDK::Proton
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1027,10 +1029,10 @@ module AWS::SDK::Proton
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        data['outputs'] = Builders::OutputsList.build(input[:outputs]) unless input[:outputs].nil?
+        data['outputs'] = OutputsList.build(input[:outputs]) unless input[:outputs].nil?
         data['deploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['statusMessage'] = input[:status_message] unless input[:status_message].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1039,7 +1041,7 @@ module AWS::SDK::Proton
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Output.build(element) unless element.nil?
+          data << Output.build(element) unless element.nil?
         end
         data
       end
@@ -1064,7 +1066,7 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.RejectEnvironmentAccountConnection'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1077,8 +1079,8 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1091,8 +1093,8 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1116,8 +1118,8 @@ module AWS::SDK::Proton
         http_req.headers['X-Amz-Target'] = 'AwsProton20200720.UpdateAccountSettings'
         data = {}
         data['pipelineServiceRoleArn'] = input[:pipeline_service_role_arn] unless input[:pipeline_service_role_arn].nil?
-        data['pipelineProvisioningRepository'] = Builders::RepositoryBranchInput.build(input[:pipeline_provisioning_repository]) unless input[:pipeline_provisioning_repository].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipelineProvisioningRepository'] = RepositoryBranchInput.build(input[:pipeline_provisioning_repository]) unless input[:pipeline_provisioning_repository].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1136,7 +1138,7 @@ module AWS::SDK::Proton
         data['serviceInstanceName'] = input[:service_instance_name] unless input[:service_instance_name].nil?
         data['serviceSpec'] = input[:service_spec] unless input[:service_spec].nil?
         data['templateFile'] = input[:template_file] unless input[:template_file].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1156,9 +1158,9 @@ module AWS::SDK::Proton
         data['protonServiceRoleArn'] = input[:proton_service_role_arn] unless input[:proton_service_role_arn].nil?
         data['deploymentType'] = input[:deployment_type] unless input[:deployment_type].nil?
         data['environmentAccountConnectionId'] = input[:environment_account_connection_id] unless input[:environment_account_connection_id].nil?
-        data['provisioningRepository'] = Builders::RepositoryBranchInput.build(input[:provisioning_repository]) unless input[:provisioning_repository].nil?
+        data['provisioningRepository'] = RepositoryBranchInput.build(input[:provisioning_repository]) unless input[:provisioning_repository].nil?
         data['componentRoleArn'] = input[:component_role_arn] unless input[:component_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1173,7 +1175,7 @@ module AWS::SDK::Proton
         data['id'] = input[:id] unless input[:id].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['componentRoleArn'] = input[:component_role_arn] unless input[:component_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,7 +1190,7 @@ module AWS::SDK::Proton
         data['name'] = input[:name] unless input[:name].nil?
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1205,7 +1207,7 @@ module AWS::SDK::Proton
         data['minorVersion'] = input[:minor_version] unless input[:minor_version].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1220,7 +1222,7 @@ module AWS::SDK::Proton
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['spec'] = input[:spec] unless input[:spec].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1238,7 +1240,7 @@ module AWS::SDK::Proton
         data['spec'] = input[:spec] unless input[:spec].nil?
         data['templateMajorVersion'] = input[:template_major_version] unless input[:template_major_version].nil?
         data['templateMinorVersion'] = input[:template_minor_version] unless input[:template_minor_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1255,7 +1257,7 @@ module AWS::SDK::Proton
         data['deploymentType'] = input[:deployment_type] unless input[:deployment_type].nil?
         data['templateMajorVersion'] = input[:template_major_version] unless input[:template_major_version].nil?
         data['templateMinorVersion'] = input[:template_minor_version] unless input[:template_minor_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1270,7 +1272,7 @@ module AWS::SDK::Proton
         data['name'] = input[:name] unless input[:name].nil?
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1287,9 +1289,9 @@ module AWS::SDK::Proton
         data['minorVersion'] = input[:minor_version] unless input[:minor_version].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        data['compatibleEnvironmentTemplates'] = Builders::CompatibleEnvironmentTemplateInputList.build(input[:compatible_environment_templates]) unless input[:compatible_environment_templates].nil?
-        data['supportedComponentSources'] = Builders::ServiceTemplateSupportedComponentSourceInputList.build(input[:supported_component_sources]) unless input[:supported_component_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['compatibleEnvironmentTemplates'] = CompatibleEnvironmentTemplateInputList.build(input[:compatible_environment_templates]) unless input[:compatible_environment_templates].nil?
+        data['supportedComponentSources'] = ServiceTemplateSupportedComponentSourceInputList.build(input[:supported_component_sources]) unless input[:supported_component_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1307,7 +1309,7 @@ module AWS::SDK::Proton
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['branch'] = input[:branch] unless input[:branch].nil?
         data['subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

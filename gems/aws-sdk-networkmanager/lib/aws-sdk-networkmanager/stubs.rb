@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::NetworkManager
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,8 +65,8 @@ module AWS::SDK::NetworkManager
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['AttachmentPolicyRuleNumber'] = stub[:attachment_policy_rule_number] unless stub[:attachment_policy_rule_number].nil?
         data['SegmentName'] = stub[:segment_name] unless stub[:segment_name].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ProposedSegmentChange'] = Stubs::ProposedSegmentChange.stub(stub[:proposed_segment_change]) unless stub[:proposed_segment_change].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ProposedSegmentChange'] = ProposedSegmentChange.stub(stub[:proposed_segment_change]) unless stub[:proposed_segment_change].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data
@@ -86,7 +88,7 @@ module AWS::SDK::NetworkManager
       def self.stub(stub)
         stub ||= Types::ProposedSegmentChange.new
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['AttachmentPolicyRuleNumber'] = stub[:attachment_policy_rule_number] unless stub[:attachment_policy_rule_number].nil?
         data['SegmentName'] = stub[:segment_name] unless stub[:segment_name].nil?
         data
@@ -107,7 +109,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -145,8 +147,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectPeerAssociation'] = Stubs::ConnectPeerAssociation.stub(stub[:connect_peer_association]) unless stub[:connect_peer_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectPeerAssociation'] = ConnectPeerAssociation.stub(stub[:connect_peer_association]) unless stub[:connect_peer_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,8 +190,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CustomerGatewayAssociation'] = Stubs::CustomerGatewayAssociation.stub(stub[:customer_gateway_association]) unless stub[:customer_gateway_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomerGatewayAssociation'] = CustomerGatewayAssociation.stub(stub[:customer_gateway_association]) unless stub[:customer_gateway_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,8 +233,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LinkAssociation'] = Stubs::LinkAssociation.stub(stub[:link_association]) unless stub[:link_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LinkAssociation'] = LinkAssociation.stub(stub[:link_association]) unless stub[:link_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,8 +274,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TransitGatewayConnectPeerAssociation'] = Stubs::TransitGatewayConnectPeerAssociation.stub(stub[:transit_gateway_connect_peer_association]) unless stub[:transit_gateway_connect_peer_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TransitGatewayConnectPeerAssociation'] = TransitGatewayConnectPeerAssociation.stub(stub[:transit_gateway_connect_peer_association]) unless stub[:transit_gateway_connect_peer_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,8 +317,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectAttachment'] = Stubs::ConnectAttachment.stub(stub[:connect_attachment]) unless stub[:connect_attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectAttachment'] = ConnectAttachment.stub(stub[:connect_attachment]) unless stub[:connect_attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -335,9 +337,9 @@ module AWS::SDK::NetworkManager
       def self.stub(stub)
         stub ||= Types::ConnectAttachment.new
         data = {}
-        data['Attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        data['Attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
         data['TransportAttachmentId'] = stub[:transport_attachment_id] unless stub[:transport_attachment_id].nil?
-        data['Options'] = Stubs::ConnectAttachmentOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Options'] = ConnectAttachmentOptions.stub(stub[:options]) unless stub[:options].nil?
         data
       end
     end
@@ -372,8 +374,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectPeer'] = Stubs::ConnectPeer.stub(stub[:connect_peer]) unless stub[:connect_peer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectPeer'] = ConnectPeer.stub(stub[:connect_peer]) unless stub[:connect_peer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,8 +405,8 @@ module AWS::SDK::NetworkManager
         data['EdgeLocation'] = stub[:edge_location] unless stub[:edge_location].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['Configuration'] = Stubs::ConnectPeerConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Configuration'] = ConnectPeerConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -428,9 +430,9 @@ module AWS::SDK::NetworkManager
         data = {}
         data['CoreNetworkAddress'] = stub[:core_network_address] unless stub[:core_network_address].nil?
         data['PeerAddress'] = stub[:peer_address] unless stub[:peer_address].nil?
-        data['InsideCidrBlocks'] = Stubs::ConstrainedStringList.stub(stub[:inside_cidr_blocks]) unless stub[:inside_cidr_blocks].nil?
+        data['InsideCidrBlocks'] = ConstrainedStringList.stub(stub[:inside_cidr_blocks]) unless stub[:inside_cidr_blocks].nil?
         data['Protocol'] = stub[:protocol] unless stub[:protocol].nil?
-        data['BgpConfigurations'] = Stubs::ConnectPeerBgpConfigurationList.stub(stub[:bgp_configurations]) unless stub[:bgp_configurations].nil?
+        data['BgpConfigurations'] = ConnectPeerBgpConfigurationList.stub(stub[:bgp_configurations]) unless stub[:bgp_configurations].nil?
         data
       end
     end
@@ -449,7 +451,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectPeerBgpConfiguration.stub(element) unless element.nil?
+          data << ConnectPeerBgpConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -511,8 +513,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -549,7 +551,7 @@ module AWS::SDK::NetworkManager
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -566,8 +568,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetwork'] = Stubs::CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetwork'] = CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -598,9 +600,9 @@ module AWS::SDK::NetworkManager
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Segments'] = Stubs::CoreNetworkSegmentList.stub(stub[:segments]) unless stub[:segments].nil?
-        data['Edges'] = Stubs::CoreNetworkEdgeList.stub(stub[:edges]) unless stub[:edges].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Segments'] = CoreNetworkSegmentList.stub(stub[:segments]) unless stub[:segments].nil?
+        data['Edges'] = CoreNetworkEdgeList.stub(stub[:edges]) unless stub[:edges].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -619,7 +621,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoreNetworkEdge.stub(element) unless element.nil?
+          data << CoreNetworkEdge.stub(element) unless element.nil?
         end
         data
       end
@@ -642,7 +644,7 @@ module AWS::SDK::NetworkManager
         data = {}
         data['EdgeLocation'] = stub[:edge_location] unless stub[:edge_location].nil?
         data['Asn'] = stub[:asn] unless stub[:asn].nil?
-        data['InsideCidrBlocks'] = Stubs::ConstrainedStringList.stub(stub[:inside_cidr_blocks]) unless stub[:inside_cidr_blocks].nil?
+        data['InsideCidrBlocks'] = ConstrainedStringList.stub(stub[:inside_cidr_blocks]) unless stub[:inside_cidr_blocks].nil?
         data
       end
     end
@@ -661,7 +663,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoreNetworkSegment.stub(element) unless element.nil?
+          data << CoreNetworkSegment.stub(element) unless element.nil?
         end
         data
       end
@@ -683,8 +685,8 @@ module AWS::SDK::NetworkManager
         stub ||= Types::CoreNetworkSegment.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['EdgeLocations'] = Stubs::ExternalRegionCodeList.stub(stub[:edge_locations]) unless stub[:edge_locations].nil?
-        data['SharedSegments'] = Stubs::ConstrainedStringList.stub(stub[:shared_segments]) unless stub[:shared_segments].nil?
+        data['EdgeLocations'] = ExternalRegionCodeList.stub(stub[:edge_locations]) unless stub[:edge_locations].nil?
+        data['SharedSegments'] = ConstrainedStringList.stub(stub[:shared_segments]) unless stub[:shared_segments].nil?
         data
       end
     end
@@ -721,8 +723,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Device'] = Device.stub(stub[:device]) unless stub[:device].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -755,17 +757,17 @@ module AWS::SDK::NetworkManager
         data['DeviceId'] = stub[:device_id] unless stub[:device_id].nil?
         data['DeviceArn'] = stub[:device_arn] unless stub[:device_arn].nil?
         data['GlobalNetworkId'] = stub[:global_network_id] unless stub[:global_network_id].nil?
-        data['AWSLocation'] = Stubs::AWSLocation.stub(stub[:aws_location]) unless stub[:aws_location].nil?
+        data['AWSLocation'] = AWSLocation.stub(stub[:aws_location]) unless stub[:aws_location].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Vendor'] = stub[:vendor] unless stub[:vendor].nil?
         data['Model'] = stub[:model] unless stub[:model].nil?
         data['SerialNumber'] = stub[:serial_number] unless stub[:serial_number].nil?
-        data['Location'] = Stubs::Location.stub(stub[:location]) unless stub[:location].nil?
+        data['Location'] = Location.stub(stub[:location]) unless stub[:location].nil?
         data['SiteId'] = stub[:site_id] unless stub[:site_id].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -824,8 +826,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GlobalNetwork'] = Stubs::GlobalNetwork.stub(stub[:global_network]) unless stub[:global_network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalNetwork'] = GlobalNetwork.stub(stub[:global_network]) unless stub[:global_network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -852,7 +854,7 @@ module AWS::SDK::NetworkManager
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -869,8 +871,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Link'] = Stubs::Link.stub(stub[:link]) unless stub[:link].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Link'] = Link.stub(stub[:link]) unless stub[:link].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -903,11 +905,11 @@ module AWS::SDK::NetworkManager
         data['SiteId'] = stub[:site_id] unless stub[:site_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Bandwidth'] = Stubs::Bandwidth.stub(stub[:bandwidth]) unless stub[:bandwidth].nil?
+        data['Bandwidth'] = Bandwidth.stub(stub[:bandwidth]) unless stub[:bandwidth].nil?
         data['Provider'] = stub[:provider] unless stub[:provider].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -944,8 +946,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Site'] = Stubs::Site.stub(stub[:site]) unless stub[:site].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Site'] = Site.stub(stub[:site]) unless stub[:site].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -973,10 +975,10 @@ module AWS::SDK::NetworkManager
         data['SiteArn'] = stub[:site_arn] unless stub[:site_arn].nil?
         data['GlobalNetworkId'] = stub[:global_network_id] unless stub[:global_network_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Location'] = Stubs::Location.stub(stub[:location]) unless stub[:location].nil?
+        data['Location'] = Location.stub(stub[:location]) unless stub[:location].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -993,8 +995,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SiteToSiteVpnAttachment'] = Stubs::SiteToSiteVpnAttachment.stub(stub[:site_to_site_vpn_attachment]) unless stub[:site_to_site_vpn_attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SiteToSiteVpnAttachment'] = SiteToSiteVpnAttachment.stub(stub[:site_to_site_vpn_attachment]) unless stub[:site_to_site_vpn_attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1012,7 +1014,7 @@ module AWS::SDK::NetworkManager
       def self.stub(stub)
         stub ||= Types::SiteToSiteVpnAttachment.new
         data = {}
-        data['Attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        data['Attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
         data['VpnConnectionArn'] = stub[:vpn_connection_arn] unless stub[:vpn_connection_arn].nil?
         data
       end
@@ -1030,8 +1032,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['VpcAttachment'] = Stubs::VpcAttachment.stub(stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcAttachment'] = VpcAttachment.stub(stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1050,9 +1052,9 @@ module AWS::SDK::NetworkManager
       def self.stub(stub)
         stub ||= Types::VpcAttachment.new
         data = {}
-        data['Attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
-        data['SubnetArns'] = Stubs::SubnetArnList.stub(stub[:subnet_arns]) unless stub[:subnet_arns].nil?
-        data['Options'] = Stubs::VpcOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        data['SubnetArns'] = SubnetArnList.stub(stub[:subnet_arns]) unless stub[:subnet_arns].nil?
+        data['Options'] = VpcOptions.stub(stub[:options]) unless stub[:options].nil?
         data
       end
     end
@@ -1107,8 +1109,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1124,8 +1126,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectPeer'] = Stubs::ConnectPeer.stub(stub[:connect_peer]) unless stub[:connect_peer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectPeer'] = ConnectPeer.stub(stub[:connect_peer]) unless stub[:connect_peer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1141,8 +1143,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1158,8 +1160,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetwork'] = Stubs::CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetwork'] = CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1175,8 +1177,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetworkPolicy'] = Stubs::CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetworkPolicy'] = CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1206,7 +1208,7 @@ module AWS::SDK::NetworkManager
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['ChangeSetState'] = stub[:change_set_state] unless stub[:change_set_state].nil?
-        data['PolicyErrors'] = Stubs::CoreNetworkPolicyErrorList.stub(stub[:policy_errors]) unless stub[:policy_errors].nil?
+        data['PolicyErrors'] = CoreNetworkPolicyErrorList.stub(stub[:policy_errors]) unless stub[:policy_errors].nil?
         data['PolicyDocument'] = stub[:policy_document] unless stub[:policy_document].nil?
         data
       end
@@ -1226,7 +1228,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoreNetworkPolicyError.stub(element) unless element.nil?
+          data << CoreNetworkPolicyError.stub(element) unless element.nil?
         end
         data
       end
@@ -1266,8 +1268,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Device'] = Device.stub(stub[:device]) unless stub[:device].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1283,8 +1285,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GlobalNetwork'] = Stubs::GlobalNetwork.stub(stub[:global_network]) unless stub[:global_network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalNetwork'] = GlobalNetwork.stub(stub[:global_network]) unless stub[:global_network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1300,8 +1302,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Link'] = Stubs::Link.stub(stub[:link]) unless stub[:link].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Link'] = Link.stub(stub[:link]) unless stub[:link].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1330,8 +1332,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Site'] = Stubs::Site.stub(stub[:site]) unless stub[:site].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Site'] = Site.stub(stub[:site]) unless stub[:site].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1347,8 +1349,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TransitGatewayRegistration'] = Stubs::TransitGatewayRegistration.stub(stub[:transit_gateway_registration]) unless stub[:transit_gateway_registration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TransitGatewayRegistration'] = TransitGatewayRegistration.stub(stub[:transit_gateway_registration]) unless stub[:transit_gateway_registration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1369,7 +1371,7 @@ module AWS::SDK::NetworkManager
         data = {}
         data['GlobalNetworkId'] = stub[:global_network_id] unless stub[:global_network_id].nil?
         data['TransitGatewayArn'] = stub[:transit_gateway_arn] unless stub[:transit_gateway_arn].nil?
-        data['State'] = Stubs::TransitGatewayRegistrationStateReason.stub(stub[:state]) unless stub[:state].nil?
+        data['State'] = TransitGatewayRegistrationStateReason.stub(stub[:state]) unless stub[:state].nil?
         data
       end
     end
@@ -1407,9 +1409,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GlobalNetworks'] = Stubs::GlobalNetworkList.stub(stub[:global_networks]) unless stub[:global_networks].nil?
+        data['GlobalNetworks'] = GlobalNetworkList.stub(stub[:global_networks]) unless stub[:global_networks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1427,7 +1429,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlobalNetwork.stub(element) unless element.nil?
+          data << GlobalNetwork.stub(element) unless element.nil?
         end
         data
       end
@@ -1445,8 +1447,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectPeerAssociation'] = Stubs::ConnectPeerAssociation.stub(stub[:connect_peer_association]) unless stub[:connect_peer_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectPeerAssociation'] = ConnectPeerAssociation.stub(stub[:connect_peer_association]) unless stub[:connect_peer_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1462,8 +1464,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CustomerGatewayAssociation'] = Stubs::CustomerGatewayAssociation.stub(stub[:customer_gateway_association]) unless stub[:customer_gateway_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomerGatewayAssociation'] = CustomerGatewayAssociation.stub(stub[:customer_gateway_association]) unless stub[:customer_gateway_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1479,8 +1481,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LinkAssociation'] = Stubs::LinkAssociation.stub(stub[:link_association]) unless stub[:link_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LinkAssociation'] = LinkAssociation.stub(stub[:link_association]) unless stub[:link_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1496,8 +1498,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TransitGatewayConnectPeerAssociation'] = Stubs::TransitGatewayConnectPeerAssociation.stub(stub[:transit_gateway_connect_peer_association]) unless stub[:transit_gateway_connect_peer_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TransitGatewayConnectPeerAssociation'] = TransitGatewayConnectPeerAssociation.stub(stub[:transit_gateway_connect_peer_association]) unless stub[:transit_gateway_connect_peer_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1526,8 +1528,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectAttachment'] = Stubs::ConnectAttachment.stub(stub[:connect_attachment]) unless stub[:connect_attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectAttachment'] = ConnectAttachment.stub(stub[:connect_attachment]) unless stub[:connect_attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1543,8 +1545,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectPeer'] = Stubs::ConnectPeer.stub(stub[:connect_peer]) unless stub[:connect_peer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectPeer'] = ConnectPeer.stub(stub[:connect_peer]) unless stub[:connect_peer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1561,9 +1563,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectPeerAssociations'] = Stubs::ConnectPeerAssociationList.stub(stub[:connect_peer_associations]) unless stub[:connect_peer_associations].nil?
+        data['ConnectPeerAssociations'] = ConnectPeerAssociationList.stub(stub[:connect_peer_associations]) unless stub[:connect_peer_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1581,7 +1583,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectPeerAssociation.stub(element) unless element.nil?
+          data << ConnectPeerAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1600,9 +1602,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        data['Connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1620,7 +1622,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connection.stub(element) unless element.nil?
+          data << Connection.stub(element) unless element.nil?
         end
         data
       end
@@ -1638,8 +1640,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetwork'] = Stubs::CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetwork'] = CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1656,9 +1658,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetworkChanges'] = Stubs::CoreNetworkChangeList.stub(stub[:core_network_changes]) unless stub[:core_network_changes].nil?
+        data['CoreNetworkChanges'] = CoreNetworkChangeList.stub(stub[:core_network_changes]) unless stub[:core_network_changes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1676,7 +1678,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoreNetworkChange.stub(element) unless element.nil?
+          data << CoreNetworkChange.stub(element) unless element.nil?
         end
         data
       end
@@ -1702,8 +1704,8 @@ module AWS::SDK::NetworkManager
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Action'] = stub[:action] unless stub[:action].nil?
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
-        data['PreviousValues'] = Stubs::CoreNetworkChangeValues.stub(stub[:previous_values]) unless stub[:previous_values].nil?
-        data['NewValues'] = Stubs::CoreNetworkChangeValues.stub(stub[:new_values]) unless stub[:new_values].nil?
+        data['PreviousValues'] = CoreNetworkChangeValues.stub(stub[:previous_values]) unless stub[:previous_values].nil?
+        data['NewValues'] = CoreNetworkChangeValues.stub(stub[:new_values]) unless stub[:new_values].nil?
         data
       end
     end
@@ -1728,12 +1730,12 @@ module AWS::SDK::NetworkManager
         stub ||= Types::CoreNetworkChangeValues.new
         data = {}
         data['SegmentName'] = stub[:segment_name] unless stub[:segment_name].nil?
-        data['EdgeLocations'] = Stubs::ExternalRegionCodeList.stub(stub[:edge_locations]) unless stub[:edge_locations].nil?
+        data['EdgeLocations'] = ExternalRegionCodeList.stub(stub[:edge_locations]) unless stub[:edge_locations].nil?
         data['Asn'] = stub[:asn] unless stub[:asn].nil?
         data['Cidr'] = stub[:cidr] unless stub[:cidr].nil?
         data['DestinationIdentifier'] = stub[:destination_identifier] unless stub[:destination_identifier].nil?
-        data['InsideCidrBlocks'] = Stubs::ConstrainedStringList.stub(stub[:inside_cidr_blocks]) unless stub[:inside_cidr_blocks].nil?
-        data['SharedSegments'] = Stubs::ConstrainedStringList.stub(stub[:shared_segments]) unless stub[:shared_segments].nil?
+        data['InsideCidrBlocks'] = ConstrainedStringList.stub(stub[:inside_cidr_blocks]) unless stub[:inside_cidr_blocks].nil?
+        data['SharedSegments'] = ConstrainedStringList.stub(stub[:shared_segments]) unless stub[:shared_segments].nil?
         data
       end
     end
@@ -1750,8 +1752,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetworkPolicy'] = Stubs::CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetworkPolicy'] = CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1768,9 +1770,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CustomerGatewayAssociations'] = Stubs::CustomerGatewayAssociationList.stub(stub[:customer_gateway_associations]) unless stub[:customer_gateway_associations].nil?
+        data['CustomerGatewayAssociations'] = CustomerGatewayAssociationList.stub(stub[:customer_gateway_associations]) unless stub[:customer_gateway_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1788,7 +1790,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomerGatewayAssociation.stub(element) unless element.nil?
+          data << CustomerGatewayAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1807,9 +1809,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Devices'] = Stubs::DeviceList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['Devices'] = DeviceList.stub(stub[:devices]) unless stub[:devices].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1827,7 +1829,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Device.stub(element) unless element.nil?
+          data << Device.stub(element) unless element.nil?
         end
         data
       end
@@ -1846,9 +1848,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LinkAssociations'] = Stubs::LinkAssociationList.stub(stub[:link_associations]) unless stub[:link_associations].nil?
+        data['LinkAssociations'] = LinkAssociationList.stub(stub[:link_associations]) unless stub[:link_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1866,7 +1868,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LinkAssociation.stub(element) unless element.nil?
+          data << LinkAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1885,9 +1887,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Links'] = Stubs::LinkList.stub(stub[:links]) unless stub[:links].nil?
+        data['Links'] = LinkList.stub(stub[:links]) unless stub[:links].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1905,7 +1907,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Link.stub(element) unless element.nil?
+          data << Link.stub(element) unless element.nil?
         end
         data
       end
@@ -1924,9 +1926,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['NetworkResourceCounts'] = Stubs::NetworkResourceCountList.stub(stub[:network_resource_counts]) unless stub[:network_resource_counts].nil?
+        data['NetworkResourceCounts'] = NetworkResourceCountList.stub(stub[:network_resource_counts]) unless stub[:network_resource_counts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1944,7 +1946,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkResourceCount.stub(element) unless element.nil?
+          data << NetworkResourceCount.stub(element) unless element.nil?
         end
         data
       end
@@ -1983,9 +1985,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Relationships'] = Stubs::RelationshipList.stub(stub[:relationships]) unless stub[:relationships].nil?
+        data['Relationships'] = RelationshipList.stub(stub[:relationships]) unless stub[:relationships].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2003,7 +2005,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Relationship.stub(element) unless element.nil?
+          data << Relationship.stub(element) unless element.nil?
         end
         data
       end
@@ -2042,9 +2044,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['NetworkResources'] = Stubs::NetworkResourceList.stub(stub[:network_resources]) unless stub[:network_resources].nil?
+        data['NetworkResources'] = NetworkResourceList.stub(stub[:network_resources]) unless stub[:network_resources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2062,7 +2064,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkResource.stub(element) unless element.nil?
+          data << NetworkResource.stub(element) unless element.nil?
         end
         data
       end
@@ -2100,8 +2102,8 @@ module AWS::SDK::NetworkManager
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['Definition'] = stub[:definition] unless stub[:definition].nil?
         data['DefinitionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:definition_timestamp]).to_i unless stub[:definition_timestamp].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Metadata'] = Stubs::NetworkResourceMetadataMap.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Metadata'] = NetworkResourceMetadataMap.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -2143,11 +2145,11 @@ module AWS::SDK::NetworkManager
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['RouteTableArn'] = stub[:route_table_arn] unless stub[:route_table_arn].nil?
-        data['CoreNetworkSegmentEdge'] = Stubs::CoreNetworkSegmentEdgeIdentifier.stub(stub[:core_network_segment_edge]) unless stub[:core_network_segment_edge].nil?
+        data['CoreNetworkSegmentEdge'] = CoreNetworkSegmentEdgeIdentifier.stub(stub[:core_network_segment_edge]) unless stub[:core_network_segment_edge].nil?
         data['RouteTableType'] = stub[:route_table_type] unless stub[:route_table_type].nil?
         data['RouteTableTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:route_table_timestamp]).to_i unless stub[:route_table_timestamp].nil?
-        data['NetworkRoutes'] = Stubs::NetworkRouteList.stub(stub[:network_routes]) unless stub[:network_routes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NetworkRoutes'] = NetworkRouteList.stub(stub[:network_routes]) unless stub[:network_routes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2165,7 +2167,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkRoute.stub(element) unless element.nil?
+          data << NetworkRoute.stub(element) unless element.nil?
         end
         data
       end
@@ -2189,7 +2191,7 @@ module AWS::SDK::NetworkManager
         stub ||= Types::NetworkRoute.new
         data = {}
         data['DestinationCidrBlock'] = stub[:destination_cidr_block] unless stub[:destination_cidr_block].nil?
-        data['Destinations'] = Stubs::NetworkRouteDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['Destinations'] = NetworkRouteDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['PrefixListId'] = stub[:prefix_list_id] unless stub[:prefix_list_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
@@ -2211,7 +2213,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkRouteDestination.stub(element) unless element.nil?
+          data << NetworkRouteDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -2280,9 +2282,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['NetworkTelemetry'] = Stubs::NetworkTelemetryList.stub(stub[:network_telemetry]) unless stub[:network_telemetry].nil?
+        data['NetworkTelemetry'] = NetworkTelemetryList.stub(stub[:network_telemetry]) unless stub[:network_telemetry].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2300,7 +2302,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkTelemetry.stub(element) unless element.nil?
+          data << NetworkTelemetry.stub(element) unless element.nil?
         end
         data
       end
@@ -2335,7 +2337,7 @@ module AWS::SDK::NetworkManager
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['Address'] = stub[:address] unless stub[:address].nil?
-        data['Health'] = Stubs::ConnectionHealth.stub(stub[:health]) unless stub[:health].nil?
+        data['Health'] = ConnectionHealth.stub(stub[:health]) unless stub[:health].nil?
         data
       end
     end
@@ -2375,7 +2377,7 @@ module AWS::SDK::NetworkManager
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['PolicyDocument'] = stub[:policy_document] unless stub[:policy_document].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2391,8 +2393,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RouteAnalysis'] = Stubs::RouteAnalysis.stub(stub[:route_analysis]) unless stub[:route_analysis].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RouteAnalysis'] = RouteAnalysis.stub(stub[:route_analysis]) unless stub[:route_analysis].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2424,12 +2426,12 @@ module AWS::SDK::NetworkManager
         data['RouteAnalysisId'] = stub[:route_analysis_id] unless stub[:route_analysis_id].nil?
         data['StartTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_timestamp]).to_i unless stub[:start_timestamp].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Source'] = Stubs::RouteAnalysisEndpointOptions.stub(stub[:source]) unless stub[:source].nil?
-        data['Destination'] = Stubs::RouteAnalysisEndpointOptions.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Source'] = RouteAnalysisEndpointOptions.stub(stub[:source]) unless stub[:source].nil?
+        data['Destination'] = RouteAnalysisEndpointOptions.stub(stub[:destination]) unless stub[:destination].nil?
         data['IncludeReturnPath'] = stub[:include_return_path] unless stub[:include_return_path].nil?
         data['UseMiddleboxes'] = stub[:use_middleboxes] unless stub[:use_middleboxes].nil?
-        data['ForwardPath'] = Stubs::RouteAnalysisPath.stub(stub[:forward_path]) unless stub[:forward_path].nil?
-        data['ReturnPath'] = Stubs::RouteAnalysisPath.stub(stub[:return_path]) unless stub[:return_path].nil?
+        data['ForwardPath'] = RouteAnalysisPath.stub(stub[:forward_path]) unless stub[:forward_path].nil?
+        data['ReturnPath'] = RouteAnalysisPath.stub(stub[:return_path]) unless stub[:return_path].nil?
         data
       end
     end
@@ -2448,8 +2450,8 @@ module AWS::SDK::NetworkManager
       def self.stub(stub)
         stub ||= Types::RouteAnalysisPath.new
         data = {}
-        data['CompletionStatus'] = Stubs::RouteAnalysisCompletion.stub(stub[:completion_status]) unless stub[:completion_status].nil?
-        data['Path'] = Stubs::PathComponentList.stub(stub[:path]) unless stub[:path].nil?
+        data['CompletionStatus'] = RouteAnalysisCompletion.stub(stub[:completion_status]) unless stub[:completion_status].nil?
+        data['Path'] = PathComponentList.stub(stub[:path]) unless stub[:path].nil?
         data
       end
     end
@@ -2468,7 +2470,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PathComponent.stub(element) unless element.nil?
+          data << PathComponent.stub(element) unless element.nil?
         end
         data
       end
@@ -2490,7 +2492,7 @@ module AWS::SDK::NetworkManager
         stub ||= Types::PathComponent.new
         data = {}
         data['Sequence'] = stub[:sequence] unless stub[:sequence].nil?
-        data['Resource'] = Stubs::NetworkResourceSummary.stub(stub[:resource]) unless stub[:resource].nil?
+        data['Resource'] = NetworkResourceSummary.stub(stub[:resource]) unless stub[:resource].nil?
         data['DestinationCidrBlock'] = stub[:destination_cidr_block] unless stub[:destination_cidr_block].nil?
         data
       end
@@ -2541,7 +2543,7 @@ module AWS::SDK::NetworkManager
         data = {}
         data['ResultCode'] = stub[:result_code] unless stub[:result_code].nil?
         data['ReasonCode'] = stub[:reason_code] unless stub[:reason_code].nil?
-        data['ReasonContext'] = Stubs::ReasonContextMap.stub(stub[:reason_context]) unless stub[:reason_context].nil?
+        data['ReasonContext'] = ReasonContextMap.stub(stub[:reason_context]) unless stub[:reason_context].nil?
         data
       end
     end
@@ -2600,8 +2602,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SiteToSiteVpnAttachment'] = Stubs::SiteToSiteVpnAttachment.stub(stub[:site_to_site_vpn_attachment]) unless stub[:site_to_site_vpn_attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SiteToSiteVpnAttachment'] = SiteToSiteVpnAttachment.stub(stub[:site_to_site_vpn_attachment]) unless stub[:site_to_site_vpn_attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2618,9 +2620,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Sites'] = Stubs::SiteList.stub(stub[:sites]) unless stub[:sites].nil?
+        data['Sites'] = SiteList.stub(stub[:sites]) unless stub[:sites].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2638,7 +2640,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Site.stub(element) unless element.nil?
+          data << Site.stub(element) unless element.nil?
         end
         data
       end
@@ -2657,9 +2659,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TransitGatewayConnectPeerAssociations'] = Stubs::TransitGatewayConnectPeerAssociationList.stub(stub[:transit_gateway_connect_peer_associations]) unless stub[:transit_gateway_connect_peer_associations].nil?
+        data['TransitGatewayConnectPeerAssociations'] = TransitGatewayConnectPeerAssociationList.stub(stub[:transit_gateway_connect_peer_associations]) unless stub[:transit_gateway_connect_peer_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2677,7 +2679,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TransitGatewayConnectPeerAssociation.stub(element) unless element.nil?
+          data << TransitGatewayConnectPeerAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -2696,9 +2698,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TransitGatewayRegistrations'] = Stubs::TransitGatewayRegistrationList.stub(stub[:transit_gateway_registrations]) unless stub[:transit_gateway_registrations].nil?
+        data['TransitGatewayRegistrations'] = TransitGatewayRegistrationList.stub(stub[:transit_gateway_registrations]) unless stub[:transit_gateway_registrations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2716,7 +2718,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TransitGatewayRegistration.stub(element) unless element.nil?
+          data << TransitGatewayRegistration.stub(element) unless element.nil?
         end
         data
       end
@@ -2734,8 +2736,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['VpcAttachment'] = Stubs::VpcAttachment.stub(stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcAttachment'] = VpcAttachment.stub(stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2752,9 +2754,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attachments'] = Stubs::AttachmentList.stub(stub[:attachments]) unless stub[:attachments].nil?
+        data['Attachments'] = AttachmentList.stub(stub[:attachments]) unless stub[:attachments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2772,7 +2774,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attachment.stub(element) unless element.nil?
+          data << Attachment.stub(element) unless element.nil?
         end
         data
       end
@@ -2791,9 +2793,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectPeers'] = Stubs::ConnectPeerSummaryList.stub(stub[:connect_peers]) unless stub[:connect_peers].nil?
+        data['ConnectPeers'] = ConnectPeerSummaryList.stub(stub[:connect_peers]) unless stub[:connect_peers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2811,7 +2813,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectPeerSummary.stub(element) unless element.nil?
+          data << ConnectPeerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2842,7 +2844,7 @@ module AWS::SDK::NetworkManager
         data['EdgeLocation'] = stub[:edge_location] unless stub[:edge_location].nil?
         data['ConnectPeerState'] = stub[:connect_peer_state] unless stub[:connect_peer_state].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2860,9 +2862,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetworkPolicyVersions'] = Stubs::CoreNetworkPolicyVersionList.stub(stub[:core_network_policy_versions]) unless stub[:core_network_policy_versions].nil?
+        data['CoreNetworkPolicyVersions'] = CoreNetworkPolicyVersionList.stub(stub[:core_network_policy_versions]) unless stub[:core_network_policy_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2880,7 +2882,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoreNetworkPolicyVersion.stub(element) unless element.nil?
+          data << CoreNetworkPolicyVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -2927,9 +2929,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetworks'] = Stubs::CoreNetworkSummaryList.stub(stub[:core_networks]) unless stub[:core_networks].nil?
+        data['CoreNetworks'] = CoreNetworkSummaryList.stub(stub[:core_networks]) unless stub[:core_networks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2947,7 +2949,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoreNetworkSummary.stub(element) unless element.nil?
+          data << CoreNetworkSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2978,7 +2980,7 @@ module AWS::SDK::NetworkManager
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2996,9 +2998,9 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['OrganizationStatus'] = Stubs::OrganizationStatus.stub(stub[:organization_status]) unless stub[:organization_status].nil?
+        data['OrganizationStatus'] = OrganizationStatus.stub(stub[:organization_status]) unless stub[:organization_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3021,7 +3023,7 @@ module AWS::SDK::NetworkManager
         data['OrganizationId'] = stub[:organization_id] unless stub[:organization_id].nil?
         data['OrganizationAwsServiceAccessStatus'] = stub[:organization_aws_service_access_status] unless stub[:organization_aws_service_access_status].nil?
         data['SLRDeploymentStatus'] = stub[:slr_deployment_status] unless stub[:slr_deployment_status].nil?
-        data['AccountStatusList'] = Stubs::AccountStatusList.stub(stub[:account_status_list]) unless stub[:account_status_list].nil?
+        data['AccountStatusList'] = AccountStatusList.stub(stub[:account_status_list]) unless stub[:account_status_list].nil?
         data
       end
     end
@@ -3040,7 +3042,7 @@ module AWS::SDK::NetworkManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountStatus.stub(element) unless element.nil?
+          data << AccountStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -3078,8 +3080,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3095,8 +3097,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetworkPolicy'] = Stubs::CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetworkPolicy'] = CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3125,8 +3127,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TransitGatewayRegistration'] = Stubs::TransitGatewayRegistration.stub(stub[:transit_gateway_registration]) unless stub[:transit_gateway_registration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TransitGatewayRegistration'] = TransitGatewayRegistration.stub(stub[:transit_gateway_registration]) unless stub[:transit_gateway_registration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3142,8 +3144,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3159,8 +3161,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetworkPolicy'] = Stubs::CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetworkPolicy'] = CoreNetworkPolicy.stub(stub[:core_network_policy]) unless stub[:core_network_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3176,8 +3178,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['OrganizationStatus'] = Stubs::OrganizationStatus.stub(stub[:organization_status]) unless stub[:organization_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationStatus'] = OrganizationStatus.stub(stub[:organization_status]) unless stub[:organization_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3193,8 +3195,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RouteAnalysis'] = Stubs::RouteAnalysis.stub(stub[:route_analysis]) unless stub[:route_analysis].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RouteAnalysis'] = RouteAnalysis.stub(stub[:route_analysis]) unless stub[:route_analysis].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3236,8 +3238,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3253,8 +3255,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CoreNetwork'] = Stubs::CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CoreNetwork'] = CoreNetwork.stub(stub[:core_network]) unless stub[:core_network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3270,8 +3272,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Device'] = Device.stub(stub[:device]) unless stub[:device].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3287,8 +3289,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GlobalNetwork'] = Stubs::GlobalNetwork.stub(stub[:global_network]) unless stub[:global_network].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalNetwork'] = GlobalNetwork.stub(stub[:global_network]) unless stub[:global_network].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3304,8 +3306,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Link'] = Stubs::Link.stub(stub[:link]) unless stub[:link].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Link'] = Link.stub(stub[:link]) unless stub[:link].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3323,8 +3325,8 @@ module AWS::SDK::NetworkManager
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Metadata'] = Stubs::NetworkResourceMetadataMap.stub(stub[:metadata]) unless stub[:metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Metadata'] = NetworkResourceMetadataMap.stub(stub[:metadata]) unless stub[:metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3340,8 +3342,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Site'] = Stubs::Site.stub(stub[:site]) unless stub[:site].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Site'] = Site.stub(stub[:site]) unless stub[:site].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3357,8 +3359,8 @@ module AWS::SDK::NetworkManager
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['VpcAttachment'] = Stubs::VpcAttachment.stub(stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcAttachment'] = VpcAttachment.stub(stub[:vpc_attachment]) unless stub[:vpc_attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceMetering
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::MarketplaceMetering
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::UsageRecordResultList.stub(stub[:results]) unless stub[:results].nil?
-        data['UnprocessedRecords'] = Stubs::UsageRecordList.stub(stub[:unprocessed_records]) unless stub[:unprocessed_records].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Results'] = UsageRecordResultList.stub(stub[:results]) unless stub[:results].nil?
+        data['UnprocessedRecords'] = UsageRecordList.stub(stub[:unprocessed_records]) unless stub[:unprocessed_records].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::MarketplaceMetering
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageRecord.stub(element) unless element.nil?
+          data << UsageRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -69,7 +71,7 @@ module AWS::SDK::MarketplaceMetering
         data['CustomerIdentifier'] = stub[:customer_identifier] unless stub[:customer_identifier].nil?
         data['Dimension'] = stub[:dimension] unless stub[:dimension].nil?
         data['Quantity'] = stub[:quantity] unless stub[:quantity].nil?
-        data['UsageAllocations'] = Stubs::UsageAllocations.stub(stub[:usage_allocations]) unless stub[:usage_allocations].nil?
+        data['UsageAllocations'] = UsageAllocations.stub(stub[:usage_allocations]) unless stub[:usage_allocations].nil?
         data
       end
     end
@@ -88,7 +90,7 @@ module AWS::SDK::MarketplaceMetering
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageAllocation.stub(element) unless element.nil?
+          data << UsageAllocation.stub(element) unless element.nil?
         end
         data
       end
@@ -109,7 +111,7 @@ module AWS::SDK::MarketplaceMetering
         stub ||= Types::UsageAllocation.new
         data = {}
         data['AllocatedUsageQuantity'] = stub[:allocated_usage_quantity] unless stub[:allocated_usage_quantity].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -128,7 +130,7 @@ module AWS::SDK::MarketplaceMetering
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -168,7 +170,7 @@ module AWS::SDK::MarketplaceMetering
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageRecordResult.stub(element) unless element.nil?
+          data << UsageRecordResult.stub(element) unless element.nil?
         end
         data
       end
@@ -189,7 +191,7 @@ module AWS::SDK::MarketplaceMetering
       def self.stub(stub)
         stub ||= Types::UsageRecordResult.new
         data = {}
-        data['UsageRecord'] = Stubs::UsageRecord.stub(stub[:usage_record]) unless stub[:usage_record].nil?
+        data['UsageRecord'] = UsageRecord.stub(stub[:usage_record]) unless stub[:usage_record].nil?
         data['MeteringRecordId'] = stub[:metering_record_id] unless stub[:metering_record_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
@@ -207,7 +209,7 @@ module AWS::SDK::MarketplaceMetering
       def self.stub(http_resp, stub:)
         data = {}
         data['MeteringRecordId'] = stub[:metering_record_id] unless stub[:metering_record_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::MarketplaceMetering
         data = {}
         data['PublicKeyRotationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:public_key_rotation_timestamp]).to_i unless stub[:public_key_rotation_timestamp].nil?
         data['Signature'] = stub[:signature] unless stub[:signature].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -245,7 +247,7 @@ module AWS::SDK::MarketplaceMetering
         data['CustomerIdentifier'] = stub[:customer_identifier] unless stub[:customer_identifier].nil?
         data['ProductCode'] = stub[:product_code] unless stub[:product_code].nil?
         data['CustomerAWSAccountId'] = stub[:customer_aws_account_id] unless stub[:customer_aws_account_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

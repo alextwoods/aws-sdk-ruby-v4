@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AlexaForBusiness
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -75,7 +77,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -89,7 +91,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,7 +121,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['AddressBookArn'] = stub[:address_book_arn] unless stub[:address_book_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -135,7 +137,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['ScheduleArn'] = stub[:schedule_arn] unless stub[:schedule_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['ConferenceProviderArn'] = stub[:conference_provider_arn] unless stub[:conference_provider_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['ContactArn'] = stub[:contact_arn] unless stub[:contact_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayGroupArn'] = stub[:gateway_group_arn] unless stub[:gateway_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -199,7 +201,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['NetworkProfileArn'] = stub[:network_profile_arn] unless stub[:network_profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -215,7 +217,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['ProfileArn'] = stub[:profile_arn] unless stub[:profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -231,7 +233,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['RoomArn'] = stub[:room_arn] unless stub[:room_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -247,7 +249,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['SkillGroupArn'] = stub[:skill_group_arn] unless stub[:skill_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -263,7 +265,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['UserArn'] = stub[:user_arn] unless stub[:user_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -277,7 +279,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -291,7 +293,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -319,7 +321,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -333,7 +335,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -389,7 +391,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -417,7 +419,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -431,7 +433,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -445,7 +447,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -459,7 +461,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -473,7 +475,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -487,7 +489,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -501,7 +503,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -515,7 +517,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -529,7 +531,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -543,7 +545,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -558,8 +560,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AddressBook'] = Stubs::AddressBook.stub(stub[:address_book]) unless stub[:address_book].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AddressBook'] = AddressBook.stub(stub[:address_book]) unless stub[:address_book].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -596,8 +598,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Preference'] = Stubs::ConferencePreference.stub(stub[:preference]) unless stub[:preference].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Preference'] = ConferencePreference.stub(stub[:preference]) unless stub[:preference].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -630,8 +632,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConferenceProvider'] = Stubs::ConferenceProvider.stub(stub[:conference_provider]) unless stub[:conference_provider].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConferenceProvider'] = ConferenceProvider.stub(stub[:conference_provider]) unless stub[:conference_provider].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -657,9 +659,9 @@ module AWS::SDK::AlexaForBusiness
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['IPDialIn'] = Stubs::IPDialIn.stub(stub[:ip_dial_in]) unless stub[:ip_dial_in].nil?
-        data['PSTNDialIn'] = Stubs::PSTNDialIn.stub(stub[:pstn_dial_in]) unless stub[:pstn_dial_in].nil?
-        data['MeetingSetting'] = Stubs::MeetingSetting.stub(stub[:meeting_setting]) unless stub[:meeting_setting].nil?
+        data['IPDialIn'] = IPDialIn.stub(stub[:ip_dial_in]) unless stub[:ip_dial_in].nil?
+        data['PSTNDialIn'] = PSTNDialIn.stub(stub[:pstn_dial_in]) unless stub[:pstn_dial_in].nil?
+        data['MeetingSetting'] = MeetingSetting.stub(stub[:meeting_setting]) unless stub[:meeting_setting].nil?
         data
       end
     end
@@ -736,8 +738,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Contact'] = Stubs::Contact.stub(stub[:contact]) unless stub[:contact].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Contact'] = Contact.stub(stub[:contact]) unless stub[:contact].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -766,8 +768,8 @@ module AWS::SDK::AlexaForBusiness
         data['FirstName'] = stub[:first_name] unless stub[:first_name].nil?
         data['LastName'] = stub[:last_name] unless stub[:last_name].nil?
         data['PhoneNumber'] = stub[:phone_number] unless stub[:phone_number].nil?
-        data['PhoneNumbers'] = Stubs::PhoneNumberList.stub(stub[:phone_numbers]) unless stub[:phone_numbers].nil?
-        data['SipAddresses'] = Stubs::SipAddressList.stub(stub[:sip_addresses]) unless stub[:sip_addresses].nil?
+        data['PhoneNumbers'] = PhoneNumberList.stub(stub[:phone_numbers]) unless stub[:phone_numbers].nil?
+        data['SipAddresses'] = SipAddressList.stub(stub[:sip_addresses]) unless stub[:sip_addresses].nil?
         data
       end
     end
@@ -786,7 +788,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SipAddress.stub(element) unless element.nil?
+          data << SipAddress.stub(element) unless element.nil?
         end
         data
       end
@@ -826,7 +828,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PhoneNumber.stub(element) unless element.nil?
+          data << PhoneNumber.stub(element) unless element.nil?
         end
         data
       end
@@ -862,8 +864,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Device'] = Stubs::Device.stub(stub[:device]) unless stub[:device].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Device'] = Device.stub(stub[:device]) unless stub[:device].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -898,8 +900,8 @@ module AWS::SDK::AlexaForBusiness
         data['MacAddress'] = stub[:mac_address] unless stub[:mac_address].nil?
         data['RoomArn'] = stub[:room_arn] unless stub[:room_arn].nil?
         data['DeviceStatus'] = stub[:device_status] unless stub[:device_status].nil?
-        data['DeviceStatusInfo'] = Stubs::DeviceStatusInfo.stub(stub[:device_status_info]) unless stub[:device_status_info].nil?
-        data['NetworkProfileInfo'] = Stubs::DeviceNetworkProfileInfo.stub(stub[:network_profile_info]) unless stub[:network_profile_info].nil?
+        data['DeviceStatusInfo'] = DeviceStatusInfo.stub(stub[:device_status_info]) unless stub[:device_status_info].nil?
+        data['NetworkProfileInfo'] = DeviceNetworkProfileInfo.stub(stub[:network_profile_info]) unless stub[:network_profile_info].nil?
         data
       end
     end
@@ -941,7 +943,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(stub)
         stub ||= Types::DeviceStatusInfo.new
         data = {}
-        data['DeviceStatusDetails'] = Stubs::DeviceStatusDetails.stub(stub[:device_status_details]) unless stub[:device_status_details].nil?
+        data['DeviceStatusDetails'] = DeviceStatusDetails.stub(stub[:device_status_details]) unless stub[:device_status_details].nil?
         data['ConnectionStatus'] = stub[:connection_status] unless stub[:connection_status].nil?
         data['ConnectionStatusUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:connection_status_updated_time]).to_i unless stub[:connection_status_updated_time].nil?
         data
@@ -962,7 +964,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceStatusDetail.stub(element) unless element.nil?
+          data << DeviceStatusDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -998,8 +1000,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Gateway'] = Stubs::Gateway.stub(stub[:gateway]) unless stub[:gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Gateway'] = Gateway.stub(stub[:gateway]) unless stub[:gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1040,8 +1042,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GatewayGroup'] = Stubs::GatewayGroup.stub(stub[:gateway_group]) unless stub[:gateway_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GatewayGroup'] = GatewayGroup.stub(stub[:gateway_group]) unless stub[:gateway_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1082,8 +1084,8 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['OrganizationName'] = stub[:organization_name] unless stub[:organization_name].nil?
         data['ContactEmail'] = stub[:contact_email] unless stub[:contact_email].nil?
-        data['PrivateSkillIds'] = Stubs::ShortSkillIdList.stub(stub[:private_skill_ids]) unless stub[:private_skill_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PrivateSkillIds'] = ShortSkillIdList.stub(stub[:private_skill_ids]) unless stub[:private_skill_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1118,8 +1120,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NetworkProfile'] = Stubs::NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NetworkProfile'] = NetworkProfile.stub(stub[:network_profile]) unless stub[:network_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1155,7 +1157,7 @@ module AWS::SDK::AlexaForBusiness
         data['CurrentPassword'] = stub[:current_password] unless stub[:current_password].nil?
         data['NextPassword'] = stub[:next_password] unless stub[:next_password].nil?
         data['CertificateAuthorityArn'] = stub[:certificate_authority_arn] unless stub[:certificate_authority_arn].nil?
-        data['TrustAnchors'] = Stubs::TrustAnchorList.stub(stub[:trust_anchors]) unless stub[:trust_anchors].nil?
+        data['TrustAnchors'] = TrustAnchorList.stub(stub[:trust_anchors]) unless stub[:trust_anchors].nil?
         data
       end
     end
@@ -1190,8 +1192,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Profile'] = Stubs::Profile.stub(stub[:profile]) unless stub[:profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Profile'] = Profile.stub(stub[:profile]) unless stub[:profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1237,7 +1239,7 @@ module AWS::SDK::AlexaForBusiness
         data['PSTNEnabled'] = stub[:pstn_enabled] unless stub[:pstn_enabled].nil?
         data['DataRetentionOptIn'] = stub[:data_retention_opt_in] unless stub[:data_retention_opt_in].nil?
         data['AddressBookArn'] = stub[:address_book_arn] unless stub[:address_book_arn].nil?
-        data['MeetingRoomConfiguration'] = Stubs::MeetingRoomConfiguration.stub(stub[:meeting_room_configuration]) unless stub[:meeting_room_configuration].nil?
+        data['MeetingRoomConfiguration'] = MeetingRoomConfiguration.stub(stub[:meeting_room_configuration]) unless stub[:meeting_room_configuration].nil?
         data
       end
     end
@@ -1259,9 +1261,9 @@ module AWS::SDK::AlexaForBusiness
         stub ||= Types::MeetingRoomConfiguration.new
         data = {}
         data['RoomUtilizationMetricsEnabled'] = stub[:room_utilization_metrics_enabled] unless stub[:room_utilization_metrics_enabled].nil?
-        data['EndOfMeetingReminder'] = Stubs::EndOfMeetingReminder.stub(stub[:end_of_meeting_reminder]) unless stub[:end_of_meeting_reminder].nil?
-        data['InstantBooking'] = Stubs::InstantBooking.stub(stub[:instant_booking]) unless stub[:instant_booking].nil?
-        data['RequireCheckIn'] = Stubs::RequireCheckIn.stub(stub[:require_check_in]) unless stub[:require_check_in].nil?
+        data['EndOfMeetingReminder'] = EndOfMeetingReminder.stub(stub[:end_of_meeting_reminder]) unless stub[:end_of_meeting_reminder].nil?
+        data['InstantBooking'] = InstantBooking.stub(stub[:instant_booking]) unless stub[:instant_booking].nil?
+        data['RequireCheckIn'] = RequireCheckIn.stub(stub[:require_check_in]) unless stub[:require_check_in].nil?
         data
       end
     end
@@ -1321,7 +1323,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(stub)
         stub ||= Types::EndOfMeetingReminder.new
         data = {}
-        data['ReminderAtMinutes'] = Stubs::EndOfMeetingReminderMinutesList.stub(stub[:reminder_at_minutes]) unless stub[:reminder_at_minutes].nil?
+        data['ReminderAtMinutes'] = EndOfMeetingReminderMinutesList.stub(stub[:reminder_at_minutes]) unless stub[:reminder_at_minutes].nil?
         data['ReminderType'] = stub[:reminder_type] unless stub[:reminder_type].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data
@@ -1358,8 +1360,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Room'] = Stubs::Room.stub(stub[:room]) unless stub[:room].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Room'] = Room.stub(stub[:room]) unless stub[:room].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1400,8 +1402,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RoomSkillParameter'] = Stubs::RoomSkillParameter.stub(stub[:room_skill_parameter]) unless stub[:room_skill_parameter].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoomSkillParameter'] = RoomSkillParameter.stub(stub[:room_skill_parameter]) unless stub[:room_skill_parameter].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1436,8 +1438,8 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SkillGroup'] = Stubs::SkillGroup.stub(stub[:skill_group]) unless stub[:skill_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SkillGroup'] = SkillGroup.stub(stub[:skill_group]) unless stub[:skill_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1475,9 +1477,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BusinessReportSchedules'] = Stubs::BusinessReportScheduleList.stub(stub[:business_report_schedules]) unless stub[:business_report_schedules].nil?
+        data['BusinessReportSchedules'] = BusinessReportScheduleList.stub(stub[:business_report_schedules]) unless stub[:business_report_schedules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1496,7 +1498,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BusinessReportSchedule.stub(element) unless element.nil?
+          data << BusinessReportSchedule.stub(element) unless element.nil?
         end
         data
       end
@@ -1527,9 +1529,9 @@ module AWS::SDK::AlexaForBusiness
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
         data['S3KeyPrefix'] = stub[:s3_key_prefix] unless stub[:s3_key_prefix].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        data['ContentRange'] = Stubs::BusinessReportContentRange.stub(stub[:content_range]) unless stub[:content_range].nil?
-        data['Recurrence'] = Stubs::BusinessReportRecurrence.stub(stub[:recurrence]) unless stub[:recurrence].nil?
-        data['LastBusinessReport'] = Stubs::BusinessReport.stub(stub[:last_business_report]) unless stub[:last_business_report].nil?
+        data['ContentRange'] = BusinessReportContentRange.stub(stub[:content_range]) unless stub[:content_range].nil?
+        data['Recurrence'] = BusinessReportRecurrence.stub(stub[:recurrence]) unless stub[:recurrence].nil?
+        data['LastBusinessReport'] = BusinessReport.stub(stub[:last_business_report]) unless stub[:last_business_report].nil?
         data
       end
     end
@@ -1553,7 +1555,7 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FailureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
-        data['S3Location'] = Stubs::BusinessReportS3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['S3Location'] = BusinessReportS3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data['DeliveryTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:delivery_time]).to_i unless stub[:delivery_time].nil?
         data['DownloadUrl'] = stub[:download_url] unless stub[:download_url].nil?
         data
@@ -1627,9 +1629,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConferenceProviders'] = Stubs::ConferenceProvidersList.stub(stub[:conference_providers]) unless stub[:conference_providers].nil?
+        data['ConferenceProviders'] = ConferenceProvidersList.stub(stub[:conference_providers]) unless stub[:conference_providers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1648,7 +1650,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConferenceProvider.stub(element) unless element.nil?
+          data << ConferenceProvider.stub(element) unless element.nil?
         end
         data
       end
@@ -1665,9 +1667,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeviceEvents'] = Stubs::DeviceEventList.stub(stub[:device_events]) unless stub[:device_events].nil?
+        data['DeviceEvents'] = DeviceEventList.stub(stub[:device_events]) unless stub[:device_events].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceEvent.stub(element) unless element.nil?
+          data << DeviceEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -1725,9 +1727,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GatewayGroups'] = Stubs::GatewayGroupSummaries.stub(stub[:gateway_groups]) unless stub[:gateway_groups].nil?
+        data['GatewayGroups'] = GatewayGroupSummaries.stub(stub[:gateway_groups]) unless stub[:gateway_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1746,7 +1748,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GatewayGroupSummary.stub(element) unless element.nil?
+          data << GatewayGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1785,9 +1787,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Gateways'] = Stubs::GatewaySummaries.stub(stub[:gateways]) unless stub[:gateways].nil?
+        data['Gateways'] = GatewaySummaries.stub(stub[:gateways]) unless stub[:gateways].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1806,7 +1808,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GatewaySummary.stub(element) unless element.nil?
+          data << GatewaySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1849,9 +1851,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SkillSummaries'] = Stubs::SkillSummaryList.stub(stub[:skill_summaries]) unless stub[:skill_summaries].nil?
+        data['SkillSummaries'] = SkillSummaryList.stub(stub[:skill_summaries]) unless stub[:skill_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1870,7 +1872,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SkillSummary.stub(element) unless element.nil?
+          data << SkillSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1913,9 +1915,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CategoryList'] = Stubs::CategoryList.stub(stub[:category_list]) unless stub[:category_list].nil?
+        data['CategoryList'] = CategoryList.stub(stub[:category_list]) unless stub[:category_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1934,7 +1936,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Category.stub(element) unless element.nil?
+          data << Category.stub(element) unless element.nil?
         end
         data
       end
@@ -1971,9 +1973,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SkillsStoreSkills'] = Stubs::SkillsStoreSkillList.stub(stub[:skills_store_skills]) unless stub[:skills_store_skills].nil?
+        data['SkillsStoreSkills'] = SkillsStoreSkillList.stub(stub[:skills_store_skills]) unless stub[:skills_store_skills].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1992,7 +1994,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SkillsStoreSkill.stub(element) unless element.nil?
+          data << SkillsStoreSkill.stub(element) unless element.nil?
         end
         data
       end
@@ -2021,8 +2023,8 @@ module AWS::SDK::AlexaForBusiness
         data['SkillName'] = stub[:skill_name] unless stub[:skill_name].nil?
         data['ShortDescription'] = stub[:short_description] unless stub[:short_description].nil?
         data['IconUrl'] = stub[:icon_url] unless stub[:icon_url].nil?
-        data['SampleUtterances'] = Stubs::SampleUtterances.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
-        data['SkillDetails'] = Stubs::SkillDetails.stub(stub[:skill_details]) unless stub[:skill_details].nil?
+        data['SampleUtterances'] = SampleUtterances.stub(stub[:sample_utterances]) unless stub[:sample_utterances].nil?
+        data['SkillDetails'] = SkillDetails.stub(stub[:skill_details]) unless stub[:skill_details].nil?
         data['SupportsLinking'] = stub[:supports_linking] unless stub[:supports_linking].nil?
         data
       end
@@ -2054,12 +2056,12 @@ module AWS::SDK::AlexaForBusiness
         data['InvocationPhrase'] = stub[:invocation_phrase] unless stub[:invocation_phrase].nil?
         data['ReleaseDate'] = stub[:release_date] unless stub[:release_date].nil?
         data['EndUserLicenseAgreement'] = stub[:end_user_license_agreement] unless stub[:end_user_license_agreement].nil?
-        data['GenericKeywords'] = Stubs::GenericKeywords.stub(stub[:generic_keywords]) unless stub[:generic_keywords].nil?
-        data['BulletPoints'] = Stubs::BulletPoints.stub(stub[:bullet_points]) unless stub[:bullet_points].nil?
-        data['NewInThisVersionBulletPoints'] = Stubs::NewInThisVersionBulletPoints.stub(stub[:new_in_this_version_bullet_points]) unless stub[:new_in_this_version_bullet_points].nil?
-        data['SkillTypes'] = Stubs::SkillTypes.stub(stub[:skill_types]) unless stub[:skill_types].nil?
-        data['Reviews'] = Stubs::Reviews.stub(stub[:reviews]) unless stub[:reviews].nil?
-        data['DeveloperInfo'] = Stubs::DeveloperInfo.stub(stub[:developer_info]) unless stub[:developer_info].nil?
+        data['GenericKeywords'] = GenericKeywords.stub(stub[:generic_keywords]) unless stub[:generic_keywords].nil?
+        data['BulletPoints'] = BulletPoints.stub(stub[:bullet_points]) unless stub[:bullet_points].nil?
+        data['NewInThisVersionBulletPoints'] = NewInThisVersionBulletPoints.stub(stub[:new_in_this_version_bullet_points]) unless stub[:new_in_this_version_bullet_points].nil?
+        data['SkillTypes'] = SkillTypes.stub(stub[:skill_types]) unless stub[:skill_types].nil?
+        data['Reviews'] = Reviews.stub(stub[:reviews]) unless stub[:reviews].nil?
+        data['DeveloperInfo'] = DeveloperInfo.stub(stub[:developer_info]) unless stub[:developer_info].nil?
         data
       end
     end
@@ -2219,9 +2221,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SmartHomeAppliances'] = Stubs::SmartHomeApplianceList.stub(stub[:smart_home_appliances]) unless stub[:smart_home_appliances].nil?
+        data['SmartHomeAppliances'] = SmartHomeApplianceList.stub(stub[:smart_home_appliances]) unless stub[:smart_home_appliances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2240,7 +2242,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SmartHomeAppliance.stub(element) unless element.nil?
+          data << SmartHomeAppliance.stub(element) unless element.nil?
         end
         data
       end
@@ -2279,9 +2281,9 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2300,7 +2302,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2335,7 +2337,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2349,7 +2351,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2363,7 +2365,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2377,7 +2379,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2393,7 +2395,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['DeviceArn'] = stub[:device_arn] unless stub[:device_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2407,7 +2409,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2426,8 +2428,8 @@ module AWS::SDK::AlexaForBusiness
         data = {}
         data['RoomArn'] = stub[:room_arn] unless stub[:room_arn].nil?
         data['RoomName'] = stub[:room_name] unless stub[:room_name].nil?
-        data['RoomSkillParameters'] = Stubs::RoomSkillParameters.stub(stub[:room_skill_parameters]) unless stub[:room_skill_parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoomSkillParameters'] = RoomSkillParameters.stub(stub[:room_skill_parameters]) unless stub[:room_skill_parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2446,7 +2448,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoomSkillParameter.stub(element) unless element.nil?
+          data << RoomSkillParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -2461,7 +2463,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2478,10 +2480,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AddressBooks'] = Stubs::AddressBookDataList.stub(stub[:address_books]) unless stub[:address_books].nil?
+        data['AddressBooks'] = AddressBookDataList.stub(stub[:address_books]) unless stub[:address_books].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2500,7 +2502,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AddressBookData.stub(element) unless element.nil?
+          data << AddressBookData.stub(element) unless element.nil?
         end
         data
       end
@@ -2540,10 +2542,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Contacts'] = Stubs::ContactDataList.stub(stub[:contacts]) unless stub[:contacts].nil?
+        data['Contacts'] = ContactDataList.stub(stub[:contacts]) unless stub[:contacts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2562,7 +2564,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContactData.stub(element) unless element.nil?
+          data << ContactData.stub(element) unless element.nil?
         end
         data
       end
@@ -2592,8 +2594,8 @@ module AWS::SDK::AlexaForBusiness
         data['FirstName'] = stub[:first_name] unless stub[:first_name].nil?
         data['LastName'] = stub[:last_name] unless stub[:last_name].nil?
         data['PhoneNumber'] = stub[:phone_number] unless stub[:phone_number].nil?
-        data['PhoneNumbers'] = Stubs::PhoneNumberList.stub(stub[:phone_numbers]) unless stub[:phone_numbers].nil?
-        data['SipAddresses'] = Stubs::SipAddressList.stub(stub[:sip_addresses]) unless stub[:sip_addresses].nil?
+        data['PhoneNumbers'] = PhoneNumberList.stub(stub[:phone_numbers]) unless stub[:phone_numbers].nil?
+        data['SipAddresses'] = SipAddressList.stub(stub[:sip_addresses]) unless stub[:sip_addresses].nil?
         data
       end
     end
@@ -2610,10 +2612,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Devices'] = Stubs::DeviceDataList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['Devices'] = DeviceDataList.stub(stub[:devices]) unless stub[:devices].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2632,7 +2634,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceData.stub(element) unless element.nil?
+          data << DeviceData.stub(element) unless element.nil?
         end
         data
       end
@@ -2674,7 +2676,7 @@ module AWS::SDK::AlexaForBusiness
         data['NetworkProfileName'] = stub[:network_profile_name] unless stub[:network_profile_name].nil?
         data['RoomArn'] = stub[:room_arn] unless stub[:room_arn].nil?
         data['RoomName'] = stub[:room_name] unless stub[:room_name].nil?
-        data['DeviceStatusInfo'] = Stubs::DeviceStatusInfo.stub(stub[:device_status_info]) unless stub[:device_status_info].nil?
+        data['DeviceStatusInfo'] = DeviceStatusInfo.stub(stub[:device_status_info]) unless stub[:device_status_info].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
       end
@@ -2692,10 +2694,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NetworkProfiles'] = Stubs::NetworkProfileDataList.stub(stub[:network_profiles]) unless stub[:network_profiles].nil?
+        data['NetworkProfiles'] = NetworkProfileDataList.stub(stub[:network_profiles]) unless stub[:network_profiles].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2714,7 +2716,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkProfileData.stub(element) unless element.nil?
+          data << NetworkProfileData.stub(element) unless element.nil?
         end
         data
       end
@@ -2762,10 +2764,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Profiles'] = Stubs::ProfileDataList.stub(stub[:profiles]) unless stub[:profiles].nil?
+        data['Profiles'] = ProfileDataList.stub(stub[:profiles]) unless stub[:profiles].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2784,7 +2786,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProfileData.stub(element) unless element.nil?
+          data << ProfileData.stub(element) unless element.nil?
         end
         data
       end
@@ -2836,10 +2838,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Rooms'] = Stubs::RoomDataList.stub(stub[:rooms]) unless stub[:rooms].nil?
+        data['Rooms'] = RoomDataList.stub(stub[:rooms]) unless stub[:rooms].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2858,7 +2860,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoomData.stub(element) unless element.nil?
+          data << RoomData.stub(element) unless element.nil?
         end
         data
       end
@@ -2904,10 +2906,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SkillGroups'] = Stubs::SkillGroupDataList.stub(stub[:skill_groups]) unless stub[:skill_groups].nil?
+        data['SkillGroups'] = SkillGroupDataList.stub(stub[:skill_groups]) unless stub[:skill_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2926,7 +2928,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SkillGroupData.stub(element) unless element.nil?
+          data << SkillGroupData.stub(element) unless element.nil?
         end
         data
       end
@@ -2966,10 +2968,10 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Users'] = Stubs::UserDataList.stub(stub[:users]) unless stub[:users].nil?
+        data['Users'] = UserDataList.stub(stub[:users]) unless stub[:users].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2988,7 +2990,7 @@ module AWS::SDK::AlexaForBusiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserData.stub(element) unless element.nil?
+          data << UserData.stub(element) unless element.nil?
         end
         data
       end
@@ -3033,7 +3035,7 @@ module AWS::SDK::AlexaForBusiness
       def self.stub(http_resp, stub:)
         data = {}
         data['AnnouncementArn'] = stub[:announcement_arn] unless stub[:announcement_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3047,7 +3049,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3061,7 +3063,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3075,7 +3077,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3089,7 +3091,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3103,7 +3105,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3117,7 +3119,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3131,7 +3133,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3145,7 +3147,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3159,7 +3161,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3173,7 +3175,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3187,7 +3189,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3201,7 +3203,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3215,7 +3217,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3229,7 +3231,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3243,7 +3245,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3257,7 +3259,7 @@ module AWS::SDK::AlexaForBusiness
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

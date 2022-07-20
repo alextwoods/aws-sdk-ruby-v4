@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Detective
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,8 +37,8 @@ module AWS::SDK::Detective
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,8 +66,8 @@ module AWS::SDK::Detective
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
         data['Message'] = input[:message] unless input[:message].nil?
         data['DisableEmailNotification'] = input[:disable_email_notification] unless input[:disable_email_notification].nil?
-        data['Accounts'] = Builders::AccountList.build(input[:accounts]) unless input[:accounts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accounts'] = AccountList.build(input[:accounts]) unless input[:accounts].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::Detective
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Account.build(element) unless element.nil?
+          data << Account.build(element) unless element.nil?
         end
         data
       end
@@ -101,7 +103,7 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -116,8 +118,8 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,7 +170,7 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,8 +200,8 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::Detective
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,7 +233,7 @@ module AWS::SDK::Detective
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::Detective
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -264,7 +266,7 @@ module AWS::SDK::Detective
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -296,7 +298,7 @@ module AWS::SDK::Detective
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,7 +314,7 @@ module AWS::SDK::Detective
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -333,8 +335,8 @@ module AWS::SDK::Detective
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -383,7 +385,7 @@ module AWS::SDK::Detective
         data = {}
         data['GraphArn'] = input[:graph_arn] unless input[:graph_arn].nil?
         data['AutoEnable'] = input[:auto_enable] unless input[:auto_enable].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

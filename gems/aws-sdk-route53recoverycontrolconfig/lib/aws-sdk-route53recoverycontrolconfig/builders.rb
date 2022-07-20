@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53RecoveryControlConfig
   module Builders
 
@@ -22,8 +24,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
-        data['Tags'] = Builders::Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,8 +53,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['ClusterArn'] = input[:cluster_arn] unless input[:cluster_arn].nil?
         data['ControlPanelName'] = input[:control_panel_name] unless input[:control_panel_name].nil?
-        data['Tags'] = Builders::Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         data['ClusterArn'] = input[:cluster_arn] unless input[:cluster_arn].nil?
         data['ControlPanelArn'] = input[:control_panel_arn] unless input[:control_panel_arn].nil?
         data['RoutingControlName'] = input[:routing_control_name] unless input[:routing_control_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,11 +86,11 @@ module AWS::SDK::Route53RecoveryControlConfig
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AssertionRule'] = Builders::NewAssertionRule.build(input[:assertion_rule]) unless input[:assertion_rule].nil?
+        data['AssertionRule'] = NewAssertionRule.build(input[:assertion_rule]) unless input[:assertion_rule].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['GatingRule'] = Builders::NewGatingRule.build(input[:gating_rule]) unless input[:gating_rule].nil?
-        data['Tags'] = Builders::Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GatingRule'] = NewGatingRule.build(input[:gating_rule]) unless input[:gating_rule].nil?
+        data['Tags'] = Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,10 +99,10 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.build(input)
         data = {}
         data['ControlPanelArn'] = input[:control_panel_arn] unless input[:control_panel_arn].nil?
-        data['GatingControls'] = Builders::List____listOf__stringMin1Max256PatternAZaZ09.build(input[:gating_controls]) unless input[:gating_controls].nil?
+        data['GatingControls'] = List____listOf__stringMin1Max256PatternAZaZ09.build(input[:gating_controls]) unless input[:gating_controls].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['RuleConfig'] = Builders::RuleConfig.build(input[:rule_config]) unless input[:rule_config].nil?
-        data['TargetControls'] = Builders::List____listOf__stringMin1Max256PatternAZaZ09.build(input[:target_controls]) unless input[:target_controls].nil?
+        data['RuleConfig'] = RuleConfig.build(input[:rule_config]) unless input[:rule_config].nil?
+        data['TargetControls'] = List____listOf__stringMin1Max256PatternAZaZ09.build(input[:target_controls]) unless input[:target_controls].nil?
         data['WaitPeriodMs'] = input[:wait_period_ms] unless input[:wait_period_ms].nil?
         data
       end
@@ -132,10 +134,10 @@ module AWS::SDK::Route53RecoveryControlConfig
     class NewAssertionRule
       def self.build(input)
         data = {}
-        data['AssertedControls'] = Builders::List____listOf__stringMin1Max256PatternAZaZ09.build(input[:asserted_controls]) unless input[:asserted_controls].nil?
+        data['AssertedControls'] = List____listOf__stringMin1Max256PatternAZaZ09.build(input[:asserted_controls]) unless input[:asserted_controls].nil?
         data['ControlPanelArn'] = input[:control_panel_arn] unless input[:control_panel_arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['RuleConfig'] = Builders::RuleConfig.build(input[:rule_config]) unless input[:rule_config].nil?
+        data['RuleConfig'] = RuleConfig.build(input[:rule_config]) unless input[:rule_config].nil?
         data['WaitPeriodMs'] = input[:wait_period_ms] unless input[:wait_period_ms].nil?
         data
       end
@@ -393,8 +395,8 @@ module AWS::SDK::Route53RecoveryControlConfig
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Map____mapOf__stringMin0Max256PatternS.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -443,7 +445,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         data['ControlPanelArn'] = input[:control_panel_arn] unless input[:control_panel_arn].nil?
         data['ControlPanelName'] = input[:control_panel_name] unless input[:control_panel_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         data['RoutingControlArn'] = input[:routing_control_arn] unless input[:routing_control_arn].nil?
         data['RoutingControlName'] = input[:routing_control_name] unless input[:routing_control_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -473,9 +475,9 @@ module AWS::SDK::Route53RecoveryControlConfig
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AssertionRuleUpdate'] = Builders::AssertionRuleUpdate.build(input[:assertion_rule_update]) unless input[:assertion_rule_update].nil?
-        data['GatingRuleUpdate'] = Builders::GatingRuleUpdate.build(input[:gating_rule_update]) unless input[:gating_rule_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssertionRuleUpdate'] = AssertionRuleUpdate.build(input[:assertion_rule_update]) unless input[:assertion_rule_update].nil?
+        data['GatingRuleUpdate'] = GatingRuleUpdate.build(input[:gating_rule_update]) unless input[:gating_rule_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

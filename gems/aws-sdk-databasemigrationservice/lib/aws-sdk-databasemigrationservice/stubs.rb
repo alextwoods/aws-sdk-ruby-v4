@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::DatabaseMigrationService
   module Stubs
 
@@ -19,7 +22,7 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -34,8 +37,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourcePendingMaintenanceActions'] = Stubs::ResourcePendingMaintenanceActions.stub(stub[:resource_pending_maintenance_actions]) unless stub[:resource_pending_maintenance_actions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourcePendingMaintenanceActions'] = ResourcePendingMaintenanceActions.stub(stub[:resource_pending_maintenance_actions]) unless stub[:resource_pending_maintenance_actions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -55,7 +58,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= Types::ResourcePendingMaintenanceActions.new
         data = {}
         data['ResourceIdentifier'] = stub[:resource_identifier] unless stub[:resource_identifier].nil?
-        data['PendingMaintenanceActionDetails'] = Stubs::PendingMaintenanceActionDetails.stub(stub[:pending_maintenance_action_details]) unless stub[:pending_maintenance_action_details].nil?
+        data['PendingMaintenanceActionDetails'] = PendingMaintenanceActionDetails.stub(stub[:pending_maintenance_action_details]) unless stub[:pending_maintenance_action_details].nil?
         data
       end
     end
@@ -74,7 +77,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PendingMaintenanceAction.stub(element) unless element.nil?
+          data << PendingMaintenanceAction.stub(element) unless element.nil?
         end
         data
       end
@@ -118,8 +121,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTaskAssessmentRun'] = Stubs::ReplicationTaskAssessmentRun.stub(stub[:replication_task_assessment_run]) unless stub[:replication_task_assessment_run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTaskAssessmentRun'] = ReplicationTaskAssessmentRun.stub(stub[:replication_task_assessment_run]) unless stub[:replication_task_assessment_run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -152,7 +155,7 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationTaskArn'] = stub[:replication_task_arn] unless stub[:replication_task_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ReplicationTaskAssessmentRunCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:replication_task_assessment_run_creation_date]).to_i unless stub[:replication_task_assessment_run_creation_date].nil?
-        data['AssessmentProgress'] = Stubs::ReplicationTaskAssessmentRunProgress.stub(stub[:assessment_progress]) unless stub[:assessment_progress].nil?
+        data['AssessmentProgress'] = ReplicationTaskAssessmentRunProgress.stub(stub[:assessment_progress]) unless stub[:assessment_progress].nil?
         data['LastFailureMessage'] = stub[:last_failure_message] unless stub[:last_failure_message].nil?
         data['ServiceAccessRoleArn'] = stub[:service_access_role_arn] unless stub[:service_access_role_arn].nil?
         data['ResultLocationBucket'] = stub[:result_location_bucket] unless stub[:result_location_bucket].nil?
@@ -194,8 +197,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Endpoint'] = Stubs::Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoint'] = Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -264,24 +267,24 @@ module AWS::SDK::DatabaseMigrationService
         data['ServiceAccessRoleArn'] = stub[:service_access_role_arn] unless stub[:service_access_role_arn].nil?
         data['ExternalTableDefinition'] = stub[:external_table_definition] unless stub[:external_table_definition].nil?
         data['ExternalId'] = stub[:external_id] unless stub[:external_id].nil?
-        data['DynamoDbSettings'] = Stubs::DynamoDbSettings.stub(stub[:dynamo_db_settings]) unless stub[:dynamo_db_settings].nil?
-        data['S3Settings'] = Stubs::S3Settings.stub(stub[:s3_settings]) unless stub[:s3_settings].nil?
-        data['DmsTransferSettings'] = Stubs::DmsTransferSettings.stub(stub[:dms_transfer_settings]) unless stub[:dms_transfer_settings].nil?
-        data['MongoDbSettings'] = Stubs::MongoDbSettings.stub(stub[:mongo_db_settings]) unless stub[:mongo_db_settings].nil?
-        data['KinesisSettings'] = Stubs::KinesisSettings.stub(stub[:kinesis_settings]) unless stub[:kinesis_settings].nil?
-        data['KafkaSettings'] = Stubs::KafkaSettings.stub(stub[:kafka_settings]) unless stub[:kafka_settings].nil?
-        data['ElasticsearchSettings'] = Stubs::ElasticsearchSettings.stub(stub[:elasticsearch_settings]) unless stub[:elasticsearch_settings].nil?
-        data['NeptuneSettings'] = Stubs::NeptuneSettings.stub(stub[:neptune_settings]) unless stub[:neptune_settings].nil?
-        data['RedshiftSettings'] = Stubs::RedshiftSettings.stub(stub[:redshift_settings]) unless stub[:redshift_settings].nil?
-        data['PostgreSQLSettings'] = Stubs::PostgreSQLSettings.stub(stub[:postgre_sql_settings]) unless stub[:postgre_sql_settings].nil?
-        data['MySQLSettings'] = Stubs::MySQLSettings.stub(stub[:my_sql_settings]) unless stub[:my_sql_settings].nil?
-        data['OracleSettings'] = Stubs::OracleSettings.stub(stub[:oracle_settings]) unless stub[:oracle_settings].nil?
-        data['SybaseSettings'] = Stubs::SybaseSettings.stub(stub[:sybase_settings]) unless stub[:sybase_settings].nil?
-        data['MicrosoftSQLServerSettings'] = Stubs::MicrosoftSQLServerSettings.stub(stub[:microsoft_sql_server_settings]) unless stub[:microsoft_sql_server_settings].nil?
-        data['IBMDb2Settings'] = Stubs::IBMDb2Settings.stub(stub[:ibm_db2_settings]) unless stub[:ibm_db2_settings].nil?
-        data['DocDbSettings'] = Stubs::DocDbSettings.stub(stub[:doc_db_settings]) unless stub[:doc_db_settings].nil?
-        data['RedisSettings'] = Stubs::RedisSettings.stub(stub[:redis_settings]) unless stub[:redis_settings].nil?
-        data['GcpMySQLSettings'] = Stubs::GcpMySQLSettings.stub(stub[:gcp_my_sql_settings]) unless stub[:gcp_my_sql_settings].nil?
+        data['DynamoDbSettings'] = DynamoDbSettings.stub(stub[:dynamo_db_settings]) unless stub[:dynamo_db_settings].nil?
+        data['S3Settings'] = S3Settings.stub(stub[:s3_settings]) unless stub[:s3_settings].nil?
+        data['DmsTransferSettings'] = DmsTransferSettings.stub(stub[:dms_transfer_settings]) unless stub[:dms_transfer_settings].nil?
+        data['MongoDbSettings'] = MongoDbSettings.stub(stub[:mongo_db_settings]) unless stub[:mongo_db_settings].nil?
+        data['KinesisSettings'] = KinesisSettings.stub(stub[:kinesis_settings]) unless stub[:kinesis_settings].nil?
+        data['KafkaSettings'] = KafkaSettings.stub(stub[:kafka_settings]) unless stub[:kafka_settings].nil?
+        data['ElasticsearchSettings'] = ElasticsearchSettings.stub(stub[:elasticsearch_settings]) unless stub[:elasticsearch_settings].nil?
+        data['NeptuneSettings'] = NeptuneSettings.stub(stub[:neptune_settings]) unless stub[:neptune_settings].nil?
+        data['RedshiftSettings'] = RedshiftSettings.stub(stub[:redshift_settings]) unless stub[:redshift_settings].nil?
+        data['PostgreSQLSettings'] = PostgreSQLSettings.stub(stub[:postgre_sql_settings]) unless stub[:postgre_sql_settings].nil?
+        data['MySQLSettings'] = MySQLSettings.stub(stub[:my_sql_settings]) unless stub[:my_sql_settings].nil?
+        data['OracleSettings'] = OracleSettings.stub(stub[:oracle_settings]) unless stub[:oracle_settings].nil?
+        data['SybaseSettings'] = SybaseSettings.stub(stub[:sybase_settings]) unless stub[:sybase_settings].nil?
+        data['MicrosoftSQLServerSettings'] = MicrosoftSQLServerSettings.stub(stub[:microsoft_sql_server_settings]) unless stub[:microsoft_sql_server_settings].nil?
+        data['IBMDb2Settings'] = IBMDb2Settings.stub(stub[:ibm_db2_settings]) unless stub[:ibm_db2_settings].nil?
+        data['DocDbSettings'] = DocDbSettings.stub(stub[:doc_db_settings]) unless stub[:doc_db_settings].nil?
+        data['RedisSettings'] = RedisSettings.stub(stub[:redis_settings]) unless stub[:redis_settings].nil?
+        data['GcpMySQLSettings'] = GcpMySQLSettings.stub(stub[:gcp_my_sql_settings]) unless stub[:gcp_my_sql_settings].nil?
         data
       end
     end
@@ -563,7 +566,7 @@ module AWS::SDK::DatabaseMigrationService
         data['AddSupplementalLogging'] = stub[:add_supplemental_logging] unless stub[:add_supplemental_logging].nil?
         data['ArchivedLogDestId'] = stub[:archived_log_dest_id] unless stub[:archived_log_dest_id].nil?
         data['AdditionalArchivedLogDestId'] = stub[:additional_archived_log_dest_id] unless stub[:additional_archived_log_dest_id].nil?
-        data['ExtraArchivedLogDestIds'] = Stubs::IntegerList.stub(stub[:extra_archived_log_dest_ids]) unless stub[:extra_archived_log_dest_ids].nil?
+        data['ExtraArchivedLogDestIds'] = IntegerList.stub(stub[:extra_archived_log_dest_ids]) unless stub[:extra_archived_log_dest_ids].nil?
         data['AllowSelectNestedTables'] = stub[:allow_select_nested_tables] unless stub[:allow_select_nested_tables].nil?
         data['ParallelAsmReadThreads'] = stub[:parallel_asm_read_threads] unless stub[:parallel_asm_read_threads].nil?
         data['ReadAheadBlocks'] = stub[:read_ahead_blocks] unless stub[:read_ahead_blocks].nil?
@@ -1122,8 +1125,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventSubscription'] = Stubs::EventSubscription.stub(stub[:event_subscription]) unless stub[:event_subscription].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSubscription'] = EventSubscription.stub(stub[:event_subscription]) unless stub[:event_subscription].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1155,8 +1158,8 @@ module AWS::SDK::DatabaseMigrationService
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['SubscriptionCreationTime'] = stub[:subscription_creation_time] unless stub[:subscription_creation_time].nil?
         data['SourceType'] = stub[:source_type] unless stub[:source_type].nil?
-        data['SourceIdsList'] = Stubs::SourceIdsList.stub(stub[:source_ids_list]) unless stub[:source_ids_list].nil?
-        data['EventCategoriesList'] = Stubs::EventCategoriesList.stub(stub[:event_categories_list]) unless stub[:event_categories_list].nil?
+        data['SourceIdsList'] = SourceIdsList.stub(stub[:source_ids_list]) unless stub[:source_ids_list].nil?
+        data['EventCategoriesList'] = EventCategoriesList.stub(stub[:event_categories_list]) unless stub[:event_categories_list].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data
       end
@@ -1221,7 +1224,7 @@ module AWS::SDK::DatabaseMigrationService
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ServiceAccessRoleArn'] = stub[:service_access_role_arn] unless stub[:service_access_role_arn].nil?
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1236,8 +1239,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationInstance'] = Stubs::ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationInstance'] = ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1282,11 +1285,11 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationInstanceStatus'] = stub[:replication_instance_status] unless stub[:replication_instance_status].nil?
         data['AllocatedStorage'] = stub[:allocated_storage] unless stub[:allocated_storage].nil?
         data['InstanceCreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:instance_create_time]).to_i unless stub[:instance_create_time].nil?
-        data['VpcSecurityGroups'] = Stubs::VpcSecurityGroupMembershipList.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
+        data['VpcSecurityGroups'] = VpcSecurityGroupMembershipList.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
-        data['ReplicationSubnetGroup'] = Stubs::ReplicationSubnetGroup.stub(stub[:replication_subnet_group]) unless stub[:replication_subnet_group].nil?
+        data['ReplicationSubnetGroup'] = ReplicationSubnetGroup.stub(stub[:replication_subnet_group]) unless stub[:replication_subnet_group].nil?
         data['PreferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
-        data['PendingModifiedValues'] = Stubs::ReplicationPendingModifiedValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
+        data['PendingModifiedValues'] = ReplicationPendingModifiedValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
         data['MultiAZ'] = stub[:multi_az] unless stub[:multi_az].nil?
         data['EngineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['AutoMinorVersionUpgrade'] = stub[:auto_minor_version_upgrade] unless stub[:auto_minor_version_upgrade].nil?
@@ -1294,8 +1297,8 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationInstanceArn'] = stub[:replication_instance_arn] unless stub[:replication_instance_arn].nil?
         data['ReplicationInstancePublicIpAddress'] = stub[:replication_instance_public_ip_address] unless stub[:replication_instance_public_ip_address].nil?
         data['ReplicationInstancePrivateIpAddress'] = stub[:replication_instance_private_ip_address] unless stub[:replication_instance_private_ip_address].nil?
-        data['ReplicationInstancePublicIpAddresses'] = Stubs::ReplicationInstancePublicIpAddressList.stub(stub[:replication_instance_public_ip_addresses]) unless stub[:replication_instance_public_ip_addresses].nil?
-        data['ReplicationInstancePrivateIpAddresses'] = Stubs::ReplicationInstancePrivateIpAddressList.stub(stub[:replication_instance_private_ip_addresses]) unless stub[:replication_instance_private_ip_addresses].nil?
+        data['ReplicationInstancePublicIpAddresses'] = ReplicationInstancePublicIpAddressList.stub(stub[:replication_instance_public_ip_addresses]) unless stub[:replication_instance_public_ip_addresses].nil?
+        data['ReplicationInstancePrivateIpAddresses'] = ReplicationInstancePrivateIpAddressList.stub(stub[:replication_instance_private_ip_addresses]) unless stub[:replication_instance_private_ip_addresses].nil?
         data['PubliclyAccessible'] = stub[:publicly_accessible] unless stub[:publicly_accessible].nil?
         data['SecondaryAvailabilityZone'] = stub[:secondary_availability_zone] unless stub[:secondary_availability_zone].nil?
         data['FreeUntil'] = Hearth::TimeHelper.to_epoch_seconds(stub[:free_until]).to_i unless stub[:free_until].nil?
@@ -1389,7 +1392,7 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationSubnetGroupDescription'] = stub[:replication_subnet_group_description] unless stub[:replication_subnet_group_description].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['SubnetGroupStatus'] = stub[:subnet_group_status] unless stub[:subnet_group_status].nil?
-        data['Subnets'] = Stubs::SubnetList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['Subnets'] = SubnetList.stub(stub[:subnets]) unless stub[:subnets].nil?
         data
       end
     end
@@ -1408,7 +1411,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subnet.stub(element) unless element.nil?
+          data << Subnet.stub(element) unless element.nil?
         end
         data
       end
@@ -1430,7 +1433,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= Types::Subnet.new
         data = {}
         data['SubnetIdentifier'] = stub[:subnet_identifier] unless stub[:subnet_identifier].nil?
-        data['SubnetAvailabilityZone'] = Stubs::AvailabilityZone.stub(stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
+        data['SubnetAvailabilityZone'] = AvailabilityZone.stub(stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
         data['SubnetStatus'] = stub[:subnet_status] unless stub[:subnet_status].nil?
         data
       end
@@ -1468,7 +1471,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VpcSecurityGroupMembership.stub(element) unless element.nil?
+          data << VpcSecurityGroupMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -1504,8 +1507,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationSubnetGroup'] = Stubs::ReplicationSubnetGroup.stub(stub[:replication_subnet_group]) unless stub[:replication_subnet_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationSubnetGroup'] = ReplicationSubnetGroup.stub(stub[:replication_subnet_group]) unless stub[:replication_subnet_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1520,8 +1523,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTask'] = Stubs::ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTask'] = ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1573,7 +1576,7 @@ module AWS::SDK::DatabaseMigrationService
         data['CdcStopPosition'] = stub[:cdc_stop_position] unless stub[:cdc_stop_position].nil?
         data['RecoveryCheckpoint'] = stub[:recovery_checkpoint] unless stub[:recovery_checkpoint].nil?
         data['ReplicationTaskArn'] = stub[:replication_task_arn] unless stub[:replication_task_arn].nil?
-        data['ReplicationTaskStats'] = Stubs::ReplicationTaskStats.stub(stub[:replication_task_stats]) unless stub[:replication_task_stats].nil?
+        data['ReplicationTaskStats'] = ReplicationTaskStats.stub(stub[:replication_task_stats]) unless stub[:replication_task_stats].nil?
         data['TaskData'] = stub[:task_data] unless stub[:task_data].nil?
         data['TargetReplicationInstanceArn'] = stub[:target_replication_instance_arn] unless stub[:target_replication_instance_arn].nil?
         data
@@ -1628,8 +1631,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Certificate'] = Stubs::Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Certificate'] = Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1659,7 +1662,7 @@ module AWS::SDK::DatabaseMigrationService
         data['CertificateIdentifier'] = stub[:certificate_identifier] unless stub[:certificate_identifier].nil?
         data['CertificateCreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:certificate_creation_date]).to_i unless stub[:certificate_creation_date].nil?
         data['CertificatePem'] = stub[:certificate_pem] unless stub[:certificate_pem].nil?
-        data['CertificateWallet'] = Base64::encode64(stub[:certificate_wallet]) unless stub[:certificate_wallet].nil?
+        data['CertificateWallet'] = ::Base64::encode64(stub[:certificate_wallet]) unless stub[:certificate_wallet].nil?
         data['CertificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['CertificateOwner'] = stub[:certificate_owner] unless stub[:certificate_owner].nil?
         data['ValidFromDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:valid_from_date]).to_i unless stub[:valid_from_date].nil?
@@ -1680,8 +1683,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1724,8 +1727,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Endpoint'] = Stubs::Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoint'] = Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1740,8 +1743,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventSubscription'] = Stubs::EventSubscription.stub(stub[:event_subscription]) unless stub[:event_subscription].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSubscription'] = EventSubscription.stub(stub[:event_subscription]) unless stub[:event_subscription].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1755,7 +1758,7 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1770,8 +1773,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatabaseIds'] = Stubs::StringList.stub(stub[:database_ids]) unless stub[:database_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatabaseIds'] = StringList.stub(stub[:database_ids]) unless stub[:database_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1806,8 +1809,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationInstance'] = Stubs::ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationInstance'] = ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1821,7 +1824,7 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1836,8 +1839,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTask'] = Stubs::ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTask'] = ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1852,8 +1855,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTaskAssessmentRun'] = Stubs::ReplicationTaskAssessmentRun.stub(stub[:replication_task_assessment_run]) unless stub[:replication_task_assessment_run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTaskAssessmentRun'] = ReplicationTaskAssessmentRun.stub(stub[:replication_task_assessment_run]) unless stub[:replication_task_assessment_run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1869,9 +1872,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountQuotas'] = Stubs::AccountQuotaList.stub(stub[:account_quotas]) unless stub[:account_quotas].nil?
+        data['AccountQuotas'] = AccountQuotaList.stub(stub[:account_quotas]) unless stub[:account_quotas].nil?
         data['UniqueAccountIdentifier'] = stub[:unique_account_identifier] unless stub[:unique_account_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1890,7 +1893,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountQuota.stub(element) unless element.nil?
+          data << AccountQuota.stub(element) unless element.nil?
         end
         data
       end
@@ -1929,9 +1932,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IndividualAssessmentNames'] = Stubs::IndividualAssessmentNameList.stub(stub[:individual_assessment_names]) unless stub[:individual_assessment_names].nil?
+        data['IndividualAssessmentNames'] = IndividualAssessmentNameList.stub(stub[:individual_assessment_names]) unless stub[:individual_assessment_names].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1968,8 +1971,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['Certificates'] = Stubs::CertificateList.stub(stub[:certificates]) unless stub[:certificates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Certificates'] = CertificateList.stub(stub[:certificates]) unless stub[:certificates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1988,7 +1991,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Certificate.stub(element) unless element.nil?
+          data << Certificate.stub(element) unless element.nil?
         end
         data
       end
@@ -2006,8 +2009,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['Connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2026,7 +2029,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connection.stub(element) unless element.nil?
+          data << Connection.stub(element) unless element.nil?
         end
         data
       end
@@ -2044,8 +2047,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['EndpointSettings'] = Stubs::EndpointSettingsList.stub(stub[:endpoint_settings]) unless stub[:endpoint_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EndpointSettings'] = EndpointSettingsList.stub(stub[:endpoint_settings]) unless stub[:endpoint_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2064,7 +2067,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointSetting.stub(element) unless element.nil?
+          data << EndpointSetting.stub(element) unless element.nil?
         end
         data
       end
@@ -2093,7 +2096,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['EnumValues'] = Stubs::EndpointSettingEnumValues.stub(stub[:enum_values]) unless stub[:enum_values].nil?
+        data['EnumValues'] = EndpointSettingEnumValues.stub(stub[:enum_values]) unless stub[:enum_values].nil?
         data['Sensitive'] = stub[:sensitive] unless stub[:sensitive].nil?
         data['Units'] = stub[:units] unless stub[:units].nil?
         data['Applicability'] = stub[:applicability] unless stub[:applicability].nil?
@@ -2136,8 +2139,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['SupportedEndpointTypes'] = Stubs::SupportedEndpointTypeList.stub(stub[:supported_endpoint_types]) unless stub[:supported_endpoint_types].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SupportedEndpointTypes'] = SupportedEndpointTypeList.stub(stub[:supported_endpoint_types]) unless stub[:supported_endpoint_types].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2156,7 +2159,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SupportedEndpointType.stub(element) unless element.nil?
+          data << SupportedEndpointType.stub(element) unless element.nil?
         end
         data
       end
@@ -2200,8 +2203,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['Endpoints'] = Stubs::EndpointList.stub(stub[:endpoints]) unless stub[:endpoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoints'] = EndpointList.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2220,7 +2223,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Endpoint.stub(element) unless element.nil?
+          data << Endpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -2236,8 +2239,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventCategoryGroupList'] = Stubs::EventCategoryGroupList.stub(stub[:event_category_group_list]) unless stub[:event_category_group_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventCategoryGroupList'] = EventCategoryGroupList.stub(stub[:event_category_group_list]) unless stub[:event_category_group_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2256,7 +2259,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventCategoryGroup.stub(element) unless element.nil?
+          data << EventCategoryGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2277,7 +2280,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= Types::EventCategoryGroup.new
         data = {}
         data['SourceType'] = stub[:source_type] unless stub[:source_type].nil?
-        data['EventCategories'] = Stubs::EventCategoriesList.stub(stub[:event_categories]) unless stub[:event_categories].nil?
+        data['EventCategories'] = EventCategoriesList.stub(stub[:event_categories]) unless stub[:event_categories].nil?
         data
       end
     end
@@ -2294,8 +2297,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['EventSubscriptionsList'] = Stubs::EventSubscriptionsList.stub(stub[:event_subscriptions_list]) unless stub[:event_subscriptions_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSubscriptionsList'] = EventSubscriptionsList.stub(stub[:event_subscriptions_list]) unless stub[:event_subscriptions_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2314,7 +2317,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventSubscription.stub(element) unless element.nil?
+          data << EventSubscription.stub(element) unless element.nil?
         end
         data
       end
@@ -2332,8 +2335,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['Events'] = Stubs::EventList.stub(stub[:events]) unless stub[:events].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Events'] = EventList.stub(stub[:events]) unless stub[:events].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2352,7 +2355,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Event.stub(element) unless element.nil?
+          data << Event.stub(element) unless element.nil?
         end
         data
       end
@@ -2378,7 +2381,7 @@ module AWS::SDK::DatabaseMigrationService
         data['SourceIdentifier'] = stub[:source_identifier] unless stub[:source_identifier].nil?
         data['SourceType'] = stub[:source_type] unless stub[:source_type].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
-        data['EventCategories'] = Stubs::EventCategoriesList.stub(stub[:event_categories]) unless stub[:event_categories].nil?
+        data['EventCategories'] = EventCategoriesList.stub(stub[:event_categories]) unless stub[:event_categories].nil?
         data['Date'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date]).to_i unless stub[:date].nil?
         data
       end
@@ -2395,9 +2398,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Collectors'] = Stubs::CollectorResponses.stub(stub[:collectors]) unless stub[:collectors].nil?
+        data['Collectors'] = CollectorResponses.stub(stub[:collectors]) unless stub[:collectors].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2416,7 +2419,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CollectorResponse.stub(element) unless element.nil?
+          data << CollectorResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2454,12 +2457,12 @@ module AWS::SDK::DatabaseMigrationService
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
         data['ServiceAccessRoleArn'] = stub[:service_access_role_arn] unless stub[:service_access_role_arn].nil?
-        data['CollectorHealthCheck'] = Stubs::CollectorHealthCheck.stub(stub[:collector_health_check]) unless stub[:collector_health_check].nil?
+        data['CollectorHealthCheck'] = CollectorHealthCheck.stub(stub[:collector_health_check]) unless stub[:collector_health_check].nil?
         data['LastDataReceived'] = stub[:last_data_received] unless stub[:last_data_received].nil?
         data['RegisteredDate'] = stub[:registered_date] unless stub[:registered_date].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['ModifiedDate'] = stub[:modified_date] unless stub[:modified_date].nil?
-        data['InventoryData'] = Stubs::InventoryData.stub(stub[:inventory_data]) unless stub[:inventory_data].nil?
+        data['InventoryData'] = InventoryData.stub(stub[:inventory_data]) unless stub[:inventory_data].nil?
         data
       end
     end
@@ -2519,9 +2522,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Databases'] = Stubs::DatabaseList.stub(stub[:databases]) unless stub[:databases].nil?
+        data['Databases'] = DatabaseList.stub(stub[:databases]) unless stub[:databases].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2540,7 +2543,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatabaseResponse.stub(element) unless element.nil?
+          data << DatabaseResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2569,9 +2572,9 @@ module AWS::SDK::DatabaseMigrationService
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['IpAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['NumberOfSchemas'] = stub[:number_of_schemas] unless stub[:number_of_schemas].nil?
-        data['Server'] = Stubs::ServerShortInfoResponse.stub(stub[:server]) unless stub[:server].nil?
-        data['SoftwareDetails'] = Stubs::DatabaseInstanceSoftwareDetailsResponse.stub(stub[:software_details]) unless stub[:software_details].nil?
-        data['Collectors'] = Stubs::CollectorsList.stub(stub[:collectors]) unless stub[:collectors].nil?
+        data['Server'] = ServerShortInfoResponse.stub(stub[:server]) unless stub[:server].nil?
+        data['SoftwareDetails'] = DatabaseInstanceSoftwareDetailsResponse.stub(stub[:software_details]) unless stub[:software_details].nil?
+        data['Collectors'] = CollectorsList.stub(stub[:collectors]) unless stub[:collectors].nil?
         data
       end
     end
@@ -2590,7 +2593,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CollectorShortInfoResponse.stub(element) unless element.nil?
+          data << CollectorShortInfoResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2679,9 +2682,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Analysis'] = Stubs::FleetAdvisorLsaAnalysisResponseList.stub(stub[:analysis]) unless stub[:analysis].nil?
+        data['Analysis'] = FleetAdvisorLsaAnalysisResponseList.stub(stub[:analysis]) unless stub[:analysis].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2700,7 +2703,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetAdvisorLsaAnalysisResponse.stub(element) unless element.nil?
+          data << FleetAdvisorLsaAnalysisResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2737,9 +2740,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetAdvisorSchemaObjects'] = Stubs::FleetAdvisorSchemaObjectList.stub(stub[:fleet_advisor_schema_objects]) unless stub[:fleet_advisor_schema_objects].nil?
+        data['FleetAdvisorSchemaObjects'] = FleetAdvisorSchemaObjectList.stub(stub[:fleet_advisor_schema_objects]) unless stub[:fleet_advisor_schema_objects].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2758,7 +2761,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetAdvisorSchemaObjectResponse.stub(element) unless element.nil?
+          data << FleetAdvisorSchemaObjectResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2801,9 +2804,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetAdvisorSchemas'] = Stubs::FleetAdvisorSchemaList.stub(stub[:fleet_advisor_schemas]) unless stub[:fleet_advisor_schemas].nil?
+        data['FleetAdvisorSchemas'] = FleetAdvisorSchemaList.stub(stub[:fleet_advisor_schemas]) unless stub[:fleet_advisor_schemas].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2822,7 +2825,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaResponse.stub(element) unless element.nil?
+          data << SchemaResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2852,11 +2855,11 @@ module AWS::SDK::DatabaseMigrationService
         data['CodeLineCount'] = stub[:code_line_count] unless stub[:code_line_count].nil?
         data['CodeSize'] = stub[:code_size] unless stub[:code_size].nil?
         data['Complexity'] = stub[:complexity] unless stub[:complexity].nil?
-        data['Server'] = Stubs::ServerShortInfoResponse.stub(stub[:server]) unless stub[:server].nil?
-        data['DatabaseInstance'] = Stubs::DatabaseShortInfoResponse.stub(stub[:database_instance]) unless stub[:database_instance].nil?
+        data['Server'] = ServerShortInfoResponse.stub(stub[:server]) unless stub[:server].nil?
+        data['DatabaseInstance'] = DatabaseShortInfoResponse.stub(stub[:database_instance]) unless stub[:database_instance].nil?
         data['SchemaId'] = stub[:schema_id] unless stub[:schema_id].nil?
         data['SchemaName'] = stub[:schema_name] unless stub[:schema_name].nil?
-        data['OriginalSchema'] = Stubs::SchemaShortInfoResponse.stub(stub[:original_schema]) unless stub[:original_schema].nil?
+        data['OriginalSchema'] = SchemaShortInfoResponse.stub(stub[:original_schema]) unless stub[:original_schema].nil?
         data['Similarity'] = Hearth::NumberHelper.serialize(stub[:similarity])
         data
       end
@@ -2923,9 +2926,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrderableReplicationInstances'] = Stubs::OrderableReplicationInstanceList.stub(stub[:orderable_replication_instances]) unless stub[:orderable_replication_instances].nil?
+        data['OrderableReplicationInstances'] = OrderableReplicationInstanceList.stub(stub[:orderable_replication_instances]) unless stub[:orderable_replication_instances].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2944,7 +2947,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrderableReplicationInstance.stub(element) unless element.nil?
+          data << OrderableReplicationInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -2978,7 +2981,7 @@ module AWS::SDK::DatabaseMigrationService
         data['MaxAllocatedStorage'] = stub[:max_allocated_storage] unless stub[:max_allocated_storage].nil?
         data['DefaultAllocatedStorage'] = stub[:default_allocated_storage] unless stub[:default_allocated_storage].nil?
         data['IncludedAllocatedStorage'] = stub[:included_allocated_storage] unless stub[:included_allocated_storage].nil?
-        data['AvailabilityZones'] = Stubs::AvailabilityZonesList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['AvailabilityZones'] = AvailabilityZonesList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data['ReleaseStatus'] = stub[:release_status] unless stub[:release_status].nil?
         data
       end
@@ -3015,9 +3018,9 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PendingMaintenanceActions'] = Stubs::PendingMaintenanceActions.stub(stub[:pending_maintenance_actions]) unless stub[:pending_maintenance_actions].nil?
+        data['PendingMaintenanceActions'] = PendingMaintenanceActions.stub(stub[:pending_maintenance_actions]) unless stub[:pending_maintenance_actions].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3036,7 +3039,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourcePendingMaintenanceActions.stub(element) unless element.nil?
+          data << ResourcePendingMaintenanceActions.stub(element) unless element.nil?
         end
         data
       end
@@ -3052,8 +3055,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RefreshSchemasStatus'] = Stubs::RefreshSchemasStatus.stub(stub[:refresh_schemas_status]) unless stub[:refresh_schemas_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RefreshSchemasStatus'] = RefreshSchemasStatus.stub(stub[:refresh_schemas_status]) unless stub[:refresh_schemas_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3097,9 +3100,9 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['ReplicationInstanceArn'] = stub[:replication_instance_arn] unless stub[:replication_instance_arn].nil?
-        data['ReplicationInstanceTaskLogs'] = Stubs::ReplicationInstanceTaskLogsList.stub(stub[:replication_instance_task_logs]) unless stub[:replication_instance_task_logs].nil?
+        data['ReplicationInstanceTaskLogs'] = ReplicationInstanceTaskLogsList.stub(stub[:replication_instance_task_logs]) unless stub[:replication_instance_task_logs].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3118,7 +3121,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationInstanceTaskLog.stub(element) unless element.nil?
+          data << ReplicationInstanceTaskLog.stub(element) unless element.nil?
         end
         data
       end
@@ -3158,8 +3161,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['ReplicationInstances'] = Stubs::ReplicationInstanceList.stub(stub[:replication_instances]) unless stub[:replication_instances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationInstances'] = ReplicationInstanceList.stub(stub[:replication_instances]) unless stub[:replication_instances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3178,7 +3181,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationInstance.stub(element) unless element.nil?
+          data << ReplicationInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -3196,8 +3199,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['ReplicationSubnetGroups'] = Stubs::ReplicationSubnetGroups.stub(stub[:replication_subnet_groups]) unless stub[:replication_subnet_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationSubnetGroups'] = ReplicationSubnetGroups.stub(stub[:replication_subnet_groups]) unless stub[:replication_subnet_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3216,7 +3219,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationSubnetGroup.stub(element) unless element.nil?
+          data << ReplicationSubnetGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -3236,8 +3239,8 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
         data['BucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
-        data['ReplicationTaskAssessmentResults'] = Stubs::ReplicationTaskAssessmentResultList.stub(stub[:replication_task_assessment_results]) unless stub[:replication_task_assessment_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTaskAssessmentResults'] = ReplicationTaskAssessmentResultList.stub(stub[:replication_task_assessment_results]) unless stub[:replication_task_assessment_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3256,7 +3259,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationTaskAssessmentResult.stub(element) unless element.nil?
+          data << ReplicationTaskAssessmentResult.stub(element) unless element.nil?
         end
         data
       end
@@ -3304,8 +3307,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['ReplicationTaskAssessmentRuns'] = Stubs::ReplicationTaskAssessmentRunList.stub(stub[:replication_task_assessment_runs]) unless stub[:replication_task_assessment_runs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTaskAssessmentRuns'] = ReplicationTaskAssessmentRunList.stub(stub[:replication_task_assessment_runs]) unless stub[:replication_task_assessment_runs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3324,7 +3327,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationTaskAssessmentRun.stub(element) unless element.nil?
+          data << ReplicationTaskAssessmentRun.stub(element) unless element.nil?
         end
         data
       end
@@ -3342,8 +3345,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['ReplicationTaskIndividualAssessments'] = Stubs::ReplicationTaskIndividualAssessmentList.stub(stub[:replication_task_individual_assessments]) unless stub[:replication_task_individual_assessments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTaskIndividualAssessments'] = ReplicationTaskIndividualAssessmentList.stub(stub[:replication_task_individual_assessments]) unless stub[:replication_task_individual_assessments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3362,7 +3365,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationTaskIndividualAssessment.stub(element) unless element.nil?
+          data << ReplicationTaskIndividualAssessment.stub(element) unless element.nil?
         end
         data
       end
@@ -3406,8 +3409,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['ReplicationTasks'] = Stubs::ReplicationTaskList.stub(stub[:replication_tasks]) unless stub[:replication_tasks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTasks'] = ReplicationTaskList.stub(stub[:replication_tasks]) unless stub[:replication_tasks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3426,7 +3429,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationTask.stub(element) unless element.nil?
+          data << ReplicationTask.stub(element) unless element.nil?
         end
         data
       end
@@ -3444,8 +3447,8 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['Schemas'] = Stubs::SchemaList.stub(stub[:schemas]) unless stub[:schemas].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Schemas'] = SchemaList.stub(stub[:schemas]) unless stub[:schemas].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3483,9 +3486,9 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['ReplicationTaskArn'] = stub[:replication_task_arn] unless stub[:replication_task_arn].nil?
-        data['TableStatistics'] = Stubs::TableStatisticsList.stub(stub[:table_statistics]) unless stub[:table_statistics].nil?
+        data['TableStatistics'] = TableStatisticsList.stub(stub[:table_statistics]) unless stub[:table_statistics].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3504,7 +3507,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableStatistics.stub(element) unless element.nil?
+          data << TableStatistics.stub(element) unless element.nil?
         end
         data
       end
@@ -3574,8 +3577,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Certificate'] = Stubs::Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Certificate'] = Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3590,8 +3593,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3610,7 +3613,7 @@ module AWS::SDK::DatabaseMigrationService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -3648,8 +3651,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Endpoint'] = Stubs::Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoint'] = Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3664,8 +3667,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventSubscription'] = Stubs::EventSubscription.stub(stub[:event_subscription]) unless stub[:event_subscription].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSubscription'] = EventSubscription.stub(stub[:event_subscription]) unless stub[:event_subscription].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3680,8 +3683,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationInstance'] = Stubs::ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationInstance'] = ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3696,8 +3699,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationSubnetGroup'] = Stubs::ReplicationSubnetGroup.stub(stub[:replication_subnet_group]) unless stub[:replication_subnet_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationSubnetGroup'] = ReplicationSubnetGroup.stub(stub[:replication_subnet_group]) unless stub[:replication_subnet_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3712,8 +3715,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTask'] = Stubs::ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTask'] = ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3728,8 +3731,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTask'] = Stubs::ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTask'] = ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3744,8 +3747,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationInstance'] = Stubs::ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationInstance'] = ReplicationInstance.stub(stub[:replication_instance]) unless stub[:replication_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3760,8 +3763,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RefreshSchemasStatus'] = Stubs::RefreshSchemasStatus.stub(stub[:refresh_schemas_status]) unless stub[:refresh_schemas_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RefreshSchemasStatus'] = RefreshSchemasStatus.stub(stub[:refresh_schemas_status]) unless stub[:refresh_schemas_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3777,7 +3780,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.stub(http_resp, stub:)
         data = {}
         data['ReplicationTaskArn'] = stub[:replication_task_arn] unless stub[:replication_task_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3791,7 +3794,7 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3809,7 +3812,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['LsaAnalysisId'] = stub[:lsa_analysis_id] unless stub[:lsa_analysis_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3824,8 +3827,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTask'] = Stubs::ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTask'] = ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3840,8 +3843,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTask'] = Stubs::ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTask'] = ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3856,8 +3859,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTaskAssessmentRun'] = Stubs::ReplicationTaskAssessmentRun.stub(stub[:replication_task_assessment_run]) unless stub[:replication_task_assessment_run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTaskAssessmentRun'] = ReplicationTaskAssessmentRun.stub(stub[:replication_task_assessment_run]) unless stub[:replication_task_assessment_run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3872,8 +3875,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReplicationTask'] = Stubs::ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationTask'] = ReplicationTask.stub(stub[:replication_task]) unless stub[:replication_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3888,8 +3891,8 @@ module AWS::SDK::DatabaseMigrationService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Connection'] = Stubs::Connection.stub(stub[:connection]) unless stub[:connection].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connection'] = Connection.stub(stub[:connection]) unless stub[:connection].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Budgets
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::Budgets
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
         data['ActionId'] = stub[:action_id] unless stub[:action_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -100,8 +102,8 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -132,12 +134,12 @@ module AWS::SDK::Budgets
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
         data['NotificationType'] = stub[:notification_type] unless stub[:notification_type].nil?
         data['ActionType'] = stub[:action_type] unless stub[:action_type].nil?
-        data['ActionThreshold'] = Stubs::ActionThreshold.stub(stub[:action_threshold]) unless stub[:action_threshold].nil?
-        data['Definition'] = Stubs::Definition.stub(stub[:definition]) unless stub[:definition].nil?
+        data['ActionThreshold'] = ActionThreshold.stub(stub[:action_threshold]) unless stub[:action_threshold].nil?
+        data['Definition'] = Definition.stub(stub[:definition]) unless stub[:definition].nil?
         data['ExecutionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
         data['ApprovalModel'] = stub[:approval_model] unless stub[:approval_model].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Subscribers'] = Stubs::Subscribers.stub(stub[:subscribers]) unless stub[:subscribers].nil?
+        data['Subscribers'] = Subscribers.stub(stub[:subscribers]) unless stub[:subscribers].nil?
         data
       end
     end
@@ -156,7 +158,7 @@ module AWS::SDK::Budgets
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subscriber.stub(element) unless element.nil?
+          data << Subscriber.stub(element) unless element.nil?
         end
         data
       end
@@ -197,9 +199,9 @@ module AWS::SDK::Budgets
       def self.stub(stub)
         stub ||= Types::Definition.new
         data = {}
-        data['IamActionDefinition'] = Stubs::IamActionDefinition.stub(stub[:iam_action_definition]) unless stub[:iam_action_definition].nil?
-        data['ScpActionDefinition'] = Stubs::ScpActionDefinition.stub(stub[:scp_action_definition]) unless stub[:scp_action_definition].nil?
-        data['SsmActionDefinition'] = Stubs::SsmActionDefinition.stub(stub[:ssm_action_definition]) unless stub[:ssm_action_definition].nil?
+        data['IamActionDefinition'] = IamActionDefinition.stub(stub[:iam_action_definition]) unless stub[:iam_action_definition].nil?
+        data['ScpActionDefinition'] = ScpActionDefinition.stub(stub[:scp_action_definition]) unless stub[:scp_action_definition].nil?
+        data['SsmActionDefinition'] = SsmActionDefinition.stub(stub[:ssm_action_definition]) unless stub[:ssm_action_definition].nil?
         data
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::Budgets
         data = {}
         data['ActionSubType'] = stub[:action_sub_type] unless stub[:action_sub_type].nil?
         data['Region'] = stub[:region] unless stub[:region].nil?
-        data['InstanceIds'] = Stubs::InstanceIds.stub(stub[:instance_ids]) unless stub[:instance_ids].nil?
+        data['InstanceIds'] = InstanceIds.stub(stub[:instance_ids]) unless stub[:instance_ids].nil?
         data
       end
     end
@@ -261,7 +263,7 @@ module AWS::SDK::Budgets
         stub ||= Types::ScpActionDefinition.new
         data = {}
         data['PolicyId'] = stub[:policy_id] unless stub[:policy_id].nil?
-        data['TargetIds'] = Stubs::TargetIds.stub(stub[:target_ids]) unless stub[:target_ids].nil?
+        data['TargetIds'] = TargetIds.stub(stub[:target_ids]) unless stub[:target_ids].nil?
         data
       end
     end
@@ -303,9 +305,9 @@ module AWS::SDK::Budgets
         stub ||= Types::IamActionDefinition.new
         data = {}
         data['PolicyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        data['Roles'] = Stubs::Roles.stub(stub[:roles]) unless stub[:roles].nil?
-        data['Groups'] = Stubs::Groups.stub(stub[:groups]) unless stub[:groups].nil?
-        data['Users'] = Stubs::Users.stub(stub[:users]) unless stub[:users].nil?
+        data['Roles'] = Roles.stub(stub[:roles]) unless stub[:roles].nil?
+        data['Groups'] = Groups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Users'] = Users.stub(stub[:users]) unless stub[:users].nil?
         data
       end
     end
@@ -399,7 +401,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -413,7 +415,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -428,8 +430,8 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Budget'] = Stubs::Budget.stub(stub[:budget]) unless stub[:budget].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Budget'] = Budget.stub(stub[:budget]) unless stub[:budget].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -458,16 +460,16 @@ module AWS::SDK::Budgets
         stub ||= Types::Budget.new
         data = {}
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
-        data['BudgetLimit'] = Stubs::Spend.stub(stub[:budget_limit]) unless stub[:budget_limit].nil?
-        data['PlannedBudgetLimits'] = Stubs::PlannedBudgetLimits.stub(stub[:planned_budget_limits]) unless stub[:planned_budget_limits].nil?
-        data['CostFilters'] = Stubs::CostFilters.stub(stub[:cost_filters]) unless stub[:cost_filters].nil?
-        data['CostTypes'] = Stubs::CostTypes.stub(stub[:cost_types]) unless stub[:cost_types].nil?
+        data['BudgetLimit'] = Spend.stub(stub[:budget_limit]) unless stub[:budget_limit].nil?
+        data['PlannedBudgetLimits'] = PlannedBudgetLimits.stub(stub[:planned_budget_limits]) unless stub[:planned_budget_limits].nil?
+        data['CostFilters'] = CostFilters.stub(stub[:cost_filters]) unless stub[:cost_filters].nil?
+        data['CostTypes'] = CostTypes.stub(stub[:cost_types]) unless stub[:cost_types].nil?
         data['TimeUnit'] = stub[:time_unit] unless stub[:time_unit].nil?
-        data['TimePeriod'] = Stubs::TimePeriod.stub(stub[:time_period]) unless stub[:time_period].nil?
-        data['CalculatedSpend'] = Stubs::CalculatedSpend.stub(stub[:calculated_spend]) unless stub[:calculated_spend].nil?
+        data['TimePeriod'] = TimePeriod.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['CalculatedSpend'] = CalculatedSpend.stub(stub[:calculated_spend]) unless stub[:calculated_spend].nil?
         data['BudgetType'] = stub[:budget_type] unless stub[:budget_type].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        data['AutoAdjustData'] = Stubs::AutoAdjustData.stub(stub[:auto_adjust_data]) unless stub[:auto_adjust_data].nil?
+        data['AutoAdjustData'] = AutoAdjustData.stub(stub[:auto_adjust_data]) unless stub[:auto_adjust_data].nil?
         data
       end
     end
@@ -488,7 +490,7 @@ module AWS::SDK::Budgets
         stub ||= Types::AutoAdjustData.new
         data = {}
         data['AutoAdjustType'] = stub[:auto_adjust_type] unless stub[:auto_adjust_type].nil?
-        data['HistoricalOptions'] = Stubs::HistoricalOptions.stub(stub[:historical_options]) unless stub[:historical_options].nil?
+        data['HistoricalOptions'] = HistoricalOptions.stub(stub[:historical_options]) unless stub[:historical_options].nil?
         data['LastAutoAdjustTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_auto_adjust_time]).to_i unless stub[:last_auto_adjust_time].nil?
         data
       end
@@ -528,8 +530,8 @@ module AWS::SDK::Budgets
       def self.stub(stub)
         stub ||= Types::CalculatedSpend.new
         data = {}
-        data['ActualSpend'] = Stubs::Spend.stub(stub[:actual_spend]) unless stub[:actual_spend].nil?
-        data['ForecastedSpend'] = Stubs::Spend.stub(stub[:forecasted_spend]) unless stub[:forecasted_spend].nil?
+        data['ActualSpend'] = Spend.stub(stub[:actual_spend]) unless stub[:actual_spend].nil?
+        data['ForecastedSpend'] = Spend.stub(stub[:forecasted_spend]) unless stub[:forecasted_spend].nil?
         data
       end
     end
@@ -626,7 +628,7 @@ module AWS::SDK::Budgets
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::DimensionValues.stub(value) unless value.nil?
+          data[key] = DimensionValues.stub(value) unless value.nil?
         end
         data
       end
@@ -666,7 +668,7 @@ module AWS::SDK::Budgets
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Spend.stub(value) unless value.nil?
+          data[key] = Spend.stub(value) unless value.nil?
         end
         data
       end
@@ -686,8 +688,8 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -703,9 +705,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ActionHistories'] = Stubs::ActionHistories.stub(stub[:action_histories]) unless stub[:action_histories].nil?
+        data['ActionHistories'] = ActionHistories.stub(stub[:action_histories]) unless stub[:action_histories].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -724,7 +726,7 @@ module AWS::SDK::Budgets
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionHistory.stub(element) unless element.nil?
+          data << ActionHistory.stub(element) unless element.nil?
         end
         data
       end
@@ -749,7 +751,7 @@ module AWS::SDK::Budgets
         data['Timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['EventType'] = stub[:event_type] unless stub[:event_type].nil?
-        data['ActionHistoryDetails'] = Stubs::ActionHistoryDetails.stub(stub[:action_history_details]) unless stub[:action_history_details].nil?
+        data['ActionHistoryDetails'] = ActionHistoryDetails.stub(stub[:action_history_details]) unless stub[:action_history_details].nil?
         data
       end
     end
@@ -769,7 +771,7 @@ module AWS::SDK::Budgets
         stub ||= Types::ActionHistoryDetails.new
         data = {}
         data['Message'] = stub[:message] unless stub[:message].nil?
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
         data
       end
     end
@@ -785,9 +787,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Actions'] = Stubs::Actions.stub(stub[:actions]) unless stub[:actions].nil?
+        data['Actions'] = Actions.stub(stub[:actions]) unless stub[:actions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -806,7 +808,7 @@ module AWS::SDK::Budgets
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Action.stub(element) unless element.nil?
+          data << Action.stub(element) unless element.nil?
         end
         data
       end
@@ -823,9 +825,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Actions'] = Stubs::Actions.stub(stub[:actions]) unless stub[:actions].nil?
+        data['Actions'] = Actions.stub(stub[:actions]) unless stub[:actions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -841,9 +843,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BudgetNotificationsForAccount'] = Stubs::BudgetNotificationsForAccountList.stub(stub[:budget_notifications_for_account]) unless stub[:budget_notifications_for_account].nil?
+        data['BudgetNotificationsForAccount'] = BudgetNotificationsForAccountList.stub(stub[:budget_notifications_for_account]) unless stub[:budget_notifications_for_account].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -862,7 +864,7 @@ module AWS::SDK::Budgets
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BudgetNotificationsForAccount.stub(element) unless element.nil?
+          data << BudgetNotificationsForAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -882,7 +884,7 @@ module AWS::SDK::Budgets
       def self.stub(stub)
         stub ||= Types::BudgetNotificationsForAccount.new
         data = {}
-        data['Notifications'] = Stubs::Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
+        data['Notifications'] = Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
         data
       end
@@ -902,7 +904,7 @@ module AWS::SDK::Budgets
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Notification.stub(element) unless element.nil?
+          data << Notification.stub(element) unless element.nil?
         end
         data
       end
@@ -945,9 +947,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BudgetPerformanceHistory'] = Stubs::BudgetPerformanceHistory.stub(stub[:budget_performance_history]) unless stub[:budget_performance_history].nil?
+        data['BudgetPerformanceHistory'] = BudgetPerformanceHistory.stub(stub[:budget_performance_history]) unless stub[:budget_performance_history].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -972,10 +974,10 @@ module AWS::SDK::Budgets
         data = {}
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
         data['BudgetType'] = stub[:budget_type] unless stub[:budget_type].nil?
-        data['CostFilters'] = Stubs::CostFilters.stub(stub[:cost_filters]) unless stub[:cost_filters].nil?
-        data['CostTypes'] = Stubs::CostTypes.stub(stub[:cost_types]) unless stub[:cost_types].nil?
+        data['CostFilters'] = CostFilters.stub(stub[:cost_filters]) unless stub[:cost_filters].nil?
+        data['CostTypes'] = CostTypes.stub(stub[:cost_types]) unless stub[:cost_types].nil?
         data['TimeUnit'] = stub[:time_unit] unless stub[:time_unit].nil?
-        data['BudgetedAndActualAmountsList'] = Stubs::BudgetedAndActualAmountsList.stub(stub[:budgeted_and_actual_amounts_list]) unless stub[:budgeted_and_actual_amounts_list].nil?
+        data['BudgetedAndActualAmountsList'] = BudgetedAndActualAmountsList.stub(stub[:budgeted_and_actual_amounts_list]) unless stub[:budgeted_and_actual_amounts_list].nil?
         data
       end
     end
@@ -994,7 +996,7 @@ module AWS::SDK::Budgets
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BudgetedAndActualAmounts.stub(element) unless element.nil?
+          data << BudgetedAndActualAmounts.stub(element) unless element.nil?
         end
         data
       end
@@ -1015,9 +1017,9 @@ module AWS::SDK::Budgets
       def self.stub(stub)
         stub ||= Types::BudgetedAndActualAmounts.new
         data = {}
-        data['BudgetedAmount'] = Stubs::Spend.stub(stub[:budgeted_amount]) unless stub[:budgeted_amount].nil?
-        data['ActualAmount'] = Stubs::Spend.stub(stub[:actual_amount]) unless stub[:actual_amount].nil?
-        data['TimePeriod'] = Stubs::TimePeriod.stub(stub[:time_period]) unless stub[:time_period].nil?
+        data['BudgetedAmount'] = Spend.stub(stub[:budgeted_amount]) unless stub[:budgeted_amount].nil?
+        data['ActualAmount'] = Spend.stub(stub[:actual_amount]) unless stub[:actual_amount].nil?
+        data['TimePeriod'] = TimePeriod.stub(stub[:time_period]) unless stub[:time_period].nil?
         data
       end
     end
@@ -1033,9 +1035,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Budgets'] = Stubs::Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
+        data['Budgets'] = Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1054,7 +1056,7 @@ module AWS::SDK::Budgets
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Budget.stub(element) unless element.nil?
+          data << Budget.stub(element) unless element.nil?
         end
         data
       end
@@ -1071,9 +1073,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Notifications'] = Stubs::Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
+        data['Notifications'] = Notifications.stub(stub[:notifications]) unless stub[:notifications].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1089,9 +1091,9 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Subscribers'] = Stubs::Subscribers.stub(stub[:subscribers]) unless stub[:subscribers].nil?
+        data['Subscribers'] = Subscribers.stub(stub[:subscribers]) unless stub[:subscribers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1113,7 +1115,7 @@ module AWS::SDK::Budgets
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
         data['ActionId'] = stub[:action_id] unless stub[:action_id].nil?
         data['ExecutionType'] = stub[:execution_type] unless stub[:execution_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1127,7 +1129,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1147,9 +1149,9 @@ module AWS::SDK::Budgets
         data = {}
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['BudgetName'] = stub[:budget_name] unless stub[:budget_name].nil?
-        data['OldAction'] = Stubs::Action.stub(stub[:old_action]) unless stub[:old_action].nil?
-        data['NewAction'] = Stubs::Action.stub(stub[:new_action]) unless stub[:new_action].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OldAction'] = Action.stub(stub[:old_action]) unless stub[:old_action].nil?
+        data['NewAction'] = Action.stub(stub[:new_action]) unless stub[:new_action].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1163,7 +1165,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1177,7 +1179,7 @@ module AWS::SDK::Budgets
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

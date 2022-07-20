@@ -65,7 +65,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backup = (Parsers::Backup.parse(map['Backup']) unless map['Backup'].nil?)
+        data.backup = (Backup.parse(map['Backup']) unless map['Backup'].nil?)
         data
       end
     end
@@ -89,12 +89,12 @@ module AWS::SDK::OpsWorksCM
         data.s3_data_size = map['S3DataSize']
         data.s3_data_url = map['S3DataUrl']
         data.s3_log_url = map['S3LogUrl']
-        data.security_group_ids = (Parsers::Strings.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (Strings.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.server_name = map['ServerName']
         data.service_role_arn = map['ServiceRoleArn']
         data.status = map['Status']
         data.status_description = map['StatusDescription']
-        data.subnet_ids = (Parsers::Strings.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (Strings.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.tools_version = map['ToolsVersion']
         data.user_arn = map['UserArn']
         return data
@@ -128,7 +128,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server = (Parsers::Server.parse(map['Server']) unless map['Server'].nil?)
+        data.server = (Server.parse(map['Server']) unless map['Server'].nil?)
         data
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::OpsWorksCM
         data.endpoint = map['Endpoint']
         data.engine = map['Engine']
         data.engine_model = map['EngineModel']
-        data.engine_attributes = (Parsers::EngineAttributes.parse(map['EngineAttributes']) unless map['EngineAttributes'].nil?)
+        data.engine_attributes = (EngineAttributes.parse(map['EngineAttributes']) unless map['EngineAttributes'].nil?)
         data.engine_version = map['EngineVersion']
         data.instance_profile_arn = map['InstanceProfileArn']
         data.instance_type = map['InstanceType']
@@ -154,11 +154,11 @@ module AWS::SDK::OpsWorksCM
         data.maintenance_status = map['MaintenanceStatus']
         data.preferred_maintenance_window = map['PreferredMaintenanceWindow']
         data.preferred_backup_window = map['PreferredBackupWindow']
-        data.security_group_ids = (Parsers::Strings.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.security_group_ids = (Strings.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         data.service_role_arn = map['ServiceRoleArn']
         data.status = map['Status']
         data.status_reason = map['StatusReason']
-        data.subnet_ids = (Parsers::Strings.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.subnet_ids = (Strings.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.server_arn = map['ServerArn']
         return data
       end
@@ -167,7 +167,7 @@ module AWS::SDK::OpsWorksCM
     class EngineAttributes
       def self.parse(list)
         list.map do |value|
-          Parsers::EngineAttribute.parse(value) unless value.nil?
+          EngineAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -222,7 +222,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attributes = (Parsers::AccountAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AccountAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         data
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::OpsWorksCM
     class AccountAttributes
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountAttribute.parse(value) unless value.nil?
+          AccountAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -252,7 +252,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backups = (Parsers::Backups.parse(map['Backups']) unless map['Backups'].nil?)
+        data.backups = (Backups.parse(map['Backups']) unless map['Backups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -261,7 +261,7 @@ module AWS::SDK::OpsWorksCM
     class Backups
       def self.parse(list)
         list.map do |value|
-          Parsers::Backup.parse(value) unless value.nil?
+          Backup.parse(value) unless value.nil?
         end
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server_events = (Parsers::ServerEvents.parse(map['ServerEvents']) unless map['ServerEvents'].nil?)
+        data.server_events = (ServerEvents.parse(map['ServerEvents']) unless map['ServerEvents'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -294,7 +294,7 @@ module AWS::SDK::OpsWorksCM
     class ServerEvents
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerEvent.parse(value) unless value.nil?
+          ServerEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -318,7 +318,7 @@ module AWS::SDK::OpsWorksCM
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.node_association_status = map['NodeAssociationStatus']
-        data.engine_attributes = (Parsers::EngineAttributes.parse(map['EngineAttributes']) unless map['EngineAttributes'].nil?)
+        data.engine_attributes = (EngineAttributes.parse(map['EngineAttributes']) unless map['EngineAttributes'].nil?)
         data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.servers = (Parsers::Servers.parse(map['Servers']) unless map['Servers'].nil?)
+        data.servers = (Servers.parse(map['Servers']) unless map['Servers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -339,7 +339,7 @@ module AWS::SDK::OpsWorksCM
     class Servers
       def self.parse(list)
         list.map do |value|
-          Parsers::Server.parse(value) unless value.nil?
+          Server.parse(value) unless value.nil?
         end
       end
     end
@@ -363,7 +363,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.engine_attribute = (Parsers::EngineAttribute.parse(map['EngineAttribute']) unless map['EngineAttribute'].nil?)
+        data.engine_attribute = (EngineAttribute.parse(map['EngineAttribute']) unless map['EngineAttribute'].nil?)
         data.server_name = map['ServerName']
         data
       end
@@ -376,7 +376,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -385,7 +385,7 @@ module AWS::SDK::OpsWorksCM
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -406,7 +406,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server = (Parsers::Server.parse(map['Server']) unless map['Server'].nil?)
+        data.server = (Server.parse(map['Server']) unless map['Server'].nil?)
         data
       end
     end
@@ -418,7 +418,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server = (Parsers::Server.parse(map['Server']) unless map['Server'].nil?)
+        data.server = (Server.parse(map['Server']) unless map['Server'].nil?)
         data
       end
     end
@@ -452,7 +452,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server = (Parsers::Server.parse(map['Server']) unless map['Server'].nil?)
+        data.server = (Server.parse(map['Server']) unless map['Server'].nil?)
         data
       end
     end
@@ -464,7 +464,7 @@ module AWS::SDK::OpsWorksCM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.server = (Parsers::Server.parse(map['Server']) unless map['Server'].nil?)
+        data.server = (Server.parse(map['Server']) unless map['Server'].nil?)
         data
       end
     end

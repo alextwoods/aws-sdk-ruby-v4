@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::LookoutVision
   module Builders
 
@@ -28,8 +31,8 @@ module AWS::SDK::LookoutVision
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DatasetType'] = input[:dataset_type] unless input[:dataset_type].nil?
-        data['DatasetSource'] = Builders::DatasetSource.build(input[:dataset_source]) unless input[:dataset_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatasetSource'] = DatasetSource.build(input[:dataset_source]) unless input[:dataset_source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -38,7 +41,7 @@ module AWS::SDK::LookoutVision
     class DatasetSource
       def self.build(input)
         data = {}
-        data['GroundTruthManifest'] = Builders::DatasetGroundTruthManifest.build(input[:ground_truth_manifest]) unless input[:ground_truth_manifest].nil?
+        data['GroundTruthManifest'] = DatasetGroundTruthManifest.build(input[:ground_truth_manifest]) unless input[:ground_truth_manifest].nil?
         data
       end
     end
@@ -47,7 +50,7 @@ module AWS::SDK::LookoutVision
     class DatasetGroundTruthManifest
       def self.build(input)
         data = {}
-        data['S3Object'] = Builders::InputS3Object.build(input[:s3_object]) unless input[:s3_object].nil?
+        data['S3Object'] = InputS3Object.build(input[:s3_object]) unless input[:s3_object].nil?
         data
       end
     end
@@ -81,10 +84,10 @@ module AWS::SDK::LookoutVision
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['OutputConfig'] = Builders::OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['OutputConfig'] = OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -94,7 +97,7 @@ module AWS::SDK::LookoutVision
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -114,7 +117,7 @@ module AWS::SDK::LookoutVision
     class OutputConfig
       def self.build(input)
         data = {}
-        data['S3Location'] = Builders::S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
+        data['S3Location'] = S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
         data
       end
     end
@@ -140,7 +143,7 @@ module AWS::SDK::LookoutVision
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ProjectName'] = input[:project_name] unless input[:project_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -428,7 +431,7 @@ module AWS::SDK::LookoutVision
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MinInferenceUnits'] = input[:min_inference_units] unless input[:min_inference_units].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -452,9 +455,9 @@ module AWS::SDK::LookoutVision
         data = {}
         data['ModelVersion'] = input[:model_version] unless input[:model_version].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['Configuration'] = Builders::ModelPackagingConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Configuration'] = ModelPackagingConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -463,7 +466,7 @@ module AWS::SDK::LookoutVision
     class ModelPackagingConfiguration
       def self.build(input)
         data = {}
-        data['Greengrass'] = Builders::GreengrassConfiguration.build(input[:greengrass]) unless input[:greengrass].nil?
+        data['Greengrass'] = GreengrassConfiguration.build(input[:greengrass]) unless input[:greengrass].nil?
         data
       end
     end
@@ -474,12 +477,12 @@ module AWS::SDK::LookoutVision
         data = {}
         data['CompilerOptions'] = input[:compiler_options] unless input[:compiler_options].nil?
         data['TargetDevice'] = input[:target_device] unless input[:target_device].nil?
-        data['TargetPlatform'] = Builders::TargetPlatform.build(input[:target_platform]) unless input[:target_platform].nil?
-        data['S3OutputLocation'] = Builders::S3Location.build(input[:s3_output_location]) unless input[:s3_output_location].nil?
+        data['TargetPlatform'] = TargetPlatform.build(input[:target_platform]) unless input[:target_platform].nil?
+        data['S3OutputLocation'] = S3Location.build(input[:s3_output_location]) unless input[:s3_output_location].nil?
         data['ComponentName'] = input[:component_name] unless input[:component_name].nil?
         data['ComponentVersion'] = input[:component_version] unless input[:component_version].nil?
         data['ComponentDescription'] = input[:component_description] unless input[:component_description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -534,8 +537,8 @@ module AWS::SDK::LookoutVision
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -593,8 +596,8 @@ module AWS::SDK::LookoutVision
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Changes'] = Base64::encode64(input[:changes]).strip unless input[:changes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Changes'] = ::Base64::encode64(input[:changes]).strip unless input[:changes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end

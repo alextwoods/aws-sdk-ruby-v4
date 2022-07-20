@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeBuild
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['buildsDeleted'] = Stubs::BuildIds.stub(stub[:builds_deleted]) unless stub[:builds_deleted].nil?
-        data['buildsNotDeleted'] = Stubs::BuildsNotDeleted.stub(stub[:builds_not_deleted]) unless stub[:builds_not_deleted].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['buildsDeleted'] = BuildIds.stub(stub[:builds_deleted]) unless stub[:builds_deleted].nil?
+        data['buildsNotDeleted'] = BuildsNotDeleted.stub(stub[:builds_not_deleted]) unless stub[:builds_not_deleted].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuildNotDeleted.stub(element) unless element.nil?
+          data << BuildNotDeleted.stub(element) unless element.nil?
         end
         data
       end
@@ -99,9 +101,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['buildBatches'] = Stubs::BuildBatches.stub(stub[:build_batches]) unless stub[:build_batches].nil?
-        data['buildBatchesNotFound'] = Stubs::BuildBatchIds.stub(stub[:build_batches_not_found]) unless stub[:build_batches_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['buildBatches'] = BuildBatches.stub(stub[:build_batches]) unless stub[:build_batches].nil?
+        data['buildBatchesNotFound'] = BuildBatchIds.stub(stub[:build_batches_not_found]) unless stub[:build_batches_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -140,7 +142,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuildBatch.stub(element) unless element.nil?
+          data << BuildBatch.stub(element) unless element.nil?
         end
         data
       end
@@ -197,26 +199,26 @@ module AWS::SDK::CodeBuild
         data['sourceVersion'] = stub[:source_version] unless stub[:source_version].nil?
         data['resolvedSourceVersion'] = stub[:resolved_source_version] unless stub[:resolved_source_version].nil?
         data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['phases'] = Stubs::BuildBatchPhases.stub(stub[:phases]) unless stub[:phases].nil?
-        data['source'] = Stubs::ProjectSource.stub(stub[:source]) unless stub[:source].nil?
-        data['secondarySources'] = Stubs::ProjectSources.stub(stub[:secondary_sources]) unless stub[:secondary_sources].nil?
-        data['secondarySourceVersions'] = Stubs::ProjectSecondarySourceVersions.stub(stub[:secondary_source_versions]) unless stub[:secondary_source_versions].nil?
-        data['artifacts'] = Stubs::BuildArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
-        data['secondaryArtifacts'] = Stubs::BuildArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
-        data['cache'] = Stubs::ProjectCache.stub(stub[:cache]) unless stub[:cache].nil?
-        data['environment'] = Stubs::ProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['phases'] = BuildBatchPhases.stub(stub[:phases]) unless stub[:phases].nil?
+        data['source'] = ProjectSource.stub(stub[:source]) unless stub[:source].nil?
+        data['secondarySources'] = ProjectSources.stub(stub[:secondary_sources]) unless stub[:secondary_sources].nil?
+        data['secondarySourceVersions'] = ProjectSecondarySourceVersions.stub(stub[:secondary_source_versions]) unless stub[:secondary_source_versions].nil?
+        data['artifacts'] = BuildArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
+        data['secondaryArtifacts'] = BuildArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
+        data['cache'] = ProjectCache.stub(stub[:cache]) unless stub[:cache].nil?
+        data['environment'] = ProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
         data['serviceRole'] = stub[:service_role] unless stub[:service_role].nil?
-        data['logConfig'] = Stubs::LogsConfig.stub(stub[:log_config]) unless stub[:log_config].nil?
+        data['logConfig'] = LogsConfig.stub(stub[:log_config]) unless stub[:log_config].nil?
         data['buildTimeoutInMinutes'] = stub[:build_timeout_in_minutes] unless stub[:build_timeout_in_minutes].nil?
         data['queuedTimeoutInMinutes'] = stub[:queued_timeout_in_minutes] unless stub[:queued_timeout_in_minutes].nil?
         data['complete'] = stub[:complete] unless stub[:complete].nil?
         data['initiator'] = stub[:initiator] unless stub[:initiator].nil?
-        data['vpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['vpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['encryptionKey'] = stub[:encryption_key] unless stub[:encryption_key].nil?
         data['buildBatchNumber'] = stub[:build_batch_number] unless stub[:build_batch_number].nil?
-        data['fileSystemLocations'] = Stubs::ProjectFileSystemLocations.stub(stub[:file_system_locations]) unless stub[:file_system_locations].nil?
-        data['buildBatchConfig'] = Stubs::ProjectBuildBatchConfig.stub(stub[:build_batch_config]) unless stub[:build_batch_config].nil?
-        data['buildGroups'] = Stubs::BuildGroups.stub(stub[:build_groups]) unless stub[:build_groups].nil?
+        data['fileSystemLocations'] = ProjectFileSystemLocations.stub(stub[:file_system_locations]) unless stub[:file_system_locations].nil?
+        data['buildBatchConfig'] = ProjectBuildBatchConfig.stub(stub[:build_batch_config]) unless stub[:build_batch_config].nil?
+        data['buildGroups'] = BuildGroups.stub(stub[:build_groups]) unless stub[:build_groups].nil?
         data['debugSessionEnabled'] = stub[:debug_session_enabled] unless stub[:debug_session_enabled].nil?
         data
       end
@@ -236,7 +238,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuildGroup.stub(element) unless element.nil?
+          data << BuildGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -260,10 +262,10 @@ module AWS::SDK::CodeBuild
         stub ||= Types::BuildGroup.new
         data = {}
         data['identifier'] = stub[:identifier] unless stub[:identifier].nil?
-        data['dependsOn'] = Stubs::Identifiers.stub(stub[:depends_on]) unless stub[:depends_on].nil?
+        data['dependsOn'] = Identifiers.stub(stub[:depends_on]) unless stub[:depends_on].nil?
         data['ignoreFailure'] = stub[:ignore_failure] unless stub[:ignore_failure].nil?
-        data['currentBuildSummary'] = Stubs::BuildSummary.stub(stub[:current_build_summary]) unless stub[:current_build_summary].nil?
-        data['priorBuildSummaryList'] = Stubs::BuildSummaries.stub(stub[:prior_build_summary_list]) unless stub[:prior_build_summary_list].nil?
+        data['currentBuildSummary'] = BuildSummary.stub(stub[:current_build_summary]) unless stub[:current_build_summary].nil?
+        data['priorBuildSummaryList'] = BuildSummaries.stub(stub[:prior_build_summary_list]) unless stub[:prior_build_summary_list].nil?
         data
       end
     end
@@ -282,7 +284,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuildSummary.stub(element) unless element.nil?
+          data << BuildSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -308,8 +310,8 @@ module AWS::SDK::CodeBuild
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['requestedOn'] = Hearth::TimeHelper.to_epoch_seconds(stub[:requested_on]).to_i unless stub[:requested_on].nil?
         data['buildStatus'] = stub[:build_status] unless stub[:build_status].nil?
-        data['primaryArtifact'] = Stubs::ResolvedArtifact.stub(stub[:primary_artifact]) unless stub[:primary_artifact].nil?
-        data['secondaryArtifacts'] = Stubs::ResolvedSecondaryArtifacts.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
+        data['primaryArtifact'] = ResolvedArtifact.stub(stub[:primary_artifact]) unless stub[:primary_artifact].nil?
+        data['secondaryArtifacts'] = ResolvedSecondaryArtifacts.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
         data
       end
     end
@@ -328,7 +330,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolvedArtifact.stub(element) unless element.nil?
+          data << ResolvedArtifact.stub(element) unless element.nil?
         end
         data
       end
@@ -395,7 +397,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['serviceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['combineArtifacts'] = stub[:combine_artifacts] unless stub[:combine_artifacts].nil?
-        data['restrictions'] = Stubs::BatchRestrictions.stub(stub[:restrictions]) unless stub[:restrictions].nil?
+        data['restrictions'] = BatchRestrictions.stub(stub[:restrictions]) unless stub[:restrictions].nil?
         data['timeoutInMins'] = stub[:timeout_in_mins] unless stub[:timeout_in_mins].nil?
         data['batchReportMode'] = stub[:batch_report_mode] unless stub[:batch_report_mode].nil?
         data
@@ -417,7 +419,7 @@ module AWS::SDK::CodeBuild
         stub ||= Types::BatchRestrictions.new
         data = {}
         data['maximumBuildsAllowed'] = stub[:maximum_builds_allowed] unless stub[:maximum_builds_allowed].nil?
-        data['computeTypesAllowed'] = Stubs::ComputeTypesAllowed.stub(stub[:compute_types_allowed]) unless stub[:compute_types_allowed].nil?
+        data['computeTypesAllowed'] = ComputeTypesAllowed.stub(stub[:compute_types_allowed]) unless stub[:compute_types_allowed].nil?
         data
       end
     end
@@ -456,7 +458,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectFileSystemLocation.stub(element) unless element.nil?
+          data << ProjectFileSystemLocation.stub(element) unless element.nil?
         end
         data
       end
@@ -504,8 +506,8 @@ module AWS::SDK::CodeBuild
         stub ||= Types::VpcConfig.new
         data = {}
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['subnets'] = Stubs::Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['securityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnets'] = Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['securityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -564,8 +566,8 @@ module AWS::SDK::CodeBuild
       def self.stub(stub)
         stub ||= Types::LogsConfig.new
         data = {}
-        data['cloudWatchLogs'] = Stubs::CloudWatchLogsConfig.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
-        data['s3Logs'] = Stubs::S3LogsConfig.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsConfig.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
+        data['s3Logs'] = S3LogsConfig.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
         data
       end
     end
@@ -639,10 +641,10 @@ module AWS::SDK::CodeBuild
         data['type'] = stub[:type] unless stub[:type].nil?
         data['image'] = stub[:image] unless stub[:image].nil?
         data['computeType'] = stub[:compute_type] unless stub[:compute_type].nil?
-        data['environmentVariables'] = Stubs::EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
         data['privilegedMode'] = stub[:privileged_mode] unless stub[:privileged_mode].nil?
         data['certificate'] = stub[:certificate] unless stub[:certificate].nil?
-        data['registryCredential'] = Stubs::RegistryCredential.stub(stub[:registry_credential]) unless stub[:registry_credential].nil?
+        data['registryCredential'] = RegistryCredential.stub(stub[:registry_credential]) unless stub[:registry_credential].nil?
         data['imagePullCredentialsType'] = stub[:image_pull_credentials_type] unless stub[:image_pull_credentials_type].nil?
         data
       end
@@ -682,7 +684,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentVariable.stub(element) unless element.nil?
+          data << EnvironmentVariable.stub(element) unless element.nil?
         end
         data
       end
@@ -727,7 +729,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
         data['location'] = stub[:location] unless stub[:location].nil?
-        data['modes'] = Stubs::ProjectCacheModes.stub(stub[:modes]) unless stub[:modes].nil?
+        data['modes'] = ProjectCacheModes.stub(stub[:modes]) unless stub[:modes].nil?
         data
       end
     end
@@ -766,7 +768,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuildArtifacts.stub(element) unless element.nil?
+          data << BuildArtifacts.stub(element) unless element.nil?
         end
         data
       end
@@ -816,7 +818,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSourceVersion.stub(element) unless element.nil?
+          data << ProjectSourceVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -856,7 +858,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSource.stub(element) unless element.nil?
+          data << ProjectSource.stub(element) unless element.nil?
         end
         data
       end
@@ -887,11 +889,11 @@ module AWS::SDK::CodeBuild
         data['type'] = stub[:type] unless stub[:type].nil?
         data['location'] = stub[:location] unless stub[:location].nil?
         data['gitCloneDepth'] = stub[:git_clone_depth] unless stub[:git_clone_depth].nil?
-        data['gitSubmodulesConfig'] = Stubs::GitSubmodulesConfig.stub(stub[:git_submodules_config]) unless stub[:git_submodules_config].nil?
+        data['gitSubmodulesConfig'] = GitSubmodulesConfig.stub(stub[:git_submodules_config]) unless stub[:git_submodules_config].nil?
         data['buildspec'] = stub[:buildspec] unless stub[:buildspec].nil?
-        data['auth'] = Stubs::SourceAuth.stub(stub[:auth]) unless stub[:auth].nil?
+        data['auth'] = SourceAuth.stub(stub[:auth]) unless stub[:auth].nil?
         data['reportBuildStatus'] = stub[:report_build_status] unless stub[:report_build_status].nil?
-        data['buildStatusConfig'] = Stubs::BuildStatusConfig.stub(stub[:build_status_config]) unless stub[:build_status_config].nil?
+        data['buildStatusConfig'] = BuildStatusConfig.stub(stub[:build_status_config]) unless stub[:build_status_config].nil?
         data['insecureSsl'] = stub[:insecure_ssl] unless stub[:insecure_ssl].nil?
         data['sourceIdentifier'] = stub[:source_identifier] unless stub[:source_identifier].nil?
         data
@@ -970,7 +972,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuildBatchPhase.stub(element) unless element.nil?
+          data << BuildBatchPhase.stub(element) unless element.nil?
         end
         data
       end
@@ -999,7 +1001,7 @@ module AWS::SDK::CodeBuild
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['durationInSeconds'] = stub[:duration_in_seconds] unless stub[:duration_in_seconds].nil?
-        data['contexts'] = Stubs::PhaseContexts.stub(stub[:contexts]) unless stub[:contexts].nil?
+        data['contexts'] = PhaseContexts.stub(stub[:contexts]) unless stub[:contexts].nil?
         data
       end
     end
@@ -1018,7 +1020,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PhaseContext.stub(element) unless element.nil?
+          data << PhaseContext.stub(element) unless element.nil?
         end
         data
       end
@@ -1055,9 +1057,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['builds'] = Stubs::Builds.stub(stub[:builds]) unless stub[:builds].nil?
-        data['buildsNotFound'] = Stubs::BuildIds.stub(stub[:builds_not_found]) unless stub[:builds_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['builds'] = Builds.stub(stub[:builds]) unless stub[:builds].nil?
+        data['buildsNotFound'] = BuildIds.stub(stub[:builds_not_found]) unless stub[:builds_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1076,7 +1078,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Build.stub(element) unless element.nil?
+          data << Build.stub(element) unless element.nil?
         end
         data
       end
@@ -1136,27 +1138,27 @@ module AWS::SDK::CodeBuild
         data['sourceVersion'] = stub[:source_version] unless stub[:source_version].nil?
         data['resolvedSourceVersion'] = stub[:resolved_source_version] unless stub[:resolved_source_version].nil?
         data['projectName'] = stub[:project_name] unless stub[:project_name].nil?
-        data['phases'] = Stubs::BuildPhases.stub(stub[:phases]) unless stub[:phases].nil?
-        data['source'] = Stubs::ProjectSource.stub(stub[:source]) unless stub[:source].nil?
-        data['secondarySources'] = Stubs::ProjectSources.stub(stub[:secondary_sources]) unless stub[:secondary_sources].nil?
-        data['secondarySourceVersions'] = Stubs::ProjectSecondarySourceVersions.stub(stub[:secondary_source_versions]) unless stub[:secondary_source_versions].nil?
-        data['artifacts'] = Stubs::BuildArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
-        data['secondaryArtifacts'] = Stubs::BuildArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
-        data['cache'] = Stubs::ProjectCache.stub(stub[:cache]) unless stub[:cache].nil?
-        data['environment'] = Stubs::ProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['phases'] = BuildPhases.stub(stub[:phases]) unless stub[:phases].nil?
+        data['source'] = ProjectSource.stub(stub[:source]) unless stub[:source].nil?
+        data['secondarySources'] = ProjectSources.stub(stub[:secondary_sources]) unless stub[:secondary_sources].nil?
+        data['secondarySourceVersions'] = ProjectSecondarySourceVersions.stub(stub[:secondary_source_versions]) unless stub[:secondary_source_versions].nil?
+        data['artifacts'] = BuildArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
+        data['secondaryArtifacts'] = BuildArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
+        data['cache'] = ProjectCache.stub(stub[:cache]) unless stub[:cache].nil?
+        data['environment'] = ProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
         data['serviceRole'] = stub[:service_role] unless stub[:service_role].nil?
-        data['logs'] = Stubs::LogsLocation.stub(stub[:logs]) unless stub[:logs].nil?
+        data['logs'] = LogsLocation.stub(stub[:logs]) unless stub[:logs].nil?
         data['timeoutInMinutes'] = stub[:timeout_in_minutes] unless stub[:timeout_in_minutes].nil?
         data['queuedTimeoutInMinutes'] = stub[:queued_timeout_in_minutes] unless stub[:queued_timeout_in_minutes].nil?
         data['buildComplete'] = stub[:build_complete] unless stub[:build_complete].nil?
         data['initiator'] = stub[:initiator] unless stub[:initiator].nil?
-        data['vpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['networkInterface'] = Stubs::NetworkInterface.stub(stub[:network_interface]) unless stub[:network_interface].nil?
+        data['vpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['networkInterface'] = NetworkInterface.stub(stub[:network_interface]) unless stub[:network_interface].nil?
         data['encryptionKey'] = stub[:encryption_key] unless stub[:encryption_key].nil?
-        data['exportedEnvironmentVariables'] = Stubs::ExportedEnvironmentVariables.stub(stub[:exported_environment_variables]) unless stub[:exported_environment_variables].nil?
-        data['reportArns'] = Stubs::BuildReportArns.stub(stub[:report_arns]) unless stub[:report_arns].nil?
-        data['fileSystemLocations'] = Stubs::ProjectFileSystemLocations.stub(stub[:file_system_locations]) unless stub[:file_system_locations].nil?
-        data['debugSession'] = Stubs::DebugSession.stub(stub[:debug_session]) unless stub[:debug_session].nil?
+        data['exportedEnvironmentVariables'] = ExportedEnvironmentVariables.stub(stub[:exported_environment_variables]) unless stub[:exported_environment_variables].nil?
+        data['reportArns'] = BuildReportArns.stub(stub[:report_arns]) unless stub[:report_arns].nil?
+        data['fileSystemLocations'] = ProjectFileSystemLocations.stub(stub[:file_system_locations]) unless stub[:file_system_locations].nil?
+        data['debugSession'] = DebugSession.stub(stub[:debug_session]) unless stub[:debug_session].nil?
         data['buildBatchArn'] = stub[:build_batch_arn] unless stub[:build_batch_arn].nil?
         data
       end
@@ -1216,7 +1218,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExportedEnvironmentVariable.stub(element) unless element.nil?
+          data << ExportedEnvironmentVariable.stub(element) unless element.nil?
         end
         data
       end
@@ -1288,8 +1290,8 @@ module AWS::SDK::CodeBuild
         data['s3DeepLink'] = stub[:s3_deep_link] unless stub[:s3_deep_link].nil?
         data['cloudWatchLogsArn'] = stub[:cloud_watch_logs_arn] unless stub[:cloud_watch_logs_arn].nil?
         data['s3LogsArn'] = stub[:s3_logs_arn] unless stub[:s3_logs_arn].nil?
-        data['cloudWatchLogs'] = Stubs::CloudWatchLogsConfig.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
-        data['s3Logs'] = Stubs::S3LogsConfig.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsConfig.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
+        data['s3Logs'] = S3LogsConfig.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
         data
       end
     end
@@ -1308,7 +1310,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BuildPhase.stub(element) unless element.nil?
+          data << BuildPhase.stub(element) unless element.nil?
         end
         data
       end
@@ -1337,7 +1339,7 @@ module AWS::SDK::CodeBuild
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['durationInSeconds'] = stub[:duration_in_seconds] unless stub[:duration_in_seconds].nil?
-        data['contexts'] = Stubs::PhaseContexts.stub(stub[:contexts]) unless stub[:contexts].nil?
+        data['contexts'] = PhaseContexts.stub(stub[:contexts]) unless stub[:contexts].nil?
         data
       end
     end
@@ -1353,9 +1355,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['projects'] = Stubs::Projects.stub(stub[:projects]) unless stub[:projects].nil?
-        data['projectsNotFound'] = Stubs::ProjectNames.stub(stub[:projects_not_found]) unless stub[:projects_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['projects'] = Projects.stub(stub[:projects]) unless stub[:projects].nil?
+        data['projectsNotFound'] = ProjectNames.stub(stub[:projects_not_found]) unless stub[:projects_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1394,7 +1396,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Project.stub(element) unless element.nil?
+          data << Project.stub(element) unless element.nil?
         end
         data
       end
@@ -1443,27 +1445,27 @@ module AWS::SDK::CodeBuild
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['source'] = Stubs::ProjectSource.stub(stub[:source]) unless stub[:source].nil?
-        data['secondarySources'] = Stubs::ProjectSources.stub(stub[:secondary_sources]) unless stub[:secondary_sources].nil?
+        data['source'] = ProjectSource.stub(stub[:source]) unless stub[:source].nil?
+        data['secondarySources'] = ProjectSources.stub(stub[:secondary_sources]) unless stub[:secondary_sources].nil?
         data['sourceVersion'] = stub[:source_version] unless stub[:source_version].nil?
-        data['secondarySourceVersions'] = Stubs::ProjectSecondarySourceVersions.stub(stub[:secondary_source_versions]) unless stub[:secondary_source_versions].nil?
-        data['artifacts'] = Stubs::ProjectArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
-        data['secondaryArtifacts'] = Stubs::ProjectArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
-        data['cache'] = Stubs::ProjectCache.stub(stub[:cache]) unless stub[:cache].nil?
-        data['environment'] = Stubs::ProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['secondarySourceVersions'] = ProjectSecondarySourceVersions.stub(stub[:secondary_source_versions]) unless stub[:secondary_source_versions].nil?
+        data['artifacts'] = ProjectArtifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
+        data['secondaryArtifacts'] = ProjectArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
+        data['cache'] = ProjectCache.stub(stub[:cache]) unless stub[:cache].nil?
+        data['environment'] = ProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
         data['serviceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['timeoutInMinutes'] = stub[:timeout_in_minutes] unless stub[:timeout_in_minutes].nil?
         data['queuedTimeoutInMinutes'] = stub[:queued_timeout_in_minutes] unless stub[:queued_timeout_in_minutes].nil?
         data['encryptionKey'] = stub[:encryption_key] unless stub[:encryption_key].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['created'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created]).to_i unless stub[:created].nil?
         data['lastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
-        data['webhook'] = Stubs::Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
-        data['vpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['badge'] = Stubs::ProjectBadge.stub(stub[:badge]) unless stub[:badge].nil?
-        data['logsConfig'] = Stubs::LogsConfig.stub(stub[:logs_config]) unless stub[:logs_config].nil?
-        data['fileSystemLocations'] = Stubs::ProjectFileSystemLocations.stub(stub[:file_system_locations]) unless stub[:file_system_locations].nil?
-        data['buildBatchConfig'] = Stubs::ProjectBuildBatchConfig.stub(stub[:build_batch_config]) unless stub[:build_batch_config].nil?
+        data['webhook'] = Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
+        data['vpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['badge'] = ProjectBadge.stub(stub[:badge]) unless stub[:badge].nil?
+        data['logsConfig'] = LogsConfig.stub(stub[:logs_config]) unless stub[:logs_config].nil?
+        data['fileSystemLocations'] = ProjectFileSystemLocations.stub(stub[:file_system_locations]) unless stub[:file_system_locations].nil?
+        data['buildBatchConfig'] = ProjectBuildBatchConfig.stub(stub[:build_batch_config]) unless stub[:build_batch_config].nil?
         data['concurrentBuildLimit'] = stub[:concurrent_build_limit] unless stub[:concurrent_build_limit].nil?
         data['projectVisibility'] = stub[:project_visibility] unless stub[:project_visibility].nil?
         data['publicProjectAlias'] = stub[:public_project_alias] unless stub[:public_project_alias].nil?
@@ -1515,7 +1517,7 @@ module AWS::SDK::CodeBuild
         data['payloadUrl'] = stub[:payload_url] unless stub[:payload_url].nil?
         data['secret'] = stub[:secret] unless stub[:secret].nil?
         data['branchFilter'] = stub[:branch_filter] unless stub[:branch_filter].nil?
-        data['filterGroups'] = Stubs::FilterGroups.stub(stub[:filter_groups]) unless stub[:filter_groups].nil?
+        data['filterGroups'] = FilterGroups.stub(stub[:filter_groups]) unless stub[:filter_groups].nil?
         data['buildType'] = stub[:build_type] unless stub[:build_type].nil?
         data['lastModifiedSecret'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_secret]).to_i unless stub[:last_modified_secret].nil?
         data
@@ -1536,7 +1538,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FilterGroup.stub(element) unless element.nil?
+          data << FilterGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1556,7 +1558,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WebhookFilter.stub(element) unless element.nil?
+          data << WebhookFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -1598,7 +1600,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1638,7 +1640,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectArtifacts.stub(element) unless element.nil?
+          data << ProjectArtifacts.stub(element) unless element.nil?
         end
         data
       end
@@ -1691,9 +1693,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['reportGroups'] = Stubs::ReportGroups.stub(stub[:report_groups]) unless stub[:report_groups].nil?
-        data['reportGroupsNotFound'] = Stubs::ReportGroupArns.stub(stub[:report_groups_not_found]) unless stub[:report_groups_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reportGroups'] = ReportGroups.stub(stub[:report_groups]) unless stub[:report_groups].nil?
+        data['reportGroupsNotFound'] = ReportGroupArns.stub(stub[:report_groups_not_found]) unless stub[:report_groups_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1732,7 +1734,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReportGroup.stub(element) unless element.nil?
+          data << ReportGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1761,10 +1763,10 @@ module AWS::SDK::CodeBuild
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['exportConfig'] = Stubs::ReportExportConfig.stub(stub[:export_config]) unless stub[:export_config].nil?
+        data['exportConfig'] = ReportExportConfig.stub(stub[:export_config]) unless stub[:export_config].nil?
         data['created'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created]).to_i unless stub[:created].nil?
         data['lastModified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified]).to_i unless stub[:last_modified].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -1785,7 +1787,7 @@ module AWS::SDK::CodeBuild
         stub ||= Types::ReportExportConfig.new
         data = {}
         data['exportConfigType'] = stub[:export_config_type] unless stub[:export_config_type].nil?
-        data['s3Destination'] = Stubs::S3ReportExportConfig.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['s3Destination'] = S3ReportExportConfig.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data
       end
     end
@@ -1829,9 +1831,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['reports'] = Stubs::Reports.stub(stub[:reports]) unless stub[:reports].nil?
-        data['reportsNotFound'] = Stubs::ReportArns.stub(stub[:reports_not_found]) unless stub[:reports_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reports'] = Reports.stub(stub[:reports]) unless stub[:reports].nil?
+        data['reportsNotFound'] = ReportArns.stub(stub[:reports_not_found]) unless stub[:reports_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1870,7 +1872,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Report.stub(element) unless element.nil?
+          data << Report.stub(element) unless element.nil?
         end
         data
       end
@@ -1908,10 +1910,10 @@ module AWS::SDK::CodeBuild
         data['status'] = stub[:status] unless stub[:status].nil?
         data['created'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created]).to_i unless stub[:created].nil?
         data['expired'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expired]).to_i unless stub[:expired].nil?
-        data['exportConfig'] = Stubs::ReportExportConfig.stub(stub[:export_config]) unless stub[:export_config].nil?
+        data['exportConfig'] = ReportExportConfig.stub(stub[:export_config]) unless stub[:export_config].nil?
         data['truncated'] = stub[:truncated] unless stub[:truncated].nil?
-        data['testSummary'] = Stubs::TestReportSummary.stub(stub[:test_summary]) unless stub[:test_summary].nil?
-        data['codeCoverageSummary'] = Stubs::CodeCoverageReportSummary.stub(stub[:code_coverage_summary]) unless stub[:code_coverage_summary].nil?
+        data['testSummary'] = TestReportSummary.stub(stub[:test_summary]) unless stub[:test_summary].nil?
+        data['codeCoverageSummary'] = CodeCoverageReportSummary.stub(stub[:code_coverage_summary]) unless stub[:code_coverage_summary].nil?
         data
       end
     end
@@ -1960,7 +1962,7 @@ module AWS::SDK::CodeBuild
         stub ||= Types::TestReportSummary.new
         data = {}
         data['total'] = stub[:total] unless stub[:total].nil?
-        data['statusCounts'] = Stubs::ReportStatusCounts.stub(stub[:status_counts]) unless stub[:status_counts].nil?
+        data['statusCounts'] = ReportStatusCounts.stub(stub[:status_counts]) unless stub[:status_counts].nil?
         data['durationInNanoSeconds'] = stub[:duration_in_nano_seconds] unless stub[:duration_in_nano_seconds].nil?
         data
       end
@@ -1996,8 +1998,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2012,8 +2014,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['reportGroup'] = Stubs::ReportGroup.stub(stub[:report_group]) unless stub[:report_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reportGroup'] = ReportGroup.stub(stub[:report_group]) unless stub[:report_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2028,8 +2030,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['webhook'] = Stubs::Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2047,9 +2049,9 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['buildsDeleted'] = Stubs::BuildIds.stub(stub[:builds_deleted]) unless stub[:builds_deleted].nil?
-        data['buildsNotDeleted'] = Stubs::BuildsNotDeleted.stub(stub[:builds_not_deleted]) unless stub[:builds_not_deleted].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['buildsDeleted'] = BuildIds.stub(stub[:builds_deleted]) unless stub[:builds_deleted].nil?
+        data['buildsNotDeleted'] = BuildsNotDeleted.stub(stub[:builds_not_deleted]) unless stub[:builds_not_deleted].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2063,7 +2065,7 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2077,7 +2079,7 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2091,7 +2093,7 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2105,7 +2107,7 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2121,7 +2123,7 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2135,7 +2137,7 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2152,8 +2154,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['codeCoverages'] = Stubs::CodeCoverages.stub(stub[:code_coverages]) unless stub[:code_coverages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['codeCoverages'] = CodeCoverages.stub(stub[:code_coverages]) unless stub[:code_coverages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2172,7 +2174,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CodeCoverage.stub(element) unless element.nil?
+          data << CodeCoverage.stub(element) unless element.nil?
         end
         data
       end
@@ -2226,8 +2228,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['testCases'] = Stubs::TestCases.stub(stub[:test_cases]) unless stub[:test_cases].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['testCases'] = TestCases.stub(stub[:test_cases]) unless stub[:test_cases].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2246,7 +2248,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestCase.stub(element) unless element.nil?
+          data << TestCase.stub(element) unless element.nil?
         end
         data
       end
@@ -2295,9 +2297,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['stats'] = Stubs::ReportGroupTrendStats.stub(stub[:stats]) unless stub[:stats].nil?
-        data['rawData'] = Stubs::ReportGroupTrendRawDataList.stub(stub[:raw_data]) unless stub[:raw_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stats'] = ReportGroupTrendStats.stub(stub[:stats]) unless stub[:stats].nil?
+        data['rawData'] = ReportGroupTrendRawDataList.stub(stub[:raw_data]) unless stub[:raw_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2316,7 +2318,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReportWithRawData.stub(element) unless element.nil?
+          data << ReportWithRawData.stub(element) unless element.nil?
         end
         data
       end
@@ -2375,7 +2377,7 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2391,7 +2393,7 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2405,7 +2407,7 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2421,9 +2423,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ids'] = Stubs::BuildBatchIds.stub(stub[:ids]) unless stub[:ids].nil?
+        data['ids'] = BuildBatchIds.stub(stub[:ids]) unless stub[:ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2439,9 +2441,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ids'] = Stubs::BuildBatchIds.stub(stub[:ids]) unless stub[:ids].nil?
+        data['ids'] = BuildBatchIds.stub(stub[:ids]) unless stub[:ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2457,9 +2459,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ids'] = Stubs::BuildIds.stub(stub[:ids]) unless stub[:ids].nil?
+        data['ids'] = BuildIds.stub(stub[:ids]) unless stub[:ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2475,9 +2477,9 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ids'] = Stubs::BuildIds.stub(stub[:ids]) unless stub[:ids].nil?
+        data['ids'] = BuildIds.stub(stub[:ids]) unless stub[:ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2492,8 +2494,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['platforms'] = Stubs::EnvironmentPlatforms.stub(stub[:platforms]) unless stub[:platforms].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['platforms'] = EnvironmentPlatforms.stub(stub[:platforms]) unless stub[:platforms].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2512,7 +2514,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentPlatform.stub(element) unless element.nil?
+          data << EnvironmentPlatform.stub(element) unless element.nil?
         end
         data
       end
@@ -2533,7 +2535,7 @@ module AWS::SDK::CodeBuild
         stub ||= Types::EnvironmentPlatform.new
         data = {}
         data['platform'] = stub[:platform] unless stub[:platform].nil?
-        data['languages'] = Stubs::EnvironmentLanguages.stub(stub[:languages]) unless stub[:languages].nil?
+        data['languages'] = EnvironmentLanguages.stub(stub[:languages]) unless stub[:languages].nil?
         data
       end
     end
@@ -2552,7 +2554,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentLanguage.stub(element) unless element.nil?
+          data << EnvironmentLanguage.stub(element) unless element.nil?
         end
         data
       end
@@ -2573,7 +2575,7 @@ module AWS::SDK::CodeBuild
         stub ||= Types::EnvironmentLanguage.new
         data = {}
         data['language'] = stub[:language] unless stub[:language].nil?
-        data['images'] = Stubs::EnvironmentImages.stub(stub[:images]) unless stub[:images].nil?
+        data['images'] = EnvironmentImages.stub(stub[:images]) unless stub[:images].nil?
         data
       end
     end
@@ -2592,7 +2594,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentImage.stub(element) unless element.nil?
+          data << EnvironmentImage.stub(element) unless element.nil?
         end
         data
       end
@@ -2615,7 +2617,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['versions'] = Stubs::ImageVersions.stub(stub[:versions]) unless stub[:versions].nil?
+        data['versions'] = ImageVersions.stub(stub[:versions]) unless stub[:versions].nil?
         data
       end
     end
@@ -2652,8 +2654,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['projects'] = Stubs::ProjectNames.stub(stub[:projects]) unless stub[:projects].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['projects'] = ProjectNames.stub(stub[:projects]) unless stub[:projects].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2670,8 +2672,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['reportGroups'] = Stubs::ReportGroupArns.stub(stub[:report_groups]) unless stub[:report_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reportGroups'] = ReportGroupArns.stub(stub[:report_groups]) unless stub[:report_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2688,8 +2690,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['reports'] = Stubs::ReportArns.stub(stub[:reports]) unless stub[:reports].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reports'] = ReportArns.stub(stub[:reports]) unless stub[:reports].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2706,8 +2708,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['reports'] = Stubs::ReportArns.stub(stub[:reports]) unless stub[:reports].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reports'] = ReportArns.stub(stub[:reports]) unless stub[:reports].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2724,8 +2726,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['projects'] = Stubs::ProjectArns.stub(stub[:projects]) unless stub[:projects].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['projects'] = ProjectArns.stub(stub[:projects]) unless stub[:projects].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2762,8 +2764,8 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['reportGroups'] = Stubs::ReportGroupArns.stub(stub[:report_groups]) unless stub[:report_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reportGroups'] = ReportGroupArns.stub(stub[:report_groups]) unless stub[:report_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2778,8 +2780,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['sourceCredentialsInfos'] = Stubs::SourceCredentialsInfos.stub(stub[:source_credentials_infos]) unless stub[:source_credentials_infos].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceCredentialsInfos'] = SourceCredentialsInfos.stub(stub[:source_credentials_infos]) unless stub[:source_credentials_infos].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2798,7 +2800,7 @@ module AWS::SDK::CodeBuild
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceCredentialsInfo.stub(element) unless element.nil?
+          data << SourceCredentialsInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2837,7 +2839,7 @@ module AWS::SDK::CodeBuild
       def self.stub(http_resp, stub:)
         data = {}
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2852,8 +2854,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['build'] = Stubs::Build.stub(stub[:build]) unless stub[:build].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['build'] = Build.stub(stub[:build]) unless stub[:build].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2868,8 +2870,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['buildBatch'] = Stubs::BuildBatch.stub(stub[:build_batch]) unless stub[:build_batch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['buildBatch'] = BuildBatch.stub(stub[:build_batch]) unless stub[:build_batch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2884,8 +2886,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['build'] = Stubs::Build.stub(stub[:build]) unless stub[:build].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['build'] = Build.stub(stub[:build]) unless stub[:build].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2900,8 +2902,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['buildBatch'] = Stubs::BuildBatch.stub(stub[:build_batch]) unless stub[:build_batch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['buildBatch'] = BuildBatch.stub(stub[:build_batch]) unless stub[:build_batch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2916,8 +2918,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['build'] = Stubs::Build.stub(stub[:build]) unless stub[:build].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['build'] = Build.stub(stub[:build]) unless stub[:build].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2932,8 +2934,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['buildBatch'] = Stubs::BuildBatch.stub(stub[:build_batch]) unless stub[:build_batch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['buildBatch'] = BuildBatch.stub(stub[:build_batch]) unless stub[:build_batch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2948,8 +2950,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2969,7 +2971,7 @@ module AWS::SDK::CodeBuild
         data['projectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
         data['publicProjectAlias'] = stub[:public_project_alias] unless stub[:public_project_alias].nil?
         data['projectVisibility'] = stub[:project_visibility] unless stub[:project_visibility].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2984,8 +2986,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['reportGroup'] = Stubs::ReportGroup.stub(stub[:report_group]) unless stub[:report_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reportGroup'] = ReportGroup.stub(stub[:report_group]) unless stub[:report_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3000,8 +3002,8 @@ module AWS::SDK::CodeBuild
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['webhook'] = Stubs::Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

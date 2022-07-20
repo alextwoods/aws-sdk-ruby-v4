@@ -94,7 +94,7 @@ module AWS::SDK::MediaStoreData
       def self.parse(http_resp)
         data = Types::ListItemsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ItemList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (ItemList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -104,7 +104,7 @@ module AWS::SDK::MediaStoreData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Item.parse(value) unless value.nil?
+          data << Item.parse(value) unless value.nil?
         end
         data
       end

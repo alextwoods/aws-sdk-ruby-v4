@@ -8,6 +8,7 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'base64'
+require 'stringio'
 
 module AWS::SDK::LexRuntimeService
   module Builders
@@ -121,11 +122,11 @@ module AWS::SDK::LexRuntimeService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sessionAttributes'] = Builders::StringMap.build(input[:session_attributes]) unless input[:session_attributes].nil?
-        data['requestAttributes'] = Builders::StringMap.build(input[:request_attributes]) unless input[:request_attributes].nil?
+        data['sessionAttributes'] = StringMap.build(input[:session_attributes]) unless input[:session_attributes].nil?
+        data['requestAttributes'] = StringMap.build(input[:request_attributes]) unless input[:request_attributes].nil?
         data['inputText'] = input[:input_text] unless input[:input_text].nil?
-        data['activeContexts'] = Builders::ActiveContextsList.build(input[:active_contexts]) unless input[:active_contexts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['activeContexts'] = ActiveContextsList.build(input[:active_contexts]) unless input[:active_contexts].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -134,7 +135,7 @@ module AWS::SDK::LexRuntimeService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ActiveContext.build(element) unless element.nil?
+          data << ActiveContext.build(element) unless element.nil?
         end
         data
       end
@@ -145,8 +146,8 @@ module AWS::SDK::LexRuntimeService
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['timeToLive'] = Builders::ActiveContextTimeToLive.build(input[:time_to_live]) unless input[:time_to_live].nil?
-        data['parameters'] = Builders::ActiveContextParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['timeToLive'] = ActiveContextTimeToLive.build(input[:time_to_live]) unless input[:time_to_live].nil?
+        data['parameters'] = ActiveContextParametersMap.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -208,11 +209,11 @@ module AWS::SDK::LexRuntimeService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sessionAttributes'] = Builders::StringMap.build(input[:session_attributes]) unless input[:session_attributes].nil?
-        data['dialogAction'] = Builders::DialogAction.build(input[:dialog_action]) unless input[:dialog_action].nil?
-        data['recentIntentSummaryView'] = Builders::IntentSummaryList.build(input[:recent_intent_summary_view]) unless input[:recent_intent_summary_view].nil?
-        data['activeContexts'] = Builders::ActiveContextsList.build(input[:active_contexts]) unless input[:active_contexts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sessionAttributes'] = StringMap.build(input[:session_attributes]) unless input[:session_attributes].nil?
+        data['dialogAction'] = DialogAction.build(input[:dialog_action]) unless input[:dialog_action].nil?
+        data['recentIntentSummaryView'] = IntentSummaryList.build(input[:recent_intent_summary_view]) unless input[:recent_intent_summary_view].nil?
+        data['activeContexts'] = ActiveContextsList.build(input[:active_contexts]) unless input[:active_contexts].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Accept'] = input[:accept] unless input[:accept].nil? || input[:accept].empty?
       end
     end
@@ -222,7 +223,7 @@ module AWS::SDK::LexRuntimeService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IntentSummary.build(element) unless element.nil?
+          data << IntentSummary.build(element) unless element.nil?
         end
         data
       end
@@ -234,7 +235,7 @@ module AWS::SDK::LexRuntimeService
         data = {}
         data['intentName'] = input[:intent_name] unless input[:intent_name].nil?
         data['checkpointLabel'] = input[:checkpoint_label] unless input[:checkpoint_label].nil?
-        data['slots'] = Builders::StringMap.build(input[:slots]) unless input[:slots].nil?
+        data['slots'] = StringMap.build(input[:slots]) unless input[:slots].nil?
         data['confirmationStatus'] = input[:confirmation_status] unless input[:confirmation_status].nil?
         data['dialogActionType'] = input[:dialog_action_type] unless input[:dialog_action_type].nil?
         data['fulfillmentState'] = input[:fulfillment_state] unless input[:fulfillment_state].nil?
@@ -249,7 +250,7 @@ module AWS::SDK::LexRuntimeService
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
         data['intentName'] = input[:intent_name] unless input[:intent_name].nil?
-        data['slots'] = Builders::StringMap.build(input[:slots]) unless input[:slots].nil?
+        data['slots'] = StringMap.build(input[:slots]) unless input[:slots].nil?
         data['slotToElicit'] = input[:slot_to_elicit] unless input[:slot_to_elicit].nil?
         data['fulfillmentState'] = input[:fulfillment_state] unless input[:fulfillment_state].nil?
         data['message'] = input[:message] unless input[:message].nil?

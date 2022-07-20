@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ACM
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,8 +50,8 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Certificate'] = Stubs::CertificateDetail.stub(stub[:certificate]) unless stub[:certificate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Certificate'] = CertificateDetail.stub(stub[:certificate]) unless stub[:certificate].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -94,8 +96,8 @@ module AWS::SDK::ACM
         data = {}
         data['CertificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['SubjectAlternativeNames'] = Stubs::DomainList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
-        data['DomainValidationOptions'] = Stubs::DomainValidationList.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
+        data['SubjectAlternativeNames'] = DomainList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['DomainValidationOptions'] = DomainValidationList.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
         data['Serial'] = stub[:serial] unless stub[:serial].nil?
         data['Subject'] = stub[:subject] unless stub[:subject].nil?
         data['Issuer'] = stub[:issuer] unless stub[:issuer].nil?
@@ -109,15 +111,15 @@ module AWS::SDK::ACM
         data['NotAfter'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_after]).to_i unless stub[:not_after].nil?
         data['KeyAlgorithm'] = stub[:key_algorithm] unless stub[:key_algorithm].nil?
         data['SignatureAlgorithm'] = stub[:signature_algorithm] unless stub[:signature_algorithm].nil?
-        data['InUseBy'] = Stubs::InUseList.stub(stub[:in_use_by]) unless stub[:in_use_by].nil?
+        data['InUseBy'] = InUseList.stub(stub[:in_use_by]) unless stub[:in_use_by].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['RenewalSummary'] = Stubs::RenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
-        data['KeyUsages'] = Stubs::KeyUsageList.stub(stub[:key_usages]) unless stub[:key_usages].nil?
-        data['ExtendedKeyUsages'] = Stubs::ExtendedKeyUsageList.stub(stub[:extended_key_usages]) unless stub[:extended_key_usages].nil?
+        data['RenewalSummary'] = RenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
+        data['KeyUsages'] = KeyUsageList.stub(stub[:key_usages]) unless stub[:key_usages].nil?
+        data['ExtendedKeyUsages'] = ExtendedKeyUsageList.stub(stub[:extended_key_usages]) unless stub[:extended_key_usages].nil?
         data['CertificateAuthorityArn'] = stub[:certificate_authority_arn] unless stub[:certificate_authority_arn].nil?
         data['RenewalEligibility'] = stub[:renewal_eligibility] unless stub[:renewal_eligibility].nil?
-        data['Options'] = Stubs::CertificateOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Options'] = CertificateOptions.stub(stub[:options]) unless stub[:options].nil?
         data
       end
     end
@@ -154,7 +156,7 @@ module AWS::SDK::ACM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExtendedKeyUsage.stub(element) unless element.nil?
+          data << ExtendedKeyUsage.stub(element) unless element.nil?
         end
         data
       end
@@ -194,7 +196,7 @@ module AWS::SDK::ACM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyUsage.stub(element) unless element.nil?
+          data << KeyUsage.stub(element) unless element.nil?
         end
         data
       end
@@ -235,7 +237,7 @@ module AWS::SDK::ACM
         stub ||= Types::RenewalSummary.new
         data = {}
         data['RenewalStatus'] = stub[:renewal_status] unless stub[:renewal_status].nil?
-        data['DomainValidationOptions'] = Stubs::DomainValidationList.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
+        data['DomainValidationOptions'] = DomainValidationList.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
         data['RenewalStatusReason'] = stub[:renewal_status_reason] unless stub[:renewal_status_reason].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data
@@ -256,7 +258,7 @@ module AWS::SDK::ACM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainValidation.stub(element) unless element.nil?
+          data << DomainValidation.stub(element) unless element.nil?
         end
         data
       end
@@ -281,10 +283,10 @@ module AWS::SDK::ACM
         stub ||= Types::DomainValidation.new
         data = {}
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['ValidationEmails'] = Stubs::ValidationEmailList.stub(stub[:validation_emails]) unless stub[:validation_emails].nil?
+        data['ValidationEmails'] = ValidationEmailList.stub(stub[:validation_emails]) unless stub[:validation_emails].nil?
         data['ValidationDomain'] = stub[:validation_domain] unless stub[:validation_domain].nil?
         data['ValidationStatus'] = stub[:validation_status] unless stub[:validation_status].nil?
-        data['ResourceRecord'] = Stubs::ResourceRecord.stub(stub[:resource_record]) unless stub[:resource_record].nil?
+        data['ResourceRecord'] = ResourceRecord.stub(stub[:resource_record]) unless stub[:resource_record].nil?
         data['ValidationMethod'] = stub[:validation_method] unless stub[:validation_method].nil?
         data
       end
@@ -387,7 +389,7 @@ module AWS::SDK::ACM
         data['Certificate'] = stub[:certificate] unless stub[:certificate].nil?
         data['CertificateChain'] = stub[:certificate_chain] unless stub[:certificate_chain].nil?
         data['PrivateKey'] = stub[:private_key] unless stub[:private_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -402,8 +404,8 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExpiryEvents'] = Stubs::ExpiryEventsConfiguration.stub(stub[:expiry_events]) unless stub[:expiry_events].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExpiryEvents'] = ExpiryEventsConfiguration.stub(stub[:expiry_events]) unless stub[:expiry_events].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -439,7 +441,7 @@ module AWS::SDK::ACM
         data = {}
         data['Certificate'] = stub[:certificate] unless stub[:certificate].nil?
         data['CertificateChain'] = stub[:certificate_chain] unless stub[:certificate_chain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::ACM
       def self.stub(http_resp, stub:)
         data = {}
         data['CertificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -472,8 +474,8 @@ module AWS::SDK::ACM
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['CertificateSummaryList'] = Stubs::CertificateSummaryList.stub(stub[:certificate_summary_list]) unless stub[:certificate_summary_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CertificateSummaryList'] = CertificateSummaryList.stub(stub[:certificate_summary_list]) unless stub[:certificate_summary_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -492,7 +494,7 @@ module AWS::SDK::ACM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CertificateSummary.stub(element) unless element.nil?
+          data << CertificateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -528,8 +530,8 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -548,7 +550,7 @@ module AWS::SDK::ACM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -583,7 +585,7 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -597,7 +599,7 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -627,7 +629,7 @@ module AWS::SDK::ACM
       def self.stub(http_resp, stub:)
         data = {}
         data['CertificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -641,7 +643,7 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::ACM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

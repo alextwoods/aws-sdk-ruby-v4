@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SES
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CloneReceiptRuleSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateConfigurationSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -59,7 +61,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateConfigurationSetEventDestinationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateConfigurationSetTrackingOptionsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -95,7 +97,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateCustomVerificationEmailTemplateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -113,7 +115,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateReceiptFilterResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -131,7 +133,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateReceiptRuleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -149,7 +151,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateReceiptRuleSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateTemplateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteConfigurationSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteConfigurationSetEventDestinationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -221,7 +223,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteConfigurationSetTrackingOptionsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -239,7 +241,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteCustomVerificationEmailTemplateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteIdentityResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteIdentityPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -293,7 +295,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteReceiptFilterResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -311,7 +313,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteReceiptRuleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteReceiptRuleSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteTemplateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteVerifiedEmailAddressResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -384,10 +386,10 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('DescribeActiveReceiptRuleSetResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeActiveReceiptRuleSetResult')
-        xml << Stubs::ReceiptRuleSetMetadata.stub('Metadata', stub[:metadata]) unless stub[:metadata].nil?
-        xml << Hearth::XML::Node.new('Rules', Stubs::ReceiptRulesList.stub('member', stub[:rules])) unless stub[:rules].nil?
+        xml << ReceiptRuleSetMetadata.stub('Metadata', stub[:metadata]) unless stub[:metadata].nil?
+        xml << Hearth::XML::Node.new('Rules', ReceiptRulesList.stub('member', stub[:rules])) unless stub[:rules].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -405,7 +407,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReceiptRule.stub(node_name, element) unless element.nil?
+          xml << ReceiptRule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -432,8 +434,8 @@ module AWS::SDK::SES
         xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         xml << Hearth::XML::Node.new('TlsPolicy', stub[:tls_policy].to_s) unless stub[:tls_policy].nil?
-        xml << Hearth::XML::Node.new('Recipients', Stubs::RecipientsList.stub('member', stub[:recipients])) unless stub[:recipients].nil?
-        xml << Hearth::XML::Node.new('Actions', Stubs::ReceiptActionsList.stub('member', stub[:actions])) unless stub[:actions].nil?
+        xml << Hearth::XML::Node.new('Recipients', RecipientsList.stub('member', stub[:recipients])) unless stub[:recipients].nil?
+        xml << Hearth::XML::Node.new('Actions', ReceiptActionsList.stub('member', stub[:actions])) unless stub[:actions].nil?
         xml << Hearth::XML::Node.new('ScanEnabled', stub[:scan_enabled].to_s) unless stub[:scan_enabled].nil?
         xml
       end
@@ -452,7 +454,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReceiptAction.stub(node_name, element) unless element.nil?
+          xml << ReceiptAction.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -477,13 +479,13 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         stub ||= Types::ReceiptAction.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::S3Action.stub('S3Action', stub[:s3_action]) unless stub[:s3_action].nil?
-        xml << Stubs::BounceAction.stub('BounceAction', stub[:bounce_action]) unless stub[:bounce_action].nil?
-        xml << Stubs::WorkmailAction.stub('WorkmailAction', stub[:workmail_action]) unless stub[:workmail_action].nil?
-        xml << Stubs::LambdaAction.stub('LambdaAction', stub[:lambda_action]) unless stub[:lambda_action].nil?
-        xml << Stubs::StopAction.stub('StopAction', stub[:stop_action]) unless stub[:stop_action].nil?
-        xml << Stubs::AddHeaderAction.stub('AddHeaderAction', stub[:add_header_action]) unless stub[:add_header_action].nil?
-        xml << Stubs::SNSAction.stub('SNSAction', stub[:sns_action]) unless stub[:sns_action].nil?
+        xml << S3Action.stub('S3Action', stub[:s3_action]) unless stub[:s3_action].nil?
+        xml << BounceAction.stub('BounceAction', stub[:bounce_action]) unless stub[:bounce_action].nil?
+        xml << WorkmailAction.stub('WorkmailAction', stub[:workmail_action]) unless stub[:workmail_action].nil?
+        xml << LambdaAction.stub('LambdaAction', stub[:lambda_action]) unless stub[:lambda_action].nil?
+        xml << StopAction.stub('StopAction', stub[:stop_action]) unless stub[:stop_action].nil?
+        xml << AddHeaderAction.stub('AddHeaderAction', stub[:add_header_action]) unless stub[:add_header_action].nil?
+        xml << SNSAction.stub('SNSAction', stub[:sns_action]) unless stub[:sns_action].nil?
         xml
       end
     end
@@ -696,13 +698,13 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('DescribeConfigurationSetResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeConfigurationSetResult')
-        xml << Stubs::ConfigurationSet.stub('ConfigurationSet', stub[:configuration_set]) unless stub[:configuration_set].nil?
-        xml << Hearth::XML::Node.new('EventDestinations', Stubs::EventDestinations.stub('member', stub[:event_destinations])) unless stub[:event_destinations].nil?
-        xml << Stubs::TrackingOptions.stub('TrackingOptions', stub[:tracking_options]) unless stub[:tracking_options].nil?
-        xml << Stubs::DeliveryOptions.stub('DeliveryOptions', stub[:delivery_options]) unless stub[:delivery_options].nil?
-        xml << Stubs::ReputationOptions.stub('ReputationOptions', stub[:reputation_options]) unless stub[:reputation_options].nil?
+        xml << ConfigurationSet.stub('ConfigurationSet', stub[:configuration_set]) unless stub[:configuration_set].nil?
+        xml << Hearth::XML::Node.new('EventDestinations', EventDestinations.stub('member', stub[:event_destinations])) unless stub[:event_destinations].nil?
+        xml << TrackingOptions.stub('TrackingOptions', stub[:tracking_options]) unless stub[:tracking_options].nil?
+        xml << DeliveryOptions.stub('DeliveryOptions', stub[:delivery_options]) unless stub[:delivery_options].nil?
+        xml << ReputationOptions.stub('ReputationOptions', stub[:reputation_options]) unless stub[:reputation_options].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -778,7 +780,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EventDestination.stub(node_name, element) unless element.nil?
+          xml << EventDestination.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -804,10 +806,10 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
-        xml << Hearth::XML::Node.new('MatchingEventTypes', Stubs::EventTypes.stub('member', stub[:matching_event_types])) unless stub[:matching_event_types].nil?
-        xml << Stubs::KinesisFirehoseDestination.stub('KinesisFirehoseDestination', stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
-        xml << Stubs::CloudWatchDestination.stub('CloudWatchDestination', stub[:cloud_watch_destination]) unless stub[:cloud_watch_destination].nil?
-        xml << Stubs::SNSDestination.stub('SNSDestination', stub[:sns_destination]) unless stub[:sns_destination].nil?
+        xml << Hearth::XML::Node.new('MatchingEventTypes', EventTypes.stub('member', stub[:matching_event_types])) unless stub[:matching_event_types].nil?
+        xml << KinesisFirehoseDestination.stub('KinesisFirehoseDestination', stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
+        xml << CloudWatchDestination.stub('CloudWatchDestination', stub[:cloud_watch_destination]) unless stub[:cloud_watch_destination].nil?
+        xml << SNSDestination.stub('SNSDestination', stub[:sns_destination]) unless stub[:sns_destination].nil?
         xml
       end
     end
@@ -843,7 +845,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         stub ||= Types::CloudWatchDestination.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('DimensionConfigurations', Stubs::CloudWatchDimensionConfigurations.stub('member', stub[:dimension_configurations])) unless stub[:dimension_configurations].nil?
+        xml << Hearth::XML::Node.new('DimensionConfigurations', CloudWatchDimensionConfigurations.stub('member', stub[:dimension_configurations])) unless stub[:dimension_configurations].nil?
         xml
       end
     end
@@ -861,7 +863,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::CloudWatchDimensionConfiguration.stub(node_name, element) unless element.nil?
+          xml << CloudWatchDimensionConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -959,9 +961,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('DescribeReceiptRuleResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeReceiptRuleResult')
-        xml << Stubs::ReceiptRule.stub('Rule', stub[:rule]) unless stub[:rule].nil?
+        xml << ReceiptRule.stub('Rule', stub[:rule]) unless stub[:rule].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -980,10 +982,10 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('DescribeReceiptRuleSetResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeReceiptRuleSetResult')
-        xml << Stubs::ReceiptRuleSetMetadata.stub('Metadata', stub[:metadata]) unless stub[:metadata].nil?
-        xml << Hearth::XML::Node.new('Rules', Stubs::ReceiptRulesList.stub('member', stub[:rules])) unless stub[:rules].nil?
+        xml << ReceiptRuleSetMetadata.stub('Metadata', stub[:metadata]) unless stub[:metadata].nil?
+        xml << Hearth::XML::Node.new('Rules', ReceiptRulesList.stub('member', stub[:rules])) unless stub[:rules].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1003,7 +1005,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('GetAccountSendingEnabledResult')
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1033,7 +1035,7 @@ module AWS::SDK::SES
         xml << Hearth::XML::Node.new('SuccessRedirectionURL', stub[:success_redirection_url].to_s) unless stub[:success_redirection_url].nil?
         xml << Hearth::XML::Node.new('FailureRedirectionURL', stub[:failure_redirection_url].to_s) unless stub[:failure_redirection_url].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1051,9 +1053,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('GetIdentityDkimAttributesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('GetIdentityDkimAttributesResult')
-        xml << Hearth::XML::Node.new('DkimAttributes', Stubs::DkimAttributes.stub('entry', stub[:dkim_attributes])) unless stub[:dkim_attributes].nil?
+        xml << Hearth::XML::Node.new('DkimAttributes', DkimAttributes.stub('entry', stub[:dkim_attributes])) unless stub[:dkim_attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1073,7 +1075,7 @@ module AWS::SDK::SES
         stub.each do |key, value|
           xml = Hearth::XML::Node.new(node_name)
           xml << Hearth::XML::Node.new('key', key.to_s) unless key.nil?
-          xml << Stubs::IdentityDkimAttributes.stub('value', value) unless value.nil?
+          xml << IdentityDkimAttributes.stub('value', value) unless value.nil?
           nodes << xml
         end
         nodes
@@ -1097,7 +1099,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('DkimEnabled', stub[:dkim_enabled].to_s) unless stub[:dkim_enabled].nil?
         xml << Hearth::XML::Node.new('DkimVerificationStatus', stub[:dkim_verification_status].to_s) unless stub[:dkim_verification_status].nil?
-        xml << Hearth::XML::Node.new('DkimTokens', Stubs::VerificationTokenList.stub('member', stub[:dkim_tokens])) unless stub[:dkim_tokens].nil?
+        xml << Hearth::XML::Node.new('DkimTokens', VerificationTokenList.stub('member', stub[:dkim_tokens])) unless stub[:dkim_tokens].nil?
         xml
       end
     end
@@ -1134,9 +1136,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('GetIdentityMailFromDomainAttributesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('GetIdentityMailFromDomainAttributesResult')
-        xml << Hearth::XML::Node.new('MailFromDomainAttributes', Stubs::MailFromDomainAttributes.stub('entry', stub[:mail_from_domain_attributes])) unless stub[:mail_from_domain_attributes].nil?
+        xml << Hearth::XML::Node.new('MailFromDomainAttributes', MailFromDomainAttributes.stub('entry', stub[:mail_from_domain_attributes])) unless stub[:mail_from_domain_attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1156,7 +1158,7 @@ module AWS::SDK::SES
         stub.each do |key, value|
           xml = Hearth::XML::Node.new(node_name)
           xml << Hearth::XML::Node.new('key', key.to_s) unless key.nil?
-          xml << Stubs::IdentityMailFromDomainAttributes.stub('value', value) unless value.nil?
+          xml << IdentityMailFromDomainAttributes.stub('value', value) unless value.nil?
           nodes << xml
         end
         nodes
@@ -1198,9 +1200,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('GetIdentityNotificationAttributesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('GetIdentityNotificationAttributesResult')
-        xml << Hearth::XML::Node.new('NotificationAttributes', Stubs::NotificationAttributes.stub('entry', stub[:notification_attributes])) unless stub[:notification_attributes].nil?
+        xml << Hearth::XML::Node.new('NotificationAttributes', NotificationAttributes.stub('entry', stub[:notification_attributes])) unless stub[:notification_attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1220,7 +1222,7 @@ module AWS::SDK::SES
         stub.each do |key, value|
           xml = Hearth::XML::Node.new(node_name)
           xml << Hearth::XML::Node.new('key', key.to_s) unless key.nil?
-          xml << Stubs::IdentityNotificationAttributes.stub('value', value) unless value.nil?
+          xml << IdentityNotificationAttributes.stub('value', value) unless value.nil?
           nodes << xml
         end
         nodes
@@ -1270,9 +1272,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('GetIdentityPoliciesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('GetIdentityPoliciesResult')
-        xml << Hearth::XML::Node.new('Policies', Stubs::PolicyMap.stub('entry', stub[:policies])) unless stub[:policies].nil?
+        xml << Hearth::XML::Node.new('Policies', PolicyMap.stub('entry', stub[:policies])) unless stub[:policies].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1312,9 +1314,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('GetIdentityVerificationAttributesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('GetIdentityVerificationAttributesResult')
-        xml << Hearth::XML::Node.new('VerificationAttributes', Stubs::VerificationAttributes.stub('entry', stub[:verification_attributes])) unless stub[:verification_attributes].nil?
+        xml << Hearth::XML::Node.new('VerificationAttributes', VerificationAttributes.stub('entry', stub[:verification_attributes])) unless stub[:verification_attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1334,7 +1336,7 @@ module AWS::SDK::SES
         stub.each do |key, value|
           xml = Hearth::XML::Node.new(node_name)
           xml << Hearth::XML::Node.new('key', key.to_s) unless key.nil?
-          xml << Stubs::IdentityVerificationAttributes.stub('value', value) unless value.nil?
+          xml << IdentityVerificationAttributes.stub('value', value) unless value.nil?
           nodes << xml
         end
         nodes
@@ -1380,7 +1382,7 @@ module AWS::SDK::SES
         xml << Hearth::XML::Node.new('MaxSendRate', Hearth::NumberHelper.serialize(stub[:max_send_rate]).to_s) unless stub[:max_send_rate].nil?
         xml << Hearth::XML::Node.new('SentLast24Hours', Hearth::NumberHelper.serialize(stub[:sent_last24_hours]).to_s) unless stub[:sent_last24_hours].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1398,9 +1400,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('GetSendStatisticsResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('GetSendStatisticsResult')
-        xml << Hearth::XML::Node.new('SendDataPoints', Stubs::SendDataPointList.stub('member', stub[:send_data_points])) unless stub[:send_data_points].nil?
+        xml << Hearth::XML::Node.new('SendDataPoints', SendDataPointList.stub('member', stub[:send_data_points])) unless stub[:send_data_points].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1418,7 +1420,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SendDataPoint.stub(node_name, element) unless element.nil?
+          xml << SendDataPoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1463,9 +1465,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('GetTemplateResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('GetTemplateResult')
-        xml << Stubs::Template.stub('Template', stub[:template]) unless stub[:template].nil?
+        xml << Template.stub('Template', stub[:template]) unless stub[:template].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1508,10 +1510,10 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListConfigurationSetsResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListConfigurationSetsResult')
-        xml << Hearth::XML::Node.new('ConfigurationSets', Stubs::ConfigurationSets.stub('member', stub[:configuration_sets])) unless stub[:configuration_sets].nil?
+        xml << Hearth::XML::Node.new('ConfigurationSets', ConfigurationSets.stub('member', stub[:configuration_sets])) unless stub[:configuration_sets].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1529,7 +1531,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ConfigurationSet.stub(node_name, element) unless element.nil?
+          xml << ConfigurationSet.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1549,10 +1551,10 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListCustomVerificationEmailTemplatesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListCustomVerificationEmailTemplatesResult')
-        xml << Hearth::XML::Node.new('CustomVerificationEmailTemplates', Stubs::CustomVerificationEmailTemplates.stub('member', stub[:custom_verification_email_templates])) unless stub[:custom_verification_email_templates].nil?
+        xml << Hearth::XML::Node.new('CustomVerificationEmailTemplates', CustomVerificationEmailTemplates.stub('member', stub[:custom_verification_email_templates])) unless stub[:custom_verification_email_templates].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1570,7 +1572,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::CustomVerificationEmailTemplate.stub(node_name, element) unless element.nil?
+          xml << CustomVerificationEmailTemplate.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1616,10 +1618,10 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListIdentitiesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListIdentitiesResult')
-        xml << Hearth::XML::Node.new('Identities', Stubs::IdentityList.stub('member', stub[:identities])) unless stub[:identities].nil?
+        xml << Hearth::XML::Node.new('Identities', IdentityList.stub('member', stub[:identities])) unless stub[:identities].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1656,9 +1658,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListIdentityPoliciesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListIdentityPoliciesResult')
-        xml << Hearth::XML::Node.new('PolicyNames', Stubs::PolicyNameList.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
+        xml << Hearth::XML::Node.new('PolicyNames', PolicyNameList.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1695,9 +1697,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListReceiptFiltersResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListReceiptFiltersResult')
-        xml << Hearth::XML::Node.new('Filters', Stubs::ReceiptFilterList.stub('member', stub[:filters])) unless stub[:filters].nil?
+        xml << Hearth::XML::Node.new('Filters', ReceiptFilterList.stub('member', stub[:filters])) unless stub[:filters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1715,7 +1717,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReceiptFilter.stub(node_name, element) unless element.nil?
+          xml << ReceiptFilter.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1736,7 +1738,7 @@ module AWS::SDK::SES
         stub ||= Types::ReceiptFilter.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
-        xml << Stubs::ReceiptIpFilter.stub('IpFilter', stub[:ip_filter]) unless stub[:ip_filter].nil?
+        xml << ReceiptIpFilter.stub('IpFilter', stub[:ip_filter]) unless stub[:ip_filter].nil?
         xml
       end
     end
@@ -1775,10 +1777,10 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListReceiptRuleSetsResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListReceiptRuleSetsResult')
-        xml << Hearth::XML::Node.new('RuleSets', Stubs::ReceiptRuleSetsLists.stub('member', stub[:rule_sets])) unless stub[:rule_sets].nil?
+        xml << Hearth::XML::Node.new('RuleSets', ReceiptRuleSetsLists.stub('member', stub[:rule_sets])) unless stub[:rule_sets].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1796,7 +1798,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReceiptRuleSetMetadata.stub(node_name, element) unless element.nil?
+          xml << ReceiptRuleSetMetadata.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1816,10 +1818,10 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListTemplatesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListTemplatesResult')
-        xml << Hearth::XML::Node.new('TemplatesMetadata', Stubs::TemplateMetadataList.stub('member', stub[:templates_metadata])) unless stub[:templates_metadata].nil?
+        xml << Hearth::XML::Node.new('TemplatesMetadata', TemplateMetadataList.stub('member', stub[:templates_metadata])) unless stub[:templates_metadata].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1837,7 +1839,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TemplateMetadata.stub(node_name, element) unless element.nil?
+          xml << TemplateMetadata.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1876,9 +1878,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('ListVerifiedEmailAddressesResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ListVerifiedEmailAddressesResult')
-        xml << Hearth::XML::Node.new('VerifiedEmailAddresses', Stubs::AddressList.stub('member', stub[:verified_email_addresses])) unless stub[:verified_email_addresses].nil?
+        xml << Hearth::XML::Node.new('VerifiedEmailAddresses', AddressList.stub('member', stub[:verified_email_addresses])) unless stub[:verified_email_addresses].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1915,7 +1917,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('PutConfigurationSetDeliveryOptionsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1933,7 +1935,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('PutIdentityPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1951,7 +1953,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('ReorderReceiptRuleSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1971,7 +1973,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('SendBounceResult')
         xml << Hearth::XML::Node.new('MessageId', stub[:message_id].to_s) unless stub[:message_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1989,9 +1991,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('SendBulkTemplatedEmailResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SendBulkTemplatedEmailResult')
-        xml << Hearth::XML::Node.new('Status', Stubs::BulkEmailDestinationStatusList.stub('member', stub[:status])) unless stub[:status].nil?
+        xml << Hearth::XML::Node.new('Status', BulkEmailDestinationStatusList.stub('member', stub[:status])) unless stub[:status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2009,7 +2011,7 @@ module AWS::SDK::SES
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::BulkEmailDestinationStatus.stub(node_name, element) unless element.nil?
+          xml << BulkEmailDestinationStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2052,7 +2054,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('SendCustomVerificationEmailResult')
         xml << Hearth::XML::Node.new('MessageId', stub[:message_id].to_s) unless stub[:message_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2072,7 +2074,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('SendEmailResult')
         xml << Hearth::XML::Node.new('MessageId', stub[:message_id].to_s) unless stub[:message_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2092,7 +2094,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('SendRawEmailResult')
         xml << Hearth::XML::Node.new('MessageId', stub[:message_id].to_s) unless stub[:message_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2112,7 +2114,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('SendTemplatedEmailResult')
         xml << Hearth::XML::Node.new('MessageId', stub[:message_id].to_s) unless stub[:message_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2130,7 +2132,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SetActiveReceiptRuleSetResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2148,7 +2150,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SetIdentityDkimEnabledResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2166,7 +2168,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SetIdentityFeedbackForwardingEnabledResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2184,7 +2186,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SetIdentityHeadersInNotificationsEnabledResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2202,7 +2204,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SetIdentityMailFromDomainResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2220,7 +2222,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SetIdentityNotificationTopicResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2238,7 +2240,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('SetReceiptRulePositionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2258,7 +2260,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('TestRenderTemplateResult')
         xml << Hearth::XML::Node.new('RenderedTemplate', stub[:rendered_template].to_s) unless stub[:rendered_template].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2276,7 +2278,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateAccountSendingEnabledResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2294,7 +2296,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateConfigurationSetEventDestinationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2312,7 +2314,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateConfigurationSetReputationMetricsEnabledResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2330,7 +2332,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateConfigurationSetSendingEnabledResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2348,7 +2350,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateConfigurationSetTrackingOptionsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2366,7 +2368,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateCustomVerificationEmailTemplateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2384,7 +2386,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateReceiptRuleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2402,7 +2404,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateTemplateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2420,9 +2422,9 @@ module AWS::SDK::SES
         response = Hearth::XML::Node.new('VerifyDomainDkimResponse')
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('VerifyDomainDkimResult')
-        xml << Hearth::XML::Node.new('DkimTokens', Stubs::VerificationTokenList.stub('member', stub[:dkim_tokens])) unless stub[:dkim_tokens].nil?
+        xml << Hearth::XML::Node.new('DkimTokens', VerificationTokenList.stub('member', stub[:dkim_tokens])) unless stub[:dkim_tokens].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2442,7 +2444,7 @@ module AWS::SDK::SES
         xml = Hearth::XML::Node.new('VerifyDomainIdentityResult')
         xml << Hearth::XML::Node.new('VerificationToken', stub[:verification_token].to_s) unless stub[:verification_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2460,7 +2462,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('VerifyEmailAddressResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2478,7 +2480,7 @@ module AWS::SDK::SES
         response.attributes['xmlns'] = 'http://ses.amazonaws.com/doc/2010-12-01/'
         xml = Hearth::XML::Node.new('VerifyEmailIdentityResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

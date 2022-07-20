@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::DynamoDBStreams
   module Parsers
 
@@ -17,7 +19,7 @@ module AWS::SDK::DynamoDBStreams
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.stream_description = (Parsers::StreamDescription.parse(map['StreamDescription']) unless map['StreamDescription'].nil?)
+        data.stream_description = (StreamDescription.parse(map['StreamDescription']) unless map['StreamDescription'].nil?)
         data
       end
     end
@@ -31,8 +33,8 @@ module AWS::SDK::DynamoDBStreams
         data.stream_view_type = map['StreamViewType']
         data.creation_request_date_time = Time.at(map['CreationRequestDateTime'].to_i) if map['CreationRequestDateTime']
         data.table_name = map['TableName']
-        data.key_schema = (Parsers::KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.shards = (Parsers::ShardDescriptionList.parse(map['Shards']) unless map['Shards'].nil?)
+        data.key_schema = (KeySchema.parse(map['KeySchema']) unless map['KeySchema'].nil?)
+        data.shards = (ShardDescriptionList.parse(map['Shards']) unless map['Shards'].nil?)
         data.last_evaluated_shard_id = map['LastEvaluatedShardId']
         return data
       end
@@ -41,7 +43,7 @@ module AWS::SDK::DynamoDBStreams
     class ShardDescriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Shard.parse(value) unless value.nil?
+          Shard.parse(value) unless value.nil?
         end
       end
     end
@@ -50,7 +52,7 @@ module AWS::SDK::DynamoDBStreams
       def self.parse(map)
         data = Types::Shard.new
         data.shard_id = map['ShardId']
-        data.sequence_number_range = (Parsers::SequenceNumberRange.parse(map['SequenceNumberRange']) unless map['SequenceNumberRange'].nil?)
+        data.sequence_number_range = (SequenceNumberRange.parse(map['SequenceNumberRange']) unless map['SequenceNumberRange'].nil?)
         data.parent_shard_id = map['ParentShardId']
         return data
       end
@@ -68,7 +70,7 @@ module AWS::SDK::DynamoDBStreams
     class KeySchema
       def self.parse(list)
         list.map do |value|
-          Parsers::KeySchemaElement.parse(value) unless value.nil?
+          KeySchemaElement.parse(value) unless value.nil?
         end
       end
     end
@@ -113,7 +115,7 @@ module AWS::SDK::DynamoDBStreams
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.records = (Parsers::RecordList.parse(map['Records']) unless map['Records'].nil?)
+        data.records = (RecordList.parse(map['Records']) unless map['Records'].nil?)
         data.next_shard_iterator = map['NextShardIterator']
         data
       end
@@ -122,7 +124,7 @@ module AWS::SDK::DynamoDBStreams
     class RecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::Record.parse(value) unless value.nil?
+          Record.parse(value) unless value.nil?
         end
       end
     end
@@ -135,8 +137,8 @@ module AWS::SDK::DynamoDBStreams
         data.event_version = map['eventVersion']
         data.event_source = map['eventSource']
         data.aws_region = map['awsRegion']
-        data.dynamodb = (Parsers::StreamRecord.parse(map['dynamodb']) unless map['dynamodb'].nil?)
-        data.user_identity = (Parsers::Identity.parse(map['userIdentity']) unless map['userIdentity'].nil?)
+        data.dynamodb = (StreamRecord.parse(map['dynamodb']) unless map['dynamodb'].nil?)
+        data.user_identity = (Identity.parse(map['userIdentity']) unless map['userIdentity'].nil?)
         return data
       end
     end
@@ -154,9 +156,9 @@ module AWS::SDK::DynamoDBStreams
       def self.parse(map)
         data = Types::StreamRecord.new
         data.approximate_creation_date_time = Time.at(map['ApproximateCreationDateTime'].to_i) if map['ApproximateCreationDateTime']
-        data.keys = (Parsers::AttributeMap.parse(map['Keys']) unless map['Keys'].nil?)
-        data.new_image = (Parsers::AttributeMap.parse(map['NewImage']) unless map['NewImage'].nil?)
-        data.old_image = (Parsers::AttributeMap.parse(map['OldImage']) unless map['OldImage'].nil?)
+        data.keys = (AttributeMap.parse(map['Keys']) unless map['Keys'].nil?)
+        data.new_image = (AttributeMap.parse(map['NewImage']) unless map['NewImage'].nil?)
+        data.old_image = (AttributeMap.parse(map['OldImage']) unless map['OldImage'].nil?)
         data.sequence_number = map['SequenceNumber']
         data.size_bytes = map['SizeBytes']
         data.stream_view_type = map['StreamViewType']
@@ -168,7 +170,7 @@ module AWS::SDK::DynamoDBStreams
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AttributeValue.parse(value) unless value.nil?
+          data[key] = AttributeValue.parse(value) unless value.nil?
         end
         data
       end
@@ -185,22 +187,22 @@ module AWS::SDK::DynamoDBStreams
           value = value
           Types::AttributeValue::N.new(value) if value
         when 'B'
-          value = Base64::decode64(value) unless value.nil?
+          value = ::Base64::decode64(value) unless value.nil?
           Types::AttributeValue::B.new(value) if value
         when 'SS'
-          value = (Parsers::StringSetAttributeValue.parse(value) unless value.nil?)
+          value = (StringSetAttributeValue.parse(value) unless value.nil?)
           Types::AttributeValue::Ss.new(value) if value
         when 'NS'
-          value = (Parsers::NumberSetAttributeValue.parse(value) unless value.nil?)
+          value = (NumberSetAttributeValue.parse(value) unless value.nil?)
           Types::AttributeValue::Ns.new(value) if value
         when 'BS'
-          value = (Parsers::BinarySetAttributeValue.parse(value) unless value.nil?)
+          value = (BinarySetAttributeValue.parse(value) unless value.nil?)
           Types::AttributeValue::Bs.new(value) if value
         when 'M'
-          value = (Parsers::MapAttributeValue.parse(value) unless value.nil?)
+          value = (MapAttributeValue.parse(value) unless value.nil?)
           Types::AttributeValue::M.new(value) if value
         when 'L'
-          value = (Parsers::ListAttributeValue.parse(value) unless value.nil?)
+          value = (ListAttributeValue.parse(value) unless value.nil?)
           Types::AttributeValue::L.new(value) if value
         when 'NULL'
           value = value
@@ -217,7 +219,7 @@ module AWS::SDK::DynamoDBStreams
     class ListAttributeValue
       def self.parse(list)
         list.map do |value|
-          Parsers::AttributeValue.parse(value) unless value.nil?
+          AttributeValue.parse(value) unless value.nil?
         end
       end
     end
@@ -226,7 +228,7 @@ module AWS::SDK::DynamoDBStreams
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AttributeValue.parse(value) unless value.nil?
+          data[key] = AttributeValue.parse(value) unless value.nil?
         end
         data
       end
@@ -235,7 +237,7 @@ module AWS::SDK::DynamoDBStreams
     class BinarySetAttributeValue
       def self.parse(list)
         list.map do |value|
-          Base64::decode64(value) unless value.nil?
+          ::Base64::decode64(value) unless value.nil?
         end
       end
     end
@@ -311,7 +313,7 @@ module AWS::SDK::DynamoDBStreams
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.streams = (Parsers::StreamList.parse(map['Streams']) unless map['Streams'].nil?)
+        data.streams = (StreamList.parse(map['Streams']) unless map['Streams'].nil?)
         data.last_evaluated_stream_arn = map['LastEvaluatedStreamArn']
         data
       end
@@ -320,7 +322,7 @@ module AWS::SDK::DynamoDBStreams
     class StreamList
       def self.parse(list)
         list.map do |value|
-          Parsers::Stream.parse(value) unless value.nil?
+          Stream.parse(value) unless value.nil?
         end
       end
     end

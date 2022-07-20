@@ -16,7 +16,7 @@ module AWS::SDK::CustomerProfiles
         data = Types::AddProfileKeyOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.key_name = map['KeyName']
-        data.values = (Parsers::RequestValueList.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (RequestValueList.parse(map['Values']) unless map['Values'].nil?)
         data
       end
     end
@@ -90,10 +90,10 @@ module AWS::SDK::CustomerProfiles
         data.default_expiration_days = map['DefaultExpirationDays']
         data.default_encryption_key = map['DefaultEncryptionKey']
         data.dead_letter_queue_url = map['DeadLetterQueueUrl']
-        data.matching = (Parsers::MatchingResponse.parse(map['Matching']) unless map['Matching'].nil?)
+        data.matching = (MatchingResponse.parse(map['Matching']) unless map['Matching'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -112,9 +112,9 @@ module AWS::SDK::CustomerProfiles
       def self.parse(map)
         data = Types::MatchingResponse.new
         data.enabled = map['Enabled']
-        data.job_schedule = (Parsers::JobSchedule.parse(map['JobSchedule']) unless map['JobSchedule'].nil?)
-        data.auto_merging = (Parsers::AutoMerging.parse(map['AutoMerging']) unless map['AutoMerging'].nil?)
-        data.exporting_config = (Parsers::ExportingConfig.parse(map['ExportingConfig']) unless map['ExportingConfig'].nil?)
+        data.job_schedule = (JobSchedule.parse(map['JobSchedule']) unless map['JobSchedule'].nil?)
+        data.auto_merging = (AutoMerging.parse(map['AutoMerging']) unless map['AutoMerging'].nil?)
+        data.exporting_config = (ExportingConfig.parse(map['ExportingConfig']) unless map['ExportingConfig'].nil?)
         return data
       end
     end
@@ -122,7 +122,7 @@ module AWS::SDK::CustomerProfiles
     class ExportingConfig
       def self.parse(map)
         data = Types::ExportingConfig.new
-        data.s3_exporting = (Parsers::S3ExportingConfig.parse(map['S3Exporting']) unless map['S3Exporting'].nil?)
+        data.s3_exporting = (S3ExportingConfig.parse(map['S3Exporting']) unless map['S3Exporting'].nil?)
         return data
       end
     end
@@ -140,8 +140,8 @@ module AWS::SDK::CustomerProfiles
       def self.parse(map)
         data = Types::AutoMerging.new
         data.enabled = map['Enabled']
-        data.consolidation = (Parsers::Consolidation.parse(map['Consolidation']) unless map['Consolidation'].nil?)
-        data.conflict_resolution = (Parsers::ConflictResolution.parse(map['ConflictResolution']) unless map['ConflictResolution'].nil?)
+        data.consolidation = (Consolidation.parse(map['Consolidation']) unless map['Consolidation'].nil?)
+        data.conflict_resolution = (ConflictResolution.parse(map['ConflictResolution']) unless map['ConflictResolution'].nil?)
         return data
       end
     end
@@ -158,7 +158,7 @@ module AWS::SDK::CustomerProfiles
     class Consolidation
       def self.parse(map)
         data = Types::Consolidation.new
-        data.matching_attributes_list = (Parsers::MatchingAttributesList.parse(map['MatchingAttributesList']) unless map['MatchingAttributesList'].nil?)
+        data.matching_attributes_list = (MatchingAttributesList.parse(map['MatchingAttributesList']) unless map['MatchingAttributesList'].nil?)
         return data
       end
     end
@@ -167,7 +167,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MatchingAttributes.parse(value) unless value.nil?
+          data << MatchingAttributes.parse(value) unless value.nil?
         end
         data
       end
@@ -304,11 +304,11 @@ module AWS::SDK::CustomerProfiles
         data.default_expiration_days = map['DefaultExpirationDays']
         data.default_encryption_key = map['DefaultEncryptionKey']
         data.dead_letter_queue_url = map['DeadLetterQueueUrl']
-        data.stats = (Parsers::DomainStats.parse(map['Stats']) unless map['Stats'].nil?)
-        data.matching = (Parsers::MatchingResponse.parse(map['Matching']) unless map['Matching'].nil?)
+        data.stats = (DomainStats.parse(map['Stats']) unless map['Stats'].nil?)
+        data.matching = (MatchingResponse.parse(map['Matching']) unless map['Matching'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -337,9 +337,9 @@ module AWS::SDK::CustomerProfiles
         data.job_end_time = Time.at(map['JobEndTime'].to_i) if map['JobEndTime']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
         data.job_expiration_time = Time.at(map['JobExpirationTime'].to_i) if map['JobExpirationTime']
-        data.auto_merging = (Parsers::AutoMerging.parse(map['AutoMerging']) unless map['AutoMerging'].nil?)
-        data.exporting_location = (Parsers::ExportingLocation.parse(map['ExportingLocation']) unless map['ExportingLocation'].nil?)
-        data.job_stats = (Parsers::JobStats.parse(map['JobStats']) unless map['JobStats'].nil?)
+        data.auto_merging = (AutoMerging.parse(map['AutoMerging']) unless map['AutoMerging'].nil?)
+        data.exporting_location = (ExportingLocation.parse(map['ExportingLocation']) unless map['ExportingLocation'].nil?)
+        data.job_stats = (JobStats.parse(map['JobStats']) unless map['JobStats'].nil?)
         data
       end
     end
@@ -357,7 +357,7 @@ module AWS::SDK::CustomerProfiles
     class ExportingLocation
       def self.parse(map)
         data = Types::ExportingLocation.new
-        data.s3_exporting = (Parsers::S3ExportingLocation.parse(map['S3Exporting']) unless map['S3Exporting'].nil?)
+        data.s3_exporting = (S3ExportingLocation.parse(map['S3Exporting']) unless map['S3Exporting'].nil?)
         return data
       end
     end
@@ -381,8 +381,8 @@ module AWS::SDK::CustomerProfiles
         data.object_type_name = map['ObjectTypeName']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.object_type_names = (Parsers::ObjectTypeNames.parse(map['ObjectTypeNames']) unless map['ObjectTypeNames'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.object_type_names = (ObjectTypeNames.parse(map['ObjectTypeNames']) unless map['ObjectTypeNames'].nil?)
         data.workflow_id = map['WorkflowId']
         data
       end
@@ -406,7 +406,7 @@ module AWS::SDK::CustomerProfiles
         data.next_token = map['NextToken']
         data.match_generation_date = Time.at(map['MatchGenerationDate'].to_i) if map['MatchGenerationDate']
         data.potential_matches = map['PotentialMatches']
-        data.matches = (Parsers::MatchesList.parse(map['Matches']) unless map['Matches'].nil?)
+        data.matches = (MatchesList.parse(map['Matches']) unless map['Matches'].nil?)
         data
       end
     end
@@ -415,7 +415,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MatchItem.parse(value) unless value.nil?
+          data << MatchItem.parse(value) unless value.nil?
         end
         data
       end
@@ -425,7 +425,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(map)
         data = Types::MatchItem.new
         data.match_id = map['MatchId']
-        data.profile_ids = (Parsers::ProfileIdList.parse(map['ProfileIds']) unless map['ProfileIds'].nil?)
+        data.profile_ids = (ProfileIdList.parse(map['ProfileIds']) unless map['ProfileIds'].nil?)
         data.confidence_score = Hearth::NumberHelper.deserialize(map['ConfidenceScore'])
         return data
       end
@@ -453,11 +453,11 @@ module AWS::SDK::CustomerProfiles
         data.encryption_key = map['EncryptionKey']
         data.allow_profile_creation = map['AllowProfileCreation']
         data.source_last_updated_timestamp_format = map['SourceLastUpdatedTimestampFormat']
-        data.fields = (Parsers::FieldMap.parse(map['Fields']) unless map['Fields'].nil?)
-        data.keys = (Parsers::KeyMap.parse(map['Keys']) unless map['Keys'].nil?)
+        data.fields = (FieldMap.parse(map['Fields']) unless map['Fields'].nil?)
+        data.keys = (KeyMap.parse(map['Keys']) unless map['Keys'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -466,7 +466,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ObjectTypeKeyList.parse(value) unless value.nil?
+          data[key] = ObjectTypeKeyList.parse(value) unless value.nil?
         end
         data
       end
@@ -476,7 +476,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ObjectTypeKey.parse(value) unless value.nil?
+          data << ObjectTypeKey.parse(value) unless value.nil?
         end
         data
       end
@@ -485,8 +485,8 @@ module AWS::SDK::CustomerProfiles
     class ObjectTypeKey
       def self.parse(map)
         data = Types::ObjectTypeKey.new
-        data.standard_identifiers = (Parsers::StandardIdentifierList.parse(map['StandardIdentifiers']) unless map['StandardIdentifiers'].nil?)
-        data.field_names = (Parsers::FieldNameList.parse(map['FieldNames']) unless map['FieldNames'].nil?)
+        data.standard_identifiers = (StandardIdentifierList.parse(map['StandardIdentifiers']) unless map['StandardIdentifiers'].nil?)
+        data.field_names = (FieldNameList.parse(map['FieldNames']) unless map['FieldNames'].nil?)
         return data
       end
     end
@@ -515,7 +515,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ObjectTypeField.parse(value) unless value.nil?
+          data[key] = ObjectTypeField.parse(value) unless value.nil?
         end
         data
       end
@@ -541,8 +541,8 @@ module AWS::SDK::CustomerProfiles
         data.source_object = map['SourceObject']
         data.allow_profile_creation = map['AllowProfileCreation']
         data.source_last_updated_timestamp_format = map['SourceLastUpdatedTimestampFormat']
-        data.fields = (Parsers::FieldMap.parse(map['Fields']) unless map['Fields'].nil?)
-        data.keys = (Parsers::KeyMap.parse(map['Keys']) unless map['Keys'].nil?)
+        data.fields = (FieldMap.parse(map['Fields']) unless map['Fields'].nil?)
+        data.keys = (KeyMap.parse(map['Keys']) unless map['Keys'].nil?)
         data
       end
     end
@@ -558,8 +558,8 @@ module AWS::SDK::CustomerProfiles
         data.error_description = map['ErrorDescription']
         data.start_date = Time.at(map['StartDate'].to_i) if map['StartDate']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.attributes = (Parsers::WorkflowAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.metrics = (Parsers::WorkflowMetrics.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.attributes = (WorkflowAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.metrics = (WorkflowMetrics.parse(map['Metrics']) unless map['Metrics'].nil?)
         data
       end
     end
@@ -567,7 +567,7 @@ module AWS::SDK::CustomerProfiles
     class WorkflowMetrics
       def self.parse(map)
         data = Types::WorkflowMetrics.new
-        data.appflow_integration = (Parsers::AppflowIntegrationWorkflowMetrics.parse(map['AppflowIntegration']) unless map['AppflowIntegration'].nil?)
+        data.appflow_integration = (AppflowIntegrationWorkflowMetrics.parse(map['AppflowIntegration']) unless map['AppflowIntegration'].nil?)
         return data
       end
     end
@@ -585,7 +585,7 @@ module AWS::SDK::CustomerProfiles
     class WorkflowAttributes
       def self.parse(map)
         data = Types::WorkflowAttributes.new
-        data.appflow_integration = (Parsers::AppflowIntegrationWorkflowAttributes.parse(map['AppflowIntegration']) unless map['AppflowIntegration'].nil?)
+        data.appflow_integration = (AppflowIntegrationWorkflowAttributes.parse(map['AppflowIntegration']) unless map['AppflowIntegration'].nil?)
         return data
       end
     end
@@ -607,7 +607,7 @@ module AWS::SDK::CustomerProfiles
         map = Hearth::JSON.load(http_resp.body)
         data.workflow_id = map['WorkflowId']
         data.workflow_type = map['WorkflowType']
-        data.items = (Parsers::WorkflowStepsList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (WorkflowStepsList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -617,7 +617,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkflowStepItem.parse(value) unless value.nil?
+          data << WorkflowStepItem.parse(value) unless value.nil?
         end
         data
       end
@@ -626,7 +626,7 @@ module AWS::SDK::CustomerProfiles
     class WorkflowStepItem
       def self.parse(map)
         data = Types::WorkflowStepItem.new
-        data.appflow_integration = (Parsers::AppflowIntegrationWorkflowStep.parse(map['AppflowIntegration']) unless map['AppflowIntegration'].nil?)
+        data.appflow_integration = (AppflowIntegrationWorkflowStep.parse(map['AppflowIntegration']) unless map['AppflowIntegration'].nil?)
         return data
       end
     end
@@ -651,7 +651,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListAccountIntegrationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::IntegrationList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (IntegrationList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -661,7 +661,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListIntegrationItem.parse(value) unless value.nil?
+          data << ListIntegrationItem.parse(value) unless value.nil?
         end
         data
       end
@@ -675,8 +675,8 @@ module AWS::SDK::CustomerProfiles
         data.object_type_name = map['ObjectTypeName']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.object_type_names = (Parsers::ObjectTypeNames.parse(map['ObjectTypeNames']) unless map['ObjectTypeNames'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.object_type_names = (ObjectTypeNames.parse(map['ObjectTypeNames']) unless map['ObjectTypeNames'].nil?)
         data.workflow_id = map['WorkflowId']
         return data
       end
@@ -687,7 +687,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListDomainsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::DomainList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (DomainList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -697,7 +697,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListDomainItem.parse(value) unless value.nil?
+          data << ListDomainItem.parse(value) unless value.nil?
         end
         data
       end
@@ -709,7 +709,7 @@ module AWS::SDK::CustomerProfiles
         data.domain_name = map['DomainName']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -719,7 +719,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListIdentityResolutionJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.identity_resolution_jobs_list = (Parsers::IdentityResolutionJobsList.parse(map['IdentityResolutionJobsList']) unless map['IdentityResolutionJobsList'].nil?)
+        data.identity_resolution_jobs_list = (IdentityResolutionJobsList.parse(map['IdentityResolutionJobsList']) unless map['IdentityResolutionJobsList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -729,7 +729,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IdentityResolutionJob.parse(value) unless value.nil?
+          data << IdentityResolutionJob.parse(value) unless value.nil?
         end
         data
       end
@@ -743,8 +743,8 @@ module AWS::SDK::CustomerProfiles
         data.status = map['Status']
         data.job_start_time = Time.at(map['JobStartTime'].to_i) if map['JobStartTime']
         data.job_end_time = Time.at(map['JobEndTime'].to_i) if map['JobEndTime']
-        data.job_stats = (Parsers::JobStats.parse(map['JobStats']) unless map['JobStats'].nil?)
-        data.exporting_location = (Parsers::ExportingLocation.parse(map['ExportingLocation']) unless map['ExportingLocation'].nil?)
+        data.job_stats = (JobStats.parse(map['JobStats']) unless map['JobStats'].nil?)
+        data.exporting_location = (ExportingLocation.parse(map['ExportingLocation']) unless map['ExportingLocation'].nil?)
         data.message = map['Message']
         return data
       end
@@ -755,7 +755,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListIntegrationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::IntegrationList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (IntegrationList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -766,7 +766,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListProfileObjectTypeTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ProfileObjectTypeTemplateList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (ProfileObjectTypeTemplateList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -776,7 +776,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListProfileObjectTypeTemplateItem.parse(value) unless value.nil?
+          data << ListProfileObjectTypeTemplateItem.parse(value) unless value.nil?
         end
         data
       end
@@ -797,7 +797,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListProfileObjectTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ProfileObjectTypeList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (ProfileObjectTypeList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -807,7 +807,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListProfileObjectTypeItem.parse(value) unless value.nil?
+          data << ListProfileObjectTypeItem.parse(value) unless value.nil?
         end
         data
       end
@@ -820,7 +820,7 @@ module AWS::SDK::CustomerProfiles
         data.description = map['Description']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -830,7 +830,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListProfileObjectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ProfileObjectList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (ProfileObjectList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -840,7 +840,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListProfileObjectsItem.parse(value) unless value.nil?
+          data << ListProfileObjectsItem.parse(value) unless value.nil?
         end
         data
       end
@@ -861,7 +861,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -871,7 +871,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::ListWorkflowsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::WorkflowList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (WorkflowList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -881,7 +881,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListWorkflowsItem.parse(value) unless value.nil?
+          data << ListWorkflowsItem.parse(value) unless value.nil?
         end
         data
       end
@@ -920,8 +920,8 @@ module AWS::SDK::CustomerProfiles
         data.object_type_name = map['ObjectTypeName']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.object_type_names = (Parsers::ObjectTypeNames.parse(map['ObjectTypeNames']) unless map['ObjectTypeNames'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.object_type_names = (ObjectTypeNames.parse(map['ObjectTypeNames']) unless map['ObjectTypeNames'].nil?)
         data.workflow_id = map['WorkflowId']
         data
       end
@@ -949,11 +949,11 @@ module AWS::SDK::CustomerProfiles
         data.encryption_key = map['EncryptionKey']
         data.allow_profile_creation = map['AllowProfileCreation']
         data.source_last_updated_timestamp_format = map['SourceLastUpdatedTimestampFormat']
-        data.fields = (Parsers::FieldMap.parse(map['Fields']) unless map['Fields'].nil?)
-        data.keys = (Parsers::KeyMap.parse(map['Keys']) unless map['Keys'].nil?)
+        data.fields = (FieldMap.parse(map['Fields']) unless map['Fields'].nil?)
+        data.keys = (KeyMap.parse(map['Keys']) unless map['Keys'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -963,7 +963,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(http_resp)
         data = Types::SearchProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ProfileList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (ProfileList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -973,7 +973,7 @@ module AWS::SDK::CustomerProfiles
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Profile.parse(value) unless value.nil?
+          data << Profile.parse(value) unless value.nil?
         end
         data
       end
@@ -999,11 +999,11 @@ module AWS::SDK::CustomerProfiles
         data.email_address = map['EmailAddress']
         data.personal_email_address = map['PersonalEmailAddress']
         data.business_email_address = map['BusinessEmailAddress']
-        data.address = (Parsers::Address.parse(map['Address']) unless map['Address'].nil?)
-        data.shipping_address = (Parsers::Address.parse(map['ShippingAddress']) unless map['ShippingAddress'].nil?)
-        data.mailing_address = (Parsers::Address.parse(map['MailingAddress']) unless map['MailingAddress'].nil?)
-        data.billing_address = (Parsers::Address.parse(map['BillingAddress']) unless map['BillingAddress'].nil?)
-        data.attributes = (Parsers::Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.address = (Address.parse(map['Address']) unless map['Address'].nil?)
+        data.shipping_address = (Address.parse(map['ShippingAddress']) unless map['ShippingAddress'].nil?)
+        data.mailing_address = (Address.parse(map['MailingAddress']) unless map['MailingAddress'].nil?)
+        data.billing_address = (Address.parse(map['BillingAddress']) unless map['BillingAddress'].nil?)
+        data.attributes = (Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -1062,10 +1062,10 @@ module AWS::SDK::CustomerProfiles
         data.default_expiration_days = map['DefaultExpirationDays']
         data.default_encryption_key = map['DefaultEncryptionKey']
         data.dead_letter_queue_url = map['DeadLetterQueueUrl']
-        data.matching = (Parsers::MatchingResponse.parse(map['Matching']) unless map['Matching'].nil?)
+        data.matching = (MatchingResponse.parse(map['Matching']) unless map['Matching'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

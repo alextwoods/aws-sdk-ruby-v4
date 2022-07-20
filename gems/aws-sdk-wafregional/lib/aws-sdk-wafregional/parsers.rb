@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::WAFRegional
   module Parsers
 
@@ -89,7 +91,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.byte_match_set = (Parsers::ByteMatchSet.parse(map['ByteMatchSet']) unless map['ByteMatchSet'].nil?)
+        data.byte_match_set = (ByteMatchSet.parse(map['ByteMatchSet']) unless map['ByteMatchSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -100,7 +102,7 @@ module AWS::SDK::WAFRegional
         data = Types::ByteMatchSet.new
         data.byte_match_set_id = map['ByteMatchSetId']
         data.name = map['Name']
-        data.byte_match_tuples = (Parsers::ByteMatchTuples.parse(map['ByteMatchTuples']) unless map['ByteMatchTuples'].nil?)
+        data.byte_match_tuples = (ByteMatchTuples.parse(map['ByteMatchTuples']) unless map['ByteMatchTuples'].nil?)
         return data
       end
     end
@@ -108,7 +110,7 @@ module AWS::SDK::WAFRegional
     class ByteMatchTuples
       def self.parse(list)
         list.map do |value|
-          Parsers::ByteMatchTuple.parse(value) unless value.nil?
+          ByteMatchTuple.parse(value) unless value.nil?
         end
       end
     end
@@ -116,8 +118,8 @@ module AWS::SDK::WAFRegional
     class ByteMatchTuple
       def self.parse(map)
         data = Types::ByteMatchTuple.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
-        data.target_string = Base64::decode64(map['TargetString']) unless map['TargetString'].nil?
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.target_string = ::Base64::decode64(map['TargetString']) unless map['TargetString'].nil?
         data.text_transformation = map['TextTransformation']
         data.positional_constraint = map['PositionalConstraint']
         return data
@@ -176,7 +178,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.geo_match_set = (Parsers::GeoMatchSet.parse(map['GeoMatchSet']) unless map['GeoMatchSet'].nil?)
+        data.geo_match_set = (GeoMatchSet.parse(map['GeoMatchSet']) unless map['GeoMatchSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -187,7 +189,7 @@ module AWS::SDK::WAFRegional
         data = Types::GeoMatchSet.new
         data.geo_match_set_id = map['GeoMatchSetId']
         data.name = map['Name']
-        data.geo_match_constraints = (Parsers::GeoMatchConstraints.parse(map['GeoMatchConstraints']) unless map['GeoMatchConstraints'].nil?)
+        data.geo_match_constraints = (GeoMatchConstraints.parse(map['GeoMatchConstraints']) unless map['GeoMatchConstraints'].nil?)
         return data
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::WAFRegional
     class GeoMatchConstraints
       def self.parse(list)
         list.map do |value|
-          Parsers::GeoMatchConstraint.parse(value) unless value.nil?
+          GeoMatchConstraint.parse(value) unless value.nil?
         end
       end
     end
@@ -216,7 +218,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ip_set = (Parsers::IPSet.parse(map['IPSet']) unless map['IPSet'].nil?)
+        data.ip_set = (IPSet.parse(map['IPSet']) unless map['IPSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -227,7 +229,7 @@ module AWS::SDK::WAFRegional
         data = Types::IPSet.new
         data.ip_set_id = map['IPSetId']
         data.name = map['Name']
-        data.ip_set_descriptors = (Parsers::IPSetDescriptors.parse(map['IPSetDescriptors']) unless map['IPSetDescriptors'].nil?)
+        data.ip_set_descriptors = (IPSetDescriptors.parse(map['IPSetDescriptors']) unless map['IPSetDescriptors'].nil?)
         return data
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::WAFRegional
     class IPSetDescriptors
       def self.parse(list)
         list.map do |value|
-          Parsers::IPSetDescriptor.parse(value) unless value.nil?
+          IPSetDescriptor.parse(value) unless value.nil?
         end
       end
     end
@@ -256,7 +258,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule = (Parsers::RateBasedRule.parse(map['Rule']) unless map['Rule'].nil?)
+        data.rule = (RateBasedRule.parse(map['Rule']) unless map['Rule'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -268,7 +270,7 @@ module AWS::SDK::WAFRegional
         data.rule_id = map['RuleId']
         data.name = map['Name']
         data.metric_name = map['MetricName']
-        data.match_predicates = (Parsers::Predicates.parse(map['MatchPredicates']) unless map['MatchPredicates'].nil?)
+        data.match_predicates = (Predicates.parse(map['MatchPredicates']) unless map['MatchPredicates'].nil?)
         data.rate_key = map['RateKey']
         data.rate_limit = map['RateLimit']
         return data
@@ -278,7 +280,7 @@ module AWS::SDK::WAFRegional
     class Predicates
       def self.parse(list)
         list.map do |value|
-          Parsers::Predicate.parse(value) unless value.nil?
+          Predicate.parse(value) unless value.nil?
         end
       end
     end
@@ -336,7 +338,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.regex_match_set = (Parsers::RegexMatchSet.parse(map['RegexMatchSet']) unless map['RegexMatchSet'].nil?)
+        data.regex_match_set = (RegexMatchSet.parse(map['RegexMatchSet']) unless map['RegexMatchSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -347,7 +349,7 @@ module AWS::SDK::WAFRegional
         data = Types::RegexMatchSet.new
         data.regex_match_set_id = map['RegexMatchSetId']
         data.name = map['Name']
-        data.regex_match_tuples = (Parsers::RegexMatchTuples.parse(map['RegexMatchTuples']) unless map['RegexMatchTuples'].nil?)
+        data.regex_match_tuples = (RegexMatchTuples.parse(map['RegexMatchTuples']) unless map['RegexMatchTuples'].nil?)
         return data
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::WAFRegional
     class RegexMatchTuples
       def self.parse(list)
         list.map do |value|
-          Parsers::RegexMatchTuple.parse(value) unless value.nil?
+          RegexMatchTuple.parse(value) unless value.nil?
         end
       end
     end
@@ -363,7 +365,7 @@ module AWS::SDK::WAFRegional
     class RegexMatchTuple
       def self.parse(map)
         data = Types::RegexMatchTuple.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
         data.text_transformation = map['TextTransformation']
         data.regex_pattern_set_id = map['RegexPatternSetId']
         return data
@@ -377,7 +379,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.regex_pattern_set = (Parsers::RegexPatternSet.parse(map['RegexPatternSet']) unless map['RegexPatternSet'].nil?)
+        data.regex_pattern_set = (RegexPatternSet.parse(map['RegexPatternSet']) unless map['RegexPatternSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -388,7 +390,7 @@ module AWS::SDK::WAFRegional
         data = Types::RegexPatternSet.new
         data.regex_pattern_set_id = map['RegexPatternSetId']
         data.name = map['Name']
-        data.regex_pattern_strings = (Parsers::RegexPatternStrings.parse(map['RegexPatternStrings']) unless map['RegexPatternStrings'].nil?)
+        data.regex_pattern_strings = (RegexPatternStrings.parse(map['RegexPatternStrings']) unless map['RegexPatternStrings'].nil?)
         return data
       end
     end
@@ -408,7 +410,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule = (Parsers::Rule.parse(map['Rule']) unless map['Rule'].nil?)
+        data.rule = (Rule.parse(map['Rule']) unless map['Rule'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -420,7 +422,7 @@ module AWS::SDK::WAFRegional
         data.rule_id = map['RuleId']
         data.name = map['Name']
         data.metric_name = map['MetricName']
-        data.predicates = (Parsers::Predicates.parse(map['Predicates']) unless map['Predicates'].nil?)
+        data.predicates = (Predicates.parse(map['Predicates']) unless map['Predicates'].nil?)
         return data
       end
     end
@@ -432,7 +434,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule_group = (Parsers::RuleGroup.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
+        data.rule_group = (RuleGroup.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -455,7 +457,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.size_constraint_set = (Parsers::SizeConstraintSet.parse(map['SizeConstraintSet']) unless map['SizeConstraintSet'].nil?)
+        data.size_constraint_set = (SizeConstraintSet.parse(map['SizeConstraintSet']) unless map['SizeConstraintSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -466,7 +468,7 @@ module AWS::SDK::WAFRegional
         data = Types::SizeConstraintSet.new
         data.size_constraint_set_id = map['SizeConstraintSetId']
         data.name = map['Name']
-        data.size_constraints = (Parsers::SizeConstraints.parse(map['SizeConstraints']) unless map['SizeConstraints'].nil?)
+        data.size_constraints = (SizeConstraints.parse(map['SizeConstraints']) unless map['SizeConstraints'].nil?)
         return data
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::WAFRegional
     class SizeConstraints
       def self.parse(list)
         list.map do |value|
-          Parsers::SizeConstraint.parse(value) unless value.nil?
+          SizeConstraint.parse(value) unless value.nil?
         end
       end
     end
@@ -482,7 +484,7 @@ module AWS::SDK::WAFRegional
     class SizeConstraint
       def self.parse(map)
         data = Types::SizeConstraint.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
         data.text_transformation = map['TextTransformation']
         data.comparison_operator = map['ComparisonOperator']
         data.size = map['Size']
@@ -497,7 +499,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sql_injection_match_set = (Parsers::SqlInjectionMatchSet.parse(map['SqlInjectionMatchSet']) unless map['SqlInjectionMatchSet'].nil?)
+        data.sql_injection_match_set = (SqlInjectionMatchSet.parse(map['SqlInjectionMatchSet']) unless map['SqlInjectionMatchSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -508,7 +510,7 @@ module AWS::SDK::WAFRegional
         data = Types::SqlInjectionMatchSet.new
         data.sql_injection_match_set_id = map['SqlInjectionMatchSetId']
         data.name = map['Name']
-        data.sql_injection_match_tuples = (Parsers::SqlInjectionMatchTuples.parse(map['SqlInjectionMatchTuples']) unless map['SqlInjectionMatchTuples'].nil?)
+        data.sql_injection_match_tuples = (SqlInjectionMatchTuples.parse(map['SqlInjectionMatchTuples']) unless map['SqlInjectionMatchTuples'].nil?)
         return data
       end
     end
@@ -516,7 +518,7 @@ module AWS::SDK::WAFRegional
     class SqlInjectionMatchTuples
       def self.parse(list)
         list.map do |value|
-          Parsers::SqlInjectionMatchTuple.parse(value) unless value.nil?
+          SqlInjectionMatchTuple.parse(value) unless value.nil?
         end
       end
     end
@@ -524,7 +526,7 @@ module AWS::SDK::WAFRegional
     class SqlInjectionMatchTuple
       def self.parse(map)
         data = Types::SqlInjectionMatchTuple.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
         data.text_transformation = map['TextTransformation']
         return data
       end
@@ -537,7 +539,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.web_acl = (Parsers::WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
+        data.web_acl = (WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -549,8 +551,8 @@ module AWS::SDK::WAFRegional
         data.web_acl_id = map['WebACLId']
         data.name = map['Name']
         data.metric_name = map['MetricName']
-        data.default_action = (Parsers::WafAction.parse(map['DefaultAction']) unless map['DefaultAction'].nil?)
-        data.rules = (Parsers::ActivatedRules.parse(map['Rules']) unless map['Rules'].nil?)
+        data.default_action = (WafAction.parse(map['DefaultAction']) unless map['DefaultAction'].nil?)
+        data.rules = (ActivatedRules.parse(map['Rules']) unless map['Rules'].nil?)
         data.web_acl_arn = map['WebACLArn']
         return data
       end
@@ -559,7 +561,7 @@ module AWS::SDK::WAFRegional
     class ActivatedRules
       def self.parse(list)
         list.map do |value|
-          Parsers::ActivatedRule.parse(value) unless value.nil?
+          ActivatedRule.parse(value) unless value.nil?
         end
       end
     end
@@ -569,10 +571,10 @@ module AWS::SDK::WAFRegional
         data = Types::ActivatedRule.new
         data.priority = map['Priority']
         data.rule_id = map['RuleId']
-        data.action = (Parsers::WafAction.parse(map['Action']) unless map['Action'].nil?)
-        data.override_action = (Parsers::WafOverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
+        data.action = (WafAction.parse(map['Action']) unless map['Action'].nil?)
+        data.override_action = (WafOverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
         data.type = map['Type']
-        data.excluded_rules = (Parsers::ExcludedRules.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
+        data.excluded_rules = (ExcludedRules.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
         return data
       end
     end
@@ -580,7 +582,7 @@ module AWS::SDK::WAFRegional
     class ExcludedRules
       def self.parse(list)
         list.map do |value|
-          Parsers::ExcludedRule.parse(value) unless value.nil?
+          ExcludedRule.parse(value) unless value.nil?
         end
       end
     end
@@ -654,7 +656,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.xss_match_set = (Parsers::XssMatchSet.parse(map['XssMatchSet']) unless map['XssMatchSet'].nil?)
+        data.xss_match_set = (XssMatchSet.parse(map['XssMatchSet']) unless map['XssMatchSet'].nil?)
         data.change_token = map['ChangeToken']
         data
       end
@@ -665,7 +667,7 @@ module AWS::SDK::WAFRegional
         data = Types::XssMatchSet.new
         data.xss_match_set_id = map['XssMatchSetId']
         data.name = map['Name']
-        data.xss_match_tuples = (Parsers::XssMatchTuples.parse(map['XssMatchTuples']) unless map['XssMatchTuples'].nil?)
+        data.xss_match_tuples = (XssMatchTuples.parse(map['XssMatchTuples']) unless map['XssMatchTuples'].nil?)
         return data
       end
     end
@@ -673,7 +675,7 @@ module AWS::SDK::WAFRegional
     class XssMatchTuples
       def self.parse(list)
         list.map do |value|
-          Parsers::XssMatchTuple.parse(value) unless value.nil?
+          XssMatchTuple.parse(value) unless value.nil?
         end
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::WAFRegional
     class XssMatchTuple
       def self.parse(map)
         data = Types::XssMatchTuple.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
         data.text_transformation = map['TextTransformation']
         return data
       end
@@ -895,7 +897,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.byte_match_set = (Parsers::ByteMatchSet.parse(map['ByteMatchSet']) unless map['ByteMatchSet'].nil?)
+        data.byte_match_set = (ByteMatchSet.parse(map['ByteMatchSet']) unless map['ByteMatchSet'].nil?)
         data
       end
     end
@@ -931,7 +933,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.geo_match_set = (Parsers::GeoMatchSet.parse(map['GeoMatchSet']) unless map['GeoMatchSet'].nil?)
+        data.geo_match_set = (GeoMatchSet.parse(map['GeoMatchSet']) unless map['GeoMatchSet'].nil?)
         data
       end
     end
@@ -943,7 +945,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ip_set = (Parsers::IPSet.parse(map['IPSet']) unless map['IPSet'].nil?)
+        data.ip_set = (IPSet.parse(map['IPSet']) unless map['IPSet'].nil?)
         data
       end
     end
@@ -955,7 +957,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
         data
       end
     end
@@ -964,8 +966,8 @@ module AWS::SDK::WAFRegional
       def self.parse(map)
         data = Types::LoggingConfiguration.new
         data.resource_arn = map['ResourceArn']
-        data.log_destination_configs = (Parsers::LogDestinationConfigs.parse(map['LogDestinationConfigs']) unless map['LogDestinationConfigs'].nil?)
-        data.redacted_fields = (Parsers::RedactedFields.parse(map['RedactedFields']) unless map['RedactedFields'].nil?)
+        data.log_destination_configs = (LogDestinationConfigs.parse(map['LogDestinationConfigs']) unless map['LogDestinationConfigs'].nil?)
+        data.redacted_fields = (RedactedFields.parse(map['RedactedFields']) unless map['RedactedFields'].nil?)
         return data
       end
     end
@@ -973,7 +975,7 @@ module AWS::SDK::WAFRegional
     class RedactedFields
       def self.parse(list)
         list.map do |value|
-          Parsers::FieldToMatch.parse(value) unless value.nil?
+          FieldToMatch.parse(value) unless value.nil?
         end
       end
     end
@@ -1005,7 +1007,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule = (Parsers::RateBasedRule.parse(map['Rule']) unless map['Rule'].nil?)
+        data.rule = (RateBasedRule.parse(map['Rule']) unless map['Rule'].nil?)
         data
       end
     end
@@ -1017,7 +1019,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.managed_keys = (Parsers::ManagedKeys.parse(map['ManagedKeys']) unless map['ManagedKeys'].nil?)
+        data.managed_keys = (ManagedKeys.parse(map['ManagedKeys']) unless map['ManagedKeys'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1038,7 +1040,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.regex_match_set = (Parsers::RegexMatchSet.parse(map['RegexMatchSet']) unless map['RegexMatchSet'].nil?)
+        data.regex_match_set = (RegexMatchSet.parse(map['RegexMatchSet']) unless map['RegexMatchSet'].nil?)
         data
       end
     end
@@ -1050,7 +1052,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.regex_pattern_set = (Parsers::RegexPatternSet.parse(map['RegexPatternSet']) unless map['RegexPatternSet'].nil?)
+        data.regex_pattern_set = (RegexPatternSet.parse(map['RegexPatternSet']) unless map['RegexPatternSet'].nil?)
         data
       end
     end
@@ -1062,7 +1064,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule = (Parsers::Rule.parse(map['Rule']) unless map['Rule'].nil?)
+        data.rule = (Rule.parse(map['Rule']) unless map['Rule'].nil?)
         data
       end
     end
@@ -1074,7 +1076,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule_group = (Parsers::RuleGroup.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
+        data.rule_group = (RuleGroup.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
         data
       end
     end
@@ -1086,9 +1088,9 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sampled_requests = (Parsers::SampledHTTPRequests.parse(map['SampledRequests']) unless map['SampledRequests'].nil?)
+        data.sampled_requests = (SampledHTTPRequests.parse(map['SampledRequests']) unless map['SampledRequests'].nil?)
         data.population_size = map['PopulationSize']
-        data.time_window = (Parsers::TimeWindow.parse(map['TimeWindow']) unless map['TimeWindow'].nil?)
+        data.time_window = (TimeWindow.parse(map['TimeWindow']) unless map['TimeWindow'].nil?)
         data
       end
     end
@@ -1105,7 +1107,7 @@ module AWS::SDK::WAFRegional
     class SampledHTTPRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::SampledHTTPRequest.parse(value) unless value.nil?
+          SampledHTTPRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -1113,7 +1115,7 @@ module AWS::SDK::WAFRegional
     class SampledHTTPRequest
       def self.parse(map)
         data = Types::SampledHTTPRequest.new
-        data.request = (Parsers::HTTPRequest.parse(map['Request']) unless map['Request'].nil?)
+        data.request = (HTTPRequest.parse(map['Request']) unless map['Request'].nil?)
         data.weight = map['Weight']
         data.timestamp = Time.at(map['Timestamp'].to_i) if map['Timestamp']
         data.action = map['Action']
@@ -1130,7 +1132,7 @@ module AWS::SDK::WAFRegional
         data.uri = map['URI']
         data.member_method = map['Method']
         data.http_version = map['HTTPVersion']
-        data.headers = (Parsers::HTTPHeaders.parse(map['Headers']) unless map['Headers'].nil?)
+        data.headers = (HTTPHeaders.parse(map['Headers']) unless map['Headers'].nil?)
         return data
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::WAFRegional
     class HTTPHeaders
       def self.parse(list)
         list.map do |value|
-          Parsers::HTTPHeader.parse(value) unless value.nil?
+          HTTPHeader.parse(value) unless value.nil?
         end
       end
     end
@@ -1159,7 +1161,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.size_constraint_set = (Parsers::SizeConstraintSet.parse(map['SizeConstraintSet']) unless map['SizeConstraintSet'].nil?)
+        data.size_constraint_set = (SizeConstraintSet.parse(map['SizeConstraintSet']) unless map['SizeConstraintSet'].nil?)
         data
       end
     end
@@ -1171,7 +1173,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sql_injection_match_set = (Parsers::SqlInjectionMatchSet.parse(map['SqlInjectionMatchSet']) unless map['SqlInjectionMatchSet'].nil?)
+        data.sql_injection_match_set = (SqlInjectionMatchSet.parse(map['SqlInjectionMatchSet']) unless map['SqlInjectionMatchSet'].nil?)
         data
       end
     end
@@ -1183,7 +1185,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.web_acl = (Parsers::WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
+        data.web_acl = (WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
         data
       end
     end
@@ -1195,7 +1197,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.web_acl_summary = (Parsers::WebACLSummary.parse(map['WebACLSummary']) unless map['WebACLSummary'].nil?)
+        data.web_acl_summary = (WebACLSummary.parse(map['WebACLSummary']) unless map['WebACLSummary'].nil?)
         data
       end
     end
@@ -1216,7 +1218,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.xss_match_set = (Parsers::XssMatchSet.parse(map['XssMatchSet']) unless map['XssMatchSet'].nil?)
+        data.xss_match_set = (XssMatchSet.parse(map['XssMatchSet']) unless map['XssMatchSet'].nil?)
         data
       end
     end
@@ -1229,7 +1231,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.activated_rules = (Parsers::ActivatedRules.parse(map['ActivatedRules']) unless map['ActivatedRules'].nil?)
+        data.activated_rules = (ActivatedRules.parse(map['ActivatedRules']) unless map['ActivatedRules'].nil?)
         data
       end
     end
@@ -1242,7 +1244,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.byte_match_sets = (Parsers::ByteMatchSetSummaries.parse(map['ByteMatchSets']) unless map['ByteMatchSets'].nil?)
+        data.byte_match_sets = (ByteMatchSetSummaries.parse(map['ByteMatchSets']) unless map['ByteMatchSets'].nil?)
         data
       end
     end
@@ -1250,7 +1252,7 @@ module AWS::SDK::WAFRegional
     class ByteMatchSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ByteMatchSetSummary.parse(value) unless value.nil?
+          ByteMatchSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1272,7 +1274,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.geo_match_sets = (Parsers::GeoMatchSetSummaries.parse(map['GeoMatchSets']) unless map['GeoMatchSets'].nil?)
+        data.geo_match_sets = (GeoMatchSetSummaries.parse(map['GeoMatchSets']) unless map['GeoMatchSets'].nil?)
         data
       end
     end
@@ -1280,7 +1282,7 @@ module AWS::SDK::WAFRegional
     class GeoMatchSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::GeoMatchSetSummary.parse(value) unless value.nil?
+          GeoMatchSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1302,7 +1304,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.ip_sets = (Parsers::IPSetSummaries.parse(map['IPSets']) unless map['IPSets'].nil?)
+        data.ip_sets = (IPSetSummaries.parse(map['IPSets']) unless map['IPSets'].nil?)
         data
       end
     end
@@ -1310,7 +1312,7 @@ module AWS::SDK::WAFRegional
     class IPSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::IPSetSummary.parse(value) unless value.nil?
+          IPSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1331,7 +1333,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.logging_configurations = (Parsers::LoggingConfigurations.parse(map['LoggingConfigurations']) unless map['LoggingConfigurations'].nil?)
+        data.logging_configurations = (LoggingConfigurations.parse(map['LoggingConfigurations']) unless map['LoggingConfigurations'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1340,7 +1342,7 @@ module AWS::SDK::WAFRegional
     class LoggingConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::LoggingConfiguration.parse(value) unless value.nil?
+          LoggingConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1353,7 +1355,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.rules = (Parsers::RuleSummaries.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleSummaries.parse(map['Rules']) unless map['Rules'].nil?)
         data
       end
     end
@@ -1361,7 +1363,7 @@ module AWS::SDK::WAFRegional
     class RuleSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RuleSummary.parse(value) unless value.nil?
+          RuleSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1383,7 +1385,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.regex_match_sets = (Parsers::RegexMatchSetSummaries.parse(map['RegexMatchSets']) unless map['RegexMatchSets'].nil?)
+        data.regex_match_sets = (RegexMatchSetSummaries.parse(map['RegexMatchSets']) unless map['RegexMatchSets'].nil?)
         data
       end
     end
@@ -1391,7 +1393,7 @@ module AWS::SDK::WAFRegional
     class RegexMatchSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RegexMatchSetSummary.parse(value) unless value.nil?
+          RegexMatchSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1413,7 +1415,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.regex_pattern_sets = (Parsers::RegexPatternSetSummaries.parse(map['RegexPatternSets']) unless map['RegexPatternSets'].nil?)
+        data.regex_pattern_sets = (RegexPatternSetSummaries.parse(map['RegexPatternSets']) unless map['RegexPatternSets'].nil?)
         data
       end
     end
@@ -1421,7 +1423,7 @@ module AWS::SDK::WAFRegional
     class RegexPatternSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RegexPatternSetSummary.parse(value) unless value.nil?
+          RegexPatternSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1442,7 +1444,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_arns = (Parsers::ResourceArns.parse(map['ResourceArns']) unless map['ResourceArns'].nil?)
+        data.resource_arns = (ResourceArns.parse(map['ResourceArns']) unless map['ResourceArns'].nil?)
         data
       end
     end
@@ -1463,7 +1465,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.rule_groups = (Parsers::RuleGroupSummaries.parse(map['RuleGroups']) unless map['RuleGroups'].nil?)
+        data.rule_groups = (RuleGroupSummaries.parse(map['RuleGroups']) unless map['RuleGroups'].nil?)
         data
       end
     end
@@ -1471,7 +1473,7 @@ module AWS::SDK::WAFRegional
     class RuleGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RuleGroupSummary.parse(value) unless value.nil?
+          RuleGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1493,7 +1495,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.rules = (Parsers::RuleSummaries.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleSummaries.parse(map['Rules']) unless map['Rules'].nil?)
         data
       end
     end
@@ -1506,7 +1508,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.size_constraint_sets = (Parsers::SizeConstraintSetSummaries.parse(map['SizeConstraintSets']) unless map['SizeConstraintSets'].nil?)
+        data.size_constraint_sets = (SizeConstraintSetSummaries.parse(map['SizeConstraintSets']) unless map['SizeConstraintSets'].nil?)
         data
       end
     end
@@ -1514,7 +1516,7 @@ module AWS::SDK::WAFRegional
     class SizeConstraintSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SizeConstraintSetSummary.parse(value) unless value.nil?
+          SizeConstraintSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1536,7 +1538,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.sql_injection_match_sets = (Parsers::SqlInjectionMatchSetSummaries.parse(map['SqlInjectionMatchSets']) unless map['SqlInjectionMatchSets'].nil?)
+        data.sql_injection_match_sets = (SqlInjectionMatchSetSummaries.parse(map['SqlInjectionMatchSets']) unless map['SqlInjectionMatchSets'].nil?)
         data
       end
     end
@@ -1544,7 +1546,7 @@ module AWS::SDK::WAFRegional
     class SqlInjectionMatchSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SqlInjectionMatchSetSummary.parse(value) unless value.nil?
+          SqlInjectionMatchSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1566,7 +1568,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.rule_groups = (Parsers::SubscribedRuleGroupSummaries.parse(map['RuleGroups']) unless map['RuleGroups'].nil?)
+        data.rule_groups = (SubscribedRuleGroupSummaries.parse(map['RuleGroups']) unless map['RuleGroups'].nil?)
         data
       end
     end
@@ -1574,7 +1576,7 @@ module AWS::SDK::WAFRegional
     class SubscribedRuleGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SubscribedRuleGroupSummary.parse(value) unless value.nil?
+          SubscribedRuleGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1597,7 +1599,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.tag_info_for_resource = (Parsers::TagInfoForResource.parse(map['TagInfoForResource']) unless map['TagInfoForResource'].nil?)
+        data.tag_info_for_resource = (TagInfoForResource.parse(map['TagInfoForResource']) unless map['TagInfoForResource'].nil?)
         data
       end
     end
@@ -1606,7 +1608,7 @@ module AWS::SDK::WAFRegional
       def self.parse(map)
         data = Types::TagInfoForResource.new
         data.resource_arn = map['ResourceARN']
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         return data
       end
     end
@@ -1614,7 +1616,7 @@ module AWS::SDK::WAFRegional
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1636,7 +1638,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.web_ac_ls = (Parsers::WebACLSummaries.parse(map['WebACLs']) unless map['WebACLs'].nil?)
+        data.web_ac_ls = (WebACLSummaries.parse(map['WebACLs']) unless map['WebACLs'].nil?)
         data
       end
     end
@@ -1644,7 +1646,7 @@ module AWS::SDK::WAFRegional
     class WebACLSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::WebACLSummary.parse(value) unless value.nil?
+          WebACLSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1657,7 +1659,7 @@ module AWS::SDK::WAFRegional
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.xss_match_sets = (Parsers::XssMatchSetSummaries.parse(map['XssMatchSets']) unless map['XssMatchSets'].nil?)
+        data.xss_match_sets = (XssMatchSetSummaries.parse(map['XssMatchSets']) unless map['XssMatchSets'].nil?)
         data
       end
     end
@@ -1665,7 +1667,7 @@ module AWS::SDK::WAFRegional
     class XssMatchSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::XssMatchSetSummary.parse(value) unless value.nil?
+          XssMatchSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::WAFRegional
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
         data
       end
     end

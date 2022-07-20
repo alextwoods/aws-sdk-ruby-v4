@@ -17,7 +17,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_account_connection = (Parsers::EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
+        data.environment_account_connection = (EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
         data
       end
     end
@@ -118,7 +118,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.component = (Parsers::Component.parse(map['component']) unless map['component'].nil?)
+        data.component = (Component.parse(map['component']) unless map['component'].nil?)
         data
       end
     end
@@ -150,7 +150,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -174,7 +174,7 @@ module AWS::SDK::Proton
         data.environment_account_id = map['environmentAccountId']
         data.spec = map['spec']
         data.provisioning = map['provisioning']
-        data.provisioning_repository = (Parsers::RepositoryBranch.parse(map['provisioningRepository']) unless map['provisioningRepository'].nil?)
+        data.provisioning_repository = (RepositoryBranch.parse(map['provisioningRepository']) unless map['provisioningRepository'].nil?)
         data.component_role_arn = map['componentRoleArn']
         return data
       end
@@ -198,7 +198,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_instance = (Parsers::ServiceInstance.parse(map['serviceInstance']) unless map['serviceInstance'].nil?)
+        data.service_instance = (ServiceInstance.parse(map['serviceInstance']) unless map['serviceInstance'].nil?)
         data
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline = (Parsers::ServicePipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
+        data.pipeline = (ServicePipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
         data
       end
     end
@@ -259,7 +259,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.component = (Parsers::Component.parse(map['component']) unless map['component'].nil?)
+        data.component = (Component.parse(map['component']) unless map['component'].nil?)
         data
       end
     end
@@ -283,7 +283,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_account_connection = (Parsers::EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
+        data.environment_account_connection = (EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
         data
       end
     end
@@ -307,7 +307,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template = (Parsers::EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
+        data.environment_template = (EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
         data
       end
     end
@@ -335,7 +335,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template_version = (Parsers::EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
+        data.environment_template_version = (EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
         data
       end
     end
@@ -365,7 +365,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository = (Parsers::Repository.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (Repository.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -389,7 +389,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data
       end
     end
@@ -406,7 +406,7 @@ module AWS::SDK::Proton
         data.status = map['status']
         data.status_message = map['statusMessage']
         data.spec = map['spec']
-        data.pipeline = (Parsers::ServicePipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
+        data.pipeline = (ServicePipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
         data.repository_connection_arn = map['repositoryConnectionArn']
         data.repository_id = map['repositoryId']
         data.branch_name = map['branchName']
@@ -421,7 +421,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template = (Parsers::ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
+        data.service_template = (ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
         data
       end
     end
@@ -449,7 +449,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template_version = (Parsers::ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
+        data.service_template_version = (ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
         data
       end
     end
@@ -467,9 +467,9 @@ module AWS::SDK::Proton
         data.arn = map['arn']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_modified_at = Time.at(map['lastModifiedAt'].to_i) if map['lastModifiedAt']
-        data.compatible_environment_templates = (Parsers::CompatibleEnvironmentTemplateList.parse(map['compatibleEnvironmentTemplates']) unless map['compatibleEnvironmentTemplates'].nil?)
+        data.compatible_environment_templates = (CompatibleEnvironmentTemplateList.parse(map['compatibleEnvironmentTemplates']) unless map['compatibleEnvironmentTemplates'].nil?)
         data.schema = map['schema']
-        data.supported_component_sources = (Parsers::ServiceTemplateSupportedComponentSourceInputList.parse(map['supportedComponentSources']) unless map['supportedComponentSources'].nil?)
+        data.supported_component_sources = (ServiceTemplateSupportedComponentSourceInputList.parse(map['supportedComponentSources']) unless map['supportedComponentSources'].nil?)
         return data
       end
     end
@@ -485,7 +485,7 @@ module AWS::SDK::Proton
     class CompatibleEnvironmentTemplateList
       def self.parse(list)
         list.map do |value|
-          Parsers::CompatibleEnvironmentTemplate.parse(value) unless value.nil?
+          CompatibleEnvironmentTemplate.parse(value) unless value.nil?
         end
       end
     end
@@ -506,7 +506,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.template_sync_config = (Parsers::TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
+        data.template_sync_config = (TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
         data
       end
     end
@@ -531,7 +531,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.component = (Parsers::Component.parse(map['component']) unless map['component'].nil?)
+        data.component = (Component.parse(map['component']) unless map['component'].nil?)
         data
       end
     end
@@ -543,7 +543,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -555,7 +555,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_account_connection = (Parsers::EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
+        data.environment_account_connection = (EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
         data
       end
     end
@@ -567,7 +567,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template = (Parsers::EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
+        data.environment_template = (EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
         data
       end
     end
@@ -579,7 +579,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template_version = (Parsers::EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
+        data.environment_template_version = (EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
         data
       end
     end
@@ -591,7 +591,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository = (Parsers::Repository.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (Repository.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -603,7 +603,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data
       end
     end
@@ -615,7 +615,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template = (Parsers::ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
+        data.service_template = (ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
         data
       end
     end
@@ -627,7 +627,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template_version = (Parsers::ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
+        data.service_template_version = (ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
         data
       end
     end
@@ -639,7 +639,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.template_sync_config = (Parsers::TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
+        data.template_sync_config = (TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
         data
       end
     end
@@ -651,7 +651,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_settings = (Parsers::AccountSettings.parse(map['accountSettings']) unless map['accountSettings'].nil?)
+        data.account_settings = (AccountSettings.parse(map['accountSettings']) unless map['accountSettings'].nil?)
         data
       end
     end
@@ -660,7 +660,7 @@ module AWS::SDK::Proton
       def self.parse(map)
         data = Types::AccountSettings.new
         data.pipeline_service_role_arn = map['pipelineServiceRoleArn']
-        data.pipeline_provisioning_repository = (Parsers::RepositoryBranch.parse(map['pipelineProvisioningRepository']) unless map['pipelineProvisioningRepository'].nil?)
+        data.pipeline_provisioning_repository = (RepositoryBranch.parse(map['pipelineProvisioningRepository']) unless map['pipelineProvisioningRepository'].nil?)
         return data
       end
     end
@@ -672,7 +672,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.component = (Parsers::Component.parse(map['component']) unless map['component'].nil?)
+        data.component = (Component.parse(map['component']) unless map['component'].nil?)
         data
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -696,7 +696,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_account_connection = (Parsers::EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
+        data.environment_account_connection = (EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
         data
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template = (Parsers::EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
+        data.environment_template = (EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
         data
       end
     end
@@ -720,7 +720,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template_version = (Parsers::EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
+        data.environment_template_version = (EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
         data
       end
     end
@@ -732,7 +732,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository = (Parsers::Repository.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (Repository.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -744,7 +744,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.latest_sync = (Parsers::RepositorySyncAttempt.parse(map['latestSync']) unless map['latestSync'].nil?)
+        data.latest_sync = (RepositorySyncAttempt.parse(map['latestSync']) unless map['latestSync'].nil?)
         data
       end
     end
@@ -754,7 +754,7 @@ module AWS::SDK::Proton
         data = Types::RepositorySyncAttempt.new
         data.started_at = Time.at(map['startedAt'].to_i) if map['startedAt']
         data.status = map['status']
-        data.events = (Parsers::RepositorySyncEvents.parse(map['events']) unless map['events'].nil?)
+        data.events = (RepositorySyncEvents.parse(map['events']) unless map['events'].nil?)
         return data
       end
     end
@@ -762,7 +762,7 @@ module AWS::SDK::Proton
     class RepositorySyncEvents
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositorySyncEvent.parse(value) unless value.nil?
+          RepositorySyncEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -785,7 +785,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data
       end
     end
@@ -797,7 +797,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_instance = (Parsers::ServiceInstance.parse(map['serviceInstance']) unless map['serviceInstance'].nil?)
+        data.service_instance = (ServiceInstance.parse(map['serviceInstance']) unless map['serviceInstance'].nil?)
         data
       end
     end
@@ -809,7 +809,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template = (Parsers::ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
+        data.service_template = (ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
         data
       end
     end
@@ -821,7 +821,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template_version = (Parsers::ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
+        data.service_template_version = (ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
         data
       end
     end
@@ -833,7 +833,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.template_sync_config = (Parsers::TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
+        data.template_sync_config = (TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
         data
       end
     end
@@ -845,9 +845,9 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.latest_sync = (Parsers::ResourceSyncAttempt.parse(map['latestSync']) unless map['latestSync'].nil?)
-        data.latest_successful_sync = (Parsers::ResourceSyncAttempt.parse(map['latestSuccessfulSync']) unless map['latestSuccessfulSync'].nil?)
-        data.desired_state = (Parsers::Revision.parse(map['desiredState']) unless map['desiredState'].nil?)
+        data.latest_sync = (ResourceSyncAttempt.parse(map['latestSync']) unless map['latestSync'].nil?)
+        data.latest_successful_sync = (ResourceSyncAttempt.parse(map['latestSuccessfulSync']) unless map['latestSuccessfulSync'].nil?)
+        data.desired_state = (Revision.parse(map['desiredState']) unless map['desiredState'].nil?)
         data
       end
     end
@@ -867,12 +867,12 @@ module AWS::SDK::Proton
     class ResourceSyncAttempt
       def self.parse(map)
         data = Types::ResourceSyncAttempt.new
-        data.initial_revision = (Parsers::Revision.parse(map['initialRevision']) unless map['initialRevision'].nil?)
-        data.target_revision = (Parsers::Revision.parse(map['targetRevision']) unless map['targetRevision'].nil?)
+        data.initial_revision = (Revision.parse(map['initialRevision']) unless map['initialRevision'].nil?)
+        data.target_revision = (Revision.parse(map['targetRevision']) unless map['targetRevision'].nil?)
         data.target = map['target']
         data.started_at = Time.at(map['startedAt'].to_i) if map['startedAt']
         data.status = map['status']
-        data.events = (Parsers::ResourceSyncEvents.parse(map['events']) unless map['events'].nil?)
+        data.events = (ResourceSyncEvents.parse(map['events']) unless map['events'].nil?)
         return data
       end
     end
@@ -880,7 +880,7 @@ module AWS::SDK::Proton
     class ResourceSyncEvents
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceSyncEvent.parse(value) unless value.nil?
+          ResourceSyncEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -904,7 +904,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.outputs = (Parsers::OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
+        data.outputs = (OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
         data
       end
     end
@@ -912,7 +912,7 @@ module AWS::SDK::Proton
     class OutputsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Output.parse(value) unless value.nil?
+          Output.parse(value) unless value.nil?
         end
       end
     end
@@ -934,7 +934,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.provisioned_resources = (Parsers::ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
+        data.provisioned_resources = (ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
         data
       end
     end
@@ -942,7 +942,7 @@ module AWS::SDK::Proton
     class ProvisionedResourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProvisionedResource.parse(value) unless value.nil?
+          ProvisionedResource.parse(value) unless value.nil?
         end
       end
     end
@@ -965,7 +965,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.components = (Parsers::ComponentSummaryList.parse(map['components']) unless map['components'].nil?)
+        data.components = (ComponentSummaryList.parse(map['components']) unless map['components'].nil?)
         data
       end
     end
@@ -973,7 +973,7 @@ module AWS::SDK::Proton
     class ComponentSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ComponentSummary.parse(value) unless value.nil?
+          ComponentSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1003,7 +1003,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_account_connections = (Parsers::EnvironmentAccountConnectionSummaryList.parse(map['environmentAccountConnections']) unless map['environmentAccountConnections'].nil?)
+        data.environment_account_connections = (EnvironmentAccountConnectionSummaryList.parse(map['environmentAccountConnections']) unless map['environmentAccountConnections'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::Proton
     class EnvironmentAccountConnectionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentAccountConnectionSummary.parse(value) unless value.nil?
+          EnvironmentAccountConnectionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1042,7 +1042,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.outputs = (Parsers::OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
+        data.outputs = (OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
         data
       end
     end
@@ -1055,7 +1055,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.provisioned_resources = (Parsers::ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
+        data.provisioned_resources = (ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
         data
       end
     end
@@ -1068,7 +1068,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.template_versions = (Parsers::EnvironmentTemplateVersionSummaryList.parse(map['templateVersions']) unless map['templateVersions'].nil?)
+        data.template_versions = (EnvironmentTemplateVersionSummaryList.parse(map['templateVersions']) unless map['templateVersions'].nil?)
         data
       end
     end
@@ -1076,7 +1076,7 @@ module AWS::SDK::Proton
     class EnvironmentTemplateVersionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentTemplateVersionSummary.parse(value) unless value.nil?
+          EnvironmentTemplateVersionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1106,7 +1106,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.templates = (Parsers::EnvironmentTemplateSummaryList.parse(map['templates']) unless map['templates'].nil?)
+        data.templates = (EnvironmentTemplateSummaryList.parse(map['templates']) unless map['templates'].nil?)
         data
       end
     end
@@ -1114,7 +1114,7 @@ module AWS::SDK::Proton
     class EnvironmentTemplateSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentTemplateSummary.parse(value) unless value.nil?
+          EnvironmentTemplateSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1142,7 +1142,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.environments = (Parsers::EnvironmentSummaryList.parse(map['environments']) unless map['environments'].nil?)
+        data.environments = (EnvironmentSummaryList.parse(map['environments']) unless map['environments'].nil?)
         data
       end
     end
@@ -1150,7 +1150,7 @@ module AWS::SDK::Proton
     class EnvironmentSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentSummary.parse(value) unless value.nil?
+          EnvironmentSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1186,7 +1186,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.repositories = (Parsers::RepositorySummaryList.parse(map['repositories']) unless map['repositories'].nil?)
+        data.repositories = (RepositorySummaryList.parse(map['repositories']) unless map['repositories'].nil?)
         data
       end
     end
@@ -1194,7 +1194,7 @@ module AWS::SDK::Proton
     class RepositorySummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositorySummary.parse(value) unless value.nil?
+          RepositorySummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1217,7 +1217,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.sync_definitions = (Parsers::RepositorySyncDefinitionList.parse(map['syncDefinitions']) unless map['syncDefinitions'].nil?)
+        data.sync_definitions = (RepositorySyncDefinitionList.parse(map['syncDefinitions']) unless map['syncDefinitions'].nil?)
         data
       end
     end
@@ -1225,7 +1225,7 @@ module AWS::SDK::Proton
     class RepositorySyncDefinitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::RepositorySyncDefinition.parse(value) unless value.nil?
+          RepositorySyncDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -1249,7 +1249,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.outputs = (Parsers::OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
+        data.outputs = (OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
         data
       end
     end
@@ -1262,7 +1262,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.provisioned_resources = (Parsers::ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
+        data.provisioned_resources = (ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
         data
       end
     end
@@ -1275,7 +1275,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.service_instances = (Parsers::ServiceInstanceSummaryList.parse(map['serviceInstances']) unless map['serviceInstances'].nil?)
+        data.service_instances = (ServiceInstanceSummaryList.parse(map['serviceInstances']) unless map['serviceInstances'].nil?)
         data
       end
     end
@@ -1283,7 +1283,7 @@ module AWS::SDK::Proton
     class ServiceInstanceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceInstanceSummary.parse(value) unless value.nil?
+          ServiceInstanceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1315,7 +1315,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.outputs = (Parsers::OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
+        data.outputs = (OutputsList.parse(map['outputs']) unless map['outputs'].nil?)
         data
       end
     end
@@ -1328,7 +1328,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.provisioned_resources = (Parsers::ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
+        data.provisioned_resources = (ProvisionedResourceList.parse(map['provisionedResources']) unless map['provisionedResources'].nil?)
         data
       end
     end
@@ -1341,7 +1341,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.template_versions = (Parsers::ServiceTemplateVersionSummaryList.parse(map['templateVersions']) unless map['templateVersions'].nil?)
+        data.template_versions = (ServiceTemplateVersionSummaryList.parse(map['templateVersions']) unless map['templateVersions'].nil?)
         data
       end
     end
@@ -1349,7 +1349,7 @@ module AWS::SDK::Proton
     class ServiceTemplateVersionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceTemplateVersionSummary.parse(value) unless value.nil?
+          ServiceTemplateVersionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1379,7 +1379,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.templates = (Parsers::ServiceTemplateSummaryList.parse(map['templates']) unless map['templates'].nil?)
+        data.templates = (ServiceTemplateSummaryList.parse(map['templates']) unless map['templates'].nil?)
         data
       end
     end
@@ -1387,7 +1387,7 @@ module AWS::SDK::Proton
     class ServiceTemplateSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceTemplateSummary.parse(value) unless value.nil?
+          ServiceTemplateSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1415,7 +1415,7 @@ module AWS::SDK::Proton
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.services = (Parsers::ServiceSummaryList.parse(map['services']) unless map['services'].nil?)
+        data.services = (ServiceSummaryList.parse(map['services']) unless map['services'].nil?)
         data
       end
     end
@@ -1423,7 +1423,7 @@ module AWS::SDK::Proton
     class ServiceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceSummary.parse(value) unless value.nil?
+          ServiceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1450,7 +1450,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1459,7 +1459,7 @@ module AWS::SDK::Proton
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1491,7 +1491,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_account_connection = (Parsers::EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
+        data.environment_account_connection = (EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
         data
       end
     end
@@ -1525,7 +1525,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_settings = (Parsers::AccountSettings.parse(map['accountSettings']) unless map['accountSettings'].nil?)
+        data.account_settings = (AccountSettings.parse(map['accountSettings']) unless map['accountSettings'].nil?)
         data
       end
     end
@@ -1537,7 +1537,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.component = (Parsers::Component.parse(map['component']) unless map['component'].nil?)
+        data.component = (Component.parse(map['component']) unless map['component'].nil?)
         data
       end
     end
@@ -1549,7 +1549,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -1561,7 +1561,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_account_connection = (Parsers::EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
+        data.environment_account_connection = (EnvironmentAccountConnection.parse(map['environmentAccountConnection']) unless map['environmentAccountConnection'].nil?)
         data
       end
     end
@@ -1573,7 +1573,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template = (Parsers::EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
+        data.environment_template = (EnvironmentTemplate.parse(map['environmentTemplate']) unless map['environmentTemplate'].nil?)
         data
       end
     end
@@ -1585,7 +1585,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.environment_template_version = (Parsers::EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
+        data.environment_template_version = (EnvironmentTemplateVersion.parse(map['environmentTemplateVersion']) unless map['environmentTemplateVersion'].nil?)
         data
       end
     end
@@ -1597,7 +1597,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data
       end
     end
@@ -1609,7 +1609,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_instance = (Parsers::ServiceInstance.parse(map['serviceInstance']) unless map['serviceInstance'].nil?)
+        data.service_instance = (ServiceInstance.parse(map['serviceInstance']) unless map['serviceInstance'].nil?)
         data
       end
     end
@@ -1621,7 +1621,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline = (Parsers::ServicePipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
+        data.pipeline = (ServicePipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
         data
       end
     end
@@ -1633,7 +1633,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template = (Parsers::ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
+        data.service_template = (ServiceTemplate.parse(map['serviceTemplate']) unless map['serviceTemplate'].nil?)
         data
       end
     end
@@ -1645,7 +1645,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_template_version = (Parsers::ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
+        data.service_template_version = (ServiceTemplateVersion.parse(map['serviceTemplateVersion']) unless map['serviceTemplateVersion'].nil?)
         data
       end
     end
@@ -1657,7 +1657,7 @@ module AWS::SDK::Proton
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.template_sync_config = (Parsers::TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
+        data.template_sync_config = (TemplateSyncConfig.parse(map['templateSyncConfig']) unless map['templateSyncConfig'].nil?)
         data
       end
     end

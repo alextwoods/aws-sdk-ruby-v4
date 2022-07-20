@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LookoutEquipment
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::LookoutEquipment
         data['DatasetName'] = stub[:dataset_name] unless stub[:dataset_name].nil?
         data['DatasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -45,7 +47,7 @@ module AWS::SDK::LookoutEquipment
         data['InferenceSchedulerArn'] = stub[:inference_scheduler_arn] unless stub[:inference_scheduler_arn].nil?
         data['InferenceSchedulerName'] = stub[:inference_scheduler_name] unless stub[:inference_scheduler_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::LookoutEquipment
         data = {}
         data['ModelArn'] = stub[:model_arn] unless stub[:model_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -134,18 +136,18 @@ module AWS::SDK::LookoutEquipment
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['DatasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
-        data['IngestionInputConfiguration'] = Stubs::IngestionInputConfiguration.stub(stub[:ingestion_input_configuration]) unless stub[:ingestion_input_configuration].nil?
+        data['IngestionInputConfiguration'] = IngestionInputConfiguration.stub(stub[:ingestion_input_configuration]) unless stub[:ingestion_input_configuration].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FailedReason'] = stub[:failed_reason] unless stub[:failed_reason].nil?
-        data['DataQualitySummary'] = Stubs::DataQualitySummary.stub(stub[:data_quality_summary]) unless stub[:data_quality_summary].nil?
-        data['IngestedFilesSummary'] = Stubs::IngestedFilesSummary.stub(stub[:ingested_files_summary]) unless stub[:ingested_files_summary].nil?
+        data['DataQualitySummary'] = DataQualitySummary.stub(stub[:data_quality_summary]) unless stub[:data_quality_summary].nil?
+        data['IngestedFilesSummary'] = IngestedFilesSummary.stub(stub[:ingested_files_summary]) unless stub[:ingested_files_summary].nil?
         data['StatusDetail'] = stub[:status_detail] unless stub[:status_detail].nil?
         data['IngestedDataSize'] = stub[:ingested_data_size] unless stub[:ingested_data_size].nil?
         data['DataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_start_time]).to_i unless stub[:data_start_time].nil?
         data['DataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_end_time]).to_i unless stub[:data_end_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::LookoutEquipment
         data = {}
         data['TotalNumberOfFiles'] = stub[:total_number_of_files] unless stub[:total_number_of_files].nil?
         data['IngestedNumberOfFiles'] = stub[:ingested_number_of_files] unless stub[:ingested_number_of_files].nil?
-        data['DiscardedFiles'] = Stubs::ListOfDiscardedFiles.stub(stub[:discarded_files]) unless stub[:discarded_files].nil?
+        data['DiscardedFiles'] = ListOfDiscardedFiles.stub(stub[:discarded_files]) unless stub[:discarded_files].nil?
         data
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3Object.stub(element) unless element.nil?
+          data << S3Object.stub(element) unless element.nil?
         end
         data
       end
@@ -229,11 +231,11 @@ module AWS::SDK::LookoutEquipment
       def self.stub(stub)
         stub ||= Types::DataQualitySummary.new
         data = {}
-        data['InsufficientSensorData'] = Stubs::InsufficientSensorData.stub(stub[:insufficient_sensor_data]) unless stub[:insufficient_sensor_data].nil?
-        data['MissingSensorData'] = Stubs::MissingSensorData.stub(stub[:missing_sensor_data]) unless stub[:missing_sensor_data].nil?
-        data['InvalidSensorData'] = Stubs::InvalidSensorData.stub(stub[:invalid_sensor_data]) unless stub[:invalid_sensor_data].nil?
-        data['UnsupportedTimestamps'] = Stubs::UnsupportedTimestamps.stub(stub[:unsupported_timestamps]) unless stub[:unsupported_timestamps].nil?
-        data['DuplicateTimestamps'] = Stubs::DuplicateTimestamps.stub(stub[:duplicate_timestamps]) unless stub[:duplicate_timestamps].nil?
+        data['InsufficientSensorData'] = InsufficientSensorData.stub(stub[:insufficient_sensor_data]) unless stub[:insufficient_sensor_data].nil?
+        data['MissingSensorData'] = MissingSensorData.stub(stub[:missing_sensor_data]) unless stub[:missing_sensor_data].nil?
+        data['InvalidSensorData'] = InvalidSensorData.stub(stub[:invalid_sensor_data]) unless stub[:invalid_sensor_data].nil?
+        data['UnsupportedTimestamps'] = UnsupportedTimestamps.stub(stub[:unsupported_timestamps]) unless stub[:unsupported_timestamps].nil?
+        data['DuplicateTimestamps'] = DuplicateTimestamps.stub(stub[:duplicate_timestamps]) unless stub[:duplicate_timestamps].nil?
         data
       end
     end
@@ -328,8 +330,8 @@ module AWS::SDK::LookoutEquipment
       def self.stub(stub)
         stub ||= Types::InsufficientSensorData.new
         data = {}
-        data['MissingCompleteSensorData'] = Stubs::MissingCompleteSensorData.stub(stub[:missing_complete_sensor_data]) unless stub[:missing_complete_sensor_data].nil?
-        data['SensorsWithShortDateRange'] = Stubs::SensorsWithShortDateRange.stub(stub[:sensors_with_short_date_range]) unless stub[:sensors_with_short_date_range].nil?
+        data['MissingCompleteSensorData'] = MissingCompleteSensorData.stub(stub[:missing_complete_sensor_data]) unless stub[:missing_complete_sensor_data].nil?
+        data['SensorsWithShortDateRange'] = SensorsWithShortDateRange.stub(stub[:sensors_with_short_date_range]) unless stub[:sensors_with_short_date_range].nil?
         data
       end
     end
@@ -383,7 +385,7 @@ module AWS::SDK::LookoutEquipment
       def self.stub(stub)
         stub ||= Types::IngestionInputConfiguration.new
         data = {}
-        data['S3InputConfiguration'] = Stubs::IngestionS3InputConfiguration.stub(stub[:s3_input_configuration]) unless stub[:s3_input_configuration].nil?
+        data['S3InputConfiguration'] = IngestionS3InputConfiguration.stub(stub[:s3_input_configuration]) unless stub[:s3_input_configuration].nil?
         data
       end
     end
@@ -439,13 +441,13 @@ module AWS::SDK::LookoutEquipment
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Schema'] = stub[:schema] unless stub[:schema].nil?
         data['ServerSideKmsKeyId'] = stub[:server_side_kms_key_id] unless stub[:server_side_kms_key_id].nil?
-        data['IngestionInputConfiguration'] = Stubs::IngestionInputConfiguration.stub(stub[:ingestion_input_configuration]) unless stub[:ingestion_input_configuration].nil?
-        data['DataQualitySummary'] = Stubs::DataQualitySummary.stub(stub[:data_quality_summary]) unless stub[:data_quality_summary].nil?
-        data['IngestedFilesSummary'] = Stubs::IngestedFilesSummary.stub(stub[:ingested_files_summary]) unless stub[:ingested_files_summary].nil?
+        data['IngestionInputConfiguration'] = IngestionInputConfiguration.stub(stub[:ingestion_input_configuration]) unless stub[:ingestion_input_configuration].nil?
+        data['DataQualitySummary'] = DataQualitySummary.stub(stub[:data_quality_summary]) unless stub[:data_quality_summary].nil?
+        data['IngestedFilesSummary'] = IngestedFilesSummary.stub(stub[:ingested_files_summary]) unless stub[:ingested_files_summary].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['DataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_start_time]).to_i unless stub[:data_start_time].nil?
         data['DataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_end_time]).to_i unless stub[:data_end_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -481,11 +483,11 @@ module AWS::SDK::LookoutEquipment
         data['DataUploadFrequency'] = stub[:data_upload_frequency] unless stub[:data_upload_frequency].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['DataInputConfiguration'] = Stubs::InferenceInputConfiguration.stub(stub[:data_input_configuration]) unless stub[:data_input_configuration].nil?
-        data['DataOutputConfiguration'] = Stubs::InferenceOutputConfiguration.stub(stub[:data_output_configuration]) unless stub[:data_output_configuration].nil?
+        data['DataInputConfiguration'] = InferenceInputConfiguration.stub(stub[:data_input_configuration]) unless stub[:data_input_configuration].nil?
+        data['DataOutputConfiguration'] = InferenceOutputConfiguration.stub(stub[:data_output_configuration]) unless stub[:data_output_configuration].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ServerSideKmsKeyId'] = stub[:server_side_kms_key_id] unless stub[:server_side_kms_key_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -504,7 +506,7 @@ module AWS::SDK::LookoutEquipment
       def self.stub(stub)
         stub ||= Types::InferenceOutputConfiguration.new
         data = {}
-        data['S3OutputConfiguration'] = Stubs::InferenceS3OutputConfiguration.stub(stub[:s3_output_configuration]) unless stub[:s3_output_configuration].nil?
+        data['S3OutputConfiguration'] = InferenceS3OutputConfiguration.stub(stub[:s3_output_configuration]) unless stub[:s3_output_configuration].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data
       end
@@ -545,9 +547,9 @@ module AWS::SDK::LookoutEquipment
       def self.stub(stub)
         stub ||= Types::InferenceInputConfiguration.new
         data = {}
-        data['S3InputConfiguration'] = Stubs::InferenceS3InputConfiguration.stub(stub[:s3_input_configuration]) unless stub[:s3_input_configuration].nil?
+        data['S3InputConfiguration'] = InferenceS3InputConfiguration.stub(stub[:s3_input_configuration]) unless stub[:s3_input_configuration].nil?
         data['InputTimeZoneOffset'] = stub[:input_time_zone_offset] unless stub[:input_time_zone_offset].nil?
-        data['InferenceInputNameConfiguration'] = Stubs::InferenceInputNameConfiguration.stub(stub[:inference_input_name_configuration]) unless stub[:inference_input_name_configuration].nil?
+        data['InferenceInputNameConfiguration'] = InferenceInputNameConfiguration.stub(stub[:inference_input_name_configuration]) unless stub[:inference_input_name_configuration].nil?
         data
       end
     end
@@ -627,13 +629,13 @@ module AWS::SDK::LookoutEquipment
         data['DatasetName'] = stub[:dataset_name] unless stub[:dataset_name].nil?
         data['DatasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
         data['Schema'] = stub[:schema] unless stub[:schema].nil?
-        data['LabelsInputConfiguration'] = Stubs::LabelsInputConfiguration.stub(stub[:labels_input_configuration]) unless stub[:labels_input_configuration].nil?
+        data['LabelsInputConfiguration'] = LabelsInputConfiguration.stub(stub[:labels_input_configuration]) unless stub[:labels_input_configuration].nil?
         data['TrainingDataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_data_start_time]).to_i unless stub[:training_data_start_time].nil?
         data['TrainingDataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_data_end_time]).to_i unless stub[:training_data_end_time].nil?
         data['EvaluationDataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:evaluation_data_start_time]).to_i unless stub[:evaluation_data_start_time].nil?
         data['EvaluationDataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:evaluation_data_end_time]).to_i unless stub[:evaluation_data_end_time].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['DataPreProcessingConfiguration'] = Stubs::DataPreProcessingConfiguration.stub(stub[:data_pre_processing_configuration]) unless stub[:data_pre_processing_configuration].nil?
+        data['DataPreProcessingConfiguration'] = DataPreProcessingConfiguration.stub(stub[:data_pre_processing_configuration]) unless stub[:data_pre_processing_configuration].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['TrainingExecutionStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_execution_start_time]).to_i unless stub[:training_execution_start_time].nil?
         data['TrainingExecutionEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_execution_end_time]).to_i unless stub[:training_execution_end_time].nil?
@@ -643,7 +645,7 @@ module AWS::SDK::LookoutEquipment
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['ServerSideKmsKeyId'] = stub[:server_side_kms_key_id] unless stub[:server_side_kms_key_id].nil?
         data['OffCondition'] = stub[:off_condition] unless stub[:off_condition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -679,7 +681,7 @@ module AWS::SDK::LookoutEquipment
       def self.stub(stub)
         stub ||= Types::LabelsInputConfiguration.new
         data = {}
-        data['S3InputConfiguration'] = Stubs::LabelsS3InputConfiguration.stub(stub[:s3_input_configuration]) unless stub[:s3_input_configuration].nil?
+        data['S3InputConfiguration'] = LabelsS3InputConfiguration.stub(stub[:s3_input_configuration]) unless stub[:s3_input_configuration].nil?
         data
       end
     end
@@ -716,8 +718,8 @@ module AWS::SDK::LookoutEquipment
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['DataIngestionJobSummaries'] = Stubs::DataIngestionJobSummaries.stub(stub[:data_ingestion_job_summaries]) unless stub[:data_ingestion_job_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataIngestionJobSummaries'] = DataIngestionJobSummaries.stub(stub[:data_ingestion_job_summaries]) unless stub[:data_ingestion_job_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -736,7 +738,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataIngestionJobSummary.stub(element) unless element.nil?
+          data << DataIngestionJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -762,7 +764,7 @@ module AWS::SDK::LookoutEquipment
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['DatasetName'] = stub[:dataset_name] unless stub[:dataset_name].nil?
         data['DatasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
-        data['IngestionInputConfiguration'] = Stubs::IngestionInputConfiguration.stub(stub[:ingestion_input_configuration]) unless stub[:ingestion_input_configuration].nil?
+        data['IngestionInputConfiguration'] = IngestionInputConfiguration.stub(stub[:ingestion_input_configuration]) unless stub[:ingestion_input_configuration].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -780,8 +782,8 @@ module AWS::SDK::LookoutEquipment
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['DatasetSummaries'] = Stubs::DatasetSummaries.stub(stub[:dataset_summaries]) unless stub[:dataset_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatasetSummaries'] = DatasetSummaries.stub(stub[:dataset_summaries]) unless stub[:dataset_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -800,7 +802,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetSummary.stub(element) unless element.nil?
+          data << DatasetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -842,8 +844,8 @@ module AWS::SDK::LookoutEquipment
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['InferenceExecutionSummaries'] = Stubs::InferenceExecutionSummaries.stub(stub[:inference_execution_summaries]) unless stub[:inference_execution_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InferenceExecutionSummaries'] = InferenceExecutionSummaries.stub(stub[:inference_execution_summaries]) unless stub[:inference_execution_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -862,7 +864,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InferenceExecutionSummary.stub(element) unless element.nil?
+          data << InferenceExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -899,9 +901,9 @@ module AWS::SDK::LookoutEquipment
         data['ScheduledStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:scheduled_start_time]).to_i unless stub[:scheduled_start_time].nil?
         data['DataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_start_time]).to_i unless stub[:data_start_time].nil?
         data['DataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_end_time]).to_i unless stub[:data_end_time].nil?
-        data['DataInputConfiguration'] = Stubs::InferenceInputConfiguration.stub(stub[:data_input_configuration]) unless stub[:data_input_configuration].nil?
-        data['DataOutputConfiguration'] = Stubs::InferenceOutputConfiguration.stub(stub[:data_output_configuration]) unless stub[:data_output_configuration].nil?
-        data['CustomerResultObject'] = Stubs::S3Object.stub(stub[:customer_result_object]) unless stub[:customer_result_object].nil?
+        data['DataInputConfiguration'] = InferenceInputConfiguration.stub(stub[:data_input_configuration]) unless stub[:data_input_configuration].nil?
+        data['DataOutputConfiguration'] = InferenceOutputConfiguration.stub(stub[:data_output_configuration]) unless stub[:data_output_configuration].nil?
+        data['CustomerResultObject'] = S3Object.stub(stub[:customer_result_object]) unless stub[:customer_result_object].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FailedReason'] = stub[:failed_reason] unless stub[:failed_reason].nil?
         data
@@ -920,8 +922,8 @@ module AWS::SDK::LookoutEquipment
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['InferenceSchedulerSummaries'] = Stubs::InferenceSchedulerSummaries.stub(stub[:inference_scheduler_summaries]) unless stub[:inference_scheduler_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InferenceSchedulerSummaries'] = InferenceSchedulerSummaries.stub(stub[:inference_scheduler_summaries]) unless stub[:inference_scheduler_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -940,7 +942,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InferenceSchedulerSummary.stub(element) unless element.nil?
+          data << InferenceSchedulerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -988,8 +990,8 @@ module AWS::SDK::LookoutEquipment
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ModelSummaries'] = Stubs::ModelSummaries.stub(stub[:model_summaries]) unless stub[:model_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ModelSummaries'] = ModelSummaries.stub(stub[:model_summaries]) unless stub[:model_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1008,7 +1010,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelSummary.stub(element) unless element.nil?
+          data << ModelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1053,9 +1055,9 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SensorStatisticsSummaries'] = Stubs::SensorStatisticsSummaries.stub(stub[:sensor_statistics_summaries]) unless stub[:sensor_statistics_summaries].nil?
+        data['SensorStatisticsSummaries'] = SensorStatisticsSummaries.stub(stub[:sensor_statistics_summaries]) unless stub[:sensor_statistics_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1074,7 +1076,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SensorStatisticsSummary.stub(element) unless element.nil?
+          data << SensorStatisticsSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1108,14 +1110,14 @@ module AWS::SDK::LookoutEquipment
         data['ComponentName'] = stub[:component_name] unless stub[:component_name].nil?
         data['SensorName'] = stub[:sensor_name] unless stub[:sensor_name].nil?
         data['DataExists'] = stub[:data_exists] unless stub[:data_exists].nil?
-        data['MissingValues'] = Stubs::CountPercent.stub(stub[:missing_values]) unless stub[:missing_values].nil?
-        data['InvalidValues'] = Stubs::CountPercent.stub(stub[:invalid_values]) unless stub[:invalid_values].nil?
-        data['InvalidDateEntries'] = Stubs::CountPercent.stub(stub[:invalid_date_entries]) unless stub[:invalid_date_entries].nil?
-        data['DuplicateTimestamps'] = Stubs::CountPercent.stub(stub[:duplicate_timestamps]) unless stub[:duplicate_timestamps].nil?
-        data['CategoricalValues'] = Stubs::CategoricalValues.stub(stub[:categorical_values]) unless stub[:categorical_values].nil?
-        data['MultipleOperatingModes'] = Stubs::MultipleOperatingModes.stub(stub[:multiple_operating_modes]) unless stub[:multiple_operating_modes].nil?
-        data['LargeTimestampGaps'] = Stubs::LargeTimestampGaps.stub(stub[:large_timestamp_gaps]) unless stub[:large_timestamp_gaps].nil?
-        data['MonotonicValues'] = Stubs::MonotonicValues.stub(stub[:monotonic_values]) unless stub[:monotonic_values].nil?
+        data['MissingValues'] = CountPercent.stub(stub[:missing_values]) unless stub[:missing_values].nil?
+        data['InvalidValues'] = CountPercent.stub(stub[:invalid_values]) unless stub[:invalid_values].nil?
+        data['InvalidDateEntries'] = CountPercent.stub(stub[:invalid_date_entries]) unless stub[:invalid_date_entries].nil?
+        data['DuplicateTimestamps'] = CountPercent.stub(stub[:duplicate_timestamps]) unless stub[:duplicate_timestamps].nil?
+        data['CategoricalValues'] = CategoricalValues.stub(stub[:categorical_values]) unless stub[:categorical_values].nil?
+        data['MultipleOperatingModes'] = MultipleOperatingModes.stub(stub[:multiple_operating_modes]) unless stub[:multiple_operating_modes].nil?
+        data['LargeTimestampGaps'] = LargeTimestampGaps.stub(stub[:large_timestamp_gaps]) unless stub[:large_timestamp_gaps].nil?
+        data['MonotonicValues'] = MonotonicValues.stub(stub[:monotonic_values]) unless stub[:monotonic_values].nil?
         data['DataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_start_time]).to_i unless stub[:data_start_time].nil?
         data['DataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_end_time]).to_i unless stub[:data_end_time].nil?
         data
@@ -1232,8 +1234,8 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1252,7 +1254,7 @@ module AWS::SDK::LookoutEquipment
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1291,7 +1293,7 @@ module AWS::SDK::LookoutEquipment
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1315,7 +1317,7 @@ module AWS::SDK::LookoutEquipment
         data['InferenceSchedulerName'] = stub[:inference_scheduler_name] unless stub[:inference_scheduler_name].nil?
         data['InferenceSchedulerArn'] = stub[:inference_scheduler_arn] unless stub[:inference_scheduler_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1339,7 +1341,7 @@ module AWS::SDK::LookoutEquipment
         data['InferenceSchedulerName'] = stub[:inference_scheduler_name] unless stub[:inference_scheduler_name].nil?
         data['InferenceSchedulerArn'] = stub[:inference_scheduler_arn] unless stub[:inference_scheduler_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1353,7 +1355,7 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1367,7 +1369,7 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1381,7 +1383,7 @@ module AWS::SDK::LookoutEquipment
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

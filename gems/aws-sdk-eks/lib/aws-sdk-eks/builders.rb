@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EKS
   module Builders
 
@@ -27,9 +29,9 @@ module AWS::SDK::EKS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['encryptionConfig'] = Builders::EncryptionConfigList.build(input[:encryption_config]) unless input[:encryption_config].nil?
+        data['encryptionConfig'] = EncryptionConfigList.build(input[:encryption_config]) unless input[:encryption_config].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::EKS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EncryptionConfig.build(element) unless element.nil?
+          data << EncryptionConfig.build(element) unless element.nil?
         end
         data
       end
@@ -48,8 +50,8 @@ module AWS::SDK::EKS
     class EncryptionConfig
       def self.build(input)
         data = {}
-        data['resources'] = Builders::StringList.build(input[:resources]) unless input[:resources].nil?
-        data['provider'] = Builders::Provider.build(input[:provider]) unless input[:provider].nil?
+        data['resources'] = StringList.build(input[:resources]) unless input[:resources].nil?
+        data['provider'] = Provider.build(input[:provider]) unless input[:provider].nil?
         data
       end
     end
@@ -91,10 +93,10 @@ module AWS::SDK::EKS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['oidc'] = Builders::OidcIdentityProviderConfigRequest.build(input[:oidc]) unless input[:oidc].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['oidc'] = OidcIdentityProviderConfigRequest.build(input[:oidc]) unless input[:oidc].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -120,7 +122,7 @@ module AWS::SDK::EKS
         data['usernamePrefix'] = input[:username_prefix] unless input[:username_prefix].nil?
         data['groupsClaim'] = input[:groups_claim] unless input[:groups_claim].nil?
         data['groupsPrefix'] = input[:groups_prefix] unless input[:groups_prefix].nil?
-        data['requiredClaims'] = Builders::RequiredClaimsMap.build(input[:required_claims]) unless input[:required_claims].nil?
+        data['requiredClaims'] = RequiredClaimsMap.build(input[:required_claims]) unless input[:required_claims].nil?
         data
       end
     end
@@ -158,8 +160,8 @@ module AWS::SDK::EKS
         data['serviceAccountRoleArn'] = input[:service_account_role_arn] unless input[:service_account_role_arn].nil?
         data['resolveConflicts'] = input[:resolve_conflicts] unless input[:resolve_conflicts].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,13 +178,13 @@ module AWS::SDK::EKS
         data['name'] = input[:name] unless input[:name].nil?
         data['version'] = input[:version] unless input[:version].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['resourcesVpcConfig'] = Builders::VpcConfigRequest.build(input[:resources_vpc_config]) unless input[:resources_vpc_config].nil?
-        data['kubernetesNetworkConfig'] = Builders::KubernetesNetworkConfigRequest.build(input[:kubernetes_network_config]) unless input[:kubernetes_network_config].nil?
-        data['logging'] = Builders::Logging.build(input[:logging]) unless input[:logging].nil?
+        data['resourcesVpcConfig'] = VpcConfigRequest.build(input[:resources_vpc_config]) unless input[:resources_vpc_config].nil?
+        data['kubernetesNetworkConfig'] = KubernetesNetworkConfigRequest.build(input[:kubernetes_network_config]) unless input[:kubernetes_network_config].nil?
+        data['logging'] = Logging.build(input[:logging]) unless input[:logging].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['encryptionConfig'] = Builders::EncryptionConfigList.build(input[:encryption_config]) unless input[:encryption_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['encryptionConfig'] = EncryptionConfigList.build(input[:encryption_config]) unless input[:encryption_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -190,7 +192,7 @@ module AWS::SDK::EKS
     class Logging
       def self.build(input)
         data = {}
-        data['clusterLogging'] = Builders::LogSetups.build(input[:cluster_logging]) unless input[:cluster_logging].nil?
+        data['clusterLogging'] = LogSetups.build(input[:cluster_logging]) unless input[:cluster_logging].nil?
         data
       end
     end
@@ -200,7 +202,7 @@ module AWS::SDK::EKS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LogSetup.build(element) unless element.nil?
+          data << LogSetup.build(element) unless element.nil?
         end
         data
       end
@@ -210,7 +212,7 @@ module AWS::SDK::EKS
     class LogSetup
       def self.build(input)
         data = {}
-        data['types'] = Builders::LogTypes.build(input[:types]) unless input[:types].nil?
+        data['types'] = LogTypes.build(input[:types]) unless input[:types].nil?
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
         data
       end
@@ -241,11 +243,11 @@ module AWS::SDK::EKS
     class VpcConfigRequest
       def self.build(input)
         data = {}
-        data['subnetIds'] = Builders::StringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['securityGroupIds'] = Builders::StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnetIds'] = StringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['endpointPublicAccess'] = input[:endpoint_public_access] unless input[:endpoint_public_access].nil?
         data['endpointPrivateAccess'] = input[:endpoint_private_access] unless input[:endpoint_private_access].nil?
-        data['publicAccessCidrs'] = Builders::StringList.build(input[:public_access_cidrs]) unless input[:public_access_cidrs].nil?
+        data['publicAccessCidrs'] = StringList.build(input[:public_access_cidrs]) unless input[:public_access_cidrs].nil?
         data
       end
     end
@@ -269,11 +271,11 @@ module AWS::SDK::EKS
         data = {}
         data['fargateProfileName'] = input[:fargate_profile_name] unless input[:fargate_profile_name].nil?
         data['podExecutionRoleArn'] = input[:pod_execution_role_arn] unless input[:pod_execution_role_arn].nil?
-        data['subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['selectors'] = Builders::FargateProfileSelectors.build(input[:selectors]) unless input[:selectors].nil?
+        data['subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['selectors'] = FargateProfileSelectors.build(input[:selectors]) unless input[:selectors].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,7 +284,7 @@ module AWS::SDK::EKS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FargateProfileSelector.build(element) unless element.nil?
+          data << FargateProfileSelector.build(element) unless element.nil?
         end
         data
       end
@@ -293,7 +295,7 @@ module AWS::SDK::EKS
       def self.build(input)
         data = {}
         data['namespace'] = input[:namespace] unless input[:namespace].nil?
-        data['labels'] = Builders::FargateProfileLabel.build(input[:labels]) unless input[:labels].nil?
+        data['labels'] = FargateProfileLabel.build(input[:labels]) unless input[:labels].nil?
         data
       end
     end
@@ -327,23 +329,23 @@ module AWS::SDK::EKS
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['nodegroupName'] = input[:nodegroup_name] unless input[:nodegroup_name].nil?
-        data['scalingConfig'] = Builders::NodegroupScalingConfig.build(input[:scaling_config]) unless input[:scaling_config].nil?
+        data['scalingConfig'] = NodegroupScalingConfig.build(input[:scaling_config]) unless input[:scaling_config].nil?
         data['diskSize'] = input[:disk_size] unless input[:disk_size].nil?
-        data['subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['instanceTypes'] = Builders::StringList.build(input[:instance_types]) unless input[:instance_types].nil?
+        data['subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['instanceTypes'] = StringList.build(input[:instance_types]) unless input[:instance_types].nil?
         data['amiType'] = input[:ami_type] unless input[:ami_type].nil?
-        data['remoteAccess'] = Builders::RemoteAccessConfig.build(input[:remote_access]) unless input[:remote_access].nil?
+        data['remoteAccess'] = RemoteAccessConfig.build(input[:remote_access]) unless input[:remote_access].nil?
         data['nodeRole'] = input[:node_role] unless input[:node_role].nil?
-        data['labels'] = Builders::LabelsMap.build(input[:labels]) unless input[:labels].nil?
-        data['taints'] = Builders::TaintsList.build(input[:taints]) unless input[:taints].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['labels'] = LabelsMap.build(input[:labels]) unless input[:labels].nil?
+        data['taints'] = TaintsList.build(input[:taints]) unless input[:taints].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['launchTemplate'] = Builders::LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
-        data['updateConfig'] = Builders::NodegroupUpdateConfig.build(input[:update_config]) unless input[:update_config].nil?
+        data['launchTemplate'] = LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['updateConfig'] = NodegroupUpdateConfig.build(input[:update_config]) unless input[:update_config].nil?
         data['capacityType'] = input[:capacity_type] unless input[:capacity_type].nil?
         data['version'] = input[:version] unless input[:version].nil?
         data['releaseVersion'] = input[:release_version] unless input[:release_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -373,7 +375,7 @@ module AWS::SDK::EKS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Taint.build(element) unless element.nil?
+          data << Taint.build(element) unless element.nil?
         end
         data
       end
@@ -406,7 +408,7 @@ module AWS::SDK::EKS
       def self.build(input)
         data = {}
         data['ec2SshKey'] = input[:ec2_ssh_key] unless input[:ec2_ssh_key].nil?
-        data['sourceSecurityGroups'] = Builders::StringList.build(input[:source_security_groups]) unless input[:source_security_groups].nil?
+        data['sourceSecurityGroups'] = StringList.build(input[:source_security_groups]) unless input[:source_security_groups].nil?
         data
       end
     end
@@ -610,8 +612,8 @@ module AWS::SDK::EKS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['identityProviderConfig'] = Builders::IdentityProviderConfig.build(input[:identity_provider_config]) unless input[:identity_provider_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['identityProviderConfig'] = IdentityProviderConfig.build(input[:identity_provider_config]) unless input[:identity_provider_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,9 +688,9 @@ module AWS::SDK::EKS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['identityProviderConfig'] = Builders::IdentityProviderConfig.build(input[:identity_provider_config]) unless input[:identity_provider_config].nil?
+        data['identityProviderConfig'] = IdentityProviderConfig.build(input[:identity_provider_config]) unless input[:identity_provider_config].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -845,10 +847,10 @@ module AWS::SDK::EKS
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['connectorConfig'] = Builders::ConnectorConfigRequest.build(input[:connector_config]) unless input[:connector_config].nil?
+        data['connectorConfig'] = ConnectorConfigRequest.build(input[:connector_config]) unless input[:connector_config].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -879,8 +881,8 @@ module AWS::SDK::EKS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -942,7 +944,7 @@ module AWS::SDK::EKS
         data['serviceAccountRoleArn'] = input[:service_account_role_arn] unless input[:service_account_role_arn].nil?
         data['resolveConflicts'] = input[:resolve_conflicts] unless input[:resolve_conflicts].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -963,10 +965,10 @@ module AWS::SDK::EKS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourcesVpcConfig'] = Builders::VpcConfigRequest.build(input[:resources_vpc_config]) unless input[:resources_vpc_config].nil?
-        data['logging'] = Builders::Logging.build(input[:logging]) unless input[:logging].nil?
+        data['resourcesVpcConfig'] = VpcConfigRequest.build(input[:resources_vpc_config]) unless input[:resources_vpc_config].nil?
+        data['logging'] = Logging.build(input[:logging]) unless input[:logging].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -989,7 +991,7 @@ module AWS::SDK::EKS
         data = {}
         data['version'] = input[:version] unless input[:version].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1014,12 +1016,12 @@ module AWS::SDK::EKS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['labels'] = Builders::UpdateLabelsPayload.build(input[:labels]) unless input[:labels].nil?
-        data['taints'] = Builders::UpdateTaintsPayload.build(input[:taints]) unless input[:taints].nil?
-        data['scalingConfig'] = Builders::NodegroupScalingConfig.build(input[:scaling_config]) unless input[:scaling_config].nil?
-        data['updateConfig'] = Builders::NodegroupUpdateConfig.build(input[:update_config]) unless input[:update_config].nil?
+        data['labels'] = UpdateLabelsPayload.build(input[:labels]) unless input[:labels].nil?
+        data['taints'] = UpdateTaintsPayload.build(input[:taints]) unless input[:taints].nil?
+        data['scalingConfig'] = NodegroupScalingConfig.build(input[:scaling_config]) unless input[:scaling_config].nil?
+        data['updateConfig'] = NodegroupUpdateConfig.build(input[:update_config]) unless input[:update_config].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1027,8 +1029,8 @@ module AWS::SDK::EKS
     class UpdateTaintsPayload
       def self.build(input)
         data = {}
-        data['addOrUpdateTaints'] = Builders::TaintsList.build(input[:add_or_update_taints]) unless input[:add_or_update_taints].nil?
-        data['removeTaints'] = Builders::TaintsList.build(input[:remove_taints]) unless input[:remove_taints].nil?
+        data['addOrUpdateTaints'] = TaintsList.build(input[:add_or_update_taints]) unless input[:add_or_update_taints].nil?
+        data['removeTaints'] = TaintsList.build(input[:remove_taints]) unless input[:remove_taints].nil?
         data
       end
     end
@@ -1037,8 +1039,8 @@ module AWS::SDK::EKS
     class UpdateLabelsPayload
       def self.build(input)
         data = {}
-        data['addOrUpdateLabels'] = Builders::LabelsMap.build(input[:add_or_update_labels]) unless input[:add_or_update_labels].nil?
-        data['removeLabels'] = Builders::LabelsKeyList.build(input[:remove_labels]) unless input[:remove_labels].nil?
+        data['addOrUpdateLabels'] = LabelsMap.build(input[:add_or_update_labels]) unless input[:add_or_update_labels].nil?
+        data['removeLabels'] = LabelsKeyList.build(input[:remove_labels]) unless input[:remove_labels].nil?
         data
       end
     end
@@ -1077,10 +1079,10 @@ module AWS::SDK::EKS
         data = {}
         data['version'] = input[:version] unless input[:version].nil?
         data['releaseVersion'] = input[:release_version] unless input[:release_version].nil?
-        data['launchTemplate'] = Builders::LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['launchTemplate'] = LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
         data['force'] = input[:force] unless input[:force].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

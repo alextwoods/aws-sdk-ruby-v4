@@ -17,8 +17,8 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.processed_clusters = (Parsers::ClusterList.parse(map['ProcessedClusters']) unless map['ProcessedClusters'].nil?)
-        data.unprocessed_clusters = (Parsers::UnprocessedClusterList.parse(map['UnprocessedClusters']) unless map['UnprocessedClusters'].nil?)
+        data.processed_clusters = (ClusterList.parse(map['ProcessedClusters']) unless map['ProcessedClusters'].nil?)
+        data.unprocessed_clusters = (UnprocessedClusterList.parse(map['UnprocessedClusters']) unless map['UnprocessedClusters'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::MemoryDB
     class UnprocessedClusterList
       def self.parse(list)
         list.map do |value|
-          Parsers::UnprocessedCluster.parse(value) unless value.nil?
+          UnprocessedCluster.parse(value) unless value.nil?
         end
       end
     end
@@ -44,7 +44,7 @@ module AWS::SDK::MemoryDB
     class ClusterList
       def self.parse(list)
         list.map do |value|
-          Parsers::Cluster.parse(value) unless value.nil?
+          Cluster.parse(value) unless value.nil?
         end
       end
     end
@@ -55,17 +55,17 @@ module AWS::SDK::MemoryDB
         data.name = map['Name']
         data.description = map['Description']
         data.status = map['Status']
-        data.pending_updates = (Parsers::ClusterPendingUpdates.parse(map['PendingUpdates']) unless map['PendingUpdates'].nil?)
+        data.pending_updates = (ClusterPendingUpdates.parse(map['PendingUpdates']) unless map['PendingUpdates'].nil?)
         data.number_of_shards = map['NumberOfShards']
-        data.shards = (Parsers::ShardList.parse(map['Shards']) unless map['Shards'].nil?)
+        data.shards = (ShardList.parse(map['Shards']) unless map['Shards'].nil?)
         data.availability_mode = map['AvailabilityMode']
-        data.cluster_endpoint = (Parsers::Endpoint.parse(map['ClusterEndpoint']) unless map['ClusterEndpoint'].nil?)
+        data.cluster_endpoint = (Endpoint.parse(map['ClusterEndpoint']) unless map['ClusterEndpoint'].nil?)
         data.node_type = map['NodeType']
         data.engine_version = map['EngineVersion']
         data.engine_patch_version = map['EnginePatchVersion']
         data.parameter_group_name = map['ParameterGroupName']
         data.parameter_group_status = map['ParameterGroupStatus']
-        data.security_groups = (Parsers::SecurityGroupMembershipList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.security_groups = (SecurityGroupMembershipList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data.subnet_group_name = map['SubnetGroupName']
         data.tls_enabled = map['TLSEnabled']
         data.kms_key_id = map['KmsKeyId']
@@ -84,7 +84,7 @@ module AWS::SDK::MemoryDB
     class SecurityGroupMembershipList
       def self.parse(list)
         list.map do |value|
-          Parsers::SecurityGroupMembership.parse(value) unless value.nil?
+          SecurityGroupMembership.parse(value) unless value.nil?
         end
       end
     end
@@ -110,7 +110,7 @@ module AWS::SDK::MemoryDB
     class ShardList
       def self.parse(list)
         list.map do |value|
-          Parsers::Shard.parse(value) unless value.nil?
+          Shard.parse(value) unless value.nil?
         end
       end
     end
@@ -121,7 +121,7 @@ module AWS::SDK::MemoryDB
         data.name = map['Name']
         data.status = map['Status']
         data.slots = map['Slots']
-        data.nodes = (Parsers::NodeList.parse(map['Nodes']) unless map['Nodes'].nil?)
+        data.nodes = (NodeList.parse(map['Nodes']) unless map['Nodes'].nil?)
         data.number_of_nodes = map['NumberOfNodes']
         return data
       end
@@ -130,7 +130,7 @@ module AWS::SDK::MemoryDB
     class NodeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Node.parse(value) unless value.nil?
+          Node.parse(value) unless value.nil?
         end
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::MemoryDB
         data.status = map['Status']
         data.availability_zone = map['AvailabilityZone']
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
-        data.endpoint = (Parsers::Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         return data
       end
     end
@@ -150,9 +150,9 @@ module AWS::SDK::MemoryDB
     class ClusterPendingUpdates
       def self.parse(map)
         data = Types::ClusterPendingUpdates.new
-        data.resharding = (Parsers::ReshardingStatus.parse(map['Resharding']) unless map['Resharding'].nil?)
-        data.ac_ls = (Parsers::ACLsUpdateStatus.parse(map['ACLs']) unless map['ACLs'].nil?)
-        data.service_updates = (Parsers::PendingModifiedServiceUpdateList.parse(map['ServiceUpdates']) unless map['ServiceUpdates'].nil?)
+        data.resharding = (ReshardingStatus.parse(map['Resharding']) unless map['Resharding'].nil?)
+        data.ac_ls = (ACLsUpdateStatus.parse(map['ACLs']) unless map['ACLs'].nil?)
+        data.service_updates = (PendingModifiedServiceUpdateList.parse(map['ServiceUpdates']) unless map['ServiceUpdates'].nil?)
         return data
       end
     end
@@ -160,7 +160,7 @@ module AWS::SDK::MemoryDB
     class PendingModifiedServiceUpdateList
       def self.parse(list)
         list.map do |value|
-          Parsers::PendingModifiedServiceUpdate.parse(value) unless value.nil?
+          PendingModifiedServiceUpdate.parse(value) unless value.nil?
         end
       end
     end
@@ -185,7 +185,7 @@ module AWS::SDK::MemoryDB
     class ReshardingStatus
       def self.parse(map)
         data = Types::ReshardingStatus.new
-        data.slot_migration = (Parsers::SlotMigration.parse(map['SlotMigration']) unless map['SlotMigration'].nil?)
+        data.slot_migration = (SlotMigration.parse(map['SlotMigration']) unless map['SlotMigration'].nil?)
         return data
       end
     end
@@ -229,7 +229,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshot = (Parsers::Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -242,7 +242,7 @@ module AWS::SDK::MemoryDB
         data.source = map['Source']
         data.kms_key_id = map['KmsKeyId']
         data.arn = map['ARN']
-        data.cluster_configuration = (Parsers::ClusterConfiguration.parse(map['ClusterConfiguration']) unless map['ClusterConfiguration'].nil?)
+        data.cluster_configuration = (ClusterConfiguration.parse(map['ClusterConfiguration']) unless map['ClusterConfiguration'].nil?)
         return data
       end
     end
@@ -263,7 +263,7 @@ module AWS::SDK::MemoryDB
         data.snapshot_retention_limit = map['SnapshotRetentionLimit']
         data.snapshot_window = map['SnapshotWindow']
         data.num_shards = map['NumShards']
-        data.shards = (Parsers::ShardDetails.parse(map['Shards']) unless map['Shards'].nil?)
+        data.shards = (ShardDetails.parse(map['Shards']) unless map['Shards'].nil?)
         return data
       end
     end
@@ -271,7 +271,7 @@ module AWS::SDK::MemoryDB
     class ShardDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ShardDetail.parse(value) unless value.nil?
+          ShardDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -280,7 +280,7 @@ module AWS::SDK::MemoryDB
       def self.parse(map)
         data = Types::ShardDetail.new
         data.name = map['Name']
-        data.configuration = (Parsers::ShardConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (ShardConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data.size = map['Size']
         data.snapshot_creation_time = Time.at(map['SnapshotCreationTime'].to_i) if map['SnapshotCreationTime']
         return data
@@ -387,7 +387,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.acl = (Parsers::ACL.parse(map['ACL']) unless map['ACL'].nil?)
+        data.acl = (ACL.parse(map['ACL']) unless map['ACL'].nil?)
         data
       end
     end
@@ -397,10 +397,10 @@ module AWS::SDK::MemoryDB
         data = Types::ACL.new
         data.name = map['Name']
         data.status = map['Status']
-        data.user_names = (Parsers::UserNameList.parse(map['UserNames']) unless map['UserNames'].nil?)
+        data.user_names = (UserNameList.parse(map['UserNames']) unless map['UserNames'].nil?)
         data.minimum_engine_version = map['MinimumEngineVersion']
-        data.pending_changes = (Parsers::ACLPendingChanges.parse(map['PendingChanges']) unless map['PendingChanges'].nil?)
-        data.clusters = (Parsers::ACLClusterNameList.parse(map['Clusters']) unless map['Clusters'].nil?)
+        data.pending_changes = (ACLPendingChanges.parse(map['PendingChanges']) unless map['PendingChanges'].nil?)
+        data.clusters = (ACLClusterNameList.parse(map['Clusters']) unless map['Clusters'].nil?)
         data.arn = map['ARN']
         return data
       end
@@ -417,8 +417,8 @@ module AWS::SDK::MemoryDB
     class ACLPendingChanges
       def self.parse(map)
         data = Types::ACLPendingChanges.new
-        data.user_names_to_remove = (Parsers::UserNameList.parse(map['UserNamesToRemove']) unless map['UserNamesToRemove'].nil?)
-        data.user_names_to_add = (Parsers::UserNameList.parse(map['UserNamesToAdd']) unless map['UserNamesToAdd'].nil?)
+        data.user_names_to_remove = (UserNameList.parse(map['UserNamesToRemove']) unless map['UserNamesToRemove'].nil?)
+        data.user_names_to_add = (UserNameList.parse(map['UserNamesToAdd']) unless map['UserNamesToAdd'].nil?)
         return data
       end
     end
@@ -498,7 +498,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -654,7 +654,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter_group = (Parsers::ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
+        data.parameter_group = (ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
         data
       end
     end
@@ -713,7 +713,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshot = (Parsers::Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subnet_group = (Parsers::SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
+        data.subnet_group = (SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
         data
       end
     end
@@ -760,7 +760,7 @@ module AWS::SDK::MemoryDB
         data.name = map['Name']
         data.description = map['Description']
         data.vpc_id = map['VpcId']
-        data.subnets = (Parsers::SubnetList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.subnets = (SubnetList.parse(map['Subnets']) unless map['Subnets'].nil?)
         data.arn = map['ARN']
         return data
       end
@@ -769,7 +769,7 @@ module AWS::SDK::MemoryDB
     class SubnetList
       def self.parse(list)
         list.map do |value|
-          Parsers::Subnet.parse(value) unless value.nil?
+          Subnet.parse(value) unless value.nil?
         end
       end
     end
@@ -778,7 +778,7 @@ module AWS::SDK::MemoryDB
       def self.parse(map)
         data = Types::Subnet.new
         data.identifier = map['Identifier']
-        data.availability_zone = (Parsers::AvailabilityZone.parse(map['AvailabilityZone']) unless map['AvailabilityZone'].nil?)
+        data.availability_zone = (AvailabilityZone.parse(map['AvailabilityZone']) unless map['AvailabilityZone'].nil?)
         return data
       end
     end
@@ -858,7 +858,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -869,9 +869,9 @@ module AWS::SDK::MemoryDB
         data.name = map['Name']
         data.status = map['Status']
         data.access_string = map['AccessString']
-        data.acl_names = (Parsers::ACLNameList.parse(map['ACLNames']) unless map['ACLNames'].nil?)
+        data.acl_names = (ACLNameList.parse(map['ACLNames']) unless map['ACLNames'].nil?)
         data.minimum_engine_version = map['MinimumEngineVersion']
-        data.authentication = (Parsers::Authentication.parse(map['Authentication']) unless map['Authentication'].nil?)
+        data.authentication = (Authentication.parse(map['Authentication']) unless map['Authentication'].nil?)
         data.arn = map['ARN']
         return data
       end
@@ -925,7 +925,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.acl = (Parsers::ACL.parse(map['ACL']) unless map['ACL'].nil?)
+        data.acl = (ACL.parse(map['ACL']) unless map['ACL'].nil?)
         data
       end
     end
@@ -937,7 +937,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -949,7 +949,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter_group = (Parsers::ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
+        data.parameter_group = (ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
         data
       end
     end
@@ -961,7 +961,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.snapshot = (Parsers::Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
+        data.snapshot = (Snapshot.parse(map['Snapshot']) unless map['Snapshot'].nil?)
         data
       end
     end
@@ -973,7 +973,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subnet_group = (Parsers::SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
+        data.subnet_group = (SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
         data
       end
     end
@@ -997,7 +997,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -1021,7 +1021,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ac_ls = (Parsers::ACLList.parse(map['ACLs']) unless map['ACLs'].nil?)
+        data.ac_ls = (ACLList.parse(map['ACLs']) unless map['ACLs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1030,7 +1030,7 @@ module AWS::SDK::MemoryDB
     class ACLList
       def self.parse(list)
         list.map do |value|
-          Parsers::ACL.parse(value) unless value.nil?
+          ACL.parse(value) unless value.nil?
         end
       end
     end
@@ -1043,7 +1043,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.clusters = (Parsers::ClusterList.parse(map['Clusters']) unless map['Clusters'].nil?)
+        data.clusters = (ClusterList.parse(map['Clusters']) unless map['Clusters'].nil?)
         data
       end
     end
@@ -1056,7 +1056,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.engine_versions = (Parsers::EngineVersionInfoList.parse(map['EngineVersions']) unless map['EngineVersions'].nil?)
+        data.engine_versions = (EngineVersionInfoList.parse(map['EngineVersions']) unless map['EngineVersions'].nil?)
         data
       end
     end
@@ -1064,7 +1064,7 @@ module AWS::SDK::MemoryDB
     class EngineVersionInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::EngineVersionInfo.parse(value) unless value.nil?
+          EngineVersionInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1087,7 +1087,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.events = (Parsers::EventList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventList.parse(map['Events']) unless map['Events'].nil?)
         data
       end
     end
@@ -1095,7 +1095,7 @@ module AWS::SDK::MemoryDB
     class EventList
       def self.parse(list)
         list.map do |value|
-          Parsers::Event.parse(value) unless value.nil?
+          Event.parse(value) unless value.nil?
         end
       end
     end
@@ -1119,7 +1119,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.parameter_groups = (Parsers::ParameterGroupList.parse(map['ParameterGroups']) unless map['ParameterGroups'].nil?)
+        data.parameter_groups = (ParameterGroupList.parse(map['ParameterGroups']) unless map['ParameterGroups'].nil?)
         data
       end
     end
@@ -1127,7 +1127,7 @@ module AWS::SDK::MemoryDB
     class ParameterGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterGroup.parse(value) unless value.nil?
+          ParameterGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1140,7 +1140,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.parameters = (Parsers::ParametersList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParametersList.parse(map['Parameters']) unless map['Parameters'].nil?)
         data
       end
     end
@@ -1148,7 +1148,7 @@ module AWS::SDK::MemoryDB
     class ParametersList
       def self.parse(list)
         list.map do |value|
-          Parsers::Parameter.parse(value) unless value.nil?
+          Parameter.parse(value) unless value.nil?
         end
       end
     end
@@ -1174,7 +1174,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.service_updates = (Parsers::ServiceUpdateList.parse(map['ServiceUpdates']) unless map['ServiceUpdates'].nil?)
+        data.service_updates = (ServiceUpdateList.parse(map['ServiceUpdates']) unless map['ServiceUpdates'].nil?)
         data
       end
     end
@@ -1182,7 +1182,7 @@ module AWS::SDK::MemoryDB
     class ServiceUpdateList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceUpdate.parse(value) unless value.nil?
+          ServiceUpdate.parse(value) unless value.nil?
         end
       end
     end
@@ -1210,7 +1210,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.snapshots = (Parsers::SnapshotList.parse(map['Snapshots']) unless map['Snapshots'].nil?)
+        data.snapshots = (SnapshotList.parse(map['Snapshots']) unless map['Snapshots'].nil?)
         data
       end
     end
@@ -1218,7 +1218,7 @@ module AWS::SDK::MemoryDB
     class SnapshotList
       def self.parse(list)
         list.map do |value|
-          Parsers::Snapshot.parse(value) unless value.nil?
+          Snapshot.parse(value) unless value.nil?
         end
       end
     end
@@ -1231,7 +1231,7 @@ module AWS::SDK::MemoryDB
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.subnet_groups = (Parsers::SubnetGroupList.parse(map['SubnetGroups']) unless map['SubnetGroups'].nil?)
+        data.subnet_groups = (SubnetGroupList.parse(map['SubnetGroups']) unless map['SubnetGroups'].nil?)
         data
       end
     end
@@ -1239,7 +1239,7 @@ module AWS::SDK::MemoryDB
     class SubnetGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::SubnetGroup.parse(value) unless value.nil?
+          SubnetGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1251,7 +1251,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.users = (Parsers::UserList.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (UserList.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1260,7 +1260,7 @@ module AWS::SDK::MemoryDB
     class UserList
       def self.parse(list)
         list.map do |value|
-          Parsers::User.parse(value) unless value.nil?
+          User.parse(value) unless value.nil?
         end
       end
     end
@@ -1272,7 +1272,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -1332,8 +1332,8 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scale_up_node_types = (Parsers::NodeTypeList.parse(map['ScaleUpNodeTypes']) unless map['ScaleUpNodeTypes'].nil?)
-        data.scale_down_node_types = (Parsers::NodeTypeList.parse(map['ScaleDownNodeTypes']) unless map['ScaleDownNodeTypes'].nil?)
+        data.scale_up_node_types = (NodeTypeList.parse(map['ScaleUpNodeTypes']) unless map['ScaleUpNodeTypes'].nil?)
+        data.scale_down_node_types = (NodeTypeList.parse(map['ScaleDownNodeTypes']) unless map['ScaleDownNodeTypes'].nil?)
         data
       end
     end
@@ -1353,7 +1353,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -1361,7 +1361,7 @@ module AWS::SDK::MemoryDB
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1394,7 +1394,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter_group = (Parsers::ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
+        data.parameter_group = (ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
         data
       end
     end
@@ -1406,7 +1406,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -1418,7 +1418,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -1442,7 +1442,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.acl = (Parsers::ACL.parse(map['ACL']) unless map['ACL'].nil?)
+        data.acl = (ACL.parse(map['ACL']) unless map['ACL'].nil?)
         data
       end
     end
@@ -1454,7 +1454,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -1490,7 +1490,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter_group = (Parsers::ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
+        data.parameter_group = (ParameterGroup.parse(map['ParameterGroup']) unless map['ParameterGroup'].nil?)
         data
       end
     end
@@ -1502,7 +1502,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subnet_group = (Parsers::SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
+        data.subnet_group = (SubnetGroup.parse(map['SubnetGroup']) unless map['SubnetGroup'].nil?)
         data
       end
     end
@@ -1526,7 +1526,7 @@ module AWS::SDK::MemoryDB
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end

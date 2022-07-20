@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppSync
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiAssociation'] = Stubs::ApiAssociation.stub(stub[:api_association]) unless stub[:api_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiAssociation'] = ApiAssociation.stub(stub[:api_association]) unless stub[:api_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,8 +65,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiCache'] = Stubs::ApiCache.stub(stub[:api_cache]) unless stub[:api_cache].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiCache'] = ApiCache.stub(stub[:api_cache]) unless stub[:api_cache].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -108,8 +110,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiKey'] = Stubs::ApiKey.stub(stub[:api_key]) unless stub[:api_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiKey'] = ApiKey.stub(stub[:api_key]) unless stub[:api_key].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,8 +151,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,12 +184,12 @@ module AWS::SDK::AppSync
         data['description'] = stub[:description] unless stub[:description].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['serviceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
-        data['dynamodbConfig'] = Stubs::DynamodbDataSourceConfig.stub(stub[:dynamodb_config]) unless stub[:dynamodb_config].nil?
-        data['lambdaConfig'] = Stubs::LambdaDataSourceConfig.stub(stub[:lambda_config]) unless stub[:lambda_config].nil?
-        data['elasticsearchConfig'] = Stubs::ElasticsearchDataSourceConfig.stub(stub[:elasticsearch_config]) unless stub[:elasticsearch_config].nil?
-        data['openSearchServiceConfig'] = Stubs::OpenSearchServiceDataSourceConfig.stub(stub[:open_search_service_config]) unless stub[:open_search_service_config].nil?
-        data['httpConfig'] = Stubs::HttpDataSourceConfig.stub(stub[:http_config]) unless stub[:http_config].nil?
-        data['relationalDatabaseConfig'] = Stubs::RelationalDatabaseDataSourceConfig.stub(stub[:relational_database_config]) unless stub[:relational_database_config].nil?
+        data['dynamodbConfig'] = DynamodbDataSourceConfig.stub(stub[:dynamodb_config]) unless stub[:dynamodb_config].nil?
+        data['lambdaConfig'] = LambdaDataSourceConfig.stub(stub[:lambda_config]) unless stub[:lambda_config].nil?
+        data['elasticsearchConfig'] = ElasticsearchDataSourceConfig.stub(stub[:elasticsearch_config]) unless stub[:elasticsearch_config].nil?
+        data['openSearchServiceConfig'] = OpenSearchServiceDataSourceConfig.stub(stub[:open_search_service_config]) unless stub[:open_search_service_config].nil?
+        data['httpConfig'] = HttpDataSourceConfig.stub(stub[:http_config]) unless stub[:http_config].nil?
+        data['relationalDatabaseConfig'] = RelationalDatabaseDataSourceConfig.stub(stub[:relational_database_config]) unless stub[:relational_database_config].nil?
         data
       end
     end
@@ -207,7 +209,7 @@ module AWS::SDK::AppSync
         stub ||= Types::RelationalDatabaseDataSourceConfig.new
         data = {}
         data['relationalDatabaseSourceType'] = stub[:relational_database_source_type] unless stub[:relational_database_source_type].nil?
-        data['rdsHttpEndpointConfig'] = Stubs::RdsHttpEndpointConfig.stub(stub[:rds_http_endpoint_config]) unless stub[:rds_http_endpoint_config].nil?
+        data['rdsHttpEndpointConfig'] = RdsHttpEndpointConfig.stub(stub[:rds_http_endpoint_config]) unless stub[:rds_http_endpoint_config].nil?
         data
       end
     end
@@ -253,7 +255,7 @@ module AWS::SDK::AppSync
         stub ||= Types::HttpDataSourceConfig.new
         data = {}
         data['endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
-        data['authorizationConfig'] = Stubs::AuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
+        data['authorizationConfig'] = AuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
         data
       end
     end
@@ -273,7 +275,7 @@ module AWS::SDK::AppSync
         stub ||= Types::AuthorizationConfig.new
         data = {}
         data['authorizationType'] = stub[:authorization_type] unless stub[:authorization_type].nil?
-        data['awsIamConfig'] = Stubs::AwsIamConfig.stub(stub[:aws_iam_config]) unless stub[:aws_iam_config].nil?
+        data['awsIamConfig'] = AwsIamConfig.stub(stub[:aws_iam_config]) unless stub[:aws_iam_config].nil?
         data
       end
     end
@@ -376,7 +378,7 @@ module AWS::SDK::AppSync
         data['tableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['awsRegion'] = stub[:aws_region] unless stub[:aws_region].nil?
         data['useCallerCredentials'] = stub[:use_caller_credentials] unless stub[:use_caller_credentials].nil?
-        data['deltaSyncConfig'] = Stubs::DeltaSyncConfig.stub(stub[:delta_sync_config]) unless stub[:delta_sync_config].nil?
+        data['deltaSyncConfig'] = DeltaSyncConfig.stub(stub[:delta_sync_config]) unless stub[:delta_sync_config].nil?
         data['versioned'] = stub[:versioned] unless stub[:versioned].nil?
         data
       end
@@ -416,8 +418,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainNameConfig'] = Stubs::DomainNameConfig.stub(stub[:domain_name_config]) unless stub[:domain_name_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainNameConfig'] = DomainNameConfig.stub(stub[:domain_name_config]) unless stub[:domain_name_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,8 +461,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['functionConfiguration'] = Stubs::FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['functionConfiguration'] = FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,7 +496,7 @@ module AWS::SDK::AppSync
         data['requestMappingTemplate'] = stub[:request_mapping_template] unless stub[:request_mapping_template].nil?
         data['responseMappingTemplate'] = stub[:response_mapping_template] unless stub[:response_mapping_template].nil?
         data['functionVersion'] = stub[:function_version] unless stub[:function_version].nil?
-        data['syncConfig'] = Stubs::SyncConfig.stub(stub[:sync_config]) unless stub[:sync_config].nil?
+        data['syncConfig'] = SyncConfig.stub(stub[:sync_config]) unless stub[:sync_config].nil?
         data['maxBatchSize'] = stub[:max_batch_size] unless stub[:max_batch_size].nil?
         data
       end
@@ -517,7 +519,7 @@ module AWS::SDK::AppSync
         data = {}
         data['conflictHandler'] = stub[:conflict_handler] unless stub[:conflict_handler].nil?
         data['conflictDetection'] = stub[:conflict_detection] unless stub[:conflict_detection].nil?
-        data['lambdaConflictHandlerConfig'] = Stubs::LambdaConflictHandlerConfig.stub(stub[:lambda_conflict_handler_config]) unless stub[:lambda_conflict_handler_config].nil?
+        data['lambdaConflictHandlerConfig'] = LambdaConflictHandlerConfig.stub(stub[:lambda_conflict_handler_config]) unless stub[:lambda_conflict_handler_config].nil?
         data
       end
     end
@@ -552,8 +554,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['graphqlApi'] = Stubs::GraphqlApi.stub(stub[:graphql_api]) unless stub[:graphql_api].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['graphqlApi'] = GraphqlApi.stub(stub[:graphql_api]) unless stub[:graphql_api].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -585,16 +587,16 @@ module AWS::SDK::AppSync
         data['name'] = stub[:name] unless stub[:name].nil?
         data['apiId'] = stub[:api_id] unless stub[:api_id].nil?
         data['authenticationType'] = stub[:authentication_type] unless stub[:authentication_type].nil?
-        data['logConfig'] = Stubs::LogConfig.stub(stub[:log_config]) unless stub[:log_config].nil?
-        data['userPoolConfig'] = Stubs::UserPoolConfig.stub(stub[:user_pool_config]) unless stub[:user_pool_config].nil?
-        data['openIDConnectConfig'] = Stubs::OpenIDConnectConfig.stub(stub[:open_id_connect_config]) unless stub[:open_id_connect_config].nil?
+        data['logConfig'] = LogConfig.stub(stub[:log_config]) unless stub[:log_config].nil?
+        data['userPoolConfig'] = UserPoolConfig.stub(stub[:user_pool_config]) unless stub[:user_pool_config].nil?
+        data['openIDConnectConfig'] = OpenIDConnectConfig.stub(stub[:open_id_connect_config]) unless stub[:open_id_connect_config].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['uris'] = Stubs::MapOfStringToString.stub(stub[:uris]) unless stub[:uris].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['additionalAuthenticationProviders'] = Stubs::AdditionalAuthenticationProviders.stub(stub[:additional_authentication_providers]) unless stub[:additional_authentication_providers].nil?
+        data['uris'] = MapOfStringToString.stub(stub[:uris]) unless stub[:uris].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['additionalAuthenticationProviders'] = AdditionalAuthenticationProviders.stub(stub[:additional_authentication_providers]) unless stub[:additional_authentication_providers].nil?
         data['xrayEnabled'] = stub[:xray_enabled] unless stub[:xray_enabled].nil?
         data['wafWebAclArn'] = stub[:waf_web_acl_arn] unless stub[:waf_web_acl_arn].nil?
-        data['lambdaAuthorizerConfig'] = Stubs::LambdaAuthorizerConfig.stub(stub[:lambda_authorizer_config]) unless stub[:lambda_authorizer_config].nil?
+        data['lambdaAuthorizerConfig'] = LambdaAuthorizerConfig.stub(stub[:lambda_authorizer_config]) unless stub[:lambda_authorizer_config].nil?
         data
       end
     end
@@ -635,7 +637,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdditionalAuthenticationProvider.stub(element) unless element.nil?
+          data << AdditionalAuthenticationProvider.stub(element) unless element.nil?
         end
         data
       end
@@ -658,9 +660,9 @@ module AWS::SDK::AppSync
         stub ||= Types::AdditionalAuthenticationProvider.new
         data = {}
         data['authenticationType'] = stub[:authentication_type] unless stub[:authentication_type].nil?
-        data['openIDConnectConfig'] = Stubs::OpenIDConnectConfig.stub(stub[:open_id_connect_config]) unless stub[:open_id_connect_config].nil?
-        data['userPoolConfig'] = Stubs::CognitoUserPoolConfig.stub(stub[:user_pool_config]) unless stub[:user_pool_config].nil?
-        data['lambdaAuthorizerConfig'] = Stubs::LambdaAuthorizerConfig.stub(stub[:lambda_authorizer_config]) unless stub[:lambda_authorizer_config].nil?
+        data['openIDConnectConfig'] = OpenIDConnectConfig.stub(stub[:open_id_connect_config]) unless stub[:open_id_connect_config].nil?
+        data['userPoolConfig'] = CognitoUserPoolConfig.stub(stub[:user_pool_config]) unless stub[:user_pool_config].nil?
+        data['lambdaAuthorizerConfig'] = LambdaAuthorizerConfig.stub(stub[:lambda_authorizer_config]) unless stub[:lambda_authorizer_config].nil?
         data
       end
     end
@@ -809,8 +811,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resolver'] = Stubs::Resolver.stub(stub[:resolver]) unless stub[:resolver].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resolver'] = Resolver.stub(stub[:resolver]) unless stub[:resolver].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -844,9 +846,9 @@ module AWS::SDK::AppSync
         data['requestMappingTemplate'] = stub[:request_mapping_template] unless stub[:request_mapping_template].nil?
         data['responseMappingTemplate'] = stub[:response_mapping_template] unless stub[:response_mapping_template].nil?
         data['kind'] = stub[:kind] unless stub[:kind].nil?
-        data['pipelineConfig'] = Stubs::PipelineConfig.stub(stub[:pipeline_config]) unless stub[:pipeline_config].nil?
-        data['syncConfig'] = Stubs::SyncConfig.stub(stub[:sync_config]) unless stub[:sync_config].nil?
-        data['cachingConfig'] = Stubs::CachingConfig.stub(stub[:caching_config]) unless stub[:caching_config].nil?
+        data['pipelineConfig'] = PipelineConfig.stub(stub[:pipeline_config]) unless stub[:pipeline_config].nil?
+        data['syncConfig'] = SyncConfig.stub(stub[:sync_config]) unless stub[:sync_config].nil?
+        data['cachingConfig'] = CachingConfig.stub(stub[:caching_config]) unless stub[:caching_config].nil?
         data['maxBatchSize'] = stub[:max_batch_size] unless stub[:max_batch_size].nil?
         data
       end
@@ -867,7 +869,7 @@ module AWS::SDK::AppSync
         stub ||= Types::CachingConfig.new
         data = {}
         data['ttl'] = stub[:ttl] unless stub[:ttl].nil?
-        data['cachingKeys'] = Stubs::CachingKeys.stub(stub[:caching_keys]) unless stub[:caching_keys].nil?
+        data['cachingKeys'] = CachingKeys.stub(stub[:caching_keys]) unless stub[:caching_keys].nil?
         data
       end
     end
@@ -905,7 +907,7 @@ module AWS::SDK::AppSync
       def self.stub(stub)
         stub ||= Types::PipelineConfig.new
         data = {}
-        data['functions'] = Stubs::FunctionsIds.stub(stub[:functions]) unless stub[:functions].nil?
+        data['functions'] = FunctionsIds.stub(stub[:functions]) unless stub[:functions].nil?
         data
       end
     end
@@ -942,8 +944,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['type'] = Stubs::Type.stub(stub[:type]) unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['type'] = Type.stub(stub[:type]) unless stub[:type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1115,8 +1117,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiAssociation'] = Stubs::ApiAssociation.stub(stub[:api_association]) unless stub[:api_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiAssociation'] = ApiAssociation.stub(stub[:api_association]) unless stub[:api_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1132,8 +1134,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiCache'] = Stubs::ApiCache.stub(stub[:api_cache]) unless stub[:api_cache].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiCache'] = ApiCache.stub(stub[:api_cache]) unless stub[:api_cache].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1149,8 +1151,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1166,8 +1168,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainNameConfig'] = Stubs::DomainNameConfig.stub(stub[:domain_name_config]) unless stub[:domain_name_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainNameConfig'] = DomainNameConfig.stub(stub[:domain_name_config]) unless stub[:domain_name_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1183,8 +1185,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['functionConfiguration'] = Stubs::FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['functionConfiguration'] = FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1200,8 +1202,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['graphqlApi'] = Stubs::GraphqlApi.stub(stub[:graphql_api]) unless stub[:graphql_api].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['graphqlApi'] = GraphqlApi.stub(stub[:graphql_api]) unless stub[:graphql_api].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1217,7 +1219,7 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:schema] || '')
+        http_resp.body = ::StringIO.new(stub[:schema] || '')
       end
     end
 
@@ -1233,8 +1235,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resolver'] = Stubs::Resolver.stub(stub[:resolver]) unless stub[:resolver].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resolver'] = Resolver.stub(stub[:resolver]) unless stub[:resolver].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1253,7 +1255,7 @@ module AWS::SDK::AppSync
         http_resp.headers['Content-Type'] = 'application/json'
         data['status'] = stub[:status] unless stub[:status].nil?
         data['details'] = stub[:details] unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1269,8 +1271,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['type'] = Stubs::Type.stub(stub[:type]) unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['type'] = Type.stub(stub[:type]) unless stub[:type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1287,9 +1289,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiKeys'] = Stubs::ApiKeys.stub(stub[:api_keys]) unless stub[:api_keys].nil?
+        data['apiKeys'] = ApiKeys.stub(stub[:api_keys]) unless stub[:api_keys].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1307,7 +1309,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApiKey.stub(element) unless element.nil?
+          data << ApiKey.stub(element) unless element.nil?
         end
         data
       end
@@ -1326,9 +1328,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dataSources'] = Stubs::DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['dataSources'] = DataSources.stub(stub[:data_sources]) unless stub[:data_sources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1346,7 +1348,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSource.stub(element) unless element.nil?
+          data << DataSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1365,9 +1367,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainNameConfigs'] = Stubs::DomainNameConfigs.stub(stub[:domain_name_configs]) unless stub[:domain_name_configs].nil?
+        data['domainNameConfigs'] = DomainNameConfigs.stub(stub[:domain_name_configs]) unless stub[:domain_name_configs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1385,7 +1387,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainNameConfig.stub(element) unless element.nil?
+          data << DomainNameConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1404,9 +1406,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['functions'] = Stubs::Functions.stub(stub[:functions]) unless stub[:functions].nil?
+        data['functions'] = Functions.stub(stub[:functions]) unless stub[:functions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1424,7 +1426,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FunctionConfiguration.stub(element) unless element.nil?
+          data << FunctionConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1443,9 +1445,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['graphqlApis'] = Stubs::GraphqlApis.stub(stub[:graphql_apis]) unless stub[:graphql_apis].nil?
+        data['graphqlApis'] = GraphqlApis.stub(stub[:graphql_apis]) unless stub[:graphql_apis].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1463,7 +1465,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GraphqlApi.stub(element) unless element.nil?
+          data << GraphqlApi.stub(element) unless element.nil?
         end
         data
       end
@@ -1482,9 +1484,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resolvers'] = Stubs::Resolvers.stub(stub[:resolvers]) unless stub[:resolvers].nil?
+        data['resolvers'] = Resolvers.stub(stub[:resolvers]) unless stub[:resolvers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1502,7 +1504,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resolver.stub(element) unless element.nil?
+          data << Resolver.stub(element) unless element.nil?
         end
         data
       end
@@ -1521,9 +1523,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resolvers'] = Stubs::Resolvers.stub(stub[:resolvers]) unless stub[:resolvers].nil?
+        data['resolvers'] = Resolvers.stub(stub[:resolvers]) unless stub[:resolvers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1539,8 +1541,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1557,9 +1559,9 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['types'] = Stubs::TypeList.stub(stub[:types]) unless stub[:types].nil?
+        data['types'] = TypeList.stub(stub[:types]) unless stub[:types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1577,7 +1579,7 @@ module AWS::SDK::AppSync
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Type.stub(element) unless element.nil?
+          data << Type.stub(element) unless element.nil?
         end
         data
       end
@@ -1596,7 +1598,7 @@ module AWS::SDK::AppSync
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1638,8 +1640,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiCache'] = Stubs::ApiCache.stub(stub[:api_cache]) unless stub[:api_cache].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiCache'] = ApiCache.stub(stub[:api_cache]) unless stub[:api_cache].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1655,8 +1657,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apiKey'] = Stubs::ApiKey.stub(stub[:api_key]) unless stub[:api_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiKey'] = ApiKey.stub(stub[:api_key]) unless stub[:api_key].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1672,8 +1674,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['dataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1689,8 +1691,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainNameConfig'] = Stubs::DomainNameConfig.stub(stub[:domain_name_config]) unless stub[:domain_name_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainNameConfig'] = DomainNameConfig.stub(stub[:domain_name_config]) unless stub[:domain_name_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1706,8 +1708,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['functionConfiguration'] = Stubs::FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['functionConfiguration'] = FunctionConfiguration.stub(stub[:function_configuration]) unless stub[:function_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1723,8 +1725,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['graphqlApi'] = Stubs::GraphqlApi.stub(stub[:graphql_api]) unless stub[:graphql_api].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['graphqlApi'] = GraphqlApi.stub(stub[:graphql_api]) unless stub[:graphql_api].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1740,8 +1742,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resolver'] = Stubs::Resolver.stub(stub[:resolver]) unless stub[:resolver].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resolver'] = Resolver.stub(stub[:resolver]) unless stub[:resolver].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1757,8 +1759,8 @@ module AWS::SDK::AppSync
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['type'] = Stubs::Type.stub(stub[:type]) unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['type'] = Type.stub(stub[:type]) unless stub[:type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

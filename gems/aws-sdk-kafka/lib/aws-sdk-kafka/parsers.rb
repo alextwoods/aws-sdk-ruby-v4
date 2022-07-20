@@ -16,7 +16,7 @@ module AWS::SDK::Kafka
         data = Types::BatchAssociateScramSecretOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.cluster_arn = map['clusterArn']
-        data.unprocessed_scram_secrets = (Parsers::List____listOfUnprocessedScramSecret.parse(map['unprocessedScramSecrets']) unless map['unprocessedScramSecrets'].nil?)
+        data.unprocessed_scram_secrets = (List____listOfUnprocessedScramSecret.parse(map['unprocessedScramSecrets']) unless map['unprocessedScramSecrets'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UnprocessedScramSecret.parse(value) unless value.nil?
+          data << UnprocessedScramSecret.parse(value) unless value.nil?
         end
         data
       end
@@ -124,7 +124,7 @@ module AWS::SDK::Kafka
         data = Types::BatchDisassociateScramSecretOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.cluster_arn = map['clusterArn']
-        data.unprocessed_scram_secrets = (Parsers::List____listOfUnprocessedScramSecret.parse(map['unprocessedScramSecrets']) unless map['unprocessedScramSecrets'].nil?)
+        data.unprocessed_scram_secrets = (List____listOfUnprocessedScramSecret.parse(map['unprocessedScramSecrets']) unless map['unprocessedScramSecrets'].nil?)
         data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::Kafka
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
-        data.latest_revision = (Parsers::ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.latest_revision = (ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
         data.state = map['state']
         data
@@ -216,7 +216,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::DescribeClusterOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster_info = (Parsers::ClusterInfo.parse(map['clusterInfo']) unless map['clusterInfo'].nil?)
+        data.cluster_info = (ClusterInfo.parse(map['clusterInfo']) unless map['clusterInfo'].nil?)
         data
       end
     end
@@ -225,21 +225,21 @@ module AWS::SDK::Kafka
       def self.parse(map)
         data = Types::ClusterInfo.new
         data.active_operation_arn = map['activeOperationArn']
-        data.broker_node_group_info = (Parsers::BrokerNodeGroupInfo.parse(map['brokerNodeGroupInfo']) unless map['brokerNodeGroupInfo'].nil?)
-        data.client_authentication = (Parsers::ClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
+        data.broker_node_group_info = (BrokerNodeGroupInfo.parse(map['brokerNodeGroupInfo']) unless map['brokerNodeGroupInfo'].nil?)
+        data.client_authentication = (ClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
         data.cluster_arn = map['clusterArn']
         data.cluster_name = map['clusterName']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
-        data.current_broker_software_info = (Parsers::BrokerSoftwareInfo.parse(map['currentBrokerSoftwareInfo']) unless map['currentBrokerSoftwareInfo'].nil?)
+        data.current_broker_software_info = (BrokerSoftwareInfo.parse(map['currentBrokerSoftwareInfo']) unless map['currentBrokerSoftwareInfo'].nil?)
         data.current_version = map['currentVersion']
-        data.encryption_info = (Parsers::EncryptionInfo.parse(map['encryptionInfo']) unless map['encryptionInfo'].nil?)
+        data.encryption_info = (EncryptionInfo.parse(map['encryptionInfo']) unless map['encryptionInfo'].nil?)
         data.enhanced_monitoring = map['enhancedMonitoring']
-        data.open_monitoring = (Parsers::OpenMonitoring.parse(map['openMonitoring']) unless map['openMonitoring'].nil?)
-        data.logging_info = (Parsers::LoggingInfo.parse(map['loggingInfo']) unless map['loggingInfo'].nil?)
+        data.open_monitoring = (OpenMonitoring.parse(map['openMonitoring']) unless map['openMonitoring'].nil?)
+        data.logging_info = (LoggingInfo.parse(map['loggingInfo']) unless map['loggingInfo'].nil?)
         data.number_of_broker_nodes = map['numberOfBrokerNodes']
         data.state = map['state']
-        data.state_info = (Parsers::StateInfo.parse(map['stateInfo']) unless map['stateInfo'].nil?)
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.state_info = (StateInfo.parse(map['stateInfo']) unless map['stateInfo'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.zookeeper_connect_string = map['zookeeperConnectString']
         data.zookeeper_connect_string_tls = map['zookeeperConnectStringTls']
         return data
@@ -268,7 +268,7 @@ module AWS::SDK::Kafka
     class LoggingInfo
       def self.parse(map)
         data = Types::LoggingInfo.new
-        data.broker_logs = (Parsers::BrokerLogs.parse(map['brokerLogs']) unless map['brokerLogs'].nil?)
+        data.broker_logs = (BrokerLogs.parse(map['brokerLogs']) unless map['brokerLogs'].nil?)
         return data
       end
     end
@@ -276,9 +276,9 @@ module AWS::SDK::Kafka
     class BrokerLogs
       def self.parse(map)
         data = Types::BrokerLogs.new
-        data.cloud_watch_logs = (Parsers::CloudWatchLogs.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
-        data.firehose = (Parsers::Firehose.parse(map['firehose']) unless map['firehose'].nil?)
-        data.s3 = (Parsers::S3.parse(map['s3']) unless map['s3'].nil?)
+        data.cloud_watch_logs = (CloudWatchLogs.parse(map['cloudWatchLogs']) unless map['cloudWatchLogs'].nil?)
+        data.firehose = (Firehose.parse(map['firehose']) unless map['firehose'].nil?)
+        data.s3 = (S3.parse(map['s3']) unless map['s3'].nil?)
         return data
       end
     end
@@ -314,7 +314,7 @@ module AWS::SDK::Kafka
     class OpenMonitoring
       def self.parse(map)
         data = Types::OpenMonitoring.new
-        data.prometheus = (Parsers::Prometheus.parse(map['prometheus']) unless map['prometheus'].nil?)
+        data.prometheus = (Prometheus.parse(map['prometheus']) unless map['prometheus'].nil?)
         return data
       end
     end
@@ -322,8 +322,8 @@ module AWS::SDK::Kafka
     class Prometheus
       def self.parse(map)
         data = Types::Prometheus.new
-        data.jmx_exporter = (Parsers::JmxExporter.parse(map['jmxExporter']) unless map['jmxExporter'].nil?)
-        data.node_exporter = (Parsers::NodeExporter.parse(map['nodeExporter']) unless map['nodeExporter'].nil?)
+        data.jmx_exporter = (JmxExporter.parse(map['jmxExporter']) unless map['jmxExporter'].nil?)
+        data.node_exporter = (NodeExporter.parse(map['nodeExporter']) unless map['nodeExporter'].nil?)
         return data
       end
     end
@@ -347,8 +347,8 @@ module AWS::SDK::Kafka
     class EncryptionInfo
       def self.parse(map)
         data = Types::EncryptionInfo.new
-        data.encryption_at_rest = (Parsers::EncryptionAtRest.parse(map['encryptionAtRest']) unless map['encryptionAtRest'].nil?)
-        data.encryption_in_transit = (Parsers::EncryptionInTransit.parse(map['encryptionInTransit']) unless map['encryptionInTransit'].nil?)
+        data.encryption_at_rest = (EncryptionAtRest.parse(map['encryptionAtRest']) unless map['encryptionAtRest'].nil?)
+        data.encryption_in_transit = (EncryptionInTransit.parse(map['encryptionInTransit']) unless map['encryptionInTransit'].nil?)
         return data
       end
     end
@@ -383,9 +383,9 @@ module AWS::SDK::Kafka
     class ClientAuthentication
       def self.parse(map)
         data = Types::ClientAuthentication.new
-        data.sasl = (Parsers::Sasl.parse(map['sasl']) unless map['sasl'].nil?)
-        data.tls = (Parsers::Tls.parse(map['tls']) unless map['tls'].nil?)
-        data.unauthenticated = (Parsers::Unauthenticated.parse(map['unauthenticated']) unless map['unauthenticated'].nil?)
+        data.sasl = (Sasl.parse(map['sasl']) unless map['sasl'].nil?)
+        data.tls = (Tls.parse(map['tls']) unless map['tls'].nil?)
+        data.unauthenticated = (Unauthenticated.parse(map['unauthenticated']) unless map['unauthenticated'].nil?)
         return data
       end
     end
@@ -401,7 +401,7 @@ module AWS::SDK::Kafka
     class Tls
       def self.parse(map)
         data = Types::Tls.new
-        data.certificate_authority_arn_list = (Parsers::List____listOf__string.parse(map['certificateAuthorityArnList']) unless map['certificateAuthorityArnList'].nil?)
+        data.certificate_authority_arn_list = (List____listOf__string.parse(map['certificateAuthorityArnList']) unless map['certificateAuthorityArnList'].nil?)
         data.enabled = map['enabled']
         return data
       end
@@ -420,8 +420,8 @@ module AWS::SDK::Kafka
     class Sasl
       def self.parse(map)
         data = Types::Sasl.new
-        data.scram = (Parsers::Scram.parse(map['scram']) unless map['scram'].nil?)
-        data.iam = (Parsers::Iam.parse(map['iam']) unless map['iam'].nil?)
+        data.scram = (Scram.parse(map['scram']) unless map['scram'].nil?)
+        data.iam = (Iam.parse(map['iam']) unless map['iam'].nil?)
         return data
       end
     end
@@ -446,11 +446,11 @@ module AWS::SDK::Kafka
       def self.parse(map)
         data = Types::BrokerNodeGroupInfo.new
         data.broker_az_distribution = map['brokerAZDistribution']
-        data.client_subnets = (Parsers::List____listOf__string.parse(map['clientSubnets']) unless map['clientSubnets'].nil?)
+        data.client_subnets = (List____listOf__string.parse(map['clientSubnets']) unless map['clientSubnets'].nil?)
         data.instance_type = map['instanceType']
-        data.security_groups = (Parsers::List____listOf__string.parse(map['securityGroups']) unless map['securityGroups'].nil?)
-        data.storage_info = (Parsers::StorageInfo.parse(map['storageInfo']) unless map['storageInfo'].nil?)
-        data.connectivity_info = (Parsers::ConnectivityInfo.parse(map['connectivityInfo']) unless map['connectivityInfo'].nil?)
+        data.security_groups = (List____listOf__string.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.storage_info = (StorageInfo.parse(map['storageInfo']) unless map['storageInfo'].nil?)
+        data.connectivity_info = (ConnectivityInfo.parse(map['connectivityInfo']) unless map['connectivityInfo'].nil?)
         return data
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::Kafka
     class ConnectivityInfo
       def self.parse(map)
         data = Types::ConnectivityInfo.new
-        data.public_access = (Parsers::PublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
+        data.public_access = (PublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
         return data
       end
     end
@@ -474,7 +474,7 @@ module AWS::SDK::Kafka
     class StorageInfo
       def self.parse(map)
         data = Types::StorageInfo.new
-        data.ebs_storage_info = (Parsers::EBSStorageInfo.parse(map['ebsStorageInfo']) unless map['ebsStorageInfo'].nil?)
+        data.ebs_storage_info = (EBSStorageInfo.parse(map['ebsStorageInfo']) unless map['ebsStorageInfo'].nil?)
         return data
       end
     end
@@ -482,7 +482,7 @@ module AWS::SDK::Kafka
     class EBSStorageInfo
       def self.parse(map)
         data = Types::EBSStorageInfo.new
-        data.provisioned_throughput = (Parsers::ProvisionedThroughput.parse(map['provisionedThroughput']) unless map['provisionedThroughput'].nil?)
+        data.provisioned_throughput = (ProvisionedThroughput.parse(map['provisionedThroughput']) unless map['provisionedThroughput'].nil?)
         data.volume_size = map['volumeSize']
         return data
       end
@@ -502,7 +502,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::DescribeClusterOperationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster_operation_info = (Parsers::ClusterOperationInfo.parse(map['clusterOperationInfo']) unless map['clusterOperationInfo'].nil?)
+        data.cluster_operation_info = (ClusterOperationInfo.parse(map['clusterOperationInfo']) unless map['clusterOperationInfo'].nil?)
         data
       end
     end
@@ -514,13 +514,13 @@ module AWS::SDK::Kafka
         data.cluster_arn = map['clusterArn']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.end_time = Time.parse(map['endTime']) if map['endTime']
-        data.error_info = (Parsers::ErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
+        data.error_info = (ErrorInfo.parse(map['errorInfo']) unless map['errorInfo'].nil?)
         data.operation_arn = map['operationArn']
         data.operation_state = map['operationState']
-        data.operation_steps = (Parsers::List____listOfClusterOperationStep.parse(map['operationSteps']) unless map['operationSteps'].nil?)
+        data.operation_steps = (List____listOfClusterOperationStep.parse(map['operationSteps']) unless map['operationSteps'].nil?)
         data.operation_type = map['operationType']
-        data.source_cluster_info = (Parsers::MutableClusterInfo.parse(map['sourceClusterInfo']) unless map['sourceClusterInfo'].nil?)
-        data.target_cluster_info = (Parsers::MutableClusterInfo.parse(map['targetClusterInfo']) unless map['targetClusterInfo'].nil?)
+        data.source_cluster_info = (MutableClusterInfo.parse(map['sourceClusterInfo']) unless map['sourceClusterInfo'].nil?)
+        data.target_cluster_info = (MutableClusterInfo.parse(map['targetClusterInfo']) unless map['targetClusterInfo'].nil?)
         return data
       end
     end
@@ -528,17 +528,17 @@ module AWS::SDK::Kafka
     class MutableClusterInfo
       def self.parse(map)
         data = Types::MutableClusterInfo.new
-        data.broker_ebs_volume_info = (Parsers::List____listOfBrokerEBSVolumeInfo.parse(map['brokerEBSVolumeInfo']) unless map['brokerEBSVolumeInfo'].nil?)
-        data.configuration_info = (Parsers::ConfigurationInfo.parse(map['configurationInfo']) unless map['configurationInfo'].nil?)
+        data.broker_ebs_volume_info = (List____listOfBrokerEBSVolumeInfo.parse(map['brokerEBSVolumeInfo']) unless map['brokerEBSVolumeInfo'].nil?)
+        data.configuration_info = (ConfigurationInfo.parse(map['configurationInfo']) unless map['configurationInfo'].nil?)
         data.number_of_broker_nodes = map['numberOfBrokerNodes']
         data.enhanced_monitoring = map['enhancedMonitoring']
-        data.open_monitoring = (Parsers::OpenMonitoring.parse(map['openMonitoring']) unless map['openMonitoring'].nil?)
+        data.open_monitoring = (OpenMonitoring.parse(map['openMonitoring']) unless map['openMonitoring'].nil?)
         data.kafka_version = map['kafkaVersion']
-        data.logging_info = (Parsers::LoggingInfo.parse(map['loggingInfo']) unless map['loggingInfo'].nil?)
+        data.logging_info = (LoggingInfo.parse(map['loggingInfo']) unless map['loggingInfo'].nil?)
         data.instance_type = map['instanceType']
-        data.client_authentication = (Parsers::ClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
-        data.encryption_info = (Parsers::EncryptionInfo.parse(map['encryptionInfo']) unless map['encryptionInfo'].nil?)
-        data.connectivity_info = (Parsers::ConnectivityInfo.parse(map['connectivityInfo']) unless map['connectivityInfo'].nil?)
+        data.client_authentication = (ClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
+        data.encryption_info = (EncryptionInfo.parse(map['encryptionInfo']) unless map['encryptionInfo'].nil?)
+        data.connectivity_info = (ConnectivityInfo.parse(map['connectivityInfo']) unless map['connectivityInfo'].nil?)
         return data
       end
     end
@@ -556,7 +556,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BrokerEBSVolumeInfo.parse(value) unless value.nil?
+          data << BrokerEBSVolumeInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -566,7 +566,7 @@ module AWS::SDK::Kafka
       def self.parse(map)
         data = Types::BrokerEBSVolumeInfo.new
         data.kafka_broker_node_id = map['kafkaBrokerNodeId']
-        data.provisioned_throughput = (Parsers::ProvisionedThroughput.parse(map['provisionedThroughput']) unless map['provisionedThroughput'].nil?)
+        data.provisioned_throughput = (ProvisionedThroughput.parse(map['provisionedThroughput']) unless map['provisionedThroughput'].nil?)
         data.volume_size_gb = map['volumeSizeGB']
         return data
       end
@@ -576,7 +576,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ClusterOperationStep.parse(value) unless value.nil?
+          data << ClusterOperationStep.parse(value) unless value.nil?
         end
         data
       end
@@ -585,7 +585,7 @@ module AWS::SDK::Kafka
     class ClusterOperationStep
       def self.parse(map)
         data = Types::ClusterOperationStep.new
-        data.step_info = (Parsers::ClusterOperationStepInfo.parse(map['stepInfo']) unless map['stepInfo'].nil?)
+        data.step_info = (ClusterOperationStepInfo.parse(map['stepInfo']) unless map['stepInfo'].nil?)
         data.step_name = map['stepName']
         return data
       end
@@ -613,7 +613,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::DescribeClusterV2Output.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster_info = (Parsers::Cluster.parse(map['clusterInfo']) unless map['clusterInfo'].nil?)
+        data.cluster_info = (Cluster.parse(map['clusterInfo']) unless map['clusterInfo'].nil?)
         data
       end
     end
@@ -628,10 +628,10 @@ module AWS::SDK::Kafka
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.current_version = map['currentVersion']
         data.state = map['state']
-        data.state_info = (Parsers::StateInfo.parse(map['stateInfo']) unless map['stateInfo'].nil?)
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
-        data.provisioned = (Parsers::Provisioned.parse(map['provisioned']) unless map['provisioned'].nil?)
-        data.serverless = (Parsers::Serverless.parse(map['serverless']) unless map['serverless'].nil?)
+        data.state_info = (StateInfo.parse(map['stateInfo']) unless map['stateInfo'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.provisioned = (Provisioned.parse(map['provisioned']) unless map['provisioned'].nil?)
+        data.serverless = (Serverless.parse(map['serverless']) unless map['serverless'].nil?)
         return data
       end
     end
@@ -639,8 +639,8 @@ module AWS::SDK::Kafka
     class Serverless
       def self.parse(map)
         data = Types::Serverless.new
-        data.vpc_configs = (Parsers::List____listOfVpcConfig.parse(map['vpcConfigs']) unless map['vpcConfigs'].nil?)
-        data.client_authentication = (Parsers::ServerlessClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
+        data.vpc_configs = (List____listOfVpcConfig.parse(map['vpcConfigs']) unless map['vpcConfigs'].nil?)
+        data.client_authentication = (ServerlessClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
         return data
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::Kafka
     class ServerlessClientAuthentication
       def self.parse(map)
         data = Types::ServerlessClientAuthentication.new
-        data.sasl = (Parsers::ServerlessSasl.parse(map['sasl']) unless map['sasl'].nil?)
+        data.sasl = (ServerlessSasl.parse(map['sasl']) unless map['sasl'].nil?)
         return data
       end
     end
@@ -656,7 +656,7 @@ module AWS::SDK::Kafka
     class ServerlessSasl
       def self.parse(map)
         data = Types::ServerlessSasl.new
-        data.iam = (Parsers::Iam.parse(map['iam']) unless map['iam'].nil?)
+        data.iam = (Iam.parse(map['iam']) unless map['iam'].nil?)
         return data
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VpcConfig.parse(value) unless value.nil?
+          data << VpcConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -674,8 +674,8 @@ module AWS::SDK::Kafka
     class VpcConfig
       def self.parse(map)
         data = Types::VpcConfig.new
-        data.subnet_ids = (Parsers::List____listOf__string.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.security_group_ids = (Parsers::List____listOf__string.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (List____listOf__string.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_group_ids = (List____listOf__string.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         return data
       end
     end
@@ -683,13 +683,13 @@ module AWS::SDK::Kafka
     class Provisioned
       def self.parse(map)
         data = Types::Provisioned.new
-        data.broker_node_group_info = (Parsers::BrokerNodeGroupInfo.parse(map['brokerNodeGroupInfo']) unless map['brokerNodeGroupInfo'].nil?)
-        data.current_broker_software_info = (Parsers::BrokerSoftwareInfo.parse(map['currentBrokerSoftwareInfo']) unless map['currentBrokerSoftwareInfo'].nil?)
-        data.client_authentication = (Parsers::ClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
-        data.encryption_info = (Parsers::EncryptionInfo.parse(map['encryptionInfo']) unless map['encryptionInfo'].nil?)
+        data.broker_node_group_info = (BrokerNodeGroupInfo.parse(map['brokerNodeGroupInfo']) unless map['brokerNodeGroupInfo'].nil?)
+        data.current_broker_software_info = (BrokerSoftwareInfo.parse(map['currentBrokerSoftwareInfo']) unless map['currentBrokerSoftwareInfo'].nil?)
+        data.client_authentication = (ClientAuthentication.parse(map['clientAuthentication']) unless map['clientAuthentication'].nil?)
+        data.encryption_info = (EncryptionInfo.parse(map['encryptionInfo']) unless map['encryptionInfo'].nil?)
         data.enhanced_monitoring = map['enhancedMonitoring']
-        data.open_monitoring = (Parsers::OpenMonitoringInfo.parse(map['openMonitoring']) unless map['openMonitoring'].nil?)
-        data.logging_info = (Parsers::LoggingInfo.parse(map['loggingInfo']) unless map['loggingInfo'].nil?)
+        data.open_monitoring = (OpenMonitoringInfo.parse(map['openMonitoring']) unless map['openMonitoring'].nil?)
+        data.logging_info = (LoggingInfo.parse(map['loggingInfo']) unless map['loggingInfo'].nil?)
         data.number_of_broker_nodes = map['numberOfBrokerNodes']
         data.zookeeper_connect_string = map['zookeeperConnectString']
         data.zookeeper_connect_string_tls = map['zookeeperConnectStringTls']
@@ -700,7 +700,7 @@ module AWS::SDK::Kafka
     class OpenMonitoringInfo
       def self.parse(map)
         data = Types::OpenMonitoringInfo.new
-        data.prometheus = (Parsers::PrometheusInfo.parse(map['prometheus']) unless map['prometheus'].nil?)
+        data.prometheus = (PrometheusInfo.parse(map['prometheus']) unless map['prometheus'].nil?)
         return data
       end
     end
@@ -708,8 +708,8 @@ module AWS::SDK::Kafka
     class PrometheusInfo
       def self.parse(map)
         data = Types::PrometheusInfo.new
-        data.jmx_exporter = (Parsers::JmxExporterInfo.parse(map['jmxExporter']) unless map['jmxExporter'].nil?)
-        data.node_exporter = (Parsers::NodeExporterInfo.parse(map['nodeExporter']) unless map['nodeExporter'].nil?)
+        data.jmx_exporter = (JmxExporterInfo.parse(map['jmxExporter']) unless map['jmxExporter'].nil?)
+        data.node_exporter = (NodeExporterInfo.parse(map['nodeExporter']) unless map['nodeExporter'].nil?)
         return data
       end
     end
@@ -738,8 +738,8 @@ module AWS::SDK::Kafka
         data.arn = map['arn']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.description = map['description']
-        data.kafka_versions = (Parsers::List____listOf__string.parse(map['kafkaVersions']) unless map['kafkaVersions'].nil?)
-        data.latest_revision = (Parsers::ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.kafka_versions = (List____listOf__string.parse(map['kafkaVersions']) unless map['kafkaVersions'].nil?)
+        data.latest_revision = (ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
         data.state = map['state']
         data
@@ -781,7 +781,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::GetCompatibleKafkaVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.compatible_kafka_versions = (Parsers::List____listOfCompatibleKafkaVersion.parse(map['compatibleKafkaVersions']) unless map['compatibleKafkaVersions'].nil?)
+        data.compatible_kafka_versions = (List____listOfCompatibleKafkaVersion.parse(map['compatibleKafkaVersions']) unless map['compatibleKafkaVersions'].nil?)
         data
       end
     end
@@ -790,7 +790,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CompatibleKafkaVersion.parse(value) unless value.nil?
+          data << CompatibleKafkaVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -800,7 +800,7 @@ module AWS::SDK::Kafka
       def self.parse(map)
         data = Types::CompatibleKafkaVersion.new
         data.source_version = map['sourceVersion']
-        data.target_versions = (Parsers::List____listOf__string.parse(map['targetVersions']) unless map['targetVersions'].nil?)
+        data.target_versions = (List____listOf__string.parse(map['targetVersions']) unless map['targetVersions'].nil?)
         return data
       end
     end
@@ -810,7 +810,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::ListClusterOperationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster_operation_info_list = (Parsers::List____listOfClusterOperationInfo.parse(map['clusterOperationInfoList']) unless map['clusterOperationInfoList'].nil?)
+        data.cluster_operation_info_list = (List____listOfClusterOperationInfo.parse(map['clusterOperationInfoList']) unless map['clusterOperationInfoList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -820,7 +820,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ClusterOperationInfo.parse(value) unless value.nil?
+          data << ClusterOperationInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -831,7 +831,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::ListClustersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster_info_list = (Parsers::List____listOfClusterInfo.parse(map['clusterInfoList']) unless map['clusterInfoList'].nil?)
+        data.cluster_info_list = (List____listOfClusterInfo.parse(map['clusterInfoList']) unless map['clusterInfoList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -841,7 +841,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ClusterInfo.parse(value) unless value.nil?
+          data << ClusterInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -852,7 +852,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::ListClustersV2Output.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster_info_list = (Parsers::List____listOfCluster.parse(map['clusterInfoList']) unless map['clusterInfoList'].nil?)
+        data.cluster_info_list = (List____listOfCluster.parse(map['clusterInfoList']) unless map['clusterInfoList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -862,7 +862,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Cluster.parse(value) unless value.nil?
+          data << Cluster.parse(value) unless value.nil?
         end
         data
       end
@@ -874,7 +874,7 @@ module AWS::SDK::Kafka
         data = Types::ListConfigurationRevisionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.revisions = (Parsers::List____listOfConfigurationRevision.parse(map['revisions']) unless map['revisions'].nil?)
+        data.revisions = (List____listOfConfigurationRevision.parse(map['revisions']) unless map['revisions'].nil?)
         data
       end
     end
@@ -883,7 +883,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConfigurationRevision.parse(value) unless value.nil?
+          data << ConfigurationRevision.parse(value) unless value.nil?
         end
         data
       end
@@ -894,7 +894,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::ListConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.configurations = (Parsers::List____listOfConfiguration.parse(map['configurations']) unless map['configurations'].nil?)
+        data.configurations = (List____listOfConfiguration.parse(map['configurations']) unless map['configurations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -904,7 +904,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Configuration.parse(value) unless value.nil?
+          data << Configuration.parse(value) unless value.nil?
         end
         data
       end
@@ -916,8 +916,8 @@ module AWS::SDK::Kafka
         data.arn = map['arn']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.description = map['description']
-        data.kafka_versions = (Parsers::List____listOf__string.parse(map['kafkaVersions']) unless map['kafkaVersions'].nil?)
-        data.latest_revision = (Parsers::ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.kafka_versions = (List____listOf__string.parse(map['kafkaVersions']) unless map['kafkaVersions'].nil?)
+        data.latest_revision = (ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data.name = map['name']
         data.state = map['state']
         return data
@@ -929,7 +929,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::ListKafkaVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.kafka_versions = (Parsers::List____listOfKafkaVersion.parse(map['kafkaVersions']) unless map['kafkaVersions'].nil?)
+        data.kafka_versions = (List____listOfKafkaVersion.parse(map['kafkaVersions']) unless map['kafkaVersions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -939,7 +939,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KafkaVersion.parse(value) unless value.nil?
+          data << KafkaVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -960,7 +960,7 @@ module AWS::SDK::Kafka
         data = Types::ListNodesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.node_info_list = (Parsers::List____listOfNodeInfo.parse(map['nodeInfoList']) unless map['nodeInfoList'].nil?)
+        data.node_info_list = (List____listOfNodeInfo.parse(map['nodeInfoList']) unless map['nodeInfoList'].nil?)
         data
       end
     end
@@ -969,7 +969,7 @@ module AWS::SDK::Kafka
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NodeInfo.parse(value) unless value.nil?
+          data << NodeInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -979,11 +979,11 @@ module AWS::SDK::Kafka
       def self.parse(map)
         data = Types::NodeInfo.new
         data.added_to_cluster_time = map['addedToClusterTime']
-        data.broker_node_info = (Parsers::BrokerNodeInfo.parse(map['brokerNodeInfo']) unless map['brokerNodeInfo'].nil?)
+        data.broker_node_info = (BrokerNodeInfo.parse(map['brokerNodeInfo']) unless map['brokerNodeInfo'].nil?)
         data.instance_type = map['instanceType']
         data.node_arn = map['nodeARN']
         data.node_type = map['nodeType']
-        data.zookeeper_node_info = (Parsers::ZookeeperNodeInfo.parse(map['zookeeperNodeInfo']) unless map['zookeeperNodeInfo'].nil?)
+        data.zookeeper_node_info = (ZookeeperNodeInfo.parse(map['zookeeperNodeInfo']) unless map['zookeeperNodeInfo'].nil?)
         return data
       end
     end
@@ -993,7 +993,7 @@ module AWS::SDK::Kafka
         data = Types::ZookeeperNodeInfo.new
         data.attached_eni_id = map['attachedENIId']
         data.client_vpc_ip_address = map['clientVpcIpAddress']
-        data.endpoints = (Parsers::List____listOf__string.parse(map['endpoints']) unless map['endpoints'].nil?)
+        data.endpoints = (List____listOf__string.parse(map['endpoints']) unless map['endpoints'].nil?)
         data.zookeeper_id = Hearth::NumberHelper.deserialize(map['zookeeperId'])
         data.zookeeper_version = map['zookeeperVersion']
         return data
@@ -1007,8 +1007,8 @@ module AWS::SDK::Kafka
         data.broker_id = Hearth::NumberHelper.deserialize(map['brokerId'])
         data.client_subnet = map['clientSubnet']
         data.client_vpc_ip_address = map['clientVpcIpAddress']
-        data.current_broker_software_info = (Parsers::BrokerSoftwareInfo.parse(map['currentBrokerSoftwareInfo']) unless map['currentBrokerSoftwareInfo'].nil?)
-        data.endpoints = (Parsers::List____listOf__string.parse(map['endpoints']) unless map['endpoints'].nil?)
+        data.current_broker_software_info = (BrokerSoftwareInfo.parse(map['currentBrokerSoftwareInfo']) unless map['currentBrokerSoftwareInfo'].nil?)
+        data.endpoints = (List____listOf__string.parse(map['endpoints']) unless map['endpoints'].nil?)
         return data
       end
     end
@@ -1019,7 +1019,7 @@ module AWS::SDK::Kafka
         data = Types::ListScramSecretsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.secret_arn_list = (Parsers::List____listOf__string.parse(map['secretArnList']) unless map['secretArnList'].nil?)
+        data.secret_arn_list = (List____listOf__string.parse(map['secretArnList']) unless map['secretArnList'].nil?)
         data
       end
     end
@@ -1029,7 +1029,7 @@ module AWS::SDK::Kafka
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1124,7 +1124,7 @@ module AWS::SDK::Kafka
         data = Types::UpdateConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['arn']
-        data.latest_revision = (Parsers::ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
+        data.latest_revision = (ConfigurationRevision.parse(map['latestRevision']) unless map['latestRevision'].nil?)
         data
       end
     end

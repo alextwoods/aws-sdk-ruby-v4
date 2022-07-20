@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SecurityHub
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['AdministratorId'] = input[:administrator_id] unless input[:administrator_id].nil?
         data['InvitationId'] = input[:invitation_id] unless input[:invitation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['MasterId'] = input[:master_id] unless input[:master_id].nil?
         data['InvitationId'] = input[:invitation_id] unless input[:invitation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,8 +54,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StandardsSubscriptionArns'] = Builders::StandardsSubscriptionArns.build(input[:standards_subscription_arns]) unless input[:standards_subscription_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StandardsSubscriptionArns'] = StandardsSubscriptionArns.build(input[:standards_subscription_arns]) unless input[:standards_subscription_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -78,8 +80,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StandardsSubscriptionRequests'] = Builders::StandardsSubscriptionRequests.build(input[:standards_subscription_requests]) unless input[:standards_subscription_requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StandardsSubscriptionRequests'] = StandardsSubscriptionRequests.build(input[:standards_subscription_requests]) unless input[:standards_subscription_requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -88,7 +90,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StandardsSubscriptionRequest.build(element) unless element.nil?
+          data << StandardsSubscriptionRequest.build(element) unless element.nil?
         end
         data
       end
@@ -99,7 +101,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['StandardsArn'] = input[:standards_arn] unless input[:standards_arn].nil?
-        data['StandardsInput'] = Builders::StandardsInputParameterMap.build(input[:standards_input]) unless input[:standards_input].nil?
+        data['StandardsInput'] = StandardsInputParameterMap.build(input[:standards_input]) unless input[:standards_input].nil?
         data
       end
     end
@@ -125,8 +127,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Findings'] = Builders::BatchImportFindingsRequestFindingList.build(input[:findings]) unless input[:findings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Findings'] = BatchImportFindingsRequestFindingList.build(input[:findings]) unless input[:findings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsSecurityFinding.build(element) unless element.nil?
+          data << AwsSecurityFinding.build(element) unless element.nil?
         end
         data
       end
@@ -153,37 +155,37 @@ module AWS::SDK::SecurityHub
         data['Region'] = input[:region] unless input[:region].nil?
         data['GeneratorId'] = input[:generator_id] unless input[:generator_id].nil?
         data['AwsAccountId'] = input[:aws_account_id] unless input[:aws_account_id].nil?
-        data['Types'] = Builders::TypeList.build(input[:types]) unless input[:types].nil?
+        data['Types'] = TypeList.build(input[:types]) unless input[:types].nil?
         data['FirstObservedAt'] = input[:first_observed_at] unless input[:first_observed_at].nil?
         data['LastObservedAt'] = input[:last_observed_at] unless input[:last_observed_at].nil?
         data['CreatedAt'] = input[:created_at] unless input[:created_at].nil?
         data['UpdatedAt'] = input[:updated_at] unless input[:updated_at].nil?
-        data['Severity'] = Builders::Severity.build(input[:severity]) unless input[:severity].nil?
+        data['Severity'] = Severity.build(input[:severity]) unless input[:severity].nil?
         data['Confidence'] = input[:confidence] unless input[:confidence].nil?
         data['Criticality'] = input[:criticality] unless input[:criticality].nil?
         data['Title'] = input[:title] unless input[:title].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Remediation'] = Builders::Remediation.build(input[:remediation]) unless input[:remediation].nil?
+        data['Remediation'] = Remediation.build(input[:remediation]) unless input[:remediation].nil?
         data['SourceUrl'] = input[:source_url] unless input[:source_url].nil?
-        data['ProductFields'] = Builders::FieldMap.build(input[:product_fields]) unless input[:product_fields].nil?
-        data['UserDefinedFields'] = Builders::FieldMap.build(input[:user_defined_fields]) unless input[:user_defined_fields].nil?
-        data['Malware'] = Builders::MalwareList.build(input[:malware]) unless input[:malware].nil?
-        data['Network'] = Builders::Network.build(input[:network]) unless input[:network].nil?
-        data['NetworkPath'] = Builders::NetworkPathList.build(input[:network_path]) unless input[:network_path].nil?
-        data['Process'] = Builders::ProcessDetails.build(input[:process]) unless input[:process].nil?
-        data['ThreatIntelIndicators'] = Builders::ThreatIntelIndicatorList.build(input[:threat_intel_indicators]) unless input[:threat_intel_indicators].nil?
-        data['Resources'] = Builders::ResourceList.build(input[:resources]) unless input[:resources].nil?
-        data['Compliance'] = Builders::Compliance.build(input[:compliance]) unless input[:compliance].nil?
+        data['ProductFields'] = FieldMap.build(input[:product_fields]) unless input[:product_fields].nil?
+        data['UserDefinedFields'] = FieldMap.build(input[:user_defined_fields]) unless input[:user_defined_fields].nil?
+        data['Malware'] = MalwareList.build(input[:malware]) unless input[:malware].nil?
+        data['Network'] = Network.build(input[:network]) unless input[:network].nil?
+        data['NetworkPath'] = NetworkPathList.build(input[:network_path]) unless input[:network_path].nil?
+        data['Process'] = ProcessDetails.build(input[:process]) unless input[:process].nil?
+        data['ThreatIntelIndicators'] = ThreatIntelIndicatorList.build(input[:threat_intel_indicators]) unless input[:threat_intel_indicators].nil?
+        data['Resources'] = ResourceList.build(input[:resources]) unless input[:resources].nil?
+        data['Compliance'] = Compliance.build(input[:compliance]) unless input[:compliance].nil?
         data['VerificationState'] = input[:verification_state] unless input[:verification_state].nil?
         data['WorkflowState'] = input[:workflow_state] unless input[:workflow_state].nil?
-        data['Workflow'] = Builders::Workflow.build(input[:workflow]) unless input[:workflow].nil?
+        data['Workflow'] = Workflow.build(input[:workflow]) unless input[:workflow].nil?
         data['RecordState'] = input[:record_state] unless input[:record_state].nil?
-        data['RelatedFindings'] = Builders::RelatedFindingList.build(input[:related_findings]) unless input[:related_findings].nil?
-        data['Note'] = Builders::Note.build(input[:note]) unless input[:note].nil?
-        data['Vulnerabilities'] = Builders::VulnerabilityList.build(input[:vulnerabilities]) unless input[:vulnerabilities].nil?
-        data['PatchSummary'] = Builders::PatchSummary.build(input[:patch_summary]) unless input[:patch_summary].nil?
-        data['Action'] = Builders::Action.build(input[:action]) unless input[:action].nil?
-        data['FindingProviderFields'] = Builders::FindingProviderFields.build(input[:finding_provider_fields]) unless input[:finding_provider_fields].nil?
+        data['RelatedFindings'] = RelatedFindingList.build(input[:related_findings]) unless input[:related_findings].nil?
+        data['Note'] = Note.build(input[:note]) unless input[:note].nil?
+        data['Vulnerabilities'] = VulnerabilityList.build(input[:vulnerabilities]) unless input[:vulnerabilities].nil?
+        data['PatchSummary'] = PatchSummary.build(input[:patch_summary]) unless input[:patch_summary].nil?
+        data['Action'] = Action.build(input[:action]) unless input[:action].nil?
+        data['FindingProviderFields'] = FindingProviderFields.build(input[:finding_provider_fields]) unless input[:finding_provider_fields].nil?
         data['Sample'] = input[:sample] unless input[:sample].nil?
         data
       end
@@ -195,9 +197,9 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Confidence'] = input[:confidence] unless input[:confidence].nil?
         data['Criticality'] = input[:criticality] unless input[:criticality].nil?
-        data['RelatedFindings'] = Builders::RelatedFindingList.build(input[:related_findings]) unless input[:related_findings].nil?
-        data['Severity'] = Builders::FindingProviderSeverity.build(input[:severity]) unless input[:severity].nil?
-        data['Types'] = Builders::TypeList.build(input[:types]) unless input[:types].nil?
+        data['RelatedFindings'] = RelatedFindingList.build(input[:related_findings]) unless input[:related_findings].nil?
+        data['Severity'] = FindingProviderSeverity.build(input[:severity]) unless input[:severity].nil?
+        data['Types'] = TypeList.build(input[:types]) unless input[:types].nil?
         data
       end
     end
@@ -228,7 +230,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RelatedFinding.build(element) unless element.nil?
+          data << RelatedFinding.build(element) unless element.nil?
         end
         data
       end
@@ -249,10 +251,10 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['ActionType'] = input[:action_type] unless input[:action_type].nil?
-        data['NetworkConnectionAction'] = Builders::NetworkConnectionAction.build(input[:network_connection_action]) unless input[:network_connection_action].nil?
-        data['AwsApiCallAction'] = Builders::AwsApiCallAction.build(input[:aws_api_call_action]) unless input[:aws_api_call_action].nil?
-        data['DnsRequestAction'] = Builders::DnsRequestAction.build(input[:dns_request_action]) unless input[:dns_request_action].nil?
-        data['PortProbeAction'] = Builders::PortProbeAction.build(input[:port_probe_action]) unless input[:port_probe_action].nil?
+        data['NetworkConnectionAction'] = NetworkConnectionAction.build(input[:network_connection_action]) unless input[:network_connection_action].nil?
+        data['AwsApiCallAction'] = AwsApiCallAction.build(input[:aws_api_call_action]) unless input[:aws_api_call_action].nil?
+        data['DnsRequestAction'] = DnsRequestAction.build(input[:dns_request_action]) unless input[:dns_request_action].nil?
+        data['PortProbeAction'] = PortProbeAction.build(input[:port_probe_action]) unless input[:port_probe_action].nil?
         data
       end
     end
@@ -261,7 +263,7 @@ module AWS::SDK::SecurityHub
     class PortProbeAction
       def self.build(input)
         data = {}
-        data['PortProbeDetails'] = Builders::PortProbeDetailList.build(input[:port_probe_details]) unless input[:port_probe_details].nil?
+        data['PortProbeDetails'] = PortProbeDetailList.build(input[:port_probe_details]) unless input[:port_probe_details].nil?
         data['Blocked'] = input[:blocked] unless input[:blocked].nil?
         data
       end
@@ -272,7 +274,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortProbeDetail.build(element) unless element.nil?
+          data << PortProbeDetail.build(element) unless element.nil?
         end
         data
       end
@@ -282,9 +284,9 @@ module AWS::SDK::SecurityHub
     class PortProbeDetail
       def self.build(input)
         data = {}
-        data['LocalPortDetails'] = Builders::ActionLocalPortDetails.build(input[:local_port_details]) unless input[:local_port_details].nil?
-        data['LocalIpDetails'] = Builders::ActionLocalIpDetails.build(input[:local_ip_details]) unless input[:local_ip_details].nil?
-        data['RemoteIpDetails'] = Builders::ActionRemoteIpDetails.build(input[:remote_ip_details]) unless input[:remote_ip_details].nil?
+        data['LocalPortDetails'] = ActionLocalPortDetails.build(input[:local_port_details]) unless input[:local_port_details].nil?
+        data['LocalIpDetails'] = ActionLocalIpDetails.build(input[:local_ip_details]) unless input[:local_ip_details].nil?
+        data['RemoteIpDetails'] = ActionRemoteIpDetails.build(input[:remote_ip_details]) unless input[:remote_ip_details].nil?
         data
       end
     end
@@ -294,10 +296,10 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['IpAddressV4'] = input[:ip_address_v4] unless input[:ip_address_v4].nil?
-        data['Organization'] = Builders::IpOrganizationDetails.build(input[:organization]) unless input[:organization].nil?
-        data['Country'] = Builders::Country.build(input[:country]) unless input[:country].nil?
-        data['City'] = Builders::City.build(input[:city]) unless input[:city].nil?
-        data['GeoLocation'] = Builders::GeoLocation.build(input[:geo_location]) unless input[:geo_location].nil?
+        data['Organization'] = IpOrganizationDetails.build(input[:organization]) unless input[:organization].nil?
+        data['Country'] = Country.build(input[:country]) unless input[:country].nil?
+        data['City'] = City.build(input[:city]) unless input[:city].nil?
+        data['GeoLocation'] = GeoLocation.build(input[:geo_location]) unless input[:geo_location].nil?
         data
       end
     end
@@ -380,9 +382,9 @@ module AWS::SDK::SecurityHub
         data['Api'] = input[:api] unless input[:api].nil?
         data['ServiceName'] = input[:service_name] unless input[:service_name].nil?
         data['CallerType'] = input[:caller_type] unless input[:caller_type].nil?
-        data['RemoteIpDetails'] = Builders::ActionRemoteIpDetails.build(input[:remote_ip_details]) unless input[:remote_ip_details].nil?
-        data['DomainDetails'] = Builders::AwsApiCallActionDomainDetails.build(input[:domain_details]) unless input[:domain_details].nil?
-        data['AffectedResources'] = Builders::FieldMap.build(input[:affected_resources]) unless input[:affected_resources].nil?
+        data['RemoteIpDetails'] = ActionRemoteIpDetails.build(input[:remote_ip_details]) unless input[:remote_ip_details].nil?
+        data['DomainDetails'] = AwsApiCallActionDomainDetails.build(input[:domain_details]) unless input[:domain_details].nil?
+        data['AffectedResources'] = FieldMap.build(input[:affected_resources]) unless input[:affected_resources].nil?
         data['FirstSeen'] = input[:first_seen] unless input[:first_seen].nil?
         data['LastSeen'] = input[:last_seen] unless input[:last_seen].nil?
         data
@@ -414,9 +416,9 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['ConnectionDirection'] = input[:connection_direction] unless input[:connection_direction].nil?
-        data['RemoteIpDetails'] = Builders::ActionRemoteIpDetails.build(input[:remote_ip_details]) unless input[:remote_ip_details].nil?
-        data['RemotePortDetails'] = Builders::ActionRemotePortDetails.build(input[:remote_port_details]) unless input[:remote_port_details].nil?
-        data['LocalPortDetails'] = Builders::ActionLocalPortDetails.build(input[:local_port_details]) unless input[:local_port_details].nil?
+        data['RemoteIpDetails'] = ActionRemoteIpDetails.build(input[:remote_ip_details]) unless input[:remote_ip_details].nil?
+        data['RemotePortDetails'] = ActionRemotePortDetails.build(input[:remote_port_details]) unless input[:remote_port_details].nil?
+        data['LocalPortDetails'] = ActionLocalPortDetails.build(input[:local_port_details]) unless input[:local_port_details].nil?
         data['Protocol'] = input[:protocol] unless input[:protocol].nil?
         data['Blocked'] = input[:blocked] unless input[:blocked].nil?
         data
@@ -457,7 +459,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Vulnerability.build(element) unless element.nil?
+          data << Vulnerability.build(element) unless element.nil?
         end
         data
       end
@@ -468,11 +470,11 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        data['VulnerablePackages'] = Builders::SoftwarePackageList.build(input[:vulnerable_packages]) unless input[:vulnerable_packages].nil?
-        data['Cvss'] = Builders::CvssList.build(input[:cvss]) unless input[:cvss].nil?
-        data['RelatedVulnerabilities'] = Builders::StringList.build(input[:related_vulnerabilities]) unless input[:related_vulnerabilities].nil?
-        data['Vendor'] = Builders::VulnerabilityVendor.build(input[:vendor]) unless input[:vendor].nil?
-        data['ReferenceUrls'] = Builders::StringList.build(input[:reference_urls]) unless input[:reference_urls].nil?
+        data['VulnerablePackages'] = SoftwarePackageList.build(input[:vulnerable_packages]) unless input[:vulnerable_packages].nil?
+        data['Cvss'] = CvssList.build(input[:cvss]) unless input[:cvss].nil?
+        data['RelatedVulnerabilities'] = StringList.build(input[:related_vulnerabilities]) unless input[:related_vulnerabilities].nil?
+        data['Vendor'] = VulnerabilityVendor.build(input[:vendor]) unless input[:vendor].nil?
+        data['ReferenceUrls'] = StringList.build(input[:reference_urls]) unless input[:reference_urls].nil?
         data
       end
     end
@@ -506,7 +508,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Cvss.build(element) unless element.nil?
+          data << Cvss.build(element) unless element.nil?
         end
         data
       end
@@ -520,7 +522,7 @@ module AWS::SDK::SecurityHub
         data['BaseScore'] = Hearth::NumberHelper.serialize(input[:base_score]) unless input[:base_score].nil?
         data['BaseVector'] = input[:base_vector] unless input[:base_vector].nil?
         data['Source'] = input[:source] unless input[:source].nil?
-        data['Adjustments'] = Builders::AdjustmentList.build(input[:adjustments]) unless input[:adjustments].nil?
+        data['Adjustments'] = AdjustmentList.build(input[:adjustments]) unless input[:adjustments].nil?
         data
       end
     end
@@ -530,7 +532,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Adjustment.build(element) unless element.nil?
+          data << Adjustment.build(element) unless element.nil?
         end
         data
       end
@@ -551,7 +553,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SoftwarePackage.build(element) unless element.nil?
+          data << SoftwarePackage.build(element) unless element.nil?
         end
         data
       end
@@ -597,8 +599,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Status'] = input[:status] unless input[:status].nil?
-        data['RelatedRequirements'] = Builders::RelatedRequirementsList.build(input[:related_requirements]) unless input[:related_requirements].nil?
-        data['StatusReasons'] = Builders::StatusReasonsList.build(input[:status_reasons]) unless input[:status_reasons].nil?
+        data['RelatedRequirements'] = RelatedRequirementsList.build(input[:related_requirements]) unless input[:related_requirements].nil?
+        data['StatusReasons'] = StatusReasonsList.build(input[:status_reasons]) unless input[:status_reasons].nil?
         data
       end
     end
@@ -608,7 +610,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StatusReason.build(element) unless element.nil?
+          data << StatusReason.build(element) unless element.nil?
         end
         data
       end
@@ -640,7 +642,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Resource.build(element) unless element.nil?
+          data << Resource.build(element) unless element.nil?
         end
         data
       end
@@ -655,9 +657,9 @@ module AWS::SDK::SecurityHub
         data['Partition'] = input[:partition] unless input[:partition].nil?
         data['Region'] = input[:region] unless input[:region].nil?
         data['ResourceRole'] = input[:resource_role] unless input[:resource_role].nil?
-        data['Tags'] = Builders::FieldMap.build(input[:tags]) unless input[:tags].nil?
-        data['DataClassification'] = Builders::DataClassificationDetails.build(input[:data_classification]) unless input[:data_classification].nil?
-        data['Details'] = Builders::ResourceDetails.build(input[:details]) unless input[:details].nil?
+        data['Tags'] = FieldMap.build(input[:tags]) unless input[:tags].nil?
+        data['DataClassification'] = DataClassificationDetails.build(input[:data_classification]) unless input[:data_classification].nil?
+        data['Details'] = ResourceDetails.build(input[:details]) unless input[:details].nil?
         data
       end
     end
@@ -666,69 +668,69 @@ module AWS::SDK::SecurityHub
     class ResourceDetails
       def self.build(input)
         data = {}
-        data['AwsAutoScalingAutoScalingGroup'] = Builders::AwsAutoScalingAutoScalingGroupDetails.build(input[:aws_auto_scaling_auto_scaling_group]) unless input[:aws_auto_scaling_auto_scaling_group].nil?
-        data['AwsCodeBuildProject'] = Builders::AwsCodeBuildProjectDetails.build(input[:aws_code_build_project]) unless input[:aws_code_build_project].nil?
-        data['AwsCloudFrontDistribution'] = Builders::AwsCloudFrontDistributionDetails.build(input[:aws_cloud_front_distribution]) unless input[:aws_cloud_front_distribution].nil?
-        data['AwsEc2Instance'] = Builders::AwsEc2InstanceDetails.build(input[:aws_ec2_instance]) unless input[:aws_ec2_instance].nil?
-        data['AwsEc2NetworkInterface'] = Builders::AwsEc2NetworkInterfaceDetails.build(input[:aws_ec2_network_interface]) unless input[:aws_ec2_network_interface].nil?
-        data['AwsEc2SecurityGroup'] = Builders::AwsEc2SecurityGroupDetails.build(input[:aws_ec2_security_group]) unless input[:aws_ec2_security_group].nil?
-        data['AwsEc2Volume'] = Builders::AwsEc2VolumeDetails.build(input[:aws_ec2_volume]) unless input[:aws_ec2_volume].nil?
-        data['AwsEc2Vpc'] = Builders::AwsEc2VpcDetails.build(input[:aws_ec2_vpc]) unless input[:aws_ec2_vpc].nil?
-        data['AwsEc2Eip'] = Builders::AwsEc2EipDetails.build(input[:aws_ec2_eip]) unless input[:aws_ec2_eip].nil?
-        data['AwsEc2Subnet'] = Builders::AwsEc2SubnetDetails.build(input[:aws_ec2_subnet]) unless input[:aws_ec2_subnet].nil?
-        data['AwsEc2NetworkAcl'] = Builders::AwsEc2NetworkAclDetails.build(input[:aws_ec2_network_acl]) unless input[:aws_ec2_network_acl].nil?
-        data['AwsElbv2LoadBalancer'] = Builders::AwsElbv2LoadBalancerDetails.build(input[:aws_elbv2_load_balancer]) unless input[:aws_elbv2_load_balancer].nil?
-        data['AwsElasticBeanstalkEnvironment'] = Builders::AwsElasticBeanstalkEnvironmentDetails.build(input[:aws_elastic_beanstalk_environment]) unless input[:aws_elastic_beanstalk_environment].nil?
-        data['AwsElasticsearchDomain'] = Builders::AwsElasticsearchDomainDetails.build(input[:aws_elasticsearch_domain]) unless input[:aws_elasticsearch_domain].nil?
-        data['AwsS3Bucket'] = Builders::AwsS3BucketDetails.build(input[:aws_s3_bucket]) unless input[:aws_s3_bucket].nil?
-        data['AwsS3AccountPublicAccessBlock'] = Builders::AwsS3AccountPublicAccessBlockDetails.build(input[:aws_s3_account_public_access_block]) unless input[:aws_s3_account_public_access_block].nil?
-        data['AwsS3Object'] = Builders::AwsS3ObjectDetails.build(input[:aws_s3_object]) unless input[:aws_s3_object].nil?
-        data['AwsSecretsManagerSecret'] = Builders::AwsSecretsManagerSecretDetails.build(input[:aws_secrets_manager_secret]) unless input[:aws_secrets_manager_secret].nil?
-        data['AwsIamAccessKey'] = Builders::AwsIamAccessKeyDetails.build(input[:aws_iam_access_key]) unless input[:aws_iam_access_key].nil?
-        data['AwsIamUser'] = Builders::AwsIamUserDetails.build(input[:aws_iam_user]) unless input[:aws_iam_user].nil?
-        data['AwsIamPolicy'] = Builders::AwsIamPolicyDetails.build(input[:aws_iam_policy]) unless input[:aws_iam_policy].nil?
-        data['AwsApiGatewayV2Stage'] = Builders::AwsApiGatewayV2StageDetails.build(input[:aws_api_gateway_v2_stage]) unless input[:aws_api_gateway_v2_stage].nil?
-        data['AwsApiGatewayV2Api'] = Builders::AwsApiGatewayV2ApiDetails.build(input[:aws_api_gateway_v2_api]) unless input[:aws_api_gateway_v2_api].nil?
-        data['AwsDynamoDbTable'] = Builders::AwsDynamoDbTableDetails.build(input[:aws_dynamo_db_table]) unless input[:aws_dynamo_db_table].nil?
-        data['AwsApiGatewayStage'] = Builders::AwsApiGatewayStageDetails.build(input[:aws_api_gateway_stage]) unless input[:aws_api_gateway_stage].nil?
-        data['AwsApiGatewayRestApi'] = Builders::AwsApiGatewayRestApiDetails.build(input[:aws_api_gateway_rest_api]) unless input[:aws_api_gateway_rest_api].nil?
-        data['AwsCloudTrailTrail'] = Builders::AwsCloudTrailTrailDetails.build(input[:aws_cloud_trail_trail]) unless input[:aws_cloud_trail_trail].nil?
-        data['AwsSsmPatchCompliance'] = Builders::AwsSsmPatchComplianceDetails.build(input[:aws_ssm_patch_compliance]) unless input[:aws_ssm_patch_compliance].nil?
-        data['AwsCertificateManagerCertificate'] = Builders::AwsCertificateManagerCertificateDetails.build(input[:aws_certificate_manager_certificate]) unless input[:aws_certificate_manager_certificate].nil?
-        data['AwsRedshiftCluster'] = Builders::AwsRedshiftClusterDetails.build(input[:aws_redshift_cluster]) unless input[:aws_redshift_cluster].nil?
-        data['AwsElbLoadBalancer'] = Builders::AwsElbLoadBalancerDetails.build(input[:aws_elb_load_balancer]) unless input[:aws_elb_load_balancer].nil?
-        data['AwsIamGroup'] = Builders::AwsIamGroupDetails.build(input[:aws_iam_group]) unless input[:aws_iam_group].nil?
-        data['AwsIamRole'] = Builders::AwsIamRoleDetails.build(input[:aws_iam_role]) unless input[:aws_iam_role].nil?
-        data['AwsKmsKey'] = Builders::AwsKmsKeyDetails.build(input[:aws_kms_key]) unless input[:aws_kms_key].nil?
-        data['AwsLambdaFunction'] = Builders::AwsLambdaFunctionDetails.build(input[:aws_lambda_function]) unless input[:aws_lambda_function].nil?
-        data['AwsLambdaLayerVersion'] = Builders::AwsLambdaLayerVersionDetails.build(input[:aws_lambda_layer_version]) unless input[:aws_lambda_layer_version].nil?
-        data['AwsRdsDbInstance'] = Builders::AwsRdsDbInstanceDetails.build(input[:aws_rds_db_instance]) unless input[:aws_rds_db_instance].nil?
-        data['AwsSnsTopic'] = Builders::AwsSnsTopicDetails.build(input[:aws_sns_topic]) unless input[:aws_sns_topic].nil?
-        data['AwsSqsQueue'] = Builders::AwsSqsQueueDetails.build(input[:aws_sqs_queue]) unless input[:aws_sqs_queue].nil?
-        data['AwsWafWebAcl'] = Builders::AwsWafWebAclDetails.build(input[:aws_waf_web_acl]) unless input[:aws_waf_web_acl].nil?
-        data['AwsRdsDbSnapshot'] = Builders::AwsRdsDbSnapshotDetails.build(input[:aws_rds_db_snapshot]) unless input[:aws_rds_db_snapshot].nil?
-        data['AwsRdsDbClusterSnapshot'] = Builders::AwsRdsDbClusterSnapshotDetails.build(input[:aws_rds_db_cluster_snapshot]) unless input[:aws_rds_db_cluster_snapshot].nil?
-        data['AwsRdsDbCluster'] = Builders::AwsRdsDbClusterDetails.build(input[:aws_rds_db_cluster]) unless input[:aws_rds_db_cluster].nil?
-        data['AwsEcsCluster'] = Builders::AwsEcsClusterDetails.build(input[:aws_ecs_cluster]) unless input[:aws_ecs_cluster].nil?
-        data['AwsEcsTaskDefinition'] = Builders::AwsEcsTaskDefinitionDetails.build(input[:aws_ecs_task_definition]) unless input[:aws_ecs_task_definition].nil?
-        data['Container'] = Builders::ContainerDetails.build(input[:container]) unless input[:container].nil?
-        data['Other'] = Builders::FieldMap.build(input[:other]) unless input[:other].nil?
-        data['AwsRdsEventSubscription'] = Builders::AwsRdsEventSubscriptionDetails.build(input[:aws_rds_event_subscription]) unless input[:aws_rds_event_subscription].nil?
-        data['AwsEcsService'] = Builders::AwsEcsServiceDetails.build(input[:aws_ecs_service]) unless input[:aws_ecs_service].nil?
-        data['AwsAutoScalingLaunchConfiguration'] = Builders::AwsAutoScalingLaunchConfigurationDetails.build(input[:aws_auto_scaling_launch_configuration]) unless input[:aws_auto_scaling_launch_configuration].nil?
-        data['AwsEc2VpnConnection'] = Builders::AwsEc2VpnConnectionDetails.build(input[:aws_ec2_vpn_connection]) unless input[:aws_ec2_vpn_connection].nil?
-        data['AwsEcrContainerImage'] = Builders::AwsEcrContainerImageDetails.build(input[:aws_ecr_container_image]) unless input[:aws_ecr_container_image].nil?
-        data['AwsOpenSearchServiceDomain'] = Builders::AwsOpenSearchServiceDomainDetails.build(input[:aws_open_search_service_domain]) unless input[:aws_open_search_service_domain].nil?
-        data['AwsEc2VpcEndpointService'] = Builders::AwsEc2VpcEndpointServiceDetails.build(input[:aws_ec2_vpc_endpoint_service]) unless input[:aws_ec2_vpc_endpoint_service].nil?
-        data['AwsXrayEncryptionConfig'] = Builders::AwsXrayEncryptionConfigDetails.build(input[:aws_xray_encryption_config]) unless input[:aws_xray_encryption_config].nil?
-        data['AwsWafRateBasedRule'] = Builders::AwsWafRateBasedRuleDetails.build(input[:aws_waf_rate_based_rule]) unless input[:aws_waf_rate_based_rule].nil?
-        data['AwsWafRegionalRateBasedRule'] = Builders::AwsWafRegionalRateBasedRuleDetails.build(input[:aws_waf_regional_rate_based_rule]) unless input[:aws_waf_regional_rate_based_rule].nil?
-        data['AwsEcrRepository'] = Builders::AwsEcrRepositoryDetails.build(input[:aws_ecr_repository]) unless input[:aws_ecr_repository].nil?
-        data['AwsEksCluster'] = Builders::AwsEksClusterDetails.build(input[:aws_eks_cluster]) unless input[:aws_eks_cluster].nil?
-        data['AwsNetworkFirewallFirewallPolicy'] = Builders::AwsNetworkFirewallFirewallPolicyDetails.build(input[:aws_network_firewall_firewall_policy]) unless input[:aws_network_firewall_firewall_policy].nil?
-        data['AwsNetworkFirewallFirewall'] = Builders::AwsNetworkFirewallFirewallDetails.build(input[:aws_network_firewall_firewall]) unless input[:aws_network_firewall_firewall].nil?
-        data['AwsNetworkFirewallRuleGroup'] = Builders::AwsNetworkFirewallRuleGroupDetails.build(input[:aws_network_firewall_rule_group]) unless input[:aws_network_firewall_rule_group].nil?
-        data['AwsRdsDbSecurityGroup'] = Builders::AwsRdsDbSecurityGroupDetails.build(input[:aws_rds_db_security_group]) unless input[:aws_rds_db_security_group].nil?
+        data['AwsAutoScalingAutoScalingGroup'] = AwsAutoScalingAutoScalingGroupDetails.build(input[:aws_auto_scaling_auto_scaling_group]) unless input[:aws_auto_scaling_auto_scaling_group].nil?
+        data['AwsCodeBuildProject'] = AwsCodeBuildProjectDetails.build(input[:aws_code_build_project]) unless input[:aws_code_build_project].nil?
+        data['AwsCloudFrontDistribution'] = AwsCloudFrontDistributionDetails.build(input[:aws_cloud_front_distribution]) unless input[:aws_cloud_front_distribution].nil?
+        data['AwsEc2Instance'] = AwsEc2InstanceDetails.build(input[:aws_ec2_instance]) unless input[:aws_ec2_instance].nil?
+        data['AwsEc2NetworkInterface'] = AwsEc2NetworkInterfaceDetails.build(input[:aws_ec2_network_interface]) unless input[:aws_ec2_network_interface].nil?
+        data['AwsEc2SecurityGroup'] = AwsEc2SecurityGroupDetails.build(input[:aws_ec2_security_group]) unless input[:aws_ec2_security_group].nil?
+        data['AwsEc2Volume'] = AwsEc2VolumeDetails.build(input[:aws_ec2_volume]) unless input[:aws_ec2_volume].nil?
+        data['AwsEc2Vpc'] = AwsEc2VpcDetails.build(input[:aws_ec2_vpc]) unless input[:aws_ec2_vpc].nil?
+        data['AwsEc2Eip'] = AwsEc2EipDetails.build(input[:aws_ec2_eip]) unless input[:aws_ec2_eip].nil?
+        data['AwsEc2Subnet'] = AwsEc2SubnetDetails.build(input[:aws_ec2_subnet]) unless input[:aws_ec2_subnet].nil?
+        data['AwsEc2NetworkAcl'] = AwsEc2NetworkAclDetails.build(input[:aws_ec2_network_acl]) unless input[:aws_ec2_network_acl].nil?
+        data['AwsElbv2LoadBalancer'] = AwsElbv2LoadBalancerDetails.build(input[:aws_elbv2_load_balancer]) unless input[:aws_elbv2_load_balancer].nil?
+        data['AwsElasticBeanstalkEnvironment'] = AwsElasticBeanstalkEnvironmentDetails.build(input[:aws_elastic_beanstalk_environment]) unless input[:aws_elastic_beanstalk_environment].nil?
+        data['AwsElasticsearchDomain'] = AwsElasticsearchDomainDetails.build(input[:aws_elasticsearch_domain]) unless input[:aws_elasticsearch_domain].nil?
+        data['AwsS3Bucket'] = AwsS3BucketDetails.build(input[:aws_s3_bucket]) unless input[:aws_s3_bucket].nil?
+        data['AwsS3AccountPublicAccessBlock'] = AwsS3AccountPublicAccessBlockDetails.build(input[:aws_s3_account_public_access_block]) unless input[:aws_s3_account_public_access_block].nil?
+        data['AwsS3Object'] = AwsS3ObjectDetails.build(input[:aws_s3_object]) unless input[:aws_s3_object].nil?
+        data['AwsSecretsManagerSecret'] = AwsSecretsManagerSecretDetails.build(input[:aws_secrets_manager_secret]) unless input[:aws_secrets_manager_secret].nil?
+        data['AwsIamAccessKey'] = AwsIamAccessKeyDetails.build(input[:aws_iam_access_key]) unless input[:aws_iam_access_key].nil?
+        data['AwsIamUser'] = AwsIamUserDetails.build(input[:aws_iam_user]) unless input[:aws_iam_user].nil?
+        data['AwsIamPolicy'] = AwsIamPolicyDetails.build(input[:aws_iam_policy]) unless input[:aws_iam_policy].nil?
+        data['AwsApiGatewayV2Stage'] = AwsApiGatewayV2StageDetails.build(input[:aws_api_gateway_v2_stage]) unless input[:aws_api_gateway_v2_stage].nil?
+        data['AwsApiGatewayV2Api'] = AwsApiGatewayV2ApiDetails.build(input[:aws_api_gateway_v2_api]) unless input[:aws_api_gateway_v2_api].nil?
+        data['AwsDynamoDbTable'] = AwsDynamoDbTableDetails.build(input[:aws_dynamo_db_table]) unless input[:aws_dynamo_db_table].nil?
+        data['AwsApiGatewayStage'] = AwsApiGatewayStageDetails.build(input[:aws_api_gateway_stage]) unless input[:aws_api_gateway_stage].nil?
+        data['AwsApiGatewayRestApi'] = AwsApiGatewayRestApiDetails.build(input[:aws_api_gateway_rest_api]) unless input[:aws_api_gateway_rest_api].nil?
+        data['AwsCloudTrailTrail'] = AwsCloudTrailTrailDetails.build(input[:aws_cloud_trail_trail]) unless input[:aws_cloud_trail_trail].nil?
+        data['AwsSsmPatchCompliance'] = AwsSsmPatchComplianceDetails.build(input[:aws_ssm_patch_compliance]) unless input[:aws_ssm_patch_compliance].nil?
+        data['AwsCertificateManagerCertificate'] = AwsCertificateManagerCertificateDetails.build(input[:aws_certificate_manager_certificate]) unless input[:aws_certificate_manager_certificate].nil?
+        data['AwsRedshiftCluster'] = AwsRedshiftClusterDetails.build(input[:aws_redshift_cluster]) unless input[:aws_redshift_cluster].nil?
+        data['AwsElbLoadBalancer'] = AwsElbLoadBalancerDetails.build(input[:aws_elb_load_balancer]) unless input[:aws_elb_load_balancer].nil?
+        data['AwsIamGroup'] = AwsIamGroupDetails.build(input[:aws_iam_group]) unless input[:aws_iam_group].nil?
+        data['AwsIamRole'] = AwsIamRoleDetails.build(input[:aws_iam_role]) unless input[:aws_iam_role].nil?
+        data['AwsKmsKey'] = AwsKmsKeyDetails.build(input[:aws_kms_key]) unless input[:aws_kms_key].nil?
+        data['AwsLambdaFunction'] = AwsLambdaFunctionDetails.build(input[:aws_lambda_function]) unless input[:aws_lambda_function].nil?
+        data['AwsLambdaLayerVersion'] = AwsLambdaLayerVersionDetails.build(input[:aws_lambda_layer_version]) unless input[:aws_lambda_layer_version].nil?
+        data['AwsRdsDbInstance'] = AwsRdsDbInstanceDetails.build(input[:aws_rds_db_instance]) unless input[:aws_rds_db_instance].nil?
+        data['AwsSnsTopic'] = AwsSnsTopicDetails.build(input[:aws_sns_topic]) unless input[:aws_sns_topic].nil?
+        data['AwsSqsQueue'] = AwsSqsQueueDetails.build(input[:aws_sqs_queue]) unless input[:aws_sqs_queue].nil?
+        data['AwsWafWebAcl'] = AwsWafWebAclDetails.build(input[:aws_waf_web_acl]) unless input[:aws_waf_web_acl].nil?
+        data['AwsRdsDbSnapshot'] = AwsRdsDbSnapshotDetails.build(input[:aws_rds_db_snapshot]) unless input[:aws_rds_db_snapshot].nil?
+        data['AwsRdsDbClusterSnapshot'] = AwsRdsDbClusterSnapshotDetails.build(input[:aws_rds_db_cluster_snapshot]) unless input[:aws_rds_db_cluster_snapshot].nil?
+        data['AwsRdsDbCluster'] = AwsRdsDbClusterDetails.build(input[:aws_rds_db_cluster]) unless input[:aws_rds_db_cluster].nil?
+        data['AwsEcsCluster'] = AwsEcsClusterDetails.build(input[:aws_ecs_cluster]) unless input[:aws_ecs_cluster].nil?
+        data['AwsEcsTaskDefinition'] = AwsEcsTaskDefinitionDetails.build(input[:aws_ecs_task_definition]) unless input[:aws_ecs_task_definition].nil?
+        data['Container'] = ContainerDetails.build(input[:container]) unless input[:container].nil?
+        data['Other'] = FieldMap.build(input[:other]) unless input[:other].nil?
+        data['AwsRdsEventSubscription'] = AwsRdsEventSubscriptionDetails.build(input[:aws_rds_event_subscription]) unless input[:aws_rds_event_subscription].nil?
+        data['AwsEcsService'] = AwsEcsServiceDetails.build(input[:aws_ecs_service]) unless input[:aws_ecs_service].nil?
+        data['AwsAutoScalingLaunchConfiguration'] = AwsAutoScalingLaunchConfigurationDetails.build(input[:aws_auto_scaling_launch_configuration]) unless input[:aws_auto_scaling_launch_configuration].nil?
+        data['AwsEc2VpnConnection'] = AwsEc2VpnConnectionDetails.build(input[:aws_ec2_vpn_connection]) unless input[:aws_ec2_vpn_connection].nil?
+        data['AwsEcrContainerImage'] = AwsEcrContainerImageDetails.build(input[:aws_ecr_container_image]) unless input[:aws_ecr_container_image].nil?
+        data['AwsOpenSearchServiceDomain'] = AwsOpenSearchServiceDomainDetails.build(input[:aws_open_search_service_domain]) unless input[:aws_open_search_service_domain].nil?
+        data['AwsEc2VpcEndpointService'] = AwsEc2VpcEndpointServiceDetails.build(input[:aws_ec2_vpc_endpoint_service]) unless input[:aws_ec2_vpc_endpoint_service].nil?
+        data['AwsXrayEncryptionConfig'] = AwsXrayEncryptionConfigDetails.build(input[:aws_xray_encryption_config]) unless input[:aws_xray_encryption_config].nil?
+        data['AwsWafRateBasedRule'] = AwsWafRateBasedRuleDetails.build(input[:aws_waf_rate_based_rule]) unless input[:aws_waf_rate_based_rule].nil?
+        data['AwsWafRegionalRateBasedRule'] = AwsWafRegionalRateBasedRuleDetails.build(input[:aws_waf_regional_rate_based_rule]) unless input[:aws_waf_regional_rate_based_rule].nil?
+        data['AwsEcrRepository'] = AwsEcrRepositoryDetails.build(input[:aws_ecr_repository]) unless input[:aws_ecr_repository].nil?
+        data['AwsEksCluster'] = AwsEksClusterDetails.build(input[:aws_eks_cluster]) unless input[:aws_eks_cluster].nil?
+        data['AwsNetworkFirewallFirewallPolicy'] = AwsNetworkFirewallFirewallPolicyDetails.build(input[:aws_network_firewall_firewall_policy]) unless input[:aws_network_firewall_firewall_policy].nil?
+        data['AwsNetworkFirewallFirewall'] = AwsNetworkFirewallFirewallDetails.build(input[:aws_network_firewall_firewall]) unless input[:aws_network_firewall_firewall].nil?
+        data['AwsNetworkFirewallRuleGroup'] = AwsNetworkFirewallRuleGroupDetails.build(input[:aws_network_firewall_rule_group]) unless input[:aws_network_firewall_rule_group].nil?
+        data['AwsRdsDbSecurityGroup'] = AwsRdsDbSecurityGroupDetails.build(input[:aws_rds_db_security_group]) unless input[:aws_rds_db_security_group].nil?
         data
       end
     end
@@ -740,8 +742,8 @@ module AWS::SDK::SecurityHub
         data['DbSecurityGroupArn'] = input[:db_security_group_arn] unless input[:db_security_group_arn].nil?
         data['DbSecurityGroupDescription'] = input[:db_security_group_description] unless input[:db_security_group_description].nil?
         data['DbSecurityGroupName'] = input[:db_security_group_name] unless input[:db_security_group_name].nil?
-        data['Ec2SecurityGroups'] = Builders::AwsRdsDbSecurityGroupEc2SecurityGroups.build(input[:ec2_security_groups]) unless input[:ec2_security_groups].nil?
-        data['IpRanges'] = Builders::AwsRdsDbSecurityGroupIpRanges.build(input[:ip_ranges]) unless input[:ip_ranges].nil?
+        data['Ec2SecurityGroups'] = AwsRdsDbSecurityGroupEc2SecurityGroups.build(input[:ec2_security_groups]) unless input[:ec2_security_groups].nil?
+        data['IpRanges'] = AwsRdsDbSecurityGroupIpRanges.build(input[:ip_ranges]) unless input[:ip_ranges].nil?
         data['OwnerId'] = input[:owner_id] unless input[:owner_id].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data
@@ -753,7 +755,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbSecurityGroupIpRange.build(element) unless element.nil?
+          data << AwsRdsDbSecurityGroupIpRange.build(element) unless element.nil?
         end
         data
       end
@@ -774,7 +776,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbSecurityGroupEc2SecurityGroup.build(element) unless element.nil?
+          data << AwsRdsDbSecurityGroupEc2SecurityGroup.build(element) unless element.nil?
         end
         data
       end
@@ -798,7 +800,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Capacity'] = input[:capacity] unless input[:capacity].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['RuleGroup'] = Builders::RuleGroupDetails.build(input[:rule_group]) unless input[:rule_group].nil?
+        data['RuleGroup'] = RuleGroupDetails.build(input[:rule_group]) unless input[:rule_group].nil?
         data['RuleGroupArn'] = input[:rule_group_arn] unless input[:rule_group_arn].nil?
         data['RuleGroupId'] = input[:rule_group_id] unless input[:rule_group_id].nil?
         data['RuleGroupName'] = input[:rule_group_name] unless input[:rule_group_name].nil?
@@ -811,8 +813,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupDetails
       def self.build(input)
         data = {}
-        data['RuleVariables'] = Builders::RuleGroupVariables.build(input[:rule_variables]) unless input[:rule_variables].nil?
-        data['RulesSource'] = Builders::RuleGroupSource.build(input[:rules_source]) unless input[:rules_source].nil?
+        data['RuleVariables'] = RuleGroupVariables.build(input[:rule_variables]) unless input[:rule_variables].nil?
+        data['RulesSource'] = RuleGroupSource.build(input[:rules_source]) unless input[:rules_source].nil?
         data
       end
     end
@@ -821,10 +823,10 @@ module AWS::SDK::SecurityHub
     class RuleGroupSource
       def self.build(input)
         data = {}
-        data['RulesSourceList'] = Builders::RuleGroupSourceListDetails.build(input[:rules_source_list]) unless input[:rules_source_list].nil?
+        data['RulesSourceList'] = RuleGroupSourceListDetails.build(input[:rules_source_list]) unless input[:rules_source_list].nil?
         data['RulesString'] = input[:rules_string] unless input[:rules_string].nil?
-        data['StatefulRules'] = Builders::RuleGroupSourceStatefulRulesList.build(input[:stateful_rules]) unless input[:stateful_rules].nil?
-        data['StatelessRulesAndCustomActions'] = Builders::RuleGroupSourceStatelessRulesAndCustomActionsDetails.build(input[:stateless_rules_and_custom_actions]) unless input[:stateless_rules_and_custom_actions].nil?
+        data['StatefulRules'] = RuleGroupSourceStatefulRulesList.build(input[:stateful_rules]) unless input[:stateful_rules].nil?
+        data['StatelessRulesAndCustomActions'] = RuleGroupSourceStatelessRulesAndCustomActionsDetails.build(input[:stateless_rules_and_custom_actions]) unless input[:stateless_rules_and_custom_actions].nil?
         data
       end
     end
@@ -833,8 +835,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRulesAndCustomActionsDetails
       def self.build(input)
         data = {}
-        data['CustomActions'] = Builders::RuleGroupSourceCustomActionsList.build(input[:custom_actions]) unless input[:custom_actions].nil?
-        data['StatelessRules'] = Builders::RuleGroupSourceStatelessRulesList.build(input[:stateless_rules]) unless input[:stateless_rules].nil?
+        data['CustomActions'] = RuleGroupSourceCustomActionsList.build(input[:custom_actions]) unless input[:custom_actions].nil?
+        data['StatelessRules'] = RuleGroupSourceStatelessRulesList.build(input[:stateless_rules]) unless input[:stateless_rules].nil?
         data
       end
     end
@@ -844,7 +846,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatelessRulesDetails.build(element) unless element.nil?
+          data << RuleGroupSourceStatelessRulesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -855,7 +857,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Priority'] = input[:priority] unless input[:priority].nil?
-        data['RuleDefinition'] = Builders::RuleGroupSourceStatelessRuleDefinition.build(input[:rule_definition]) unless input[:rule_definition].nil?
+        data['RuleDefinition'] = RuleGroupSourceStatelessRuleDefinition.build(input[:rule_definition]) unless input[:rule_definition].nil?
         data
       end
     end
@@ -864,8 +866,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRuleDefinition
       def self.build(input)
         data = {}
-        data['Actions'] = Builders::NonEmptyStringList.build(input[:actions]) unless input[:actions].nil?
-        data['MatchAttributes'] = Builders::RuleGroupSourceStatelessRuleMatchAttributes.build(input[:match_attributes]) unless input[:match_attributes].nil?
+        data['Actions'] = NonEmptyStringList.build(input[:actions]) unless input[:actions].nil?
+        data['MatchAttributes'] = RuleGroupSourceStatelessRuleMatchAttributes.build(input[:match_attributes]) unless input[:match_attributes].nil?
         data
       end
     end
@@ -874,12 +876,12 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRuleMatchAttributes
       def self.build(input)
         data = {}
-        data['DestinationPorts'] = Builders::RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.build(input[:destination_ports]) unless input[:destination_ports].nil?
-        data['Destinations'] = Builders::RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.build(input[:destinations]) unless input[:destinations].nil?
-        data['Protocols'] = Builders::RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.build(input[:protocols]) unless input[:protocols].nil?
-        data['SourcePorts'] = Builders::RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.build(input[:source_ports]) unless input[:source_ports].nil?
-        data['Sources'] = Builders::RuleGroupSourceStatelessRuleMatchAttributesSourcesList.build(input[:sources]) unless input[:sources].nil?
-        data['TcpFlags'] = Builders::RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.build(input[:tcp_flags]) unless input[:tcp_flags].nil?
+        data['DestinationPorts'] = RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.build(input[:destination_ports]) unless input[:destination_ports].nil?
+        data['Destinations'] = RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.build(input[:destinations]) unless input[:destinations].nil?
+        data['Protocols'] = RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.build(input[:protocols]) unless input[:protocols].nil?
+        data['SourcePorts'] = RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.build(input[:source_ports]) unless input[:source_ports].nil?
+        data['Sources'] = RuleGroupSourceStatelessRuleMatchAttributesSourcesList.build(input[:sources]) unless input[:sources].nil?
+        data['TcpFlags'] = RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.build(input[:tcp_flags]) unless input[:tcp_flags].nil?
         data
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.build(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.build(element) unless element.nil?
         end
         data
       end
@@ -899,8 +901,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
       def self.build(input)
         data = {}
-        data['Flags'] = Builders::NonEmptyStringList.build(input[:flags]) unless input[:flags].nil?
-        data['Masks'] = Builders::NonEmptyStringList.build(input[:masks]) unless input[:masks].nil?
+        data['Flags'] = NonEmptyStringList.build(input[:flags]) unless input[:flags].nil?
+        data['Masks'] = NonEmptyStringList.build(input[:masks]) unless input[:masks].nil?
         data
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatelessRuleMatchAttributesSources.build(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesSources.build(element) unless element.nil?
         end
         data
       end
@@ -941,7 +943,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.build(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.build(element) unless element.nil?
         end
         data
       end
@@ -973,7 +975,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatelessRuleMatchAttributesDestinations.build(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesDestinations.build(element) unless element.nil?
         end
         data
       end
@@ -993,7 +995,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.build(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.build(element) unless element.nil?
         end
         data
       end
@@ -1014,7 +1016,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceCustomActionsDetails.build(element) unless element.nil?
+          data << RuleGroupSourceCustomActionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1024,7 +1026,7 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceCustomActionsDetails
       def self.build(input)
         data = {}
-        data['ActionDefinition'] = Builders::StatelessCustomActionDefinition.build(input[:action_definition]) unless input[:action_definition].nil?
+        data['ActionDefinition'] = StatelessCustomActionDefinition.build(input[:action_definition]) unless input[:action_definition].nil?
         data['ActionName'] = input[:action_name] unless input[:action_name].nil?
         data
       end
@@ -1034,7 +1036,7 @@ module AWS::SDK::SecurityHub
     class StatelessCustomActionDefinition
       def self.build(input)
         data = {}
-        data['PublishMetricAction'] = Builders::StatelessCustomPublishMetricAction.build(input[:publish_metric_action]) unless input[:publish_metric_action].nil?
+        data['PublishMetricAction'] = StatelessCustomPublishMetricAction.build(input[:publish_metric_action]) unless input[:publish_metric_action].nil?
         data
       end
     end
@@ -1043,7 +1045,7 @@ module AWS::SDK::SecurityHub
     class StatelessCustomPublishMetricAction
       def self.build(input)
         data = {}
-        data['Dimensions'] = Builders::StatelessCustomPublishMetricActionDimensionsList.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = StatelessCustomPublishMetricActionDimensionsList.build(input[:dimensions]) unless input[:dimensions].nil?
         data
       end
     end
@@ -1053,7 +1055,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StatelessCustomPublishMetricActionDimension.build(element) unless element.nil?
+          data << StatelessCustomPublishMetricActionDimension.build(element) unless element.nil?
         end
         data
       end
@@ -1073,7 +1075,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatefulRulesDetails.build(element) unless element.nil?
+          data << RuleGroupSourceStatefulRulesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1084,8 +1086,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['Header'] = Builders::RuleGroupSourceStatefulRulesHeaderDetails.build(input[:header]) unless input[:header].nil?
-        data['RuleOptions'] = Builders::RuleGroupSourceStatefulRulesOptionsList.build(input[:rule_options]) unless input[:rule_options].nil?
+        data['Header'] = RuleGroupSourceStatefulRulesHeaderDetails.build(input[:header]) unless input[:header].nil?
+        data['RuleOptions'] = RuleGroupSourceStatefulRulesOptionsList.build(input[:rule_options]) unless input[:rule_options].nil?
         data
       end
     end
@@ -1095,7 +1097,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupSourceStatefulRulesOptionsDetails.build(element) unless element.nil?
+          data << RuleGroupSourceStatefulRulesOptionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1106,7 +1108,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Keyword'] = input[:keyword] unless input[:keyword].nil?
-        data['Settings'] = Builders::RuleGroupSourceStatefulRulesRuleOptionsSettingsList.build(input[:settings]) unless input[:settings].nil?
+        data['Settings'] = RuleGroupSourceStatefulRulesRuleOptionsSettingsList.build(input[:settings]) unless input[:settings].nil?
         data
       end
     end
@@ -1141,8 +1143,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['GeneratedRulesType'] = input[:generated_rules_type] unless input[:generated_rules_type].nil?
-        data['TargetTypes'] = Builders::NonEmptyStringList.build(input[:target_types]) unless input[:target_types].nil?
-        data['Targets'] = Builders::NonEmptyStringList.build(input[:targets]) unless input[:targets].nil?
+        data['TargetTypes'] = NonEmptyStringList.build(input[:target_types]) unless input[:target_types].nil?
+        data['Targets'] = NonEmptyStringList.build(input[:targets]) unless input[:targets].nil?
         data
       end
     end
@@ -1151,8 +1153,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupVariables
       def self.build(input)
         data = {}
-        data['IpSets'] = Builders::RuleGroupVariablesIpSetsDetails.build(input[:ip_sets]) unless input[:ip_sets].nil?
-        data['PortSets'] = Builders::RuleGroupVariablesPortSetsDetails.build(input[:port_sets]) unless input[:port_sets].nil?
+        data['IpSets'] = RuleGroupVariablesIpSetsDetails.build(input[:ip_sets]) unless input[:ip_sets].nil?
+        data['PortSets'] = RuleGroupVariablesPortSetsDetails.build(input[:port_sets]) unless input[:port_sets].nil?
         data
       end
     end
@@ -1161,7 +1163,7 @@ module AWS::SDK::SecurityHub
     class RuleGroupVariablesPortSetsDetails
       def self.build(input)
         data = {}
-        data['Definition'] = Builders::NonEmptyStringList.build(input[:definition]) unless input[:definition].nil?
+        data['Definition'] = NonEmptyStringList.build(input[:definition]) unless input[:definition].nil?
         data
       end
     end
@@ -1170,7 +1172,7 @@ module AWS::SDK::SecurityHub
     class RuleGroupVariablesIpSetsDetails
       def self.build(input)
         data = {}
-        data['Definition'] = Builders::NonEmptyStringList.build(input[:definition]) unless input[:definition].nil?
+        data['Definition'] = NonEmptyStringList.build(input[:definition]) unless input[:definition].nil?
         data
       end
     end
@@ -1187,7 +1189,7 @@ module AWS::SDK::SecurityHub
         data['FirewallPolicyArn'] = input[:firewall_policy_arn] unless input[:firewall_policy_arn].nil?
         data['FirewallPolicyChangeProtection'] = input[:firewall_policy_change_protection] unless input[:firewall_policy_change_protection].nil?
         data['SubnetChangeProtection'] = input[:subnet_change_protection] unless input[:subnet_change_protection].nil?
-        data['SubnetMappings'] = Builders::AwsNetworkFirewallFirewallSubnetMappingsList.build(input[:subnet_mappings]) unless input[:subnet_mappings].nil?
+        data['SubnetMappings'] = AwsNetworkFirewallFirewallSubnetMappingsList.build(input[:subnet_mappings]) unless input[:subnet_mappings].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data
       end
@@ -1198,7 +1200,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsNetworkFirewallFirewallSubnetMappingsDetails.build(element) unless element.nil?
+          data << AwsNetworkFirewallFirewallSubnetMappingsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1217,7 +1219,7 @@ module AWS::SDK::SecurityHub
     class AwsNetworkFirewallFirewallPolicyDetails
       def self.build(input)
         data = {}
-        data['FirewallPolicy'] = Builders::FirewallPolicyDetails.build(input[:firewall_policy]) unless input[:firewall_policy].nil?
+        data['FirewallPolicy'] = FirewallPolicyDetails.build(input[:firewall_policy]) unless input[:firewall_policy].nil?
         data['FirewallPolicyArn'] = input[:firewall_policy_arn] unless input[:firewall_policy_arn].nil?
         data['FirewallPolicyId'] = input[:firewall_policy_id] unless input[:firewall_policy_id].nil?
         data['FirewallPolicyName'] = input[:firewall_policy_name] unless input[:firewall_policy_name].nil?
@@ -1230,11 +1232,11 @@ module AWS::SDK::SecurityHub
     class FirewallPolicyDetails
       def self.build(input)
         data = {}
-        data['StatefulRuleGroupReferences'] = Builders::FirewallPolicyStatefulRuleGroupReferencesList.build(input[:stateful_rule_group_references]) unless input[:stateful_rule_group_references].nil?
-        data['StatelessCustomActions'] = Builders::FirewallPolicyStatelessCustomActionsList.build(input[:stateless_custom_actions]) unless input[:stateless_custom_actions].nil?
-        data['StatelessDefaultActions'] = Builders::NonEmptyStringList.build(input[:stateless_default_actions]) unless input[:stateless_default_actions].nil?
-        data['StatelessFragmentDefaultActions'] = Builders::NonEmptyStringList.build(input[:stateless_fragment_default_actions]) unless input[:stateless_fragment_default_actions].nil?
-        data['StatelessRuleGroupReferences'] = Builders::FirewallPolicyStatelessRuleGroupReferencesList.build(input[:stateless_rule_group_references]) unless input[:stateless_rule_group_references].nil?
+        data['StatefulRuleGroupReferences'] = FirewallPolicyStatefulRuleGroupReferencesList.build(input[:stateful_rule_group_references]) unless input[:stateful_rule_group_references].nil?
+        data['StatelessCustomActions'] = FirewallPolicyStatelessCustomActionsList.build(input[:stateless_custom_actions]) unless input[:stateless_custom_actions].nil?
+        data['StatelessDefaultActions'] = NonEmptyStringList.build(input[:stateless_default_actions]) unless input[:stateless_default_actions].nil?
+        data['StatelessFragmentDefaultActions'] = NonEmptyStringList.build(input[:stateless_fragment_default_actions]) unless input[:stateless_fragment_default_actions].nil?
+        data['StatelessRuleGroupReferences'] = FirewallPolicyStatelessRuleGroupReferencesList.build(input[:stateless_rule_group_references]) unless input[:stateless_rule_group_references].nil?
         data
       end
     end
@@ -1244,7 +1246,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FirewallPolicyStatelessRuleGroupReferencesDetails.build(element) unless element.nil?
+          data << FirewallPolicyStatelessRuleGroupReferencesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1265,7 +1267,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FirewallPolicyStatelessCustomActionsDetails.build(element) unless element.nil?
+          data << FirewallPolicyStatelessCustomActionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1275,7 +1277,7 @@ module AWS::SDK::SecurityHub
     class FirewallPolicyStatelessCustomActionsDetails
       def self.build(input)
         data = {}
-        data['ActionDefinition'] = Builders::StatelessCustomActionDefinition.build(input[:action_definition]) unless input[:action_definition].nil?
+        data['ActionDefinition'] = StatelessCustomActionDefinition.build(input[:action_definition]) unless input[:action_definition].nil?
         data['ActionName'] = input[:action_name] unless input[:action_name].nil?
         data
       end
@@ -1286,7 +1288,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FirewallPolicyStatefulRuleGroupReferencesDetails.build(element) unless element.nil?
+          data << FirewallPolicyStatefulRuleGroupReferencesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1310,10 +1312,10 @@ module AWS::SDK::SecurityHub
         data['ClusterStatus'] = input[:cluster_status] unless input[:cluster_status].nil?
         data['Endpoint'] = input[:endpoint] unless input[:endpoint].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['ResourcesVpcConfig'] = Builders::AwsEksClusterResourcesVpcConfigDetails.build(input[:resources_vpc_config]) unless input[:resources_vpc_config].nil?
+        data['ResourcesVpcConfig'] = AwsEksClusterResourcesVpcConfigDetails.build(input[:resources_vpc_config]) unless input[:resources_vpc_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['Logging'] = Builders::AwsEksClusterLoggingDetails.build(input[:logging]) unless input[:logging].nil?
+        data['Logging'] = AwsEksClusterLoggingDetails.build(input[:logging]) unless input[:logging].nil?
         data
       end
     end
@@ -1322,7 +1324,7 @@ module AWS::SDK::SecurityHub
     class AwsEksClusterLoggingDetails
       def self.build(input)
         data = {}
-        data['ClusterLogging'] = Builders::AwsEksClusterLoggingClusterLoggingList.build(input[:cluster_logging]) unless input[:cluster_logging].nil?
+        data['ClusterLogging'] = AwsEksClusterLoggingClusterLoggingList.build(input[:cluster_logging]) unless input[:cluster_logging].nil?
         data
       end
     end
@@ -1332,7 +1334,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEksClusterLoggingClusterLoggingDetails.build(element) unless element.nil?
+          data << AwsEksClusterLoggingClusterLoggingDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1343,7 +1345,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['Types'] = Builders::NonEmptyStringList.build(input[:types]) unless input[:types].nil?
+        data['Types'] = NonEmptyStringList.build(input[:types]) unless input[:types].nil?
         data
       end
     end
@@ -1352,8 +1354,8 @@ module AWS::SDK::SecurityHub
     class AwsEksClusterResourcesVpcConfigDetails
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['SubnetIds'] = Builders::NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data
       end
     end
@@ -1363,9 +1365,9 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['ImageScanningConfiguration'] = Builders::AwsEcrRepositoryImageScanningConfigurationDetails.build(input[:image_scanning_configuration]) unless input[:image_scanning_configuration].nil?
+        data['ImageScanningConfiguration'] = AwsEcrRepositoryImageScanningConfigurationDetails.build(input[:image_scanning_configuration]) unless input[:image_scanning_configuration].nil?
         data['ImageTagMutability'] = input[:image_tag_mutability] unless input[:image_tag_mutability].nil?
-        data['LifecyclePolicy'] = Builders::AwsEcrRepositoryLifecyclePolicyDetails.build(input[:lifecycle_policy]) unless input[:lifecycle_policy].nil?
+        data['LifecyclePolicy'] = AwsEcrRepositoryLifecyclePolicyDetails.build(input[:lifecycle_policy]) unless input[:lifecycle_policy].nil?
         data['RepositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['RepositoryPolicyText'] = input[:repository_policy_text] unless input[:repository_policy_text].nil?
         data
@@ -1400,7 +1402,7 @@ module AWS::SDK::SecurityHub
         data['RateKey'] = input[:rate_key] unless input[:rate_key].nil?
         data['RateLimit'] = input[:rate_limit] unless input[:rate_limit].nil?
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
-        data['MatchPredicates'] = Builders::AwsWafRegionalRateBasedRuleMatchPredicateList.build(input[:match_predicates]) unless input[:match_predicates].nil?
+        data['MatchPredicates'] = AwsWafRegionalRateBasedRuleMatchPredicateList.build(input[:match_predicates]) unless input[:match_predicates].nil?
         data
       end
     end
@@ -1410,7 +1412,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsWafRegionalRateBasedRuleMatchPredicate.build(element) unless element.nil?
+          data << AwsWafRegionalRateBasedRuleMatchPredicate.build(element) unless element.nil?
         end
         data
       end
@@ -1436,7 +1438,7 @@ module AWS::SDK::SecurityHub
         data['RateKey'] = input[:rate_key] unless input[:rate_key].nil?
         data['RateLimit'] = input[:rate_limit] unless input[:rate_limit].nil?
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
-        data['MatchPredicates'] = Builders::AwsWafRateBasedRuleMatchPredicateList.build(input[:match_predicates]) unless input[:match_predicates].nil?
+        data['MatchPredicates'] = AwsWafRateBasedRuleMatchPredicateList.build(input[:match_predicates]) unless input[:match_predicates].nil?
         data
       end
     end
@@ -1446,7 +1448,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsWafRateBasedRuleMatchPredicate.build(element) unless element.nil?
+          data << AwsWafRateBasedRuleMatchPredicate.build(element) unless element.nil?
         end
         data
       end
@@ -1479,16 +1481,16 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['AcceptanceRequired'] = input[:acceptance_required] unless input[:acceptance_required].nil?
-        data['AvailabilityZones'] = Builders::NonEmptyStringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        data['BaseEndpointDnsNames'] = Builders::NonEmptyStringList.build(input[:base_endpoint_dns_names]) unless input[:base_endpoint_dns_names].nil?
+        data['AvailabilityZones'] = NonEmptyStringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['BaseEndpointDnsNames'] = NonEmptyStringList.build(input[:base_endpoint_dns_names]) unless input[:base_endpoint_dns_names].nil?
         data['ManagesVpcEndpoints'] = input[:manages_vpc_endpoints] unless input[:manages_vpc_endpoints].nil?
-        data['GatewayLoadBalancerArns'] = Builders::NonEmptyStringList.build(input[:gateway_load_balancer_arns]) unless input[:gateway_load_balancer_arns].nil?
-        data['NetworkLoadBalancerArns'] = Builders::NonEmptyStringList.build(input[:network_load_balancer_arns]) unless input[:network_load_balancer_arns].nil?
+        data['GatewayLoadBalancerArns'] = NonEmptyStringList.build(input[:gateway_load_balancer_arns]) unless input[:gateway_load_balancer_arns].nil?
+        data['NetworkLoadBalancerArns'] = NonEmptyStringList.build(input[:network_load_balancer_arns]) unless input[:network_load_balancer_arns].nil?
         data['PrivateDnsName'] = input[:private_dns_name] unless input[:private_dns_name].nil?
         data['ServiceId'] = input[:service_id] unless input[:service_id].nil?
         data['ServiceName'] = input[:service_name] unless input[:service_name].nil?
         data['ServiceState'] = input[:service_state] unless input[:service_state].nil?
-        data['ServiceType'] = Builders::AwsEc2VpcEndpointServiceServiceTypeList.build(input[:service_type]) unless input[:service_type].nil?
+        data['ServiceType'] = AwsEc2VpcEndpointServiceServiceTypeList.build(input[:service_type]) unless input[:service_type].nil?
         data
       end
     end
@@ -1498,7 +1500,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2VpcEndpointServiceServiceTypeDetails.build(element) unless element.nil?
+          data << AwsEc2VpcEndpointServiceServiceTypeDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1523,14 +1525,14 @@ module AWS::SDK::SecurityHub
         data['Id'] = input[:id] unless input[:id].nil?
         data['DomainEndpoint'] = input[:domain_endpoint] unless input[:domain_endpoint].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
-        data['EncryptionAtRestOptions'] = Builders::AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Builders::AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
-        data['ServiceSoftwareOptions'] = Builders::AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.build(input[:service_software_options]) unless input[:service_software_options].nil?
-        data['ClusterConfig'] = Builders::AwsOpenSearchServiceDomainClusterConfigDetails.build(input[:cluster_config]) unless input[:cluster_config].nil?
-        data['DomainEndpointOptions'] = Builders::AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
-        data['VpcOptions'] = Builders::AwsOpenSearchServiceDomainVpcOptionsDetails.build(input[:vpc_options]) unless input[:vpc_options].nil?
-        data['LogPublishingOptions'] = Builders::AwsOpenSearchServiceDomainLogPublishingOptionsDetails.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
-        data['DomainEndpoints'] = Builders::FieldMap.build(input[:domain_endpoints]) unless input[:domain_endpoints].nil?
+        data['EncryptionAtRestOptions'] = AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
+        data['NodeToNodeEncryptionOptions'] = AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
+        data['ServiceSoftwareOptions'] = AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.build(input[:service_software_options]) unless input[:service_software_options].nil?
+        data['ClusterConfig'] = AwsOpenSearchServiceDomainClusterConfigDetails.build(input[:cluster_config]) unless input[:cluster_config].nil?
+        data['DomainEndpointOptions'] = AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
+        data['VpcOptions'] = AwsOpenSearchServiceDomainVpcOptionsDetails.build(input[:vpc_options]) unless input[:vpc_options].nil?
+        data['LogPublishingOptions'] = AwsOpenSearchServiceDomainLogPublishingOptionsDetails.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
+        data['DomainEndpoints'] = FieldMap.build(input[:domain_endpoints]) unless input[:domain_endpoints].nil?
         data
       end
     end
@@ -1539,9 +1541,9 @@ module AWS::SDK::SecurityHub
     class AwsOpenSearchServiceDomainLogPublishingOptionsDetails
       def self.build(input)
         data = {}
-        data['IndexSlowLogs'] = Builders::AwsOpenSearchServiceDomainLogPublishingOption.build(input[:index_slow_logs]) unless input[:index_slow_logs].nil?
-        data['SearchSlowLogs'] = Builders::AwsOpenSearchServiceDomainLogPublishingOption.build(input[:search_slow_logs]) unless input[:search_slow_logs].nil?
-        data['AuditLogs'] = Builders::AwsOpenSearchServiceDomainLogPublishingOption.build(input[:audit_logs]) unless input[:audit_logs].nil?
+        data['IndexSlowLogs'] = AwsOpenSearchServiceDomainLogPublishingOption.build(input[:index_slow_logs]) unless input[:index_slow_logs].nil?
+        data['SearchSlowLogs'] = AwsOpenSearchServiceDomainLogPublishingOption.build(input[:search_slow_logs]) unless input[:search_slow_logs].nil?
+        data['AuditLogs'] = AwsOpenSearchServiceDomainLogPublishingOption.build(input[:audit_logs]) unless input[:audit_logs].nil?
         data
       end
     end
@@ -1560,8 +1562,8 @@ module AWS::SDK::SecurityHub
     class AwsOpenSearchServiceDomainVpcOptionsDetails
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['SubnetIds'] = Builders::NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data
       end
     end
@@ -1587,7 +1589,7 @@ module AWS::SDK::SecurityHub
         data['WarmEnabled'] = input[:warm_enabled] unless input[:warm_enabled].nil?
         data['WarmCount'] = input[:warm_count] unless input[:warm_count].nil?
         data['DedicatedMasterEnabled'] = input[:dedicated_master_enabled] unless input[:dedicated_master_enabled].nil?
-        data['ZoneAwarenessConfig'] = Builders::AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.build(input[:zone_awareness_config]) unless input[:zone_awareness_config].nil?
+        data['ZoneAwarenessConfig'] = AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.build(input[:zone_awareness_config]) unless input[:zone_awareness_config].nil?
         data['DedicatedMasterCount'] = input[:dedicated_master_count] unless input[:dedicated_master_count].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['WarmType'] = input[:warm_type] unless input[:warm_type].nil?
@@ -1649,7 +1651,7 @@ module AWS::SDK::SecurityHub
         data['RepositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['Architecture'] = input[:architecture] unless input[:architecture].nil?
         data['ImageDigest'] = input[:image_digest] unless input[:image_digest].nil?
-        data['ImageTags'] = Builders::NonEmptyStringList.build(input[:image_tags]) unless input[:image_tags].nil?
+        data['ImageTags'] = NonEmptyStringList.build(input[:image_tags]) unless input[:image_tags].nil?
         data['ImagePublishedAt'] = input[:image_published_at] unless input[:image_published_at].nil?
         data
       end
@@ -1666,9 +1668,9 @@ module AWS::SDK::SecurityHub
         data['Type'] = input[:type] unless input[:type].nil?
         data['VpnGatewayId'] = input[:vpn_gateway_id] unless input[:vpn_gateway_id].nil?
         data['Category'] = input[:category] unless input[:category].nil?
-        data['VgwTelemetry'] = Builders::AwsEc2VpnConnectionVgwTelemetryList.build(input[:vgw_telemetry]) unless input[:vgw_telemetry].nil?
-        data['Options'] = Builders::AwsEc2VpnConnectionOptionsDetails.build(input[:options]) unless input[:options].nil?
-        data['Routes'] = Builders::AwsEc2VpnConnectionRoutesList.build(input[:routes]) unless input[:routes].nil?
+        data['VgwTelemetry'] = AwsEc2VpnConnectionVgwTelemetryList.build(input[:vgw_telemetry]) unless input[:vgw_telemetry].nil?
+        data['Options'] = AwsEc2VpnConnectionOptionsDetails.build(input[:options]) unless input[:options].nil?
+        data['Routes'] = AwsEc2VpnConnectionRoutesList.build(input[:routes]) unless input[:routes].nil?
         data['TransitGatewayId'] = input[:transit_gateway_id] unless input[:transit_gateway_id].nil?
         data
       end
@@ -1679,7 +1681,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2VpnConnectionRoutesDetails.build(element) unless element.nil?
+          data << AwsEc2VpnConnectionRoutesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1700,7 +1702,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['StaticRoutesOnly'] = input[:static_routes_only] unless input[:static_routes_only].nil?
-        data['TunnelOptions'] = Builders::AwsEc2VpnConnectionOptionsTunnelOptionsList.build(input[:tunnel_options]) unless input[:tunnel_options].nil?
+        data['TunnelOptions'] = AwsEc2VpnConnectionOptionsTunnelOptionsList.build(input[:tunnel_options]) unless input[:tunnel_options].nil?
         data
       end
     end
@@ -1710,7 +1712,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2VpnConnectionOptionsTunnelOptionsDetails.build(element) unless element.nil?
+          data << AwsEc2VpnConnectionOptionsTunnelOptionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1721,15 +1723,15 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['DpdTimeoutSeconds'] = input[:dpd_timeout_seconds] unless input[:dpd_timeout_seconds].nil?
-        data['IkeVersions'] = Builders::NonEmptyStringList.build(input[:ike_versions]) unless input[:ike_versions].nil?
+        data['IkeVersions'] = NonEmptyStringList.build(input[:ike_versions]) unless input[:ike_versions].nil?
         data['OutsideIpAddress'] = input[:outside_ip_address] unless input[:outside_ip_address].nil?
-        data['Phase1DhGroupNumbers'] = Builders::IntegerList.build(input[:phase1_dh_group_numbers]) unless input[:phase1_dh_group_numbers].nil?
-        data['Phase1EncryptionAlgorithms'] = Builders::NonEmptyStringList.build(input[:phase1_encryption_algorithms]) unless input[:phase1_encryption_algorithms].nil?
-        data['Phase1IntegrityAlgorithms'] = Builders::NonEmptyStringList.build(input[:phase1_integrity_algorithms]) unless input[:phase1_integrity_algorithms].nil?
+        data['Phase1DhGroupNumbers'] = IntegerList.build(input[:phase1_dh_group_numbers]) unless input[:phase1_dh_group_numbers].nil?
+        data['Phase1EncryptionAlgorithms'] = NonEmptyStringList.build(input[:phase1_encryption_algorithms]) unless input[:phase1_encryption_algorithms].nil?
+        data['Phase1IntegrityAlgorithms'] = NonEmptyStringList.build(input[:phase1_integrity_algorithms]) unless input[:phase1_integrity_algorithms].nil?
         data['Phase1LifetimeSeconds'] = input[:phase1_lifetime_seconds] unless input[:phase1_lifetime_seconds].nil?
-        data['Phase2DhGroupNumbers'] = Builders::IntegerList.build(input[:phase2_dh_group_numbers]) unless input[:phase2_dh_group_numbers].nil?
-        data['Phase2EncryptionAlgorithms'] = Builders::NonEmptyStringList.build(input[:phase2_encryption_algorithms]) unless input[:phase2_encryption_algorithms].nil?
-        data['Phase2IntegrityAlgorithms'] = Builders::NonEmptyStringList.build(input[:phase2_integrity_algorithms]) unless input[:phase2_integrity_algorithms].nil?
+        data['Phase2DhGroupNumbers'] = IntegerList.build(input[:phase2_dh_group_numbers]) unless input[:phase2_dh_group_numbers].nil?
+        data['Phase2EncryptionAlgorithms'] = NonEmptyStringList.build(input[:phase2_encryption_algorithms]) unless input[:phase2_encryption_algorithms].nil?
+        data['Phase2IntegrityAlgorithms'] = NonEmptyStringList.build(input[:phase2_integrity_algorithms]) unless input[:phase2_integrity_algorithms].nil?
         data['Phase2LifetimeSeconds'] = input[:phase2_lifetime_seconds] unless input[:phase2_lifetime_seconds].nil?
         data['PreSharedKey'] = input[:pre_shared_key] unless input[:pre_shared_key].nil?
         data['RekeyFuzzPercentage'] = input[:rekey_fuzz_percentage] unless input[:rekey_fuzz_percentage].nil?
@@ -1756,7 +1758,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2VpnConnectionVgwTelemetryDetails.build(element) unless element.nil?
+          data << AwsEc2VpnConnectionVgwTelemetryDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1781,24 +1783,24 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['AssociatePublicIpAddress'] = input[:associate_public_ip_address] unless input[:associate_public_ip_address].nil?
-        data['BlockDeviceMappings'] = Builders::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.build(input[:block_device_mappings]) unless input[:block_device_mappings].nil?
+        data['BlockDeviceMappings'] = AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.build(input[:block_device_mappings]) unless input[:block_device_mappings].nil?
         data['ClassicLinkVpcId'] = input[:classic_link_vpc_id] unless input[:classic_link_vpc_id].nil?
-        data['ClassicLinkVpcSecurityGroups'] = Builders::NonEmptyStringList.build(input[:classic_link_vpc_security_groups]) unless input[:classic_link_vpc_security_groups].nil?
+        data['ClassicLinkVpcSecurityGroups'] = NonEmptyStringList.build(input[:classic_link_vpc_security_groups]) unless input[:classic_link_vpc_security_groups].nil?
         data['CreatedTime'] = input[:created_time] unless input[:created_time].nil?
         data['EbsOptimized'] = input[:ebs_optimized] unless input[:ebs_optimized].nil?
         data['IamInstanceProfile'] = input[:iam_instance_profile] unless input[:iam_instance_profile].nil?
         data['ImageId'] = input[:image_id] unless input[:image_id].nil?
-        data['InstanceMonitoring'] = Builders::AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.build(input[:instance_monitoring]) unless input[:instance_monitoring].nil?
+        data['InstanceMonitoring'] = AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.build(input[:instance_monitoring]) unless input[:instance_monitoring].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['KernelId'] = input[:kernel_id] unless input[:kernel_id].nil?
         data['KeyName'] = input[:key_name] unless input[:key_name].nil?
         data['LaunchConfigurationName'] = input[:launch_configuration_name] unless input[:launch_configuration_name].nil?
         data['PlacementTenancy'] = input[:placement_tenancy] unless input[:placement_tenancy].nil?
         data['RamdiskId'] = input[:ramdisk_id] unless input[:ramdisk_id].nil?
-        data['SecurityGroups'] = Builders::NonEmptyStringList.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['SecurityGroups'] = NonEmptyStringList.build(input[:security_groups]) unless input[:security_groups].nil?
         data['SpotPrice'] = input[:spot_price] unless input[:spot_price].nil?
         data['UserData'] = input[:user_data] unless input[:user_data].nil?
-        data['MetadataOptions'] = Builders::AwsAutoScalingLaunchConfigurationMetadataOptions.build(input[:metadata_options]) unless input[:metadata_options].nil?
+        data['MetadataOptions'] = AwsAutoScalingLaunchConfigurationMetadataOptions.build(input[:metadata_options]) unless input[:metadata_options].nil?
         data
       end
     end
@@ -1828,7 +1830,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.build(element) unless element.nil?
+          data << AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1839,7 +1841,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['DeviceName'] = input[:device_name] unless input[:device_name].nil?
-        data['Ebs'] = Builders::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.build(input[:ebs]) unless input[:ebs].nil?
+        data['Ebs'] = AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.build(input[:ebs]) unless input[:ebs].nil?
         data['NoDevice'] = input[:no_device] unless input[:no_device].nil?
         data['VirtualName'] = input[:virtual_name] unless input[:virtual_name].nil?
         data
@@ -1864,27 +1866,27 @@ module AWS::SDK::SecurityHub
     class AwsEcsServiceDetails
       def self.build(input)
         data = {}
-        data['CapacityProviderStrategy'] = Builders::AwsEcsServiceCapacityProviderStrategyList.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
+        data['CapacityProviderStrategy'] = AwsEcsServiceCapacityProviderStrategyList.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
         data['Cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['DeploymentConfiguration'] = Builders::AwsEcsServiceDeploymentConfigurationDetails.build(input[:deployment_configuration]) unless input[:deployment_configuration].nil?
-        data['DeploymentController'] = Builders::AwsEcsServiceDeploymentControllerDetails.build(input[:deployment_controller]) unless input[:deployment_controller].nil?
+        data['DeploymentConfiguration'] = AwsEcsServiceDeploymentConfigurationDetails.build(input[:deployment_configuration]) unless input[:deployment_configuration].nil?
+        data['DeploymentController'] = AwsEcsServiceDeploymentControllerDetails.build(input[:deployment_controller]) unless input[:deployment_controller].nil?
         data['DesiredCount'] = input[:desired_count] unless input[:desired_count].nil?
         data['EnableEcsManagedTags'] = input[:enable_ecs_managed_tags] unless input[:enable_ecs_managed_tags].nil?
         data['EnableExecuteCommand'] = input[:enable_execute_command] unless input[:enable_execute_command].nil?
         data['HealthCheckGracePeriodSeconds'] = input[:health_check_grace_period_seconds] unless input[:health_check_grace_period_seconds].nil?
         data['LaunchType'] = input[:launch_type] unless input[:launch_type].nil?
-        data['LoadBalancers'] = Builders::AwsEcsServiceLoadBalancersList.build(input[:load_balancers]) unless input[:load_balancers].nil?
+        data['LoadBalancers'] = AwsEcsServiceLoadBalancersList.build(input[:load_balancers]) unless input[:load_balancers].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['NetworkConfiguration'] = Builders::AwsEcsServiceNetworkConfigurationDetails.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['PlacementConstraints'] = Builders::AwsEcsServicePlacementConstraintsList.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
-        data['PlacementStrategies'] = Builders::AwsEcsServicePlacementStrategiesList.build(input[:placement_strategies]) unless input[:placement_strategies].nil?
+        data['NetworkConfiguration'] = AwsEcsServiceNetworkConfigurationDetails.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['PlacementConstraints'] = AwsEcsServicePlacementConstraintsList.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
+        data['PlacementStrategies'] = AwsEcsServicePlacementStrategiesList.build(input[:placement_strategies]) unless input[:placement_strategies].nil?
         data['PlatformVersion'] = input[:platform_version] unless input[:platform_version].nil?
         data['PropagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data['SchedulingStrategy'] = input[:scheduling_strategy] unless input[:scheduling_strategy].nil?
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
         data['ServiceName'] = input[:service_name] unless input[:service_name].nil?
-        data['ServiceRegistries'] = Builders::AwsEcsServiceServiceRegistriesList.build(input[:service_registries]) unless input[:service_registries].nil?
+        data['ServiceRegistries'] = AwsEcsServiceServiceRegistriesList.build(input[:service_registries]) unless input[:service_registries].nil?
         data['TaskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
         data
       end
@@ -1895,7 +1897,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsServiceServiceRegistriesDetails.build(element) unless element.nil?
+          data << AwsEcsServiceServiceRegistriesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1918,7 +1920,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsServicePlacementStrategiesDetails.build(element) unless element.nil?
+          data << AwsEcsServicePlacementStrategiesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1939,7 +1941,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsServicePlacementConstraintsDetails.build(element) unless element.nil?
+          data << AwsEcsServicePlacementConstraintsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -1959,7 +1961,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsServiceNetworkConfigurationDetails
       def self.build(input)
         data = {}
-        data['AwsVpcConfiguration'] = Builders::AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.build(input[:aws_vpc_configuration]) unless input[:aws_vpc_configuration].nil?
+        data['AwsVpcConfiguration'] = AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.build(input[:aws_vpc_configuration]) unless input[:aws_vpc_configuration].nil?
         data
       end
     end
@@ -1969,8 +1971,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['AssignPublicIp'] = input[:assign_public_ip] unless input[:assign_public_ip].nil?
-        data['SecurityGroups'] = Builders::NonEmptyStringList.build(input[:security_groups]) unless input[:security_groups].nil?
-        data['Subnets'] = Builders::NonEmptyStringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroups'] = NonEmptyStringList.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['Subnets'] = NonEmptyStringList.build(input[:subnets]) unless input[:subnets].nil?
         data
       end
     end
@@ -1980,7 +1982,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsServiceLoadBalancersDetails.build(element) unless element.nil?
+          data << AwsEcsServiceLoadBalancersDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2011,7 +2013,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsServiceDeploymentConfigurationDetails
       def self.build(input)
         data = {}
-        data['DeploymentCircuitBreaker'] = Builders::AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.build(input[:deployment_circuit_breaker]) unless input[:deployment_circuit_breaker].nil?
+        data['DeploymentCircuitBreaker'] = AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.build(input[:deployment_circuit_breaker]) unless input[:deployment_circuit_breaker].nil?
         data['MaximumPercent'] = input[:maximum_percent] unless input[:maximum_percent].nil?
         data['MinimumHealthyPercent'] = input[:minimum_healthy_percent] unless input[:minimum_healthy_percent].nil?
         data
@@ -2033,7 +2035,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsServiceCapacityProviderStrategyDetails.build(element) unless element.nil?
+          data << AwsEcsServiceCapacityProviderStrategyDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2057,10 +2059,10 @@ module AWS::SDK::SecurityHub
         data['CustSubscriptionId'] = input[:cust_subscription_id] unless input[:cust_subscription_id].nil?
         data['CustomerAwsId'] = input[:customer_aws_id] unless input[:customer_aws_id].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['EventCategoriesList'] = Builders::NonEmptyStringList.build(input[:event_categories_list]) unless input[:event_categories_list].nil?
+        data['EventCategoriesList'] = NonEmptyStringList.build(input[:event_categories_list]) unless input[:event_categories_list].nil?
         data['EventSubscriptionArn'] = input[:event_subscription_arn] unless input[:event_subscription_arn].nil?
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
-        data['SourceIdsList'] = Builders::NonEmptyStringList.build(input[:source_ids_list]) unless input[:source_ids_list].nil?
+        data['SourceIdsList'] = NonEmptyStringList.build(input[:source_ids_list]) unless input[:source_ids_list].nil?
         data['SourceType'] = input[:source_type] unless input[:source_type].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['SubscriptionCreationTime'] = input[:subscription_creation_time] unless input[:subscription_creation_time].nil?
@@ -2084,20 +2086,20 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionDetails
       def self.build(input)
         data = {}
-        data['ContainerDefinitions'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsList.build(input[:container_definitions]) unless input[:container_definitions].nil?
+        data['ContainerDefinitions'] = AwsEcsTaskDefinitionContainerDefinitionsList.build(input[:container_definitions]) unless input[:container_definitions].nil?
         data['Cpu'] = input[:cpu] unless input[:cpu].nil?
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['Family'] = input[:family] unless input[:family].nil?
-        data['InferenceAccelerators'] = Builders::AwsEcsTaskDefinitionInferenceAcceleratorsList.build(input[:inference_accelerators]) unless input[:inference_accelerators].nil?
+        data['InferenceAccelerators'] = AwsEcsTaskDefinitionInferenceAcceleratorsList.build(input[:inference_accelerators]) unless input[:inference_accelerators].nil?
         data['IpcMode'] = input[:ipc_mode] unless input[:ipc_mode].nil?
         data['Memory'] = input[:memory] unless input[:memory].nil?
         data['NetworkMode'] = input[:network_mode] unless input[:network_mode].nil?
         data['PidMode'] = input[:pid_mode] unless input[:pid_mode].nil?
-        data['PlacementConstraints'] = Builders::AwsEcsTaskDefinitionPlacementConstraintsList.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
-        data['ProxyConfiguration'] = Builders::AwsEcsTaskDefinitionProxyConfigurationDetails.build(input[:proxy_configuration]) unless input[:proxy_configuration].nil?
-        data['RequiresCompatibilities'] = Builders::NonEmptyStringList.build(input[:requires_compatibilities]) unless input[:requires_compatibilities].nil?
+        data['PlacementConstraints'] = AwsEcsTaskDefinitionPlacementConstraintsList.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
+        data['ProxyConfiguration'] = AwsEcsTaskDefinitionProxyConfigurationDetails.build(input[:proxy_configuration]) unless input[:proxy_configuration].nil?
+        data['RequiresCompatibilities'] = NonEmptyStringList.build(input[:requires_compatibilities]) unless input[:requires_compatibilities].nil?
         data['TaskRoleArn'] = input[:task_role_arn] unless input[:task_role_arn].nil?
-        data['Volumes'] = Builders::AwsEcsTaskDefinitionVolumesList.build(input[:volumes]) unless input[:volumes].nil?
+        data['Volumes'] = AwsEcsTaskDefinitionVolumesList.build(input[:volumes]) unless input[:volumes].nil?
         data
       end
     end
@@ -2107,7 +2109,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionVolumesDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionVolumesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2117,9 +2119,9 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionVolumesDetails
       def self.build(input)
         data = {}
-        data['DockerVolumeConfiguration'] = Builders::AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.build(input[:docker_volume_configuration]) unless input[:docker_volume_configuration].nil?
-        data['EfsVolumeConfiguration'] = Builders::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.build(input[:efs_volume_configuration]) unless input[:efs_volume_configuration].nil?
-        data['Host'] = Builders::AwsEcsTaskDefinitionVolumesHostDetails.build(input[:host]) unless input[:host].nil?
+        data['DockerVolumeConfiguration'] = AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.build(input[:docker_volume_configuration]) unless input[:docker_volume_configuration].nil?
+        data['EfsVolumeConfiguration'] = AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.build(input[:efs_volume_configuration]) unless input[:efs_volume_configuration].nil?
+        data['Host'] = AwsEcsTaskDefinitionVolumesHostDetails.build(input[:host]) unless input[:host].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data
       end
@@ -2138,7 +2140,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
       def self.build(input)
         data = {}
-        data['AuthorizationConfig'] = Builders::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.build(input[:authorization_config]) unless input[:authorization_config].nil?
+        data['AuthorizationConfig'] = AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.build(input[:authorization_config]) unless input[:authorization_config].nil?
         data['FilesystemId'] = input[:filesystem_id] unless input[:filesystem_id].nil?
         data['RootDirectory'] = input[:root_directory] unless input[:root_directory].nil?
         data['TransitEncryption'] = input[:transit_encryption] unless input[:transit_encryption].nil?
@@ -2163,8 +2165,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Autoprovision'] = input[:autoprovision] unless input[:autoprovision].nil?
         data['Driver'] = input[:driver] unless input[:driver].nil?
-        data['DriverOpts'] = Builders::FieldMap.build(input[:driver_opts]) unless input[:driver_opts].nil?
-        data['Labels'] = Builders::FieldMap.build(input[:labels]) unless input[:labels].nil?
+        data['DriverOpts'] = FieldMap.build(input[:driver_opts]) unless input[:driver_opts].nil?
+        data['Labels'] = FieldMap.build(input[:labels]) unless input[:labels].nil?
         data['Scope'] = input[:scope] unless input[:scope].nil?
         data
       end
@@ -2175,7 +2177,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        data['ProxyConfigurationProperties'] = Builders::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.build(input[:proxy_configuration_properties]) unless input[:proxy_configuration_properties].nil?
+        data['ProxyConfigurationProperties'] = AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.build(input[:proxy_configuration_properties]) unless input[:proxy_configuration_properties].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -2186,7 +2188,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2207,7 +2209,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionPlacementConstraintsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionPlacementConstraintsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2228,7 +2230,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionInferenceAcceleratorsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionInferenceAcceleratorsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2249,7 +2251,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2259,44 +2261,44 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsDetails
       def self.build(input)
         data = {}
-        data['Command'] = Builders::NonEmptyStringList.build(input[:command]) unless input[:command].nil?
+        data['Command'] = NonEmptyStringList.build(input[:command]) unless input[:command].nil?
         data['Cpu'] = input[:cpu] unless input[:cpu].nil?
-        data['DependsOn'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.build(input[:depends_on]) unless input[:depends_on].nil?
+        data['DependsOn'] = AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.build(input[:depends_on]) unless input[:depends_on].nil?
         data['DisableNetworking'] = input[:disable_networking] unless input[:disable_networking].nil?
-        data['DnsSearchDomains'] = Builders::NonEmptyStringList.build(input[:dns_search_domains]) unless input[:dns_search_domains].nil?
-        data['DnsServers'] = Builders::NonEmptyStringList.build(input[:dns_servers]) unless input[:dns_servers].nil?
-        data['DockerLabels'] = Builders::FieldMap.build(input[:docker_labels]) unless input[:docker_labels].nil?
-        data['DockerSecurityOptions'] = Builders::NonEmptyStringList.build(input[:docker_security_options]) unless input[:docker_security_options].nil?
-        data['EntryPoint'] = Builders::NonEmptyStringList.build(input[:entry_point]) unless input[:entry_point].nil?
-        data['Environment'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.build(input[:environment]) unless input[:environment].nil?
-        data['EnvironmentFiles'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.build(input[:environment_files]) unless input[:environment_files].nil?
+        data['DnsSearchDomains'] = NonEmptyStringList.build(input[:dns_search_domains]) unless input[:dns_search_domains].nil?
+        data['DnsServers'] = NonEmptyStringList.build(input[:dns_servers]) unless input[:dns_servers].nil?
+        data['DockerLabels'] = FieldMap.build(input[:docker_labels]) unless input[:docker_labels].nil?
+        data['DockerSecurityOptions'] = NonEmptyStringList.build(input[:docker_security_options]) unless input[:docker_security_options].nil?
+        data['EntryPoint'] = NonEmptyStringList.build(input[:entry_point]) unless input[:entry_point].nil?
+        data['Environment'] = AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.build(input[:environment]) unless input[:environment].nil?
+        data['EnvironmentFiles'] = AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.build(input[:environment_files]) unless input[:environment_files].nil?
         data['Essential'] = input[:essential] unless input[:essential].nil?
-        data['ExtraHosts'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.build(input[:extra_hosts]) unless input[:extra_hosts].nil?
-        data['FirelensConfiguration'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.build(input[:firelens_configuration]) unless input[:firelens_configuration].nil?
-        data['HealthCheck'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.build(input[:health_check]) unless input[:health_check].nil?
+        data['ExtraHosts'] = AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.build(input[:extra_hosts]) unless input[:extra_hosts].nil?
+        data['FirelensConfiguration'] = AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.build(input[:firelens_configuration]) unless input[:firelens_configuration].nil?
+        data['HealthCheck'] = AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.build(input[:health_check]) unless input[:health_check].nil?
         data['Hostname'] = input[:hostname] unless input[:hostname].nil?
         data['Image'] = input[:image] unless input[:image].nil?
         data['Interactive'] = input[:interactive] unless input[:interactive].nil?
-        data['Links'] = Builders::NonEmptyStringList.build(input[:links]) unless input[:links].nil?
-        data['LinuxParameters'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.build(input[:linux_parameters]) unless input[:linux_parameters].nil?
-        data['LogConfiguration'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.build(input[:log_configuration]) unless input[:log_configuration].nil?
+        data['Links'] = NonEmptyStringList.build(input[:links]) unless input[:links].nil?
+        data['LinuxParameters'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.build(input[:linux_parameters]) unless input[:linux_parameters].nil?
+        data['LogConfiguration'] = AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.build(input[:log_configuration]) unless input[:log_configuration].nil?
         data['Memory'] = input[:memory] unless input[:memory].nil?
         data['MemoryReservation'] = input[:memory_reservation] unless input[:memory_reservation].nil?
-        data['MountPoints'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.build(input[:mount_points]) unless input[:mount_points].nil?
+        data['MountPoints'] = AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.build(input[:mount_points]) unless input[:mount_points].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['PortMappings'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.build(input[:port_mappings]) unless input[:port_mappings].nil?
+        data['PortMappings'] = AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.build(input[:port_mappings]) unless input[:port_mappings].nil?
         data['Privileged'] = input[:privileged] unless input[:privileged].nil?
         data['PseudoTerminal'] = input[:pseudo_terminal] unless input[:pseudo_terminal].nil?
         data['ReadonlyRootFilesystem'] = input[:readonly_root_filesystem] unless input[:readonly_root_filesystem].nil?
-        data['RepositoryCredentials'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.build(input[:repository_credentials]) unless input[:repository_credentials].nil?
-        data['ResourceRequirements'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
-        data['Secrets'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsSecretsList.build(input[:secrets]) unless input[:secrets].nil?
+        data['RepositoryCredentials'] = AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.build(input[:repository_credentials]) unless input[:repository_credentials].nil?
+        data['ResourceRequirements'] = AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
+        data['Secrets'] = AwsEcsTaskDefinitionContainerDefinitionsSecretsList.build(input[:secrets]) unless input[:secrets].nil?
         data['StartTimeout'] = input[:start_timeout] unless input[:start_timeout].nil?
         data['StopTimeout'] = input[:stop_timeout] unless input[:stop_timeout].nil?
-        data['SystemControls'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.build(input[:system_controls]) unless input[:system_controls].nil?
-        data['Ulimits'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.build(input[:ulimits]) unless input[:ulimits].nil?
+        data['SystemControls'] = AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.build(input[:system_controls]) unless input[:system_controls].nil?
+        data['Ulimits'] = AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.build(input[:ulimits]) unless input[:ulimits].nil?
         data['User'] = input[:user] unless input[:user].nil?
-        data['VolumesFrom'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.build(input[:volumes_from]) unless input[:volumes_from].nil?
+        data['VolumesFrom'] = AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.build(input[:volumes_from]) unless input[:volumes_from].nil?
         data['WorkingDirectory'] = input[:working_directory] unless input[:working_directory].nil?
         data
       end
@@ -2307,7 +2309,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2328,7 +2330,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2350,7 +2352,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2371,7 +2373,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2392,7 +2394,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2422,7 +2424,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2444,7 +2446,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2466,8 +2468,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['LogDriver'] = input[:log_driver] unless input[:log_driver].nil?
-        data['Options'] = Builders::FieldMap.build(input[:options]) unless input[:options].nil?
-        data['SecretOptions'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.build(input[:secret_options]) unless input[:secret_options].nil?
+        data['Options'] = FieldMap.build(input[:options]) unless input[:options].nil?
+        data['SecretOptions'] = AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.build(input[:secret_options]) unless input[:secret_options].nil?
         data
       end
     end
@@ -2477,7 +2479,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2497,13 +2499,13 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
       def self.build(input)
         data = {}
-        data['Capabilities'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.build(input[:capabilities]) unless input[:capabilities].nil?
-        data['Devices'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.build(input[:devices]) unless input[:devices].nil?
+        data['Capabilities'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.build(input[:capabilities]) unless input[:capabilities].nil?
+        data['Devices'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.build(input[:devices]) unless input[:devices].nil?
         data['InitProcessEnabled'] = input[:init_process_enabled] unless input[:init_process_enabled].nil?
         data['MaxSwap'] = input[:max_swap] unless input[:max_swap].nil?
         data['SharedMemorySize'] = input[:shared_memory_size] unless input[:shared_memory_size].nil?
         data['Swappiness'] = input[:swappiness] unless input[:swappiness].nil?
-        data['Tmpfs'] = Builders::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.build(input[:tmpfs]) unless input[:tmpfs].nil?
+        data['Tmpfs'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.build(input[:tmpfs]) unless input[:tmpfs].nil?
         data
       end
     end
@@ -2513,7 +2515,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2524,7 +2526,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['ContainerPath'] = input[:container_path] unless input[:container_path].nil?
-        data['MountOptions'] = Builders::NonEmptyStringList.build(input[:mount_options]) unless input[:mount_options].nil?
+        data['MountOptions'] = NonEmptyStringList.build(input[:mount_options]) unless input[:mount_options].nil?
         data['Size'] = input[:size] unless input[:size].nil?
         data
       end
@@ -2535,7 +2537,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2547,7 +2549,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['ContainerPath'] = input[:container_path] unless input[:container_path].nil?
         data['HostPath'] = input[:host_path] unless input[:host_path].nil?
-        data['Permissions'] = Builders::NonEmptyStringList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Permissions'] = NonEmptyStringList.build(input[:permissions]) unless input[:permissions].nil?
         data
       end
     end
@@ -2556,8 +2558,8 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
       def self.build(input)
         data = {}
-        data['Add'] = Builders::NonEmptyStringList.build(input[:add]) unless input[:add].nil?
-        data['Drop'] = Builders::NonEmptyStringList.build(input[:drop]) unless input[:drop].nil?
+        data['Add'] = NonEmptyStringList.build(input[:add]) unless input[:add].nil?
+        data['Drop'] = NonEmptyStringList.build(input[:drop]) unless input[:drop].nil?
         data
       end
     end
@@ -2566,7 +2568,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
       def self.build(input)
         data = {}
-        data['Command'] = Builders::NonEmptyStringList.build(input[:command]) unless input[:command].nil?
+        data['Command'] = NonEmptyStringList.build(input[:command]) unless input[:command].nil?
         data['Interval'] = input[:interval] unless input[:interval].nil?
         data['Retries'] = input[:retries] unless input[:retries].nil?
         data['StartPeriod'] = input[:start_period] unless input[:start_period].nil?
@@ -2579,7 +2581,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
       def self.build(input)
         data = {}
-        data['Options'] = Builders::FieldMap.build(input[:options]) unless input[:options].nil?
+        data['Options'] = FieldMap.build(input[:options]) unless input[:options].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -2590,7 +2592,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2611,7 +2613,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2632,7 +2634,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2653,7 +2655,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.build(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2673,10 +2675,10 @@ module AWS::SDK::SecurityHub
     class AwsEcsClusterDetails
       def self.build(input)
         data = {}
-        data['CapacityProviders'] = Builders::NonEmptyStringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
-        data['ClusterSettings'] = Builders::AwsEcsClusterClusterSettingsList.build(input[:cluster_settings]) unless input[:cluster_settings].nil?
-        data['Configuration'] = Builders::AwsEcsClusterConfigurationDetails.build(input[:configuration]) unless input[:configuration].nil?
-        data['DefaultCapacityProviderStrategy'] = Builders::AwsEcsClusterDefaultCapacityProviderStrategyList.build(input[:default_capacity_provider_strategy]) unless input[:default_capacity_provider_strategy].nil?
+        data['CapacityProviders'] = NonEmptyStringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
+        data['ClusterSettings'] = AwsEcsClusterClusterSettingsList.build(input[:cluster_settings]) unless input[:cluster_settings].nil?
+        data['Configuration'] = AwsEcsClusterConfigurationDetails.build(input[:configuration]) unless input[:configuration].nil?
+        data['DefaultCapacityProviderStrategy'] = AwsEcsClusterDefaultCapacityProviderStrategyList.build(input[:default_capacity_provider_strategy]) unless input[:default_capacity_provider_strategy].nil?
         data
       end
     end
@@ -2686,7 +2688,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsClusterDefaultCapacityProviderStrategyDetails.build(element) unless element.nil?
+          data << AwsEcsClusterDefaultCapacityProviderStrategyDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2707,7 +2709,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsClusterConfigurationDetails
       def self.build(input)
         data = {}
-        data['ExecuteCommandConfiguration'] = Builders::AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.build(input[:execute_command_configuration]) unless input[:execute_command_configuration].nil?
+        data['ExecuteCommandConfiguration'] = AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.build(input[:execute_command_configuration]) unless input[:execute_command_configuration].nil?
         data
       end
     end
@@ -2717,7 +2719,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['LogConfiguration'] = Builders::AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.build(input[:log_configuration]) unless input[:log_configuration].nil?
+        data['LogConfiguration'] = AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.build(input[:log_configuration]) unless input[:log_configuration].nil?
         data['Logging'] = input[:logging] unless input[:logging].nil?
         data
       end
@@ -2741,7 +2743,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEcsClusterClusterSettingsDetails.build(element) unless element.nil?
+          data << AwsEcsClusterClusterSettingsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -2762,13 +2764,13 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['AllocatedStorage'] = input[:allocated_storage] unless input[:allocated_storage].nil?
-        data['AvailabilityZones'] = Builders::StringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['AvailabilityZones'] = StringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
         data['BackupRetentionPeriod'] = input[:backup_retention_period] unless input[:backup_retention_period].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['Endpoint'] = input[:endpoint] unless input[:endpoint].nil?
         data['ReaderEndpoint'] = input[:reader_endpoint] unless input[:reader_endpoint].nil?
-        data['CustomEndpoints'] = Builders::StringList.build(input[:custom_endpoints]) unless input[:custom_endpoints].nil?
+        data['CustomEndpoints'] = StringList.build(input[:custom_endpoints]) unless input[:custom_endpoints].nil?
         data['MultiAz'] = input[:multi_az] unless input[:multi_az].nil?
         data['Engine'] = input[:engine] unless input[:engine].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
@@ -2776,27 +2778,27 @@ module AWS::SDK::SecurityHub
         data['MasterUsername'] = input[:master_username] unless input[:master_username].nil?
         data['PreferredBackupWindow'] = input[:preferred_backup_window] unless input[:preferred_backup_window].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
-        data['ReadReplicaIdentifiers'] = Builders::StringList.build(input[:read_replica_identifiers]) unless input[:read_replica_identifiers].nil?
-        data['VpcSecurityGroups'] = Builders::AwsRdsDbInstanceVpcSecurityGroups.build(input[:vpc_security_groups]) unless input[:vpc_security_groups].nil?
+        data['ReadReplicaIdentifiers'] = StringList.build(input[:read_replica_identifiers]) unless input[:read_replica_identifiers].nil?
+        data['VpcSecurityGroups'] = AwsRdsDbInstanceVpcSecurityGroups.build(input[:vpc_security_groups]) unless input[:vpc_security_groups].nil?
         data['HostedZoneId'] = input[:hosted_zone_id] unless input[:hosted_zone_id].nil?
         data['StorageEncrypted'] = input[:storage_encrypted] unless input[:storage_encrypted].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['DbClusterResourceId'] = input[:db_cluster_resource_id] unless input[:db_cluster_resource_id].nil?
-        data['AssociatedRoles'] = Builders::AwsRdsDbClusterAssociatedRoles.build(input[:associated_roles]) unless input[:associated_roles].nil?
+        data['AssociatedRoles'] = AwsRdsDbClusterAssociatedRoles.build(input[:associated_roles]) unless input[:associated_roles].nil?
         data['ClusterCreateTime'] = input[:cluster_create_time] unless input[:cluster_create_time].nil?
-        data['EnabledCloudWatchLogsExports'] = Builders::StringList.build(input[:enabled_cloud_watch_logs_exports]) unless input[:enabled_cloud_watch_logs_exports].nil?
+        data['EnabledCloudWatchLogsExports'] = StringList.build(input[:enabled_cloud_watch_logs_exports]) unless input[:enabled_cloud_watch_logs_exports].nil?
         data['EngineMode'] = input[:engine_mode] unless input[:engine_mode].nil?
         data['DeletionProtection'] = input[:deletion_protection] unless input[:deletion_protection].nil?
         data['HttpEndpointEnabled'] = input[:http_endpoint_enabled] unless input[:http_endpoint_enabled].nil?
         data['ActivityStreamStatus'] = input[:activity_stream_status] unless input[:activity_stream_status].nil?
         data['CopyTagsToSnapshot'] = input[:copy_tags_to_snapshot] unless input[:copy_tags_to_snapshot].nil?
         data['CrossAccountClone'] = input[:cross_account_clone] unless input[:cross_account_clone].nil?
-        data['DomainMemberships'] = Builders::AwsRdsDbDomainMemberships.build(input[:domain_memberships]) unless input[:domain_memberships].nil?
+        data['DomainMemberships'] = AwsRdsDbDomainMemberships.build(input[:domain_memberships]) unless input[:domain_memberships].nil?
         data['DbClusterParameterGroup'] = input[:db_cluster_parameter_group] unless input[:db_cluster_parameter_group].nil?
         data['DbSubnetGroup'] = input[:db_subnet_group] unless input[:db_subnet_group].nil?
-        data['DbClusterOptionGroupMemberships'] = Builders::AwsRdsDbClusterOptionGroupMemberships.build(input[:db_cluster_option_group_memberships]) unless input[:db_cluster_option_group_memberships].nil?
+        data['DbClusterOptionGroupMemberships'] = AwsRdsDbClusterOptionGroupMemberships.build(input[:db_cluster_option_group_memberships]) unless input[:db_cluster_option_group_memberships].nil?
         data['DbClusterIdentifier'] = input[:db_cluster_identifier] unless input[:db_cluster_identifier].nil?
-        data['DbClusterMembers'] = Builders::AwsRdsDbClusterMembers.build(input[:db_cluster_members]) unless input[:db_cluster_members].nil?
+        data['DbClusterMembers'] = AwsRdsDbClusterMembers.build(input[:db_cluster_members]) unless input[:db_cluster_members].nil?
         data['IamDatabaseAuthenticationEnabled'] = input[:iam_database_authentication_enabled] unless input[:iam_database_authentication_enabled].nil?
         data
       end
@@ -2807,7 +2809,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbClusterMember.build(element) unless element.nil?
+          data << AwsRdsDbClusterMember.build(element) unless element.nil?
         end
         data
       end
@@ -2830,7 +2832,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbClusterOptionGroupMembership.build(element) unless element.nil?
+          data << AwsRdsDbClusterOptionGroupMembership.build(element) unless element.nil?
         end
         data
       end
@@ -2851,7 +2853,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbDomainMembership.build(element) unless element.nil?
+          data << AwsRdsDbDomainMembership.build(element) unless element.nil?
         end
         data
       end
@@ -2874,7 +2876,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbClusterAssociatedRole.build(element) unless element.nil?
+          data << AwsRdsDbClusterAssociatedRole.build(element) unless element.nil?
         end
         data
       end
@@ -2895,7 +2897,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbInstanceVpcSecurityGroup.build(element) unless element.nil?
+          data << AwsRdsDbInstanceVpcSecurityGroup.build(element) unless element.nil?
         end
         data
       end
@@ -2915,7 +2917,7 @@ module AWS::SDK::SecurityHub
     class AwsRdsDbClusterSnapshotDetails
       def self.build(input)
         data = {}
-        data['AvailabilityZones'] = Builders::StringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['AvailabilityZones'] = StringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
         data['SnapshotCreateTime'] = input[:snapshot_create_time] unless input[:snapshot_create_time].nil?
         data['Engine'] = input[:engine] unless input[:engine].nil?
         data['AllocatedStorage'] = input[:allocated_storage] unless input[:allocated_storage].nil?
@@ -2966,7 +2968,7 @@ module AWS::SDK::SecurityHub
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['Timezone'] = input[:timezone] unless input[:timezone].nil?
         data['IamDatabaseAuthenticationEnabled'] = input[:iam_database_authentication_enabled] unless input[:iam_database_authentication_enabled].nil?
-        data['ProcessorFeatures'] = Builders::AwsRdsDbProcessorFeatures.build(input[:processor_features]) unless input[:processor_features].nil?
+        data['ProcessorFeatures'] = AwsRdsDbProcessorFeatures.build(input[:processor_features]) unless input[:processor_features].nil?
         data['DbiResourceId'] = input[:dbi_resource_id] unless input[:dbi_resource_id].nil?
         data
       end
@@ -2977,7 +2979,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbProcessorFeature.build(element) unless element.nil?
+          data << AwsRdsDbProcessorFeature.build(element) unless element.nil?
         end
         data
       end
@@ -2999,7 +3001,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['DefaultAction'] = input[:default_action] unless input[:default_action].nil?
-        data['Rules'] = Builders::AwsWafWebAclRuleList.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = AwsWafWebAclRuleList.build(input[:rules]) unless input[:rules].nil?
         data['WebAclId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
         data
       end
@@ -3010,7 +3012,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsWafWebAclRule.build(element) unless element.nil?
+          data << AwsWafWebAclRule.build(element) unless element.nil?
         end
         data
       end
@@ -3020,9 +3022,9 @@ module AWS::SDK::SecurityHub
     class AwsWafWebAclRule
       def self.build(input)
         data = {}
-        data['Action'] = Builders::WafAction.build(input[:action]) unless input[:action].nil?
-        data['ExcludedRules'] = Builders::WafExcludedRuleList.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
-        data['OverrideAction'] = Builders::WafOverrideAction.build(input[:override_action]) unless input[:override_action].nil?
+        data['Action'] = WafAction.build(input[:action]) unless input[:action].nil?
+        data['ExcludedRules'] = WafExcludedRuleList.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
+        data['OverrideAction'] = WafOverrideAction.build(input[:override_action]) unless input[:override_action].nil?
         data['Priority'] = input[:priority] unless input[:priority].nil?
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
         data['Type'] = input[:type] unless input[:type].nil?
@@ -3044,7 +3046,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WafExcludedRule.build(element) unless element.nil?
+          data << WafExcludedRule.build(element) unless element.nil?
         end
         data
       end
@@ -3085,7 +3087,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['KmsMasterKeyId'] = input[:kms_master_key_id] unless input[:kms_master_key_id].nil?
-        data['Subscription'] = Builders::AwsSnsTopicSubscriptionList.build(input[:subscription]) unless input[:subscription].nil?
+        data['Subscription'] = AwsSnsTopicSubscriptionList.build(input[:subscription]) unless input[:subscription].nil?
         data['TopicName'] = input[:topic_name] unless input[:topic_name].nil?
         data['Owner'] = input[:owner] unless input[:owner].nil?
         data
@@ -3097,7 +3099,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsSnsTopicSubscription.build(element) unless element.nil?
+          data << AwsSnsTopicSubscription.build(element) unless element.nil?
         end
         data
       end
@@ -3117,7 +3119,7 @@ module AWS::SDK::SecurityHub
     class AwsRdsDbInstanceDetails
       def self.build(input)
         data = {}
-        data['AssociatedRoles'] = Builders::AwsRdsDbInstanceAssociatedRoles.build(input[:associated_roles]) unless input[:associated_roles].nil?
+        data['AssociatedRoles'] = AwsRdsDbInstanceAssociatedRoles.build(input[:associated_roles]) unless input[:associated_roles].nil?
         data['CACertificateIdentifier'] = input[:ca_certificate_identifier] unless input[:ca_certificate_identifier].nil?
         data['DBClusterIdentifier'] = input[:db_cluster_identifier] unless input[:db_cluster_identifier].nil?
         data['DBInstanceIdentifier'] = input[:db_instance_identifier] unless input[:db_instance_identifier].nil?
@@ -3126,7 +3128,7 @@ module AWS::SDK::SecurityHub
         data['DbiResourceId'] = input[:dbi_resource_id] unless input[:dbi_resource_id].nil?
         data['DBName'] = input[:db_name] unless input[:db_name].nil?
         data['DeletionProtection'] = input[:deletion_protection] unless input[:deletion_protection].nil?
-        data['Endpoint'] = Builders::AwsRdsDbInstanceEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
+        data['Endpoint'] = AwsRdsDbInstanceEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
         data['Engine'] = input[:engine] unless input[:engine].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['IAMDatabaseAuthenticationEnabled'] = input[:iam_database_authentication_enabled] unless input[:iam_database_authentication_enabled].nil?
@@ -3135,7 +3137,7 @@ module AWS::SDK::SecurityHub
         data['PubliclyAccessible'] = input[:publicly_accessible] unless input[:publicly_accessible].nil?
         data['StorageEncrypted'] = input[:storage_encrypted] unless input[:storage_encrypted].nil?
         data['TdeCredentialArn'] = input[:tde_credential_arn] unless input[:tde_credential_arn].nil?
-        data['VpcSecurityGroups'] = Builders::AwsRdsDbInstanceVpcSecurityGroups.build(input[:vpc_security_groups]) unless input[:vpc_security_groups].nil?
+        data['VpcSecurityGroups'] = AwsRdsDbInstanceVpcSecurityGroups.build(input[:vpc_security_groups]) unless input[:vpc_security_groups].nil?
         data['MultiAz'] = input[:multi_az] unless input[:multi_az].nil?
         data['EnhancedMonitoringResourceArn'] = input[:enhanced_monitoring_resource_arn] unless input[:enhanced_monitoring_resource_arn].nil?
         data['DbInstanceStatus'] = input[:db_instance_status] unless input[:db_instance_status].nil?
@@ -3143,25 +3145,25 @@ module AWS::SDK::SecurityHub
         data['AllocatedStorage'] = input[:allocated_storage] unless input[:allocated_storage].nil?
         data['PreferredBackupWindow'] = input[:preferred_backup_window] unless input[:preferred_backup_window].nil?
         data['BackupRetentionPeriod'] = input[:backup_retention_period] unless input[:backup_retention_period].nil?
-        data['DbSecurityGroups'] = Builders::StringList.build(input[:db_security_groups]) unless input[:db_security_groups].nil?
-        data['DbParameterGroups'] = Builders::AwsRdsDbParameterGroups.build(input[:db_parameter_groups]) unless input[:db_parameter_groups].nil?
+        data['DbSecurityGroups'] = StringList.build(input[:db_security_groups]) unless input[:db_security_groups].nil?
+        data['DbParameterGroups'] = AwsRdsDbParameterGroups.build(input[:db_parameter_groups]) unless input[:db_parameter_groups].nil?
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
-        data['DbSubnetGroup'] = Builders::AwsRdsDbSubnetGroup.build(input[:db_subnet_group]) unless input[:db_subnet_group].nil?
+        data['DbSubnetGroup'] = AwsRdsDbSubnetGroup.build(input[:db_subnet_group]) unless input[:db_subnet_group].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
-        data['PendingModifiedValues'] = Builders::AwsRdsDbPendingModifiedValues.build(input[:pending_modified_values]) unless input[:pending_modified_values].nil?
+        data['PendingModifiedValues'] = AwsRdsDbPendingModifiedValues.build(input[:pending_modified_values]) unless input[:pending_modified_values].nil?
         data['LatestRestorableTime'] = input[:latest_restorable_time] unless input[:latest_restorable_time].nil?
         data['AutoMinorVersionUpgrade'] = input[:auto_minor_version_upgrade] unless input[:auto_minor_version_upgrade].nil?
         data['ReadReplicaSourceDBInstanceIdentifier'] = input[:read_replica_source_db_instance_identifier] unless input[:read_replica_source_db_instance_identifier].nil?
-        data['ReadReplicaDBInstanceIdentifiers'] = Builders::StringList.build(input[:read_replica_db_instance_identifiers]) unless input[:read_replica_db_instance_identifiers].nil?
-        data['ReadReplicaDBClusterIdentifiers'] = Builders::StringList.build(input[:read_replica_db_cluster_identifiers]) unless input[:read_replica_db_cluster_identifiers].nil?
+        data['ReadReplicaDBInstanceIdentifiers'] = StringList.build(input[:read_replica_db_instance_identifiers]) unless input[:read_replica_db_instance_identifiers].nil?
+        data['ReadReplicaDBClusterIdentifiers'] = StringList.build(input[:read_replica_db_cluster_identifiers]) unless input[:read_replica_db_cluster_identifiers].nil?
         data['LicenseModel'] = input[:license_model] unless input[:license_model].nil?
         data['Iops'] = input[:iops] unless input[:iops].nil?
-        data['OptionGroupMemberships'] = Builders::AwsRdsDbOptionGroupMemberships.build(input[:option_group_memberships]) unless input[:option_group_memberships].nil?
+        data['OptionGroupMemberships'] = AwsRdsDbOptionGroupMemberships.build(input[:option_group_memberships]) unless input[:option_group_memberships].nil?
         data['CharacterSetName'] = input[:character_set_name] unless input[:character_set_name].nil?
         data['SecondaryAvailabilityZone'] = input[:secondary_availability_zone] unless input[:secondary_availability_zone].nil?
-        data['StatusInfos'] = Builders::AwsRdsDbStatusInfos.build(input[:status_infos]) unless input[:status_infos].nil?
+        data['StatusInfos'] = AwsRdsDbStatusInfos.build(input[:status_infos]) unless input[:status_infos].nil?
         data['StorageType'] = input[:storage_type] unless input[:storage_type].nil?
-        data['DomainMemberships'] = Builders::AwsRdsDbDomainMemberships.build(input[:domain_memberships]) unless input[:domain_memberships].nil?
+        data['DomainMemberships'] = AwsRdsDbDomainMemberships.build(input[:domain_memberships]) unless input[:domain_memberships].nil?
         data['CopyTagsToSnapshot'] = input[:copy_tags_to_snapshot] unless input[:copy_tags_to_snapshot].nil?
         data['MonitoringInterval'] = input[:monitoring_interval] unless input[:monitoring_interval].nil?
         data['MonitoringRoleArn'] = input[:monitoring_role_arn] unless input[:monitoring_role_arn].nil?
@@ -3170,9 +3172,9 @@ module AWS::SDK::SecurityHub
         data['PerformanceInsightsEnabled'] = input[:performance_insights_enabled] unless input[:performance_insights_enabled].nil?
         data['PerformanceInsightsKmsKeyId'] = input[:performance_insights_kms_key_id] unless input[:performance_insights_kms_key_id].nil?
         data['PerformanceInsightsRetentionPeriod'] = input[:performance_insights_retention_period] unless input[:performance_insights_retention_period].nil?
-        data['EnabledCloudWatchLogsExports'] = Builders::StringList.build(input[:enabled_cloud_watch_logs_exports]) unless input[:enabled_cloud_watch_logs_exports].nil?
-        data['ProcessorFeatures'] = Builders::AwsRdsDbProcessorFeatures.build(input[:processor_features]) unless input[:processor_features].nil?
-        data['ListenerEndpoint'] = Builders::AwsRdsDbInstanceEndpoint.build(input[:listener_endpoint]) unless input[:listener_endpoint].nil?
+        data['EnabledCloudWatchLogsExports'] = StringList.build(input[:enabled_cloud_watch_logs_exports]) unless input[:enabled_cloud_watch_logs_exports].nil?
+        data['ProcessorFeatures'] = AwsRdsDbProcessorFeatures.build(input[:processor_features]) unless input[:processor_features].nil?
+        data['ListenerEndpoint'] = AwsRdsDbInstanceEndpoint.build(input[:listener_endpoint]) unless input[:listener_endpoint].nil?
         data['MaxAllocatedStorage'] = input[:max_allocated_storage] unless input[:max_allocated_storage].nil?
         data
       end
@@ -3194,7 +3196,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbStatusInfo.build(element) unless element.nil?
+          data << AwsRdsDbStatusInfo.build(element) unless element.nil?
         end
         data
       end
@@ -3217,7 +3219,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbOptionGroupMembership.build(element) unless element.nil?
+          data << AwsRdsDbOptionGroupMembership.build(element) unless element.nil?
         end
         data
       end
@@ -3250,8 +3252,8 @@ module AWS::SDK::SecurityHub
         data['StorageType'] = input[:storage_type] unless input[:storage_type].nil?
         data['CaCertificateIdentifier'] = input[:ca_certificate_identifier] unless input[:ca_certificate_identifier].nil?
         data['DbSubnetGroupName'] = input[:db_subnet_group_name] unless input[:db_subnet_group_name].nil?
-        data['PendingCloudWatchLogsExports'] = Builders::AwsRdsPendingCloudWatchLogsExports.build(input[:pending_cloud_watch_logs_exports]) unless input[:pending_cloud_watch_logs_exports].nil?
-        data['ProcessorFeatures'] = Builders::AwsRdsDbProcessorFeatures.build(input[:processor_features]) unless input[:processor_features].nil?
+        data['PendingCloudWatchLogsExports'] = AwsRdsPendingCloudWatchLogsExports.build(input[:pending_cloud_watch_logs_exports]) unless input[:pending_cloud_watch_logs_exports].nil?
+        data['ProcessorFeatures'] = AwsRdsDbProcessorFeatures.build(input[:processor_features]) unless input[:processor_features].nil?
         data
       end
     end
@@ -3260,8 +3262,8 @@ module AWS::SDK::SecurityHub
     class AwsRdsPendingCloudWatchLogsExports
       def self.build(input)
         data = {}
-        data['LogTypesToEnable'] = Builders::StringList.build(input[:log_types_to_enable]) unless input[:log_types_to_enable].nil?
-        data['LogTypesToDisable'] = Builders::StringList.build(input[:log_types_to_disable]) unless input[:log_types_to_disable].nil?
+        data['LogTypesToEnable'] = StringList.build(input[:log_types_to_enable]) unless input[:log_types_to_enable].nil?
+        data['LogTypesToDisable'] = StringList.build(input[:log_types_to_disable]) unless input[:log_types_to_disable].nil?
         data
       end
     end
@@ -3274,7 +3276,7 @@ module AWS::SDK::SecurityHub
         data['DbSubnetGroupDescription'] = input[:db_subnet_group_description] unless input[:db_subnet_group_description].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data['SubnetGroupStatus'] = input[:subnet_group_status] unless input[:subnet_group_status].nil?
-        data['Subnets'] = Builders::AwsRdsDbSubnetGroupSubnets.build(input[:subnets]) unless input[:subnets].nil?
+        data['Subnets'] = AwsRdsDbSubnetGroupSubnets.build(input[:subnets]) unless input[:subnets].nil?
         data['DbSubnetGroupArn'] = input[:db_subnet_group_arn] unless input[:db_subnet_group_arn].nil?
         data
       end
@@ -3285,7 +3287,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbSubnetGroupSubnet.build(element) unless element.nil?
+          data << AwsRdsDbSubnetGroupSubnet.build(element) unless element.nil?
         end
         data
       end
@@ -3296,7 +3298,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['SubnetIdentifier'] = input[:subnet_identifier] unless input[:subnet_identifier].nil?
-        data['SubnetAvailabilityZone'] = Builders::AwsRdsDbSubnetGroupSubnetAvailabilityZone.build(input[:subnet_availability_zone]) unless input[:subnet_availability_zone].nil?
+        data['SubnetAvailabilityZone'] = AwsRdsDbSubnetGroupSubnetAvailabilityZone.build(input[:subnet_availability_zone]) unless input[:subnet_availability_zone].nil?
         data['SubnetStatus'] = input[:subnet_status] unless input[:subnet_status].nil?
         data
       end
@@ -3316,7 +3318,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbParameterGroup.build(element) unless element.nil?
+          data << AwsRdsDbParameterGroup.build(element) unless element.nil?
         end
         data
       end
@@ -3337,7 +3339,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRdsDbInstanceAssociatedRole.build(element) unless element.nil?
+          data << AwsRdsDbInstanceAssociatedRole.build(element) unless element.nil?
         end
         data
       end
@@ -3359,7 +3361,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Version'] = input[:version] unless input[:version].nil?
-        data['CompatibleRuntimes'] = Builders::NonEmptyStringList.build(input[:compatible_runtimes]) unless input[:compatible_runtimes].nil?
+        data['CompatibleRuntimes'] = NonEmptyStringList.build(input[:compatible_runtimes]) unless input[:compatible_runtimes].nil?
         data['CreatedDate'] = input[:created_date] unless input[:created_date].nil?
         data
       end
@@ -3369,23 +3371,23 @@ module AWS::SDK::SecurityHub
     class AwsLambdaFunctionDetails
       def self.build(input)
         data = {}
-        data['Code'] = Builders::AwsLambdaFunctionCode.build(input[:code]) unless input[:code].nil?
+        data['Code'] = AwsLambdaFunctionCode.build(input[:code]) unless input[:code].nil?
         data['CodeSha256'] = input[:code_sha256] unless input[:code_sha256].nil?
-        data['DeadLetterConfig'] = Builders::AwsLambdaFunctionDeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
-        data['Environment'] = Builders::AwsLambdaFunctionEnvironment.build(input[:environment]) unless input[:environment].nil?
+        data['DeadLetterConfig'] = AwsLambdaFunctionDeadLetterConfig.build(input[:dead_letter_config]) unless input[:dead_letter_config].nil?
+        data['Environment'] = AwsLambdaFunctionEnvironment.build(input[:environment]) unless input[:environment].nil?
         data['FunctionName'] = input[:function_name] unless input[:function_name].nil?
         data['Handler'] = input[:handler] unless input[:handler].nil?
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data['LastModified'] = input[:last_modified] unless input[:last_modified].nil?
-        data['Layers'] = Builders::AwsLambdaFunctionLayerList.build(input[:layers]) unless input[:layers].nil?
+        data['Layers'] = AwsLambdaFunctionLayerList.build(input[:layers]) unless input[:layers].nil?
         data['MasterArn'] = input[:master_arn] unless input[:master_arn].nil?
         data['MemorySize'] = input[:memory_size] unless input[:memory_size].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data['Runtime'] = input[:runtime] unless input[:runtime].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
-        data['TracingConfig'] = Builders::AwsLambdaFunctionTracingConfig.build(input[:tracing_config]) unless input[:tracing_config].nil?
-        data['VpcConfig'] = Builders::AwsLambdaFunctionVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['TracingConfig'] = AwsLambdaFunctionTracingConfig.build(input[:tracing_config]) unless input[:tracing_config].nil?
+        data['VpcConfig'] = AwsLambdaFunctionVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['Version'] = input[:version] unless input[:version].nil?
         data
       end
@@ -3395,8 +3397,8 @@ module AWS::SDK::SecurityHub
     class AwsLambdaFunctionVpcConfig
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['SubnetIds'] = Builders::NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data
       end
@@ -3416,7 +3418,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsLambdaFunctionLayer.build(element) unless element.nil?
+          data << AwsLambdaFunctionLayer.build(element) unless element.nil?
         end
         data
       end
@@ -3436,8 +3438,8 @@ module AWS::SDK::SecurityHub
     class AwsLambdaFunctionEnvironment
       def self.build(input)
         data = {}
-        data['Variables'] = Builders::FieldMap.build(input[:variables]) unless input[:variables].nil?
-        data['Error'] = Builders::AwsLambdaFunctionEnvironmentError.build(input[:error]) unless input[:error].nil?
+        data['Variables'] = FieldMap.build(input[:variables]) unless input[:variables].nil?
+        data['Error'] = AwsLambdaFunctionEnvironmentError.build(input[:error]) unless input[:error].nil?
         data
       end
     end
@@ -3494,13 +3496,13 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['AssumeRolePolicyDocument'] = input[:assume_role_policy_document] unless input[:assume_role_policy_document].nil?
-        data['AttachedManagedPolicies'] = Builders::AwsIamAttachedManagedPolicyList.build(input[:attached_managed_policies]) unless input[:attached_managed_policies].nil?
+        data['AttachedManagedPolicies'] = AwsIamAttachedManagedPolicyList.build(input[:attached_managed_policies]) unless input[:attached_managed_policies].nil?
         data['CreateDate'] = input[:create_date] unless input[:create_date].nil?
-        data['InstanceProfileList'] = Builders::AwsIamInstanceProfileList.build(input[:instance_profile_list]) unless input[:instance_profile_list].nil?
-        data['PermissionsBoundary'] = Builders::AwsIamPermissionsBoundary.build(input[:permissions_boundary]) unless input[:permissions_boundary].nil?
+        data['InstanceProfileList'] = AwsIamInstanceProfileList.build(input[:instance_profile_list]) unless input[:instance_profile_list].nil?
+        data['PermissionsBoundary'] = AwsIamPermissionsBoundary.build(input[:permissions_boundary]) unless input[:permissions_boundary].nil?
         data['RoleId'] = input[:role_id] unless input[:role_id].nil?
         data['RoleName'] = input[:role_name] unless input[:role_name].nil?
-        data['RolePolicyList'] = Builders::AwsIamRolePolicyList.build(input[:role_policy_list]) unless input[:role_policy_list].nil?
+        data['RolePolicyList'] = AwsIamRolePolicyList.build(input[:role_policy_list]) unless input[:role_policy_list].nil?
         data['MaxSessionDuration'] = input[:max_session_duration] unless input[:max_session_duration].nil?
         data['Path'] = input[:path] unless input[:path].nil?
         data
@@ -3512,7 +3514,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsIamRolePolicy.build(element) unless element.nil?
+          data << AwsIamRolePolicy.build(element) unless element.nil?
         end
         data
       end
@@ -3542,7 +3544,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsIamInstanceProfile.build(element) unless element.nil?
+          data << AwsIamInstanceProfile.build(element) unless element.nil?
         end
         data
       end
@@ -3557,7 +3559,7 @@ module AWS::SDK::SecurityHub
         data['InstanceProfileId'] = input[:instance_profile_id] unless input[:instance_profile_id].nil?
         data['InstanceProfileName'] = input[:instance_profile_name] unless input[:instance_profile_name].nil?
         data['Path'] = input[:path] unless input[:path].nil?
-        data['Roles'] = Builders::AwsIamInstanceProfileRoles.build(input[:roles]) unless input[:roles].nil?
+        data['Roles'] = AwsIamInstanceProfileRoles.build(input[:roles]) unless input[:roles].nil?
         data
       end
     end
@@ -3567,7 +3569,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsIamInstanceProfileRole.build(element) unless element.nil?
+          data << AwsIamInstanceProfileRole.build(element) unless element.nil?
         end
         data
       end
@@ -3592,7 +3594,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsIamAttachedManagedPolicy.build(element) unless element.nil?
+          data << AwsIamAttachedManagedPolicy.build(element) unless element.nil?
         end
         data
       end
@@ -3612,11 +3614,11 @@ module AWS::SDK::SecurityHub
     class AwsIamGroupDetails
       def self.build(input)
         data = {}
-        data['AttachedManagedPolicies'] = Builders::AwsIamAttachedManagedPolicyList.build(input[:attached_managed_policies]) unless input[:attached_managed_policies].nil?
+        data['AttachedManagedPolicies'] = AwsIamAttachedManagedPolicyList.build(input[:attached_managed_policies]) unless input[:attached_managed_policies].nil?
         data['CreateDate'] = input[:create_date] unless input[:create_date].nil?
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
-        data['GroupPolicyList'] = Builders::AwsIamGroupPolicyList.build(input[:group_policy_list]) unless input[:group_policy_list].nil?
+        data['GroupPolicyList'] = AwsIamGroupPolicyList.build(input[:group_policy_list]) unless input[:group_policy_list].nil?
         data['Path'] = input[:path] unless input[:path].nil?
         data
       end
@@ -3627,7 +3629,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsIamGroupPolicy.build(element) unless element.nil?
+          data << AwsIamGroupPolicy.build(element) unless element.nil?
         end
         data
       end
@@ -3646,22 +3648,22 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerDetails
       def self.build(input)
         data = {}
-        data['AvailabilityZones'] = Builders::StringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        data['BackendServerDescriptions'] = Builders::AwsElbLoadBalancerBackendServerDescriptions.build(input[:backend_server_descriptions]) unless input[:backend_server_descriptions].nil?
+        data['AvailabilityZones'] = StringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['BackendServerDescriptions'] = AwsElbLoadBalancerBackendServerDescriptions.build(input[:backend_server_descriptions]) unless input[:backend_server_descriptions].nil?
         data['CanonicalHostedZoneName'] = input[:canonical_hosted_zone_name] unless input[:canonical_hosted_zone_name].nil?
         data['CanonicalHostedZoneNameID'] = input[:canonical_hosted_zone_name_id] unless input[:canonical_hosted_zone_name_id].nil?
         data['CreatedTime'] = input[:created_time] unless input[:created_time].nil?
         data['DnsName'] = input[:dns_name] unless input[:dns_name].nil?
-        data['HealthCheck'] = Builders::AwsElbLoadBalancerHealthCheck.build(input[:health_check]) unless input[:health_check].nil?
-        data['Instances'] = Builders::AwsElbLoadBalancerInstances.build(input[:instances]) unless input[:instances].nil?
-        data['ListenerDescriptions'] = Builders::AwsElbLoadBalancerListenerDescriptions.build(input[:listener_descriptions]) unless input[:listener_descriptions].nil?
-        data['LoadBalancerAttributes'] = Builders::AwsElbLoadBalancerAttributes.build(input[:load_balancer_attributes]) unless input[:load_balancer_attributes].nil?
+        data['HealthCheck'] = AwsElbLoadBalancerHealthCheck.build(input[:health_check]) unless input[:health_check].nil?
+        data['Instances'] = AwsElbLoadBalancerInstances.build(input[:instances]) unless input[:instances].nil?
+        data['ListenerDescriptions'] = AwsElbLoadBalancerListenerDescriptions.build(input[:listener_descriptions]) unless input[:listener_descriptions].nil?
+        data['LoadBalancerAttributes'] = AwsElbLoadBalancerAttributes.build(input[:load_balancer_attributes]) unless input[:load_balancer_attributes].nil?
         data['LoadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
-        data['Policies'] = Builders::AwsElbLoadBalancerPolicies.build(input[:policies]) unless input[:policies].nil?
+        data['Policies'] = AwsElbLoadBalancerPolicies.build(input[:policies]) unless input[:policies].nil?
         data['Scheme'] = input[:scheme] unless input[:scheme].nil?
-        data['SecurityGroups'] = Builders::StringList.build(input[:security_groups]) unless input[:security_groups].nil?
-        data['SourceSecurityGroup'] = Builders::AwsElbLoadBalancerSourceSecurityGroup.build(input[:source_security_group]) unless input[:source_security_group].nil?
-        data['Subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroups'] = StringList.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['SourceSecurityGroup'] = AwsElbLoadBalancerSourceSecurityGroup.build(input[:source_security_group]) unless input[:source_security_group].nil?
+        data['Subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data
       end
@@ -3681,9 +3683,9 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerPolicies
       def self.build(input)
         data = {}
-        data['AppCookieStickinessPolicies'] = Builders::AwsElbAppCookieStickinessPolicies.build(input[:app_cookie_stickiness_policies]) unless input[:app_cookie_stickiness_policies].nil?
-        data['LbCookieStickinessPolicies'] = Builders::AwsElbLbCookieStickinessPolicies.build(input[:lb_cookie_stickiness_policies]) unless input[:lb_cookie_stickiness_policies].nil?
-        data['OtherPolicies'] = Builders::StringList.build(input[:other_policies]) unless input[:other_policies].nil?
+        data['AppCookieStickinessPolicies'] = AwsElbAppCookieStickinessPolicies.build(input[:app_cookie_stickiness_policies]) unless input[:app_cookie_stickiness_policies].nil?
+        data['LbCookieStickinessPolicies'] = AwsElbLbCookieStickinessPolicies.build(input[:lb_cookie_stickiness_policies]) unless input[:lb_cookie_stickiness_policies].nil?
+        data['OtherPolicies'] = StringList.build(input[:other_policies]) unless input[:other_policies].nil?
         data
       end
     end
@@ -3693,7 +3695,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElbLbCookieStickinessPolicy.build(element) unless element.nil?
+          data << AwsElbLbCookieStickinessPolicy.build(element) unless element.nil?
         end
         data
       end
@@ -3714,7 +3716,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElbAppCookieStickinessPolicy.build(element) unless element.nil?
+          data << AwsElbAppCookieStickinessPolicy.build(element) unless element.nil?
         end
         data
       end
@@ -3734,11 +3736,11 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerAttributes
       def self.build(input)
         data = {}
-        data['AccessLog'] = Builders::AwsElbLoadBalancerAccessLog.build(input[:access_log]) unless input[:access_log].nil?
-        data['ConnectionDraining'] = Builders::AwsElbLoadBalancerConnectionDraining.build(input[:connection_draining]) unless input[:connection_draining].nil?
-        data['ConnectionSettings'] = Builders::AwsElbLoadBalancerConnectionSettings.build(input[:connection_settings]) unless input[:connection_settings].nil?
-        data['CrossZoneLoadBalancing'] = Builders::AwsElbLoadBalancerCrossZoneLoadBalancing.build(input[:cross_zone_load_balancing]) unless input[:cross_zone_load_balancing].nil?
-        data['AdditionalAttributes'] = Builders::AwsElbLoadBalancerAdditionalAttributeList.build(input[:additional_attributes]) unless input[:additional_attributes].nil?
+        data['AccessLog'] = AwsElbLoadBalancerAccessLog.build(input[:access_log]) unless input[:access_log].nil?
+        data['ConnectionDraining'] = AwsElbLoadBalancerConnectionDraining.build(input[:connection_draining]) unless input[:connection_draining].nil?
+        data['ConnectionSettings'] = AwsElbLoadBalancerConnectionSettings.build(input[:connection_settings]) unless input[:connection_settings].nil?
+        data['CrossZoneLoadBalancing'] = AwsElbLoadBalancerCrossZoneLoadBalancing.build(input[:cross_zone_load_balancing]) unless input[:cross_zone_load_balancing].nil?
+        data['AdditionalAttributes'] = AwsElbLoadBalancerAdditionalAttributeList.build(input[:additional_attributes]) unless input[:additional_attributes].nil?
         data
       end
     end
@@ -3748,7 +3750,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElbLoadBalancerAdditionalAttribute.build(element) unless element.nil?
+          data << AwsElbLoadBalancerAdditionalAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -3809,7 +3811,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElbLoadBalancerListenerDescription.build(element) unless element.nil?
+          data << AwsElbLoadBalancerListenerDescription.build(element) unless element.nil?
         end
         data
       end
@@ -3819,8 +3821,8 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerListenerDescription
       def self.build(input)
         data = {}
-        data['Listener'] = Builders::AwsElbLoadBalancerListener.build(input[:listener]) unless input[:listener].nil?
-        data['PolicyNames'] = Builders::StringList.build(input[:policy_names]) unless input[:policy_names].nil?
+        data['Listener'] = AwsElbLoadBalancerListener.build(input[:listener]) unless input[:listener].nil?
+        data['PolicyNames'] = StringList.build(input[:policy_names]) unless input[:policy_names].nil?
         data
       end
     end
@@ -3843,7 +3845,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElbLoadBalancerInstance.build(element) unless element.nil?
+          data << AwsElbLoadBalancerInstance.build(element) unless element.nil?
         end
         data
       end
@@ -3876,7 +3878,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElbLoadBalancerBackendServerDescription.build(element) unless element.nil?
+          data << AwsElbLoadBalancerBackendServerDescription.build(element) unless element.nil?
         end
         data
       end
@@ -3887,7 +3889,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['InstancePort'] = input[:instance_port] unless input[:instance_port].nil?
-        data['PolicyNames'] = Builders::StringList.build(input[:policy_names]) unless input[:policy_names].nil?
+        data['PolicyNames'] = StringList.build(input[:policy_names]) unless input[:policy_names].nil?
         data
       end
     end
@@ -3902,26 +3904,26 @@ module AWS::SDK::SecurityHub
         data['ClusterAvailabilityStatus'] = input[:cluster_availability_status] unless input[:cluster_availability_status].nil?
         data['ClusterCreateTime'] = input[:cluster_create_time] unless input[:cluster_create_time].nil?
         data['ClusterIdentifier'] = input[:cluster_identifier] unless input[:cluster_identifier].nil?
-        data['ClusterNodes'] = Builders::AwsRedshiftClusterClusterNodes.build(input[:cluster_nodes]) unless input[:cluster_nodes].nil?
-        data['ClusterParameterGroups'] = Builders::AwsRedshiftClusterClusterParameterGroups.build(input[:cluster_parameter_groups]) unless input[:cluster_parameter_groups].nil?
+        data['ClusterNodes'] = AwsRedshiftClusterClusterNodes.build(input[:cluster_nodes]) unless input[:cluster_nodes].nil?
+        data['ClusterParameterGroups'] = AwsRedshiftClusterClusterParameterGroups.build(input[:cluster_parameter_groups]) unless input[:cluster_parameter_groups].nil?
         data['ClusterPublicKey'] = input[:cluster_public_key] unless input[:cluster_public_key].nil?
         data['ClusterRevisionNumber'] = input[:cluster_revision_number] unless input[:cluster_revision_number].nil?
-        data['ClusterSecurityGroups'] = Builders::AwsRedshiftClusterClusterSecurityGroups.build(input[:cluster_security_groups]) unless input[:cluster_security_groups].nil?
-        data['ClusterSnapshotCopyStatus'] = Builders::AwsRedshiftClusterClusterSnapshotCopyStatus.build(input[:cluster_snapshot_copy_status]) unless input[:cluster_snapshot_copy_status].nil?
+        data['ClusterSecurityGroups'] = AwsRedshiftClusterClusterSecurityGroups.build(input[:cluster_security_groups]) unless input[:cluster_security_groups].nil?
+        data['ClusterSnapshotCopyStatus'] = AwsRedshiftClusterClusterSnapshotCopyStatus.build(input[:cluster_snapshot_copy_status]) unless input[:cluster_snapshot_copy_status].nil?
         data['ClusterStatus'] = input[:cluster_status] unless input[:cluster_status].nil?
         data['ClusterSubnetGroupName'] = input[:cluster_subnet_group_name] unless input[:cluster_subnet_group_name].nil?
         data['ClusterVersion'] = input[:cluster_version] unless input[:cluster_version].nil?
         data['DBName'] = input[:db_name] unless input[:db_name].nil?
-        data['DeferredMaintenanceWindows'] = Builders::AwsRedshiftClusterDeferredMaintenanceWindows.build(input[:deferred_maintenance_windows]) unless input[:deferred_maintenance_windows].nil?
-        data['ElasticIpStatus'] = Builders::AwsRedshiftClusterElasticIpStatus.build(input[:elastic_ip_status]) unless input[:elastic_ip_status].nil?
+        data['DeferredMaintenanceWindows'] = AwsRedshiftClusterDeferredMaintenanceWindows.build(input[:deferred_maintenance_windows]) unless input[:deferred_maintenance_windows].nil?
+        data['ElasticIpStatus'] = AwsRedshiftClusterElasticIpStatus.build(input[:elastic_ip_status]) unless input[:elastic_ip_status].nil?
         data['ElasticResizeNumberOfNodeOptions'] = input[:elastic_resize_number_of_node_options] unless input[:elastic_resize_number_of_node_options].nil?
         data['Encrypted'] = input[:encrypted] unless input[:encrypted].nil?
-        data['Endpoint'] = Builders::AwsRedshiftClusterEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
+        data['Endpoint'] = AwsRedshiftClusterEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
         data['EnhancedVpcRouting'] = input[:enhanced_vpc_routing] unless input[:enhanced_vpc_routing].nil?
         data['ExpectedNextSnapshotScheduleTime'] = input[:expected_next_snapshot_schedule_time] unless input[:expected_next_snapshot_schedule_time].nil?
         data['ExpectedNextSnapshotScheduleTimeStatus'] = input[:expected_next_snapshot_schedule_time_status] unless input[:expected_next_snapshot_schedule_time_status].nil?
-        data['HsmStatus'] = Builders::AwsRedshiftClusterHsmStatus.build(input[:hsm_status]) unless input[:hsm_status].nil?
-        data['IamRoles'] = Builders::AwsRedshiftClusterIamRoles.build(input[:iam_roles]) unless input[:iam_roles].nil?
+        data['HsmStatus'] = AwsRedshiftClusterHsmStatus.build(input[:hsm_status]) unless input[:hsm_status].nil?
+        data['IamRoles'] = AwsRedshiftClusterIamRoles.build(input[:iam_roles]) unless input[:iam_roles].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['MaintenanceTrackName'] = input[:maintenance_track_name] unless input[:maintenance_track_name].nil?
         data['ManualSnapshotRetentionPeriod'] = input[:manual_snapshot_retention_period] unless input[:manual_snapshot_retention_period].nil?
@@ -3929,17 +3931,17 @@ module AWS::SDK::SecurityHub
         data['NextMaintenanceWindowStartTime'] = input[:next_maintenance_window_start_time] unless input[:next_maintenance_window_start_time].nil?
         data['NodeType'] = input[:node_type] unless input[:node_type].nil?
         data['NumberOfNodes'] = input[:number_of_nodes] unless input[:number_of_nodes].nil?
-        data['PendingActions'] = Builders::StringList.build(input[:pending_actions]) unless input[:pending_actions].nil?
-        data['PendingModifiedValues'] = Builders::AwsRedshiftClusterPendingModifiedValues.build(input[:pending_modified_values]) unless input[:pending_modified_values].nil?
+        data['PendingActions'] = StringList.build(input[:pending_actions]) unless input[:pending_actions].nil?
+        data['PendingModifiedValues'] = AwsRedshiftClusterPendingModifiedValues.build(input[:pending_modified_values]) unless input[:pending_modified_values].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['PubliclyAccessible'] = input[:publicly_accessible] unless input[:publicly_accessible].nil?
-        data['ResizeInfo'] = Builders::AwsRedshiftClusterResizeInfo.build(input[:resize_info]) unless input[:resize_info].nil?
-        data['RestoreStatus'] = Builders::AwsRedshiftClusterRestoreStatus.build(input[:restore_status]) unless input[:restore_status].nil?
+        data['ResizeInfo'] = AwsRedshiftClusterResizeInfo.build(input[:resize_info]) unless input[:resize_info].nil?
+        data['RestoreStatus'] = AwsRedshiftClusterRestoreStatus.build(input[:restore_status]) unless input[:restore_status].nil?
         data['SnapshotScheduleIdentifier'] = input[:snapshot_schedule_identifier] unless input[:snapshot_schedule_identifier].nil?
         data['SnapshotScheduleState'] = input[:snapshot_schedule_state] unless input[:snapshot_schedule_state].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['VpcSecurityGroups'] = Builders::AwsRedshiftClusterVpcSecurityGroups.build(input[:vpc_security_groups]) unless input[:vpc_security_groups].nil?
-        data['LoggingStatus'] = Builders::AwsRedshiftClusterLoggingStatus.build(input[:logging_status]) unless input[:logging_status].nil?
+        data['VpcSecurityGroups'] = AwsRedshiftClusterVpcSecurityGroups.build(input[:vpc_security_groups]) unless input[:vpc_security_groups].nil?
+        data['LoggingStatus'] = AwsRedshiftClusterLoggingStatus.build(input[:logging_status]) unless input[:logging_status].nil?
         data
       end
     end
@@ -3963,7 +3965,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRedshiftClusterVpcSecurityGroup.build(element) unless element.nil?
+          data << AwsRedshiftClusterVpcSecurityGroup.build(element) unless element.nil?
         end
         data
       end
@@ -4027,7 +4029,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRedshiftClusterIamRole.build(element) unless element.nil?
+          data << AwsRedshiftClusterIamRole.build(element) unless element.nil?
         end
         data
       end
@@ -4079,7 +4081,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRedshiftClusterDeferredMaintenanceWindow.build(element) unless element.nil?
+          data << AwsRedshiftClusterDeferredMaintenanceWindow.build(element) unless element.nil?
         end
         data
       end
@@ -4113,7 +4115,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRedshiftClusterClusterSecurityGroup.build(element) unless element.nil?
+          data << AwsRedshiftClusterClusterSecurityGroup.build(element) unless element.nil?
         end
         data
       end
@@ -4134,7 +4136,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRedshiftClusterClusterParameterGroup.build(element) unless element.nil?
+          data << AwsRedshiftClusterClusterParameterGroup.build(element) unless element.nil?
         end
         data
       end
@@ -4144,7 +4146,7 @@ module AWS::SDK::SecurityHub
     class AwsRedshiftClusterClusterParameterGroup
       def self.build(input)
         data = {}
-        data['ClusterParameterStatusList'] = Builders::AwsRedshiftClusterClusterParameterStatusList.build(input[:cluster_parameter_status_list]) unless input[:cluster_parameter_status_list].nil?
+        data['ClusterParameterStatusList'] = AwsRedshiftClusterClusterParameterStatusList.build(input[:cluster_parameter_status_list]) unless input[:cluster_parameter_status_list].nil?
         data['ParameterApplyStatus'] = input[:parameter_apply_status] unless input[:parameter_apply_status].nil?
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
         data
@@ -4156,7 +4158,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRedshiftClusterClusterParameterStatus.build(element) unless element.nil?
+          data << AwsRedshiftClusterClusterParameterStatus.build(element) unless element.nil?
         end
         data
       end
@@ -4178,7 +4180,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsRedshiftClusterClusterNode.build(element) unless element.nil?
+          data << AwsRedshiftClusterClusterNode.build(element) unless element.nil?
         end
         data
       end
@@ -4202,25 +4204,25 @@ module AWS::SDK::SecurityHub
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['CreatedAt'] = input[:created_at] unless input[:created_at].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['DomainValidationOptions'] = Builders::AwsCertificateManagerCertificateDomainValidationOptions.build(input[:domain_validation_options]) unless input[:domain_validation_options].nil?
-        data['ExtendedKeyUsages'] = Builders::AwsCertificateManagerCertificateExtendedKeyUsages.build(input[:extended_key_usages]) unless input[:extended_key_usages].nil?
+        data['DomainValidationOptions'] = AwsCertificateManagerCertificateDomainValidationOptions.build(input[:domain_validation_options]) unless input[:domain_validation_options].nil?
+        data['ExtendedKeyUsages'] = AwsCertificateManagerCertificateExtendedKeyUsages.build(input[:extended_key_usages]) unless input[:extended_key_usages].nil?
         data['FailureReason'] = input[:failure_reason] unless input[:failure_reason].nil?
         data['ImportedAt'] = input[:imported_at] unless input[:imported_at].nil?
-        data['InUseBy'] = Builders::StringList.build(input[:in_use_by]) unless input[:in_use_by].nil?
+        data['InUseBy'] = StringList.build(input[:in_use_by]) unless input[:in_use_by].nil?
         data['IssuedAt'] = input[:issued_at] unless input[:issued_at].nil?
         data['Issuer'] = input[:issuer] unless input[:issuer].nil?
         data['KeyAlgorithm'] = input[:key_algorithm] unless input[:key_algorithm].nil?
-        data['KeyUsages'] = Builders::AwsCertificateManagerCertificateKeyUsages.build(input[:key_usages]) unless input[:key_usages].nil?
+        data['KeyUsages'] = AwsCertificateManagerCertificateKeyUsages.build(input[:key_usages]) unless input[:key_usages].nil?
         data['NotAfter'] = input[:not_after] unless input[:not_after].nil?
         data['NotBefore'] = input[:not_before] unless input[:not_before].nil?
-        data['Options'] = Builders::AwsCertificateManagerCertificateOptions.build(input[:options]) unless input[:options].nil?
+        data['Options'] = AwsCertificateManagerCertificateOptions.build(input[:options]) unless input[:options].nil?
         data['RenewalEligibility'] = input[:renewal_eligibility] unless input[:renewal_eligibility].nil?
-        data['RenewalSummary'] = Builders::AwsCertificateManagerCertificateRenewalSummary.build(input[:renewal_summary]) unless input[:renewal_summary].nil?
+        data['RenewalSummary'] = AwsCertificateManagerCertificateRenewalSummary.build(input[:renewal_summary]) unless input[:renewal_summary].nil?
         data['Serial'] = input[:serial] unless input[:serial].nil?
         data['SignatureAlgorithm'] = input[:signature_algorithm] unless input[:signature_algorithm].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['Subject'] = input[:subject] unless input[:subject].nil?
-        data['SubjectAlternativeNames'] = Builders::StringList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['SubjectAlternativeNames'] = StringList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -4230,7 +4232,7 @@ module AWS::SDK::SecurityHub
     class AwsCertificateManagerCertificateRenewalSummary
       def self.build(input)
         data = {}
-        data['DomainValidationOptions'] = Builders::AwsCertificateManagerCertificateDomainValidationOptions.build(input[:domain_validation_options]) unless input[:domain_validation_options].nil?
+        data['DomainValidationOptions'] = AwsCertificateManagerCertificateDomainValidationOptions.build(input[:domain_validation_options]) unless input[:domain_validation_options].nil?
         data['RenewalStatus'] = input[:renewal_status] unless input[:renewal_status].nil?
         data['RenewalStatusReason'] = input[:renewal_status_reason] unless input[:renewal_status_reason].nil?
         data['UpdatedAt'] = input[:updated_at] unless input[:updated_at].nil?
@@ -4243,7 +4245,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCertificateManagerCertificateDomainValidationOption.build(element) unless element.nil?
+          data << AwsCertificateManagerCertificateDomainValidationOption.build(element) unless element.nil?
         end
         data
       end
@@ -4254,9 +4256,9 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['ResourceRecord'] = Builders::AwsCertificateManagerCertificateResourceRecord.build(input[:resource_record]) unless input[:resource_record].nil?
+        data['ResourceRecord'] = AwsCertificateManagerCertificateResourceRecord.build(input[:resource_record]) unless input[:resource_record].nil?
         data['ValidationDomain'] = input[:validation_domain] unless input[:validation_domain].nil?
-        data['ValidationEmails'] = Builders::StringList.build(input[:validation_emails]) unless input[:validation_emails].nil?
+        data['ValidationEmails'] = StringList.build(input[:validation_emails]) unless input[:validation_emails].nil?
         data['ValidationMethod'] = input[:validation_method] unless input[:validation_method].nil?
         data['ValidationStatus'] = input[:validation_status] unless input[:validation_status].nil?
         data
@@ -4288,7 +4290,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCertificateManagerCertificateKeyUsage.build(element) unless element.nil?
+          data << AwsCertificateManagerCertificateKeyUsage.build(element) unless element.nil?
         end
         data
       end
@@ -4308,7 +4310,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCertificateManagerCertificateExtendedKeyUsage.build(element) unless element.nil?
+          data << AwsCertificateManagerCertificateExtendedKeyUsage.build(element) unless element.nil?
         end
         data
       end
@@ -4328,7 +4330,7 @@ module AWS::SDK::SecurityHub
     class AwsSsmPatchComplianceDetails
       def self.build(input)
         data = {}
-        data['Patch'] = Builders::AwsSsmPatch.build(input[:patch]) unless input[:patch].nil?
+        data['Patch'] = AwsSsmPatch.build(input[:patch]) unless input[:patch].nil?
         data
       end
     end
@@ -4337,7 +4339,7 @@ module AWS::SDK::SecurityHub
     class AwsSsmPatch
       def self.build(input)
         data = {}
-        data['ComplianceSummary'] = Builders::AwsSsmComplianceSummary.build(input[:compliance_summary]) unless input[:compliance_summary].nil?
+        data['ComplianceSummary'] = AwsSsmComplianceSummary.build(input[:compliance_summary]) unless input[:compliance_summary].nil?
         data
       end
     end
@@ -4400,10 +4402,10 @@ module AWS::SDK::SecurityHub
         data['Description'] = input[:description] unless input[:description].nil?
         data['CreatedDate'] = input[:created_date] unless input[:created_date].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['BinaryMediaTypes'] = Builders::NonEmptyStringList.build(input[:binary_media_types]) unless input[:binary_media_types].nil?
+        data['BinaryMediaTypes'] = NonEmptyStringList.build(input[:binary_media_types]) unless input[:binary_media_types].nil?
         data['MinimumCompressionSize'] = input[:minimum_compression_size] unless input[:minimum_compression_size].nil?
         data['ApiKeySource'] = input[:api_key_source] unless input[:api_key_source].nil?
-        data['EndpointConfiguration'] = Builders::AwsApiGatewayEndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
+        data['EndpointConfiguration'] = AwsApiGatewayEndpointConfiguration.build(input[:endpoint_configuration]) unless input[:endpoint_configuration].nil?
         data
       end
     end
@@ -4412,7 +4414,7 @@ module AWS::SDK::SecurityHub
     class AwsApiGatewayEndpointConfiguration
       def self.build(input)
         data = {}
-        data['Types'] = Builders::NonEmptyStringList.build(input[:types]) unless input[:types].nil?
+        data['Types'] = NonEmptyStringList.build(input[:types]) unless input[:types].nil?
         data
       end
     end
@@ -4428,11 +4430,11 @@ module AWS::SDK::SecurityHub
         data['CacheClusterEnabled'] = input[:cache_cluster_enabled] unless input[:cache_cluster_enabled].nil?
         data['CacheClusterSize'] = input[:cache_cluster_size] unless input[:cache_cluster_size].nil?
         data['CacheClusterStatus'] = input[:cache_cluster_status] unless input[:cache_cluster_status].nil?
-        data['MethodSettings'] = Builders::AwsApiGatewayMethodSettingsList.build(input[:method_settings]) unless input[:method_settings].nil?
-        data['Variables'] = Builders::FieldMap.build(input[:variables]) unless input[:variables].nil?
+        data['MethodSettings'] = AwsApiGatewayMethodSettingsList.build(input[:method_settings]) unless input[:method_settings].nil?
+        data['Variables'] = FieldMap.build(input[:variables]) unless input[:variables].nil?
         data['DocumentationVersion'] = input[:documentation_version] unless input[:documentation_version].nil?
-        data['AccessLogSettings'] = Builders::AwsApiGatewayAccessLogSettings.build(input[:access_log_settings]) unless input[:access_log_settings].nil?
-        data['CanarySettings'] = Builders::AwsApiGatewayCanarySettings.build(input[:canary_settings]) unless input[:canary_settings].nil?
+        data['AccessLogSettings'] = AwsApiGatewayAccessLogSettings.build(input[:access_log_settings]) unless input[:access_log_settings].nil?
+        data['CanarySettings'] = AwsApiGatewayCanarySettings.build(input[:canary_settings]) unless input[:canary_settings].nil?
         data['TracingEnabled'] = input[:tracing_enabled] unless input[:tracing_enabled].nil?
         data['CreatedDate'] = input[:created_date] unless input[:created_date].nil?
         data['LastUpdatedDate'] = input[:last_updated_date] unless input[:last_updated_date].nil?
@@ -4447,7 +4449,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['PercentTraffic'] = Hearth::NumberHelper.serialize(input[:percent_traffic]) unless input[:percent_traffic].nil?
         data['DeploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
-        data['StageVariableOverrides'] = Builders::FieldMap.build(input[:stage_variable_overrides]) unless input[:stage_variable_overrides].nil?
+        data['StageVariableOverrides'] = FieldMap.build(input[:stage_variable_overrides]) unless input[:stage_variable_overrides].nil?
         data['UseStageCache'] = input[:use_stage_cache] unless input[:use_stage_cache].nil?
         data
       end
@@ -4468,7 +4470,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsApiGatewayMethodSettings.build(element) unless element.nil?
+          data << AwsApiGatewayMethodSettings.build(element) unless element.nil?
         end
         data
       end
@@ -4498,21 +4500,21 @@ module AWS::SDK::SecurityHub
     class AwsDynamoDbTableDetails
       def self.build(input)
         data = {}
-        data['AttributeDefinitions'] = Builders::AwsDynamoDbTableAttributeDefinitionList.build(input[:attribute_definitions]) unless input[:attribute_definitions].nil?
-        data['BillingModeSummary'] = Builders::AwsDynamoDbTableBillingModeSummary.build(input[:billing_mode_summary]) unless input[:billing_mode_summary].nil?
+        data['AttributeDefinitions'] = AwsDynamoDbTableAttributeDefinitionList.build(input[:attribute_definitions]) unless input[:attribute_definitions].nil?
+        data['BillingModeSummary'] = AwsDynamoDbTableBillingModeSummary.build(input[:billing_mode_summary]) unless input[:billing_mode_summary].nil?
         data['CreationDateTime'] = input[:creation_date_time] unless input[:creation_date_time].nil?
-        data['GlobalSecondaryIndexes'] = Builders::AwsDynamoDbTableGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = AwsDynamoDbTableGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
         data['GlobalTableVersion'] = input[:global_table_version] unless input[:global_table_version].nil?
         data['ItemCount'] = input[:item_count] unless input[:item_count].nil?
-        data['KeySchema'] = Builders::AwsDynamoDbTableKeySchemaList.build(input[:key_schema]) unless input[:key_schema].nil?
+        data['KeySchema'] = AwsDynamoDbTableKeySchemaList.build(input[:key_schema]) unless input[:key_schema].nil?
         data['LatestStreamArn'] = input[:latest_stream_arn] unless input[:latest_stream_arn].nil?
         data['LatestStreamLabel'] = input[:latest_stream_label] unless input[:latest_stream_label].nil?
-        data['LocalSecondaryIndexes'] = Builders::AwsDynamoDbTableLocalSecondaryIndexList.build(input[:local_secondary_indexes]) unless input[:local_secondary_indexes].nil?
-        data['ProvisionedThroughput'] = Builders::AwsDynamoDbTableProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
-        data['Replicas'] = Builders::AwsDynamoDbTableReplicaList.build(input[:replicas]) unless input[:replicas].nil?
-        data['RestoreSummary'] = Builders::AwsDynamoDbTableRestoreSummary.build(input[:restore_summary]) unless input[:restore_summary].nil?
-        data['SseDescription'] = Builders::AwsDynamoDbTableSseDescription.build(input[:sse_description]) unless input[:sse_description].nil?
-        data['StreamSpecification'] = Builders::AwsDynamoDbTableStreamSpecification.build(input[:stream_specification]) unless input[:stream_specification].nil?
+        data['LocalSecondaryIndexes'] = AwsDynamoDbTableLocalSecondaryIndexList.build(input[:local_secondary_indexes]) unless input[:local_secondary_indexes].nil?
+        data['ProvisionedThroughput'] = AwsDynamoDbTableProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
+        data['Replicas'] = AwsDynamoDbTableReplicaList.build(input[:replicas]) unless input[:replicas].nil?
+        data['RestoreSummary'] = AwsDynamoDbTableRestoreSummary.build(input[:restore_summary]) unless input[:restore_summary].nil?
+        data['SseDescription'] = AwsDynamoDbTableSseDescription.build(input[:sse_description]) unless input[:sse_description].nil?
+        data['StreamSpecification'] = AwsDynamoDbTableStreamSpecification.build(input[:stream_specification]) unless input[:stream_specification].nil?
         data['TableId'] = input[:table_id] unless input[:table_id].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['TableSizeBytes'] = input[:table_size_bytes] unless input[:table_size_bytes].nil?
@@ -4560,7 +4562,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsDynamoDbTableReplica.build(element) unless element.nil?
+          data << AwsDynamoDbTableReplica.build(element) unless element.nil?
         end
         data
       end
@@ -4570,9 +4572,9 @@ module AWS::SDK::SecurityHub
     class AwsDynamoDbTableReplica
       def self.build(input)
         data = {}
-        data['GlobalSecondaryIndexes'] = Builders::AwsDynamoDbTableReplicaGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = AwsDynamoDbTableReplicaGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
         data['KmsMasterKeyId'] = input[:kms_master_key_id] unless input[:kms_master_key_id].nil?
-        data['ProvisionedThroughputOverride'] = Builders::AwsDynamoDbTableProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
+        data['ProvisionedThroughputOverride'] = AwsDynamoDbTableProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
         data['ReplicaStatus'] = input[:replica_status] unless input[:replica_status].nil?
         data['ReplicaStatusDescription'] = input[:replica_status_description] unless input[:replica_status_description].nil?
@@ -4594,7 +4596,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsDynamoDbTableReplicaGlobalSecondaryIndex.build(element) unless element.nil?
+          data << AwsDynamoDbTableReplicaGlobalSecondaryIndex.build(element) unless element.nil?
         end
         data
       end
@@ -4605,7 +4607,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['ProvisionedThroughputOverride'] = Builders::AwsDynamoDbTableProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
+        data['ProvisionedThroughputOverride'] = AwsDynamoDbTableProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
         data
       end
     end
@@ -4628,7 +4630,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsDynamoDbTableLocalSecondaryIndex.build(element) unless element.nil?
+          data << AwsDynamoDbTableLocalSecondaryIndex.build(element) unless element.nil?
         end
         data
       end
@@ -4640,8 +4642,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['IndexArn'] = input[:index_arn] unless input[:index_arn].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['KeySchema'] = Builders::AwsDynamoDbTableKeySchemaList.build(input[:key_schema]) unless input[:key_schema].nil?
-        data['Projection'] = Builders::AwsDynamoDbTableProjection.build(input[:projection]) unless input[:projection].nil?
+        data['KeySchema'] = AwsDynamoDbTableKeySchemaList.build(input[:key_schema]) unless input[:key_schema].nil?
+        data['Projection'] = AwsDynamoDbTableProjection.build(input[:projection]) unless input[:projection].nil?
         data
       end
     end
@@ -4650,7 +4652,7 @@ module AWS::SDK::SecurityHub
     class AwsDynamoDbTableProjection
       def self.build(input)
         data = {}
-        data['NonKeyAttributes'] = Builders::StringList.build(input[:non_key_attributes]) unless input[:non_key_attributes].nil?
+        data['NonKeyAttributes'] = StringList.build(input[:non_key_attributes]) unless input[:non_key_attributes].nil?
         data['ProjectionType'] = input[:projection_type] unless input[:projection_type].nil?
         data
       end
@@ -4661,7 +4663,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsDynamoDbTableKeySchema.build(element) unless element.nil?
+          data << AwsDynamoDbTableKeySchema.build(element) unless element.nil?
         end
         data
       end
@@ -4682,7 +4684,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsDynamoDbTableGlobalSecondaryIndex.build(element) unless element.nil?
+          data << AwsDynamoDbTableGlobalSecondaryIndex.build(element) unless element.nil?
         end
         data
       end
@@ -4698,9 +4700,9 @@ module AWS::SDK::SecurityHub
         data['IndexSizeBytes'] = input[:index_size_bytes] unless input[:index_size_bytes].nil?
         data['IndexStatus'] = input[:index_status] unless input[:index_status].nil?
         data['ItemCount'] = input[:item_count] unless input[:item_count].nil?
-        data['KeySchema'] = Builders::AwsDynamoDbTableKeySchemaList.build(input[:key_schema]) unless input[:key_schema].nil?
-        data['Projection'] = Builders::AwsDynamoDbTableProjection.build(input[:projection]) unless input[:projection].nil?
-        data['ProvisionedThroughput'] = Builders::AwsDynamoDbTableProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
+        data['KeySchema'] = AwsDynamoDbTableKeySchemaList.build(input[:key_schema]) unless input[:key_schema].nil?
+        data['Projection'] = AwsDynamoDbTableProjection.build(input[:projection]) unless input[:projection].nil?
+        data['ProvisionedThroughput'] = AwsDynamoDbTableProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
         data
       end
     end
@@ -4720,7 +4722,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsDynamoDbTableAttributeDefinition.build(element) unless element.nil?
+          data << AwsDynamoDbTableAttributeDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -4749,7 +4751,7 @@ module AWS::SDK::SecurityHub
         data['Name'] = input[:name] unless input[:name].nil?
         data['ProtocolType'] = input[:protocol_type] unless input[:protocol_type].nil?
         data['RouteSelectionExpression'] = input[:route_selection_expression] unless input[:route_selection_expression].nil?
-        data['CorsConfiguration'] = Builders::AwsCorsConfiguration.build(input[:cors_configuration]) unless input[:cors_configuration].nil?
+        data['CorsConfiguration'] = AwsCorsConfiguration.build(input[:cors_configuration]) unless input[:cors_configuration].nil?
         data
       end
     end
@@ -4758,12 +4760,12 @@ module AWS::SDK::SecurityHub
     class AwsCorsConfiguration
       def self.build(input)
         data = {}
-        data['AllowOrigins'] = Builders::NonEmptyStringList.build(input[:allow_origins]) unless input[:allow_origins].nil?
+        data['AllowOrigins'] = NonEmptyStringList.build(input[:allow_origins]) unless input[:allow_origins].nil?
         data['AllowCredentials'] = input[:allow_credentials] unless input[:allow_credentials].nil?
-        data['ExposeHeaders'] = Builders::NonEmptyStringList.build(input[:expose_headers]) unless input[:expose_headers].nil?
+        data['ExposeHeaders'] = NonEmptyStringList.build(input[:expose_headers]) unless input[:expose_headers].nil?
         data['MaxAge'] = input[:max_age] unless input[:max_age].nil?
-        data['AllowMethods'] = Builders::NonEmptyStringList.build(input[:allow_methods]) unless input[:allow_methods].nil?
-        data['AllowHeaders'] = Builders::NonEmptyStringList.build(input[:allow_headers]) unless input[:allow_headers].nil?
+        data['AllowMethods'] = NonEmptyStringList.build(input[:allow_methods]) unless input[:allow_methods].nil?
+        data['AllowHeaders'] = NonEmptyStringList.build(input[:allow_headers]) unless input[:allow_headers].nil?
         data
       end
     end
@@ -4775,13 +4777,13 @@ module AWS::SDK::SecurityHub
         data['ClientCertificateId'] = input[:client_certificate_id] unless input[:client_certificate_id].nil?
         data['CreatedDate'] = input[:created_date] unless input[:created_date].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['DefaultRouteSettings'] = Builders::AwsApiGatewayV2RouteSettings.build(input[:default_route_settings]) unless input[:default_route_settings].nil?
+        data['DefaultRouteSettings'] = AwsApiGatewayV2RouteSettings.build(input[:default_route_settings]) unless input[:default_route_settings].nil?
         data['DeploymentId'] = input[:deployment_id] unless input[:deployment_id].nil?
         data['LastUpdatedDate'] = input[:last_updated_date] unless input[:last_updated_date].nil?
-        data['RouteSettings'] = Builders::AwsApiGatewayV2RouteSettings.build(input[:route_settings]) unless input[:route_settings].nil?
+        data['RouteSettings'] = AwsApiGatewayV2RouteSettings.build(input[:route_settings]) unless input[:route_settings].nil?
         data['StageName'] = input[:stage_name] unless input[:stage_name].nil?
-        data['StageVariables'] = Builders::FieldMap.build(input[:stage_variables]) unless input[:stage_variables].nil?
-        data['AccessLogSettings'] = Builders::AwsApiGatewayAccessLogSettings.build(input[:access_log_settings]) unless input[:access_log_settings].nil?
+        data['StageVariables'] = FieldMap.build(input[:stage_variables]) unless input[:stage_variables].nil?
+        data['AccessLogSettings'] = AwsApiGatewayAccessLogSettings.build(input[:access_log_settings]) unless input[:access_log_settings].nil?
         data['AutoDeploy'] = input[:auto_deploy] unless input[:auto_deploy].nil?
         data['LastDeploymentStatusMessage'] = input[:last_deployment_status_message] unless input[:last_deployment_status_message].nil?
         data['ApiGatewayManaged'] = input[:api_gateway_managed] unless input[:api_gateway_managed].nil?
@@ -4815,7 +4817,7 @@ module AWS::SDK::SecurityHub
         data['PermissionsBoundaryUsageCount'] = input[:permissions_boundary_usage_count] unless input[:permissions_boundary_usage_count].nil?
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['PolicyName'] = input[:policy_name] unless input[:policy_name].nil?
-        data['PolicyVersionList'] = Builders::AwsIamPolicyVersionList.build(input[:policy_version_list]) unless input[:policy_version_list].nil?
+        data['PolicyVersionList'] = AwsIamPolicyVersionList.build(input[:policy_version_list]) unless input[:policy_version_list].nil?
         data['UpdateDate'] = input[:update_date] unless input[:update_date].nil?
         data
       end
@@ -4826,7 +4828,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsIamPolicyVersion.build(element) unless element.nil?
+          data << AwsIamPolicyVersion.build(element) unless element.nil?
         end
         data
       end
@@ -4847,14 +4849,14 @@ module AWS::SDK::SecurityHub
     class AwsIamUserDetails
       def self.build(input)
         data = {}
-        data['AttachedManagedPolicies'] = Builders::AwsIamAttachedManagedPolicyList.build(input[:attached_managed_policies]) unless input[:attached_managed_policies].nil?
+        data['AttachedManagedPolicies'] = AwsIamAttachedManagedPolicyList.build(input[:attached_managed_policies]) unless input[:attached_managed_policies].nil?
         data['CreateDate'] = input[:create_date] unless input[:create_date].nil?
-        data['GroupList'] = Builders::StringList.build(input[:group_list]) unless input[:group_list].nil?
+        data['GroupList'] = StringList.build(input[:group_list]) unless input[:group_list].nil?
         data['Path'] = input[:path] unless input[:path].nil?
-        data['PermissionsBoundary'] = Builders::AwsIamPermissionsBoundary.build(input[:permissions_boundary]) unless input[:permissions_boundary].nil?
+        data['PermissionsBoundary'] = AwsIamPermissionsBoundary.build(input[:permissions_boundary]) unless input[:permissions_boundary].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
-        data['UserPolicyList'] = Builders::AwsIamUserPolicyList.build(input[:user_policy_list]) unless input[:user_policy_list].nil?
+        data['UserPolicyList'] = AwsIamUserPolicyList.build(input[:user_policy_list]) unless input[:user_policy_list].nil?
         data
       end
     end
@@ -4864,7 +4866,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsIamUserPolicy.build(element) unless element.nil?
+          data << AwsIamUserPolicy.build(element) unless element.nil?
         end
         data
       end
@@ -4891,7 +4893,7 @@ module AWS::SDK::SecurityHub
         data['PrincipalName'] = input[:principal_name] unless input[:principal_name].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['AccessKeyId'] = input[:access_key_id] unless input[:access_key_id].nil?
-        data['SessionContext'] = Builders::AwsIamAccessKeySessionContext.build(input[:session_context]) unless input[:session_context].nil?
+        data['SessionContext'] = AwsIamAccessKeySessionContext.build(input[:session_context]) unless input[:session_context].nil?
         data
       end
     end
@@ -4900,8 +4902,8 @@ module AWS::SDK::SecurityHub
     class AwsIamAccessKeySessionContext
       def self.build(input)
         data = {}
-        data['Attributes'] = Builders::AwsIamAccessKeySessionContextAttributes.build(input[:attributes]) unless input[:attributes].nil?
-        data['SessionIssuer'] = Builders::AwsIamAccessKeySessionContextSessionIssuer.build(input[:session_issuer]) unless input[:session_issuer].nil?
+        data['Attributes'] = AwsIamAccessKeySessionContextAttributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['SessionIssuer'] = AwsIamAccessKeySessionContextSessionIssuer.build(input[:session_issuer]) unless input[:session_issuer].nil?
         data
       end
     end
@@ -4933,7 +4935,7 @@ module AWS::SDK::SecurityHub
     class AwsSecretsManagerSecretDetails
       def self.build(input)
         data = {}
-        data['RotationRules'] = Builders::AwsSecretsManagerSecretRotationRules.build(input[:rotation_rules]) unless input[:rotation_rules].nil?
+        data['RotationRules'] = AwsSecretsManagerSecretRotationRules.build(input[:rotation_rules]) unless input[:rotation_rules].nil?
         data['RotationOccurredWithinFrequency'] = input[:rotation_occurred_within_frequency] unless input[:rotation_occurred_within_frequency].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['RotationEnabled'] = input[:rotation_enabled] unless input[:rotation_enabled].nil?
@@ -4988,14 +4990,14 @@ module AWS::SDK::SecurityHub
         data['OwnerName'] = input[:owner_name] unless input[:owner_name].nil?
         data['OwnerAccountId'] = input[:owner_account_id] unless input[:owner_account_id].nil?
         data['CreatedAt'] = input[:created_at] unless input[:created_at].nil?
-        data['ServerSideEncryptionConfiguration'] = Builders::AwsS3BucketServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
-        data['BucketLifecycleConfiguration'] = Builders::AwsS3BucketBucketLifecycleConfigurationDetails.build(input[:bucket_lifecycle_configuration]) unless input[:bucket_lifecycle_configuration].nil?
-        data['PublicAccessBlockConfiguration'] = Builders::AwsS3AccountPublicAccessBlockDetails.build(input[:public_access_block_configuration]) unless input[:public_access_block_configuration].nil?
+        data['ServerSideEncryptionConfiguration'] = AwsS3BucketServerSideEncryptionConfiguration.build(input[:server_side_encryption_configuration]) unless input[:server_side_encryption_configuration].nil?
+        data['BucketLifecycleConfiguration'] = AwsS3BucketBucketLifecycleConfigurationDetails.build(input[:bucket_lifecycle_configuration]) unless input[:bucket_lifecycle_configuration].nil?
+        data['PublicAccessBlockConfiguration'] = AwsS3AccountPublicAccessBlockDetails.build(input[:public_access_block_configuration]) unless input[:public_access_block_configuration].nil?
         data['AccessControlList'] = input[:access_control_list] unless input[:access_control_list].nil?
-        data['BucketLoggingConfiguration'] = Builders::AwsS3BucketLoggingConfiguration.build(input[:bucket_logging_configuration]) unless input[:bucket_logging_configuration].nil?
-        data['BucketWebsiteConfiguration'] = Builders::AwsS3BucketWebsiteConfiguration.build(input[:bucket_website_configuration]) unless input[:bucket_website_configuration].nil?
-        data['BucketNotificationConfiguration'] = Builders::AwsS3BucketNotificationConfiguration.build(input[:bucket_notification_configuration]) unless input[:bucket_notification_configuration].nil?
-        data['BucketVersioningConfiguration'] = Builders::AwsS3BucketBucketVersioningConfiguration.build(input[:bucket_versioning_configuration]) unless input[:bucket_versioning_configuration].nil?
+        data['BucketLoggingConfiguration'] = AwsS3BucketLoggingConfiguration.build(input[:bucket_logging_configuration]) unless input[:bucket_logging_configuration].nil?
+        data['BucketWebsiteConfiguration'] = AwsS3BucketWebsiteConfiguration.build(input[:bucket_website_configuration]) unless input[:bucket_website_configuration].nil?
+        data['BucketNotificationConfiguration'] = AwsS3BucketNotificationConfiguration.build(input[:bucket_notification_configuration]) unless input[:bucket_notification_configuration].nil?
+        data['BucketVersioningConfiguration'] = AwsS3BucketBucketVersioningConfiguration.build(input[:bucket_versioning_configuration]) unless input[:bucket_versioning_configuration].nil?
         data
       end
     end
@@ -5014,7 +5016,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfiguration
       def self.build(input)
         data = {}
-        data['Configurations'] = Builders::AwsS3BucketNotificationConfigurationDetails.build(input[:configurations]) unless input[:configurations].nil?
+        data['Configurations'] = AwsS3BucketNotificationConfigurationDetails.build(input[:configurations]) unless input[:configurations].nil?
         data
       end
     end
@@ -5024,7 +5026,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketNotificationConfigurationDetail.build(element) unless element.nil?
+          data << AwsS3BucketNotificationConfigurationDetail.build(element) unless element.nil?
         end
         data
       end
@@ -5034,8 +5036,8 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfigurationDetail
       def self.build(input)
         data = {}
-        data['Events'] = Builders::AwsS3BucketNotificationConfigurationEvents.build(input[:events]) unless input[:events].nil?
-        data['Filter'] = Builders::AwsS3BucketNotificationConfigurationFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Events'] = AwsS3BucketNotificationConfigurationEvents.build(input[:events]) unless input[:events].nil?
+        data['Filter'] = AwsS3BucketNotificationConfigurationFilter.build(input[:filter]) unless input[:filter].nil?
         data['Destination'] = input[:destination] unless input[:destination].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
@@ -5046,7 +5048,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfigurationFilter
       def self.build(input)
         data = {}
-        data['S3KeyFilter'] = Builders::AwsS3BucketNotificationConfigurationS3KeyFilter.build(input[:s3_key_filter]) unless input[:s3_key_filter].nil?
+        data['S3KeyFilter'] = AwsS3BucketNotificationConfigurationS3KeyFilter.build(input[:s3_key_filter]) unless input[:s3_key_filter].nil?
         data
       end
     end
@@ -5055,7 +5057,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfigurationS3KeyFilter
       def self.build(input)
         data = {}
-        data['FilterRules'] = Builders::AwsS3BucketNotificationConfigurationS3KeyFilterRules.build(input[:filter_rules]) unless input[:filter_rules].nil?
+        data['FilterRules'] = AwsS3BucketNotificationConfigurationS3KeyFilterRules.build(input[:filter_rules]) unless input[:filter_rules].nil?
         data
       end
     end
@@ -5065,7 +5067,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketNotificationConfigurationS3KeyFilterRule.build(element) unless element.nil?
+          data << AwsS3BucketNotificationConfigurationS3KeyFilterRule.build(element) unless element.nil?
         end
         data
       end
@@ -5098,8 +5100,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['ErrorDocument'] = input[:error_document] unless input[:error_document].nil?
         data['IndexDocumentSuffix'] = input[:index_document_suffix] unless input[:index_document_suffix].nil?
-        data['RedirectAllRequestsTo'] = Builders::AwsS3BucketWebsiteConfigurationRedirectTo.build(input[:redirect_all_requests_to]) unless input[:redirect_all_requests_to].nil?
-        data['RoutingRules'] = Builders::AwsS3BucketWebsiteConfigurationRoutingRules.build(input[:routing_rules]) unless input[:routing_rules].nil?
+        data['RedirectAllRequestsTo'] = AwsS3BucketWebsiteConfigurationRedirectTo.build(input[:redirect_all_requests_to]) unless input[:redirect_all_requests_to].nil?
+        data['RoutingRules'] = AwsS3BucketWebsiteConfigurationRoutingRules.build(input[:routing_rules]) unless input[:routing_rules].nil?
         data
       end
     end
@@ -5109,7 +5111,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketWebsiteConfigurationRoutingRule.build(element) unless element.nil?
+          data << AwsS3BucketWebsiteConfigurationRoutingRule.build(element) unless element.nil?
         end
         data
       end
@@ -5119,8 +5121,8 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketWebsiteConfigurationRoutingRule
       def self.build(input)
         data = {}
-        data['Condition'] = Builders::AwsS3BucketWebsiteConfigurationRoutingRuleCondition.build(input[:condition]) unless input[:condition].nil?
-        data['Redirect'] = Builders::AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.build(input[:redirect]) unless input[:redirect].nil?
+        data['Condition'] = AwsS3BucketWebsiteConfigurationRoutingRuleCondition.build(input[:condition]) unless input[:condition].nil?
+        data['Redirect'] = AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.build(input[:redirect]) unless input[:redirect].nil?
         data
       end
     end
@@ -5172,7 +5174,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationDetails
       def self.build(input)
         data = {}
-        data['Rules'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesList.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = AwsS3BucketBucketLifecycleConfigurationRulesList.build(input[:rules]) unless input[:rules].nil?
         data
       end
     end
@@ -5182,7 +5184,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketBucketLifecycleConfigurationRulesDetails.build(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -5192,17 +5194,17 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationRulesDetails
       def self.build(input)
         data = {}
-        data['AbortIncompleteMultipartUpload'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.build(input[:abort_incomplete_multipart_upload]) unless input[:abort_incomplete_multipart_upload].nil?
+        data['AbortIncompleteMultipartUpload'] = AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.build(input[:abort_incomplete_multipart_upload]) unless input[:abort_incomplete_multipart_upload].nil?
         data['ExpirationDate'] = input[:expiration_date] unless input[:expiration_date].nil?
         data['ExpirationInDays'] = input[:expiration_in_days] unless input[:expiration_in_days].nil?
         data['ExpiredObjectDeleteMarker'] = input[:expired_object_delete_marker] unless input[:expired_object_delete_marker].nil?
-        data['Filter'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.build(input[:filter]) unless input[:filter].nil?
         data['ID'] = input[:id] unless input[:id].nil?
         data['NoncurrentVersionExpirationInDays'] = input[:noncurrent_version_expiration_in_days] unless input[:noncurrent_version_expiration_in_days].nil?
-        data['NoncurrentVersionTransitions'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.build(input[:noncurrent_version_transitions]) unless input[:noncurrent_version_transitions].nil?
+        data['NoncurrentVersionTransitions'] = AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.build(input[:noncurrent_version_transitions]) unless input[:noncurrent_version_transitions].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['Transitions'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.build(input[:transitions]) unless input[:transitions].nil?
+        data['Transitions'] = AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.build(input[:transitions]) unless input[:transitions].nil?
         data
       end
     end
@@ -5212,7 +5214,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.build(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -5234,7 +5236,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.build(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -5254,7 +5256,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
       def self.build(input)
         data = {}
-        data['Predicate'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.build(input[:predicate]) unless input[:predicate].nil?
+        data['Predicate'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.build(input[:predicate]) unless input[:predicate].nil?
         data
       end
     end
@@ -5263,9 +5265,9 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
       def self.build(input)
         data = {}
-        data['Operands'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.build(input[:operands]) unless input[:operands].nil?
+        data['Operands'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.build(input[:operands]) unless input[:operands].nil?
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['Tag'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.build(input[:tag]) unless input[:tag].nil?
+        data['Tag'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.build(input[:tag]) unless input[:tag].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -5286,7 +5288,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.build(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -5297,7 +5299,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['Tag'] = Builders::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.build(input[:tag]) unless input[:tag].nil?
+        data['Tag'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.build(input[:tag]) unless input[:tag].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -5326,7 +5328,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketServerSideEncryptionConfiguration
       def self.build(input)
         data = {}
-        data['Rules'] = Builders::AwsS3BucketServerSideEncryptionRules.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = AwsS3BucketServerSideEncryptionRules.build(input[:rules]) unless input[:rules].nil?
         data
       end
     end
@@ -5336,7 +5338,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsS3BucketServerSideEncryptionRule.build(element) unless element.nil?
+          data << AwsS3BucketServerSideEncryptionRule.build(element) unless element.nil?
         end
         data
       end
@@ -5346,7 +5348,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketServerSideEncryptionRule
       def self.build(input)
         data = {}
-        data['ApplyServerSideEncryptionByDefault'] = Builders::AwsS3BucketServerSideEncryptionByDefault.build(input[:apply_server_side_encryption_by_default]) unless input[:apply_server_side_encryption_by_default].nil?
+        data['ApplyServerSideEncryptionByDefault'] = AwsS3BucketServerSideEncryptionByDefault.build(input[:apply_server_side_encryption_by_default]) unless input[:apply_server_side_encryption_by_default].nil?
         data
       end
     end
@@ -5366,18 +5368,18 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['AccessPolicies'] = input[:access_policies] unless input[:access_policies].nil?
-        data['DomainEndpointOptions'] = Builders::AwsElasticsearchDomainDomainEndpointOptions.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
+        data['DomainEndpointOptions'] = AwsElasticsearchDomainDomainEndpointOptions.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['Endpoint'] = input[:endpoint] unless input[:endpoint].nil?
-        data['Endpoints'] = Builders::FieldMap.build(input[:endpoints]) unless input[:endpoints].nil?
+        data['Endpoints'] = FieldMap.build(input[:endpoints]) unless input[:endpoints].nil?
         data['ElasticsearchVersion'] = input[:elasticsearch_version] unless input[:elasticsearch_version].nil?
-        data['ElasticsearchClusterConfig'] = Builders::AwsElasticsearchDomainElasticsearchClusterConfigDetails.build(input[:elasticsearch_cluster_config]) unless input[:elasticsearch_cluster_config].nil?
-        data['EncryptionAtRestOptions'] = Builders::AwsElasticsearchDomainEncryptionAtRestOptions.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
-        data['LogPublishingOptions'] = Builders::AwsElasticsearchDomainLogPublishingOptions.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Builders::AwsElasticsearchDomainNodeToNodeEncryptionOptions.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
-        data['ServiceSoftwareOptions'] = Builders::AwsElasticsearchDomainServiceSoftwareOptions.build(input[:service_software_options]) unless input[:service_software_options].nil?
-        data['VPCOptions'] = Builders::AwsElasticsearchDomainVPCOptions.build(input[:vpc_options]) unless input[:vpc_options].nil?
+        data['ElasticsearchClusterConfig'] = AwsElasticsearchDomainElasticsearchClusterConfigDetails.build(input[:elasticsearch_cluster_config]) unless input[:elasticsearch_cluster_config].nil?
+        data['EncryptionAtRestOptions'] = AwsElasticsearchDomainEncryptionAtRestOptions.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
+        data['LogPublishingOptions'] = AwsElasticsearchDomainLogPublishingOptions.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
+        data['NodeToNodeEncryptionOptions'] = AwsElasticsearchDomainNodeToNodeEncryptionOptions.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
+        data['ServiceSoftwareOptions'] = AwsElasticsearchDomainServiceSoftwareOptions.build(input[:service_software_options]) unless input[:service_software_options].nil?
+        data['VPCOptions'] = AwsElasticsearchDomainVPCOptions.build(input[:vpc_options]) unless input[:vpc_options].nil?
         data
       end
     end
@@ -5386,9 +5388,9 @@ module AWS::SDK::SecurityHub
     class AwsElasticsearchDomainVPCOptions
       def self.build(input)
         data = {}
-        data['AvailabilityZones'] = Builders::NonEmptyStringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        data['SecurityGroupIds'] = Builders::NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['SubnetIds'] = Builders::NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['AvailabilityZones'] = NonEmptyStringList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['VPCId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data
       end
@@ -5422,9 +5424,9 @@ module AWS::SDK::SecurityHub
     class AwsElasticsearchDomainLogPublishingOptions
       def self.build(input)
         data = {}
-        data['IndexSlowLogs'] = Builders::AwsElasticsearchDomainLogPublishingOptionsLogConfig.build(input[:index_slow_logs]) unless input[:index_slow_logs].nil?
-        data['SearchSlowLogs'] = Builders::AwsElasticsearchDomainLogPublishingOptionsLogConfig.build(input[:search_slow_logs]) unless input[:search_slow_logs].nil?
-        data['AuditLogs'] = Builders::AwsElasticsearchDomainLogPublishingOptionsLogConfig.build(input[:audit_logs]) unless input[:audit_logs].nil?
+        data['IndexSlowLogs'] = AwsElasticsearchDomainLogPublishingOptionsLogConfig.build(input[:index_slow_logs]) unless input[:index_slow_logs].nil?
+        data['SearchSlowLogs'] = AwsElasticsearchDomainLogPublishingOptionsLogConfig.build(input[:search_slow_logs]) unless input[:search_slow_logs].nil?
+        data['AuditLogs'] = AwsElasticsearchDomainLogPublishingOptionsLogConfig.build(input[:audit_logs]) unless input[:audit_logs].nil?
         data
       end
     end
@@ -5458,7 +5460,7 @@ module AWS::SDK::SecurityHub
         data['DedicatedMasterType'] = input[:dedicated_master_type] unless input[:dedicated_master_type].nil?
         data['InstanceCount'] = input[:instance_count] unless input[:instance_count].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
-        data['ZoneAwarenessConfig'] = Builders::AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.build(input[:zone_awareness_config]) unless input[:zone_awareness_config].nil?
+        data['ZoneAwarenessConfig'] = AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.build(input[:zone_awareness_config]) unless input[:zone_awareness_config].nil?
         data['ZoneAwarenessEnabled'] = input[:zone_awareness_enabled] unless input[:zone_awareness_enabled].nil?
         data
       end
@@ -5495,13 +5497,13 @@ module AWS::SDK::SecurityHub
         data['EndpointUrl'] = input[:endpoint_url] unless input[:endpoint_url].nil?
         data['EnvironmentArn'] = input[:environment_arn] unless input[:environment_arn].nil?
         data['EnvironmentId'] = input[:environment_id] unless input[:environment_id].nil?
-        data['EnvironmentLinks'] = Builders::AwsElasticBeanstalkEnvironmentEnvironmentLinks.build(input[:environment_links]) unless input[:environment_links].nil?
+        data['EnvironmentLinks'] = AwsElasticBeanstalkEnvironmentEnvironmentLinks.build(input[:environment_links]) unless input[:environment_links].nil?
         data['EnvironmentName'] = input[:environment_name] unless input[:environment_name].nil?
-        data['OptionSettings'] = Builders::AwsElasticBeanstalkEnvironmentOptionSettings.build(input[:option_settings]) unless input[:option_settings].nil?
+        data['OptionSettings'] = AwsElasticBeanstalkEnvironmentOptionSettings.build(input[:option_settings]) unless input[:option_settings].nil?
         data['PlatformArn'] = input[:platform_arn] unless input[:platform_arn].nil?
         data['SolutionStackName'] = input[:solution_stack_name] unless input[:solution_stack_name].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['Tier'] = Builders::AwsElasticBeanstalkEnvironmentTier.build(input[:tier]) unless input[:tier].nil?
+        data['Tier'] = AwsElasticBeanstalkEnvironmentTier.build(input[:tier]) unless input[:tier].nil?
         data['VersionLabel'] = input[:version_label] unless input[:version_label].nil?
         data
       end
@@ -5523,7 +5525,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElasticBeanstalkEnvironmentOptionSetting.build(element) unless element.nil?
+          data << AwsElasticBeanstalkEnvironmentOptionSetting.build(element) unless element.nil?
         end
         data
       end
@@ -5546,7 +5548,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElasticBeanstalkEnvironmentEnvironmentLink.build(element) unless element.nil?
+          data << AwsElasticBeanstalkEnvironmentEnvironmentLink.build(element) unless element.nil?
         end
         data
       end
@@ -5566,17 +5568,17 @@ module AWS::SDK::SecurityHub
     class AwsElbv2LoadBalancerDetails
       def self.build(input)
         data = {}
-        data['AvailabilityZones'] = Builders::AvailabilityZones.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['AvailabilityZones'] = AvailabilityZones.build(input[:availability_zones]) unless input[:availability_zones].nil?
         data['CanonicalHostedZoneId'] = input[:canonical_hosted_zone_id] unless input[:canonical_hosted_zone_id].nil?
         data['CreatedTime'] = input[:created_time] unless input[:created_time].nil?
         data['DNSName'] = input[:dns_name] unless input[:dns_name].nil?
         data['IpAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
         data['Scheme'] = input[:scheme] unless input[:scheme].nil?
-        data['SecurityGroups'] = Builders::SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
-        data['State'] = Builders::LoadBalancerState.build(input[:state]) unless input[:state].nil?
+        data['SecurityGroups'] = SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['State'] = LoadBalancerState.build(input[:state]) unless input[:state].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['LoadBalancerAttributes'] = Builders::AwsElbv2LoadBalancerAttributes.build(input[:load_balancer_attributes]) unless input[:load_balancer_attributes].nil?
+        data['LoadBalancerAttributes'] = AwsElbv2LoadBalancerAttributes.build(input[:load_balancer_attributes]) unless input[:load_balancer_attributes].nil?
         data
       end
     end
@@ -5586,7 +5588,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsElbv2LoadBalancerAttribute.build(element) unless element.nil?
+          data << AwsElbv2LoadBalancerAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -5628,7 +5630,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AvailabilityZone.build(element) unless element.nil?
+          data << AvailabilityZone.build(element) unless element.nil?
         end
         data
       end
@@ -5652,8 +5654,8 @@ module AWS::SDK::SecurityHub
         data['NetworkAclId'] = input[:network_acl_id] unless input[:network_acl_id].nil?
         data['OwnerId'] = input[:owner_id] unless input[:owner_id].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['Associations'] = Builders::AwsEc2NetworkAclAssociationList.build(input[:associations]) unless input[:associations].nil?
-        data['Entries'] = Builders::AwsEc2NetworkAclEntryList.build(input[:entries]) unless input[:entries].nil?
+        data['Associations'] = AwsEc2NetworkAclAssociationList.build(input[:associations]) unless input[:associations].nil?
+        data['Entries'] = AwsEc2NetworkAclEntryList.build(input[:entries]) unless input[:entries].nil?
         data
       end
     end
@@ -5663,7 +5665,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2NetworkAclEntry.build(element) unless element.nil?
+          data << AwsEc2NetworkAclEntry.build(element) unless element.nil?
         end
         data
       end
@@ -5675,9 +5677,9 @@ module AWS::SDK::SecurityHub
         data = {}
         data['CidrBlock'] = input[:cidr_block] unless input[:cidr_block].nil?
         data['Egress'] = input[:egress] unless input[:egress].nil?
-        data['IcmpTypeCode'] = Builders::IcmpTypeCode.build(input[:icmp_type_code]) unless input[:icmp_type_code].nil?
+        data['IcmpTypeCode'] = IcmpTypeCode.build(input[:icmp_type_code]) unless input[:icmp_type_code].nil?
         data['Ipv6CidrBlock'] = input[:ipv6_cidr_block] unless input[:ipv6_cidr_block].nil?
-        data['PortRange'] = Builders::PortRangeFromTo.build(input[:port_range]) unless input[:port_range].nil?
+        data['PortRange'] = PortRangeFromTo.build(input[:port_range]) unless input[:port_range].nil?
         data['Protocol'] = input[:protocol] unless input[:protocol].nil?
         data['RuleAction'] = input[:rule_action] unless input[:rule_action].nil?
         data['RuleNumber'] = input[:rule_number] unless input[:rule_number].nil?
@@ -5710,7 +5712,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2NetworkAclAssociation.build(element) unless element.nil?
+          data << AwsEc2NetworkAclAssociation.build(element) unless element.nil?
         end
         data
       end
@@ -5743,7 +5745,7 @@ module AWS::SDK::SecurityHub
         data['SubnetArn'] = input[:subnet_arn] unless input[:subnet_arn].nil?
         data['SubnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['Ipv6CidrBlockAssociationSet'] = Builders::Ipv6CidrBlockAssociationList.build(input[:ipv6_cidr_block_association_set]) unless input[:ipv6_cidr_block_association_set].nil?
+        data['Ipv6CidrBlockAssociationSet'] = Ipv6CidrBlockAssociationList.build(input[:ipv6_cidr_block_association_set]) unless input[:ipv6_cidr_block_association_set].nil?
         data
       end
     end
@@ -5753,7 +5755,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Ipv6CidrBlockAssociation.build(element) unless element.nil?
+          data << Ipv6CidrBlockAssociation.build(element) unless element.nil?
         end
         data
       end
@@ -5792,8 +5794,8 @@ module AWS::SDK::SecurityHub
     class AwsEc2VpcDetails
       def self.build(input)
         data = {}
-        data['CidrBlockAssociationSet'] = Builders::CidrBlockAssociationList.build(input[:cidr_block_association_set]) unless input[:cidr_block_association_set].nil?
-        data['Ipv6CidrBlockAssociationSet'] = Builders::Ipv6CidrBlockAssociationList.build(input[:ipv6_cidr_block_association_set]) unless input[:ipv6_cidr_block_association_set].nil?
+        data['CidrBlockAssociationSet'] = CidrBlockAssociationList.build(input[:cidr_block_association_set]) unless input[:cidr_block_association_set].nil?
+        data['Ipv6CidrBlockAssociationSet'] = Ipv6CidrBlockAssociationList.build(input[:ipv6_cidr_block_association_set]) unless input[:ipv6_cidr_block_association_set].nil?
         data['DhcpOptionsId'] = input[:dhcp_options_id] unless input[:dhcp_options_id].nil?
         data['State'] = input[:state] unless input[:state].nil?
         data
@@ -5805,7 +5807,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CidrBlockAssociation.build(element) unless element.nil?
+          data << CidrBlockAssociation.build(element) unless element.nil?
         end
         data
       end
@@ -5832,7 +5834,7 @@ module AWS::SDK::SecurityHub
         data['SnapshotId'] = input[:snapshot_id] unless input[:snapshot_id].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['Attachments'] = Builders::AwsEc2VolumeAttachmentList.build(input[:attachments]) unless input[:attachments].nil?
+        data['Attachments'] = AwsEc2VolumeAttachmentList.build(input[:attachments]) unless input[:attachments].nil?
         data
       end
     end
@@ -5842,7 +5844,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2VolumeAttachment.build(element) unless element.nil?
+          data << AwsEc2VolumeAttachment.build(element) unless element.nil?
         end
         data
       end
@@ -5868,8 +5870,8 @@ module AWS::SDK::SecurityHub
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
         data['OwnerId'] = input[:owner_id] unless input[:owner_id].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['IpPermissions'] = Builders::AwsEc2SecurityGroupIpPermissionList.build(input[:ip_permissions]) unless input[:ip_permissions].nil?
-        data['IpPermissionsEgress'] = Builders::AwsEc2SecurityGroupIpPermissionList.build(input[:ip_permissions_egress]) unless input[:ip_permissions_egress].nil?
+        data['IpPermissions'] = AwsEc2SecurityGroupIpPermissionList.build(input[:ip_permissions]) unless input[:ip_permissions].nil?
+        data['IpPermissionsEgress'] = AwsEc2SecurityGroupIpPermissionList.build(input[:ip_permissions_egress]) unless input[:ip_permissions_egress].nil?
         data
       end
     end
@@ -5879,7 +5881,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2SecurityGroupIpPermission.build(element) unless element.nil?
+          data << AwsEc2SecurityGroupIpPermission.build(element) unless element.nil?
         end
         data
       end
@@ -5892,10 +5894,10 @@ module AWS::SDK::SecurityHub
         data['IpProtocol'] = input[:ip_protocol] unless input[:ip_protocol].nil?
         data['FromPort'] = input[:from_port] unless input[:from_port].nil?
         data['ToPort'] = input[:to_port] unless input[:to_port].nil?
-        data['UserIdGroupPairs'] = Builders::AwsEc2SecurityGroupUserIdGroupPairList.build(input[:user_id_group_pairs]) unless input[:user_id_group_pairs].nil?
-        data['IpRanges'] = Builders::AwsEc2SecurityGroupIpRangeList.build(input[:ip_ranges]) unless input[:ip_ranges].nil?
-        data['Ipv6Ranges'] = Builders::AwsEc2SecurityGroupIpv6RangeList.build(input[:ipv6_ranges]) unless input[:ipv6_ranges].nil?
-        data['PrefixListIds'] = Builders::AwsEc2SecurityGroupPrefixListIdList.build(input[:prefix_list_ids]) unless input[:prefix_list_ids].nil?
+        data['UserIdGroupPairs'] = AwsEc2SecurityGroupUserIdGroupPairList.build(input[:user_id_group_pairs]) unless input[:user_id_group_pairs].nil?
+        data['IpRanges'] = AwsEc2SecurityGroupIpRangeList.build(input[:ip_ranges]) unless input[:ip_ranges].nil?
+        data['Ipv6Ranges'] = AwsEc2SecurityGroupIpv6RangeList.build(input[:ipv6_ranges]) unless input[:ipv6_ranges].nil?
+        data['PrefixListIds'] = AwsEc2SecurityGroupPrefixListIdList.build(input[:prefix_list_ids]) unless input[:prefix_list_ids].nil?
         data
       end
     end
@@ -5905,7 +5907,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2SecurityGroupPrefixListId.build(element) unless element.nil?
+          data << AwsEc2SecurityGroupPrefixListId.build(element) unless element.nil?
         end
         data
       end
@@ -5925,7 +5927,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2SecurityGroupIpv6Range.build(element) unless element.nil?
+          data << AwsEc2SecurityGroupIpv6Range.build(element) unless element.nil?
         end
         data
       end
@@ -5945,7 +5947,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2SecurityGroupIpRange.build(element) unless element.nil?
+          data << AwsEc2SecurityGroupIpRange.build(element) unless element.nil?
         end
         data
       end
@@ -5965,7 +5967,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2SecurityGroupUserIdGroupPair.build(element) unless element.nil?
+          data << AwsEc2SecurityGroupUserIdGroupPair.build(element) unless element.nil?
         end
         data
       end
@@ -5989,12 +5991,12 @@ module AWS::SDK::SecurityHub
     class AwsEc2NetworkInterfaceDetails
       def self.build(input)
         data = {}
-        data['Attachment'] = Builders::AwsEc2NetworkInterfaceAttachment.build(input[:attachment]) unless input[:attachment].nil?
+        data['Attachment'] = AwsEc2NetworkInterfaceAttachment.build(input[:attachment]) unless input[:attachment].nil?
         data['NetworkInterfaceId'] = input[:network_interface_id] unless input[:network_interface_id].nil?
-        data['SecurityGroups'] = Builders::AwsEc2NetworkInterfaceSecurityGroupList.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['SecurityGroups'] = AwsEc2NetworkInterfaceSecurityGroupList.build(input[:security_groups]) unless input[:security_groups].nil?
         data['SourceDestCheck'] = input[:source_dest_check] unless input[:source_dest_check].nil?
-        data['IpV6Addresses'] = Builders::AwsEc2NetworkInterfaceIpV6AddressList.build(input[:ip_v6_addresses]) unless input[:ip_v6_addresses].nil?
-        data['PrivateIpAddresses'] = Builders::AwsEc2NetworkInterfacePrivateIpAddressList.build(input[:private_ip_addresses]) unless input[:private_ip_addresses].nil?
+        data['IpV6Addresses'] = AwsEc2NetworkInterfaceIpV6AddressList.build(input[:ip_v6_addresses]) unless input[:ip_v6_addresses].nil?
+        data['PrivateIpAddresses'] = AwsEc2NetworkInterfacePrivateIpAddressList.build(input[:private_ip_addresses]) unless input[:private_ip_addresses].nil?
         data['PublicDnsName'] = input[:public_dns_name] unless input[:public_dns_name].nil?
         data['PublicIp'] = input[:public_ip] unless input[:public_ip].nil?
         data
@@ -6006,7 +6008,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2NetworkInterfacePrivateIpAddressDetail.build(element) unless element.nil?
+          data << AwsEc2NetworkInterfacePrivateIpAddressDetail.build(element) unless element.nil?
         end
         data
       end
@@ -6027,7 +6029,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2NetworkInterfaceIpV6AddressDetail.build(element) unless element.nil?
+          data << AwsEc2NetworkInterfaceIpV6AddressDetail.build(element) unless element.nil?
         end
         data
       end
@@ -6047,7 +6049,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2NetworkInterfaceSecurityGroup.build(element) unless element.nil?
+          data << AwsEc2NetworkInterfaceSecurityGroup.build(element) unless element.nil?
         end
         data
       end
@@ -6084,14 +6086,14 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
         data['ImageId'] = input[:image_id] unless input[:image_id].nil?
-        data['IpV4Addresses'] = Builders::StringList.build(input[:ip_v4_addresses]) unless input[:ip_v4_addresses].nil?
-        data['IpV6Addresses'] = Builders::StringList.build(input[:ip_v6_addresses]) unless input[:ip_v6_addresses].nil?
+        data['IpV4Addresses'] = StringList.build(input[:ip_v4_addresses]) unless input[:ip_v4_addresses].nil?
+        data['IpV6Addresses'] = StringList.build(input[:ip_v6_addresses]) unless input[:ip_v6_addresses].nil?
         data['KeyName'] = input[:key_name] unless input[:key_name].nil?
         data['IamInstanceProfileArn'] = input[:iam_instance_profile_arn] unless input[:iam_instance_profile_arn].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data['SubnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
         data['LaunchedAt'] = input[:launched_at] unless input[:launched_at].nil?
-        data['NetworkInterfaces'] = Builders::AwsEc2InstanceNetworkInterfacesList.build(input[:network_interfaces]) unless input[:network_interfaces].nil?
+        data['NetworkInterfaces'] = AwsEc2InstanceNetworkInterfacesList.build(input[:network_interfaces]) unless input[:network_interfaces].nil?
         data
       end
     end
@@ -6101,7 +6103,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsEc2InstanceNetworkInterfacesDetails.build(element) unless element.nil?
+          data << AwsEc2InstanceNetworkInterfacesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -6120,16 +6122,16 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionDetails
       def self.build(input)
         data = {}
-        data['CacheBehaviors'] = Builders::AwsCloudFrontDistributionCacheBehaviors.build(input[:cache_behaviors]) unless input[:cache_behaviors].nil?
-        data['DefaultCacheBehavior'] = Builders::AwsCloudFrontDistributionDefaultCacheBehavior.build(input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
+        data['CacheBehaviors'] = AwsCloudFrontDistributionCacheBehaviors.build(input[:cache_behaviors]) unless input[:cache_behaviors].nil?
+        data['DefaultCacheBehavior'] = AwsCloudFrontDistributionDefaultCacheBehavior.build(input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
         data['DefaultRootObject'] = input[:default_root_object] unless input[:default_root_object].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['ETag'] = input[:e_tag] unless input[:e_tag].nil?
         data['LastModifiedTime'] = input[:last_modified_time] unless input[:last_modified_time].nil?
-        data['Logging'] = Builders::AwsCloudFrontDistributionLogging.build(input[:logging]) unless input[:logging].nil?
-        data['Origins'] = Builders::AwsCloudFrontDistributionOrigins.build(input[:origins]) unless input[:origins].nil?
-        data['OriginGroups'] = Builders::AwsCloudFrontDistributionOriginGroups.build(input[:origin_groups]) unless input[:origin_groups].nil?
-        data['ViewerCertificate'] = Builders::AwsCloudFrontDistributionViewerCertificate.build(input[:viewer_certificate]) unless input[:viewer_certificate].nil?
+        data['Logging'] = AwsCloudFrontDistributionLogging.build(input[:logging]) unless input[:logging].nil?
+        data['Origins'] = AwsCloudFrontDistributionOrigins.build(input[:origins]) unless input[:origins].nil?
+        data['OriginGroups'] = AwsCloudFrontDistributionOriginGroups.build(input[:origin_groups]) unless input[:origin_groups].nil?
+        data['ViewerCertificate'] = AwsCloudFrontDistributionViewerCertificate.build(input[:viewer_certificate]) unless input[:viewer_certificate].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['WebAclId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
         data
@@ -6155,7 +6157,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroups
       def self.build(input)
         data = {}
-        data['Items'] = Builders::AwsCloudFrontDistributionOriginGroupsItemList.build(input[:items]) unless input[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionOriginGroupsItemList.build(input[:items]) unless input[:items].nil?
         data
       end
     end
@@ -6165,7 +6167,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCloudFrontDistributionOriginGroup.build(element) unless element.nil?
+          data << AwsCloudFrontDistributionOriginGroup.build(element) unless element.nil?
         end
         data
       end
@@ -6175,7 +6177,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroup
       def self.build(input)
         data = {}
-        data['FailoverCriteria'] = Builders::AwsCloudFrontDistributionOriginGroupFailover.build(input[:failover_criteria]) unless input[:failover_criteria].nil?
+        data['FailoverCriteria'] = AwsCloudFrontDistributionOriginGroupFailover.build(input[:failover_criteria]) unless input[:failover_criteria].nil?
         data
       end
     end
@@ -6184,7 +6186,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroupFailover
       def self.build(input)
         data = {}
-        data['StatusCodes'] = Builders::AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.build(input[:status_codes]) unless input[:status_codes].nil?
+        data['StatusCodes'] = AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.build(input[:status_codes]) unless input[:status_codes].nil?
         data
       end
     end
@@ -6193,7 +6195,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
       def self.build(input)
         data = {}
-        data['Items'] = Builders::AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.build(input[:items]) unless input[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.build(input[:items]) unless input[:items].nil?
         data['Quantity'] = input[:quantity] unless input[:quantity].nil?
         data
       end
@@ -6214,7 +6216,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOrigins
       def self.build(input)
         data = {}
-        data['Items'] = Builders::AwsCloudFrontDistributionOriginItemList.build(input[:items]) unless input[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionOriginItemList.build(input[:items]) unless input[:items].nil?
         data
       end
     end
@@ -6224,7 +6226,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCloudFrontDistributionOriginItem.build(element) unless element.nil?
+          data << AwsCloudFrontDistributionOriginItem.build(element) unless element.nil?
         end
         data
       end
@@ -6237,7 +6239,7 @@ module AWS::SDK::SecurityHub
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['OriginPath'] = input[:origin_path] unless input[:origin_path].nil?
-        data['S3OriginConfig'] = Builders::AwsCloudFrontDistributionOriginS3OriginConfig.build(input[:s3_origin_config]) unless input[:s3_origin_config].nil?
+        data['S3OriginConfig'] = AwsCloudFrontDistributionOriginS3OriginConfig.build(input[:s3_origin_config]) unless input[:s3_origin_config].nil?
         data
       end
     end
@@ -6276,7 +6278,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionCacheBehaviors
       def self.build(input)
         data = {}
-        data['Items'] = Builders::AwsCloudFrontDistributionCacheBehaviorsItemList.build(input[:items]) unless input[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionCacheBehaviorsItemList.build(input[:items]) unless input[:items].nil?
         data
       end
     end
@@ -6286,7 +6288,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCloudFrontDistributionCacheBehavior.build(element) unless element.nil?
+          data << AwsCloudFrontDistributionCacheBehavior.build(element) unless element.nil?
         end
         data
       end
@@ -6306,14 +6308,14 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['EncryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
-        data['Artifacts'] = Builders::AwsCodeBuildProjectArtifactsList.build(input[:artifacts]) unless input[:artifacts].nil?
-        data['Environment'] = Builders::AwsCodeBuildProjectEnvironment.build(input[:environment]) unless input[:environment].nil?
+        data['Artifacts'] = AwsCodeBuildProjectArtifactsList.build(input[:artifacts]) unless input[:artifacts].nil?
+        data['Environment'] = AwsCodeBuildProjectEnvironment.build(input[:environment]) unless input[:environment].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Source'] = Builders::AwsCodeBuildProjectSource.build(input[:source]) unless input[:source].nil?
+        data['Source'] = AwsCodeBuildProjectSource.build(input[:source]) unless input[:source].nil?
         data['ServiceRole'] = input[:service_role] unless input[:service_role].nil?
-        data['LogsConfig'] = Builders::AwsCodeBuildProjectLogsConfigDetails.build(input[:logs_config]) unless input[:logs_config].nil?
-        data['VpcConfig'] = Builders::AwsCodeBuildProjectVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['SecondaryArtifacts'] = Builders::AwsCodeBuildProjectArtifactsList.build(input[:secondary_artifacts]) unless input[:secondary_artifacts].nil?
+        data['LogsConfig'] = AwsCodeBuildProjectLogsConfigDetails.build(input[:logs_config]) unless input[:logs_config].nil?
+        data['VpcConfig'] = AwsCodeBuildProjectVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['SecondaryArtifacts'] = AwsCodeBuildProjectArtifactsList.build(input[:secondary_artifacts]) unless input[:secondary_artifacts].nil?
         data
       end
     end
@@ -6323,7 +6325,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCodeBuildProjectArtifactsDetails.build(element) unless element.nil?
+          data << AwsCodeBuildProjectArtifactsDetails.build(element) unless element.nil?
         end
         data
       end
@@ -6351,8 +6353,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['Subnets'] = Builders::NonEmptyStringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['SecurityGroupIds'] = Builders::NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['Subnets'] = NonEmptyStringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -6361,8 +6363,8 @@ module AWS::SDK::SecurityHub
     class AwsCodeBuildProjectLogsConfigDetails
       def self.build(input)
         data = {}
-        data['CloudWatchLogs'] = Builders::AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
-        data['S3Logs'] = Builders::AwsCodeBuildProjectLogsConfigS3LogsDetails.build(input[:s3_logs]) unless input[:s3_logs].nil?
+        data['CloudWatchLogs'] = AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
+        data['S3Logs'] = AwsCodeBuildProjectLogsConfigS3LogsDetails.build(input[:s3_logs]) unless input[:s3_logs].nil?
         data
       end
     end
@@ -6406,10 +6408,10 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Certificate'] = input[:certificate] unless input[:certificate].nil?
-        data['EnvironmentVariables'] = Builders::AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['EnvironmentVariables'] = AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data['PrivilegedMode'] = input[:privileged_mode] unless input[:privileged_mode].nil?
         data['ImagePullCredentialsType'] = input[:image_pull_credentials_type] unless input[:image_pull_credentials_type].nil?
-        data['RegistryCredential'] = Builders::AwsCodeBuildProjectEnvironmentRegistryCredential.build(input[:registry_credential]) unless input[:registry_credential].nil?
+        data['RegistryCredential'] = AwsCodeBuildProjectEnvironmentRegistryCredential.build(input[:registry_credential]) unless input[:registry_credential].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -6430,7 +6432,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.build(element) unless element.nil?
+          data << AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.build(element) unless element.nil?
         end
         data
       end
@@ -6452,13 +6454,13 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['LaunchConfigurationName'] = input[:launch_configuration_name] unless input[:launch_configuration_name].nil?
-        data['LoadBalancerNames'] = Builders::StringList.build(input[:load_balancer_names]) unless input[:load_balancer_names].nil?
+        data['LoadBalancerNames'] = StringList.build(input[:load_balancer_names]) unless input[:load_balancer_names].nil?
         data['HealthCheckType'] = input[:health_check_type] unless input[:health_check_type].nil?
         data['HealthCheckGracePeriod'] = input[:health_check_grace_period] unless input[:health_check_grace_period].nil?
         data['CreatedTime'] = input[:created_time] unless input[:created_time].nil?
-        data['MixedInstancesPolicy'] = Builders::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.build(input[:mixed_instances_policy]) unless input[:mixed_instances_policy].nil?
-        data['AvailabilityZones'] = Builders::AwsAutoScalingAutoScalingGroupAvailabilityZonesList.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        data['LaunchTemplate'] = Builders::AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['MixedInstancesPolicy'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.build(input[:mixed_instances_policy]) unless input[:mixed_instances_policy].nil?
+        data['AvailabilityZones'] = AwsAutoScalingAutoScalingGroupAvailabilityZonesList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['LaunchTemplate'] = AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
         data['CapacityRebalance'] = input[:capacity_rebalance] unless input[:capacity_rebalance].nil?
         data
       end
@@ -6480,7 +6482,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.build(element) unless element.nil?
+          data << AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.build(element) unless element.nil?
         end
         data
       end
@@ -6499,8 +6501,8 @@ module AWS::SDK::SecurityHub
     class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
       def self.build(input)
         data = {}
-        data['InstancesDistribution'] = Builders::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.build(input[:instances_distribution]) unless input[:instances_distribution].nil?
-        data['LaunchTemplate'] = Builders::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['InstancesDistribution'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.build(input[:instances_distribution]) unless input[:instances_distribution].nil?
+        data['LaunchTemplate'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.build(input[:launch_template]) unless input[:launch_template].nil?
         data
       end
     end
@@ -6509,8 +6511,8 @@ module AWS::SDK::SecurityHub
     class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
       def self.build(input)
         data = {}
-        data['LaunchTemplateSpecification'] = Builders::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.build(input[:launch_template_specification]) unless input[:launch_template_specification].nil?
-        data['Overrides'] = Builders::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.build(input[:overrides]) unless input[:overrides].nil?
+        data['LaunchTemplateSpecification'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.build(input[:launch_template_specification]) unless input[:launch_template_specification].nil?
+        data['Overrides'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.build(input[:overrides]) unless input[:overrides].nil?
         data
       end
     end
@@ -6520,7 +6522,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.build(element) unless element.nil?
+          data << AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.build(element) unless element.nil?
         end
         data
       end
@@ -6566,7 +6568,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['DetailedResultsLocation'] = input[:detailed_results_location] unless input[:detailed_results_location].nil?
-        data['Result'] = Builders::ClassificationResult.build(input[:result]) unless input[:result].nil?
+        data['Result'] = ClassificationResult.build(input[:result]) unless input[:result].nil?
         data
       end
     end
@@ -6578,9 +6580,9 @@ module AWS::SDK::SecurityHub
         data['MimeType'] = input[:mime_type] unless input[:mime_type].nil?
         data['SizeClassified'] = input[:size_classified] unless input[:size_classified].nil?
         data['AdditionalOccurrences'] = input[:additional_occurrences] unless input[:additional_occurrences].nil?
-        data['Status'] = Builders::ClassificationStatus.build(input[:status]) unless input[:status].nil?
-        data['SensitiveData'] = Builders::SensitiveDataResultList.build(input[:sensitive_data]) unless input[:sensitive_data].nil?
-        data['CustomDataIdentifiers'] = Builders::CustomDataIdentifiersResult.build(input[:custom_data_identifiers]) unless input[:custom_data_identifiers].nil?
+        data['Status'] = ClassificationStatus.build(input[:status]) unless input[:status].nil?
+        data['SensitiveData'] = SensitiveDataResultList.build(input[:sensitive_data]) unless input[:sensitive_data].nil?
+        data['CustomDataIdentifiers'] = CustomDataIdentifiersResult.build(input[:custom_data_identifiers]) unless input[:custom_data_identifiers].nil?
         data
       end
     end
@@ -6589,7 +6591,7 @@ module AWS::SDK::SecurityHub
     class CustomDataIdentifiersResult
       def self.build(input)
         data = {}
-        data['Detections'] = Builders::CustomDataIdentifiersDetectionsList.build(input[:detections]) unless input[:detections].nil?
+        data['Detections'] = CustomDataIdentifiersDetectionsList.build(input[:detections]) unless input[:detections].nil?
         data['TotalCount'] = input[:total_count] unless input[:total_count].nil?
         data
       end
@@ -6600,7 +6602,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomDataIdentifiersDetections.build(element) unless element.nil?
+          data << CustomDataIdentifiersDetections.build(element) unless element.nil?
         end
         data
       end
@@ -6613,7 +6615,7 @@ module AWS::SDK::SecurityHub
         data['Count'] = input[:count] unless input[:count].nil?
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Occurrences'] = Builders::Occurrences.build(input[:occurrences]) unless input[:occurrences].nil?
+        data['Occurrences'] = Occurrences.build(input[:occurrences]) unless input[:occurrences].nil?
         data
       end
     end
@@ -6622,11 +6624,11 @@ module AWS::SDK::SecurityHub
     class Occurrences
       def self.build(input)
         data = {}
-        data['LineRanges'] = Builders::Ranges.build(input[:line_ranges]) unless input[:line_ranges].nil?
-        data['OffsetRanges'] = Builders::Ranges.build(input[:offset_ranges]) unless input[:offset_ranges].nil?
-        data['Pages'] = Builders::Pages.build(input[:pages]) unless input[:pages].nil?
-        data['Records'] = Builders::Records.build(input[:records]) unless input[:records].nil?
-        data['Cells'] = Builders::Cells.build(input[:cells]) unless input[:cells].nil?
+        data['LineRanges'] = Ranges.build(input[:line_ranges]) unless input[:line_ranges].nil?
+        data['OffsetRanges'] = Ranges.build(input[:offset_ranges]) unless input[:offset_ranges].nil?
+        data['Pages'] = Pages.build(input[:pages]) unless input[:pages].nil?
+        data['Records'] = Records.build(input[:records]) unless input[:records].nil?
+        data['Cells'] = Cells.build(input[:cells]) unless input[:cells].nil?
         data
       end
     end
@@ -6636,7 +6638,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Cell.build(element) unless element.nil?
+          data << Cell.build(element) unless element.nil?
         end
         data
       end
@@ -6659,7 +6661,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Record.build(element) unless element.nil?
+          data << Record.build(element) unless element.nil?
         end
         data
       end
@@ -6680,7 +6682,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Page.build(element) unless element.nil?
+          data << Page.build(element) unless element.nil?
         end
         data
       end
@@ -6691,8 +6693,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['PageNumber'] = input[:page_number] unless input[:page_number].nil?
-        data['LineRange'] = Builders::Range.build(input[:line_range]) unless input[:line_range].nil?
-        data['OffsetRange'] = Builders::Range.build(input[:offset_range]) unless input[:offset_range].nil?
+        data['LineRange'] = Range.build(input[:line_range]) unless input[:line_range].nil?
+        data['OffsetRange'] = Range.build(input[:offset_range]) unless input[:offset_range].nil?
         data
       end
     end
@@ -6713,7 +6715,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Range.build(element) unless element.nil?
+          data << Range.build(element) unless element.nil?
         end
         data
       end
@@ -6724,7 +6726,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SensitiveDataResult.build(element) unless element.nil?
+          data << SensitiveDataResult.build(element) unless element.nil?
         end
         data
       end
@@ -6735,7 +6737,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Category'] = input[:category] unless input[:category].nil?
-        data['Detections'] = Builders::SensitiveDataDetectionsList.build(input[:detections]) unless input[:detections].nil?
+        data['Detections'] = SensitiveDataDetectionsList.build(input[:detections]) unless input[:detections].nil?
         data['TotalCount'] = input[:total_count] unless input[:total_count].nil?
         data
       end
@@ -6746,7 +6748,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SensitiveDataDetections.build(element) unless element.nil?
+          data << SensitiveDataDetections.build(element) unless element.nil?
         end
         data
       end
@@ -6758,7 +6760,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Count'] = input[:count] unless input[:count].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Occurrences'] = Builders::Occurrences.build(input[:occurrences]) unless input[:occurrences].nil?
+        data['Occurrences'] = Occurrences.build(input[:occurrences]) unless input[:occurrences].nil?
         data
       end
     end
@@ -6778,7 +6780,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ThreatIntelIndicator.build(element) unless element.nil?
+          data << ThreatIntelIndicator.build(element) unless element.nil?
         end
         data
       end
@@ -6817,7 +6819,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NetworkPathComponent.build(element) unless element.nil?
+          data << NetworkPathComponent.build(element) unless element.nil?
         end
         data
       end
@@ -6829,8 +6831,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['ComponentId'] = input[:component_id] unless input[:component_id].nil?
         data['ComponentType'] = input[:component_type] unless input[:component_type].nil?
-        data['Egress'] = Builders::NetworkHeader.build(input[:egress]) unless input[:egress].nil?
-        data['Ingress'] = Builders::NetworkHeader.build(input[:ingress]) unless input[:ingress].nil?
+        data['Egress'] = NetworkHeader.build(input[:egress]) unless input[:egress].nil?
+        data['Ingress'] = NetworkHeader.build(input[:ingress]) unless input[:ingress].nil?
         data
       end
     end
@@ -6840,8 +6842,8 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = {}
         data['Protocol'] = input[:protocol] unless input[:protocol].nil?
-        data['Destination'] = Builders::NetworkPathComponentDetails.build(input[:destination]) unless input[:destination].nil?
-        data['Source'] = Builders::NetworkPathComponentDetails.build(input[:source]) unless input[:source].nil?
+        data['Destination'] = NetworkPathComponentDetails.build(input[:destination]) unless input[:destination].nil?
+        data['Source'] = NetworkPathComponentDetails.build(input[:source]) unless input[:source].nil?
         data
       end
     end
@@ -6850,8 +6852,8 @@ module AWS::SDK::SecurityHub
     class NetworkPathComponentDetails
       def self.build(input)
         data = {}
-        data['Address'] = Builders::StringList.build(input[:address]) unless input[:address].nil?
-        data['PortRanges'] = Builders::PortRangeList.build(input[:port_ranges]) unless input[:port_ranges].nil?
+        data['Address'] = StringList.build(input[:address]) unless input[:address].nil?
+        data['PortRanges'] = PortRangeList.build(input[:port_ranges]) unless input[:port_ranges].nil?
         data
       end
     end
@@ -6861,7 +6863,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortRange.build(element) unless element.nil?
+          data << PortRange.build(element) unless element.nil?
         end
         data
       end
@@ -6883,7 +6885,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Direction'] = input[:direction] unless input[:direction].nil?
         data['Protocol'] = input[:protocol] unless input[:protocol].nil?
-        data['OpenPortRange'] = Builders::PortRange.build(input[:open_port_range]) unless input[:open_port_range].nil?
+        data['OpenPortRange'] = PortRange.build(input[:open_port_range]) unless input[:open_port_range].nil?
         data['SourceIpV4'] = input[:source_ip_v4] unless input[:source_ip_v4].nil?
         data['SourceIpV6'] = input[:source_ip_v6] unless input[:source_ip_v6].nil?
         data['SourcePort'] = input[:source_port] unless input[:source_port].nil?
@@ -6902,7 +6904,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Malware.build(element) unless element.nil?
+          data << Malware.build(element) unless element.nil?
         end
         data
       end
@@ -6924,7 +6926,7 @@ module AWS::SDK::SecurityHub
     class Remediation
       def self.build(input)
         data = {}
-        data['Recommendation'] = Builders::Recommendation.build(input[:recommendation]) unless input[:recommendation].nil?
+        data['Recommendation'] = Recommendation.build(input[:recommendation]) unless input[:recommendation].nil?
         data
       end
     end
@@ -6961,17 +6963,17 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['FindingIdentifiers'] = Builders::AwsSecurityFindingIdentifierList.build(input[:finding_identifiers]) unless input[:finding_identifiers].nil?
-        data['Note'] = Builders::NoteUpdate.build(input[:note]) unless input[:note].nil?
-        data['Severity'] = Builders::SeverityUpdate.build(input[:severity]) unless input[:severity].nil?
+        data['FindingIdentifiers'] = AwsSecurityFindingIdentifierList.build(input[:finding_identifiers]) unless input[:finding_identifiers].nil?
+        data['Note'] = NoteUpdate.build(input[:note]) unless input[:note].nil?
+        data['Severity'] = SeverityUpdate.build(input[:severity]) unless input[:severity].nil?
         data['VerificationState'] = input[:verification_state] unless input[:verification_state].nil?
         data['Confidence'] = input[:confidence] unless input[:confidence].nil?
         data['Criticality'] = input[:criticality] unless input[:criticality].nil?
-        data['Types'] = Builders::TypeList.build(input[:types]) unless input[:types].nil?
-        data['UserDefinedFields'] = Builders::FieldMap.build(input[:user_defined_fields]) unless input[:user_defined_fields].nil?
-        data['Workflow'] = Builders::WorkflowUpdate.build(input[:workflow]) unless input[:workflow].nil?
-        data['RelatedFindings'] = Builders::RelatedFindingList.build(input[:related_findings]) unless input[:related_findings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Types'] = TypeList.build(input[:types]) unless input[:types].nil?
+        data['UserDefinedFields'] = FieldMap.build(input[:user_defined_fields]) unless input[:user_defined_fields].nil?
+        data['Workflow'] = WorkflowUpdate.build(input[:workflow]) unless input[:workflow].nil?
+        data['RelatedFindings'] = RelatedFindingList.build(input[:related_findings]) unless input[:related_findings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7010,7 +7012,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AwsSecurityFindingIdentifier.build(element) unless element.nil?
+          data << AwsSecurityFindingIdentifier.build(element) unless element.nil?
         end
         data
       end
@@ -7039,7 +7041,7 @@ module AWS::SDK::SecurityHub
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7054,8 +7056,8 @@ module AWS::SDK::SecurityHub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['RegionLinkingMode'] = input[:region_linking_mode] unless input[:region_linking_mode].nil?
-        data['Regions'] = Builders::StringList.build(input[:regions]) unless input[:regions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Regions'] = StringList.build(input[:regions]) unless input[:regions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7070,9 +7072,9 @@ module AWS::SDK::SecurityHub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Filters'] = Builders::AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
         data['GroupByAttribute'] = input[:group_by_attribute] unless input[:group_by_attribute].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7080,101 +7082,101 @@ module AWS::SDK::SecurityHub
     class AwsSecurityFindingFilters
       def self.build(input)
         data = {}
-        data['ProductArn'] = Builders::StringFilterList.build(input[:product_arn]) unless input[:product_arn].nil?
-        data['AwsAccountId'] = Builders::StringFilterList.build(input[:aws_account_id]) unless input[:aws_account_id].nil?
-        data['Id'] = Builders::StringFilterList.build(input[:id]) unless input[:id].nil?
-        data['GeneratorId'] = Builders::StringFilterList.build(input[:generator_id]) unless input[:generator_id].nil?
-        data['Region'] = Builders::StringFilterList.build(input[:region]) unless input[:region].nil?
-        data['Type'] = Builders::StringFilterList.build(input[:type]) unless input[:type].nil?
-        data['FirstObservedAt'] = Builders::DateFilterList.build(input[:first_observed_at]) unless input[:first_observed_at].nil?
-        data['LastObservedAt'] = Builders::DateFilterList.build(input[:last_observed_at]) unless input[:last_observed_at].nil?
-        data['CreatedAt'] = Builders::DateFilterList.build(input[:created_at]) unless input[:created_at].nil?
-        data['UpdatedAt'] = Builders::DateFilterList.build(input[:updated_at]) unless input[:updated_at].nil?
-        data['SeverityProduct'] = Builders::NumberFilterList.build(input[:severity_product]) unless input[:severity_product].nil?
-        data['SeverityNormalized'] = Builders::NumberFilterList.build(input[:severity_normalized]) unless input[:severity_normalized].nil?
-        data['SeverityLabel'] = Builders::StringFilterList.build(input[:severity_label]) unless input[:severity_label].nil?
-        data['Confidence'] = Builders::NumberFilterList.build(input[:confidence]) unless input[:confidence].nil?
-        data['Criticality'] = Builders::NumberFilterList.build(input[:criticality]) unless input[:criticality].nil?
-        data['Title'] = Builders::StringFilterList.build(input[:title]) unless input[:title].nil?
-        data['Description'] = Builders::StringFilterList.build(input[:description]) unless input[:description].nil?
-        data['RecommendationText'] = Builders::StringFilterList.build(input[:recommendation_text]) unless input[:recommendation_text].nil?
-        data['SourceUrl'] = Builders::StringFilterList.build(input[:source_url]) unless input[:source_url].nil?
-        data['ProductFields'] = Builders::MapFilterList.build(input[:product_fields]) unless input[:product_fields].nil?
-        data['ProductName'] = Builders::StringFilterList.build(input[:product_name]) unless input[:product_name].nil?
-        data['CompanyName'] = Builders::StringFilterList.build(input[:company_name]) unless input[:company_name].nil?
-        data['UserDefinedFields'] = Builders::MapFilterList.build(input[:user_defined_fields]) unless input[:user_defined_fields].nil?
-        data['MalwareName'] = Builders::StringFilterList.build(input[:malware_name]) unless input[:malware_name].nil?
-        data['MalwareType'] = Builders::StringFilterList.build(input[:malware_type]) unless input[:malware_type].nil?
-        data['MalwarePath'] = Builders::StringFilterList.build(input[:malware_path]) unless input[:malware_path].nil?
-        data['MalwareState'] = Builders::StringFilterList.build(input[:malware_state]) unless input[:malware_state].nil?
-        data['NetworkDirection'] = Builders::StringFilterList.build(input[:network_direction]) unless input[:network_direction].nil?
-        data['NetworkProtocol'] = Builders::StringFilterList.build(input[:network_protocol]) unless input[:network_protocol].nil?
-        data['NetworkSourceIpV4'] = Builders::IpFilterList.build(input[:network_source_ip_v4]) unless input[:network_source_ip_v4].nil?
-        data['NetworkSourceIpV6'] = Builders::IpFilterList.build(input[:network_source_ip_v6]) unless input[:network_source_ip_v6].nil?
-        data['NetworkSourcePort'] = Builders::NumberFilterList.build(input[:network_source_port]) unless input[:network_source_port].nil?
-        data['NetworkSourceDomain'] = Builders::StringFilterList.build(input[:network_source_domain]) unless input[:network_source_domain].nil?
-        data['NetworkSourceMac'] = Builders::StringFilterList.build(input[:network_source_mac]) unless input[:network_source_mac].nil?
-        data['NetworkDestinationIpV4'] = Builders::IpFilterList.build(input[:network_destination_ip_v4]) unless input[:network_destination_ip_v4].nil?
-        data['NetworkDestinationIpV6'] = Builders::IpFilterList.build(input[:network_destination_ip_v6]) unless input[:network_destination_ip_v6].nil?
-        data['NetworkDestinationPort'] = Builders::NumberFilterList.build(input[:network_destination_port]) unless input[:network_destination_port].nil?
-        data['NetworkDestinationDomain'] = Builders::StringFilterList.build(input[:network_destination_domain]) unless input[:network_destination_domain].nil?
-        data['ProcessName'] = Builders::StringFilterList.build(input[:process_name]) unless input[:process_name].nil?
-        data['ProcessPath'] = Builders::StringFilterList.build(input[:process_path]) unless input[:process_path].nil?
-        data['ProcessPid'] = Builders::NumberFilterList.build(input[:process_pid]) unless input[:process_pid].nil?
-        data['ProcessParentPid'] = Builders::NumberFilterList.build(input[:process_parent_pid]) unless input[:process_parent_pid].nil?
-        data['ProcessLaunchedAt'] = Builders::DateFilterList.build(input[:process_launched_at]) unless input[:process_launched_at].nil?
-        data['ProcessTerminatedAt'] = Builders::DateFilterList.build(input[:process_terminated_at]) unless input[:process_terminated_at].nil?
-        data['ThreatIntelIndicatorType'] = Builders::StringFilterList.build(input[:threat_intel_indicator_type]) unless input[:threat_intel_indicator_type].nil?
-        data['ThreatIntelIndicatorValue'] = Builders::StringFilterList.build(input[:threat_intel_indicator_value]) unless input[:threat_intel_indicator_value].nil?
-        data['ThreatIntelIndicatorCategory'] = Builders::StringFilterList.build(input[:threat_intel_indicator_category]) unless input[:threat_intel_indicator_category].nil?
-        data['ThreatIntelIndicatorLastObservedAt'] = Builders::DateFilterList.build(input[:threat_intel_indicator_last_observed_at]) unless input[:threat_intel_indicator_last_observed_at].nil?
-        data['ThreatIntelIndicatorSource'] = Builders::StringFilterList.build(input[:threat_intel_indicator_source]) unless input[:threat_intel_indicator_source].nil?
-        data['ThreatIntelIndicatorSourceUrl'] = Builders::StringFilterList.build(input[:threat_intel_indicator_source_url]) unless input[:threat_intel_indicator_source_url].nil?
-        data['ResourceType'] = Builders::StringFilterList.build(input[:resource_type]) unless input[:resource_type].nil?
-        data['ResourceId'] = Builders::StringFilterList.build(input[:resource_id]) unless input[:resource_id].nil?
-        data['ResourcePartition'] = Builders::StringFilterList.build(input[:resource_partition]) unless input[:resource_partition].nil?
-        data['ResourceRegion'] = Builders::StringFilterList.build(input[:resource_region]) unless input[:resource_region].nil?
-        data['ResourceTags'] = Builders::MapFilterList.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        data['ResourceAwsEc2InstanceType'] = Builders::StringFilterList.build(input[:resource_aws_ec2_instance_type]) unless input[:resource_aws_ec2_instance_type].nil?
-        data['ResourceAwsEc2InstanceImageId'] = Builders::StringFilterList.build(input[:resource_aws_ec2_instance_image_id]) unless input[:resource_aws_ec2_instance_image_id].nil?
-        data['ResourceAwsEc2InstanceIpV4Addresses'] = Builders::IpFilterList.build(input[:resource_aws_ec2_instance_ip_v4_addresses]) unless input[:resource_aws_ec2_instance_ip_v4_addresses].nil?
-        data['ResourceAwsEc2InstanceIpV6Addresses'] = Builders::IpFilterList.build(input[:resource_aws_ec2_instance_ip_v6_addresses]) unless input[:resource_aws_ec2_instance_ip_v6_addresses].nil?
-        data['ResourceAwsEc2InstanceKeyName'] = Builders::StringFilterList.build(input[:resource_aws_ec2_instance_key_name]) unless input[:resource_aws_ec2_instance_key_name].nil?
-        data['ResourceAwsEc2InstanceIamInstanceProfileArn'] = Builders::StringFilterList.build(input[:resource_aws_ec2_instance_iam_instance_profile_arn]) unless input[:resource_aws_ec2_instance_iam_instance_profile_arn].nil?
-        data['ResourceAwsEc2InstanceVpcId'] = Builders::StringFilterList.build(input[:resource_aws_ec2_instance_vpc_id]) unless input[:resource_aws_ec2_instance_vpc_id].nil?
-        data['ResourceAwsEc2InstanceSubnetId'] = Builders::StringFilterList.build(input[:resource_aws_ec2_instance_subnet_id]) unless input[:resource_aws_ec2_instance_subnet_id].nil?
-        data['ResourceAwsEc2InstanceLaunchedAt'] = Builders::DateFilterList.build(input[:resource_aws_ec2_instance_launched_at]) unless input[:resource_aws_ec2_instance_launched_at].nil?
-        data['ResourceAwsS3BucketOwnerId'] = Builders::StringFilterList.build(input[:resource_aws_s3_bucket_owner_id]) unless input[:resource_aws_s3_bucket_owner_id].nil?
-        data['ResourceAwsS3BucketOwnerName'] = Builders::StringFilterList.build(input[:resource_aws_s3_bucket_owner_name]) unless input[:resource_aws_s3_bucket_owner_name].nil?
-        data['ResourceAwsIamAccessKeyUserName'] = Builders::StringFilterList.build(input[:resource_aws_iam_access_key_user_name]) unless input[:resource_aws_iam_access_key_user_name].nil?
-        data['ResourceAwsIamAccessKeyPrincipalName'] = Builders::StringFilterList.build(input[:resource_aws_iam_access_key_principal_name]) unless input[:resource_aws_iam_access_key_principal_name].nil?
-        data['ResourceAwsIamAccessKeyStatus'] = Builders::StringFilterList.build(input[:resource_aws_iam_access_key_status]) unless input[:resource_aws_iam_access_key_status].nil?
-        data['ResourceAwsIamAccessKeyCreatedAt'] = Builders::DateFilterList.build(input[:resource_aws_iam_access_key_created_at]) unless input[:resource_aws_iam_access_key_created_at].nil?
-        data['ResourceAwsIamUserUserName'] = Builders::StringFilterList.build(input[:resource_aws_iam_user_user_name]) unless input[:resource_aws_iam_user_user_name].nil?
-        data['ResourceContainerName'] = Builders::StringFilterList.build(input[:resource_container_name]) unless input[:resource_container_name].nil?
-        data['ResourceContainerImageId'] = Builders::StringFilterList.build(input[:resource_container_image_id]) unless input[:resource_container_image_id].nil?
-        data['ResourceContainerImageName'] = Builders::StringFilterList.build(input[:resource_container_image_name]) unless input[:resource_container_image_name].nil?
-        data['ResourceContainerLaunchedAt'] = Builders::DateFilterList.build(input[:resource_container_launched_at]) unless input[:resource_container_launched_at].nil?
-        data['ResourceDetailsOther'] = Builders::MapFilterList.build(input[:resource_details_other]) unless input[:resource_details_other].nil?
-        data['ComplianceStatus'] = Builders::StringFilterList.build(input[:compliance_status]) unless input[:compliance_status].nil?
-        data['VerificationState'] = Builders::StringFilterList.build(input[:verification_state]) unless input[:verification_state].nil?
-        data['WorkflowState'] = Builders::StringFilterList.build(input[:workflow_state]) unless input[:workflow_state].nil?
-        data['WorkflowStatus'] = Builders::StringFilterList.build(input[:workflow_status]) unless input[:workflow_status].nil?
-        data['RecordState'] = Builders::StringFilterList.build(input[:record_state]) unless input[:record_state].nil?
-        data['RelatedFindingsProductArn'] = Builders::StringFilterList.build(input[:related_findings_product_arn]) unless input[:related_findings_product_arn].nil?
-        data['RelatedFindingsId'] = Builders::StringFilterList.build(input[:related_findings_id]) unless input[:related_findings_id].nil?
-        data['NoteText'] = Builders::StringFilterList.build(input[:note_text]) unless input[:note_text].nil?
-        data['NoteUpdatedAt'] = Builders::DateFilterList.build(input[:note_updated_at]) unless input[:note_updated_at].nil?
-        data['NoteUpdatedBy'] = Builders::StringFilterList.build(input[:note_updated_by]) unless input[:note_updated_by].nil?
-        data['Keyword'] = Builders::KeywordFilterList.build(input[:keyword]) unless input[:keyword].nil?
-        data['FindingProviderFieldsConfidence'] = Builders::NumberFilterList.build(input[:finding_provider_fields_confidence]) unless input[:finding_provider_fields_confidence].nil?
-        data['FindingProviderFieldsCriticality'] = Builders::NumberFilterList.build(input[:finding_provider_fields_criticality]) unless input[:finding_provider_fields_criticality].nil?
-        data['FindingProviderFieldsRelatedFindingsId'] = Builders::StringFilterList.build(input[:finding_provider_fields_related_findings_id]) unless input[:finding_provider_fields_related_findings_id].nil?
-        data['FindingProviderFieldsRelatedFindingsProductArn'] = Builders::StringFilterList.build(input[:finding_provider_fields_related_findings_product_arn]) unless input[:finding_provider_fields_related_findings_product_arn].nil?
-        data['FindingProviderFieldsSeverityLabel'] = Builders::StringFilterList.build(input[:finding_provider_fields_severity_label]) unless input[:finding_provider_fields_severity_label].nil?
-        data['FindingProviderFieldsSeverityOriginal'] = Builders::StringFilterList.build(input[:finding_provider_fields_severity_original]) unless input[:finding_provider_fields_severity_original].nil?
-        data['FindingProviderFieldsTypes'] = Builders::StringFilterList.build(input[:finding_provider_fields_types]) unless input[:finding_provider_fields_types].nil?
-        data['Sample'] = Builders::BooleanFilterList.build(input[:sample]) unless input[:sample].nil?
+        data['ProductArn'] = StringFilterList.build(input[:product_arn]) unless input[:product_arn].nil?
+        data['AwsAccountId'] = StringFilterList.build(input[:aws_account_id]) unless input[:aws_account_id].nil?
+        data['Id'] = StringFilterList.build(input[:id]) unless input[:id].nil?
+        data['GeneratorId'] = StringFilterList.build(input[:generator_id]) unless input[:generator_id].nil?
+        data['Region'] = StringFilterList.build(input[:region]) unless input[:region].nil?
+        data['Type'] = StringFilterList.build(input[:type]) unless input[:type].nil?
+        data['FirstObservedAt'] = DateFilterList.build(input[:first_observed_at]) unless input[:first_observed_at].nil?
+        data['LastObservedAt'] = DateFilterList.build(input[:last_observed_at]) unless input[:last_observed_at].nil?
+        data['CreatedAt'] = DateFilterList.build(input[:created_at]) unless input[:created_at].nil?
+        data['UpdatedAt'] = DateFilterList.build(input[:updated_at]) unless input[:updated_at].nil?
+        data['SeverityProduct'] = NumberFilterList.build(input[:severity_product]) unless input[:severity_product].nil?
+        data['SeverityNormalized'] = NumberFilterList.build(input[:severity_normalized]) unless input[:severity_normalized].nil?
+        data['SeverityLabel'] = StringFilterList.build(input[:severity_label]) unless input[:severity_label].nil?
+        data['Confidence'] = NumberFilterList.build(input[:confidence]) unless input[:confidence].nil?
+        data['Criticality'] = NumberFilterList.build(input[:criticality]) unless input[:criticality].nil?
+        data['Title'] = StringFilterList.build(input[:title]) unless input[:title].nil?
+        data['Description'] = StringFilterList.build(input[:description]) unless input[:description].nil?
+        data['RecommendationText'] = StringFilterList.build(input[:recommendation_text]) unless input[:recommendation_text].nil?
+        data['SourceUrl'] = StringFilterList.build(input[:source_url]) unless input[:source_url].nil?
+        data['ProductFields'] = MapFilterList.build(input[:product_fields]) unless input[:product_fields].nil?
+        data['ProductName'] = StringFilterList.build(input[:product_name]) unless input[:product_name].nil?
+        data['CompanyName'] = StringFilterList.build(input[:company_name]) unless input[:company_name].nil?
+        data['UserDefinedFields'] = MapFilterList.build(input[:user_defined_fields]) unless input[:user_defined_fields].nil?
+        data['MalwareName'] = StringFilterList.build(input[:malware_name]) unless input[:malware_name].nil?
+        data['MalwareType'] = StringFilterList.build(input[:malware_type]) unless input[:malware_type].nil?
+        data['MalwarePath'] = StringFilterList.build(input[:malware_path]) unless input[:malware_path].nil?
+        data['MalwareState'] = StringFilterList.build(input[:malware_state]) unless input[:malware_state].nil?
+        data['NetworkDirection'] = StringFilterList.build(input[:network_direction]) unless input[:network_direction].nil?
+        data['NetworkProtocol'] = StringFilterList.build(input[:network_protocol]) unless input[:network_protocol].nil?
+        data['NetworkSourceIpV4'] = IpFilterList.build(input[:network_source_ip_v4]) unless input[:network_source_ip_v4].nil?
+        data['NetworkSourceIpV6'] = IpFilterList.build(input[:network_source_ip_v6]) unless input[:network_source_ip_v6].nil?
+        data['NetworkSourcePort'] = NumberFilterList.build(input[:network_source_port]) unless input[:network_source_port].nil?
+        data['NetworkSourceDomain'] = StringFilterList.build(input[:network_source_domain]) unless input[:network_source_domain].nil?
+        data['NetworkSourceMac'] = StringFilterList.build(input[:network_source_mac]) unless input[:network_source_mac].nil?
+        data['NetworkDestinationIpV4'] = IpFilterList.build(input[:network_destination_ip_v4]) unless input[:network_destination_ip_v4].nil?
+        data['NetworkDestinationIpV6'] = IpFilterList.build(input[:network_destination_ip_v6]) unless input[:network_destination_ip_v6].nil?
+        data['NetworkDestinationPort'] = NumberFilterList.build(input[:network_destination_port]) unless input[:network_destination_port].nil?
+        data['NetworkDestinationDomain'] = StringFilterList.build(input[:network_destination_domain]) unless input[:network_destination_domain].nil?
+        data['ProcessName'] = StringFilterList.build(input[:process_name]) unless input[:process_name].nil?
+        data['ProcessPath'] = StringFilterList.build(input[:process_path]) unless input[:process_path].nil?
+        data['ProcessPid'] = NumberFilterList.build(input[:process_pid]) unless input[:process_pid].nil?
+        data['ProcessParentPid'] = NumberFilterList.build(input[:process_parent_pid]) unless input[:process_parent_pid].nil?
+        data['ProcessLaunchedAt'] = DateFilterList.build(input[:process_launched_at]) unless input[:process_launched_at].nil?
+        data['ProcessTerminatedAt'] = DateFilterList.build(input[:process_terminated_at]) unless input[:process_terminated_at].nil?
+        data['ThreatIntelIndicatorType'] = StringFilterList.build(input[:threat_intel_indicator_type]) unless input[:threat_intel_indicator_type].nil?
+        data['ThreatIntelIndicatorValue'] = StringFilterList.build(input[:threat_intel_indicator_value]) unless input[:threat_intel_indicator_value].nil?
+        data['ThreatIntelIndicatorCategory'] = StringFilterList.build(input[:threat_intel_indicator_category]) unless input[:threat_intel_indicator_category].nil?
+        data['ThreatIntelIndicatorLastObservedAt'] = DateFilterList.build(input[:threat_intel_indicator_last_observed_at]) unless input[:threat_intel_indicator_last_observed_at].nil?
+        data['ThreatIntelIndicatorSource'] = StringFilterList.build(input[:threat_intel_indicator_source]) unless input[:threat_intel_indicator_source].nil?
+        data['ThreatIntelIndicatorSourceUrl'] = StringFilterList.build(input[:threat_intel_indicator_source_url]) unless input[:threat_intel_indicator_source_url].nil?
+        data['ResourceType'] = StringFilterList.build(input[:resource_type]) unless input[:resource_type].nil?
+        data['ResourceId'] = StringFilterList.build(input[:resource_id]) unless input[:resource_id].nil?
+        data['ResourcePartition'] = StringFilterList.build(input[:resource_partition]) unless input[:resource_partition].nil?
+        data['ResourceRegion'] = StringFilterList.build(input[:resource_region]) unless input[:resource_region].nil?
+        data['ResourceTags'] = MapFilterList.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        data['ResourceAwsEc2InstanceType'] = StringFilterList.build(input[:resource_aws_ec2_instance_type]) unless input[:resource_aws_ec2_instance_type].nil?
+        data['ResourceAwsEc2InstanceImageId'] = StringFilterList.build(input[:resource_aws_ec2_instance_image_id]) unless input[:resource_aws_ec2_instance_image_id].nil?
+        data['ResourceAwsEc2InstanceIpV4Addresses'] = IpFilterList.build(input[:resource_aws_ec2_instance_ip_v4_addresses]) unless input[:resource_aws_ec2_instance_ip_v4_addresses].nil?
+        data['ResourceAwsEc2InstanceIpV6Addresses'] = IpFilterList.build(input[:resource_aws_ec2_instance_ip_v6_addresses]) unless input[:resource_aws_ec2_instance_ip_v6_addresses].nil?
+        data['ResourceAwsEc2InstanceKeyName'] = StringFilterList.build(input[:resource_aws_ec2_instance_key_name]) unless input[:resource_aws_ec2_instance_key_name].nil?
+        data['ResourceAwsEc2InstanceIamInstanceProfileArn'] = StringFilterList.build(input[:resource_aws_ec2_instance_iam_instance_profile_arn]) unless input[:resource_aws_ec2_instance_iam_instance_profile_arn].nil?
+        data['ResourceAwsEc2InstanceVpcId'] = StringFilterList.build(input[:resource_aws_ec2_instance_vpc_id]) unless input[:resource_aws_ec2_instance_vpc_id].nil?
+        data['ResourceAwsEc2InstanceSubnetId'] = StringFilterList.build(input[:resource_aws_ec2_instance_subnet_id]) unless input[:resource_aws_ec2_instance_subnet_id].nil?
+        data['ResourceAwsEc2InstanceLaunchedAt'] = DateFilterList.build(input[:resource_aws_ec2_instance_launched_at]) unless input[:resource_aws_ec2_instance_launched_at].nil?
+        data['ResourceAwsS3BucketOwnerId'] = StringFilterList.build(input[:resource_aws_s3_bucket_owner_id]) unless input[:resource_aws_s3_bucket_owner_id].nil?
+        data['ResourceAwsS3BucketOwnerName'] = StringFilterList.build(input[:resource_aws_s3_bucket_owner_name]) unless input[:resource_aws_s3_bucket_owner_name].nil?
+        data['ResourceAwsIamAccessKeyUserName'] = StringFilterList.build(input[:resource_aws_iam_access_key_user_name]) unless input[:resource_aws_iam_access_key_user_name].nil?
+        data['ResourceAwsIamAccessKeyPrincipalName'] = StringFilterList.build(input[:resource_aws_iam_access_key_principal_name]) unless input[:resource_aws_iam_access_key_principal_name].nil?
+        data['ResourceAwsIamAccessKeyStatus'] = StringFilterList.build(input[:resource_aws_iam_access_key_status]) unless input[:resource_aws_iam_access_key_status].nil?
+        data['ResourceAwsIamAccessKeyCreatedAt'] = DateFilterList.build(input[:resource_aws_iam_access_key_created_at]) unless input[:resource_aws_iam_access_key_created_at].nil?
+        data['ResourceAwsIamUserUserName'] = StringFilterList.build(input[:resource_aws_iam_user_user_name]) unless input[:resource_aws_iam_user_user_name].nil?
+        data['ResourceContainerName'] = StringFilterList.build(input[:resource_container_name]) unless input[:resource_container_name].nil?
+        data['ResourceContainerImageId'] = StringFilterList.build(input[:resource_container_image_id]) unless input[:resource_container_image_id].nil?
+        data['ResourceContainerImageName'] = StringFilterList.build(input[:resource_container_image_name]) unless input[:resource_container_image_name].nil?
+        data['ResourceContainerLaunchedAt'] = DateFilterList.build(input[:resource_container_launched_at]) unless input[:resource_container_launched_at].nil?
+        data['ResourceDetailsOther'] = MapFilterList.build(input[:resource_details_other]) unless input[:resource_details_other].nil?
+        data['ComplianceStatus'] = StringFilterList.build(input[:compliance_status]) unless input[:compliance_status].nil?
+        data['VerificationState'] = StringFilterList.build(input[:verification_state]) unless input[:verification_state].nil?
+        data['WorkflowState'] = StringFilterList.build(input[:workflow_state]) unless input[:workflow_state].nil?
+        data['WorkflowStatus'] = StringFilterList.build(input[:workflow_status]) unless input[:workflow_status].nil?
+        data['RecordState'] = StringFilterList.build(input[:record_state]) unless input[:record_state].nil?
+        data['RelatedFindingsProductArn'] = StringFilterList.build(input[:related_findings_product_arn]) unless input[:related_findings_product_arn].nil?
+        data['RelatedFindingsId'] = StringFilterList.build(input[:related_findings_id]) unless input[:related_findings_id].nil?
+        data['NoteText'] = StringFilterList.build(input[:note_text]) unless input[:note_text].nil?
+        data['NoteUpdatedAt'] = DateFilterList.build(input[:note_updated_at]) unless input[:note_updated_at].nil?
+        data['NoteUpdatedBy'] = StringFilterList.build(input[:note_updated_by]) unless input[:note_updated_by].nil?
+        data['Keyword'] = KeywordFilterList.build(input[:keyword]) unless input[:keyword].nil?
+        data['FindingProviderFieldsConfidence'] = NumberFilterList.build(input[:finding_provider_fields_confidence]) unless input[:finding_provider_fields_confidence].nil?
+        data['FindingProviderFieldsCriticality'] = NumberFilterList.build(input[:finding_provider_fields_criticality]) unless input[:finding_provider_fields_criticality].nil?
+        data['FindingProviderFieldsRelatedFindingsId'] = StringFilterList.build(input[:finding_provider_fields_related_findings_id]) unless input[:finding_provider_fields_related_findings_id].nil?
+        data['FindingProviderFieldsRelatedFindingsProductArn'] = StringFilterList.build(input[:finding_provider_fields_related_findings_product_arn]) unless input[:finding_provider_fields_related_findings_product_arn].nil?
+        data['FindingProviderFieldsSeverityLabel'] = StringFilterList.build(input[:finding_provider_fields_severity_label]) unless input[:finding_provider_fields_severity_label].nil?
+        data['FindingProviderFieldsSeverityOriginal'] = StringFilterList.build(input[:finding_provider_fields_severity_original]) unless input[:finding_provider_fields_severity_original].nil?
+        data['FindingProviderFieldsTypes'] = StringFilterList.build(input[:finding_provider_fields_types]) unless input[:finding_provider_fields_types].nil?
+        data['Sample'] = BooleanFilterList.build(input[:sample]) unless input[:sample].nil?
         data
       end
     end
@@ -7184,7 +7186,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BooleanFilter.build(element) unless element.nil?
+          data << BooleanFilter.build(element) unless element.nil?
         end
         data
       end
@@ -7204,7 +7206,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StringFilter.build(element) unless element.nil?
+          data << StringFilter.build(element) unless element.nil?
         end
         data
       end
@@ -7225,7 +7227,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NumberFilter.build(element) unless element.nil?
+          data << NumberFilter.build(element) unless element.nil?
         end
         data
       end
@@ -7247,7 +7249,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeywordFilter.build(element) unless element.nil?
+          data << KeywordFilter.build(element) unless element.nil?
         end
         data
       end
@@ -7267,7 +7269,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DateFilter.build(element) unless element.nil?
+          data << DateFilter.build(element) unless element.nil?
         end
         data
       end
@@ -7279,7 +7281,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Start'] = input[:start] unless input[:start].nil?
         data['End'] = input[:end] unless input[:end].nil?
-        data['DateRange'] = Builders::DateRange.build(input[:date_range]) unless input[:date_range].nil?
+        data['DateRange'] = DateRange.build(input[:date_range]) unless input[:date_range].nil?
         data
       end
     end
@@ -7299,7 +7301,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MapFilter.build(element) unless element.nil?
+          data << MapFilter.build(element) unless element.nil?
         end
         data
       end
@@ -7321,7 +7323,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IpFilter.build(element) unless element.nil?
+          data << IpFilter.build(element) unless element.nil?
         end
         data
       end
@@ -7346,8 +7348,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountDetails'] = Builders::AccountDetailsList.build(input[:account_details]) unless input[:account_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountDetails'] = AccountDetailsList.build(input[:account_details]) unless input[:account_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7356,7 +7358,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AccountDetails.build(element) unless element.nil?
+          data << AccountDetails.build(element) unless element.nil?
         end
         data
       end
@@ -7382,8 +7384,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7459,8 +7461,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7474,8 +7476,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7489,10 +7491,10 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ActionTargetArns'] = Builders::ArnList.build(input[:action_target_arns]) unless input[:action_target_arns].nil?
+        data['ActionTargetArns'] = ArnList.build(input[:action_target_arns]) unless input[:action_target_arns].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7600,7 +7602,7 @@ module AWS::SDK::SecurityHub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AdminAccountId'] = input[:admin_account_id] unless input[:admin_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7644,8 +7646,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7660,7 +7662,7 @@ module AWS::SDK::SecurityHub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ProductArn'] = input[:product_arn] unless input[:product_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7675,7 +7677,7 @@ module AWS::SDK::SecurityHub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AdminAccountId'] = input[:admin_account_id] unless input[:admin_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7689,9 +7691,9 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['EnableDefaultStandards'] = input[:enable_default_standards] unless input[:enable_default_standards].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7726,10 +7728,10 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StandardsSubscriptionArns'] = Builders::StandardsSubscriptionArns.build(input[:standards_subscription_arns]) unless input[:standards_subscription_arns].nil?
+        data['StandardsSubscriptionArns'] = StandardsSubscriptionArns.build(input[:standards_subscription_arns]) unless input[:standards_subscription_arns].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7760,11 +7762,11 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
-        data['SortCriteria'] = Builders::SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        data['Filters'] = AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
+        data['SortCriteria'] = SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7773,7 +7775,7 @@ module AWS::SDK::SecurityHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SortCriterion.build(element) unless element.nil?
+          data << SortCriterion.build(element) unless element.nil?
         end
         data
       end
@@ -7816,10 +7818,10 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['InsightArns'] = Builders::ArnList.build(input[:insight_arns]) unless input[:insight_arns].nil?
+        data['InsightArns'] = ArnList.build(input[:insight_arns]) unless input[:insight_arns].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7853,8 +7855,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7868,8 +7870,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7968,8 +7970,8 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8025,7 +8027,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8041,8 +8043,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['FindingAggregatorArn'] = input[:finding_aggregator_arn] unless input[:finding_aggregator_arn].nil?
         data['RegionLinkingMode'] = input[:region_linking_mode] unless input[:region_linking_mode].nil?
-        data['Regions'] = Builders::StringList.build(input[:regions]) unless input[:regions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Regions'] = StringList.build(input[:regions]) unless input[:regions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8056,10 +8058,10 @@ module AWS::SDK::SecurityHub
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
-        data['Note'] = Builders::NoteUpdate.build(input[:note]) unless input[:note].nil?
+        data['Filters'] = AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Note'] = NoteUpdate.build(input[:note]) unless input[:note].nil?
         data['RecordState'] = input[:record_state] unless input[:record_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8081,9 +8083,9 @@ module AWS::SDK::SecurityHub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Filters'] = Builders::AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = AwsSecurityFindingFilters.build(input[:filters]) unless input[:filters].nil?
         data['GroupByAttribute'] = input[:group_by_attribute] unless input[:group_by_attribute].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8099,7 +8101,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['AutoEnable'] = input[:auto_enable] unless input[:auto_enable].nil?
         data['AutoEnableStandards'] = input[:auto_enable_standards] unless input[:auto_enable_standards].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8114,7 +8116,7 @@ module AWS::SDK::SecurityHub
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AutoEnableControls'] = input[:auto_enable_controls] unless input[:auto_enable_controls].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -8137,7 +8139,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['ControlStatus'] = input[:control_status] unless input[:control_status].nil?
         data['DisabledReason'] = input[:disabled_reason] unless input[:disabled_reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

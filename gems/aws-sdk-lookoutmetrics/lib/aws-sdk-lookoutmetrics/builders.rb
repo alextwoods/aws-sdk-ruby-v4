@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LookoutMetrics
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,9 +56,9 @@ module AWS::SDK::LookoutMetrics
         data['AlertSensitivityThreshold'] = input[:alert_sensitivity_threshold] unless input[:alert_sensitivity_threshold].nil?
         data['AlertDescription'] = input[:alert_description] unless input[:alert_description].nil?
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        data['Action'] = Builders::Action.build(input[:action]) unless input[:action].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Action'] = Action.build(input[:action]) unless input[:action].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,8 +77,8 @@ module AWS::SDK::LookoutMetrics
     class Action
       def self.build(input)
         data = {}
-        data['SNSConfiguration'] = Builders::SNSConfiguration.build(input[:sns_configuration]) unless input[:sns_configuration].nil?
-        data['LambdaConfiguration'] = Builders::LambdaConfiguration.build(input[:lambda_configuration]) unless input[:lambda_configuration].nil?
+        data['SNSConfiguration'] = SNSConfiguration.build(input[:sns_configuration]) unless input[:sns_configuration].nil?
+        data['LambdaConfiguration'] = LambdaConfiguration.build(input[:lambda_configuration]) unless input[:lambda_configuration].nil?
         data
       end
     end
@@ -114,10 +116,10 @@ module AWS::SDK::LookoutMetrics
         data = {}
         data['AnomalyDetectorName'] = input[:anomaly_detector_name] unless input[:anomaly_detector_name].nil?
         data['AnomalyDetectorDescription'] = input[:anomaly_detector_description] unless input[:anomaly_detector_description].nil?
-        data['AnomalyDetectorConfig'] = Builders::AnomalyDetectorConfig.build(input[:anomaly_detector_config]) unless input[:anomaly_detector_config].nil?
+        data['AnomalyDetectorConfig'] = AnomalyDetectorConfig.build(input[:anomaly_detector_config]) unless input[:anomaly_detector_config].nil?
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,15 +145,15 @@ module AWS::SDK::LookoutMetrics
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
         data['MetricSetName'] = input[:metric_set_name] unless input[:metric_set_name].nil?
         data['MetricSetDescription'] = input[:metric_set_description] unless input[:metric_set_description].nil?
-        data['MetricList'] = Builders::MetricList.build(input[:metric_list]) unless input[:metric_list].nil?
+        data['MetricList'] = MetricList.build(input[:metric_list]) unless input[:metric_list].nil?
         data['Offset'] = input[:offset] unless input[:offset].nil?
-        data['TimestampColumn'] = Builders::TimestampColumn.build(input[:timestamp_column]) unless input[:timestamp_column].nil?
-        data['DimensionList'] = Builders::DimensionList.build(input[:dimension_list]) unless input[:dimension_list].nil?
+        data['TimestampColumn'] = TimestampColumn.build(input[:timestamp_column]) unless input[:timestamp_column].nil?
+        data['DimensionList'] = DimensionList.build(input[:dimension_list]) unless input[:dimension_list].nil?
         data['MetricSetFrequency'] = input[:metric_set_frequency] unless input[:metric_set_frequency].nil?
-        data['MetricSource'] = Builders::MetricSource.build(input[:metric_source]) unless input[:metric_source].nil?
+        data['MetricSource'] = MetricSource.build(input[:metric_source]) unless input[:metric_source].nil?
         data['Timezone'] = input[:timezone] unless input[:timezone].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -159,12 +161,12 @@ module AWS::SDK::LookoutMetrics
     class MetricSource
       def self.build(input)
         data = {}
-        data['S3SourceConfig'] = Builders::S3SourceConfig.build(input[:s3_source_config]) unless input[:s3_source_config].nil?
-        data['AppFlowConfig'] = Builders::AppFlowConfig.build(input[:app_flow_config]) unless input[:app_flow_config].nil?
-        data['CloudWatchConfig'] = Builders::CloudWatchConfig.build(input[:cloud_watch_config]) unless input[:cloud_watch_config].nil?
-        data['RDSSourceConfig'] = Builders::RDSSourceConfig.build(input[:rds_source_config]) unless input[:rds_source_config].nil?
-        data['RedshiftSourceConfig'] = Builders::RedshiftSourceConfig.build(input[:redshift_source_config]) unless input[:redshift_source_config].nil?
-        data['AthenaSourceConfig'] = Builders::AthenaSourceConfig.build(input[:athena_source_config]) unless input[:athena_source_config].nil?
+        data['S3SourceConfig'] = S3SourceConfig.build(input[:s3_source_config]) unless input[:s3_source_config].nil?
+        data['AppFlowConfig'] = AppFlowConfig.build(input[:app_flow_config]) unless input[:app_flow_config].nil?
+        data['CloudWatchConfig'] = CloudWatchConfig.build(input[:cloud_watch_config]) unless input[:cloud_watch_config].nil?
+        data['RDSSourceConfig'] = RDSSourceConfig.build(input[:rds_source_config]) unless input[:rds_source_config].nil?
+        data['RedshiftSourceConfig'] = RedshiftSourceConfig.build(input[:redshift_source_config]) unless input[:redshift_source_config].nil?
+        data['AthenaSourceConfig'] = AthenaSourceConfig.build(input[:athena_source_config]) unless input[:athena_source_config].nil?
         data
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::LookoutMetrics
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['WorkGroupName'] = input[:work_group_name] unless input[:work_group_name].nil?
         data['S3ResultsPath'] = input[:s3_results_path] unless input[:s3_results_path].nil?
-        data['BackTestConfiguration'] = Builders::BackTestConfiguration.build(input[:back_test_configuration]) unless input[:back_test_configuration].nil?
+        data['BackTestConfiguration'] = BackTestConfiguration.build(input[:back_test_configuration]) unless input[:back_test_configuration].nil?
         data
       end
     end
@@ -204,7 +206,7 @@ module AWS::SDK::LookoutMetrics
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['VpcConfiguration'] = Builders::VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
+        data['VpcConfiguration'] = VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
         data
       end
     end
@@ -213,8 +215,8 @@ module AWS::SDK::LookoutMetrics
     class VpcConfiguration
       def self.build(input)
         data = {}
-        data['SubnetIdList'] = Builders::SubnetIdList.build(input[:subnet_id_list]) unless input[:subnet_id_list].nil?
-        data['SecurityGroupIdList'] = Builders::SecurityGroupIdList.build(input[:security_group_id_list]) unless input[:security_group_id_list].nil?
+        data['SubnetIdList'] = SubnetIdList.build(input[:subnet_id_list]) unless input[:subnet_id_list].nil?
+        data['SecurityGroupIdList'] = SecurityGroupIdList.build(input[:security_group_id_list]) unless input[:security_group_id_list].nil?
         data
       end
     end
@@ -252,7 +254,7 @@ module AWS::SDK::LookoutMetrics
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['VpcConfiguration'] = Builders::VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
+        data['VpcConfiguration'] = VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
         data
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::LookoutMetrics
       def self.build(input)
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['BackTestConfiguration'] = Builders::BackTestConfiguration.build(input[:back_test_configuration]) unless input[:back_test_configuration].nil?
+        data['BackTestConfiguration'] = BackTestConfiguration.build(input[:back_test_configuration]) unless input[:back_test_configuration].nil?
         data
       end
     end
@@ -282,9 +284,9 @@ module AWS::SDK::LookoutMetrics
       def self.build(input)
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['TemplatedPathList'] = Builders::TemplatedPathList.build(input[:templated_path_list]) unless input[:templated_path_list].nil?
-        data['HistoricalDataPathList'] = Builders::HistoricalDataPathList.build(input[:historical_data_path_list]) unless input[:historical_data_path_list].nil?
-        data['FileFormatDescriptor'] = Builders::FileFormatDescriptor.build(input[:file_format_descriptor]) unless input[:file_format_descriptor].nil?
+        data['TemplatedPathList'] = TemplatedPathList.build(input[:templated_path_list]) unless input[:templated_path_list].nil?
+        data['HistoricalDataPathList'] = HistoricalDataPathList.build(input[:historical_data_path_list]) unless input[:historical_data_path_list].nil?
+        data['FileFormatDescriptor'] = FileFormatDescriptor.build(input[:file_format_descriptor]) unless input[:file_format_descriptor].nil?
         data
       end
     end
@@ -293,8 +295,8 @@ module AWS::SDK::LookoutMetrics
     class FileFormatDescriptor
       def self.build(input)
         data = {}
-        data['CsvFormatDescriptor'] = Builders::CsvFormatDescriptor.build(input[:csv_format_descriptor]) unless input[:csv_format_descriptor].nil?
-        data['JsonFormatDescriptor'] = Builders::JsonFormatDescriptor.build(input[:json_format_descriptor]) unless input[:json_format_descriptor].nil?
+        data['CsvFormatDescriptor'] = CsvFormatDescriptor.build(input[:csv_format_descriptor]) unless input[:csv_format_descriptor].nil?
+        data['JsonFormatDescriptor'] = JsonFormatDescriptor.build(input[:json_format_descriptor]) unless input[:json_format_descriptor].nil?
         data
       end
     end
@@ -317,7 +319,7 @@ module AWS::SDK::LookoutMetrics
         data['Charset'] = input[:charset] unless input[:charset].nil?
         data['ContainsHeader'] = input[:contains_header] unless input[:contains_header].nil?
         data['Delimiter'] = input[:delimiter] unless input[:delimiter].nil?
-        data['HeaderList'] = Builders::HeaderList.build(input[:header_list]) unless input[:header_list].nil?
+        data['HeaderList'] = HeaderList.build(input[:header_list]) unless input[:header_list].nil?
         data['QuoteSymbol'] = input[:quote_symbol] unless input[:quote_symbol].nil?
         data
       end
@@ -382,7 +384,7 @@ module AWS::SDK::LookoutMetrics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Metric.build(element) unless element.nil?
+          data << Metric.build(element) unless element.nil?
         end
         data
       end
@@ -410,7 +412,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -425,7 +427,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AlertArn'] = input[:alert_arn] unless input[:alert_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -440,7 +442,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -455,7 +457,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AlertArn'] = input[:alert_arn] unless input[:alert_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -473,7 +475,7 @@ module AWS::SDK::LookoutMetrics
         data['Timestamp'] = input[:timestamp] unless input[:timestamp].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -488,7 +490,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -503,7 +505,7 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MetricSetArn'] = input[:metric_set_arn] unless input[:metric_set_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -518,8 +520,8 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        data['AutoDetectionMetricSource'] = Builders::AutoDetectionMetricSource.build(input[:auto_detection_metric_source]) unless input[:auto_detection_metric_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoDetectionMetricSource'] = AutoDetectionMetricSource.build(input[:auto_detection_metric_source]) unless input[:auto_detection_metric_source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::LookoutMetrics
     class AutoDetectionMetricSource
       def self.build(input)
         data = {}
-        data['S3SourceConfig'] = Builders::AutoDetectionS3SourceConfig.build(input[:s3_source_config]) unless input[:s3_source_config].nil?
+        data['S3SourceConfig'] = AutoDetectionS3SourceConfig.build(input[:s3_source_config]) unless input[:s3_source_config].nil?
         data
       end
     end
@@ -536,8 +538,8 @@ module AWS::SDK::LookoutMetrics
     class AutoDetectionS3SourceConfig
       def self.build(input)
         data = {}
-        data['TemplatedPathList'] = Builders::TemplatedPathList.build(input[:templated_path_list]) unless input[:templated_path_list].nil?
-        data['HistoricalDataPathList'] = Builders::HistoricalDataPathList.build(input[:historical_data_path_list]) unless input[:historical_data_path_list].nil?
+        data['TemplatedPathList'] = TemplatedPathList.build(input[:templated_path_list]) unless input[:templated_path_list].nil?
+        data['HistoricalDataPathList'] = HistoricalDataPathList.build(input[:historical_data_path_list]) unless input[:historical_data_path_list].nil?
         data
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::LookoutMetrics
         data = {}
         data['AnomalyGroupId'] = input[:anomaly_group_id] unless input[:anomaly_group_id].nil?
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -569,10 +571,10 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        data['AnomalyGroupTimeSeriesFeedback'] = Builders::AnomalyGroupTimeSeries.build(input[:anomaly_group_time_series_feedback]) unless input[:anomaly_group_time_series_feedback].nil?
+        data['AnomalyGroupTimeSeriesFeedback'] = AnomalyGroupTimeSeries.build(input[:anomaly_group_time_series_feedback]) unless input[:anomaly_group_time_series_feedback].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -596,8 +598,8 @@ module AWS::SDK::LookoutMetrics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['S3SourceConfig'] = Builders::SampleDataS3SourceConfig.build(input[:s3_source_config]) unless input[:s3_source_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['S3SourceConfig'] = SampleDataS3SourceConfig.build(input[:s3_source_config]) unless input[:s3_source_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -606,9 +608,9 @@ module AWS::SDK::LookoutMetrics
       def self.build(input)
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['TemplatedPathList'] = Builders::TemplatedPathList.build(input[:templated_path_list]) unless input[:templated_path_list].nil?
-        data['HistoricalDataPathList'] = Builders::HistoricalDataPathList.build(input[:historical_data_path_list]) unless input[:historical_data_path_list].nil?
-        data['FileFormatDescriptor'] = Builders::FileFormatDescriptor.build(input[:file_format_descriptor]) unless input[:file_format_descriptor].nil?
+        data['TemplatedPathList'] = TemplatedPathList.build(input[:templated_path_list]) unless input[:templated_path_list].nil?
+        data['HistoricalDataPathList'] = HistoricalDataPathList.build(input[:historical_data_path_list]) unless input[:historical_data_path_list].nil?
+        data['FileFormatDescriptor'] = FileFormatDescriptor.build(input[:file_format_descriptor]) unless input[:file_format_descriptor].nil?
         data
       end
     end
@@ -626,7 +628,7 @@ module AWS::SDK::LookoutMetrics
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -642,7 +644,7 @@ module AWS::SDK::LookoutMetrics
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -661,7 +663,7 @@ module AWS::SDK::LookoutMetrics
         data['RelationshipTypeFilter'] = input[:relationship_type_filter] unless input[:relationship_type_filter].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,7 +681,7 @@ module AWS::SDK::LookoutMetrics
         data['SensitivityThreshold'] = input[:sensitivity_threshold] unless input[:sensitivity_threshold].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -698,7 +700,7 @@ module AWS::SDK::LookoutMetrics
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -715,7 +717,7 @@ module AWS::SDK::LookoutMetrics
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -747,8 +749,8 @@ module AWS::SDK::LookoutMetrics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
-        data['AnomalyGroupTimeSeriesFeedback'] = Builders::AnomalyGroupTimeSeriesFeedback.build(input[:anomaly_group_time_series_feedback]) unless input[:anomaly_group_time_series_feedback].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnomalyGroupTimeSeriesFeedback'] = AnomalyGroupTimeSeriesFeedback.build(input[:anomaly_group_time_series_feedback]) unless input[:anomaly_group_time_series_feedback].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -780,8 +782,8 @@ module AWS::SDK::LookoutMetrics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -831,8 +833,8 @@ module AWS::SDK::LookoutMetrics
         data['AnomalyDetectorArn'] = input[:anomaly_detector_arn] unless input[:anomaly_detector_arn].nil?
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data['AnomalyDetectorDescription'] = input[:anomaly_detector_description] unless input[:anomaly_detector_description].nil?
-        data['AnomalyDetectorConfig'] = Builders::AnomalyDetectorConfig.build(input[:anomaly_detector_config]) unless input[:anomaly_detector_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnomalyDetectorConfig'] = AnomalyDetectorConfig.build(input[:anomaly_detector_config]) unless input[:anomaly_detector_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -848,13 +850,13 @@ module AWS::SDK::LookoutMetrics
         data = {}
         data['MetricSetArn'] = input[:metric_set_arn] unless input[:metric_set_arn].nil?
         data['MetricSetDescription'] = input[:metric_set_description] unless input[:metric_set_description].nil?
-        data['MetricList'] = Builders::MetricList.build(input[:metric_list]) unless input[:metric_list].nil?
+        data['MetricList'] = MetricList.build(input[:metric_list]) unless input[:metric_list].nil?
         data['Offset'] = input[:offset] unless input[:offset].nil?
-        data['TimestampColumn'] = Builders::TimestampColumn.build(input[:timestamp_column]) unless input[:timestamp_column].nil?
-        data['DimensionList'] = Builders::DimensionList.build(input[:dimension_list]) unless input[:dimension_list].nil?
+        data['TimestampColumn'] = TimestampColumn.build(input[:timestamp_column]) unless input[:timestamp_column].nil?
+        data['DimensionList'] = DimensionList.build(input[:dimension_list]) unless input[:dimension_list].nil?
         data['MetricSetFrequency'] = input[:metric_set_frequency] unless input[:metric_set_frequency].nil?
-        data['MetricSource'] = Builders::MetricSource.build(input[:metric_source]) unless input[:metric_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetricSource'] = MetricSource.build(input[:metric_source]) unless input[:metric_source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

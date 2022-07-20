@@ -71,7 +71,7 @@ module AWS::SDK::SageMakerA2IRuntime
         data.human_loop_name = map['HumanLoopName']
         data.human_loop_arn = map['HumanLoopArn']
         data.flow_definition_arn = map['FlowDefinitionArn']
-        data.human_loop_output = (Parsers::HumanLoopOutput.parse(map['HumanLoopOutput']) unless map['HumanLoopOutput'].nil?)
+        data.human_loop_output = (HumanLoopOutput.parse(map['HumanLoopOutput']) unless map['HumanLoopOutput'].nil?)
         data
       end
     end
@@ -89,7 +89,7 @@ module AWS::SDK::SageMakerA2IRuntime
       def self.parse(http_resp)
         data = Types::ListHumanLoopsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.human_loop_summaries = (Parsers::HumanLoopSummaries.parse(map['HumanLoopSummaries']) unless map['HumanLoopSummaries'].nil?)
+        data.human_loop_summaries = (HumanLoopSummaries.parse(map['HumanLoopSummaries']) unless map['HumanLoopSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -99,7 +99,7 @@ module AWS::SDK::SageMakerA2IRuntime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HumanLoopSummary.parse(value) unless value.nil?
+          data << HumanLoopSummary.parse(value) unless value.nil?
         end
         data
       end

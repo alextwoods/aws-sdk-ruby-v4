@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodestarNotifications
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::CodestarNotifications
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::CodestarNotifications
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -81,16 +83,16 @@ module AWS::SDK::CodestarNotifications
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['EventTypes'] = Stubs::EventTypeBatch.stub(stub[:event_types]) unless stub[:event_types].nil?
+        data['EventTypes'] = EventTypeBatch.stub(stub[:event_types]) unless stub[:event_types].nil?
         data['Resource'] = stub[:resource] unless stub[:resource].nil?
-        data['Targets'] = Stubs::TargetsBatch.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = TargetsBatch.stub(stub[:targets]) unless stub[:targets].nil?
         data['DetailType'] = stub[:detail_type] unless stub[:detail_type].nil?
         data['CreatedBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastModifiedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_timestamp]).to_i unless stub[:last_modified_timestamp].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,7 +130,7 @@ module AWS::SDK::CodestarNotifications
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetSummary.stub(element) unless element.nil?
+          data << TargetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -170,7 +172,7 @@ module AWS::SDK::CodestarNotifications
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventTypeSummary.stub(element) unless element.nil?
+          data << EventTypeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -213,9 +215,9 @@ module AWS::SDK::CodestarNotifications
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EventTypes'] = Stubs::EventTypeBatch.stub(stub[:event_types]) unless stub[:event_types].nil?
+        data['EventTypes'] = EventTypeBatch.stub(stub[:event_types]) unless stub[:event_types].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,8 +235,8 @@ module AWS::SDK::CodestarNotifications
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['NotificationRules'] = Stubs::NotificationRuleBatch.stub(stub[:notification_rules]) unless stub[:notification_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotificationRules'] = NotificationRuleBatch.stub(stub[:notification_rules]) unless stub[:notification_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -252,7 +254,7 @@ module AWS::SDK::CodestarNotifications
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotificationRuleSummary.stub(element) unless element.nil?
+          data << NotificationRuleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -290,8 +292,8 @@ module AWS::SDK::CodestarNotifications
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,9 +310,9 @@ module AWS::SDK::CodestarNotifications
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Targets'] = Stubs::TargetsBatch.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = TargetsBatch.stub(stub[:targets]) unless stub[:targets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -327,7 +329,7 @@ module AWS::SDK::CodestarNotifications
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -343,8 +345,8 @@ module AWS::SDK::CodestarNotifications
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,7 +363,7 @@ module AWS::SDK::CodestarNotifications
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

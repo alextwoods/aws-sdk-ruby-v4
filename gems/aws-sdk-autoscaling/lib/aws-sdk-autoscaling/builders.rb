@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AutoScaling
   module Builders
 
@@ -20,9 +22,9 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'AttachInstances'
         params['Version'] = '2011-01-01'
-        Builders::InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
+        InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -46,8 +48,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'AttachLoadBalancerTargetGroups'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::TargetGroupARNs.build(input[:target_group_ar_ns], params, context: context + 'TargetGroupARNs' + '.member') unless input[:target_group_ar_ns].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TargetGroupARNs.build(input[:target_group_ar_ns], params, context: context + 'TargetGroupARNs' + '.member') unless input[:target_group_ar_ns].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -71,8 +73,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'AttachLoadBalancers'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::LoadBalancerNames.build(input[:load_balancer_names], params, context: context + 'LoadBalancerNames' + '.member') unless input[:load_balancer_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LoadBalancerNames.build(input[:load_balancer_names], params, context: context + 'LoadBalancerNames' + '.member') unless input[:load_balancer_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -96,8 +98,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'BatchDeleteScheduledAction'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::ScheduledActionNames.build(input[:scheduled_action_names], params, context: context + 'ScheduledActionNames' + '.member') unless input[:scheduled_action_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ScheduledActionNames.build(input[:scheduled_action_names], params, context: context + 'ScheduledActionNames' + '.member') unless input[:scheduled_action_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -121,8 +123,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'BatchPutScheduledUpdateGroupAction'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::ScheduledUpdateGroupActionRequests.build(input[:scheduled_update_group_actions], params, context: context + 'ScheduledUpdateGroupActions' + '.member') unless input[:scheduled_update_group_actions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ScheduledUpdateGroupActionRequests.build(input[:scheduled_update_group_actions], params, context: context + 'ScheduledUpdateGroupActions' + '.member') unless input[:scheduled_update_group_actions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -130,7 +132,7 @@ module AWS::SDK::AutoScaling
     class ScheduledUpdateGroupActionRequests
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ScheduledUpdateGroupActionRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ScheduledUpdateGroupActionRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -160,7 +162,7 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'CancelInstanceRefresh'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -179,7 +181,7 @@ module AWS::SDK::AutoScaling
         params[context + 'LifecycleActionToken'] = input[:lifecycle_action_token].to_s unless input[:lifecycle_action_token].nil?
         params[context + 'LifecycleActionResult'] = input[:lifecycle_action_result].to_s unless input[:lifecycle_action_result].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -195,31 +197,31 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'LaunchConfigurationName'] = input[:launch_configuration_name].to_s unless input[:launch_configuration_name].nil?
-        Builders::LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
-        Builders::MixedInstancesPolicy.build(input[:mixed_instances_policy], params, context: context + 'MixedInstancesPolicy' + '.') unless input[:mixed_instances_policy].nil?
+        LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
+        MixedInstancesPolicy.build(input[:mixed_instances_policy], params, context: context + 'MixedInstancesPolicy' + '.') unless input[:mixed_instances_policy].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'MinSize'] = input[:min_size].to_s unless input[:min_size].nil?
         params[context + 'MaxSize'] = input[:max_size].to_s unless input[:max_size].nil?
         params[context + 'DesiredCapacity'] = input[:desired_capacity].to_s unless input[:desired_capacity].nil?
         params[context + 'DefaultCooldown'] = input[:default_cooldown].to_s unless input[:default_cooldown].nil?
-        Builders::AvailabilityZones.build(input[:availability_zones], params, context: context + 'AvailabilityZones' + '.member') unless input[:availability_zones].nil?
-        Builders::LoadBalancerNames.build(input[:load_balancer_names], params, context: context + 'LoadBalancerNames' + '.member') unless input[:load_balancer_names].nil?
-        Builders::TargetGroupARNs.build(input[:target_group_ar_ns], params, context: context + 'TargetGroupARNs' + '.member') unless input[:target_group_ar_ns].nil?
+        AvailabilityZones.build(input[:availability_zones], params, context: context + 'AvailabilityZones' + '.member') unless input[:availability_zones].nil?
+        LoadBalancerNames.build(input[:load_balancer_names], params, context: context + 'LoadBalancerNames' + '.member') unless input[:load_balancer_names].nil?
+        TargetGroupARNs.build(input[:target_group_ar_ns], params, context: context + 'TargetGroupARNs' + '.member') unless input[:target_group_ar_ns].nil?
         params[context + 'HealthCheckType'] = input[:health_check_type].to_s unless input[:health_check_type].nil?
         params[context + 'HealthCheckGracePeriod'] = input[:health_check_grace_period].to_s unless input[:health_check_grace_period].nil?
         params[context + 'PlacementGroup'] = input[:placement_group].to_s unless input[:placement_group].nil?
         params[context + 'VPCZoneIdentifier'] = input[:vpc_zone_identifier].to_s unless input[:vpc_zone_identifier].nil?
-        Builders::TerminationPolicies.build(input[:termination_policies], params, context: context + 'TerminationPolicies' + '.member') unless input[:termination_policies].nil?
+        TerminationPolicies.build(input[:termination_policies], params, context: context + 'TerminationPolicies' + '.member') unless input[:termination_policies].nil?
         params[context + 'NewInstancesProtectedFromScaleIn'] = input[:new_instances_protected_from_scale_in].to_s unless input[:new_instances_protected_from_scale_in].nil?
         params[context + 'CapacityRebalance'] = input[:capacity_rebalance].to_s unless input[:capacity_rebalance].nil?
-        Builders::LifecycleHookSpecifications.build(input[:lifecycle_hook_specification_list], params, context: context + 'LifecycleHookSpecificationList' + '.member') unless input[:lifecycle_hook_specification_list].nil?
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        LifecycleHookSpecifications.build(input[:lifecycle_hook_specification_list], params, context: context + 'LifecycleHookSpecificationList' + '.member') unless input[:lifecycle_hook_specification_list].nil?
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'ServiceLinkedRoleARN'] = input[:service_linked_role_arn].to_s unless input[:service_linked_role_arn].nil?
         params[context + 'MaxInstanceLifetime'] = input[:max_instance_lifetime].to_s unless input[:max_instance_lifetime].nil?
         params[context + 'Context'] = input[:context].to_s unless input[:context].nil?
         params[context + 'DesiredCapacityType'] = input[:desired_capacity_type].to_s unless input[:desired_capacity_type].nil?
         params[context + 'DefaultInstanceWarmup'] = input[:default_instance_warmup].to_s unless input[:default_instance_warmup].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -227,7 +229,7 @@ module AWS::SDK::AutoScaling
     class Tags
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -247,7 +249,7 @@ module AWS::SDK::AutoScaling
     class LifecycleHookSpecifications
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LifecycleHookSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LifecycleHookSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -286,8 +288,8 @@ module AWS::SDK::AutoScaling
     # Structure Builder for MixedInstancesPolicy
     class MixedInstancesPolicy
       def self.build(input, params, context: nil)
-        Builders::LaunchTemplate.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
-        Builders::InstancesDistribution.build(input[:instances_distribution], params, context: context + 'InstancesDistribution' + '.') unless input[:instances_distribution].nil?
+        LaunchTemplate.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
+        InstancesDistribution.build(input[:instances_distribution], params, context: context + 'InstancesDistribution' + '.') unless input[:instances_distribution].nil?
       end
     end
 
@@ -306,8 +308,8 @@ module AWS::SDK::AutoScaling
     # Structure Builder for LaunchTemplate
     class LaunchTemplate
       def self.build(input, params, context: nil)
-        Builders::LaunchTemplateSpecification.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
-        Builders::Overrides.build(input[:overrides], params, context: context + 'Overrides' + '.member') unless input[:overrides].nil?
+        LaunchTemplateSpecification.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
+        Overrides.build(input[:overrides], params, context: context + 'Overrides' + '.member') unless input[:overrides].nil?
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::AutoScaling
     class Overrides
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateOverrides.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateOverrides.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -325,35 +327,35 @@ module AWS::SDK::AutoScaling
       def self.build(input, params, context: nil)
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'WeightedCapacity'] = input[:weighted_capacity].to_s unless input[:weighted_capacity].nil?
-        Builders::LaunchTemplateSpecification.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
-        Builders::InstanceRequirements.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
+        LaunchTemplateSpecification.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
+        InstanceRequirements.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
       end
     end
 
     # Structure Builder for InstanceRequirements
     class InstanceRequirements
       def self.build(input, params, context: nil)
-        Builders::VCpuCountRequest.build(input[:v_cpu_count], params, context: context + 'VCpuCount' + '.') unless input[:v_cpu_count].nil?
-        Builders::MemoryMiBRequest.build(input[:memory_mi_b], params, context: context + 'MemoryMiB' + '.') unless input[:memory_mi_b].nil?
-        Builders::CpuManufacturers.build(input[:cpu_manufacturers], params, context: context + 'CpuManufacturers' + '.member') unless input[:cpu_manufacturers].nil?
-        Builders::MemoryGiBPerVCpuRequest.build(input[:memory_gi_b_per_v_cpu], params, context: context + 'MemoryGiBPerVCpu' + '.') unless input[:memory_gi_b_per_v_cpu].nil?
-        Builders::ExcludedInstanceTypes.build(input[:excluded_instance_types], params, context: context + 'ExcludedInstanceTypes' + '.member') unless input[:excluded_instance_types].nil?
-        Builders::InstanceGenerations.build(input[:instance_generations], params, context: context + 'InstanceGenerations' + '.member') unless input[:instance_generations].nil?
+        VCpuCountRequest.build(input[:v_cpu_count], params, context: context + 'VCpuCount' + '.') unless input[:v_cpu_count].nil?
+        MemoryMiBRequest.build(input[:memory_mi_b], params, context: context + 'MemoryMiB' + '.') unless input[:memory_mi_b].nil?
+        CpuManufacturers.build(input[:cpu_manufacturers], params, context: context + 'CpuManufacturers' + '.member') unless input[:cpu_manufacturers].nil?
+        MemoryGiBPerVCpuRequest.build(input[:memory_gi_b_per_v_cpu], params, context: context + 'MemoryGiBPerVCpu' + '.') unless input[:memory_gi_b_per_v_cpu].nil?
+        ExcludedInstanceTypes.build(input[:excluded_instance_types], params, context: context + 'ExcludedInstanceTypes' + '.member') unless input[:excluded_instance_types].nil?
+        InstanceGenerations.build(input[:instance_generations], params, context: context + 'InstanceGenerations' + '.member') unless input[:instance_generations].nil?
         params[context + 'SpotMaxPricePercentageOverLowestPrice'] = input[:spot_max_price_percentage_over_lowest_price].to_s unless input[:spot_max_price_percentage_over_lowest_price].nil?
         params[context + 'OnDemandMaxPricePercentageOverLowestPrice'] = input[:on_demand_max_price_percentage_over_lowest_price].to_s unless input[:on_demand_max_price_percentage_over_lowest_price].nil?
         params[context + 'BareMetal'] = input[:bare_metal].to_s unless input[:bare_metal].nil?
         params[context + 'BurstablePerformance'] = input[:burstable_performance].to_s unless input[:burstable_performance].nil?
         params[context + 'RequireHibernateSupport'] = input[:require_hibernate_support].to_s unless input[:require_hibernate_support].nil?
-        Builders::NetworkInterfaceCountRequest.build(input[:network_interface_count], params, context: context + 'NetworkInterfaceCount' + '.') unless input[:network_interface_count].nil?
+        NetworkInterfaceCountRequest.build(input[:network_interface_count], params, context: context + 'NetworkInterfaceCount' + '.') unless input[:network_interface_count].nil?
         params[context + 'LocalStorage'] = input[:local_storage].to_s unless input[:local_storage].nil?
-        Builders::LocalStorageTypes.build(input[:local_storage_types], params, context: context + 'LocalStorageTypes' + '.member') unless input[:local_storage_types].nil?
-        Builders::TotalLocalStorageGBRequest.build(input[:total_local_storage_gb], params, context: context + 'TotalLocalStorageGB' + '.') unless input[:total_local_storage_gb].nil?
-        Builders::BaselineEbsBandwidthMbpsRequest.build(input[:baseline_ebs_bandwidth_mbps], params, context: context + 'BaselineEbsBandwidthMbps' + '.') unless input[:baseline_ebs_bandwidth_mbps].nil?
-        Builders::AcceleratorTypes.build(input[:accelerator_types], params, context: context + 'AcceleratorTypes' + '.member') unless input[:accelerator_types].nil?
-        Builders::AcceleratorCountRequest.build(input[:accelerator_count], params, context: context + 'AcceleratorCount' + '.') unless input[:accelerator_count].nil?
-        Builders::AcceleratorManufacturers.build(input[:accelerator_manufacturers], params, context: context + 'AcceleratorManufacturers' + '.member') unless input[:accelerator_manufacturers].nil?
-        Builders::AcceleratorNames.build(input[:accelerator_names], params, context: context + 'AcceleratorNames' + '.member') unless input[:accelerator_names].nil?
-        Builders::AcceleratorTotalMemoryMiBRequest.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
+        LocalStorageTypes.build(input[:local_storage_types], params, context: context + 'LocalStorageTypes' + '.member') unless input[:local_storage_types].nil?
+        TotalLocalStorageGBRequest.build(input[:total_local_storage_gb], params, context: context + 'TotalLocalStorageGB' + '.') unless input[:total_local_storage_gb].nil?
+        BaselineEbsBandwidthMbpsRequest.build(input[:baseline_ebs_bandwidth_mbps], params, context: context + 'BaselineEbsBandwidthMbps' + '.') unless input[:baseline_ebs_bandwidth_mbps].nil?
+        AcceleratorTypes.build(input[:accelerator_types], params, context: context + 'AcceleratorTypes' + '.member') unless input[:accelerator_types].nil?
+        AcceleratorCountRequest.build(input[:accelerator_count], params, context: context + 'AcceleratorCount' + '.') unless input[:accelerator_count].nil?
+        AcceleratorManufacturers.build(input[:accelerator_manufacturers], params, context: context + 'AcceleratorManufacturers' + '.member') unless input[:accelerator_manufacturers].nil?
+        AcceleratorNames.build(input[:accelerator_names], params, context: context + 'AcceleratorNames' + '.member') unless input[:accelerator_names].nil?
+        AcceleratorTotalMemoryMiBRequest.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
       end
     end
 
@@ -506,23 +508,23 @@ module AWS::SDK::AutoScaling
         params[context + 'LaunchConfigurationName'] = input[:launch_configuration_name].to_s unless input[:launch_configuration_name].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
-        Builders::SecurityGroups.build(input[:security_groups], params, context: context + 'SecurityGroups' + '.member') unless input[:security_groups].nil?
+        SecurityGroups.build(input[:security_groups], params, context: context + 'SecurityGroups' + '.member') unless input[:security_groups].nil?
         params[context + 'ClassicLinkVPCId'] = input[:classic_link_vpc_id].to_s unless input[:classic_link_vpc_id].nil?
-        Builders::ClassicLinkVPCSecurityGroups.build(input[:classic_link_vpc_security_groups], params, context: context + 'ClassicLinkVPCSecurityGroups' + '.member') unless input[:classic_link_vpc_security_groups].nil?
+        ClassicLinkVPCSecurityGroups.build(input[:classic_link_vpc_security_groups], params, context: context + 'ClassicLinkVPCSecurityGroups' + '.member') unless input[:classic_link_vpc_security_groups].nil?
         params[context + 'UserData'] = input[:user_data].to_s unless input[:user_data].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
         params[context + 'RamdiskId'] = input[:ramdisk_id].to_s unless input[:ramdisk_id].nil?
-        Builders::BlockDeviceMappings.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMappings' + '.member') unless input[:block_device_mappings].nil?
-        Builders::InstanceMonitoring.build(input[:instance_monitoring], params, context: context + 'InstanceMonitoring' + '.') unless input[:instance_monitoring].nil?
+        BlockDeviceMappings.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMappings' + '.member') unless input[:block_device_mappings].nil?
+        InstanceMonitoring.build(input[:instance_monitoring], params, context: context + 'InstanceMonitoring' + '.') unless input[:instance_monitoring].nil?
         params[context + 'SpotPrice'] = input[:spot_price].to_s unless input[:spot_price].nil?
         params[context + 'IamInstanceProfile'] = input[:iam_instance_profile].to_s unless input[:iam_instance_profile].nil?
         params[context + 'EbsOptimized'] = input[:ebs_optimized].to_s unless input[:ebs_optimized].nil?
         params[context + 'AssociatePublicIpAddress'] = input[:associate_public_ip_address].to_s unless input[:associate_public_ip_address].nil?
         params[context + 'PlacementTenancy'] = input[:placement_tenancy].to_s unless input[:placement_tenancy].nil?
-        Builders::InstanceMetadataOptions.build(input[:metadata_options], params, context: context + 'MetadataOptions' + '.') unless input[:metadata_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        InstanceMetadataOptions.build(input[:metadata_options], params, context: context + 'MetadataOptions' + '.') unless input[:metadata_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -546,7 +548,7 @@ module AWS::SDK::AutoScaling
     class BlockDeviceMappings
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::AutoScaling
       def self.build(input, params, context: nil)
         params[context + 'VirtualName'] = input[:virtual_name].to_s unless input[:virtual_name].nil?
         params[context + 'DeviceName'] = input[:device_name].to_s unless input[:device_name].nil?
-        Builders::Ebs.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
+        Ebs.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
         params[context + 'NoDevice'] = input[:no_device].to_s unless input[:no_device].nil?
       end
     end
@@ -602,8 +604,8 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateOrUpdateTags'
         params['Version'] = '2011-01-01'
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -619,7 +621,7 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'ForceDelete'] = input[:force_delete].to_s unless input[:force_delete].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -634,7 +636,7 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DeleteLaunchConfiguration'
         params['Version'] = '2011-01-01'
         params[context + 'LaunchConfigurationName'] = input[:launch_configuration_name].to_s unless input[:launch_configuration_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -650,7 +652,7 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'LifecycleHookName'] = input[:lifecycle_hook_name].to_s unless input[:lifecycle_hook_name].nil?
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -666,7 +668,7 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'TopicARN'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -682,7 +684,7 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -698,7 +700,7 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'ScheduledActionName'] = input[:scheduled_action_name].to_s unless input[:scheduled_action_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -712,8 +714,8 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DeleteTags'
         params['Version'] = '2011-01-01'
-        Builders::Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Tags.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -729,7 +731,7 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'ForceDelete'] = input[:force_delete].to_s unless input[:force_delete].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -743,7 +745,7 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAccountLimits'
         params['Version'] = '2011-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -757,7 +759,7 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAdjustmentTypes'
         params['Version'] = '2011-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -771,11 +773,11 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAutoScalingGroups'
         params['Version'] = '2011-01-01'
-        Builders::AutoScalingGroupNames.build(input[:auto_scaling_group_names], params, context: context + 'AutoScalingGroupNames' + '.member') unless input[:auto_scaling_group_names].nil?
+        AutoScalingGroupNames.build(input[:auto_scaling_group_names], params, context: context + 'AutoScalingGroupNames' + '.member') unless input[:auto_scaling_group_names].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        Builders::Filters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Filters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -783,7 +785,7 @@ module AWS::SDK::AutoScaling
     class Filters
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Filter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Filter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -792,7 +794,7 @@ module AWS::SDK::AutoScaling
     class Filter
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::Values.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        Values.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
@@ -824,10 +826,10 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAutoScalingInstances'
         params['Version'] = '2011-01-01'
-        Builders::InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
+        InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAutoScalingNotificationTypes'
         params['Version'] = '2011-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -856,10 +858,10 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DescribeInstanceRefreshes'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::InstanceRefreshIds.build(input[:instance_refresh_ids], params, context: context + 'InstanceRefreshIds' + '.member') unless input[:instance_refresh_ids].nil?
+        InstanceRefreshIds.build(input[:instance_refresh_ids], params, context: context + 'InstanceRefreshIds' + '.member') unless input[:instance_refresh_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -882,10 +884,10 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLaunchConfigurations'
         params['Version'] = '2011-01-01'
-        Builders::LaunchConfigurationNames.build(input[:launch_configuration_names], params, context: context + 'LaunchConfigurationNames' + '.member') unless input[:launch_configuration_names].nil?
+        LaunchConfigurationNames.build(input[:launch_configuration_names], params, context: context + 'LaunchConfigurationNames' + '.member') unless input[:launch_configuration_names].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -908,7 +910,7 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLifecycleHookTypes'
         params['Version'] = '2011-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -923,8 +925,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DescribeLifecycleHooks'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::LifecycleHookNames.build(input[:lifecycle_hook_names], params, context: context + 'LifecycleHookNames' + '.member') unless input[:lifecycle_hook_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LifecycleHookNames.build(input[:lifecycle_hook_names], params, context: context + 'LifecycleHookNames' + '.member') unless input[:lifecycle_hook_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -950,7 +952,7 @@ module AWS::SDK::AutoScaling
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -967,7 +969,7 @@ module AWS::SDK::AutoScaling
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -981,7 +983,7 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeMetricCollectionTypes'
         params['Version'] = '2011-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -995,10 +997,10 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNotificationConfigurations'
         params['Version'] = '2011-01-01'
-        Builders::AutoScalingGroupNames.build(input[:auto_scaling_group_names], params, context: context + 'AutoScalingGroupNames' + '.member') unless input[:auto_scaling_group_names].nil?
+        AutoScalingGroupNames.build(input[:auto_scaling_group_names], params, context: context + 'AutoScalingGroupNames' + '.member') unless input[:auto_scaling_group_names].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1013,11 +1015,11 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DescribePolicies'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::PolicyNames.build(input[:policy_names], params, context: context + 'PolicyNames' + '.member') unless input[:policy_names].nil?
-        Builders::PolicyTypes.build(input[:policy_types], params, context: context + 'PolicyTypes' + '.member') unless input[:policy_types].nil?
+        PolicyNames.build(input[:policy_names], params, context: context + 'PolicyNames' + '.member') unless input[:policy_names].nil?
+        PolicyTypes.build(input[:policy_types], params, context: context + 'PolicyTypes' + '.member') unless input[:policy_types].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1049,12 +1051,12 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeScalingActivities'
         params['Version'] = '2011-01-01'
-        Builders::ActivityIds.build(input[:activity_ids], params, context: context + 'ActivityIds' + '.member') unless input[:activity_ids].nil?
+        ActivityIds.build(input[:activity_ids], params, context: context + 'ActivityIds' + '.member') unless input[:activity_ids].nil?
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'IncludeDeletedGroups'] = input[:include_deleted_groups].to_s unless input[:include_deleted_groups].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1077,7 +1079,7 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeScalingProcessTypes'
         params['Version'] = '2011-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1092,12 +1094,12 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DescribeScheduledActions'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::ScheduledActionNames.build(input[:scheduled_action_names], params, context: context + 'ScheduledActionNames' + '.member') unless input[:scheduled_action_names].nil?
+        ScheduledActionNames.build(input[:scheduled_action_names], params, context: context + 'ScheduledActionNames' + '.member') unless input[:scheduled_action_names].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1111,10 +1113,10 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTags'
         params['Version'] = '2011-01-01'
-        Builders::Filters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
+        Filters.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1128,7 +1130,7 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTerminationPolicyTypes'
         params['Version'] = '2011-01-01'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1145,7 +1147,7 @@ module AWS::SDK::AutoScaling
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1159,10 +1161,10 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DetachInstances'
         params['Version'] = '2011-01-01'
-        Builders::InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
+        InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'ShouldDecrementDesiredCapacity'] = input[:should_decrement_desired_capacity].to_s unless input[:should_decrement_desired_capacity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1177,8 +1179,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DetachLoadBalancerTargetGroups'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::TargetGroupARNs.build(input[:target_group_ar_ns], params, context: context + 'TargetGroupARNs' + '.member') unless input[:target_group_ar_ns].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TargetGroupARNs.build(input[:target_group_ar_ns], params, context: context + 'TargetGroupARNs' + '.member') unless input[:target_group_ar_ns].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1193,8 +1195,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DetachLoadBalancers'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::LoadBalancerNames.build(input[:load_balancer_names], params, context: context + 'LoadBalancerNames' + '.member') unless input[:load_balancer_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LoadBalancerNames.build(input[:load_balancer_names], params, context: context + 'LoadBalancerNames' + '.member') unless input[:load_balancer_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1209,8 +1211,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'DisableMetricsCollection'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::Metrics.build(input[:metrics], params, context: context + 'Metrics' + '.member') unless input[:metrics].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Metrics.build(input[:metrics], params, context: context + 'Metrics' + '.member') unless input[:metrics].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1234,9 +1236,9 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'EnableMetricsCollection'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::Metrics.build(input[:metrics], params, context: context + 'Metrics' + '.member') unless input[:metrics].nil?
+        Metrics.build(input[:metrics], params, context: context + 'Metrics' + '.member') unless input[:metrics].nil?
         params[context + 'Granularity'] = input[:granularity].to_s unless input[:granularity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1250,10 +1252,10 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'EnterStandby'
         params['Version'] = '2011-01-01'
-        Builders::InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
+        InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'ShouldDecrementDesiredCapacity'] = input[:should_decrement_desired_capacity].to_s unless input[:should_decrement_desired_capacity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1272,7 +1274,7 @@ module AWS::SDK::AutoScaling
         params[context + 'HonorCooldown'] = input[:honor_cooldown].to_s unless input[:honor_cooldown].nil?
         params[context + 'MetricValue'] = Hearth::NumberHelper.serialize(input[:metric_value]).to_s unless input[:metric_value].nil?
         params[context + 'BreachThreshold'] = Hearth::NumberHelper.serialize(input[:breach_threshold]).to_s unless input[:breach_threshold].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1286,9 +1288,9 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ExitStandby'
         params['Version'] = '2011-01-01'
-        Builders::InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
+        InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1306,7 +1308,7 @@ module AWS::SDK::AutoScaling
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1328,7 +1330,7 @@ module AWS::SDK::AutoScaling
         params[context + 'NotificationMetadata'] = input[:notification_metadata].to_s unless input[:notification_metadata].nil?
         params[context + 'HeartbeatTimeout'] = input[:heartbeat_timeout].to_s unless input[:heartbeat_timeout].nil?
         params[context + 'DefaultResult'] = input[:default_result].to_s unless input[:default_result].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1344,8 +1346,8 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'TopicARN'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
-        Builders::AutoScalingNotificationTypes.build(input[:notification_types], params, context: context + 'NotificationTypes' + '.member') unless input[:notification_types].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AutoScalingNotificationTypes.build(input[:notification_types], params, context: context + 'NotificationTypes' + '.member') unless input[:notification_types].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1377,19 +1379,19 @@ module AWS::SDK::AutoScaling
         params[context + 'ScalingAdjustment'] = input[:scaling_adjustment].to_s unless input[:scaling_adjustment].nil?
         params[context + 'Cooldown'] = input[:cooldown].to_s unless input[:cooldown].nil?
         params[context + 'MetricAggregationType'] = input[:metric_aggregation_type].to_s unless input[:metric_aggregation_type].nil?
-        Builders::StepAdjustments.build(input[:step_adjustments], params, context: context + 'StepAdjustments' + '.member') unless input[:step_adjustments].nil?
+        StepAdjustments.build(input[:step_adjustments], params, context: context + 'StepAdjustments' + '.member') unless input[:step_adjustments].nil?
         params[context + 'EstimatedInstanceWarmup'] = input[:estimated_instance_warmup].to_s unless input[:estimated_instance_warmup].nil?
-        Builders::TargetTrackingConfiguration.build(input[:target_tracking_configuration], params, context: context + 'TargetTrackingConfiguration' + '.') unless input[:target_tracking_configuration].nil?
+        TargetTrackingConfiguration.build(input[:target_tracking_configuration], params, context: context + 'TargetTrackingConfiguration' + '.') unless input[:target_tracking_configuration].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
-        Builders::PredictiveScalingConfiguration.build(input[:predictive_scaling_configuration], params, context: context + 'PredictiveScalingConfiguration' + '.') unless input[:predictive_scaling_configuration].nil?
-        http_req.body = StringIO.new(params.to_s)
+        PredictiveScalingConfiguration.build(input[:predictive_scaling_configuration], params, context: context + 'PredictiveScalingConfiguration' + '.') unless input[:predictive_scaling_configuration].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for PredictiveScalingConfiguration
     class PredictiveScalingConfiguration
       def self.build(input, params, context: nil)
-        Builders::PredictiveScalingMetricSpecifications.build(input[:metric_specifications], params, context: context + 'MetricSpecifications' + '.member') unless input[:metric_specifications].nil?
+        PredictiveScalingMetricSpecifications.build(input[:metric_specifications], params, context: context + 'MetricSpecifications' + '.member') unless input[:metric_specifications].nil?
         params[context + 'Mode'] = input[:mode].to_s unless input[:mode].nil?
         params[context + 'SchedulingBufferTime'] = input[:scheduling_buffer_time].to_s unless input[:scheduling_buffer_time].nil?
         params[context + 'MaxCapacityBreachBehavior'] = input[:max_capacity_breach_behavior].to_s unless input[:max_capacity_breach_behavior].nil?
@@ -1401,7 +1403,7 @@ module AWS::SDK::AutoScaling
     class PredictiveScalingMetricSpecifications
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::PredictiveScalingMetricSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          PredictiveScalingMetricSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1410,19 +1412,19 @@ module AWS::SDK::AutoScaling
     class PredictiveScalingMetricSpecification
       def self.build(input, params, context: nil)
         params[context + 'TargetValue'] = Hearth::NumberHelper.serialize(input[:target_value]).to_s unless input[:target_value].nil?
-        Builders::PredictiveScalingPredefinedMetricPair.build(input[:predefined_metric_pair_specification], params, context: context + 'PredefinedMetricPairSpecification' + '.') unless input[:predefined_metric_pair_specification].nil?
-        Builders::PredictiveScalingPredefinedScalingMetric.build(input[:predefined_scaling_metric_specification], params, context: context + 'PredefinedScalingMetricSpecification' + '.') unless input[:predefined_scaling_metric_specification].nil?
-        Builders::PredictiveScalingPredefinedLoadMetric.build(input[:predefined_load_metric_specification], params, context: context + 'PredefinedLoadMetricSpecification' + '.') unless input[:predefined_load_metric_specification].nil?
-        Builders::PredictiveScalingCustomizedScalingMetric.build(input[:customized_scaling_metric_specification], params, context: context + 'CustomizedScalingMetricSpecification' + '.') unless input[:customized_scaling_metric_specification].nil?
-        Builders::PredictiveScalingCustomizedLoadMetric.build(input[:customized_load_metric_specification], params, context: context + 'CustomizedLoadMetricSpecification' + '.') unless input[:customized_load_metric_specification].nil?
-        Builders::PredictiveScalingCustomizedCapacityMetric.build(input[:customized_capacity_metric_specification], params, context: context + 'CustomizedCapacityMetricSpecification' + '.') unless input[:customized_capacity_metric_specification].nil?
+        PredictiveScalingPredefinedMetricPair.build(input[:predefined_metric_pair_specification], params, context: context + 'PredefinedMetricPairSpecification' + '.') unless input[:predefined_metric_pair_specification].nil?
+        PredictiveScalingPredefinedScalingMetric.build(input[:predefined_scaling_metric_specification], params, context: context + 'PredefinedScalingMetricSpecification' + '.') unless input[:predefined_scaling_metric_specification].nil?
+        PredictiveScalingPredefinedLoadMetric.build(input[:predefined_load_metric_specification], params, context: context + 'PredefinedLoadMetricSpecification' + '.') unless input[:predefined_load_metric_specification].nil?
+        PredictiveScalingCustomizedScalingMetric.build(input[:customized_scaling_metric_specification], params, context: context + 'CustomizedScalingMetricSpecification' + '.') unless input[:customized_scaling_metric_specification].nil?
+        PredictiveScalingCustomizedLoadMetric.build(input[:customized_load_metric_specification], params, context: context + 'CustomizedLoadMetricSpecification' + '.') unless input[:customized_load_metric_specification].nil?
+        PredictiveScalingCustomizedCapacityMetric.build(input[:customized_capacity_metric_specification], params, context: context + 'CustomizedCapacityMetricSpecification' + '.') unless input[:customized_capacity_metric_specification].nil?
       end
     end
 
     # Structure Builder for PredictiveScalingCustomizedCapacityMetric
     class PredictiveScalingCustomizedCapacityMetric
       def self.build(input, params, context: nil)
-        Builders::MetricDataQueries.build(input[:metric_data_queries], params, context: context + 'MetricDataQueries' + '.member') unless input[:metric_data_queries].nil?
+        MetricDataQueries.build(input[:metric_data_queries], params, context: context + 'MetricDataQueries' + '.member') unless input[:metric_data_queries].nil?
       end
     end
 
@@ -1430,7 +1432,7 @@ module AWS::SDK::AutoScaling
     class MetricDataQueries
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::MetricDataQuery.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          MetricDataQuery.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1440,7 +1442,7 @@ module AWS::SDK::AutoScaling
       def self.build(input, params, context: nil)
         params[context + 'Id'] = input[:id].to_s unless input[:id].nil?
         params[context + 'Expression'] = input[:expression].to_s unless input[:expression].nil?
-        Builders::MetricStat.build(input[:metric_stat], params, context: context + 'MetricStat' + '.') unless input[:metric_stat].nil?
+        MetricStat.build(input[:metric_stat], params, context: context + 'MetricStat' + '.') unless input[:metric_stat].nil?
         params[context + 'Label'] = input[:label].to_s unless input[:label].nil?
         params[context + 'ReturnData'] = input[:return_data].to_s unless input[:return_data].nil?
       end
@@ -1449,7 +1451,7 @@ module AWS::SDK::AutoScaling
     # Structure Builder for MetricStat
     class MetricStat
       def self.build(input, params, context: nil)
-        Builders::Metric.build(input[:metric], params, context: context + 'Metric' + '.') unless input[:metric].nil?
+        Metric.build(input[:metric], params, context: context + 'Metric' + '.') unless input[:metric].nil?
         params[context + 'Stat'] = input[:stat].to_s unless input[:stat].nil?
         params[context + 'Unit'] = input[:unit].to_s unless input[:unit].nil?
       end
@@ -1460,7 +1462,7 @@ module AWS::SDK::AutoScaling
       def self.build(input, params, context: nil)
         params[context + 'Namespace'] = input[:namespace].to_s unless input[:namespace].nil?
         params[context + 'MetricName'] = input[:metric_name].to_s unless input[:metric_name].nil?
-        Builders::MetricDimensions.build(input[:dimensions], params, context: context + 'Dimensions' + '.member') unless input[:dimensions].nil?
+        MetricDimensions.build(input[:dimensions], params, context: context + 'Dimensions' + '.member') unless input[:dimensions].nil?
       end
     end
 
@@ -1468,7 +1470,7 @@ module AWS::SDK::AutoScaling
     class MetricDimensions
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::MetricDimension.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          MetricDimension.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1484,14 +1486,14 @@ module AWS::SDK::AutoScaling
     # Structure Builder for PredictiveScalingCustomizedLoadMetric
     class PredictiveScalingCustomizedLoadMetric
       def self.build(input, params, context: nil)
-        Builders::MetricDataQueries.build(input[:metric_data_queries], params, context: context + 'MetricDataQueries' + '.member') unless input[:metric_data_queries].nil?
+        MetricDataQueries.build(input[:metric_data_queries], params, context: context + 'MetricDataQueries' + '.member') unless input[:metric_data_queries].nil?
       end
     end
 
     # Structure Builder for PredictiveScalingCustomizedScalingMetric
     class PredictiveScalingCustomizedScalingMetric
       def self.build(input, params, context: nil)
-        Builders::MetricDataQueries.build(input[:metric_data_queries], params, context: context + 'MetricDataQueries' + '.member') unless input[:metric_data_queries].nil?
+        MetricDataQueries.build(input[:metric_data_queries], params, context: context + 'MetricDataQueries' + '.member') unless input[:metric_data_queries].nil?
       end
     end
 
@@ -1522,8 +1524,8 @@ module AWS::SDK::AutoScaling
     # Structure Builder for TargetTrackingConfiguration
     class TargetTrackingConfiguration
       def self.build(input, params, context: nil)
-        Builders::PredefinedMetricSpecification.build(input[:predefined_metric_specification], params, context: context + 'PredefinedMetricSpecification' + '.') unless input[:predefined_metric_specification].nil?
-        Builders::CustomizedMetricSpecification.build(input[:customized_metric_specification], params, context: context + 'CustomizedMetricSpecification' + '.') unless input[:customized_metric_specification].nil?
+        PredefinedMetricSpecification.build(input[:predefined_metric_specification], params, context: context + 'PredefinedMetricSpecification' + '.') unless input[:predefined_metric_specification].nil?
+        CustomizedMetricSpecification.build(input[:customized_metric_specification], params, context: context + 'CustomizedMetricSpecification' + '.') unless input[:customized_metric_specification].nil?
         params[context + 'TargetValue'] = Hearth::NumberHelper.serialize(input[:target_value]).to_s unless input[:target_value].nil?
         params[context + 'DisableScaleIn'] = input[:disable_scale_in].to_s unless input[:disable_scale_in].nil?
       end
@@ -1534,7 +1536,7 @@ module AWS::SDK::AutoScaling
       def self.build(input, params, context: nil)
         params[context + 'MetricName'] = input[:metric_name].to_s unless input[:metric_name].nil?
         params[context + 'Namespace'] = input[:namespace].to_s unless input[:namespace].nil?
-        Builders::MetricDimensions.build(input[:dimensions], params, context: context + 'Dimensions' + '.member') unless input[:dimensions].nil?
+        MetricDimensions.build(input[:dimensions], params, context: context + 'Dimensions' + '.member') unless input[:dimensions].nil?
         params[context + 'Statistic'] = input[:statistic].to_s unless input[:statistic].nil?
         params[context + 'Unit'] = input[:unit].to_s unless input[:unit].nil?
       end
@@ -1552,7 +1554,7 @@ module AWS::SDK::AutoScaling
     class StepAdjustments
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::StepAdjustment.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          StepAdjustment.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1586,7 +1588,7 @@ module AWS::SDK::AutoScaling
         params[context + 'MaxSize'] = input[:max_size].to_s unless input[:max_size].nil?
         params[context + 'DesiredCapacity'] = input[:desired_capacity].to_s unless input[:desired_capacity].nil?
         params[context + 'TimeZone'] = input[:time_zone].to_s unless input[:time_zone].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1604,8 +1606,8 @@ module AWS::SDK::AutoScaling
         params[context + 'MaxGroupPreparedCapacity'] = input[:max_group_prepared_capacity].to_s unless input[:max_group_prepared_capacity].nil?
         params[context + 'MinSize'] = input[:min_size].to_s unless input[:min_size].nil?
         params[context + 'PoolState'] = input[:pool_state].to_s unless input[:pool_state].nil?
-        Builders::InstanceReusePolicy.build(input[:instance_reuse_policy], params, context: context + 'InstanceReusePolicy' + '.') unless input[:instance_reuse_policy].nil?
-        http_req.body = StringIO.new(params.to_s)
+        InstanceReusePolicy.build(input[:instance_reuse_policy], params, context: context + 'InstanceReusePolicy' + '.') unless input[:instance_reuse_policy].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1630,7 +1632,7 @@ module AWS::SDK::AutoScaling
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'LifecycleActionToken'] = input[:lifecycle_action_token].to_s unless input[:lifecycle_action_token].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1645,8 +1647,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'ResumeProcesses'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::ProcessNames.build(input[:scaling_processes], params, context: context + 'ScalingProcesses' + '.member') unless input[:scaling_processes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ProcessNames.build(input[:scaling_processes], params, context: context + 'ScalingProcesses' + '.member') unless input[:scaling_processes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1672,7 +1674,7 @@ module AWS::SDK::AutoScaling
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'DesiredCapacity'] = input[:desired_capacity].to_s unless input[:desired_capacity].nil?
         params[context + 'HonorCooldown'] = input[:honor_cooldown].to_s unless input[:honor_cooldown].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1689,7 +1691,7 @@ module AWS::SDK::AutoScaling
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'HealthStatus'] = input[:health_status].to_s unless input[:health_status].nil?
         params[context + 'ShouldRespectGracePeriod'] = input[:should_respect_grace_period].to_s unless input[:should_respect_grace_period].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1703,10 +1705,10 @@ module AWS::SDK::AutoScaling
         params = Hearth::Query::ParamList.new
         params['Action'] = 'SetInstanceProtection'
         params['Version'] = '2011-01-01'
-        Builders::InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
+        InstanceIds.build(input[:instance_ids], params, context: context + 'InstanceIds' + '.member') unless input[:instance_ids].nil?
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'ProtectedFromScaleIn'] = input[:protected_from_scale_in].to_s unless input[:protected_from_scale_in].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1722,9 +1724,9 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'Strategy'] = input[:strategy].to_s unless input[:strategy].nil?
-        Builders::DesiredConfiguration.build(input[:desired_configuration], params, context: context + 'DesiredConfiguration' + '.') unless input[:desired_configuration].nil?
-        Builders::RefreshPreferences.build(input[:preferences], params, context: context + 'Preferences' + '.') unless input[:preferences].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DesiredConfiguration.build(input[:desired_configuration], params, context: context + 'DesiredConfiguration' + '.') unless input[:desired_configuration].nil?
+        RefreshPreferences.build(input[:preferences], params, context: context + 'Preferences' + '.') unless input[:preferences].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1733,7 +1735,7 @@ module AWS::SDK::AutoScaling
       def self.build(input, params, context: nil)
         params[context + 'MinHealthyPercentage'] = input[:min_healthy_percentage].to_s unless input[:min_healthy_percentage].nil?
         params[context + 'InstanceWarmup'] = input[:instance_warmup].to_s unless input[:instance_warmup].nil?
-        Builders::CheckpointPercentages.build(input[:checkpoint_percentages], params, context: context + 'CheckpointPercentages' + '.member') unless input[:checkpoint_percentages].nil?
+        CheckpointPercentages.build(input[:checkpoint_percentages], params, context: context + 'CheckpointPercentages' + '.member') unless input[:checkpoint_percentages].nil?
         params[context + 'CheckpointDelay'] = input[:checkpoint_delay].to_s unless input[:checkpoint_delay].nil?
         params[context + 'SkipMatching'] = input[:skip_matching].to_s unless input[:skip_matching].nil?
       end
@@ -1751,8 +1753,8 @@ module AWS::SDK::AutoScaling
     # Structure Builder for DesiredConfiguration
     class DesiredConfiguration
       def self.build(input, params, context: nil)
-        Builders::LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
-        Builders::MixedInstancesPolicy.build(input[:mixed_instances_policy], params, context: context + 'MixedInstancesPolicy' + '.') unless input[:mixed_instances_policy].nil?
+        LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
+        MixedInstancesPolicy.build(input[:mixed_instances_policy], params, context: context + 'MixedInstancesPolicy' + '.') unless input[:mixed_instances_policy].nil?
       end
     end
 
@@ -1767,8 +1769,8 @@ module AWS::SDK::AutoScaling
         params['Action'] = 'SuspendProcesses'
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
-        Builders::ProcessNames.build(input[:scaling_processes], params, context: context + 'ScalingProcesses' + '.member') unless input[:scaling_processes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ProcessNames.build(input[:scaling_processes], params, context: context + 'ScalingProcesses' + '.member') unless input[:scaling_processes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1784,7 +1786,7 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'ShouldDecrementDesiredCapacity'] = input[:should_decrement_desired_capacity].to_s unless input[:should_decrement_desired_capacity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1800,18 +1802,18 @@ module AWS::SDK::AutoScaling
         params['Version'] = '2011-01-01'
         params[context + 'AutoScalingGroupName'] = input[:auto_scaling_group_name].to_s unless input[:auto_scaling_group_name].nil?
         params[context + 'LaunchConfigurationName'] = input[:launch_configuration_name].to_s unless input[:launch_configuration_name].nil?
-        Builders::LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
-        Builders::MixedInstancesPolicy.build(input[:mixed_instances_policy], params, context: context + 'MixedInstancesPolicy' + '.') unless input[:mixed_instances_policy].nil?
+        LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
+        MixedInstancesPolicy.build(input[:mixed_instances_policy], params, context: context + 'MixedInstancesPolicy' + '.') unless input[:mixed_instances_policy].nil?
         params[context + 'MinSize'] = input[:min_size].to_s unless input[:min_size].nil?
         params[context + 'MaxSize'] = input[:max_size].to_s unless input[:max_size].nil?
         params[context + 'DesiredCapacity'] = input[:desired_capacity].to_s unless input[:desired_capacity].nil?
         params[context + 'DefaultCooldown'] = input[:default_cooldown].to_s unless input[:default_cooldown].nil?
-        Builders::AvailabilityZones.build(input[:availability_zones], params, context: context + 'AvailabilityZones' + '.member') unless input[:availability_zones].nil?
+        AvailabilityZones.build(input[:availability_zones], params, context: context + 'AvailabilityZones' + '.member') unless input[:availability_zones].nil?
         params[context + 'HealthCheckType'] = input[:health_check_type].to_s unless input[:health_check_type].nil?
         params[context + 'HealthCheckGracePeriod'] = input[:health_check_grace_period].to_s unless input[:health_check_grace_period].nil?
         params[context + 'PlacementGroup'] = input[:placement_group].to_s unless input[:placement_group].nil?
         params[context + 'VPCZoneIdentifier'] = input[:vpc_zone_identifier].to_s unless input[:vpc_zone_identifier].nil?
-        Builders::TerminationPolicies.build(input[:termination_policies], params, context: context + 'TerminationPolicies' + '.member') unless input[:termination_policies].nil?
+        TerminationPolicies.build(input[:termination_policies], params, context: context + 'TerminationPolicies' + '.member') unless input[:termination_policies].nil?
         params[context + 'NewInstancesProtectedFromScaleIn'] = input[:new_instances_protected_from_scale_in].to_s unless input[:new_instances_protected_from_scale_in].nil?
         params[context + 'ServiceLinkedRoleARN'] = input[:service_linked_role_arn].to_s unless input[:service_linked_role_arn].nil?
         params[context + 'MaxInstanceLifetime'] = input[:max_instance_lifetime].to_s unless input[:max_instance_lifetime].nil?
@@ -1819,7 +1821,7 @@ module AWS::SDK::AutoScaling
         params[context + 'Context'] = input[:context].to_s unless input[:context].nil?
         params[context + 'DesiredCapacityType'] = input[:desired_capacity_type].to_s unless input[:desired_capacity_type].nil?
         params[context + 'DefaultInstanceWarmup'] = input[:default_instance_warmup].to_s unless input[:default_instance_warmup].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

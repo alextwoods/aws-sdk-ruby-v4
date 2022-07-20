@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Billingconductor
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,9 +59,9 @@ module AWS::SDK::Billingconductor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SuccessfullyAssociatedResources'] = Stubs::AssociateResourcesResponseList.stub(stub[:successfully_associated_resources]) unless stub[:successfully_associated_resources].nil?
-        data['FailedAssociatedResources'] = Stubs::AssociateResourcesResponseList.stub(stub[:failed_associated_resources]) unless stub[:failed_associated_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuccessfullyAssociatedResources'] = AssociateResourcesResponseList.stub(stub[:successfully_associated_resources]) unless stub[:successfully_associated_resources].nil?
+        data['FailedAssociatedResources'] = AssociateResourcesResponseList.stub(stub[:failed_associated_resources]) unless stub[:failed_associated_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -77,7 +79,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociateResourceResponseElement.stub(element) unless element.nil?
+          data << AssociateResourceResponseElement.stub(element) unless element.nil?
         end
         data
       end
@@ -98,7 +100,7 @@ module AWS::SDK::Billingconductor
         stub ||= Types::AssociateResourceResponseElement.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Error'] = Stubs::AssociateResourceError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = AssociateResourceError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -136,9 +138,9 @@ module AWS::SDK::Billingconductor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SuccessfullyDisassociatedResources'] = Stubs::DisassociateResourcesResponseList.stub(stub[:successfully_disassociated_resources]) unless stub[:successfully_disassociated_resources].nil?
-        data['FailedDisassociatedResources'] = Stubs::DisassociateResourcesResponseList.stub(stub[:failed_disassociated_resources]) unless stub[:failed_disassociated_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuccessfullyDisassociatedResources'] = DisassociateResourcesResponseList.stub(stub[:successfully_disassociated_resources]) unless stub[:successfully_disassociated_resources].nil?
+        data['FailedDisassociatedResources'] = DisassociateResourcesResponseList.stub(stub[:failed_disassociated_resources]) unless stub[:failed_disassociated_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,7 +158,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DisassociateResourceResponseElement.stub(element) unless element.nil?
+          data << DisassociateResourceResponseElement.stub(element) unless element.nil?
         end
         data
       end
@@ -177,7 +179,7 @@ module AWS::SDK::Billingconductor
         stub ||= Types::DisassociateResourceResponseElement.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Error'] = Stubs::AssociateResourceError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = AssociateResourceError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,7 +214,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -246,7 +248,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -263,7 +265,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -280,7 +282,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -297,7 +299,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -314,7 +316,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,7 +333,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,7 +350,7 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -365,9 +367,9 @@ module AWS::SDK::Billingconductor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LinkedAccounts'] = Stubs::AccountAssociationsList.stub(stub[:linked_accounts]) unless stub[:linked_accounts].nil?
+        data['LinkedAccounts'] = AccountAssociationsList.stub(stub[:linked_accounts]) unless stub[:linked_accounts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,7 +387,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountAssociationsListElement.stub(element) unless element.nil?
+          data << AccountAssociationsListElement.stub(element) unless element.nil?
         end
         data
       end
@@ -428,9 +430,9 @@ module AWS::SDK::Billingconductor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BillingGroupCostReports'] = Stubs::BillingGroupCostReportList.stub(stub[:billing_group_cost_reports]) unless stub[:billing_group_cost_reports].nil?
+        data['BillingGroupCostReports'] = BillingGroupCostReportList.stub(stub[:billing_group_cost_reports]) unless stub[:billing_group_cost_reports].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,7 +450,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BillingGroupCostReportElement.stub(element) unless element.nil?
+          data << BillingGroupCostReportElement.stub(element) unless element.nil?
         end
         data
       end
@@ -495,9 +497,9 @@ module AWS::SDK::Billingconductor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BillingGroups'] = Stubs::BillingGroupList.stub(stub[:billing_groups]) unless stub[:billing_groups].nil?
+        data['BillingGroups'] = BillingGroupList.stub(stub[:billing_groups]) unless stub[:billing_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -515,7 +517,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BillingGroupListElement.stub(element) unless element.nil?
+          data << BillingGroupListElement.stub(element) unless element.nil?
         end
         data
       end
@@ -547,7 +549,7 @@ module AWS::SDK::Billingconductor
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['PrimaryAccountId'] = stub[:primary_account_id] unless stub[:primary_account_id].nil?
-        data['ComputationPreference'] = Stubs::ComputationPreference.stub(stub[:computation_preference]) unless stub[:computation_preference].nil?
+        data['ComputationPreference'] = ComputationPreference.stub(stub[:computation_preference]) unless stub[:computation_preference].nil?
         data['Size'] = stub[:size] unless stub[:size].nil?
         data['CreationTime'] = stub[:creation_time] unless stub[:creation_time].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
@@ -588,9 +590,9 @@ module AWS::SDK::Billingconductor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CustomLineItems'] = Stubs::CustomLineItemList.stub(stub[:custom_line_items]) unless stub[:custom_line_items].nil?
+        data['CustomLineItems'] = CustomLineItemList.stub(stub[:custom_line_items]) unless stub[:custom_line_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -608,7 +610,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomLineItemListElement.stub(element) unless element.nil?
+          data << CustomLineItemListElement.stub(element) unless element.nil?
         end
         data
       end
@@ -638,7 +640,7 @@ module AWS::SDK::Billingconductor
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ChargeDetails'] = Stubs::ListCustomLineItemChargeDetails.stub(stub[:charge_details]) unless stub[:charge_details].nil?
+        data['ChargeDetails'] = ListCustomLineItemChargeDetails.stub(stub[:charge_details]) unless stub[:charge_details].nil?
         data['CurrencyCode'] = stub[:currency_code] unless stub[:currency_code].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ProductCode'] = stub[:product_code] unless stub[:product_code].nil?
@@ -665,8 +667,8 @@ module AWS::SDK::Billingconductor
       def self.stub(stub)
         stub ||= Types::ListCustomLineItemChargeDetails.new
         data = {}
-        data['Flat'] = Stubs::ListCustomLineItemFlatChargeDetails.stub(stub[:flat]) unless stub[:flat].nil?
-        data['Percentage'] = Stubs::ListCustomLineItemPercentageChargeDetails.stub(stub[:percentage]) unless stub[:percentage].nil?
+        data['Flat'] = ListCustomLineItemFlatChargeDetails.stub(stub[:flat]) unless stub[:flat].nil?
+        data['Percentage'] = ListCustomLineItemPercentageChargeDetails.stub(stub[:percentage]) unless stub[:percentage].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -723,9 +725,9 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['BillingPeriod'] = stub[:billing_period] unless stub[:billing_period].nil?
-        data['PricingPlans'] = Stubs::PricingPlanList.stub(stub[:pricing_plans]) unless stub[:pricing_plans].nil?
+        data['PricingPlans'] = PricingPlanList.stub(stub[:pricing_plans]) unless stub[:pricing_plans].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -743,7 +745,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PricingPlanListElement.stub(element) unless element.nil?
+          data << PricingPlanListElement.stub(element) unless element.nil?
         end
         data
       end
@@ -794,9 +796,9 @@ module AWS::SDK::Billingconductor
         http_resp.headers['Content-Type'] = 'application/json'
         data['BillingPeriod'] = stub[:billing_period] unless stub[:billing_period].nil?
         data['PricingRuleArn'] = stub[:pricing_rule_arn] unless stub[:pricing_rule_arn].nil?
-        data['PricingPlanArns'] = Stubs::PricingPlanArns.stub(stub[:pricing_plan_arns]) unless stub[:pricing_plan_arns].nil?
+        data['PricingPlanArns'] = PricingPlanArns.stub(stub[:pricing_plan_arns]) unless stub[:pricing_plan_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -835,9 +837,9 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['BillingPeriod'] = stub[:billing_period] unless stub[:billing_period].nil?
-        data['PricingRules'] = Stubs::PricingRuleList.stub(stub[:pricing_rules]) unless stub[:pricing_rules].nil?
+        data['PricingRules'] = PricingRuleList.stub(stub[:pricing_rules]) unless stub[:pricing_rules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PricingRuleListElement.stub(element) unless element.nil?
+          data << PricingRuleListElement.stub(element) unless element.nil?
         end
         data
       end
@@ -914,9 +916,9 @@ module AWS::SDK::Billingconductor
         http_resp.headers['Content-Type'] = 'application/json'
         data['BillingPeriod'] = stub[:billing_period] unless stub[:billing_period].nil?
         data['PricingPlanArn'] = stub[:pricing_plan_arn] unless stub[:pricing_plan_arn].nil?
-        data['PricingRuleArns'] = Stubs::PricingRuleArns.stub(stub[:pricing_rule_arns]) unless stub[:pricing_rule_arns].nil?
+        data['PricingRuleArns'] = PricingRuleArns.stub(stub[:pricing_rule_arns]) unless stub[:pricing_rule_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -955,9 +957,9 @@ module AWS::SDK::Billingconductor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['AssociatedResources'] = Stubs::ListResourcesAssociatedToCustomLineItemResponseList.stub(stub[:associated_resources]) unless stub[:associated_resources].nil?
+        data['AssociatedResources'] = ListResourcesAssociatedToCustomLineItemResponseList.stub(stub[:associated_resources]) unless stub[:associated_resources].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -975,7 +977,7 @@ module AWS::SDK::Billingconductor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListResourcesAssociatedToCustomLineItemResponseElement.stub(element) unless element.nil?
+          data << ListResourcesAssociatedToCustomLineItemResponseElement.stub(element) unless element.nil?
         end
         data
       end
@@ -1013,8 +1015,8 @@ module AWS::SDK::Billingconductor
         data = {}
         http_resp.status = 204
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1093,7 +1095,7 @@ module AWS::SDK::Billingconductor
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,10 +1121,10 @@ module AWS::SDK::Billingconductor
         data['BillingGroupArn'] = stub[:billing_group_arn] unless stub[:billing_group_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['ChargeDetails'] = Stubs::ListCustomLineItemChargeDetails.stub(stub[:charge_details]) unless stub[:charge_details].nil?
+        data['ChargeDetails'] = ListCustomLineItemChargeDetails.stub(stub[:charge_details]) unless stub[:charge_details].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
         data['AssociationSize'] = stub[:association_size] unless stub[:association_size].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1147,7 +1149,7 @@ module AWS::SDK::Billingconductor
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Size'] = stub[:size] unless stub[:size].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1180,7 +1182,7 @@ module AWS::SDK::Billingconductor
         data['Service'] = stub[:service] unless stub[:service].nil?
         data['AssociatedPricingPlanCount'] = stub[:associated_pricing_plan_count] unless stub[:associated_pricing_plan_count].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DataExchange
   module Stubs
 
@@ -52,11 +54,11 @@ module AWS::SDK::DataExchange
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Origin'] = stub[:origin] unless stub[:origin].nil?
-        data['OriginDetails'] = Stubs::OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
+        data['OriginDetails'] = OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
-        data['Tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -115,13 +117,13 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['Event'] = Stubs::Event.stub(stub[:event]) unless stub[:event].nil?
+        data['Event'] = Event.stub(stub[:event]) unless stub[:event].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,7 +140,7 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::Event.new
         data = {}
-        data['RevisionPublished'] = Stubs::RevisionPublished.stub(stub[:revision_published]) unless stub[:revision_published].nil?
+        data['RevisionPublished'] = RevisionPublished.stub(stub[:revision_published]) unless stub[:revision_published].nil?
         data
       end
     end
@@ -174,7 +176,7 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::Action.new
         data = {}
-        data['ExportRevisionToS3'] = Stubs::AutoExportRevisionToS3RequestDetails.stub(stub[:export_revision_to_s3]) unless stub[:export_revision_to_s3].nil?
+        data['ExportRevisionToS3'] = AutoExportRevisionToS3RequestDetails.stub(stub[:export_revision_to_s3]) unless stub[:export_revision_to_s3].nil?
         data
       end
     end
@@ -193,8 +195,8 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::AutoExportRevisionToS3RequestDetails.new
         data = {}
-        data['Encryption'] = Stubs::ExportServerSideEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
-        data['RevisionDestination'] = Stubs::AutoExportRevisionDestinationEntry.stub(stub[:revision_destination]) unless stub[:revision_destination].nil?
+        data['Encryption'] = ExportServerSideEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['RevisionDestination'] = AutoExportRevisionDestinationEntry.stub(stub[:revision_destination]) unless stub[:revision_destination].nil?
         data
       end
     end
@@ -260,13 +262,13 @@ module AWS::SDK::DataExchange
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['Details'] = Stubs::ResponseDetails.stub(stub[:details]) unless stub[:details].nil?
-        data['Errors'] = Stubs::ListOfJobError.stub(stub[:errors]) unless stub[:errors].nil?
+        data['Details'] = ResponseDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['Errors'] = ListOfJobError.stub(stub[:errors]) unless stub[:errors].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,7 +286,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobError.stub(element) unless element.nil?
+          data << JobError.stub(element) unless element.nil?
         end
         data
       end
@@ -310,7 +312,7 @@ module AWS::SDK::DataExchange
         stub ||= Types::JobError.new
         data = {}
         data['Code'] = stub[:code] unless stub[:code].nil?
-        data['Details'] = Stubs::Details.stub(stub[:details]) unless stub[:details].nil?
+        data['Details'] = Details.stub(stub[:details]) unless stub[:details].nil?
         data['LimitName'] = stub[:limit_name] unless stub[:limit_name].nil?
         data['LimitValue'] = Hearth::NumberHelper.serialize(stub[:limit_value])
         data['Message'] = stub[:message] unless stub[:message].nil?
@@ -334,8 +336,8 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::Details.new
         data = {}
-        data['ImportAssetFromSignedUrlJobErrorDetails'] = Stubs::ImportAssetFromSignedUrlJobErrorDetails.stub(stub[:import_asset_from_signed_url_job_error_details]) unless stub[:import_asset_from_signed_url_job_error_details].nil?
-        data['ImportAssetsFromS3JobErrorDetails'] = Stubs::ListOfAssetSourceEntry.stub(stub[:import_assets_from_s3_job_error_details]) unless stub[:import_assets_from_s3_job_error_details].nil?
+        data['ImportAssetFromSignedUrlJobErrorDetails'] = ImportAssetFromSignedUrlJobErrorDetails.stub(stub[:import_asset_from_signed_url_job_error_details]) unless stub[:import_asset_from_signed_url_job_error_details].nil?
+        data['ImportAssetsFromS3JobErrorDetails'] = ListOfAssetSourceEntry.stub(stub[:import_assets_from_s3_job_error_details]) unless stub[:import_assets_from_s3_job_error_details].nil?
         data
       end
     end
@@ -354,7 +356,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetSourceEntry.stub(element) unless element.nil?
+          data << AssetSourceEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -417,13 +419,13 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::ResponseDetails.new
         data = {}
-        data['ExportAssetToSignedUrl'] = Stubs::ExportAssetToSignedUrlResponseDetails.stub(stub[:export_asset_to_signed_url]) unless stub[:export_asset_to_signed_url].nil?
-        data['ExportAssetsToS3'] = Stubs::ExportAssetsToS3ResponseDetails.stub(stub[:export_assets_to_s3]) unless stub[:export_assets_to_s3].nil?
-        data['ExportRevisionsToS3'] = Stubs::ExportRevisionsToS3ResponseDetails.stub(stub[:export_revisions_to_s3]) unless stub[:export_revisions_to_s3].nil?
-        data['ImportAssetFromSignedUrl'] = Stubs::ImportAssetFromSignedUrlResponseDetails.stub(stub[:import_asset_from_signed_url]) unless stub[:import_asset_from_signed_url].nil?
-        data['ImportAssetsFromS3'] = Stubs::ImportAssetsFromS3ResponseDetails.stub(stub[:import_assets_from_s3]) unless stub[:import_assets_from_s3].nil?
-        data['ImportAssetsFromRedshiftDataShares'] = Stubs::ImportAssetsFromRedshiftDataSharesResponseDetails.stub(stub[:import_assets_from_redshift_data_shares]) unless stub[:import_assets_from_redshift_data_shares].nil?
-        data['ImportAssetFromApiGatewayApi'] = Stubs::ImportAssetFromApiGatewayApiResponseDetails.stub(stub[:import_asset_from_api_gateway_api]) unless stub[:import_asset_from_api_gateway_api].nil?
+        data['ExportAssetToSignedUrl'] = ExportAssetToSignedUrlResponseDetails.stub(stub[:export_asset_to_signed_url]) unless stub[:export_asset_to_signed_url].nil?
+        data['ExportAssetsToS3'] = ExportAssetsToS3ResponseDetails.stub(stub[:export_assets_to_s3]) unless stub[:export_assets_to_s3].nil?
+        data['ExportRevisionsToS3'] = ExportRevisionsToS3ResponseDetails.stub(stub[:export_revisions_to_s3]) unless stub[:export_revisions_to_s3].nil?
+        data['ImportAssetFromSignedUrl'] = ImportAssetFromSignedUrlResponseDetails.stub(stub[:import_asset_from_signed_url]) unless stub[:import_asset_from_signed_url].nil?
+        data['ImportAssetsFromS3'] = ImportAssetsFromS3ResponseDetails.stub(stub[:import_assets_from_s3]) unless stub[:import_assets_from_s3].nil?
+        data['ImportAssetsFromRedshiftDataShares'] = ImportAssetsFromRedshiftDataSharesResponseDetails.stub(stub[:import_assets_from_redshift_data_shares]) unless stub[:import_assets_from_redshift_data_shares].nil?
+        data['ImportAssetFromApiGatewayApi'] = ImportAssetFromApiGatewayApiResponseDetails.stub(stub[:import_asset_from_api_gateway_api]) unless stub[:import_asset_from_api_gateway_api].nil?
         data
       end
     end
@@ -481,7 +483,7 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::ImportAssetsFromRedshiftDataSharesResponseDetails.new
         data = {}
-        data['AssetSources'] = Stubs::ListOfRedshiftDataShareAssetSourceEntry.stub(stub[:asset_sources]) unless stub[:asset_sources].nil?
+        data['AssetSources'] = ListOfRedshiftDataShareAssetSourceEntry.stub(stub[:asset_sources]) unless stub[:asset_sources].nil?
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data
@@ -502,7 +504,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RedshiftDataShareAssetSourceEntry.stub(element) unless element.nil?
+          data << RedshiftDataShareAssetSourceEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -541,7 +543,7 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::ImportAssetsFromS3ResponseDetails.new
         data = {}
-        data['AssetSources'] = Stubs::ListOfAssetSourceEntry.stub(stub[:asset_sources]) unless stub[:asset_sources].nil?
+        data['AssetSources'] = ListOfAssetSourceEntry.stub(stub[:asset_sources]) unless stub[:asset_sources].nil?
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data
@@ -593,8 +595,8 @@ module AWS::SDK::DataExchange
         stub ||= Types::ExportRevisionsToS3ResponseDetails.new
         data = {}
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
-        data['Encryption'] = Stubs::ExportServerSideEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
-        data['RevisionDestinations'] = Stubs::ListOfRevisionDestinationEntry.stub(stub[:revision_destinations]) unless stub[:revision_destinations].nil?
+        data['Encryption'] = ExportServerSideEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['RevisionDestinations'] = ListOfRevisionDestinationEntry.stub(stub[:revision_destinations]) unless stub[:revision_destinations].nil?
         data['EventActionArn'] = stub[:event_action_arn] unless stub[:event_action_arn].nil?
         data
       end
@@ -614,7 +616,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RevisionDestinationEntry.stub(element) unless element.nil?
+          data << RevisionDestinationEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -658,9 +660,9 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::ExportAssetsToS3ResponseDetails.new
         data = {}
-        data['AssetDestinations'] = Stubs::ListOfAssetDestinationEntry.stub(stub[:asset_destinations]) unless stub[:asset_destinations].nil?
+        data['AssetDestinations'] = ListOfAssetDestinationEntry.stub(stub[:asset_destinations]) unless stub[:asset_destinations].nil?
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
-        data['Encryption'] = Stubs::ExportServerSideEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['Encryption'] = ExportServerSideEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data
       end
@@ -680,7 +682,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetDestinationEntry.stub(element) unless element.nil?
+          data << AssetDestinationEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -764,12 +766,12 @@ module AWS::SDK::DataExchange
         data['Finalized'] = stub[:finalized] unless stub[:finalized].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
-        data['Tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['RevocationComment'] = stub[:revocation_comment] unless stub[:revocation_comment].nil?
         data['Revoked'] = stub[:revoked] unless stub[:revoked].nil?
         data['RevokedAt'] = Hearth::TimeHelper.to_date_time(stub[:revoked_at]) unless stub[:revoked_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -847,7 +849,7 @@ module AWS::SDK::DataExchange
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['AssetDetails'] = Stubs::AssetDetails.stub(stub[:asset_details]) unless stub[:asset_details].nil?
+        data['AssetDetails'] = AssetDetails.stub(stub[:asset_details]) unless stub[:asset_details].nil?
         data['AssetType'] = stub[:asset_type] unless stub[:asset_type].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
@@ -856,7 +858,7 @@ module AWS::SDK::DataExchange
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -875,9 +877,9 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::AssetDetails.new
         data = {}
-        data['S3SnapshotAsset'] = Stubs::S3SnapshotAsset.stub(stub[:s3_snapshot_asset]) unless stub[:s3_snapshot_asset].nil?
-        data['RedshiftDataShareAsset'] = Stubs::RedshiftDataShareAsset.stub(stub[:redshift_data_share_asset]) unless stub[:redshift_data_share_asset].nil?
-        data['ApiGatewayApiAsset'] = Stubs::ApiGatewayApiAsset.stub(stub[:api_gateway_api_asset]) unless stub[:api_gateway_api_asset].nil?
+        data['S3SnapshotAsset'] = S3SnapshotAsset.stub(stub[:s3_snapshot_asset]) unless stub[:s3_snapshot_asset].nil?
+        data['RedshiftDataShareAsset'] = RedshiftDataShareAsset.stub(stub[:redshift_data_share_asset]) unless stub[:redshift_data_share_asset].nil?
+        data['ApiGatewayApiAsset'] = ApiGatewayApiAsset.stub(stub[:api_gateway_api_asset]) unless stub[:api_gateway_api_asset].nil?
         data
       end
     end
@@ -981,11 +983,11 @@ module AWS::SDK::DataExchange
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Origin'] = stub[:origin] unless stub[:origin].nil?
-        data['OriginDetails'] = Stubs::OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
+        data['OriginDetails'] = OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
-        data['Tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1006,13 +1008,13 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['Event'] = Stubs::Event.stub(stub[:event]) unless stub[:event].nil?
+        data['Event'] = Event.stub(stub[:event]) unless stub[:event].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1037,13 +1039,13 @@ module AWS::SDK::DataExchange
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['Details'] = Stubs::ResponseDetails.stub(stub[:details]) unless stub[:details].nil?
-        data['Errors'] = Stubs::ListOfJobError.stub(stub[:errors]) unless stub[:errors].nil?
+        data['Details'] = ResponseDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['Errors'] = ListOfJobError.stub(stub[:errors]) unless stub[:errors].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1077,12 +1079,12 @@ module AWS::SDK::DataExchange
         data['Finalized'] = stub[:finalized] unless stub[:finalized].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
-        data['Tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['RevocationComment'] = stub[:revocation_comment] unless stub[:revocation_comment].nil?
         data['Revoked'] = stub[:revoked] unless stub[:revoked].nil?
         data['RevokedAt'] = Hearth::TimeHelper.to_date_time(stub[:revoked_at]) unless stub[:revoked_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1100,8 +1102,8 @@ module AWS::SDK::DataExchange
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Revisions'] = Stubs::ListOfRevisionEntry.stub(stub[:revisions]) unless stub[:revisions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Revisions'] = ListOfRevisionEntry.stub(stub[:revisions]) unless stub[:revisions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,7 +1121,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RevisionEntry.stub(element) unless element.nil?
+          data << RevisionEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1176,9 +1178,9 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DataSets'] = Stubs::ListOfDataSetEntry.stub(stub[:data_sets]) unless stub[:data_sets].nil?
+        data['DataSets'] = ListOfDataSetEntry.stub(stub[:data_sets]) unless stub[:data_sets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1196,7 +1198,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSetEntry.stub(element) unless element.nil?
+          data << DataSetEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1231,7 +1233,7 @@ module AWS::SDK::DataExchange
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Origin'] = stub[:origin] unless stub[:origin].nil?
-        data['OriginDetails'] = Stubs::OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
+        data['OriginDetails'] = OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data
@@ -1251,9 +1253,9 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EventActions'] = Stubs::ListOfEventActionEntry.stub(stub[:event_actions]) unless stub[:event_actions].nil?
+        data['EventActions'] = ListOfEventActionEntry.stub(stub[:event_actions]) unless stub[:event_actions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1271,7 +1273,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventActionEntry.stub(element) unless element.nil?
+          data << EventActionEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1295,10 +1297,10 @@ module AWS::SDK::DataExchange
       def self.stub(stub)
         stub ||= Types::EventActionEntry.new
         data = {}
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['Event'] = Stubs::Event.stub(stub[:event]) unless stub[:event].nil?
+        data['Event'] = Event.stub(stub[:event]) unless stub[:event].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data
@@ -1318,9 +1320,9 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Jobs'] = Stubs::ListOfJobEntry.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['Jobs'] = ListOfJobEntry.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1338,7 +1340,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobEntry.stub(element) unless element.nil?
+          data << JobEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1366,8 +1368,8 @@ module AWS::SDK::DataExchange
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['Details'] = Stubs::ResponseDetails.stub(stub[:details]) unless stub[:details].nil?
-        data['Errors'] = Stubs::ListOfJobError.stub(stub[:errors]) unless stub[:errors].nil?
+        data['Details'] = ResponseDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['Errors'] = ListOfJobError.stub(stub[:errors]) unless stub[:errors].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
@@ -1389,9 +1391,9 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Assets'] = Stubs::ListOfAssetEntry.stub(stub[:assets]) unless stub[:assets].nil?
+        data['Assets'] = ListOfAssetEntry.stub(stub[:assets]) unless stub[:assets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1409,7 +1411,7 @@ module AWS::SDK::DataExchange
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetEntry.stub(element) unless element.nil?
+          data << AssetEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1438,7 +1440,7 @@ module AWS::SDK::DataExchange
         stub ||= Types::AssetEntry.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['AssetDetails'] = Stubs::AssetDetails.stub(stub[:asset_details]) unless stub[:asset_details].nil?
+        data['AssetDetails'] = AssetDetails.stub(stub[:asset_details]) unless stub[:asset_details].nil?
         data['AssetType'] = stub[:asset_type] unless stub[:asset_type].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
@@ -1463,8 +1465,8 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1501,7 +1503,7 @@ module AWS::SDK::DataExchange
         data['RevocationComment'] = stub[:revocation_comment] unless stub[:revocation_comment].nil?
         data['Revoked'] = stub[:revoked] unless stub[:revoked].nil?
         data['RevokedAt'] = Hearth::TimeHelper.to_date_time(stub[:revoked_at]) unless stub[:revoked_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1521,7 +1523,7 @@ module AWS::SDK::DataExchange
           http_resp.headers["#{key}"] = value unless value.nil? || value.empty?
         end
         http_resp.headers['Content-Type'] = 'text/plain'
-        http_resp.body = StringIO.new(stub[:body] || '')
+        http_resp.body = ::StringIO.new(stub[:body] || '')
       end
     end
 
@@ -1586,7 +1588,7 @@ module AWS::SDK::DataExchange
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['AssetDetails'] = Stubs::AssetDetails.stub(stub[:asset_details]) unless stub[:asset_details].nil?
+        data['AssetDetails'] = AssetDetails.stub(stub[:asset_details]) unless stub[:asset_details].nil?
         data['AssetType'] = stub[:asset_type] unless stub[:asset_type].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['DataSetId'] = stub[:data_set_id] unless stub[:data_set_id].nil?
@@ -1595,7 +1597,7 @@ module AWS::SDK::DataExchange
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1627,10 +1629,10 @@ module AWS::SDK::DataExchange
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Origin'] = stub[:origin] unless stub[:origin].nil?
-        data['OriginDetails'] = Stubs::OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
+        data['OriginDetails'] = OriginDetails.stub(stub[:origin_details]) unless stub[:origin_details].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1651,13 +1653,13 @@ module AWS::SDK::DataExchange
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['Event'] = Stubs::Event.stub(stub[:event]) unless stub[:event].nil?
+        data['Event'] = Event.stub(stub[:event]) unless stub[:event].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1694,7 +1696,7 @@ module AWS::SDK::DataExchange
         data['RevocationComment'] = stub[:revocation_comment] unless stub[:revocation_comment].nil?
         data['Revoked'] = stub[:revoked] unless stub[:revoked].nil?
         data['RevokedAt'] = Hearth::TimeHelper.to_date_time(stub[:revoked_at]) unless stub[:revoked_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

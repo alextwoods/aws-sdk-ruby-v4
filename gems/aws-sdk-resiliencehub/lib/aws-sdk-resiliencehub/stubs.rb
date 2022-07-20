@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Resiliencehub
   module Stubs
 
@@ -26,8 +28,8 @@ module AWS::SDK::Resiliencehub
         http_resp.headers['Content-Type'] = 'application/json'
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
-        data['resourceMappings'] = Stubs::ResourceMappingList.stub(stub[:resource_mappings]) unless stub[:resource_mappings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceMappings'] = ResourceMappingList.stub(stub[:resource_mappings]) unless stub[:resource_mappings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceMapping.stub(element) unless element.nil?
+          data << ResourceMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -75,7 +77,7 @@ module AWS::SDK::Resiliencehub
         data['appRegistryAppName'] = stub[:app_registry_app_name] unless stub[:app_registry_app_name].nil?
         data['resourceGroupName'] = stub[:resource_group_name] unless stub[:resource_group_name].nil?
         data['mappingType'] = stub[:mapping_type] unless stub[:mapping_type].nil?
-        data['physicalResourceId'] = Stubs::PhysicalResourceId.stub(stub[:physical_resource_id]) unless stub[:physical_resource_id].nil?
+        data['physicalResourceId'] = PhysicalResourceId.stub(stub[:physical_resource_id]) unless stub[:physical_resource_id].nil?
         data['terraformSourceName'] = stub[:terraform_source_name] unless stub[:terraform_source_name].nil?
         data
       end
@@ -117,8 +119,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['app'] = Stubs::App.stub(stub[:app]) unless stub[:app].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['app'] = App.stub(stub[:app]) unless stub[:app].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,7 +158,7 @@ module AWS::SDK::Resiliencehub
         data['lastAppComplianceEvaluationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_app_compliance_evaluation_time]).to_i unless stub[:last_app_compliance_evaluation_time].nil?
         data['resiliencyScore'] = Hearth::NumberHelper.serialize(stub[:resiliency_score])
         data['lastResiliencyScoreEvaluationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_resiliency_score_evaluation_time]).to_i unless stub[:last_resiliency_score_evaluation_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['assessmentSchedule'] = stub[:assessment_schedule] unless stub[:assessment_schedule].nil?
         data
       end
@@ -194,8 +196,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['recommendationTemplate'] = Stubs::RecommendationTemplate.stub(stub[:recommendation_template]) unless stub[:recommendation_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationTemplate'] = RecommendationTemplate.stub(stub[:recommendation_template]) unless stub[:recommendation_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -225,11 +227,11 @@ module AWS::SDK::Resiliencehub
       def self.stub(stub)
         stub ||= Types::RecommendationTemplate.new
         data = {}
-        data['templatesLocation'] = Stubs::S3Location.stub(stub[:templates_location]) unless stub[:templates_location].nil?
+        data['templatesLocation'] = S3Location.stub(stub[:templates_location]) unless stub[:templates_location].nil?
         data['assessmentArn'] = stub[:assessment_arn] unless stub[:assessment_arn].nil?
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
-        data['recommendationIds'] = Stubs::RecommendationIdList.stub(stub[:recommendation_ids]) unless stub[:recommendation_ids].nil?
-        data['recommendationTypes'] = Stubs::RenderRecommendationTypeList.stub(stub[:recommendation_types]) unless stub[:recommendation_types].nil?
+        data['recommendationIds'] = RecommendationIdList.stub(stub[:recommendation_ids]) unless stub[:recommendation_ids].nil?
+        data['recommendationTypes'] = RenderRecommendationTypeList.stub(stub[:recommendation_types]) unless stub[:recommendation_types].nil?
         data['format'] = stub[:format] unless stub[:format].nil?
         data['recommendationTemplateArn'] = stub[:recommendation_template_arn] unless stub[:recommendation_template_arn].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
@@ -237,7 +239,7 @@ module AWS::SDK::Resiliencehub
         data['name'] = stub[:name] unless stub[:name].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['needsReplacements'] = stub[:needs_replacements] unless stub[:needs_replacements].nil?
         data
       end
@@ -315,8 +317,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -347,9 +349,9 @@ module AWS::SDK::Resiliencehub
         data['dataLocationConstraint'] = stub[:data_location_constraint] unless stub[:data_location_constraint].nil?
         data['tier'] = stub[:tier] unless stub[:tier].nil?
         data['estimatedCostTier'] = stub[:estimated_cost_tier] unless stub[:estimated_cost_tier].nil?
-        data['policy'] = Stubs::DisruptionPolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        data['policy'] = DisruptionPolicy.stub(stub[:policy]) unless stub[:policy].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -368,7 +370,7 @@ module AWS::SDK::Resiliencehub
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FailurePolicy.stub(value) unless value.nil?
+          data[key] = FailurePolicy.stub(value) unless value.nil?
         end
         data
       end
@@ -407,7 +409,7 @@ module AWS::SDK::Resiliencehub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::Resiliencehub
         http_resp.headers['Content-Type'] = 'application/json'
         data['assessmentArn'] = stub[:assessment_arn] unless stub[:assessment_arn].nil?
         data['assessmentStatus'] = stub[:assessment_status] unless stub[:assessment_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,7 +447,7 @@ module AWS::SDK::Resiliencehub
         http_resp.headers['Content-Type'] = 'application/json'
         data['recommendationTemplateArn'] = stub[:recommendation_template_arn] unless stub[:recommendation_template_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::Resiliencehub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['policyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,8 +480,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['app'] = Stubs::App.stub(stub[:app]) unless stub[:app].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['app'] = App.stub(stub[:app]) unless stub[:app].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -495,8 +497,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessment'] = Stubs::AppAssessment.stub(stub[:assessment]) unless stub[:assessment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessment'] = AppAssessment.stub(stub[:assessment]) unless stub[:assessment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,9 +533,9 @@ module AWS::SDK::Resiliencehub
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
         data['invoker'] = stub[:invoker] unless stub[:invoker].nil?
-        data['cost'] = Stubs::Cost.stub(stub[:cost]) unless stub[:cost].nil?
-        data['resiliencyScore'] = Stubs::ResiliencyScore.stub(stub[:resiliency_score]) unless stub[:resiliency_score].nil?
-        data['compliance'] = Stubs::AssessmentCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['cost'] = Cost.stub(stub[:cost]) unless stub[:cost].nil?
+        data['resiliencyScore'] = ResiliencyScore.stub(stub[:resiliency_score]) unless stub[:resiliency_score].nil?
+        data['compliance'] = AssessmentCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
         data['complianceStatus'] = stub[:compliance_status] unless stub[:compliance_status].nil?
         data['assessmentStatus'] = stub[:assessment_status] unless stub[:assessment_status].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
@@ -541,9 +543,9 @@ module AWS::SDK::Resiliencehub
         data['message'] = stub[:message] unless stub[:message].nil?
         data['assessmentName'] = stub[:assessment_name] unless stub[:assessment_name].nil?
         data['assessmentArn'] = stub[:assessment_arn] unless stub[:assessment_arn].nil?
-        data['policy'] = Stubs::ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['resourceErrorsDetails'] = Stubs::ResourceErrorsDetails.stub(stub[:resource_errors_details]) unless stub[:resource_errors_details].nil?
+        data['policy'] = ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['resourceErrorsDetails'] = ResourceErrorsDetails.stub(stub[:resource_errors_details]) unless stub[:resource_errors_details].nil?
         data
       end
     end
@@ -562,7 +564,7 @@ module AWS::SDK::Resiliencehub
       def self.stub(stub)
         stub ||= Types::ResourceErrorsDetails.new
         data = {}
-        data['resourceErrors'] = Stubs::ResourceErrorList.stub(stub[:resource_errors]) unless stub[:resource_errors].nil?
+        data['resourceErrors'] = ResourceErrorList.stub(stub[:resource_errors]) unless stub[:resource_errors].nil?
         data['hasMoreErrors'] = stub[:has_more_errors] unless stub[:has_more_errors].nil?
         data
       end
@@ -582,7 +584,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceError.stub(element) unless element.nil?
+          data << ResourceError.stub(element) unless element.nil?
         end
         data
       end
@@ -624,7 +626,7 @@ module AWS::SDK::Resiliencehub
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::DisruptionCompliance.stub(value) unless value.nil?
+          data[key] = DisruptionCompliance.stub(value) unless value.nil?
         end
         data
       end
@@ -681,7 +683,7 @@ module AWS::SDK::Resiliencehub
         stub ||= Types::ResiliencyScore.new
         data = {}
         data['score'] = Hearth::NumberHelper.serialize(stub[:score])
-        data['disruptionScore'] = Stubs::DisruptionResiliencyScore.stub(stub[:disruption_score]) unless stub[:disruption_score].nil?
+        data['disruptionScore'] = DisruptionResiliencyScore.stub(stub[:disruption_score]) unless stub[:disruption_score].nil?
         data
       end
     end
@@ -749,7 +751,7 @@ module AWS::SDK::Resiliencehub
         data['resolutionId'] = stub[:resolution_id] unless stub[:resolution_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -770,7 +772,7 @@ module AWS::SDK::Resiliencehub
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
         data['appTemplateBody'] = stub[:app_template_body] unless stub[:app_template_body].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -795,7 +797,7 @@ module AWS::SDK::Resiliencehub
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusChangeTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:status_change_time]).to_i unless stub[:status_change_time].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -811,8 +813,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -834,10 +836,10 @@ module AWS::SDK::Resiliencehub
         http_resp.headers['Content-Type'] = 'application/json'
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
-        data['sourceArns'] = Stubs::ArnList.stub(stub[:source_arns]) unless stub[:source_arns].nil?
+        data['sourceArns'] = ArnList.stub(stub[:source_arns]) unless stub[:source_arns].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['terraformSources'] = Stubs::TerraformSourceList.stub(stub[:terraform_sources]) unless stub[:terraform_sources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['terraformSources'] = TerraformSourceList.stub(stub[:terraform_sources]) unless stub[:terraform_sources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TerraformSource.stub(element) unless element.nil?
+          data << TerraformSource.stub(element) unless element.nil?
         end
         data
       end
@@ -912,9 +914,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['alarmRecommendations'] = Stubs::AlarmRecommendationList.stub(stub[:alarm_recommendations]) unless stub[:alarm_recommendations].nil?
+        data['alarmRecommendations'] = AlarmRecommendationList.stub(stub[:alarm_recommendations]) unless stub[:alarm_recommendations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -932,7 +934,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlarmRecommendation.stub(element) unless element.nil?
+          data << AlarmRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -964,7 +966,7 @@ module AWS::SDK::Resiliencehub
         data['description'] = stub[:description] unless stub[:description].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['appComponentName'] = stub[:app_component_name] unless stub[:app_component_name].nil?
-        data['items'] = Stubs::RecommendationItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = RecommendationItemList.stub(stub[:items]) unless stub[:items].nil?
         data['prerequisite'] = stub[:prerequisite] unless stub[:prerequisite].nil?
         data
       end
@@ -984,7 +986,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationItem.stub(element) unless element.nil?
+          data << RecommendationItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1028,8 +1030,8 @@ module AWS::SDK::Resiliencehub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['assessmentSummaries'] = Stubs::AppAssessmentSummaryList.stub(stub[:assessment_summaries]) unless stub[:assessment_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentSummaries'] = AppAssessmentSummaryList.stub(stub[:assessment_summaries]) unless stub[:assessment_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1047,7 +1049,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppAssessmentSummary.stub(element) unless element.nil?
+          data << AppAssessmentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1087,7 +1089,7 @@ module AWS::SDK::Resiliencehub
         data['assessmentName'] = stub[:assessment_name] unless stub[:assessment_name].nil?
         data['assessmentArn'] = stub[:assessment_arn] unless stub[:assessment_arn].nil?
         data['complianceStatus'] = stub[:compliance_status] unless stub[:compliance_status].nil?
-        data['cost'] = Stubs::Cost.stub(stub[:cost]) unless stub[:cost].nil?
+        data['cost'] = Cost.stub(stub[:cost]) unless stub[:cost].nil?
         data['resiliencyScore'] = Hearth::NumberHelper.serialize(stub[:resiliency_score])
         data
       end
@@ -1106,9 +1108,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['componentCompliances'] = Stubs::ComponentCompliancesList.stub(stub[:component_compliances]) unless stub[:component_compliances].nil?
+        data['componentCompliances'] = ComponentCompliancesList.stub(stub[:component_compliances]) unless stub[:component_compliances].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1126,7 +1128,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppComponentCompliance.stub(element) unless element.nil?
+          data << AppComponentCompliance.stub(element) unless element.nil?
         end
         data
       end
@@ -1150,12 +1152,12 @@ module AWS::SDK::Resiliencehub
       def self.stub(stub)
         stub ||= Types::AppComponentCompliance.new
         data = {}
-        data['cost'] = Stubs::Cost.stub(stub[:cost]) unless stub[:cost].nil?
+        data['cost'] = Cost.stub(stub[:cost]) unless stub[:cost].nil?
         data['appComponentName'] = stub[:app_component_name] unless stub[:app_component_name].nil?
-        data['compliance'] = Stubs::AssessmentCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['compliance'] = AssessmentCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['resiliencyScore'] = Stubs::ResiliencyScore.stub(stub[:resiliency_score]) unless stub[:resiliency_score].nil?
+        data['resiliencyScore'] = ResiliencyScore.stub(stub[:resiliency_score]) unless stub[:resiliency_score].nil?
         data
       end
     end
@@ -1173,9 +1175,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['componentRecommendations'] = Stubs::ComponentRecommendationList.stub(stub[:component_recommendations]) unless stub[:component_recommendations].nil?
+        data['componentRecommendations'] = ComponentRecommendationList.stub(stub[:component_recommendations]) unless stub[:component_recommendations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1193,7 +1195,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentRecommendation.stub(element) unless element.nil?
+          data << ComponentRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -1216,7 +1218,7 @@ module AWS::SDK::Resiliencehub
         data = {}
         data['appComponentName'] = stub[:app_component_name] unless stub[:app_component_name].nil?
         data['recommendationStatus'] = stub[:recommendation_status] unless stub[:recommendation_status].nil?
-        data['configRecommendations'] = Stubs::ConfigRecommendationList.stub(stub[:config_recommendations]) unless stub[:config_recommendations].nil?
+        data['configRecommendations'] = ConfigRecommendationList.stub(stub[:config_recommendations]) unless stub[:config_recommendations].nil?
         data
       end
     end
@@ -1235,7 +1237,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigRecommendation.stub(element) unless element.nil?
+          data << ConfigRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -1263,14 +1265,14 @@ module AWS::SDK::Resiliencehub
       def self.stub(stub)
         stub ||= Types::ConfigRecommendation.new
         data = {}
-        data['cost'] = Stubs::Cost.stub(stub[:cost]) unless stub[:cost].nil?
+        data['cost'] = Cost.stub(stub[:cost]) unless stub[:cost].nil?
         data['appComponentName'] = stub[:app_component_name] unless stub[:app_component_name].nil?
-        data['compliance'] = Stubs::AssessmentCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
-        data['recommendationCompliance'] = Stubs::RecommendationCompliance.stub(stub[:recommendation_compliance]) unless stub[:recommendation_compliance].nil?
+        data['compliance'] = AssessmentCompliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['recommendationCompliance'] = RecommendationCompliance.stub(stub[:recommendation_compliance]) unless stub[:recommendation_compliance].nil?
         data['optimizationType'] = stub[:optimization_type] unless stub[:optimization_type].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['suggestedChanges'] = Stubs::SuggestedChangesList.stub(stub[:suggested_changes]) unless stub[:suggested_changes].nil?
+        data['suggestedChanges'] = SuggestedChangesList.stub(stub[:suggested_changes]) unless stub[:suggested_changes].nil?
         data['haArchitecture'] = stub[:ha_architecture] unless stub[:ha_architecture].nil?
         data['referenceId'] = stub[:reference_id] unless stub[:reference_id].nil?
         data
@@ -1311,7 +1313,7 @@ module AWS::SDK::Resiliencehub
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::RecommendationDisruptionCompliance.stub(value) unless value.nil?
+          data[key] = RecommendationDisruptionCompliance.stub(value) unless value.nil?
         end
         data
       end
@@ -1356,9 +1358,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceMappings'] = Stubs::ResourceMappingList.stub(stub[:resource_mappings]) unless stub[:resource_mappings].nil?
+        data['resourceMappings'] = ResourceMappingList.stub(stub[:resource_mappings]) unless stub[:resource_mappings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1376,10 +1378,10 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['physicalResources'] = Stubs::PhysicalResourceList.stub(stub[:physical_resources]) unless stub[:physical_resources].nil?
+        data['physicalResources'] = PhysicalResourceList.stub(stub[:physical_resources]) unless stub[:physical_resources].nil?
         data['resolutionId'] = stub[:resolution_id] unless stub[:resolution_id].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1397,7 +1399,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PhysicalResource.stub(element) unless element.nil?
+          data << PhysicalResource.stub(element) unless element.nil?
         end
         data
       end
@@ -1421,10 +1423,10 @@ module AWS::SDK::Resiliencehub
         stub ||= Types::PhysicalResource.new
         data = {}
         data['resourceName'] = stub[:resource_name] unless stub[:resource_name].nil?
-        data['logicalResourceId'] = Stubs::LogicalResourceId.stub(stub[:logical_resource_id]) unless stub[:logical_resource_id].nil?
-        data['physicalResourceId'] = Stubs::PhysicalResourceId.stub(stub[:physical_resource_id]) unless stub[:physical_resource_id].nil?
+        data['logicalResourceId'] = LogicalResourceId.stub(stub[:logical_resource_id]) unless stub[:logical_resource_id].nil?
+        data['physicalResourceId'] = PhysicalResourceId.stub(stub[:physical_resource_id]) unless stub[:physical_resource_id].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['appComponents'] = Stubs::AppComponentList.stub(stub[:app_components]) unless stub[:app_components].nil?
+        data['appComponents'] = AppComponentList.stub(stub[:app_components]) unless stub[:app_components].nil?
         data
       end
     end
@@ -1443,7 +1445,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppComponent.stub(element) unless element.nil?
+          data << AppComponent.stub(element) unless element.nil?
         end
         data
       end
@@ -1506,9 +1508,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['appVersions'] = Stubs::AppVersionList.stub(stub[:app_versions]) unless stub[:app_versions].nil?
+        data['appVersions'] = AppVersionList.stub(stub[:app_versions]) unless stub[:app_versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1526,7 +1528,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppVersionSummary.stub(element) unless element.nil?
+          data << AppVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1563,9 +1565,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['appSummaries'] = Stubs::AppSummaryList.stub(stub[:app_summaries]) unless stub[:app_summaries].nil?
+        data['appSummaries'] = AppSummaryList.stub(stub[:app_summaries]) unless stub[:app_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1583,7 +1585,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppSummary.stub(element) unless element.nil?
+          data << AppSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1633,8 +1635,8 @@ module AWS::SDK::Resiliencehub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['recommendationTemplates'] = Stubs::RecommendationTemplateList.stub(stub[:recommendation_templates]) unless stub[:recommendation_templates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationTemplates'] = RecommendationTemplateList.stub(stub[:recommendation_templates]) unless stub[:recommendation_templates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1652,7 +1654,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationTemplate.stub(element) unless element.nil?
+          data << RecommendationTemplate.stub(element) unless element.nil?
         end
         data
       end
@@ -1671,9 +1673,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resiliencyPolicies'] = Stubs::ResiliencyPolicies.stub(stub[:resiliency_policies]) unless stub[:resiliency_policies].nil?
+        data['resiliencyPolicies'] = ResiliencyPolicies.stub(stub[:resiliency_policies]) unless stub[:resiliency_policies].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1691,7 +1693,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResiliencyPolicy.stub(element) unless element.nil?
+          data << ResiliencyPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -1711,8 +1713,8 @@ module AWS::SDK::Resiliencehub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['sopRecommendations'] = Stubs::SopRecommendationList.stub(stub[:sop_recommendations]) unless stub[:sop_recommendations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sopRecommendations'] = SopRecommendationList.stub(stub[:sop_recommendations]) unless stub[:sop_recommendations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1730,7 +1732,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SopRecommendation.stub(element) unless element.nil?
+          data << SopRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -1761,7 +1763,7 @@ module AWS::SDK::Resiliencehub
         data['description'] = stub[:description] unless stub[:description].nil?
         data['recommendationId'] = stub[:recommendation_id] unless stub[:recommendation_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['items'] = Stubs::RecommendationItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = RecommendationItemList.stub(stub[:items]) unless stub[:items].nil?
         data['referenceId'] = stub[:reference_id] unless stub[:reference_id].nil?
         data['prerequisite'] = stub[:prerequisite] unless stub[:prerequisite].nil?
         data
@@ -1781,9 +1783,9 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resiliencyPolicies'] = Stubs::ResiliencyPolicies.stub(stub[:resiliency_policies]) unless stub[:resiliency_policies].nil?
+        data['resiliencyPolicies'] = ResiliencyPolicies.stub(stub[:resiliency_policies]) unless stub[:resiliency_policies].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1799,8 +1801,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1818,8 +1820,8 @@ module AWS::SDK::Resiliencehub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['testRecommendations'] = Stubs::TestRecommendationList.stub(stub[:test_recommendations]) unless stub[:test_recommendations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['testRecommendations'] = TestRecommendationList.stub(stub[:test_recommendations]) unless stub[:test_recommendations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1837,7 +1839,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TestRecommendation.stub(element) unless element.nil?
+          data << TestRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -1874,9 +1876,9 @@ module AWS::SDK::Resiliencehub
         data['risk'] = stub[:risk] unless stub[:risk].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['items'] = Stubs::RecommendationItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = RecommendationItemList.stub(stub[:items]) unless stub[:items].nil?
         data['prerequisite'] = stub[:prerequisite] unless stub[:prerequisite].nil?
-        data['dependsOnAlarms'] = Stubs::AlarmReferenceIdList.stub(stub[:depends_on_alarms]) unless stub[:depends_on_alarms].nil?
+        data['dependsOnAlarms'] = AlarmReferenceIdList.stub(stub[:depends_on_alarms]) unless stub[:depends_on_alarms].nil?
         data
       end
     end
@@ -1915,10 +1917,10 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unsupportedResources'] = Stubs::UnsupportedResourceList.stub(stub[:unsupported_resources]) unless stub[:unsupported_resources].nil?
+        data['unsupportedResources'] = UnsupportedResourceList.stub(stub[:unsupported_resources]) unless stub[:unsupported_resources].nil?
         data['resolutionId'] = stub[:resolution_id] unless stub[:resolution_id].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1936,7 +1938,7 @@ module AWS::SDK::Resiliencehub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnsupportedResource.stub(element) unless element.nil?
+          data << UnsupportedResource.stub(element) unless element.nil?
         end
         data
       end
@@ -1957,8 +1959,8 @@ module AWS::SDK::Resiliencehub
       def self.stub(stub)
         stub ||= Types::UnsupportedResource.new
         data = {}
-        data['logicalResourceId'] = Stubs::LogicalResourceId.stub(stub[:logical_resource_id]) unless stub[:logical_resource_id].nil?
-        data['physicalResourceId'] = Stubs::PhysicalResourceId.stub(stub[:physical_resource_id]) unless stub[:physical_resource_id].nil?
+        data['logicalResourceId'] = LogicalResourceId.stub(stub[:logical_resource_id]) unless stub[:logical_resource_id].nil?
+        data['physicalResourceId'] = PhysicalResourceId.stub(stub[:physical_resource_id]) unless stub[:physical_resource_id].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data
       end
@@ -1979,7 +1981,7 @@ module AWS::SDK::Resiliencehub
         http_resp.headers['Content-Type'] = 'application/json'
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1998,7 +2000,7 @@ module AWS::SDK::Resiliencehub
         http_resp.headers['Content-Type'] = 'application/json'
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2017,7 +2019,7 @@ module AWS::SDK::Resiliencehub
         http_resp.headers['Content-Type'] = 'application/json'
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2040,7 +2042,7 @@ module AWS::SDK::Resiliencehub
         data['appVersion'] = stub[:app_version] unless stub[:app_version].nil?
         data['resolutionId'] = stub[:resolution_id] unless stub[:resolution_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2056,8 +2058,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['assessment'] = Stubs::AppAssessment.stub(stub[:assessment]) unless stub[:assessment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessment'] = AppAssessment.stub(stub[:assessment]) unless stub[:assessment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2099,8 +2101,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['app'] = Stubs::App.stub(stub[:app]) unless stub[:app].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['app'] = App.stub(stub[:app]) unless stub[:app].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2116,8 +2118,8 @@ module AWS::SDK::Resiliencehub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policy'] = Stubs::ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['policy'] = ResiliencyPolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end
